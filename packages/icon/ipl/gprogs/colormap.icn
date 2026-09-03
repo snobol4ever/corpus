@@ -42,78 +42,78 @@ link vsetup
 
 global colors
 
-procedure main()
-   local vidgets
+procedure main();
+   local vidgets;
 
    vidgets := ui();
 
-   GetEvents(vidgets["root"], , shortcuts)
+   GetEvents(vidgets["root"], , shortcuts);
 
 end
 
-procedure file_cb(vidgets, value)
+procedure file_cb(vidgets, value);
 
    case value[1] of {
-      "load     @L":  load_colors()
-      "snapshot @S":  snapshot(colors)
+      "load     @L":  load_colors();
+      "snapshot @S":  snapshot(colors);
       "quit     @Q":  exit()
-      }
+      };
 
-   return
-
-end
-
-procedure reload_cb()
-
-   return
+   return;
 
 end
 
-procedure load_colors()
-   local clist
-   static file
+procedure reload_cb();
 
-   initial file := ""
+   return;
+
+end
+
+procedure load_colors();
+   local clist;
+   static file;
+
+   initial file := "";
 
    repeat {
-      if OpenDialog("Specify color list file:", file) == "Cancel" then fail
+      if OpenDialog("Specify color list file:", file) == "Cancel" then fail;
       clist := colrlist(dialog_value) | {
          Notice("Cannot process color list " || image(dialog_value) || ".");
          next
-         }
+         };
       WClose(\colors);
       colors := draw_colors(clist);
-      Raise()
+      Raise();
       return
-      }
+      };
 
 end
 
-procedure shortcuts(e)
+procedure shortcuts(e);
 
   if &meta then case map(e) of {
-     "l":  load_colors()
-     "q":  exit()
-     "r":  reload_cb()
+     "l":  load_colors();
+     "q":  exit();
+     "r":  reload_cb();
      "s":  snapshot()
-     }
+     };
 
-   return
+   return;
 
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts()
-   return ["size=197,288", "bg=gray-white"]
+procedure ui_atts();
+   return ["size=197,288", "bg=gray-white"];
 end
 
-procedure ui(win, cbk)
+procedure ui(win, cbk);
 return vsetup(win, cbk,
    [":Sizer:::0,0,197,288:",],
    ["file:Menu:pull::1,0,36,21:File",file_cb,
       ["load     @L","snapshot @S","quit     @Q"]],
    ["line1:Line:::0,24,197,24:",],
    ["reload:Button:regular::26,56,49,20:reload",reload_cb],
-   )
+   );
 end
 #===<<vib:end>>===	end of section maintained by vib

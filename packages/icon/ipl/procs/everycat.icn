@@ -42,14 +42,14 @@
 #
 ############################################################################
 
-procedure everycat(args[])
-   local arg
+procedure everycat(args[]);
+   local arg;
 
    arg := get(args) | fail;
 
    if *args = 0 then
       suspend !arg
    else
-      suspend !arg || everycat ! args
+      suspend !arg || everycat ! args;
 
 end

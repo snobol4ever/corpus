@@ -71,16 +71,16 @@ $define DensityMax	100
 $define SliderMax	10.0		# shared knowledge
 $define SliderMin	1.0
 
-procedure main()
+procedure main();
 
    init();
 
-   kaleidoscope()
+   kaleidoscope();
 
 end
 
-procedure init()
-   local s
+procedure init();
+   local s;
 
    randomize();
 
@@ -88,7 +88,7 @@ procedure init()
 
    root := vidgets["root"];
    size := vidgets["region"].uw;
-   if vidgets["region"].uh ~= size then stop("*** improper interface layout")
+   if vidgets["region"].uh ~= size then stop("*** improper interface layout");
 
    delay := 0.5;
    density := DensityMax / 2.0;
@@ -100,7 +100,7 @@ procedure init()
 
    colors := [];
    s := PaletteChars("c3") -- PaletteGrays("c3");
-   every put(colors, PaletteColor("c3", !s))
+   every put(colors, PaletteColor("c3", !s));
 
    pause := vidgets["pause"];
 
@@ -117,13 +117,13 @@ procedure init()
 
    pane := Clone("bg=black", "dx=" || (vidgets["region"].ux + half),
       "dy=" || (vidgets["region"].uy + half), "drawop=reverse");
-   Clip(pane, -half, -half, size, size)
+   Clip(pane, -half, -half, size, size);
 
-   return
+   return;
 
 end
 
-procedure kaleidoscope()
+procedure kaleidoscope();
 
    #  Each time through this loop, the display is cleared and a
    #  new drawing is started.
@@ -141,7 +141,7 @@ procedure kaleidoscope()
          while (*Pending() > 0) | \VGetState(pause) do {
             ProcessEvent(root, , shortcuts);
             if \reset then break break next
-            }
+            };
          putcircle();
          WDelay(delay);
 
@@ -150,12 +150,12 @@ procedure kaleidoscope()
 
          if *draw_list > density then clrcircle()
          }
-      }
+      };
 
 end
 
-procedure putcircle()
-   local off1, off2, radius, color
+procedure putcircle();
+   local off1, off2, radius, color;
 
    # get a random center point and radius
 
@@ -168,14 +168,14 @@ procedure putcircle()
    
    put(draw_list, circle(off1, off2, radius, color));
 
-   outcircle(off1, off2, radius, color)
+   outcircle(off1, off2, radius, color);
 
-   return
+   return;
 
 end
 
-procedure clrcircle()
-   local circle
+procedure clrcircle();
+   local circle;
 
    circle := get(draw_list);
 
@@ -184,13 +184,13 @@ procedure clrcircle()
      circle.off2,
      circle.radius,
      circle.color
-     )
+     );
 
-   return
+   return;
 
 end
 
-procedure outcircle(off1, off2, radius, color)
+procedure outcircle(off1, off2, radius, color);
 
    Fg(pane, color);
 
@@ -203,109 +203,109 @@ procedure outcircle(off1, off2, radius, color)
    draw_proc(pane, off2, off1, radius);
    draw_proc(pane, off2, -off1, radius);
    draw_proc(pane, -off2, off1, radius);
-   draw_proc(pane, -off2,-off1, radius)
+   draw_proc(pane, -off2,-off1, radius);
 
-   return
+   return;
 
 end
 
-procedure density_cb(vidget, value)
+procedure density_cb(vidget, value);
 
    density := (value / SliderMax) * DensityMax;
    density <:= 1;
 
-   reset := 1
+   reset := 1;
 
 end
 
-procedure delay_cb(vidget, value)
+procedure delay_cb(vidget, value);
 
-   delay := value * DelayFactor
+   delay := value * DelayFactor;
 
-   return
+   return;
 
 end
 
-procedure file_cb(vidget, value)
+procedure file_cb(vidget, value);
 
    case value[1] of {
-      "snapshot @S":  snapshot(pane, -half, -half, size, size)
+      "snapshot @S":  snapshot(pane, -half, -half, size, size);
       "quit     @Q":  exit()
-      }
+      };
 
-   return
+   return;
 
 end
 
-procedure max_radius_cb(vidget, value)
+procedure max_radius_cb(vidget, value);
 
    max_radius := value;
 
    if max_radius < min_radius then {	# if max < min lower min
       min_radius := max_radius;
       VSetState(vidgets["min_radius"], min_radius)
-      }
+      };
 
-   reset := 1
+   reset := 1;
 
-   return
+   return;
 
 end
 
-procedure min_radius_cb(vidget, value)
+procedure min_radius_cb(vidget, value);
 
    min_radius := value;
 
    if min_radius > max_radius then {	# if min > max raise max
       max_radius := min_radius;
       VSetState(vidgets["max_radius"], max_radius)
-      }
+      };
 
-   reset := 1
+   reset := 1;
 
-   return
-
-end
-
-procedure reset_cb(vidget, value)
-
-   reset := 1
-
-   return
+   return;
 
 end
 
-procedure shape_cb(vidget, value)
+procedure reset_cb(vidget, value);
+
+   reset := 1;
+
+   return;
+
+end
+
+procedure shape_cb(vidget, value);
 
    draw_proc := case value of {
-     "discs":  FillCircle
+     "discs":  FillCircle;
      "rings":  DrawCircle
-     }
+     };
 
-   reset := 1
+   reset := 1;
 
-   return
+   return;
 
 end
 
-procedure shortcuts(e)
+procedure shortcuts(e);
 
    if &meta then
       case map(e) of {			# fold case
-         "q":	exit()
+         "q":	exit();
          "s":	snapshot(pane, -half, -half, size, size)
-         }
+         };
 
-   return
+   return;
 
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts()
-   return ["size=600,455", "bg=pale gray", "label=kaleido"]
+procedure ui_atts();
+   return ["size=600,455", "bg=pale gray", "label=kaleido"];
 end
 
-procedure ui(win, cbk)
+procedure ui(win, cbk);
 return vsetup(win, cbk,
    [":Sizer:::0,0,600,455:kaleido",],
    ["delay:Slider:h:1:42,120,100,15:1.0,0.0,0.5",delay_cb],
@@ -332,6 +332,6 @@ return vsetup(win, cbk,
    ["shape:Choice::2:66,359,64,42:",shape_cb,
       ["discs","rings"]],
    ["region:Rect:raised::187,40,400,400:",],
-   )
+   );
 end
 #===<<vib:end>>===	end of section maintained by vib

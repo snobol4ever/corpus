@@ -42,14 +42,14 @@ link patxform
 
 record analysis(rows, sequence, patterns)
 
-procedure main(args)
-   local warp, weft, pattern, rows, i, j, count, opts
-   local threading, treadling, color_list, colors, choice
-   local symbols, symbol, drawdown, draft, warp_colors, weft_colors, pixels
+procedure main(args);
+   local warp, weft, pattern, rows, i, j, count, opts;
+   local threading, treadling, color_list, colors, choice;
+   local symbols, symbol, drawdown, draft, warp_colors, weft_colors, pixels;
 
    opts := options(args, "o+");
 
-   choice := opts["o"] | 0
+   choice := opts["o"] | 0;
 
    (warp := read()  & weft := read() & pattern := read()) |
       stop("*** short file");
@@ -60,21 +60,21 @@ procedure main(args)
 
    color_list := [];
 
-   every put(color_list, PaletteColor("c1", !colors))
+   every put(color_list, PaletteColor("c1", !colors));
 
    warp_colors := [];
 
-   every put(warp_colors, upto(!warp, colors))
+   every put(warp_colors, upto(!warp, colors));
 
    weft_colors := [];
 
-   every put(weft_colors, upto(!weft, colors))
+   every put(weft_colors, upto(!weft, colors));
 
    drawdown := [];
 
    pattern ? {
       while put(drawdown, move(*warp))
-      }
+      };
 
    count := 0;
 
@@ -83,16 +83,16 @@ procedure main(args)
          if weft[i] == warp[j] then {		# option point
             count +:= 1;
             drawdown[i, j] := case choice of {
-               0  :  ?2 - 1				# random
-               1  :  "1"				# warp
-               2  :  "0"				# weft
+               0  :  ?2 - 1;				# random
+               1  :  "1";				# warp
+               2  :  "0";				# weft
                3  :  if count % 2 = 0 then "1" else "2"	# alternative
                }
             }
          else if drawdown[i, j] == weft[i] then drawdown[i, j] := "0"
          else drawdown[i, j] := "1"
          }
-      }
+      };
 
    treadling := analyze(drawdown);
    drawdown := protate(drawdown, "cw");
@@ -107,13 +107,13 @@ procedure main(args)
          every i := upto('1') do
             symbols[symbol][threading.sequence[i]] := "1"
          }
-      }
+      };
 
    symbols := sort(symbols, 3);
    rows := [];
 
    while get(symbols) do
-      put(rows, get(symbols))
+      put(rows, get(symbols));
 
    #  Now output the WIF.
 
@@ -172,45 +172,45 @@ procedure main(args)
 
    write("[COLOR TABLE]");
    every i := 1 to *color_list do
-      write(i, "=", ColorValue(color_list[i]))
+      write(i, "=", ColorValue(color_list[i]));
 
    write("[WARP COLORS]");
    every i := 1 to *warp_colors do
-      write(i, "=", warp_colors[i])
+      write(i, "=", warp_colors[i]);
 
    write("[WEFT COLORS]");
    every i := 1 to *weft_colors do
-      write(i, "=", weft_colors[i])
+      write(i, "=", weft_colors[i]);
 
    write("[THREADING]");
    every i := 1 to *threading.sequence do
-      write(i, "=", threading.sequence[i])
+      write(i, "=", threading.sequence[i]);
 
    write("[TREADLING]");
    every i := 1 to *treadling.sequence do
-      write(i, "=", treadling.sequence[i])
+      write(i, "=", treadling.sequence[i]);
 
    write("[TIEUP]");
    every i := 1 to *rows do
-      write(i, "=", tromp(rows[i]))
+      write(i, "=", tromp(rows[i]));
 
 end
 
-procedure tromp(treadle)
-   local result
+procedure tromp(treadle);
+   local result;
 
    result := "";
    
    treadle ? {
       every result ||:= upto("1") || ","
-      }
+      };
 
-   return result[1:-1]
+   return result[1:-1];
 
 end
 
-procedure analyze(drawdown)
-   local sequence, rows, row, count, patterns
+procedure analyze(drawdown);
+   local sequence, rows, row, count, patterns;
 
    sequence := [];
    patterns := [];
@@ -223,10 +223,10 @@ procedure analyze(drawdown)
       if /rows[row] then {
          rows[row] := count +:= 1;
          put(patterns, row)
-         }
+         };
       put(sequence, rows[row])
-      }
+      };
 
-   return analysis(rows, sequence, patterns)
+   return analysis(rows, sequence, patterns);
 
 end

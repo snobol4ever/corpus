@@ -27,12 +27,12 @@
 #
 ############################################################################
 
-procedure xrotate(X, i)
+procedure xrotate(X, i);
 
    /i := 1;
 
-   X[i] :=: xrotate(X, i + 1)
+   X[i] :=: xrotate(X, i + 1);
 
-   return X[i]
+   return X[i];
 
 end

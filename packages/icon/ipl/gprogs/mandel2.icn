@@ -67,9 +67,9 @@
 link random
 link wopen
 
-procedure main(args)
-   local a, b, c, colours, coords, events, gap, i, k, n, r, size
-   local startc, startr, t, x, xmand, y
+procedure main(args);
+   local a, b, c, colours, coords, events, gap, i, k, n, r, size;
+   local startc, startr, t, x, xmand, y;
 
 # check the number of arguments - if it's not 4, select 4 arbitrary values
 if *args == 4
@@ -81,10 +81,10 @@ then {startr:=args[1];
 else {startr:=-1.5;
       startc:=-1.25;
       size:=2.5;
-      n:=200}
+      n:=200};
 
 # set max size to 400
-if (n>400) then n:=400
+if (n>400) then n:=400;
 
 # calculate 'size' of each pixel
 gap:=size/n;
@@ -110,9 +110,9 @@ startc+:=size;
 # set up co-ordinates, one for every point in the display and randomize
 coords:=list(n*n,0);
 every i:=1 to n*n
-do coords[i]:=i-1
+do coords[i]:=i-1;
 randomize();
-every !coords:=:?coords
+every !coords:=:?coords;
 
 # main loop
 every i := 1 to n*n
@@ -134,7 +134,7 @@ do {t:=get(coords);
     do {t:=a*a-b*b+r;
         b:=2*a*b+c;
         a:=t;
-        if (a*a+b*b) > 4.0 then break}
+        if (a*a+b*b) > 4.0 then break};
 
 # scale final value of k to one of range of colours
 # subtract 1 to put in range 0->99; divide by 10 to put in range 0->9
@@ -152,11 +152,11 @@ do {t:=get(coords);
 # this bit bales out of loop if left button is pressed
     if (events:=Pending(xmand)) & (*events > 0)
     then if Event(xmand)==&lpress
-            then break}
+            then break};
 WFlush(xmand);
 
 # just close the window and exit when it is finished
-Event(xmand)
+Event(xmand);
 
 end
 

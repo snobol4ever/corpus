@@ -133,9 +133,9 @@ link linddraw
 link options
 link wopen
 
-procedure main(args)
-   local line, gener, axiom, angle, opts, i, s, c, symbol, rewrite
-   local allchars, rhs, value, spec, x, y, length, w, h, delay, name
+procedure main(args);
+   local line, gener, axiom, angle, opts, i, s, c, symbol, rewrite;
+   local allchars, rhs, value, spec, x, y, length, w, h, delay, name;
 
    rewrite := table();
    allchars := '';  # cset of all rhs characters
@@ -158,25 +158,25 @@ procedure main(args)
                "axiom":    {
                   axiom := value;
                   allchars ++:= rhs		# axiom might have strays
-                  }
-               "angle":    angle := value
-               "xorg":     x := value
-               "yorg":     y := value
-               "comment":  &null		# ignore comments
-               "length":   length := value   
-               "gener":    gener := value   
+                  };
+               "angle":    angle := value;
+               "xorg":     x := value;
+               "yorg":     y := value;
+               "comment":  &null;		# ignore comments
+               "length":   length := value;   
+               "gener":    gener := value;   
                "name":     name := value
                }				# ignore others
             }
          else write(&errout, "malformed input: ", tab(0))
-         }
+         };
 
 #  At this point, we have the table to map characters, but it may lack
 #  mappings for characters that "go into themselves" by default.  For
 #  efficiency in rewriting, these mappings are added.
 
    every c := !allchars do
-     /rewrite[c] := c
+     /rewrite[c] := c;
 
    h := \opts["h"] | 400;
    w := \opts["w"] | 400;
@@ -186,28 +186,28 @@ procedure main(args)
    gener := \opts["g"];
    x := \opts["x"];
    y := \opts["y"];
-   delay := \opts["d"]
+   delay := \opts["d"];
 
-   /angle := 90				# defaults
-   /length := 5
-   /gener := 3
-   /x := 0
-   /y := 0
-   /delay := 0
+   /angle := 90;				# defaults
+   /length := 5;
+   /gener := 3;
+   /x := 0;
+   /y := 0;
+   /delay := 0;
    /name := "intitled";
 
-   if /axiom then stop("*** no axiom")
+   if /axiom then stop("*** no axiom");
 
    if /opts["W"] then {
       WOpen("size=" || w || "," || h, "dx=" || (w / 2),
       "dy=" || (h / 2)) | stop("*** cannot open window");
       linddraw(x, y, axiom, rewrite, length, angle, gener, delay);
-      if \opts["s"] then WriteImage(name || ".gif")
+      if \opts["s"] then WriteImage(name || ".gif");
       WDone()
       }
    else {
-      every writes(lindgen(!axiom, rewrite, gener))
+      every writes(lindgen(!axiom, rewrite, gener));
       write()
-      }
+      };
 
 end

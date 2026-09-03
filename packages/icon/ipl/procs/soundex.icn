@@ -20,8 +20,8 @@
 #
 ############################################################################
 
-procedure soundex(name)
-   local first, c, i
+procedure soundex(name);
+   local first, c, i;
    name := map(name,string(&lcase),string(&ucase));  # Convert to uppercase..
    first := name[1];
 
@@ -43,12 +43,12 @@ procedure soundex(name)
 
    every c := !"123456" do
        while i := find(c||c,name) do
-	   name[i+:2] := c
+	   name[i+:2] := c;
    name[1] := first;
 
 # Now delete our place holder ('.')
 
-   while i := upto('.',name) do name[i] := ""
+   while i := upto('.',name) do name[i] := "";
 
-   return left(name,4,"0")
+   return left(name,4,"0");
 end

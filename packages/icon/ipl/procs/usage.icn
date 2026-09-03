@@ -35,34 +35,34 @@
 #
 ############################################################################
 
-procedure Usage(s)
-   stop("Usage: ",s)
+procedure Usage(s);
+   stop("Usage: ",s);
 end
 
-procedure Error(L[])
+procedure Error(L[]);
    push(L,"*** ");
    push(L, &errout);
-   write ! L
+   write ! L;
 end
 
-procedure ErrorCheck(line,file)
-   if &errortext == "" then fail	# No converted error
+procedure ErrorCheck(line,file);
+   if &errortext == "" then fail;	# No converted error
    write("\nError ",&errornumber," at line ",line, " in file ",file);
    write(&errortext);
-   write("offending value: ",image(&errorvalue))
-   return
+   write("offending value: ",image(&errorvalue));
+   return;
 end
 
-procedure Feature(s)
-   if s == &features then return else fail
+procedure Feature(s);
+   if s == &features then return else fail;
 end
 
-procedure Requires(s)
-   if not(Feature(s)) then stop(s," required")
+procedure Requires(s);
+   if not(Feature(s)) then stop(s," required");
 end
 
-procedure Signature()
+procedure Signature();
    write(&version);
    write(&host);
-   every write(&features)
+   every write(&features);
 end

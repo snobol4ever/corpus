@@ -37,14 +37,14 @@
 link wopen
 link xcompat
 
-procedure main(av)
-   local slope, fin, win, L, ht, focus, focuswidth, e, base
+procedure main(av);
+   local slope, fin, win, L, ht, focus, focuswidth, e, base;
    slope := 2;
-   if av[1] == "-s" then slope := (pop(av), pop(av))
+   if av[1] == "-s" then slope := (pop(av), pop(av));
    fin := open(av[1]) | stop("no file");
    win := WOpen("label=" || av[1], "height=860") | stop("no window");
    L := [];
-   every put(L,!fin)
+   every put(L,!fin);
    write(*L," lines");
    ht := 23;
    focus := *L/2;
@@ -53,118 +53,118 @@ procedure main(av)
    repeat {
       e := Event(win);
       case e of {
-	 "q"|"\e": exit(0)
-	 "n" : focus := *L >= focus+1
-	 "p" : focus := 1 <= focus - 1
-	 "w" : focuswidth +:= 1
-	 "W" : (1 < focuswidth) -:= 1
+	 "q"|"\e": exit(0);
+	 "n" : focus := *L >= focus+1;
+	 "p" : focus := 1 <= focus - 1;
+	 "w" : focuswidth +:= 1;
+	 "W" : (1 < focuswidth) -:= 1;
 	 &lpress|&ldrag|&mpress|&mdrag|&rpress|&rdrag: {
 	    if &x < 17 then {
 	       focus := *L * &y / WAttrib(win,"height")
 	       }
 	    else {
-	       base := WAttrib(win,"height") / 2
+	       base := WAttrib(win,"height") / 2;
 	       focus := moveFocusToMouse(win,L,focus,base,ht,slope,focuswidth)
 	       }
-	    }
+	    };
 	 default : next
-	 }
+	 };
       fisheye(win,L,focus,ht,slope,,,focuswidth)
-      }
+      };
 end
 
-procedure fisheye(w,L,focus,maxht,slope,family,weight,focuswidth)
-   static fonttable
-   local past_end, i, splt
+procedure fisheye(w,L,focus,maxht,slope,family,weight,focuswidth);
+   static fonttable;
+   local past_end, i, splt;
    initial {
       fonttable := table()
-      }
-   /focuswidth := 1
-   /family := "helvetica"
-   /weight := "bold"
+      };
+   /focuswidth := 1;
+   /family := "helvetica";
+   /weight := "bold";
 
-   /fonttable[w] := []
+   /fonttable[w] := [];
 
-   past_end := *fonttable[w] + 1
+   past_end := *fonttable[w] + 1;
    every i := past_end to maxht do {
       put(fonttable[w], 
 	  XBind(w,"font=-adobe-"||family||"-"||weight||
 		"-r-normal--"||i||"-*-*-*-*-*-*-*") | stop("no XBind"))
-      }
-   EraseArea(w)
-   splt := WAttrib(w,"height") / 2
-   viewtop(fonttable[w],L,focus,splt,maxht,slope,focuswidth)
-   viewbottom(fonttable[w],L,focus+1,splt+maxht,maxht-slope,slope,focuswidth)
+      };
+   EraseArea(w);
+   splt := WAttrib(w,"height") / 2;
+   viewtop(fonttable[w],L,focus,splt,maxht,slope,focuswidth);
+   viewbottom(fonttable[w],L,focus+1,splt+maxht,maxht-slope,slope,focuswidth);
    FillRectangle(w,0,(focus * WAttrib(w,"height") / *L)-WAttrib(w,"ascent"),
-		  16,WAttrib(w,"fheight"))
-   DrawLine(w,17,0,17,WAttrib(w,"height") * focuswidth)
+		  16,WAttrib(w,"fheight"));
+   DrawLine(w,17,0,17,WAttrib(w,"height") * focuswidth);
 
 end
 
-procedure viewtop(w,L,focus,base,ht,slope,focuswidth)
-   local wh
-   wh := WAttrib(w[1],"height") | stop("no WAttrib")
+procedure viewtop(w,L,focus,base,ht,slope,focuswidth);
+   local wh;
+   wh := WAttrib(w[1],"height") | stop("no WAttrib");
    while focus >= 1 & base >= 1 do {
-      if ht < 1 then ht := 1
-      GotoXY(w[1],20,base)
+      if ht < 1 then ht := 1;
+      GotoXY(w[1],20,base);
 
-      writes(w[ht],L[focus])
-      base -:= ht
+      writes(w[ht],L[focus]);
+      base -:= ht;
       if focus > 1 & base / focus < ht & focuswidth <= 1 then
-	 ht -:= slope
-      focuswidth -:= 1
+	 ht -:= slope;
+      focuswidth -:= 1;
       focus -:= 1
-      }
-   if focus < 1 then return 1
-   return focus
+      };
+   if focus < 1 then return 1;
+   return focus;
 end
 
-procedure viewbottom(w,L,focus,base,ht,slope,focuswidth)
-   local wh
-   wh := WAttrib(w[1],"height") | stop("no WAttrib")
+procedure viewbottom(w,L,focus,base,ht,slope,focuswidth);
+   local wh;
+   wh := WAttrib(w[1],"height") | stop("no WAttrib");
    while focus <= *L & base <= wh do {
-      if ht < 1 then ht := 1
-      GotoXY(w[1],20,base)
+      if ht < 1 then ht := 1;
+      GotoXY(w[1],20,base);
 
-      writes(w[ht],L[focus])
-      base +:= ht
+      writes(w[ht],L[focus]);
+      base +:= ht;
       if focus < *L & (wh - base) / (*L - focus) < ht & focuswidth <= 1 then
-	 ht -:= slope
-      focuswidth -:= 1
+	 ht -:= slope;
+      focuswidth -:= 1;
       focus +:= 1
-      }
-   if focus > *L then return *L
-   return focus
+      };
+   if focus > *L then return *L;
+   return focus;
 end
 
-procedure moveFocusToMouse(w,L,focus,base,ht,slope,focuswidth)
-   local wh, fh
-   wh := WAttrib(w,"height") | stop("no WAttrib")
-   fh := WAttrib(w,"ascent") | stop("no WAttrib")
+procedure moveFocusToMouse(w,L,focus,base,ht,slope,focuswidth);
+   local wh, fh;
+   wh := WAttrib(w,"height") | stop("no WAttrib");
+   fh := WAttrib(w,"ascent") | stop("no WAttrib");
    if &y < base then {
       while focus >= 1 & base-fh >= &y do {
-	 if ht < 1 then ht := 1
-	 base -:= ht
+	 if ht < 1 then ht := 1;
+	 base -:= ht;
 	 if focus > 1 & base / focus < ht & focuswidth <= 1 then
-	    ht -:= slope
-	 focuswidth -:= 1
+	    ht -:= slope;
+	 focuswidth -:= 1;
 	 focus -:= 1
 	 }
       }
    else {
-      focus +:= 1
-      base +:= ht
-      ht -:= slope
+      focus +:= 1;
+      base +:= ht;
+      ht -:= slope;
       while focus <= *L & base <= &y do {
-	 if ht < 1 then ht := 1
-	 base +:= ht
+	 if ht < 1 then ht := 1;
+	 base +:= ht;
 	 if focus < *L & (wh - base) / (*L - focus) < ht & focuswidth <= 1 then
-	    ht -:= slope
-	 focuswidth -:= 1
+	    ht -:= slope;
+	 focuswidth -:= 1;
 	 focus +:= 1
 	 }
-      }
-   if focus < 1 then return 1
-   if focus > *L then return *L
-   return focus
+      };
+   if focus < 1 then return 1;
+   if focus > *L then return *L;
+   return focus;
 end

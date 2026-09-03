@@ -61,11 +61,11 @@ link wopen
 record Cell(n, m, color)
 record Panel(window, n, m, size, fg, bg, pg)
 
-procedure makepanel(n, m, cellsize, fg, bg, pg)		#: make panel of cells
-   local window, x, y, width, height, panel
+procedure makepanel(n, m, cellsize, fg, bg, pg);		#: make panel of cells
+   local window, x, y, width, height, panel;
 
-   /fg := "black"
-   /bg := "white"
+   /fg := "black";
+   /bg := "white";
 
    /cellsize := 10;
 
@@ -77,62 +77,62 @@ procedure makepanel(n, m, cellsize, fg, bg, pg)		#: make panel of cells
 
    panel := Panel(window, n, m, cellsize, fg, bg, pg);
 
-   clearpanel(panel)
+   clearpanel(panel);
 
-   return panel
+   return panel;
 
 end
 
-procedure clearpanel(panel)
-   local width, height, x, y
+procedure clearpanel(panel);
+   local width, height, x, y;
    
    if \panel.pg then {			# default is textured
       WAttrib(panel.window, "fillstyle=textured");
       Pattern(panel.window, "checkers");
       Bg(panel.window, "very dark gray")
       }
-   else Fg(panel.window, panel.fg)
+   else Fg(panel.window, panel.fg);
 
    width := WAttrib(panel.window, "width");
    height := WAttrib(panel.window, "height");
 
    every x := 0 to width by panel.size do
-      DrawLine(panel.window, x, 0, x, height)
+      DrawLine(panel.window, x, 0, x, height);
 
    every y := 0 to height by panel.size do
-      DrawLine(panel.window, 0, y, width, y)
+      DrawLine(panel.window, 0, y, width, y);
 
-   WAttrib(panel.window, "fillstyle=solid")
+   WAttrib(panel.window, "fillstyle=solid");
 
-   return panel
-
-end
-
-procedure matrixpanel(matrix, cellsize, fg, bg, pg)
-
-   return makepanel(*matrix[1], *matrix, cellsize, fg, bg)
+   return panel;
 
 end
 
-procedure colorcell(panel, n, m, color)		#: color cell in panel
-   local cellsize
+procedure matrixpanel(matrix, cellsize, fg, bg, pg);
+
+   return makepanel(*matrix[1], *matrix, cellsize, fg, bg);
+
+end
+
+procedure colorcell(panel, n, m, color);		#: color cell in panel
+   local cellsize;
 
    if not(integer(n) & integer(m)) then
-      stop("Non-integer value to colorcell(). n=", image(n), " m=", image(m))
+      stop("Non-integer value to colorcell(). n=", image(n), " m=", image(m));
 
    cellsize := panel.size;
 
    Fg(panel.window, color);
 
    FillRectangle(panel.window, (n - 1) * cellsize + 1, (m - 1) * cellsize + 1,
-       cellsize - 1, cellsize - 1)
+       cellsize - 1, cellsize - 1);
 
-   return panel
+   return panel;
  
 end
 
-procedure colorcells(panel, matrix)		#: color all cells in panel
-   local i, j, n, m, cellsize
+procedure colorcells(panel, matrix);		#: color all cells in panel
+   local i, j, n, m, cellsize;
 
    cellsize := panel.size;
 
@@ -143,21 +143,21 @@ procedure colorcells(panel, matrix)		#: color all cells in panel
       every j := 1 to n do {
          # fudge 0/1 matrix
          if matrix[i, j] === "1" then matrix[i, j] := "white"
-         else if matrix[i, j] === "0" then matrix[i, j] := "black"
+         else if matrix[i, j] === "0" then matrix[i, j] := "black";
          Fg(panel.window, matrix[i, j]);
             stop("Fg() failed in colorcells() with matrix[" ||
               i || "," || j || "]=" || matrix[i, j] || ".");
          FillRectangle(panel.window, (j - 1) * cellsize + 1, (i - 1) * cellsize + 1,
             cellsize - 1, cellsize - 1)
          }
-      }
+      };
 
-   return panel
+   return panel;
  
 end
 
-procedure tiercells(panel, tier)		#: color all cells in panel
-   local i, j, n, m, cellsize, matrix
+procedure tiercells(panel, tier);		#: color all cells in panel
+   local i, j, n, m, cellsize, matrix;
 
    cellsize := panel.size;
 
@@ -168,24 +168,24 @@ procedure tiercells(panel, tier)		#: color all cells in panel
    every i := 1 to m do {
       every j := 1 to n do {
          if matrix[i, j] === "1" then Fg(panel.window, "white")
-         else Fg(panel.window, "black")
+         else Fg(panel.window, "black");
          FillRectangle(panel.window, (j - 1) * cellsize + 1, (i - 1) * cellsize + 1,
             cellsize - 1, cellsize - 1)
          }
-      }
+      };
 
-   return panel
+   return panel;
  
 end
 
-procedure cell(panel, x, y)
-   local n, m
+procedure cell(panel, x, y);
+   local n, m;
 
    n := x / panel.size + 1;
    m := y / panel.size + 1;
 
-   if (n > panel.n) | (m > panel.m) then fail
+   if (n > panel.n) | (m > panel.m) then fail;
 
-   return Cell(n, m, Pixel(panel.window, x, y))
+   return Cell(n, m, Pixel(panel.window, x, y));
 
 end

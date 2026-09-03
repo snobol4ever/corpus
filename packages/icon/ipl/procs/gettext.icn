@@ -97,10 +97,10 @@ link adjuncts
 
 global _slash, _baselen, _delimiter
 
-procedure gettext(KEY,FNAME)      #: search database by indexed term
+procedure gettext(KEY,FNAME);      #: search database by indexed term
 
-   local line, value
-   static last_FNAME, intext, inidx, off_set, off_sets
+   local line, value;
+   static last_FNAME, intext, inidx, off_set, off_sets;
 
    (/KEY | /FNAME) & stop("error (gettext):  null argument");
 
@@ -110,12 +110,12 @@ procedure gettext(KEY,FNAME)      #: search database by indexed term
       }
    else {
       # We've got a new text-base file.  Close the old one.
-      every close(\intext | \inidx)
+      every close(\intext | \inidx);
       # Try to open named text-base file.
       intext := open(FNAME) | stop("gettext: file \"",FNAME,"\" not found");
       # Try to open index file.
       inidx := open(Pathname(FNAME) || getidxname(FNAME),"ru") | &null
-      }
+      };
    last_FNAME := FNAME;
 
    # Find offsets, if any, for key KEY in index file.
@@ -138,39 +138,39 @@ procedure gettext(KEY,FNAME)      #: search database by indexed term
                    if (="::",KEY)
                      then break
                   }
-               }
+               };
 
          # Collect all text upto the next colon+colon line (::)
          # or EOF.
             value := "";
             while line := read(intext) do {
-               find("::",line) & break
+               find("::",line) & break;
                value ||:= line || "\n"
-               }
+               };
 
          # Note that a key with an empty value returns an empty string.
             suspend trim(value, '\n') || " (" || off_set || "-i)"
             }
          }
-      }
+      };
 
    # Find additional values appended to file since last indexing.
 
    seek(intext, \firstline - _OS_offset);
    while value := sequential_search(KEY, intext) do
-      suspend trim(value,'\n') #|| " (" || off_set || "-s)"
+      suspend trim(value,'\n'); #|| " (" || off_set || "-s)"
 
 end
 
-procedure get_offsets(KEY, inidx)       #: binary search of index
-   local incr, bottom, top, loc, firstpart, offset, line
+procedure get_offsets(KEY, inidx);       #: binary search of index
+   local incr, bottom, top, loc, firstpart, offset, line;
 
    # Use these to store values likely to be reused.
-   static old_inidx, SOF, EOF
+   static old_inidx, SOF, EOF;
 
    # If there's no index file, then fail.
    if /inidx then
-      fail
+      fail;
 
    # First line contains offset of last indexed byte in the main
    # text file.  We need this later.  Save it.  Start the binary
@@ -190,7 +190,7 @@ procedure get_offsets(KEY, inidx)       #: binary search of index
       EOF := where(inidx);
 
       old_inidx := inidx
-      }
+      };
 
    # SOF, EOF constant for a given inidx file.
    bottom := SOF ; top := EOF;
@@ -207,7 +207,7 @@ procedure get_offsets(KEY, inidx)       #: binary search of index
       read(inidx);
       if (where(inidx) > EOF) | (loc = bottom) | (loc = top) then {
          break
-         }
+         };
 
       # Check to see if the current line contains KEY.
       if line := read(inidx) then {
@@ -230,14 +230,14 @@ procedure get_offsets(KEY, inidx)       #: binary search of index
          }
       }
    else top := loc      # Too far, move back
-   }
+   };
 end
 
 # Perform sequential search of intext for all instances of KEY.
 
-procedure sequential_search(KEY, intext)  #: brute-force database search
+procedure sequential_search(KEY, intext);  #: brute-force database search
 
-   local line, value, off_set
+   local line, value, off_set;
    
    # Collect all text upto the next colon+colon line (::)
    # or EOF.
@@ -249,17 +249,17 @@ procedure sequential_search(KEY, intext)  #: brute-force database search
          then break
          else off_set := where(intext)
          }
-      }
+      };
    value := "";
    while line := read(intext) do {
-      find("::", line) & break
+      find("::", line) & break;
       value ||:= line || "\n"
-      }
+      };
 
    # Debug information for sequential searching:
    value := value[1:-1] || " (" || off_set || "-s)\n";
 
    # Back up to allow for consecutive instances of KEY.
-   seek(intext, where(intext) - *line - 2)
-   suspend trim(value || "\n")
+   seek(intext, where(intext) - *line - 2);
+   suspend trim(value || "\n");
 end

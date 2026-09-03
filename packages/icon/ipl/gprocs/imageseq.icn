@@ -35,26 +35,26 @@ global prefix__				# hope for no collisions
 global count__
 global width__
 
-procedure seq_init(opts)
+procedure seq_init(opts);
 
    prefix__ := if /opts | /opts["n"] then "image" else opts["n"];
    count__ := if /opts | /opts["f"] then 0 else opts["f"] - 1;
-   width__ := if /opts | /opts["c"] then 3 else opts["c"]
+   width__ := if /opts | /opts["c"] then 3 else opts["c"];
 
-   return
+   return;
 
 end
 
-procedure save_image(win, x, y, w, h)
+procedure save_image(win, x, y, w, h);
 
-   initial seq_init(/prefix__)		# initialize if prefix__ null.
+   initial seq_init(/prefix__);		# initialize if prefix__ null.
 
    if type(win) ~== "window" then {
       win :=: x :=: y :=: w :=: h;
       win := &window
-      }
+      };
 
    return WriteImage(win, prefix__ || right(count__ +:= 1, width__, "0") ||
-      ".gif", x, y, w, h)
+      ".gif", x, y, w, h);
 
 end

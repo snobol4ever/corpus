@@ -25,16 +25,16 @@
 #
 ############################################################################
 
-procedure prockind(p)
+procedure prockind(p);
 
-   if type(p) ~== "procedure" then fail
+   if type(p) ~== "procedure" then fail;
 
    image(p) ? {
-      if find("procedure") then return "p"
-      if find("record constructor") then return "c"
-      ="function "
+      if find("procedure") then return "p";
+      if find("record constructor") then return "c";
+      ="function ";
       if upto(&letters) then return "f" else return "o"
-      }
+      };
 
 end
 

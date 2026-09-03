@@ -40,11 +40,11 @@
 #
 ############################################################################
 
-procedure shquote(s[])
-   return shquote_words(s)
+procedure shquote(s[]);
+   return shquote_words(s);
 end
 
-procedure cshquote(s[])
+procedure cshquote(s[]);
    s := shquote_words(s,'\t\n $"#&\'()*;<>?[\\`|~');
    #
    #  But backslashes before any bangs (!).
@@ -53,13 +53,13 @@ procedure cshquote(s[])
       s := "";
       while s ||:= tab(find("!")) do {
      s ||:= "\\" || move(1)
-     }
+     };
       s ||:= tab(0)
-      }
-   return s
+      };
+   return s;
 end
 
-procedure mpwquote(s[])
+procedure mpwquote(s[]);
    #
    #  The following are Macintosh Option- characters that have special
    #  meaning to the MPW Shell.  They are represented here as Icon
@@ -76,7 +76,7 @@ procedure mpwquote(s[])
    #  \xc8  >> (I/O redirection)
    #  \xc9  ...
    #
-   local result
+   local result;
    result := "";
    #
    # If there is a "return" in the string, it must be replaced by an
@@ -88,35 +88,35 @@ procedure mpwquote(s[])
       while result ||:= tab(find("\x0d")) do {
      result ||:= "'\xb6n'";
      move (1)
-     }
+     };
       result ||:= tab(0)
-      }
-   return result
+      };
+   return result;
 end
 
-procedure shquote_words(wordList,quotedChars,escapeString,sepString)
-   local s, result, sep
-   /quotedChars := '\t\n\r $"#&\'()*;<>?[\\^`|'
-   /escapeString := "\\"
+procedure shquote_words(wordList,quotedChars,escapeString,sepString);
+   local s, result, sep;
+   /quotedChars := '\t\n\r $"#&\'()*;<>?[\\^`|';
+   /escapeString := "\\";
    /sepString := " ";
    result := sep := "";
    every s := !wordList do {
       if s == "" | upto(quotedChars,s) then {
      s ? {
         s := "'";
-        while s ||:= tab(find("'")) || "'" || escapeString || "''" & move(1)
+        while s ||:= tab(find("'")) || "'" || escapeString || "''" & move(1);
         s ||:= tab(0) || "'"
         }
-     }
+     };
       result ||:= sep || s;
       sep := sepString
-      }
-   return result 
+      };
+   return result; 
 end
 
-procedure dequote(s,escapeString,escapeProc)
-   local quoteChars,c,d
-   /escapeString := "\\"
+procedure dequote(s,escapeString,escapeProc);
+   local quoteChars,c,d;
+   /escapeString := "\\";
    /escapeProc := 1;
    quoteChars := '"\'' ++ escapeString[1];
    s ? {
@@ -125,23 +125,23 @@ procedure dequote(s,escapeString,escapeProc)
      if =escapeString then s ||:= (if d === "'" then escapeString else 
 escapeProc(move(1)))
      else {
-        c := move(1)
+        c := move(1);
         (/d := c) | (s ||:= d ~== c) | (d := &null)
         }
-     }
+     };
       return s || tab(0)
-      }
+      };
 end
 
-procedure mpwdequote(s)
-   return dequote(s,"\xb6",mpw_escape_proc)
+procedure mpwdequote(s);
+   return dequote(s,"\xb6",mpw_escape_proc);
 end
 
-procedure mpw_escape_proc(ch)
+procedure mpw_escape_proc(ch);
    return case ch of {
-      "n": "\n"
-      "t": "\t"
-      "f": "\f"
+      "n": "\n";
+      "t": "\t";
+      "f": "\f";
       default: ch
-      }
+      };
 end

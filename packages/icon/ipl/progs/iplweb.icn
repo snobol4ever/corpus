@@ -30,34 +30,34 @@
 
 link options
 
-procedure main(arglist)
-   local opts, source, dest
+procedure main(arglist);
+   local opts, source, dest;
 
    if opts := options(arglist, "-ipl:", errorproc) then {
-      source := opts["ipl"]
+      source := opts["ipl"];
       /source := getenv("IPL");
       if /source then errorproc()
       }
-   else errorproc()
+   else errorproc();
 
    if *arglist > 0 then {
       dest := arglist[1] || "/HTML"
       }
    else {
       dest := "HTML"
-      }
+      };
 
-   Build_HTML_Files(source, dest)
+   Build_HTML_Files(source, dest);
 end
 
-procedure errorproc()
+procedure errorproc();
    stop("Set IPL environment variable or use\n",
-	"iplweb [-ipl source] [destination]")
+	"iplweb [-ipl source] [destination]");
 end
 
-procedure Build_HTML_Files(source_dir, dest)
+procedure Build_HTML_Files(source_dir, dest);
    local directory, dir_index_file, dir, dirlist, file_index_file,
-       prev_dir, full_path, file, file_info_file, source_file
+       prev_dir, full_path, file, file_info_file, source_file;
 
    directory := ["/gprogs", "/gprocs", "/progs", "/procs"];
 
@@ -84,7 +84,7 @@ procedure Build_HTML_Files(source_dir, dest)
 	       Close_File_Index(file_index_file);
 
 	       close(file_index_file)
-	       }
+	       };
 
 	    # Next Dir
 	    Index_Dir(dir_index_file, dir);
@@ -94,7 +94,7 @@ procedure Build_HTML_Files(source_dir, dest)
 	    file_index_file := open(dest || dir || "/fileindex.html", "w");
 
 	    Init_File_Index(file_index_file, dir)
-	    }
+	    };
 
 	 Index_File(file_index_file, file);
 
@@ -109,46 +109,46 @@ procedure Build_HTML_Files(source_dir, dest)
 	 close(file_info_file);
 
 	 prev_dir := dir
-         }
+         };
 
       close(file_index_file)
-      }
+      };
    Close_Dir_Index(dir_index_file);
-   close(dir_index_file)
+   close(dir_index_file);
 end
 
-procedure Init_Dir_Index(file)
+procedure Init_Dir_Index(file);
    write(file, "<TITLE>IPL: The Icon Program Library Comment Documentaion</TITLE>");
    write(file, "<H1>The Icon Program Library</H1><P>");
    write(file, "<H2>Source Directorys</H2><P>");
-   write(file, "<UL>")
+   write(file, "<UL>");
 end
 
-procedure Index_Dir(file, dir)
-   write(file, "<LI><A HREF=\"" || dir[2:0] || "/fileindex.html\">" || dir[2:0] || "</A></LI>")
+procedure Index_Dir(file, dir);
+   write(file, "<LI><A HREF=\"" || dir[2:0] || "/fileindex.html\">" || dir[2:0] || "</A></LI>");
 end
 
-procedure Close_Dir_Index(file)
-   write(file, "</UL>")
+procedure Close_Dir_Index(file);
+   write(file, "</UL>");
 end
 
-procedure Init_File_Index(file, dir)
+procedure Init_File_Index(file, dir);
    write(file, "<TITLE>IPL: The Icon Program Library Comment Documentation</TITLE>");
    write(file, "<H1>The Icon Program Library</H1><P>");
    write(file, "<H2>The " || dir[2:0] || " directory listing</H2><P>");
-   write(file, "<UL>")
+   write(file, "<UL>");
 end
 
-procedure Index_File(index, file)
-   write(index, "<LI><A HREF=\"" || file[2:0] || ".html\">" || file[2:0] || ".icn</A></LI>")
+procedure Index_File(index, file);
+   write(index, "<LI><A HREF=\"" || file[2:0] || ".html\">" || file[2:0] || ".icn</A></LI>");
 end
 
-procedure Close_File_Index(file)
-   write(file, "</UL>")
+procedure Close_File_Index(file);
+   write(file, "</UL>");
 end
 
-procedure ProcessFileInfo(file, source)
-   local line, keywd, text
+procedure ProcessFileInfo(file, source);
+   local line, keywd, text;
 
    write(file, "<TITLE>IPL: The Icon Program Library Comment Domumentaion</TITLE>");
 
@@ -162,24 +162,24 @@ procedure ProcessFileInfo(file, source)
 	     text := tab(0)
 	 then {
 	    case keywd of {
-	       "File:"    : write(file, "<H2>" || text || "</H2><P>")
-	       "Subject:" : write(file, "<H3>" || text || "</H3><P>")
-	       "Author:"  : write(file, "<H3>" || text || "</H3><P>")
-	       "Authors:" : write(file, "<H3>" || text || "</H3><P>") 
+	       "File:"    : write(file, "<H2>" || text || "</H2><P>");
+	       "Subject:" : write(file, "<H3>" || text || "</H3><P>");
+	       "Author:"  : write(file, "<H3>" || text || "</H3><P>");
+	       "Authors:" : write(file, "<H3>" || text || "</H3><P>"); 
 	       "Date:"    : write(file, "<H3>" || text || "</H3><P>")
 	       }
 	    }
 	 else if tab(many('#'))\1 & tab(many(' \t')) & text := tab(0) then
 	     write(file, "<PRE>" || text || "</PRE>")
 	 }
-      }
+      };
 end
 
-procedure strip_file(path)
-   local local_dir
+procedure strip_file(path);
+   local local_dir;
 
    path ? {
-      every local_dir := tab(upto('/'))
+      every local_dir := tab(upto('/'));
       return path[*local_dir + 1 : -4]
-      }
+      };
 end

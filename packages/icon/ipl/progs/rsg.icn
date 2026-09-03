@@ -159,8 +159,8 @@ global defs, ifile, in, limit, prompt, tswitch
 record nonterm(name)
 record charset(chars)
 
-procedure main(args)
-   local line, plist, s, opts
+procedure main(args);
+   local line, plist, s, opts;
 					# procedures to try on input lines
    plist := [define,generate,grammar,source,comment,prompter,error];
    defs := table();  # table of definitions
@@ -175,95 +175,95 @@ procedure main(args)
 
    opts := options(args,"tl+s+r");
    limit := \opts["l"] | 1000;
-   tswitch := \opts["t"]
+   tswitch := \opts["t"];
    &random := \opts["s"];
-   if /opts["s"] & /opts["r"] then randomize()
+   if /opts["s"] & /opts["r"] then randomize();
 
    ifile := [&input];  # stack of input files
    prompt := "";
    while in := pop(ifile) do {		# process all files
       repeat {
-         if *prompt ~= 0 then writes(prompt)
-         line := read(in) | break
-         while line[-1] == "\\" do line := line[1:-1] || read(in) | break
+         if *prompt ~= 0 then writes(prompt);
+         line := read(in) | break;
+         while line[-1] == "\\" do line := line[1:-1] || read(in) | break;
          (!plist)(line)
-         }
+         };
       close(in)
-      }
+      };
 end
 
 #  process alternatives
 #
-procedure alts(defn)
-   local alist
+procedure alts(defn);
+   local alist;
    alist := [];
-   defn ? while put(alist,syms(tab(upto('|') | 0))) do move(1) | break
-   return alist
+   defn ? while put(alist,syms(tab(upto('|') | 0))) do move(1) | break;
+   return alist;
 end
 
 #  look for comment
 #
-procedure comment(line)
-   if line[1] == "#" then return
+procedure comment(line);
+   if line[1] == "#" then return;
 end
 
 #  look for definition
 #
-procedure define(line)
+procedure define(line);
    return line ?
-      defs[(="<",tab(find(">::=")))] := (move(4),alts(tab(0)))
+      defs[(="<",tab(find(">::=")))] := (move(4),alts(tab(0)));
 end
 
 #  define nonterminal
 #
-procedure defnon(sym)
-   local chars, name
+procedure defnon(sym);
+   local chars, name;
    if sym ? {
       ="'" &
       chars := cset(tab(-1)) &
       ="'"
       }
    then return charset(chars)
-   else return nonterm(sym)
+   else return nonterm(sym);
 end
 
 #  note erroneous input line
 #
-procedure error(line)
-   write("*** erroneous line:  ",line)
-   return
+procedure error(line);
+   write("*** erroneous line:  ",line);
+   return;
 end
 
 #  generate sentences
 #
-procedure gener(goal)
-   local pending, symbol
-   pending := [nonterm(goal)]
+procedure gener(goal);
+   local pending, symbol;
+   pending := [nonterm(goal)];
    while symbol := get(pending) do {
       if \tswitch then
-         write(&errout,symimage(symbol),listimage(pending))
+         write(&errout,symimage(symbol),listimage(pending));
       case type(symbol) of {
-         "string":   writes(symbol)
-         "charset":  writes(?symbol.chars)
+         "string":   writes(symbol);
+         "charset":  writes(?symbol.chars);
          "nonterm":  {
             pending := ?\defs[symbol.name] ||| pending | {
-               write(&errout,"*** undefined nonterminal:  <",symbol.name,">")
+               write(&errout,"*** undefined nonterminal:  <",symbol.name,">");
                break 
-               }
+               };
             if *pending > \limit then {
-               write(&errout,"*** excessive symbols remaining")
+               write(&errout,"*** excessive symbols remaining");
                break 
                }
             }
          }
-      }
-   write()
+      };
+   write();
 end
 
 #  look for generation specification
 #
-procedure generate(line)
-   local goal, count
+procedure generate(line);
+   local goal, count;
    if line ? {
       ="<" &
       goal := tab(upto('>')) \ 1 &
@@ -272,120 +272,120 @@ procedure generate(line)
       }
    then {
       every 1 to count do
-         gener(goal)
+         gener(goal);
       return
       }
-   else fail
+   else fail;
 end
 
 #  get right hand side of production
 #
-procedure getrhs(a)
-   local rhs
-   rhs := ""
-   every rhs ||:= listimage(!a) || "|"
-   return rhs[1:-1]
+procedure getrhs(a);
+   local rhs;
+   rhs := "";
+   every rhs ||:= listimage(!a) || "|";
+   return rhs[1:-1];
 end
 
 #  look for request to write out grammar
 #
-procedure grammar(line)
-   local file, out, name
+procedure grammar(line);
+   local file, out, name;
    if line ? {
       name := tab(find("->")) &
       move(2) &
       file := tab(0) &
       out := if *file = 0 then &output else {
          open(file,"w") | {
-            write(&errout,"*** cannot open ",file)
+            write(&errout,"*** cannot open ",file);
             fail
             }
          }
       }
    then {
-      (*name = 0) | (name[1] == "<" & name[-1] == ">") | fail
-      pwrite(name,out)
-      if *file ~= 0 then close(out)
+      (*name = 0) | (name[1] == "<" & name[-1] == ">") | fail;
+      pwrite(name,out);
+      if *file ~= 0 then close(out);
       return
       }
-   else fail
+   else fail;
 end
 
 #  produce image of list of grammar symbols
 #
-procedure listimage(a)
-   local s, x
-   s := ""
+procedure listimage(a);
+   local s, x;
+   s := "";
    every x := !a do
-      s ||:= symimage(x)
-   return s
+      s ||:= symimage(x);
+   return s;
 end
 
 #  look for new prompt symbol
 #
-procedure prompter(line)
+procedure prompter(line);
    if line[1] == "=" then {
-      prompt := line[2:0]
+      prompt := line[2:0];
       return
-      }
+      };
 end
 
 #  write out grammar
 #
-procedure pwrite(name,ofile)
-   local nt, a
-   static builtin
-   initial builtin := ["lb","rb","vb","nl","","&lcase","&ucase","&digit"]
+procedure pwrite(name,ofile);
+   local nt, a;
+   static builtin;
+   initial builtin := ["lb","rb","vb","nl","","&lcase","&ucase","&digit"];
    if *name = 0 then {
-      a := sort(defs,3)
+      a := sort(defs,3);
       while nt := get(a) do {
          if nt == !builtin then {
-            get(a)
+            get(a);
             next
-            }
+            };
          write(ofile,"<",nt,">::=",getrhs(get(a)))
          }
       }
    else write(ofile,name,"::=",getrhs(\defs[name[2:-1]])) |
-      write("*** undefined nonterminal:  ",name)
+      write("*** undefined nonterminal:  ",name);
 end
 
 #  look for file with input
 #
-procedure source(line)
-   local file, new
+procedure source(line);
+   local file, new;
 
    return line ? {
       if ="@" then {
          new := open(file := tab(0)) | {
-            write(&errout,"*** cannot open ",file)
+            write(&errout,"*** cannot open ",file);
             fail
-            }
+            };
          push(ifile,in) &
-         in := new
+         in := new;
          return
          }
-      }
+      };
 end
 
 #  produce string image of grammar symbol
 #
-procedure symimage(x)
+procedure symimage(x);
    return case type(x) of {
-      "string":   x
-      "nonterm":  "<" || x.name || ">"
+      "string":   x;
+      "nonterm":  "<" || x.name || ">";
       "charset":  "<'" || x.chars || "'>"
-      }
+      };
 end
 
 #  process the symbols in an alternative
 #
-procedure syms(alt)
-   local slist
-   static nonbrack
-   initial nonbrack := ~'<'
-   slist := []
+procedure syms(alt);
+   local slist;
+   static nonbrack;
+   initial nonbrack := ~'<';
+   slist := [];
    alt ? while put(slist,tab(many(nonbrack)) |
-      defnon(2(="<",tab(upto('>')),move(1))))
-   return slist
+      defnon(2(="<",tab(upto('>')),move(1))));
+   return slist;
 end

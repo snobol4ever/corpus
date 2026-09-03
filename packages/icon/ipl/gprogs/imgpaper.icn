@@ -54,10 +54,10 @@ link options
 link tiler
 link xio
 
-procedure main(args)
-   local opts, w, h, hold, names, name, prefix, images, count, number
-   local lines, ims, bad, Hold, mir, background, e, gamma, tmp1, tmp2
-   local rows, blp
+procedure main(args);
+   local opts, w, h, hold, names, name, prefix, images, count, number;
+   local lines, ims, bad, Hold, mir, background, e, gamma, tmp1, tmp2;
+   local rows, blp;
 
    Hold := Event;
 
@@ -68,15 +68,15 @@ procedure main(args)
    if \opts["v"] then {			# size for video recording
       w := 320;
       h := 240
-      }
+      };
    background := opts["b"];
-   if /opts["m"] then Event := 1
+   if /opts["m"] then Event := 1;
    hold := (\opts["a"] * 1000.0) | 2000;
    names := opts["l"];
    images := opts["i"];
    prefix := \opts["n"] | "paper";
    if (gamma := \opts["g"]) & (gamma <= 0.0) then
-      stop("gamma value must be greater than 0.0")
+      stop("gamma value must be greater than 0.0");
    number := 0;
    count := -1;
 
@@ -84,20 +84,20 @@ procedure main(args)
       stop("*** cannot open window");
    WAttrib("gamma="|| \opts["g"]);
 
-   if \background then Hold()
+   if \background then Hold();
 
    if \opts["s"] then {		# image strings
       while ims := readims() do {
          tileims(&window, ims) | {
-            write(&errout, "*** cannot draw image")
+            write(&errout, "*** cannot draw image");
             /bad := open("bad.ims", "a") | stop("*** cannot open bad.ims");
             write(bad, ims)
-            }
+            };
          WFlush();
-         if \lines then write(number +:= 1)
+         if \lines then write(number +:= 1);
          if Event === 1 then delay(hold) else {
             if Event() === !&letters then write(ims)
-            }
+            };
          EraseArea()
          }
       }
@@ -105,18 +105,18 @@ procedure main(args)
       while blp := read() do {
          rows := pat2rows(blp);
          ims := *rows[1] || ",g2,";
-         every ims ||:= !rows
+         every ims ||:= !rows;
          tileims(&window, ims) | {
-            write(&errout, "*** cannot draw image")
+            write(&errout, "*** cannot draw image");
             /bad := open("bad.ims", "a") | stop("*** cannot open bad.ims");
             write(bad, ims)
-            }
+            };
          WFlush();
-         if \lines then write(number +:= 1)
+         if \lines then write(number +:= 1);
          if Event === 1 then delay(hold) else {
             e := Event();
             write(!&letters === e, ":", blp)
-            }
+            };
          EraseArea()
          }
       }
@@ -130,34 +130,34 @@ procedure main(args)
             WClose(tmp1);
             WClose(tmp2)
             }
-         else tileimg(&window, name)
-         if \names then write(name)
+         else tileimg(&window, name);
+         if \names then write(name);
          if \images then WriteImage(prefix || right(count +:= 1, 3, "0") ||
-            ".gif")
+            ".gif");
          if Event === 1 then delay(hold) else {
             e := Event();
             write(!&letters === e, ":", name)
-            }
+            };
          EraseArea()
          }
-      }
+      };
 
    if \background then {			# fill with black and hold?
       FillRectangle();
       Hold()
-      }
+      };
 
 end
 #
 #  Produce a list of the rows of a pattern
 
-procedure pat2rows(pattern)
-   local rlist
+procedure pat2rows(pattern);
+   local rlist;
 
    rlist := [];
 
-   every put(rlist, rowbits(pattern))
+   every put(rlist, rowbits(pattern));
 
-   return rlist
+   return rlist;
 
 end

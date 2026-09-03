@@ -34,9 +34,9 @@ link sort
 
 record ref(proc, file)
 
-procedure main(args)
-   local procedures, file, program, line, dir, input, max
-   local reference, opts, writep, way1, way2
+procedure main(args);
+   local procedures, file, program, line, dir, input, max;
+   local reference, opts, writep, way1, way2;
 
    opts := options(args, "sf");
 
@@ -48,7 +48,7 @@ procedure main(args)
    else {
       way1 := 1;
       way2 := 2
-      }
+      };
 
 
    procedures := set();
@@ -58,24 +58,24 @@ procedure main(args)
       program := open(file) | {
          write(&error, "*** cannot open program ", image(file));
          next
-         }
+         };
 
       writep();
       writep();
 
       while line := read(program) | break do
-         if *line = 0 then break else writep(line)
+         if *line = 0 then break else writep(line);
 
       while line := read(program) | break do
          line ? {
             if ="procedure" then {
                tab(many(' \t'));
-               if ="main(" then next
+               if ="main(" then next;
                insert(procedures, ref(tab(upto(')') + 1), file))
                }
-            }
+            };
       close(program)
-      }
+      };
 
    writep();
    writep(repl("=", 76));
@@ -88,6 +88,6 @@ procedure main(args)
    procedures := sortff(procedures, way1, way2);
 
    every reference := !procedures do
-      write(left(reference.proc, max), reference.file)
+      write(left(reference.proc, max), reference.file);
 
 end

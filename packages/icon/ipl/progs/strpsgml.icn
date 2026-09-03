@@ -58,9 +58,9 @@ link scan
 link stripunb
 link readtbl
 
-procedure main(a)
+procedure main(a);
 
-    local usage, _arg, L, R, map_file, t, readtbl, line, stripunb, last_k
+    local usage, _arg, L, R, map_file, t, readtbl, line, stripunb, last_k;
 
     usage:=
      "usage:  stripsgml [-f map-file] [left-delimiter(s) [right-delimiter(s)]]";
@@ -76,13 +76,13 @@ procedure main(a)
             L := _arg;
             R := cset(get(a))
         }
-    }
+    };
 
     every line := !&input do
-	write(stripunb(L,R,line,&null,&null,t))  # t is the map table
+	write(stripunb(L,R,line,&null,&null,t));  # t is the map table
 
     # last_k is the stack used in stripunb.icn
     if *\last_k ~= 0 then
-	stop("Unexpected EOF encountered.  Expecting ", pop(last_k), ".")
+	stop("Unexpected EOF encountered.  Expecting ", pop(last_k), ".");
 
 end

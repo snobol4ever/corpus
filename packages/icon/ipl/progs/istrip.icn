@@ -25,8 +25,8 @@
 
 link stripcom
 
-procedure main()
-   local line, nextline
+procedure main();
+   local line, nextline;
 
    while line := read() do {
       while line[-1] == "_" do {	# handle continued literal
@@ -34,10 +34,10 @@ procedure main()
          nextline ?:= {
             tab(many(' \t'));  # remove leading whitespace
             tab(0)
-            }
+            };
          line := line[1:-1] || nextline
-         }
+         };
       write(stripcom(line))
-      }
+      };
 
 end

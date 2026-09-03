@@ -228,59 +228,59 @@ link lastc
 record _DirectivesSpec_(classproc,editproc,minargs,maxargs)
 
 
-procedure Directive(p,e,mi,mx)    #: Wrapper to build directive specification
+procedure Directive(p,e,mi,mx);    #: Wrapper to build directive specification
 
-if type(p) ~== "procedure" then runerr(123,p)
-if type(\e) ~== "procedure" then runerr(123,e) else /e := 1
+if type(p) ~== "procedure" then runerr(123,p);
+if type(\e) ~== "procedure" then runerr(123,e) else /e := 1;
 
 case p of 
 {
-   Directive_table | Directive_table_of_sets:  /mi := 2
-   Directive_value  :  { /mi := 1 ; /mx := 1 }
-   Directive_exists :  { /mi := 0 ; /mx := 0 }
+   Directive_table | Directive_table_of_sets:  /mi := 2;
+   Directive_value  :  { /mi := 1 ; /mx := 1 };
+   Directive_exists :  { /mi := 0 ; /mx := 0 };
    default          :  /mi := 1
-}
+};
 
-if not ( integer(mi) >= 0 ) then runerr(101,mi)
-if \mx & not ( integer(mx) >= mi ) then runerr(101,mx)
+if not ( integer(mi) >= 0 ) then runerr(101,mi);
+if \mx & not ( integer(mx) >= mi ) then runerr(101,mx);
 
-return _DirectivesSpec_(p,e,mi,mx)
+return _DirectivesSpec_(p,e,mi,mx);
 end
 
 
 procedure ReadDirectives( #: Builds icon data structures from a config file
-             fnL,spec,comment,continue,escape,quotes,whitespace,errp)
+             fnL,spec,comment,continue,escape,quotes,whitespace,errp);
 
-local notescape, eof, line, wip, x, y, q, s, d
-local sL, sLL, f, fn, fL, action, tag, DirectiveT
+local notescape, eof, line, wip, x, y, q, s, d;
+local sL, sLL, f, fn, fL, action, tag, DirectiveT;
 
 #   1. defaults, type checking and setup
 
-/comment    := "#"
-/continue   := "_"
-/escape     := '\\'
-/quotes     := '\'"'
+/comment    := "#";
+/continue   := "_";
+/escape     := '\\';
+/quotes     := '\'"';
 /whitespace := ' \b\t\v\f\r';
 
-if not ( comment := string(comment) ) then runerr(103,comment)
-if *comment ~= 1 then runerr(500,comment)
+if not ( comment := string(comment) ) then runerr(103,comment);
+if *comment ~= 1 then runerr(500,comment);
 
-if not ( continue := string(continue) ) then runerr(103,continue)
-if *continue ~= 1 then runerr(500,continue)
+if not ( continue := string(continue) ) then runerr(103,continue);
+if *continue ~= 1 then runerr(500,continue);
 
-if not ( escape := cset(escape) ) then runerr(104,escape)
-if *escape ~= 1 then runerr(500,escape)
+if not ( escape := cset(escape) ) then runerr(104,escape);
+if *escape ~= 1 then runerr(500,escape);
 notescape := ~escape;
 
-if not ( quotes := cset(quotes) ) then runerr(104,quotes)
-if *quotes = 0 then runerr(500,quotes)
+if not ( quotes := cset(quotes) ) then runerr(104,quotes);
+if *quotes = 0 then runerr(500,quotes);
 
-if not ( whitespace :=  cset(whitespace) ) then runerr(104,whitespace)
-if *whitespace = 0 then runerr(500,whitespace)
+if not ( whitespace :=  cset(whitespace) ) then runerr(104,whitespace);
+if *whitespace = 0 then runerr(500,whitespace);
 
-if type(fnL) ~== "list" then runerr(108,fnL)
+if type(fnL) ~== "list" then runerr(108,fnL);
 
-if type(spec) ~== "table" then runerr(124,spec)
+if type(spec) ~== "table" then runerr(124,spec);
 
 fL := [];  # list of original config file
 sL := [];  # list of lists corresponding to each directive
@@ -290,15 +290,15 @@ DirectiveT := table();  # results
 
 every fn := !fnL do
 {
-   if /fn then next
-   if type(fn) == "file" then break f := fn
+   if /fn then next;
+   if type(fn) == "file" then break f := fn;
    if f := open(fn) then break
-}
+};
 if /f then
 {
-   write(&errout,"ReadDirectives: no open(able) files in: ",every image(!fnL) )
+   write(&errout,"ReadDirectives: no open(able) files in: ",every image(!fnL) );
    \errp() | fail
-}
+};
 
 #   3. input, tokenizing and processing of directives 
 
@@ -317,7 +317,7 @@ while /eof do
          line ?:=  2( tab(many(whitespace)), tab(0) );  # discard leading w/s
          line ?:=  tab(findp(notescape,comment));  # discard comment
          line := trim(line,whitespace)
-      }
+      };
       wip ||:= line;
       if wip[-1] == continue then 
       {
@@ -325,7 +325,7 @@ while /eof do
          next
       }
       else break
-   }
+   };
 
    #  3.2 tokenize directive
 
@@ -333,120 +333,120 @@ while /eof do
    wip ? repeat 
    {
       tab( many(whitespace) );  # kill leading white space
-      if pos(0) then break                # deal with trailing whitespace here
+      if pos(0) then break;                # deal with trailing whitespace here
 
       ( q := tab(any(quotes)), 
         ( x := 1( tab(findp(notescape,q)), =q ) | tab(0) ) 
-      ) | ( x := tab(upto(whitespace) | 0) )  
+      ) | ( x := tab(upto(whitespace) | 0) );  
 
       y := "";
       x ?                                 # strip imbedded escape characters
       { 
-         while y ||:= tab(upto(escape)) do move(1)
+         while y ||:= tab(upto(escape)) do move(1);
          y ||:= tab(0)
-      }
+      };
       put( sLL, y )                       # save token 
-   }
+   };
 
    if *sLL = 0 then                       # remove and skip null lines
-      pull(sL) & next
+      pull(sL) & next;
   
    #  3.3 process directive
  
    action :=  get(sLL);  # peel off the action tag
    d := spec[action];
 
-   if /d | /d.classproc then runerr(500,d)
+   if /d | /d.classproc then runerr(500,d);
 
-   if *sLL <  \d.minargs then put( fL, "-- Fewer arguments than spec allows.")
-   if *sLL >  \d.maxargs then put( fL, "-- More arguments than spec allows.")
+   if *sLL <  \d.minargs then put( fL, "-- Fewer arguments than spec allows.");
+   if *sLL >  \d.maxargs then put( fL, "-- More arguments than spec allows.");
 
    (d.classproc)(fL,DirectiveT,action,sLL,d.editproc) # call build procedure
-}
+};
 
-DirectiveT["*file*"] := fL                     # save original text
-return DirectiveT
+DirectiveT["*file*"] := fL;                     # save original text
+return DirectiveT;
 end
 
 #  Build support procedures
 
 procedure Directive_table_of_sets( #: build table of sets: action key value(s)
-          fileL,DirectiveT,action,argL,editproc)
-local tag
+          fileL,DirectiveT,action,argL,editproc);
+local tag;
 
 if *argL < 2 then 
-   put(fileL,"-- Too few arguments for (table_of_sets): action key value(s)") 
-/DirectiveT[action] := table() 
-/DirectiveT[action][tag := get(argL) ] := set()
-while insert(DirectiveT[action][tag],editproc(get(argL)) )
-return
+   put(fileL,"-- Too few arguments for (table_of_sets): action key value(s)"); 
+/DirectiveT[action] := table(); 
+/DirectiveT[action][tag := get(argL) ] := set();
+while insert(DirectiveT[action][tag],editproc(get(argL)) );
+return;
 end
  
          
 procedure Directive_table( #: build table: action key value
-          fileL,DirectiveT,action,argL,editproc)
+          fileL,DirectiveT,action,argL,editproc);
 
 if *argL ~= 2 then 
-   put(fileL,"-- Wrong number of arguments for (table): action key value") 
-/DirectiveT[action] := table()
-DirectiveT[action][get(argL)] := editproc(get(argL)) 
-return
+   put(fileL,"-- Wrong number of arguments for (table): action key value"); 
+/DirectiveT[action] := table();
+DirectiveT[action][get(argL)] := editproc(get(argL)); 
+return;
 end
 
          
 procedure Directive_set( #: build set: action value(s)
-          fileL,DirectiveT,action,argL,editproc)
+          fileL,DirectiveT,action,argL,editproc);
 
 if *argL < 1 then 
-   put(fileL,"-- Too few arguments for (set): action value(s)") 
-/DirectiveT[action] := set()
-while insert( DirectiveT[action], editproc(get(argL)) )
-return
+   put(fileL,"-- Too few arguments for (set): action value(s)"); 
+/DirectiveT[action] := set();
+while insert( DirectiveT[action], editproc(get(argL)) );
+return;
 end
 
          
 procedure Directive_list( #: build list: action value(s)
-          fileL,DirectiveT,action,argL,editproc)
+          fileL,DirectiveT,action,argL,editproc);
 
 if *argL < 1 then 
-   put(fileL,"-- Too few arguments for (list): action value(s)") 
-/DirectiveT[action] := [] 
-while put( DirectiveT[action], editproc(get(argL)) )
-return
+   put(fileL,"-- Too few arguments for (list): action value(s)"); 
+/DirectiveT[action] := []; 
+while put( DirectiveT[action], editproc(get(argL)) );
+return;
 end
 
 
 procedure Directive_value( #: build value: action value
-          fileL,DirectiveT,action,argL,editproc)
+          fileL,DirectiveT,action,argL,editproc);
 
 if *argL = 0 then 
    DirectiveT[action] := &null 
 else 
-   DirectiveT[action] := editproc(get(argL)) 
-return
+   DirectiveT[action] := editproc(get(argL)); 
+return;
 end
 
 procedure Directive_exists( #: build existence flag: action
-          fileL,DirectiveT,action,argL,editproc)
+          fileL,DirectiveT,action,argL,editproc);
 
 if *argL = 0 then 
    DirectiveT[action] := 1
 else 
-   DirectiveT[action] := editproc(get(argL)) 
-return
+   DirectiveT[action] := editproc(get(argL)); 
+return;
 end
 
 
 procedure Directive_ignore( #: quietly ignore any directive
-          fileL,DirectiveT,action,argL,editproc)
+          fileL,DirectiveT,action,argL,editproc);
 
-return
+return;
 end
 
          
 procedure Directive_warning( #: flag directive with a warning
-          fileL,DirectiveT,action,argL,editproc)
+          fileL,DirectiveT,action,argL,editproc);
 
-put(fileL,"-- Directive isn't defined in specification." )
-return
+put(fileL,"-- Directive isn't defined in specification." );
+return;
 end

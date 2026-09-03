@@ -31,19 +31,19 @@
 
 link wopen
 
-procedure main(args)
-   local name
+procedure main(args);
+   local name;
 
    every name := !args do {
       WClose(\&window);
       WOpen("image=" || name) | {
          write(&errout, "Can't open image ", image(name));
          next
-         }
+         };
       case WReads(, 1) of {
-         "y":  write(name)
+         "y":  write(name);
          "q":  exit()
          }
-      }
+      };
 
 end

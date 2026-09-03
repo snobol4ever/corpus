@@ -19,8 +19,8 @@
 #
 ############################################################################
 
-procedure main()
-   local bar, short_bar, line, notcom
+procedure main();
+   local bar, short_bar, line, notcom;
 
    bar := repl("#", 76);
    short_bar := repl("#", 60);
@@ -30,6 +30,6 @@ procedure main()
       line ? {
          if =short_bar & not(upto(notcom)) & *line ~= 76 then write(bar)
          else write(line)
-         }
+         };
 
 end

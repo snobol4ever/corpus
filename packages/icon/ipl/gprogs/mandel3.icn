@@ -29,8 +29,8 @@
 link complex
 link graphics 
 
-procedure main() 
-   local width, height, limit, x, y, z, c, j
+procedure main(); 
+   local width, height, limit, x, y, z, c, j;
    width := 750;
    height := 600;
    limit := 100;
@@ -44,16 +44,16 @@ procedure main()
       { 
          z := cpxadd(cpxmul(z, z), c);
          j +:= 1 
-      } 
+      }; 
       Fg(mColor(j, limit));
       DrawPoint(x, y) 
-   } 
-   WDone() 
+   }; 
+   WDone(); 
 end 
 
-procedure mColor(x, limit) 
+procedure mColor(x, limit); 
    if x = limit then
       return "black"
    else
-      return HSVValue((360 * x / limit) || "/100/100")
+      return HSVValue((360 * x / limit) || "/100/100");
 end 

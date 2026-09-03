@@ -31,8 +31,8 @@ link graphics
 
 global win
 
-procedure main(args)
-   local cols, rows, xsiz, ysiz, gutter, w, h, pats, i, x, y, s
+procedure main(args);
+   local cols, rows, xsiz, ysiz, gutter, w, h, pats, i, x, y, s;
 
    pats := [
       "#0000 #0010 #8010 #0820 #0420 #1040",
@@ -72,15 +72,15 @@ procedure main(args)
             y +:= ysiz + gutter
             }
          }
-      }
-   WDone(win)
+      };
+   WDone(win);
 end
 
-procedure rect(x, y, w, h, s)
+procedure rect(x, y, w, h, s);
    Pattern(win, "1,1");
    DrawLine(win, x + w, y - 1, x + w, y + h, x - 1, y + h);
    Pattern(win, "1,0");
    DrawLine(win, x - 1, y + h, x - 1, y - 1, x + w, y - 1);
    Pattern(win, "4," || s);
-   FillRectangle(win, x, y, w, h)
+   FillRectangle(win, x, y, w, h);
 end

@@ -59,25 +59,25 @@
 
 link ptutils, records
 
-procedure point_field(pts)	#: create VRML point field
-   local field
+procedure point_field(pts);	#: create VRML point field
+   local field;
 
    field := "[\n";
 
-   every field ||:= pt2coord(!pts) || ",\n"
+   every field ||:= pt2coord(!pts) || ",\n";
 
-   return field || "\n]"
+   return field || "\n]";
 
 end
 
-procedure u_crd_idx(i)		#: create VRML coordinate index
-   local index
+procedure u_crd_idx(i);		#: create VRML coordinate index
+   local index;
 
    index := "[\n";
 
-   every index ||:= (0 to i - 1) || ",\n"
+   every index ||:= (0 to i - 1) || ",\n";
 
-   return index ||:= "\n]"
+   return index ||:= "\n]";
 
 end
 
@@ -85,48 +85,48 @@ end
 
 
 
-procedure vrml1(x, f) 		#: write VRML 1.0 file
+procedure vrml1(x, f); 		#: write VRML 1.0 file
 
    /f := &output;
 
    write(f, "#VRML V1.0 ascii");
 
-   render(x, f)
+   render(x, f);
 
 end
 
-procedure vrml2(x, f)		#: produce VRML 2.0 file
+procedure vrml2(x, f);		#: produce VRML 2.0 file
 
    write(f, "#VRML V2.0 utf8");
 
-   render(x, f)
+   render(x, f);
 
 end
 
-procedure render(x, f)		# render VRML object
-   local i, bar, fieldname, input
-   static indent
+procedure render(x, f);		# render VRML object
+   local i, bar, fieldname, input;
+   static indent;
 
-   initial indent := 0
+   initial indent := 0;
 
-   if /x then return		# skip any stray null values
+   if /x then return;		# skip any stray null values
 
-   indent +:= 3
+   indent +:= 3;
    bar := repl(" ", indent);
 
    if x := string(x) then write(f, " ", x)
    else case type(x) of {
-      "USE": write(f, bar, "USE ", x.name)
+      "USE": write(f, bar, "USE ", x.name);
       "DEF": {
          writes(f, bar, "DEF ", x.name);
          render(x.node, f)
-         }
-      "Comment": write(f, "# ", x.text)
+         };
+      "Comment": write(f, "# ", x.text);
       "Include":  {
          input := open(x.name) | stop("*** cannot find inline file");
-         while write(f, read(input))
+         while write(f, read(input));
          close(input)
-         }
+         };
       default: {				# all other nodes
          write(f, bar, type(x), " {");  # must be record for VRML node
          every i := 1 to *x do {
@@ -136,25 +136,25 @@ procedure render(x, f)		# render VRML object
             else {
                writes(f, bar, "   ");
                fieldname := field(x, i);
-               if fieldname ~== "null" then writes(f, fieldname)
+               if fieldname ~== "null" then writes(f, fieldname);
                render(x[i], f)
                }
-            }
+            };
          write(f, bar, "   }")
          }
-      }
+      };
 
-   indent -:= 3
+   indent -:= 3;
 
-   return
+   return;
 
 end
 
-procedure vrml_color(s)
-   local result
-   static factor
+procedure vrml_color(s);
+   local result;
+   static factor;
 
-   initial factor := real(2 ^ 16 - 1)
+   initial factor := real(2 ^ 16 - 1);
 
    s := ColorValue(s) | fail;
 
@@ -165,8 +165,8 @@ procedure vrml_color(s)
          result ||:= (tab(upto(',') | 0) / factor) || " ";
          move(1)
          }
-      }
+      };
 
-   return result
+   return result;
 
 end

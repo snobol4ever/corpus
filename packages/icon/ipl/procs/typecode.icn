@@ -24,18 +24,18 @@
 #
 ############################################################################
 
-procedure typecode(x)
-   local code
+procedure typecode(x);
+   local code;
 				# be careful of records and their constructors
    image(x) ? {
-      if ="record constructor " then return "p"
+      if ="record constructor " then return "p";
       if ="record" then return "R"
-      }
+      };
 
    code := type(x);
 
    if code == ("list" | "set" | "table" | "co-expression") then
-      code := map(code,&lcase,&ucase)
+      code := map(code,&lcase,&ucase);
 
-   return code[1]
+   return code[1];
 end

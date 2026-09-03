@@ -183,44 +183,44 @@ global biggest_nonmeta_str, __endpoint
 record o_a_s(op,arg,state)
 
 
-procedure findre(re, s, i, j)
+procedure findre(re, s, i, j);
 
-    local p, default_val, x, nonmeta_len, tokenized_re, tmp
-    static FSTN_table, STRING_table
+    local p, default_val, x, nonmeta_len, tokenized_re, tmp;
+    static FSTN_table, STRING_table;
     initial {
 	FSTN_table := table();
 	STRING_table := table()
-    }
+    };
 
     if /re then {
 	FSTN_table := table();
 	STRING_table := table();
-	collect()  # do it *now*
+	collect();  # do it *now*
 	return
-    }
+    };
 
     if /s := &subject
     then default_val := &pos
-    else default_val := 1
+    else default_val := 1;
 
     if \i then {
 	if i < 1 then
 	    i := *s + (i+1)
     }
-    else i := default_val
+    else i := default_val;
 	
     if \j then {
 	if j < 1 then
 	    j := *s + (j+1)
     }
-    else j := *s+1
+    else j := *s+1;
 
     if /FSTN_table[re] then {
 	# If we haven't seen this re before, then...
 	if \STRING_table[re] then {
 	    # ...if it's in the STRING_table, use plain find()
 	    every p := find(STRING_table[re],s,i,j)
-	    do { __endpoint := p + *STRING_table[re]; suspend p }
+	    do { __endpoint := p + *STRING_table[re]; suspend p };
 	    fail
 	}
 	else {
@@ -231,21 +231,21 @@ procedure findre(re, s, i, j)
 	    tokenized_re := tokenize(re);
 	    if 0 > !tokenized_re then {
 		# if at least one element is < 0, re has metas
-		MakeFSTN(tokenized_re) | err_out(re,2)
+		MakeFSTN(tokenized_re) | err_out(re,2);
 		# both biggest_nonmeta_str and state_table are global
 		/FSTN_table[re] := [.biggest_nonmeta_str, copy(state_table)]
 	    }
 	    else {
 		# re has no metas; put the input string into STRING_table
 		# for future reference, and execute find() at once
-		tmp := ""; every tmp ||:= char(!tokenized_re)
+		tmp := ""; every tmp ||:= char(!tokenized_re);
 		insert(STRING_table,re,tmp);
 		every p := find(STRING_table[re],s,i,j)
-		do { __endpoint := p + *STRING_table[re]; suspend p }
+		do { __endpoint := p + *STRING_table[re]; suspend p };
 		fail
 	    }
 	}
-    }
+    };
 
 
     if nonmeta_len := (1 < *FSTN_table[re][1]) then {
@@ -265,21 +265,21 @@ procedure findre(re, s, i, j)
 	    (__endpoint := apply_FSTN(&null,FSTN_table[re][2])) &
 	    (suspend x)
 	}
-    }
+    };
 
 end
 
 
 
-procedure apply_FSTN(ini,tbl)
+procedure apply_FSTN(ini,tbl);
 
-    local biggest_pos, POS, tmp, fin
-    static s_tbl
+    local biggest_pos, POS, tmp, fin;
+    static s_tbl;
 
     /ini := 1 & s_tbl := tbl & biggest_pos := 1;
     if ini = 0 then {
 	return &pos
-    }
+    };
     POS := &pos;
     fin := 0;
 
@@ -292,15 +292,15 @@ procedure apply_FSTN(ini,tbl)
 	    else ini := tmp.state
 	}
 	else (&pos := POS, fail)
-    }
+    };
 
 end
     
 
 
-procedure tokenize(s)
+procedure tokenize(s);
 
-    local token_list, chr, tmp, b_loc, next_one, fixed_length_token_list, i
+    local token_list, chr, tmp, b_loc, next_one, fixed_length_token_list, i;
 
     token_list := list();
     s ? {
@@ -317,23 +317,23 @@ procedure tokenize(s)
 		    "*"    : {
 			tab(many('*+?'));
 			put(token_list,-ord("*"))
-		    }
+		    };
 		    "+"    : {
 			tmp := tab(many('*?+')) | &null;
 			if upto('*?',\tmp)
 			then put(token_list,-ord("*"))
 			else put(token_list,-ord("+"))
-		    }
+		    };
 		    "?"    : {
 			tmp := tab(many('*?+')) | &null;
 			if upto('*+',\tmp)
 			then put(token_list,-ord("*"))
 			else put(token_list,-ord("?"))
-		    }
+		    };
 		    "("    : {
 			tab(many('*+?'));
 			put(token_list,-ord("("))
-		    }
+		    };
 		    default: {
 			put(token_list,-ord(chr))
 		    }
@@ -344,41 +344,41 @@ procedure tokenize(s)
 		    # More egrep compatibility stuff.
 		    "["    : {
 			b_loc := find("[") | *&subject+1;
-			every next_one := find("]",,,b_loc)
-			\next_one ~= &pos | err_out(s,2,chr)
+			every next_one := find("]",,,b_loc);
+			\next_one ~= &pos | err_out(s,2,chr);
 			put(token_list,-ord(chr))
-		    }
+		    };
                     "]"    : {
 			if &pos = (\next_one+1)
 			then put(token_list,-ord(chr)) &
 			     next_one := &null
 			else put(token_list,ord(chr))
-		    }
+		    };
 		    default: put(token_list,ord(chr))
 		}
 	    }
 	}
-    }
+    };
 
     token_list := UnMetaBrackets(token_list);
 
     fixed_length_token_list := list(*token_list);
     every i := 1 to *token_list
-    do fixed_length_token_list[i] := token_list[i]
-    return fixed_length_token_list
+    do fixed_length_token_list[i] := token_list[i];
+    return fixed_length_token_list;
 
 end
 
 
 
-procedure UnMetaBrackets(l)
+procedure UnMetaBrackets(l);
 
     # Since brackets delineate a cset, it doesn't make
     # any sense to have metacharacters inside of them.
     # UnMetaBrackets makes sure there are no metacharac-
     # ters inside of the braces.
 
-    local tmplst, i, Lb, Rb
+    local tmplst, i, Lb, Rb;
 
     tmplst := list(); i := 0;
     Lb := -ord("[");
@@ -388,44 +388,44 @@ procedure UnMetaBrackets(l)
 	if l[i] = Lb then {
 	    put(tmplst,l[i]);
 	    until l[i +:= 1] = Rb
-	    do put(tmplst,abs(l[i]))
+	    do put(tmplst,abs(l[i]));
 	    put(tmplst,l[i])
 	}
 	else put(tmplst,l[i])
-    }
-    return tmplst
+    };
+    return tmplst;
 
 end
 
 
 
-procedure MakeFSTN(l,INI,FIN)
+procedure MakeFSTN(l,INI,FIN);
 
     # MakeFSTN recursively descends through the tree structure
     # implied by the tokenized string, l, recording in (global)
     # fstn_table a list of operations to be performed, and the
     # initial and final states which apply to them.
 
-    local i, inter, inter2, tmp, Op, Arg
-    static Lp, Rp, Sl, Lb, Rb, Caret_inside, Dot, Dollar, Caret_outside
+    local i, inter, inter2, tmp, Op, Arg;
+    static Lp, Rp, Sl, Lb, Rb, Caret_inside, Dot, Dollar, Caret_outside;
     # global biggest_nonmeta_str, slash_present, parends_present
     initial {
 	Lp := -ord("("); Rp := -ord(")");
 	Sl := -ord("|");
 	Lb := -ord("["); Rb := -ord("]"); Caret_inside := ord("^");
 	Dot := -ord("."); Dollar := -ord("$"); Caret_outside := -ord("^")
-    }
+    };
 
     /INI := 1 & state_table := table() &
-    NextState("new") & biggest_nonmeta_str := ""
+    NextState("new") & biggest_nonmeta_str := "";
     /FIN := 0;
 
     # I haven't bothered to test for empty lists everywhere.
     if *l = 0 then {
 	/state_table[INI] := [];
-	put(state_table[INI],o_a_s(zSucceed,&null,FIN))
+	put(state_table[INI],o_a_s(zSucceed,&null,FIN));
 	return
-    }
+    };
 
     # HUNT DOWN THE SLASH (ALTERNATION OPERATOR)
     every i := 1 to *l do {
@@ -435,14 +435,14 @@ procedure MakeFSTN(l,INI,FIN)
 		inter := NextState();
 		inter2:= NextState();
 		MakeFSTN(l[1:i],inter2,FIN);
-		MakeFSTN(l[i+1:0],inter,FIN)
+		MakeFSTN(l[i+1:0],inter,FIN);
 		/state_table[INI] := [];
 		put(state_table[INI],o_a_s(apply_FSTN,inter2,0));
-		put(state_table[INI],o_a_s(apply_FSTN,inter,0))
+		put(state_table[INI],o_a_s(apply_FSTN,inter,0));
 		return
 	    }
 	}
-    }
+    };
 
     # HUNT DOWN PARENTHESES
     if l[1] = Lp then {
@@ -454,30 +454,30 @@ procedure MakeFSTN(l,INI,FIN)
 		    /state_table[INI] := [];
 		    put(state_table[INI],o_a_s(apply_FSTN,inter,0));
 		    MakeFSTN(l[2:i],INI,INI);
-		    MakeFSTN(l[i+2:0],inter,FIN)
+		    MakeFSTN(l[i+2:0],inter,FIN);
 		    return
-		}
+		};
 		-ord("+")   : {
-		    inter2 := NextState()
-		    /state_table[inter2] := []
-		    MakeFSTN(l[2:i],INI,inter2)
-		    put(state_table[inter2],o_a_s(apply_FSTN,inter,0))
-		    MakeFSTN(l[2:i],inter2,inter2)
-		    MakeFSTN(l[i+2:0],inter,FIN)
+		    inter2 := NextState();
+		    /state_table[inter2] := [];
+		    MakeFSTN(l[2:i],INI,inter2);
+		    put(state_table[inter2],o_a_s(apply_FSTN,inter,0));
+		    MakeFSTN(l[2:i],inter2,inter2);
+		    MakeFSTN(l[i+2:0],inter,FIN);
 		    return
-		}
+		};
 		-ord("?")   : {
-		    /state_table[INI] := []
-		    put(state_table[INI],o_a_s(apply_FSTN,inter,0))
-		    MakeFSTN(l[2:i],INI,inter)
-		    MakeFSTN(l[i+2:0],inter,FIN)
+		    /state_table[INI] := [];
+		    put(state_table[INI],o_a_s(apply_FSTN,inter,0));
+		    MakeFSTN(l[2:i],INI,inter);
+		    MakeFSTN(l[i+2:0],inter,FIN);
 		    return
 		}
 	    }
 	}
 	else {
-	    MakeFSTN(l[2:i],INI,inter)
-	    MakeFSTN(l[i+1:0],inter,FIN)
+	    MakeFSTN(l[2:i],INI,inter);
+	    MakeFSTN(l[i+1:0],inter,FIN);
 	    return
 	}
     }
@@ -485,57 +485,57 @@ procedure MakeFSTN(l,INI,FIN)
 	every i := 1 to *l do {
 	    case l[i] of {
 		Lp     : {
-		    inter := NextState()
-		    MakeFSTN(l[1:i],INI,inter)
-		    /parends_present := "yes"
-		    MakeFSTN(l[i:0],inter,FIN)
+		    inter := NextState();
+		    MakeFSTN(l[1:i],INI,inter);
+		    /parends_present := "yes";
+		    MakeFSTN(l[i:0],inter,FIN);
 		    return
-		}
+		};
 		Rp     : err_out(l,2,")")
 	    }
 	}
-    }
+    };
 
     # NOW, HUNT DOWN BRACKETS
     if l[1] = Lb then {
-	i := tab_bal(l,Lb,Rb) | err_out(l,2,"[")
-	inter := NextState()
-	tmp := ""; every tmp ||:= char(l[2 to i-1])
+	i := tab_bal(l,Lb,Rb) | err_out(l,2,"[");
+	inter := NextState();
+	tmp := ""; every tmp ||:= char(l[2 to i-1]);
 	if Caret_inside = l[2]
 	then tmp := ~cset(Expand(tmp[2:0]))
-	else tmp :=  cset(Expand(tmp))
+	else tmp :=  cset(Expand(tmp));
 	if any('*+?',char(abs(0 > l[i+1]))) then {
 	    case l[i+1] of {
 		-ord("*")   : {
-		    /state_table[INI] := []
-		    put(state_table[INI],o_a_s(apply_FSTN,inter,0))
-		    put(state_table[INI],o_a_s(any,tmp,INI))
-		    MakeFSTN(l[i+2:0],inter,FIN)
+		    /state_table[INI] := [];
+		    put(state_table[INI],o_a_s(apply_FSTN,inter,0));
+		    put(state_table[INI],o_a_s(any,tmp,INI));
+		    MakeFSTN(l[i+2:0],inter,FIN);
 		    return
-		}
+		};
 		-ord("+")   : {
-		    inter2 := NextState()
-		    /state_table[INI] := []
-		    put(state_table[INI],o_a_s(any,tmp,inter2))
-		    /state_table[inter2] := []
-		    put(state_table[inter2],o_a_s(apply_FSTN,inter,0))
-		    put(state_table[inter2],o_a_s(any,tmp,inter2))
-		    MakeFSTN(l[i+2:0],inter,FIN)
+		    inter2 := NextState();
+		    /state_table[INI] := [];
+		    put(state_table[INI],o_a_s(any,tmp,inter2));
+		    /state_table[inter2] := [];
+		    put(state_table[inter2],o_a_s(apply_FSTN,inter,0));
+		    put(state_table[inter2],o_a_s(any,tmp,inter2));
+		    MakeFSTN(l[i+2:0],inter,FIN);
 		    return
-		}
+		};
 		-ord("?")   : {
-		    /state_table[INI] := []
-		    put(state_table[INI],o_a_s(apply_FSTN,inter,0))
-		    put(state_table[INI],o_a_s(any,tmp,inter))
-		    MakeFSTN(l[i+2:0],inter,FIN)
+		    /state_table[INI] := [];
+		    put(state_table[INI],o_a_s(apply_FSTN,inter,0));
+		    put(state_table[INI],o_a_s(any,tmp,inter));
+		    MakeFSTN(l[i+2:0],inter,FIN);
 		    return
 		}
 	    }
 	}
 	else {
-	    /state_table[INI] := []
-	    put(state_table[INI],o_a_s(any,tmp,inter))
-	    MakeFSTN(l[i+1:0],inter,FIN)
+	    /state_table[INI] := [];
+	    put(state_table[INI],o_a_s(any,tmp,inter));
+	    MakeFSTN(l[i+1:0],inter,FIN);
 	    return
 	}
     }
@@ -543,153 +543,153 @@ procedure MakeFSTN(l,INI,FIN)
 	every i := 1 to *l do {
 	    case l[i] of {
 		Lb     : {
-		    inter := NextState()
-		    MakeFSTN(l[1:i],INI,inter)
-		    MakeFSTN(l[i:0],inter,FIN)
+		    inter := NextState();
+		    MakeFSTN(l[1:i],INI,inter);
+		    MakeFSTN(l[i:0],inter,FIN);
 		    return
-		}
+		};
 		Rb     : err_out(l,2,"]")
 	    }
 	}
-    }
+    };
 
     # FIND INITIAL SEQUENCES OF POSITIVE INTEGERS, CONCATENATE THEM
     if i := match_positive_ints(l) then {
-	inter := NextState()
-	tmp := Ints2String(l[1:i])
+	inter := NextState();
+	tmp := Ints2String(l[1:i]);
 	# if a slash has been encountered already, forget optimizing
         # in this way; if parends are present, too, then forget it,
         # unless we are at the beginning or end of the input string
 	if  INI = 1 | FIN = 2 | /parends_present &
 	    /slash_present & *tmp > *biggest_nonmeta_str
-	then biggest_nonmeta_str := tmp
-	/state_table[INI] := []
-	put(state_table[INI],o_a_s(match,tmp,inter))
-	MakeFSTN(l[i:0],inter,FIN)
+	then biggest_nonmeta_str := tmp;
+	/state_table[INI] := [];
+	put(state_table[INI],o_a_s(match,tmp,inter));
+	MakeFSTN(l[i:0],inter,FIN);
 	return
-    }
+    };
 
     # OKAY, CLEAN UP ALL THE JUNK THAT'S LEFT
-    i := 0
+    i := 0;
     while (i +:= 1) <= *l do {
 	case l[i] of {
-	    Dot          : { Op := any;   Arg := &cset }
-	    Dollar       : { Op := pos;   Arg := 0     }
-	    Caret_outside: { Op := pos;   Arg := 1     }
+	    Dot          : { Op := any;   Arg := &cset };
+	    Dollar       : { Op := pos;   Arg := 0     };
+	    Caret_outside: { Op := pos;   Arg := 1     };
 	    default      : { Op := match; Arg := char(0 < l[i]) }
-	} | err_out(l,2,char(abs(l[i])))
-	inter := NextState()
+	} | err_out(l,2,char(abs(l[i])));
+	inter := NextState();
 	if any('*+?',char(abs(0 > l[i+1]))) then {
 	    case l[i+1] of {
 		-ord("*")   : {
-		    /state_table[INI] := []
-		    put(state_table[INI],o_a_s(apply_FSTN,inter,0))
-		    put(state_table[INI],o_a_s(Op,Arg,INI))
-		    MakeFSTN(l[i+2:0],inter,FIN)
+		    /state_table[INI] := [];
+		    put(state_table[INI],o_a_s(apply_FSTN,inter,0));
+		    put(state_table[INI],o_a_s(Op,Arg,INI));
+		    MakeFSTN(l[i+2:0],inter,FIN);
 		    return
-		}
+		};
 		-ord("+")   : {
-		    inter2 := NextState()
-		    /state_table[INI] := []
-		    put(state_table[INI],o_a_s(Op,Arg,inter2))
-		    /state_table[inter2] := []
-		    put(state_table[inter2],o_a_s(apply_FSTN,inter,0))
-		    put(state_table[inter2],o_a_s(Op,Arg,inter2))
-		    MakeFSTN(l[i+2:0],inter,FIN)
+		    inter2 := NextState();
+		    /state_table[INI] := [];
+		    put(state_table[INI],o_a_s(Op,Arg,inter2));
+		    /state_table[inter2] := [];
+		    put(state_table[inter2],o_a_s(apply_FSTN,inter,0));
+		    put(state_table[inter2],o_a_s(Op,Arg,inter2));
+		    MakeFSTN(l[i+2:0],inter,FIN);
 		    return
-		}
+		};
 		-ord("?")   : {
-		    /state_table[INI] := []
-		    put(state_table[INI],o_a_s(apply_FSTN,inter,0))
-		    put(state_table[INI],o_a_s(Op,Arg,inter))
-		    MakeFSTN(l[i+2:0],inter,FIN)
+		    /state_table[INI] := [];
+		    put(state_table[INI],o_a_s(apply_FSTN,inter,0));
+		    put(state_table[INI],o_a_s(Op,Arg,inter));
+		    MakeFSTN(l[i+2:0],inter,FIN);
 		    return
 		}
 	    }
 	}
 	else {
-	    /state_table[INI] := []
-	    put(state_table[INI],o_a_s(Op,Arg,inter))
-	    MakeFSTN(l[i+1:0],inter,FIN)
+	    /state_table[INI] := [];
+	    put(state_table[INI],o_a_s(Op,Arg,inter));
+	    MakeFSTN(l[i+1:0],inter,FIN);
 	    return
 	}
-    }
+    };
 
     # WE SHOULD NOW BE DONE INSERTING EVERYTHING INTO state_table
     # IF WE GET TO HERE, WE'VE PARSED INCORRECTLY!
-    err_out(l,4)
+    err_out(l,4);
 
 end
 
 
 
-procedure NextState(new)
-    static nextstate
+procedure NextState(new);
+    static nextstate;
     if \new then nextstate := 1
-    else nextstate +:= 1
-    return nextstate
+    else nextstate +:= 1;
+    return nextstate;
 end
 
 
 
-procedure err_out(x,i,elem)
-    writes(&errout,"Error number ",i," parsing ",image(x)," at ")
+procedure err_out(x,i,elem);
+    writes(&errout,"Error number ",i," parsing ",image(x)," at ");
     if \elem 
     then write(&errout,image(elem),".")
-    else write(&errout,"(?).")
-    exit(i)
+    else write(&errout,"(?).");
+    exit(i);
 end
 
 
 
-procedure zSucceed()
-    return .&pos
+procedure zSucceed();
+    return .&pos;
 end
 
 
 
-procedure Expand(s)
+procedure Expand(s);
 
-    local s2, c1, c2
+    local s2, c1, c2;
 
-    s2 := ""
+    s2 := "";
     s ? {
-	s2 ||:= ="^"
-	s2 ||:= ="-"
+	s2 ||:= ="^";
+	s2 ||:= ="-";
 	while s2 ||:= tab(find("-")-1) do {
 	    if (c1 := move(1), ="-",
 		c2 := move(1),
 		c1 << c2)
 	    then every s2 ||:= char(ord(c1) to ord(c2))
 	    else s2 ||:= 1(move(2), not(pos(0))) | err_out(s,2,"-")
-	}
+	};
 	s2 ||:= tab(0)
-    }
-    return s2
+    };
+    return s2;
 
 end
 
 
 
-procedure tab_bal(l,i1,i2)
+procedure tab_bal(l,i1,i2);
 
-    local i, i1_count, i2_count
+    local i, i1_count, i2_count;
 
-    i := 0
-    i1_count := 0; i2_count := 0
+    i := 0;
+    i1_count := 0; i2_count := 0;
     while (i +:= 1) <= *l do {
 	case l[i] of {
-	    i1  : i1_count +:= 1
+	    i1  : i1_count +:= 1;
 	    i2  : i2_count +:= 1
-	}
+	};
 	if i1_count = i2_count
 	then suspend i
-    }
+    };
 
 end
 
 
-procedure match_positive_ints(l)
+procedure match_positive_ints(l);
     
     # Matches the longest sequence of positive integers in l,
     # beginning at l[1], which neither contains, nor is fol-
@@ -698,40 +698,40 @@ procedure match_positive_ints(l)
     # match_positive_ints will return 3.  [55, -42] will cause
     # it to fail rather than return 1 (NOTE WELL!).
 
-    local i
+    local i;
 
     every i := 1 to *l do {
 	if l[i] < 0
 	then return (3 < i) - 1 | fail
-    }
-    return *l + 1
+    };
+    return *l + 1;
 
 end
 
 
-procedure Ints2String(l)
+procedure Ints2String(l);
 
-    local tmp
+    local tmp;
 
-    tmp := ""
-    every tmp ||:= char(!l)
-    return tmp
+    tmp := "";
+    every tmp ||:= char(!l);
+    return tmp;
 
 end
 
 
-procedure StripChar(s,s2)
+procedure StripChar(s,s2);
 
-    local tmp
+    local tmp;
 
     if find(s2,s) then {
-	tmp := ""
+	tmp := "";
 	s ? {
 	    while tmp ||:= tab(find("s2"))
-	    do tab(many(cset(s2)))
+	    do tab(many(cset(s2)));
 	    tmp ||:= tab(0)
 	}
-    }
-    return \tmp | s
+    };
+    return \tmp | s;
 
 end

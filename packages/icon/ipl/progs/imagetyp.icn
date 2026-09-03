@@ -57,15 +57,15 @@
 
 link bincvt
 
-procedure main()
-   local s
+procedure main();
+   local s;
 
-   while s := writes(read()) do write(" ", imagetyp(s))
+   while s := writes(read()) do write(" ", imagetyp(s));
 
 end
 
-procedure imagetyp(s)
-   local input, header, type
+procedure imagetyp(s);
+   local input, header, type;
 
    input := open(s, "u") | fail;  # must be untranslated
 
@@ -96,14 +96,14 @@ procedure imagetyp(s)
          else if move(512) & move(11) & =("\x11" | "\x00\x11") then "pict"
          else &fail			# none of that worked
          }
-      }
+      };
 
-   if \type then return type
+   if \type then return type;
 
    seek(input, -17);  # and now for one at the end ...
 
-   if read(input) == "TRUEVISION-TARGA\x0" then return "targa"
+   if read(input) == "TRUEVISION-TARGA\x0" then return "targa";
 
-   return "?"				# who knows?
+   return "?";				# who knows?
 
 end

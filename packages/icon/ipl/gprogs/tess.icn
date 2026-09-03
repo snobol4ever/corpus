@@ -74,7 +74,7 @@ global vs, vt,  ne,  pi, twopi, vs2, vs3,   # view parameters
 #
 # this is the main drawing loop
 #
-procedure main(stuff)
+procedure main(stuff);
   setup(stuff);
   getview();
   repeat
@@ -82,14 +82,14 @@ procedure main(stuff)
     genview();
     testkey(stuff);
     changeview()
-    }
+    };
   end
 
 #
 # this sets up some main x variables and constants
 #
-procedure setup(settings)
-  local i
+procedure setup(settings);
+  local i;
   vs := real(settings[1] | 1024.0);
   vs2:= vs * 5.0;
   vs3:= -vs* 4.0;
@@ -120,11 +120,11 @@ procedure setup(settings)
                   -9, 10, 11, 12,  9, 13, 14, 15,
                   16, 13,-10, 14,-11, 15,-12, 16 ];
   colors  := [];
-  every i := 1 to 16 do put(colors,"yellow")
-  every i := 1 to 16 do put(colors,"red")
-  every i := 1 to 16 do put(colors,"cyan")
+  every i := 1 to 16 do put(colors,"yellow");
+  every i := 1 to 16 do put(colors,"red");
+  every i := 1 to 16 do put(colors,"cyan");
   projtessarect := table(0);
-  oldproj       := table(0)
+  oldproj       := table(0);
   end
 
 #SUB BUILD WINDOW & OTHER NEEDED CONSTANTS
@@ -133,7 +133,7 @@ procedure setup(settings)
 #
 # set up other important windowing variables and constants
 #
-procedure getview()
+procedure getview();
   ox      := vs / 2.0;
   oy      := vs / 2.0;
   lines   := integer(vs / 14.22 + 0.5);
@@ -144,7 +144,7 @@ procedure getview()
   h       := pi / 4.0     ; dh      := 0.0040        ; xi      := 0.0;
   p       := 0.0          ; dp      := 0.0          ; yi      := 0.0;
   b       := 0.0          ; db      := 0.0;
-  a       := 0.015        ; da      := 0.0
+  a       := 0.015        ; da      := 0.0;
 #
 # configure the X-connection
 #
@@ -156,12 +156,12 @@ procedure getview()
     {
     write("Can't open window. Press <RETURN>");
     stop("ABEND ANOX")
-    }
+    };
   WSync(xwindow);
 #  XSetStipple(xwindow,8,0)
   WAttrib(xwindow,"drawop=xor");
   GotoRC(xwindow,1,1);
-  write(xwindow,"Tessarect Simulation\n")
+  write(xwindow,"Tessarect Simulation\n");
 #  write(xwindow," x : move x-axis          | r : reset to original settings")
 #  write(xwindow," y : move y-axis          | o : move futher out")
 #  write(xwindow," z : move z-axis          | i : move closer in ")
@@ -176,7 +176,7 @@ procedure getview()
 #
 # calculate points in 4 dimensions
 #
-procedure calcview()
+procedure calcview();
   sh := sin(h)    ; ch := cos(h);
   sp := sin(p)    ; cp := cos(p);
   sb := sin(b)    ; cb := cos(b);
@@ -184,22 +184,22 @@ procedure calcview()
   vx := -dv * ca * cp * sh;
   vy := -dv * ca * cp * ch;
   vz := -dv * ca * sp;
-  vw := -dv * sa
+  vw := -dv * sa;
   end
 #
 # run a display pass
 #
-procedure genview()
+procedure genview();
   calcview();
   project();
   connect();
-  oldproj := copy(projtessarect)
+  oldproj := copy(projtessarect);
   end
 #
 # project 4 dimensions to fewer dimensions
 #
-procedure project()
-  local i, q, xa, ya, za, tx, ty, tz
+procedure project();
+  local i, q, xa, ya, za, tx, ty, tz;
   projtessarect := table(0);
   every i := 1 to vt do
     {
@@ -223,7 +223,7 @@ procedure project()
 
     projtessarect[i || "," || 1] := ox + ppux * d * tx / ty;
     projtessarect[i || "," || 2] := oy + ppuy * d * tz / ty
-    }
+    };
   end
 
 #EJECT
@@ -231,32 +231,32 @@ procedure project()
 #
 # perform motion
 #
-procedure changeview()
-  if (h +:= dh) > twopi  then h  -:= twopi
-  if (p -:= dp) < -twopi then p  +:= twopi
-  if (a +:= da) > twopi  then a  -:= twopi
-  if (b -:= db) < -twopi then b  +:= twopi
+procedure changeview();
+  if (h +:= dh) > twopi  then h  -:= twopi;
+  if (p -:= dp) < -twopi then p  +:= twopi;
+  if (a +:= da) > twopi  then a  -:= twopi;
+  if (b -:= db) < -twopi then b  +:= twopi;
   if (dv > 0.0) & (dv < 6.0) then
     {
     dv +:= dd
     } else {
     dv -:= (2.0 * dd);
     dd  := 0.0
-    }
+    };
   if (ox > 0.0) & (ox < vs) then
     {
     ox +:= xi
     } else {
     ox -:= (2.0 * xi);
     xi  := 0.0
-    }
+    };
   if (oy > 0.0) & (oy < vs) then
     {
     oy +:= yi
     } else {
     oy -:= (2.0 * yi);
     yi  := 0.0
-    }
+    };
   end
 
 #EJECT
@@ -264,11 +264,11 @@ procedure changeview()
 #
 # draw it
 #
-procedure connect()
-  local i, pt, b1, b2, a1, a2, oldxb, oldyb
+procedure connect();
+  local i, pt, b1, b2, a1, a2, oldxb, oldyb;
   every i := 1 to ne do
     {
-    if i=(1|17|33) then WAttrib(xwindow,"fg=" || colors[i])
+    if i=(1|17|33) then WAttrib(xwindow,"fg=" || colors[i]);
     pt := abs(edges[i]);
     b1 := oldproj[pt || "," || 1];
     b2 := oldproj[pt || "," || 2];
@@ -281,26 +281,26 @@ procedure connect()
       oldxb:= b1;
       oldyb:= b2;
       next
-      }
+      };
 
     if ((vs2 > oldxb > vs3) &
         (vs2 > b1    > vs3) &
         (vs2 > oldyb > vs3) &
         (vs2 > b2    > vs3)) then
-       DrawLine(xwindow,oldxb,oldyb,b1,b2)
+       DrawLine(xwindow,oldxb,oldyb,b1,b2);
 
     if ((vs2 > oldx > vs3) &
         (vs2 > a1   > vs3) &
         (vs2 > oldy > vs3) &
         (vs2 > a2   > vs3)) then
-       DrawLine(xwindow,oldx,oldy,a1,a2)
+       DrawLine(xwindow,oldx,oldy,a1,a2);
 
     oldx := a1;
     oldy := a2;
     oldxb:= b1;
     oldyb:= b2
-    }
-  WSync(xwindow)
+    };
+  WSync(xwindow);
   end
 
 #EJECT
@@ -308,12 +308,12 @@ procedure connect()
 #
 # sense the outside world
 #
-procedure testkey(window)
-  local things, request
+procedure testkey(window);
+  local things, request;
   static    uparrow,  downarrow, leftarrow,   rightarrow,
             xrotate,  yrotate,   zrotate,     arotate,
             closer,   further,   halt,        freeze,
-            quit,     restart
+            quit,     restart;
   initial { uparrow   := "65362" ; downarrow  := "65364";
             leftarrow := "65361" ; rightarrow := "65363";
             xrotate   := "x"     ; yrotate    := "y";
@@ -321,26 +321,26 @@ procedure testkey(window)
             closer    := "i"     ; further    := "o";
             halt      := " "     ; freeze     := "f";
             quit      := "q"     ; restart    := "r"
-          }
+          };
   if (things := Pending(xwindow)) & (*things > 0) then
     {
     request := map(Event(xwindow))
-    } 
+    }; 
   case request of
     {
-    xrotate    : dh := if dh = 0.0 then 0.0070 else 0.00
-    yrotate    : dp := if dp = 0.0 then 0.0039 else 0.00
-    zrotate    : db := if db = 0.0 then 0.0025 else 0.00
-    arotate    : da := if da = 0.0 then 0.0016 else 0.00
-    closer     : dd := if dd = 0.0 then -0.05 else 0.00
-    further    : dd := if dd = 0.0 then 0.05  else 0.00
-    leftarrow  : xi := -5.0
-    rightarrow : xi :=  5.0
-    uparrow    : yi := -5.0
-    downarrow  : yi :=  5.0
-    halt       : { xi := 0.00 ; yi := 0.00 ; dd := 0.00 }
-    freeze     : { dh := 0.00 ; dp := 0.00 ; db := 0.00 ; da := 0.00 }
-    restart    : { close(xwindow) ; setup(window) ; getview() ; connect() }
+    xrotate    : dh := if dh = 0.0 then 0.0070 else 0.00;
+    yrotate    : dp := if dp = 0.0 then 0.0039 else 0.00;
+    zrotate    : db := if db = 0.0 then 0.0025 else 0.00;
+    arotate    : da := if da = 0.0 then 0.0016 else 0.00;
+    closer     : dd := if dd = 0.0 then -0.05 else 0.00;
+    further    : dd := if dd = 0.0 then 0.05  else 0.00;
+    leftarrow  : xi := -5.0;
+    rightarrow : xi :=  5.0;
+    uparrow    : yi := -5.0;
+    downarrow  : yi :=  5.0;
+    halt       : { xi := 0.00 ; yi := 0.00 ; dd := 0.00 };
+    freeze     : { dh := 0.00 ; dp := 0.00 ; db := 0.00 ; da := 0.00 };
+    restart    : { close(xwindow) ; setup(window) ; getview() ; connect() };
     quit       : stop("Execution Interrupted")
-    }
+    };
   end

@@ -31,77 +31,77 @@
 link fastfncs
 link numbers
 
-procedure partit(i, min, max, k)
-   local j
+procedure partit(i, min, max, k);
+   local j;
 
    if not(integer(i)) | (i < 0) | (\min > \max) then
-      stop("*** illegal argument to partit(i)")
+      stop("*** illegal argument to partit(i)");
 
-   /min := 1
-   /max := i
-   max >:= i
+   /min := 1;
+   /max := i;
+   max >:= i;
    /k := i;
    k >:= max;
    k >:= i;
 
-   if i = 0 then return []
+   if i = 0 then return [];
 
    every j := k to min by -1 do {
       suspend push(partit(i - j, min, max, j), j)
-      }
+      };
 
 end
 
-procedure partcount(i, min, max)
-   local count
+procedure partcount(i, min, max);
+   local count;
 
    count := 0;
 
    every partitret(i, min, max) do
-      count +:= 1
+      count +:= 1;
 
-   return count
+   return count;
 
 end
 
 #  This is a version of partit() that doesn't do all the work
 #  of producing the partitions and is used only by partcount().
 
-procedure partitret(i, min, max, k)
-   local j
+procedure partitret(i, min, max, k);
+   local j;
 
-   /min := 1
+   /min := 1;
    /max := i;
-   max >:= i
+   max >:= i;
    /k := i;
    k >:= max;
    k >:= i;
  
-   if i = 0 then return
+   if i = 0 then return;
 
    every j := k to min by -1 do {
       suspend partitret(i - j, min, max, j)
-      }
+      };
 
 end
 
 #  Partition of an integer into Fibonacci numbers.
 
-procedure fibpart(i)
-   local partl, n
-   static m
+procedure fibpart(i);
+   local partl, n;
+   static m;
 
-   initial    m := 1 / log(( 1 + sqrt(5)) / 2)
+   initial    m := 1 / log(( 1 + sqrt(5)) / 2);
 
    partl := [];
 
    while i > 2 do {
       push(partl, n := fib(ceil(log(i) * m)));
       i -:= n
-      }
+      };
 
-   if i > 0 then push(partl, i)
+   if i > 0 then push(partl, i);
 
-   return partl
+   return partl;
 
 end

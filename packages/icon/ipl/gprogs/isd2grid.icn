@@ -40,8 +40,8 @@ link options
 link wopen
 link xcode
 
-procedure main(args)
-   local draft, win, opts
+procedure main(args);
+   local draft, win, opts;
 
    opts := options(args, "n:");
 
@@ -56,7 +56,7 @@ procedure main(args)
    WAttrib(win, "canvas=normal");
 
    repeat case Event(win) of {		# process low-level user events
-      !"qQ" :  exit()
+      !"qQ" :  exit();
       "s"   :  WriteImage(win, draft.name || "_d.gif")
-      }
+      };
 end

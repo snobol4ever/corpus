@@ -102,38 +102,38 @@ $define MARGIN 10
 
 record Slider_Rec(win, proc, arg, x, y, w, h, lb, ub, n)
 
-procedure slider(win, proc, arg, x, y, w, h, lb, iv, ub)
-   local r
+procedure slider(win, proc, arg, x, y, w, h, lb, iv, ub);
+   local r;
 
    r := Slider_Rec(win, proc, arg, x, y, w, h, lb, ub);
    slidervalue(r, iv);
    if h > w then 	# vertical slider
       sensor(win, &lpress, Exec_Vert_Slider, r, x, y - MARGIN, w, h + 2*MARGIN)
    else			# horizontal slider
-      sensor(win, &lpress, Exec_Horiz_Slider, r, x - MARGIN, y, w + 2*MARGIN, h)
-   return r
+      sensor(win, &lpress, Exec_Horiz_Slider, r, x - MARGIN, y, w + 2*MARGIN, h);
+   return r;
 end
 
-procedure slidervalue(r, v)
-   local n
+procedure slidervalue(r, v);
+   local n;
 
    Erase_Slider_Bar(r);  # erase old handle
    if r.lb ~= r.ub then
       v := real(v - r.lb) / (r.ub - r.lb)
    else
-      v := 0.0
+      v := 0.0;
    v <:= 0.0;
    v >:= 1.0;
    if r.h > r.w then			# if vertical
       n := r.y + integer((1.0 - v) * (r.h - 1) + 0.5)
    else
-      n := r.x + integer(v * (r.w - 1) + 0.5)
-   Set_Slider_Posn(r, n)		# redraw track and handle
-   return
+      n := r.x + integer(v * (r.w - 1) + 0.5);
+   Set_Slider_Posn(r, n);		# redraw track and handle
+   return;
 end
 
-procedure Set_Slider_Posn(r, n)
-   local c
+procedure Set_Slider_Posn(r, n);
+   local c;
 
    r.n := n;
    if r.h > r.w then {
@@ -147,20 +147,20 @@ procedure Set_Slider_Posn(r, n)
       BevelRectangle(r.win, r.x, c - 2, r.w, 4, -2);  # horizontal track
       BevelRectangle(r.win, r.n - 3, r.y, 6, r.h);  # vertical bar
       FillRectangle(r.win, r.n - 1, r.y + 2, 2, r.h - 4)
-      }
-   return
+      };
+   return;
 end
 
-procedure Erase_Slider_Bar(r)
+procedure Erase_Slider_Bar(r);
    if r.h > r.w then
       EraseArea(r.win, r.x, \r.n - 3, r.w, 6)	# horizontal bar on vert. track
    else
-      EraseArea(r.win, \r.n - 3, r.y, 6, r.h)	# vertical bar on horiz. track
-   return
+      EraseArea(r.win, \r.n - 3, r.y, 6, r.h);	# vertical bar on horiz. track
+   return;
 end
 
-procedure Exec_Vert_Slider(win, r, x, y)
-   local e, h, u, args, a, v
+procedure Exec_Vert_Slider(win, r, x, y);
+   local e, h, u, args, a, v;
 
    e := &lpress;
    repeat {
@@ -174,18 +174,18 @@ procedure Exec_Vert_Slider(win, r, x, y)
             v := real(r.y + r.h - y - 1) / real(r.h - 1);  # 0.0 to 1.0
             v := v * (r.ub - r.lb) + r.lb;  # user range
             r.proc(win, r.arg, v)
-            }
+            };
          if e = &lrelease then
             return
-         }
+         };
       e := Event(win);
       y := &y
-      }
-   return
+      };
+   return;
 end
 
-procedure Exec_Horiz_Slider(win, r, x, y)
-   local e, h, u, args, a, v
+procedure Exec_Horiz_Slider(win, r, x, y);
+   local e, h, u, args, a, v;
 
    e := &lpress;
    repeat {
@@ -199,12 +199,12 @@ procedure Exec_Horiz_Slider(win, r, x, y)
             v := real(x - r.x) / real(r.w - 1);  # 0.0 to 1.0
             v := v * (r.ub - r.lb) + r.lb;  # user range
             r.proc(win, r.arg, v)
-            }
+            };
          if e = &lrelease then
             return
-         }
+         };
       e := Event(win);
       x := &x
-      }
-   return
+      };
+   return;
 end

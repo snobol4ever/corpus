@@ -28,11 +28,11 @@
 
 link patutils
 
-procedure main()
-   local rows
+procedure main();
+   local rows;
 
    rows := pat2rows(read());
 
-   every write(!rows)
+   every write(!rows);
 
 end

@@ -55,15 +55,15 @@
 #
 ############################################################################
 
-procedure outbits(i, len)
+procedure outbits(i, len);
 
-    local old_part, new_part, window, old_byte_mask
-    static old_i, old_len, byte_length, byte_mask
+    local old_part, new_part, window, old_byte_mask;
+    static old_i, old_len, byte_length, byte_mask;
     initial {
 	old_i := old_len := 0;
 	byte_length := 8;
 	byte_mask := (2^byte_length)-1
-    }
+    };
 
     old_byte_mask := (0 < 2^old_len - 1) | 0;
     window := byte_length - old_len;
@@ -72,7 +72,7 @@ procedure outbits(i, len)
     # If we have a no-arg invocation, then flush buffer (old_i).
     if /i then {
 	if old_len > 0 then {
-	    old_i := old_len := 0
+	    old_i := old_len := 0;
 	    return char(old_part)
 	} else {
 	    old_i := old_len := 0;
@@ -84,7 +84,7 @@ procedure outbits(i, len)
 	    old_len +:= len;
 	    old_i := ior(ishift(old_part, len-window), i);
 	    fail
-	}
+	};
 #	For debugging purposes.
 #	write("old_byte_mask = ", old_byte_mask)
 #	write("window = ", image(window))
@@ -92,15 +92,15 @@ procedure outbits(i, len)
 #	write("new_part = ", image(new_part))
 #	write("outputting ", image(ior(old_part, new_part)))
 	suspend char(ior(old_part, new_part))
-    }
+    };
 
     until len < byte_length do {
 	suspend char(iand(ishift(i, byte_length-len), byte_mask));
 	len -:= byte_length
-    }
+    };
 
     old_len := len;
     old_i := i;
-    fail
+    fail;
 
 end

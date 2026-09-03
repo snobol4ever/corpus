@@ -118,16 +118,16 @@ global nav_state
 global nav_vidgets
 global nav_window
 
-procedure nav_init()
-   local window_save, atts
+procedure nav_init();
+   local window_save, atts;
 
-   window_save := &window		# save current subject window
+   window_save := &window;		# save current subject window
    &window := &null;  # clear for new subject
    atts := navig_atts();
-   put(atts, "canvas=hidden")
+   put(atts, "canvas=hidden");
    (WOpen ! atts) | stop("*** can't open navigation window");
    nav_vidgets := navig();  # initialize interface
-   nav_window := &window		# name navigation window
+   nav_window := &window;		# name navigation window
    &window := window_save;  # restore previous subject window
 
    files := nav_vidgets["files"];
@@ -135,55 +135,55 @@ procedure nav_init()
 
    nav_file := &null;
 
-   nav_refresh()
+   nav_refresh();
 
-   return
+   return;
 
 end
 
-procedure nav_files_cb(vidget, value)
-   static last_file, last_time
+procedure nav_files_cb(vidget, value);
+   static last_file, last_time;
 
    initial {
       last_file := "";
       last_time := 0
-      }
+      };
 
    if /value then {
-      last_time := 0
+      last_time := 0;
       return
-      }
+      };
 
    if value ?:= tab(upto('/')) then {
       chdir(value);
-      nav_refresh()
+      nav_refresh();
       return
-      }
+      };
 
    nav_file := value;
 
    if (value == last_file) then {
       last_file := "";
-      nav_state := "Okay"
+      nav_state := "Okay";
       return
-      }
+      };
 
    last_time := 0;
-   last_file := value
+   last_file := value;
 
-   return
+   return;
 
 end
 
-procedure nav_refresh()
-   local ls, input
-   static x, y
+procedure nav_refresh();
+   local ls, input;
+   static x, y;
 
    initial {
       x := nav_vidgets["placeholder"].ax;
       y := nav_vidgets["placeholder"].ay;
       directory := ""
-      }
+      };
 
    input := open("pwd", "p");
 
@@ -198,74 +198,74 @@ procedure nav_refresh()
 
    ls := open("ls -a -p .", "p");
 
-   every put(file_list, !ls)
+   every put(file_list, !ls);
 
    VSetItems(files, file_list);
 
-   close(ls)
+   close(ls);
 
-   return
+   return;
 
 end
 
-procedure nav_okay_cb()
+procedure nav_okay_cb();
 
    if /nav_file then {
       Notice("No file selected.");
       fail
-      }
+      };
 
-   nav_state := "Okay"
+   nav_state := "Okay";
 
-   return
+   return;
 
 end
 
-procedure nav_keyboard(e)
+procedure nav_keyboard(e);
 
    case e of {
-      "\r"      :  nav_okay_cb()
-      Key_Home  :  VSetState(files, 1)
-      Key_End   :  VSetState(files, *file_list)
+      "\r"      :  nav_okay_cb();
+      Key_Home  :  VSetState(files, 1);
+      Key_End   :  VSetState(files, *file_list);
       default   :  if type(e) == "string" then nav_locate(e)
-      }
+      };
 
-   return
+   return;
 
 end
 
-procedure nav_locate(e)
-   local i
-   static pos
+procedure nav_locate(e);
+   local i;
+   static pos;
 
-   initial pos := list(1)
+   initial pos := list(1);
 
    every i := 1 to *file_list do {
       if file_list[i] >>= e then break
-      }
+      };
 
    pos[1] := i;
 
-   VSetState(files, pos)
+   VSetState(files, pos);
 
-   return
+   return;
 
 end
 
-procedure nav_cancel_cb()
+procedure nav_cancel_cb();
 
-   nav_state := "Cancel"
+   nav_state := "Cancel";
 
-   return
+   return;
 
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure navig_atts()
-   return ["size=294,412", "bg=pale gray", "label=Navitrix"]
+procedure navig_atts();
+   return ["size=294,412", "bg=pale gray", "label=Navitrix"];
 end
 
-procedure navig(win, cbk)
+procedure navig(win, cbk);
 return vsetup(win, cbk,
    ["navig:Sizer:::0,0,294,412:Navitrix",],
    ["cancel:Button:regular::86,378,49,20:Cancel",nav_cancel_cb],
@@ -274,6 +274,6 @@ return vsetup(win, cbk,
    ["placeholder:Button:regularno::20,22,65,17:    ",],
    ["refresh:Button:regular::224,378,56,20:Refresh",nav_refresh],
    ["border:Rect:grooved::18,374,55,28:",nav_okay_cb],
-   )
+   );
 end
 #===<<vib:end>>===	end of section maintained by vib

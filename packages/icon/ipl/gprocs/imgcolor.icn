@@ -24,13 +24,13 @@
 #
 ############################################################################
 
-procedure imgcolor(win, x, y, w, h)
-   local colors
+procedure imgcolor(win, x, y, w, h);
+   local colors;
 
    colors := table(0);
 
-   every colors[Pixel(win, x, y, w, h)] +:= 1
+   every colors[Pixel(win, x, y, w, h)] +:= 1;
 
-   return colors
+   return colors;
 
 end

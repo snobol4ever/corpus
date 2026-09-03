@@ -55,124 +55,124 @@
 #
 ############################################################################
 
-procedure tblunion(T1, T2)			#: table union
-   local T3, x
+procedure tblunion(T1, T2);			#: table union
+   local T3, x;
 
    T3 := copy(T1);
 
    every x := key(T2) do
-      insert(T3, x, T2[x])
+      insert(T3, x, T2[x]);
 
-   return T3
+   return T3;
 
 end
 
-procedure tblinter(T1, T2)			#: table intersection
-   local T3, x
+procedure tblinter(T1, T2);			#: table intersection
+   local T3, x;
 
    T3 := table(tbldflt(T1));
 
    every x := key(T1) do
-      if member(T2, x) then insert(T3, x, T1[x])
+      if member(T2, x) then insert(T3, x, T1[x]);
    
-   return T3
+   return T3;
 
 end
 
-procedure tbldiff(T1, T2)			#: table difference
-   local T3, x
+procedure tbldiff(T1, T2);			#: table difference
+   local T3, x;
 
    T3 := copy(T1);
 
    every x := key(T2) do
-      delete(T3, x)
+      delete(T3, x);
 
-   return T3
+   return T3;
 
 end
 
-procedure tblinvrt(T)				#: table inversion
-   local T1, x
+procedure tblinvrt(T);				#: table inversion
+   local T1, x;
 
    T1 := table(tbldflt(T));
 
    every x := key(T) do
-      insert(T1, T[x], x)
+      insert(T1, T[x], x);
 
-   return T1
-
-end
-
-procedure tbldflt(T)				#: table default
-   static probe
-
-   initial probe := []			# only need one
-
-   return T[probe]
+   return T1;
 
 end
 
-procedure twt(T)				#: two-way table
-   local T1, x
+procedure tbldflt(T);				#: table default
+   static probe;
+
+   initial probe := [];			# only need one
+
+   return T[probe];
+
+end
+
+procedure twt(T);				#: two-way table
+   local T1, x;
 
    T1 := copy(T);
 
    every x := key(T) do
-      insert(T1, T[x], x)
+      insert(T1, T[x], x);
 
-   return T1
+   return T1;
 
 end
 
-procedure keylist(tbl)			#: list of keys in table
-   local lst
+procedure keylist(tbl);			#: list of keys in table
+   local lst;
 
    lst := [];
-   every put(lst, key(tbl))
-   return sort(lst)
+   every put(lst, key(tbl));
+   return sort(lst);
 
 end
 
-procedure kvallist(T)
-   local result
+procedure kvallist(T);
+   local result;
 
    result := [];
    
-   every put(result, T[!keylist(T)])
+   every put(result, T[!keylist(T)]);
 
-   return result
+   return result;
 
 end
 
-procedure tbleq(tbl1, tbl2)		#: table equivalence
-   local x
-   static prod
+procedure tbleq(tbl1, tbl2);		#: table equivalence
+   local x;
+   static prod;
 
-   initial prod := []
+   initial prod := [];
 
-   if *tbl1 ~= *tbl2 then fail
+   if *tbl1 ~= *tbl2 then fail;
    if tbl1[prod] ~=== tbl2[prod] then fail
    else every x := key(tbl1) do
       if not(member(tbl2, x)) |
-         (tbl2[x] ~=== tbl1[x]) then fail
-   return tbl2
+         (tbl2[x] ~=== tbl1[x]) then fail;
+   return tbl2;
 
 end
 
-procedure vallist(tbl)		#: list of table values
-   local list1
+procedure vallist(tbl);		#: list of table values
+   local list1;
 
    list1 := [];
-   every put(list1, !tbl)
-   return sort(list1)
+   every put(list1, !tbl);
+   return sort(list1);
 
 end
 
-procedure valset(tbl)		#: set of table values
-   local set1
+procedure valset(tbl);		#: set of table values
+   local set1;
 
    set1 := set();
-   every insert(set1, !tbl)
-   return set1
+   every insert(set1, !tbl);
+   return set1;
 
 end

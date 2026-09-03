@@ -27,8 +27,8 @@
 link io 
 link ximage
 
-procedure main(args)
-   local in_list, to_list, infile, tofile, colors, map, i
+procedure main(args);
+   local in_list, to_list, infile, tofile, colors, map, i;
 
    in_list := args[1] | stop("*** no input list specified");
    to_list := args[2] | stop("*** no map list specified");
@@ -38,20 +38,20 @@ procedure main(args)
 
    in_list := [];
    write(read(infile));  # header
-   while put(in_list, read(infile))
+   while put(in_list, read(infile));
    to_list := [];
-   while put(to_list, read(tofile))
+   while put(to_list, read(tofile));
 
    colors := table(0);
-   every colors[!in_list] +:= 1
+   every colors[!in_list] +:= 1;
    colors := sort(colors, 4);
    map := table();
    every i := 1 to *colors / 2 do {
       pull(colors);
       map[pull(colors)] := i
-      }
+      };
 
    xdump(colors);
-   xdump(map)
+   xdump(map);
 
 end

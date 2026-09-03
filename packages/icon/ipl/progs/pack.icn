@@ -28,8 +28,8 @@
 #
 ############################################################################
 
-procedure main(args)
-   local in, name
+procedure main(args);
+   local in, name;
 
    every name := !args do {
       close(\in);
@@ -37,6 +37,6 @@ procedure main(args)
       write("##########");
       write(name);
       while write(read(in))
-      }
+      };
 
 end

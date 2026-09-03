@@ -32,23 +32,23 @@
 
 link wopen
 
-procedure win(width, height)
+procedure win(width, height);
 
-   /width := 500
-   /height := 500
+   /width := 500;
+   /height := 500;
 
    return WOpen("size=" || width || "," || height) |
       stop("*** can't open window");
 
-   return
+   return;
 
 end
 
-procedure winf(width, height)
+procedure winf(width, height);
 
-   /width := 500
-   /height := 500
+   /width := 500;
+   /height := 500;
 
-   return WOpen("size=" || width || "," || height) | fail
+   return WOpen("size=" || width || "," || height) | fail;
 
 end

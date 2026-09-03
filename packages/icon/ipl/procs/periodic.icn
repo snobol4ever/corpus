@@ -34,8 +34,8 @@ link strings
 
 record perseq(pre, rep)
 
-procedure Sqrt(i, j)		#: rational approximate to square root
-   local rat, half
+procedure Sqrt(i, j);		#: rational approximate to square root
+   local rat, half;
 
    /j := 5;
 
@@ -46,14 +46,14 @@ procedure Sqrt(i, j)		#: rational approximate to square root
    i := rational(i, 1, 1);
 
    every 1 to j do
-      rat := mpyrat(half, addrat(rat, divrat(i, rat, 1), 1))
+      rat := mpyrat(half, addrat(rat, divrat(i, rat, 1), 1));
 
-   return rat
+   return rat;
 
 end
 
-procedure rat2cf(rat)		#: continued fraction sequence for rational
-   local r, result, i, j
+procedure rat2cf(rat);		#: continued fraction sequence for rational
+   local r, result, i, j;
 
    i := rat.numer;
    j := rat.denom;
@@ -66,14 +66,14 @@ procedure rat2cf(rat)		#: continued fraction sequence for rational
      i := j;
      j := r;
      if j = 0 then break
-     }
+     };
 
-   return perseq(result, [])
+   return perseq(result, []);
 
 end
 
-procedure cfapprox(lst)		#: continued-fraction approximation
-   local prev_n, prev_m, n, m, t
+procedure cfapprox(lst);		#: continued-fraction approximation
+   local prev_n, prev_m, n, m, t;
 
    lst := copy(lst);
 
@@ -84,32 +84,32 @@ procedure cfapprox(lst)		#: continued-fraction approximation
 
    while t := get(lst) do {
       n := t.denom * get(prev_n) + t.numer * prev_n[1];
-      m := t.denom * get(prev_m) + t.numer * prev_m[1]
+      m := t.denom * get(prev_m) + t.numer * prev_m[1];
       suspend rational(n, m, 1);
       put(prev_n, n);
       put(prev_m, m);
       if t.denom ~= 0 then {		# renormalize
-         every !prev_n /:= t.denom
+         every !prev_n /:= t.denom;
          every !prev_m /:= t.denom
          }
-      }
+      };
 
 end
 
-procedure dec2rat(pre, rep)	#: convert repeating decimal to rational
-   local s
+procedure dec2rat(pre, rep);	#: convert repeating decimal to rational
+   local s;
 
    s := "";
 
-   every s ||:= (!pre | |!rep) \ (*pre + *rep)
+   every s ||:= (!pre | |!rep) \ (*pre + *rep);
 
    return ratred(rational(s - left(s, *pre),
-      10 ^ (*pre + *rep) - 10 ^ *pre, 1))
+      10 ^ (*pre + *rep) - 10 ^ *pre, 1));
 
 end
 
-procedure rat2dec(rat)		#: decimal expansion of rational
-   local  result, remainders, count, seq
+procedure rat2dec(rat);		#: decimal expansion of rational
+   local  result, remainders, count, seq;
 
    rat := copy(rat);
 
@@ -129,23 +129,23 @@ procedure rat2dec(rat)		#: decimal expansion of rational
          result ? {
             seq.pre := move(remainders[rat.numer] - 1);
             seq.rep := tab(0)
-            }
+            };
          return seq
          }
-      else insert(remainders, rat.numer, count)
+      else insert(remainders, rat.numer, count);
       result ||:= rat.numer / rat.denom;
       rat.numer %:= rat.denom;
       rat.numer *:= 10
-      }
+      };
 
-   return perseq([rat.denom], [])		# WRONG!!!
+   return perseq([rat.denom], []);		# WRONG!!!
 
 end
 
-procedure repeater(seq, ratio, limit)		#: find repeat in sequence
-   local init, i, prefix, results, segment, span
+procedure repeater(seq, ratio, limit);		#: find repeat in sequence
+   local init, i, prefix, results, segment, span;
 
-   /ratio := 2
+   /ratio := 2;
    /limit := 0.75;
 
    results := copy(seq);
@@ -158,29 +158,29 @@ procedure repeater(seq, ratio, limit)		#: find repeat in sequence
          segment := results[1+:i] | next;
          if lequiv(lextend(segment, *results), results) then
             return perseq(prefix, segment)
-         }
+         };
       put(prefix, get(results)) |		# first term to prefix
          return perseq(prefix, results);
       if *prefix > limit * *seq then return perseq(seq, [])
-      }
+      };
 
 end
 
-procedure seqimage(seq)		#: sequence image
-   local result
+procedure seqimage(seq);		#: sequence image
+   local result;
 
    result := "";
 
-   every result ||:= !seq.pre || ","
+   every result ||:= !seq.pre || ",";
 
    result ||:= "[";
 
    if *seq.rep > 0 then {
-      every result ||:= !seq.rep || ","
+      every result ||:= !seq.rep || ",";
       result[-1] := "]"
       }
-   else result ||:= "]"
+   else result ||:= "]";
 
-   return result
+   return result;
 
 end

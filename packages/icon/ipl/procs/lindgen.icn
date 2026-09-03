@@ -23,20 +23,20 @@
 #
 ############################################################################
 
-procedure lindgen(c, rewrite, gener)	#: rewrite L-system
+procedure lindgen(c, rewrite, gener);	#: rewrite L-system
 
    if gener = 0 then suspend c
-   else suspend lindgen(!rewrite[c], rewrite, gener - 1)
+   else suspend lindgen(!rewrite[c], rewrite, gener - 1);
 
 end
 
-procedure lindgenx(c, rewrite, gener)	#: rewrite L-system
-   local k
+procedure lindgenx(c, rewrite, gener);	#: rewrite L-system
+   local k;
 
    if gener = 0 then suspend c
    else every k := !c do {
-      k := \rewrite[k]
+      k := \rewrite[k];
       suspend lindgenx(!k, rewrite, gener - 1)
-      }
+      };
 
 end

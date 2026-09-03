@@ -38,7 +38,7 @@
 # This is the core routine.
 # It succeeds if two things have the same value(s).
 #
-procedure same_value(d1,d2)
+procedure same_value(d1,d2);
     if d1 === d2 then return              # same object
     else
     if type(d1) ~== type(d2) then fail  # not the same type
@@ -46,20 +46,20 @@ procedure same_value(d1,d2)
     if *d1 ~= *d2 then fail             # not the same size
     else
     case type(d1)  of {                 # the same type and size
-       ("set"  | "table"  ) : return same_elements(sort(d1,1),sort(d2,1))
-       ("list")             : return same_elements(d1,d2)
-       ("real" | "integer") : return(d1 = d2)
-       ("cset" | "string" ) : return(d1 == d2)
+       ("set"  | "table"  ) : return same_elements(sort(d1,1),sort(d2,1));
+       ("list")             : return same_elements(d1,d2);
+       ("real" | "integer") : return(d1 = d2);
+       ("cset" | "string" ) : return(d1 == d2);
        default              : return same_elements(d1,d2) # user defined type
-    }
+    };
 end
 
 #
 # used in same_value:
 #
 
-procedure same_elements(l1,l2)
-   local i
+procedure same_elements(l1,l2);
+   local i;
     if l1 === l2 then return   # same objects
     else
     if *l1 ~= *l2 then fail    # not the same size
@@ -67,45 +67,45 @@ procedure same_elements(l1,l2)
         if *l1 = 0 then return # both lists empty
         else {
             every(i := 1 to *l1) do 
-                if not same_value(l1[i],l2[i]) then fail  # recursion
+                if not same_value(l1[i],l2[i]) then fail;  # recursion
             return
         }
-    }
+    };
 end
     
 #
 # The new insert operation. Insert2 always succeeds
 #
-procedure insert2(S,el)
-    every (if same_value(el,!S) then return)
-    return insert(S,el)
+procedure insert2(S,el);
+    every (if same_value(el,!S) then return);
+    return insert(S,el);
 end     
 
 #
 # The new member operation, that also detects equal-valued elements
 #
-procedure member2(S,el)
-    every(if same_value(!S,el) then return) 
-    fail
+procedure member2(S,el);
+    every(if same_value(!S,el) then return); 
+    fail;
 end
 
 #
 # The new delete operation, that detects equal-valued elements.
 # Always succeeds
 #
-procedure delete2(S,el)
-    local t
-    every(t := !S) do if same_value(t,el) then return delete(S,t)
-    return
+procedure delete2(S,el);
+    local t;
+    every(t := !S) do if same_value(t,el) then return delete(S,t);
+    return;
 end
 
 #
 # conversion of standard icon set into new mset.
 #
-procedure reduce2(iset)
-    local temp
-    temp := set()
-    every(insert2(temp,!iset))
-    return temp
+procedure reduce2(iset);
+    local temp;
+    temp := set();
+    every(insert2(temp,!iset));
+    return temp;
 end
 

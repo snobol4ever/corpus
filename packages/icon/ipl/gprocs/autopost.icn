@@ -41,31 +41,31 @@ link psrecord
 
 invocable "open", "stop", "exit"
 
-procedure open(args[])
-   local f
-   static realfunc
-   initial realfunc := proc("open", 0)
+procedure open(args[]);
+   local f;
+   static realfunc;
+   initial realfunc := proc("open", 0);
 
    f := (realfunc ! args) | fail;
    if args[2] ? upto('gx') then
-      PSEnable(f)
-   return f
+      PSEnable(f);
+   return f;
 end
 
-procedure stop(args[])
-   local f
-   static realfunc
-   initial realfunc := proc("stop", 0)
+procedure stop(args[]);
+   local f;
+   static realfunc;
+   initial realfunc := proc("stop", 0);
 
-   PSDone()
-   return realfunc ! args
+   PSDone();
+   return realfunc ! args;
 end
 
-procedure exit(args[])
-   local f
-   static realfunc
-   initial realfunc := proc("exit", 0)
+procedure exit(args[]);
+   local f;
+   static realfunc;
+   initial realfunc := proc("exit", 0);
 
-   PSDone()
-   return realfunc ! args
+   PSDone();
+   return realfunc ! args;
 end

@@ -63,11 +63,11 @@ link colmize
 
 global height, width, _debug_
 
-procedure main(a)
+procedure main(a);
 
     local usage, opttbl, inputfile, outputfile, maxrejects, puzzle,
 	wordlist, rejects, master_list, word, timeout, x, y, l_puzzle,
-	l_wordlist, l_rejects, no_ltrs, l_no_ltrs, try, first_time
+	l_wordlist, l_rejects, no_ltrs, l_no_ltrs, try, first_time;
 
     # Filename is the only mandatory argument; they can come in any order.
     usage := "makepuzz [-f infile] [-o outfile] [-h height] [-w width] _
@@ -97,9 +97,9 @@ procedure main(a)
 	write(&errout, "makepuzz:  warning, ",3 > *word,
 	      "-letter word (", word, ")");
 	put(master_list, word)
-    }
+    };
     master_list := sort_words(master_list);
-    if \_debug_ then write(&errout, "makepuzz:  thinking...")
+    if \_debug_ then write(&errout, "makepuzz:  thinking...");
 
     # Now, try to insert the words in the master list into a puzzle.
     # Stop when the timeout limit is reached (see -t above).
@@ -107,13 +107,13 @@ procedure main(a)
 
 	first_time := &null;
 	wordlist := copy(master_list); rejects := list();
-	puzzle := list(height); every !puzzle := list(width)
+	puzzle := list(height); every !puzzle := list(width);
 	blind_luck_insert(puzzle, wordlist, rejects);
 	brute_force_insert(puzzle, wordlist, rejects, timeout);
 
 	# Count the number of letters left over.
-	no_ltrs := 0; every no_ltrs +:= *(!wordlist | !rejects)
-	l_no_ltrs := 0; every l_no_ltrs +:= *(!\l_wordlist | !\l_rejects)
+	no_ltrs := 0; every no_ltrs +:= *(!wordlist | !rejects);
+	l_no_ltrs := 0; every l_no_ltrs +:= *(!\l_wordlist | !\l_rejects);
 	# If our last best try at making a puzzle was worse...
 	if /l_puzzle |
 	    (*\l_wordlist + *l_rejects) > (*wordlist + *rejects) |
@@ -124,17 +124,17 @@ procedure main(a)
 	    l_puzzle   := puzzle;
 	    l_wordlist := wordlist;
 	    l_rejects  := rejects
-	}
+	};
 
 	# Tell the user how we're doing.
 	if \_debug_ then
 	    write(&errout, "makepuzz:  try number ", try +:= 1, "; ",
-		  *wordlist + *rejects, " rejects")
+		  *wordlist + *rejects, " rejects");
 
 	# See the -r argument above.  Stop if we get to a number of
 	# rejects deemed acceptable to the user.
 	if (*\l_wordlist + *l_rejects) <= maxrejects then break
-    }
+    };
 
     # Signal to user that we're done, and set puzzle, wordlist, and
     # rejects to their best values in this run of makepuzz.
@@ -146,51 +146,51 @@ procedure main(a)
     # Print out original word list, and list of words that didn't make
     # it into the puzzle.
     write(outputfile, "Original word list (sorted hardest-to-easiest): \n");
-    every write(outputfile, colmize(master_list))
+    every write(outputfile, colmize(master_list));
     write(outputfile, "");
     if *rejects + *wordlist > 0 then {
 	write(outputfile, "Couldn't insert the following words: \n");
-	every write(outputfile, colmize(wordlist ||| rejects))
+	every write(outputfile, colmize(wordlist ||| rejects));
 	write(outputfile, "")
-    }
+    };
 
     # Scramble (i.e. put in letters for remaining spaces) if the user
     # put -s on the command line.
     if \opttbl["s"] then {
 	every y := !puzzle do
 	    every x := 1 to *y do
-	        /y[x] := ?&ucase
+	        /y[x] := ?&ucase;
 
         # Print out puzzle structure (answers in lowercase).
 	every y := !puzzle do {
 	    every x := !y do
-		writes(outputfile, \x | " ", " ")
+		writes(outputfile, \x | " ", " ");
 	    write(outputfile, "")
-	}
+	};
 	write(outputfile, "")
-    }
+    };
 
     # Print out puzzle structure, all lowercase.
     every y := !puzzle do {
 	every x := !y do
-	    writes(outputfile, map(\x) | " ", " ")
+	    writes(outputfile, map(\x) | " ", " ");
         write(outputfile, "")
-    }
+    };
 
     # Exit with default OK status for this system.
-    every close(inputfile | outputfile)
-    exit()
+    every close(inputfile | outputfile);
+    exit();
 
 end
 
 
-procedure sort_words(wordlist)
+procedure sort_words(wordlist);
 
-    local t, t2, word, sum, l
+    local t, t2, word, sum, l;
 
     # Obtain a rough character count.
     t := table(0);
-    every t[!!wordlist] +:= 1
+    every t[!!wordlist] +:= 1;
     t2 := table();
 
     # Obtain weighted values for each word, essentially giving longer
@@ -199,23 +199,23 @@ procedure sort_words(wordlist)
     every word := !wordlist do {
 	"" == word & next;
 	sum := 0;
-	every sum +:= t[!word]
+	every sum +:= t[!word];
 	insert(t2, word, (sum / *word) - (2 * *word))
-    }
+    };
     t2 := sort(t2, 4);
     l := list();
 
     # Put the hardest words first.  These will get laid down when the
     # puzzle is relatively empty.  Save the small, easy words for last.
-    every put(l, t2[1 to *t2-1 by 2])
-    return l
+    every put(l, t2[1 to *t2-1 by 2]);
+    return l;
 
 end
 
 
-procedure blind_luck_insert(puzzle, wordlist, rejects)
+procedure blind_luck_insert(puzzle, wordlist, rejects);
 
-    local s, s2, s3, begy, begx, y, x, diry, dirx, diry2, dirx2, i
+    local s, s2, s3, begy, begx, y, x, diry, dirx, diry2, dirx2, i;
     # global height, width
 
     # Try using blind luck to make as many insertions as possible.
@@ -238,58 +238,58 @@ procedure blind_luck_insert(puzzle, wordlist, rejects)
 		    then break { break break next }
 		}
 	    }
-	}
+	};
 
 	# If the above didn't work, give up on spaces with characters
 	# in them; use blank squares as well.
 	every 1 to 512 do
 	    if insert_word(puzzle, s, ?3, ?3, ?height, ?width) then
-	       break next
+	       break next;
 	# If this word doesn't submit to easy insertion, save it for
 	# later.
 	put(rejects, s)
-    }
+    };
 
     # Nothing useful to return (puzzle, wordlist, and rejects objects
     # are themselves modified; not copies of them).
-    return
+    return;
 
 end
 
 
-procedure brute_force_insert(puzzle, wordlist, rejects, timeout)
+procedure brute_force_insert(puzzle, wordlist, rejects, timeout);
 
-    local s, start, dirs, begy, begx, y, x
+    local s, start, dirs, begy, begx, y, x;
     
     # Use brute force on the remaining forms.
     if *rejects > 0 then {
 	wordlist |||:= rejects; rejects := [];
 	while s := pop(wordlist) do {
 	    start := ?3; dirs := "";
-	    every dirs ||:= ((start to 3) | (1 to start-1))
+	    every dirs ||:= ((start to 3) | (1 to start-1));
 	    begy := ?height; begx := ?width;
 	    every y := (begy to height) | (1 to begy - 1) do {
-		if &time > timeout then fail
+		if &time > timeout then fail;
 		every x := (begx to width) | (1 to begx - 1) do  {
 		    if insert_word(puzzle, s, !dirs, !dirs, y, x) then
 			break { break next }
 		}
-	    }
+	    };
 	    # If we can't find a place for s, put it in the rejects list.
 	    put(rejects, s)
 	}
-    }
+    };
 
     # Nothing useful to return (puzzle, wordlist, and rejects objects
     # are themselves modified; not copies of them).
-    return
+    return;
 
 end
 
 
-procedure insert_word(puzzle, s, ydir, xdir, y, x)
+procedure insert_word(puzzle, s, ydir, xdir, y, x);
 
-    local incry, incrx, firstchar
+    local incry, incrx, firstchar;
 
     # If s is zero length, we've matched it in it's entirety!
     if *s = 0 then {
@@ -300,19 +300,19 @@ procedure insert_word(puzzle, s, ydir, xdir, y, x)
 	# Make sure there's enough space in the puzzle in the direction
 	# we're headed.
 	case ydir of {
-	    "3":  if (height - y) < (*s - 1) then fail
+	    "3":  if (height - y) < (*s - 1) then fail;
 	    "1":  if y < (*s - 1) then fail
-	}
+	};
 	case xdir of {
-	    "3":  if (width - x) < (*s - 1) then fail
+	    "3":  if (width - x) < (*s - 1) then fail;
 	    "1":  if x < (*s - 1) then fail
-	}
+	};
 
 	# Check to be sure everything's in range, and that both the x and
 	# y increments aren't zero (in which case, we aren't headed in any
 	# direction at all...).
 	incry := (ydir - 2); incrx := (xdir - 2);
-	if incry = 0 & incrx = 0 then fail
+	if incry = 0 & incrx = 0 then fail;
 	height >= y >= 1 | fail;
 	width >= x >= 1 | fail;
 
@@ -320,11 +320,11 @@ procedure insert_word(puzzle, s, ydir, xdir, y, x)
 	# works, head off in some direction, and try laying down the rest
 	# of s along that vector.  If at any point we fail, we must
 	# reverse the assignment (<- below).
-	firstchar := !s
+	firstchar := !s;
 	((/puzzle[y][x] <- firstchar) | (\puzzle[y][x] == firstchar)) &
 	    insert_word(puzzle, s[2:0], ydir, xdir, y + incry, x + incrx) &
-		suspend
+		suspend;
 	fail
-    }
+    };
 
 end

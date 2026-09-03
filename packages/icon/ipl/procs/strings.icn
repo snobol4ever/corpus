@@ -170,34 +170,34 @@
 
 link lists
 
-procedure cat(args[])			#: concatenate strings
-   local result
+procedure cat(args[]);			#: concatenate strings
+   local result;
 
    result := "";
 
-   every result ||:= !args
+   every result ||:= !args;
 
-   return result
+   return result;
 
 end
 
-procedure charcnt(s, c)			#: character count
-   local count
+procedure charcnt(s, c);			#: character count
+   local count;
 
    count := 0;
 
    s ? {
       while tab(upto(c)) do
          count +:= *tab(many(c))
-      }
+      };
 
-   return count
+   return count;
 
 end
 
-procedure collate(s1, s2)		#: string collation
-   local length, ltemp, rtemp
-   static llabels, rlabels, clabels, blabels, half
+procedure collate(s1, s2);		#: string collation
+   local length, ltemp, rtemp;
+   static llabels, rlabels, clabels, blabels, half;
 
    initial {
       llabels := "ab";
@@ -212,28 +212,28 @@ procedure collate(s1, s2)		#: string collation
       rlabels := rtemp;
       blabels := string(&cset);
       half := *llabels
-      }
+      };
 
    length := *s1;
    if length <= half then
       return map(left(clabels, 2 * length), left(llabels, length) ||
          left(rlabels, length), s1 || s2)
    else return map(clabels, blabels, left(s1, half) || left(s2, half)) ||
-      collate(right(s1, length - half), right(s2, length - half))
+      collate(right(s1, length - half), right(s2, length - half));
 
 end
 
-procedure comb(s, i)			#: character combinations
-   local j
+procedure comb(s, i);			#: character combinations
+   local j;
 
-   if i < 1 then fail
+   if i < 1 then fail;
    suspend if i = 1 then !s
-      else s[j := 1 to *s - i + 1] || comb(s[j + 1:0], i - 1)
+      else s[j := 1 to *s - i + 1] || comb(s[j + 1:0], i - 1);
 
 end
 
-procedure compress(s, c)		#: character compression
-   local result, s1
+procedure compress(s, c);		#: character compression
+   local result, s1;
 
    /c := &cset;
 
@@ -243,59 +243,59 @@ procedure compress(s, c)		#: character compression
       while result ||:= tab(upto(c)) do {
          result ||:= (s1 := move(1));
          tab(many(s1))
-         }
+         };
       return result || tab(0)
-      }
+      };
 end
 
-procedure coprefix(args[])		#: find common prefix of strings
-   local s, t, i
+procedure coprefix(args[]);		#: find common prefix of strings
+   local s, t, i;
 
    s := get(args) | fail;
    every t := !args do {
       every i := seq(1) do
-         if not (s[i] == t[i]) then break
+         if not (s[i] == t[i]) then break;
       s := s[1+:(i-1)] 
-      }
-   return s
+      };
+   return s;
 end
 
-procedure cosuffix(args[])		#: find common suffix of strings
-   local s, t, i
+procedure cosuffix(args[]);		#: find common suffix of strings
+   local s, t, i;
 
    s := get(args) | fail;
    every t := !args do {
       every i := seq(-1, -1) do
-         if not (s[i] == t[i]) then break
+         if not (s[i] == t[i]) then break;
       s := s[i+1:0]
-      }
-   return s
+      };
+   return s;
 end
 
-procedure csort(s)			#: lexically ordered characters
-   local c, s1
+procedure csort(s);			#: lexically ordered characters
+   local c, s1;
 
    s1 := "";
 
    every c := !cset(s) do
       every find(c, s) do
-         s1 ||:= c
+         s1 ||:= c;
 
-   return s1
+   return s1;
 
 end
 
 #  decollate s according to even or odd i
 #
-procedure decollate(s, i)		#: string decollation
-   local ssize
-   static dsize, image, object
+procedure decollate(s, i);		#: string decollation
+   local ssize;
+   static dsize, image, object;
 
    initial {
       image := collate(left(&cset, *&cset / 2), left(&cset, *&cset / 2));
       object := left(&cset, *&cset / 2);
       dsize := *image
-      }
+      };
 
    /i := 1;
 
@@ -305,113 +305,113 @@ procedure decollate(s, i)		#: string decollation
    if ssize + i <= dsize then
       return map(object[1+:(ssize + i) / 2], image[(i + 1)+:ssize], s)
    else return map(object[1+:(dsize - 2) / 2], image[(i + 1)+:dsize - 2],
-      s[1+:(dsize - 2)]) || decollate(s[dsize - 1:0], i)
+      s[1+:(dsize - 2)]) || decollate(s[dsize - 1:0], i);
 
 end
 
-procedure deletec(s, c)			#: delete characters
-   local result
+procedure deletec(s, c);			#: delete characters
+   local result;
 
    result := "";
 
    s ? {
       while result ||:= tab(upto(c)) do
-         tab(many(c))
+         tab(many(c));
       return result ||:= tab(0)
-      }
+      };
 
 end
 
-procedure deletep(s, L)
+procedure deletep(s, L);
 
    L := sort(L);
 
-   while s[pull(L)] := ""
+   while s[pull(L)] := "";
 
-   return s
+   return s;
 
 end
 
-procedure deletes(s1, s2)		#: delete string
-   local result, i
+procedure deletes(s1, s2);		#: delete string
+   local result, i;
 
    result := "";
    i := *s2;
 
    s1 ? {
       while result ||:= tab(find(s2)) do
-         move(i)
+         move(i);
       return result ||:= tab(0)
-      }
+      };
          
 end
 
-procedure diffcnt(s)			#: number of different characters
+procedure diffcnt(s);			#: number of different characters
 
-   return *cset(s)
+   return *cset(s);
 
 end
 
-procedure extend(s, n)			#: extend string
-   local i
+procedure extend(s, n);			#: extend string
+   local i;
 
-   if *s = 0 then fail
+   if *s = 0 then fail;
 
    i := n / *s;
-   if n % *s > 0 then i +:= 1
+   if n % *s > 0 then i +:= 1;
 
-   return left(repl(s, i), n)
+   return left(repl(s, i), n);
 
 end
 
-procedure fchars(s)			#: characters in order of frequency
-   local counts, clist, bins, blist, result
+procedure fchars(s);			#: characters in order of frequency
+   local counts, clist, bins, blist, result;
 
    counts := table(0);
-   every counts[!s] +:= 1
+   every counts[!s] +:= 1;
    clist := sort(counts, 4);
 
    bins := table('');
-   while bins[pull(clist)] ++:= pull(clist)
+   while bins[pull(clist)] ++:= pull(clist);
    blist := sort(bins, 3);
 
    result := "";
    while result ||:= pull(blist) do
-      pull(blist)
+      pull(blist);
 
-   return result
-
-end
-
-procedure interleave(s1, s2)		#: interleave strings
-
-   return collate(s1, extend(s2, *s1)) | fail
+   return result;
 
 end
 
-procedure ispal(s)			#: test for palindrome
+procedure interleave(s1, s2);		#: interleave strings
 
-   if s == reverse(s) then return s else fail
+   return collate(s1, extend(s2, *s1)) | fail;
 
 end
 
-procedure maxlen(L, p)			#: maximum string length
-   local i
+procedure ispal(s);			#: test for palindrome
 
-   if *L = 0 then fail
+   if s == reverse(s) then return s else fail;
+
+end
+
+procedure maxlen(L, p);			#: maximum string length
+   local i;
+
+   if *L = 0 then fail;
 
    /p := proc("*", 1);
 
    i := 0;
 
-   every i <:= p(!L)
+   every i <:= p(!L);
 
-   return i
+   return i;
 
 end
 
-procedure meander(alpha, n)		#: meandering strings
-   local result, trial, t, i, c
+procedure meander(alpha, n);		#: meandering strings
+   local result, trial, t, i, c;
 
    i := *alpha;
    t := n - 1;
@@ -421,61 +421,61 @@ procedure meander(alpha, n)		#: meandering strings
       result ? {				# get the potential n-tuple
          tab(-t);
          trial := tab(0) || c
-         }
+         };
       if result ? find(trial) then 		# duplicate, work back
          i -:= 1
       else {
          result ||:= c;  # add it
          i := *alpha				# and start from end again
          }
-      }
+      };
 
-   return result[n:0]
+   return result[n:0];
 
 end
 
-procedure multicoll(L)			#: collate strings in list
-   local result, i, j
+procedure multicoll(L);			#: collate strings in list
+   local result, i, j;
 
    result := "";
 
    every i := 1 to *L[1] do		# no other longer if legal
       every j := 1 to *L do
-         result ||:= L[j][i]
+         result ||:= L[j][i];
 
-   return result
+   return result;
 
 end
 
-procedure ochars(w)			#: first appearance unique characters
-   local out, c
+procedure ochars(w);			#: first appearance unique characters
+   local out, c;
 
    out := "";
 
    every c := !w do
 	if not find(c, out) then
-	    out ||:= c
+	    out ||:= c;
 
-   return out
+   return out;
 
 end
 
-procedure odd_even(s)			#: odd-even numerical string
-   local result, i, j
+procedure odd_even(s);			#: odd-even numerical string
+   local result, i, j;
 
    every i := integer(!s) do {
       if /result then result := i
       else if (i % 2) = (j % 2) then result ||:= (j + 1) || i
-      else result ||:= i
+      else result ||:= i;
       j := i
-      }
+      };
 
-   return result
+   return result;
 
 end
 
-procedure palins(s, n)			#: palindromes
-   local c, lpart, mpart, rpart, h, p
+procedure palins(s, n);			#: palindromes
+   local c, lpart, mpart, rpart, h, p;
 
    if n = 1 then suspend !s
    else if n = 2 then
@@ -486,9 +486,9 @@ procedure palins(s, n)			#: palindromes
          p ? {
             lpart := move(h);
             rpart := tab(0)
-            }
+            };
          every c := !s do {
-            mpart := c || c
+            mpart := c || c;
             suspend lpart || mpart || rpart
             }
          }
@@ -499,162 +499,162 @@ procedure palins(s, n)			#: palindromes
          p ? {
             lpart := move(h);
             rpart := tab(0)
-            }
+            };
          every suspend lpart || !s || rpart
          }
-      }
+      };
     
 end
 
-procedure permutes(s)			#: generate string permutations
-   local i
+procedure permutes(s);			#: generate string permutations
+   local i;
 
-   if *s = 0 then return ""
-   suspend s[i := 1 to *s] || permutes(s[1:i] || s[i+1:0])
+   if *s = 0 then return "";
+   suspend s[i := 1 to *s] || permutes(s[1:i] || s[i+1:0]);
 
 end
 
-procedure pretrim(s, c)			#: pre-trim string
+procedure pretrim(s, c);			#: pre-trim string
 
    /c := ' ';
 
    s ? {
-      tab(many(c))
+      tab(many(c));
       return tab(0)
-      }
+      };
 
 end
 
-procedure reflect(s1, i, s2)			#: string reflection
+procedure reflect(s1, i, s2);			#: string reflection
 
-   /i :=0
-   /s2 := ""
+   /i :=0;
+   /s2 := "";
 
    return s1 || s2 || reverse(
       case i of {
-         0:   s1[2:-1]		# pattern palindrome
-         1:   s1[2:0]		# pattern palindrome with first character at end
-         2:   s1[1:-1]		# true palindrome with center character unduplicated
+         0:   s1[2:-1];		# pattern palindrome
+         1:   s1[2:0];		# pattern palindrome with first character at end
+         2:   s1[1:-1];		# true palindrome with center character unduplicated
          3:   s1		# true palindrome with center character duplicated
          }
-      )
+      );
 
 end
 
-procedure replace(s1, s2, s3)		#: string replacement
-   local result, i
+procedure replace(s1, s2, s3);		#: string replacement
+   local result, i;
 
    result := "";
    i := *s2;
-   if i = 0 then fail			# would loop on empty string
+   if i = 0 then fail;			# would loop on empty string
 
    s1 ? {
       while result ||:= tab(find(s2)) do {
          result ||:= s3;
          move(i)
-         }
+         };
       return result || tab(0)
-      }
+      };
 
 end
 
-procedure replacem(s, pairs[])		#: multiple string replacement
+procedure replacem(s, pairs[]);		#: multiple string replacement
 
-   while s := replace(s, get(pairs), get(pairs))
+   while s := replace(s, get(pairs), get(pairs));
 
-   return s
+   return s;
 
 end
-procedure replc(s, L)			#: replicate characters
-   local result
+procedure replc(s, L);			#: replicate characters
+   local result;
 
    result := "";
 
-   every result ||:= repl(!s, get(L))
+   every result ||:= repl(!s, get(L));
 
-   return result
+   return result;
 
 end
 
-procedure rotate(s, i)			#: string rotation
+procedure rotate(s, i);			#: string rotation
 
-   if s == "" then return s
-   /i := 1
+   if s == "" then return s;
+   /i := 1;
    if i = 0 then return s
-   else if i < 0 then i +:= *s
-   i %:= *s
+   else if i < 0 then i +:= *s;
+   i %:= *s;
 
-   return s[(i + 1):0] || s[1:(i + 1)]
-
-end
-
-procedure schars(s)			#: lexical unique characters
-
-   return string(cset(s))
+   return s[(i + 1):0] || s[1:(i + 1)];
 
 end
 
-procedure scramble(s)			#: scramble string
-   local i
+procedure schars(s);			#: lexical unique characters
+
+   return string(cset(s));
+
+end
+
+procedure scramble(s);			#: scramble string
+   local i;
 
    s := string(s) | fail;
 
    every i := *s to 2 by -1 do
-      s[?i] :=: s[i]
+      s[?i] :=: s[i];
 
-   return s
+   return s;
 
 end
 
-procedure selectp(s, L)			#: select characters
-   local result
+procedure selectp(s, L);			#: select characters
+   local result;
 
    result := "";
 
-   every result ||:= s[!L]
+   every result ||:= s[!L];
 
-   return result
+   return result;
 
 end
 
-procedure slugs(s, n, c)  		#: generate s in chunks of size <= n
-   local i, t
+procedure slugs(s, n, c);  		#: generate s in chunks of size <= n
+   local i, t;
 
-   (/n := 80) | (n := 0 < integer(n)) | runerr(101, n)
+   (/n := 80) | (n := 0 < integer(n)) | runerr(101, n);
    /c := ' \t\r\n\v\f';
 
    n +:= 1;
    while *s > 0 do s ? {
       if *s <= n then
-         return trim(s, c)
+         return trim(s, c);
       if tab(i := (n >= upto(c))) then {
          tab(many(c));
          while tab(i := (n >= upto(c))) do {
             tab(many(c))
-            }
+            };
          suspend .&subject[1:i]
          }
       else {
-         t := tab(n | 0)
+         t := tab(n | 0);
          suspend t
-         }
+         };
       s := tab(0)
-      }
-   fail
+      };
+   fail;
 end
 
-procedure starseq(s)		#: closure sequence
+procedure starseq(s);		#: closure sequence
 
-   /s := ""
+   /s := "";
 
-   suspend "" | (starseq(s) || !s)
+   suspend "" | (starseq(s) || !s);
 
 end
 
-procedure strcnt(s1, s2)		#: substring count
-   local j, i
+procedure strcnt(s1, s2);		#: substring count
+   local j, i;
 
-   if *s1 = 0 then fail			# null string would loop
+   if *s1 = 0 then fail;			# null string would loop
 
    j := 0;
    i := *s1;
@@ -663,38 +663,38 @@ procedure strcnt(s1, s2)		#: substring count
       while tab(find(s1)) do {
          j +:= 1;
          move(i)
-         }
+         };
       return j
-      }
+      };
 
 end
 
-procedure substrings(s, i, j)		#: generate substrings
+procedure substrings(s, i, j);		#: generate substrings
 
-   /i := 1
+   /i := 1;
    /j := *s;
 
    s ? {
       every tab(1 to *s) do
          suspend move(i to j)
-      }
+      };
 
 end
 
-procedure transpose(s1, s2, s3)		#: transpose characters
-   local n, result
+procedure transpose(s1, s2, s3);		#: transpose characters
+   local n, result;
 
    n := *s2;
    result := "";
 
    s1 ? {
-      while result ||:= map(s3, s2, move(n))
+      while result ||:= map(s3, s2, move(n));
       return result ||:= tab(0)
-      }
+      };
 
 end
 
-procedure words(s, c)		#: generate words from string
+procedure words(s, c);		#: generate words from string
 
    /c := ' \t\r\n\v\f';
 
@@ -704,8 +704,8 @@ procedure words(s, c)		#: generate words from string
          suspend tab(upto(c) | 0) \ 1;
          tab(many(c))
          }
-      }
+      };
 
-   fail
+   fail;
 
 end

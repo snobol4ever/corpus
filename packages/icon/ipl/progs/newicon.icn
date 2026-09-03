@@ -49,14 +49,14 @@ link datetime
 link io
 link options
 
-procedure main(args)
-   local opts, overwrite, name, author, input, output, file
+procedure main(args);
+   local opts, overwrite, name, author, input, output, file;
 
    opts := options(args, "fpo");
-   if \opts["f"] then overwrite := 1
+   if \opts["f"] then overwrite := 1;
 
    name := (args[1] | "foo");
-   if (*name < 4) | (name[-4:0] ~== ".icn") then name ||:= ".icn"
+   if (*name < 4) | (name[-4:0] ~== ".icn") then name ||:= ".icn";
 
    author := args[2] | "Ralph E. Griswold";
 
@@ -66,7 +66,7 @@ procedure main(args)
           system("vi " || name);
           exit()
           }
-      }
+      };
 
    output := open(name, "w") |
       stop("*** cannot open ", name, " for writing");
@@ -78,11 +78,11 @@ procedure main(args)
       ) | stop("*** cannot open skeleton file");
 
    every 1 to 2 do write(output, read(input)) |
-      stop("*** short skeleton file")
+      stop("*** short skeleton file");
    write(output, read(input), name) |
       stop("*** short skeleton file");
    every 1 to 3 do write(output, read(input)) |
-      stop("*** short skeleton file")
+      stop("*** short skeleton file");
    write(output, read(input), author) |
       stop("*** short skeleton file");
    write(output, read(input)) |
@@ -91,16 +91,16 @@ procedure main(args)
       stop("*** short skeleton file");
    write(output, read(input)) |
       stop("*** short skeleton file");
-   while write(output, read(input))
+   while write(output, read(input));
 
    if \opts["p"] then {
       write(output, "procedure ", basename(name, ".icn"), "()");
       write(output);
       write(output, "end")
-      }
+      };
 
    close(output);
 
-   system("vi " || name)
+   system("vi " || name);
 
 end

@@ -32,10 +32,10 @@
 # 
 ############################################################################
 
-procedure sing(singer)
+procedure sing(singer);
 
-    local which, and
-    static day, gift
+    local which, and;
+    static day, gift;
 
     initial {
     day := [
@@ -65,35 +65,35 @@ procedure sing(singer)
         "three french hens,",
         "two turtle doves,",
         "a partridge in a pear tree."]
-    }
+    };
 
     every which := 1 to 12 do {
     write (singer);  # Take a breath
     write (singer, "On the ", day [which], " day of Christmas,");
     write (singer, "my true love gave to me,");
-    every write (singer, !(gift[-which : 0]))
+    every write (singer, !(gift[-which : 0]));
 
     if (/and := "and ") then gift[-1] := and || gift[-1]
-    }
+    };
 
     #
     # Reset gift[-1] in case sing is called again.
     #
 
-    gift[-1] ?:= (=and & tab (0))
+    gift[-1] ?:= (=and & tab (0));
 
-    return
+    return;
     
 end
 
 ############################################################################
 
-procedure main ()
+procedure main ();
 
     #
     # Try out sing procedure with standard output.
     #
     
-    sing(&output)
+    sing(&output);
 
 end

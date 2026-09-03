@@ -18,13 +18,13 @@
 #
 ############################################################################
 
-procedure main()
-   local i
+procedure main();
+   local i;
 
    every i := 100 to 500 do {
       &error := 1;
       runerr(i);
       write(&errornumber,"  ","" ~== &errortext)
-      }
+      };
 
 end

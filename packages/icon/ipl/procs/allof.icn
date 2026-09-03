@@ -63,9 +63,10 @@
 #  Requires:  co-expressions
 #
 ############################################################################
-
-procedure allof(expr)
-   local elist,i,x,v
+
+
+procedure allof(expr);
+   local elist,i,x,v;
    #
    #  Initialize
    #
@@ -92,7 +93,7 @@ procedure allof(expr)
             #  We've been backed into -- reset to last expr[2].
             #
             i -:= 1
-            }
+            };
       #
       #  Evaluate the expression.
       #
@@ -108,5 +109,5 @@ procedure allof(expr)
          #  If failure, back up.
          #
          i -:= 1
-      }
+      };
 end

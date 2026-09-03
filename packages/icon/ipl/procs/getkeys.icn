@@ -40,9 +40,9 @@ link adjuncts
 
 global _slash, baselen
 
-procedure getkeys(FNAME)
+procedure getkeys(FNAME);
 
-    local line, intext, start_unindexed_part
+    local line, intext, start_unindexed_part;
     initial {
 	if /_slash then {
 	    if find("UNIX"|"Amiga", &features) then {
@@ -55,7 +55,7 @@ procedure getkeys(FNAME)
 	    }
 	    else stop("getkeys:  OS not supported")
 	}
-    }
+    };
 
     /FNAME & stop("error (getkeys):  null argument");
 
@@ -67,17 +67,17 @@ procedure getkeys(FNAME)
 	# save it, and use it to seek to unindexed portions later on.
 	start_unindexed_part := integer(read(intext));
 	while line := read(intext) do
-	    line ? suspend tab(find("\t")) \ 1
+	    line ? suspend tab(find("\t")) \ 1;
 	close(intext)
-    }
+    };
 
     intext := open(FNAME) | stop("getkeys:  ",FNAME," not found");
     seek(intext, \start_unindexed_part | 1);
     while line := read(intext) do
-	line ? { suspend (="::", tab(0)) \ 1 }
+	line ? { suspend (="::", tab(0)) \ 1 };
 
     # Nothing left to suspend, so fail.
-    fail
+    fail;
 
 end
 

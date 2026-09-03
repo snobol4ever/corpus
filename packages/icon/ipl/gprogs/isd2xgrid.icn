@@ -38,8 +38,8 @@ link options
 link wopen
 link xcode
 
-procedure main(args)
-   local draft, win, opts
+procedure main(args);
+   local draft, win, opts;
 
    opts := options(args, "n:");
 
@@ -47,12 +47,12 @@ procedure main(args)
 
    draft := xdecode(&input) | stop("*** cannot decode draft");
 
-   draft.name := \opts["n"]
+   draft.name := \opts["n"];
 
    &dump := 1;
-   win := plot(draft, "clip") | stop("*** plot() failed")
+   win := plot(draft, "clip") | stop("*** plot() failed");
    &dump := 0;
 
-   WriteImage(win, draft.name || "_d.gif")
+   WriteImage(win, draft.name || "_d.gif");
 
 end

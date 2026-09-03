@@ -34,8 +34,8 @@
 
 link wopen
 
-procedure main()
-   local extent, x, y, i
+procedure main();
+   local extent, x, y, i;
 
    extent := 300;
 
@@ -50,19 +50,19 @@ procedure main()
          1: {
             x /:= 2;
             y /:= 2
-            }
+            };
          2: {
             x /:= 2;
             y := (extent + y) / 2
-            }
+            };
          3: {
             x := (extent + x) / 2;
             y := (extent + y) / 2
             }
-         }
+         };
       if i > 1000 then DrawPoint(x, y)		# Wait until attraction
-      }
+      };
 
-   Event()
+   Event();
 
 end

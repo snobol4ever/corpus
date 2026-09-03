@@ -84,8 +84,8 @@ global   VERSION, CLEAR, CLREOL, NORMAL, RED, BLACK
 
 global   whitespace, amode, seed, deck, over, hidden, run, ace
 
-procedure main(args)
-   local a, p, c, r, s, cnt, cheat, cmd, act, from, dest
+procedure main(args);
+   local a, p, c, r, s, cnt, cheat, cmd, act, from, dest;
 
    VERSION := (!args == ("Atari ST" | "hp2621" | "IBM PC" | "vt100"));
 
@@ -93,7 +93,7 @@ procedure main(args)
 #  get out of auto mode.
 
    if not(&features == "keyboard functions") then
-      stop("*** requires keyboard functions")
+      stop("*** requires keyboard functions");
 
    case VERSION of {
 
@@ -103,7 +103,7 @@ procedure main(args)
          NORMAL := "\eb3";
          RED    := "\eb1";
          BLACK  := "\eb2"
-      }
+      };
 
       "hp2621": {
          CLEAR  := "\eH\eJ";
@@ -111,7 +111,7 @@ procedure main(args)
          NORMAL := "\e&d@";
          RED    := "\e&dJ";
          BLACK  := "\e&d@"
-      }
+      };
 
       "IBM PC" | "vt100": {
          CLEAR  := "\e[H\e[2J";
@@ -119,7 +119,7 @@ procedure main(args)
          NORMAL := "\e[0m";
          RED    := "\e[0;31;47m";
          BLACK  := "\e[1;30;47m"
-      }
+      };
 
       default: {  # same as IBM PC and vt100
          CLEAR  := "\e[H\e[2J";
@@ -128,7 +128,7 @@ procedure main(args)
          RED    := "\e[0;31;47m";
          BLACK  := "\e[1;30;47m"
       }
-   }
+   };
 
    # white space is blanks or tabs
    whitespace := ' \t';
@@ -138,7 +138,7 @@ procedure main(args)
 
    # if a command line argument started with "seed" use the rest of
    # the argument for the random number generator seed value
-   if (a := !args)[1:5] == "seed" then seed := integer(a[5:0])
+   if (a := !args)[1:5] == "seed" then seed := integer(a[5:0]);
 
    # initialize the data structures
    deck   := shuffle();
@@ -148,17 +148,17 @@ procedure main(args)
    ace    := [[],[],[],[]];
 
    # lay down the 7 piles of cards
-   every p := 1 to 7 do every c := p to 7 do put(hidden[c],get(deck))
+   every p := 1 to 7 do every c := p to 7 do put(hidden[c],get(deck));
 
    # turn over the top of each pile to start a run
-   every r := 1 to 7 do put(run[r],get(hidden[r]))
+   every r := 1 to 7 do put(run[r],get(hidden[r]));
 
    # check for aces in the runs and move them to the ace piles
    every r := 1 to 7 do while getvalue(run[r][1]) = 1 do {
       s := getsuite(!run[r]);
       push(ace[s],get(run[r]));
       put(run[r],get(hidden[r]))
-   }
+   };
 
    # initialize the command and cheat counts
    cnt := cheat := 0;
@@ -168,7 +168,7 @@ procedure main(args)
    display();
 
    # if a command line argument was "auto" let the auto pilot take over
-   if !args == "auto" then autopilot(cheat)
+   if !args == "auto" then autopilot(cheat);
 
    # loop reading commands
    repeat {
@@ -178,7 +178,7 @@ procedure main(args)
 
       # prompt for a command
       movecursor(15,0);
-      writes("cmd:",cnt,"> ",CLREOL)
+      writes("cmd:",cnt,"> ",CLREOL);
 
       # scan the command line
       (cmd := read() | exit()) ? {
@@ -192,7 +192,7 @@ procedure main(args)
          case map(act) of {
 
          # turn on the automatic pilot
-         "a": autopilot(cheat)
+         "a": autopilot(cheat);
 
          # move a card or run of cards
          "m": {
@@ -213,70 +213,70 @@ procedure main(args)
                whoops(cmd);  #  command.
                next
                }
-           }
+           };
 
          # thumb the deck
-         "t" | "": thumb()
+         "t" | "": thumb();
 
          # print some help
-         "h" | "?": disphelp()
+         "h" | "?": disphelp();
 
          # print the rules of the game
-         "r": disprules()
+         "r": disprules();
 
          # give up without winning
-         "q": break
+         "q": break;
 
          # shuffle the deck (cheat!)
          "s": {
-            deck |||:= over
-            over := []
-            deck := shuffle(deck)
-            display(["deck"])
+            deck |||:= over;
+            over := [];
+            deck := shuffle(deck);
+            display(["deck"]);
             cheat +:= 1
-         }
+         };
 
          # put hidden cards in the deck (cheat!)
          "p": {
-            from := move(1) | whoops(cmd)
+            from := move(1) | whoops(cmd);
             if integer(from) &
                from >= 2 & from <= 7 &
                *hidden[from] > 0 then {
-               deck |||:= hidden[from]
-               hidden[from] := []
-               display(["hide","deck"])
+               deck |||:= hidden[from];
+               hidden[from] := [];
+               display(["hide","deck"]);
                cheat +:= 1
             } else {
                whoops(cmd)
             }
-         }
+         };
 
          # print the contents of the deck (cheat!)
          "d": {
-            movecursor(17,0)
+            movecursor(17,0);
             write(*deck + *over," card", plural(*deck + *over),
-                     " in deck:")
-            every writes(face(deck[*deck to 1 by -1])," ")
-            every writes(face(!over)," ")
-            writes("\nHit RETURN")
-            read()
-            movecursor(17,0)
-            every 1 to 4 do write(CLREOL)
+                     " in deck:");
+            every writes(face(deck[*deck to 1 by -1])," ");
+            every writes(face(!over)," ");
+            writes("\nHit RETURN");
+            read();
+            movecursor(17,0);
+            every 1 to 4 do write(CLREOL);
             cheat +:= 1
-         }
+         };
 
          # print the contents of a hidden pile (cheat!)
          "2" | "3" | "4" | "5" | "6" | "7": {
-            movecursor(17,0)
+            movecursor(17,0);
             write(*hidden[act]," cards hidden under run ",
-               act)
-            every writes(face(!hidden[act])," ")
-            writes("\nHit RETURN")
-            read()
-            movecursor(17,0)
-            every 1 to 4 do write(CLREOL)
+               act);
+            every writes(face(!hidden[act])," ");
+            writes("\nHit RETURN");
+            read();
+            movecursor(17,0);
+            every 1 to 4 do write(CLREOL);
             cheat +:= 1
-         }
+         };
 
          # they gave an invalid command
          default: whoops(cmd)
@@ -285,26 +285,26 @@ procedure main(args)
 
       } # end of scan line
 
-   } # end of command loop
+   }; # end of command loop
 
    # a quit command breaks the loop
-   movecursor(16,0)
-   writes(CLREOL,"I see you gave up")
+   movecursor(16,0);
+   writes(CLREOL,"I see you gave up");
    if cheat > 0 then
       write("...even after you cheated ",cheat," time", plural(cheat), "!")
    else
-      write("...but at least you didn't cheat...congratulations!")
+      write("...but at least you didn't cheat...congratulations!");
 
-   exit(1)
+   exit(1);
 
 end
 
 # this procedure moves cards from one place to another
 
-procedure movecard(from,dest,limitmove)
+procedure movecard(from,dest,limitmove);
 
    # if from and dest are the same fail
-   if from == dest then fail
+   if from == dest then fail;
 
    # move a card from the deck
    if from == "d" then {
@@ -330,47 +330,47 @@ procedure movecard(from,dest,limitmove)
       } else if integer(dest) & dest >= 1 & dest <= 7 then {
          return run2run(from,dest,limitmove)
       }
-   }
+   };
 
    # if none of the correct move combinations were found fail
-   fail
+   fail;
 
 end
 
-procedure deck2run(dest)
-   local fcard, dcard, s
+procedure deck2run(dest);
+   local fcard, dcard, s;
 
    # set fcard to the top of the overturned pile or fail
-   fcard := (over[1] | fail)
+   fcard := (over[1] | fail);
 
    # set dcard to the low card of the run or to null if there are no
    # cards in the run
-   dcard := (run[dest][-1] | &null)
+   dcard := (run[dest][-1] | &null);
 
    # check to see if the move is legal
    if chk2run(fcard,dcard) then {
 
       # move the card and update the display
-      put(run[dest],get(over))
-      display(["deck",dest])
+      put(run[dest],get(over));
+      display(["deck",dest]);
 
       # while there are aces on the top of the overturned pile
       # move them to the aces piles
       while getvalue(over[1]) = 1 do {
-         s := getsuite(over[1])
-         push(ace[s],get(over))
+         s := getsuite(over[1]);
+         push(ace[s],get(over));
          display(["deck","ace"])
-      }
+      };
       return
-   }
+   };
 
 end
 
-procedure deck2ace()
-   local fcard, a, s
+procedure deck2ace();
+   local fcard, a, s;
 
    # set fcard to the top of the overturned pile or fail
-   fcard := (over[1] | fail)
+   fcard := (over[1] | fail);
 
    # for every ace pile
    every a := !ace do {
@@ -380,28 +380,28 @@ procedure deck2ace()
       if a[-1] + 1 = fcard then {
 
          # move the card and update the display
-         put(a,get(over))
-         display(["deck","ace"])
+         put(a,get(over));
+         display(["deck","ace"]);
 
          # while there are aces on the top of the overturned
          # pile move them to the aces piles
          while getvalue(over[1]) = 1 do {
-            s := getsuite(!over)
-            push(ace[s],get(over))
+            s := getsuite(!over);
+            push(ace[s],get(over));
             display(["deck","ace"])
-         }
+         };
          return
       }
-   }
+   };
 
 end
 
-procedure run2ace(from)
-   local fcard, a, s
+procedure run2ace(from);
+   local fcard, a, s;
 
    # set fcard to the low card of the run or fail if there are no
    # cards in the run
-   fcard := (run[from][-1] | fail)
+   fcard := (run[from][-1] | fail);
 
    # for every ace pile
    every a := !ace do {
@@ -411,8 +411,8 @@ procedure run2ace(from)
       if a[-1] + 1 = fcard then {
 
          # move the card and update the display
-         put(a,pull(run[from]))
-         display([from,"ace"])
+         put(a,pull(run[from]));
+         display([from,"ace"]);
 
          # if the from run is now empty and there are hidden
          # cards to expose
@@ -421,58 +421,58 @@ procedure run2ace(from)
             # while there are aces on the top of the
             # hidden pile move them to the aces piles
             while getvalue(hidden[from][1]) = 1 do {
-               s := getsuite(hidden[from][1])
-               push(ace[s],get(hidden[from]))
+               s := getsuite(hidden[from][1]);
+               push(ace[s],get(hidden[from]));
                display(["ace"])
-            }
+            };
 
             # put the top hidden card in the empty run
             # and display the hidden counts
-            put(run[from],get(hidden[from]))
+            put(run[from],get(hidden[from]));
             display(["hide"])
-         }
+         };
 
          # update the from run display
-         display([from])
+         display([from]);
          return
       }
-   }
+   };
 
 end
 
-procedure run2run(from,dest,limitmove)
-   local fcard, dcard, s
+procedure run2run(from,dest,limitmove);
+   local fcard, dcard, s;
 
    # set fcard to the high card of the run or fail if there are no
    # cards in the run
-   fcard := (run[from][1] | fail)
+   fcard := (run[from][1] | fail);
 
    # set dcard to the low card of the run or null if there are no
    # cards in the run
-   dcard := (run[dest][-1] | &null)
+   dcard := (run[dest][-1] | &null);
 
    # avoid king thrashing in automatic mode (there's no point in
    # moving a king high run to an empty run if there are no hidden
    # cards under the king high run to be exposed)
    if amode > 0 & /dcard & getvalue(fcard) = 13 & *hidden[from] = 0 then
-      fail
+      fail;
 
    # avoid wasted movement if the limit move parameter was passed
    # (there's no point in moving a pile if there are no hidden cards
    # under it unless you have a king in the deck)
-   if amode > 0 & \limitmove & *hidden[from] = 0 then fail
+   if amode > 0 & \limitmove & *hidden[from] = 0 then fail;
 
    # check to see if the move is legal
    if chk2run(fcard,dcard) then {
 
       # add the from run to the dest run
-      run[dest] |||:= run[from]
+      run[dest] |||:= run[from];
 
       # empty the from run
-      run[from] := []
+      run[from] := [];
 
       # display the updated runs
-      display([from,dest])
+      display([from,dest]);
 
       # if there are hidden cards to expose
       if *hidden[from] > 0 then {
@@ -480,25 +480,25 @@ procedure run2run(from,dest,limitmove)
          # while there are aces on the top of the hidden
          # pile move them to the aces piles
          while getvalue(hidden[from][1]) = 1 do {
-            s := getsuite(hidden[from][1])
-            push(ace[s],get(hidden[from]))
+            s := getsuite(hidden[from][1]);
+            push(ace[s],get(hidden[from]));
             display(["ace"])
-         }
+         };
 
          # put the top hidden card in the empty run and
          # display the hidden counts
-         put(run[from],get(hidden[from]))
+         put(run[from],get(hidden[from]));
          display(["hide"])
-      }
+      };
 
       # update the from run display
-      display([from])
+      display([from]);
       return
-   }
+   };
 
 end
 
-procedure chk2run(fcard,dcard)
+procedure chk2run(fcard,dcard);
 
    # if dcard is null the from card must be a king or
    if ( /dcard & (getvalue(fcard) = 13 | fail) ) |
@@ -507,147 +507,147 @@ procedure chk2run(fcard,dcard)
       ( getvalue(dcard) - 1 = getvalue(fcard) &
 
    # their colors are different they can be moved
-        getcolor(dcard) ~= getcolor(fcard) ) then return
+        getcolor(dcard) ~= getcolor(fcard) ) then return;
 
 end
 
 # this procedure finishes a game where there are no hidden cards left and the
 # deck is empty
 
-procedure finish(cheat)
+procedure finish(cheat);
 
-   movecursor(16,0)
-   writes("\007I'll finish for you now...\007")
+   movecursor(16,0);
+   writes("\007I'll finish for you now...\007");
 
    # finish moving the runs to the aces piles
-   while movecard(!"7654321","a")
+   while movecard(!"7654321","a");
 
-   movecursor(16,0)
-   writes(CLREOL,"\007You WIN\007")
+   movecursor(16,0);
+   writes(CLREOL,"\007You WIN\007");
 
    if cheat > 0 then
       write("...but you cheated ", cheat, " time", plural(cheat), "!")
    else
-      write("...and without cheating...congratulations!")
+      write("...and without cheating...congratulations!");
 
-   exit(0)
+   exit(0);
 
 end
 
 # this procedure takes over and plays the game for you
 
-procedure autopilot(cheat)
-   local tseq, totdeck
+procedure autopilot(cheat);
+   local tseq, totdeck;
 
-   movecursor(16,0)
-   writes("Going into automatic mode...")
-   if proc(kbhit) then writes( " [Press any key to return.]")
-   writes(CLREOL)
+   movecursor(16,0);
+   writes("Going into automatic mode...");
+   if proc(kbhit) then writes( " [Press any key to return.]");
+   writes(CLREOL);
 
    # set auto pilot mode
-   amode := 1
+   amode := 1;
 
    # while there are cards that aren't in runs or the aces piles
    while (cardsleft()) > 0 do {
 
       # try to make any run to run plays that will uncover
       # hidden cards
-      while movecard(!"7654321",!"1234567","hidden")
+      while movecard(!"7654321",!"1234567","hidden");
 
       # try for a move that will leave an empty spot
-      if movecard(!"7654321",!"1234567") then next
+      if movecard(!"7654321",!"1234567") then next;
 
       # if there's no overturned card thumb the deck
-      if *over = 0 then thumb()
+      if *over = 0 then thumb();
 
       # initialize the thumbed sequence set
-      tseq := set()
+      tseq := set();
 
       # try thumbing the deck for a play
-      totdeck := *deck + *over
+      totdeck := *deck + *over;
       every 1 to totdeck do {
-         if movecard("d",!"1234567a") then break
+         if movecard("d",!"1234567a") then break;
 
          if kbhit() then {
-            movecursor(16,0)
-            write("Now in manual mode ...", CLREOL)
-            amode := 0
+            movecursor(16,0);
+            write("Now in manual mode ...", CLREOL);
+            amode := 0;
             return
-            }
-         insert(tseq,over[1])
+            };
+         insert(tseq,over[1]);
          thumb()
-      }
+      };
 
       # if we made a deck to somewhere move continue
-      if totdeck > *deck + *over then next
+      if totdeck > *deck + *over then next;
 
       # try for a run to ace play
-      if movecard(!"7654321","a") then next
+      if movecard(!"7654321","a") then next;
 
       # if we got this far and couldn't play give up
       break
-   }
+   };
 
    # position the cursor for the news
-   movecursor(16,30)
+   movecursor(16,30);
 
    # if all the cards are in runs or the aces piles
    if cardsleft() = 0 then {
 
-      writes("\007YEA...\007", CLREOL)
+      writes("\007YEA...\007", CLREOL);
 
       # finish moving the runs to the aces piles
-      while movecard(!"7654321","a")
+      while movecard(!"7654321","a");
 
-      movecursor(16,37)
-      write("I won!!!!!")
+      movecursor(16,37);
+      write("I won!!!!!");
       if cheat > 0 then write("But you cheated ", cheat, " time",
-            plural(cheat), ".")
+            plural(cheat), ".");
 
       exit(0)
 
    } else {
 
-      writes("I couldn't win this time.", CLREOL)
+      writes("I couldn't win this time.", CLREOL);
       if cheat > 0 then writes(" But you cheated ", cheat, " time",
-               plural(cheat), ".")
+               plural(cheat), ".");
 
       # print the information needed to verify that the
       # program couldn't win
 
-      movecursor(17,0)
+      movecursor(17,0);
       writes(*deck + *over," card", plural(*deck + *over),
-               " in deck.")
+               " in deck.");
       if *tseq > 0 then {
-         write("  Final thumbing sequence:")
+         write("  Final thumbing sequence:");
          every writes(" ",face(!tseq))
-      }
-      write()
+      };
+      write();
 
       exit(1)
 
-   }
+   };
 
 end
 
 # this procedure updates the display
 
-procedure display(parts)
-   local r, a, h, c, part, l
+procedure display(parts);
+   local r, a, h, c, part, l;
 
-   static   long  # a list with the length of each run
+   static   long;  # a list with the length of each run
 
    initial {
       long := [1,1,1,1,1,1,1]
-   }
+   };
 
    # if the argument list is empty or contains "all" update all parts
    # of the screen
    if /parts | !parts == "all" then {
-      long  := [1,1,1,1,1,1,1]
+      long  := [1,1,1,1,1,1,1];
       parts := [  "label","hide","ace","deck",
             "1","2","3","4","5","6","7" ]
-   }
+   };
 
    # for every part in the argument list
    every part := !parts do case part of {
@@ -655,51 +655,51 @@ procedure display(parts)
       # display the run number, aces and deck labels
       "label" : {
          every r := 1 to 7 do {
-            movecursor(1,7+(r-1)*5)
+            movecursor(1,7+(r-1)*5);
             writes(r)
-         }
-         movecursor(1,56)
-         writes("ACES")
-         movecursor(6,56)
+         };
+         movecursor(1,56);
+         writes("ACES");
+         movecursor(6,56);
          writes("DECK")
-      }
+      };
 
       # display the hidden card counts
       "hide" : {
          every r := 1 to 7 do {
-            movecursor(1,9+(r-1)*5)
+            movecursor(1,9+(r-1)*5);
             writes(0 < *hidden[r] | " ")
          }
-      }
+      };
 
       # display the aces piles
       "ace" : {
-         movecursor(3,49)
+         movecursor(3,49);
          every a := 1 to 4 do
             writes(face(ace[a][-1]) | "---","  ")
-      }
+      };
 
       # display the deck and overturned piles
       "deck" : {
-         movecursor(8,54)
-         writes((*deck > 0 , " # ") | "   ","  ")
+         movecursor(8,54);
+         writes((*deck > 0 , " # ") | "   ","  ");
          writes(face(!over) | "   ","  ")
-      }
+      };
 
       # display the runs piles
       "1" | "2" | "3" | "4" | "5" | "6" | "7" : {
-         l := ((long[part] > *run[part]) | long[part])
-         h := ((long[part] < *run[part]) | long[part])
-         l <:= 1
+         l := ((long[part] > *run[part]) | long[part]);
+         h := ((long[part] < *run[part]) | long[part]);
+         l <:= 1;
          every c := l to h do {
-            movecursor(c+1,7+(part-1)*5)
+            movecursor(c+1,7+(part-1)*5);
             writes(face(run[part][c]) | "   ")
-         }
+         };
          long[part] := *run[part]
       }
-   }
+   };
 
-   return
+   return;
 
 end
 
@@ -710,149 +710,149 @@ end
 # Return "s" for values equal to 0 or greater than 1, e.g.,
 #     0 horses, 1 horse, 2 horses.
 
-procedure plural(n)
-   /n := 0                             # Handle &null values.
+procedure plural(n);
+   /n := 0;                             # Handle &null values.
    if n = 1 then return ""
-   else return "s"
+   else return "s";
 end
 
 # this procedure thumbs the deck 3 cards at a time
 
-procedure thumb()
-   local s
+procedure thumb();
+   local s;
 
    # if the deck is all thumbed
    if *deck = 0 then {
 
       # if there are no cards in the overturned pile either return
-      if *over = 0 then return
+      if *over = 0 then return;
 
       # turn the overturned pile back over
       while put(deck,pull(over))
-   }
+   };
 
    # turn over 3 cards or at least what's left
-   every 1 to 3 do if *deck > 0 then push(over,get(deck))
+   every 1 to 3 do if *deck > 0 then push(over,get(deck));
 
-   display(["deck"])
+   display(["deck"]);
 
    # while there are aces on top of the overturned pile move them to
    # the aces pile
    while getvalue(over[1]) = 1 do {
-      s := getsuite(over[1])
-      push(ace[s],get(over))
+      s := getsuite(over[1]);
+      push(ace[s],get(over));
       display(["deck","ace"])
-   }
+   };
 
    # if the overturned pile is empty again and there are still cards
    # in the deck thumb again (this will only happen if the top three
    # cards in the deck were aces...not likely but)
-   if *over = 0 & *deck > 0 then thumb()
+   if *over = 0 & *deck > 0 then thumb();
 
-   return
+   return;
 
 end
 
 # this procedure shuffles a deck of cards
 
-procedure shuffle(cards)
+procedure shuffle(cards);
 
-   static   fulldeck # the default shuffle is a full deck of cards
+   static   fulldeck; # the default shuffle is a full deck of cards
 
    initial {
       # set up a full deck of cards
-      fulldeck := []
-      every put(fulldeck,1 to 52)
+      fulldeck := [];
+      every put(fulldeck,1 to 52);
 
       # if seed isn't already set use the time to set it
       if /seed then seed := integer(&clock[1:3] ||
                      &clock[4:6] ||
-                     &clock[7:0])
+                     &clock[7:0]);
 
       # seed the random number generator for the first time
       &random := seed
-   }
+   };
 
    # if no cards were passed use the full deck
-   /cards := fulldeck
+   /cards := fulldeck;
 
    # copy the cards (shuffling is destructive)
-   deck := copy(cards)
+   deck := copy(cards);
 
    # shuffle the deck
-   every !deck :=: ?deck
+   every !deck :=: ?deck;
 
-   return deck
+   return deck;
 
 end
 
-procedure face(card)
+procedure face(card);
 
    static   cstr, # the list of card color escape sequences
       vstr, # the list of card value labels
-      sstr  # the list of card suite labels
+      sstr;  # the list of card suite labels
 
    initial {
-      cstr := [RED,BLACK]
-      vstr := ["A",2,3,4,5,6,7,8,9,10,"J","Q","K"]
+      cstr := [RED,BLACK];
+      vstr := ["A",2,3,4,5,6,7,8,9,10,"J","Q","K"];
       if \VERSION == "IBM PC" then
          sstr := ["\003","\004","\005","\006"]
       else
          sstr := ["H","D","S","C"]
-   }
+   };
 
    # return a string containing the correct color change escape sequence,
    # the value and suite labels right justified in 3 characters,
    # and the back to normal escape sequence
    return   cstr[getcolor(card)] ||
       right(vstr[getvalue(card)] || sstr[getsuite(card)],3) ||
-      NORMAL
+      NORMAL;
 
 end
 
 # a deck of cards is made up of 4 suites of 13 values; 1-13, 14-26, etc.
 
-procedure getvalue(card)
+procedure getvalue(card);
 
-   return (card-1) % 13 + 1
+   return (card-1) % 13 + 1;
 
 end
 
 # each suite of cards is made up of ace - king (1-13)
 
-procedure getsuite(card)
+procedure getsuite(card);
 
-   return (card-1) / 13 + 1
+   return (card-1) / 13 + 1;
 
 end
 
 # the first two suites are hearts and diamonds so all cards 1-26 are red
 # and all cards 27-52 are black.
 
-procedure getcolor(card)
+procedure getcolor(card);
 
-   return (card-1) / 26 + 1
+   return (card-1) / 26 + 1;
 
 end
 
 # this procedure counts cards that aren't in runs or the aces piles
 
-procedure cardsleft()
-   local totleft
+procedure cardsleft();
+   local totleft;
 
    # count the cards left in the deck and the overturned pile
-   totleft := *deck + *over
+   totleft := *deck + *over;
 
    # add in the hidden cards
-   every totleft +:= *!hidden
+   every totleft +:= *!hidden;
 
-   return totleft
+   return totleft;
 
 end
 
 # this procedure implements a device dependent cursor positioning scheme
 
-procedure movecursor(line,col)
+procedure movecursor(line,col);
 
    if \VERSION == "Atari ST" then
       writes("\eY",&ascii[33+line],&ascii[33+col])
@@ -861,33 +861,33 @@ procedure movecursor(line,col)
       writes("\e&a",col,"c",line,"Y")
 
    else
-      writes("\e[",line,";",col,"H")
+      writes("\e[",line,";",col,"H");
 
 end
 
 # all invalid commands call this procedure
 
-procedure whoops(cmd)
-   local i, j
+procedure whoops(cmd);
+   local i, j;
 
-   movecursor(15,0)
-   writes("\007Invalid Command: '",cmd,"'\007")
+   movecursor(15,0);
+   writes("\007Invalid Command: '",cmd,"'\007");
 
    # this delay loop can be diddled for different machines
-   every i := 1 to 500 do j := i
+   every i := 1 to 500 do j := i;
 
-   movecursor(15,0)
-   writes("\007",CLREOL,"\007")
+   movecursor(15,0);
+   writes("\007",CLREOL,"\007");
 
-   return
+   return;
 
 end
 
 # display the help message
 
-procedure disphelp()
+procedure disphelp();
 
-   static   help
+   static   help;
 
    initial {
       help := [
@@ -909,23 +909,23 @@ procedure disphelp()
 "Cheating: Commands that allow cheating are available but they will count",
 "          against you in your next life!"
       ]
-   }
+   };
 
-   writes(CLEAR)
-   every write(!help)
-   writes("Hit RETURN")
-   read()
-   writes(CLEAR)
-   display()
-   return
+   writes(CLEAR);
+   every write(!help);
+   writes("Hit RETURN");
+   read();
+   writes(CLEAR);
+   display();
+   return;
 
 end
 
 # display the rules message
 
-procedure disprules()
+procedure disprules();
 
-   static   rules
+   static   rules;
 
    initial {
       rules := [
@@ -952,14 +952,14 @@ procedure disprules()
 "          a valid move.  Whenever the bottom of the deck is reached, the",
 "          cards are turned over and you can continue thumbing."
       ]
-   }
+   };
 
-   writes(CLEAR)
-   every write(!rules)
-   writes("Hit RETURN")
-   read()
-   writes(CLEAR)
-   display()
-   return
+   writes(CLEAR);
+   every write(!rules);
+   writes("Hit RETURN");
+   read();
+   writes(CLEAR);
+   display();
+   return;
 
 end

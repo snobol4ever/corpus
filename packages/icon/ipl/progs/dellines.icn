@@ -29,14 +29,14 @@
 #
 ############################################################################
 
-procedure main(lines)
-   local i, line
+procedure main(lines);
+   local i, line;
 
-   if *lines = 0 then stop("*** no lines specified")
+   if *lines = 0 then stop("*** no lines specified");
 
    every i := 1 to *lines do
       lines[i] := integer(lines[i]) |
-         stop("*** nonnumeric argument: ", image(lines[i]))
+         stop("*** nonnumeric argument: ", image(lines[i]));
 
    lines := set(lines);  # inefficient method but easy
 
@@ -49,8 +49,8 @@ procedure main(lines)
          delete(lines, i);  # so trailing lines aren't tested
          if *lines = 0 then break
          }
-      }
+      };
 
-   while write(read())
+   while write(read());
 
 end

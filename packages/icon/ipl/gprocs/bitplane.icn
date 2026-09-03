@@ -196,16 +196,16 @@ global Plane_Mask
 
 #  AlcPlane(win, n) -- allocate 2^n colors for bitplanes and return base b
 
-procedure AlcPlane(win, n)		#: allocate colors for bitplane
-   local ncolors, mask, b, seqlen, prev, fg, clist
+procedure AlcPlane(win, n);		#: allocate colors for bitplane
+   local ncolors, mask, b, seqlen, prev, fg, clist;
 
    if type(win) ~== "window" then {
       n := win;
       win := &window
-      }
+      };
 
    if n < 1 | n > 7 then
-      runerr(205, n)
+      runerr(205, n);
    fg := Fg(win);
 
    ncolors := 2 ^ n;
@@ -227,56 +227,56 @@ procedure AlcPlane(win, n)		#: allocate colors for bitplane
          seqlen := 1
       else
          seqlen +:= 1
-      }
+      };
 
    # discard unwanted colors
    every 1 to ncolors do
-      pop(clist)
+      pop(clist);
    if *clist > 0 then {
       push(clist, win);
       FreeColor ! clist
-      }
+      };
 
    # set base color to background and return result
-   Color(win, b, Bg(win) | "white")
+   Color(win, b, Bg(win) | "white");
    /Plane_Mask := table();
-   every Plane_Mask [b to b + mask] := mask
-   return b
+   every Plane_Mask [b to b + mask] := mask;
+   return b;
 end
 
 
 
 #  FrontPlane(win, bp, color) -- move indexed plane to "front", set color
 
-procedure FrontPlane(win, bp, color)	#: move bitplane to front
-   local mask, base, bits, i
+procedure FrontPlane(win, bp, color);	#: move bitplane to front
+   local mask, base, bits, i;
 
    if type(win) ~== "window" then {
       win :=: bp :=: color;
       win := &window
-      }
+      };
 
    mask := \Plane_Mask[bp] | runerr(205, bp);
    base := iand(icom(mask), bp);
-   bits := bp - base
+   bits := bp - base;
    /color := bp;
    every i := base to base + mask do
       if iand(i, bits) = bits then
-         Color(win, i, color)
-   return win
+         Color(win, i, color);
+   return win;
 end
 
 
 
 #  BackPlane(win, bp, color) -- move indexed plane to "back", set color
 
-procedure BackPlane(win, bp, color)	#: move bitplane to back
-   local mask, base, bits, i
+procedure BackPlane(win, bp, color);	#: move bitplane to back
+   local mask, base, bits, i;
 
    if type(win) ~== "window" then {
       win :=: bp :=: color;
       win := &window
-      }
+      };
 
    mask := \Plane_Mask[bp] | runerr(205, bp);
    base := iand(icom(mask), bp);
@@ -284,21 +284,21 @@ procedure BackPlane(win, bp, color)	#: move bitplane to back
    Color(win, bp, \color);  # set color if specified
    every i := base to base + mask do
       if iand(i, bits) = bits & i ~= bp then
-         Color(win, i, ixor(i, bits))		# set color as if plane unset
-   return win
+         Color(win, i, ixor(i, bits));		# set color as if plane unset
+   return win;
 end
 
 
 
 #  PlaneOp(win, bp, op) -- set graphics context for plane operation
 
-procedure PlaneOp(win, bp, op)		#: set context for bitplane operation
-   local mask, base, bits, i
+procedure PlaneOp(win, bp, op);		#: set context for bitplane operation
+   local mask, base, bits, i;
 
    if type(win) ~== "window" then {
       win :=: bp :=: op;
       win := &window
-      }
+      };
 
    mask := \Plane_Mask[bp] | runerr(205, bp);
    base := iand(icom(mask), bp);
@@ -308,34 +308,34 @@ procedure PlaneOp(win, bp, op)		#: set context for bitplane operation
       "copy": {
          WAttrib(win, "drawop=copy");
          Fg(win, bp)
-         }
+         };
       "set": {
          i := base + bits;
          WAttrib(win, "drawop=and");
          Fg(win, i)
-         }
+         };
       "clear": {
          i := base + (mask - bits);
          WAttrib(win, "drawop=or");
          Fg(win, i)
-         }
+         };
       default:
          runerr(205, op)
-      }
-   return win
+      };
+   return win;
 end
 
 
 
 #  Deplane(win, color) -- restore normal drawop and set fg to color
 
-procedure Deplane(win, color)
+procedure Deplane(win, color);
 
    if type(win) ~== "window" then {
       color := win;
       win := &window
-      }
+      };
    WAttrib(win, "drawop=copy");
-   Fg(win, \color)
-   return win
+   Fg(win, \color);
+   return win;
 end

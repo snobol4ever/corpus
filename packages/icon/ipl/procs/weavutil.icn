@@ -68,8 +68,8 @@ record isd(				# internal structure draft
    liftplan			# liftplan matrix
    )
 
-procedure readpfd(input)		# read PFD
-   local draft
+procedure readpfd(input);		# read PFD
+   local draft;
 
    draft := pfd();
 
@@ -84,13 +84,13 @@ procedure readpfd(input)		# read PFD
    draft.treadles := read(input) &
    draft.tieup := read(input)  | fail;
    draft.liftplan := read(input);  # may be missing
-   draft.drawdown := read(input)			# may be missing
+   draft.drawdown := read(input);			# may be missing
 
-   return draft
+   return draft;
 
 end
 
-procedure writepfd(output, pfd)		#: write PFD
+procedure writepfd(output, pfd);		#: write PFD
 
    write(output, pfd.name);
    write(output, pfd.threading);
@@ -102,13 +102,13 @@ procedure writepfd(output, pfd)		#: write PFD
    write(output, pfd.shafts);
    write(output, pfd.treadles);
    write(output, pfd.tieup);
-   if *\pfd.liftplan > 0 then write(pfd.liftplan) else write()
+   if *\pfd.liftplan > 0 then write(pfd.liftplan) else write();
 
-   return
+   return;
 
 end
 
-procedure expandpfd(pfd)		#: expand PFD
+procedure expandpfd(pfd);		#: expand PFD
 
    pfd := copy(pfd);
 
@@ -118,25 +118,25 @@ procedure expandpfd(pfd)		#: expand PFD
    pfd.weft_colors := pfl2str(pfd.weft_colors);
 
    pfd.warp_colors := Extend(pfd.warp_colors, *pfd.threading);
-   pfd.weft_colors := Extend(pfd.weft_colors, *pfd.treadling)
+   pfd.weft_colors := Extend(pfd.weft_colors, *pfd.treadling);
 
-   return pfd
+   return pfd;
 
 end
 
 #  Write include file for seqdraft (old)
 
-procedure write_spec(name, spec, opt, mode)	#: write weaving include file
-   local n, output
-   static bar
+procedure write_spec(name, spec, opt, mode);	#: write weaving include file
+   local n, output;
+   static bar;
 
-   initial bar := repl("#", 72)
+   initial bar := repl("#", 72);
 
-   /opt := "w"
+   /opt := "w";
 
    output := open(name, opt) | fail;
 
-   if \mode == "drawdown" then write(output, "$define DrawDown")
+   if \mode == "drawdown" then write(output, "$define DrawDown");
 
    #  Literals are output with image().  Other definitions are
    #  Icon expressions, enclosed in parentheses.
@@ -157,29 +157,29 @@ procedure write_spec(name, spec, opt, mode)	#: write weaving include file
    write(output, "$define Treads ", spec.links[2]);
    
    every n := !keylist(spec.defns) do
-      write(output, "$define ", n, " ", spec.defns[n])
+      write(output, "$define ", n, " ", spec.defns[n]);
 
    write(output, bar);
 
-   close(output)
+   close(output);
 
-   return
+   return;
 
 end
 
 #  Write include file for seqdraft (new)
 
-procedure write_spec1(name, spec, opt, mode, defns)	#: weaving include file
-   local n, output
-   static bar
+procedure write_spec1(name, spec, opt, mode, defns);	#: weaving include file
+   local n, output;
+   static bar;
 
-   initial bar := repl("#", 72)
+   initial bar := repl("#", 72);
 
-   /opt := "w"
+   /opt := "w";
 
    output := open(name, opt) | fail;
 
-   if \mode == "drawdown" then write(output, "$define DrawDown")
+   if \mode == "drawdown" then write(output, "$define DrawDown");
 
    #  Literals are output with image().  Other definitions are
    #  Icon expressions, enclosed in parentheses.
@@ -202,33 +202,33 @@ procedure write_spec1(name, spec, opt, mode, defns)	#: weaving include file
    write(output, "$define Treads ", spec.links[2]);
    
    every n := !keylist(spec.defns) do
-      write(output, "$define ", n, " ", spec.defns[n])
+      write(output, "$define ", n, " ", spec.defns[n]);
 
    if \defns then
       every n := !keylist(defns) do
-         write(output, "$define ", n, " ", defns[n])
+         write(output, "$define ", n, " ", defns[n]);
 
    write(output, bar);
 
-   close(output)
+   close(output);
 
-   return
+   return;
 
 end
 
 #  Write include file for lstdraft (new)
 
-procedure write_spec2(name, spec, opt, mode, defns)	#: weaving include file
-   local n, output
-   static bar
+procedure write_spec2(name, spec, opt, mode, defns);	#: weaving include file
+   local n, output;
+   static bar;
 
-   initial bar := repl("#", 72)
+   initial bar := repl("#", 72);
 
-   /opt := "w"
+   /opt := "w";
 
    output := open(name, opt) | fail;
 
-   if \mode == "drawdown" then write(output, "$define DrawDown")
+   if \mode == "drawdown" then write(output, "$define DrawDown");
 
    #  Literals are output with image().  Other definitions are
    #  Icon expressions, enclosed in parentheses.
@@ -251,29 +251,29 @@ procedure write_spec2(name, spec, opt, mode, defns)	#: weaving include file
    write(output, "$define Treads ", spec.links[2]);
    
    every n := !keylist(spec.defns) do
-      write(output, "$define ", n, " ", spec.defns[n])
+      write(output, "$define ", n, " ", spec.defns[n]);
 
    if \defns then
       every n := !keylist(defns) do
-         write(output, "$define ", n, " ", defns[n])
+         write(output, "$define ", n, " ", defns[n]);
 
    write(output, bar);
 
-   close(output)
+   close(output);
 
-   return
-
-end
-
-procedure check(s)		#: check for pattern form
-
-   if s[1] == "[" then s := "!pfl2str(" || image(s) || ")"
-
-   return s
+   return;
 
 end
 
-procedure display(pfd)
+procedure check(s);		#: check for pattern form
+
+   if s[1] == "[" then s := "!pfl2str(" || image(s) || ")";
+
+   return s;
+
+end
+
+procedure display(pfd);
 
    write(&errout, "name=", pfd.name);
    write(&errout, "threading=", pfd.threading);
@@ -281,27 +281,27 @@ procedure display(pfd)
    write(&errout, "warp colors=", pfd.warp_colors);
    write(&errout, "weft colors=", pfd.weft_colors);
    write(&errout, "tie up=", limage(pfd.tieup));
-   write(&errout, "palette=", pfd.palette)
+   write(&errout, "palette=", pfd.palette);
 
-   return
-
-end
-
-procedure sympos(sym)		#: position of symbol in symbol list
-   static mask
-
-   initial mask := Mask
-
-   return upto(sym, mask)	# may fail
+   return;
 
 end
 
-procedure possym(i)		#: symbol in position i of symbol list
-   static mask
+procedure sympos(sym);		#: position of symbol in symbol list
+   static mask;
 
-   initial mask := Mask
+   initial mask := Mask;
 
-   return mask[i]		# may fail
+   return upto(sym, mask);	# may fail
+
+end
+
+procedure possym(i);		#: symbol in position i of symbol list
+   static mask;
+
+   initial mask := Mask;
+
+   return mask[i];		# may fail
 
 end
 
@@ -309,20 +309,20 @@ end
 
 $define Different 2
 
-procedure tier2prodl(tier, name)
-   local rows, row, count, unique, prodl, prod
+procedure tier2prodl(tier, name);
+   local rows, row, count, unique, prodl, prod;
 
    unique := table();
    rows := [];
    count := 0;
 
    every row := !tier.matrix do {
-      if /unique[row] then unique[row] := (count +:= 1)
+      if /unique[row] then unique[row] := (count +:= 1);
       put(rows, unique[row])
-      }
+      };
 
    prod := name || "->";
-   every prod ||:= possym(!rows + Different)
+   every prod ||:= possym(!rows + Different);
 
    prodl := [
       "name:" || "t-" || name,
@@ -334,16 +334,16 @@ procedure tier2prodl(tier, name)
    unique := sort(unique, 4);
 
    while row := get(unique) do
-      put(prodl, possym(get(unique) + Different) || "->" || row)
+      put(prodl, possym(get(unique) + Different) || "->" || row);
 
-   put(prodl, "end:")
+   put(prodl, "end:");
 
-   return prodl
+   return prodl;
 
 end
 
-procedure analyze(drawdown)
-   local sequence, rows, row, count, patterns
+procedure analyze(drawdown);
+   local sequence, rows, row, count, patterns;
 
    sequence := [];
    patterns := [];
@@ -356,10 +356,10 @@ procedure analyze(drawdown)
       if /rows[row] then {
          rows[row] := count +:= 1;
          put(patterns, row)
-         }
+         };
       put(sequence, rows[row])
-      }
+      };
 
-   return analysis(rows, sequence, patterns)
+   return analysis(rows, sequence, patterns);
 
 end

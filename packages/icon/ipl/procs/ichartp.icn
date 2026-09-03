@@ -176,9 +176,9 @@ record short_edge(LHS, RHS)
 #
 # For debugging only.
 #
-procedure main(a)
+procedure main(a);
 
-    local res, filename, line
+    local res, filename, line;
     # &trace := -1
     filename := \a[1] | "bnfs.byte";
     while line := read(&input) do {
@@ -191,9 +191,9 @@ procedure main(a)
 		write("hmmm");
 		write(stree(edge2tree(res.item)))
 	    }
-        }
+        };
 	/res & write("can't parse ",line)
-    }
+    };
 
 end
 
@@ -205,12 +205,12 @@ end
 #     where filename is the name of a grammar file containing BNFs
 #     where Es are edge records containing possible parses of s
 #
-procedure parse_sentence(s, filename, start_symbol)
+procedure parse_sentence(s, filename, start_symbol);
 
     local file, e, i, elist, ltbl, tset, ch, tokens, st, 
-        memb, new_e, token_set, none_found, active_modified
-    static master, old_filename
-    initial master := table()
+        memb, new_e, token_set, none_found, active_modified;
+    static master, old_filename;
+    initial master := table();
 
     #
     # Initialize and store stats for filename (if not already stored).
@@ -223,16 +223,16 @@ procedure parse_sentence(s, filename, start_symbol)
         #
         elist := list(); ltbl := table(); tset := set();
         every e := bnf_file_2_edges(file) do {
-            put(elist, e)                      # main edge list (active)
+            put(elist, e);                      # main edge list (active)
             (/ltbl[e.LHS] := set([e])) | insert(ltbl[e.LHS], e);  # index LHSs
             every i := 1 to e.LEN do           # LEN holds length of e.RHS
                 if /e.RHS[i].RHS then          # RHS for terminals is null
                     insert(tset, e.RHS[i].LHS)
-        }
+        };
         insert(master, filename, stats(elist, ltbl, tset));
         old_filename := filename;
         close(file)
-    }
+    };
     elist := fullcopy(master[filename].edge_list);
     ltbl  := fullcopy(master[filename].lhs_table);
     tset  := master[filename].term_set;
@@ -253,17 +253,17 @@ procedure parse_sentence(s, filename, start_symbol)
     every i := 1 to *tokens do {
         # Flag words not in the grammar as errors.
         if not member(tset, tokens[i]) then
-            suspend retval(1, tokens[i])
+            suspend retval(1, tokens[i]);
         # Now, give us an inactive edge corresponding to word i.
-        insert(ch.inactive, e := edge(tokens[i], &null, 1, 1, i, i+1))
+        insert(ch.inactive, e := edge(tokens[i], &null, 1, 1, i, i+1));
         # Insert word i into the LHS table.
         (/ltbl[tokens[i]] := set([e])) | insert(ltbl[tokens[i]], e);
 	# Watch out for those empty RHSs.
-	insert(ch.inactive, e := edge("", &null, 1, 1, i, i))
+	insert(ch.inactive, e := edge("", &null, 1, 1, i, i));
         (/ltbl[""] := set([e])) | insert(ltbl[""], e)
-    }
+    };
     *tokens = 0 & i := 0;
-    insert(ch.inactive, e := edge("", &null, 1, 1, i+1, i+1))
+    insert(ch.inactive, e := edge("", &null, 1, 1, i+1, i+1));
     (/ltbl[""] := set([e])) | insert(ltbl[""], e);
 
     #
@@ -275,7 +275,7 @@ procedure parse_sentence(s, filename, start_symbol)
 #	write(ximage(ch))
         none_found := 1;
         every e := !ch.active do {
-            active_modified := &null
+            active_modified := &null;
             # keep track of inactive edges we've already tried
             /e.SEEN := set();
             #
@@ -295,13 +295,13 @@ procedure parse_sentence(s, filename, start_symbol)
 		    # last confirmed edge in e.RHS ends!
 		    if memb.BEG ~= \e.RHS[e.DONE].END then next
 		    # set none_found to indicate we've created a new edge
-		    else none_found := &null
+		    else none_found := &null;
                     # create a new edge, having the LHS of e, the RHS of e,
                     # the start point of e, the end point of st, and one more
                     # confirmed RHS members than e
                     new_e := edge(e.LHS, fullcopy(e.RHS),
 				  e.LEN, e.DONE+1, e.BEG, memb.END);
-                    new_e.RHS[new_e.DONE] := memb
+                    new_e.RHS[new_e.DONE] := memb;
                     /new_e.BEG := memb.BEG;
                     if new_e.LEN = new_e.DONE then {      # it's inactive
                         insert(ch.inactive, new_e);
@@ -315,11 +315,11 @@ procedure parse_sentence(s, filename, start_symbol)
                         active_modified := 1
                     }
                 }
-            }
+            };
             # restart if the ch.active list has been modified
             if \active_modified then break next
         }
-    }
+    };
 
 end
 
@@ -329,16 +329,16 @@ end
 #            tabs, and other punctuation as separators (we'll need to
 #            change this a bit later on to cover apostrophed words)
 #
-procedure tokenize(s)
+procedure tokenize(s);
 
-    local l, word
+    local l, word;
 
     l := list();
     s ? {
         while tab(upto(&letters)) do
             put(l, map(tab(many(&letters))))
-    }
-    return l
+    };
+    return l;
 
 end
 
@@ -356,16 +356,16 @@ end
 #    fails if, for some reason, the conversion can't be made (e.g. the
 #    edge structure has been screwed around with in some way)
 #
-procedure edge2tree(e)
+procedure edge2tree(e);
 
-    local memb, t
+    local memb, t;
 
-    t := [e.LHS]
+    t := [e.LHS];
     \e.RHS | (return t);  # a terminal
     type(e) == "edge" | (return put(t, []));  # An incomplete edge
     every memb := !e.RHS do                             # has daughters.
-	put(t, edge2tree(memb))
-    return t
+	put(t, edge2tree(memb));
+    return t;
 
 end
 
@@ -373,21 +373,21 @@ end
 #
 # bnf_file_2_edges: concatenate backslash-final lines & parse
 #
-procedure bnf_file_2_edges(f)
+procedure bnf_file_2_edges(f);
 
-    local getline, line, macro_list, old, new, i
+    local getline, line, macro_list, old, new, i;
 
     macro_list := list();
     getline := create stripcom(!f);
     while line := @getline do {
-        while line ?:= 1(tab(-2) || tab(slshupto('\\')), pos(-1)) || @getline
+        while line ?:= 1(tab(-2) || tab(slshupto('\\')), pos(-1)) || @getline;
 	line ? {
 	    if ="define" then {
 		tab(many('\t '));
 		old := tab(slshupto('\t ')) |
 		    stop("bnf_file_2_edges", 7, tab(0));
 		tab(many('\t '));
-		new := tab(0)
+		new := tab(0);
 		(!macro_list)[1] == old &
 		    stop("bnf_file_2_edges", 8, old);
 		put(macro_list, [old, new]);
@@ -396,11 +396,11 @@ procedure bnf_file_2_edges(f)
 	    else {
 		every i := 1 to *macro_list do
 		    # Replace is in the IPL (strings.icn).
-		    line := replace(line, macro_list[i][1], macro_list[i][2])
+		    line := replace(line, macro_list[i][1], macro_list[i][2]);
 		suspend bnf_2_edges(line)
 	    }
 	}
-    }
+    };
 
 end
 
@@ -411,9 +411,9 @@ end
 #    where s is a CFPSG rule in BNF form
 #    where Es are edges
 #
-procedure bnf_2_edges(s)
+procedure bnf_2_edges(s);
     
-    local tmp, RHS, LHS
+    local tmp, RHS, LHS;
     #
     # Break BNF-style CFPSG rule into LHS and RHS.  If there is more
     # than one RHS (a la the | alternation op), suspend multiple re-
@@ -427,12 +427,12 @@ procedure bnf_2_edges(s)
 	    LHS := 1(tab(slashbal(':', '<', '>')), ="::=") | p_err(s, 1);
 	    LHS ?:= strip(2(="<", tab(-1), =">"), '\\') | p_err(s, 2);
 	    LHS == "" & p_err(s, 6)
-	}
+	};
         every RHS := do_slash(tab(0) \ 1) do {
-            RHS := string_2_list(RHS)
+            RHS := string_2_list(RHS);
             suspend edge(LHS, RHS, *RHS, 0, &null, &null)
         }
-    }
+    };
 
 end
 
@@ -445,9 +445,9 @@ end
 #    to 1, while for terminals the RHS is null (and remains that way
 #    throughout the parse)
 #
-procedure string_2_list(s)
+procedure string_2_list(s);
 
-    local tmp, RHS_list, LHS
+    local tmp, RHS_list, LHS;
 
     (s || "\x00") ? {
 	tab(many(' \t'));
@@ -455,7 +455,7 @@ procedure string_2_list(s)
         RHS_list := list();
         repeat {
 	    tab(many(' \t'));
-	    pos(-1) & break
+	    pos(-1) & break;
             if match("<") then {
                 tmp := ("" ~== tab(slashbal(&cset, '<', '>'))) | p_err(s, 4);
 		LHS := stripspaces(tmp);
@@ -468,8 +468,8 @@ procedure string_2_list(s)
                 put(RHS_list, short_edge(strip(LHS, '\\'), &null))
             }
         }
-    }
-    return RHS_list
+    };
+    return RHS_list;
 
 end
 
@@ -477,46 +477,46 @@ end
 #
 # fullcopy:  make full recursive copy of object
 #
-procedure fullcopy(obj)
+procedure fullcopy(obj);
 
-    local retval, i, k
+    local retval, i, k;
 
     case type(obj) of {
-        "co-expression"  : return obj
-        "cset"           : return obj
-        "file"           : return obj
-        "integer"        : return obj
+        "co-expression"  : return obj;
+        "cset"           : return obj;
+        "file"           : return obj;
+        "integer"        : return obj;
         "list"           : {
             retval := list(*obj);
             every i := 1 to *obj do
-                retval[i] := fullcopy(obj[i])
+                retval[i] := fullcopy(obj[i]);
             return retval
-        }
-        "null"           :  return &null
-        "procedure"      :  return obj
-        "real"           :  return obj
+        };
+        "null"           :  return &null;
+        "procedure"      :  return obj;
+        "real"           :  return obj;
         "set"            :  {
             retval := set();
-            every insert(retval, fullcopy(!obj))
+            every insert(retval, fullcopy(!obj));
             return retval
-        }
-        "string"         :  return obj
+        };
+        "string"         :  return obj;
         "table"          :  {
             retval := table(obj[[]]);
             every k := key(obj) do
-                insert(retval, fullcopy(k), fullcopy(obj[k]))
+                insert(retval, fullcopy(k), fullcopy(obj[k]));
             return retval
-        }
+        };
         # probably a record; if not, we're dealing with a new
         # version of Icon or a nonstandard implementation, and
 	# we're screwed
         default          :  {
             retval := copy(obj);
             every i := 1 to *obj do
-                retval[i] := fullcopy(obj[i])
+                retval[i] := fullcopy(obj[i]);
             return retval
         }
-    }
+    };
 
 end
 
@@ -525,16 +525,16 @@ end
 # do_slash:  string -> string(s)
 #     Given a|b suspend a then b.  Used in conjunction with do_parends().
 #
-procedure do_slash(s)
+procedure do_slash(s);
 
-    local chunk
+    local chunk;
     s ? {
 	while chunk := tab(slashbal('|', '(', ')')) do {
 	    suspend do_parends(chunk);
 	    move(1)
-	}
+	};
 	suspend do_parends(tab(0))
-    }
+    };
 
 end
 
@@ -544,21 +544,21 @@ end
 #    Given a(b)c suspend abc; given a(b|c)d suspend abd and acd, etc.
 #    Used in conjuction with do_slash().
 #
-procedure do_parends(s)
+procedure do_parends(s);
 
-    local chunk, i, j
+    local chunk, i, j;
     s ? {
 	if not (i := slshupto('(')) then {
 	    chunk := tab(0);
-	    slshupto(')') & p_err(s, 8)
+	    slshupto(')') & p_err(s, 8);
 	    suspend chunk
 	} else {
-	    j := i + slashbal(')', '(', ')', s[i+1:0]) | p_err(s, 9)
+	    j := i + slashbal(')', '(', ')', s[i+1:0]) | p_err(s, 9);
 	    suspend tab(i) ||
 		(move(1), do_slash(tab(j))) ||
 		(move(1), do_parends(tab(0)))
 	}
-    }
+    };
 
 end
 
@@ -566,10 +566,10 @@ end
 #
 # p_err:  print error message to stderr & abort
 #
-procedure p_err(s, n)
+procedure p_err(s, n);
 
-    local i, msg
-    static errlist
+    local i, msg;
+    static errlist;
     initial {
         errlist := [[1,  "malformed LHS"],
                     [2,  "nonterminal lacks proper <> enclosure"],
@@ -582,12 +582,12 @@ procedure p_err(s, n)
                     [9,  "unmatched left parenthesis"],
                     [10, "empty symbol in RHS"]
                    ]
-    }
+    };
     every i := 1 to *errlist do
-        if errlist[i][1] = n then msg := errlist[i][2]
+        if errlist[i][1] = n then msg := errlist[i][2];
     writes(&errout, "error ", n, " (", msg, ") in \n");
-    every write("\t", rewrap(s) | rewrap())
-    exit(n)
+    every write("\t", rewrap(s) | rewrap());
+    exit(n);
 
 end
 
@@ -595,17 +595,17 @@ end
 #
 # Remove non-backslashed spaces and tabs.
 #
-procedure stripspaces(s)
+procedure stripspaces(s);
 
-    local s2
+    local s2;
 
     s2 := "";
     s ? {
         while s2 ||:= tab(slshupto(' \t')) do
-            tab(many(' \t'))
+            tab(many(' \t'));
         s2 ||:= tab(0)
-    }
+    };
 
-    return s2
+    return s2;
 
 end

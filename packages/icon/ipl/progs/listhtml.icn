@@ -19,16 +19,16 @@
 #
 ############################################################################
 
-procedure main()
-   local file
+procedure main();
+   local file;
 
    write("<HTML><HEAD>");
    write("<TITLE>File Links</TITLE></HEAD>");
    write("<BODY>");
 
    every file := !&input do
-      write("<A HREF=\"", file, "\">", file, "</A><BR>")
+      write("<A HREF=\"", file, "\">", file, "</A><BR>");
 
-   write("</BODY></HTML>")
+   write("</BODY></HTML>");
 
 end

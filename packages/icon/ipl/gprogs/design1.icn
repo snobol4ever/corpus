@@ -29,8 +29,8 @@
 
 link wopen
 
-procedure main(argl)
-   local i, j, k, angle, incr, xpoint, ypoint, size, radius, xc, yc
+procedure main(argl);
+   local i, j, k, angle, incr, xpoint, ypoint, size, radius, xc, yc;
 
    i := integer(argl[1]) | 20;
 
@@ -48,23 +48,23 @@ procedure main(argl)
       spokes(xc + radius * cos(angle), yc + radius * sin(angle),
          radius, i, angle);
       angle +:= incr
-      }
+      };
 
-   Event()
+   Event();
 
 end
 
-procedure spokes(x, y, r, i, angle)
-   local incr, j
+procedure spokes(x, y, r, i, angle);
+   local incr, j;
 
    incr := 2 * &pi / i;
 
    every j := 1 to i do {
       DrawLine(x, y, x + r * cos(angle), y + r * sin(angle));
       angle +:= incr
-      }
+      };
 
-   return
+   return;
 
 end
 

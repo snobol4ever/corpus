@@ -33,8 +33,8 @@ link gobject
 link joinpair
 link wopen
 
-procedure main(argl)
-   local i, j, k, angle, incr, size, radius, xc, yc, points
+procedure main(argl);
+   local i, j, k, angle, incr, size, radius, xc, yc, points;
 
    i := integer(argl[1]) | 20;
 
@@ -53,10 +53,10 @@ procedure main(argl)
    every j := 1 to i do {
       points[j] := Point(xc + radius * cos(angle), yc + radius * sin(angle));
       angle +:= incr
-      }
+      };
 
    joinpair(points, points);
 
-   Event()
+   Event();
 
 end

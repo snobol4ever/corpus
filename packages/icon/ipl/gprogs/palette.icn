@@ -40,46 +40,46 @@ link graphics, imscolor
 
 global flags
 
-procedure main(args)
-   local p, nw, nh, w, h, e
+procedure main(args);
+   local p, nw, nh, w, h, e;
 
    flags := "l";
    if args[-1] ? any(&letters) then
       p := args[-1]
    else
-      p := "c1"
+      p := "c1";
 
    PaletteChars(p) | stop(&progname, ": palette ", p, " not found");
 
    Window("width=125", "height=250", "font=lucidasans-bold-12",
-      "label=" || p, args)
+      "label=" || p, args);
 
    &error := 1;
-   WAttrib("resize=on")
+   WAttrib("resize=on");
    &error := 0;
 
    draw(p);
    while e := Event() do case e of {
-      QuitEvents():	break
-      !"123456":	draw(p := "c" || e)
-      "g":		draw(p := "g16")
-      &lpress | &ldrag:	writes(pickpalette(p, &x, &y) | "~") & flush(&output)
-      &resize:		draw(p)
+      QuitEvents():	break;
+      !"123456":	draw(p := "c" || e);
+      "g":		draw(p := "g16");
+      &lpress | &ldrag:	writes(pickpalette(p, &x, &y) | "~") & flush(&output);
+      &resize:		draw(p);
       !"lou": {
          if flags ? find(e) then
             flags := string(flags -- e)
          else
-            flags ||:= e
+            flags ||:= e;
          draw(p)
          }
-      }
+      };
 end
 
 
-procedure draw(p)		# draw palette, etc.
-   WAttrib("label=" || p)
-   EraseArea()
+procedure draw(p);		# draw palette, etc.
+   WAttrib("label=" || p);
+   EraseArea();
    drawpalette(p, , , , , flags) |
-      write(&errout, "  could not get all colors of ", p, " palette")
-   return
+      write(&errout, "  could not get all colors of ", p, " palette");
+   return;
 end

@@ -23,8 +23,8 @@
 global fullimage_level,fullimage_maxlevel,fullimage_done,fullimage_used,
       fullimage_indent
 
-procedure fullimage(x,indent,maxlevel)
-   local tr,s,t
+procedure fullimage(x,indent,maxlevel);
+   local tr,s,t;
    #
    #  Initialize
    #
@@ -50,7 +50,7 @@ procedure fullimage(x,indent,maxlevel)
 	    "\"" | "'": {
 	       s ||:= t;
 	       while (s ||:= tab(find(t) + 1)) \ 1 & s[-2] ~== "\\"
-	       }
+	       };
 	    "<": {
 	       t := +tab(find(">")) & move(1);
 	       if member(fullimage_used,t) then {
@@ -59,26 +59,26 @@ procedure fullimage(x,indent,maxlevel)
 		  }
 	       }
 	    }
-	 }
+	 };
       s ||:= tab(0)
-      }
+      };
    #
    #  Clean up and return.
    #
-   fullimage_done := fullimage_used := &null     # remove structures
-   &trace := tr                  # restore &trace
-   return s
+   fullimage_done := fullimage_used := &null;     # remove structures
+   &trace := tr;                  # restore &trace
+   return s;
 end
 
 
-procedure fullimage_(x,noindent)
-   local s,t,tr
+procedure fullimage_(x,noindent);
+   local s,t,tr;
    t := type(x);
    s := case t of {
       "null" | "string" | "integer" | "real" | "co-expression" | "cset" |
-      "file" | "window" | "procedure" | "external": image(x)
+      "file" | "window" | "procedure" | "external": image(x);
       default: fullimage_structure(x)
-      }
+      };
    #
    #  Return the result.
    #
@@ -87,37 +87,37 @@ procedure fullimage_(x,noindent)
 	 "\n" || repl(fullimage_indent,fullimage_level - 1) || s
       else
 	    s
-   )
+   );
 end
 
-procedure fullimage_structure(x)
-   local sep,s,t,tag,y
+procedure fullimage_structure(x);
+   local sep,s,t,tag,y;
    #
    #  If this structure has already been output, just output its tag.
    #
    if \(tag := fullimage_done[x]) then {
-      insert(fullimage_used,tag)
+      insert(fullimage_used,tag);
       return "<" || tag || ">"
-      }
+      };
    #
    #  If we've reached the max level, just output a normal image
    #  enclosed in braces to indicate end of the line.
    #
    if fullimage_level = fullimage_maxlevel then
-	 return "{" || image(x) || "}"
+	 return "{" || image(x) || "}";
    #
    #  Output the structure in a style indicative of its type.
    #
    fullimage_level +:= 1;
    fullimage_done[x] := tag := *fullimage_done + 1;
-   if (t := type(x)) == ("table" | "set") then x := sort(x)
+   if (t := type(x)) == ("table" | "set") then x := sort(x);
    s := "<" || tag || ">" || if t == "list" then "[" else t || "(";
    sep := "";
    if t == "table" then every y := !x do {
       s ||:= sep || fullimage_(y[1]) || "->" || fullimage_(y[2],"noindent");
       sep := ","
       }
-   else every s ||:= sep || fullimage_(!x) do sep := ","
-   fullimage_level -:= 1
-   return s || if t == "list" then "]" else ")"
+   else every s ||:= sep || fullimage_(!x) do sep := ",";
+   fullimage_level -:= 1;
+   return s || if t == "list" then "]" else ")";
 end

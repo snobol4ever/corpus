@@ -24,14 +24,14 @@
 #
 ############################################################################
 
-procedure main()
-   local palette, output
+procedure main();
+   local palette, output;
 
    every palette := ("c" || (1 to 6)) | ("g" || (2 to 256)) do {
       output := open(palette || ".clr", "w") |
          stop("*** cannot open output file for palette ", palette);
-      every write(output, PaletteColor(palette, !PaletteChars(palette)))
+      every write(output, PaletteColor(palette, !PaletteChars(palette)));
       close(output)
-      }
+      };
 
 end

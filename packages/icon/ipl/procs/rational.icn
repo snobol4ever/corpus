@@ -56,8 +56,8 @@ link numbers
 
 record rational(numer, denom, sign)
 
-procedure addrat(r1, r2)		#: sum of rationals
-   local denom, numer, div
+procedure addrat(r1, r2);		#: sum of rationals
+   local denom, numer, div;
 
    r1 := ratred(r1);
    r2 := ratred(r2);
@@ -66,25 +66,25 @@ procedure addrat(r1, r2)		#: sum of rationals
    numer := r1.sign * r1.numer * r2.denom +
       r2.sign * r2.numer * r1.denom;
 
-   if numer = 0 then return rational (0, 1, 1)
+   if numer = 0 then return rational (0, 1, 1);
 
-   div := gcd(numer, denom)
+   div := gcd(numer, denom);
 
-   return rational(abs(numer / div), abs(denom / div), numer / abs(numer))
+   return rational(abs(numer / div), abs(denom / div), numer / abs(numer));
 
 end
 
-procedure divrat(r1, r2)		#: divide rationals.
+procedure divrat(r1, r2);		#: divide rationals.
 
    r1 := ratred(r1);
-   r2 := ratred(r2)
+   r2 := ratred(r2);
 
-   return mpyrat(r1, reciprat(r2))
+   return mpyrat(r1, reciprat(r2));
 
 end
  
-procedure medrat(r1, r2)		#: form rational mediant
-   local numer, denom, div
+procedure medrat(r1, r2);		#: form rational mediant
+   local numer, denom, div;
 
    r1 := ratred(r1);
    r2 := ratred(r2);
@@ -92,14 +92,14 @@ procedure medrat(r1, r2)		#: form rational mediant
    numer := r1.numer + r2.numer;
    denom := r1.denom + r2.denom;
 
-   div := gcd(numer, denom)
+   div := gcd(numer, denom);
 
-   return rational(numer / div, denom / div, r1.sign * r2.sign)
+   return rational(numer / div, denom / div, r1.sign * r2.sign);
 
 end
  
-procedure mpyrat(r1, r2)		#: multiply rationals
-   local numer, denom, div
+procedure mpyrat(r1, r2);		#: multiply rationals
+   local numer, denom, div;
 
    r1 := ratred(r1);
    r2 := ratred(r2);
@@ -107,53 +107,53 @@ procedure mpyrat(r1, r2)		#: multiply rationals
    numer := r1.numer * r2.numer;
    denom := r1.denom * r2.denom;
 
-   div := gcd(numer, denom)
+   div := gcd(numer, denom);
 
-   return rational(numer / div, denom / div, r1.sign * r2.sign)
-
-end
-
-procedure negrat(r)		#: negative of rational
-
-   r := ratred(r)
-
-   return rational(r.numer, r.denom, -r.sign)
+   return rational(numer / div, denom / div, r1.sign * r2.sign);
 
 end
 
-procedure rat2real(r)		#: floating-point approximation of rational
+procedure negrat(r);		#: negative of rational
 
-   r := ratred(r)
+   r := ratred(r);
 
-   return (real(r.numer) * r.sign) / r.denom
+   return rational(r.numer, r.denom, -r.sign);
+
+end
+
+procedure rat2real(r);		#: floating-point approximation of rational
+
+   r := ratred(r);
+
+   return (real(r.numer) * r.sign) / r.denom;
 
 end
   
-procedure rat2str(r)		#: convert rational to string
+procedure rat2str(r);		#: convert rational to string
 
-   r := ratred(r)
+   r := ratred(r);
 
-   return "(" || (r.numer * r.sign) || "/" || r.denom || ")"
+   return "(" || (r.numer * r.sign) || "/" || r.denom || ")";
 
 end
 
-procedure ratred(r)		#: reduce rational to lowest terms
-   local div
+procedure ratred(r);		#: reduce rational to lowest terms
+   local div;
 
-   if r.denom = 0 then runerr(501)
-   if abs(r.sign) ~= 1 then runerr(501)
+   if r.denom = 0 then runerr(501);
+   if abs(r.sign) ~= 1 then runerr(501);
 
-   if r.numer = 0 then return rational(0, 1, 1)
+   if r.numer = 0 then return rational(0, 1, 1);
 
-   if r.numer < 0 then r.sign *:= -1
-   if r.denom < 0 then r.sign *:= -1
+   if r.numer < 0 then r.sign *:= -1;
+   if r.denom < 0 then r.sign *:= -1;
 
    r.numer := abs(r.numer);
    r.denom := abs(r.denom);
 
-   div := gcd(r.numer, r.denom)
+   div := gcd(r.numer, r.denom);
 
-   return rational(r.numer / div, r.denom / div, r.sign)
+   return rational(r.numer / div, r.denom / div, r.sign);
 
 end
 
@@ -165,38 +165,38 @@ end
 $define MAXITER 40		# maximum number of iterations
 $define PRECISION 1e-10		# default conversion precision
 
-procedure real2rat(r, p)	#: convert to rational with precision p
-   local t, d, i, j
-   static x, y
-   initial { x := list(MAXITER); y := list(MAXITER + 2) }
+procedure real2rat(r, p);	#: convert to rational with precision p
+   local t, d, i, j;
+   static x, y;
+   initial { x := list(MAXITER); y := list(MAXITER + 2) };
 
-   t := abs(r)
+   t := abs(r);
    /p := PRECISION;
    every i := 1 to MAXITER do {
       x[i] := integer(t);
       y[i + 1] := 1;
       y[i + 2] := 0;
       every j := i to 1 by -1 do
-         y[j] := x[j] * y[j + 1] + y[j + 2]
-      if abs(y[1] / real(y[2]) - r) < p then break
-      d := t - integer(t)
-      if d < p then break
+         y[j] := x[j] * y[j + 1] + y[j + 2];
+      if abs(y[1] / real(y[2]) - r) < p then break;
+      d := t - integer(t);
+      if d < p then break;
       t := 1.0 / d
-      }
-   return rational(y[1], y[2], if r >= 0 then 1 else -1)
+      };
+   return rational(y[1], y[2], if r >= 0 then 1 else -1);
 
 end
 
-procedure reciprat(r)		#: reciprocal of rational
+procedure reciprat(r);		#: reciprocal of rational
 
-   r := ratred(r)
+   r := ratred(r);
 
-   return rational(r.denom, r.numer, r.sign)
+   return rational(r.denom, r.numer, r.sign);
 
 end
 
-procedure str2rat(s)		# convert string to rational
-   local div, numer, denom, sign
+procedure str2rat(s);		# convert string to rational
+   local div, numer, denom, sign;
 
    s ? {
       ="(" &
@@ -204,17 +204,17 @@ procedure str2rat(s)		# convert string to rational
       move(1) &
       denom := integer(tab(upto(')'))) &
       pos(-1)
-      } | fail
+      } | fail;
 
-   return ratred(rational(numer, denom, 1))
+   return ratred(rational(numer, denom, 1));
 
 end
 
-procedure subrat(r1, r2)		#: difference of rationals
+procedure subrat(r1, r2);		#: difference of rationals
 
    r1 := ratred(r1);
-   r2 := ratred(r2)
+   r2 := ratred(r2);
 
-   return addrat(r1, negrat(r2))
+   return addrat(r1, negrat(r2));
 
 end

@@ -29,8 +29,8 @@
 #
 ############################################################################
 
-procedure main()
+procedure main();
 
-   while write("procedure ", read(), "()\nend\n")
+   while write("procedure ", read(), "()\nend\n");
 
 end

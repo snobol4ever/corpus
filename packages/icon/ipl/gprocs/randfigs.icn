@@ -29,9 +29,9 @@ link gobject
 #  randomly chosen points within the area bounded by 0, 0 and width - 1,
 #  height - 1.
 
-procedure random_points(width, height)
+procedure random_points(width, height);
 
-   suspend |Point(?width - 1, ?height - 1)
+   suspend |Point(?width - 1, ?height - 1);
 
 end
 
@@ -40,9 +40,9 @@ end
 #  randomly chosen lines within the area bounded by 0, 0 and width - 1,
 #  height - 1.
 
-procedure random_lines(width, height)
+procedure random_lines(width, height);
 
    suspend |Line(Point(?width - 1, ?height - 1),
-      Point(?width - 1, ?height - 1))
+      Point(?width - 1, ?height - 1));
 
 end

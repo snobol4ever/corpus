@@ -51,9 +51,9 @@ link options
 
 global mode, sysname, domain, tz, tmpfile, opts, console, newslib, org
 
-procedure main(arg)
-  local usage, smarthost, editor, default_distribution, generic_from
-  local tmpdir, logname, fullname, sigfile, article, inf, edstr, outf, tmp2
+procedure main(arg);
+  local usage, smarthost, editor, default_distribution, generic_from;
+  local tmpdir, logname, fullname, sigfile, article, inf, edstr, outf, tmp2;
 
   usage := ["usage: post [options] [article]",
             "\t-n newsgroups",
@@ -87,16 +87,16 @@ procedure main(arg)
     tz := "unix";
     tmpdir := "/tmp/";
     logname := pipe("logname");
-    sysname := trim(pipe("hostname", "uname -n", "uuname -l"))
+    sysname := trim(pipe("hostname", "uname -n", "uuname -l"));
 	# BSD  passwd: `:fullname[,...]:'
 	# SysV passwd: `-fullname(' 
     \logname & every lookup("/etc/passwd") ? {
       =(logname) & {
-	every tab(upto(':')+1) \4 
+	every tab(upto(':')+1) \4; 
 	fullname := (tab(upto('-')+1), tab(upto('(:'))) | tab(upto(',:'));
 	break
       }	
-    }
+    };
     sigfile := getenv("HOME") || "/.signature"
   }
 
@@ -120,22 +120,22 @@ procedure main(arg)
     fullname := &null;
     sigfile := &null;
     sysname := getenv("HOST") | &host
-  }
+  };
 
 	# End of user configuration.
 
   (\logname & \sysname & \tz & (mode == "local" | *smarthost > 0)) |
     stop("post: missing system information");
-  opts := options(arg, "n:s:d:f:p:h?") 
+  opts := options(arg, "n:s:d:f:p:h?"); 
   \opts["h"] | \opts["?"] | arg[1] == "?" & { 
-    every write(!usage)
+    every write(!usage);
     exit(-1) 
-  }
+  };
   org := getenv("ORGANIZATION") | lookup(newslib || "organization");
   article := open(tmpfile := tempname(tmpdir), "w") | 
     stop("post: cannot write temp file");
   write(article, "Path: ",  sysname, "!", logname);
-  writes(article, "From: ", logname, "@", \generic_from | sysname, domain)
+  writes(article, "From: ", logname, "@", \generic_from | sysname, domain);
   \fullname & writes(article, " (", fullname, ")");
   write(article);
 
@@ -145,7 +145,7 @@ procedure main(arg)
     inf := (arg[1] == "-" & &input) | 
       open(arg[1]) | (remove(tmpfile) & stop("post: cannot read " || arg[1]));
     reply_headers(inf, article);
-    every write(article, \opts["p"] | " > ", !inf)
+    every write(article, \opts["p"] | " > ", !inf);
     close(inf)
   }
 
@@ -159,9 +159,9 @@ procedure main(arg)
     write(article, "Distribution: ", 
       validate(\opts["d"] | query("Distribution: ", default_distribution), 
 		   "distributions"));
-    every write(article, req_headers())
+    every write(article, req_headers());
     write(article, "\n")
-  }
+  };
   close(article);
   edstr := (getenv("EDITOR") | editor) || " " || tmpfile || " < " || console;
   system(edstr);
@@ -172,7 +172,7 @@ procedure main(arg)
       remove(tmpfile);
       stop("Posting aborted.") 
     }
-  }
+  };
 	# For inews, we supply the headers, inews supplies the .signature.
 
   if mode == "local" then mode := newslib || "inews -h"
@@ -181,7 +181,7 @@ procedure main(arg)
       article := open(tmpfile, "a");
       write(article, "--");
       every write(article, lookup(sigfile))
-    }
+    };
 	# To post via sendnews (mail), we prefix lines with 'N'.
 	# For rnews, don't force an immediate poll.
 
@@ -189,16 +189,16 @@ procedure main(arg)
       "mail": {
              mode ||:= " " || smarthost || "!rnews";
 	     outf := open(tmp2 := tempname(tmpdir), "w");
-	     every write(outf, "N", lookup(tmpfile))
+	     every write(outf, "N", lookup(tmpfile));
 	     remove(tmpfile);
 	     rename(tmp2, tmpfile)
-	   }
+	   };
       "uux": mode ||:= " - -r " || smarthost || "!rnews"
     }
-  }
-  mode ||:= " < " || tmpfile
+  };
+  mode ||:= " < " || tmpfile;
   (system(mode) = 0) & write("Article posted!");
-  remove(tmpfile)
+  remove(tmpfile);
 end
 
 	# To parse the original article, we use case-insensitive
@@ -207,9 +207,9 @@ end
 	# they take precedence.  By usenet convention, we query
 	# the user if Followup-To on the original is `poster'.
 
-procedure reply_headers(infile, art)
-  local fullname, address, quoter, date, id, subject, distribution
-  local group, refs
+procedure reply_headers(infile, art);
+  local fullname, address, quoter, date, id, subject, distribution;
+  local group, refs;
 
   every !infile ? {
     tab(match("from: " | "reply-to: ", map(&subject))) & {
@@ -220,37 +220,37 @@ procedure reply_headers(infile, art)
       else {
 	address := trim(tab(upto('(') | 0));
 	fullname := (move(1), tab(find(")")))
-      }
+      };
       quoter := (\fullname | address)
-    }
+    };
     tab(match("date: ", map(&subject))) & date := tab(0);
     tab(match("message-id: ", map(&subject))) & id := tab(0);
     tab(match("subject: ", map(&subject))) & subject := tab(0);
     tab(match("distribution: ", map(&subject))) & distribution := tab(0);
     tab(match("newsgroups: " | "followup-to: ", map(&subject))) & 
       group := tab(0);
-    tab(match("references: ", map(&subject))) & refs := tab(0)
+    tab(match("references: ", map(&subject))) & refs := tab(0);
     (\quoter & *&subject = 0) & {
       find("poster", group) & {
 	write(quoter, " has requested followups by email.");
 	upto('yY', query("Do you want to abort this posting y/n? ")) & {
 	  remove(tmpfile);
 	  stop("Posting aborted.")
-	}
+	};
 	group := &null
-      }
+      };
       write(art, "Newsgroups: ", \group | 
 	validate(\opts["n"] | query("Newsgroups: "), "active"));
-      write(art, "Subject: ", \opts["s"] | \subject | query("Subject: "))
+      write(art, "Subject: ", \opts["s"] | \subject | query("Subject: "));
       \distribution | distribution := validate(\opts["d"], "distributions") &
         write(art, "Distribution: ", distribution);
       write(art, "References: ", (\refs ||:= " ") | "", id);
-      every write(art, req_headers())
+      every write(art, req_headers());
       write(art, "In-reply-to: ", quoter, "'s message of ", date);
-      write(art, "\nIn ", id, ", ", quoter, " writes:\n")
+      write(art, "\nIn ", id, ", ", quoter, " writes:\n");
       return 
     }
-  }
+  };
 end
 
 	# We need a unique message-id, and a date in RFC822 format.
@@ -258,10 +258,10 @@ end
 	# others, we leave the local timezone.  The first inews site
 	# will correct it.
 
-procedure req_headers()
-  local uniq, date, month, day, time, zone, year
+procedure req_headers();
+  local uniq, date, month, day, time, zone, year;
 
-  uniq := "<"
+  uniq := "<";
   &date || &clock ? while tab(upto(&digits)) do uniq ||:= tab(many(&digits));
   uniq ||:= "@" || sysname || domain || ">";
   if tz == "unix" then {
@@ -272,7 +272,7 @@ procedure req_headers()
      time := (tab(upto(&digits++':')), tab(many(&digits++':')));
      zone := (tab(upto(&ucase)), tab(many(&ucase)));
      year := (tab(upto(&digits)+ 2), tab(0))
-    }
+    };
     date := day || " " || month || " " || year ||  " " || time || " " || zone
   }
   else {
@@ -280,66 +280,66 @@ procedure req_headers()
       month := left((tab(find(" ")+1), tab(many(&letters))), 3) || " ";
       date := (tab(upto(&digits)), tab(many(&digits))) || " " || month;
       date ||:= (tab(upto(&digits)), right(tab(many(&digits)), 2))
-    }
+    };
     date ||:= " " || &clock || " " || tz
-  }
-  mode ~== "local" & suspend "Message-ID: " || uniq
-  suspend "Date: " || date 
-  \org & suspend "Organization: " || org
+  };
+  mode ~== "local" & suspend "Message-ID: " || uniq;
+  suspend "Date: " || date; 
+  \org & suspend "Organization: " || org;
   \opts["f"] & return "Followup-To: " || ((opts["f"] == "poster") | 
-    validate(opts["f"], "active"))
+    validate(opts["f"], "active"));
 end
 
 	# Richard Goerwitz's generator.
 
-procedure tempname(dir)
-  local temp_name
+procedure tempname(dir);
+  local temp_name;
 
   every temp_name := dir || "article." || right(1 to 999,3,"0") do {
-    close(open(temp_name)) & next
+    close(open(temp_name)) & next;
     suspend \temp_name
-  }
+  };
 end
 
 	# On systems with pipes, pipe() will read from the first
 	# successful command of the list given as arguments.
 
-procedure pipe(cmd[])
-  local inf, got
+procedure pipe(cmd[]);
+  local inf, got;
 
-  initial find("pipes" | "compiled", &features) | stop("No pipes.")
+  initial find("pipes" | "compiled", &features) | stop("No pipes.");
   while inf := open("(" || pop(cmd) || ") 2>&1", "pr") do {
     got := [];
-    every put(got, !inf)
+    every put(got, !inf);
     close(inf) = 0 & {
       suspend !got;
       break
     }
-  }
+  };
 end
 
 	# The dirty work of reading from a file.
 
-procedure lookup(what)
-  local inf
+procedure lookup(what);
+  local inf;
 
-  inf := open(what, "r") | fail
+  inf := open(what, "r") | fail;
   suspend !inf;
-  close(inf)
+  close(inf);
 end
 
 	# Query opens stdin because the system call to the editor
 	# redirects input.  The optional parameter is a default
 	# response if the user answers with <return>.
 
-procedure query(prompt, def)
-  local ans
-  static stdin
+procedure query(prompt, def);
+  local ans;
+  static stdin;
 
-  initial stdin := open(console)
+  initial stdin := open(console);
   writes(prompt);
-  ans := read(stdin)
-  return (*ans = 0 & \def) | ans
+  ans := read(stdin);
+  return (*ans = 0 & \def) | ans;
 end
 
 	# A quick and dirty kludge.  Validate() builds a sorted list.
@@ -347,8 +347,8 @@ end
 	# to the next item.  The procedure assumes the file is also
 	# sorted.
 
-procedure validate(what, where)
-  local valid, stuff, sf, a
+procedure validate(what, where);
+  local valid, stuff, sf, a;
 
   mode ~== "local" & return what;
   valid := &letters ++ '.-' ++ &digits;
@@ -357,10 +357,10 @@ procedure validate(what, where)
   sf := open(newslib || where) | {
     remove(tmpfile);
     stop("post: cannot open ", newslib || where)
-  }
+  };
   stuff := sort(stuff);
   a := pop(stuff);
-  every !sf ? match(a) & (a := pop(stuff)) | return what
+  every !sf ? match(a) & (a := pop(stuff)) | return what;
   remove(tmpfile);
-  stop("`", a, "' is not in ", newslib || where)
+  stop("`", a, "' is not in ", newslib || where);
 end

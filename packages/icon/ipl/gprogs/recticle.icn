@@ -47,8 +47,8 @@ global gap
 global minside
 global palette
 
-procedure main(args)
-   local w, h, opts, name
+procedure main(args);
+   local w, h, opts, name;
 
    opts := options(args, "w+h+p:g+b+m+n:i");
 
@@ -68,21 +68,21 @@ procedure main(args)
 
    rect(gap, gap, w - gap, h - gap);
 
-   if \opts["i"] then WriteImage(name || ".gif")
+   if \opts["i"] then WriteImage(name || ".gif");
 
    WAttrib("canvas=normal");
 
-   WDone()
+   WDone();
 
 end
 
 #  rect(x,y,w,h) -- draw rectangle, possibly subdivided, at (x,y)
 
-procedure rect(x, y, w, h)
-   local d
-   static colors
+procedure rect(x, y, w, h);
+   local d;
+   static colors;
 
-   initial colors := colrplte(palette)
+   initial colors := colrplte(palette);
 
    if d := divide(w < h) then {		# if cut horizontally:
       rect(x, y, w, d);  #    draw top portion
@@ -95,9 +95,9 @@ procedure rect(x, y, w, h)
    else {				# else draw single rect
       Fg(?colors);  # set random color
       FillRectangle(x, y, w - gap, h - gap)	# draw
-      }
+      };
 
-   return
+   return;
 
 end
 
@@ -108,11 +108,11 @@ end
 #  either end.  Fail if the length is too small to subdivide;
 #  also fail randomly, depending partially on the bias setting.
 
-procedure divide(n)
+procedure divide(n);
 
    if (n > 2 * minside) & (?n > bias) then
       return minside + ?(n - 2 * minside)
    else
-      fail
+      fail;
 
 end

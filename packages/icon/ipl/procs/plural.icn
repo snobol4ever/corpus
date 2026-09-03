@@ -19,9 +19,9 @@
 #
 ############################################################################
 
-procedure plural(word)		#: produce plural of word
-   local lcword
-   static plural_map, plural_id, plural_s
+procedure plural(word);		#: produce plural of word
+   local lcword;
+   static plural_map, plural_id, plural_s;
 
    initial {
       plural_map := table();
@@ -31,18 +31,18 @@ procedure plural(word)		#: produce plural of word
       plural_map["datum"] := "data";
 
       plural_id := set();
-      every insert(plural_id,"chassis" | "fish" | "sheep" | "semantics")
+      every insert(plural_id,"chassis" | "fish" | "sheep" | "semantics");
 
       plural_s := set();
       every insert(plural_s,"roman" | "norman" | "human" | "shaman" |
          "german" | "talisman" | "superhuman")
-      }
+      };
    
    lcword := map(word);
 
-   if member(plural_id,lcword) then return word
+   if member(plural_id,lcword) then return word;
 
-   if member(plural_s,lcword) then return word || "s"
+   if member(plural_s,lcword) then return word || "s";
 
    (lcword := \plural_map[lcword]) | {
       lcword ?:= {
@@ -54,12 +54,12 @@ procedure plural(word)		#: produce plural of word
          (tab(-1) || tab(any('xz')) || "es") |
          (tab(0) || "s")
          }
-      }
+      };
 
    if word ? any(&ucase) then lcword ?:= {
       map(move(1),&lcase,&ucase) || tab(0)
-      }
+      };
 
-   return lcword
+   return lcword;
          
 end

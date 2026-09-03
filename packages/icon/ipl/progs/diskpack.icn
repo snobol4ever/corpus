@@ -38,9 +38,9 @@
 
 link options
 
-procedure main(argl)
-   local files, disksize, reserve, firstsize, thissize, file, size, flist
-   local disk, left, opts, spec, wc, used, number
+procedure main(argl);
+   local files, disksize, reserve, firstsize, thissize, file, size, flist;
+   local disk, left, opts, spec, wc, used, number;
 
 
    files := table();  # table of files
@@ -62,9 +62,9 @@ procedure main(argl)
       size := integer(tab(many(&digits)));  # 3rd field has bytes
       tab(many(' '));
       file := tab(0);  # file name
-      if file == "total" then break		# exit on summary line
+      if file == "total" then break;		# exit on summary line
       files[file] := size			# add information to table
-      }
+      };
 
    number := 0;  # diskette number
    thissize := firstsize;  # space on this diskette
@@ -83,13 +83,13 @@ procedure main(argl)
             used +:= size;  # increment space used
             delete(files, file)			# delete file from table
             }
-         }
+         };
 						# if nothing on disk, can't do
-      if *disk = 0 then stop("*** can't fit on disks")
+      if *disk = 0 then stop("*** can't fit on disks");
 						# write heading information
       write("\ndiskette ", number, ": ", used, "/", disksize - thissize + left);
-      every write(!disk)			# write file names
+      every write(!disk);			# write file names
       thissize := disksize			# space on next diskette
-      }
+      };
 
 end

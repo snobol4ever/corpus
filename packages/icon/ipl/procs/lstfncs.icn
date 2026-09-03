@@ -21,58 +21,58 @@
 link genrfncs
 link numbers
 
-procedure fiblist(l, m)
-   local result
+procedure fiblist(l, m);
+   local result;
 
-   /l := 128
+   /l := 128;
    /m := 8;
 
    result := [];
 
-   every put(result, residue(fibseq(), m, 1)) \ l
+   every put(result, residue(fibseq(), m, 1)) \ l;
 
-   return result
+   return result;
 
 end
 
-procedure multilist(l, m)
-   local result
+procedure multilist(l, m);
+   local result;
 
-   /l := 128
+   /l := 128;
    /m := 8;
 
    result := [];
 
-   every put(result, residue(multiseq(), m, 1)) \ l
+   every put(result, residue(multiseq(), m, 1)) \ l;
 
-   return result
+   return result;
 
 end
 
-procedure primelist(l, m)
-   local result
+procedure primelist(l, m);
+   local result;
 
-   /l := 128
+   /l := 128;
    /m := 8;
 
    result := [];
 
-   every put(result, residue(primeseq(), m, 1)) \ l
+   every put(result, residue(primeseq(), m, 1)) \ l;
 
-   return result
+   return result;
 
 end
 
-procedure List(L)		# called as List{e, l, m}
-   local l, m, result
+procedure List(L);		# called as List{e, l, m}
+   local l, m, result;
 
    l := \@L[2] | 128;  # length
    m := \@L[3] | 8;  # modulus
 
    result := [];
 
-   every put(result, residue(|@L[1], m, 1)) \ l
+   every put(result, residue(|@L[1], m, 1)) \ l;
 
-   return result
+   return result;
 
 end

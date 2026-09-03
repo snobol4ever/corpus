@@ -30,8 +30,8 @@
 link imxform
 link imscanon
 
-procedure main()
-   local ims, imx, sorter1, sorter2
+procedure main();
+   local ims, imx, sorter1, sorter2;
 
    sorter1 := set();
    sorter2 := set();
@@ -41,7 +41,7 @@ procedure main()
       imx := imxreduce(imx);
       ims := imxtoims(imx);
       insert(sorter1, ims)
-      }
+      };
 
    every ims := !sorter1 do {
       imx := imstoimx(ims);
@@ -49,7 +49,7 @@ procedure main()
       ims := imxtoims(imx);
       ims := imscanon(ims);
       insert(sorter2, ims)
-      }
+      };
 
    sorter1 := set();
 
@@ -59,8 +59,8 @@ procedure main()
       ims := imxtoims(imx);
       ims := imscanon(ims);
       insert(sorter1, ims)
-      }
+      };
 
-   every write(!sorter1)
+   every write(!sorter1);
       
 end

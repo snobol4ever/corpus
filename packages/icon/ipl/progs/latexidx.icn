@@ -51,9 +51,9 @@
 #
 ############################################################################
 
-procedure main()                       # no parameters, reading from stdin
-    local key_table, s, page_num, itemval, key, item_list, one_item
-    local page_list, refs
+procedure main();                       # no parameters, reading from stdin
+    local key_table, s, page_num, itemval, key, item_list, one_item;
+    local page_list, refs;
 
     key_table := table();  # for items and tables of page sets
     while s := read() do               # read strings from standard input
@@ -97,7 +97,7 @@ procedure main()                       # no parameters, reading from stdin
 
         # otherwise just add it to the existing page number set
         else key_table[key][itemval] ++:= page_num
-        }
+        };
 
     # now that all the input has been read....
     # sort keys and subtables by key value
@@ -120,22 +120,22 @@ procedure main()                       # no parameters, reading from stdin
             refs := string(get(page_list));
 
             # dequeue rest of page nums and append
-            while (refs ||:= ", " || string(get(page_list)))
+            while (refs ||:= ", " || string(get(page_list)));
 
             write("\\item ", one_item, " ", refs)
             }
-        }
-    return
+        };
+    return;
 end
 
 # reform - modify the item to enforce sort order appropriately
 # This could do much more. For example it could strip leading braces,
 # control sequences, quotation marks, etc.  It doesn't.  Maybe later.
-procedure reform(item)
+procedure reform(item);
    item := map(item);  # map to lowercase
 # drop leading article if present
-   if match("a ",   item) then return item[3:0]
-   if match("an ",  item) then return item[4:0]
-   if match("the ", item) then return item[5:0]
-   return item
+   if match("a ",   item) then return item[3:0];
+   if match("an ",  item) then return item[4:0];
+   if match("the ", item) then return item[5:0];
+   return item;
 end

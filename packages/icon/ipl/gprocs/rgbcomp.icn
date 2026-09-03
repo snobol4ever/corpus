@@ -42,57 +42,57 @@ link rgbrec
 
 $define MaxIntensity (2 ^ 16 - 1)
 
-procedure rgbsum(s1, s2)
-   local rgb1, rgb2
+procedure rgbsum(s1, s2);
+   local rgb1, rgb2;
 
     rgb1 := rgbrec(s1) | fail;
-    rgb2 := rgbrec(s2) | fail
+    rgb2 := rgbrec(s2) | fail;
 
    return rgbrec(
       max(rgb1.r + rgb2.r, MaxIntensity),
       max(rgb1.g + rgb2.g, MaxIntensity),
       max(rgb1.b + rgb2.b, MaxIntensity)
-      )
+      );
 
 end
 
-procedure rgbdif(s1, s2)
-   local rgb1, rgb2
+procedure rgbdif(s1, s2);
+   local rgb1, rgb2;
 
     rgb1 := rgbrec(s1) | fail;
-    rgb2 := rgbrec(s2) | fail
+    rgb2 := rgbrec(s2) | fail;
 
    return rgbrec(
       min(rgb1.r - rgb2.r, 0),
       min(rgb1.g - rgb2.g, 0),
       min(rgb1.b - rgb2.b)
-      )
+      );
 
 end
 
-procedure rgbavg(s1, s2)
-   local rgb1, rgb2
+procedure rgbavg(s1, s2);
+   local rgb1, rgb2;
 
     rgb1 := rgbrec(s1) | fail;
-    rgb2 := rgbrec(s2) | fail
+    rgb2 := rgbrec(s2) | fail;
 
    return rgbrec(
       (rgb1.r + rgb2.r) / 2,
       (rgb1.g + rgb2.g) / 2,
       (rgb1.b + rgb2.b) / 2
-      )
+      );
 
 end
 
-procedure rgbcomp(s)
-   local rgb
+procedure rgbcomp(s);
+   local rgb;
 
-    rgb := rgbrec(s) | fail
+    rgb := rgbrec(s) | fail;
 
    return rgbrec(
       MaxIntensity - rgb.r,
       MaxIntensity - rgb.g,
       MaxIntensity - rgb.b
-      )
+      );
 
 end

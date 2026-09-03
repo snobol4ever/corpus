@@ -24,8 +24,8 @@
 
 link lindrec
 
-procedure linddefs()
-   local linden
+procedure linddefs();
+   local linden;
 
    linden := table();
 
@@ -417,8 +417,8 @@ procedure linddefs()
    linden["tree2"].rewrite["Y"] := "-FX";
    linden["tree2"].rewrite["F"] := "FF-[XY]+[XY]";
    linden["tree2"].axiom := "++++F";
-   linden["tree2"].angle := 22.5
+   linden["tree2"].angle := 22.5;
 
-   return linden
+   return linden;
 
 end

@@ -45,8 +45,8 @@ global w, h, m, l	# geometry options
 global sw		# slider width
 global colr		# selected color
 
-procedure main(args)
-   local cwin, x, y, ww, hh
+procedure main(args);
+   local cwin, x, y, ww, hh;
 
    # create window
    Window("size=420,300", args);
@@ -87,23 +87,23 @@ procedure main(args)
    button(&window, "QUIT", argless, exit, m + w / 2 - 30, m + h - 20, 60, 20);
 
    # enter event loop
-   evmux(&window)
+   evmux(&window);
 end
 
-procedure setval(win, i, v)		# set color component i to value v
+procedure setval(win, i, v);		# set color component i to value v
    val[i] := v;
    if i < 4 then
       sethsv()				# rgb slider moved; set hsv values
    else
-      setrgb()				# hsv slider moved; set rgv values
+      setrgb();				# hsv slider moved; set rgv values
 
-   setcolor()				# set color, update display
-   return
+   setcolor();				# set color, update display
+   return;
 end
 
-procedure sethsv()			# set hsv from rgb values
+procedure sethsv();			# set hsv from rgb values
 					# based on Foley et al, 2/e, p.592
-   local min, max, d
+   local min, max, d;
 
    min := val.r;  min >:= val.g;  min >:= val.b;  # minimum
    max := val.r;  max <:= val.g;  max <:= val.b;  # maximum
@@ -113,7 +113,7 @@ procedure sethsv()			# set hsv from rgb values
    if max > 0 then
       val.s := d / max
    else
-      val.s := 0				# sat is (max-min)/max
+      val.s := 0;				# sat is (max-min)/max
 
    if val.s > 0 then {
       if val.g = max then
@@ -124,26 +124,26 @@ procedure sethsv()			# set hsv from rgb values
          val.h := 6 + (val.g - val.b) / d	# magenta through red
       else
          val.h := (val.g - val.b) / d		# red through yellow
-      }
+      };
    val.h /:= 6;  # scale to 0.0 - 1.0
 
    # set sliders to reflect calculated values
    slidervalue(sl.h, val.h);
    slidervalue(sl.s, val.s);
-   slidervalue(sl.v, val.v)
-   return
+   slidervalue(sl.v, val.v);
+   return;
 end
 
-procedure setrgb()			# set rgb from hsv values
+procedure setrgb();			# set rgb from hsv values
 					# based on Foley et al, 2/e, p.593
-   local h, f, i, p, q, t, v
+   local h, f, i, p, q, t, v;
 
    if val.s = 0.0 then
       val.r := val.g := val.b := val.v	# achromatic
    else {
       h := val.h * 6.0;  # hue [0.0 - 6.0)
       if h >= 6.0 then
-         h := 0.0
+         h := 0.0;
       i := integer(h);
       f := h - i;
       v := val.v;
@@ -151,24 +151,24 @@ procedure setrgb()			# set rgb from hsv values
       q := val.v * (1.0 - f * val.s);
       t := val.v * (1.0 - (1.0 - f) * val.s);
       case i of {
-         0: { val.r := v;  val.g := t;  val.b := p }	# red - yellow
-         1: { val.r := q;  val.g := v;  val.b := p }	# yellow - green
-         2: { val.r := p;  val.g := v;  val.b := t }	# green - cyan
-         3: { val.r := p;  val.g := q;  val.b := v }	# cyan - blue
-         4: { val.r := t;  val.g := p;  val.b := v }	# blue - magenta
+         0: { val.r := v;  val.g := t;  val.b := p };	# red - yellow
+         1: { val.r := q;  val.g := v;  val.b := p };	# yellow - green
+         2: { val.r := p;  val.g := v;  val.b := t };	# green - cyan
+         3: { val.r := p;  val.g := q;  val.b := v };	# cyan - blue
+         4: { val.r := t;  val.g := p;  val.b := v };	# blue - magenta
          5: { val.r := v;  val.g := p;  val.b := q }	# magenta - red
          }
-      }
+      };
 
    # set sliders to reflect calculated values
    slidervalue(sl.r, val.r);
    slidervalue(sl.g, val.g);
-   slidervalue(sl.b, val.b)
-   return
+   slidervalue(sl.b, val.b);
+   return;
 end
 
-procedure setcolor()			# set the color in the color map
-   local s, x
+procedure setcolor();			# set the color in the color map
+   local s, x;
 
    # build and display hex color spec, and set color
    s := "#" || hexv(val.r) || hexv(val.g) || hexv(val.b);
@@ -192,14 +192,14 @@ procedure setcolor()			# set the color in the color map
    GotoXY(x, m + h - l);
    WWrites("s: ", right(integer(100 * val.s), 3));
    GotoXY(x, m + h);
-   WWrites("v: ", right(integer(100 * val.v), 3))
-   return
+   WWrites("v: ", right(integer(100 * val.v), 3));
+   return;
 end
 
-procedure hexv(v)			# two-hex-digit specification of v
-   static hextab
+procedure hexv(v);			# two-hex-digit specification of v
+   static hextab;
    initial {
       every put((hextab := []), !"0123456789ABCDEF" || !"0123456789ABCDEF")
-      }
-   return hextab [integer(255 * v + 1.5)]
+      };
+   return hextab [integer(255 * v + 1.5)];
 end

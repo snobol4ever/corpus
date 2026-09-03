@@ -21,9 +21,9 @@
 #
 ############################################################################
 
-procedure morse(s)
-   local i, c, t, x
-   static code, key1, key2
+procedure morse(s);
+   local i, c, t, x;
+   static code, key1, key2;
 
    initial {
       code := "....------.----..---.-.---...--.--._
@@ -32,7 +32,7 @@ procedure morse(s)
                tdx/twptb64earttltvtiuftsh5";
       key2 := "tttttttttt'tt,ttttttttt:tttttt)tttt_
                t?tttttttt-ttt.;tttttt\"tttt"
-   }
+   };
 
    x := "";
    every c := !map(s) do
@@ -45,6 +45,6 @@ procedure morse(s)
       else if c == " " then
          x ||:= "    "
       else
-         x ||:= "<" || c || "> "
-   return x
+         x ||:= "<" || c || "> ";
+   return x;
 end

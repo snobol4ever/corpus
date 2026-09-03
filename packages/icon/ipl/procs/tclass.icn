@@ -18,15 +18,15 @@
 #
 ############################################################################
 
-procedure tclass(x)
+procedure tclass(x);
 
    return case type(x) of {
       "null" |
       "integer" |
       "real" |
       "string" |
-      "cset":  "atomic"
+      "cset":  "atomic";
       default:  "composite"
-      }
+      };
 
 end

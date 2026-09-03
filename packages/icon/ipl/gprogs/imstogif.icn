@@ -40,8 +40,8 @@ link imrutils
 link options
 link strings
 
-procedure main(args)
-   local file, opts, name, imr, input, literal
+procedure main(args);
+   local file, opts, name, imr, input, literal;
 
    opts := options(args, "l");
 
@@ -52,15 +52,15 @@ procedure main(args)
       input := open(file) | {
          write(&errout, "*** can't open ", file);
          next
-         }
+         };
       imr := imstoimr(read(input)) | {
           write(&errout, "*** bad image file: ", file);
           next
-          }
+          };
       imropen(imr) | stop("*** bad image file: ", file);
       close(input);
       WriteImage(name);
       WClose()
-      }
+      };
 
 end

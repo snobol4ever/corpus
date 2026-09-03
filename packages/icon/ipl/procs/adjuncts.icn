@@ -34,7 +34,7 @@
 
 global _slash, _baselen, _delimiter, _OS_offset, firstline
 
-procedure Set_OS()                   #: set global OS features
+procedure Set_OS();                   #: set global OS features
 
       # delimiter for indexed values      
       _delimiter := char(255);
@@ -58,34 +58,34 @@ procedure Set_OS()                   #: set global OS features
          _baselen := 15;
          _OS_offset := 1
          }
-      else stop("gettext:  OS not supported")
-      return
+      else stop("gettext:  OS not supported");
+      return;
 end
 
-procedure Basename(s)                  #: obtain base filename
+procedure Basename(s);                  #: obtain base filename
 
    # global _slash
    s ? {
-      while tab(find(_slash)+1)
+      while tab(find(_slash)+1);
       return tab(0)
-      }
+      };
 end
 
 
-procedure Pathname(s)                  #: obtain path of filename
+procedure Pathname(s);                  #: obtain path of filename
 
-   local s2
+   local s2;
    # global _slash
 
    s2 := "";
    s ? {
-      while s2 ||:= tab(find(_slash)+1)
+      while s2 ||:= tab(find(_slash)+1);
       return s2
-      }
+      };
 end
 
 
-procedure getidxname(FNAME)     #: obtain index from datafile name
+procedure getidxname(FNAME);     #: obtain index from datafile name
 
    #
    # Discard path component.  Cut basename down to a small enough
@@ -94,19 +94,19 @@ procedure getidxname(FNAME)     #: obtain index from datafile name
    #
 
    # global _slash, _baselen
-   return right(Strip(Basename(FNAME,_slash),'.'), _baselen, "x") || ".IDX"
+   return right(Strip(Basename(FNAME,_slash),'.'), _baselen, "x") || ".IDX";
 end
 
 
-procedure Strip(s,c)                   #: remove chars from string
+procedure Strip(s,c);                   #: remove chars from string
 
-   local s2
+   local s2;
 
    s2 := "";
    s ? {
       while s2 ||:= tab(upto(c))
-         do tab(many(c))
+         do tab(many(c));
       s2 ||:= tab(0)
-      }
-   return s2
+      };
+   return s2;
 end

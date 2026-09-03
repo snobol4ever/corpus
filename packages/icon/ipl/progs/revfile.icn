@@ -19,13 +19,13 @@
 #
 ############################################################################
 
-procedure main()
-   local lines
+procedure main();
+   local lines;
 
    lines := [];
 
-   every push(lines, !&input)
+   every push(lines, !&input);
 
-   every write(!lines)
+   every write(!lines);
 
 end

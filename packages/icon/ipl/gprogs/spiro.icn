@@ -47,8 +47,8 @@ link wopen
 global win, mono, h, w
 global Window, XMAX, YMAX
 
-procedure main (args)
-    local a, b, k, t1, t2, N, arg, use_epi, t, alist
+procedure main (args);
+    local a, b, k, t1, t2, N, arg, use_epi, t, alist;
 
     XMAX := YMAX := 700;  # physical screen size
     w := h := 350.0;
@@ -62,16 +62,16 @@ procedure main (args)
 
     while arg := get(args) do {
        case arg of {
-          "-help"|"-h" : helpmsg()
-          "-epi" : use_epi := "yes"
-          "-a": a := real(get(args))
-          "-b": b  := real(get(args))
-          "-k": k := real(get(args))
-          "-t1": t1 := real(get(args))
-          "-t2": t2 := real(get(args))
+          "-help"|"-h" : helpmsg();
+          "-epi" : use_epi := "yes";
+          "-a": a := real(get(args));
+          "-b": b  := real(get(args));
+          "-k": k := real(get(args));
+          "-t1": t1 := real(get(args));
+          "-t2": t2 := real(get(args));
           "-N" : N := integer(get(args))
           }
-       }
+       };
 
     win := WOpen("label=Spirograph", "width="||XMAX, "height="||YMAX);
     mono := WAttrib (win, "depth") == "1";
@@ -89,51 +89,51 @@ procedure main (args)
     if \use_epi then
        draw_curve(t,epi_x,alist,epi_y,alist,t1,t2,N)
     else
-       draw_curve(t,hypo_x,alist,hypo_y,alist,t1,t2,N)
+       draw_curve(t,hypo_x,alist,hypo_y,alist,t1,t2,N);
         
 
     # sit and wait for an event on the window.
     Event(win);
-    close(win)
+    close(win);
 end
 
-procedure epi_x(t,a[])
-   static twopi
-   local ab
-   initial twopi := 2*&pi
+procedure epi_x(t,a[]);
+   static twopi;
+   local ab;
+   initial twopi := 2*&pi;
 
-   ab := a[1]+a[2]
-   return (ab)*cos(twopi*t) - a[3]*cos(twopi*((ab)*t)/a[2])
+   ab := a[1]+a[2];
+   return (ab)*cos(twopi*t) - a[3]*cos(twopi*((ab)*t)/a[2]);
 end
 
-procedure epi_y(t,a[])
-   static twopi
-   local ab
-   initial twopi := 2*&pi
+procedure epi_y(t,a[]);
+   static twopi;
+   local ab;
+   initial twopi := 2*&pi;
 
-   ab := a[1]+a[2]
-   return (ab)*sin(twopi*t) - a[3]*sin(twopi*((ab)*t)/a[2])
+   ab := a[1]+a[2];
+   return (ab)*sin(twopi*t) - a[3]*sin(twopi*((ab)*t)/a[2]);
 end
 
-procedure hypo_x(t,a[])
-   static twopi
-   local ab
-   initial twopi := 2*&pi
+procedure hypo_x(t,a[]);
+   static twopi;
+   local ab;
+   initial twopi := 2*&pi;
 
-   ab := a[1]-a[2]
-    return (ab)*cos(twopi*t) + a[3]*cos(twopi*((ab)*t)/a[2])
+   ab := a[1]-a[2];
+    return (ab)*cos(twopi*t) + a[3]*cos(twopi*((ab)*t)/a[2]);
 end
 
-procedure hypo_y(t,a[])
-   static twopi
-   local ab
-   initial twopi := 2*&pi
+procedure hypo_y(t,a[]);
+   static twopi;
+   local ab;
+   initial twopi := 2*&pi;
 
-   ab := a[1]-a[2]
-    return (ab)*sin(twopi*t) - a[3]*sin(twopi*((ab)*t)/a[2])
+   ab := a[1]-a[2];
+    return (ab)*sin(twopi*t) - a[3]*sin(twopi*((ab)*t)/a[2]);
 end
 
-procedure helpmsg()
+procedure helpmsg();
    write("Usage: Spiro [-a r] [-b r] [-k r] [-t1 r] [-t2 r] [-N n] [-epi]");
    write();
    write("where:");
@@ -144,5 +144,5 @@ procedure helpmsg()
    write("\t-t2 r	- final value for parameter {1.0 (one revolutio)}");
    write("\t-N n	- number of intervals to draw {500}");
    write("\t-epi	- use epitrochoid instead of hypotrochoid");
-   stop()
+   stop();
 end

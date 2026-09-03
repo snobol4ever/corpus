@@ -31,8 +31,8 @@
 #  
 ############################################################################
 
-procedure main()
-   local line, con, mac, y, nonpuncs, i, inname, infile, outname, outfile
+procedure main();
+   local line, con, mac, y, nonpuncs, i, inname, infile, outname, outfile;
 
    nonpuncs := ~'. \t\\';
 
@@ -43,17 +43,17 @@ procedure main()
          con[tab(any(nonpuncs)) || (tab(upto(' ') | 0))] +:= 1;
       line ? while tab((i := find("\\")) + 1) do {
       case move(1) of {
-      "(":   move(2)
+      "(":   move(2);
       "*" | "f" | "n":  if ="(" then move(2) else move(1)
-      }
+      };
       mac[&subject[i:&pos]] +:= 1
       }
-   }
-   con := sort(con,3)
-   write(,"Commands:\n")
-   while write(,get(con),"\t",get(con))
-   mac := sort(mac,3)
-   write(,"\nControls:\n")
-   while write(,get(mac),"\t",get(mac))
+   };
+   con := sort(con,3);
+   write(,"Commands:\n");
+   while write(,get(con),"\t",get(con));
+   mac := sort(mac,3);
+   write(,"\nControls:\n");
+   while write(,get(mac),"\t",get(mac));
 
 end

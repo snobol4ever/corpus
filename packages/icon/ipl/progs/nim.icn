@@ -51,7 +51,7 @@ global	STICKS,	# the number of stick left
 	THEIRS,	# their trys for a given game
 	TRIED	# the combined tried table (game memory)
 
-procedure main(args)
+procedure main(args);
 
 	local	resp,	# player response
 		turn,	# who's turn
@@ -59,12 +59,12 @@ procedure main(args)
 		stick,	# sticks index
 		take,	# take index
 		seed,	# random number seed
-		show	# show the game memory flag
+		show;	# show the game memory flag
 
         randomize();
 
 	# check if we should show the thought process of a learning game
-	if !args == "show" then show := "yes"
+	if !args == "show" then show := "yes";
 
 	# define game memory
 	TRIED := table();
@@ -75,12 +75,12 @@ procedure main(args)
 			TRIED[stick] := list(3);
 			every take := 1 to 3 do
 				TRIED[stick][take] := (read(fp) | "?")
-		}
+		};
 		close(fp)
 	}
 
 	# otherwise initialize game memory to unknowns
-	else every stick := 1 to 15 do TRIED[stick] := [ "?", "?", "?" ]
+	else every stick := 1 to 15 do TRIED[stick] := [ "?", "?", "?" ];
 
 	# start with their turn
 	turn := "theirs";
@@ -107,53 +107,53 @@ procedure main(args)
 			# take turns
 			if turn == "theirs" then
 				turn := theirturn(args)
-			else	turn := myturn(args)
+			else	turn := myturn(args);
 
 		# the player who took the last stick(s) wins
 		if turn == "theirs" then
 			write("\nI won!")
-		else	write("\nYou won!")
+		else	write("\nYou won!");
 
 		# if this is a thinking game learn from it
-		if *args > 0 then learn(turn,show)
+		if *args > 0 then learn(turn,show);
 
 		# see if they want to play again
 		writes("\nDo you want to play again? ");
 		if not any('yY',read()) then quit(args,"\nGoodbye.\n")
-	}
+	};
 end
 
-procedure theirturn(args)
+procedure theirturn(args);
 
-	local	pick	# the players pick
+	local	pick;	# the players pick
 
 	# find out how many sticks they want
 	writes("How many sticks do you want? ");
 	pick := read();
 
 	# check their response to see if they want to quit
-	if any('qQ',pick) then quit(args,"\nYou gave up!\n")
+	if any('qQ',pick) then quit(args,"\nYou gave up!\n");
 
 	# check to see if their pick is valid
 	if not numeric(pick) | pick < 1 | pick > (3 | STICKS) then
-		write("\007Invalid Response\007\n") & return "theirs"
+		write("\007Invalid Response\007\n") & return "theirs";
 
 	# save their pick if this is a thinking game
-	if *args > 0 then THEIRS[STICKS] := pick
+	if *args > 0 then THEIRS[STICKS] := pick;
 
 	# take away the sticks
 	STICKS -:= pick;
 
 	# if there are any sticks left display them
-	if STICKS > 0 then dispile()
+	if STICKS > 0 then dispile();
 
 	# make it my turn
-	return "mine"
+	return "mine";
 end
 
-procedure myturn(args)
+procedure myturn(args);
 
-	local	pick	# my pick
+	local	pick;	# my pick
 
 	# let them know I'm about to pick
 	writes("I'll take ");
@@ -165,11 +165,11 @@ procedure myturn(args)
 		pick := thinkpick(STICKS);
 
 		# if I can't make up my mind randomly pick one choice
-		if type(pick) == "list" then pick := ?pick
+		if type(pick) == "list" then pick := ?pick;
 
 		MINE[STICKS] := pick
 
-	} else	pick := algorpick(STICKS)
+	} else	pick := algorpick(STICKS);
 
 	# tell them what I decided
 	write((1 < pick) || " sticks." | "1 stick.");
@@ -178,16 +178,16 @@ procedure myturn(args)
 	STICKS -:= pick;
 
 	# if there are any sticks left display them
-	if STICKS > 0 then dispile()
+	if STICKS > 0 then dispile();
 
 	# make it their turn
-	return "theirs"
+	return "theirs";
 end
 
-procedure dispile()
+procedure dispile();
 	write();
-	every 1 to STICKS do writes("/ ")
-	write("\n")
+	every 1 to STICKS do writes("/ ");
+	write("\n");
 end
 
 # Use an algorithmic method to choose the number of sticks I want.  The
@@ -195,8 +195,8 @@ end
 # multiple of 4 in the pile (0 is an even multiple of 4) if possible and if
 # not then randomly choose 1, 2 or 3 sticks.
 
-procedure algorpick(sticks)
-	return (0 ~= (sticks % 4)) | ?3
+procedure algorpick(sticks);
+	return (0 ~= (sticks % 4)) | ?3;
 end
 
 # Use a learning method to choose the number of sticks I want.  The
@@ -206,12 +206,12 @@ end
 # from all the unknown picks.  If there are no unknown picks just randomly
 # choose 1, 2 or 3 sticks and hope THEY screw up.
 
-procedure thinkpick(sticks,recurse)
+procedure thinkpick(sticks,recurse);
 
 	local	picks,	# unknown picks
 		take,	# take index
 		check,	# check list
-		pick	# my pick
+		pick;	# my pick
 
 	# initialize a list of unknown picks
 	picks := [];
@@ -220,14 +220,14 @@ procedure thinkpick(sticks,recurse)
 	every take := 1 to 3 do {
 
 		# if this pick won take it
-		if TRIED[sticks][take] == "won" then return take
+		if TRIED[sticks][take] == "won" then return take;
 
 		# if this pick is unknown save it
 		if TRIED[sticks][take] == "?" then put(picks,take)
-	}
+	};
 
 	# if there are no unknown picks and no winning picks anything goes
-	if *picks = 0 then picks := [1,2,3]
+	if *picks = 0 then picks := [1,2,3];
 
 	# be smarter and check to see if there is a clear win for THEM
 	# after any of the picks left
@@ -235,57 +235,57 @@ procedure thinkpick(sticks,recurse)
 		check := [];
 		every pick := !picks do
 			if type(thinkpick(0 < (sticks - pick),1)) == "list" then
-				put(check,pick)
+				put(check,pick);
 		if *check = 0 then
 			picks := [1,2,3]
 		else	picks := check
-	}
+	};
 
-	return picks
+	return picks;
 end
 
 # Save the results of each pick in this game in the programs game memory and
 # if the command line argument was "show" display the updated game memory.
 
-procedure learn(turn,show)
+procedure learn(turn,show);
 
 	local	them,	# their outcome flag
 		me,	# my outcome flag
 		stick,	# sticks index
-		take	# taken index
+		take;	# taken index
 
 	# decide on the outcome
 	if turn == "theirs" then
 		them := "lost" & me := "won"
-	else	them := "won" & me := "lost"
+	else	them := "won" & me := "lost";
 
 	# check for all the picks made for this game and save the results
 	# in the game memory
 	every stick := 1 to 15 do {
 		if \MINE[stick] then
 			TRIED[stick][MINE[stick]] :=
-				comp(TRIED[stick][MINE[stick]],me)
+				comp(TRIED[stick][MINE[stick]],me);
 		if \THEIRS[stick] then
 			TRIED[stick][THEIRS[stick]] :=
 				comp(TRIED[stick][THEIRS[stick]],them)
-	}
+	};
 
 	# if the show flag is set print the program's game memory
 	if \show then {
 		writes("\n               picks\n          ");
-		every writes(center(1 to 3,5))
+		every writes(center(1 to 3,5));
 		write("\n         ----------------");
 		every stick := 15 to 1 by -1 do {
 			if stick = 8 then
 				writes("sticks ",right(stick,2),"|")
-			else	writes("       ",right(stick,2),"|")
+			else	writes("       ",right(stick,2),"|");
 			every take := 1 to 3 do
-				writes(center(TRIED[stick][take],5))
+				writes(center(TRIED[stick][take],5));
 			write()
 		}
-	}
+	};
 
-	return
+	return;
 end
 
 # Compare this game's result with what the program remembers.  If the results
@@ -293,17 +293,17 @@ end
 # the old result is different from the new result the game can't know for
 # sure anymore so go back to unknown.
 
-procedure comp(old,new)
+procedure comp(old,new);
 
-	return (old == new) | (old == "?" & new) | "?"
+	return (old == new) | (old == "?" & new) | "?";
 
 end
 
-procedure quit(args,msg)
+procedure quit(args,msg);
 
 	local	fp,	# file pointer
 		stick,	# sticks index
-		take	# take index
+		take;	# take index
 
 	write(msg);
 
@@ -311,9 +311,9 @@ procedure quit(args,msg)
 		if fp := open(".nimdump","w") then {
 			every stick := 1 to 15 do
 				every take := 1 to 3 do
-					write(fp,TRIED[stick][take])
+					write(fp,TRIED[stick][take]);
 			close(fp)
-		}
+		};
 
-	exit()
+	exit();
 end

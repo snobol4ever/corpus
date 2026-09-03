@@ -74,114 +74,114 @@
 link io
 link numbers
 
-procedure divisors(n)			#: generate the divisors of n
-   local d, dlist
+procedure divisors(n);			#: generate the divisors of n
+   local d, dlist;
 
    dlist := [];
    every d := seq() do {
       if d * d >= n then
-         break
+         break;
       if n % d = 0 then {
-         push(dlist, d)
+         push(dlist, d);
          suspend d
          }
-      }
+      };
    if d * d = n then
-      suspend d
-   suspend n / !dlist
+      suspend d;
+   suspend n / !dlist;
 
 end
 
-procedure divisorl(n)			#: return list of divisors of n
-   local divs
-   every put(divs := [], divisors(n))
-   return divs
+procedure divisorl(n);			#: return list of divisors of n
+   local divs;
+   every put(divs := [], divisors(n));
+   return divs;
 end
 
-procedure factorial(n)			#: return n! (n factorial)
-   local i
+procedure factorial(n);			#: return n! (n factorial)
+   local i;
 
    n := integer(n) | runerr(101, n);
 
-   if n < 0 then fail
+   if n < 0 then fail;
 
    i := 1;
 
-   every i *:= 1 to n
+   every i *:= 1 to n;
 
-   return i
-
-end
-
-procedure factors(i, j)			#: return list of factors
-   local facts
-
-   every put(facts := [], genfactors(i, j))
-   return facts
+   return i;
 
 end
 
-procedure genfactors(i, j)		#: generate prime factors of integer
-   local p
+procedure factors(i, j);			#: return list of factors
+   local facts;
 
-   i := integer(i) | runerr(101, i)
+   every put(facts := [], genfactors(i, j));
+   return facts;
+
+end
+
+procedure genfactors(i, j);		#: generate prime factors of integer
+   local p;
+
+   i := integer(i) | runerr(101, i);
    /j := i;
 
    every p := prime() do {
-      if p > j | p * p > i then break
+      if p > j | p * p > i then break;
       while i % p = 0 do {
          suspend p;
          i /:= p
-         }
+         };
       if i = 1 then break
-      }
-   if i > 1 then suspend i
+      };
+   if i > 1 then suspend i;
 
 end
 
-procedure gfactorial(n, i)		#: generalized factorial
-   local j
+procedure gfactorial(n, i);		#: generalized factorial
+   local j;
 
    n := integer(n) | runerr(101, n);
    i := integer(i) | 1;
 
-   if n < 0 then fail
-   if i < 1 then fail
+   if n < 0 then fail;
+   if i < 1 then fail;
 
    j := n;
 
    while n > i do {
       n -:= i;
       j *:= n
-      } 
+      }; 
 
-   return j
+   return j;
 
 end
 
-procedure pfactors(i)			#: primes that divide integer
-   local facts, p
+procedure pfactors(i);			#: primes that divide integer
+   local facts, p;
 
    i := integer(i) | runerr(101, i);
    facts := [];
    every p := prime() do {
-      if p > i then break
+      if p > i then break;
       if i % p = 0 then {
          put(facts, p);
          while i % p = 0 do
             i /:= p
          }
-      }
+      };
 
-   return facts
+   return facts;
 
 end
 
-procedure ispower(i, j)			#: test for integer power
-   local k, n
+procedure ispower(i, j);			#: test for integer power
+   local k, n;
 
    k := (n := round(i ^ (1.0 / j))) ^ j;
-   if k = i then return n else fail
+   if k = i then return n else fail;
 
 end
 
@@ -189,45 +189,45 @@ end
 #  is about the worst possible.  It is inappropriate for all but small
 #  numbers.
 
-procedure isprime(n)			#: test for primality
-   local p
+procedure isprime(n);			#: test for primality
+   local p;
 
    n := integer(n) | runerr(101, n);
-   if n <= 1 then fail		# 1 is not a prime
+   if n <= 1 then fail;		# 1 is not a prime
    every p := prime() do {
-      if p * p > n then return n
+      if p * p > n then return n;
       if n % p = 0 then fail
-      }
+      };
 
 end
 
-procedure nxtprime(n)			#: next prime beyond n
-   local d
-   static step, div
+procedure nxtprime(n);			#: next prime beyond n
+   local d;
+   static step, div;
 
    initial {
       step := [1,6,5,4,3,2,1,4,3,2,1,2,1,4,3,2,1,2,1,4,3,2,1,6,5,4,3,2,1,2];
       div := [7]			# list of known primes
-      }
+      };
 
    n := integer(n) | runerr(101, n);
    if n < 7 then			# handle small primes specially
-      return n < (2 | 3 | 5 | 7)
+      return n < (2 | 3 | 5 | 7);
 
    repeat {
       n +:= step[n % 30 + 1];  # step past multiples of 2, 3, 5
       every (d := !div) | |put(div, d := nxtprime(d)) do {  # get test divisors
          if n % d = 0 then		# if composite, try a larger candidate
-            break
+            break;
          if d * d > n then		# if not divisible up to sqrt, is prime
             return n
          }
-      }
+      };
 
 end
 
-procedure prdecomp(i)			#: prime decomposition
-   local decomp, count, p
+procedure prdecomp(i);			#: prime decomposition
+   local decomp, count, p;
 
    decomp := [];
    every p := prime() do {
@@ -235,34 +235,34 @@ procedure prdecomp(i)			#: prime decomposition
       while i % p = 0 do {
          count +:= 1;
          i /:= p
-         }
+         };
       put(decomp, count);
       if i = 1 then break
-      }
+      };
 
-   return decomp
+   return decomp;
 
 end
 
-procedure prime()			#: generate primes
-   local i, k
+procedure prime();			#: generate primes
+   local i, k;
 
    suspend 2 | ((i := seq(3, 2)) & (not(i = (k := (3 to sqrt(i) by 2)) *
-      (i / k))) & i)
+      (i / k))) & i);
 
 end
 
-procedure primel()			#: primes from list
-   local pfile
+procedure primel();			#: primes from list
+   local pfile;
 
-   pfile := dopen("primes.lst") | stop("*** cannot open primes.lst")
+   pfile := dopen("primes.lst") | stop("*** cannot open primes.lst");
 
-   suspend !pfile
+   suspend !pfile;
 
 end
 
-procedure primorial(i, j)		#: product of primes
-   local m, k, mark
+procedure primorial(i, j);		#: product of primes
+   local m, k, mark;
 
    /j := 1;
 
@@ -270,20 +270,20 @@ procedure primorial(i, j)		#: product of primes
    mark := &null;  # to check for completeness
 
    every k := primel() do {		# limited by prime list
-      if k <= j then next
+      if k <= j then next;
       if k <= i then m *:= k
       else {
          mark := 1;
          break
          }
-      }
+      };
 
-   if \mark then return m else fail	# fail if list is too short
+   if \mark then return m else fail;	# fail if list is too short
 
 end
 
-procedure sfactors(i, j)		#: return factors in string form
-   local facts, result, term, nterm, count
+procedure sfactors(i, j);		#: return factors in string form
+   local facts, result, term, nterm, count;
 
    facts := factors(i, j);
 
@@ -296,24 +296,24 @@ procedure sfactors(i, j)		#: return factors in string form
       if term = nterm then count +:= 1
       else {
          if count > 1 then result ||:= " " || term || "^" || count
-         else result ||:= " " || term
+         else result ||:= " " || term;
          count := 1;
          term := nterm
          }
-      }
+      };
 
    if count > 1 then result ||:= " " || term || "^" || count
-   else result ||:= " " || term
+   else result ||:= " " || term;
 
-   return result[2:0]
+   return result[2:0];
 
 end
 
-procedure squarefree(n)			#: test for square-free number
-   local facts
+procedure squarefree(n);			#: test for square-free number
+   local facts;
 
    facts := factors(n);
 
-   if *facts = *set(facts) then return n else fail
+   if *facts = *set(facts) then return n else fail;
 
 end

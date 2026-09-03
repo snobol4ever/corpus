@@ -20,10 +20,10 @@
 #
 ############################################################################
 
-procedure main(argl)
-   local shortest, min, count, countl, number, line
+procedure main(argl);
+   local shortest, min, count, countl, number, line;
 
-   if argl[1] == "-#" then number := 1
+   if argl[1] == "-#" then number := 1;
 
    shortest := read() | exit();
    count := 1;
@@ -36,9 +36,9 @@ procedure main(argl)
          shortest := line;
          countl := count
          }
-      }
+      };
 
-   if \number then write(countl)
-   write(shortest)
+   if \number then write(countl);
+   write(shortest);
 
 end

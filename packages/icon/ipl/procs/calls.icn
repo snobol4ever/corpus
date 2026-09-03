@@ -33,9 +33,9 @@ record call(proc, args)
 #
 #  Invoke a procedure with a argument list from a call record.
 
-procedure invoke(call)
+procedure invoke(call);
 
-   suspend call.proc ! call.args
+   suspend call.proc ! call.args;
 
 end
 
@@ -43,14 +43,14 @@ end
 #
 #  Produce a string images of a call
 
-procedure call_image(call)
-   local args
+procedure call_image(call);
+   local args;
 
    args := "";
 
-   every args ||:= !call.args || ", "
+   every args ||:= !call.args || ", ";
 
-   return procname(call.proc) || "(" || args[1:-2] || ")"
+   return procname(call.proc) || "(" || args[1:-2] || ")";
 
 end
 
@@ -58,23 +58,23 @@ end
 #  Make a call record from a string that looks like an invocation.
 #  What the arguments can be is limited to the capabilities of ivalue.
 
-procedure make_call(s)
-   local arg, args, result
+procedure make_call(s);
+   local arg, args, result;
 
    s ? {
       result := call(proc(tab(upto('(')))) | fail;
       move(1);
       result.args := make_args(tab(-1))
-      }
+      };
 
-   return result
+   return result;
 
 end
 
 #  Make an argument list from a comma-separated string
 
-procedure make_args(s)
-   local args, arg
+procedure make_args(s);
+   local args, arg;
 
    args := [];
 
@@ -83,16 +83,16 @@ procedure make_args(s)
          put(args, ivalue(arg)) | fail;
          move(1) | break
          }
-      }
+      };
 
-   return args
+   return args;
 
 end
 
 #  Produce a string of Icon code to construct a call record.
 
-procedure call_code(s)
-   local code, arg, result
+procedure call_code(s);
+   local code, arg, result;
 
    s ? {
       result := "call(" || tab(upto('(')) || ", [" | fail;
@@ -101,9 +101,9 @@ procedure call_code(s)
          result ||:= ivalue(arg) || ", " | fail;
          move(1) | break
          }
-      }
+      };
 
-   return result[1:-2] || "])"
+   return result[1:-2] || "])";
 
 end
 
@@ -115,25 +115,25 @@ end
 #  procedure, and arg1, arg2, arg3, ... argn are the arguments.
 #  Note the trailing comma.
 
-procedure write_calltable(T, p, f)
-   local name
+procedure write_calltable(T, p, f);
+   local name;
 
    every name := key(T) do {
       writes(f, name, "=");
       writes(f, procname(p), ":");
       every writes(f, image(!T[name]), ",")
-      }
+      };
 
-   write(f)
+   write(f);
 
-   return
+   return;
 
 end
    
 #  read a call table file into a table
 
-procedure read_calltable(f)
-   local T, line, p, args
+procedure read_calltable(f);
+   local T, line, p, args;
 
    T := table();
 
@@ -145,10 +145,10 @@ procedure read_calltable(f)
          move(1);
          args := [];
          while put(args, ivalue(tab(upto(',')))) do
-             move(1)
+             move(1);
          T[name] := call(proc(p), args) | fail
-         }
+         };
 
-   return T
+   return T;
 
 end

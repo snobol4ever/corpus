@@ -37,15 +37,15 @@ link basename
 link xformimg
 link wopen
 
-procedure main(args)
-   local name, base, win1, win2, win3, win4, win5
+procedure main(args);
+   local name, base, win1, win2, win3, win4, win5;
 
    every name := !args do {
       base := basename(name, ".gif");
       win1 := WOpen("canvas=hidden", "image=" || name) | {
          write(&errout, "*** cannot open ", name);
          next
-         }
+         };
       win2 := wreflect(win1, "v");
       win3 := wcatenate(win1, win2, "h");
       WClose(win1);
@@ -56,7 +56,7 @@ procedure main(args)
       WClose(win4);
       WriteImage(win5, base || "_pmm.gif");
       WClose(win5)
-      }
+      };
 
 end
 

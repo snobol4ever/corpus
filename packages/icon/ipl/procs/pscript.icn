@@ -73,20 +73,20 @@ $define PageHeight 11.0
 $define HorzMargin  0.75
 $define VertMargin  1.0
 
-procedure epsheader(f, x, y, w, h, flags)	#: write PostScript header
-   local xctr, yctr, xsize, ysize, xscale, yscale, dx, dy
+procedure epsheader(f, x, y, w, h, flags);	#: write PostScript header
+   local xctr, yctr, xsize, ysize, xscale, yscale, dx, dy;
 
    if w < 0 then
-      x -:= (w := -w)
+      x -:= (w := -w);
    if h < 0 then
-      y -:= (h := -h)
+      y -:= (h := -h);
 
    xctr := integer(PSPoint * PageWidth / 2);  # PS center coordinates
    yctr := integer(PSPoint * PageHeight / 2);
    xsize := PSPoint * (PageWidth - HorzMargin);  # usable width
    ysize := PSPoint * (PageHeight - VertMargin);  # usable height
    if w > h & upto('r', \flags) then
-      xsize :=: ysize
+      xsize :=: ysize;
 
    xscale := xsize / w;
    yscale := ysize / h;
@@ -96,7 +96,7 @@ procedure epsheader(f, x, y, w, h, flags)	#: write PostScript header
    dx := integer(xscale * w / 2 + 0.99999);
    dy := integer(yscale * h / 2 + 0.99999);
    if xsize > ysize then
-      dx :=: dy
+      dx :=: dy;
 
    write(f, "%!PS-Adobe-3.0 EPSF-3.0");
    write(f, "%%BoundingBox: ",
@@ -109,7 +109,7 @@ procedure epsheader(f, x, y, w, h, flags)	#: write PostScript header
    if xsize > ysize then
       write(f, "90 rotate \n", -dy, " ", -dx, " translate")
    else
-      write(f, -dx, " ", -dy, " translate")
+      write(f, -dx, " ", -dy, " translate");
    write(f, xscale, " ", yscale, " scale");
    write(f, -x, " ", -y, " translate");
    write(f, x, " ", y, " moveto ", x, " ", y + h, " lineto ",
@@ -117,20 +117,20 @@ procedure epsheader(f, x, y, w, h, flags)	#: write PostScript header
    write(f, "closepath clip newpath");
    write(f, "/inch { ", 72 / xscale, " mul } bind def");
    write(f, "1 72 div inch setlinewidth");
-   write(f)
-   return
+   write(f);
+   return;
 end
 
-procedure psprotect(s)			#: escape special PostScript characters
-   local t 
+procedure psprotect(s);			#: escape special PostScript characters
+   local t; 
 
    s ? {
       t := "";
       while t ||:= tab(upto('()\\\n\r\t\b\f')) do {
          t ||:= "\\";
          t ||:= map(move(1), "()\\\n\r\t\b\f", "()\\nrtbf")
-         }
+         };
       return t ||:= tab(0)
-      }
+      };
 
 end

@@ -44,10 +44,10 @@
 #
 ############################################################################
 
-procedure main(arg)
-   local width, chars, nonprint, prntc, asc, hex, sym, dec
-   local oct, ascgen, hexgen, octgen, chrgen, prtgen, c
-   local cnt, line, length, bar, input
+procedure main(arg);
+   local width, chars, nonprint, prntc, asc, hex, sym, dec;
+   local oct, ascgen, hexgen, octgen, chrgen, prtgen, c;
+   local cnt, line, length, bar, input;
 
    input := open(arg[1],"u") | stop("*** cannot open input file");
    width := 16;
@@ -73,7 +73,7 @@ procedure main(arg)
       oct[c] := @octgen || "|";
       hex[c] := " " || @hexgen || "|";
       sym[c] := " " || @prtgen || " |"
-      }
+      };
    asc[char(127)] := "DEL|";  # special case
 
    cnt := -1;  # to handle zero-indexing of byte count
@@ -83,23 +83,23 @@ procedure main(arg)
       bar := "\n" || repl("-",5 + length * 4);
       write();
       writes("BYTE|");
-      every writes(right(cnt + (1 to length),3),"|")
+      every writes(right(cnt + (1 to length),3),"|");
       write(bar);
       writes(" HEX|");
-      every writes(hex[!line])
+      every writes(hex[!line]);
       write(bar);
       writes(" OCT|");
-      every writes(oct[!line])
+      every writes(oct[!line]);
       write(bar);
       writes(" DEC|");
-      every writes(right(ord(!line),3),"|")
+      every writes(right(ord(!line),3),"|");
       write(bar);
       writes(" SYM|");
-      every writes(sym[!line])
+      every writes(sym[!line]);
       write(bar);
       writes(" ASC|");
-      every writes(asc[!line])
+      every writes(asc[!line]);
       write(bar);
       cnt +:= length
-      }
+      };
 end

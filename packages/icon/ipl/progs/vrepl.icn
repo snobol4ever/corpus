@@ -20,13 +20,13 @@
 #
 ############################################################################
 
-procedure main(args)
-   local i, line
+procedure main(args);
+   local i, line;
 
    i := integer(args[1]) | 1;
 
    while line := read() do
       every 1 to i do
-         write(line)
+         write(line);
 
 end

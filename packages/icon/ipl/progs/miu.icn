@@ -26,8 +26,8 @@
 #
 ############################################################################
 
-procedure main(arg)
-   local count, gen, limit
+procedure main(arg);
+   local count, gen, limit;
 
    limit := integer(arg[1]) | 7;
    gen := set(["MI"]);
@@ -35,46 +35,46 @@ procedure main(arg)
    every count := 1 to limit do {
       gen := nextgen(gen);
       show(count,gen)
-      }
+      };
 
 end
 
 # show - show a generation of strings
 
-procedure show(count,gen)
+procedure show(count,gen);
 
    write("Generation #",count,", ",*gen," strings");
-   every write("   ",image(!sort(gen)))
-   write()
+   every write("   ",image(!sort(gen)));
+   write();
 
 end
 
 # nextgen - given a generation of strings, compute the next generation
 
-procedure nextgen(gen)
-   local new
+procedure nextgen(gen);
+   local new;
 
    new := set();
-   every insert(new,apply(!gen))
-   return new
+   every insert(new,apply(!gen));
+   return new;
 
 end
 
 # apply - produce all strings derivable from s in a single rule application
 
-procedure apply(s)
+procedure apply(s);
 
 # Here's a case where referring to the subject by name inside scanning
 # is justified.
 
    s ? {
-     if ="M" then suspend s || tab(0)
+     if ="M" then suspend s || tab(0);
      tab(-1);  # to last character
-     if ="I" then suspend s || "U"
-     tab(1)			# back to the beginning
+     if ="I" then suspend s || "U";
+     tab(1);			# back to the beginning
      suspend tab(find("III")) || (move(3) & "U") || tab(0);
-     tab(1)			# back to the beginning
+     tab(1);			# back to the beginning
      suspend tab(find("UU")) || (move(2) & tab(0))
-     }
+     };
 
 end

@@ -19,8 +19,8 @@
 #
 ############################################################################
 
-procedure opnames()
-   local opmap
+procedure opnames();
+   local opmap;
 
    initial {
       opmap := table("");
@@ -123,8 +123,8 @@ procedure opnames()
       opmap[98] := "Noop";
       opmap[100] := "SymEvents";
       opmap[108] := "Colm"
-      }
+      };
 
-   return opmap
+   return opmap;
 
 end

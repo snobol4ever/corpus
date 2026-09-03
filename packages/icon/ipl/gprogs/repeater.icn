@@ -44,9 +44,9 @@ link options
 link tile
 link wopen
 
-procedure main(args)
-   local opts, prefix, h_rep, v_rep, win1, win2, name, width, height
-   local auto, wdim, hdim, limit
+procedure main(args);
+   local opts, prefix, h_rep, v_rep, win1, win2, name, width, height;
+   local auto, wdim, hdim, limit;
 
    opts := options(args, "h+v+a+l+p:");
 
@@ -60,7 +60,7 @@ procedure main(args)
       win1 := WOpen("canvas=hidden", "image=" || name) | {
          write(&errout, "*** cannot open ", name);
          next
-         }
+         };
       width := WAttrib(win1, "width");
       height := WAttrib(win1, "height");
       if \auto then {
@@ -78,15 +78,15 @@ procedure main(args)
       else {
          hdim := height * h_rep;
          wdim := width * v_rep
-         } 
+         }; 
       win2 := WOpen("canvas=hidden", "width=" || wdim, "height=" || hdim) | {
          write(&errout, "*** cannot open window for repeat");
          WClose(win1);
          next
-         }
+         };
       tile(win1, win2);
       WriteImage(win2, prefix || name);
       WClose(win1);
       WClose(win2)
-      }
+      };
 end

@@ -23,11 +23,11 @@
 #
 ############################################################################
 
-procedure main(args)
-   local fset, u1, u2, line, name, base, flag, proc, files, file
+procedure main(args);
+   local fset, u1, u2, line, name, base, flag, proc, files, file;
 
    fset := set();
-   every insert(fset,function())
+   every insert(fset,function());
 
    files := open("ls *.icn", "p");
 
@@ -39,11 +39,11 @@ procedure main(args)
       u1 := open("xxxxxx.u1") | {
          write("cannot open .u1 file for ", image(file));
          next
-         }
+         };
       u2 := open("xxxxxx.u2") | {
          write("cannot open .u1 file for ", image(file));
          next
-         }
+         };
       while line := read(u1) do {
          line ? {
             if ="proc " then {
@@ -66,13 +66,13 @@ procedure main(args)
                   }
                }
             }
-         }
+         };
       write("   globals");
       while line := read(u2) do { 
          line ? {
             if ="global" then break
             }
-         }
+         };
       while line := read(u2) do {
          line ? {
             if tab(upto(',') + 1) & ="000001," then {
@@ -81,11 +81,11 @@ procedure main(args)
                   write("\t\tpotential global conflict: ", name)
                }
             }
-         }
+         };
       system("rm -f xxxxxx.*");
       close(u1);
       close(u2);
       write()
-      }
+      };
 
 end

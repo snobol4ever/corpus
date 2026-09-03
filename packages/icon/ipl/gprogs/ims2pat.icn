@@ -30,13 +30,13 @@ link imrutils
 link imsutils
 link wopen
 
-procedure main()
-   local imr
+procedure main();
+   local imr;
 
    imr := imstoimr(read());
 
    imropen(imr);
 
-   write(pix2pat(&window, 0, 0, WAttrib("width"), WAttrib("height")))
+   write(pix2pat(&window, 0, 0, WAttrib("width"), WAttrib("height")));
 
 end

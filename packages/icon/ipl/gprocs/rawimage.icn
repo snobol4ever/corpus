@@ -39,17 +39,17 @@ link wopen
 
 $define LineLen 64
 
-procedure WriteRaw(win, x, y, w, h)
-   local nextid, palette, line, c, temp, tempname
+procedure WriteRaw(win, x, y, w, h);
+   local nextid, palette, line, c, temp, tempname;
 
    if type(win) ~== "window" then {
       win :=: x :=: y :=: w :=: h;
       win := &window
-      }
+      };
 
-   /w := WAttrib(win, "width")
-   /h := WAttrib(win, "height")
-   /x := 0
+   /w := WAttrib(win, "width");
+   /h := WAttrib(win, "height");
+   /x := 0;
    /y := 0;
 
    tempname := "/tmp/reg." || map("mmhhss", "mm:hh:ss", &clock);
@@ -68,7 +68,7 @@ procedure WriteRaw(win, x, y, w, h)
       line ?:= {
          write(temp, move(LineLen)) & tab(0)
          }
-      }
+      };
 
    write(temp, "" ~== line);
 
@@ -77,29 +77,29 @@ procedure WriteRaw(win, x, y, w, h)
    palette := sort(palette, 4);
 
    while c := get(palette) do
-      write(get(palette), " ", c)
+      write(get(palette), " ", c);
 
    write();  # separator
 
    close(temp);
    temp := open(tempname) | stop("*** cannot find temporary file");
 
-   while writes(reads(temp, 10000))	# copy image data
+   while writes(reads(temp, 10000));	# copy image data
 
    close(temp);
-   remove(tempname)
+   remove(tempname);
 
-   return 
+   return; 
 
 end
 
-procedure ReadRaw(win, s, x, y)
-   local input, palette, c, temp, size, width, height, line
+procedure ReadRaw(win, s, x, y);
+   local input, palette, c, temp, size, width, height, line;
 
    if type(win) ~== "window" then {
       win :=: s :=: x :=: y;
       win := &window
-      }
+      };
 
    input := open(s) | stop("*** cannot read raw image file");
 
@@ -110,19 +110,19 @@ procedure ReadRaw(win, s, x, y)
       width := integer(tab(upto(','))) &
       move(1) &
       height := integer(tab(0)) | stop("invalid raw image header")
-      }
+      };
 
    palette := table();
 
    while line := read(input) do
       line ? {
          palette[move(2) | break] := (move(1), tab(0))
-         }
+         };
 
    x := y := 0;
 
    repeat {
-      line := read(input) | break
+      line := read(input) | break;
       line ? {
          while c := move(2) do {
             Fg(temp, palette[c]) | stop("***invalid color: ", c);
@@ -134,10 +134,10 @@ procedure ReadRaw(win, s, x, y)
                }
             }
          }
-      }
+      };
 
-   CopyArea(temp, win, 0, 0, width, height, x, y)
+   CopyArea(temp, win, 0, 0, width, height, x, y);
 
-   return
+   return;
            
 end

@@ -33,12 +33,12 @@ link graphics
 
 procedure linddraw(		#: draw L-system
    x, y, axiom, rewrite, length, delta, gener, delay
-   )
-   local c
+   );
+   local c;
 
-   /x := (WAttrib(\&window, "width") / 2) | 250
-   /y := (WAttrib(\&window, "height") / 2) | 250
-   /length := 5
+   /x := (WAttrib(\&window, "width") / 2) | 250;
+   /y := (WAttrib(\&window, "height") / 2) | 250;
+   /length := 5;
    /delta := 90;
 
    TReset();
@@ -47,17 +47,17 @@ procedure linddraw(		#: draw L-system
    every c := lindgen(!axiom, rewrite, gener) do {
       WDelay(delay);
       case c of {
-         "F":   TDraw(length)			# draw forward
-         "f":   TSkip(length)			# skip forward
-         "+":   TRight(delta)			# turn right
-         "-":   TLeft(delta)			# turn left
-         "[":   TSave()				# save state
+         "F":   TDraw(length);			# draw forward
+         "f":   TSkip(length);			# skip forward
+         "+":   TRight(delta);			# turn right
+         "-":   TLeft(delta);			# turn left
+         "[":   TSave();				# save state
          "]":   TRestore()			# restore state
          }					# ignore other characters
-      }
+      };
 
-   WFlush()
+   WFlush();
 
-   return
+   return;
 
 end

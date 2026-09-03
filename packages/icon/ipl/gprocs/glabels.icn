@@ -27,10 +27,10 @@
 
 link numbers
 
-procedure glabels(min, max, ntick)
-   local d, graphmin, graphmax, nfrac, llist, x, nf, range
+procedure glabels(min, max, ntick);
+   local d, graphmin, graphmax, nfrac, llist, x, nf, range;
 
-   if min = max then fail		# no can do
+   if min = max then fail;		# no can do
 
    range := nicenum(max - min);
    d := nicenum(range / (ntick - 1), 1);
@@ -39,14 +39,14 @@ procedure glabels(min, max, ntick)
    nfrac := max(-floor(log(d, 10)), 0);
    llist := [];
    every x := graphmin to graphmax + 0.5 * d by d do
-     put(llist, x)
+     put(llist, x);
 
-   return llist
+   return llist;
 
 end
 
-procedure nicenum(x, round)
-   local exp, f, nf
+procedure nicenum(x, round);
+   local exp, f, nf;
 
    exp := floor(log(x, 10));
    f := x / (10 ^ exp);
@@ -61,8 +61,8 @@ procedure nicenum(x, round)
       else if f <= 2 then nf := 2
       else if f <= 5 then nf := 5
       else nf := 10
-      }
+      };
 
-   return nf * (10 ^ exp)
+   return nf * (10 ^ exp);
 
 end

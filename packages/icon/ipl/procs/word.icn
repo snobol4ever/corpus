@@ -32,8 +32,8 @@ link scanset
 #  word(s) -- Produces the position past a UNIX-style command line
 #  word.
 #
-procedure word(s,i1,i2)
-   local c,d,p,e,x
+procedure word(s,i1,i2);
+   local c,d,p,e,x;
    x := scan_setup(s,i1,i2);
    x.ss ? {
       (while tab(upto(' \t"\'')) do {
@@ -41,15 +41,15 @@ procedure word(s,i1,i2)
 	    e := c ++ "\\";
 	    while tab(upto(e)) do {
 	       d := move(1);
-	       if d == c then break
+	       if d == c then break;
 	       move(1)
 	       }
 	    }
 	 else break
 	 }) | "" ~== tab(0) | fail;
       p := &pos
-      }
-   return x.offset + p
+      };
+   return x.offset + p;
 end
 
 
@@ -58,8 +58,8 @@ end
 #  quoting characters removed.
 #
 
-procedure word_dequote(s)
-   local c,d
+procedure word_dequote(s);
+   local c,d;
    s ? {
       s := "";
       while s ||:= tab(upto('"\'\\')) do {
@@ -69,7 +69,7 @@ procedure word_dequote(s)
 	    if \d then (s ||:= d ~== c) | (d := &null)
 	    else d := c
 	    }
-	 }
+	 };
       return s || tab(0)
-      }
+      };
 end

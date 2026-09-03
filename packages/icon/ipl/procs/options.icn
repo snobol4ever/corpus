@@ -103,12 +103,12 @@
 #  
 ############################################################################
 
-procedure options(arg,optstring,errproc)
-   local f,fList,fileArg,fn,ignore,optname,opttable,opttype,p,x,option,optcs
+procedure options(arg,optstring,errproc);
+   local f,fList,fileArg,fn,ignore,optname,opttable,opttype,p,x,option,optcs;
    #
    #  Initialize.
    #
-   /optstring := string(&letters)
+   /optstring := string(&letters);
    /errproc := stop;
    option := table();
    fList := [];
@@ -119,13 +119,13 @@ procedure options(arg,optstring,errproc)
    #
    optstring ? {
       while optname := move(1) do {
-	 if optname == " " then next
+	 if optname == " " then next;
 	 if optname == "-" then
-	    optname := tab(many(optcs)) | move(1) | break
-	 opttype := tab(any('!:+.')) | "!"
+	    optname := tab(many(optcs)) | move(1) | break;
+	 opttype := tab(any('!:+.')) | "!";
 	 opttable[optname] := opttype
 	 }
-      }
+      };
    #
    #  Iterate over program invocation argument words.
    #
@@ -144,10 +144,10 @@ procedure options(arg,optstring,errproc)
 			      return errproc(
 				    "No parameter following -" || optname);
 			   case opttype of {
-			      ":": p
+			      ":": p;
 			      "+": integer(p) |
 				 return errproc("-" || optname ||
-				       " needs numeric parameter")
+				       " needs numeric parameter");
 			      ".": real(p) |
 				 return errproc("-" || optname ||
 				       " needs numeric parameter")
@@ -167,14 +167,14 @@ procedure options(arg,optstring,errproc)
 	    f := open(fn := tab(0)) |
 	       return errproc("Can't open " || fn);
 	    fileArg := [];
-	    while put(fileArg,read(f))
+	    while put(fileArg,read(f));
 	    close(f);
 	    push(arg);  # push null to signal end of args from file
 	    while push(arg,pull(fileArg))
 	    }
 	 else put(fList,x)
 	 }
-      }
-   while push(arg,pull(fList))
-   return option
+      };
+   while push(arg,pull(fList));
+   return option;
 end

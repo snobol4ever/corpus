@@ -29,32 +29,32 @@ link xcode
 
 global PDB_
 
-procedure main(args)
-   local file, wifname, input, clist, line, range, i
+procedure main(args);
+   local file, wifname, input, clist, line, range, i;
 
    every file := !args do {
       wifname := basename(file, ".wif");
       input := open(file) | {
          write(&errout, "*** cannot open ", image(file));
          next
-         }
+         };
       clist := [];
       range := &null;
       while line := trim(map(read(input))) do {
          if line == "[color table]" then {
             while line := trim(read(input)) do {
-               if *line = 0 then break
+               if *line = 0 then break;
                line ?:= {
-                  if ="[" then break
-                  tab(upto('=') + 1)
+                  if ="[" then break;
+                  tab(upto('=') + 1);
                   tab(0)
-                  }
+                  };
                put(clist, line)
                }
             }
          else if line == "[color palette]" then {
             while line := trim(map(read(input))) do {
-               if *line = 0 then break
+               if *line = 0 then break;
                line ? {
                   if ="[" then break
                   else if ="range=" then {
@@ -65,7 +65,7 @@ procedure main(args)
                   }
                }
             }
-         }
+         };
       close(input);
 
       if (\range ~= 65536) then {		# adjust color values
@@ -74,11 +74,11 @@ procedure main(args)
                write(&errout, "*** bad color specification");
                break break
                }
-         }
+         };
       makepalette(wifname, clist) |
          write(&errout, "*** cannot make palette for ", image(wifname))
-       }
+       };
 
-   xencode(PDB_, &output)
+   xencode(PDB_, &output);
 
 end

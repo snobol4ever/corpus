@@ -30,8 +30,8 @@ link options
 
 $define MAXFILES 50
 
-procedure main(args)
-   local opts, maxfiles, f, line, mods, fname, files, text, s
+procedure main(args);
+   local opts, maxfiles, f, line, mods, fname, files, text, s;
 
    opts := options(args, "n+");
    maxfiles := \opts["n"] | MAXFILES;
@@ -39,7 +39,7 @@ procedure main(args)
    if *args = 0 then
       f := &input
    else
-      f := open(args[1]) | stop("cannot open ", args[1])
+      f := open(args[1]) | stop("cannot open ", args[1]);
 
    mods := table();
 
@@ -47,8 +47,8 @@ procedure main(args)
 
       # look for "date:" line
       if ="Working file: " then		# save working file name
-         fname := tab(0)
-      ="date: "			| next
+         fname := tab(0);
+      ="date: "			| next;
       tab(find("author: ") + 8)	| next;
       tab(upto(';') + 1)	| next;
 
@@ -59,18 +59,18 @@ procedure main(args)
 
       # read description of modification
       while line := read(f) do {
-         if line ? ="branches:" then next
-         if line ? =("-----------" | "===========") then break
+         if line ? ="branches:" then next;
+         if line ? =("-----------" | "===========") then break;
          s ||:= "\n" || line
-         }
+         };
 
       # have reached end of this entry
       # add to table, indexed by text
       files := mods[s];
       if /files then
-         files := mods[s] := []
+         files := mods[s] := [];
       put(files, fname)
-      }
+      };
 
    # sort mods by timestamp, which is first part of text
    mods := sort(mods, 3);
@@ -89,11 +89,11 @@ procedure main(args)
          if *files >= maxfiles then
             write("file: [", *files, " files]")
          else
-            every write("file: ", !sort(files))
+            every write("file: ", !sort(files));
          write(text);
          write()
          }
-      }
+      };
 end
 
 
@@ -101,10 +101,10 @@ end
 #  same(text1,text2) -- succeed if two mods are "the same",
 #  meaning that have identical nontrivial log messages
 
-procedure same(text1, text2)
+procedure same(text1, text2);
 
    if text1 ? find("*** empty log message ***") then
       fail
    else
-      return text1[24:0] == text2[24:0] 
+      return text1[24:0] == text2[24:0]; 
 end

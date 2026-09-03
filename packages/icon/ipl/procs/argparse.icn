@@ -21,19 +21,19 @@
 #
 ############################################################################
 
-procedure argparse(s)
-   local arglist
-   static nonblank
+procedure argparse(s);
+   local arglist;
+   static nonblank;
 
-   initial nonblank := &cset -- ' \t\n'
+   initial nonblank := &cset -- ' \t\n';
 
    arglist := [];
 
    s ? {
      while tab(upto(nonblank)) do
         put(arglist, tab(many(nonblank)))
-     }
+     };
 
-   return arglist
+   return arglist;
 
 end

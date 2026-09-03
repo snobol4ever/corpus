@@ -49,17 +49,17 @@ $define g_w 10
 
 # Create draft.
 
-procedure plot(draft, clip)
-   local threading_pane, treadling_pane, tieup_pane
-   local tr_w, th_w, tr_h, th_h, i, j, weft_colors_pane
-   local x, y, k, width, height, warp_colors_pane
-   local drawdown_win, treadle, treadle_list, win, b_w
-   local threading_colors_pane, treadling_colors_pane, colors
-   local trc_w, trc_h, thc_w, thc_h, matrix
+procedure plot(draft, clip);
+   local threading_pane, treadling_pane, tieup_pane;
+   local tr_w, th_w, tr_h, th_h, i, j, weft_colors_pane;
+   local x, y, k, width, height, warp_colors_pane;
+   local drawdown_win, treadle, treadle_list, win, b_w;
+   local threading_colors_pane, treadling_colors_pane, colors;
+   local trc_w, trc_h, thc_w, thc_h, matrix;
 
    X_ := Y_ := 0;
 
-   if /draft.warp_colors | /draft.weft_colors then fail
+   if /draft.warp_colors | /draft.weft_colors then fail;
 
    colors := *draft.color_list;  # NEEDS FIXING
 
@@ -70,17 +70,17 @@ procedure plot(draft, clip)
 
    every i := 1 to *draft.warp_colors do
       colorcell(warp_colors_pane, i, 1,
-         draft.color_list[integer(draft.warp_colors[i])]) | fail
+         draft.color_list[integer(draft.warp_colors[i])]) | fail;
 
    every j := 1 to *draft.weft_colors do
       colorcell(weft_colors_pane, 1, j,
-         draft.color_list[integer(draft.weft_colors[j])]) | fail
+         draft.color_list[integer(draft.weft_colors[j])]) | fail;
 
    threading_pane := makepanel(*draft.threading, draft.shafts, CellSize);
 
    every i := 1 to *draft.threading do
       colorcell(threading_pane, i, draft.shafts - \draft.threading[i] + 1,
-         "black") | fail
+         "black") | fail;
 
    th_w := WAttrib(threading_pane.window, "width");
    th_h := WAttrib(threading_pane.window, "height");
@@ -92,13 +92,13 @@ procedure plot(draft, clip)
 
    every i := 1 to *draft.treadling do
       colorcell(treadling_pane, draft.treadles - draft.treadling[i] + 1, i,
-         "black")
+         "black");
 
    threading_colors_pane := makepanel(*draft.threading, colors, CellSize);
 
    every i := 1 to *draft.threading do
       colorcell(threading_colors_pane, i,
-         colors - draft.warp_colors[i] + 1, "black")
+         colors - draft.warp_colors[i] + 1, "black");
 
    thc_w := WAttrib(threading_colors_pane.window, "width");
    thc_h := WAttrib(threading_colors_pane.window, "height");
@@ -107,7 +107,7 @@ procedure plot(draft, clip)
 
    every i := 1 to *draft.treadling do
       colorcell(treadling_colors_pane,
-         colors - draft.weft_colors[i] + 1, i, "black")
+         colors - draft.weft_colors[i] + 1, i, "black");
 
    trc_w := WAttrib(treadling_colors_pane.window, "width");
    trc_h := WAttrib(treadling_colors_pane.window, "height");
@@ -119,7 +119,7 @@ procedure plot(draft, clip)
    every i := 1 to draft.shafts do 		# rows
       every j := 1 to draft.treadles do		# columns
          if matrix[i, j] == "1" then 
-            colorcell(tieup_pane, j,  i, "black") 
+            colorcell(tieup_pane, j,  i, "black"); 
 
    drawdown_win := WOpen(
       "canvas=hidden",
@@ -128,26 +128,26 @@ procedure plot(draft, clip)
       );
 
    treadle_list := list(draft.treadles);
-   every !treadle_list := []
+   every !treadle_list := [];
 
    every i := 1 to draft.shafts do
       every j := 1 to draft.treadles do
          if draft.tieup[i, j] == "1" then
             every k := 1 to *draft.threading do
                if draft.threading[k] == i then
-                  put(treadle_list[j], k)
+                  put(treadle_list[j], k);
 
    every j := 1 to *draft.treadling do {
       treadle := draft.treadling[j];
-      if *treadle_list[treadle] = 0 then next	# blank pick
+      if *treadle_list[treadle] = 0 then next;	# blank pick
       every i := 1 to *(treadle_list[treadle]) do
          fillcell(drawdown_win, treadle_list[treadle][i], j, "black")
-      }
+      };
 
    every x := 0 to WAttrib(drawdown_win, "width") by CellSize do
-      DrawLine(drawdown_win, x, 0, x, WAttrib(drawdown_win, "height"))
+      DrawLine(drawdown_win, x, 0, x, WAttrib(drawdown_win, "height"));
    every y := 0 to WAttrib(drawdown_win, "height") by CellSize do
-      DrawLine(drawdown_win, 0, y, WAttrib(drawdown_win, "width"), y)
+      DrawLine(drawdown_win, 0, y, WAttrib(drawdown_win, "width"), y);
 
    width := trc_w + tr_w + th_w + b_w + 5 * g_w;
    height := thc_h + th_h + tr_h + b_w + 5 * g_w;
@@ -194,7 +194,7 @@ procedure plot(draft, clip)
        CopyArea(win, win, X_, Y_, , , 0, 0);
        WAttrib(win, "width=" || (WAttrib(win, "width") - X_ - 2 * g_w));
        WAttrib(win, "height=" || (WAttrib(win, "height") - Y_ - 2 * g_w))
-       }
+       };
 
    every WClose(
       weft_colors_pane.window |
@@ -206,14 +206,14 @@ procedure plot(draft, clip)
       warp_colors_pane.window |
       tieup_pane.window |
       drawdown_win
-      )
+      );
 
-   return  win
+   return  win;
 
 end
 
-procedure clear_pane(win, n, m, size)
-   local x, y, width, height, save_fg
+procedure clear_pane(win, n, m, size);
+   local x, y, width, height, save_fg;
 
    width := n * size + 1;
    height := m * size + 1;
@@ -223,19 +223,19 @@ procedure clear_pane(win, n, m, size)
    Fg(win, "black");
 
    every x := 0 to width by size do
-      DrawLine(win, x, 0, x, height)
+      DrawLine(win, x, 0, x, height);
 
    every y := 0 to height by size do
-      DrawLine(win, 0, y, width, y)
+      DrawLine(win, 0, y, width, y);
 
-   Fg(win, save_fg)
+   Fg(win, save_fg);
 
-   return
+   return;
 
 end
 
-procedure fillcell(win, n, m, color)
-   local  save_fg
+procedure fillcell(win, n, m, color);
+   local  save_fg;
 
    save_fg := Fg(win);
    Fg(win, color);
@@ -243,17 +243,17 @@ procedure fillcell(win, n, m, color)
    FillRectangle(win, (n - 1) * CellSize, (m - 1) * CellSize, CellSize,
       CellSize);
 
-   Fg(win, save_fg)
+   Fg(win, save_fg);
 
-   return
+   return;
 
 end
 
-procedure incr_offset(x, y)
+procedure incr_offset(x, y);
 
    X_ +:= x;
-   Y_ +:= y
+   Y_ +:= y;
 
-   return
+   return;
 
 end

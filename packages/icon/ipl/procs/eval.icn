@@ -37,8 +37,8 @@ invocable all
 
 link ivalue
 
-procedure eval(expr)
-   local p, args, tok
+procedure eval(expr);
+   local p, args, tok;
 
    &error := -1;  # to prevent error termination ...
 
@@ -46,23 +46,23 @@ procedure eval(expr)
       p := trim(tab(upto('(')), '\t ') | {
          write(&errout, "*** syntax error");
          fail
-         }
+         };
       p := proc(p, 2 | 1 | 3) | {
          write(&errout, "*** invalid operation");
          fail
-         }
+         };
       move(1);
 
       args := [];
 
       repeat {
          tab(many(' \t'));
-         tok := trim(tab(upto(',)'))) | break
+         tok := trim(tab(upto(',)'))) | break;
          put(args, ivalue(tok)) | fail;  # fail on syntax error
          move(1)
-         }
+         };
 
       suspend p ! args
-      }
+      };
 
 end

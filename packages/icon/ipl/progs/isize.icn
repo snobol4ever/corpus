@@ -35,8 +35,8 @@ link options
 
 $define Col 15
 
-procedure main(args)
-   local chaff, code, line, cbytes, nbytes, input, tokens, opts, format
+procedure main(args);
+   local chaff, code, line, cbytes, nbytes, input, tokens, opts, format;
 
    opts := options(args, "t");
    format := opts["t"];
@@ -57,7 +57,7 @@ procedure main(args)
             cbytes +:= *line + 1
             }
          }
-      }
+      };
 
    input := open("itokens " || args[1], "p");
    tokens := read(input);
@@ -78,6 +78,6 @@ procedure main(args)
       writes(fix(cbytes, tokens, 7, 2), "\t");
       writes(fix(tokens, code, 7, 2));
       write()
-      }
+      };
 
 end

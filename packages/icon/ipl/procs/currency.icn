@@ -25,27 +25,27 @@
 ############################################################################
 
 procedure currency(amount,width,minus,decPlaces,minDollarDigits,
-      currencySign,decimalPoint,comma)
-   local sign,p
-   amount := real(amount) | fail
-   /width := 0
-   /minus := "-"
-   /decPlaces := 2
-   /minDollarDigits := 1
-   /currencySign := "$"
-   /decimalPoint := "."
+      currencySign,decimalPoint,comma);
+   local sign,p;
+   amount := real(amount) | fail;
+   /width := 0;
+   /minus := "-";
+   /decPlaces := 2;
+   /minDollarDigits := 1;
+   /currencySign := "$";
+   /decimalPoint := ".";
    /comma := ",";
    if amount < 0.0 then {
       sign := minus;
       amount := -amount
       }
-   else sign := repl(" ",*minus)
+   else sign := repl(" ",*minus);
    amount := (integer(amount * 10.0 ^ (decPlaces + 1)) + 5)[1:-1];
    amount := right(amount,*amount < decPlaces + minDollarDigits,"0");
    p := *amount - decPlaces + 1;
    amount[p:p] := decimalPoint;
-   while (p -:= 3) > 1 do amount[p:p] := comma
+   while (p -:= 3) > 1 do amount[p:p] := comma;
    amount := currencySign || amount || sign;
-   amount := right(amount,*amount < width)
-   return amount
+   amount := right(amount,*amount < width);
+   return amount;
 end

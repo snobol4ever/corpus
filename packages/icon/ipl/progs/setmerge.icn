@@ -44,8 +44,8 @@
 ############################################################################
 
 
-procedure main(args)
-   local items, a, op, f, s
+procedure main(args);
+   local items, a, op, f, s;
 
    items := set();
    op := "+";
@@ -56,15 +56,15 @@ procedure main(args)
       else {
          f := open(a) | stop("can't open ", a);
          case op of {
-            "+": every insert(items, !f)
-            "-": every delete(items, !f)
+            "+": every insert(items, !f);
+            "-": every delete(items, !f);
             "*": {
                s := set();
-               every insert(s, member(items, !f))
+               every insert(s, member(items, !f));
                items := s
                }
          }
       }
-   }
-   every write(!sort(items))
+   };
+   every write(!sort(items));
 end

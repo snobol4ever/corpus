@@ -36,16 +36,16 @@
 
 link colmize
 
-procedure main(arg)
-   local p, proctab, doneNames, fn, f, foundNonEmptyLine, block, lineNbr
-   local line, keywd, startLine, proclist, w, i, x, proclines, cmd, b
+procedure main(arg);
+   local p, proctab, doneNames, fn, f, foundNonEmptyLine, block, lineNbr;
+   local line, keywd, startLine, proclist, w, i, x, proclines, cmd, b;
 
-   if not (&features == "UNIX") then stop("Runs only under UNIX")
+   if not (&features == "UNIX") then stop("Runs only under UNIX");
    if *arg = 0 then {
       p := open("ls *.icn","rp");
-      while put(arg,read(p))
+      while put(arg,read(p));
       close(p)
-      }
+      };
    proctab := table();
    #
    #  Loop to scan all of the specified source files and save their
@@ -56,8 +56,8 @@ procedure main(arg)
 			# passed as arguments (e.g. mydir/*).
    write("Icon Browser -- scanning files:");
    every fn := !arg do {
-      if not (fn[-4:0] == ".icn") then fn ||:= ".icn"
-      if member(doneNames,fn) then next
+      if not (fn[-4:0] == ".icn") then fn ||:= ".icn";
+      if member(doneNames,fn) then next;
       insert(doneNames,fn);
       f := if fn == "-" then &input else open(fn) | next;
       write("  ",fn);
@@ -75,29 +75,29 @@ procedure main(arg)
 		  (keywd := =("end" | "global" | "link")\1) |
 		  (keywd := =("procedure" | "record")\1 &
 		  tab(many(' \t')) & name := tab(upto(' \t('))\1) then {
-	       if keywd == ("procedure" | "record") then startLine := lineNbr
+	       if keywd == ("procedure" | "record") then startLine := lineNbr;
 	       if keywd == "record" then {
 		  until find(")",line) do {
 		     put(block,line);
-		     line := read(f) | break
+		     line := read(f) | break;
 		     lineNbr +:= 1
 		     }
-		  }
+		  };
 	       if proctab[name || case keywd of {"end": "()"; "record": "."}] :=
-		     [block,fn,startLine] then put(block,line)
+		     [block,fn,startLine] then put(block,line);
 	       if keywd ~== "procedure" then {
 		  foundNonEmptyLine := &null;
 		  block := []
 		  }
 	       }
-	    }
+	    };
 	 if \foundNonEmptyLine then put(block,line)
-	 }
+	 };
       #
       #  Close this file.
       #
       close(f)
-      }
+      };
    doneNames := &null;
    #
    #  Reorganize the data.
@@ -107,18 +107,18 @@ procedure main(arg)
    w := **proctab;
    i := 0;
    every x := !proctab do
-	 put(proclist,right(i +:= 1,w) || ". " || x[1])
+	 put(proclist,right(i +:= 1,w) || ". " || x[1]);
    proclines := [];
-   every put(proclines,colmize(proclist))
+   every put(proclines,colmize(proclist));
    proclist := [];
-   every put(proclist,(!proctab)[2])
+   every put(proclist,(!proctab)[2]);
    proctab := &null;
    #
    #  Interact with the user to browse.
    #
    repeat {
       write();
-      every write(!proclines)
+      every write(!proclines);
       write();
       repeat {
 	 #
@@ -127,11 +127,11 @@ procedure main(arg)
 	 writes("\nq,nn,nn[fmev],<return> (? for help): ");
 	 line := read() | exit();
 	 case line of {
-	   "q": exit()
-	   "?": help() & next
+	   "q": exit();
+	   "?": help() & next;
 	   "":  break
-	 }
-	 if integer(line) then line ||:= "f"
+	 };
+	 if integer(line) then line ||:= "f";
 	 if cmd := line[-1] & any('fmev',cmd) &
 	       block := proclist[0 < integer(line[1:-1])] then {
 	    case cmd of {
@@ -144,18 +144,18 @@ procedure main(arg)
 		  every line := b[1 to *b] do {
 		     line ? (if (tab(many(' \t')) | "")\1 &
 			   =("procedure" | "record") then break)
-		     }
+		     };
 		  write(block[2],": ",line)
-		  }
+		  };
 	       "m": {
 		  #
 		  #  List the procedure using "more".
 		  #
 		  write();
 		  p := open("more","pw") | stop("Can't popen");
-		  every write(p,!block[1])
+		  every write(p,!block[1]);
 		  close(p)
-	          }
+	          };
 	       "e" | "v": {
 		  #
 		  #  Invoke ex or vi positioned at the first line
@@ -167,10 +167,10 @@ procedure main(arg)
 	       }
 	    }
 	 }
-     }
+     };
 end
 
-procedure help()
+procedure help();
    write(
 "\nEnter:_
 \n    q                     Quit_
@@ -181,6 +181,6 @@ procedure help()
 \n    <number from list>m   Display the procedure or record using \"more\"_
 \n    <number from list>e   Invoke \"ex\" positioned to procedure or record_
 \n    <number from list>v   Invoke \"vi\" positioned to procedure or record"
-   )
-   return
+   );
+   return;
 end

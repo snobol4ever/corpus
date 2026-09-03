@@ -46,40 +46,40 @@
 #  
 ############################################################################
 
-procedure main()
-   local line, image, object, char
+procedure main();
+   local line, image, object, char;
    while line := read() do {
       line ? {
-         char := move(1) | {error(line); next}
-         image := tab(find(char)) | {error(line); next}
+         char := move(1) | {error(line); next};
+         image := tab(find(char)) | {error(line); next};
          move(1);
          object := tab(find(char)) | {error(line); next}
-         }
+         };
       write("g/",xform(image),"/s//",xform(object),"/g")
-   }
-   write("w\nq")
+   };
+   write("w\nq");
 end
 
 #  process characters that have meaning to ed
 #
-procedure insert()
-   static special
-   initial special := '\\/^&*[.$%'
+procedure insert();
+   static special;
+   initial special := '\\/^&*[.$%';
    suspend {
       tab(upto(special)) ||
       "\\" ||
       move(1) ||
       (insert() | tab(0))
-      }
+      };
 end
 
-procedure error(line)
-   write(&errout,"*** erroneous input: ",line)
+procedure error(line);
+   write(&errout,"*** erroneous input: ",line);
 end
 
 #  transform line
 #
-procedure xform(line)
-   line ?:= insert()
-   return line
+procedure xform(line);
+   line ?:= insert();
+   return line;
 end

@@ -24,8 +24,8 @@
 global outf,process,bb,quotechar
 global nrbrack,nlbrack,nrbrace,nlbrace,rbrack,lbrack,rbrace,lbrace
 
-procedure main(args)
-   local line
+procedure main(args);
+   local line;
 
    case map(args[1]) | stop("Usage: icvt -a | -e") of {
        "-a" : {
@@ -34,17 +34,17 @@ procedure main(args)
 	   lbrack := "$<"; nlbrack := "[";
 	   rbrack := "$>"; nrbrack := "]";
 	   bb := '$'
-	   }
+	   };
        "-e" : {
 	   lbrace := "{"; nlbrace := "$(";
 	   rbrace := "}"; nrbrace := "$)";
 	   lbrack := "["; nlbrack := "$<";
 	   rbrack := "]"; nrbrack := "$>";
 	   bb := '[]{}'
-	   }
+	   };
        default :
 	   stop("Usage: icvt -a | -e")
-       }
+       };
 
    process := standard;
 
@@ -52,11 +52,11 @@ procedure main(args)
        line ||:= "\n";
        line ? while not pos(0) do
 	   process()
-       }
+       };
 
 end
 
-procedure standard()
+procedure standard();
    writes(tab(upto( '"\'#' ++ bb))) | (writes(tab(0)) & return);
 
    if match("#") then {
@@ -83,15 +83,15 @@ procedure standard()
        move(*rbrace);
        writes(nrbrace)
        }
-   else writes(move(1))
-   return
+   else writes(move(1));
+   return;
 end
 
-procedure inquote()
+procedure inquote();
    writes( tab(upto( quotechar ++ '\\')) ) |
        (writes(tab(0)) & return);
-   writes(="\\") & writes(move(1)) & return
+   writes(="\\") & writes(move(1)) & return;
    writes( =quotechar );
-   process := standard
-   return
+   process := standard;
+   return;
 end

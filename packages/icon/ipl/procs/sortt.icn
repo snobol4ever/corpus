@@ -25,15 +25,15 @@
 
 record element(key, value)
 
-procedure sortt(T, i)
-   local result, k
+procedure sortt(T, i);
+   local result, k;
 
-   if not(integer(i) = (1 | 2)) then runerr(205, i)
+   if not(integer(i) = (1 | 2)) then runerr(205, i);
 
    result := [];
 
-   every put(result, element(k := key(T), T[k]))
+   every put(result, element(k := key(T), T[k]));
 
-   return sortf(result, i)
+   return sortf(result, i);
 
 end

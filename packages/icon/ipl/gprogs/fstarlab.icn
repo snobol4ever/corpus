@@ -61,10 +61,10 @@ link fstartbl
 
 global size
 
-procedure main(argl)
+procedure main(argl);
 
    size := integer(argl[1]) | 600;
 
-   drawlab(fstar, fstartbl, "fractal stars")
+   drawlab(fstar, fstartbl, "fractal stars");
 
 end

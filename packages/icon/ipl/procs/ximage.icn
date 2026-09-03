@@ -56,11 +56,11 @@
 #
 
 
-procedure ximage(x,indent,done)		#: string image of value
-   local i,s,ss,state,t,xtag,tp,sn,sz
-   static tr, name
+procedure ximage(x,indent,done);		#: string image of value
+   local i,s,ss,state,t,xtag,tp,sn,sz;
+   static tr, name;
 
-   initial name := proc("name", 0)	# REG: in case name is a global
+   initial name := proc("name", 0);	# REG: in case name is a global
 
    #
    #  If this is the outer invocation, do some initialization.
@@ -69,7 +69,7 @@ procedure ximage(x,indent,done)		#: string image of value
       tr := &trace ; &trace := 0;  # postpone tracing while in here
       indent := "";
       done := table()
-      }
+      };
    #
    #  Determine the type and process accordingly.
    #
@@ -80,9 +80,9 @@ procedure ximage(x,indent,done)		#: string image of value
       #
       #  Unstructured types just return their image().
       #
-      "integer": x
+      "integer": x;
       "null" | "string" | "real" | "cset" | "window" |
-	    "co-expression" | "file" | "procedure" | "external": image(x)
+	    "co-expression" | "file" | "procedure" | "external": image(x);
       #
       #  List.
       #
@@ -91,23 +91,23 @@ procedure ximage(x,indent,done)		#: string image of value
 	    tab(6);
 	    sn := tab(find("("));
 	    sz := tab(0)
-	    }
+	    };
 	 done[x] := xtag := "L" || sn;
 	 #
 	 #  Figure out if there is a predominance of any object in the
 	 #  list.  If so, make it the default object.
 	 #
 	 t := table(0);
-	 every t[!x] +:= 1
+	 every t[!x] +:= 1;
 	 s := [,0];
-	 every t := !sort(t) do if s[2] < t[2] then s := t
+	 every t := !sort(t) do if s[2] < t[2] then s := t;
 	 if s[2] > *x / 3 & s[2] > 2 then {
 	    s := s[1];
 	    t := ximage(s,indent || "   ",done);
 	    if t ? (not any('\'"') & ss := tab(find(" :="))) then
 		  t := "{" || t || indent || "   " || ss || "}"
 	    }
-	 else s := t := &null
+	 else s := t := &null;
 	 #
 	 #  Output the non-defaulted elements of the list.
 	 #
@@ -115,11 +115,11 @@ procedure ximage(x,indent,done)		#: string image of value
 	 every i := 1 to *x do if x[i] ~=== s then {
 	    ss ||:= indent || xtag || "[" || i || "] := " ||
 		  ximage(x[i],indent,done)
-	    }
+	    };
 	 s := tp || sz;
 	 s[-1:-1] := "," || \t;
 	 xtag || " := " || s || ss
-	 }
+	 };
       #
       #  Set.
       #
@@ -127,16 +127,16 @@ procedure ximage(x,indent,done)		#: string image of value
 	 image(x) ? {
 	    tab(5);
 	    sn := tab(find("("))
-	    }
+	    };
 	 done[x] := xtag := "S" || sn;
 	 every i := !sort(x) do {
 	    t := ximage(i,indent || "   ",done);
 	    if t ? (not any('\'"') & s := tab(find(" :="))) then
-		  t := "{" || t || indent || "   " || s || "}"
+		  t := "{" || t || indent || "   " || s || "}";
 	    ss ||:= indent || "insert(" || xtag || "," || t || ")"
-	    }
+	    };
 	 xtag || " := " || "set()" || ss
-	 }
+	 };
       #
       #  Table.
       #
@@ -144,7 +144,7 @@ procedure ximage(x,indent,done)		#: string image of value
 	 image(x) ? {
 	    tab(7);
 	    sn := tab(find("("))
-	    }
+	    };
 	 done[x] := xtag := "T" || sn;
 	 #
 	 #  Output the table elements.  This is a bit tricky, since
@@ -153,20 +153,20 @@ procedure ximage(x,indent,done)		#: string image of value
 	 every i := !sort(x) do {
 	    t := ximage(i[1],indent || "   ",done);
 	    if t ? (not any('\'"') & s := tab(find(" :="))) then
-		  t := "{" || t || indent || "   " || s || "}"
+		  t := "{" || t || indent || "   " || s || "}";
 	    ss ||:= indent || xtag || "[" ||
 		  t || "] := " ||
 		  ximage(i[2],indent,done)
-	    }
+	    };
 	 #
 	 #  Output the table, including its default value (which might
 	 #  also be structured).
 	 #
 	 t := ximage(x[[]],indent || "   ",done);
 	 if t ? (not any('\'"') & s := tab(find(" :="))) then
-	       t := "{" || t || indent || "   " || s || "}"
+	       t := "{" || t || indent || "   " || s || "}";
 	 xtag || " := " || "table(" || t || ")" || ss
-	 }
+	 };
       #
       #  Record.
       #
@@ -174,36 +174,36 @@ procedure ximage(x,indent,done)		#: string image of value
 	 image(x) ? {
 	    move(7);
 	    t := "";
-	    while t ||:= tab(find("_")) || move(1)
+	    while t ||:= tab(find("_")) || move(1);
 	    t[-1] := "";
 	    sn := tab(find("("))
-	    }
+	    };
 	 done[x] := xtag := "R_" || t ||  "_" || sn;
 	 every i := 1 to *x do {
 	    name(x[i]) ? (tab(find(".")),sn := tab(0));
 	    ss ||:= indent || xtag || sn || " := " ||
 		  ximage(\x[i],indent,done)
-	    }
+	    };
 	 xtag || " := " || t || "()" || ss
 	 }
-      }
+      };
    #
    #  If this is the outer invocation, clean up before returning.
    #
    if /state then {
       &trace := tr                        # restore &trace
-      }
+      };
    #
    #  Return the result.
    #
-   return s
+   return s;
 end
 
 
 #
 #  Write ximages of x1,x1,...,xn.
 #
-procedure xdump(x[])		#: write images of values
-   every write(&errout,ximage(!x))
-   return x[-1] | &null
+procedure xdump(x[]);		#: write images of values
+   every write(&errout,ximage(!x));
+   return x[-1] | &null;
 end

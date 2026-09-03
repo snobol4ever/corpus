@@ -59,11 +59,11 @@ global y_pos
 $define ColorRows	 8	# number of palette rows
 $define ColorCols	16	# number of palette columns
 
-procedure main()
-   local atts, vidgets
+procedure main();
+   local atts, vidgets;
 
    atts := ui_atts();
-   put(atts, "posx=0", "posy=0")
+   put(atts, "posx=0", "posy=0");
 
    (WOpen ! atts) | stop("*** cannot open application window");
 
@@ -81,14 +81,14 @@ procedure main()
 
    clear_palette();
 
-   GetEvents(vidgets["root"], , shortcuts)
+   GetEvents(vidgets["root"], , shortcuts);
 
 end
 
 #  Set up empty palette grid
 
-procedure clear_palette()
-   local x, y
+procedure clear_palette();
+   local x, y;
 
    Fg(panel, "black");
    EraseArea(panel);
@@ -98,45 +98,45 @@ procedure clear_palette()
 
    every x := 1 + (0 to ColorCols) * cellsize do
       every y := 1 + (0 to ColorRows) * cellsize do
-         FillRectangle(panel, x, y, cellsize - 1, cellsize - 1)
+         FillRectangle(panel, x, y, cellsize - 1, cellsize - 1);
 
    WAttrib(panel, "fillstyle=solid");
-   Bg(panel, "black")
+   Bg(panel, "black");
 
-   return
+   return;
  
 end
 
 # Handle File menu
 
-procedure file_cb(vidget, value)
+procedure file_cb(vidget, value);
 
    case value[1] of {
-      "open   @O"  :  image_open()
-      "quit   @Q"  :  quit()
-      "revert @R"  :  image_revert()
+      "open   @O"  :  image_open();
+      "quit   @Q"  :  quit();
+      "revert @R"  :  image_revert();
       "save   @S"  :  snapshot(mutant)
-      }
+      };
 
-   return
+   return;
 
 end
 
 # Open new image
 
-procedure image_open()
-   local i, x, y
+procedure image_open();
+   local i, x, y;
 
    WClose(\image_window);
 
    repeat {
-      if OpenDialog("Open image:") == "Cancel" then fail
+      if OpenDialog("Open image:") == "Cancel" then fail;
       image_window := WOpen("canvas=hidden", "image=" || dialog_value) | {
          Notice("Cannot open image.");
          next
-         }
+         };
       break
-      }
+      };
 
    mutate(image_window) | fail;
 
@@ -150,42 +150,42 @@ procedure image_open()
 
    every y := 1 + (0 to ColorRows - 1) * cellsize do
       every x := 1 + (0 to ColorCols - 1) * cellsize do {
-         Fg(panel, colors[i +:= 1]) | break break
+         Fg(panel, colors[i +:= 1]) | break break;
          FillRectangle(panel, x, y, cellsize - 1, cellsize - 1)
-         }
+         };
 
-   return
+   return;
 
 end 
 
 #  Save current image
 
-procedure image_save()
+procedure image_save();
 
-   snapshot(\mutant)
+   snapshot(\mutant);
 
-   return
+   return;
 
 end
 
 #  Restore original image colors
 
-procedure image_revert()
-   local old, color
+procedure image_revert();
+   local old, color;
 
    every old := key(orig_colors) do {
       color := orig_colors[old];
       Color(panel, color, old)
-      }
+      };
 
-   return
+   return;
 
 end
 
 # Get mutable colors and window from image
 
-procedure mutate()
-   local c, width, height, n, x, y
+procedure mutate();
+   local c, width, height, n, x, y;
 
    WClose(\mutant);
 
@@ -201,7 +201,7 @@ procedure mutate()
       "posx=" || x_pos, "posy=" || y_pos) | {
          Notice("Cannot open image_window for mutant colors.");
          fail
-         }
+         };
 
    every y := 0 to height - 1 do {
       x := 0;
@@ -212,26 +212,26 @@ procedure mutate()
                WClose(mutant);
                fail
                }
-            }
+            };
          count[n] +:= 1;
          Fg(mutant, n);
          DrawPoint(mutant, x, y);
          x +:= 1
          }
-      }
+      };
 
-   return
+   return;
 
 end
 
 # Handle callbacks on palette
 
-procedure palette_cb(vidget, e, x, y)
-   local color, new
+procedure palette_cb(vidget, e, x, y);
+   local color, new;
 
    if e === (&lpress | &mpress | &rpress) then {
       color := Pixel(x, y, 1, 1);  # get pixel color
-      if not integer(color) then fail		# not a mutable color
+      if not integer(color) then fail;		# not a mutable color
       new := Color(panel, color);  # get color specification
       if ColorDialog(
          "Adjust color (" || count[color] || " pixels, " ||
@@ -239,62 +239,62 @@ procedure palette_cb(vidget, e, x, y)
           Color(panel, color),
           track,
           color
-          ) == "Okay" then new := dialog_value
+          ) == "Okay" then new := dialog_value;
       Color(panel, color, new);
       Color(mutant, color, new)
-      }
+      };
 
-   return
+   return;
 
 end
 
 #  Quit the application
 
-procedure quit()
+procedure quit();
 
    snapshot(\mutant);
 
-   exit()
+   exit();
 
 end
 
 #  Handle keyboard shortcuts
 
-procedure shortcuts(e)
+procedure shortcuts(e);
 
    if &meta then case(map(e)) of {
-      "o"  :  image_open()
-      "q"  :  quit()
-      "r"  :  image_revert()
+      "o"  :  image_open();
+      "q"  :  quit();
+      "r"  :  image_revert();
       "s"  :  image_save()
-      }
+      };
 
-   return
+   return;
 
 end
 
 #  Track the color in the color dialog
 
-procedure track(color, s)
+procedure track(color, s);
 
-   Color(panel, color, s)
+   Color(panel, color, s);
 
-   return
+   return;
 
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts()
-   return ["size=355,225", "bg=pale gray", "label=chameleon"]
+procedure ui_atts();
+   return ["size=355,225", "bg=pale gray", "label=chameleon"];
 end
 
-procedure ui(win, cbk)
+procedure ui(win, cbk);
 return vsetup(win, cbk,
    [":Sizer:::0,0,355,225:chameleon",],
    ["file:Menu:pull::1,0,36,21:File",file_cb,
       ["open   @O","save   @S","revert @R","quit   @Q"]],
    ["menubar:Line:::0,21,357,21:",],
    ["palette:Rect:invisible::19,41,320,160:",palette_cb],
-   )
+   );
 end
 #===<<vib:end>>===	end of section maintained by vib

@@ -41,8 +41,8 @@ global image_width, image_height		# image dimensions
 global xpos, ypos				# upper-left corner of image
 global hbar, vbar				# scrolling vidgets
 
-procedure main()
-   local vidgets
+procedure main();
+   local vidgets;
 
    vidgets := ui();  # set up interface
 
@@ -54,40 +54,40 @@ procedure main()
    hbar := vidgets["hbar"];  # horizontal scroll bar
    vbar := vidgets["vbar"];  # vertical scroll bar
 
-   GetEvents(vidgets["root"], , shortcuts)	# enter event loop
+   GetEvents(vidgets["root"], , shortcuts);	# enter event loop
 
 end
 
 
 #  Process event for the file menu.
 
-procedure file_cb(vidget, menu)
+procedure file_cb(vidget, menu);
 
    case menu[1] of {
-      "open  @O":   image_open()
+      "open  @O":   image_open();
       "quit  @Q":   exit()
-      }
+      };
 
-   return
+   return;
 
 end
 
 #  Check for keyboard shortcuts.
 
-procedure shortcuts(e)
+procedure shortcuts(e);
 
    case &meta & map(e) of {			# fold case
-      "o":  image_open()
+      "o":  image_open();
       "q":  exit()
-      }
+      };
 
-   return
+   return;
 
 end
 
 #  Open image file.
 
-procedure image_open()
+procedure image_open();
 
       case OpenDialog() of {
          "Okay": {
@@ -95,71 +95,71 @@ procedure image_open()
             image_win := WOpen("image=" || dialog_value, "canvas=hidden") | {
                Notice("Cannot open image file");
                fail
-               }
-            setup_win(image_win)
+               };
+            setup_win(image_win);
             return
-            }
+            };
          "Cancel":  fail
-         }
+         };
 
 end
 
 #  Process event for horizontal scroll bar.
 
-procedure horiz_cb(vidget, val)
+procedure horiz_cb(vidget, val);
 
-   if /image_win then return			# don't do anything if no image
+   if /image_win then return;			# don't do anything if no image
 
-   xpos := val * x_fact
+   xpos := val * x_fact;
 
-   copy_image()
+   copy_image();
 
-   return
+   return;
 
 end
 
 #  Process event for vertical scroll bar.
 
-procedure vert_cb(vidget, val)
+procedure vert_cb(vidget, val);
 
-   if /image_win then return			# don't do anything if no image
+   if /image_win then return;			# don't do anything if no image
 
-   ypos := val * y_fact
+   ypos := val * y_fact;
 
-   copy_image()
+   copy_image();
 
-   return
+   return;
 
 end
 
 #  Process event for "hide" button.
 
-procedure hide_cb(vidget, val)
+procedure hide_cb(vidget, val);
 
-   if /image_win then return			# don't do anything if no image
+   if /image_win then return;			# don't do anything if no image
 
    if val === 1 then
       FillRectangle(view_xoff, view_yoff, view_width, view_height)
-   else copy_image()
+   else copy_image();
 
-   return
+   return;
 
 end
 
 #  Utility procedure for copying image.
 
-procedure copy_image()
+procedure copy_image();
 
    CopyArea(image_win, &window, xpos, ypos, view_width, view_height,
-      view_xoff, view_yoff)
+      view_xoff, view_yoff);
 
-   return
+   return;
 
 end
 
 #  Procedure to set up window.
 
-procedure setup_win(win)
+procedure setup_win(win);
 
    EraseArea(view_xoff, view_yoff, view_width, view_height);
    image_width := real(WAttrib(win, "width"));
@@ -173,14 +173,14 @@ procedure setup_win(win)
    VSet(hbar, 0.0);  # reset the scroll bars
    VSet(vbar, 0.0);
    xpos := ypos := 0;
-   copy_image()					# place image
+   copy_image();					# place image
 
-   return
+   return;
 
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui(win, cbk)
+procedure ui(win, cbk);
 return vsetup(win, cbk,
    [":Sizer:lucidasanstypewriter-bold-12::0,0,455,410:View",],
    ["file:Menu:pull::29,1,36,21:File",file_cb,
@@ -190,6 +190,6 @@ return vsetup(win, cbk,
    ["line:Line:solid:1:0,25,455,25:",],
    ["port:Rect::1:30,60,300,300:",],
    ["vbar:Scrollbar:v:1:332,60,18,300:0.0,1.0,0.5",vert_cb],
-   )
+   );
 end
 #===<<vib:end>>===	end of section maintained by vib

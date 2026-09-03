@@ -36,7 +36,7 @@
 link io
 link options
 
-procedure Usage(s)
+procedure Usage(s);
   write(&errout,\s);
   stop("Usage: textcvt [-options] -<output format> textfile..._
        \n  options:_
@@ -46,11 +46,11 @@ procedure Usage(s)
        \n  <output format>:_
        \n    u: UNIX_
        \n    d: MS-DOS_
-       \n    m: Macintosh")
+       \n    m: Macintosh");
 end
 
-procedure Options(arg)
-  local opt
+procedure Options(arg);
+  local opt;
   opt := options(arg,"udmo:f:c",Usage);
   OutEnder :=
       if \opt["u"] then "\x0a"
@@ -62,31 +62,31 @@ procedure Options(arg)
     if *arg > 1 then Usage("Only one input file allowed with -f")
   }
   else if \opt["c"] then {
-    if *arg ~= 2 then Usage("Exactly two files required for -c")
+    if *arg ~= 2 then Usage("Exactly two files required for -c");
     OutFile := pull(arg)
-  }
-  return opt
+  };
+  return opt;
 end
 
 
 global OutEnder,OutDir,OutFile
 
-procedure main(arg)
-  local oldName,old,newName,tmp,notInPlace,tmpName
+procedure main(arg);
+  local oldName,old,newName,tmp,notInPlace,tmpName;
   Options(arg);
   notInPlace := \(OutFile | OutDir);
   every oldName := !arg do {
     old := open(oldName,"ru") | {
       write(&errout,"Can't open ",oldName);
       next
-    }
+    };
     if \notInPlace then {
       tmpName := (\OutDir | "") || (\OutFile | tail(oldName)[2]);
       tmp := open(tmpName,"wu") | {
         write(&errout,"Can't open output file ",tmpName);
     close(old);
     next
-      }
+      };
       writes(&errout,"Converting ",oldName," -> ",tmpName," -- ")
     }
     else {
@@ -96,9 +96,9 @@ procedure main(arg)
         write(&errout,"Can't open work file ",tmpName);
     close(old);
     next
-      }
+      };
       writes(&errout,"Converting ",oldName," -- ")
-    }
+    };
     flush(&errout);
     ConvertText(old,tmp);
     close(tmp);
@@ -111,21 +111,21 @@ procedure main(arg)
           write(&errout,"done.");
       remove(tmpName)
     }
-  }
+  };
 end
 
-procedure ConvertText(old,new)
-  local buf,c,trail
+procedure ConvertText(old,new);
+  local buf,c,trail;
   while buf := reads(old,2000) do {
-    if buf[-1] == "\x0d" then buf ||:= reads(old)
+    if buf[-1] == "\x0d" then buf ||:= reads(old);
     buf ? {
       while writes(new,tab(upto('\x0a\x0d')),OutEnder) do {
         c := move(1);
     if c == "\x0d" then ="\x0a"
-      }
+      };
       writes(new,trail := tab(0))
     }
-  }
-  if *\trail > 0 then writes(new,OutEnder)
-  return
+  };
+  if *\trail > 0 then writes(new,OutEnder);
+  return;
 end

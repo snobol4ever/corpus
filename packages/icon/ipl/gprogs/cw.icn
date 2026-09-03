@@ -28,7 +28,7 @@
 
 link colorway
 
-procedure main()
+procedure main();
 
    cw_init();
 
@@ -42,7 +42,7 @@ procedure main()
    repeat {
      if \cw_active then edit_cw()
      else ProcessEvent(cw_root, , shortcuts)
-     }
+     };
 
 
 end

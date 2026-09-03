@@ -46,23 +46,23 @@ link options, usage
 
 global limit, icase
 
-procedure main(args)
-   local wcount, unique, order, s, pair, lwidth, rwidth, max, opts, l, i
+procedure main(args);
+   local wcount, unique, order, s, pair, lwidth, rwidth, max, opts, l, i;
 
    limit := 0;  # lower limit on usage to list
    unique := 0;  # switch to list unique usage only
    order := 3;  # alphabetical ordering switch
 
    opts := options(args,"ail+nu");
-   if \opts["a"] then order := 3
-   if \opts["n"] then order := 4
-   if \opts["u"] then unique := 1
-   if \opts["i"] then icase := 1
+   if \opts["a"] then order := 3;
+   if \opts["n"] then order := 4;
+   if \opts["u"] then unique := 1;
+   if \opts["i"] then icase := 1;
    l := \opts["l"] | 1;
-   if l <= 0 then Usage("-l needs positive parameter")
+   if l <= 0 then Usage("-l needs positive parameter");
 
    wcount := table(0);  # table of words
-   every wcount[words()] +:= 1
+   every wcount[words()] +:= 1;
    wcount := sort(wcount,order);
    if unique = 1 then {
       while s := get(wcount) do
@@ -75,22 +75,22 @@ procedure main(args)
       while i < *wcount do {
          max <:= *wcount[i];
          rwidth <:= *wcount[i +:= 1]
-	 }
+	 };
       lwidth := max + 3;
       while write(left(get(wcount),lwidth),right(get(wcount),rwidth))
-      }
+      };
 end
 
 #  generate words
 #
-procedure words()
-   local line, word
+procedure words();
+   local line, word;
    while line := read() do {
-      if \icase then line := map(line)
+      if \icase then line := map(line);
       line ? while tab(upto(&letters)) do {
          word := tab(many(&letters)) || ((tab(any('-\'')) ||
             tab(many(&letters))) | "");
          if *word > limit then suspend word
          }
-      }
+      };
 end

@@ -197,7 +197,7 @@ link itlib
 global c_cc, current_mode		# what mode are we in, raw or cooked?
 record termio_struct(vintr,vquit,verase,vkill)
 
-procedure getse(s)
+procedure getse(s);
 
     # getse() - like getche, only for strings instead of single chars
     #
@@ -213,101 +213,101 @@ procedure getse(s)
     # then fail" below, and uncommenting the line "if *s < 1 then
     # next."
 
-    local chr
-    static BS
+    local chr;
+    static BS;
     initial {
 	BS := getval("bc") | "\b";
 	if not getval("bs") then {
 	    reset_tty();
 	    stop("Your terminal can't backspace!")
 	}
-    }
+    };
 
     /s := "";
     repeat {
 	case chr := getch() | fail of {
-	    "\r"|"\n"    : return s
+	    "\r"|"\n"    : return s;
 	    c_cc.vkill   : {
-		if *s < 1 then next
-		every 1 to *s do writes(BS)
+		if *s < 1 then next;
+		every 1 to *s do writes(BS);
 		s := ""
-	    }
+	    };
 	    c_cc.verase   : {
 		# if *s < 1 then next
 		writes(BS) & s := s[1:-1];
 		if *s < 1 then fail
-	    }
+	    };
 	    default: writes(chr) & s ||:= chr
 	}
-    }
+    };
 
 end
 
 
 
-procedure setup_tty()
-    change_tty_mode("setup")
-    return
+procedure setup_tty();
+    change_tty_mode("setup");
+    return;
 end
 
 
 
-procedure reset_tty()
+procedure reset_tty();
 
     # Reset (global) mode switch to &null to show we're in cooked mode.
     current_mode := &null;
-    change_tty_mode("reset")
-    return
+    change_tty_mode("reset");
+    return;
 
 end
 
 
 
-procedure getch()
+procedure getch();
 
-    local chr
+    local chr;
 
     # If the global variable current_mode is null, then we have to
     # reset the terminal to raw mode.
     if /current_mode := 1 then
-	setup_tty()
+	setup_tty();
 
     chr := reads(&input);
     case chr of {
-	c_cc.vintr : reset_tty() & stop()  # shouldn't hard code this in
-	c_cc.vquit  : reset_tty() & stop()
+	c_cc.vintr : reset_tty() & stop();  # shouldn't hard code this in
+	c_cc.vquit  : reset_tty() & stop();
 	default : return chr
-    }
+    };
 
 end
 
 
 
-procedure getche()
+procedure getche();
 
-    local chr
+    local chr;
 
     # If the global variable current_mode is null, then we have to
     # reset the terminal to raw mode.
     if /current_mode := 1 then
-	setup_tty()
+	setup_tty();
 
     chr := reads(&input);
     case chr of {
-	c_cc.vintr  : reset_tty() & stop()
-	c_cc.vquit  : reset_tty() & stop()
+	c_cc.vintr  : reset_tty() & stop();
+	c_cc.vquit  : reset_tty() & stop();
 	default : writes(chr) & return chr
-    }
+    };
 
 end
 
 
 
-procedure change_tty_mode(switch)
+procedure change_tty_mode(switch);
 
     # global c_cc   (global record containing values for kill, etc. chars)
-    local get_term_params, i
-    static reset_string
+    local get_term_params, i;
+    static reset_string;
     initial {
 	getval("li");  # check to be sure itlib is set up
 	find("unix",map(&features)) |
@@ -319,20 +319,20 @@ procedure change_tty_mode(switch)
 	    # tab upto the fifth field of the output of the stty -g cmd
 	    # fields of stty -g seem to be the same as those of the
 	    # termio struct, except that the c_line field is missing
-	    every 1 to 4 do tab(find(":")+1)
+	    every 1 to 4 do tab(find(":")+1);
 	    c_cc := termio_struct("\x03","\x1C","\x08","\x15");
 	    every i := 1 to 3 do {
 		c_cc[i] := char(integer("16r"||tab(find(":"))));
 		move(1)
-	    }
+	    };
 	    c_cc[i+1] := char(integer("16r"||tab(0)))
 	}
-    }
+    };
 
     if switch == "setup"
     then system("/bin/stty -echo raw")
-    else system("/bin/stty "||reset_string)
+    else system("/bin/stty "||reset_string);
 
-    return
+    return;
 
 end

@@ -23,10 +23,10 @@
 #
 ############################################################################
 
-procedure binop(op, result, rest[])		#: apply binary operation
+procedure binop(op, result, rest[]);		#: apply binary operation
 
-   every result := op(result, !rest)
+   every result := op(result, !rest);
 
-   return result
+   return result;
 
 end

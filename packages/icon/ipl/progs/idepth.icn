@@ -19,8 +19,8 @@
 #
 ############################################################################
 
-procedure main()
-   local i, max
+procedure main();
+   local i, max;
 
    max := 0;
 
@@ -28,11 +28,11 @@ procedure main()
       tab(upto('(')) ? {
          i := 0;
          every find("| ") do
-            i +:= 1
+            i +:= 1;
          max <:= i
          }
-      }
+      };
 
-   write(max)
+   write(max);
 
 end

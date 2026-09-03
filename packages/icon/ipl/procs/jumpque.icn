@@ -20,18 +20,18 @@
 #
 ############################################################################
 
-procedure jumpque(queue, y)
-   local x
+procedure jumpque(queue, y);
+   local x;
 
    queue := copy(queue);
 
    every 1 to *queue do {		# delete y from queue if it's there
       x := get(queue);
       if x ~=== y then put(queue, x)
-      }
+      };
 
-   push(queue, y)			# insert y at the head of queue
+   push(queue, y);			# insert y at the head of queue
 
-   return queue
+   return queue;
 
 end

@@ -33,8 +33,8 @@ link gtrace
 #  where n is the number of points on a supporting curve.  k is an
 #  offset factor.  A trace of the supporting curve is produced by call.
 #
-procedure modlines(call, m, k, limit)
-   local points, n, i
+procedure modlines(call, m, k, limit);
+   local points, n, i;
 
    /limit := 500;  # maximum number of points allowed
 
@@ -46,6 +46,6 @@ procedure modlines(call, m, k, limit)
 #     i1 := i % n + 1
 #     i2 := (i * k) % n + 1
       suspend points[(i % n + 1) | ((i * k) % n + 1)]
-      }
+      };
 
 end

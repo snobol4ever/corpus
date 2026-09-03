@@ -46,8 +46,8 @@ link options
 
 $define CountWidth 10
 
-procedure main(args)
-   local line, name, selected, opts
+procedure main(args);
+   local line, name, selected, opts;
 
    opts := options(args, "a");
    
@@ -58,12 +58,12 @@ procedure main(args)
    else {
       every line := itrcline(&input) do {
          line ? {
-            move(21) | break			# line after trace output?
+            move(21) | break;			# line after trace output?
             tab(many('| '));  # depth bars
             name := tab(upto('( '));  # procedure name
             if member(selected, name) then write(line)
             }
          }
-      }
+      };
 
 end

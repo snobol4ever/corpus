@@ -40,60 +40,60 @@
 
 record complex(rpart, ipart)
 
-procedure strcpx(s)			#: convert string to complex number
+procedure strcpx(s);			#: convert string to complex number
 
    s ? {
-      ="(" | fail
+      ="(" | fail;
       return complex(numeric(upto('+-')),
          2(move(1), numeric(upto(')')), tab(-1)))
-      }
+      };
 
 end
 
-procedure cpxstr(z)			#: return complex number as string
+procedure cpxstr(z);			#: return complex number as string
 
    if z.ipart < 0 then return "(" ||  z.rpart || z.ipart || "i)"
-   else return "(" ||  z.rpart || "+" || z.ipart || "i)"
+   else return "(" ||  z.rpart || "+" || z.ipart || "i)";
 
 end
 
-procedure cpxadd(z1, z2)		#: complex add
+procedure cpxadd(z1, z2);		#: complex add
 
-   return complex(z1.rpart + z2.rpart, z1.ipart + z2.ipart)
-
-end
-
-procedure cpxsub(z1, z2)		#: complex subtract
-
-   return complex(z1.rpart - z2.rpart, z1.ipart - z2.ipart)
+   return complex(z1.rpart + z2.rpart, z1.ipart + z2.ipart);
 
 end
 
-procedure cpxmul(z1, z2)		#: complex multiply
+procedure cpxsub(z1, z2);		#: complex subtract
+
+   return complex(z1.rpart - z2.rpart, z1.ipart - z2.ipart);
+
+end
+
+procedure cpxmul(z1, z2);		#: complex multiply
 
    return complex(z1.rpart * z2.rpart - z1.ipart * z2.ipart,
-      z1.rpart * z2.ipart + z1.ipart * z2.rpart)
+      z1.rpart * z2.ipart + z1.ipart * z2.rpart);
 
 end
 
-procedure cpxdiv(z1, z2)		#: complex divide
-   local denom
+procedure cpxdiv(z1, z2);		#: complex divide
+   local denom;
 
-   denom := z2.rpart ^ 2 + z2.ipart ^ 2
+   denom := z2.rpart ^ 2 + z2.ipart ^ 2;
 
    return complex((z1.rpart * z2.rpart + z1.ipart * z2.ipart) / denom,
-      (z1.ipart * z2.rpart - z1.rpart * z2.ipart) / denom)
+      (z1.ipart * z2.rpart - z1.rpart * z2.ipart) / denom);
 
 end
 
-procedure cpxconj(z)			#: complex conjugate
+procedure cpxconj(z);			#: complex conjugate
 
-   return complex(z.rpart, -z.ipart)
+   return complex(z.rpart, -z.ipart);
 
 end
 
-procedure cpxabs(z)			#: complex absolute value
+procedure cpxabs(z);			#: complex absolute value
 
-   return sqrt(z.rpart ^ 2 + z.ipart ^ 2)
+   return sqrt(z.rpart ^ 2 + z.ipart ^ 2);
 
 end

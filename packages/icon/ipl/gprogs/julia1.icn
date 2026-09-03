@@ -41,9 +41,9 @@
 
 link wopen
 
-procedure main(argl)
-   local c1, c2, extent, half, quarter, m, n, x0, y0, x, y
-   local x1, y1, i, z
+procedure main(argl);
+   local c1, c2, extent, half, quarter, m, n, x0, y0, x, y;
+   local x1, y1, i, z;
 
    c1 := real(argl[1]) | -1.0;  # default is -1.0 + 0.0i
    c2 := real(argl[2]) | 0.0;
@@ -68,12 +68,12 @@ procedure main(argl)
             y := y1;
             z := x ^ 2 + y ^ 2;
             if z > 4 then break next	# if escaping, forget it
-            }
+            };
          DrawPoint(m, n);
          DrawPoint(extent - m, extent - n)
          }
-      }
+      };
 
-   Event()
+   Event();
 
 end

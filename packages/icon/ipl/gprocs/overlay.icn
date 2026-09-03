@@ -28,8 +28,8 @@
 
 link xcompat
 
-procedure overlay(window, name)
-   local pixmap, width, height, x
+procedure overlay(window, name);
+   local pixmap, width, height, x;
 
    pixmap := XBind(, , "image=" || name) |
       stop("*** cannot bind image");
@@ -38,11 +38,11 @@ procedure overlay(window, name)
    height := WAttrib(pixmap, "height");
 
    every x := 0 to width - 1 do
-      CopyArea(pixmap, window, x, 0, 1, height, x, 0)
+      CopyArea(pixmap, window, x, 0, 1, height, x, 0);
 
-   close(pixmap)
+   close(pixmap);
 
-   return
+   return;
 
 end
 

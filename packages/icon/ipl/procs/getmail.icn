@@ -176,10 +176,10 @@ record message_record(
 )
 
 # getmail SEQ
-procedure getmail(folder_name)
+procedure getmail(folder_name);
 
-    local folder, line, message, ws, item_tag, first_item_value, tag_field
-    local time, message_text, unfolded_line
+    local folder, line, message, ws, item_tag, first_item_value, tag_field;
+    local time, message_text, unfolded_line;
     
     ws := ' \t';
     
@@ -187,14 +187,14 @@ procedure getmail(folder_name)
         folder := folder_name
     else
         folder := open(folder_name, "r") |
-            stop("Could not open ", folder_name)
+            stop("Could not open ", folder_name);
     line := read(folder) | &null;
 
     # body ITR UNTIL EOF
     until /line do {
         # message SEQ
             message := message_record();
-            every !message := &null
+            every !message := &null;
             # header SEQ
                 # from-line SEQ
                     message.all := [];
@@ -218,7 +218,7 @@ procedure getmail(folder_name)
                             put(message.all, line);
                             # process quoted EOL character
                             if line[-1] == "\\" then
-                                line[-1] := "\n"
+                                line[-1] := "\n";
                             unfolded_line := line;
                             line := read(folder) | &null;
                         # first-line END
@@ -229,18 +229,18 @@ procedure getmail(folder_name)
                                 put(message.all, line);
                                 # process quoted EOL character
                                 if line[-1] == "\\" then
-                                    line[-1] := "\n"
+                                    line[-1] := "\n";
                                 if unfolded_line[-1]  == "\n" then
-                                    line[1] := ""
+                                    line[1] := "";
                                 unfolded_line ||:= line;
                                 line := read(folder) | &null
                             # after-line END
                         # after-lines END
-                        }
+                        };
                         process_header_field(message, unfolded_line)
                     # header-field END
                 # header-fields END
-                }
+                };
             # header END
             # post-header ALT if blank line
             if line == "" then {
@@ -252,7 +252,7 @@ procedure getmail(folder_name)
                     # message-text ITR UNTIL EOF or From line
                     until /line | is_From_line(line) do {
                         # message-text-line SEQ
-                            put(message.all, line)
+                            put(message.all, line);
                             /message.message_text := [];
                             put(message.message_text, line);
                             line := read(folder) | &null
@@ -263,14 +263,14 @@ procedure getmail(folder_name)
             # post-header ALT default
             } else {
             # post-header END
-            }
+            };
            suspend message
         # message END
     # body END
-    }
+    };
 
     if folder ~=== &input then
-        close(folder)
+        close(folder);
 # getmail END
 end
 
@@ -278,9 +278,9 @@ end
 #                   procedure is_From_line
 #############################################################################
 
-procedure is_From_line(line)
+procedure is_From_line(line);
 
-    return line ? ="From "
+    return line ? ="From ";
 
 end
 
@@ -288,11 +288,11 @@ end
 #                   procedure match_time
 #############################################################################
 
-procedure match_time()
+procedure match_time();
 
     suspend tab(any(&digits)) || tab(any(&digits)) || =":" ||
             tab(any(&digits)) || tab(any(&digits)) || =":" ||
-            tab(any(&digits)) || tab(any(&digits))
+            tab(any(&digits)) || tab(any(&digits));
 
 end
 
@@ -300,10 +300,10 @@ end
 #                   procedure match_year
 #############################################################################
 
-procedure match_year()
+procedure match_year();
 
     suspend tab(any(&digits)) || tab(any(&digits)) ||
-            tab(any(&digits)) || tab(any(&digits))
+            tab(any(&digits)) || tab(any(&digits));
 
 end
 
@@ -311,16 +311,16 @@ end
 #                   procedure mfield_to_rfield_name
 #############################################################################
 
-procedure mfield_to_rfield_name(mfield_name)
+procedure mfield_to_rfield_name(mfield_name);
 
-    static mapfrom, mapto
+    static mapfrom, mapto;
     
     initial {
         mapfrom := &ucase || "-";
         mapto := &lcase || "_"
-    }
+    };
 
-    return "_" || map(mfield_name, mapfrom, mapto)
+    return "_" || map(mfield_name, mapfrom, mapto);
 
 end
 
@@ -328,16 +328,16 @@ end
 #                   procedure process_header_field
 #############################################################################
 
-procedure process_header_field(message, field)
+procedure process_header_field(message, field);
 
-    local record_field_name, header_field_name, field_body
-    static field_chars, ws
+    local record_field_name, header_field_name, field_body;
+    static field_chars, ws;
     
     # header field name can have ASCII 33 through 126 except for colon
     initial {
         field_chars := cset(string(&ascii)[34:-1]) -- ':';
         ws := ' \t'
-    }
+    };
     
     field ? (
         header_field_name <- tab(many(field_chars)) & =":" &
@@ -377,7 +377,7 @@ procedure process_header_field(message, field)
                 # Append whole field to other field list
                 /message.other := [];
                 put(message.other, field)
-    }
+    };
     
 end
 

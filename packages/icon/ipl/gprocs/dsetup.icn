@@ -61,20 +61,20 @@ global did_list, did_label
 #
 #  wlist is a list of vidget specs as constructed by vib (or uix).
 
-procedure dsetup(win, wlist[])
-   local r, dialog, obj, num, wspec, alist
+procedure dsetup(win, wlist[]);
+   local r, dialog, obj, num, wspec, alist;
 
    if type(win) ~== "window" then
-      win := &window
+      win := &window;
 
    win := Clone(win, "fg=black", "linewidth=1", "linestyle=solid",
       "fillstyle=solid", "drawop=copy");  # clone window with standard attribs
    VSetFont(win);  # set standard VIB font
    if ColorValue(Bg(win)) == ("65535,65535,65535" | "0,0,0") then
-      Bg(win, VBackground)		# change black or white bg to pale gray
+      Bg(win, VBackground);		# change black or white bg to pale gray
 
    while /wlist[-1] do			# ignore trailing null elements
-      pull(wlist)
+      pull(wlist);
    wspec := get(wlist);  # first spec gives wdow size
 
    r := DL_crack(wspec) | stop("dsetup: bad spec");
@@ -89,37 +89,37 @@ procedure dsetup(win, wlist[])
 
    every r := DL_crack(!sort(wlist), &null) do {
       DL_obj(win, dialog, r)			# insert other vidgets
-      }
+      };
 
-   VFormat(dialog)				# create the dialog
+   VFormat(dialog);				# create the dialog
 
-   return DL_state(dialog, did_list, did_label)	# return state for dpopup()
+   return DL_state(dialog, did_list, did_label);	# return state for dpopup()
 
 end
 
-procedure dpopup(win, dftbl, dstate)
-   local did_list, init_list, i
+procedure dpopup(win, dftbl, dstate);
+   local did_list, init_list, i;
 
    if type(win) ~== "window" then {
       win :=: dftbl
-      }
+      };
 
    /dftbl := table();
    did_list := dstate.list;
 
    init_list := list(*did_list);
    every i := 1 to *did_list do
-      init_list[i] := \dftbl[did_list[i]]
+      init_list[i] := \dftbl[did_list[i]];
 
    dialog_value := VOpenDialog(dstate.dialog, , dstate.dialog.id,
       init_list, dstate.deflabel);
 
    every i := 1 to *did_list do
-      dftbl[did_list[i]] := dialog_value[i]
+      dftbl[did_list[i]] := dialog_value[i];
 
-   dialog_value := dftbl
+   dialog_value := dftbl;
 
-   return dialog_button
+   return dialog_button;
 
 end
 
@@ -127,10 +127,10 @@ end
 #
 #  cbk is a default callback to use if the spec doesn't supply one.
 
-procedure DL_crack(wspec, cbk)
-   local r, f
+procedure DL_crack(wspec, cbk);
+   local r, f;
 
-   r := DL_rec()
+   r := DL_rec();
    (get(wspec) | fail) ? { 
       r.var := tab(upto(':')) | fail;  move(1);
       r.typ := tab(upto(':')) | fail;  move(1);
@@ -141,28 +141,28 @@ procedure DL_crack(wspec, cbk)
       r.w := tab(upto(',')) | fail;  move(1);
       r.h := tab(upto(':')) | fail;  move(1);
       r.lbl := tab(0)
-      }
+      };
    get(wspec);  # skip callback field
    r.cbk := cbk;  # always use parameter
-   r.etc := get(wspec)
-   return r
+   r.etc := get(wspec);
+   return r;
 end
 
 
 ## DL_obj(win, dialog, r) -- create vidget depending on type
 
-procedure DL_obj(win, dialog, r)
-   local obj, gc, style, lo, hi, iv, args
+procedure DL_obj(win, dialog, r);
+   local obj, gc, style, lo, hi, iv, args;
 
    case r.typ of {
       "Label" | "Message": {
          obj := Vmessage(win, r.lbl);
          VInsert(dialog, obj, r.x, r.y, r.w, r.h)
-         }
+         };
       "Line": {
          obj := Vline(win, r.x, r.y, r.w, r.h);
          VInsert(dialog, obj, r.x, r.y, 1, 1) 
-         }
+         };
 #     "Rect": {   # doesn't work
 #        gc := Clone(win)
 #        if r.num == "" | r.num = 0 then
@@ -170,26 +170,26 @@ procedure DL_obj(win, dialog, r)
 #        obj := Vpane(gc, r.cbk, r.var, r.num)
 #        VInsert(dialog, obj, r.x, r.y, r.w, r.h)
 #        }
-      "Rect":  &null
-      "List":  &null
+      "Rect":  &null;
+      "List":  &null;
       "Check": {
          obj := Vcheckbox(win, r.cbk, r.var, r.w);
          VInsert(dialog, obj, r.x, r.y, r.w, r.h)
-         }
+         };
       "Button": {
          style := case r.sty of {
-            "regular":	V_RECT
-            "regularno":V_RECT_NO
-            "check":	V_CHECK
-            "checkno":	V_CHECK_NO
-            "circle":	V_CIRCLE
-            "circleno":	V_CIRCLE_NO
-            "diamond":	V_DIAMOND
-            "diamondno":V_DIAMOND_NO
-            "xbox":	V_XBOX
-            "xboxno":	V_XBOX_NO
+            "regular":	V_RECT;
+            "regularno":V_RECT_NO;
+            "check":	V_CHECK;
+            "checkno":	V_CHECK_NO;
+            "circle":	V_CIRCLE;
+            "circleno":	V_CIRCLE_NO;
+            "diamond":	V_DIAMOND;
+            "diamondno":V_DIAMOND_NO;
+            "xbox":	V_XBOX;
+            "xboxno":	V_XBOX_NO;
             default:	V_RECT
-            }
+            };
          if r.num == "1" then {		# toggle
             put(did_list, r.var);
             obj := Vtoggle(win, r.lbl, r.cbk, r.var, style, r.w, r.h);
@@ -201,12 +201,12 @@ procedure DL_obj(win, dialog, r)
             if r.num == "-1" then
                did_label := r.lbl
             }
-         }
+         };
       "Choice": {
          obj := Vradio_buttons(win, r.etc, r.cbk, r.var, V_DIAMOND_NO);
          put(did_list, r.var);
          VRegister(dialog, obj, r.x, r.y)
-         }
+         };
       "Slider" | "Scrollbar" : {
          r.lbl ? {
             lo := numeric(tab(upto(',')));
@@ -214,46 +214,46 @@ procedure DL_obj(win, dialog, r)
             hi := numeric(tab(upto(',')));
             move(1);
             iv := numeric(tab(0))
-            }
+            };
          if r.num == "" then
-            r.num := &null
+            r.num := &null;
          obj := case (r.sty || r.typ) of {
             "hSlider":
-               Vhoriz_slider(win, r.cbk, r.var, r.w, r.h, lo, hi, iv, r.num)
+               Vhoriz_slider(win, r.cbk, r.var, r.w, r.h, lo, hi, iv, r.num);
             "vSlider":
-               Vvert_slider(win, r.cbk, r.var, r.h, r.w, hi, lo, iv, r.num)
+               Vvert_slider(win, r.cbk, r.var, r.h, r.w, hi, lo, iv, r.num);
             "hScrollbar":
-               Vhoriz_scrollbar(win, r.cbk, r.var, r.w, r.h, lo, hi, , , r.num) 
+               Vhoriz_scrollbar(win, r.cbk, r.var, r.w, r.h, lo, hi, , , r.num); 
             "vScrollbar":
                Vvert_scrollbar(win, r.cbk, r.var, r.h, r.w, hi, lo, , , r.num)
-            }
+            };
          put(did_list, r.var);
          VRegister(dialog, obj, r.x, r.y)
-         }
+         };
       "Text": {
          obj := Vtext(win, r.lbl, r.cbk, r.var, r.num);
          put(did_list, r.var);
          VRegister(dialog, obj, r.x, r.y)
-         }
+         };
 #     "Menu": {
 #        obj := Vmenu_bar(win, r.lbl, DL_submenu(win, r.etc, r.cbk))
 #        VInsert(dialog, obj, r.x, r.y)
 #        }
-      "Menu":  &null
+      "Menu":  &null;
       default: {
          stop("dsetup: unrecognized object: ", r.typ);
          fail
          }
-   }
-   return obj
+   };
+   return obj;
 end
 
 
 
 ## DL_submenu(win, lst, cbk) -- create submenu vidget
 
-procedure DL_submenu(win, lst, cbk)
-   local a, c, lbl
+procedure DL_submenu(win, lst, cbk);
+   local a, c, lbl;
 
    a := [win];
    while *lst > 0 do {
@@ -262,8 +262,8 @@ procedure DL_submenu(win, lst, cbk)
          put(a, DL_submenu(win, get(lst), cbk))
       else
          put(a, cbk)
-      }
-   return Vsub_menu ! a
+      };
+   return Vsub_menu ! a;
 end
 
 
@@ -272,8 +272,8 @@ end
 #
 #  n.b. "font" is now ignored, although it was once significant.
 
-procedure dproto(proc, font, w, h)
-   local win, s, l
+procedure dproto(proc, font, w, h);
+   local win, s, l;
 
    w <:= 150;
    h <:= 100;
@@ -285,9 +285,9 @@ procedure dproto(proc, font, w, h)
          while write("   dialog_value[\"", get(l), "\"] = ", image(get(l)))
          }
       else
-         write(image(proc), " failed")
+         write(image(proc), " failed");
       if TextDialog(win,"Test prototype",,,,["Again","Quit"]) == "Quit" then
          break
-      }
-   WClose(win)
+      };
+   WClose(win);
 end

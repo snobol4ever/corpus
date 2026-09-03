@@ -35,12 +35,12 @@
 
 link dsetup				# dialog setup
 
-procedure attribs(win)		#: set graphics attributes via dialog
-   static atts
+procedure attribs(win);		#: set graphics attributes via dialog
+   static atts;
 
-   initial atts := table()		# table of vidget IDs
+   initial atts := table();		# table of vidget IDs
 
-   /win := &window
+   /win := &window;
 
    # Assign values from current attributes.
 
@@ -64,36 +64,36 @@ procedure attribs(win)		#: set graphics attributes via dialog
       Fg(win, atts["1_fg"]) | {
          Notice("Invalid foreground color.");
          next
-         }
+         };
       Bg(win, atts["2_bg"]) | {
          Notice("Invalid background color.");
          next
-         }
+         };
       Font(win, atts["3_font"]) | {
          Notice("Invalid font.");
          next
-         }
+         };
       WAttrib(win, "linewidth=" || integer(atts["4_linewidth"])) | {
          Notice("Invalid linewidth.");
          next
-         }
+         };
       WAttrib(win, "pattern=" || atts["5_pattern"]) | {
             Notice("Invalid pattern.");
             next
-            }
+            };
       WAttrib(win, "linestyle=" || atts["linestyle"]);
       WAttrib(win, "fillstyle=" || atts["fillstyle"]);
-      WAttrib(win, "gamma=" || atts["gamma"])
+      WAttrib(win, "gamma=" || atts["gamma"]);
 
       return
 
-      }
+      };
 
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure attributes(win, deftbl)
-static dstate
+procedure attributes(win, deftbl);
+static dstate;
 initial dstate := dsetup(win,
    ["attributes:Sizer::1:0,0,370,400:attributes",],
    ["0.5:Label:::105,204,21,13:0.5",],
@@ -121,7 +121,7 @@ initial dstate := dsetup(win,
    ["tick3:Line:::209,195,209,200:",],
    ["tick4:Line:::272,195,272,200:",],
    ["tick5:Line:::335,195,335,200:",],
-   )
-return dpopup(win, deftbl, dstate)
+   );
+return dpopup(win, deftbl, dstate);
 end
 #===<<vib:end>>===	end of section maintained by vib

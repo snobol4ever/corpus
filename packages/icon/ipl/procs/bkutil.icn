@@ -22,25 +22,25 @@
 #
 ############################################################################
 
-procedure bk_int(i)
-   return char(i % 256) || char(i / 256)
+procedure bk_int(i);
+   return char(i % 256) || char(i / 256);
 end
 
-procedure bk_read_int(f)
-   return ord(reads(f)) + 256 * ord(reads(f))
+procedure bk_read_int(f);
+   return ord(reads(f)) + 256 * ord(reads(f));
 end
 
-procedure bk_format_lines(s,width)
-   local lines,lines2,line,c,lineSeg
+procedure bk_format_lines(s,width);
+   local lines,lines2,line,c,lineSeg;
    /width := 39;
    lines := [];
    #
    #  Make a list of the actual lines, as delimited by "\0".
    #
    s ? {
-      while put(lines,tab(find("\0"))) do move(1)
+      while put(lines,tab(find("\0"))) do move(1);
       put(lines,"" ~== tab(0))
-      }
+      };
    #
    #  Now build a new list, with lines longer than "width" broken at
    #  word boundaries.
@@ -56,7 +56,7 @@ procedure bk_format_lines(s,width)
 	    until pos(1) do {
 	       c := move(-1);
 	       if c == " " then break
-	       }
+	       };
 	    if pos(1) then {
 	       #
 	       #  No space was found -- use next "width" chars.
@@ -71,11 +71,11 @@ procedure bk_format_lines(s,width)
 	       lineSeg := &subject[1:&pos];
 	       move(1);
 	       line := tab(0)
-	       }
+	       };
 	    put(lines2,lineSeg)
 	    }
-	 }
+	 };
       put(lines2,line)
-      }
-   return lines2
+      };
+   return lines2;
 end

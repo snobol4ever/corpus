@@ -49,8 +49,8 @@ global Window, XMAX, YMAX
 
 global pre_defs
 
-procedure main (args)
-    local ls, arg, t
+procedure main (args);
+    local ls, arg, t;
 
     XMAX := YMAX := 700;  # physical screen size
     w := h := 700.0;
@@ -62,21 +62,21 @@ procedure main (args)
 
     while arg := get(args) do {
        case arg of {
-          "-help"|"-h" : helpmsg()
-          "-order"|"-o": ls.order := integer(get(args))
-          "-dist" |"-d": ls.dist  := numeric(get(args))
-          "-delta"     : ls.delta := numeric(get(args))
-          "-axiom"|"-a": ls.axiom := get(args)
-          "-map"       : ls.rewrite[get(args)] := get(args)
-          "-file"|"-f" : ls := read_Lsystem(open(get(args)))
-          "-name"|"-n" : ls := \pre_defs[get(args)]
+          "-help"|"-h" : helpmsg();
+          "-order"|"-o": ls.order := integer(get(args));
+          "-dist" |"-d": ls.dist  := numeric(get(args));
+          "-delta"     : ls.delta := numeric(get(args));
+          "-axiom"|"-a": ls.axiom := get(args);
+          "-map"       : ls.rewrite[get(args)] := get(args);
+          "-file"|"-f" : ls := read_Lsystem(open(get(args)));
+          "-name"|"-n" : ls := \pre_defs[get(args)];
           "-describe"  : {
                          write_Lsystem(ls := \(pre_defs[write(get(args))]));
                          write()
                          }
-          }
+          };
        if arg == ("-help"|"-h") then stop(helpmsg())
-       }
+       };
 
     win := WOpen("label=L-System", "width="||XMAX, "height="||YMAX);
     mono := WAttrib (win, "depth") == "1";
@@ -96,10 +96,10 @@ procedure main (args)
 
     # sit and wait for an event on the window.
     Event(win);
-    close(win)
+    close(win);
 end
 
-procedure helpmsg()
+procedure helpmsg();
    write("Usage: Lsys [[-o n] [-d r] [-delta r] [-axiom s] [-map c s]... ]");
    write("        [-f file] [-n name] [-describe name]");
    write("   where");
@@ -119,11 +119,11 @@ procedure helpmsg()
    write("   displays an order 3 koch_island.");
    write(" ");
    write("   Available predefined Lsystems are:\n");
-   every write("     ",key(pre_defs))
-   stop()
+   every write("     ",key(pre_defs));
+   stop();
 end
 
-procedure init_pre_defs()
+procedure init_pre_defs();
 
    pre_defs := table();
 
@@ -146,6 +146,6 @@ procedure init_pre_defs()
                                            ["R","-L+RR++R+L--L-R"]]));
    pre_defs["near_hilbert"] := Lsys(1,10,90,"-R",
         mk_map([["L","LL-R-R+L+L-R-RL+R+LLR-L+R+LL+R-LR-R-L+L+RR-"],
-               ["R","+LL-R-R+L+LR+L-RR-L-R+LRR-L-RL+L+R-R-L+L+RR"]]))
+               ["R","+LL-R-R+L+LR+L-RR-L-R+LRR-L-RL+L+R-R-L+L+RR"]]));
 
 end

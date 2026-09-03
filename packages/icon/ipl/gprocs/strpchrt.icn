@@ -58,49 +58,49 @@ record StripChart_Rec(win, x0, y, w, h, x, n, last)
 
 ## stripchart(win, x, y, w, h) - create stripchart of size w by h at (x, y)
 
-procedure stripchart(win, x, y, w, h)		#: create stripchart
+procedure stripchart(win, x, y, w, h);		#: create stripchart
    if type(win) ~== "window" then
-      return stripchart((\&window | runerr(140)), win, x, y, w)
+      return stripchart((\&window | runerr(140)), win, x, y, w);
 
-   /x := -WAttrib(win, "dx")
-   /y := -WAttrib(win, "dy")
-   /w := WAttrib(win, "width") - (x + WAttrib(win, "dx"))
-   /h := WAttrib(win, "height") - (y + WAttrib(win, "dy"))
+   /x := -WAttrib(win, "dx");
+   /y := -WAttrib(win, "dy");
+   /w := WAttrib(win, "width") - (x + WAttrib(win, "dx"));
+   /h := WAttrib(win, "height") - (y + WAttrib(win, "dy"));
 
    if w < 0 then
-      x -:= (w := -w)
+      x -:= (w := -w);
    if h < 0 then
-      y -:= (h := -h)
+      y -:= (h := -h);
 
-   EraseArea(win, x, y, w, h)
-   return StripChart_Rec(win, x, y, w, h, x, 0, list(y + h, -1))
+   EraseArea(win, x, y, w, h);
+   return StripChart_Rec(win, x, y, w, h, x, 0, list(y + h, -1));
 end
 
 
 ## sadvance(sc, n) - advance stripchart n pixels (default 1)
 
-procedure sadvance(sc, n)			#: advance stripchart
+procedure sadvance(sc, n);			#: advance stripchart
 
    /n := 1;
    every 1 to n do {
       if sc.x < (sc.x0 + sc.w - 1) then
          sc.x +:= 1
       else
-         CopyArea(sc.win, sc.x0 + 1, sc.y, sc.w - 1, sc.h, sc.x0, sc.y)
+         CopyArea(sc.win, sc.x0 + 1, sc.y, sc.w - 1, sc.h, sc.x0, sc.y);
       EraseArea(sc.win, sc.x, sc.y, 1, sc.h);
       sc.n +:= 1
-      }
-   return
+      };
+   return;
 end
 
 
 ## smark (sc, y1, y2) - mark stripchart from y1 to y2.
 
-procedure smark(sc, y1, y2)			#: mark stripchart
+procedure smark(sc, y1, y2);			#: mark stripchart
    y1 := integer(y1);
    if sc.last[y1] <:= sc.n then
-      DrawLine(sc.win, sc.x, y1, sc.x, \y2) | DrawPoint(sc.win, sc.x, y1)
-   return
+      DrawLine(sc.win, sc.x, y1, sc.x, \y2) | DrawPoint(sc.win, sc.x, y1);
+   return;
 end
 
 

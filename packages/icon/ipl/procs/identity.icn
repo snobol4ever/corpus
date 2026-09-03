@@ -18,18 +18,18 @@
 #
 ############################################################################
 
-procedure identity(x)
+procedure identity(x);
 
    return case x of {
-      "null":  &null
-      "integer":  0
-      "real":  0.0
-      "string":  ""
-      "cset":  ''
-      "list":  []
-      "set":  set()
-      "table":  table()
+      "null":  &null;
+      "integer":  0;
+      "real":  0.0;
+      "string":  "";
+      "cset":  '';
+      "list":  [];
+      "set":  set();
+      "table":  table();
       default: fail
-      }
+      };
 
 end

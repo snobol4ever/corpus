@@ -36,13 +36,13 @@
 
 link options
 
-procedure main(arg)
-   local opt, tabs, Detab, fn, f, line
+procedure main(arg);
+   local opt, tabs, Detab, fn, f, line;
    #
    #  Process command line options and file names.
    #
    opt := options(arg,"t+");  # e.g. "fs:i+r." (flag, string, integer, real)
-   if *arg = 0 then arg := ["-"] # if no arguments, standard input
+   if *arg = 0 then arg := ["-"]; # if no arguments, standard input
    tabs := (\opt["t"] | 8) + 1;  # tabs default to 8
    Detab := tabs = 1 | detab;  # if -t 0, no detabbing
    #
@@ -56,12 +56,12 @@ procedure main(arg)
       #
       while line := Detab(read(f)) do line ? {
 	 write(line)       # copy line to standard output
-	 }
+	 };
       #
       #  Close this file.
       #
       close(f)
-      }
+      };
    #
    #  End of program.
    #

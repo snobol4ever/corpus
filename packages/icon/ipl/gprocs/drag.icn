@@ -52,17 +52,17 @@ link graphics
 
 #  Drag(x, y, w, h) -- opaque drag
 
-procedure Drag(win, x, y, w, h)			#: opaque rectangle drag
-   local dx, dy, x0, y0, x1, y1
-   local behind, xoff, yoff, xnew, ynew, xshift, yshift
+procedure Drag(win, x, y, w, h);			#: opaque rectangle drag
+   local dx, dy, x0, y0, x1, y1;
+   local behind, xoff, yoff, xnew, ynew, xshift, yshift;
 
    if type(win) ~== "window" then
-      return Drag((\&window | runerr(140)), win, x, y, w)
+      return Drag((\&window | runerr(140)), win, x, y, w);
 
    if w < 0 then
-      x -:= (w := -w)
+      x -:= (w := -w);
    if h < 0 then
-      y -:= (h := -h)
+      y -:= (h := -h);
 
    dx := WAttrib(win, "dx");
    dy := WAttrib(win, "dy");
@@ -114,37 +114,37 @@ procedure Drag(win, x, y, w, h)			#: opaque rectangle drag
             CopyArea(behind, win, x + dx, y + dy, xshift, h, x, y)
          else if xshift < 0 then
             CopyArea(behind, win,
-               x + dx + w + xshift, y + dy, -xshift, h, x + w + xshift, y)
+               x + dx + w + xshift, y + dy, -xshift, h, x + w + xshift, y);
          if yshift > 0 then
             CopyArea(behind, win, x + dx, y + dy, w, yshift, x, y)
          else if yshift < 0 then
             CopyArea(behind, win,
                x + dx, y + dy + h + yshift, w, -yshift, x, y + h + yshift)
-         }
+         };
 
       x := xnew;
       y := ynew
-      }
+      };
 
-   EraseArea(behind)
-   &x := x			
-   &y := y
-   return win
+   EraseArea(behind);
+   &x := x;			
+   &y := y;
+   return win;
 end
 
 
 #  DragOutline(x, y, w, h) -- outlined drag
 
-procedure DragOutline(win, x, y, w, h)		#: outlined rectangle drag
-   local wrev, xoff, yoff
+procedure DragOutline(win, x, y, w, h);		#: outlined rectangle drag
+   local wrev, xoff, yoff;
 
    if type(win) ~== "window" then
-      return DragOutline((\&window | runerr(140)), win, x, y, w)
+      return DragOutline((\&window | runerr(140)), win, x, y, w);
 
    if w < 0 then
-      x -:= (w := -w)
+      x -:= (w := -w);
    if h < 0 then
-      y -:= (h := -h)
+      y -:= (h := -h);
 
    wrev := Clone(win, "drawop=reverse");
    xoff := x - &x;
@@ -159,11 +159,11 @@ procedure DragOutline(win, x, y, w, h)		#: outlined rectangle drag
       x := &x + xoff;
       y := &y + yoff;
       DrawRectangle(wrev, x, y, w, h)		# draw new rectangle
-      }
+      };
    DrawRectangle(wrev, x, y, w, h);  # erase final rectangle
-   Uncouple(wrev)
+   Uncouple(wrev);
 
-   &x := x			
-   &y := y
-   return win
+   &x := x;			
+   &y := y;
+   return win;
 end

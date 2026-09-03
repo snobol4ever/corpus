@@ -38,9 +38,9 @@ link patutils
 
 global pixmap
 
-procedure main(args)
-   local x, y, pixels, i, j, size, rows, wcell, hcell
-   local opts, input, w, h, t, xoff, yoff
+procedure main(args);
+   local x, y, pixels, i, j, size, rows, wcell, hcell;
+   local opts, input, w, h, t, xoff, yoff;
 
    opts := options(args, "t.h+w+");
 
@@ -48,7 +48,7 @@ procedure main(args)
 
    pixmap := [];  # image array
 
-   every put(pixmap, xbm2rows(input))
+   every put(pixmap, xbm2rows(input));
 
    w := \opts["w"] | 32;
    h := \opts["h"] | 32;
@@ -71,17 +71,17 @@ procedure main(args)
          every 1 to wcell do {
             yoff := y + 1;
             every 1 to hcell do {
-               every pixels +:=  pixmap[yoff, xoff]
+               every pixels +:=  pixmap[yoff, xoff];
                yoff +:= 1
-               }
+               };
             xoff +:= 1
-            }
-         if pixels / size > t then rows[j, i] := "1"
+            };
+         if pixels / size > t then rows[j, i] := "1";
          y +:= hcell
-         }
+         };
       x +:= wcell
-      }
+      };
 
-   write(rows2pat(rows))
+   write(rows2pat(rows));
    
 end

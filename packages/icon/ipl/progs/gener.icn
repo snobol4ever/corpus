@@ -29,11 +29,11 @@
 
 link exprfile
 
-procedure main(args)
-   local input
+procedure main(args);
+   local input;
 
    input := exprfile(args[1], "seqfncs");
 
-   while write(read(input))
+   while write(read(input));
 
 end

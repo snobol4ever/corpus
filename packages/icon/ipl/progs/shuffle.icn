@@ -27,8 +27,8 @@
 
 link random
 
-procedure main(args)
-   local data, fname, f
+procedure main(args);
+   local data, fname, f;
 
    randomize();
    data := [];
@@ -37,9 +37,9 @@ procedure main(args)
    else
       every fname := !args do {
          f := open(fname, "u") | stop("cannot open ", fname);
-         while put(data, read(f))
+         while put(data, read(f));
          close(f)
-      }
+      };
    shuffle(data);
-   every write(!data)
+   every write(!data);
 end

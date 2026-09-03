@@ -26,8 +26,8 @@
 
 record rgb(r, g, b)
 
-procedure rgbrec(s)
-   local result
+procedure rgbrec(s);
+   local result;
 
    s := ColorValue(s) | fail;
 
@@ -39,9 +39,9 @@ procedure rgbrec(s)
       result.g := tab(upto(','));
       move(1);
       result.b := tab(0)
-      }
+      };
 
-   return result
+   return result;
 
 end
 

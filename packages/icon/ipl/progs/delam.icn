@@ -61,27 +61,27 @@
 
 link usage
 
-procedure main(a)
-   local fylist, ranges
+procedure main(a);
+   local fylist, ranges;
    if any(&digits,a[1]) then
       ranges := fldecode(a[1])
    else
       {
       write(&errout,"Bad argument to delam: ",a[1]);
       Usage("delam fieldlist {outputfile | -} ...")
-      }
+      };
    if not a[2] then
-      Usage("delam fieldlist {outputfile | -} ...")
+      Usage("delam fieldlist {outputfile | -} ...");
    fylist := doutfyls(a,2);
    if *fylist ~= *ranges then
-      stop("Unequal number of field args and output files")
-   delamr(ranges,fylist)
+      stop("Unequal number of field args and output files");
+   delamr(ranges,fylist);
 end
 
 # delamr - do actual division of input file
 #
-procedure delamr(ranges,fylist)
-   local i, j, k, line
+procedure delamr(ranges,fylist);
+   local i, j, k, line;
    while line := read() do
       {
       i := 1;
@@ -90,16 +90,16 @@ procedure delamr(ranges,fylist)
          j := ranges[i][1];
          k := ranges[i][2];
          if k > 0 then
-            write(fylist[i][2],line[j+:k] | line[j:0] | "")
+            write(fylist[i][2],line[j+:k] | line[j:0] | "");
          i +:= 1
          }
-      }
+      };
 end
 
 # doutfyls - process the output file arguments; return list
 #
-procedure doutfyls(a,i)
-   local lst, x
+procedure doutfyls(a,i);
+   local lst, x;
    lst := [];
    while \a[i] do
       {
@@ -112,17 +112,17 @@ procedure doutfyls(a,i)
             if not (x := open(a[i],"w")) then
                stop("Cannot open ",a[i]," for output")
             else
-               lst |||:= [[a[i],x]]
+               lst |||:= [[a[i],x]];
       i +:= 1
-      }
-   return lst
+      };
+   return lst;
 
 end
 
 # fldecode - decode the fieldlist argument
 #
-procedure fldecode(fldlst)
-   local fld, flst, poslst, m, n, x
+procedure fldecode(fldlst);
+   local fld, flst, poslst, m, n, x;
    poslst := [];
    flst := str2lst(fldlst,':,');
    every fld := !flst do
@@ -130,9 +130,9 @@ procedure fldecode(fldlst)
       if x := upto('-+',fld) then
          {
          if not (m := integer(fld[1:x])) then
-            stop("bad argument in field list; ",fld)
+            stop("bad argument in field list; ",fld);
          if not (n := integer(fld[x+1:0])) then
-            stop("bad argument in field list; ",fld)
+            stop("bad argument in field list; ",fld);
          if upto('-',fld) then
             {
             if n < m then
@@ -143,40 +143,40 @@ procedure fldecode(fldlst)
          }
       else {
          if not (m := integer(fld)) then
-            stop("bad argument in field list; ",fld)
+            stop("bad argument in field list; ",fld);
          n := 1
-         }
+         };
       poslst |||:= [[m,n]]
-      }
-   return poslst
+      };
+   return poslst;
 end
 
 # llu - lookup file name in output file list
 #
-procedure llu(str,lst)
-   local i
+procedure llu(str,lst);
+   local i;
    i := 1;
    while \lst[i] do
       {
       if \lst[i][1] == str then
-         return i
+         return i;
       i +:= 1
-      }
+      };
 end
 
 # str2lst - create a list from a delimited string
 #
-procedure str2lst(str,delim)
-   local lst, f
+procedure str2lst(str,delim);
+   local lst, f;
    lst := [];
    str ? {
       while f := (tab(upto(delim))) do
       {
       lst |||:= [f];
       move(1)
-      }
+      };
         if "" ~== (f := tab(0)) then
         lst |||:= [f]
-        }
-   return lst
+        };
+   return lst;
 end

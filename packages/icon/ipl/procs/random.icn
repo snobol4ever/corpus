@@ -65,45 +65,45 @@ global random
 
 #  Robert W Floyd's algorithm for k distinct integers in [1..n]
 #  See Jon Bentley, Programming Pearls, CACM 30:9 (Sept 1987) pp754-757
-procedure choose(k, n)			#: set of k integers in [1..n]
-   local s, j, t
+procedure choose(k, n);			#: set of k integers in [1..n]
+   local s, j, t;
    s := set();
    every j := n - k + 1 to n do {
       t := ?j;
       insert(s, if member(s, t) then j else t)
-      }
-   return s
+      };
+   return s;
 end
 
-procedure rand_num(a_, c_, m_)		#: random number generator
-   static random_last, a, c, m
+procedure rand_num(a_, c_, m_);		#: random number generator
+   static random_last, a, c, m;
 
    initial {
       /random := 0;
       a := \a_ | 1103515245;
       c := \c_ | 453816694;
       m := (\m_ | 2 ^ 31)
-      }
+      };
 
-    return random := (a * random + c) % m
+    return random := (a * random + c) % m;
      
 end
 
-procedure rand_int(i)			#: model ?i
-   static scale
+procedure rand_int(i);			#: model ?i
+   static scale;
 
-   initial scale := 1.0 / (2 ^ 31 - 1)
+   initial scale := 1.0 / (2 ^ 31 - 1);
 
-   (i := (0 < integer(i))) | runerr(205, i)
+   (i := (0 < integer(i))) | runerr(205, i);
 
-   return integer(i * rand_num() * scale) + 1
+   return integer(i * rand_num() * scale) + 1;
 
 end
 
-procedure randomize()			#: randomize
-   local f, s, i
-   static ncalls
-   initial ncalls := 0
+procedure randomize();			#: randomize
+   local f, s, i;
+   static ncalls;
+   initial ncalls := 0;
 
    ncalls +:= 1;
 
@@ -113,30 +113,30 @@ procedure randomize()			#: randomize
       if *\s > 0 then {
          &random := 1;
          every i := ord(!s) do
-            &random := 167 * &random + i
+            &random := 167 * &random + i;
          return
          }
-      }
+      };
 
    &random := map("sSmMhH", "Hh:Mm:Ss", &clock) +
-      map("YyXxMmDd", "YyXx/Mm/Dd", &date) + &time + 1009 * ncalls
+      map("YyXxMmDd", "YyXx/Mm/Dd", &date) + &time + 1009 * ncalls;
 
-   return
-
-end
-
-procedure randrange(min, max)		#: random number in range
-
-   return min - 1 + ?(max - min + 1)
+   return;
 
 end
 
-procedure randrangeseq(i, j)		#: random sequence in range
-   local x, m, a, c, n
+procedure randrange(min, max);		#: random number in range
+
+   return min - 1 + ?(max - min + 1);
+
+end
+
+procedure randrangeseq(i, j);		#: random sequence in range
+   local x, m, a, c, n;
 
    n := j - i + 1;
 
-   if n < 0 then fail
+   if n < 0 then fail;
 
    x := 1;
    m := nxtprime(n);
@@ -148,26 +148,26 @@ procedure randrangeseq(i, j)		#: random sequence in range
       if x < n then {		# discard out-of-range values
          suspend x + i
          }
-      }
+      };
 
 end
 
-procedure randseq(seed)			#: generate &random
+procedure randseq(seed);			#: generate &random
 
    suspend &random := seed;
-   suspend |?1 & &random
+   suspend |?1 & &random;
 
 end
 
-procedure rng(a, c, m, x)	#: random number generator
+procedure rng(a, c, m, x);	#: random number generator
 
-   /a := 1103515245			# multiplicative constant
-   /c := 453816694			# additive constant
-   /m := 2 ^ 31 - 1			# modulus
-   /x := 0				# initial value
+   /a := 1103515245;			# multiplicative constant
+   /c := 453816694;			# additive constant
+   /m := 2 ^ 31 - 1;			# modulus
+   /x := 0;				# initial value
 
    suspend x;
-   suspend x := iand(a * |x + c, m)
+   suspend x := iand(a * |x + c, m);
 
 end
 
@@ -176,13 +176,13 @@ end
 #  characters randomly rearranged is produced. In the case that x is
 #  list or records the elements are randomly rearranged.
    
-procedure shuffle(x)			#: shuffle
-   local i
+procedure shuffle(x);			#: shuffle
+   local i;
 
    x := string(x);  # may fail
    every i := *x to 2 by -1 do
-      x[?i] :=: x[i]
-   return x
+      x[?i] :=: x[i];
+   return x;
 end
 
 #  Note:  the following procedure is simpler, but does not produce

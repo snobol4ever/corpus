@@ -24,9 +24,9 @@
 #
 ############################################################################
 
-procedure main(args)
-   local i, k, ky, l, con
-   local fin, fout, infile, outfile
+procedure main(args);
+   local i, k, ky, l, con;
+   local fin, fout, infile, outfile;
 
    if *args = 3 then  {
       ky      := get(args);
@@ -42,7 +42,7 @@ procedure main(args)
       infile := read();
       writes("Enter output file: ");
       outfile := read()
-      }
+      };
 
    fin  := open(infile, "ur");
    fout := open(outfile,"uw");
@@ -51,9 +51,9 @@ procedure main(args)
    l := 0;
    k := [];
    every put(k, ord(!ky)) do
-      l +:= 1
+      l +:= 1;
 
    while writes(fout, char(ixor(ord(reads(fin)), k[i])))  do  {
       i := (i % l) + 1
-      }
+      };
 end

@@ -29,11 +29,11 @@ link pattread
 link patutils
 link patxform
 
-procedure main()
-   local rows, row
+procedure main();
+   local rows, row;
 
    rows := pattread();
 
-   write(*set(protate(rows)), "x", *set(rows))
+   write(*set(protate(rows)), "x", *set(rows));
 
 end

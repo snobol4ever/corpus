@@ -49,27 +49,27 @@
 
 #  iszip(zname) -- succeed if zname is a ZIP archive file
 
-procedure iszip(fname)		#: check for ZIP archive
-   local f, s
+procedure iszip(fname);		#: check for ZIP archive
+   local f, s;
 
    f := open(fname, "ru") | fail;
    s := reads(f, 4);
-   close(f)
-   return s === "PK\03\04"
+   close(f);
+   return s === "PK\03\04";
 end
 
 
 
 #  zipdir(zname) -- returns a file representing the ZIP directory
 
-procedure zipdir(zname)			#: open ZIP directory
-   return open("unzip -l " || zname || " | sed -n 's/.*:..   //p'", "rp")
+procedure zipdir(zname);			#: open ZIP directory
+   return open("unzip -l " || zname || " | sed -n 's/.*:..   //p'", "rp");
 end
 
 
 
 #  zipfile(zname, fname) -- open file fname inside archive zname
 
-procedure zipfile(zname, fname)		#: open member of ZIP archive
-   return open("unzip -p " || zname || " " || fname, "rp")
+procedure zipfile(zname, fname);		#: open member of ZIP archive
+   return open("unzip -p " || zname || " " || fname, "rp");
 end

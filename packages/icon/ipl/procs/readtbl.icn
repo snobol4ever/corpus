@@ -40,9 +40,9 @@
 
 link stripunb
 
-procedure readtbl(f)
+procedure readtbl(f);
 
-    local t, line, k, on_sequence, off_sequence
+    local t, line, k, on_sequence, off_sequence;
 
     /f & stop("readtbl:  Arg must be a valid open file.");
 
@@ -57,16 +57,16 @@ procedure readtbl(f)
 	    off_sequence := tab(0)
 	} | stop("readtbl:  Bad map file format.");
 	insert(t, k, outstr(on_sequence, off_sequence))
-    }
+    };
 
-    return t
+    return t;
 
 end
 
 
 
-procedure tabslashupto(c,s)
-    local POS
+procedure tabslashupto(c,s);
+    local POS;
 
     POS := &pos;
 
@@ -80,9 +80,9 @@ procedure tabslashupto(c,s)
 		suspend &subject[POS:.&pos]
 	    }
 	}
-    }
+    };
 
     &pos := POS;
-    fail
+    fail;
 
 end

@@ -94,9 +94,9 @@ global pagelines,tabsize,lines,page,datetime,title,subtitle,pagestatus,blanks,
 	group,numbers,noheaders,hstuff,gpat,comment,comment_end,laser,
 	ignore_ff
 
-procedure main(arg)
-  local files,x
-  &dateline ? {tab(find(",")) ; move(2) ; datetime := tab(0)}
+procedure main(arg);
+  local files,x;
+  &dateline ? {tab(find(",")) ; move(2) ; datetime := tab(0)};
   files := [];
   pagelines := 60;
   tabsize := 8;
@@ -106,34 +106,34 @@ procedure main(arg)
   while x := get(arg) do {
     if match("-",x) then {	# Arg is an option
       case x[2] of {
-	"n": numbers := "yes"
+	"n": numbers := "yes";
 	"p": {
 	  pagelines := ("" ~== x[3:0]) | get(arg);
 	  if not (pagelines := integer(pagelines)) then
 		stop("Invalid -p parameter: ",pagelines)
-	}
+	};
 	"t": {
 	  tabsize := ("" ~== x[3:0]) | get(arg);
 	  if not (tabsize := integer(tabsize)) then
 		stop("Invalid -t parameter: ",tabsize)
-	}
-	"h": noheaders := "yes"
-	"l": laser := "yes"
+	};
+	"h": noheaders := "yes";
+	"l": laser := "yes";
 	"g": {
 	  gpat := ("" ~== x[3:0]) | get(arg)
-	}
+	};
 	"c": {
 	  comment := ("" ~== x[3:0]) | get(arg)
-	}
+	};
 	"x": {
 	  comment_end := ("" ~== x[3:0]) | get(arg)
-	}
-	"i": ignore_ff := "yes"
+	};
+	"i": ignore_ff := "yes";
 	default: stop("Invalid option ",x)
       }
     }
     else put(files,x)
-  }
+  };
   if *files = 0 then stop("usage: iprint -options file ...\n_
 	options:\n_
 	\t-n\tnumber the lines\n_
@@ -144,24 +144,24 @@ procedure main(arg)
 	\t-g S\tpattern for last line in group\n_
 	\t-c S\t'start of comment' string\n_
 	\t-x S\t'end of comment' string\n_
-	\t-i\tignore FF")
-  every x := !files do expand(x)
+	\t-i\tignore FF");
+  every x := !files do expand(x);
 end
 
-procedure expand(fn)
-  local f,line,cmd,linenbr,fname
+procedure expand(fn);
+  local f,line,cmd,linenbr,fname;
   f := open(fn) | stop("Can't open ",fn);
   fn ? {
-    while tab(find("/")) & move(1)
+    while tab(find("/")) & move(1);
     fname := tab(0)
-  }
+  };
   hstuff := fname || "  " || datetime || "  page ";
   title := subtitle := &null;
   lines := pagelines;
   page := 0 ; linenbr := 0;
   group := [];
   while line := trim(read(f)) do {
-    if \ignore_ff then while match("\f",line) do line[1] := ""
+    if \ignore_ff then while match("\f",line) do line[1] := "";
     linenbr +:= 1;
     if match("\f",line) then {
       dumpgroup();
@@ -170,89 +170,89 @@ procedure expand(fn)
 	line[1] := "";
 	if not match("\f",line) then break
       }
-    }
+    };
     line ? {
       if =comment & cmd := =("eject" | "title" | "subtitle") then {
 	dumpgroup();
 	case cmd of {		# Command line
 	  "title": (move(1) & title := trim(tab(find(comment_end)))) |
-		(title := &null)
+		(title := &null);
 	  "subtitle": (move(1) & subtitle := trim(tab(find(comment_end)))) |
 		(subtitle := &null)
-	}
+	};
 	lines := pagelines
       }
       else {	# Ordinary (non-command) line
 	if not (*group = 0 & *line = 0) then {
 	  put(group,line);
 	  if \numbers then put(group,linenbr)
-	}
+	};
 	if endgroup(line) then dumpgroup()
       }
     }
-  }
+  };
   dumpgroup();
   close(f);
-  lines := pagelines
+  lines := pagelines;
 end
 
-procedure dumpgroup()
-  local line,linenbr
+procedure dumpgroup();
+  local line,linenbr;
   if *group > 0 then {
     if lines + *group / ((\numbers & 2) | 1) + 2 >= pagelines then
 	lines := pagelines
-    else {write("\n") ; lines +:= 2}
+    else {write("\n") ; lines +:= 2};
     while line := get(group) do {
-      if \numbers then linenbr := get(group)
+      if \numbers then linenbr := get(group);
       if lines >= pagelines then {
 	printhead()
-      }
+      };
       if *line = 0 then {
-	if pagestatus ~== "empty" then {blanks +:= 1 ; lines +:= 1}
+	if pagestatus ~== "empty" then {blanks +:= 1 ; lines +:= 1};
 	next
-      }
-      every 1 to blanks do write()
+      };
+      every 1 to blanks do write();
       blanks := 0;
       pagestatus := "not empty";
-      if \numbers then writes(right(linenbr,5)," ")
+      if \numbers then writes(right(linenbr,5)," ");
       write(detab(line));
       lines +:= 1
     }
-  }
-  return
+  };
+  return;
 end
 
-procedure endgroup(s)
-  return match("" ~== gpat,s)
+procedure endgroup(s);
+  return match("" ~== gpat,s);
 end
 
-procedure printhead()
-  static ff,pg
+procedure printhead();
+  static ff,pg;
   writes(ff) ; ff := "\f";
   lines := 0;
   pg := string(page +:= 1);
   if /noheaders then {
-    if \laser then write("\n\n")
+    if \laser then write("\n\n");
     write(left(\title | "",79 - *hstuff - *pg),hstuff,pg);
     lines +:= 2;
     write(\subtitle) & lines +:= 1;
     write()
-  }
+  };
   pagestatus := "empty";
-  blanks := 0
-  return
+  blanks := 0;
+  return;
 end
 
-procedure detab(s)
-  local t
+procedure detab(s);
+  local t;
   t := "";
   s ? {
     while t ||:= tab(find("\t")) do {
       t ||:= repl(" ",tabsize - *t % tabsize);
       move(1)
-    }
+    };
     t ||:= tab(0)
-  }
-  return t
+  };
+  return t;
 end
 

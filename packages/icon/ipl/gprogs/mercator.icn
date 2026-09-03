@@ -51,8 +51,8 @@ link graphics
 $define Palette "c1"			# default palette
 $define Size "500,300"			# default size
 
-procedure main(args)
-   local ww, wh, p, x, y, h, l, dh, dl, hls, c
+procedure main(args);
+   local ww, wh, p, x, y, h, l, dh, dl, hls, c;
 
    Window("size=" || Size, args);
    ww := WAttrib("width");  # actual window width
@@ -61,7 +61,7 @@ procedure main(args)
    dl := 100.0 / (wh - 1);  # change in lightness per pixel
 
    p := args[1] | Palette;
-   if p == "none" then p := &null
+   if p == "none" then p := &null;
 
    every x := 0 to ww - 1 do {
       h := integer(x * dh) || ":";
@@ -73,7 +73,7 @@ procedure main(args)
          Fg(c);
          DrawPoint(x, y)
          }
-      }
+      };
 
-   ZDone()
+   ZDone();
 end

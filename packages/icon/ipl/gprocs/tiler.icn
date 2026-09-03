@@ -33,25 +33,25 @@
 link imutils
 link tile
 
-procedure tileimg(win, img)		#: tile image
-   local hidden
+procedure tileimg(win, img);		#: tile image
+   local hidden;
 
    hidden := WOpen("canvas=hidden", "image=" || img, "gamma=" ||
       WAttrib(win, "gamma")) | {
       write(&errout, "*** cannot open image ", img);
       fail
-      }
+      };
 
    tile(hidden, win);
 
-   WClose(hidden)
+   WClose(hidden);
 
-   return
+   return;
 
 end
 
-procedure tileims(win, ims)		#: tile image string
-   local w, h
+procedure tileims(win, ims);		#: tile image string
+   local w, h;
 
    w := imswidth(ims);
    h := imsheight(ims);
@@ -67,8 +67,8 @@ procedure tileims(win, ims)		#: tile image string
    else {
       DrawImage(win, 0, 0, ims) | fail;
       tile(win, win, 0, 0, w, h)
-      }
+      };
 
-   return
+   return;
 
 end

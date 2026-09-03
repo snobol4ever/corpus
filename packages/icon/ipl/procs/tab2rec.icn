@@ -23,16 +23,16 @@
 #
 ############################################################################
 
-procedure tab2rec(s, rec)
-   local i
+procedure tab2rec(s, rec);
+   local i;
 
    i := 0;
 
    s ? {
       while rec[i +:= 1] := map(tab(upto('\t') | 0), "\v", "\n") do
          move(1) | break
-      }
+      };
 
-   return
+   return;
 
 end

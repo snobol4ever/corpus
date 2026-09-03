@@ -25,12 +25,12 @@
 #  
 ############################################################################
 
-procedure main(param)
+procedure main(param);
 
    if &features == ("MS-DOS" | "MS-DOS/386" | "NT") then system("cls")
-   else if &features == "UNIX" then system("clear")
+   else if &features == "UNIX" then system("clear");
 
-   every write(!banner(param[1]))
+   every write(!banner(param[1]));
    end
 
 #
@@ -66,9 +66,9 @@ procedure main(param)
 #     ?     !!    :::   ...  //
 #
 #
-  procedure banner(str)
-   local bline, byte, raster, i
-  static  alphabet
+  procedure banner(str);
+   local bline, byte, raster, i;
+  static  alphabet;
   initial {
           alphabet := table("");
           alphabet["a"] := ["  A    "," A A   ","A   A  ","AAAAA  ","A   A  ","A   A  "];
@@ -114,12 +114,12 @@ procedure main(param)
           alphabet["?"] := [" ???   ","?   ?  ","   ?   ","  ?    ","       ","   ?   "];
           alphabet["/"] := ["       ","    /  ","   //  ","  //   "," //    ","//     "];
           alphabet["-"] := ["       ","       ","-----  ","-----  ","       ","       "]
-        }
+        };
   bline := ["","","","","",""];
   every byte := !str do
     {
     raster := alphabet[map(byte)];
     every i := 1 to 6 do bline[i] ||:= raster[i]
-    }
-  return bline
+    };
+  return bline;
   end

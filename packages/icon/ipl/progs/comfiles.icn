@@ -23,8 +23,8 @@
 #
 ############################################################################
 
-procedure main(args)
-   local dir1, dir2, set1, set2, set3, input1, input2
+procedure main(args);
+   local dir1, dir2, set1, set2, set3, input1, input2;
 
    dir1 := args[1] | stop("*** no directories specified");
    dir2 := args[2] | stop("*** no second directory specified");
@@ -35,12 +35,12 @@ procedure main(args)
    input1 := open("ls " || dir1, "p");
    input2 := open("ls " || dir2, "p");
 
-   every insert(set1, !input1)
-   every insert(set2, !input2)
+   every insert(set1, !input1);
+   every insert(set2, !input2);
 
    set3 := set1 ** set2;
 
    if *set3 = 0 then write("no common file names")
-   else every write(!set3)
+   else every write(!set3);
 
 end

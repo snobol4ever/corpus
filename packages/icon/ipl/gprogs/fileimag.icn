@@ -33,8 +33,8 @@
 
 link wopen
 
-procedure main(args)
-   local input, width, height, line
+procedure main(args);
+   local input, width, height, line;
 
    input := open(args[1]) | stop("*** cannot open file");
 
@@ -43,7 +43,7 @@ procedure main(args)
    while line := read(input) do {
       height +:= 1;
       width <:= *line
-      }
+      };
 
    height +:= 1;
 
@@ -54,9 +54,9 @@ procedure main(args)
    WOpen("canvas=hidden", "columns=" || width, "lines=" || height) |
       stop("*** cannot open window");
 
-   while WWrite(WRead(input))
+   while WWrite(WRead(input));
 
-   WriteImage("untitled.gif")
+   WriteImage("untitled.gif");
 
 
 end

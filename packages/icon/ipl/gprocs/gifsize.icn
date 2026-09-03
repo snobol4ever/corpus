@@ -26,26 +26,26 @@
 
 link bincvt
 
-procedure gifsize(name)			#: size of GIF file
-   local gif, width, height
+procedure gifsize(name);			#: size of GIF file
+   local gif, width, height;
 
    gif := open(name) | fail;
 
    repeat {			# only to provide a loop to break out of ...
       read(gif) ? {
-         =("GIF87a" | "GIF89a") | break
+         =("GIF87a" | "GIF89a") | break;
          width := move(1);
          width := move(1) || width;
-         width := unsigned(width) | break
+         width := unsigned(width) | break;
          height := move(1);
          height := move(1) || height;
-         height := unsigned(height) | break
-         close(gif)
+         height := unsigned(height) | break;
+         close(gif);
          return width || "," || height
          } | break
-      }
+      };
 
    close(gif);
-   fail
+   fail;
 
 end

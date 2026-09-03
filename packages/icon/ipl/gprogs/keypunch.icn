@@ -47,13 +47,13 @@ link graphics
 
 global hsiz, vsiz, hsep, vsep, tsep, bsep, lsep, rsep
 
-procedure main(args)
-   local win, col, card, c, s, opts
+procedure main(args);
+   local win, col, card, c, s, opts;
 
    opts := options(args, winoptions());
 
    s := "";
-   while s ||:= get(args) || " "
+   while s ||:= get(args) || " ";
 
    hsiz := 5;
    vsiz := 12;
@@ -62,10 +62,10 @@ procedure main(args)
    tsep := 20;
    bsep := 20;
    lsep := 20;
-   rsep := 20
+   rsep := 20;
 
-   /opts["B"] := "pale moderate reddish yellow"
-   /opts["W"] := lsep + 80 * hsiz + 79 * hsep + rsep
+   /opts["B"] := "pale moderate reddish yellow";
+   /opts["W"] := lsep + 80 * hsiz + 79 * hsep + rsep;
    /opts["H"] := tsep + 12 * vsiz + 11 * vsep + bsep;
    win := optwindow(opts);
    card := WOpen("canvas=hidden", "width="||opts["W"], "height="||opts["H"]);
@@ -84,7 +84,7 @@ procedure main(args)
          }
       else if c == '\b' then {
          if (col -:= 1) < 1 then
-            col := 1
+            col := 1;
          key(win, col, " ")
          }
       else if c == '\t' then {
@@ -96,14 +96,14 @@ procedure main(args)
          key(win, col, map(c, &lcase, &ucase));
          if ((not &meta) & (col +:= 1)) > 80 then
             col := 80
-         }
+         };
       GotoXY(win, lsep + col * (hsiz + hsep), tsep / 2)
-      }
+      };
 end
 
 
-procedure keyevent(win)
-   local e
+procedure keyevent(win);
+   local e;
    repeat {
       e := Event(win);
       if type(e) == "string" then {
@@ -112,55 +112,55 @@ procedure keyevent(win)
          else
             suspend map(e, &lcase, &ucase)
          }
-      }
+      };
 end
 
 
-procedure initcard(win)
-   local i, c
+procedure initcard(win);
+   local i, c;
 
    EraseArea(win);
    GotoXY(win, lsep, tsep / 2);
    every i := 12 to 3 by -1 do {
       c := "  0123456789"[i];
       every punch(win, 1 to 80, i, c)
-      }
+      };
 end
 
 
-procedure key(win, col, ch)
+procedure key(win, col, ch);
    Fg(win, "black");
-   every punch(win, col, holes(ch))
-   punch(win, col, 0, ch)
+   every punch(win, col, holes(ch));
+   punch(win, col, 0, ch);
 end
 
 
-procedure punch(win, col, row, ch)
-   local x, y, w, h
+procedure punch(win, col, row, ch);
+   local x, y, w, h;
    x := lsep + (col - 1) * (hsiz + hsep);
    if row = 0 then
       y := 0
    else
-      y := tsep + (row - 1) * (vsiz + vsep)
+      y := tsep + (row - 1) * (vsiz + vsep);
    if \ch then
       DrawString(win, x, y + vsiz - 3, ch)
    else
-      FillRectangle(win, x, y, hsiz, vsiz)
+      FillRectangle(win, x, y, hsiz, vsiz);
 end
 
 
 # Hole codes from CDC SCOPE 3.4 SPRM, Rev. A, 10-15-71, page A-4 (026 encoding).
 
-procedure holes(c)
-   static s0, s1, s2, s3, n
+procedure holes(c);
+   static s0, s1, s2, s3, n;
    initial {
       s0 := " 0123456789+ABCDEFGHI-JKLMNOPQR/STUVWXYZ:=@%'[.)^;]$*@?>!,(_#&\"\\";
       s1 := "           AAAAAAAAAABBBBBBBBBB000000000     AAAAABBBBBB000000 A";
       s2 := " 0123456789 123456789 123456789123456789235672346723456723456745";
       s3 := "                                        888888888888888888888888"
-      }
+      };
    if n := find(c, s0) then
       suspend find((s1 | s2 | s3)[n], "AB0123456789")
    else
-      suspend 1 to 12
+      suspend 1 to 12;
 end

@@ -42,8 +42,8 @@
 
 link options
 
-procedure main(args)
-   local t, a, label, zip, y, lsize, opts
+procedure main(args);
+   local t, a, label, zip, y, lsize, opts;
 
    opts := options(args,"d+");
    lsize := (0 < integer(opts["d"])) | 9;
@@ -52,17 +52,17 @@ procedure main(args)
    repeat {
       label := "";
       every 1 to lsize do
-         label ||:= read() || "\n" | break break
+         label ||:= read() || "\n" | break break;
       label ? {
-         while tab(upto(' ')) do tab(many(' '))
+         while tab(upto(' ')) do tab(many(' '));
          zip := tab(upto('-') | 0);
          zip := integer(zip) | write(&errout,"*** illegal zipcode:  ",label)
-         }
+         };
       t[zip] ||:= label
-      }
+      };
 
    a := sort(t,3);
    while get(a) do
-      writes(get(a))
+      writes(get(a));
 
 end

@@ -34,8 +34,8 @@
 
 link enqueue
 
-procedure evrecord(event)
-   local modkeys
+procedure evrecord(event);
+   local modkeys;
 
    modkeys := "";
    modkeys ||:= (&shift & "s");
@@ -44,8 +44,8 @@ procedure evrecord(event)
 
    write(image(event));
    write(ior(pack_modkeys(modkeys), iand(&x, 16rFFFF)));
-   write(ior(pack_intrvl(&interval), iand(&y, 16rFFFF)))
+   write(ior(pack_intrvl(&interval), iand(&y, 16rFFFF)));
 
-   return
+   return;
 
 end

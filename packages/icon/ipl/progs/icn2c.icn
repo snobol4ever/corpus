@@ -24,13 +24,13 @@
 #
 ############################################################################
 
-procedure main(arg)
-   local c, comment, line, parenLevel, suffix, tline
+procedure main(arg);
+   local c, comment, line, parenLevel, suffix, tline;
 
    parenLevel := 0;
    while line := trim(read(),' \t') do line ? {
-      line := comment := suffix := ""
-      ="procedure" & tab(many(' \t')) & suffix := " {"
+      line := comment := suffix := "";
+      ="procedure" & tab(many(' \t')) & suffix := " {";
       ="end" & tab(many(' \t')) | pos(0) & line ||:= "}";
       while line ||:= tab(upto('\'":#')) do {
 	 case c := move(1) of {
@@ -43,39 +43,39 @@ procedure main(arg)
 		  until line ||:= tab(find(c) + 1) do {
 		     line ||:= tab(0);
 		     if line[-1] == "_" then line[-1] := "\""
-		     else stop("unbalanced quotes")
+		     else stop("unbalanced quotes");
 		     Out(line);
-		     line := ""
+		     line := "";
 		     &subject := read();
 		     line := (tab(many(' \t')) | "") || "\""
-		     }
+		     };
 		  if not (line[-2] == "\\" & not (line[-3] == "\\")) then break
 		  }
-	       }
+	       };
 	    "#": {
 	       #
 	       #  Handle comments.
 	       #
 	       comment := trim(tab(0),' \t')
-	       }
+	       };
 	    ":": {
 	       #
 	       #  Change := to =
 	       #
 	       if ="=" then line ||:= "="
 	       else line ||:= c
-	       }
+	       };
 	    "(": {
 	       parenLevel +:= 1;
 	       line ||:= c
-	       }
+	       };
 	    ")": {
 	       parenLevel -:= 1;
 	       line ||:= c
-	       }
+	       };
 	    default: line ||:= c
 	    }
-	 }
+	 };
       line ||:= tab(0) || suffix;
       tline := trim(line,' \t');
       if not (parenLevel > 0 | *tline = 0 |
@@ -83,15 +83,15 @@ procedure main(arg)
 	    (tline[-4:0] == ("else" | "then") &
 	    not tline[-5] | any(' \t',tline[-5]))) then {
 	 line := tline || ";" || line[*tline + 1:0]
-	 }
+	 };
       Out(line,comment)
-      }
+      };
 end
 
 
-procedure Out(line,comment)
+procedure Out(line,comment);
    line ||:= "/*" || ("" ~== \comment) || " */";
    line := trim(line,' \t');
-   write(line)
-   return
+   write(line);
+   return;
 end

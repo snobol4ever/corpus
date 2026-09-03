@@ -19,15 +19,15 @@
 #
 ############################################################################
 
-procedure lastname(s)
-   local line, i
+procedure lastname(s);
+   local line, i;
 
    line := trim(s);
    line ?:= tab(upto(','));  # Get rid of things like " ... , Jr."
    line ? {
-      every i := upto(' ')
-      tab(\i + 1)
+      every i := upto(' ');
+      tab(\i + 1);
       return tab(0)
-      }
+      };
 
 end

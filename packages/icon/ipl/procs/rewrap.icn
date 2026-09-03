@@ -81,26 +81,26 @@
 ############################################################################
 
 
-procedure rewrap(s,i)
+procedure rewrap(s,i);
 
-    local extra_bit, line
-    static old_line
-    initial old_line := ""
+    local extra_bit, line;
+    static old_line;
+    initial old_line := "";
 
     # Default column to wrap on is 70.
-    /i := 70
+    /i := 70;
     # Flush buffer on null first argument.
     if /s then {
 	extra_bit := old_line;
-	old_line := ""
+	old_line := "";
 	return "" ~== extra_bit
-    }
+    };
 
     # Prepend to s anything that is in the buffer (leftovers from the last s).
-    s ?:= { tab(many(' ')); old_line || trim(tab(0)) }
+    s ?:= { tab(many(' ')); old_line || trim(tab(0)) };
 
     # If the line isn't long enough, just add everything to old_line.
-    if *s < i then old_line := s || " " & fail
+    if *s < i then old_line := s || " " & fail;
 
     s ? {
 
@@ -111,10 +111,10 @@ procedure rewrap(s,i)
             if *&subject - &pos + *line > i
 	    then suspend line
 	    else {
-		old_line := ""
+		old_line := "";
 		return line || tab(0)
 	    }
-	}
+	};
 
 	# Keep the extra section of s in a buffer.
 	old_line := tab(0);
@@ -126,7 +126,7 @@ procedure rewrap(s,i)
 	    old_line ? {
 		if extra_bit := tab(upto(' -')+1) || (tab(many(' ')) | "")
 		then old_line := tab(0)
-		else extra_bit := old_line & old_line := ""
+		else extra_bit := old_line & old_line := "";
 		return trim(extra_bit)
 	    }
 	}
@@ -141,14 +141,14 @@ procedure rewrap(s,i)
 		then old_line ||:= " "
 	    }
 	}
-    }
+    };
     
 end
 
 
 
-procedure EndToFront(i)
+procedure EndToFront(i);
     # Goes with rewrap(s,i)
-    *&subject+1 - &pos >= i | fail
-    suspend &subject[.&pos:&pos <- &pos+i to &pos by -1]
+    *&subject+1 - &pos >= i | fail;
+    suspend &subject[.&pos:&pos <- &pos+i to &pos by -1];
 end

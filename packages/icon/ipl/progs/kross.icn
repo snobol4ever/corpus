@@ -20,23 +20,23 @@
 #
 ############################################################################
 
-procedure main()
-   local line, j
+procedure main();
+   local line, j;
    while line := read() do {
       kross(line,read())
-      }
+      };
 end
 
-procedure kross(s1,s2)
-   local j, k
+procedure kross(s1,s2);
+   local j, k;
    every j := upto(s2,s1) do
       every k := upto(s1[j],s2) do
-         xprint(s1,s2,j,k)
+         xprint(s1,s2,j,k);
 end
 
-procedure xprint(s1,s2,j,k)
+procedure xprint(s1,s2,j,k);
    write();
-   every write(right(s2[1 to k-1],j))
+   every write(right(s2[1 to k-1],j));
    write(s1);
-   every write(right(s2[k+1 to *s2],j))
+   every write(right(s2[k+1 to *s2],j));
 end

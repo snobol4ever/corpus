@@ -32,9 +32,9 @@
 
 link random
 
-procedure main(arg)
-   local farb
-   local count
+procedure main(arg);
+   local farb;
+   local count;
 
    randomize();
    count := integer(arg[1]) | 1;
@@ -1075,6 +1075,6 @@ procedure main(arg)
       "Your ass is going to be mud.",
       "Your wild oats have come home to roost."
       ];
-   every write(|?farb) \ count
+   every write(|?farb) \ count;
 
 end

@@ -210,36 +210,36 @@ link escape
 
 record xcode_rec(file,ioProc,done,nextTag)
 
-procedure xencode(x,file,writeProc)	#: write structure to file
+procedure xencode(x,file,writeProc);	#: write structure to file
 
-   /file := &output
+   /file := &output;
    return xencode_1(
       xcode_rec(
 	 file,
 	 (\writeProc | write) \ 1,
 	 table(),
 	 0),
-      x)
+      x);
 end
 
-procedure xencode_1(data,x)
-   local tp,wr,f,im
+procedure xencode_1(data,x);
+   local tp,wr,f,im;
    wr := data.ioProc;
    f := data.file;
    #
    #  Special case for &null.
    #
    if /x then {
-      wr(f)
+      wr(f);
       return f
-      }
+      };
    #
    #  If this object has already been output, just write its tag.
    #
    if tp := \data.done[\x] then {
-      wr(f,tp)
+      wr(f,tp);
       return f
-      }
+      };
    #
    #  Check to see if it's a "distinguished" that is represented by
    #  a keyword (special files and csets).  If so, just use the keyword
@@ -249,29 +249,29 @@ procedure xencode_1(data,x)
    if match("integer(", im) then im := string(x)
    else if match("&",im) then {
       wr(f,im);
-      data.done[x] := data.nextTag +:= 1
+      data.done[x] := data.nextTag +:= 1;
       return f
-      }
+      };
    #
    #  Determine the type and handle accordingly.
    #
    tp := case type(x) of {
-     "cset" | "string": ""
-     "file" | "window": "f"
-     "integer" | "real": "N"
-     "co-expression": "C"
-     "procedure": "p"
-     "list": "L"
-     "set": "S"
-     "table": "T"
+     "cset" | "string": "";
+     "file" | "window": "f";
+     "integer" | "real": "N";
+     "co-expression": "C";
+     "procedure": "p";
+     "list": "L";
+     "set": "S";
+     "table": "T";
      default: "R"
-   }
+   };
    case tp of {
       #
       #  String, cset, or numeric outputs its string followed by its
       #  image.
       #
-      "" | "N": wr(f,tp,im)
+      "" | "N": wr(f,tp,im);
       #
       #  Procedure writes "p" followed (on subsequent line) by its name
       #  as a string object.
@@ -279,14 +279,14 @@ procedure xencode_1(data,x)
       "p": {
 	 wr(f,tp);
 	 im ? {
-	    while tab(find(" ") + 1)
+	    while tab(find(" ") + 1);
 	    xencode_1(data,tab(0))
 	    }
-	 }
+	 };
       #
       #  Co-expression, or file just outputs its letter.
       #
-      !"CEf": wr(f,tp)
+      !"CEf": wr(f,tp);
       #
       #  Structured type outputs its letter followed (on subsequent
       #  lines) by additional data.  A record writes its type as a
@@ -295,17 +295,17 @@ procedure xencode_1(data,x)
       #  and values for tables).
       #
       default: {
-	 wr(f,tp)
+	 wr(f,tp);
 	 case tp of {
 	    !"LST": {
 	       im ? {
-		  tab(find("(") + 1)
+		  tab(find("(") + 1);
 		  xencode_1(data,integer(tab(-1)))
-		  }
+		  };
 	       if tp == "T" then xencode_1(data,x[[]])
-	       }
+	       };
 	    default: xencode_1(data,type(x))
-	    }
+	    };
 	 #
 	 #  Create the tag.  It's important that the tag is assigned
 	 #  *after* other other objects that describe this object (e.g.
@@ -313,132 +313,132 @@ procedure xencode_1(data,x)
 	 #  the structure elements; otherwise decoding would be
 	 #  difficult.
 	 #
-	 data.done[x] := data.nextTag +:= 1
+	 data.done[x] := data.nextTag +:= 1;
 	 #
 	 #  Output the elements of the structure.
 	 #
 	 every xencode_1(data,
 	       !case tp of {"S": sort(x); "T": sort(x,3); default: x})
 	 }
-      }
+      };
    #
    #  Tag the object if it's not already tagged.
    #
-   /data.done[x] := data.nextTag +:= 1
-   return f
+   /data.done[x] := data.nextTag +:= 1;
+   return f;
 end
 
-procedure xdecode(file,readProc)	#: read structure from file
+procedure xdecode(file,readProc);	#: read structure from file
 
-   /file := &input
+   /file := &input;
 
    return xdecode_1(
       xcode_rec(
 	 file,
 	 (\readProc | read) \ 1,
-	 []))
+	 []));
 end
 
 #  This procedure fails if it encounters bad data
 
-procedure xdecode_1(data)
-   local x,tp,sz, i
+procedure xdecode_1(data);
+   local x,tp,sz, i;
    data.ioProc(data.file) ? {
       if any(&digits) then {
 	 #
 	 #  It's a tag -- return its value from the object table.
 	 #
 	 return data.done[tab(0)]
-	 }
+	 };
       if tp := move(1) then {
 	 x := case tp of {
-	    "N": numeric(tab(0))
-	    "\"": escape(tab(-1))
-	    "'": cset(escape(tab(-1)))
-	    "p": proc(xdecode_1(data)) | fail
-	    "L": list(xdecode_1(data)) | fail
-	    "S": {sz := xdecode_1(data) | fail; set()}
-	    "T": {sz := xdecode_1(data) | fail; table(xdecode_1(data)) | fail}
-	    "R": proc(xdecode_1(data))() | fail
+	    "N": numeric(tab(0));
+	    "\"": escape(tab(-1));
+	    "'": cset(escape(tab(-1)));
+	    "p": proc(xdecode_1(data)) | fail;
+	    "L": list(xdecode_1(data)) | fail;
+	    "S": {sz := xdecode_1(data) | fail; set()};
+	    "T": {sz := xdecode_1(data) | fail; table(xdecode_1(data)) | fail};
+	    "R": proc(xdecode_1(data))() | fail;
 	    "&": case tab(0) of {
 	       #
 	       #  Special csets.
 	       #
-	       "cset":		&cset
-	       "ascii":		&ascii
-	       "digits":	&digits
-	       "letters":	&letters
-	       "lcase":		&lcase
-	       "ucase":		&ucase
+	       "cset":		&cset;
+	       "ascii":		&ascii;
+	       "digits":	&digits;
+	       "letters":	&letters;
+	       "lcase":		&lcase;
+	       "ucase":		&ucase;
 	       #
 	       #  Special files.
 	       #
-	       "input":		&input
-	       "output":	&output
-	       "errout":	&errout
+	       "input":		&input;
+	       "output":	&output;
+	       "errout":	&errout;
 	       default:		[] # so it won't crash if new keywords arise
-	       }
-            "f" | "C": []	# unique object for things that can't
+	       };
+            "f" | "C": [];	# unique object for things that can't
 				# be restored.
 	    default: fail
-	    }
-	 put(data.done,x)
+	    };
+	 put(data.done,x);
 	 case tp of {
 	    !"LR": every i := 1 to *x do
-              x[i] := xdecode_1(data) | fail
+              x[i] := xdecode_1(data) | fail;
 	    "T": every 1 to sz do
-               insert(x,xdecode_1(data),xdecode_1(data)) | fail
+               insert(x,xdecode_1(data),xdecode_1(data)) | fail;
 	    "S": every 1 to sz do
                insert(x,xdecode_1(data)) | fail
-	    }
+	    };
 	 return x
 	 }
       else return
-      }
+      };
 
 end
 
-procedure xencoden(x, name, opt)
-   local output
+procedure xencoden(x, name, opt);
+   local output;
 
-   /opt := "w"
+   /opt := "w";
 
-   output := open(name, opt) | stop("*** xencoden(): cannot open ", name)
-   xencode(x, output)
-   close(output)
+   output := open(name, opt) | stop("*** xencoden(): cannot open ", name);
+   xencode(x, output);
+   close(output);
 
-   return
+   return;
 
 end
 
-procedure xencodet(x, file, typ)
+procedure xencodet(x, file, typ);
 
    if type(x) === typ then return xencode(x, file)
-   else fail
+   else fail;
 
 end
 
-procedure xdecodet(file, typ)
-   local x
+procedure xdecodet(file, typ);
+   local x;
 
-   x := xdecode(file)
+   x := xdecode(file);
 
    if type(x) == typ then return x
-   else fail
+   else fail;
 
 end
 
-procedure xdecoden(name)
-   local input, x
+procedure xdecoden(name);
+   local input, x;
 
-   input := open(name) | stop("*** xdecoden(): cannot open ", name)
+   input := open(name) | stop("*** xdecoden(): cannot open ", name);
    if x := xdecode(input) then {
-      close(input)
+      close(input);
       return x
       }
    else {
-      close(input)
+      close(input);
       fail
-      }
+      };
 
 end

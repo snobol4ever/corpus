@@ -19,12 +19,12 @@
 #
 ############################################################################
 
-procedure main(args)
-    local line, skip
+procedure main(args);
+    local line, skip;
 
     skip := integer(args[1]) | 0;
 
     while write(read()) do
-       every 1 to skip do read()
+       every 1 to skip do read();
 
 end

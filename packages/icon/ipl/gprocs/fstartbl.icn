@@ -31,8 +31,8 @@ link calls
 link fstars
 link numbers
 
-procedure fstartbl()
-   local fstars
+procedure fstartbl();
+   local fstars;
 
    fstars := table();
    fstars["fstar01"] := call(fstar,
@@ -60,8 +60,8 @@ procedure fstartbl()
    fstars["fstar12"] := call(fstar,
       [0, 0, 15,  3, 0.300, div(14, 15), 1.00000, 0.000, 0.470]);
    fstars["fstar13"] := call(fstar,
-      [0, 0,  3, 11, 0.620, div(2, 3), 1.00000, 0.000, 0.450])
+      [0, 0,  3, 11, 0.620, div(2, 3), 1.00000, 0.000, 0.450]);
 
-   return fstars
+   return fstars;
 
 end

@@ -19,19 +19,19 @@
 #
 ############################################################################
 
-procedure main()
-   local files, file, input, line
+procedure main();
+   local files, file, input, line;
 
    files := open("ls [a-z]*.icn", "p");
 
    while file := read(files) do {
-      if *file > 13 then write(&errout,"*** file name too long: ", file)
+      if *file > 13 then write(&errout,"*** file name too long: ", file);
       input := open(file);
-      every 1 to 4 do read(input)		# skip to subject line
+      every 1 to 4 do read(input);		# skip to subject line
       line := read(input) | {
          write(&errout, "*** no subject in ", file);
          next
-         }
+         };
       line ? {
          if tab(find("Subject:  Program ") + 18) |
             tab(find("Subject:  Procedures") + 21) |
@@ -52,8 +52,8 @@ procedure main()
                write(&errout, "*** bad subject line in ", file);
                write(&errout, line)
                }
-            }
+            };
          close(input)
-      }
+      };
 
 end

@@ -20,8 +20,8 @@
 #
 ############################################################################
 
-procedure opsyms()
-   local opmap
+procedure opsyms();
+   local opmap;
 
    initial {
       opmap := table();
@@ -75,8 +75,8 @@ procedure opsyms()
       opmap[62] := "&";
       opmap[63] := "\\2";
       opmap[65] := "[...]"
-      }
+      };
 
-   return opmap
+   return opmap;
 
 end

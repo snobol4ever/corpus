@@ -68,8 +68,8 @@ invocable all
 
 link iolib
 
-procedure _isANSI()
-    static isANSI
+procedure _isANSI();
+    static isANSI;
     initial {
 	if find("MS-DOS",&features) then {
 	    isANSI := 1
@@ -87,11 +87,11 @@ procedure _isANSI()
 		# stop("_isANSI:  you need to link itlib or iolib")
 	    }
 	}
-    }
-    return \isANSI
+    };
+    return \isANSI;
 end
 
-procedure CUD(i)
+procedure CUD(i);
     if _isANSI()
     then writes("\^[[",i,"B")
     else {
@@ -99,11 +99,11 @@ procedure CUD(i)
 	    every 1 to i do
 		iputs(getval("do")) | stop("CUD:  no do capability")
 	}
-    }
-    return
+    };
+    return;
 end
 
-procedure CUB(i)
+procedure CUB(i);
     if _isANSI()
     then writes("\^[[",i,"D")
     else {
@@ -111,11 +111,11 @@ procedure CUB(i)
 	    every 1 to i do
 		iputs(getval("le")) | stop("CUB:  no le capability")
 	}
-    }
-    return
+    };
+    return;
 end
 
-procedure CUF(i)
+procedure CUF(i);
     if _isANSI()
     then writes("\^[[",i,"C")
     else {
@@ -123,18 +123,18 @@ procedure CUF(i)
 	    every 1 to i do
 		iputs(getval("nd")) | stop("CUF:  no nd capability")
 	}
-    }
-    return
+    };
+    return;
 end
 
-procedure CUP(i,j)
+procedure CUP(i,j);
     if _isANSI()
     then writes("\^[[",i,";",j,"H")
-    else iputs(igoto(getval("cm"), j, i)) | stop("CUP:  no cm capability")
-    return
+    else iputs(igoto(getval("cm"), j, i)) | stop("CUP:  no cm capability");
+    return;
 end
 
-procedure CUU(i)
+procedure CUU(i);
     if _isANSI()
     then writes("\^[[",i,"A")
     else {
@@ -142,31 +142,31 @@ procedure CUU(i)
 	    every 1 to i do
 		iputs(getval("up")) | stop("CUU:  no up capability")
 	}
-    }
-    return
+    };
+    return;
 end
 
-procedure ED(i)
-    local emphasize, clear
+procedure ED(i);
+    local emphasize, clear;
 
     /i := 2;
     if _isANSI() then {
 	writes("\^[[",i,"J")
     } else {
 	case i of {
-	    0:  iputs(getval("cd")) | stop("ED:  no cd capability")
-	    1:  stop("ED:  termcap doesn't specify capability")
+	    0:  iputs(getval("cd")) | stop("ED:  no cd capability");
+	    1:  stop("ED:  termcap doesn't specify capability");
 	    2:  {
 		if proc(emphasize) then clear()
 		else iputs(getval("cl")) | stop("ED:  no cl capability")
-	    }
+	    };
 	    default:  stop("ED:  unknown clear code, ",i)
 	}
-    }
-   return
+    };
+   return;
 end
 
-procedure EL(i)
+procedure EL(i);
     /i := 0;
     if _isANSI() then {
 	if i = 0
@@ -174,25 +174,25 @@ procedure EL(i)
 	else writes("\^[[",i,"K")
     } else {
 	case i of {
-	    0:  iputs(getval("ce")) | stop("EL:  no ce capability")
-	    1:  stop("EL:  termcap doesn't specify capability")
-	    2:  stop("EL:  try using CUP to go to col 1, then EL(0)")
+	    0:  iputs(getval("ce")) | stop("EL:  no ce capability");
+	    1:  stop("EL:  termcap doesn't specify capability");
+	    2:  stop("EL:  try using CUP to go to col 1, then EL(0)");
 	    default:  stop("EL:  unknown line clear code, ",i)
 	}
-    }
-   return
+    };
+   return;
 end
 
-procedure SGR(i)
+procedure SGR(i);
 
-    local emphasize, normal, boldface, underline, blink
+    local emphasize, normal, boldface, underline, blink;
 
-    static isISCR
+    static isISCR;
 
     initial {
 	if proc(emphasize)
 	then isISCR := 1
-    }
+    };
 
     /i := 0;
     if _isANSI() then {
@@ -201,21 +201,21 @@ procedure SGR(i)
 	case i of {
 	    0: (\isISCR, normal()) | {
 		every iputs(getval("me"|"se"|"ue"))
-	    }
+	    };
 	    1: (\isISCR, boldface()) | {
 		iputs(getval("md"|"so"|"us"))
-	    }
+	    };
 	    4: (\isISCR, underline()) | {
 		iputs(getval("us"|"md"|"so"))
-	    }
+	    };
 	    5: (\isISCR, blink()) | {
 		iputs(getval("mb"|"us"|"md"|"so"))
-	    }
+	    };
 	    7: (\isISCR, emphasize()) | {
 		iputs(getval("so"|"md"|"us"))
-	    }
+	    };
 	    default:  stop("SGR:  unknown mode, ",i)
 	}
-    }
-   return
+    };
+   return;
 end

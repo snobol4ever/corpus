@@ -66,22 +66,22 @@
 #
 ############################################################################
 
-procedure main()
-   local line
+procedure main();
+   local line;
 
    writes("->");
    while line := read() do {
        write(parse(line));
        writes("->")
-       }
+       };
 end
 
-procedure parse(exp)
-   return exp ? expr()
+procedure parse(exp);
+   return exp ? expr();
 end
 
-procedure expr(exp)
-   local lvalue
+procedure expr(exp);
+   local lvalue;
 
    lvalue := term();
    repeat {
@@ -89,12 +89,12 @@ procedure expr(exp)
        if ="&&" then lvalue := iand(term(),lvalue)
        else if ="||" then lvalue := ior(term(),lvalue)
        else break
-       }
-   return lvalue
+       };
+   return lvalue;
 end
 
-procedure term()
-   local lvalue
+procedure term();
+   local lvalue;
 
    lvalue := fact();
    repeat {
@@ -106,12 +106,12 @@ procedure term()
        else if ="==" then lvalue := if lvalue =  fact() then 1 else 0
        else if ="!=" then lvalue := if lvalue ~= fact() then 1 else 0
        else break
-       }
-   return lvalue
+       };
+   return lvalue;
 end
 
-procedure fact()
-   local lvalue
+procedure fact();
+   local lvalue;
 
    lvalue := part();
    repeat {
@@ -119,12 +119,12 @@ procedure fact()
        if ="+" then lvalue +:= part()
        else if ="-" then lvalue -:= part()
        else break
-       }
-   return lvalue
+       };
+   return lvalue;
 end
 
-procedure part()
-   local lvalue
+procedure part();
+   local lvalue;
 
    lvalue := const();
    repeat {
@@ -133,17 +133,17 @@ procedure part()
        else if ="%" then lvalue %:= part()
        else if ="/" then lvalue /:= part()
        else break
-       }
-   return lvalue
+       };
+   return lvalue;
 end
 
-procedure const()
-   local sign, logical, rval, s1, s2
+procedure const();
+   local sign, logical, rval, s1, s2;
 
    tab(many(' \t'));
 
-   if ="-" then sign := -1 else sign := 1
-   if ="!" then logical := 1 else logical := &null
+   if ="-" then sign := -1 else sign := 1;
+   if ="!" then logical := 1 else logical := &null;
    if ="(" then {
        rval := expr();
        if not match(")") then {
@@ -161,7 +161,7 @@ procedure const()
        }
    else {
        rval := tab(many('0123456789.eE'))
-       }
+       };
    if \logical then { return if rval = 0 then 1 else 0 }
-   else return rval * sign
+   else return rval * sign;
 end

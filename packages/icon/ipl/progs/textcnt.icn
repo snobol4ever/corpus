@@ -19,8 +19,8 @@
 #  
 ############################################################################
 
-procedure main()
-   local chars, words, lines, name, infile, max, min, line
+procedure main();
+   local chars, words, lines, name, infile, max, min, line;
 
    chars := words := lines := 0;
    max := 0;
@@ -35,7 +35,7 @@ procedure main()
            words +:= 1;
            tab(many(&letters))
            }
-        }
+        };
    
      if min = 2 ^ 30 then
         write("empty file")
@@ -46,6 +46,6 @@ procedure main()
         write();
         write("longest line:        ",right(max,8));
         write("shortest line:       ",right(min,8))
-        }
+        };
 
 end

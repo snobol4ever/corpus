@@ -57,8 +57,8 @@ record rgbrec(r, g, b, k)
 record boxrec(x, y, w, h, b, i)
 global val, colr, sl, win
 
-procedure main(args)
-   local cwin, h, m, c
+procedure main(args);
+   local cwin, h, m, c;
 
    # open window
    win := Window("size=400,400", args);
@@ -77,7 +77,7 @@ procedure main(args)
       BevelRectangle(win, c.x, c.y, c.w, c.h, -BevelWidth);
       EraseArea(c.b,
          c.x+BevelWidth, c.y+BevelWidth, c.w-2*BevelWidth, c.h-2*BevelWidth)
-      }
+      };
 
    # set up sliders to control the colors
    val := rgbrec(0.1, 0.8, 1.0, 0.8);  # initial positions
@@ -99,31 +99,32 @@ procedure main(args)
    button(win, "QUIT", argless, exit, m, m+h-60, 60, 60);  # and a QUIT button
 
    # enter event loop
-   evmux(win)
-end
-
-procedure bpress(win, a)		# echo a button press
-   write("button ", a)
-   return
+   evmux(win);
 end
 
-procedure ding(win, a, x, y, k)		# ring the bell
+
+procedure bpress(win, a);		# echo a button press
+   write("button ", a);
+   return;
+end
+
+procedure ding(win, a, x, y, k);		# ring the bell
    writes("\^g");
-   flush(&output)
-   return
+   flush(&output);
+   return;
 end
 
-procedure setcolors()			# set the colors in the color map
+procedure setcolors();			# set the colors in the color map
    colorbox(colr.r, 65535 * val.r, 0, 0);
    colorbox(colr.g, 0, 65535 * val.g, 0);
    colorbox(colr.b, 0, 0, 65535 * val.b);
    colorbox(colr.k, 65535 * val.r, 65535 * val.g, 65535 * val.b);
    GotoXY(win, 100, 200);
-   write(win, "color = #", hexv(val.r), hexv(val.g), hexv(val.b))
-   return
+   write(win, "color = #", hexv(val.r), hexv(val.g), hexv(val.b));
+   return;
 end
 
-procedure colorbox(box, r, g, b)
+procedure colorbox(box, r, g, b);
    r := integer(r);
    g := integer(g);
    b := integer(b);
@@ -132,26 +133,26 @@ procedure colorbox(box, r, g, b)
    else {
       Shade(box.b, r || "," || g || "," || b);
       FillRectangle(box.b, box.x+1, box.y+1, box.w-1, box.h-1)
-      }
-   return
+      };
+   return;
 end
 
-procedure hexv(v)			# two-hex-digit specification of v
-   static hextab
+procedure hexv(v);			# two-hex-digit specification of v
+   static hextab;
    initial {
       every put((hextab := []), !"0123456789ABCDEF" || !"0123456789ABCDEF")
-      }
-   return hextab [integer(255 * v + 1.5)]
+      };
+   return hextab [integer(255 * v + 1.5)];
 end
 
-procedure setgray(win, i, v)		# set a grayvalue of v
+procedure setgray(win, i, v);		# set a grayvalue of v
    every i := 1 to 3 do
-      slidervalue(sl[i], val[i] := v)
-   setcolors()
-   return
+      slidervalue(sl[i], val[i] := v);
+   setcolors();
+   return;
 end
 
-procedure setrgb(win, i, v)		# set color component i to value v
+procedure setrgb(win, i, v);		# set color component i to value v
    val[i] := v;
-   setcolors()
+   setcolors();
 end

@@ -22,15 +22,15 @@
 #
 ############################################################################
 
-procedure main()
-   local fncset, fnctab, line, count, name, total
+procedure main();
+   local fncset, fnctab, line, count, name, total;
 
    fncset := set();  # set for the names of all functions
    fnctab := table(0);  # table to tabulate function count
 
    total := 0;
 
-   every insert(fncset, function())
+   every insert(fncset, function());
    delete(fncset, "args");  # ad hoc -- usual not used as functions
    delete(fncset, "name");
 
@@ -38,7 +38,7 @@ procedure main()
       line ? {
          if ="Variable references:" then break
          }
-      }
+      };
 
 
    while line := trim(read()) do {
@@ -47,21 +47,21 @@ procedure main()
             count := tab(many(&digits));
             tab(upto(&letters));
             name := tab(0);
-            if name == "" then break
+            if name == "" then break;
             if member(fncset, name) then {
                fnctab[name] +:= count;
                total +:= count
                }
             }
          }
-      }
+      };
 
    fnctab := sort(fnctab, 4);
 
    while count := pull(fnctab) do
-      write(left(pull(fnctab), 14), right(count, 8))
+      write(left(pull(fnctab), 14), right(count, 8));
 
    write();
-   write("total         ", right(total, 8))
+   write("total         ", right(total, 8));
 
 end

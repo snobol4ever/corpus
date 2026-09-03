@@ -24,17 +24,17 @@
 #
 ############################################################################
 
-procedure VSetFilter(vidget, value)	#: filter mode of slider/scrollbar
-   local t
+procedure VSetFilter(vidget, value);	#: filter mode of slider/scrollbar
+   local t;
 
    t := type(vidget);
 
    case t of {
-      "Vscrollbar_frame_rec" :  vidget.callback.callers[2].discont := value
-      "Vslider_rec"          :  vidget.discont := value
+      "Vscrollbar_frame_rec" :  vidget.callback.callers[2].discont := value;
+      "Vslider_rec"          :  vidget.discont := value;
       default                :  stop("*** invalid type to VSetFilter: ", t)
-      }
+      };
 
-   return
+   return;
 
 end

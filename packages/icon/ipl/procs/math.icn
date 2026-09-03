@@ -37,33 +37,33 @@
 
 link factors
 
-procedure binocoef(n, k)	#: binomial coefficient
+procedure binocoef(n, k);	#: binomial coefficient
 
    k := integer(k) | fail;
    n := integer(n) | fail;
 
-   if (k = 0) | (n = k) then return 1
+   if (k = 0) | (n = k) then return 1;
 
    if 0 <= k <= n then 
       return factorial(n) / (factorial(k) * factorial(n - k))
-   else fail
+   else fail;
 
 end
 
-procedure cosh(r)		#: hyperbolic cosine
+procedure cosh(r);		#: hyperbolic cosine
 
-   return (&e ^ r + &e ^ -r) / 2
-
-end
-
-procedure sinh(r)		#: hyperbolic sine
-
-   return (&e ^ r - &e ^ -r) / 2
+   return (&e ^ r + &e ^ -r) / 2;
 
 end
 
-procedure tanh(r)		#: hyperbolic tanh
+procedure sinh(r);		#: hyperbolic sine
 
-   return (&e ^ r - &e ^ -r) / (&e ^ r + &e ^ -r)
+   return (&e ^ r - &e ^ -r) / 2;
+
+end
+
+procedure tanh(r);		#: hyperbolic tanh
+
+   return (&e ^ r - &e ^ -r) / (&e ^ r + &e ^ -r);
 
 end

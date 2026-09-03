@@ -149,8 +149,8 @@ global todo, done, nscanned
 global refto, reffrom
 
 
-procedure main(args)
-   local opts, url, tmp
+procedure main(args);
+   local opts, url, tmp;
 
    # initialize data structures
 
@@ -164,8 +164,8 @@ procedure main(args)
    # add arguments from the environment to the command line
 
    tmp := list();
-   every put(tmp, words(getenv("WEBLINKS_INIT")))
-   while push(args, pull(tmp))
+   every put(tmp, words(getenv("WEBLINKS_INIT")));
+   while push(args, pull(tmp));
 
    # process command line
 
@@ -177,111 +177,111 @@ procedure main(args)
    verbose := opts["v"];
 
    if *args = 0 then
-      stop("usage: ", &progname, " [options] file ...")
+      stop("usage: ", &progname, " [options] file ...");
 
    setroot(\opts["r"] | "/");
    sethome(\opts["h"] | "/usr/");
    setbounds(\opts["b"] | urlmerge(args[-1], ""));
-   every setprune(words(\opts["p"], ' ,'))
+   every setprune(words(\opts["p"], ' ,'));
    setfrom();
 
    register("initial:");
    register("implicit:");
-   every addref("initial:", urlmerge("file:", !args))
+   every addref("initial:", urlmerge("file:", !args));
 
    wheader();
 
    while url := get(todo) do
-      try(url)
+      try(url);
 
    if \trace then
-      write()
+      write();
 
-   report()
+   report();
 end
 
-procedure setroot(s)
+procedure setroot(s);
    if s[-1] ~== "/" then
-      s ||:= "/"
-   root := s
-   return
+      s ||:= "/";
+   root := s;
+   return;
 end
 
-procedure sethome(s)
+procedure sethome(s);
    if s[-1] ~== "/" then
-      s ||:= "/"
-   home := s
-   return
+      s ||:= "/";
+   home := s;
+   return;
 end
 
-procedure setprune(s)
-   put(prune, s)
-   return
+procedure setprune(s);
+   put(prune, s);
+   return;
 end
 
-procedure setbounds(s)
-   bounds := s
-   return
+procedure setbounds(s);
+   bounds := s;
+   return;
 end
 
-procedure setfrom()
-   local user, host, f
+procedure setfrom();
+   local user, host, f;
 
-   user := getenv("USER" | "LOGNAME")	| fail
+   user := getenv("USER" | "LOGNAME")	| fail;
    *user > 0				| fail;
    f := open("uname -n", "rp")		| fail;
    host := read(f);
-   close(f)
+   close(f);
    *\host > 0				| fail;
-   vhttp_from := user || "@" || host
-   return
+   vhttp_from := user || "@" || host;
+   return;
 end
 
 
-procedure wheader()
+procedure wheader();
    write("From:\t", \vhttp_from | "[none]");
    write("root:\t", root);
    write("home:\t", home);
    write("bounds:\t", bounds);
-   every write("start:\t", (!todo)[6:0])
-   every write("prune:\t", !prune)
-   write()
-   return
+   every write("start:\t", (!todo)[6:0]);
+   every write("prune:\t", !prune);
+   write();
+   return;
 end
 
-procedure try(url)
-   local result
+procedure try(url);
+   local result;
 
-   (/done[url] := "[processing]") | return	# return if already checked
+   (/done[url] := "[processing]") | return;	# return if already checked
 
    if \trace then {
       writes(pad(url, URLCOLS));
       flush(&output)
-      }
+      };
 
    result := check(url);
    done[url] := result;
 
    if \trace then
-      write("  ", result)
-   return
+      write("  ", result);
+   return;
 end
 
 
-procedure check(url)
-   local protocol, fspec, fname, f, s, ref, base
+procedure check(url);
+   local protocol, fspec, fname, f, s, ref, base;
 
    url ? {
-      protocol := map(tab(upto(':'))) | ""
+      protocol := map(tab(upto(':'))) | "";
       =":";
       fspec := tab(0)
-   }
+   };
 
    if protocol == "http" then
-      return vhttp(url) | "451 Illegal URL"
+      return vhttp(url) | "451 Illegal URL";
 
    if protocol ~== "file" then
-      return "152 Not Checked"
+      return "152 Not Checked";
 
    fspec ? {
       if ="/~" then
@@ -292,23 +292,23 @@ procedure check(url)
          fname := "./"
       else
          fname := fspec
-      }
+      };
 
    if fname[-1] == "/" then {
       if (close(open(fname || "index.html"))) then {
-         addref("implicit:", url || "index.html")
+         addref("implicit:", url || "index.html");
          return "154 Found index.html"
-         }
+         };
       if (close(open(fname || "index.htm"))) then {
-         addref("implicit:", url || "index.htm")
+         addref("implicit:", url || "index.htm");
          return "155 Found index.htm"
-         }
+         };
       if (close(open(fname || "."))) then
          return "153 Found Directory"
-      }
+      };
 
    if not (f := open(fname)) then
-      return "452 Cannot Open"
+      return "452 Cannot Open";
 
    if (/recurse & not member(reffrom["initial:"], url)) |
    (fspec ? (not match(bounds)) | match(!prune)) | 
@@ -318,7 +318,7 @@ procedure check(url)
          return "453 Is A Directory"
       else
          return "251 File Exists"
-      }
+      };
 
    base := url;
    every s := htrefs(f) do s ? {
@@ -330,20 +330,20 @@ procedure check(url)
          tab(upto(' ') + 1);
          ref := urlmerge(base, tab(0));
          addref(url, ref)
-         }
+         };
       if \verbose then
          writes("\n   references: ", ref)
-      }
+      };
    if \verbose then
-      writes("\n", repl(" ", URLCOLS))
+      writes("\n", repl(" ", URLCOLS));
 
    close(f);
-   nscanned +:= 1
-   return "252 File Scanned"
+   nscanned +:= 1;
+   return "252 File Scanned";
 end
 
-procedure report()
-   local l, url, stat, s, t, u
+procedure report();
+   local l, url, stat, s, t, u;
 
    l := sort(done, 4);
    t := table();
@@ -359,7 +359,7 @@ procedure report()
                every write("   referenced by:\t", !sort(refto[url]))
             }
          }
-      }
+      };
 
    if \invert then {
       l := sort(t, 3);
@@ -367,46 +367,46 @@ procedure report()
          write(url);
          every write("   ", !stat)
          }
-      }
+      };
 
    write();
 
    if nscanned = 1 then
       write("1 file scanned")
    else
-      write(nscanned, " files scanned")
+      write(nscanned, " files scanned");
 
    if *done = 1 then
       write("1 reference checked")
    else
-      write(*done, " references checked")
+      write(*done, " references checked");
 
-   return
+   return;
 end
 
-procedure addref(src, dst)
+procedure addref(src, dst);
    dst := (dst ? tab(upto('#') | 0));
    register(dst);
    insert(refto[dst], src);
    insert(reffrom[src], dst);
    if /done[dst] then
-      put(todo, dst)
-   return
+      put(todo, dst);
+   return;
 end
 
-procedure register(url)
-   /refto[url] := set()
-   /reffrom[url] := set()
-   return
+procedure register(url);
+   /refto[url] := set();
+   /reffrom[url] := set();
+   return;
 end
 
 
 
 #  pad(s, n) -- pad string to length n, never truncating
 
-procedure pad(s, n)
+procedure pad(s, n);
    if *s < n then
       return left(s, n)
    else
-      return s
+      return s;
 end

@@ -32,8 +32,8 @@
 
 link wopen
 
-procedure main()
-   local width, offset, x, y
+procedure main();
+   local width, offset, x, y;
 
    WOpen("label=sierpinski", "size=300,300") |
       stop("*** cannot open window");
@@ -43,8 +43,8 @@ procedure main()
 
    every y := 0 to width - 1 do
       every x := 0 to width - 1 do
-         if iand(x, y) = 0 then DrawPoint(x + offset, y + offset)
+         if iand(x, y) = 0 then DrawPoint(x + offset, y + offset);
 
-  Event()
+  Event();
 
 end

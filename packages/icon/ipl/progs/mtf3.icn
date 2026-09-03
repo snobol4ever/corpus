@@ -78,11 +78,11 @@ record hblock(name,junk,size,mtime,chksum,     # tar header struct;
               linkflag,linkname,therest)       # see readtarhdr(s)
 
 
-procedure main(a)
-    local usage, intext, i, current_list
+procedure main(a);
+    local usage, intext, i, current_list;
 
     usage := "usage:  mtf inputfile [-r reportfile] " ||
-	     "[-e .extensions] [-x exceptions]"
+	     "[-e .extensions] [-x exceptions]";
 
     *a = 0 & stop(usage);
 
@@ -92,14 +92,14 @@ procedure main(a)
     extensions := []; no_nos := [];
     while (i +:= 1) <= *a do {
 	case a[i] of {
-	    "-r"    :    readin_old_map_report(a[i+:=1])
-	    "-e"    :    current_list := extensions
-	    "-x"    :    current_list := no_nos
+	    "-r"    :    readin_old_map_report(a[i+:=1]);
+	    "-e"    :    current_list := extensions;
+	    "-x"    :    current_list := no_nos;
 	    default :    put(current_list,a[i])
 	}
-    }
+    };
 
-    every !extensions ?:= (=".", tab(0))
+    every !extensions ?:= (=".", tab(0));
     
     # Run through all the headers in the input file, filling
     # (global) filenametbl with the names of overlong files;
@@ -109,7 +109,7 @@ procedure main(a)
 	a[1] ? (tab(find(".tar")+4), pos(0)) |
 	  write(&errout,"(Is ",a[1]," even a tar archive?)");
  	exit(1)
-    } 
+    }; 
 
     # Now that a table of overlong filenames exists, go back
     # through the text, remapping all occurrences of these names
@@ -117,38 +117,38 @@ procedure main(a)
     # reformat text into correctly padded 512-byte blocks.  Ter-
     # minate output with 512 nulls.
     seek(intext,1);
-    every writes(output_mapped_headers_and_texts(intext))
+    every writes(output_mapped_headers_and_texts(intext));
 
     close(intext);
     write_report();  # Record mapped file and dir names for future ref.
-    exit(0)
+    exit(0);
     
 end
 
 
 
-procedure open_input_file(s)
-    local intext
+procedure open_input_file(s);
+    local intext;
 
     intext := open("" ~== s,"r") |
 	stop("mtf:  can't open ",s);
     find("UNIX",&features) |
 	stop("mtf:  I'm not tested on non-UNIX systems.");
     s[-2:0] == ".Z" &
-        stop("mtf:  sorry, can't accept compressed files")
-    return intext
+        stop("mtf:  sorry, can't accept compressed files");
+    return intext;
 end
 
 
 
-procedure readin_old_map_report(s)
-    local mapfile, line, chunk, lchunk
+procedure readin_old_map_report(s);
+    local mapfile, line, chunk, lchunk;
 
     initial {
 	filenametbl := table();
 	chunkset := set();
 	short_chunkset := set()
-    }
+    };
 
     mapfile := open_input_file(s);
     while line := read(mapfile) do {
@@ -158,19 +158,19 @@ procedure readin_old_map_report(s)
 		filenametbl[chunk] := lchunk;
 		insert(chunkset,chunk);
 		insert(short_chunkset,chunk[1:16])
-	    }
+	    };
 	if /chunk | /lchunk
 	then stop("mtf:  report file, ",s," seems mangled.")
 	}
-    }
+    };
 
 end
 
 
 
-procedure make_table_of_filenames(intext)
+procedure make_table_of_filenames(intext);
 
-    local header # chunkset is global
+    local header; # chunkset is global
 
     # search headers for overlong filenames; for now
     # ignore everything else
@@ -179,19 +179,19 @@ procedure make_table_of_filenames(intext)
 	tab_nxt_hdr(intext,trim_str(header.size),1);
 	# record overlong filenames in several global tables, sets
 	fixpath(trim_str(header.name))
-    }
-    *\chunkset ~= 0 | fail
-    return &null
+    };
+    *\chunkset ~= 0 | fail;
+    return &null;
 
 end
 
 
 
-procedure output_mapped_headers_and_texts(intext)
+procedure output_mapped_headers_and_texts(intext);
 
     # Remember that filenametbl, chunkset, and short_chunkset
     # (which are used by various procedures below) are global.
-    local header, newtext, full_block, block, lastblock
+    local header, newtext, full_block, block, lastblock;
 
     # Read in headers, one at a time.
     while header := readtarhdr(reads(intext,512)) do {
@@ -214,7 +214,7 @@ procedure output_mapped_headers_and_texts(intext)
 	header.chksum := right(exbase10(get_checksum(header),8)||"\x00 ",8," ");
 
 	# Finally, join all the header fields into a new block and write it out
-	full_block := ""; every full_block ||:= !header
+	full_block := ""; every full_block ||:= !header;
 	suspend left(full_block,512,"\x00");
 
 	# Now we're ready to write out the text, padding the final block
@@ -222,21 +222,21 @@ procedure output_mapped_headers_and_texts(intext)
 	# right at the beginning of a 512-byte block.
 	newtext ? {
 	    while block := move(512)
-	    do suspend block
+	    do suspend block;
 	    pos(0) & next;
-            lastblock := left(tab(0),512,"\x00")
+            lastblock := left(tab(0),512,"\x00");
 	    suspend lastblock
 	}
-    }
+    };
     # Write out a final null-filled block.  Some tar programs will write
     # out 1024 nulls at the end.  Dunno why.
-    return repl("\x00",512)
+    return repl("\x00",512);
 
 end
 
 
 
-procedure trim_str(s)
+procedure trim_str(s);
 
     # Knock out spaces, nulls from those crazy tar header
     # block fields (some of which end in a space and a null,
@@ -245,18 +245,18 @@ procedure trim_str(s)
     return s ? {
 	(tab(many(' ')) | &null) &
 	    trim(tab(find("\x00")|0))
-    }
+    };
 
 end 
 
 
 
-procedure tab_nxt_hdr(f,size_str,firstpass)
+procedure tab_nxt_hdr(f,size_str,firstpass);
 
     # Tab upto the next header block.  Return the bypassed text
     # as a string if not the first pass.
 
-    local hs, next_header_offset
+    local hs, next_header_offset;
 
     hs := integer("8r" || size_str);
     next_header_offset := (hs / 512) * 512;
@@ -266,7 +266,7 @@ procedure tab_nxt_hdr(f,size_str,firstpass)
 	# if this is pass no. 1 don't bother returning a value; we're
 	# just collecting long filenames;
 	if \firstpass then {
-	    seek(f,where(f)+next_header_offset)
+	    seek(f,where(f)+next_header_offset);
 	    return
 	}
 	else {
@@ -274,14 +274,14 @@ procedure tab_nxt_hdr(f,size_str,firstpass)
 		stop("mtf:  error reading in ",
 		     string(next_header_offset)," bytes.")
 	}
-    }
+    };
 
 end
 
 
 
-procedure fixpath(s)
-    local s2, piece
+procedure fixpath(s);
+    local s2, piece;
 
     # Fixpath is a misnomer of sorts, since it is used on
     # the first pass only, and merely examines each filename
@@ -293,17 +293,17 @@ procedure fixpath(s)
     s2 := "";
     s ? {
 	while piece := tab(find("/")+1)
-	do s2 ||:= mappiece(piece) 
+	do s2 ||:= mappiece(piece); 
 	s2 ||:= mappiece(tab(0))
-    }
-    return s2
+    };
+    return s2;
 
 end
 
 
 
-procedure mappiece(s)
-    local chunk, i, lchunk
+procedure mappiece(s);
+    local chunk, i, lchunk;
 
     # Check s (the name of a file or dir as recorded in the tar header
     # being examined) to see if it is over 14 chars long.  If so,
@@ -316,13 +316,13 @@ procedure mappiece(s)
     # while possible, causes a tenfold drop in execution speed!
     
     # global filenametbl, chunkset, short_chunkset, extensions
-    local j, ending
+    local j, ending;
 
     initial {
-	/filenametbl := table()
-	/chunkset := set()
+	/filenametbl := table();
+	/chunkset := set();
 	/short_chunkset := set()
-    }
+    };
    
     chunk := trim(s,'/');
     if chunk ? (tab(find(".tar")+4), pos(0)) then {
@@ -331,7 +331,7 @@ procedure mappiece(s)
 	               "      another tar archive, which makes it\n",
 	               "      likely I'll f your filenames ubar.");
 	exit(2)
-    }
+    };
     if *chunk > 14 then {
 	i := 0;
 
@@ -356,14 +356,14 @@ procedure mappiece(s)
 		}
 		# If no important extension is present, then reformat the
 		# end of the file (e.g. too.long.file.name -> too.long.fi01).
-		else lchunk := chunk[1:13] || right(string(i+:=1),2,"0")
+		else lchunk := chunk[1:13] || right(string(i+:=1),2,"0");
 
 		# If the resulting shorter file name has already been used...
 		if lchunk == !filenametbl
 		# ...then go back and find another (i.e. increment i & try
 		# again; else break from the repeat loop, and...
 		then next else break
-	    }
+	    };
             # ...record both the old filename (chunk) and its new,
 	    # mapped name (lchunk) in filenametbl.  Also record the
 	    # mapped names in chunkset and short_chunkset.
@@ -371,21 +371,21 @@ procedure mappiece(s)
 	    insert(chunkset,chunk);
 	    insert(short_chunkset,chunk[1:16])
 	}
-    }
+    };
 
     # If the filename is overlong, return lchunk (the shortened
     # name), else return the original name (chunk).  If the name,
     # as passed to the current function, contained a trailing /
     # (i.e. if s[-1]=="/"), then put the / back.  This could be
     # done more elegantly.
-    return (\lchunk | chunk) || ((s[-1] == "/") | "")
+    return (\lchunk | chunk) || ((s[-1] == "/") | "");
 
 end
 
 
 
-procedure readtarhdr(s)
-    local this_block
+procedure readtarhdr(s);
+    local this_block;
 
     # Read the silly tar header into a record.  Note that, as was
     # complained about above, some of the fields end in a null, some
@@ -403,25 +403,25 @@ procedure readtarhdr(s)
 	this_block.linkflag := move(1);
 	this_block.linkname := move(100);  # <- to be looked at later
 	this_block.therest  := tab(0)
-    }
-    integer(this_block.size) | fail  # If it's not an integer, we've hit
+    };
+    integer(this_block.size) | fail;  # If it's not an integer, we've hit
                                      # the final (null-filled) block.
-    return this_block
+    return this_block;
 
 end
 
 
 
-procedure map_filenams(s)
-    local el, ch
+procedure map_filenams(s);
+    local el, ch;
 
     # Chunkset is global, and contains all the overlong filenames
     # found in the first pass through the input file; here the aim
     # is to map these filenames to the shortened variants as stored
     # in filenametbl (GLOBAL).
 
-    local s2, tmp_chunk_tbl, tmp_lst
-    static new_chunklist
+    local s2, tmp_chunk_tbl, tmp_lst;
+    static new_chunklist;
     initial {
 
         # Make sure filenames are sorted, longest first.  Say we
@@ -431,12 +431,12 @@ procedure map_filenams(s)
         # matches the first file will get remapped.
         tmp_chunk_tbl := table();
         every el := !chunkset
-        do insert(tmp_chunk_tbl,el,*el)
+        do insert(tmp_chunk_tbl,el,*el);
         tmp_lst := sort(tmp_chunk_tbl,4);
         new_chunklist := list();
         every put(new_chunklist,tmp_lst[*tmp_lst-1 to 1 by -2])
 
-    }
+    };
 
     s2 := "";
     s ? {
@@ -451,8 +451,8 @@ procedure map_filenams(s)
 	    }
 	    else s2 ||:= move(1)
 	}
-    }
-    return s2
+    };
+    return s2;
 
 end
 
@@ -463,33 +463,33 @@ end
 #  exbase10(i,j) convert base-10 integer i to base j
 #  The maximum base allowed is 36.
 
-procedure exbase10(i,j)
+procedure exbase10(i,j);
 
-   static digits
-   local s, d, sign
-   initial digits := &digits || &lcase
-   if i = 0 then return 0
+   static digits;
+   local s, d, sign;
+   initial digits := &digits || &lcase;
+   if i = 0 then return 0;
    if i < 0 then {
       sign := "-";
       i := -i
       }
-   else sign := ""
+   else sign := "";
    s := "";
    while i > 0 do {
       d := i % j;
-      if d > 9 then d := digits[d + 1]
+      if d > 9 then d := digits[d + 1];
       s := d || s;
       i /:= j
-      }
-   return sign || s
+      };
+   return sign || s;
 
 end
 
 # end IPL material
 
 
-procedure get_checksum(r)
-    local sum, field
+procedure get_checksum(r);
+    local sum, field;
  
     # Calculates the new value of the checksum field for the
     # current header block.  Note that the specification say
@@ -499,38 +499,38 @@ procedure get_checksum(r)
     sum := 0;
     r.chksum := "        ";
     every field := !r
-    do every sum +:= ord(!field)
-    return sum
+    do every sum +:= ord(!field);
+    return sum;
 
 end
 
 
 
-procedure write_report()
+procedure write_report();
 
     # This procedure writes out a list of filenames which were
     # remapped (because they exceeded the SysV 14-char limit),
     # and then notifies the user of the existence of this file.
 
-    local outtext, stbl, i, j, mapfile_name
+    local outtext, stbl, i, j, mapfile_name;
 
     # Get a unique name for the map.report (thereby preventing
     # us from overwriting an older one).
     mapfile_name := "map.report"; j := 1;
     until not close(open(mapfile_name,"r"))
-    do mapfile_name := (mapfile_name[1:11] || string(j+:=1))
+    do mapfile_name := (mapfile_name[1:11] || string(j+:=1));
 
     (outtext := open(mapfile_name,"w")) |
 	open(mapfile_name := "/tmp/map.report","w") |
-	     stop("mtf:  Can't find a place to put map.report!")
+	     stop("mtf:  Can't find a place to put map.report!");
     stbl := sort(filenametbl,3);
     every i := 1 to *stbl -1 by 2 do {
 	match(!no_nos,stbl[i]) |
 	    write(outtext,left(stbl[i],35," ")," ",stbl[i+1])
-    }
+    };
     write(&errout,"\nmtf:  ",mapfile_name," contains the list of changes.");
     write(&errout,"      Please save this list!");
-    close(outtext)
-    return &null
+    close(outtext);
+    return &null;
 
 end

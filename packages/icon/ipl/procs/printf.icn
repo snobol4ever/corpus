@@ -30,22 +30,22 @@
 #
 ############################################################################
 
-procedure sprintf(format, args[])
-	return _doprnt(format, args)
+procedure sprintf(format, args[]);
+	return _doprnt(format, args);
 end
 
-procedure fprintf(file, format, args[])
-	writes(file, _doprnt(format, args))
-	return
+procedure fprintf(file, format, args[]);
+	writes(file, _doprnt(format, args));
+	return;
 end
 
-procedure printf(format, args[])
-	writes(&output, _doprnt(format, args))
-	return
+procedure printf(format, args[]);
+	writes(&output, _doprnt(format, args));
+	return;
 end
 
-procedure _doprnt(format, args)
-   local out, v, just, width, conv, prec, pad
+procedure _doprnt(format, args);
+   local out, v, just, width, conv, prec, pad;
 
 	out := "";
 	format ? repeat {
@@ -53,10 +53,10 @@ procedure _doprnt(format, args)
 		v := get(args);
 		move(1);
 		just := right;
-		width := conv := prec := pad := &null
+		width := conv := prec := pad := &null;
 		="-" & just := left;
-		width := tab(many(&digits))
-		(\width)[1] == "0" & pad := "0"
+		width := tab(many(&digits));
+		(\width)[1] == "0" & pad := "0";
 		="." & prec := tab(many(&digits));
 		conv := move(1);
 
@@ -65,61 +65,61 @@ procedure _doprnt(format, args)
 		case conv of {
 		    "d": {
 			v := string(integer(v))
-			}
+			};
 		    "s": {
 			v := string(v[1:(\prec+1)|0])
-			}
-		    "x": v := hexstr(v)
-		    "o": v := octstr(v)
-		    "i": v := image(v)
-		    "r": v := fixnum(v,prec)
-		    "e": v := eformatstr(v, prec, width)
+			};
+		    "x": v := hexstr(v);
+		    "o": v := octstr(v);
+		    "i": v := image(v);
+		    "r": v := fixnum(v,prec);
+		    "e": v := eformatstr(v, prec, width);
 		    default: {
 			push(args, v);
 			v := conv
 			}
-		    }
+		    };
 		if \width & *v < width then {
 			v := just(v, width, pad)
-			}
+			};
 		out ||:= v
-		}
+		};
 
-	return out
+	return out;
 end
 
-procedure hexstr(n)
-   return _basestr(n, 4)
+procedure hexstr(n);
+   return _basestr(n, 4);
 end
 
-procedure octstr(n)
-   return _basestr(n, 3)
+procedure octstr(n);
+   return _basestr(n, 3);
 end
 
-procedure _basestr(n, b)
-   local s, mask
+procedure _basestr(n, b);
+   local s, mask;
 
 	n := integer(n) | return image(n);
 
 	if n = 0 then
-		return "0"
+		return "0";
 
 	# backwards compatibility hack
 	# treat 31-bit negative integers as positive values
 	if -16r80000000 <= n <= -1 then
-		n +:= 16r100000000
+		n +:= 16r100000000;
 
 	s := "";
 	mask := ishift(1, b) - 1;
 	while n ~= 0 & n ~= -1 do {
 		s := "0123456789abcdef" [1 + iand(n, mask)] || s;
 		n := ishift(n, -b)
-		}
-	return s
+		};
+	return s;
 end
 
-procedure fixnum(x, prec)
-   local s
+procedure fixnum(x, prec);
+   local s;
 
 	/prec := 6;
 	x := real(x) | return image(x);
@@ -129,12 +129,12 @@ procedure fixnum(x, prec)
 	   x := -x
 	   }
 	else
-	   s := ""
+	   s := "";
 
 	x := string(integer(x * 10 ^ prec + 0.5));
 	if *x <= prec then
-	   x := right(x, prec + 1, "0")
-	return s || x[1:-prec] || "." || x[-prec:0]
+	   x := right(x, prec + 1, "0");
+	return s || x[1:-prec] || "." || x[-prec:0];
 end
 
 
@@ -150,12 +150,12 @@ end
 #   width, if possible.  The precision is never reduced-to-fit
 #   below 1 digit after the decimal point.
 #
-procedure eformatstr(x, prec, width)
-   local signpart, wholepart, fracpart, exppart
-   local choppart, shiftcount, toowide
-   local rslt, s
+procedure eformatstr(x, prec, width);
+   local signpart, wholepart, fracpart, exppart;
+   local choppart, shiftcount, toowide;
+   local rslt, s;
 
-   /prec := 6
+   /prec := 6;
    /width := prec + 7;
 
    # Separate string representation of x into parts
@@ -166,7 +166,7 @@ procedure eformatstr(x, prec, width)
       wholepart :=  1(tab(many(&digits)), any('.eE')) | return image(x);
       fracpart  :=  ((=".", tab(many(&digits)))  | "");
       exppart   :=  integer((=("e"|"E"), tab(0))  | 0)
-      }
+      };
 
    # When the integer part has more than 1 digit, shift it
    #  right into fractional part and scale the exponent
@@ -175,7 +175,7 @@ procedure eformatstr(x, prec, width)
       exppart +:= *wholepart -1;
       fracpart := wholepart[2:0] || fracpart;
       wholepart := wholepart[1]
-      }
+      };
 
    # If the the number is unnormalized, shift the fraction
    #   left into the whole part and scale the exponent
@@ -186,7 +186,7 @@ procedure eformatstr(x, prec, width)
          wholepart := fracpart[shiftcount];
          fracpart := fracpart[shiftcount+1:0]
          }
-      }
+      };
 
    # Adjust the fractional part to the requested precision.
    # If the carry causes the whole part to overflow from
@@ -198,7 +198,7 @@ procedure eformatstr(x, prec, width)
    if *wholepart > 1 then {
       wholepart := wholepart[1];
       exppart +:= 1
-      }
+      };
 
    #  Assemble the final result.
    #  - Leading "+" dropped in mantissa
@@ -208,7 +208,7 @@ procedure eformatstr(x, prec, width)
    wholepart := (signpart == "-", "-") || wholepart;
    exppart  :=  (exppart > 0, "+")   || exppart;
    fracpart :=  (*fracpart > 0, ".") || fracpart;
-   rslt     := wholepart || fracpart || "e" || exppart
+   rslt     := wholepart || fracpart || "e" || exppart;
 
    # Return the result.  
    # -- If too short, pad on the left with blanks (not zeros!).
@@ -217,7 +217,7 @@ procedure eformatstr(x, prec, width)
    #
    return (*rslt <= width,        right(rslt, width)) |  
           (*rslt - width < prec,  eformatstr(x, prec + width - *rslt, width)) |
-          repl("*", width)
+          repl("*", width);
 end
 
 #  Zero-extend or round the fractional part to 'prec' digits.
@@ -230,12 +230,12 @@ end
 #  precision, and the carry (result of possible rounding)
 #  is to be added into the whole number.
 #
-procedure adjustfracprec(fracpart, prec)
+procedure adjustfracprec(fracpart, prec);
 
-   local choppart, carryout
+   local choppart, carryout;
 
    #  Zero-extend if needed.
-   if *fracpart < prec then return [left(fracpart, prec, "0"), 0]
+   if *fracpart < prec then return [left(fracpart, prec, "0"), 0];
 
    # When the fractional part has more digits than the requested 
    #   precision, chop off the extras and round.
@@ -263,6 +263,6 @@ procedure adjustfracprec(fracpart, prec)
             fracpart := right(integer(fracpart)+1, prec, "0")
             }
          }
-      }
-   return [fracpart, carryout]
+      };
+   return [fracpart, carryout];
 end

@@ -32,8 +32,8 @@
 link gobject
 
 procedure orbit1(x, y, extent, n, t1, t2, k1, k2, radius1, sscale,
-   xfact, yfact)
-   local incr1, incr2, real_n, angle1, angle2, i, radius2, loff
+   xfact, yfact);
+   local incr1, incr2, real_n, angle1, angle2, i, radius2, loff;
 
    radius1 *:= extent;  #scaling
    loff := 0.5 * extent;
@@ -47,18 +47,18 @@ procedure orbit1(x, y, extent, n, t1, t2, k1, k2, radius1, sscale,
    every i := 1 to n do {
       radius2 := sscale * (1 - i / real_n);
       angle1 +:= incr1;
-      angle2 +:= incr2
+      angle2 +:= incr2;
       suspend Point(x + xfact * (loff + radius1 * cos(k1 * angle1) +
          radius2 * cos(angle2)),
          y + yfact * (loff + radius1 * sin(k2 * angle1) +
          radius2 * sin(angle2)))
-      }
+      };
 
 end
 
 procedure orbit2(x, y, extent, n, t1, t2, k1, k2, radius1, sscale,
-   xfact, yfact, roff, rfact, rratio, div)
-   local incr1, incr2, rangle, angle1, angle2, i, radius2, loff
+   xfact, yfact, roff, rfact, rratio, div);
+   local incr1, incr2, rangle, angle1, angle2, i, radius2, loff;
 
    rangle := 2 * &pi / div * rratio;
    radius1 *:= extent;  #scaling
@@ -72,11 +72,11 @@ procedure orbit2(x, y, extent, n, t1, t2, k1, k2, radius1, sscale,
    every i := 1 to n do {
       radius2 := sscale * (roff + rfact * cos(i * rangle));
       angle1 +:= incr1;
-      angle2 +:= incr2
+      angle2 +:= incr2;
       suspend Point(x + xfact * (loff + radius1 * cos(k1 * angle1) +
          radius2 * cos(angle2)),
          y + yfact * (loff + radius1 * sin(k2 * angle1) +
          radius2 * sin(angle2)))
-      }
+      };
 
 end

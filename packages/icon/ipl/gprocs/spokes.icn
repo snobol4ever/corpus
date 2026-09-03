@@ -24,8 +24,8 @@
 
 link gobject
 
-procedure spokes(x, y, radius1, radius2, n, m)
-   local angle1, incr1, angle2, incr2
+procedure spokes(x, y, radius1, radius2, n, m);
+   local angle1, incr1, angle2, incr2;
 
    angle1 := 0.0;
    incr1 := 2 * &pi / n;
@@ -34,12 +34,12 @@ procedure spokes(x, y, radius1, radius2, n, m)
       suspend rays(x + radius1 * cos(angle1), y + radius1 * sin(angle1),
          radius2, m, angle1);
       angle1 +:= incr1
-      }
+      };
 
 end
 
-procedure rays(xc, yc, r, m, angle)
-   local incr
+procedure rays(xc, yc, r, m, angle);
+   local incr;
 
    incr := 2 * &pi / m;
 
@@ -48,7 +48,7 @@ procedure rays(xc, yc, r, m, angle)
       suspend Point(xc + r * cos(angle), yc + r * sin(angle));
       suspend Point(xc, yc);
       angle +:= incr
-      }
+      };
 
 end
 

@@ -52,38 +52,38 @@
 ############################################################################
 
 procedure showtbl(title, tbl, sort_type,	#: show table contents
-   limit, sort_order, posit, w1, w2, gutter, f1, f2)
-      local count, lst, i, number
+   limit, sort_order, posit, w1, w2, gutter, f1, f2);
+      local count, lst, i, number;
 
    /title := "";
    if type(tbl) ~== "table" then
-      stop("*** invalid table argument to showtbl()")
+      stop("*** invalid table argument to showtbl()");
    sort_type := case sort_type of {
-      "ref" | &null:  3
-      "val": 4
+      "ref" | &null:  3;
+      "val": 4;
       default:  stop("*** invalid sort type in showtbl()")
-      }
+      };
    /limit := 2 ^ 30;  # essentially infinite
    sort_order := case sort_order of {
-      "incr" | &null:  "incr"
-      "decr":  "decr"
+      "incr" | &null:  "incr";
+      "decr":  "decr";
       default:  stop("*** invalid sort order in showtbl()")
-      }
+      };
    posit := case posit of {
-      "val" | &null:   "val"
-      "ref":  "ref"
+      "val" | &null:   "val";
+      "ref":  "ref";
       default:  stop("*** invalid column position in showtbl()")
-      }
-   /w1 := 10
-   /w2 := 10
-   /gutter := repl(" ", 3)
-   /f1 := left
+      };
+   /w1 := 10;
+   /w2 := 10;
+   /gutter := repl(" ", 3);
+   /f1 := left;
    /f2 := right;
 
    number := 0;
 
    count := 0;
-   every count +:= !tbl
+   every count +:= !tbl;
 
    write("\n", title, ":\n");
 
@@ -102,8 +102,8 @@ procedure showtbl(title, tbl, sort_type,	#: show table contents
          if number > limit then break
          else write(f1(lst[i - 1], w1), gutter, trim(f2(lst[i], w2)))
          }
-      }
+      };
 
-   return [count, number]
+   return [count, number];
 
 end

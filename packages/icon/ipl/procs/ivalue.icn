@@ -36,8 +36,8 @@
 
 link escape
 
-procedure ivalue(___s___)			#: convert string to Icon value
-   static ___k___
+procedure ivalue(___s___);			#: convert string to Icon value
+   static ___k___;
 
    initial {
       ___k___ := table();
@@ -74,7 +74,7 @@ procedure ivalue(___s___)			#: convert string to Icon value
       ___k___["&time"] := &time;
       ___k___["&ucase"] := &ucase;
       ___k___["&version"] := &version
-      }
+      };
 
    return {
       numeric(___s___) | {				# integer or real
@@ -92,12 +92,12 @@ procedure ivalue(___s___)			#: convert string to Icon value
          then proc(___s___, 2 | 1 | 3) else fail
          }
       }
-      }
+      };
 
 end
 
-procedure struct___(s)
-   local type_, size, name, x
+procedure struct___(s);
+   local type_, size, name, x;
 
    s ? {
       if {
@@ -117,22 +117,22 @@ procedure struct___(s)
                image(proc(name)) ? ="record constructor"
                }
             then return name()
-            }
+            };
          case type_ of {
-            "list":   return list(size)
+            "list":   return list(size);
             "set":    {
                x := set();
-               every insert(x, 1 to size)
+               every insert(x, 1 to size);
                return x
-               }
+               };
             "table":  {
               x := table();
-              every x[1 to size] := 1
+              every x[1 to size] := 1;
               return x
-              }
+              };
             default:  fail  
             }
          }
-      }
+      };
 
 end

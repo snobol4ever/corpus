@@ -47,64 +47,64 @@ link xbfont
 link graphics
 
 
-procedure main(args)
+procedure main(args);
    if *args > 0 & args[1][1] ~== "-" then
       filemode(args)
    else
-      windowmode(args)
+      windowmode(args);
 end
 
 
-procedure filemode(args)
-   local fname, limit, f, fontlist, request, a
+procedure filemode(args);
+   local fname, limit, f, fontlist, request, a;
 
    fname := args[1];
    limit := integer(args[2]) | 20;
    f := open(fname) | stop("can't open ", fname);
-   every put(fontlist := [], !f)
+   every put(fontlist := [], !f);
    repeat {
       writes("> ");
-      request := trim(read()) | return
+      request := trim(read()) | return;
       if *request = 0 then
          next;
       every a := RankFonts(fontlist, request) \ limit do
-         write(right(a.val, 5), "\t", a.str)
+         write(right(a.val, 5), "\t", a.str);
       write()
-      }
+      };
 end
 
 
-procedure windowmode(args)
-   local opts, win, fwin, request, a, h, y
+procedure windowmode(args);
+   local opts, win, fwin, request, a, h, y;
 
-   opts := options(args, winoptions())
-   /opts["W"] := 900
-   /opts["H"] := 300
-   /opts["M"] := -1
-   win := optwindow(opts, "cursor=off", "echo=off")
-   fwin := Clone(win)
+   opts := options(args, winoptions());
+   /opts["W"] := 900;
+   /opts["H"] := 300;
+   /opts["M"] := -1;
+   win := optwindow(opts, "cursor=off", "echo=off");
+   fwin := Clone(win);
 
-   &error := 1
-   WAttrib(win, "resize=on")
-   &error := 0
+   &error := 1;
+   WAttrib(win, "resize=on");
+   &error := 0;
 
    repeat {
-      writes("> ")
-      request := trim(read()) | return
+      writes("> ");
+      request := trim(read()) | return;
       if *request = 0 then
-         next
-      h := WAttrib(win, "height")
-      y := 0
-      EraseArea(win)
+         next;
+      h := WAttrib(win, "height");
+      y := 0;
+      EraseArea(win);
       every a := RankFonts(win, request) do {
-         Font(fwin, a.str)
-         y +:= WAttrib(fwin, "fheight") - WAttrib(fwin, "descent")
-         GotoXY(win, 10, y)
-         writes(win, right(a.val, 4), "  ")
-         writes(fwin, a.str)
-         y +:= WAttrib(fwin, "descent")
+         Font(fwin, a.str);
+         y +:= WAttrib(fwin, "fheight") - WAttrib(fwin, "descent");
+         GotoXY(win, 10, y);
+         writes(win, right(a.val, 4), "  ");
+         writes(fwin, a.str);
+         y +:= WAttrib(fwin, "descent");
          if y >= h then
             break
          }
-      }
+      };
 end

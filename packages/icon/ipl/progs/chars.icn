@@ -19,13 +19,13 @@
 #
 ############################################################################
 
-procedure main()
-   local chars
+procedure main();
+   local chars;
 
    chars := '';
 
-   while chars ++:= read()
+   while chars ++:= read();
 
-   every write(image(!chars))
+   every write(image(!chars));
 
 end

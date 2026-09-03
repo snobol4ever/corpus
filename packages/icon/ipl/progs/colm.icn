@@ -67,9 +67,9 @@
 
 link options, colmize
 
-procedure main(arg)
-   local usage, help, opt, rowwise, distribute, maxcols, space, minwidth
-   local tabwidth, f, entries, entry
+procedure main(arg);
+   local usage, help, opt, rowwise, distribute, maxcols, space, minwidth;
+   local tabwidth, f, entries, entry;
    #
    #  Define usage and help strings.
    #
@@ -93,15 +93,15 @@ procedure main(arg)
    #  Process command line options.
    #
    opt := options(arg,"hxdw+s+m+t+");
-   if \opt["h"] then write(usage,"\n\n",help) & exit()
+   if \opt["h"] then write(usage,"\n\n",help) & exit();
    rowwise := opt["x"];
    distribute := opt["d"];
    maxcols := \opt["w"] | 80;
    space := \opt["s"] | 2;
    minwidth := \opt["m"] | 0;
    tabwidth := (\opt["t"] | 0) + 1;
-   if tabwidth = 1 then entab := 1
-   if *arg = 0 then arg := [&input]
+   if tabwidth = 1 then entab := 1;
+   if *arg = 0 then arg := [&input];
    #
    #  Loop to process input files.
    #
@@ -117,15 +117,15 @@ procedure main(arg)
 	 #
 	 while entry := "" ~== read(f) do {
 	    put(entries,entry)
-	    }
+	    };
 	 #
 	 #  Now write the data in columns.
 	 #
 	 every write(entab(colmize(entries,maxcols,space,minwidth,
-	       rowwise,distribute),tabwidth))
+	       rowwise,distribute),tabwidth));
 	 write("\n",read(f)) | break       # print the title line, if any
-	 }
+	 };
       close(f);
       write()
-      }
+      };
 end

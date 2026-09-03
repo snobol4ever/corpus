@@ -66,10 +66,10 @@ global extns
 
 
 
-procedure main(args)
-   local opts, root, zipopts, zipname
-   local pwd, pipe, fname, errmsg
-   local nmproc
+procedure main(args);
+   local opts, root, zipopts, zipname;
+   local pwd, pipe, fname, errmsg;
+   local nmproc;
 
    # process options
    opts := options(args, "nvi");
@@ -77,7 +77,7 @@ procedure main(args)
    if \opts["i"] then
       nmproc := isoname
    else
-      nmproc := msname
+      nmproc := msname;
 
    root := args[1] | stop("usage: ", &progname, " ", USAGE);
 
@@ -89,7 +89,7 @@ procedure main(args)
       close(pipe);
       if not zipname ? ="/" then
          zipname := pwd || "/" || zipname
-   }
+   };
 
    # change to source directory
    chdir(root) | stop("can't change to directory: ", root);
@@ -97,9 +97,9 @@ procedure main(args)
    # verify that zip file is writable
    if \zipname then {
       if not close(open(zipname, "w")) then
-         stop(zipname, ": cannot write")
+         stop(zipname, ": cannot write");
       remove(zipname)
-      }
+      };
 
    # initialize
    errorcount := 0;
@@ -111,7 +111,7 @@ procedure main(args)
    # check for "bad" files: symlinks, fifos, etc.
    write(&errout, "finding files...");
    pipe := popen("find . ! -type d ! -type f -print | sort");
-   while report(read(pipe), "bad file type")
+   while report(read(pipe), "bad file type");
    close(pipe);
 
    # get list of the rest
@@ -120,12 +120,12 @@ procedure main(args)
       put(allfiles, fname);
       if not nmproc(fname) then
          report(fname, "illegal filename")
-      }
+      };
    close(pipe);
 
    # inspect files
    write(&errout, "inspecting files...");
-   while inspect(get(allfiles))
+   while inspect(get(allfiles));
 
    # summarize file types by extension
    summary();
@@ -135,39 +135,39 @@ procedure main(args)
 
       zipopts := ZIPOPTS;
       if /verbose then
-         zipopts := ZIPOPTS || " -q"
+         zipopts := ZIPOPTS || " -q";
 
       # create zip file and fill with text files
       write(&errout, "storing text files...");
       pipe := popen("zip -l " || zipopts || " " || zipname || " -@", "w");
-      every write(pipe, !txtlist)
+      every write(pipe, !txtlist);
       close(pipe);
 
       # add binary files to zip file
       write();
       write(&errout, "storing binary files...");
       pipe := popen("zip -g " || zipopts || " " || zipname || " -@", "w");
-      every write(pipe, !binlist)
+      every write(pipe, !binlist);
       close(pipe)
-      }
+      };
 
    # exit
    if errorcount > 0 then
       stop("\t", errorcount, " error(s)")
    else
-      write("done.")
+      write("done.");
 end
 
 
 
 #  popen(cmd, mode) -- open pipe, and abort on error
 
-procedure popen(cmd, mode)
-   local f
+procedure popen(cmd, mode);
+   local f;
 
    mode := "p" || (\mode | "r");
-   f := open(cmd, mode) | stop("can't open pipe: ", cmd)
-   return f
+   f := open(cmd, mode) | stop("can't open pipe: ", cmd);
+   return f;
 end
 
 
@@ -176,44 +176,44 @@ end
 #
 #  If lim is given, counting can stop early.
 
-procedure census(s, c, lim)
-   local n
+procedure census(s, c, lim);
+   local n;
 
    /lim := *s;
    n := 0;
    s ? {
       while n < lim & tab(upto(c)) do
          n +:= *tab(many(c))
-      }
-   n >:= lim
-   return n
+      };
+   n >:= lim;
+   return n;
 end
 
 
 
 #  msname(fname) -- check filename for MS-DOS legality
 
-procedure msname(fname)
-   local dir, base, ext 
-   static forbid
-   initial forbid := &cset -- &letters -- &digits -- '/._^$~!#%&-{}()@\'`'
+procedure msname(fname);
+   local dir, base, ext; 
+   static forbid;
+   initial forbid := &cset -- &letters -- &digits -- '/._^$~!#%&-{}()@\'`';
 
    fname ? {
-      if upto(forbid) then fail			# forbidden char
+      if upto(forbid) then fail;			# forbidden char
       while dir := tab(upto('/') + 1) do 
-         if *dir > 9 then fail			# dir component too long
+         if *dir > 9 then fail;			# dir component too long
       if base := tab(upto('.')) then {
          move(1);
-         if upto('.') then fail			# two periods
+         if upto('.') then fail;			# two periods
          ext := tab(0)
          }
       else {
          base := tab(0);
          ext := ""
-         }
+         };
       if (*base > 8) | (*ext > 3) then fail	# component too long
-      }
-   return
+      };
+   return;
 end
 
 
@@ -222,107 +222,107 @@ end
 #
 #  (disallows explicit version numbers)
 
-procedure isoname(fname)
-   static legal
-   initial legal := &lcase ++ &ucase ++ &digits ++ '_.'
+procedure isoname(fname);
+   static legal;
+   initial legal := &lcase ++ &ucase ++ &digits ++ '_.';
 
    fname ? {
-      while tab(upto('/') + 1)
+      while tab(upto('/') + 1);
       tab(many(legal));
       if pos(0) then
          return msname(fname)
       else
          fail
-   }
+   };
 end
 
 
 
 #  inspect(fname) -- inspect one file and update lists
 
-procedure inspect(fname)
-   local c
+procedure inspect(fname);
+   local c;
 
    fname ? {
       if ="./" then
          fname := tab(0)
-   }
+   };
 
    c := ftype(fname);
    count(fname, c);
-   if \verbose then write(c, " ", fname)
+   if \verbose then write(c, " ", fname);
 
    if c == "x" then {
-      report(fname, "unreadable file")
+      report(fname, "unreadable file");
       return
-      }
+      };
 
    if c == "n" then
       put(txtlist, fname)
    else
-      put(binlist, fname)
+      put(binlist, fname);
 
-   return
+   return;
 end
 
 
 
 #  ftype(fname) -- return file type character
 
-procedure ftype(fname)
-   local f, s, lim
-   static bset
+procedure ftype(fname);
+   local f, s, lim;
+   static bset;
    initial bset :=		# allows \a\b\t\n\v\f\r\^Z
       '\0\1\2\3\4\5\6\16\17\20\21\22\23\24\25\26\27\30\31\33\34\35\36\37' ++
-      &cset[128+:33]
+      &cset[128+:33];
 
    f := open(fname, "ru") | return "x";
    s := reads(f, BUFSIZ);
    close(f);
 
-   if /s | (*s = 0) then return "e"
+   if /s | (*s = 0) then return "e";
    lim := BTHRESH * *s;
    if census(s, bset, lim) >= lim then return "b"
    else if census(s, '\l') > census(s, '\r') then return "n"
-   else return "c"
+   else return "c";
 end
 
 
 
 #   count(fname, typechar) -- count file extension
 
-procedure count(fname, tchar)
-   local extn
+procedure count(fname, tchar);
+   local extn;
 
    fname ? {
-      while tab(upto('/') + 1)
+      while tab(upto('/') + 1);
       if tab(upto('.') + 1) then {
-         while tab(upto('.') + 1)
+         while tab(upto('.') + 1);
          extn := tab(0)
          }
       else
          extn := ""
-      }
-   extns[extn] ||:= tchar
-   return
+      };
+   extns[extn] ||:= tchar;
+   return;
 end
 
 
 
 #  report(fname, errmsg) -- report error
 
-procedure report(fname, errmsg)
+procedure report(fname, errmsg);
    write(&errout, "\t", errmsg, ": ", fname);
-   errorcount +:= 1
-   return
+   errorcount +:= 1;
+   return;
 end
 
 
 
 #  summary() -- generate summary of extension counts
 
-procedure summary()
-   local tlist, ext, s, b, c, e, n, x, tb, tc, te, tn, tx
+procedure summary();
+   local tlist, ext, s, b, c, e, n, x, tb, tc, te, tn, tx;
 
    write();
    write(" unrd empty bin crlf newln  extension");
@@ -337,25 +337,25 @@ procedure summary()
       tn +:= (n := census(s, 'n'));
       tx +:= (x := census(s, 'x'));
       write(r5(x), r5(e), r5(b), r5(c), r5(n), "   .", ext)
-      }
+      };
 
    write();
    write(r5(tx), r5(te), r5(tb), r5(tc), r5(tn), "   TOTAL: ", tx+te+tb+tc+tn);
-   write()
-   return
+   write();
+   return;
 end
 
 
 
 #  r5(n) -- show integer in 5-char field, if nonzero
 
-procedure r5(n)
-   local s
+procedure r5(n);
+   local s;
 
-   if n = 0 then return "     "
+   if n = 0 then return "     ";
    s := integer(n);
    if *s < 5 then
       return right(s, 5)
    else
-      return " " || s
+      return " " || s;
 end

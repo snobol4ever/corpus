@@ -141,11 +141,11 @@ global mnv_mleft, mnv_mright, mnv_mtop, mnv_mbottom
 # viewport configuration
 global mnv_vleft, mnv_vright, mnv_vtop, mnv_vbottom
 
-procedure mapinit(win,p,a,xleft,xright,ytop,ybottom,m)	#: initialize navigator
+procedure mapinit(win,p,a,xleft,xright,ytop,ybottom,m);	#: initialize navigator
 
    if type(win) ~== "window" then	# handle missing optional win argument
       return mapinit((\&window | runerr(140)),
-         win, p, a, xleft, xright, ytop, ybottom)
+         win, p, a, xleft, xright, ytop, ybottom);
 
    mnv_proc := p;
    mnv_arg := a;
@@ -154,25 +154,25 @@ procedure mapinit(win,p,a,xleft,xright,ytop,ybottom,m)	#: initialize navigator
    mnv_mleft := mnv_vleft := xleft;
    mnv_mright := mnv_vright := xright;
    mnv_mtop := mnv_vtop := ytop;
-   mnv_mbottom := mnv_vbottom := ybottom
+   mnv_mbottom := mnv_vbottom := ybottom;
 
-   return
+   return;
 end
 
-procedure mapgen(win, proc, arg)	#: invoke callback to redraw the map
+procedure mapgen(win, proc, arg);	#: invoke callback to redraw the map
 
    if type(win) ~== "window" then {	# handle missing optional win argument
       win :=: proc :=: arg;
       win := \&window | runerr(140)
-      }
+      };
 
-   /proc := mnv_proc
-   /arg := mnv_arg
-   return proc(win, mapproj(win), arg)
+   /proc := mnv_proc;
+   /arg := mnv_arg;
+   return proc(win, mapproj(win), arg);
 end
 
-procedure mapproj(win)			#: compute map projection
-   local l, r, t, b, d, nx, ny, xmul, ymul
+procedure mapproj(win);			#: compute map projection
+   local l, r, t, b, d, nx, ny, xmul, ymul;
 
    /win := \&window | runerr(140);  # handle missing optional win argument
 
@@ -194,127 +194,127 @@ procedure mapproj(win)			#: compute map projection
    else {
       ymul *:= d;
       ny := (b - t - ymul * (mnv_vbottom - mnv_vtop)) / 2
-      }
+      };
 
-   mnv_prjn := rectp(mnv_vleft, mnv_vtop, l + nx, t + ny, xmul, ymul)
-   return mnv_prjn
+   mnv_prjn := rectp(mnv_vleft, mnv_vtop, l + nx, t + ny, xmul, ymul);
+   return mnv_prjn;
 end
 
-procedure mapevent(win, e)		#: navigate map as directed by action e
-   local win2, xywh, ltrb
+procedure mapevent(win, e);		#: navigate map as directed by action e
+   local win2, xywh, ltrb;
 
    if type(win) ~== "window" then {	# handle missing optional win argument
       e := win;
       win := \&window | runerr(140)
-      }
+      };
 
    case e of {
 
       &resize: {
          EraseArea(win);
          mapgen(win)
-         }
+         };
 
       &lpress: {
-         win2 := Clone(win, "linewidth=4", "linestyle=solid", "fg=orange")
-         xywh := Sweep(win2)
-         Uncouple(win2)
+         win2 := Clone(win, "linewidth=4", "linestyle=solid", "fg=orange");
+         xywh := Sweep(win2);
+         Uncouple(win2);
          if xywh[3|4] < 10 then
-            return
-         xywh[3] +:= xywh[1]
-         xywh[4] +:= xywh[2]
-         ltrb := project(invp(mnv_prjn), xywh)
+            return;
+         xywh[3] +:= xywh[1];
+         xywh[4] +:= xywh[2];
+         ltrb := project(invp(mnv_prjn), xywh);
 
-         mnv_vleft := get(ltrb)
-         mnv_vtop := get(ltrb)
-         mnv_vright := get(ltrb)
-         mnv_vbottom := get(ltrb)
-         EraseArea(win)
+         mnv_vleft := get(ltrb);
+         mnv_vtop := get(ltrb);
+         mnv_vright := get(ltrb);
+         mnv_vbottom := get(ltrb);
+         EraseArea(win);
          mapgen(win)
-         }
+         };
 
       !"01" | Key_Home: {
-         mnv_vleft := mnv_mleft
-         mnv_vright := mnv_mright
-         mnv_vtop := mnv_mtop
-         mnv_vbottom := mnv_mbottom
-         EraseArea(win)
+         mnv_vleft := mnv_mleft;
+         mnv_vright := mnv_mright;
+         mnv_vtop := mnv_mtop;
+         mnv_vbottom := mnv_mbottom;
+         EraseArea(win);
          mapgen(win)
-         }
+         };
 
-      Key_Up:    mnv_pan(win,  0, -1)
-      Key_Down:  mnv_pan(win,  0, +1)
-      Key_Left:  mnv_pan(win, -1,  0)
-      Key_Right: mnv_pan(win, +1,  0)
+      Key_Up:    mnv_pan(win,  0, -1);
+      Key_Down:  mnv_pan(win,  0, +1);
+      Key_Left:  mnv_pan(win, -1,  0);
+      Key_Right: mnv_pan(win, +1,  0);
 
-      !"+=":  mnv_inout(win, -0.20)
-      !"-_":  mnv_inout(win, +0.25)
+      !"+=":  mnv_inout(win, -0.20);
+      !"-_":  mnv_inout(win, +0.25);
 
-      !"Qq":  exit()
+      !"Qq":  exit();
 
       default:	fail
 
-      }
+      };
 
-   return
+   return;
 end
 
-procedure mnv_pan(win, px, py)		# process panning action
-   local n, l, r, t, b, w, h, nx, ny, dx, dy, xyxy
+procedure mnv_pan(win, px, py);		# process panning action
+   local n, l, r, t, b, w, h, nx, ny, dx, dy, xyxy;
 
-   n := if &shift then 10 else 100
-   nx := n * px
-   ny := n * py
+   n := if &shift then 10 else 100;
+   nx := n * px;
+   ny := n * py;
 
-   l := \WAttrib(win, "clipx") | 0
-   t := \WAttrib(win, "clipy") | 0
-   r := l + \WAttrib(win, "clipw" | "width")
-   b := t + \WAttrib(win, "cliph" | "height")
-   w := r - l - abs(nx)
-   h := b - t - abs(ny)
+   l := \WAttrib(win, "clipx") | 0;
+   t := \WAttrib(win, "clipy") | 0;
+   r := l + \WAttrib(win, "clipw" | "width");
+   b := t + \WAttrib(win, "cliph" | "height");
+   w := r - l - abs(nx);
+   h := b - t - abs(ny);
 
    if nx > 0 then {
-      CopyArea(win, l + nx, t, w, h, l, t)
+      CopyArea(win, l + nx, t, w, h, l, t);
       EraseArea(win, r - nx, t, nx, h)
       }
    else if nx < 0 then {
-      CopyArea(win, l, t, w, h, l - nx, t)
+      CopyArea(win, l, t, w, h, l - nx, t);
       EraseArea(win, l, t, -nx, h)
-      }
+      };
 
    if ny > 0 then {
-      CopyArea(win, l, t + ny, w, h, l, t)
+      CopyArea(win, l, t + ny, w, h, l, t);
       EraseArea(win, l, b - ny, w, ny)
       }
    else if ny < 0 then {
-      CopyArea(win, l, t, w, h, l, t - ny)
+      CopyArea(win, l, t, w, h, l, t - ny);
       EraseArea(win, l, t, w, -ny)
-      }
+      };
 
-   xyxy := project(invp(mnv_prjn), [l, t, l + nx, t + ny])
-   dx := xyxy[3] - xyxy[1]
-   dy := xyxy[4] - xyxy[2]
-   mnv_vleft +:= dx
-   mnv_vright +:= dx
-   mnv_vtop +:= dy
-   mnv_vbottom +:= dy
-   mapgen(win)
+   xyxy := project(invp(mnv_prjn), [l, t, l + nx, t + ny]);
+   dx := xyxy[3] - xyxy[1];
+   dy := xyxy[4] - xyxy[2];
+   mnv_vleft +:= dx;
+   mnv_vright +:= dx;
+   mnv_vtop +:= dy;
+   mnv_vbottom +:= dy;
+   mapgen(win);
 
-   return
+   return;
 end
 
-procedure mnv_inout(win, f)		# process zooming action
-   local xc, yc
+procedure mnv_inout(win, f);		# process zooming action
+   local xc, yc;
 
-   xc := (mnv_vleft + mnv_vright) / 2
-   yc := (mnv_vtop + mnv_vbottom) / 2
+   xc := (mnv_vleft + mnv_vright) / 2;
+   yc := (mnv_vtop + mnv_vbottom) / 2;
 
-   mnv_vleft +:= f * (mnv_vleft - xc)
-   mnv_vright +:= f * (mnv_vright - xc)
-   mnv_vtop +:= f * (mnv_vtop - yc)
-   mnv_vbottom +:= f * (mnv_vbottom - yc)
+   mnv_vleft +:= f * (mnv_vleft - xc);
+   mnv_vright +:= f * (mnv_vright - xc);
+   mnv_vtop +:= f * (mnv_vtop - yc);
+   mnv_vbottom +:= f * (mnv_vbottom - yc);
 
-   EraseArea(win)
-   mapgen(win)
-   return
+   EraseArea(win);
+   mapgen(win);
+   return;
 end

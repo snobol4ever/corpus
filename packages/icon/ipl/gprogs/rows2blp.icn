@@ -28,13 +28,13 @@
 
 link patutils
 
-procedure main()
-   local rows
+procedure main();
+   local rows;
 
    rows := [];
 
-   while put(rows, read())
+   while put(rows, read());
 
-   write(rows2pat(rows))
+   write(rows2pat(rows));
 
 end

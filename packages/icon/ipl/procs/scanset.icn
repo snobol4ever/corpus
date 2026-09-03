@@ -58,11 +58,11 @@ record scan_setup_result(
    ss,		# substring to be scanned
    offset)	# length of substring preceding ss
 
-procedure scan_setup(s,i1,i2)
+procedure scan_setup(s,i1,i2);
    if /s := &subject then
       /i1 := &pos
    else
-      /i1 := 1
-   /i2 := 0
-   return scan_setup_result(s[i1:i2],match("",s,i1,i2) - 1)
+      /i1 := 1;
+   /i2 := 0;
+   return scan_setup_result(s[i1:i2],match("",s,i1,i2) - 1);
 end

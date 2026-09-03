@@ -36,14 +36,14 @@
 
 link wopen
 
-procedure main(av)
-   local name, window, winput
+procedure main(av);
+   local name, window, winput;
 
    if *av > 0 then {
       every name := !av do {
          (window := WOpen("label=" || name, "image=" || name,"pos=400,200")) | 
             write(&errout,"cannot open image ",name)
-	 }
+	 };
       Active()
    } else {
       winput := WOpen("label=snapper! (click mouse in this window to exit)") |
@@ -52,12 +52,12 @@ procedure main(av)
       repeat {
 	 close(\window);
 	 writes(winput, "next image: ");
-	 name := read(winput)
+	 name := read(winput);
 	 (window := WOpen("label=" || name, "image=" || name,"pos=400,200")) | 
 	    write(winput,"cannot open image");
          if Event(winput) === (&lpress | &mpress | &rpress) then
             exit()
       }
-   }
+   };
    
 end

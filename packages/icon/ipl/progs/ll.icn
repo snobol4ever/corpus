@@ -19,8 +19,8 @@
 #
 ############################################################################
 
-procedure main()
-   local length, max, min
+procedure main();
+   local length, max, min;
 
    max := 0;
    min := 2 ^ 31;  #  good enough ...
@@ -28,9 +28,9 @@ procedure main()
    while length := *read() do {
       max <:= length;
       min >:= length
-      }
+      };
 
    write(min);
-   write(max)
+   write(max);
 
 end

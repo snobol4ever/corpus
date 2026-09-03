@@ -61,9 +61,9 @@ global inmaxcol, inlmarg, inchunk, localvar, lin
 
 record procrec(pname,begline,lastline)
 
-procedure main(args)
+procedure main(args);
 
-   local word, w2, p, prec, i, L, ln, switches, nfile
+   local word, w2, p, prec, i, L, ln, switches, nfile;
 
    resword := ["break","by","case","default","do","dynamic","else","end",
       "every","fail","global","if","initial","link", "local","next","not",
@@ -80,8 +80,8 @@ procedure main(args)
 
    switches := options(args,"qxw+l+c+");
 
-   if \switches["q"] then qflag := 1
-   if \switches["x"] then xflag := 1
+   if \switches["q"] then qflag := 1;
+   if \switches["x"] then xflag := 1;
    inmaxcol := \switches["w"];
    inlmarg := \switches["l"];
    inchunk := \switches["c"];
@@ -95,31 +95,31 @@ procedure main(args)
          }
       else if word == "procedure" then {
          put(prec,procrec("",linenum,0));
-         proc := getword() | break
+         proc := getword() | break;
          p := pull(prec);
          p.pname := proc;
          put(prec,p)
          }
       else if word == ("global" | "link" | "record") then {
-         word := getword() | break
+         word := getword() | break;
          addword(word,"global",linenum);
          while (w2 := getword()) == "," do {
-            if word == !resword then break
-            word := getword() | break
+            if word == !resword then break;
+            word := getword() | break;
             addword(word,"global",linenum)
-            }
+            };
          put(buffer,w2)
          }
       else if word == ("local" | "dynamic" | "static") then {
-         word := getword() | break
+         word := getword() | break;
          put(localvar,word);
          addword(word,proc,linenum);
          while (w2 := getword()) == "," do {
-            if word == !resword then break
-            word := getword() | break
-            put(localvar,word)
+            if word == !resword then break;
+            word := getword() | break;
+            put(localvar,word);
             addword(word,proc,linenum)
-            }
+            };
          put(buffer,w2)
          }
       else if word == "end" then {
@@ -136,18 +136,18 @@ procedure main(args)
          if (w2 := getword()) == "(" then
             word ||:= " *"			# special mark for procedures
          else
-            put(buffer,w2)			# put back w2
+            put(buffer,w2);			# put back w2
          addword(word,proc,ln)
-         }
-   every write(!format(var))
+         };
+   every write(!format(var));
    write("\n\nprocedures:\tlines:\n");
    L := [];
    every p := !prec do
-      put(L,left(p.pname,16," ") || p.begline || "-" || p.lastline)
-   every write(!sort(L))
+      put(L,left(p.pname,16," ") || p.begline || "-" || p.lastline);
+   every write(!sort(L));
 end
 
-procedure addword(word,proc,lineno)
+procedure addword(word,proc,lineno);
    if any(letters,word) | \xflag then {
       /var[word] := table();
       if /var[word]["global"] | (word == !\localvar) then {
@@ -158,22 +158,22 @@ procedure addword(word,proc,lineno)
          /var[word]["global"] := [word,"global"];
          put((var[word])["global"],lineno)
          }
-      }
+      };
 end
 
-procedure getword()
-   local j, c
-   static i, nonwhite
-   initial nonwhite := ~' \t\n'
+procedure getword();
+   local j, c;
+   static i, nonwhite;
+   initial nonwhite := ~' \t\n';
 
    repeat {
-      if *buffer > 0 then return get(buffer)
+      if *buffer > 0 then return get(buffer);
       if /lin | i = *lin + 1 then
          if lin := read(infile) then {
             i := 1;
             linenum +:= 1
             }
-         else fail
+         else fail;
       if i := upto(nonwhite,lin,i) then {   # skip white space
          j := i;
          if lin[i] == ("'" | "\"") then {   # don't xref quoted words
@@ -198,22 +198,22 @@ procedure getword()
          else if i := many(alphas,lin,i) then
             return lin[j:i]
          else {
-            i +:= 1
+            i +:= 1;
             return lin[i - 1]
             }
          }
       else
          i := *lin + 1
-   }	   # repeat
+   };	   # repeat
 end
 
-procedure format(T)
-   local V, block, n, L, lin, maxcol, lmargin, chunk, col
+procedure format(T);
+   local V, block, n, L, lin, maxcol, lmargin, chunk, col;
    initial {
       maxcol := \inmaxcol | 80;
       lmargin := \inlmarg | 40;
       chunk := \inchunk | 4
-      }
+      };
    L := [];
    col := lmargin;
    every V := !T do
@@ -225,12 +225,12 @@ procedure format(T)
                lin ||:= "\n\t\t\t\t\t";
                col := lmargin
                }
-            }
-         if col = lmargin then lin := lin[1:-6] # came out exactly even
+            };
+         if col = lmargin then lin := lin[1:-6]; # came out exactly even
          put(L,lin);
          col := lmargin
-         }
+         };
    L := sort(L);
-   push(L,"variable\tprocedure\t\tline numbers\n")
-   return L
+   push(L,"variable\tprocedure\t\tline numbers\n");
+   return L;
 end

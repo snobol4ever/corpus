@@ -19,15 +19,15 @@
 #
 ############################################################################
 
-procedure main(args)
-   local limit, line
+procedure main(args);
+   local limit, line;
 
    limit := integer(args[1]) | 80;
 
    line := read() | stop("*** no input line");
 
    line ? {
-      while write(move(limit))
+      while write(move(limit));
       if not pos(0) then write(tab(0))
-      }
+      };
 end

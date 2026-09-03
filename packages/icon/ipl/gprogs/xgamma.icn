@@ -52,19 +52,19 @@ link wopen
 
 global ofile
 
-procedure main(args)
-   local gamma
+procedure main(args);
+   local gamma;
 
    if *args = 0 then {
       WOpen("canvas=hidden", "size=200,100") | stop("can't open window");
-      write(left(WAttrib("gamma") + 0.005, 4))
+      write(left(WAttrib("gamma") + 0.005, 4));
       return
-      }
+      };
 
    if map(args[1]) == ("none" | "off" | "remove") then {
-      system("xcmsdb -remove")
+      system("xcmsdb -remove");
       return
-      }
+      };
 
    gamma := real(args[1]) | 2.5;
    ofile := open("xcmsdb", "wp") | stop("can't open pipe to xcmsdb");
@@ -74,11 +74,11 @@ procedure main(args)
    matrices();
    ramps(gamma);
    write(ofile, );
-   write(ofile, "SCREENDATA_END")
+   write(ofile, "SCREENDATA_END");
 end
 
 
-procedure header()
+procedure header();
    every write(ofile, ![
       "",
       "    NAME                Unknown monitor",
@@ -86,11 +86,11 @@ procedure header()
       "    MODEL               Unknown",
       "    SCREEN_CLASS        VIDEO_RGB",
       "    REVISION            2.0",
-      ])
+      ]);
 end
 
 
-procedure matrices()
+procedure matrices();
    # Trinitron specs from X11R5 contrib/clients/xcrtca/monitors
    every write(ofile, "    ", \![
       "COLORIMETRIC_BEGIN",
@@ -105,29 +105,29 @@ procedure matrices()
       "         0.025397273061447    0.146890261130091    1.295677359153649",
       "    RGBtoXYZ_MATRIX_END",
       "COLORIMETRIC_END",
-      ])
+      ]);
 end
 
 
-procedure ramps(gamma)
+procedure ramps(gamma);
    write(ofile, "    INTENSITY_PROFILE_BEGIN 0 3");
-   every hue("RED" | "GREEN" | "BLUE", gamma)
-   write(ofile, "    INTENSITY_PROFILE_END")
+   every hue("RED" | "GREEN" | "BLUE", gamma);
+   write(ofile, "    INTENSITY_PROFILE_END");
 end
 
 
-procedure hue(c, gamma)
-   local i, x, v
-   static hextab
-   initial every put((hextab := []), !"0123456789abcdef" || !"0123456789abcdef")
+procedure hue(c, gamma);
+   local i, x, v;
+   static hextab;
+   initial every put((hextab := []), !"0123456789abcdef" || !"0123456789abcdef");
 
    write(ofile, "    INTENSITY_TBL_BEGIN    ", c, "    256");
    every i := 0 to 255 do {
       x := hextab[i + 1];
       v := (i / 255.0) ^ gamma;
       if v < 0.0001 then		# avoid "e" notation
-         v := 0.0
+         v := 0.0;
       write(ofile, "            0x", x, x, " ", left(v, 8, "0"))
-      }
-   write(ofile, "    INTENSITY_TBL_END")
+      };
+   write(ofile, "    INTENSITY_TBL_END");
 end

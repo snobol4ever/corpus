@@ -98,8 +98,8 @@ link random
 
 global xlist
 
-procedure main(args)
-   local line, goal, count, s, opts
+procedure main(args);
+   local line, goal, count, s, opts;
 
    opts := options(args, "g+");
 
@@ -111,43 +111,43 @@ procedure main(args)
       else {
          line ? (goal := move(1),move(1),count := (1 < integer(tab(0))));
          break
-         }
+         };
 
-   if /count then stop("no goal specification")
+   if /count then stop("no goal specification");
 
    count := \opts["g"];
-   if count < 1 then stop("*** invalid number of derivations specified")
+   if count < 1 then stop("*** invalid number of derivations specified");
 
    every 1 to count do {		#  generate sentences
       s := goal;
       repeat {
-         if not upto(&ucase,s) then break	# text for nonterminal
+         if not upto(&ucase,s) then break;	# text for nonterminal
 					#  quit on deadlock
-         if not(s ? subst(!xlist)) then break next
+         if not(s ? subst(!xlist)) then break next;
          until s ?:= subst(?xlist)	#  make replacement
-         }
+         };
       write(s)
-      }
+      };
 end
 
 #  replace left hand side by right hand side
 #
-procedure subst(a)
-   suspend tab(find(a[1])) || (move(*a[1]),a[2]) || tab(0)
+procedure subst(a);
+   suspend tab(find(a[1])) || (move(*a[1]),a[2]) || tab(0);
 end
 
 #  enter rewriting rule
 #
-procedure xpairs(s)
-   local i, a
-   initial xlist := []
+procedure xpairs(s);
+   local i, a;
+   initial xlist := [];
    if s ? {
 				#  handle optional replication factor
       i := 1(0 < integer(tab(upto(':'))),move(1)) | 1 &
       a := [tab(find("->")),(move(2),tab(0))]
       }
    then {
-      every 1 to i do put(xlist,a)
+      every 1 to i do put(xlist,a);
       return
-      }
+      };
 end

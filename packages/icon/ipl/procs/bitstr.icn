@@ -66,8 +66,8 @@
 
 record BitString(s, buffer, bufferBits)
 
-procedure BitStringPut(bitString, nbits, value)
-    local outvalue
+procedure BitStringPut(bitString, nbits, value);
+    local outvalue;
     #
     #  Initialize.
     #
@@ -80,10 +80,10 @@ procedure BitStringPut(bitString, nbits, value)
     if /nbits then {
 	 if bitString.bufferBits > 0 then
 		  bitString.s ||:=
-			   char(ishift(bitString.buffer, 8 - bitString.bufferBits))
-	 bitString.buffer := bitString.bufferBits := 0
+			   char(ishift(bitString.buffer, 8 - bitString.bufferBits));
+	 bitString.buffer := bitString.bufferBits := 0;
 	 return bitString.s
-	    }
+	    };
     #
     #  Merge new value into buffer.
     #
@@ -99,13 +99,13 @@ procedure BitStringPut(bitString, nbits, value)
 	 bitString.buffer :=
 		  ixor(bitString.buffer, ishift(outvalue, bitString.bufferBits - 8));
 	 bitString.bufferBits -:= 8
-	    }
-    return
+	    };
+    return;
 end
 
 
-procedure BitStringGet(bitString, nbits)
-    local value, save, i
+procedure BitStringGet(bitString, nbits);
+    local value, save, i;
     #
     #  Initialize.
     #
@@ -124,25 +124,25 @@ procedure BitStringGet(bitString, nbits)
 	     #
 	     if nbits >= 0 then {
 		  every i := 1 to *bitString do
-			   bitString[i] := save[i]
+			   bitString[i] := save[i];
 		  fail
 		     }
 	     else {
 		  bitString.s := "";
 		  bitString.bufferBits := value := 0;
-		  value :=: bitString.buffer
+		  value :=: bitString.buffer;
 		  return value
 		     }
-	        }
+	        };
 	 bitString.s[1] := "";
 	 bitString.bufferBits +:= 8
-	    }
+	    };
     #
     #  Extract value from buffer and return.
     #
     value := ishift(bitString.buffer, nbits - bitString.bufferBits);
     bitString.buffer :=
 	     ixor(bitString.buffer, ishift(value, bitString.bufferBits - nbits));
-    bitString.bufferBits -:= nbits
-    return value
+    bitString.bufferBits -:= nbits;
+    return value;
 end

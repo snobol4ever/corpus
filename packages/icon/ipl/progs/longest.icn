@@ -20,10 +20,10 @@
 #
 ############################################################################
 
-procedure main(argl)
-   local longest, max, count, countl, number, line
+procedure main(argl);
+   local longest, max, count, countl, number, line;
 
-   if argl[1] == "-#" then number := 1
+   if argl[1] == "-#" then number := 1;
 
    count := 0;
    max := -1;
@@ -35,9 +35,9 @@ procedure main(argl)
          longest := line;
          countl := count
          }
-      }
+      };
 
-   if \number then write(countl)
-   write(longest)
+   if \number then write(countl);
+   write(longest);
 
 end

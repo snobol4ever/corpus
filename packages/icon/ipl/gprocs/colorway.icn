@@ -118,8 +118,8 @@ $define Pad	10		# name padding
 $define Lheight	30		# line height
 $define Cwidth 100		# color width
 
-procedure cw_init()
-   local atts
+procedure cw_init();
+   local atts;
 
    atts := ui_atts();
 
@@ -132,14 +132,14 @@ procedure cw_init()
 
    cw_root := cw_vidgets["root"];
    cw_active_vidget := cw_vidgets["active"];
-   cw_active := &null		# initially inactive
+   cw_active := &null;		# initially inactive
 
-   return
+   return;
 
 end
 
-procedure edit_cw()
-   local name
+procedure edit_cw();
+   local name;
 
    expose(cw_win);
 
@@ -154,7 +154,7 @@ procedure edit_cw()
                }
             else if &x > cw_col then {
                if ColorDialog("Select color:", cw.table[name]) ==
-                  "Cancel" then next
+                  "Cancel" then next;
                cw.table[name] := dialog_value;
                cw_touched := 1;
                win_cw()
@@ -162,8 +162,8 @@ procedure edit_cw()
             else {
                repeat {
                   if TextDialog("Change name:", , name, 60) ==
-                     "Cancel" then break
-                  if dialog_value[1] == name then break		 # no change
+                     "Cancel" then break;
+                  if dialog_value[1] == name then break;		 # no change
                   if member(cw.table, dialog_value[1]) then {
                         Notice("Name " || image(dialog_value[1]) || " exists");
                         next
@@ -177,101 +177,101 @@ procedure edit_cw()
                      }
                   }
                }
-            }
+            };
          "q":   return control_mode()
          }
-      }
+      };
 
 end
 
-procedure control_mode()
+procedure control_mode();
 
    VSetState(cw_active_vidget, &null);
 
-   expose(cw_interface)
+   expose(cw_interface);
 
-   return
-
-end
-
-procedure active_cb(vidget, value)
-
-   cw_active := value
-
-   return
+   return;
 
 end
 
-procedure way_cb(vidget, value)
+procedure active_cb(vidget, value);
+
+   cw_active := value;
+
+   return;
+
+end
+
+procedure way_cb(vidget, value);
 
    case value[1] of {
-      "add     @A":   add_way()
+      "add     @A":   add_way();
       "delete  @D":   delete_way()
-      }
+      };
 
-   return
+   return;
 
 end
 
-procedure file_cb(vidget, value)
+procedure file_cb(vidget, value);
 
    case value[1] of {
-      "load  @L":   load_cw()
-      "new   @N":   new_cw()
-      "pick  @P":   pick()
-      "quit  @Q":   quit()
-      "save  @S":   save_cw()
+      "load  @L":   load_cw();
+      "new   @N":   new_cw();
+      "pick  @P":   pick();
+      "quit  @Q":   quit();
+      "save  @S":   save_cw();
       "save as":    save_cw_as()
-      }
+      };
 
-   return
+   return;
 
 end
 
-procedure shortcuts(e)
+procedure shortcuts(e);
 
    if &meta then case map(e) of {
-      "a":   add_way()
-      "d":   delete_way()
-      "e":   VSetState(cw_active_vidget, 1)
-      "l":   load_cw()
-      "n":   new_cw()
-      "p":   pick()
-      "q":   quit()
+      "a":   add_way();
+      "d":   delete_way();
+      "e":   VSetState(cw_active_vidget, 1);
+      "l":   load_cw();
+      "n":   new_cw();
+      "p":   pick();
+      "q":   quit();
       "s":   save_cw()
-      }
+      };
 
-   return
+   return;
 
 end
 
-procedure add_way()
-   local name
+procedure add_way();
+   local name;
 
    repeat {
       repeat {
-         if TextDialog("Add color:", "name", , 60) == "Cancel" then return
+         if TextDialog("Add color:", "name", , 60) == "Cancel" then return;
          if \cw.table[dialog_value[1]] then {
             Notice("Name is in use.");
             next
-            }
+            };
          name := dialog_value[1];
-         if ColorDialog("Choose color:") == "Cancel" then return
-         cw.table[name] := dialog_value
+         if ColorDialog("Choose color:") == "Cancel" then return;
+         cw.table[name] := dialog_value;
          win_cw();
          cw_touched := 1;
          next
          }
-      }
+      };
 
 end
 
 #  NOTE:  Got error in line comparing dialog_value[i]:  &null.
 
-procedure delete_way()
-   local i, x, count
+procedure delete_way();
+   local i, x, count;
 
-   if ToggleDialog("Delete ways:", cw_names) == "Cancel" then fail
+   if ToggleDialog("Delete ways:", cw_names) == "Cancel" then fail;
 
    count := 0;
 
@@ -280,42 +280,42 @@ procedure delete_way()
          delete(cw.table, cw_names[i]);
          count +:= 1;
          cw_touched := 1
-         }
+         };
 
-   if count > 0 then win_cw()
+   if count > 0 then win_cw();
 
-   return
+   return;
 
 end
  
-procedure load_cw()
-   local input, x
+procedure load_cw();
+   local input, x;
 
    repeat {
-      if OpenDialog() == "Cancel" then fail
+      if OpenDialog() == "Cancel" then fail;
       input := open(dialog_value) | {
          Notice("Cannot open file");
          next
-         }
+         };
       x := xdecodet(input, "colorway") | {
          Notice("File does not contain color way");
          close(input);
          next
-         }
+         };
       cw_file := dialog_value;
       cw := x;
       win_cw();
       expose(cw_interface);
       close(input);
-      cw_touched := &null
+      cw_touched := &null;
       return
-      }
+      };
 
 end
 
 
-procedure win_cw()
-   local y, name, height
+procedure win_cw();
+   local y, name, height;
 
    WClose(\cw_win);
 
@@ -339,123 +339,123 @@ procedure win_cw()
       Fg(cw_win, cw.table[name]) | {
          Notice("Invalid color: " || cw.table[name], "substituting black");
          Fg(cw_win, "black")
-         }
+         };
       FillRectangle(cw_win, cw_col, y, Cwidth, Lheight);
       y +:= Lheight
-      }
+      };
 
-   if \cw_active then expose(cw_win)
+   if \cw_active then expose(cw_win);
 
-   return
+   return;
 
 end
 
-procedure new_cw()
+procedure new_cw();
 
    if /cw_touched then {
 	# ask if colorway is to be saved first
-      }
+      };
 
    cw := colorway(table());
    win_cw();
-   cw_touched := &null
+   cw_touched := &null;
 
-   return
+   return;
 
 end
 
-procedure save_cw()
-   local output
+procedure save_cw();
+   local output;
 
    repeat {
-      if SaveDialog(, cw_file) == "Cancel" then fail
+      if SaveDialog(, cw_file) == "Cancel" then fail;
       output := open(dialog_value, "w") | {
          Notice("Cannot open " || dialog_value || " for writing");
          next
-         }
+         };
       xencodet(cw, output, "colorway") |
         ExitNotice("Internal inconsistency:  color way is corrupt");
       close(output);
-      cw_touched := &null
+      cw_touched := &null;
       return
-      }
+      };
 
 end
 
-procedure save_cw_as()
-   local output, temp
+procedure save_cw_as();
+   local output, temp;
 
    repeat {
-      if SaveDialog("Save as:") == "Cancel" then fail
+      if SaveDialog("Save as:") == "Cancel" then fail;
       if dialog_value == \cw_file then {
          temp := dialog_value;
-         if TextDialog("Overwrite existing file?") == "Cancel" then next
+         if TextDialog("Overwrite existing file?") == "Cancel" then next;
          dialog_value := temp
-         }
+         };
       output := open(dialog_value, "w") | {
          Notice("Cannot open " || dialog_value || " for writing");
          next
-         }
+         };
       xencodet(cw, output, "colorway") |
         ExitNotice("Internal inconsistency:  color way is corrupt");
       close(output);
-      cw_touched := &null
+      cw_touched := &null;
       return
-      }
+      };
 
 end
 
-procedure quit()
+procedure quit();
 
    if \cw_touched then {
 				# ask for save if touched
-      }
+      };
 
-   exit()
+   exit();
 
 end
 
 #  Utility procedure to let user pick an image file in the current directory.
 
-procedure pick()
-   local plist, ls, input, x
+procedure pick();
+   local plist, ls, input, x;
 
    plist := filelist("*.cw") |
       return FailNotice("Pick not supported on this platform");
 
-   if *plist = 0 then return FailNotice("No files found.")
+   if *plist = 0 then return FailNotice("No files found.");
 
    repeat {
       if SelectDialog("Select color way:", plist, plist[1]) == "Cancel"
-         then fail
+         then fail;
       input := open(dialog_value) | {
          Notice("Cannot open file");
          next
-         }
+         };
       x := xdecodet(input, "colorway") | {
          Notice("File does not contain color way");
          close(input);
          next
-         }
+         };
       cw_file := dialog_value;
       cw := x;
       win_cw();
       expose(cw_interface);
       close(input);
-      cw_touched := &null
+      cw_touched := &null;
       return
-      }
+      };
 
-   return
+   return;
    
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts()
-   return ["size=134,169", "bg=gray-white"]
+procedure ui_atts();
+   return ["size=134,169", "bg=gray-white"];
 end
 
-procedure ui(win, cbk)
+procedure ui(win, cbk);
 return vsetup(win, cbk,
    [":Sizer:::0,0,134,169:",],
    ["active:Button:regular:1:17,38,49,20:edit",active_cb],
@@ -465,6 +465,6 @@ return vsetup(win, cbk,
    ["line:Line:::0,25,200,25:",],
    ["ways:Menu:pull::40,2,36,21:Ways",way_cb,
       ["add     @A","delete  @D"]],
-   )
+   );
 end
 #===<<vib:end>>===	end of section maintained by vib

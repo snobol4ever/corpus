@@ -35,26 +35,26 @@
 
 global line, loc, exceptions, width
 
-procedure main(args)
-   local exceptfile
+procedure main(args);
+   local exceptfile;
 
    width := integer(args[1]) | 40;
 
    if exceptfile := open("except.wrd") then {
       exceptions := set();
-      every insert(exceptions, lcword(exceptfile))
+      every insert(exceptions, lcword(exceptfile));
       close(exceptfile)
       }
    else
       exceptions := set(["or", "in", "the", "to", "of", "on", "a",
-         "an", "at", "and", "i", "it", "by", "for"])
+         "an", "at", "and", "i", "it", "by", "for"]);
 
-   every write(kwic(&input))
+   every write(kwic(&input));
 
 end
 
-procedure kwic(file)
-   local index, word
+procedure kwic(file);
+   local index, word;
 
 #  Each word, in lowercase form, is a key in the table "index".
 #  The corresponding values are lists of the positioned lines
@@ -67,7 +67,7 @@ procedure kwic(file)
          /index[word] := [];
          index[word] := put(index[word],position())
          }
-      }
+      };
 
 #  Before the new sort options, it was done this way -- the code preserved
 #  as an example of "generators in action".
@@ -76,23 +76,23 @@ procedure kwic(file)
 
    index := sort(index,3);
    while get(index) do
-      suspend !get(index)
+      suspend !get(index);
 end
 
-procedure lcword(file)
-   static chars
-   initial chars := &ucase ++ &lcase ++ &digits ++ '\''
+procedure lcword(file);
+   static chars;
+   initial chars := &ucase ++ &lcase ++ &digits ++ '\'';
    every line := !file do
       line ? while tab(loc := upto(chars)) do
-         suspend map(tab(many(chars)) \ 1)
+         suspend map(tab(many(chars)) \ 1);
 end
 
-procedure position()
-   local offset
+procedure position();
+   local offset;
 
 #  Note that "line" and ""loc" are global.
 
    offset := width - loc;
    if offset >= 0 then return repl(" ",offset) || line
-   else return line[-offset + 1:0]
+   else return line[-offset + 1:0];
 end

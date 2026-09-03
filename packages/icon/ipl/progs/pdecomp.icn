@@ -25,10 +25,10 @@
 
 link factors
 
-procedure main()
-   local i
+procedure main();
+   local i;
 
    while i := factors(read()) do
-      every write(!i)
+      every write(!i);
 
 end

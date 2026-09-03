@@ -25,9 +25,9 @@
 
 link serial
 
-procedure created(kind)			#: number of structures created
+procedure created(kind);			#: number of structures created
 
    return serial(proc(kind)());
-   fail
+   fail;
 
 end

@@ -23,8 +23,8 @@
 #
 ############################################################################
 
-procedure apply(plist, arg)
-   local p
+procedure apply(plist, arg);
+   local p;
 
    plist := copy(plist);
 
@@ -33,6 +33,6 @@ procedure apply(plist, arg)
    if *plist = 0 then
       suspend p(arg)
    else
-      suspend p(apply(plist, arg))
+      suspend p(apply(plist, arg));
 
 end

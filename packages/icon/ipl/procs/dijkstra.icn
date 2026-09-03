@@ -121,42 +121,42 @@
 # Produces a set of the indices of all the guard expressions in exp.
 #
 ############################################################################
-procedure __Dijkstra_guard_index_set(exp)
-   local result
+procedure __Dijkstra_guard_index_set(exp);
+   local result;
 
    result := set();
-   every insert(result, 1 to *exp by 2)
-   return result
+   every insert(result, 1 to *exp by 2);
+   return result;
 
 end     # __Dijkstra_guard_index_set
 
 ############################################################################
 
-procedure do_od(exp)			#: Dijkstra's do_od construct
+procedure do_od(exp);			#: Dijkstra's do_od construct
 
-   local all_guards, curr_guard
+   local all_guards, curr_guard;
 
    all_guards := __Dijkstra_guard_index_set(exp);
 
    # Remember to use refreshed co-expressions so that they can be evaluated
    # more than once!
    while @^exp[ curr_guard := !all_guards ] do
-      @^exp[ curr_guard + 1 ]
+      @^exp[ curr_guard + 1 ];
 
 end     # do_od
 
 ############################################################################
 
-procedure if_fi(exp)			#: Dijkstra's if_fi construct
+procedure if_fi(exp);			#: Dijkstra's if_fi construct
 
-   local all_guards, curr_guard
+   local all_guards, curr_guard;
 
    all_guards := __Dijkstra_guard_index_set(exp);
 
    if @exp[ curr_guard := !all_guards ] then
       suspend | @exp[ curr_guard + 1 ]
    else
-      runerr(500, "if_fi: no guards succeeded")
+      runerr(500, "if_fi: no guards succeeded");
 
 end     # if_fi
 
@@ -167,33 +167,33 @@ $ifdef TEST
 # Dijkstra version of the familiar Euclidean algorithm for gcd.
 #
 ############################################################################
-procedure gcd(x, y)
+procedure gcd(x, y);
 
    # Use static variables so that co-expressions can share them
-   static lx, ly
+   static lx, ly;
 
-   lx := abs(x)
-   ly := abs(y)
+   lx := abs(x);
+   ly := abs(y);
 
    do_od{
       lx >= ly > 0, lx %:= ly,
       ly >= lx > 0, ly %:= lx
-      }
+      };
 
    return if_fi{
       lx = 0, ly,
       ly = 0, lx
-      }
+      };
 
 end     # gcd
 
-procedure main(arg)
+procedure main(arg);
 
-   local a, b
+   local a, b;
 
-   a := integer(arg[1]) | 1836311903
-   b := integer(arg[2]) | 1134903170
-   return write("gcd(", a, ",", b,")=",gcd(a, b))
+   a := integer(arg[1]) | 1836311903;
+   b := integer(arg[2]) | 1134903170;
+   return write("gcd(", a, ",", b,")=",gcd(a, b));
 
 end     # main
 

@@ -52,15 +52,15 @@
 link io
 link options
 
-procedure main(arglist)
+procedure main(arglist);
 
-local opt, diropts, dir, paths , fn, ext 
-local tempfn, tempf, file, line
-local b10, tens, header, _pl, _ppage, _fnw
-local _asciid, _exchidden 
-local _star, _dot, _sepr, _q
-local pagenum, linenum
-local N, E, D, DET, t
+local opt, diropts, dir, paths , fn, ext; 
+local tempfn, tempf, file, line;
+local b10, tens, header, _pl, _ppage, _fnw;
+local _asciid, _exchidden; 
+local _star, _dot, _sepr, _q;
+local pagenum, linenum;
+local N, E, D, DET, t;
 
 opt   := options(arglist,"D!h!n+");  # parse command line options
 
@@ -84,12 +84,12 @@ else
    _dot  := ".";
    _sepr := " ";
    _q    := ""
-}
+};
 
 if \_exchidden then 
    diropts := " /b /a:-d-h >> "
 else
-   diropts := " /b /a:-d   >> "
+   diropts := " /b /a:-d   >> ";
 
 N := set();  # file names
 E := set();  # file extensions
@@ -97,7 +97,7 @@ D := set();  # directory list
 DET := table();  # directory - extension table
 
 if not close(open(tempfn := tempname(),"w")) then
-   stop(&errout,"Unable to create temporary file, e.g. ",tempfn)
+   stop(&errout,"Unable to create temporary file, e.g. ",tempfn);
 
 diropts ||:= tempfn;
 
@@ -106,21 +106,21 @@ while dir := read() do
    dir := trim( dir ? tab(upto('#')) );  # strip icon style comments
    if *dir > 0 then
       system( "dir " || dir || diropts )
-}
+};
 
 if not ( tempf := open(tempfn,"r") ) then
-   stop(&errout,"Unable to open(read) temporary file ",tempfn)
+   stop(&errout,"Unable to open(read) temporary file ",tempfn);
 
 while line := map(trim(read(tempf))) do
 {
-   file := DOS_FileParts(line)
-   /DET[file.devpath] := table()
+   file := DOS_FileParts(line);
+   /DET[file.devpath] := table();
    /DET[file.devpath][file.extension] := set();
    insert( DET[file.devpath][file.extension],  file.name );
    insert( D, file.devpath );
    insert( E, file.extension );
    insert( N, file.name )
-}
+};
 
 close(tempf);
 D := sort( D );
@@ -134,14 +134,14 @@ write( _q, "Directories Searched (cross-reference number and path):", _q );
 paths := 0;
 every dir := !D & ext := !E do 
    if \DET[dir][ext] then
-      write( right(paths +:= 1, 4), _sepr, _q, dir, " [", ext, "]", _q )
+      write( right(paths +:= 1, 4), _sepr, _q, dir, " [", ext, "]", _q );
 
 if \_asciid then 
 {
    write( "\r\n", _q, "Files by Directory:", _q );
    write();
    writes( _q,_q,_sepr, _q,_q );
-   every writes( _sepr, 1 to paths )
+   every writes( _sepr, 1 to paths );
    write()
 }
 else 
@@ -149,7 +149,7 @@ else
    header := [];
    tens := "";
    b10 := repl(" ",10);
-   every tens ||:= (b10 || (1 to (paths / 10)))[-10:0]
+   every tens ||:= (b10 || (1 to (paths / 10)))[-10:0];
    put( header, "Files by Directory:" );
    header[1] ||:= right("Page ",_ppage[1] - *header[1]) || repl("X",_ppage[2]);
    put( header, left("",_fnw + *_sepr) || tens );
@@ -159,7 +159,7 @@ else
    put( header, 
         left("",_fnw + *_sepr) || 
         repl( "----+----|", (paths / 10) + 1)[1:paths+1] )
-}
+};
 
 linenum := pagenum := 0;
 every fn := !N do 
@@ -170,7 +170,7 @@ every fn := !N do
       writes( "\f" );
       header[1][-_ppage[2]:0] := right(pagenum,_ppage[2]);
       every write( !header ) do linenum +:= 1
-   }
+   };
    writes( _q,_q,_sepr, _q,left( fn, _fnw),_q );
    every ( dir := !D ) & ( ext := !E ) do 
    {
@@ -179,12 +179,12 @@ every fn := !N do
             writes( _star )
          else
             writes( _dot  )
-   }
+   };
    write()
-}
+};
 
 write();
 write( _q, "Total files in inventory is ", _q, _sepr, *N );
 
-exit(0)
+exit(0);
 end

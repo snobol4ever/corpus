@@ -31,15 +31,15 @@ global size
 #  centered at x and y, with scaled radius, with an initial offset angle,
 #  and with a specified frame size.
 
-procedure rstar(x, y, n, j, scale, offset, size)	#:  regular star
-   local i, jangle, angle
+procedure rstar(x, y, n, j, scale, offset, size);	#:  regular star
+   local i, jangle, angle;
 
-   /x := 100				# defaults
-   /y := 100 
-   /n := 5
-   /j := 3
-   /scale := 0.45
-   /offset := 0.5
+   /x := 100;				# defaults
+   /y := 100; 
+   /n := 5;
+   /j := 3;
+   /scale := 0.45;
+   /offset := 0.5;
    /size := 200;
 
    jangle := j * 2 * &pi / n;
@@ -48,11 +48,11 @@ procedure rstar(x, y, n, j, scale, offset, size)	#:  regular star
    offset *:= &pi;
 
    every i := 0 to n do {
-      angle := jangle * i + offset
+      angle := jangle * i + offset;
       suspend Point(
           x + scale * cos(angle),
           y + scale * sin(angle)
          )
-      }
+      };
 
 end

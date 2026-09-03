@@ -28,9 +28,9 @@
 #
 ############################################################################
 
-procedure WeightedShuffle (sample, percentage)
-local lcv, pairs, weight, size, newlist, legal, illegal
-  numeric(percentage) | fail
+procedure WeightedShuffle (sample, percentage);
+local lcv, pairs, weight, size, newlist, legal, illegal;
+  numeric(percentage) | fail;
   (0 <= percentage <= 100) | fail;
   newlist := copy(sample);  # Start with a copy of the
                                            # original list.
@@ -74,14 +74,14 @@ local lcv, pairs, weight, size, newlist, legal, illegal
         illegal ++:= set([lcv]);  # Compile the list of invaild
                                            # indices.
         lcv +:= weight
-      }
+      };
       every lcv := 1 to size do            # Whatever isn't bad is good.
         if not member (illegal, lcv) then put (legal, lcv)
     }
-  }
-  every newlist[!legal] :=: newlist[?legal]
+  };
+  every newlist[!legal] :=: newlist[?legal];
                                            # Shuffle elements only from
                                            # legal indices.
-  return newlist
+  return newlist;
 end
 

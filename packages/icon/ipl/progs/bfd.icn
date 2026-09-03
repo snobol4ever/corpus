@@ -44,9 +44,9 @@ record obj(size,detail)
 
 global opts, binsize
 
-procedure main(args)
-   local ifile, line, n, d
-   local objlist, bins, o, b
+procedure main(args);
+   local ifile, line, n, d;
+   local objlist, bins, o, b;
 
    opts := options(args, "tnb+");
 
@@ -55,7 +55,7 @@ procedure main(args)
    if *args > 1 then
       ifile := open(args[2]) | stop("can't open ", args[2])
    else
-      ifile := &input
+      ifile := &input;
 
    objlist := [];
    while line := read(ifile) do line ? {
@@ -64,7 +64,7 @@ procedure main(args)
       tab(many(' \t'));
       d := trim(tab(0), ' \t');
       put(objlist, obj(n, d))
-      }
+      };
 
    objlist := sortf(objlist, 1);
 
@@ -73,48 +73,48 @@ procedure main(args)
       n := bestfit(bins, o.size);
       put(bins[n].detail, o);
       bins[n].size +:= o.size
-   }
+   };
 
    if \opts["n"] then {
-      write(*bins)
+      write(*bins);
       return
-   }
+   };
 
    if \opts["t"] then {
-      every write((!bins).size)
+      every write((!bins).size);
       return
-   }
+   };
 
    if n := \opts["b"] then {
        b := bins[n] | stop("no bin ", n, "; only " *bins, " bins");
-       every write((!b.detail).detail)
+       every write((!b.detail).detail);
        return
-   }
+   };
 
    while b := get(bins) do {
       write();
       while o := get(b.detail) do
-         write(right(o.size, 12), "\t", o.detail)
+         write(right(o.size, 12), "\t", o.detail);
       write(right(b.size, 12), "\t--total--")
-      }
+      };
 end
 
-procedure bestfit(bins, sz)
-   local b, i, n, d, best
+procedure bestfit(bins, sz);
+   local b, i, n, d, best;
 
    every i := 1 to *bins do {
       b := bins[i];
       d := binsize - b.size - sz;
       if d < 0 | d > \best then
-	 next
+	 next;
       best := d;
       n := i
-      }
+      };
 
    if \n then
       return n
    else {
-      put(bins, obj(0, []))
+      put(bins, obj(0, []));
       return *bins
-      }
+      };
 end

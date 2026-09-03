@@ -26,8 +26,8 @@
 link pattread
 link patxform
 
-procedure main()
-   local front, back, black, white
+procedure main();
+   local front, back, black, white;
 
    front := pattread();
    
@@ -42,12 +42,12 @@ procedure main()
 
    back := protate(back);
 
-   analyze("Back warp floats", back, "1")
+   analyze("Back warp floats", back, "1");
 
 end
 
-procedure analyze(caption, rows, color)
-   local counts, length, row
+procedure analyze(caption, rows, color);
+   local counts, length, row;
 
    counts := table(0);
 
@@ -58,20 +58,20 @@ procedure analyze(caption, rows, color)
             if length > 2 then counts[length] +:= 1
             }
          }
-      }
+      };
 
-   if *counts = 0 then return
+   if *counts = 0 then return;
 
-   write(caption)
+   write(caption);
 
    counts := sort(counts, 3);
 
    write();
 
-   while write("\t", get(counts), "\t", get(counts))
+   while write("\t", get(counts), "\t", get(counts));
 
-   write()
+   write();
 
-   return
+   return;
 
 end

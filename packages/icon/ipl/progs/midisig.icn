@@ -25,9 +25,9 @@
 link bincvt
 link convert
 
-procedure main()
-   local rest, track, tracks, width, track_segs, seg, byte, bytes, code
-   local meta_event, event, command, channel
+procedure main();
+   local rest, track, tracks, width, track_segs, seg, byte, bytes, code;
+   local meta_event, event, command, channel;
 
    event := table();
 
@@ -61,80 +61,80 @@ procedure main()
    track_segs := [];
 
    reads(, 100000) ? {
-      ="MThd" | stop("*** invalid header")
+      ="MThd" | stop("*** invalid header");
       (unsigned(move(4)) = 6) | stop("*** invalid size");
       write(
          case unsigned(move(2)) of {
-            0        :  "single track"
-            1        :  "multi-track, synchronous"
-            2        :  "multi-track, asynchronous"
+            0        :  "single track";
+            1        :  "multi-track, synchronous";
+            2        :  "multi-track, asynchronous";
             default  :  stop("*** invalid track information")
             } | stop("*** invalid track information")
-         )
+         );
       write(tracks := unsigned(move(2)), " tracks") |
-         stop("*** invalid track number information")
+         stop("*** invalid track number information");
       write(unsigned(move(2)), " delta-ticks per quarter note") |
-         stop("*** invalid delta-tick information")
-      width := *tracks + 1
+         stop("*** invalid delta-tick information");
+      width := *tracks + 1;
       every track := 1 to tracks do {
          ="MTrk" | {
-            write(&errout, "*** short file")
+            write(&errout, "*** short file");
             break
-            }
-         rest := unsigned(move(4))
+            };
+         rest := unsigned(move(4));
          put(track_segs, move(rest))
          }
-      }
+      };
 
-   track := 0
+   track := 0;
 
    while seg := get(track_segs) do {
-      write()
-      track +:= 1
-      write("track", right(track, width), ": ", *seg, " bytes")
+      write();
+      track +:= 1;
+      write("track", right(track, width), ": ", *seg, " bytes");
       seg ? {
-         write("delta-time: ", get_time()) | stop("*** invalid delta-time")
-         byte := move(1)
+         write("delta-time: ", get_time()) | stop("*** invalid delta-time");
+         byte := move(1);
          if byte == "\xff" then {
             write(
                "meta-event: ",
                \meta_event[code := move(1)] |
                   ("unknown code " || image(code))
-               )
-            bytes := unsigned(move(1))
+               );
+            bytes := unsigned(move(1));
             if 1 <= unsigned(code) <= 7 then write("   ", move(bytes))
             }
          else {				# event
-            byte := exbase10(ord(byte), 16)
+            byte := exbase10(ord(byte), 16);
             write(
                "event: ",
                \event[byte[1]] | ("unknown command " || image(byte[1])),
                ", channel ",
                byte[2]
                )
-            }
+            };
          next			# THE NEXT THING TO DO IS GET DATA BYTES
          }			# AND LOOP
-      }
+      };
 
 end
 
 # Decode delta-time.
 
-procedure get_time()
-   local delta, byte
+procedure get_time();
+   local delta, byte;
 
-   delta := ""
+   delta := "";
 
    while byte := move(1) do {
       if ord(byte) >= 128 then delta ||:= char(ord(byte) - 128)
       else {
-         delta ||:= byte
+         delta ||:= byte;
          return unsigned(delta)
          }
-      }
+      };
 
-   fail						# short data
+   fail;						# short data
 
 end
           

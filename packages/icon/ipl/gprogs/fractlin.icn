@@ -41,8 +41,8 @@ link wopen
 global win, mono, h, w
 global Window, XMAX, YMAX
 
-procedure main (args)
-    local nextarg, arg, i
+procedure main (args);
+    local nextarg, arg, i;
 
     XMAX := YMAX := 700;  # physical screen size
     w := h := 1.0;
@@ -50,7 +50,7 @@ procedure main (args)
     nextarg := create !args;
     while arg := @nextarg do {
        if arg == ("-help"|"-h") then stop(helpmsg())
-       }
+       };
 
     win := WOpen("label=Fractal Lines", "width="||XMAX, "height="||YMAX);
     mono := WAttrib (win, "depth") == "1";
@@ -65,14 +65,14 @@ procedure main (args)
        fract_line(Window, point(0.25,0.25), point(0.50,0.67), i/10.0);
        fract_line(Window, point(0.50,0.67), point(0.75,0.25), i/10.0);
        fract_line(Window, point(0.75,0.25), point(0.25,0.25), i/10.0)
-       }
+       };
 
     Event(win);
-    close(win)
+    close(win);
 end
 
-procedure helpmsg()
-   write("Usage: Fract")
-   return
+procedure helpmsg();
+   write("Usage: Fract");
+   return;
 end
 

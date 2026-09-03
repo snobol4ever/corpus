@@ -24,26 +24,26 @@
 
 record ScanEnvir(subject, pos)
 
-procedure Bscan(e1)
-   local OuterEnvir
-   OuterEnvir := ScanEnvir(&subject, &pos)
-   &subject := e1
-   &pos := 1
-   suspend OuterEnvir
-   &subject := OuterEnvir.subject
+procedure Bscan(e1);
+   local OuterEnvir;
+   OuterEnvir := ScanEnvir(&subject, &pos);
+   &subject := e1;
+   &pos := 1;
+   suspend OuterEnvir;
+   &subject := OuterEnvir.subject;
    &pos := OuterEnvir.pos;
-   fail
+   fail;
 end
 
-procedure Escan(OuterEnvir, e2)
-   local InnerEnvir
-   InnerEnvir := ScanEnvir(&subject, &pos)
-   &subject := OuterEnvir.subject
-   &pos := OuterEnvir.pos
+procedure Escan(OuterEnvir, e2);
+   local InnerEnvir;
+   InnerEnvir := ScanEnvir(&subject, &pos);
+   &subject := OuterEnvir.subject;
+   &pos := OuterEnvir.pos;
    suspend e2;
    OuterEnvir.subject := &subject;
-   OuterEnvir.pos := &pos
-   &subject := InnerEnvir.subject
+   OuterEnvir.pos := &pos;
+   &subject := InnerEnvir.subject;
    &pos := InnerEnvir.pos;
-   fail
+   fail;
 end

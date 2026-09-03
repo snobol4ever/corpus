@@ -82,8 +82,8 @@ global nchars			# characters allowed in a nonterminal name
 global procend			# name suffix and parens
 global sym			# current nonterminal symbol
 
-procedure main(args)
-   local line			# a line of input
+procedure main(args);
+   local line;			# a line of input
 
    declend := "__";
    procend := "_()";
@@ -92,13 +92,13 @@ procedure main(args)
    while line := read() do {		# process lines of input
       line ? {
          case move(1) of {		# action depends on first character
-            "<":  tab(0) ? transprod()	# transform the production
-            "=":  write(tab(0))		# pass through
-            "#":  &null			# ignore
+            "<":  tab(0) ? transprod();	# transform the production
+            "=":  write(tab(0));		# pass through
+            "#":  &null;			# ignore
             default: error()
             }				# end case
          }				# end scan
-      }					# end while
+      };					# end while
 
    write("link ",args[1] | "recog");  # link main procedure
    write("link matchlib");  # link built-in symbols
@@ -106,7 +106,7 @@ procedure main(args)
    write("procedure init()");  # write out initialization procedure
    write("   goal := ",goal,"_");
    write("   return");
-   write("end")
+   write("end");
 
 end
 
@@ -114,7 +114,7 @@ end
 #  Transform a production.
 #
 
-procedure transprod()
+procedure transprod();
 
    {
       sym := tab(many(nchars)) &	# get the nonterminal name
@@ -128,16 +128,16 @@ procedure transprod()
    write(")");
    write("      }");  # end the suspend expression
    write("end");  # end the procedure declaration
-   write()				# space between declarations
-   /goal := sym				# first symbol is goal
+   write();				# space between declarations
+   /goal := sym;				# first symbol is goal
 
 end
 
 #
 #  Transform a sequence of alternatives.
 #
-procedure transalts()
-   local alt				# an alternative
+procedure transalts();
+   local alt;				# an alternative
 
    while alt := tab(bal('|') | 0) do {	# process alternatives
       writes("[");  # record for alternative
@@ -148,30 +148,30 @@ procedure transalts()
          writes("]");  # no more, so just close the parentheses
          break
          }				# end else
-      }					# end while
+      };					# end while
 
 end
 
 #
 #  Transform a sequence of symbols.
 #
-procedure transseq()
+procedure transseq();
 
    repeat {
       transsym();  # process a symbols
       if not pos(0) then writes(" , ")	# if there's more, provide concatenation
       else break			# else get out and return
-      }					# end while
+      };					# end while
 
-   return
+   return;
 
 end
 
 #
 #  Transform a symbol.
 #
-procedure transsym()
-   local group
+procedure transsym();
+   local group;
 
    if ="<" then {			# if it's a nonterminal
       {					# write it with suffix.
@@ -188,17 +188,17 @@ procedure transsym()
       move(1)
       }
 					# else transform nonterminal string
-   else writes("=",image(tab(upto('<') | 0)))
+   else writes("=",image(tab(upto('<') | 0)));
 
-   return
+   return;
 
 end
 
 #
 #  Issue error message and terminate execution.
 #
-procedure error()
+procedure error();
 
-   stop("*** malformed definition: ",tab(0))
+   stop("*** malformed definition: ",tab(0));
 
 end

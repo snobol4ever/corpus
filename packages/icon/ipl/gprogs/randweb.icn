@@ -34,8 +34,8 @@ link joinpair
 link random
 link wopen
 
-procedure main(argl)
-   local i, j, k, angle, incr, points, size, radius
+procedure main(argl);
+   local i, j, k, angle, incr, points, size, radius;
 
    i := integer(argl[1]) | 20;
 
@@ -50,10 +50,10 @@ procedure main(argl)
    randomize();
 
    every j := 1 to i do
-      put(points, Point(?size, ?size))
+      put(points, Point(?size, ?size));
 
    joinpair(points, points);
 
-   Event()
+   Event();
 
 end

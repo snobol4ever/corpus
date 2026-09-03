@@ -25,44 +25,44 @@
 #  
 ############################################################################
 
-procedure exbase10(i, j)	#: convert base 10 to arbitrary base
-   local s, d, sign
-   static digits
+procedure exbase10(i, j);	#: convert base 10 to arbitrary base
+   local s, d, sign;
+   static digits;
 
-   initial digits := &digits || &lcase || &ucase
+   initial digits := &digits || &lcase || &ucase;
 
-   if not(2 <= j <= *digits) then stop("*** base out of range")
+   if not(2 <= j <= *digits) then stop("*** base out of range");
 
-   if i = 0 then return 0
+   if i = 0 then return 0;
 
    if i < 0 then {
       sign := "-";
       i := -i
       }
-   else sign := ""
+   else sign := "";
    s := "";
    while i > 0 do {
       d := i % j;
-      if d > 9 then d := digits[d + 1]
+      if d > 9 then d := digits[d + 1];
       s := d || s;
       i /:= j
-      }
+      };
 
-   return sign || s
+   return sign || s;
 
 end
 
-procedure inbase10(s, i)	#: convert arbitrary base to base 10
+procedure inbase10(s, i);	#: convert arbitrary base to base 10
 
-   if i > 36 then stop("*** base too large for inbase10()")
+   if i > 36 then stop("*** base too large for inbase10()");
 
    if s[1] == "-" then return "-" || integer(i || "r" || s[2:0])
-   else return integer(i || "r" || s)
+   else return integer(i || "r" || s);
 
 end
 
-procedure radcon(s, i, j)	#: convert between bases
+procedure radcon(s, i, j);	#: convert between bases
 
-   return exbase10(inbase10(s,i),j)
+   return exbase10(inbase10(s,i),j);
 
 end

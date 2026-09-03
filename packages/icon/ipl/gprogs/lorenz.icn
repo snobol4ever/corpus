@@ -35,11 +35,11 @@
 link numbers
 link wopen
 
-procedure main()
-   local col, color, colorlist, cx, cy, cz, d0_x, d0_y, d0_z, d1_x
-   local d1_y, d1_z, d2_x, d2_y, d2_z, d3_x, d3_y, d3_z, dt, dt2
-   local i, old_col, old_row, old_y, row, sx, sy, sz, x, x_angle
-   local xt, y, y_angle, yt, z, z_angle, zt
+procedure main();
+   local col, color, colorlist, cx, cy, cz, d0_x, d0_y, d0_z, d1_x;
+   local d1_y, d1_z, d2_x, d2_y, d2_z, d3_x, d3_y, d3_z, dt, dt2;
+   local i, old_col, old_row, old_y, row, sx, sy, sz, x, x_angle;
+   local xt, y, y_angle, yt, z, z_angle, zt;
 
    x_angle  :=  rtod(45);
    sx  :=  sin(x_angle);
@@ -104,15 +104,15 @@ procedure main()
          if old_col <= 320 then {
             color := get(colorlist);
             put(colorlist, color)
-            }
+            };
 
       Fg(color);
       DrawLine(old_col, old_row, col, row);
       old_row := row;
       old_col := col
  
-      }
+      };
 
-   Event()
+   Event();
 
 end

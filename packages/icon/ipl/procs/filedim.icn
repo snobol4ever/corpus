@@ -24,8 +24,8 @@
 
 record textdim(cols, rows)
 
-procedure filedim(s, p)
-   local input, rows, cols, line
+procedure filedim(s, p);
+   local input, rows, cols, line;
 
    /p := detab;
 
@@ -36,10 +36,10 @@ procedure filedim(s, p)
    while line := p(read(input)) do {
       rows +:= 1;
       cols <:= *line
-      }
+      };
 
-   close(input)
+   close(input);
 
-   return textdim(cols, rows)
+   return textdim(cols, rows);
 
 end

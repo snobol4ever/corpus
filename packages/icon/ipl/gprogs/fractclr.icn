@@ -18,8 +18,8 @@
 #
 ############################################################################
 
-procedure main()
-   local line, output
+procedure main();
+   local line, output;
 
    while line := read() do
       line ? {
@@ -31,6 +31,6 @@ procedure main()
          writes(tab(many(&digits)) * 256);
          if not pos(0) then write(output, "\t", tab(0))
          else write(output)
-         }
+         };
 
 end

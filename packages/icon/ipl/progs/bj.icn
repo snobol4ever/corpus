@@ -37,8 +37,8 @@ global deck, message, lookup,
        user_money,  host_money,
        user_hand,   host_hand
 
-procedure main(param)
-  local bonus, user_points, host_points
+procedure main(param);
+  local bonus, user_points, host_points;
   user_money := integer(param[1]) | 3 ; host_money := user_money;
   write(screen("cls"));
 #  Most terminals don't do oversize characters like this.
@@ -52,8 +52,8 @@ procedure main(param)
     {
     if not any('y',(map(input(at(1,3) || "  " || screen("under") ||
                    "Play a game? y/n :"|| screen("norm") || " " ||
-                   screen("eeol")))[1])) then break
-    every writes(at(1,3|4),screen("eeos"))
+                   screen("eeol")))[1])) then break;
+    every writes(at(1,3|4),screen("eeos"));
     display_score();
     deck    := xshuffle();
     message := "";
@@ -67,7 +67,7 @@ procedure main(param)
       user_money -:= 1 ; host_money +:= 1 + bonus ; bonus := 0;
       display_score();
       next
-      }
+      };
     display_host(2);
     host_points := second(user_points);
     if host_points > 21 then
@@ -78,7 +78,7 @@ procedure main(param)
       host_money -:= 1 ; user_money +:= 1 + bonus ; bonus := 0;
       display_score();
       next
-      }
+      };
     if host_points = user_points then
       {
       writes(at(1,22),screen("hiblink"),"It's a draw at ",user_points,
@@ -86,7 +86,7 @@ procedure main(param)
       bonus +:= 2 ; host_money -:= 1 ; user_money -:= 1;
       display_score();
       next
-      }
+      };
     writes(at(1,12),user_points," points for user.");
     writes(at(1,14),host_points," points for ",&host ? tab(find(" ")|0));
     if user_points < host_points then
@@ -103,15 +103,15 @@ procedure main(param)
       display_score();
       next
       }
-    }
-  write(screen("clear"))
+    };
+  write(screen("clear"));
   end
 
 #
 # THIS PROCEDURE ALLOWS THE USER TO PLAY AND TAKE HITS
 #
-procedure first(host_card)
-  local points
+procedure first(host_card);
+  local points;
 
   display_user();
   display_host(1);
@@ -122,62 +122,62 @@ procedure first(host_card)
       {
       put(user_hand,pop(deck));
       display_user();
-      if (points := value(user_hand)) > 21 then return points
+      if (points := value(user_hand)) > 21 then return points;
       writes(at(1,9),"(",points,") ")
-      } else break
-  (points > 0) | (points := value(user_hand))
+      } else break;
+  (points > 0) | (points := value(user_hand));
   writes(at(1,9),"(",points,") ");
-  write(at(55,11),right("You stay with "||points,20))
-  return points
+  write(at(55,11),right("You stay with "||points,20));
+  return points;
   end
 
 #
 # THIS SECOND PROCEDURE IS THE HOST PLAYING AGAINST THE USER
 #
-procedure second(ceiling)
-  local stop_at, points
+procedure second(ceiling);
+  local stop_at, points;
 
-  static limits
-  initial limits := [14,14,15,15,19,16,17,18]
+  static limits;
+  initial limits := [14,14,15,15,19,16,17,18];
   stop_at := ?limits ; points := 0;
   until (points := value(host_hand)) > stop_at do
     {
-    if points > ceiling then return points
+    if points > ceiling then return points;
     writes(at(1,19),"(",points,") ");
 #    write(at(1,22),screen("eeol"),&host," will take a hit.",screen("eeol"))
     write(at(1,22),screen("eeol"),&host ? tab(find(" ")|0),
 	  " will take a hit.",screen("eeol"));
     put(host_hand,pop(deck));
     display_host(2)
-    }
+    };
   (points > 0) | (points := value(host_hand));
-  writes(at(1,19),"(",points,") ")
-  return points
+  writes(at(1,19),"(",points,") ");
+  return points;
   end
 
 #
 # THIS ROUTINE DISPLAYS THE CURRENT SCORE
 #
-procedure display_score()
+procedure display_score();
   writes(screen("nocursor"));
   writes(screen("dim"),at(1,7),"Credits",screen("norm"));
   writes(screen("high"),at(1,8),right(user_money,7),screen("norm"));
   writes(screen("dim"),at(1,17),"Credits",screen("norm"));
-  writes(screen("high"),at(1,18),right(host_money,7),screen("norm"))
+  writes(screen("high"),at(1,18),right(host_money,7),screen("norm"));
   end
 #
 # THIS PROCEDURE EVALUATES THE POINTS OF A HAND. IT TRIES TO MAKE THEM
 # AS HIGH AS POSSIBLE WITHOUT GOING OVER 21.
 #
-procedure value(sample)
-  local hand, possible, sum, card, i, best_score, gone_over_score, score
+procedure value(sample);
+  local hand, possible, sum, card, i, best_score, gone_over_score, score;
 
   hand     := copy(sample);
   possible := [];
   repeat
     {
     sum := 0;
-    every card := !hand do sum +:= lookup[card[1]]
+    every card := !hand do sum +:= lookup[card[1]];
     put(possible,sum);
     if not ("A" == (!hand)[1]) then break else
       every i := 1 to *hand do {
@@ -186,22 +186,22 @@ procedure value(sample)
           break
         }  
       }
-    }
+    };
   best_score := 0;
   gone_over_score := 100;
   every score := !possible do {
     if score > 21
     then gone_over_score >:= score
     else best_score <:= score
-  }
-  return (0 ~= best_score) | gone_over_score
+  };
+  return (0 ~= best_score) | gone_over_score;
   end
 
 #
 # THIS ROUTINE DISPLAYS THE USER HAND AND STATUS
 #
-procedure display_user()
-  local x, y, card
+procedure display_user();
+  local x, y, card;
 
   writes(screen("nocursor"),at(1,6),screen("hinv"),"USER",screen("norm"));
   x := 10 ; y := 4;
@@ -209,34 +209,34 @@ procedure display_user()
     {
     display(card,x,y);
     x +:= 7
-    }
+    };
   end
 
 #
 # THIS ROUTINE DISPLAYS THE HOST HAND AND STATUS
 #
-procedure display_host(flag)
-  local x, y, card
+procedure display_host(flag);
+  local x, y, card;
 
   writes(screen("nocursor"),at(1,16),screen("hinv"),
 	 &host ? tab(find(" ")|0),screen("norm"));
   x := 10 ; y := 14 ; /flag := 0;
   every card := !host_hand do
     {
-    if (flag=1) & (x=10) then card := "XX"
+    if (flag=1) & (x=10) then card := "XX";
     display(card,x,y);
     x +:= 7
-    }
+    };
   end
 
 #
 # THIS ROUTINE DISPLAYS A GIVEN CARD AT A GIVEN X,Y SCREEN LOCATION
 #
-procedure display(card,x,y)
-    local all, j, shape
+procedure display(card,x,y);
+    local all, j, shape;
 
     all := [] ; j := y;
-    if find(card[2],"CS") then card := screen("hinv") || card || screen("norm")
+    if find(card[2],"CS") then card := screen("hinv") || card || screen("norm");
 #    shape := [at(x,(j+:=1)) || screen("gchar") || "lqqqqqqqk"]
     shape := [at(x,(j+:=1)) || screen("inv") || "         " || screen("norm")];
     put(shape,at(x,(j+:=1)) || screen("inv") || " " || screen("norm") ||
@@ -255,53 +255,53 @@ procedure display(card,x,y)
     put(shape,at(x,(j+:=1)) || screen("inv") || "         " || screen("norm"));
     put(all,shape);
     x +:= 14;
-  while shape := pop(all) do every writes(!shape)
+  while shape := pop(all) do every writes(!shape);
   end
 
 #
 # THIS ROUTINE SHUFFLES THE CARD DECK
 #
-procedure xshuffle()
-  static faces, suits
-  local cards, i
+procedure xshuffle();
+  static faces, suits;
+  local cards, i;
   initial {
           randomize();
           faces   := ["2","3","4","5","6","7","8","9","T","J","Q","K","A"];
           suits   := ["D","H","C","S"];
           lookup  := table(0);
-          every i := 2 to 9 do insert(lookup,string(i),i)
+          every i := 2 to 9 do insert(lookup,string(i),i);
           insert(lookup,"T",10);
           insert(lookup,"J",10);
           insert(lookup,"Q",10);
           insert(lookup,"K",10);
           insert(lookup,"A",11);
           insert(lookup,"a",1)
-          }
+          };
   cards   := [];
-  every put(cards,!faces || !suits)
-  every i := *cards to 2 by -1 do cards[?i] :=: cards[i]
-  return cards
+  every put(cards,!faces || !suits);
+  every i := *cards to 2 by -1 do cards[?i] :=: cards[i];
+  return cards;
   end
 
 #
 # THIS ROUTINE PARSES A STRING WITH RESPECT TO SOME DELIMITER
 #
-procedure parse(line,delims)
-  local tokens
+procedure parse(line,delims);
+  local tokens;
 
-  static chars
+  static chars;
   chars  := &cset -- delims;
   tokens := [];
-  line ? while tab(upto(chars)) do put(tokens,tab(many(chars)))
-  return tokens
+  line ? while tab(upto(chars)) do put(tokens,tab(many(chars)));
+  return tokens;
   end
 
 #
 # THIS ROUTINE PROMPTS FOR INPUT AND RETURNS A STRING
 #
-procedure input(prompt)
-  writes(screen("cursor"),prompt)
-  return read()
+procedure input(prompt);
+  writes(screen("cursor"),prompt);
+  return read();
   end
 
 
@@ -309,35 +309,35 @@ procedure input(prompt)
 # THIS ROUTINE SETS THE VIDEO OUTPUT ATTRIBUTES FOR VT102 OR LATER
 # COMPATIBLE TERMINALS.
 #
-procedure screen(attr)
+procedure screen(attr);
   initial if getval("ug"|"mg"|"sg") > 0 then
-    er("screen","oops, magic cookie terminal!",34)
+    er("screen","oops, magic cookie terminal!",34);
   return {
     case attr of
       {
-      "cls"  : getval("cl")
-      "clear": getval("cl")
+      "cls"  : getval("cl");
+      "clear": getval("cl");
       # HIGH INTENSITY & INVERSE
-      "hinv" : (getval("md") | "") || getval("so")
-      "norm" : (getval("se") | "") || (getval("me") | "") || (getval("ue")|"")
+      "hinv" : (getval("md") | "") || getval("so");
+      "norm" : (getval("se") | "") || (getval("me") | "") || (getval("ue")|"");
       # LOW INTENSITY VIDEO
-      "dim"  : getval("mh"|"me"|"se")
-      "blink": getval("mb"|"md"|"so")
+      "dim"  : getval("mh"|"me"|"se");
+      "blink": getval("mb"|"md"|"so");
       # HIGH INTENSITY BLINKING
-      "hiblink": (getval("md") | "") || getval("mb") | getval("so")
-      "under": getval("us"|"md"|"so")
-      "high" : getval("md"|"so"|"ul")
-      "inv"  : getval("so"|"md"|"ul")
+      "hiblink": (getval("md") | "") || getval("mb") | getval("so");
+      "under": getval("us"|"md"|"so");
+      "high" : getval("md"|"so"|"ul");
+      "inv"  : getval("so"|"md"|"ul");
       # ERASE TO END OF LINE
-      "eeol" : getval("ce")
+      "eeol" : getval("ce");
       # ERASE TO START OF LINE
-      "esol" : getval("cb")
+      "esol" : getval("cb");
       # ERASE TO END OF SCREEN
-      "eeos" : getval("cd")
+      "eeos" : getval("cd");
       # MAKE CURSOR INVISIBLE
-      "cursor": getval("vi"|"CO") | ""
+      "cursor": getval("vi"|"CO") | "";
       # MAKE CURSOR VISIBLE
-      "nocursor": getval("ve"|"CF") | ""
+      "nocursor": getval("ve"|"CF") | "";
 #      # START ALTERNATE FONT      <- very non-portable
 #      "gchar": getval("as") | ""
 #      # END ALTERNATE FONT
@@ -350,14 +350,14 @@ procedure screen(attr)
 #      "jump" : return "\e[?4l"     # JUMP   SCREEN SCROLLING
       default : er("screen",attr||" is just too weird for most terminals",34)
       } | er("screen","I just can't cope with your terminal.",35)
-    }
+    };
   end
 
 #
 # THIS ROUTINE SETS THE CURSOR TO A GIVEN X (COL) Y(ROW) SCREEN LOCATION
 #
-procedure at(x,y)
+procedure at(x,y);
 #  return "\e[" || y || ";" || x || "f"
-  return igoto(getval("cm"),x,y)
+  return igoto(getval("cm"),x,y);
   end
 

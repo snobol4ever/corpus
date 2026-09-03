@@ -89,64 +89,64 @@ $define XOff		  0	# offset for text vidgets
 $define XOffButton	 85	# initial x offset for buttons
 $define XOffIncr	 15	# space between buttons
 
-procedure Dialog(win, captions, labels, defaults, widths, buttons, index)
-   Dialog := TextDialog
-   return Dialog(win, captions, labels, defaults, widths, buttons, index)
+procedure Dialog(win, captions, labels, defaults, widths, buttons, index);
+   Dialog := TextDialog;
+   return Dialog(win, captions, labels, defaults, widths, buttons, index);
 end
 
-procedure AskDialog(win, caption)
+procedure AskDialog(win, caption);
 
-   return TextDialog(win, caption, , , , , ["Okay", "No"])
+   return TextDialog(win, caption, , , , , ["Okay", "No"]);
 
 end
 
 procedure TextDialog(			#: text dialog
    win, captions, labels, defaults, widths, buttons, index
-   )
-   local maxl, lead, pad, default_button, i, maxw, cwidth, id, label_width
-   local button, maxb, dialog, x, y, button_space, default_width, box_id
-   local temp_win
-   static type
+   );
+   local maxl, lead, pad, default_button, i, maxw, cwidth, id, label_width;
+   local button, maxb, dialog, x, y, button_space, default_width, box_id;
+   local temp_win;
+   static type;
 
-   initial type := proc("type", 0)	# protect attractive name
+   initial type := proc("type", 0);	# protect attractive name
 
    if type(win) ~== "window" then {
       win :=: captions :=: labels :=: defaults :=: widths :=: buttons :=:
          index;
-      win := &window
+      win := &window;
       /win := temp_win := WOpen("canvas=hidden", "bg=" || VBackground)
-      }
+      };
 
-   /captions := []
-   /labels := []
-   /defaults := []
-   /widths := []
-   /buttons := ["Okay", "Cancel"]
+   /captions := [];
+   /labels := [];
+   /defaults := [];
+   /widths := [];
+   /buttons := ["Okay", "Cancel"];
    /index := 1;
 
-   if type(captions) ~== "list" then captions := [captions]
-   if type(labels)   ~== "list" then labels   := [labels]
-   if type(defaults) ~== "list" then defaults := [defaults]
-   if type(widths)   ~== "list" then widths   := [widths]
-   if type(buttons)  ~== "list" then buttons  := [buttons]
+   if type(captions) ~== "list" then captions := [captions];
+   if type(labels)   ~== "list" then labels   := [labels];
+   if type(defaults) ~== "list" then defaults := [defaults];
+   if type(widths)   ~== "list" then widths   := [widths];
+   if type(buttons)  ~== "list" then buttons  := [buttons];
 
    default_button := buttons[index];  # null if out of bounds
    default_width := widths[-1] | FieldWidth;
 
    maxl := 0;
-   every maxl <:= *(labels | defaults | widths)
-   until *labels = maxl do put(labels, labels[-1] | "")
-   until *defaults = maxl do put(defaults, defaults[-1] | "")
-   until *widths = maxl do put(widths, widths[-1] | 10) 
+   every maxl <:= *(labels | defaults | widths);
+   until *labels = maxl do put(labels, labels[-1] | "");
+   until *defaults = maxl do put(defaults, defaults[-1] | "");
+   until *widths = maxl do put(widths, widths[-1] | 10); 
 
    id := 0;
 
    label_width := 0;
-   every label_width <:= TextWidth(win, !labels)
-   if label_width > 0 then label_width +:= 15
+   every label_width <:= TextWidth(win, !labels);
+   if label_width > 0 then label_width +:= 15;
 
    maxb := 0;
-   every maxb <:= TextWidth(win, !buttons)
+   every maxb <:= TextWidth(win, !buttons);
    maxb +:= 10;
    maxb <:= ButtonWidth;
 
@@ -157,19 +157,19 @@ procedure TextDialog(			#: text dialog
    dialog := Vdialog(win, pad, pad);
 
    maxw := 0;
-   every maxw <:= TextWidth(win, !captions)
+   every maxw <:= TextWidth(win, !captions);
 
    y := -lead;
 
-   every VInsert(dialog, Vmessage(win, !captions), 0, y +:= lead)
+   every VInsert(dialog, Vmessage(win, !captions), 0, y +:= lead);
    every i := 1 to maxl do {
       y +:= pad;
       if *labels[i] > 0 then
-         VInsert(dialog, Vmessage(win, labels[i]), 0, y)
+         VInsert(dialog, Vmessage(win, labels[i]), 0, y);
       VRegister(dialog, Vtext(win, "", , id +:= 1,
          widths[i]), label_width, y);
       maxw <:= label_width + widths[i] * cwidth
-      }
+      };
 
    y +:= (3 * pad) / 2;
 
@@ -182,62 +182,62 @@ procedure TextDialog(			#: text dialog
       VInsert(dialog, Vbutton(win, button, dialog_cb, V_OK, , maxb,
          ButtonHeight), x, y);
       x +:= maxb + XOffIncr
-      }
+      };
 
    VFormat(dialog);
 
    box_id := captions[1] | "TextDialog";
    dialog_value := VOpenDialog(dialog, , box_id, defaults, default_button);
 
-   WClose(\temp_win)
+   WClose(\temp_win);
 
-   return dialog_button
+   return dialog_button;
 
 end
 
 procedure ToggleDialog(			#: toggle dialog
    win, captions, labels, defaults, buttons, index
-   )
-   local maxl, lead, pad, default_button, i, maxw, cwidth, id, label_width
-   local button, maxb, dialog, x, y, button_space, default_width, box_id
-   local temp_win
-   static type
+   );
+   local maxl, lead, pad, default_button, i, maxw, cwidth, id, label_width;
+   local button, maxb, dialog, x, y, button_space, default_width, box_id;
+   local temp_win;
+   static type;
 
-   initial type := proc("type", 0)	# protect attractive name
+   initial type := proc("type", 0);	# protect attractive name
 
    if type(win) ~== "window" then {
       win :=: captions :=: labels :=: defaults :=:  buttons :=: index;
-      win := &window
+      win := &window;
       /win := temp_win := WOpen("canvas=hidden", "bg=" || VBackground)
-      }
+      };
 
-   /captions := []
-   /labels := []
-   /defaults := []
-   /buttons := ["Okay", "Cancel"]
+   /captions := [];
+   /labels := [];
+   /defaults := [];
+   /buttons := ["Okay", "Cancel"];
    /index := 1;
 
-   if type(captions) ~== "list" then captions := [captions]
-   if type(labels)   ~== "list" then labels   := [labels]
-   if type(defaults) ~== "list" then defaults := [defaults]
-   if type(buttons)  ~== "list" then buttons  := [buttons]
+   if type(captions) ~== "list" then captions := [captions];
+   if type(labels)   ~== "list" then labels   := [labels];
+   if type(defaults) ~== "list" then defaults := [defaults];
+   if type(buttons)  ~== "list" then buttons  := [buttons];
 
    default_button := buttons[index];  # null if out of bounds
 
    maxl := 0;
-   every maxl <:= *(labels | defaults)
-   every maxl <:= *labels
-   until *labels = maxl do put(labels, labels[-1] | "")
-   until *defaults = maxl do put(defaults, defaults[-1] | &null)
+   every maxl <:= *(labels | defaults);
+   every maxl <:= *labels;
+   until *labels = maxl do put(labels, labels[-1] | "");
+   until *defaults = maxl do put(defaults, defaults[-1] | &null);
 
    id := 0;
 
    label_width := 0;
-   every label_width <:= TextWidth(win, !labels)
-   if label_width > 0 then label_width +:= 30
+   every label_width <:= TextWidth(win, !labels);
+   if label_width > 0 then label_width +:= 30;
 
    maxb := 0;
-   every maxb <:= TextWidth(win, !buttons)
+   every maxb <:= TextWidth(win, !buttons);
    maxb +:= 10;
    maxb <:= ButtonWidth;
 
@@ -248,17 +248,17 @@ procedure ToggleDialog(			#: toggle dialog
    dialog := Vdialog(win, pad, pad);
 
    maxw := 0;
-   every maxw <:= TextWidth(win, !captions)
+   every maxw <:= TextWidth(win, !captions);
 
    y := -lead;
 
-   every VInsert(dialog, Vmessage(win, !captions), 0, y +:= lead)
+   every VInsert(dialog, Vmessage(win, !captions), 0, y +:= lead);
    every i := 1 to maxl do {
       y +:= pad;
       VRegister(dialog, Vtoggle(win, labels[i], , id +:= 1, V_CHECK_NO,
          label_width), 0, y);
       maxw <:= label_width
-      }
+      };
 
    y +:= (3 * pad) / 2;
 
@@ -271,56 +271,56 @@ procedure ToggleDialog(			#: toggle dialog
       VInsert(dialog, Vbutton(win, button, dialog_cb, V_OK, , maxb,
          ButtonHeight), x, y);
       x +:= maxb + XOffIncr
-      }
+      };
 
    VFormat(dialog);
 
    box_id := captions[1] | "ToggleDialog";
    dialog_value := VOpenDialog(dialog, , box_id, defaults, default_button);
 
-   WClose(\temp_win)
+   WClose(\temp_win);
 
-   return dialog_button
+   return dialog_button;
 
 end
 
 procedure SelectDialog( 		#: selection dialog
    win, captions, labels, deflt, buttons, index
-   ) 
-   local maxl, lead, pad, default_button, i, maxw, cwidth, label_width
-   local button, maxb, dialog, x, y, button_space, box_id
-   local temp_win
-   static type
+   ); 
+   local maxl, lead, pad, default_button, i, maxw, cwidth, label_width;
+   local button, maxb, dialog, x, y, button_space, box_id;
+   local temp_win;
+   static type;
 
-   initial type := proc("type", 0)	# protect attractive name
+   initial type := proc("type", 0);	# protect attractive name
 
    if type(win) ~== "window" then {
       win :=: captions :=: labels :=: deflt :=: buttons :=: index;
-      win := &window
+      win := &window;
       /win := temp_win := WOpen("canvas=hidden", "bg=" || VBackground)
-      }
+      };
 
-   /captions := []
-   /labels := []
-   /buttons := ["Okay", "Cancel"]
+   /captions := [];
+   /labels := [];
+   /buttons := ["Okay", "Cancel"];
    /index := 1;
 
-   if type(captions) ~== "list" then captions := [captions]
-   if type(labels)   ~== "list" then labels   := [labels]
-   if type(buttons)  ~== "list" then buttons  := [buttons]
+   if type(captions) ~== "list" then captions := [captions];
+   if type(labels)   ~== "list" then labels   := [labels];
+   if type(buttons)  ~== "list" then buttons  := [buttons];
 
    default_button := buttons[index];  # null if out of bounds
 
    maxl := 0;
-   every maxl <:= *labels
-   until *labels = maxl do put(labels, labels[-1] | "")
+   every maxl <:= *labels;
+   until *labels = maxl do put(labels, labels[-1] | "");
 
    label_width := 0;
-   every label_width <:= TextWidth(win, !labels)
-   if label_width > 0 then label_width +:= 15
+   every label_width <:= TextWidth(win, !labels);
+   if label_width > 0 then label_width +:= 15;
 
    maxb := 0;
-   every maxb <:= TextWidth(win, !buttons)
+   every maxb <:= TextWidth(win, !buttons);
    maxb +:= 10;
    maxb <:= ButtonWidth;
 
@@ -331,11 +331,11 @@ procedure SelectDialog( 		#: selection dialog
    dialog := Vdialog(win, pad, pad);
 
    maxw := 0;
-   every maxw <:= TextWidth(win, !captions)
+   every maxw <:= TextWidth(win, !captions);
 
    y := -lead;
 
-   every VInsert(dialog, Vmessage(win, !captions), 0, y +:= lead)
+   every VInsert(dialog, Vmessage(win, !captions), 0, y +:= lead);
    y +:= 2 * lead;
    VRegister(dialog, Vvert_radio_buttons(win, labels, , 1, V_DIAMOND_NO), 0, y);
 
@@ -350,99 +350,99 @@ procedure SelectDialog( 		#: selection dialog
       VInsert(dialog, Vbutton(win, button, dialog_cb, V_OK, , maxb,
          ButtonHeight), x, y);
       x +:= maxb + XOffIncr
-      }
+      };
 
    VFormat(dialog);
 
    box_id := captions[1] | "ToggleDialog";
    dialog_value := VOpenDialog(dialog, , box_id, [deflt], default_button)[1];
 
-   WClose(\temp_win)
+   WClose(\temp_win);
 
-   return dialog_button
+   return dialog_button;
 
 end
 
-procedure Notice(captions[])		#: notice dialog
-   local win, temp_win
-   static type
+procedure Notice(captions[]);		#: notice dialog
+   local win, temp_win;
+   static type;
 
-   initial type := proc("type", 0)	# protect attractive name
+   initial type := proc("type", 0);	# protect attractive name
 
    if type(captions[1]) == "window" then
       win := get(captions)
    else {
-      win := &window
+      win := &window;
       /win := temp_win := WOpen("canvas=hidden", "bg=" || VBackground)
-      }
+      };
 
    TextDialog(win, captions, , , , "Okay");
 
    dialog_value := &null;
 
-   WClose(\temp_win)
+   WClose(\temp_win);
 
-   return dialog_button
+   return dialog_button;
 
 end
 
-procedure SaveDialog(win, caption, filename, len)	#: save dialog
-   local temp_win
-   static type
+procedure SaveDialog(win, caption, filename, len);	#: save dialog
+   local temp_win;
+   static type;
 
-   initial type := proc("type", 0)	# protect attractive name
+   initial type := proc("type", 0);	# protect attractive name
 
    if type(win) ~== "window" then {
       win :=: caption :=: filename :=: len;
-      win := &window
+      win := &window;
       /win := temp_win := WOpen("canvas=hidden", "bg=" || VBackground)
-      }
+      };
 
-   /caption := "Save:"
-   /filename := ""
+   /caption := "Save:";
+   /filename := "";
    /len := OpenWidth;
 
    TextDialog(win, caption, , filename, len, ["Yes", "No", "Cancel"]);
 
    dialog_value := dialog_value[1];
 
-   WClose(\temp_win)
+   WClose(\temp_win);
 
-   return dialog_button
+   return dialog_button;
 
 end
 
-procedure OpenDialog(win, caption, filename, len)	#: open dialog
-   local temp_win
-   static type
+procedure OpenDialog(win, caption, filename, len);	#: open dialog
+   local temp_win;
+   static type;
 
-   initial type := proc("type", 0)	# protect attractive name
+   initial type := proc("type", 0);	# protect attractive name
 
    if type(win) ~== "window" then {
       win :=: caption :=: filename :=: len;
-      win := &window
+      win := &window;
       /win := temp_win := WOpen("canvas=hidden", "bg=" || VBackground)
-      }
+      };
 
-   /caption := "Open:"
-   /filename := ""
+   /caption := "Open:";
+   /filename := "";
    /len := OpenWidth;
 
    TextDialog(win, caption, , filename, len);
 
    dialog_value := dialog_value[1];
 
-   WClose(\temp_win)
+   WClose(\temp_win);
 
-   return dialog_button
+   return dialog_button;
 
 end
 
-procedure dialog_cb(vidget, s)
+procedure dialog_cb(vidget, s);
 
-   dialog_button := vidget.s
+   dialog_button := vidget.s;
 
-   return
+   return;
 
 end
 
@@ -461,20 +461,20 @@ $define MaxStaticCol	200	# maximum colors before recycling
 
 procedure ColorDialog(			#: color dialog
    win, captions, refcolor, callback, id
-   )
-   local x1, x2, dx, y, bw, lead, pad, dialog, box_id, temp_win
-   static type
+   );
+   local x1, x2, dx, y, bw, lead, pad, dialog, box_id, temp_win;
+   static type;
 
-   initial type := proc("type", 0)	# protect attractive name
+   initial type := proc("type", 0);	# protect attractive name
 
    if type(win) ~== "window" then {
       win :=: captions :=: refcolor :=: callback :=: id;
-      win := &window
+      win := &window;
       /win := temp_win := WOpen("canvas=hidden", "bg=" || VBackground)
-      }
+      };
 
    /captions := "Select color:";
-   if type(captions) ~== "list" then captions := [captions]
+   if type(captions) ~== "list" then captions := [captions];
 
    cdl_data := cdl_rec();
    cdl_data.callback := callback;
@@ -488,14 +488,14 @@ procedure ColorDialog(			#: color dialog
       cdl_data.g := integer(tab(many(&digits)));
       move(1);
       cdl_data.b := integer(tab(many(&digits)))
-      }
+      };
    HSV(cdl_data.orgcolor) ? {
       cdl_data.h := integer(tab(many(&digits)));
       move(1);
       cdl_data.s := integer(tab(many(&digits)));
       move(1);
       cdl_data.v := integer(tab(many(&digits)))
-      }
+      };
 
    lead := WAttrib(win, "leading");
    pad := 2 * lead;
@@ -503,7 +503,7 @@ procedure ColorDialog(			#: color dialog
    y := -lead;
 
    dialog := Vdialog(win, pad, pad, cdl_init);
-   every VInsert(dialog, Vmessage(win, !captions), 0, y +:= lead)
+   every VInsert(dialog, Vmessage(win, !captions), 0, y +:= lead);
 
    dx := SliderWidth + SliderPad;
    x1 := 0 - dx;
@@ -537,23 +537,23 @@ procedure ColorDialog(			#: color dialog
 
    dialog_value := cdl_data.r || "," || cdl_data.g || "," || cdl_data.b;
 
-   WClose(\temp_win)
+   WClose(\temp_win);
 
-   return dialog_button
+   return dialog_button;
 
 end
 
-procedure cdl_slider(dialog, id, x, y, low, high, init) 	# place a slider
-   local v
+procedure cdl_slider(dialog, id, x, y, low, high, init); 	# place a slider
+   local v;
 
    v := Vvert_slider(dialog.win, cdl_setval, id,
       SliderHeight, SliderWidth, low, high, init);
-   VInsert(dialog, v, x, y)
-   return v
+   VInsert(dialog, v, x, y);
+   return v;
 end
 
-procedure cdl_init()			# initialize non-vidget part of dialog
-   local r
+procedure cdl_init();			# initialize non-vidget part of dialog
+   local r;
 
    r := cdl_data.rect;
    cdl_data.fg := Fg(r.win);
@@ -563,43 +563,43 @@ procedure cdl_init()			# initialize non-vidget part of dialog
       FillRectangle ! cdl_data.fillargs
       }
    else
-      cdl_data.nc := 0
+      cdl_data.nc := 0;
    if Fg(r.win, \cdl_data.refcolor) then {
       cdl_data.fillargs[-1] -:= r.uh / 8;
       FillRectangle(r.win, r.ux, r.uy + r.uh, r.uw, -r.uh / 8)
-      }
+      };
    Fg(r.win, cdl_data.fg);
-   cdl_sethsv()
-   return
+   cdl_sethsv();
+   return;
 end
 
-procedure cdl_exit(vidget, s)		# save position and button name on exit
+procedure cdl_exit(vidget, s);		# save position and button name on exit
    dialog_button := vidget.s;
    FreeColor(cdl_data.rect.win, \cdl_data.mutable);
-   EraseArea(cdl_data.rect.win)
-   return
+   EraseArea(cdl_data.rect.win);
+   return;
 end
 
-procedure cdl_setval(v, x)		# set value in response to slider motion
-   static recurse
+procedure cdl_setval(v, x);		# set value in response to slider motion
+   static recurse;
 
    if /recurse then {			# if not a recursive call
       recurse := 1;  # note to prevent recursion
       case v.id of {
-         "r":  { cdl_data.r := x; cdl_sethsv(); }
-         "g":  { cdl_data.g := x; cdl_sethsv(); }
-         "b":  { cdl_data.b := x; cdl_sethsv(); }
-         "h":  { cdl_data.h := x; cdl_setrgb(); }
-         "s":  { cdl_data.s := x; cdl_setrgb(); }
+         "r":  { cdl_data.r := x; cdl_sethsv(); };
+         "g":  { cdl_data.g := x; cdl_sethsv(); };
+         "b":  { cdl_data.b := x; cdl_sethsv(); };
+         "h":  { cdl_data.h := x; cdl_setrgb(); };
+         "s":  { cdl_data.s := x; cdl_setrgb(); };
          "v":  { cdl_data.v := x; cdl_setrgb(); }
-         }
+         };
       recurse := &null
-      }
-   return
+      };
+   return;
 end
 
-procedure cdl_sethsv()			# set h/s/v values from r/g/b
-   local c
+procedure cdl_sethsv();			# set h/s/v values from r/g/b
+   local c;
 
    HSV(c := cdl_data.r || "," || cdl_data.g || "," || cdl_data.b) ? {
       VSetState(cdl_data.hv, cdl_data.h := integer(tab(many(&digits))));
@@ -607,13 +607,13 @@ procedure cdl_sethsv()			# set h/s/v values from r/g/b
       VSetState(cdl_data.sv, cdl_data.s := integer(tab(many(&digits))));
       move(1);
       VSetState(cdl_data.vv, cdl_data.v := integer(tab(many(&digits))))
-      }
-   cdl_setcolor(c)
-   return
+      };
+   cdl_setcolor(c);
+   return;
 end
 
-procedure cdl_setrgb()			# set r/g/b values from h/s/v
-   local c
+procedure cdl_setrgb();			# set r/g/b values from h/s/v
+   local c;
 
    (c := HSVValue(cdl_data.h || "/" || cdl_data.s || "/" || cdl_data.v)) ? {
       VSetState(cdl_data.rv, cdl_data.r := integer(tab(many(&digits))));
@@ -621,13 +621,13 @@ procedure cdl_setrgb()			# set r/g/b values from h/s/v
       VSetState(cdl_data.gv, cdl_data.g := integer(tab(many(&digits))));
       move(1);
       VSetState(cdl_data.bv, cdl_data.b := integer(tab(many(&digits))))
-      }
-   cdl_setcolor(c)
-   return
+      };
+   cdl_setcolor(c);
+   return;
 end
 
-procedure cdl_setcolor(c)		# display new color and invoke callback
-   local r, win, x1, x2, y, dy
+procedure cdl_setcolor(c);		# display new color and invoke callback
+   local r, win, x1, x2, y, dy;
 
    r := cdl_data.rect;
    win := r.win;
@@ -638,13 +638,13 @@ procedure cdl_setcolor(c)		# display new color and invoke callback
 	 EraseArea(win);  # free allocated colors
 	 VDraw(cdl_data.dialog);  # redraw vidget
          if Fg(r.win, \cdl_data.refcolor) then	# redraw reference color
-            FillRectangle(r.win, r.ux, r.uy + r.uh, r.uw, -r.uh / 8)
+            FillRectangle(r.win, r.ux, r.uy + r.uh, r.uw, -r.uh / 8);
 	 Fg(win, c);  # set new foreground
 	 cdl_data.nc := 1
-      }
+      };
       FillRectangle ! cdl_data.fillargs;
       Fg(win, cdl_data.fg)
-   }
+   };
 
    x1 := cdl_data.rect.ax;
    x2 := x1 + cdl_data.rect.aw;
@@ -662,10 +662,10 @@ procedure cdl_setcolor(c)		# display new color and invoke callback
    DrawString(win, x2, y, "s: " || right(cdl_data.s, 3));
    y +:= dy;
    DrawString(win, x1, y, "b: " || right(cdl_data.b, 5));
-   DrawString(win, x2, y, "v: " || right(cdl_data.v, 3))
+   DrawString(win, x2, y, "v: " || right(cdl_data.v, 3));
 
-   (\cdl_data.callback)(cdl_data.id, c)		# invoke user callback, if any
-   return
+   (\cdl_data.callback)(cdl_data.id, c);		# invoke user callback, if any
+   return;
 end
 
 #  Popup(win, x, y, w, h, proc, args[])
@@ -673,8 +673,8 @@ end
 $define BorderWidth 4
 $define ShadowWidth 4
 
-procedure Popup(args[])			#: create popup subwindow
-   local win, x, y, w, h, xx, yy, ww, hh, dx, dy, s, proc, retv, ampwin, save
+procedure Popup(args[]);			#: create popup subwindow
+   local win, x, y, w, h, xx, yy, ww, hh, dx, dy, s, proc, retv, ampwin, save;
 
    # Get parameters.
    PushWin(args);
@@ -689,8 +689,8 @@ procedure Popup(args[])			#: create popup subwindow
    dx := WAttrib(win, "dx");
    dy := WAttrib(win, "dy");
    w >:= WAttrib(win, "width");  # limit to size of full win
-   h >:= WAttrib(win, "height")
-   /x := (WAttrib(win, "width") - w) / 2 - dx	# center the subwindow
+   h >:= WAttrib(win, "height");
+   /x := (WAttrib(win, "width") - w) / 2 - dx;	# center the subwindow
    /y := (WAttrib(win, "height") - h) / 2 - dy;
 
    # Adjust subwindow configuration parameters.
@@ -705,7 +705,7 @@ procedure Popup(args[])			#: create popup subwindow
    CopyArea(win, save, xx, yy, ww, hh);
 
    # Save &window and create subwindow.
-   ampwin := &window
+   ampwin := &window;
    &window := Clone(win) | stop("can't Clone in Popup()");
    WAttrib("drawop=copy", "fillstyle=solid", "linestyle=solid", "linewidth=1",
       "dx=" || (dx + x), "dy=" || (dy + y));
@@ -721,7 +721,7 @@ procedure Popup(args[])			#: create popup subwindow
 
    # Flush any previously entered events on the window
    while *Pending(win) > 0 do
-      Event(win)
+      Event(win);
 
    # Call proc; save result, if any, or use args as flag if none.
    retv := (proc ! args) | args;
@@ -729,7 +729,7 @@ procedure Popup(args[])			#: create popup subwindow
    # Restore window and return result.  Use &window to ensure drawop=copy.
    Clip(-BorderWidth, -BorderWidth, ww, hh);
    CopyArea(save, &window, 0, 0, ww, hh, -BorderWidth, -BorderWidth);
-   EraseArea(save)
-   &window := ampwin
-   return args ~=== retv
+   EraseArea(save);
+   &window := ampwin;
+   return args ~=== retv;
 end

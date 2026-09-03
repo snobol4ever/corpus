@@ -34,23 +34,23 @@ link xcode
 
 global PDB_
 
-procedure main(args)
-   local file, name, output, colors, win
+procedure main(args);
+   local file, name, output, colors, win;
 
    every file := !args do {
       win := WOpen("image=" || file, "canvas=hidden") | {
           write(&errout, "*** cannot open image: ", image(file));
           next
-          }
+          };
       name := basename(file, ".gif");
       colors := set();
       every insert(colors, Pixel(win, 0, 0, WAttrib(win, "width"),
-         WAttrib(win, "height")))
+         WAttrib(win, "height")));
       WClose(win);
       makepalette(name, sort_colors(colors)) |
          write(&errout, "*** cannot make palette from ", image(file))
-      }
+      };
 
-    xencode(PDB_, &output)
+    xencode(PDB_, &output);
 
 end

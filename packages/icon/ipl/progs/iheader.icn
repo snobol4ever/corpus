@@ -22,8 +22,8 @@
 
 global input
 
-procedure main(args)
-   local file, line, bar
+procedure main(args);
+   local file, line, bar;
 
    bar := repl("#", 76);
 
@@ -33,17 +33,17 @@ procedure main(args)
          write("*** cannot open file");
          close(\input);
          next
-         }
+         };
       line := read(input) | {
          write("*** empty file");
          close(\input);
          next
-         }
+         };
       if line ~== bar then {
          write("*** invalid first line");
          close(\input);
          next
-         }
+         };
       while line := read(input) do {
          if line == bar then {
             close(input);
@@ -51,6 +51,6 @@ procedure main(args)
             }
          else write(line)
          }
-      }
+      };
 
 end

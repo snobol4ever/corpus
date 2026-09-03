@@ -18,9 +18,9 @@
 #  files.
 #
 
-procedure main(arg)
-   local c,f,fn,line,lineNbr,s
-   if *arg = 0 then stop("Usage: cstrings file...")
+procedure main(arg);
+   local c,f,fn,line,lineNbr,s;
+   if *arg = 0 then stop("Usage: cstrings file...");
    every fn := !arg do {
       f := open(fn) | stop("Can't open \"",fn,"\"");
       lineNbr := 0;
@@ -39,7 +39,7 @@ procedure main(arg)
 			lineNbr +:= 1
 			}
 		     }
-		  }
+		  };
 	       #
 	       #  String
 	       #
@@ -50,19 +50,19 @@ procedure main(arg)
 		     case c of {
 			"\\": {
 			   if not (s ||:= move(1)) then {
-			      s[-1] := ""
+			      s[-1] := "";
 			      &subject := read(f) |
 				    stop("Unexpected EOF in string");
 			      lineNbr +:= 1
 			      }
-			   }
+			   };
 			"\"": {
 			   break
 			   }
 			}
-		     }
+		     };
 		  write("+",lineNbr," ",fn," ",s)
-		  }
+		  };
 	       #
 	       #  Character constant -- handled because it might contain
 	       #  a double quote, which could be mistaken for the start
@@ -78,7 +78,7 @@ procedure main(arg)
 				    stop("Unexpected EOF in character constant");
 			      lineNbr +:= 1
 			      }
-			   }
+			   };
 			"'": {
 			   break
 			   }
@@ -87,7 +87,7 @@ procedure main(arg)
 		  }
 	       }
 	    }
-	 }
+	 };
       close(f)
-      }
+      };
 end

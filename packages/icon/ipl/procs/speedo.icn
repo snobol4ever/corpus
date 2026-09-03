@@ -43,41 +43,41 @@
 
 record SpeedoRec(max,length,file,lastOut,string)
 
-procedure SpeedoNew(max,length,file,str)
-    /length := 79
-    /file := &errout
+procedure SpeedoNew(max,length,file,str);
+    /length := 79;
+    /file := &errout;
     /str := "=";
-    write(file,"|",repl("-",length / *str * *str - 2),"|")
-    return SpeedoRec(max,length,file,0,str)
+    write(file,"|",repl("-",length / *str * *str - 2),"|");
+    return SpeedoRec(max,length,file,0,str);
 end
 
-procedure SpeedoValue(self,value)
-    local len
+procedure SpeedoValue(self,value);
+    local len;
     if /value then {
-	 write(self.file)
+	 write(self.file);
 	 return
-	    }
+	    };
     len := self.length * value / self.max / *self.string;
     if len > self.lastOut then {
 	 writes(self.file,repl(self.string,len - self.lastOut));
 	 self.lastOut := len
-	    }
-    return self
+	    };
+    return self;
 end
 
-procedure FileSpeedo(file,length,outFile,str)
-    local savePos, fileSize
-    static speedo
+procedure FileSpeedo(file,length,outFile,str);
+    local savePos, fileSize;
+    static speedo;
     if /file then {
-	 SpeedoValue(speedo)
+	 SpeedoValue(speedo);
 	 return
-	    }
+	    };
     if \length then {
 	 savePos := where(file);
 	 seek(file,0);
 	 fileSize := where(file);
-	 seek(file,savePos)
+	 seek(file,savePos);
 	 return speedo := SpeedoNew(fileSize,length,outFile,str)
-	    }
-    return SpeedoValue(speedo,where(file))
+	    };
+    return SpeedoValue(speedo,where(file));
 end

@@ -19,15 +19,15 @@
 #
 ############################################################################
 
-procedure ifg()
-   local win
+procedure ifg();
+   local win;
 
    if (&features == "graphics") &
       win := open("", "x", "canvas=hidden") then {
-         close(win)
+         close(win);
          return
          }
       
-   else fail
+   else fail;
 
 end

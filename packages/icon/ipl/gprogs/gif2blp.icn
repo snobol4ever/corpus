@@ -29,8 +29,8 @@
 link patxform
 link wopen
 
-procedure main(args)
-   local width, height, row, p, y, rows
+procedure main(args);
+   local width, height, row, p, y, rows;
 
    WOpen("image=" || args[1], "canvas=hidden") |
       stop("*** cannot open image");
@@ -44,10 +44,10 @@ procedure main(args)
       row := "";
       every p := Pixel(0, y, width, 1) do
          if ColorValue(p) == "0,0,0" then row ||:= "1"
-            else row ||:= "0"
+            else row ||:= "0";
       put(rows, row)
-      }
+      };
 
-   write(rows2pat(rows))
+   write(rows2pat(rows));
 
 end

@@ -32,8 +32,8 @@
 
 link options,escape
 
-procedure main(arg)
-   local c, f, fn, header, min_string_size, okchars, opt, s, istring
+procedure main(arg);
+   local c, f, fn, header, min_string_size, okchars, opt, s, istring;
    #
    #  Process command line options and file names.
    #
@@ -43,7 +43,7 @@ procedure main(arg)
       \n-l length\tminimum string size to be printed (default 3)_
       \n-c chars\ta string of characters (besides the standard ASCII_
       \n\t\tprintable characters) to be considered part of a string_
-      \n")
+      \n");
    #
    #  Define minimum string size to print.
    #
@@ -66,13 +66,13 @@ procedure main(arg)
       while c := reads(f) do {
 	 if any(okchars,c) then s ||:= c
 	 else {
-	    if *s >=  min_string_size then write(header,image(s))
+	    if *s >=  min_string_size then write(header,image(s));
 	    s := ""
 	    }
-	 }
+	 };
       #
       #  Close this file.
       #
       close(f)
-      }
+      };
 end

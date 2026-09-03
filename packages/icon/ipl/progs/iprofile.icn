@@ -58,10 +58,10 @@ link itlib
 link iscreen
 global CM, LI, CO, CE
 
-procedure main(a)
+procedure main(a);
 
     local whitespace, firstidchars, idchars, usage, in_data,
-	cmd, line, filename, linenum, procname, t, threshhold
+	cmd, line, filename, linenum, procname, t, threshhold;
 
     whitespace   := '\t ';
     firstidchars := &letters ++ '_';
@@ -76,14 +76,14 @@ procedure main(a)
     #
     if *a > 0 then {
 	if find("UNIX", &features) then {
-	    cmd := ""; every cmd ||:= !a || " "
+	    cmd := ""; every cmd ||:= !a || " ";
 	    if find("2>", cmd) then
-		stop("profile:  Please don't redirect stderr!")
+		stop("profile:  Please don't redirect stderr!");
 	    in_data := open(cmd || " 2>&1 1> /dev/null", "pr") |
 		stop("profile:  Can't find or execute ", cmd, ".")
 	} else stop("profile:  Your OS is not (yet) supported.")
     }
-    else stop(usage)
+    else stop(usage);
 
     # clear screen, set up global variables; initialize table
     setup_screen();
@@ -109,12 +109,12 @@ procedure main(a)
 	    tab(many(whitespace));
 	    # Count only invocations and resumptions.
 	    match("suspended"|"failed"|"returned") & next
-	}
+	};
 
 	#
 	# Enter statistics into table.
 	#
-	/t[procname] := table()
+	/t[procname] := table();
 	/t[procname][filename] := table(0);
 	 t[procname][filename][linenum] +:= 1;
 
@@ -125,11 +125,11 @@ procedure main(a)
 	    threshhold := 0;
 	    display_stats(t)
 	}
-    }
+    };
 
     display_stats(t);
     # Write a nice exit message.
-    goodbye()
+    goodbye();
 
 end
 
@@ -137,17 +137,17 @@ end
 #
 # display_stats:  display the information in t interactively
 #
-procedure display_stats(t)
+procedure display_stats(t);
 
-    local l, input, c
-    static top, len, firstline
+    local l, input, c;
+    static top, len, firstline;
 	# sets global variables CM, LI, CO, and CE
     initial {
 	top := 1;
 	# The first line we can write data to on the screen.
 	firstline := 3;
 	len := LI - 4 - firstline
-    }
+    };
 
     #
     # Structure the information in t into a list.  Note that to obtain
@@ -166,31 +166,31 @@ procedure display_stats(t)
 	case input of {
 	    # Increase or decrease top by 4; don't go beyond 0 or
 	    # *l; no even numbers for top (the 4 also must be even).
-	    "j"    : top := (*l > (top+2) | *l-1)
-	    "\r"   : top := (*l > (top+2) | *l-1)
-	    "\n"   : top := (*l > (top+2) | *l-1)
-	    "k"    : top := (0  < (top-2) | 1)
-	    "\x02" : top := (0  < (top-4) | 1)
-	    "\x15": top := (0  < (top-4) | 1)
-	    " "    : top := (*l > (top+4) | *l-1)
-	    "\x06" : top := (*l > (top+4) | *l-1)
-	    "\x04" : top := (*l > (top+4) | *l-1)
-	    "^"    : top := 1
-	    "$"    : top := *l-1
+	    "j"    : top := (*l > (top+2) | *l-1);
+	    "\r"   : top := (*l > (top+2) | *l-1);
+	    "\n"   : top := (*l > (top+2) | *l-1);
+	    "k"    : top := (0  < (top-2) | 1);
+	    "\x02" : top := (0  < (top-4) | 1);
+	    "\x15": top := (0  < (top-4) | 1);
+	    " "    : top := (*l > (top+4) | *l-1);
+	    "\x06" : top := (*l > (top+4) | *l-1);
+	    "\x04" : top := (*l > (top+4) | *l-1);
+	    "^"    : top := 1;
+	    "$"    : top := *l-1;
 	    "p"    : {
 		iputs(igoto(CM, 1, LI-1));
 		writes("Press any key to continue: "); iputs(CE);
 		until kbhit() & getch() do delay(500)
-	    }
-            "q"    : goodbye()
-            "\x0C" : setup_screen()
-	    "\x012": setup_screen()
+	    };
+            "q"    : goodbye();
+            "\x0C" : setup_screen();
+	    "\x012": setup_screen();
 	    default: {
 		if any(&digits, input) then {
 		    while c := getche() do {
 			if c == ("\n"|"\r") then {
 			    if not (input <:= 1) then
-				input +:= input % 2 - 1
+				input +:= input % 2 - 1;
 			    top := (0  < input | 1);
 			    top := (*l > input | *l-1);
 			    break
@@ -202,17 +202,17 @@ procedure display_stats(t)
 		    }
 		}
 	    }
-	}
+	};
 	iputs(igoto(CM, 1, LI-1));
 	writes("Press j/k/^/$/p/q:  ");
 	iputs(CE)
-    }
+    };
 
     #
     # Display the information contained in table t via list l2.
     #
-    write_list(l, top, len, firstline)
-    return
+    write_list(l, top, len, firstline);
+    return;
 
 end
 
@@ -232,11 +232,11 @@ end
 #     number of invocations.  Yet another sort is done on the basis of
 #     total number of invocations.
 #
-procedure sort_table(t)
+procedure sort_table(t);
 
-    local t2, total_t, k, total, i, l, l2
-    static old_totals
-    initial old_totals := table()
+    local t2, total_t, k, total, i, l, l2;
+    static old_totals;
+    initial old_totals := table();
 
     t2 := copy(t);
     total_t := table();
@@ -244,21 +244,21 @@ procedure sort_table(t)
 	t2[k] := sort(t2[k], 3);
 	total := 0;
 	every i := 2 to *t2[k] by 2 do {
-	    every total +:= !t2[k][i]
+	    every total +:= !t2[k][i];
 	    t2[k][i] := sort(t2[k][i], 3)
-	}
+	};
 	insert(total_t, k, total)
-    }
+    };
     l2 := list(); l := sort(total_t, 4);
     every i := 1 to *l-1 by 2 do {
 	push(l2, t2[l[i]]);
 	if not (total_t[l[i]] <= \old_totals[l[i]]) then
-	    l[i] := "*" || l[i]
+	    l[i] := "*" || l[i];
 	push(l2, l[i])
-    }
+    };
 
-    old_totals := total_t
-    return l2
+    old_totals := total_t;
+    return l2;
 
 end
 
@@ -266,12 +266,12 @@ end
 #
 # write_list:  write statistics in the upper part of the screen
 #
-procedure write_list(l, top, len, firstline)
+procedure write_list(l, top, len, firstline);
 
-    local   i, j, k, z, w
-    static  last_i
+    local   i, j, k, z, w;
+    static  last_i;
     #global CM, CE
-    initial last_i := 2
+    initial last_i := 2;
 
     # Arg1, l, is a sorted table of sorted tables of sorted tables!
     # Firstline is the first line on the screen we can write data to.
@@ -293,17 +293,17 @@ procedure write_list(l, top, len, firstline)
 		else iputs(igoto(CM, 1, i)) & iputs(CE)
 	    }
 	}
-    }
+    };
 
     # Clear the remaining lines down to the status line.
     #
     every w := i to last_i do {
 	iputs(igoto(CM, 1, w));
 	iputs(CE)
-    }
-    last_i := i
+    };
+    last_i := i;
 
-    return
+    return;
 
 end
 
@@ -311,7 +311,7 @@ end
 #
 # setup_screen: clear screen, set up status line.
 #
-procedure setup_screen()
+procedure setup_screen();
 
     # global CM, LI, CO, CE
     initial {
@@ -322,7 +322,7 @@ procedure setup_screen()
 	CE := getval("ce");
 	# UNIX-specific command to disable character echo.
 	system("stty -echo")
-    }
+    };
 
     clear();
     iputs(igoto(CM, 1, 1));
@@ -336,16 +336,16 @@ procedure setup_screen()
     status_line("- \"Profile,\" by Richard Goerwitz -");
     iputs(igoto(CM, 1, LI-1));
     writes("J or CR=down; k=up; ^=begin; $=end; p=pause; q=quit: ");
-    iputs(CE)
+    iputs(CE);
 
-    return
+    return;
 
 end
 
 #
 # goodbye: exit, say something nice
 #
-procedure goodbye()
+procedure goodbye();
 
     # UNIX-specific command.
     system("stty echo");
@@ -358,8 +358,8 @@ procedure goodbye()
 	iputs(igoto(CM, 1, LI-1));
 	writes("Hope you enjoyed using profile! ");
 	normal(); iputs(CE)
-    }
-    exit()
+    };
+    exit();
 
 end
 
@@ -367,7 +367,7 @@ end
 #
 # stop_profile:  graceful exit after error
 # 
-procedure stop_profile(s)
+procedure stop_profile(s);
 
     # UNIX-specific command.
     system("stty echo");
@@ -376,6 +376,6 @@ procedure stop_profile(s)
     iputs(igoto(CM, 1, LI-1));
     writes(s); iputs(CE);
     iputs(igoto(CM, 1, LI));
-    stop()
+    stop();
 
 end

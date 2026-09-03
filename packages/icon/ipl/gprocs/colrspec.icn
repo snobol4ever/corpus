@@ -24,14 +24,14 @@
 
 link wopen
 
-procedure colrspec(s)
-   local color
-   static max, win
+procedure colrspec(s);
+   local color;
+   static max, win;
 
    initial {
       max := real(2 ^ 16 - 1);
       WOpen("canvas=hidden")
-      }
+      };
 
    color := "";
 
@@ -39,10 +39,10 @@ procedure colrspec(s)
       every 1 to 3 do {
          color ||:= (tab(upto(",") | 0) / max) || " ";
          move(1)
-         }
+         };
       return color
-      }
+      };
 
-   fail
+   fail;
 
 end

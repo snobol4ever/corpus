@@ -28,8 +28,8 @@
 
 link wopen
 
-procedure main(args)
-   local width, height, win1, win2
+procedure main(args);
+   local width, height, win1, win2;
 
    win1 := WOpen("image=" || args[1]) | stop("*** cannot open image");
 
@@ -43,6 +43,6 @@ procedure main(args)
       CopyArea(win1, win1, 1, 0, width - 1, height);
       CopyArea(win2, win1, 0, 0, 1, height, width - 1, 0);
       WDelay(10)
-      }
+      };
 
 end

@@ -20,32 +20,32 @@
 #
 ############################################################################
 
-procedure main(arg)
-   local fn, chars, f, line
+procedure main(arg);
+   local fn, chars, f, line;
 
    write(
 	  "#! /bin/sh_
 	 \n# This is a shell archive, meaning:_
 	 \n# 1. Remove everything above the #! /bin/sh line._
 	 \n# 2. Save the resulting text in a file._
-	 \n;  # 3. Execute the file with /bin/sh (not csh) to create:")
-   every write("#\t",!arg)
+	 \n;;  # 3. Execute the file with /bin/sh (not csh) to create:")
+   every write("#\t",!arg);
    write(
 	  "# This archive created: ",&dateline,
-       "\nexport PATH; PATH=/bin:/usr/bin:$PATH")
+       "\nexport PATH; PATH=/bin:/usr/bin:$PATH");
    every fn := !arg do {
-      chars := 0
-      f := open(fn) | stop("Can't open \",fn,"\"")
+      chars := 0;
+      f := open(fn) | stop("Can't open \",fn,"\"");
       write(
 	     "if test -f '",fn,"'_
 	    \nthen_
 	    \n\techo shar: \"will not over-write existing file '",fn,"'\"_
 	    \nelse_
-	    \ncat << \\SHAR_EOF > '",fn,"'")
+	    \ncat << \\SHAR_EOF > '",fn,"'");
       while line := read(f) do {
-	 write(line)
+	 write(line);
 	 chars +:= *line + 1
-	 }
+	 };
       write(
 	    "SHAR_EOF_
 	    \nif test ",chars," -ne \"`wc -c < '",fn,"'`\"_
@@ -53,10 +53,10 @@ procedure main(arg)
 	    \n\techo shar: \"error transmitting '",fn,"'\" '(should have been ",
 		  chars," characters)'_
 	    \nfi_
-	    \nfi")
+	    \nfi");
       close(f)
-      }
+      };
    write(
 	  "exit 0_
-	 \n#\tEnd of shell archive")
+	 \n;#\tEnd of shell archive")
 end

@@ -39,8 +39,8 @@
 link options
 link wopen
 
-procedure main(args)
-   local opts, prefix, x, y, w, h, win
+procedure main(args);
+   local opts, prefix, x, y, w, h, win;
 
    opts := options(args, "x+y+w+h+p:");
 
@@ -55,9 +55,9 @@ procedure main(args)
       win := WOpen("canvas=hidden", "image=" || name) | {
          write(&errout, "*** cannot open ", name);
          next
-         }
+         };
       WriteImage(win, prefix || name, x, y, w, h) |
          write(&errout, "*** cannot write rectangle for ", name);
       WClose(win)
-      }
+      };
 end

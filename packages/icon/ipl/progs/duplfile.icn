@@ -26,8 +26,8 @@
 #
 ############################################################################
 
-procedure main(args)
-   local ext, posit, files, names, name, dir, temp, dirs
+procedure main(args);
+   local ext, posit, files, names, name, dir, temp, dirs;
 
    ext := args[1] | "";
    posit := -*ext;
@@ -45,26 +45,26 @@ procedure main(args)
             /names[name] := [];
             put(names[name], dir)
             }
-         }
+         };
 
    names := sort(names, 3);
 
    while name := get(names) do {
       dirs := get(names);
-      if *name = 0 then next
+      if *name = 0 then next;
       if *dirs > 1 then {
          write("file: ", image(name), " occurs in the following directories");
-         every write("\t", image(fix(!sort(dirs))))
+         every write("\t", image(fix(!sort(dirs))));
          write()
          }
-      }
+      };
 
 end
 
-procedure fix(s)
+procedure fix(s);
 
-   /s := "."
+   /s := ".";
 
-   return s
+   return s;
 
 end

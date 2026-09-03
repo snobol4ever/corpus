@@ -21,47 +21,47 @@
 link lists
 link seqops
 
-procedure multireduce(i, j)		#: multi-reduction permutation
-   local indexes, result, parts
+procedure multireduce(i, j);		#: multi-reduction permutation
+   local indexes, result, parts;
 
    /j := 2;
 
    indexes := [];
 
-   every put(indexes, 1 to j)
+   every put(indexes, 1 to j);
 
    parts := ldecollate(indexes, srun(1, i));
 
    result := [];
 
-   every result |||:= !parts
+   every result |||:= !parts;
 
-   return result
+   return result;
 
 end
 
-procedure permperiod(p)			#: period of permutation
-   local lengths
+procedure permperiod(p);			#: period of permutation
+   local lengths;
 
    lengths := [];
 
-   every put(lengths, *!cycles(p))
+   every put(lengths, *!cycles(p));
 
-   return lcml ! lengths
+   return lcml ! lengths;
 
 end
 
-procedure cycles(p)			#: permutation cycles
-   local indices, cycle, cycles, i
+procedure cycles(p);			#: permutation cycles
+   local indices, cycle, cycles, i;
 
    cycles := [];  # list of cycles
 
    indices := set();
 
-   every insert(indices, 1 to *p)
+   every insert(indices, 1 to *p);
 
    repeat {
-      i := !indices | break
+      i := !indices | break;
       delete(indices, i);
       cycle := set();
       insert(cycle, i);
@@ -70,21 +70,21 @@ procedure cycles(p)			#: permutation cycles
          delete(indices, i);
          if member(cycle, i) then break	# done with cycle
          else insert(cycle, i)		# new member of cycle
-         }
+         };
       put(cycles, sort(cycle))
-      }
+      };
 
-   return cycles
+   return cycles;
 
 end
 
-procedure mutate(seq, mutation)		#: mutate sequence
-   local result
+procedure mutate(seq, mutation);		#: mutate sequence
+   local result;
 
    result := [];
 
-   every put(result, seq[!mutation])
+   every put(result, seq[!mutation]);
 
-   return result
+   return result;
 
 end

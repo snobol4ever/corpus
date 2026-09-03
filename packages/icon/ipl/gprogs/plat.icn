@@ -36,8 +36,8 @@
 link basename
 link wopen
 
-procedure main(args)
-   local line, file, name, input, i, j, color
+procedure main(args);
+   local line, file, name, input, i, j, color;
 
    WOpen("canvas=hidden", "size=16,16", "bg=black") |
       stop("*** cannot open window");
@@ -46,21 +46,21 @@ procedure main(args)
       input := open(file) | {
          write(&errout, "*** cannot open ", file);
          next
-         }
+         };
       name := basename(file, ".clr");
       EraseArea();
       every i := 0 to 15 do
          every j := 0 to 15 do {
-         color := read(input) | break
+         color := read(input) | break;
          color ? {
             Fg(tab(upto('\t') | 0)) |
                write(&errout, "*** cannot set foreground")
-            }
+            };
          DrawPoint(i, j)
-         }
+         };
       WriteImage(name || "_p.gif");
       close(input)
-      }
+      };
 
 end
       

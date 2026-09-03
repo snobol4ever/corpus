@@ -19,13 +19,13 @@
 #
 ############################################################################
 
-procedure itrcline(f)		#: generate trace messages in file
-   local line
+procedure itrcline(f);		#: generate trace messages in file
+   local line;
 
    while line := read(f) do
       line ? {
          if (="             :" & move(6) & ="main") | (move(12) & ":      |")
          then suspend line
-         }
+         };
 
 end

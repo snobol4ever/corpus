@@ -39,9 +39,9 @@ link options
 link patutils
 link win
 
-procedure main(args)
-   local i, x, y, opts, magnif, pattern, dims, row, pixel, width, height, glist
-   local name, input
+procedure main(args);
+   local i, x, y, opts, magnif, pattern, dims, row, pixel, width, height, glist;
+   local name, input;
 
    opts := options(args, "z+g");
    magnif := \opts["z"] | 8;
@@ -57,14 +57,14 @@ procedure main(args)
    glist := [];
    if \opts["g"] & (magnif > 2) then {
       every y := 0 to height by magnif do
-         DrawLine(0, y, width, y)
+         DrawLine(0, y, width, y);
       every x := 0 to width by magnif do
          DrawLine(x, 0, x, height)
-      }
+      };
    DrawTile(0, 0, pattern, , magnif);
       WriteImage(basename(name, ".blp") || "_zoom.gif");
-      WClose(&window)
+      WClose(&window);
       &window := &null
-      }
+      };
 
 end

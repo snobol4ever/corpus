@@ -22,14 +22,14 @@
 #
 ############################################################################
 
-procedure main(args)
-   local file
+procedure main(args);
+   local file;
 
    file := [];
 
-   while put(file, read())
+   while put(file, read());
 
    every 1 to args[1] do
-      every write(!file)
+      every write(!file);
 
 end

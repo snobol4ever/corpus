@@ -23,8 +23,8 @@
 #
 ############################################################################
 
-procedure statemap()
-   local state_list, state_map, i
+procedure statemap();
+   local state_list, state_map, i;
 
    state_map := table();
 
@@ -32,13 +32,13 @@ procedure statemap()
       every i := 1 to *state_list - 1 by 2 do {
          insert(state_map, state_list[i], state_list[i + 1]);
          insert(state_map, state_list[i + 1], state_list[i])
-         }
+         };
 
-   return state_map
+   return state_map;
 
 end
 
-procedure __list1()
+procedure __list1();
 
    return [
       "AK", "Alaska",
@@ -69,11 +69,11 @@ procedure __list1()
       "MH", "Marshall Islands",
       "MI", "Michigan",
       "MN", "Minnesota"
-       ]
+       ];
 
 end
 
-procedure __list2()
+procedure __list2();
 
    return [
       "MO", "Missouri",
@@ -106,6 +106,6 @@ procedure __list2()
       "WI", "Wisconsin",
       "WV", "West Virginia",
       "WY", "Wyoming"
-      ]
+      ];
 
 end

@@ -327,38 +327,38 @@ link equiv
 link indices
 link numbers
 
-procedure file2lst(s)			#: create list from lines in file
-   local input, result
+procedure file2lst(s);			#: create list from lines in file
+   local input, result;
 
    input := open(s) | fail;
 
    result := [];
 
-   every put(result, !input)
+   every put(result, !input);
 
-   close(input)
+   close(input);
 
-   return result
+   return result;
 
 end
 
-procedure imag2lst(seqimage)		#: convert limage() output to list
-   local seq, term
+procedure imag2lst(seqimage);		#: convert limage() output to list
+   local seq, term;
 
    seq := [];
 
    seqimage[2:-1] ? {
-      if pos(0) then return seq
+      if pos(0) then return seq;
       tab(many(' '));
       while term := tab(bal(',', '[', ']') | 0) do {
          term := numeric(term);  # special interest
          put(seq, term);
-         move(1) | break
+         move(1) | break;
          tab(many(' '))
          }
-      }
+      };
 
-   return seq
+   return seq;
 
 end
 
@@ -367,17 +367,17 @@ global l_SUBJ
 
 record l_ScanEnvir(subject,pos)
 
-procedure l_Bscan(e1)			#: begin list scanning
+procedure l_Bscan(e1);			#: begin list scanning
 
     #
     # Prototype list scan initializer.  Based on code published in
     # the _Icon Analyst_ 1:6 (June, 1991), p. 1-2.
     #
-    local l_OuterEnvir
+    local l_OuterEnvir;
     initial {
 	l_SUBJ := [];
 	l_POS := 1
-    }
+    };
 
     #
     # Save outer scanning environment.
@@ -392,7 +392,7 @@ procedure l_Bscan(e1)			#: begin list scanning
     # and the outer environment changes l_SUBJ and l_POS.
     #
     l_SUBJ := e1;
-    l_POS  := 1
+    l_POS  := 1;
     suspend l_OuterEnvir;
 
     #
@@ -406,15 +406,15 @@ procedure l_Bscan(e1)			#: begin list scanning
     # Signal failure of the scanning expression (we're done producing
     # results if we get to here).
     #
-    fail
+    fail;
 
 end
 
 
 
-procedure l_Escan(l_OuterEnvir, e2)	#: end list scanning
+procedure l_Escan(l_OuterEnvir, e2);	#: end list scanning
 
-    local l_InnerEnvir
+    local l_InnerEnvir;
 
     #
     # Set the inner scanning environment to the values assigned to it
@@ -433,7 +433,7 @@ procedure l_Escan(l_OuterEnvir, e2)	#: end list scanning
     # environment.
     #
     l_SUBJ := l_OuterEnvir.subject;
-    l_POS := l_OuterEnvir.pos
+    l_POS := l_OuterEnvir.pos;
     suspend e2;
 
     #
@@ -452,11 +452,11 @@ procedure l_Escan(l_OuterEnvir, e2)	#: end list scanning
     # will restore the outer environment and fail, causing the entire
     # scanning expression to fail.
     #
-    fail
+    fail;
 
 end
 
-procedure l_any(l1,l2,i,j)		#: any() for list scanning
+procedure l_any(l1,l2,i,j);		#: any() for list scanning
 
     #
     # Like any(c,s2,i,j) except that the string & cset arguments are
@@ -464,58 +464,58 @@ procedure l_any(l1,l2,i,j)		#: any() for list scanning
     # lists, while l2 can be any list (l_SUBJ by default).
     #
 
-    local x, sub_l
+    local x, sub_l;
 
     /l1 & stop("l_any:  Null first argument!");
-    if type(l1) == "set" then l1 := sort(l1)
+    if type(l1) == "set" then l1 := sort(l1);
 
-    /l2 := l_SUBJ
+    /l2 := l_SUBJ;
     if \i then {
 	if i < 1 then
 	    i := *l2 + (i+1)
     }
-    else i := \l_POS | 1
+    else i := \l_POS | 1;
     if \j then {
 	if j < 1 then
 	    j := *l2 + (j+1)
     }
-    else j := *l_SUBJ+1
+    else j := *l_SUBJ+1;
 
-    (i+1) > j & i :=: j
+    (i+1) > j & i :=: j;
     every sub_l := !l1 do {
 	if not (type(sub_l) == "list", *sub_l = 1) then
-	    stop("l_any:  Elements of l1 must be lists of length 1.")
+	    stop("l_any:  Elements of l1 must be lists of length 1.");
 	# Let l_match check to see if i+1 is out of range.
 	if x := l_match(sub_l,l2,i,i+1) then
 	    return x
-    }
+    };
     
 end
 
-procedure l_bal(l1,l2,l3,l,i,j)		#: bal() for list scanning
+procedure l_bal(l1,l2,l3,l,i,j);		#: bal() for list scanning
 
-    local default_val, l2_count, l3_count, x, position
+    local default_val, l2_count, l3_count, x, position;
 
     /l1 & stop("l_bal:  Null first argument!");
-    if type(l1) == "set" then l1 := sort(l1)  # convert to a list
-    if type(l2) == "set" then l1 := sort(l2)
-    if type(l3) == "set" then l1 := sort(l3)
+    if type(l1) == "set" then l1 := sort(l1);  # convert to a list
+    if type(l2) == "set" then l1 := sort(l2);
+    if type(l3) == "set" then l1 := sort(l3);
 
     if /l2 := l_SUBJ
     then default_val := \l_POS | 1
-    else default_val := 1
+    else default_val := 1;
 
     if \i then {
 	if i < 1 then
 	    i := *l2 + (i+1)
     }
-    else i := default_val
+    else i := default_val;
 
     if \j then {
 	if j < 1 then
 	    j := *l2 + (j+1)
     }
-    else j := *l_SUBJ+1
+    else j := *l_SUBJ+1;
 
     l2_count := l3_count := 0;
 
@@ -523,26 +523,26 @@ procedure l_bal(l1,l2,l3,l,i,j)		#: bal() for list scanning
 
 	if l_any(l2, l, x, x+1) then {
 	    l2_count +:= 1
-	}
+	};
 	if l_any(l3, l, x, x+1) then {
 	    l3_count +:= 1
-	}
+	};
 	if l2_count = l3_count then {
 	    if l_any(l1,l,x,x+1)
 	    then suspend x
 	}
-    }
+    };
 
 end
 
-procedure l_comp(l1,l2)			# list comparison
+procedure l_comp(l1,l2);			# list comparison
 
     #
     # List comparison routine basically taken from Griswold & Griswold
     # (1st ed.), p. 174.
     #
 
-    local i
+    local i;
 
     /l1 | /l2 & stop("l_comp:  Null argument!");
     l1 === l2 & (return l2);
@@ -550,75 +550,75 @@ procedure l_comp(l1,l2)			# list comparison
     if type(l1) == type(l2) == "list" then {
 	*l1 ~= *l2 & fail;
 	every i := 1 to *l1
-	do l_comp(l1[i],l2[i]) | fail
+	do l_comp(l1[i],l2[i]) | fail;
 	return l2
-    }
+    };
 
 end
 
-procedure l_find(l1,l2,i,j)		#: find() for list scanning
+procedure l_find(l1,l2,i,j);		#: find() for list scanning
 
     #
     # Like the builtin find(s1,s2,i,j), but for lists.
     #
 
-    local x, old_l_POS, default_val
+    local x, old_l_POS, default_val;
 
     /l1 & stop("l_find:  Null first argument!");
 
     if /l2 := l_SUBJ
     then default_val := \l_POS | 1
-    else default_val := 1
+    else default_val := 1;
 
     if \i then {
 	if i < 1 then
 	    i := *l2 + (i+1)
     }
-    else i := default_val
+    else i := default_val;
 
     if \j then {
 	if j < 1 then
 	    j := *l2 + (j+1)
     }
-    else j := *l_SUBJ+1
+    else j := *l_SUBJ+1;
 
     #
     # See l_upto() below for a discussion of why things have to be done
     # in this manner.
     #
-    old_l_POS := l_POS
+    old_l_POS := l_POS;
 
     suspend l_Escan(l_Bscan(l2[i:j]), {
 	l_tab(1 to *l_SUBJ) & {
 	    if l_match(l1) then
 		old_l_POS + (l_POS-1)
 	}
-    })
+    });
     
 end
 
-procedure l_many(l1,l2,i,j)		#: many() for list scanning
+procedure l_many(l1,l2,i,j);		#: many() for list scanning
 
-    local x, old_l_POS, default_val
+    local x, old_l_POS, default_val;
 
     /l1 & stop("l_many:  Null first argument!");
-    if type(l1) == "set" then l1 := sort(l1)
+    if type(l1) == "set" then l1 := sort(l1);
 
     if /l2 := l_SUBJ
     then default_val := \l_POS | 1
-    else default_val := 1
+    else default_val := 1;
 
     if \i then {
 	if i < 1 then
 	    i := *l2 + (i+1)
     }
-    else i := default_val
+    else i := default_val;
 
     if \j then {
 	if j < 1 then
 	    j := *l2 + (j+1)
     }
-    else j := *l_SUBJ+1
+    else j := *l_SUBJ+1;
 
     #
     # L_many(), like many(), is not a generator.  We can therefore
@@ -627,19 +627,19 @@ procedure l_many(l1,l2,i,j)		#: many() for list scanning
     #
     old_l_POS := l_POS;
     l_Escan(l_Bscan(l2[i:j]), {
-	while l_tab(l_any(l1))
+	while l_tab(l_any(l1));
 	x := old_l_POS + (l_POS-1)
-    })
+    });
 
     #
     # Fails if there was no positional change (i.e. l_any() did not
     # succeed even once).
     #
-    return old_l_POS ~= x
+    return old_l_POS ~= x;
 
 end
 
-procedure l_match(l1,l2,i,j)		#: match() for list scanning
+procedure l_match(l1,l2,i,j);		#: match() for list scanning
 
     #
     # Analogous to match(s1,s2,i,j), except that s1 and s2 are lists,
@@ -647,41 +647,41 @@ procedure l_match(l1,l2,i,j)		#: match() for list scanning
     # (if any) which is structurally identical to l1.  If a match is not
     # found, l_match fails.
     #
-    local default_val
+    local default_val;
 
     if /l1
-    then stop("l_match:  Null first argument!")
+    then stop("l_match:  Null first argument!");
     if type(l1) ~== "list"
-    then stop("l_match:  Call me with a list as the first arg.")
+    then stop("l_match:  Call me with a list as the first arg.");
 
     if /l2 := l_SUBJ
     then default_val := \l_POS | 1
-    else default_val := 1
+    else default_val := 1;
 
     if \i then {
 	if i < 1 then
 	    i := *l2 + (i+1)
     }
-    else i := default_val
+    else i := default_val;
     
     if \j then {
 	if j < 1 then
 	    j := *l2 + (j+1)
     }
-    else j := *l_SUBJ+1
+    else j := *l_SUBJ+1;
 
     i + *l1 > j & i :=: j;
     i + *l1 > j & fail;
     if l_comp(l1,l2[i+:*l1]) then
-	return i + *l1
+	return i + *l1;
 
 end
 
-procedure l_move(i)			#: move() for list scanning
+procedure l_move(i);			#: move() for list scanning
 
     /i & stop("l_move:  Null argument.");
     if /l_POS | /l_SUBJ then
-	stop("l_move:  Call l_Bscan() first.")
+	stop("l_move:  Call l_Bscan() first.");
 
     #
     # Sets l_POS to l_POS+i; suspends that portion of l_SUBJ extending
@@ -689,79 +689,79 @@ procedure l_move(i)			#: move() for list scanning
     # just the way matching procedures are supposed to.  Fails if l_POS
     # plus i is larger than l_SUBJ+1 or if l_POS+i is less than 1.
     #
-    suspend l_SUBJ[.l_POS:l_POS <- (0 < (*l_SUBJ+1 >= l_POS+i))]
+    suspend l_SUBJ[.l_POS:l_POS <- (0 < (*l_SUBJ+1 >= l_POS+i))];
 
 end
 
-procedure l_pos(i)			#: pos() for list scanning
+procedure l_pos(i);			#: pos() for list scanning
 
-    local x
+    local x;
 
     if /l_POS | /l_SUBJ
-    then stop("l_move:  Call l_Bscan() first.")
+    then stop("l_move:  Call l_Bscan() first.");
 
     if i <= 0
     then x := 0 < (*l_SUBJ+1 >= (*l_SUBJ+1)+i) | fail
-    else x := 0 < (*l_SUBJ+1 >= i) | fail
+    else x := 0 < (*l_SUBJ+1 >= i) | fail;
 
     if x = l_POS
     then return x
-    else fail
+    else fail;
 
 end
 
-procedure l_tab(i)			#: tab() for list scanning
+procedure l_tab(i);			#: tab() for list scanning
 
     /i & stop("l_tab:  Null argument.");
     if /l_POS | /l_SUBJ then
-	stop("l_tab:  Call l_Bscan() first.")
+	stop("l_tab:  Call l_Bscan() first.");
 
     if i <= 0
     then suspend l_SUBJ[.l_POS:l_POS <- 0 < (*l_SUBJ+1 >= (*l_SUBJ+1)+i)]
-    else suspend l_SUBJ[.l_POS:l_POS <- 0 < (*l_SUBJ+1 >= i)]
+    else suspend l_SUBJ[.l_POS:l_POS <- 0 < (*l_SUBJ+1 >= i)];
 
 end
 
-procedure l_upto(l1,l2,i,j)		#: upto() for list scanning
+procedure l_upto(l1,l2,i,j);		#: upto() for list scanning
 
     #
     # See l_any() above.  This procedure just moves through l2, calling
     # l_any() for each member of l2[i:j].
     #
 
-    local old_l_POS, default_val
+    local old_l_POS, default_val;
 
     /l1 & stop("l_upto:  Null first argument!");
-    if type(l1) == "set" then l1 := sort(l1)
+    if type(l1) == "set" then l1 := sort(l1);
 
     if /l2 := l_SUBJ
     then default_val := \l_POS | 1
-    else default_val := 1
+    else default_val := 1;
 
     if \i then {
 	if i < 1 then
 	    i := *l2 + (i+1)
     }
-    else i := default_val
+    else i := default_val;
 
     if \j then {
 	if j < 1 then
 	    j := *l2 + (j+1)
     }
-    else j := *l_SUBJ+1
+    else j := *l_SUBJ+1;
 
     #
     # Save the old pos, then try arb()ing through the list to see if we
     # can do an l_any(l1) at any position.
     #
-    old_l_POS := l_POS
+    old_l_POS := l_POS;
 
     suspend l_Escan(l_Bscan(l2[i:j]), {
 	l_tab(1 to *l_SUBJ) & {
 	    if l_any(l1) then
 		old_l_POS + (l_POS-1)
 	}
-    })
+    });
 
     #
     # Note that it WILL NOT WORK if you say:
@@ -780,28 +780,28 @@ procedure l_upto(l1,l2,i,j)		#: upto() for list scanning
     
 end
 
-procedure lblock(L1, L2)
-   local L3, i, j
+procedure lblock(L1, L2);
+   local L3, i, j;
 
    if *L1 < *L2 then L1 := lextend(L1, *L2) | fail
-   else if *L2 < *L1 then L2 := lextend(L2, *L1) | fail
+   else if *L2 < *L1 then L2 := lextend(L2, *L1) | fail;
 
    L3 := [];
 
     every i := 1 to *L1 do
        every j := 1 to L2[i] do
-          put(L3, L2[i])
+          put(L3, L2[i]);
 
-      return L3
+      return L3;
 
 end
 
-procedure llayer(args[])		#: interleave lists with layering
-   local offsets, offset, seq, arg, lists, k
+procedure llayer(args[]);		#: interleave lists with layering
+   local offsets, offset, seq, arg, lists, k;
 
    lists := [];
 
-   every put(lists, lcompact(!args))
+   every put(lists, lcompact(!args));
 
    offsets := [];
 
@@ -810,7 +810,7 @@ procedure llayer(args[])		#: interleave lists with layering
    every arg := !lists do {
       put(offsets, offset);
       offset +:= max ! arg
-      }
+      };
 
    seq := [];
 
@@ -819,111 +819,111 @@ procedure llayer(args[])		#: interleave lists with layering
          arg := lists[k];
          put(seq, get(arg) + offsets[k]) | break break
          }
-      }
+      };
 
-   return seq
+   return seq;
 
 end
 
-procedure lcompact(seq)			#: compact sequence
-   local unique, target
+procedure lcompact(seq);			#: compact sequence
+   local unique, target;
 
    unique := set(seq);
 
    target := [];
 
-   every put(target, 1 to *unique)
+   every put(target, 1 to *unique);
 
-   return lmap(seq, sort(unique), target)
+   return lmap(seq, sort(unique), target);
 
 end
 
-procedure lclose(L)			#: close open palindrome
+procedure lclose(L);			#: close open palindrome
 
    if equiv(L, lreverse(L)) then return L
    else {
       L := copy(L);
-      put(L, L[1])
+      put(L, L[1]);
       return L
-      }
+      };
 
 end
 
-procedure lcomb(L,i)			#: list combinations
-   local j
+procedure lcomb(L,i);			#: list combinations
+   local j;
 
-   if i < 1 then fail
+   if i < 1 then fail;
    suspend if i = 1 then [!L]
-      else [L[j := 1 to *L - i + 1]] ||| lcomb(L[j + 1:0],i - 1)
+      else [L[j := 1 to *L - i + 1]] ||| lcomb(L[j + 1:0],i - 1);
 
 end
 
-procedure ldecollate(indices, L)	#: list decollation
-   local result, i, x
+procedure ldecollate(indices, L);	#: list decollation
+   local result, i, x;
 
    result := list(max ! indices);  # list of lists to return
-   every !result := []			# initially empty
+   every !result := [];			# initially empty
 
    every x := !L do {
       i := get(indices)	| fail;
       put(indices, i);
       put(result[i], x)
-      }
+      };
 
-   return result
+   return result;
 
 end
 
-procedure ldelete(L, spec)		#: delete specified list elements
-   local i, tmp
+procedure ldelete(L, spec);		#: delete specified list elements
+   local i, tmp;
 
    tmp := indices(spec, *L) | fail;  # bad specification
 
    while i := pull(tmp) do
-      L := L[1+:i - 1] ||| L[i + 1:0]
+      L := L[1+:i - 1] ||| L[i + 1:0];
 
-   return L
+   return L;
 
 end
 
-procedure ldupl(L1, L2)			#: list term duplication
-   local L3, i, j
+procedure ldupl(L1, L2);			#: list term duplication
+   local L3, i, j;
 
-   if integer(L2) then L2 := [L2]
+   if integer(L2) then L2 := [L2];
 
    L3 := [];
 
    every i := !L2 do
       every j := !L1 do
         every 1 to i do
-           put(L3, j)
+           put(L3, j);
 
-   return L3
+   return L3;
 
 end
 
-procedure lequiv(x,y)			#: compare lists for equivalence
-   local i
+procedure lequiv(x,y);			#: compare lists for equivalence
+   local i;
 
-   if x === y then return y
+   if x === y then return y;
    if type(x) == type(y) == "list" then {
-      if *x ~= *y then fail
+      if *x ~= *y then fail;
       every i := 1 to *x do
-         if not lequiv(x[i],y[i]) then fail
+         if not lequiv(x[i],y[i]) then fail;
       return y
-     }
+     };
 
 end
 
-procedure levate(seq, m, n)		#: elevate values
-   local shafts, reseq, i, j, k
+procedure levate(seq, m, n);		#: elevate values
+   local shafts, reseq, i, j, k;
 
    shafts := list(m);
 
-   every !shafts := []
+   every !shafts := [];
 
    every i := 1 to m do
-      every put(shafts[i], i to n by m)
+      every put(shafts[i], i to n by m);
 
    reseq := [];
 
@@ -932,69 +932,69 @@ procedure levate(seq, m, n)		#: elevate values
       k := get(shafts[i]);
       put(reseq, k);
       put(shafts[i], k)
-      }
+      };
 
-   return reseq
+   return reseq;
 
 end
 	
-procedure lextend(L, i)			#: list extension
-   local result
+procedure lextend(L, i);			#: list extension
+   local result;
 
-   if *L = 0 then fail
+   if *L = 0 then fail;
 
    result := copy(L);
 
    until *result >= i do
-      result |||:= L
+      result |||:= L;
 
-   result := result[1+:i]
+   result := result[1+:i];
 
-   return result
+   return result;
  
 end
 
-procedure lfliph(L)			#: list horizontal flip (reversal)
+procedure lfliph(L);			#: list horizontal flip (reversal)
 
-   lfliph := lreverse
+   lfliph := lreverse;
 
-   return lfliph(L)
+   return lfliph(L);
 
 end
 
-procedure lflipv(L)			#: list vertical flip
-   local L1, m, i
+procedure lflipv(L);			#: list vertical flip
+   local L1, m, i;
 
    m := max ! L;
 
    L1 := [];
 
    every i := !L do
-      put(L1, residue(-i + 1, m, 1))
+      put(L1, residue(-i + 1, m, 1));
 
-   return L1
+   return L1;
 
 end
 
-procedure limage(L)			#: list image
-   local result
+procedure limage(L);			#: list image
+   local result;
 
-   if type(L) ~== "list" then stop("*** invalid type to limage()")
+   if type(L) ~== "list" then stop("*** invalid type to limage()");
 
    result := "";
 
-   every result ||:= image(!L) || ","
+   every result ||:= image(!L) || ",";
 
-   return ("[" || result[1:-1] || "]") | "[]"
+   return ("[" || result[1:-1] || "]") | "[]";
 
 end
 
-procedure lcollate(args[])		#: generalized list collation
-   local seq, arg, lists, k
+procedure lcollate(args[]);		#: generalized list collation
+   local seq, arg, lists, k;
 
    lists := [];
 
-   every put(lists, copy(!args))
+   every put(lists, copy(!args));
 
    seq := [];
 
@@ -1003,97 +1003,97 @@ procedure lcollate(args[])		#: generalized list collation
          arg := lists[k];
          put(seq, get(arg)) | break break
          }
-      }
+      };
 
-   return seq
+   return seq;
 
 end
 
-procedure lconstant(L)			#: test list for all terms equal
+procedure lconstant(L);			#: test list for all terms equal
 
    if *set(L) = 1 then return L[1]
-   else fail
+   else fail;
 
 end
 
-procedure lindex(lst, x)		#: generate indices for items matching x
-   local i
+procedure lindex(lst, x);		#: generate indices for items matching x
+   local i;
 
    every i := 1 to *lst do
-      if lst[i] === x then suspend i
+      if lst[i] === x then suspend i;
 
 end
 
-procedure linterl(L1, L2)		#: list interleaving
-   local L3, i
+procedure linterl(L1, L2);		#: list interleaving
+   local L3, i;
 
    if *L1 < *L2 then L1 := lextend(L1, *L2) | fail
-   else if *L2 < *L1 then L2 := lextend(L2, *L1) | fail
+   else if *L2 < *L1 then L2 := lextend(L2, *L1) | fail;
 
    L3 := [];
 
    every i := 1 to *L1 do
-      put(L3, L1[i], L2[i])
+      put(L3, L1[i], L2[i]);
 
-   return L3
+   return L3;
 
 end
 
-procedure llpad(L, i, x)		#: list padding at left
+procedure llpad(L, i, x);		#: list padding at left
 
    L := copy(L);
 
-   while *L < i do push(L, x)
+   while *L < i do push(L, x);
 
-   return L
+   return L;
 
 end
 
-procedure lrunup(L1, L2, L3)		#: list run up
-   local L4
+procedure lrunup(L1, L2, L3);		#: list run up
+   local L4;
 
    /L3 := [1];  # could be /L3 := 1 ...
 
    L4 := [];
 
-   every put(L4, !L1 to !L2 by !L3)
+   every put(L4, !L1 to !L2 by !L3);
 
-   return L4
+   return L4;
 
 end
 
-procedure lrundown(L1, L2, L3)		#: list run up
-   local L4
+procedure lrundown(L1, L2, L3);		#: list run up
+   local L4;
 
    /L3 := [1];  # could be /L3 := 1 ...
 
    L4 := [];
 
-   every put(L4, !L1 to !L2 by -!L3)
+   every put(L4, !L1 to !L2 by -!L3);
 
-   return L4
+   return L4;
 
 end
 
-procedure lltrim(L, S)			#: list left trimming
+procedure lltrim(L, S);			#: list left trimming
 
    L := copy(L);
 
    while member(S, L[1]) do
-      get(L)
+      get(L);
 
-    return L
+    return L;
 
 end
 
-procedure lmap(L1,L2,L3)		#: list mapping
-   static lmem2, lmem3, lmaptbl, tdefault
-   local i, a
+procedure lmap(L1,L2,L3);		#: list mapping
+   static lmem2, lmem3, lmaptbl, tdefault;
+   local i, a;
 
-   initial tdefault := []
+   initial tdefault := [];
 
-   if type(a := L1 | L2 | L3) ~== "list" then runerr(108,a)
-   if *L2 ~= *L3 then runerr(208,L2)
+   if type(a := L1 | L2 | L3) ~== "list" then runerr(108,a);
+   if *L2 ~= *L3 then runerr(208,L2);
 
    L1 := copy(L1);
 
@@ -1103,79 +1103,79 @@ procedure lmap(L1,L2,L3)		#: list mapping
       lmaptbl := table(tdefault);  # new mapping table
       every i := 1 to *L2 do			# build the map
          lmaptbl[L2[i]] := L3[i]
-      }
+      };
    every i := 1 to *L1 do			# map the values
-      L1[i] := (tdefault ~=== lmaptbl[L1[i]])
-   return L1
+      L1[i] := (tdefault ~=== lmaptbl[L1[i]]);
+   return L1;
 
 end
 
-procedure lresidue(L, m, i)		#: list residue
-   local result
+procedure lresidue(L, m, i);		#: list residue
+   local result;
 
    /i := 0;
 
    result := [];
 
-   every put(result, residue(!L, m, i))
+   every put(result, residue(!L, m, i));
 
-   return result
+   return result;
 
 end
 
-procedure lpalin(L, x)			#: list palindrome
+procedure lpalin(L, x);			#: list palindrome
 
    L |||:= lreverse(L);
 
-   if /x then pull(L)
+   if /x then pull(L);
 
-   return L
-
-end
-
-procedure lpermute(L)			#: list permutations
-   local i
-
-   if *L = 0 then return []
-   suspend [L[i := 1 to *L]] ||| lpermute(L[1:i] ||| L[i+1:0])
+   return L;
 
 end
 
-procedure lreflect(L, i)		#: list reflection
-   local L1
+procedure lpermute(L);			#: list permutations
+   local i;
+
+   if *L = 0 then return [];
+   suspend [L[i := 1 to *L]] ||| lpermute(L[1:i] ||| L[i+1:0]);
+
+end
+
+procedure lreflect(L, i);		#: list reflection
+   local L1;
 
    /i := 0;
 
-   if i > 3 then stop("*** invalid argument to lreflect()")
+   if i > 3 then stop("*** invalid argument to lreflect()");
 
-   if i < 3 then L1 := copy(L)
+   if i < 3 then L1 := copy(L);
 
    return L ||| lreverse(
       case i of {
-         0:   {get(L1); pull(L1); L1}
-         1:   {get(L1); L1}
-         2:   {pull(L1); L1}
+         0:   {get(L1); pull(L1); L1};
+         1:   {get(L1); L1};
+         2:   {pull(L1); L1};
          3:   L
          }
-      )
+      );
 
 end
 
-procedure lremvals(L, x[])		#: remove values from list
-   local result, y
+procedure lremvals(L, x[]);		#: remove values from list
+   local result, y;
 
    result := [];
 
    every y := !L do
       if y === !x then next
-      else put(result, y)
+      else put(result, y);
 
-   return result
+   return result;
 
 end
 
-procedure lrepl(L, i)			#: list replication
-   local j, k
+procedure lrepl(L, i);			#: list replication
+   local j, k;
 
    i := (0 < integer(i)) | stop("*** invalid replication factor in lrepl()");
 
@@ -1185,25 +1185,25 @@ procedure lrepl(L, i)			#: list replication
 
    every 1 to i - 1 do
       every k := 1 to j do
-         put(L, L[k])
+         put(L, L[k]);
 
-   return L
+   return L;
 
 end
 
-procedure lreverse(L)			#: list reverse
-   local i
+procedure lreverse(L);			#: list reverse
+   local i;
 
    L := copy(L);
 
    every i := 1 to *L / 2 do
-      L[i] :=: L[-i]
+      L[i] :=: L[-i];
 
-   return L
+   return L;
 
 end
 
-procedure lrotate(L, i)			#: list rotation
+procedure lrotate(L, i);			#: list rotation
 
    /i := 1;
 
@@ -1214,68 +1214,68 @@ procedure lrotate(L, i)			#: list rotation
          put(L, get(L))
    else
       every 1 to -i do
-         push(L, pull(L))
+         push(L, pull(L));
 
-   return L
+   return L;
 
 end
 
-procedure lrpad(L, i, x)		#: list right padding
+procedure lrpad(L, i, x);		#: list right padding
 
    L := copy(L);
 
-   while *L < i do put(L, x)
+   while *L < i do put(L, x);
 
-   return L
+   return L;
 
 end
 
-procedure lrtrim(L, S)			#: list right trimming
+procedure lrtrim(L, S);			#: list right trimming
 
    L := copy(L);
 
    while member(S, L[-1]) do
-      pull(L)
+      pull(L);
 
-    return L
+    return L;
 
 end
 
-procedure lshift(L, i)			#: shift list terms
+procedure lshift(L, i);			#: shift list terms
 
    L := copy(L);
 
-   every !L +:= i
+   every !L +:= i;
 
-   return L
+   return L;
 
 end
 
-procedure lst2str(L)			#: convert list to string
-   local str
+procedure lst2str(L);			#: convert list to string
+   local str;
 
    str := "";
 
-   every str ||:= !L
+   every str ||:= !L;
 
-   return str
+   return str;
 
 end
 
-procedure lswap(L)			#: list element swap
-   local i
+procedure lswap(L);			#: list element swap
+   local i;
 
    L := copy(L);
 
    every i := 1 to *L by 2 do
-      L[i] :=: L[i + 1]
+      L[i] :=: L[i + 1];
 
-   return L
+   return L;
 
 end
 
-procedure lunique(L)			#: keep only unique list elements
-   local result, culls, x
+procedure lunique(L);			#: keep only unique list elements
+   local result, culls, x;
 
    result := [];
    culls := set(L);
@@ -1284,72 +1284,72 @@ procedure lunique(L)			#: keep only unique list elements
       if member(culls, x) then {
          delete(culls, x);
          put(result, x)
-         }
+         };
 
-   return result
+   return result;
 
 end
 
-procedure lmaxlen(L, p)			#: size of largest list entry
-   local i
+procedure lmaxlen(L, p);			#: size of largest list entry
+   local i;
 
    /p := proc("*", 1);
 
    i := p(L[1]) | fail;
 
-   every i <:= p(!L)
+   every i <:= p(!L);
 
-   return i
+   return i;
 
 end
 
-procedure lminlen(L, p)			#: size of smallest list entry
-   local i
+procedure lminlen(L, p);			#: size of smallest list entry
+   local i;
 
    /p := proc("*", 1);
 
    i := p(L[1]) | fail;
 
-   every i >:= p(!L)
+   every i >:= p(!L);
 
-   return i
+   return i;
 
 end
 
-procedure sortkeys(L)			#: extract keys from sorted list
-   local result
+procedure sortkeys(L);			#: extract keys from sorted list
+   local result;
 
    result := [];
 
-   every put(result, L[1 to *L by 2])
+   every put(result, L[1 to *L by 2]);
 
-   return result
+   return result;
 
 end
 
-procedure sortvalues(L)			#: extract values from sorted list
-   local result
+procedure sortvalues(L);			#: extract values from sorted list
+   local result;
 
    result := [];
 
-   every put(result, L[2 to *L by 2])
+   every put(result, L[2 to *L by 2]);
 
-   return result
+   return result;
 
 end
 
-procedure str2lst(s, i)			#: list from string
-   local L
+procedure str2lst(s, i);			#: list from string
+   local L;
 
    /i := 1;
 
    L := [];
 
    s ? {
-      while put(L, move(i))
+      while put(L, move(i));
       if not pos(0) then put(L, tab(0))
-      }
+      };
 
-   return L
+   return L;
 
 end

@@ -35,8 +35,8 @@ link weavegif
 link weavutil
 link xcode
 
-procedure main(args)
-   local draft, width, spacing, bg, opts
+procedure main(args);
+   local draft, width, spacing, bg, opts;
 
    isd;  # Hands off, linker.
 
@@ -52,11 +52,11 @@ procedure main(args)
 
    draft.name := \opts["n"];  # override if given
 
-   if /draft.name then draft.name := "untitled"
-   /draft.width := *draft.threading
-   /draft.height := *draft.treadling
+   if /draft.name then draft.name := "untitled";
+   /draft.width := *draft.threading;
+   /draft.height := *draft.treadling;
 
    WriteImage(weavegif(draft, args),
-      draft.name || ".gif")
+      draft.name || ".gif");
 
 end

@@ -27,16 +27,16 @@
 #
 ############################################################################
 
-procedure tab2list(s)
-   local L
+procedure tab2list(s);
+   local L;
 
    L := [];
 
    s ? {
       while put(L, map(tab(upto('\t') | 0), "\v", "\n")) do
          move(1) | break
-      }
+      };
 
-   return L
+   return L;
 
 end

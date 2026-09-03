@@ -35,13 +35,13 @@
 link options
 link patutils
 
-procedure main(args)
-   local file, input, i, hitlist, patlist, spec, lo, hi, output
-   local subspec, opts
+procedure main(args);
+   local file, input, i, hitlist, patlist, spec, lo, hi, output;
+   local subspec, opts;
 
    opts := options(args, "cbd");
-   if \opts["c"] then opts["b"] := opts["d"] := &null
-   if \opts["d"] then opts["b"] := 1
+   if \opts["c"] then opts["b"] := opts["d"] := &null;
+   if \opts["d"] then opts["b"] := 1;
 
    file := args[1] | stop("*** no pattern list specified");
 
@@ -53,7 +53,7 @@ procedure main(args)
       spec ? {
          while subspec := tab(upto(',') | 0) do {
             if insert(hitlist, integer(subspec)) then {		# integer
-               move(1) | break
+               move(1) | break;
                tab(many(' '))
                }
             else {
@@ -65,23 +65,23 @@ procedure main(args)
                   pos(0) | {
                      write(&errout, "*** bad specification");
                      next
-                     }
+                     };
                   if not(integer(hi) & integer(lo)) then {
                      write(&errout, "*** bad specification");
                      next
-                     }
+                     };
                   every insert(hitlist, 0 < (lo to hi))
-                  }
-               move(1) | break
+                  };
+               move(1) | break;
                tab(many(' '))
                }
             }
          }
-      }
+      };
 
    patlist := [];  # read in list of patterns
 
-   while put(patlist, readpatt(input))
+   while put(patlist, readpatt(input));
 
    close(input);
 
@@ -91,11 +91,11 @@ procedure main(args)
    every i := !sort(hitlist) do {		# discard and "delete"
       write(patlist[i]) | write(&errout, "*** ", i, " out of bounds");
       if \opts["b"] then patlist[i] := "1,#0"
-      }
+      };
 
    if \opts["d"] then
       every write(output, "1,#0" ~== !patlist)
    else
-      every write(output, !patlist)
+      every write(output, !patlist);
 
 end

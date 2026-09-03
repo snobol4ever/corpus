@@ -21,16 +21,16 @@
 #
 ############################################################################
 
-procedure lrgapprx(i)
-   local head, carry
+procedure lrgapprx(i);
+   local head, carry;
 
    i ? {
       head := move(2) | return i;
       if carry := move(1) then {
-         if carry > 5 then head +:= 1
+         if carry > 5 then head +:= 1;
          move(-1)
-         }
+         };
       return real(head / 10.0) || "x10^" || (*tab(0) + 1)
-      }
+      };
 
 end

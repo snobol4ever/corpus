@@ -19,13 +19,13 @@
 #
 ############################################################################
 
-procedure progary(file, value)
-   local A
+procedure progary(file, value);
+   local A;
 
    A := [];
 
-   while put(A, list(*read(file), value))
+   while put(A, list(*read(file), value));
 
-   return A
+   return A;
 
 end

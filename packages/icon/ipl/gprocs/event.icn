@@ -29,15 +29,15 @@
 
 link evplay
 
-procedure Event(win)
-   static Event_
+procedure Event(win);
+   static Event_;
 
    initial {
       Event_ := proc("Event", 0) | stop("*** cannot get built-in Event()")
-      }
+      };
 
-   evplay(win) | exit()
+   evplay(win) | exit();
 
-   return Event_(win)
+   return Event_(win);
 
 end

@@ -28,11 +28,11 @@
 #
 ############################################################################
 
-procedure main(args)
-   local fname, path, f, header, hlength, pfx
+procedure main(args);
+   local fname, path, f, header, hlength, pfx;
 
    if *args ~= 2 then
-      stop("usage: ", &progname, " file iconx")
+      stop("usage: ", &progname, " file iconx");
    fname := get(args);
    path := get(args);
 
@@ -58,14 +58,14 @@ procedure main(args)
             "\n[executable Icon binary follows]" ||	# must appear exactly
             "\n"
          }
-      }
+      };
 
    if *header + 3 > hlength then
-      stop("cannot patch: path is too long to fit")
+      stop("cannot patch: path is too long to fit");
 
    if not close(open(path)) then
-      write(&errout, "warning: cannot open ", path, "; patching anyway")
+      write(&errout, "warning: cannot open ", path, "; patching anyway");
 
    seek(f, 1) | stop("cannot reposition ", fname);
-   writes(f, left(header, hlength)) | stop("write failed")
+   writes(f, left(header, hlength)) | stop("write failed");
 end

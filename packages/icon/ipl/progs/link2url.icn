@@ -20,8 +20,8 @@
 #
 ############################################################################
 
-procedure main()
-   local line
+procedure main();
+   local line;
 
    while line := read() do {
       line ? {
@@ -29,6 +29,6 @@ procedure main()
          tab(upto('"') + 1);
          write(tab(upto('"')))
          }
-      }
+      };
 
 end

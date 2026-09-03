@@ -45,9 +45,9 @@ link options
 link repetit
 link wopen
 
-procedure main(args)
-   local width, height, x, y, row, col, rows, cols, w, h, suffix, file
-   local basename, opts
+procedure main(args);
+   local width, height, x, y, row, col, rows, cols, w, h, suffix, file;
+   local basename, opts;
 
    opts := options(args, "n:s");
    suffix := \opts["s"] | "_t";
@@ -56,35 +56,35 @@ procedure main(args)
       WOpen("canvas=hidden", "image=" || file) | {
          write(&errout, "*** cannot open ", file);
          next
-         }
+         };
       file ? {
          basename := 1(tab(find(".gif")), move(0)) | "unname"
-         }
+         };
       width := WAttrib("width");
       height := WAttrib("height");
    
       rows := [];
       every y := 0 to height - 1 do {
          row := [];
-         every put(row,Pixel(0, y, width, 1))
+         every put(row,Pixel(0, y, width, 1));
          put(rows, repetit(row))
-         }
+         };
       h := lcml ! rows;
       h >:= height;
    
       cols := [];
       every x := 0 to width - 1 do {
          col := [];
-         every put(col, Pixel(x, 0, 1, height))
+         every put(col, Pixel(x, 0, 1, height));
          put(cols, repetit(col))
-         }
+         };
       w := lcml ! cols;
       w >:= width;
 
       if w = width & h = height then {
          write(&errout, file, " has no subrepeat");
          next
-         }
+         };
    
       if \opts["s"] then
          write(file, ": ", w, "x", h)
@@ -92,9 +92,9 @@ procedure main(args)
          WriteImage(basename || suffix || ".gif", 0, 0, w, h) | {
          write(&errout, "*** cannot write image for ", file);
          write(&errout, "w=", w, " h=", h)
-         }
-      WClose(&window)
+         };
+      WClose(&window);
       &window := &null
-      }
+      };
 
 end

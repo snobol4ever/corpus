@@ -32,8 +32,8 @@
 link graphics
 link random
 
-procedure main(args)
-   local w, h, n, m, d
+procedure main(args);
+   local w, h, n, m, d;
 
    Window("size=800,500", args);
    w := WAttrib("width");
@@ -46,6 +46,6 @@ procedure main(args)
       Shade(RandomColor());
       d := (?m * ?m * ?m) / (m * m);
       FillArc(?(w - d - 1), ?(h - d - 1), d, d)
-      }
-   WDone()
+      };
+   WDone();
 end

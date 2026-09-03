@@ -21,8 +21,8 @@
 
 record RGB(r, g, b)
 
-procedure colortorgb(color)		#: rgb record for color
-   local rgb
+procedure colortorgb(color);		#: rgb record for color
+   local rgb;
 
    rgb := RGB();
 
@@ -32,14 +32,14 @@ procedure colortorgb(color)		#: rgb record for color
       rgb.g := tab(upto(',')) | fail;
       move(1);
       rgb.b := tab(0)
-      }
+      };
 
-   return rgb
+   return rgb;
 
 end
 
-procedure rgbtocolor(rgb)
+procedure rgbtocolor(rgb);
 
-   return rgb.r || "," || rgb.g || "," || rgb.b
+   return rgb.r || "," || rgb.g || "," || rgb.b;
 
 end

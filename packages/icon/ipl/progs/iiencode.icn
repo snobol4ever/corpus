@@ -67,9 +67,9 @@
 
 link options
 
-procedure main ( a )
+procedure main ( a );
 
-    local in_filename, out_filename, in, out, is_xx, remotename, opt
+    local in_filename, out_filename, in, out, is_xx, remotename, opt;
 
     # Parse arguments.
 
@@ -78,29 +78,29 @@ procedure main ( a )
     out_filename := opt [ "o" ];
     case *a of {
     1 :
-    	in_filename := remotename := a [ 1 ]
+    	in_filename := remotename := a [ 1 ];
     2 :
 	{
 	in_filename := a [ 1 ];
 	remotename  := a [ 2 ]
-	}
+	};
     default :
 	Usage ( "", write, 2 )
-    }
+    };
        
     # If no input filename was supplied, use &input.
     if /in_filename then
 	in := &input
     else
 	in := open ( in_filename, "ru" ) |
-	    Usage ( "Can't open input file " || in_filename || "." )
+	    Usage ( "Can't open input file " || in_filename || "." );
 
     # If an output filename was specified, open it for writing.
     if /out_filename then
 	out := &output
     else
 	out := open ( out_filename, "w" ) |
-	    Usage ( "Can't open output file " || out_filename || "." )
+	    Usage ( "Can't open output file " || out_filename || "." );
 
     # This generic version of uuencode treats file modes in a primitive
     # manner so as to be usable in a number of environments.  Please
@@ -111,8 +111,8 @@ procedure main ( a )
     encode ( out, in, is_xx );
     write ( out, "end" );
 
-    every close ( ( &input ~=== in ) | ( &output ~=== out ) )
-    exit ( 0 )
+    every close ( ( &input ~=== in ) | ( &output ~=== out ) );
+    exit ( 0 );
 
 end
 
@@ -123,15 +123,15 @@ end
 # exit with errcode.
 #
 ###########################################################################
-procedure Usage ( msg, Show, errcode )
-    static usage
+procedure Usage ( msg, Show, errcode );
+    static usage;
     initial usage := "usage:  iiencode [infile] [-x] _
-	remote-filename [-o output-filename]"
+	remote-filename [-o output-filename]";
 
-    /Show := stop
+    /Show := stop;
     Show ( &errout, msg, "\n", usage );
-    exit ( \errcode )
-    return msg
+    exit ( \errcode );
+    return msg;
 end
 
 ###########################################################################
@@ -140,17 +140,17 @@ end
 # "uu" encoding is used unless \is_xx, in which case "xx" encoding is used.
 #
 ###########################################################################
-procedure encode ( out, in, is_xx )
+procedure encode ( out, in, is_xx );
 
     # Copy from in to out, encoding as you go along.
 
-    local line, coded
-    static unpacked
+    local line, coded;
+    static unpacked;
     initial unpacked := "_
 	\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F_
 	\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1A\x1B\x1C\x1D\x1E\x1F_
 	\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2A\x2B\x2C\x2D\x2E\x2F_
-	\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3A\x3B\x3C\x3D\x3E\x3F"
+	\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3A\x3B\x3C\x3D\x3E\x3F";
 
     if \is_xx then {
 	coded := "_
@@ -170,17 +170,17 @@ procedure encode ( out, in, is_xx )
 	    0123456789:;<=>?_
 	    @ABCDEFGHIJKLMNO_
 	    PQRSTUVWXYZ[\\]^_"
-    }
+    };
 
     # 1 (up to) 45 character segment
     while line := reads ( in, 45 ) do {
 	write ( out,
 	    map ( char ( *line ) || unpack ( line ), unpacked, coded )
 	)
-    }
+    };
 
     # Output a zero-length line.
-    write ( out, coded [ 1 ] )
+    write ( out, coded [ 1 ] );
     
 end
 
@@ -192,9 +192,9 @@ end
 # to make up the last group.
 #
 ###########################################################################
-procedure unpack ( s )
+procedure unpack ( s );
 
-    local n, grp
+    local n, grp;
 
     s ? {
 	s := "";
@@ -210,8 +210,8 @@ procedure unpack ( s )
 		char ( ishift ( iand ( n, 16r000FC0 ), - 6 ) ) ||
 		char (          iand ( n, 16r00003F )        )
 	    }
-	}
+	};
 
-    return s
+    return s;
 
 end

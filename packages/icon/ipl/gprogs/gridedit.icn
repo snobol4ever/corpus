@@ -30,18 +30,18 @@
 
 link tieedit
 
-procedure main(args)
+procedure main(args);
 
    grid_init();
 
    ready();
 
    while ProcessEvent(grid_root, ,  grid_shortcuts) do
-      if \grid_state then exit()
+      if \grid_state then exit();
 
 end
 
-procedure ready()
+procedure ready();
 
    grid_state := &null;
 
@@ -49,8 +49,8 @@ procedure ready()
 
    setup();
 
-   WAttrib(grid_window, "canvas=normal")
+   WAttrib(grid_window, "canvas=normal");
 
-   return
+   return;
 
 end

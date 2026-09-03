@@ -22,15 +22,15 @@
 #
 ############################################################################
 
-procedure kmap(s)		#: map letter with modifier key to lowercase
-   static in, out
+procedure kmap(s);		#: map letter with modifier key to lowercase
+   static in, out;
 
    initial {
       in := "\^A\^B\^C\^D\^E\^F\^G\^H\^I\^J\^K\^L\^M\^N\^O\^P_
          \^Q\^R\^S\^T\^U\^V\^W\^X\^Y\^Z" || &ucase;
       out := &lcase || &lcase
-      }
+      };
 
-   return map(s, in, out)
+   return map(s, in, out);
 
 end

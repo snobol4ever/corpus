@@ -24,7 +24,7 @@
 #
 ############################################################################
 
-procedure gdisable()
+procedure gdisable();
 
    every (
       Active |
@@ -74,8 +74,8 @@ procedure gdisable()
       WDefault |
       WFlush |
       WSync |
-      WriteImage) := 1
+      WriteImage) := 1;
 
-   return
+   return;
 
 end

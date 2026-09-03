@@ -33,8 +33,8 @@ link ivalue
 
 global EventFile
 
-procedure evplay(win)
-   local event1, event2, event3
+procedure evplay(win);
+   local event1, event2, event3;
 
    /EventFile := &input;
 
@@ -42,8 +42,8 @@ procedure evplay(win)
    event2 := ivalue(read(EventFile)) | stop("*** short event history");
    event3 := ivalue(read(EventFile)) | stop("*** short event history");
 
-   put(Pending(win), event1, event2, event3)
+   put(Pending(win), event1, event2, event3);
 
-   return
+   return;
 
 end

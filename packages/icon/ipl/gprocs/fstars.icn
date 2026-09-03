@@ -51,18 +51,18 @@ link gobject
 
 global size
 
-procedure fstar(x, y, n, p, r, incr, extent, xinit, yinit)	#: fractal stars
-   local angle, i, h, m, dist, xloc, yloc
+procedure fstar(x, y, n, p, r, incr, extent, xinit, yinit);	#: fractal stars
+   local angle, i, h, m, dist, xloc, yloc;
 
-   /size := 500
-   /x := 0
-   /y := 0.5 * size
-   /n := 5			# defaults
-   /p := 5
-   /r := 0.35
-   /incr := 0.8
-   /extent := 1.0
-   /xinit := 0
+   /size := 500;
+   /x := 0;
+   /y := 0.5 * size;
+   /n := 5;			# defaults
+   /p := 5;
+   /r := 0.35;
+   /incr := 0.8;
+   /extent := 1.0;
+   /xinit := 0;
    /yinit := 0.5;
 
    incr *:= &pi;  # scaling
@@ -83,12 +83,12 @@ procedure fstar(x, y, n, p, r, incr, extent, xinit, yinit)	#: fractal stars
       until (m % n ~= 0) | (h >= p) do {
          m /:= n;
          h +:= 1
-         }
+         };
       dist := extent * r ^ (p - h);
       xloc +:= dist * cos(angle);
-      yloc +:= dist * sin(angle)
+      yloc +:= dist * sin(angle);
       suspend Point(x + xloc, y + yloc);
       angle +:= incr
-      }
+      };
 
 end

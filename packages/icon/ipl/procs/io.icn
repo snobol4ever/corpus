@@ -263,15 +263,15 @@ global buffer_in, buffer_out, Eof
 record    _DOS_FileParts_(fullname,devpath,device,path,name,extension)
 record dirinfo( name, ext, size, date, time )
 
-procedure ClearOut()			#: remove contents of output buffer
+procedure ClearOut();			#: remove contents of output buffer
 
-   buffer_out := []
+   buffer_out := [];
 
 end
 
-procedure DOS_FileParts(filename)	#: parse DOSfile name
+procedure DOS_FileParts(filename);	#: parse DOSfile name
 
-local dev, path, name, ext, p, d
+local dev, path, name, ext, p, d;
 
 filename   ? { 
                dev := 1( tab( upto(':') ), move(1) ) | "";
@@ -284,120 +284,120 @@ filename   ? {
          } ? {
                name := 1( tab( upto('.') ), move(1) ) | tab(0);
                ext := tab(0) 
-         }
+         };
 
 
-return _DOS_FileParts_(filename,filename[1:d + p],dev,path,name,ext)
+return _DOS_FileParts_(filename,filename[1:d + p],dev,path,name,ext);
 end
 
-procedure Flush()			#: flush output buffer
+procedure Flush();			#: flush output buffer
 
-   while write(pull(buffer_out))
+   while write(pull(buffer_out));
 
-   return
-
-end
-
-procedure GetBack()			#: get back line written
-
-   return get(buffer_out)
+   return;
 
 end
 
-procedure LookAhead()			#: look at next line
+procedure GetBack();			#: get back line written
 
-   return buffer_in[1]
-
-end
-
-procedure PutBack(s)			#: put back line read
-
-   push(buffer_in,s)
-
-   return
+   return get(buffer_out);
 
 end
 
-procedure Read()			#: read a line in buffered mode
+procedure LookAhead();			#: look at next line
+
+   return buffer_in[1];
+
+end
+
+procedure PutBack(s);			#: put back line read
+
+   push(buffer_in,s);
+
+   return;
+
+end
+
+procedure Read();			#: read a line in buffered mode
 
    initial{
       buffer_in := []
-      }
+      };
 
    if *buffer_in = 0 then
-      put(buffer_in,read()) | (Eof := 1)
-   return get(buffer_in)
+      put(buffer_in,read()) | (Eof := 1);
+   return get(buffer_in);
 
 end
 
-procedure ReadAhead(n)			#: read ahead
+procedure ReadAhead(n);			#: read ahead
 
    while *buffer_in < n do
       put(buffer_in,read()) | {
          Eof := 1;
          fail
-         }
+         };
 
-   return
+   return;
 
 end
 
-procedure Write(s)			#: write in buffered mode
+procedure Write(s);			#: write in buffered mode
 
-   initial buffer_out := []
+   initial buffer_out := [];
 
-   push(buffer_out,s)
+   push(buffer_out,s);
  
-   return s
+   return s;
 
 end
 
-procedure components(s,separator)	#: get components of file name
-   local x,head
+procedure components(s,separator);	#: get components of file name
+   local x,head;
    /separator := "/";
-   x := tail(s,separator)
+   x := tail(s,separator);
    return case head := x[1] of {
-      separator: [separator]
-      "": []
+      separator: [separator];
+      "": [];
 # C. Shartsis:  4/23/95 - fix for MS-DOS
 #      default: components(head)
       default: components(head, separator);
-      } ||| ([&null ~=== x[2]] | [])
+      } ||| ([&null ~=== x[2]] | []);
 end
 
-procedure dopen(s)			#: open file on DPATH
-   local file, paths, path
+procedure dopen(s);			#: open file on DPATH
+   local file, paths, path;
 
-   if file := open(s) then return file		# look in current directory
+   if file := open(s) then return file;		# look in current directory
 
-   paths := getenv("DPATH") | fail
+   paths := getenv("DPATH") | fail;
 
-   s := "/" || s				# platform-specific
+   s := "/" || s;				# platform-specific
 
    paths ? {
       while path := tab(upto(' ') | 0) do {
-         if file := open(path || s) then return file
+         if file := open(path || s) then return file;
          tab(many(' ')) | break
          }
-      }
+      };
 
-   fail
+   fail;
 
 end
 
-procedure dosdir( diropts )		#: process DOS directory
-   local de, line 
+procedure dosdir( diropts );		#: process DOS directory
+   local de, line; 
 
-   static tempfn, tempf, dosdir_ver
+   static tempfn, tempf, dosdir_ver;
 
 initial {
 
-   close(open(tempfn := tempname(),"w"))
+   close(open(tempfn := tempname(),"w"));
    
-   system("ver > " || tempfn)
+   system("ver > " || tempfn);
    
    (tempf := open(tempfn,"r")) | 
-       stop("Unable to open ",tempfn," from dosdir.")
+       stop("Unable to open ",tempfn," from dosdir.");
    
    while line := read(tempf) do 
 
@@ -405,17 +405,17 @@ initial {
          if find("6.20",line) then
             dosdir_ver := dosdir_62
          else 
-            dosdir_ver := dosdir_xx
+            dosdir_ver := dosdir_xx;
 
-   close(tempf)
+   close(tempf);
    system("erase " || tempfn)
-   }
+   };
 
-close(open(tempfn := tempname(),"w"))                   # ensure useable file
+close(open(tempfn := tempname(),"w"));                   # ensure useable file
 
-system("dir " || diropts || " > " || tempfn)                # get dir
+system("dir " || diropts || " > " || tempfn);                # get dir
 
-tempf := open(tempfn,"r")                               # open file
+tempf := open(tempfn,"r");                               # open file
 
 while line := map(read(tempf)) do {
    line ? 
@@ -423,253 +423,253 @@ while line := map(read(tempf)) do {
          suspend de
       else 
          next
-   }
+   };
 
-close(tempf)
-system("erase " || tempfn)
+close(tempf);
+system("erase " || tempfn);
 end
 
-procedure dosdir_62()
+procedure dosdir_62();
 
-static  nb
-local de
+static  nb;
+local de;
 
-initial nb := ~' '
+initial nb := ~' ';
 
 if *&subject = 43  & (tab(any(nb)), move(-1)) then {
-   de := dirinfo()
+   de := dirinfo();
    (de.name := trim(move(8)), move(1), 
    de.ext  := trim(move(3)), move(1),
    de.size := move(13), move(1),
    de.date := move(8), move(2),
-   de.time := tab(0))
-   every de.size ?:= 1(tab(upto(',')),move(1)) || tab(0)
+   de.time := tab(0));
+   every de.size ?:= 1(tab(upto(',')),move(1)) || tab(0);
    return de
-   }
+   };
 end
 
-procedure dosdir_xx()
+procedure dosdir_xx();
 
-static  nb
-local de
+static  nb;
+local de;
 
-initial nb := ~' '
+initial nb := ~' ';
 
 if *&subject = 39  & (tab(any(nb)), move(-1)) then {
-   de := dirinfo()
+   de := dirinfo();
    (de.name := trim(move(8)), move(1), 
    de.ext  := trim(move(3)), move(1),
    de.size := integer(move(9)), move(1),
    de.date := move(8), move(2),
-   de.time := tab(0))
+   de.time := tab(0));
    return de
-   }
+   };
 end
 
 procedure dosdirlist(			#: get list of DOS directory
    dpath, dpart2, infotab
-   )
-local dl, di, fn
+   );
+local dl, di, fn;
 
 if type(\infotab) ~== "table" then
-   runerr( 124, infotab )
+   runerr( 124, infotab );
 
-dpath ||:= dpath[-1] ~== "\\"
-/dpart2 := "*.*"
+dpath ||:= dpath[-1] ~== "\\";
+/dpart2 := "*.*";
 
-dl := []
+dl := [];
 every di := dosdir( dpath || dpart2 ) do        
    if not ( di.name == ("." | "..") ) then {
-      put( dl, fn := ( dpath || di.name || "." || trim(di.ext) ) )
+      put( dl, fn := ( dpath || di.name || "." || trim(di.ext) ) );
       (\infotab)[fn] := di
-      }
+      };
 
-   return dl
+   return dl;
 
 end
 
 $ifdef _MSDOS
  
-procedure dosfiles(pfn)			#: DOS file names
-   local asciiz, fnr, prefix, k, name
-   local ds, dx, result, fnloc, string_block
+procedure dosfiles(pfn);			#: DOS file names
+   local asciiz, fnr, prefix, k, name;
+   local ds, dx, result, fnloc, string_block;
  
 # Get Disk Transfer Address; filename locn is 30 beyond that.
  
-   result := Int86([16r21, 16r2f00] ||| list(7,0))
+   result := Int86([16r21, 16r2f00] ||| list(7,0));
    # pointer arithmetic wrong: fnloc := 16 * result[8] + result[3]+ 30
-   fnloc := ishift( result[8], 16 ) + result[3] + 30
+   fnloc := ishift( result[8], 16 ) + result[3] + 30;
  
 # Get the generalized filename.
  
-   fnr := reverse(pfn)
-   k := upto("\\:", fnr) | *fnr + 1
-   prefix := reverse(fnr[k:0])
-   name := "" ~== reverse(fnr[1:k]) | "*.*"
+   fnr := reverse(pfn);
+   k := upto("\\:", fnr) | *fnr + 1;
+   prefix := reverse(fnr[k:0]);
+   name := "" ~== reverse(fnr[1:k]) | "*.*";
  
 # Get the first file in the sequence.
  
-   asciiz := prefix || name || "\x00"
+   asciiz := prefix || name || "\x00";
    Poke(string_block := GetSpace(*asciiz), asciiz) |
-      stop( "dosfiles(): GetSpace() failed." )
+      stop( "dosfiles(): GetSpace() failed." );
    # pointer arithmetic wrong: ds := string_block / 16
    # pointer arithmetic wrong: dx := string_block % 16
-   ds := ishift( string_block, -16 )
-   dx := iand( string_block, 16rffff )
-   result := Int86([16r21, 16r4e00, 0, 0, dx, 0, 0, 0, ds])
-   FreeSpace(string_block)
+   ds := ishift( string_block, -16 );
+   dx := iand( string_block, 16rffff );
+   result := Int86([16r21, 16r4e00, 0, 0, dx, 0, 0, 0, ds]);
+   FreeSpace(string_block);
    case result[2] of {
-      0 : {}
-      18 : fail
+      0 : {};
+      18 : fail;
       default : stop("I/O Error ", result[2])
-      }
-   suspend prefix || extract_name(fnloc)
+      };
+   suspend prefix || extract_name(fnloc);
  
 # Get the remaining files in the sequence.
  
    while Int86([16r21, 16r4f00, 0, 0, 0, 0, 0, 0, 0])[2] = 0 do
-      suspend prefix || extract_name(fnloc)
+      suspend prefix || extract_name(fnloc);
 end
 
 $endif
  
-procedure dosname(namein)		#: convert file name to DOS format
+procedure dosname(namein);		#: convert file name to DOS format
 
-    local prefix, base, extension, pair, extended_name
+    local prefix, base, extension, pair, extended_name;
     
-    namein := replace(namein, "/", "\\")
-    pair := tail(namein, "\\")
-    prefix := pair[1]
-    extended_name := pair[2]
-    pair := suffix(extended_name)
-    base := pair[1]
-    extension := pair[2]
+    namein := replace(namein, "/", "\\");
+    pair := tail(namein, "\\");
+    prefix := pair[1];
+    extended_name := pair[2];
+    pair := suffix(extended_name);
+    base := pair[1];
+    extension := pair[2];
     
-    base := base[1:9]
-    extension := extension[1:4]
+    base := base[1:9];
+    extension := extension[1:4];
     
-    return map(prefix || "\\" || base || "." || extension)
+    return map(prefix || "\\" || base || "." || extension);
     
 end
 
-procedure dpath(s)			#: full path to file on DPATH
-   local file, paths, path, result
+procedure dpath(s);			#: full path to file on DPATH
+   local file, paths, path, result;
 
-   if exists(s) then return s		# look in current directory
+   if exists(s) then return s;		# look in current directory
 
-   paths := getenv("DPATH") | fail
+   paths := getenv("DPATH") | fail;
 
-   s := "/" || s				# platform-specific
+   s := "/" || s;				# platform-specific
 
    paths ? {
       while path := tab(upto(' ') | 0) do {
-         if exists(result := path || s) then return result
+         if exists(result := path || s) then return result;
          tab(many(' ')) | break
          }
-      }
+      };
 
-   fail
-
-end
-
-procedure exists(name)			#: test file existence
-
-   return close(open(name))
+   fail;
 
 end
 
-procedure directory(name)		#: succeed if name is a directory
+procedure exists(name);			#: test file existence
+
+   return close(open(name));
+
+end
+
+procedure directory(name);		#: succeed if name is a directory
 
    if close(open(name || "/.")) then
       return name
    else
-      fail
+      fail;
 
 end
 
 $ifdef _MSDOS
  
-procedure extract_name(fnloc)
-   local asciiz
-   asciiz := Peek(fnloc, 13)
-   return asciiz[1:upto("\x00", asciiz)]
+procedure extract_name(fnloc);
+   local asciiz;
+   asciiz := Peek(fnloc, 13);
+   return asciiz[1:upto("\x00", asciiz)];
 end
 
 $endif
 
-procedure fcopy(fn1,fn2)		#: copy file
-   local f1, f2, buf
+procedure fcopy(fn1,fn2);		#: copy file
+   local f1, f2, buf;
 
-   f1 := open(fn1,"ru") | stop("Can't open ",fn1)
-   f2 := open(fn2,"wu") | stop("Can't open ",fn2," for writing")
-   while buf := reads(f1,512) do writes(f2,buf)
-   every close(f2 | f1)
-   return fn2
+   f1 := open(fn1,"ru") | stop("Can't open ",fn1);
+   f2 := open(fn2,"wu") | stop("Can't open ",fn2," for writing");
+   while buf := reads(f1,512) do writes(f2,buf);
+   every close(f2 | f1);
+   return fn2;
 end
 
-procedure filelist(spec, x)		#: get list of files
-   local flist, ls, f
+procedure filelist(spec, x);		#: get list of files
+   local flist, ls, f;
 
-   /spec := ""
+   /spec := "";
 
-   flist := []
+   flist := [];
 
    if &features == "UNIX" then {
-      ls := open("ls " || spec || " 2>/dev/null", "p")
+      ls := open("ls " || spec || " 2>/dev/null", "p");
       every f := !ls do {
          if \x then f ?:= {
-            while tab(upto("/") + 1)
+            while tab(upto("/") + 1);
             tab(0)
-            }
+            };
           put(flist, f)
-          }
-      close(ls)
+          };
+      close(ls);
       return flist
       }
-   else fail			# don't take control away from caller
+   else fail;			# don't take control away from caller
 
 end
 
-procedure filetext(f)			#: read file into list
-   local input, file, text
+procedure filetext(f);			#: read file into list
+   local input, file, text;
 
-   input := open(f) | stop("cannot open input file")
+   input := open(f) | stop("cannot open input file");
 
-   text := []
+   text := [];
 
-   while put(text,read(input))
+   while put(text,read(input));
 
-   close(input)
+   close(input);
 
-   return text
+   return text;
 
 end
  
 $ifdef _MSDOS
 
-procedure getdrive()			#: get current DOS drive
-   return &lcase[iand( Int86([33,16r1900,0,0,0,0,0,0,0])[2], 255 )+1] || ":"
+procedure getdrive();			#: get current DOS drive
+   return &lcase[iand( Int86([33,16r1900,0,0,0,0,0,0,0])[2], 255 )+1] || ":";
 end
 
-procedure getwd(drive)			#: get DOS working directory
-   local A, dx, si, cf, ds
+procedure getwd(drive);			#: get DOS working directory
+   local A, dx, si, cf, ds;
 
 
-   A := GetSpace(64) | stop( "getwd(): GetSpace() failed." )
-   dx := ("36r" || !\drive) - 9 | 0
-   si := iand( A, 16rffff ); ds := ishift( A, -16 )
-   cf := !Int86([33,16r4700,0,0,dx,si,0,0,ds]) % 2
-   Peek( A , 64 ) ? path := tab(many(~'\0')) | ""
-   FreeSpace(A)
-   cf = 0 | fail
-   return (   map(!\drive) || ":"   |   getdrive()   ) || "\\" || map(path)
+   A := GetSpace(64) | stop( "getwd(): GetSpace() failed." );
+   dx := ("36r" || !\drive) - 9 | 0;
+   si := iand( A, 16rffff ); ds := ishift( A, -16 );
+   cf := !Int86([33,16r4700,0,0,dx,si,0,0,ds]) % 2;
+   Peek( A , 64 ) ? path := tab(many(~'\0')) | "";
+   FreeSpace(A);
+   cf = 0 | fail;
+   return (   map(!\drive) || ":"   |   getdrive()   ) || "\\" || map(path);
 end
 
 $endif
 
 
-procedure pathfind(fname, path)		#: find file on path
-   local f, dir, fullname
+procedure pathfind(fname, path);		#: find file on path
+   local f, dir, fullname;
 
    $ifdef _UNIX
       $define PSEP ' :' 
@@ -679,120 +679,120 @@ procedure pathfind(fname, path)		#: find file on path
 
    fname ? {
       if ="/" & close(open(fname)) then
-         return fname			# full absolute path works
-      while tab(upto('/') + 1)
+         return fname;			# full absolute path works
+      while tab(upto('/') + 1);
       fname := tab(0)			# get final component of path
-      }
+      };
 
-   /path := getenv("DPATH")
-   /path := ""
-   path := ". " || path
+   /path := getenv("DPATH");
+   /path := "";
+   path := ". " || path;
    path ? while not pos(0) do {
-      dir := tab(upto(PSEP) | 0)
-      fullname := trim(dir, '/') || "/" || fname
+      dir := tab(upto(PSEP) | 0);
+      fullname := trim(dir, '/') || "/" || fname;
       if close(open(fullname)) then
-         return fullname
+         return fullname;
       tab(many(PSEP))
-      }
-   fail
+      };
+   fail;
 end
 
-procedure pathload(fname, entry)	#: load C function from $FPATH
-   local path, found
+procedure pathload(fname, entry);	#: load C function from $FPATH
+   local path, found;
 
-   path := getenv("FPATH") | "."
-   found := pathfind(fname, path)
+   path := getenv("FPATH") | ".";
+   found := pathfind(fname, path);
 
    if /found then
-      stop ("cannot find \"", fname, "\" on path \". ", path, "\"")
+      stop ("cannot find \"", fname, "\" on path \". ", path, "\"");
 
-   return loadfunc(found, entry)	# aborts if unsuccessful
+   return loadfunc(found, entry);	# aborts if unsuccessful
 end
 
-procedure readline(file)		#: assemble backslash-continued lines
-   local line
+procedure readline(file);		#: assemble backslash-continued lines
+   local line;
 
-   line := read(file) | fail
+   line := read(file) | fail;
 
    while line[-1] == "\\" do
-      line := line[1:-1] || read(file) | break
+      line := line[1:-1] || read(file) | break;
 
-   return line
+   return line;
 
 end
 
-procedure splitline(file,line,limit)	#: split line into pieces
-   local i, j
+procedure splitline(file,line,limit);	#: split line into pieces
+   local i, j;
 
    if *line = 0 then {			# don't fail to write empty line
-      write(file,line)
+      write(file,line);
       return
-      }
+      };
    while *line > limit do {
       line ?:= {
-         i := j := 0
+         i := j := 0;
          every i := find(" ") do {	# find a point to split
             if i >= limit then break
             else j := i
-            }
+            };
          if j = 0 then {		# can't split
-            write(file,line)
+            write(file,line);
             return
-            }
-         write(file,tab(j + 1),"\\")
+            };
+         write(file,tab(j + 1),"\\");
          tab(0)				# update line
          }
-      }
-   if *line > 0 then write(file,line)	# the rest
+      };
+   if *line > 0 then write(file,line);	# the rest
 
-   return
+   return;
 
 end
 
-procedure suffix(s,separator)		#: find suffix of file name
-   local i
-   /separator := "."
-   i := *s + 1
-   every i := find(separator,s)
-   return [s[1:i],s[(*s >= i) + 1:0] | &null]
+procedure suffix(s,separator);		#: find suffix of file name
+   local i;
+   /separator := ".";
+   i := *s + 1;
+   every i := find(separator,s);
+   return [s[1:i],s[(*s >= i) + 1:0] | &null];
 end
 
-procedure tail(s,separator)		#: find tail of file name 
-   local i
-   /separator := "/"
-   i := 0
-   every i := find(separator,s)
-   return [s[1:i + (i <= 1 | 0)],"" ~== s[i + 1:0] | &null]
+procedure tail(s,separator);		#: find tail of file name 
+   local i;
+   /separator := "/";
+   i := 0;
+   every i := find(separator,s);
+   return [s[1:i + (i <= 1 | 0)],"" ~== s[i + 1:0] | &null];
 end
 
 procedure tempfile(			#: get temporary file
    prefix, suffix, path, len
-   )
-   local name
+   );
+   local name;
 
-   name := tempname(prefix, suffix, path, len)
+   name := tempname(prefix, suffix, path, len);
 
-   return open(name, "w") | fail
+   return open(name, "w") | fail;
 
 end
 
 procedure tempname(			#: get temporary file name
    prefix, suffix, path, len
-   )
-   local name, file
+   );
+   local name, file;
 
-   /prefix := ""
-   /suffix := ""
-   /path := "."
-   prefix := path || "/" || prefix
-   /len := 8
+   /prefix := "";
+   /suffix := "";
+   /path := ".";
+   prefix := path || "/" || prefix;
+   /len := 8;
 
-   randomize()
+   randomize();
 
    repeat {
-      ?1				# change &random
-      name := prefix || left(&random, len, "0") || suffix
+      ?1;				# change &random
+      name := prefix || left(&random, len, "0") || suffix;
       if not exists(name) then return name
-      }
+      };
 
 end

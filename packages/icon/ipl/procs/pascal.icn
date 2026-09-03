@@ -32,8 +32,8 @@ link math
 
 #  The Pascal Triangle
 
-procedure pascal(n)		#: Pascal triangle
-   local i, j
+procedure pascal(n);		#: Pascal triangle
+   local i, j;
 
    /n := 16;
 
@@ -41,8 +41,8 @@ procedure pascal(n)		#: Pascal triangle
 
    every i := 0 to n - 1 do {
       every j := 0 to n - 1 do
-         writes(binocoef(i, j) | 0, " ")
+         writes(binocoef(i, j) | 0, " ");
       write()
-      }
+      };
 
 end

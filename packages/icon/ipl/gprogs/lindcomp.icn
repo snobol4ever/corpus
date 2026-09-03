@@ -25,9 +25,9 @@
 
 global procs
 
-procedure main()
-   local line, sym, new, keyword, value, axiom, gener, angle, length
-   local replace
+procedure main();
+   local line, sym, new, keyword, value, axiom, gener, angle, length;
+   local replace;
 
    procs := table();  # table of procedures to generate
 
@@ -46,19 +46,19 @@ procedure main()
             move(1);
             value := tab(0);
             case keyword of {
-               "axiom":   axiom := value
+               "axiom":   axiom := value;
                "gener":   gener := integer(value) |
-                     stop("*** invalid generation specification")
+                     stop("*** invalid generation specification");
                "angle":   angle := real(value) |
-                     stop("*** invalid angle: ", line)
+                     stop("*** invalid angle: ", line);
                "length": length := integer(value) |
-                     stop("*** invalid length: ", line)
-               "name":    &null			# ignore name
+                     stop("*** invalid length: ", line);
+               "name":    &null;			# ignore name
                default:   stop("*** invalid keyword: ", line)
                }
             }
          else stop("*** invalid specification: ", line)
-         }
+         };
 
    # Write heading and main procedure
 
@@ -76,42 +76,42 @@ procedure main()
    # Produce drawing procedures.
 
    every sym := key(procs) do
-      genproc(sym, procs[sym])
+      genproc(sym, procs[sym]);
 
 end
 
-procedure gencode(replace, arg)
-   local sym
+procedure gencode(replace, arg);
+   local sym;
 
    every sym := !replace do {
       case sym of {
-         "+":   write("      TRight(Angle)	# +")
-         "-":   write("      TLeft(Angle)	# -")
-         "[":   write("      TSave()		# [")
-         "]":   write("      TRestore()	# ]")
+         "+":   write("      TRight(Angle)	# +");
+         "-":   write("      TLeft(Angle)	# -");
+         "[":   write("      TSave()		# [");
+         "]":   write("      TRestore()	# ]");
          default:   if \procs[sym]
             then write("      ", sym, "(", arg, ")	# ", sym)
          }
-      }
+      };
 
-   return
+   return;
 
 end
 
-procedure genproc(name, replace)
+procedure genproc(name, replace);
 
    write("procedure ", name, "(gener)");
    write("   if gener > 0 then {");
    gencode(replace, "gener - 1");
    write("      }");
    case name of {
-      "F":   write("   else TDraw(Length)	# F")
+      "F":   write("   else TDraw(Length)	# F");
       "f":   write("   else TSkip(Length)	# f")
-      }
+      };
    write("   return");
    write("end");
-   write()
+   write();
 
-   return
+   return;
 
 end

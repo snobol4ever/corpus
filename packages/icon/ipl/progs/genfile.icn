@@ -29,8 +29,8 @@
 
 link exprfile
 
-procedure main(args)
-   local expression, input, limit
+procedure main(args);
+   local expression, input, limit;
 
    limit := 1000;  # AD HOC; make option.
 
@@ -42,6 +42,6 @@ procedure main(args)
 
    input := exprfile(expression, "seqfncs");
 
-   every write(!input) \ limit
+   every write(!input) \ limit;
 
 end

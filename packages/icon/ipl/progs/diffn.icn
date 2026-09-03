@@ -36,21 +36,21 @@ record dfile(file,linenbr)
 
 invocable all
 
-procedure main(arg)
-  local f, i, files, drec, status
+procedure main(arg);
+  local f, i, files, drec, status;
   #
   #  Analyze command line arguments, open the files, and output
   #  some initial display lines.
   #
-  if *arg < 2 then stop("usage: diffn file file ...")
+  if *arg < 2 then stop("usage: diffn file file ...");
   f := list(*arg);
   every i := 1 to *arg do
-    	f[i] := dfile(open(arg[i]) | stop("Can't open ",arg[i]),0)
+    	f[i] := dfile(open(arg[i]) | stop("Can't open ",arg[i]),0);
   files := list(*arg);
   every i := 1 to *arg do {
     write("File ",i,": ",arg[i]);
     files[i] := diff_proc(myread,f[i])
-  }
+  };
   #
   #  Invoke dif() and display its generated results.
   #
@@ -64,9 +64,9 @@ procedure main(arg)
 		 " ---- (",arg[i],")");
       listrange(drec[i].diffs,drec[i].pos)
     }
-  }
-  if /status then write("==== Files match ====")
-  return
+  };
+  if /status then write("==== Files match ====");
+  return;
 end
 
 
@@ -74,19 +74,19 @@ end
 #  listrange() -- List a range of differing lines, each preceded by its
 #  line number.
 #
-procedure listrange(dlist,linenbr)
-  local x
+procedure listrange(dlist,linenbr);
+  local x;
   every x := !dlist do {
     write(x); linenbr +:= 1
-  }
-  return
+  };
+  return;
 end
 
 
 #
 #  myread() -- Line-reading procedure to pass to dif().
 #
-procedure myread(x)
-  return x.linenbr <- x.linenbr + 1 & read(x.file)
+procedure myread(x);
+  return x.linenbr <- x.linenbr + 1 & read(x.file);
 end
 

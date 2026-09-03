@@ -35,14 +35,14 @@
 #
 ############################################################################
 
-procedure patch(from, diff, rev)
-  local c_diff, c_from, cnte, cnti, i, item, ldr, o
+procedure patch(from, diff, rev);
+  local c_diff, c_from, cnte, cnti, i, item, ldr, o;
 
   initial {
     i := 1;
     o := 2;
     if \rev then
-      i :=: o
+      i :=: o;
       
     c_diff := create !diff;
     c_from := create !from;
@@ -50,7 +50,7 @@ procedure patch(from, diff, rev)
     cnti := item := 0;
     ldr  := @c_diff;
     cnte := ldr[i].pos
-  }
+  };
 
   repeat {
 
@@ -62,31 +62,31 @@ procedure patch(from, diff, rev)
         item := &null;
         break
       }
-    }
+    };
 
     if \ldr then {				# still have edits
       every 1 to *ldr[i].diffs do {		# discard items
-        cnti +:= 1
+        cnti +:= 1;
         @c_from | zot_patch("unexpected end of stream")
-      }
+      };
 
       if *ldr[o].diffs > 0 then			# copy new items
-        suspend !ldr[o].diffs
+        suspend !ldr[o].diffs;
 
       if ldr := @c_diff then			# get next edit
         cnte := ldr[i].pos
       else
         ldr := &null
-    }
+    };
 
     if /item & /ldr then
       fail
-  }
+  };
 
 end
 
 
-procedure zot_patch(msg)			# exit w/ message
+procedure zot_patch(msg);			# exit w/ message
   write(&errout, "patch: ", msg);
-  exit(1)
+  exit(1);
 end

@@ -20,24 +20,24 @@
 #
 ############################################################################
 
-procedure int2bit(i)
-   local s, sign
+procedure int2bit(i);
+   local s, sign;
 
-   if i = 0 then return 0
+   if i = 0 then return 0;
    if i < 0 then {
       sign := "-";
       i := -i
       }
-   else sign := ""
+   else sign := "";
    s := "";
    while i > 0 do {
       s := (i % 2) || s;
       i /:= 2
-      }
-   return sign || s
+      };
+   return sign || s;
 end
 
-procedure bit2int(s)
+procedure bit2int(s);
    if s[1] == "-" then return "-" || integer("2r" || s[2:0])
-   else return integer("2r" || s)
+   else return integer("2r" || s);
 end

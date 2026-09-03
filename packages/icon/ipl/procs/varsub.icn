@@ -32,11 +32,11 @@
 #
 ############################################################################
 
-procedure varsub(s,varProc)
-   local var,p,user,pw,i,c,line
-   static nameChar
-   initial nameChar := &letters ++ &digits ++ "_"
-   /varProc := getenv
+procedure varsub(s,varProc);
+   local var,p,user,pw,i,c,line;
+   static nameChar;
+   initial nameChar := &letters ++ &digits ++ "_";
+   /varProc := getenv;
    s ? {
       s := "";
       while s ||:= tab(upto('$~')) do {
@@ -45,9 +45,9 @@ procedure varsub(s,varProc)
         "$": {
            if c := tab(any('{(')) then var := tab(find(map(c,"{(","})"))) & 
 move(1)
-           else var := tab(many(nameChar)) | ""
+           else var := tab(many(nameChar)) | "";
            "" ~== varProc(\var) | &subject[p:&pos]
-           }
+           };
         "~": {
            if user := tab(many(nameChar)) || ":" then {
           if pw := open("/etc/passwd") then {
@@ -55,7 +55,7 @@ move(1)
                if match(user,line) then break) | (line := &null);
              close(pw);
              if \line then {
-            every i := find(":",line)\5
+            every i := find(":",line)\5;
             i +:= 1;
             line[i:find(":",line,i)]
             }
@@ -66,8 +66,8 @@ move(1)
            else getenv("HOME") 
            }
         }
-     }
+     };
       s ||:= tab(0)
-      }
-   return s
+      };
+   return s;
 end

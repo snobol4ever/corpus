@@ -26,15 +26,15 @@
 
 link gobject
 
-procedure rpoly(cx, cy, radius, vertices, theta)	#: generate polygon points
-   local incr, i
+procedure rpoly(cx, cy, radius, vertices, theta);	#: generate polygon points
+   local incr, i;
 
-   incr := 2 * &pi / vertices
+   incr := 2 * &pi / vertices;
    /theta := 0;  # starting angle
 
    every i := 1 to vertices do {
       suspend Point(cx + radius * cos(theta), cy + radius * sin(theta));
       theta +:= incr
-      }
+      };
 
 end

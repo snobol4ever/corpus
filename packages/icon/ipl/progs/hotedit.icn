@@ -52,8 +52,8 @@ $define HOTOLD ".mosaic-hotlist-backup"
 $define HOTNEW ".mosaic-hotlist-revised"
 $define HOTFORMAT "ncsa-xmosaic-hotlist-format-1"
 
-procedure main()
-   local home, f, t, line, n, editor, command, urllist
+procedure main();
+   local home, f, t, line, n, editor, command, urllist;
 
    home := getenv("HOME")	| stop("no $HOME value");
    chdir(home)			| stop("can't chdir to ", home);
@@ -72,9 +72,9 @@ procedure main()
       if *urllist < 1000 then
          n := right(*urllist, 3, "0")
       else
-         n := *urllist
+         n := *urllist;
       write(t, n, " ", line)
-      }
+      };
    close(f);
    close(t);
 
@@ -93,9 +93,9 @@ procedure main()
          write(f, move(1) & tab(0))
       else 
          write(&errout, "invalid index: ", line)
-      }
+      };
 
-   remove(HOTOLD)
+   remove(HOTOLD);
    (rename(HOTFILE, HOTOLD) & rename(HOTNEW, HOTFILE)) |
-      stop("couldn't rename files; new file left in ", HOTNEW)
+      stop("couldn't rename files; new file left in ", HOTNEW);
 end

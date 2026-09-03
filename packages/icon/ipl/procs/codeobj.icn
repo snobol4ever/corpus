@@ -112,11 +112,11 @@ record triple(type,value,tag)
 
 #  Encode an arbitary value as a string.
 #
-procedure encode(x,level)
-   local str, tag, Type
-   static label
-   initial label := create "l" || star(string(&lcase))
-   if /level then outlab := table()	# table is global, but reset at
+procedure encode(x,level);
+   local str, tag, Type;
+   static label;
+   initial label := create "l" || star(string(&lcase));
+   if /level then outlab := table();	# table is global, but reset at
 					# each root call.
    tag := "";
    Type := typecode(x);
@@ -132,120 +132,120 @@ procedure encode(x,level)
          if Type == !"LSRT" then {	# structures
             every str ||:= encode(	# generate, recurse, and concatenate
                case Type of {
-                  !"LS":   !x		# elements
-                  "T":    x[[]] | !sort(x,3)	# default, then elements
+                  !"LS":   !x;		# elements
+                  "T":    x[[]] | !sort(x,3);	# default, then elements
                   "R":    type(x) | !x		# type then elements
                   }
                ,1)			# indicate internal call
             }
             else str ||:= case Type of {	# other things
-               "f":   image(x)
-               "C":   ""
+               "f":   image(x);
+               "C":   "";
                "p":   procname(x)
                }
          }
-   else stop("unsupported type in encode: ",image(x))
-   return tag || *str || Type || str
+   else stop("unsupported type in encode: ",image(x));
+   return tag || *str || Type || str;
 end
 
 #  Generate decoded results.  At the top level, there is only one,
 #  but for structures, it is called recursively and generates the
 #  the decoded elements. 
 #
-procedure decode(s,level)
-   local p
-   if /level then inlab := table()	# global but reset
+procedure decode(s,level);
+   local p;
+   if /level then inlab := table();	# global but reset
    every p := separ(s) do {
       suspend case p.type of {
-         "l":  inlab[p.value]		# label for an object
-         "i":  integer(p.value)
-         "s":  escape(p.value)
-         "c":  cset(escape(p.value))
-         "r":  real(p.value)
-         "n":  &null
-         "L":  delist(p.value,p.tag)
-         "R":  derecord(p.value,p.tag)
-         "S":  deset(p.value,p.tag)
-         "T":  detable(p.value,p.tag)
-         "f":  defile(p.value)
-         "C":  inlab[p.tag] := create &fail	# can't hurt much to fail
+         "l":  inlab[p.value];		# label for an object
+         "i":  integer(p.value);
+         "s":  escape(p.value);
+         "c":  cset(escape(p.value));
+         "r":  real(p.value);
+         "n":  &null;
+         "L":  delist(p.value,p.tag);
+         "R":  derecord(p.value,p.tag);
+         "S":  deset(p.value,p.tag);
+         "T":  detable(p.value,p.tag);
+         "f":  defile(p.value);
+         "C":  inlab[p.tag] := create &fail;	# can't hurt much to fail
          "p":  inlab[p.tag] := (proc(p.value) |
-            stop("encoded procedure not found")) \ 1
+            stop("encoded procedure not found")) \ 1;
          default:  stop("unexpected type in decode: ",p.type)
          }
-      }
+      };
 end
 
 #  Generate triples for the encoded values in concatenation.
 #
-procedure separ(s)
-   local p, size
+procedure separ(s);
+   local p, size;
 
    while *s ~= 0 do {
       p := triple();
       s ?:= {
          p.tag := tab(many(&lcase));
-         size := tab(many(&digits)) | break
+         size := tab(many(&digits)) | break;
          p.type := move(1);
          p.value := move(size);
          tab(0)
-         }
+         };
       suspend p
-      }
+      };
 end
 
 #  Decode a list. The newly constructed list is added to the table that
 #  relates tags to structure values.
 #
-procedure delist(s,tag)
-   local a
+procedure delist(s,tag);
+   local a;
    inlab[tag] := a := [];  # insert object for label
-   every put(a,decode(s,1))
-   return a
+   every put(a,decode(s,1));
+   return a;
 end
 
 #  Decode a set. Compare to delist above.
 #
-procedure deset(s,tag)
-   local S
+procedure deset(s,tag);
+   local S;
    inlab[tag] := S := set();
-   every insert(S,decode(s,1))
-   return S
+   every insert(S,decode(s,1));
+   return S;
 end
 
 #  Decode a record.
 #
-procedure derecord(s,tag)
-   local R, e
+procedure derecord(s,tag);
+   local R, e;
    e := create decode(s,1);  # note use of co-expressions to control
 				# generation, since record must be constructed
 				# before fields are produced.
    inlab[tag] := R := proc(@e)() | stop("error in decoding record");
-   every !R := @e
-   return R
+   every !R := @e;
+   return R;
 end
 
 #  Decode  a table.
 #
-procedure detable(s,tag)
-   local t, e
+procedure detable(s,tag);
+   local t, e;
    e := create decode(s,1);  # see derecord above; here it's the default
 				# value that motivates co-expressions.
    inlab[tag] := t := table(@e);
-   while t[@e] := @e
-   return t
+   while t[@e] := @e;
+   return t;
 end
 
 #  Decode a file.
 #
-procedure defile(s, tag)
+procedure defile(s, tag);
    return inlab[tag] := case s of {		# files aren't so simple ...
-      "&input":  &input
-      "&output": &output
-      "&errout": &errout
+      "&input":  &input;
+      "&output": &output;
+      "&errout": &errout;
       default: s ? {
             ="file(";  # open for reading to play it safe
             open(tab(upto(')'))) | stop("cannot open encoded file")
             }
-       }
+       };
 end

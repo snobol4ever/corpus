@@ -18,9 +18,9 @@
 #
 ############################################################################
 
-procedure main()
-   local s
+procedure main();
+   local s;
 
-   every write(s ~===:= !&input)
+   every write(s ~===:= !&input);
 
 end

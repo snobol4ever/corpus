@@ -57,16 +57,16 @@ global patChar
 
 record Tag(fn,line,linenbr,shortline)
 
-procedure main(arg)
+procedure main(arg);
    local Write,f,fn,idChar,line,linenbr,noWarnings,opt,space,tag,tags,
-       tf,tfn,typedef,x
+       tf,tfn,typedef,x;
    #
    #  Handle command line options and initialization.
    #
    opt := options(arg,"aBFxtvwuf:");
    if *arg = 0 then
-	 stop("usage: itags [-aBFtvwx] [-f tagsfile] file...")
-   if \opt["u"] then stop("update option (-u) not supported -- rebuild file")
+	 stop("usage: itags [-aBFtvwx] [-f tagsfile] file...");
+   if \opt["u"] then stop("update option (-u) not supported -- rebuild file");
    patChar := if \opt["B"] & /opt["F"] then "?" else "/";
    Write := (if \opt["v"] then VGrind
       else if \opt["x"] then Index
@@ -85,7 +85,7 @@ procedure main(arg)
    #  Loop to read files.
    #
    every fn := !arg do {
-      if not find(".",fn) then fn ||:= ".icn"
+      if not find(".",fn) then fn ||:= ".icn";
       f := open(fn) | write(&errout,"Couldn't open \"",fn,"\"");
       linenbr := 0;
       while line := read(f) do line ? {
@@ -101,28 +101,28 @@ procedure main(arg)
 	    else
 		  tags[tag] := Tag(fn,line,linenbr,line[1:&pos + 1])
 	    }
-	 }
+	 };
       close(f)
-      }
+      };
    #
    #  Do requested output.
    #
-   every Write(!sort(tags),tf)
+   every Write(!sort(tags),tf);
 end
 
 
 #
 #  Output procedures.
 #
-procedure Tags(x,f)
-   return write(f,x[1],"\t",x[2].fn,"\t",patChar,"^",x[2].shortline,patChar)
+procedure Tags(x,f);
+   return write(f,x[1],"\t",x[2].fn,"\t",patChar,"^",x[2].shortline,patChar);
 end
 
-procedure Index(x)
+procedure Index(x);
    return write(left(x[1],*x[1] < 16) | x[1],right(x[2].linenbr,4)," ",
-	 left(x[2].fn,17),x[2].line)
+	 left(x[2].fn,17),x[2].line);
 end
 
-procedure VGrind(x)
-   return write(x[1]," ",x[2].fn," ",(x[2].linenbr - 1) / 64 + 1)
+procedure VGrind(x);
+   return write(x[1]," ",x[2].fn," ",(x[2].linenbr - 1) / 64 + 1);
 end

@@ -33,8 +33,8 @@
 link wopen
 link xcompat
 
-procedure main()
-   local normal, highlight, line, s1, s2, i1, i2
+procedure main();
+   local normal, highlight, line, s1, s2, i1, i2;
 
    normal := WOpen("label=palindrome check", "lines=20", "columns=80",
       "leading=18") | stop("*** cannot open window");
@@ -48,7 +48,7 @@ procedure main()
        i1 := i2 := 1;
 
        while i1 < *line do {
-           (i1 := upto(&lcase, s1, i1) & i2 := upto(&lcase, s2, i2)) | break
+           (i1 := upto(&lcase, s1, i1) & i2 := upto(&lcase, s2, i2)) | break;
            if s1[i1] ~== s2[i2] then {
                line ? {
                   writes(normal, tab(i1));
@@ -56,14 +56,14 @@ procedure main()
                   writes(normal, tab(*line - i2 + 1));
                   writes(highlight, move(1));
                   write(normal, tab(0))
-                  }
+                  };
                break
-           }
+           };
            i1 +:= 1;
            i2 +:= 1
        }
-   }
+   };
 
-   Event(normal)
+   Event(normal);
 
 end

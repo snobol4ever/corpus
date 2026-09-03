@@ -125,24 +125,24 @@ global ctg_eps_ptab		# table of [axis, flatng], keyed by eps name
 
 #  project(p, L) projects a list of coordinates, returning a new list.
 
-procedure project(p, L)			#: project a list of coordinates
-   return p.proj(p, L)
+procedure project(p, L);			#: project a list of coordinates
+   return p.proj(p, L);
 end
 
 
 
 #  invp(p) returns the inverse of projection p.
 
-procedure invp(p)			#: return inversion of projection
-   return (\p.inv)(p)
+procedure invp(p);			#: return inversion of projection
+   return (\p.inv)(p);
 end
 
 
 
 #  sbsize(p, x, y, u, maxl) --  calculate scalebar size
 
-procedure sbsize(p, x, y, u, maxl)	#: calculate scalebar size
-   local d, i, m, r
+procedure sbsize(p, x, y, u, maxl);	#: calculate scalebar size
+   local d, i, m, r;
 
    m := 1;
    repeat {
@@ -154,12 +154,12 @@ procedure sbsize(p, x, y, u, maxl)	#: calculate scalebar size
          then break
       else
          m := m * 10
-      }
+      };
 
    if maxl >= d * (i := 5 | 4 | 3 | 2) then
-      m *:= i
+      m *:= i;
 
-   return m
+   return m;
 end
 
 
@@ -182,10 +182,10 @@ record ctg_rect(	# rectangular projection record
 
 #  rectp(x1, y1, x2, y2, xm, ym) -- define rectangular projection
 
-procedure rectp(x1, y1, x2, y2, xm, ym)	#: define rectangular projection
-   local p
+procedure rectp(x1, y1, x2, y2, xm, ym);	#: define rectangular projection
+   local p;
 
-   /xm := 1.0
+   /xm := 1.0;
    /ym := xm;
    p := ctg_rect();
    p.proj := ctg_rect_proj;
@@ -193,16 +193,16 @@ procedure rectp(x1, y1, x2, y2, xm, ym)	#: define rectangular projection
    p.xmul := real(xm);
    p.ymul := real(ym);
    p.xadd := x2 - x1 * xm;
-   p.yadd := y2 - y1 * ym
-   return p
+   p.yadd := y2 - y1 * ym;
+   return p;
 end
 
 
 
 #  ctg_rect_proj(p, L) -- project using rectangular projection
 
-procedure ctg_rect_proj(p, L)
-   local i, a, xmul, ymul, xadd, yadd
+procedure ctg_rect_proj(p, L);
+   local i, a, xmul, ymul, xadd, yadd;
 
    a := list();
    xmul := p.xmul;
@@ -212,23 +212,23 @@ procedure ctg_rect_proj(p, L)
    every i := 1 to *L by 2 do {
       put(a, xmul * L[i] + xadd);
       put(a, ymul * L[i+1] + yadd)
-      }
-   return a
+      };
+   return a;
 end
 
 
 
 #  ctg_rect_inv(p) -- invert rectangular projection
 
-procedure ctg_rect_inv(p)
-   local q
+procedure ctg_rect_inv(p);
+   local q;
 
    q := copy(p);
    q.xmul := 1.0 / p.xmul;
    q.ymul := 1.0 / p.ymul;
    q.xadd := -p.xadd / p.xmul;
-   q.yadd := -p.yadd / p.ymul
-   return q
+   q.yadd := -p.yadd / p.ymul;
+   return q;
 end
 
 
@@ -251,12 +251,12 @@ record ctg_ppt(		# planar projective transformation record
 
 #  pptrans(L1, L2) -- define planar projective transformation 
 
-procedure pptrans(L1, L2)	#: define planar projective transformation
-   local p, M, I, B
-   local x1, x2, x3, x4, y1, y2, y3, y4
-   local x1p, x2p, x3p, x4p, y1p, y2p, y3p, y4p
+procedure pptrans(L1, L2);	#: define planar projective transformation
+   local p, M, I, B;
+   local x1, x2, x3, x4, y1, y2, y3, y4;
+   local x1p, x2p, x3p, x4p, y1p, y2p, y3p, y4p;
 
-   *L1 = 8 | runerr(205, L1)
+   *L1 = 8 | runerr(205, L1);
    *L2 = 8 | runerr(205, L2);
 
    p := ctg_ppt();
@@ -266,9 +266,9 @@ procedure pptrans(L1, L2)	#: define planar projective transformation
    p.tgt := copy(L2);
 
    B := copy(L1);
-   every (x1 | y1 | x2 | y2 | x3 | y3 | x4 | y4) := get(B)
+   every (x1 | y1 | x2 | y2 | x3 | y3 | x4 | y4) := get(B);
    B := copy(L2);
-   every (x1p | y1p | x2p | y2p | x3p | y3p | x4p | y4p) := get(B)
+   every (x1p | y1p | x2p | y2p | x3p | y3p | x4p | y4p) := get(B);
 
    M := [
       [ x1, y1, 1., 0., 0., 0., -x1p * x1, -x1p * y1], 
@@ -286,18 +286,18 @@ procedure pptrans(L1, L2)	#: define planar projective transformation
    lu_decomp(M, I) | fail;  # if singular, fail
    lu_back_sub(M, I, B);
    every (p.h11 | p.h12 | p.h13 | p.h21 | p.h22 | p.h23 | p.h31 | p.h32) :=
-      get(B)
-   p.h33 := 1.0
+      get(B);
+   p.h33 := 1.0;
 
-   return p
+   return p;
 end
 
 
 
 #  ctg_ppt_proj(p, L) -- project using planar projective transformation
 
-procedure ctg_ppt_proj(p, L)
-   local a, i, x, y, d, h11, h12, h13, h21, h22, h23, h31, h32, h33
+procedure ctg_ppt_proj(p, L);
+   local a, i, x, y, d, h11, h12, h13, h21, h22, h23, h31, h32, h33;
 
    h11 := p.h11;
    h12 := p.h12;
@@ -315,17 +315,17 @@ procedure ctg_ppt_proj(p, L)
       y := L[i+1];
       d := h31 * x + h32 * y + h33;
       put(a, (h11 * x + h12 * y + h13) / d, (h21 * x + h22 * y + h23) / d)
-      }
+      };
 
-   return a
+   return a;
 end
 
 
 
 #  ctg_ppt_inv(p, L) -- invert planar projective transformation
 
-procedure ctg_ppt_inv(p)
-   return pptrans(p.tgt, p.org)
+procedure ctg_ppt_inv(p);
+   return pptrans(p.tgt, p.org);
 end
 
 
@@ -355,8 +355,8 @@ record ctg_utm(		# UTM projection record
 
 #  utm(a, f) -- define UTM projection
 
-procedure utm(a, f)		#: define UTM projection
-   local p, e, af
+procedure utm(a, f);		#: define UTM projection
+   local p, e, af;
 
    p := ctg_utm();
    p.proj := ctg_utm_proj;
@@ -366,7 +366,7 @@ procedure utm(a, f)		#: define UTM projection
       af := ellipsoid(a) | fail;
       a := af[1];
       f := af[2]
-   }
+   };
    p.a := a;  # p.a = equatorial radius
    p.f := f;  # p.f = flattening
    p.esq := 2 * f - f ^ 2;  # p.esq = eccentricity squared
@@ -375,17 +375,17 @@ procedure utm(a, f)		#: define UTM projection
    p.c0 := p.a * (1 - (p.e^2) / 4 - 3 * (p.e^4) / 64 - 5 * (p.e^6) / 256);
    p.c2 := p.a * (3 * (p.e^2) / 8 + 3 * (p.e^4) / 32 + 45 * (p.e^6) / 1024);
    p.c4 := p.a * (15 * (p.e^4) / 256 + 45 * (p.e^6) / 1024);
-   p.c6 := p.a * (35 * (p.e^6) / 3072)
-   return p
+   p.c6 := p.a * (35 * (p.e^6) / 3072);
+   return p;
 end
 
 
 
 #  ctg_utm_proj(p, L) -- project using UTM projection  (Snyder, p61)
 
-procedure ctg_utm_proj(p, L)
-   local ulist, epsq, lat, lon, zone, phi, lambda, lamzero, cosphi
-   local i, N, T, C, A, M, x, u, y
+procedure ctg_utm_proj(p, L);
+   local ulist, epsq, lat, lon, zone, phi, lambda, lamzero, cosphi;
+   local i, N, T, C, A, M, x, u, y;
 
    ulist := list();
    epsq := p.epsq;
@@ -409,16 +409,16 @@ procedure ctg_utm_proj(p, L)
          (61. - 58. * T + T^2 + 600. * C - 330. * epsq) * A^6 / 720.;
       y := k0 * (M - M0 + N * tan(phi) * u);
       put(ulist, zone, x, y)
-      }
-   return ulist
+      };
+   return ulist;
 end
 
 
 
 #  ctg_utm_inv(p) -- invert UTM projection
 
-procedure ctg_utm_inv(p)
-   local q, e, e1
+procedure ctg_utm_inv(p);
+   local q, e, e1;
 
    q := copy(p);
    q.proj := ctg_iutm_proj;
@@ -430,17 +430,17 @@ procedure ctg_utm_inv(p)
    q.c4 := 21. * e1^2 / 16. - 55. * e1^4 / 32.;
    q.c6 := 151. * e1^3 / 96.;
    q.c8 := 1097. * e1^4 / 512.
-   return q
+   return q;
 end
 
 
 
 #  ctg_iutm_proj(p, L) -- project using inverse UTM projection  (Snyder, p63)
 
-procedure ctg_iutm_proj(p, L)
-   local a, esq, epsq
-   local lllist, i, x, y, zone
-   local lam0, mu, phi1, sin1, cos1, tan1, phi, lam, t1, t2, C1, T1, N1, R1, D
+procedure ctg_iutm_proj(p, L);
+   local a, esq, epsq;
+   local lllist, i, x, y, zone;
+   local lam0, mu, phi1, sin1, cos1, tan1, phi, lam, t1, t2, C1, T1, N1, R1, D;
 
    a := p.a;
    esq := p.esq;
@@ -473,17 +473,17 @@ procedure ctg_iutm_proj(p, L)
          (5. - 2. * C1 + 28. * T1 - 3. * C1 * C1 + 
          8. * epsq + 24. * T1 * T1) * D^5 / 120.) / cos1;
       put(lllist, rtod(lam), rtod(phi))
-      }
+      };
    
-   return lllist
+   return lllist;
 end
 
 
 
 #  ctg_iutm_inv(p, L) -- invert inverse UTM projection
 
-procedure ctg_iutm_inv(p)
-   return utm(p.a, p.f)
+procedure ctg_iutm_inv(p);
+   return utm(p.a, p.f);
 end
 
 
@@ -500,34 +500,34 @@ record ctg_comp(		# composition of two projections
 # compose --	produce a projection that applies the LAST projection
 #		in a[] first, etc.
 
-procedure compose(a[])		#: define composite projection
-   local q, r
+procedure compose(a[]);		#: define composite projection
+   local q, r;
 
    q := ctg_comp();
    q.proj := ctg_comp_proj;
    q.inv := ctg_comp_inv;
    q.projList := [];
    every r := !a do
-      push(q.projList, r)
-   return q
+      push(q.projList, r);
+   return q;
 end
 
-procedure ctg_comp_proj(p, L)
-   local r
+procedure ctg_comp_proj(p, L);
+   local r;
 
    every r := !(p.projList) do
-      L := project(r, L)
-   return L
+      L := project(r, L);
+   return L;
 end
 
-procedure ctg_comp_inv(p)
-   local q, r
+procedure ctg_comp_inv(p);
+   local q, r;
 
    q := ctg_comp();
    q.proj := ctg_comp_proj;
    q.inv := ctg_comp_inv;
    q.projList := [];
    every r := !(p.projList) do
-      push(q.projList, invp(r))
-   return q
+      push(q.projList, invp(r));
+   return q;
 end

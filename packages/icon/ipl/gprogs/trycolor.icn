@@ -39,13 +39,13 @@ link options
 link optwindw
 link graphics
 
-procedure main(args)
-   local win, gc, line, cval, mono, color, opts, m, w, h, l
-   local r, g, b, rr, gg, bb, x
+procedure main(args);
+   local win, gc, line, cval, mono, color, opts, m, w, h, l;
+   local r, g, b, rr, gg, bb, x;
 
-   opts := options(args, winoptions())
-   /opts["W"] := 300
-   /opts["H"] := 300
+   opts := options(args, winoptions());
+   /opts["W"] := 300;
+   /opts["H"] := 300;
    /opts["M"] := -1;
    win := optwindow(opts, "cursor=off", "echo=off");
    gc := Clone(win);
@@ -67,7 +67,7 @@ procedure main(args)
                r := tab(many(&digits));  move(1);
                g := tab(many(&digits));  move(1);
                b := tab(many(&digits))
-               }
+               };
             rr := hexv(r / 65536.0);
             gg := hexv(g / 65536.0);
             bb := hexv(b / 65536.0);
@@ -77,20 +77,20 @@ procedure main(args)
             }
          else
             write("[failed]")
-         }
+         };
       writes("> ");
-      line := read() | break
+      line := read() | break;
       line ? {
          tab(many(' \t'));
          color := trim(tab(0))
          }
-      }
+      };
 end
 
-procedure hexv(v)			# two-hex-digit specification of v
-   static hextab
+procedure hexv(v);			# two-hex-digit specification of v
+   static hextab;
    initial {
       every put((hextab := []), !"0123456789ABCDEF" || !"0123456789ABCDEF")
-      }
-   return hextab [1 + integer(256 * v)]
+      };
+   return hextab [1 + integer(256 * v)];
 end

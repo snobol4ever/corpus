@@ -25,8 +25,8 @@
 #
 ############################################################################
 
-procedure main(arg)
-   local s, line
+procedure main(arg);
+   local s, line;
 
    s := cset(arg[1]) | &cset;
 
@@ -40,6 +40,6 @@ procedure main(arg)
                   break
                   }
             }
-         }
+         };
 
 end

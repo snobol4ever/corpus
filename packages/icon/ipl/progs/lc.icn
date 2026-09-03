@@ -23,8 +23,8 @@
 #
 ############################################################################
 
-procedure main()
-   local count, line
+procedure main();
+   local count, line;
 
    count := 0;
 
@@ -32,8 +32,8 @@ procedure main()
       line ? {
          every upto('\n') do
             count +:= 1
-         }
+         };
 
-   write(count)
+   write(count);
 
 end

@@ -19,14 +19,14 @@
 #
 ############################################################################
 
-procedure _Initialize(limit)
-   local itime, t1, t3
+procedure _Initialize(limit);
+   local itime, t1, t3;
    
    itime := &time;
 
    every 1 to limit do {
       &null
-      }
+      };
 
    t1 := (&time - itime);
 
@@ -34,10 +34,10 @@ procedure _Initialize(limit)
 
    every 1 to limit do {
       &null & &null
-      }
+      };
 
-   t3 := (&time - itime)
+   t3 := (&time - itime);
 
-   return (t1 + t3) / 2
+   return (t1 + t3) / 2;
 
 end

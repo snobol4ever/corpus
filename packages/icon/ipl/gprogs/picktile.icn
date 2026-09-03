@@ -50,9 +50,9 @@ link patxform
 link win
 link xcompat
 
-procedure main(args)
-   local pixmap, wix, hix, c, x, y, event, opts, base, magnif, cols, rows
-   local arglist, state, x0, x1, y0, y1, pattern
+procedure main(args);
+   local pixmap, wix, hix, c, x, y, event, opts, base, magnif, cols, rows;
+   local arglist, state, x0, x1, y0, y1, pattern;
 
    opts := options(args, "tz+w+h+If");
    magnif := \opts["z"] | 1;
@@ -63,7 +63,7 @@ procedure main(args)
       magnif := 2;
       cols := rows := 38;
       opts["f"] := 1
-      }
+      };
 
    pixmap := XBind(, , ,"image=" || args[1]) |
       stop("*** cannot open image file");
@@ -88,21 +88,21 @@ procedure main(args)
             c := Pixel(pixmap, x, y, 1, 1);
             if c == "0,0,0" then {
                every put(arglist, (magnif * x) | (magnif * y) | magnif | magnif)
-               }
+               };
             x +:= 1
-            }
+            };
 
          if *arglist > 0 then FillRectangle ! arglist
          }
-      }
+      };
 
    if \opts["f"] then {				# let user pick corners
       while event := Event() do {
          case event of {
-            "q":   exit()
+            "q":   exit();
             &lpress | &mpress | &rpress: {
-               pattern := pix2pat(pixmap, &x / magnif, &y / magnif, cols, rows)
-               if \opts["t"] then pattern := rows2pat(ptrim(pat2rows(pattern)))
+               pattern := pix2pat(pixmap, &x / magnif, &y / magnif, cols, rows);
+               if \opts["t"] then pattern := rows2pat(ptrim(pat2rows(pattern)));
                write(pattern)
                }
             }
@@ -111,54 +111,54 @@ procedure main(args)
 
 
    else {					# let user drag to select area
-      state := "pick"				# waiting for user to pick
+      state := "pick";				# waiting for user to pick
    
-      WAttrib("drawop=reverse")
-      WAttrib("linestyle=dashed")
+      WAttrib("drawop=reverse");
+      WAttrib("linestyle=dashed");
    
       while event := Event() do {
-         if event === "q" then exit()
+         if event === "q" then exit();
          case state of {
             "pick": {				# pick the upper-left corner
                if event === &lpress then {
-                  x1 := x0 := &x		# initial coordinates
-                  y1 := y0 := &y
-                  DrawRectangle(x0, y0, 0, 0)	# start the selection rectangle
+                  x1 := x0 := &x;		# initial coordinates
+                  y1 := y0 := &y;
+                  DrawRectangle(x0, y0, 0, 0);	# start the selection rectangle
                   state := "select"		# now select the rectangle
                   }
-               }
+               };
             "select": {				# select the rectangle
                case event of {
                   &ldrag: {			# searching ...
-                     DrawRectangle(x0, y0, x1 - x0, y1 - y0) # erase rectangle
-                     x1 := &x			# new lower-right
-                     y1 := &y
+                     DrawRectangle(x0, y0, x1 - x0, y1 - y0); # erase rectangle
+                     x1 := &x;			# new lower-right
+                     y1 := &y;
                      DrawRectangle(x0, y0, x1 - x0, y1 - y0) # new rectangle
-                     }
+                     };
                   &lrelease: {			# got it!
-                     DrawRectangle(x0, y0, x1 - x0, y1 - y0) # erase rectangle
-                     x1 := &x			# new lower-right
-                     y1 := &y
-                     DrawRectangle(x0, y0, x1 - x0, y1 - y0) # new rectangle
+                     DrawRectangle(x0, y0, x1 - x0, y1 - y0); # erase rectangle
+                     x1 := &x;			# new lower-right
+                     y1 := &y;
+                     DrawRectangle(x0, y0, x1 - x0, y1 - y0); # new rectangle
                      state := "decide"			# now decide
                      }
                   }
-               }
+               };
             "decide": {				# is it wanted or not?
-               DrawRectangle(x0, y0, x1 - x0, y1 - y0) # erase rectangle
+               DrawRectangle(x0, y0, x1 - x0, y1 - y0); # erase rectangle
                if event === &lpress then {
                   if (x0 <= &x <= x1) & (y0 <= &y <= y1) then {
                      pattern := pix2pat(pixmap, x0 / magnif, y0 / magnif,
-                        (x1 - x0) / magnif, (y1 - y0) / magnif)
+                        (x1 - x0) / magnif, (y1 - y0) / magnif);
                      if \opts["t"] then
-                        pattern := rows2pat(ptrim(pat2rows(pattern)))
+                        pattern := rows2pat(ptrim(pat2rows(pattern)));
                      write(pattern)
                      }
-                  }
+                  };
                state := "pick"			# go for another
                }
             }
          }
-      }
+      };
 
 end

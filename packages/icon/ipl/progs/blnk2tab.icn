@@ -19,14 +19,14 @@
 #
 ############################################################################
 
-procedure main(args)
-   local line
+procedure main(args);
+   local line;
 
    while line := read() do
       line ? {
          while writes(tab(find("  ")), "\t") do
-            tab(many(' '))
+            tab(many(' '));
          write(tab(0))
-         }
+         };
 
 end

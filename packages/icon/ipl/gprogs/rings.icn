@@ -48,34 +48,34 @@ $define H 128
 
 link xio, xutils
 
-procedure main(args)
-   local count
+procedure main(args);
+   local count;
 
    count := -1;
    Window(args);
    repeat case Event() of {
-      QuitEvents():  exit()
-      "c":  randrop(circle, 10)
-      "r":  randrop(ring, 5)
+      QuitEvents():  exit();
+      "c":  randrop(circle, 10);
+      "r":  randrop(ring, 5);
       "W":  WriteImage("rings" || right(count +:= 1, 3, "0") || ".gif",
-         , , W, W)
-      "E":  EraseArea()
-      "F":  FillRectangle()
+         , , W, W);
+      "E":  EraseArea();
+      "F":  FillRectangle();
       "R":  {WAttrib("drawop=reverse"); FillRectangle(); WAttrib("drawop=copy")}
-      }
+      };
 end
 
-procedure replicate()
+procedure replicate();
    CopyArea(0, 0, W, H, 0, H);
    CopyArea(0, 0, W, 2 * H, W, 0);
    CopyArea(0, 0, 2 * W, 2 * H, 2 * W, 0);
    CopyArea(0, 0, 4 * W, 2 * H, 0, 2 * H);
-   DrawLine(W, 0, W, H, 0, H)
-   return
+   DrawLine(W, 0, W, H, 0, H);
+   return;
 end
 
-procedure randrop(p, n)
-   local x, y
+procedure randrop(p, n);
+   local x, y;
    every 1 to n do {
       x := ?W - W / 2;
       y := ?H - H / 2;
@@ -83,26 +83,26 @@ procedure randrop(p, n)
       p(x, y + H);
       p(x + W, y);
       p(x + W, y + W)
-      }
-   replicate()
-   return
+      };
+   replicate();
+   return;
 end
 
-procedure ring(x, y)
-   static outer, inner
+procedure ring(x, y);
+   static outer, inner;
    initial {
       outer := Clone("fg=black", "linewidth=5");
       inner := Clone("fg=white", "linewidth=3")
-      }
+      };
    DrawCircle(outer, x, y, 30);
-   DrawCircle(inner, x, y, 30)
-   return
+   DrawCircle(inner, x, y, 30);
+   return;
 end
 
-procedure circle(x, y)
-   static white
-   initial white := Clone("fg=white")
+procedure circle(x, y);
+   static white;
+   initial white := Clone("fg=white");
    FillCircle(white, x, y, 12);
-   DrawCircle(x, y, 12)				#  change to 10 for gaps
-   return
+   DrawCircle(x, y, 12);				#  change to 10 for gaps
+   return;
 end

@@ -53,40 +53,40 @@ global last_k
 record outstr(on, off)
 
 
-procedure stripunb(c1,c2,s,i,j,t)
+procedure stripunb(c1,c2,s,i,j,t);
 
     # NB:  Stripunb() returns a string - not an integer (like find,
     # upto).
 
-    local lookinfor, bothcs, s2, k, new_s, c, compl
+    local lookinfor, bothcs, s2, k, new_s, c, compl;
     #global last_k
-    initial last_k := list()
+    initial last_k := list();
 
-    /c1 := '<'
-    /c2 := '>'
+    /c1 := '<';
+    /c2 := '>';
     bothcs := c1 ++ c2;
     lookinfor := c1 ++ '\\';
-    c := &cset -- c1 -- c2
+    c := &cset -- c1 -- c2;
 
     /s := &subject;
     if \i then {
 	if i < 1 then
 	    i := *s + (i+1)
     }
-    else i := \&pos | 1
+    else i := \&pos | 1;
     if \j then {
 	if j < 1 then
 	    j := *s + (j+1)
     }
-    else j := *s + 1
+    else j := *s + 1;
 
     s2 := "";
     s ? {
 	while s2 ||:= tab(upto(lookinfor)) do {
 	    if ="\\" then {
 		if not any(bothcs) then
-		    s2 ||:= "\\"
-		&pos+1 > j & (return s2)
+		    s2 ||:= "\\";
+		&pos+1 > j & (return s2);
 		s2 ||:= move(1);
 		next
 	    }
@@ -108,7 +108,7 @@ procedure stripunb(c1,c2,s,i,j,t)
 			# Can't find the right delimiter.  Parsing error.
 			stop("stripunb:  Incomplete tag\n",s[1:80] | s)
 		    }
-		}
+		};
 		# T is the maptable.
 		if \t then {
 		    k ?:= 2(tab(any(c1)), tab(upto(c2)), move(1), pos(0));
@@ -116,7 +116,7 @@ procedure stripunb(c1,c2,s,i,j,t)
 			compl:= pop(last_k) | stop("Incomplete tag, ",&subject);
 			if k == ""
 			then k := compl
-			else k == compl | stop("Incorrectly paired tag,/tag.")
+			else k == compl | stop("Incorrectly paired tag,/tag.");
 			s2 ||:= \(\t[k]).off
 		    }
 		    else {
@@ -125,10 +125,10 @@ procedure stripunb(c1,c2,s,i,j,t)
 		    }
 		}
 	    }
-	}
+	};
 	s2 ||:= tab(0)
-    }
+    };
 
-    return s2
+    return s2;
 
 end

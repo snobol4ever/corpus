@@ -39,8 +39,8 @@ record hvcrec(h, v, c)
 global settings, colr, sl, win
 global w, h, m
 
-procedure main(args)
-   local opts, cwin, ww, hh
+procedure main(args);
+   local opts, cwin, ww, hh;
 
    win := Window("size=300,250", "font=Helvetica,bold,14", args);
    w := WAttrib("width");
@@ -73,22 +73,22 @@ procedure main(args)
    button(win, "QUIT", argless, exit, m, h - m - 20, 60, 20);
 
    # enter event loop
-   evmux(win)
+   evmux(win);
 end
 
-procedure sethvc(win, i, v)		# set color component i to value v
+procedure sethvc(win, i, v);		# set color component i to value v
    settings[i] := v;
-   setcolor()
+   setcolor();
 end
 
-procedure setcolor()			# set the color in the color map
-   local hue, value, chroma, s
+procedure setcolor();			# set the color in the color map
+   local hue, value, chroma, s;
    hue := integer(360 * settings.h + 0.5);
    value := integer(100 * settings.v + 0.5);
    chroma := integer(100 * settings.c + 0.5);
    s := "TekHVC:" || hue || "/" || value || "/" || chroma;
    Color(win, colr, s);
    GotoXY(win, m, h - 20 - 2 * m);
-   write(win, left(s, 20))
-   return
+   write(win, left(s, 20));
+   return;
 end

@@ -18,8 +18,8 @@
 #
 ############################################################################
 
-procedure main(args)
-   local n, line, s
+procedure main(args);
+   local n, line, s;
 
    n := (0 < integer(args[1])) | stop("*** invalid specification");
 
@@ -28,9 +28,9 @@ procedure main(args)
          every 1 to n do {
             tab(upto(&digits)) | stop("*** column ", n, " does not exist");
             s := tab(many(&digits))
-            }
+            };
       
          write(s)
-         }
+         };
 
 end

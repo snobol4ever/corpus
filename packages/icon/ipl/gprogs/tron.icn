@@ -62,93 +62,93 @@ global x, y, dx, dy
 global score
 global pixels
 
-procedure prepare_vars()
+procedure prepare_vars();
   actions := table();
   actions[Key_Down]  := ["v", +1];
   actions[Key_Up]    := ["v", -1];
   actions[Key_Right] := ["h", +1];
   actions[Key_Left]  := ["h", -1];
-  every actions["q" | "Q" | "\e"] := "quit"
+  every actions["q" | "Q" | "\e"] := "quit";
   set_direction(["h", +1]);
   x := 150;
   y := 90;
   score := 0;
   pixels := table();
-  every pixels[0 to 199] := table(0)
+  every pixels[0 to 199] := table(0);
 end
 
-procedure set_color(n)
-  if n == 0 then WAttrib("fg=black")
-  if n == 1 then WAttrib("fg=red")
-  if n == 3 then WAttrib("fg=yellow")
+procedure set_color(n);
+  if n == 0 then WAttrib("fg=black");
+  if n == 1 then WAttrib("fg=red");
+  if n == 3 then WAttrib("fg=yellow");
 end
 
-procedure pset(x, y, color)
+procedure pset(x, y, color);
   set_color(color);
   pixels[y][x] := color;
-  FillRectangle(x*2, y*2, 2, 2)
+  FillRectangle(x*2, y*2, 2, 2);
 end
 
-procedure point(x, y)
-  return pixels[y][x]
+procedure point(x, y);
+  return pixels[y][x];
 end
 
-procedure draw_red_square()
-  local x, y
+procedure draw_red_square();
+  local x, y;
   x := ?316;
   y := ?188;
-  every pset(x to x+2, y to y+2, 1)
+  every pset(x to x+2, y to y+2, 1);
 end
 
-procedure is_direction(action)
-  return type(action) == "list"
+procedure is_direction(action);
+  return type(action) == "list";
 end
 
-procedure ignored_turn(newdirection)
-  return newdirection[1] == direction[1]
+procedure ignored_turn(newdirection);
+  return newdirection[1] == direction[1];
 end
 
-procedure set_direction(newdirection)
+procedure set_direction(newdirection);
   direction := newdirection;
   if direction[1] == "h" then {
     dx := direction[2]; dy := 0
   } else {
     dy := direction[2]; dx := 0
-  }
+  };
 end
 
-procedure process_events()
-  local e, action
+procedure process_events();
+  local e, action;
   while *Pending() > 0 do {
     e := Event();
     # w(e)
     action := actions[e];
     if is_direction(action) then {
       if not ignored_turn(action) then {
-        set_direction(action)
+        set_direction(action);
         return
       }
-    }
+    };
     if action === "quit" then
       fail
-  }
-  return
+  };
+  return;
 end
 
-procedure prepare_walls()
-  every pset(0 to 319,   0, 3)
-  every pset(0 to 319, 191, 3)
-  every pset(0,   0 to 191, 3)
-  every pset(319, 0 to 191, 3)
+procedure prepare_walls();
+  every pset(0 to 319,   0, 3);
+  every pset(0 to 319, 191, 3);
+  every pset(0,   0 to 191, 3);
+  every pset(319, 0 to 191, 3);
 end
 
-procedure draw_score()
+procedure draw_score();
   GotoXY(6, 396);
   set_color(3);
-  WWrites("Score: " || score)
+  WWrites("Score: " || score);
 end
 
-procedure play()
+procedure play();
   prepare_vars();
   set_color(0);
   FillRectangle(0, 0, 640, 400);
@@ -162,19 +162,19 @@ procedure play()
   while process_events() do {
     x +:= dx;
     y +:= dy;
-    if point(x, y) == 3 then break
+    if point(x, y) == 3 then break;
     if point(x, y) == 1 then {
       draw_red_square(); score +:= 1; draw_score();
       pset(x, y, 3);
       WDelay(50)
-    }
+    };
     pset(x, y, 3);
     WDelay(50)
-  }
+  };
 end
 
-procedure main(args)
-  local e
+procedure main(args);
+  local e;
 
   # w(actions)
   WOpen("size=640,400", "fg=yellow", "bg=black");
@@ -184,8 +184,8 @@ procedure main(args)
   while 1 do {
     play();
     while e := Event() do {
-      if e === ("q" | "Q" | "\e") then return
+      if e === ("q" | "Q" | "\e") then return;
       if e === ("p" | "P" | " " | "\r" | "\n") then break
     }
-  }
+  };
 end

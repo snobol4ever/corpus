@@ -19,8 +19,8 @@
 #
 ############################################################################
 
-procedure digitcnt(file)	#: count digits in file
-   local result
+procedure digitcnt(file);	#: count digits in file
+   local result;
 
    /file := &input;
 
@@ -30,8 +30,8 @@ procedure digitcnt(file)	#: count digits in file
    # to the following one.
 
 #  every result[!!file + 1] +:= 1
-   every result[integer(!!file) + 1] +:= 1
+   every result[integer(!!file) + 1] +:= 1;
 
-   return result
+   return result;
 
 end

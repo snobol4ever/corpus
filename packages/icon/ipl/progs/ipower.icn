@@ -34,8 +34,8 @@
 
 link options
 
-procedure main(args)
-   local opts, limit, start, stop, incr, i, base
+procedure main(args);
+   local opts, limit, start, stop, incr, i, base;
 
    opts := options(args, "v+b+e+i+l+");
 
@@ -47,6 +47,6 @@ procedure main(args)
 
    every i := seq(start, incr) \ limit do
       if i > stop then exit()
-      else write(base ^ i)
+      else write(base ^ i);
 
 end

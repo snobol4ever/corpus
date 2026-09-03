@@ -59,13 +59,13 @@ global data_entries
 global sections
 global wif
 
-procedure main(args)
-   local opts, title, palette
+procedure main(args);
+   local opts, title, palette;
 
    opts := options(args, "n:");
 
    title := \opts["n"] | "untitled";
 
-   wif2isd(&input, title)
+   wif2isd(&input, title);
 
 end

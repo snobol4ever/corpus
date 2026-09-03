@@ -44,8 +44,8 @@ link hexcvt, options, optwindw
 
 $include "keysyms.icn"
 
-procedure main(args)
-   local w, q, e, xhex, yhex, eimage
+procedure main(args);
+   local w, q, e, xhex, yhex, eimage;
 
    w := optwindow(options(args, winoptions()));
    WAttrib(w, "resize=on");
@@ -68,73 +68,73 @@ procedure main(args)
          left(yhex, 4), " ", right(yhex, 4),
          );
       if e === ("\^C" | "\^D" | "\177") then
-         break
+         break;
       if e === &resize & &x < 0 & &y < 0 then
          break
-      }
+      };
 end
 
 
 # evname(e) -- translate e into text representation
 
-procedure evname(e)
+procedure evname(e);
    return case e of {
-      &lpress:		"&lpress"
-      &mpress:		"&mpress"
-      &rpress:		"&rpress"
-      &lrelease:	"&lrelease"
-      &mrelease:	"&mrelease"
-      &rrelease:	"&rrelease"
-      &ldrag:		"&ldrag"
-      &mdrag:		"&mdrag"
-      &rdrag:		"&rdrag"
-      &resize:		"&resize"
-      Key_PrSc:		"Key_PrSc"
-      Key_ScrollLock:	"Key_ScrollLock"
-      Key_Pause:	"Key_Pause"
-      Key_Insert:	"Key_Insert"
-      Key_Home:		"Key_Home"
-      Key_PgUp:		"Key_PgUp"
-      Key_End:		"Key_End"
-      Key_PgDn:		"Key_PgDn"
-      Key_Left:		"Key_Left"
-      Key_Up:		"Key_Up"
-      Key_Right:	"Key_Right"
-      Key_Down:		"Key_Down"
-      Key_F1:		"Key_F1"
-      Key_F2:		"Key_F2"
-      Key_F3:		"Key_F3"
-      Key_F4:		"Key_F4"
-      Key_F5:		"Key_F5"
-      Key_F6:		"Key_F6"
-      Key_F7:		"Key_F7"
-      Key_F8:		"Key_F8"
-      Key_F9:		"Key_F9"
-      Key_F10:		"Key_F10"
-      Key_F11:		"Key_F11"
-      Key_F12:		"Key_F12"
+      &lpress:		"&lpress";
+      &mpress:		"&mpress";
+      &rpress:		"&rpress";
+      &lrelease:	"&lrelease";
+      &mrelease:	"&mrelease";
+      &rrelease:	"&rrelease";
+      &ldrag:		"&ldrag";
+      &mdrag:		"&mdrag";
+      &rdrag:		"&rdrag";
+      &resize:		"&resize";
+      Key_PrSc:		"Key_PrSc";
+      Key_ScrollLock:	"Key_ScrollLock";
+      Key_Pause:	"Key_Pause";
+      Key_Insert:	"Key_Insert";
+      Key_Home:		"Key_Home";
+      Key_PgUp:		"Key_PgUp";
+      Key_End:		"Key_End";
+      Key_PgDn:		"Key_PgDn";
+      Key_Left:		"Key_Left";
+      Key_Up:		"Key_Up";
+      Key_Right:	"Key_Right";
+      Key_Down:		"Key_Down";
+      Key_F1:		"Key_F1";
+      Key_F2:		"Key_F2";
+      Key_F3:		"Key_F3";
+      Key_F4:		"Key_F4";
+      Key_F5:		"Key_F5";
+      Key_F6:		"Key_F6";
+      Key_F7:		"Key_F7";
+      Key_F8:		"Key_F8";
+      Key_F9:		"Key_F9";
+      Key_F10:		"Key_F10";
+      Key_F11:		"Key_F11";
+      Key_F12:		"Key_F12";
       default:		image(e)
-      }
+      };
 end
 
 
 #  r(v, n) -- right-justify image of v in at least n characters
 
-procedure r(v, n)
-   local s
-   s := image(v)
+procedure r(v, n);
+   local s;
+   s := image(v);
    if *s < n then
-      s := right(s, n)
-   return s
+      s := right(s, n);
+   return s;
 end
 
 
 #  l(v, n) -- left-justify image of v in at least n characters
 
-procedure l(v, n)
-   local s
-   s := image(v)
+procedure l(v, n);
+   local s;
+   s := image(v);
    if *s < n then
-      s := left(s, n)
-   return s
+      s := left(s, n);
+   return s;
 end

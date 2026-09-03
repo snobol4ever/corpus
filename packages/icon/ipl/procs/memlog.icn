@@ -23,20 +23,20 @@
 #
 ############################################################################
 
-procedure memlog(f)		#: log memory usage
-   local sused, bused, salloc, balloc, scoll, bcoll
+procedure memlog(f);		#: log memory usage
+   local sused, bused, salloc, balloc, scoll, bcoll;
 
-   every sused := &storage \ 2
-   every bused := &storage \ 3
+   every sused := &storage \ 2;
+   every bused := &storage \ 3;
 
-   every salloc := &regions \ 2
-   every balloc := &regions \ 3
+   every salloc := &regions \ 2;
+   every balloc := &regions \ 3;
 
-   every scoll := &collections \ 3
-   every bcoll := &collections \ 4
+   every scoll := &collections \ 3;
+   every bcoll := &collections \ 4;
 
    write(f, "str:", sused, "/", salloc, "(", scoll, ") ",
-            "blk:", bused, "/", balloc, "(", bcoll, ") ")
-   return sused + bused
+            "blk:", bused, "/", balloc, "(", bcoll, ") ");
+   return sused + bused;
 end
 

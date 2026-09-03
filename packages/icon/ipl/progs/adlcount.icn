@@ -25,8 +25,8 @@
 #
 ############################################################################
 
-procedure main(arg)
-   local s, count
+procedure main(arg);
+   local s, count;
 
    s := cset(arg[1]) | &cset;
 
@@ -34,7 +34,7 @@ procedure main(arg)
    every !&input ? {
       any('#') & upto(s) \ 1
       } do
-      count +:= 1
-   write(count)
+      count +:= 1;
+   write(count);
 
 end

@@ -106,8 +106,8 @@ global distortion			# distortion factor (0.0 = undistorted)
 
 #  main program
 
-procedure main()
-   local l, r, y
+procedure main();
+   local l, r, y;
 
    # Open the window, extract layout information, initialize dialogs.
 
@@ -148,23 +148,23 @@ procedure main()
 
    # Enter event loop.
 
-   GetEvents(vidgets["root"], , shortcuts)
+   GetEvents(vidgets["root"], , shortcuts);
 
 end
 
 
 #  caricature() -- draw sketch distorted by current distortion factor
 
-procedure caricature()
-   local base, face, win
+procedure caricature();
+   local base, face, win;
 
    if /sketch | /sketch[1, 1] | /sketch[2, 1] then
-      fail				# must have both pupils to draw
+      fail;				# must have both pupils to draw
 
    if mode = DrawMode then
       win := display_win		# use all the display area pixels
    else
-      win := overlay_win		# use subpattern of display pixels
+      win := overlay_win;		# use subpattern of display pixels
 
    Fg(win, "white");
    FillRectangle(win);  # clear clipped area using fillstyle
@@ -172,9 +172,9 @@ procedure caricature()
 
    base := scaleface(stdface, sketch);
    face := distort(sketch, base, distortion);
-   drawface(win, face, DrawCurve)	# draw distorted face
+   drawface(win, face, DrawCurve);	# draw distorted face
 
-   return
+   return;
 
 end
 
@@ -183,102 +183,102 @@ end
 #
 # check_save fails if cancelled.
 
-procedure check_save()
+procedure check_save();
 
    if \touched then
       case SaveDialog("Save coordinates first?", pointfile) of {
          "Yes": {
             pointfile := dialog_value;
             save() | save_as() | fail
-            }
-         "No":  return
+            };
+         "No":  return;
          "Cancel":  fail
-         }
+         };
 
-   return
+   return;
 
 end
 
 
 #  distort(f, b, m) -- return distortion of face f from face b by factor m
 
-procedure distort(f, b, m)
-   local r, t, i, j, curve, base
+procedure distort(f, b, m);
+   local r, t, i, j, curve, base;
 
-   r := []
+   r := [];
    every i := 1 to *f do {
-      base := b[i]
-      put(r, curve := copy(f[i]))
+      base := b[i];
+      put(r, curve := copy(f[i]));
       if /curve[-1] | /base[-1] then
-         next				# incomplete placeholder
+         next;				# incomplete placeholder
       every j := 1 to *curve by 2 do {
-         curve[j] +:= m * (curve[j] - base[j])
+         curve[j] +:= m * (curve[j] - base[j]);
          curve[j + 1] +:= m * (curve[j + 1] - base[j + 1])
          }
-      }
+      };
 
-   return r
+   return r;
 
 end
 
 
 #  drawface(win, f, proc) -- draw face from curve list using proc
 
-procedure drawface(win, f, proc)
-   local curve
+procedure drawface(win, f, proc);
+   local curve;
 
    every curve := copy(!f) do {
       if /curve[-1] then		# null coordinate
-         next				# incomplete curve
+         next;				# incomplete curve
       if *curve = 2 then
          FillCircle(win, curve[1], curve[2], PupilRadius)
       else {
-         push(curve, win)
+         push(curve, win);
          proc ! curve
          }
-      }
+      };
 
-   return
+   return;
 
 end
 
 
 #  init_geometry() -- extract layout information from vidgets
 
-procedure init_geometry()
+procedure init_geometry();
 
-   guide_xoff := vidgets["guide"].ax
-   guide_yoff := vidgets["guide"].ay
-   guide_width := vidgets["guide"].aw
-   guide_height := vidgets["guide"].ah
+   guide_xoff := vidgets["guide"].ax;
+   guide_yoff := vidgets["guide"].ay;
+   guide_width := vidgets["guide"].aw;
+   guide_height := vidgets["guide"].ah;
 
-   display_xoff := vidgets["image"].ax
-   display_yoff := vidgets["image"].ay
-   display_width := vidgets["image"].aw
-   display_height := vidgets["image"].ah
+   display_xoff := vidgets["image"].ax;
+   display_yoff := vidgets["image"].ay;
+   display_width := vidgets["image"].aw;
+   display_height := vidgets["image"].ah;
 
-   prompt_xoff := vidgets["prompt"].ax
-   prompt_yoff := vidgets["prompt"].ay
-   prompt_width := vidgets["prompt"].aw
-   prompt_height := vidgets["prompt"].ah
+   prompt_xoff := vidgets["prompt"].ax;
+   prompt_yoff := vidgets["prompt"].ay;
+   prompt_width := vidgets["prompt"].aw;
+   prompt_height := vidgets["prompt"].ah;
 
-   dmeter_xoff := vidgets["dmeter"].ax
-   dmeter_yoff := vidgets["dmeter"].ay
-   dmeter_width := vidgets["dmeter"].aw
-   dmeter_height := vidgets["dmeter"].ah
+   dmeter_xoff := vidgets["dmeter"].ax;
+   dmeter_yoff := vidgets["dmeter"].ay;
+   dmeter_width := vidgets["dmeter"].aw;
+   dmeter_height := vidgets["dmeter"].ah;
 
-   return
+   return;
 
 end
 
 
 #  init_stdface() -- initialize standard face and description list
 
-procedure init_stdface()
-   local spec
+procedure init_stdface();
+   local spec;
 
-   descriptions := []
-   stdface := []
+   descriptions := [];
+   stdface := [];
    every spec := ![
       ["left pupil",145,203],		# must be first
       ["right pupil",255,203],		# must be second
@@ -325,451 +325,451 @@ procedure init_stdface()
       ["chin cleft",200,377,200,389],
       ["chin line",180,350,200,345,220,350]
       ] do {
-         put(descriptions, get(spec))
+         put(descriptions, get(spec));
          put(stdface, spec)
-         }
+         };
 
-   return
+   return;
 
 end
 
 
 #  load() -- load coordinate data
 
-procedure load()
-   local input, face
+procedure load();
+   local input, face;
 
-   check_save() | fail
+   check_save() | fail;
    repeat {
       case OpenDialog("Load coordinates:") of {
          "Okay": {
             if input := open(dialog_value) then break else
                Notice("Can't open " || dialog_value)
-            }
+            };
          "Cancel":  fail
          }
-      }
+      };
 
    if sketch := rdface(input) then {
-      close(input)
-      pointfile := dialog_value
-      touched := &null
+      close(input);
+      pointfile := dialog_value;
+      touched := &null;
       if mode ~= ImageMode then
-         redisplay()
-      target(1, 1)
+         redisplay();
+      target(1, 1);
       return
       }
 
    else {
-      Notice("Not a valid coordinate file")
-      close(input)
+      Notice("Not a valid coordinate file");
+      close(input);
       fail
-      }
+      };
 
 end
 
 
 #  menu_cb() -- handle menu selections
 
-procedure menu_cb(vidget, menu)
+procedure menu_cb(vidget, menu);
 
    case menu[1] of {
 
-      "load    @L":	load()
-      "new     @N":	new()
-      "save    @S":	save()
-      "save as   ":	save_as()
-      "quit    @Q":	quit()
+      "load    @L":	load();
+      "new     @N":	new();
+      "save    @S":	save();
+      "save as   ":	save_as();
+      "quit    @Q":	quit();
 
       "image    @I": {
-         mode := ImageMode
+         mode := ImageMode;
          redisplay()
-         }
+         };
       "drawing  @D": {
-         mode := DrawMode
+         mode := DrawMode;
          redisplay()
-         }
+         };
       "both     @B": {
-         mode := DualMode
+         mode := DualMode;
          redisplay()
          }
-      }
+      };
 
-   return
+   return;
 
 end
 
 
 #  new() -- load new image
 
-procedure new()
-   local input, f
+procedure new();
+   local input, f;
 
-   check_save() | fail
+   check_save() | fail;
    repeat {
       case OpenDialog("Load image:") of {
          "Okay": {
             if rdimage(dialog_value) then
-               return
+               return;
             if f := open(dialog_value) then {
-               close(f)
+               close(f);
                Notice(dialog_value || " is not a valid image")
                }
             else
                Notice("Can't open " || dialog_value)
-            }
+            };
          "Cancel":  fail
          }
-      }
+      };
 
 end
 
 
 #  point_cb() -- handle event in display region
 
-procedure point_cb(vidget, e)
+procedure point_cb(vidget, e);
 
    if /tcurve then			# if no points are left unset
-      return
+      return;
 
    case e of {
 
       &lrelease: {			# left button sets current point
-         sketch[tcurve, 2 * tpoint - 1] := &x
-         sketch[tcurve, 2 * tpoint] := &y
-         touched := 1
+         sketch[tcurve, 2 * tpoint - 1] := &x;
+         sketch[tcurve, 2 * tpoint] := &y;
+         touched := 1;
          if mode ~= ImageMode & *sketch[tcurve] = 2 * tpoint then
-            redisplay()			# redraw if new curve done
+            redisplay();			# redraw if new curve done
          target(tcurve, tpoint)		# update target display
-         }
+         };
 
       &rrelease: {			# right button skips a curve
-         every !sketch[tcurve] := &null	# clear all points on curve
+         every !sketch[tcurve] := &null;	# clear all points on curve
          if (tcurve +:= 1) > *sketch then
-            tcurve := 1
+            tcurve := 1;
          target(tcurve, 1)		# set target to next curve
          }
 
-      }
+      };
 
-   return
+   return;
 
 end
 
 
 #  quit() -- terminate session
 
-procedure quit()
+procedure quit();
 
-   check_save() | fail
-   exit()
+   check_save() | fail;
+   exit();
 
 end
 
 
 #  rdface(f) -- read face coordinates from file f
 
-procedure rdface(f)
-   local face, line, curve, i, n
+procedure rdface(f);
+   local face, line, curve, i, n;
 
-   face := []
+   face := [];
    while line := read(f) do line ? {
-      =":" | next			# ignore line missing ":"
-      curve := []
+      =":" | next;			# ignore line missing ":"
+      curve := [];
 
       while tab(upto(&digits)) do {
-         n := integer(tab(many(&digits)))
-         if n ~= 0 then n +:= image_xoff else n := &null
-         put(curve, n)
+         n := integer(tab(many(&digits)));
+         if n ~= 0 then n +:= image_xoff else n := &null;
+         put(curve, n);
 
-         tab(upto(&digits)) | break
-         n := integer(tab(many(&digits)))
-         if n ~= 0 then n +:= image_yoff else n := &null
+         tab(upto(&digits)) | break;
+         n := integer(tab(many(&digits)));
+         if n ~= 0 then n +:= image_yoff else n := &null;
          put(curve, n)
-         }
+         };
 
       put(face, curve)
-      }
+      };
 
    # Validate the number of curves and points.
 
-   if *face ~= *stdface then fail
+   if *face ~= *stdface then fail;
    every i := 1 to *stdface do
-      if *face[i] ~= *stdface[i] then fail
+      if *face[i] ~= *stdface[i] then fail;
 
-   return face
+   return face;
 
 end
 
 
 #  rdimage(filename) -- load image from file, failing if unsuccessful
 
-procedure rdimage(filename)
-   local curve
+procedure rdimage(filename);
+   local curve;
 
-   image_win := WOpen("image=" || filename, "canvas=hidden") | fail
-   pointfile := &null
-   touched := &null
+   image_win := WOpen("image=" || filename, "canvas=hidden") | fail;
+   pointfile := &null;
+   touched := &null;
 
    # Calculate offsets that center the image in display area.
 
    image_xoff := display_xoff +
-      (display_width - WAttrib(image_win, "width")) / 2
+      (display_width - WAttrib(image_win, "width")) / 2;
    image_yoff := display_yoff +
-      (display_height - WAttrib(image_win, "height")) / 2
+      (display_height - WAttrib(image_win, "height")) / 2;
 
    # Initialize a new set of (unset) points.
 
-   sketch := []
+   sketch := [];
    every curve := !stdface do
-      put(sketch, list(*curve, &null))
-   target(1, 1)				# reset to start with first point
+      put(sketch, list(*curve, &null));
+   target(1, 1);				# reset to start with first point
 
    # Ensure that current mode includes the image, and update the display.
 
    if mode = DrawMode then
-      mode := ImageMode
-   EraseArea(display_xoff, display_yoff, display_width, display_height)
-   redisplay()
+      mode := ImageMode;
+   EraseArea(display_xoff, display_yoff, display_width, display_height);
+   redisplay();
 
-   return
+   return;
 
 end
 
 
 #  redisplay() -- display image and/or drawing, depending on mode
 
-procedure redisplay()
+procedure redisplay();
 
    if mode ~= DrawMode then
-      CopyArea(image_win, display_win, , , , , image_xoff, image_yoff)
+      CopyArea(image_win, display_win, , , , , image_xoff, image_yoff);
    if mode ~= ImageMode then
-      caricature()
+      caricature();
 
-   return
+   return;
 
 end
 
 
 #  save() -- save coordinate data
 
-procedure save()
-   local output
+procedure save();
+   local output;
 
    if /pointfile then
-      return save_as()
+      return save_as();
 
    output := open(pointfile, "w") | {
-      Notice("Can't write " || pointfile)
+      Notice("Can't write " || pointfile);
       fail
-      }
-   wtface(output, sketch)
-   close(output)
-   touched := &null
+      };
+   wtface(output, sketch);
+   close(output);
+   touched := &null;
 
-   return
+   return;
 
 end
 
 
 #  save_as() -- save coordinate data in alternate file
 
-procedure save_as()
-   local output
+procedure save_as();
+   local output;
 
    repeat {
       case SaveDialog("Save coordinates?", "") of {
-         "No":	    return
-         "Cancel":  fail
+         "No":	    return;
+         "Cancel":  fail;
          "Yes":
             if output := open(dialog_value, "w") then break else
                Notice("Can't write " || dialog_value)
          }
-      }
+      };
 
-   wtface(output, sketch)
-   close(output)
-   pointfile := dialog_value
-   touched := &null
+   wtface(output, sketch);
+   close(output);
+   pointfile := dialog_value;
+   touched := &null;
 
-   return
+   return;
 
 end
 
 
 #  scaleface(f, g) -- return copy of face f scaled to overlay face g
 
-procedure scaleface(f, g)
-   local fl, fr, gl, gr, fx, fy, gx, gy, m, r, t, curve
+procedure scaleface(f, g);
+   local fl, fr, gl, gr, fx, fy, gx, gy, m, r, t, curve;
 
-   fl := f[1] | fail			# left iris
-   fr := f[2] | fail			# right iris
-   gl := g[1] | fail			# target left iris
-   gr := g[2] | fail			# target right iris
-   fx := (fl[1] + fr[1]) / 2.0		# x offset of f
-   fy := (fl[2] + fr[2]) / 2.0		# y offset of f
-   gx := (gl[1] + gr[1]) / 2.0		# x offset of g
-   gy := (gl[2] + gr[2]) / 2.0		# y offset of g
-   m := (gr[1] - gl[1]) / real(fr[1] - fl[1])
+   fl := f[1] | fail;			# left iris
+   fr := f[2] | fail;			# right iris
+   gl := g[1] | fail;			# target left iris
+   gr := g[2] | fail;			# target right iris
+   fx := (fl[1] + fr[1]) / 2.0;		# x offset of f
+   fy := (fl[2] + fr[2]) / 2.0;		# y offset of f
+   gx := (gl[1] + gr[1]) / 2.0;		# x offset of g
+   gy := (gl[2] + gr[2]) / 2.0;		# y offset of g
+   m := (gr[1] - gl[1]) / real(fr[1] - fl[1]);
 					# multiplier
 
-   r := []
+   r := [];
    every curve := copy(!f) do {
       if /curve[-1] then
          put(r, curve)			# incomplete placeholder
       else {
-         put(r, t := [])
+         put(r, t := []);
          while put(t, m * (get(curve) - fx) + gx) do
             put(t, m * (get(curve) - fy) + gy)
          }
-      }
+      };
 
-   return r
+   return r;
 
 end
 
 
 #  setdist(val) -- set and display distortion value, in percent
 
-procedure setdist(val)
+procedure setdist(val);
 
-   distortion := val / 100.0
-   GotoXY(dmeter_xoff, dmeter_yoff + dmeter_height)
-   WWrites(right(integer(val), 4), "%")
+   distortion := val / 100.0;
+   GotoXY(dmeter_xoff, dmeter_yoff + dmeter_height);
+   WWrites(right(integer(val), 4), "%");
 
-   return
+   return;
 
 end
 
 
 #  shortcuts() -- check event for keyboard shortcut
 
-procedure shortcuts(e)
+procedure shortcuts(e);
 
    if &meta then case map(e) of {
-      "l": load()
-      "n": new()
-      "s": save()
-      "q": quit()
+      "l": load();
+      "n": new();
+      "s": save();
+      "q": quit();
       "i": {
-         mode := ImageMode
+         mode := ImageMode;
          redisplay()
-         }
+         };
       "d": {
-         mode := DrawMode
+         mode := DrawMode;
          redisplay()
-         }
+         };
       "b": {
-         mode := DualMode
+         mode := DualMode;
          redisplay()
          }
-      }
+      };
 
-   return
+   return;
 
 end
 
 
 #  slider_cb() -- handle adjustments of distortion slider
 
-procedure slider_cb(vidget, val)
+procedure slider_cb(vidget, val);
 
-   setdist(val)				# update and display value
+   setdist(val);				# update and display value
    if mode = ImageMode then		# ensure that mode includes drawing
-      mode := DualMode
-   redisplay()				# draw updated sketch
+      mode := DualMode;
+   redisplay();				# draw updated sketch
 
-   return
+   return;
 
 end
 
 
 #  target(curve, point) -- display next point to be placed
 
-procedure target(curve, point)
-   local s, n, x, y
-   static tx, ty
+procedure target(curve, point);
+   local s, n, x, y;
+   static tx, ty;
 
    # Undraw the previous target and erase the previous prompt.
 
-   FillCircle(target_win, \tx, \ty, TargetRad1)
-   FillCircle(target_win, \tx, \ty, TargetRad2)
-   EraseArea(prompt_xoff, prompt_yoff, prompt_width, prompt_height)
+   FillCircle(target_win, \tx, \ty, TargetRad1);
+   FillCircle(target_win, \tx, \ty, TargetRad2);
+   EraseArea(prompt_xoff, prompt_yoff, prompt_width, prompt_height);
 
    # Start from specified place unless the pupils remain unplaced.
 
    if \sketch[1, 1] & \sketch[2, 1] then {
-      tcurve := curve
+      tcurve := curve;
       tpoint := point
       }
    else {
-      tcurve := 1
+      tcurve := 1;
       tpoint := 1
-      }
+      };
 
    # Find the next unset point.
 
    until /sketch[tcurve, 2 * tpoint - 1] do {
-      tpoint +:= 1			# advance to next point
+      tpoint +:= 1;			# advance to next point
       if tpoint > (2 * *guideface[tcurve]) then {
-         tpoint := 1			# need to move to next curve
+         tpoint := 1;			# need to move to next curve
          tcurve +:= 1
-         }
+         };
       if tcurve > *guideface then
-         tcurve := 1			# wrapped around list of curves
+         tcurve := 1;			# wrapped around list of curves
       if tcurve = curve & tpoint = point then {
-         tcurve := tx := ty := &null	# there are no unset points
+         tcurve := tx := ty := &null;	# there are no unset points
          return
          }
-      }
+      };
 
    # Draw a target on the guide face.
 
-   tx := guideface[tcurve, 2 * tpoint - 1]
-   ty := guideface[tcurve, 2 * tpoint]
-   FillCircle(target_win, tx, ty, TargetRad1)
-   FillCircle(target_win, tx, ty, TargetRad2)
+   tx := guideface[tcurve, 2 * tpoint - 1];
+   ty := guideface[tcurve, 2 * tpoint];
+   FillCircle(target_win, tx, ty, TargetRad1);
+   FillCircle(target_win, tx, ty, TargetRad2);
 
    # Display the prompt.
 
-   x := prompt_xoff + prompt_width / 2
-   y := prompt_yoff + prompt_height / 2
-   s := "locate " || descriptions[tcurve]
-   n := *guideface[tcurve]
+   x := prompt_xoff + prompt_width / 2;
+   y := prompt_yoff + prompt_height / 2;
+   s := "locate " || descriptions[tcurve];
+   n := *guideface[tcurve];
    if n > 2 then
-      s ||:= " (select " || n / 2 || " points)"
-   CenterString(x, y, s)
+      s ||:= " (select " || n / 2 || " points)";
+   CenterString(x, y, s);
 
-   return
+   return;
 
 end
 
 
 #  wtface(f, face) -- write face data to file f
 
-procedure wtface(f, face)
-   local curve, i
+procedure wtface(f, face);
+   local curve, i;
 
    every curve := !face do {
-      writes(f, ":")
+      writes(f, ":");
       every i := 1 to *curve by 2 do {
-         writes(f, " ", (\curve[i] - image_xoff) | 0)
+         writes(f, " ", (\curve[i] - image_xoff) | 0);
          writes(f, " ", (\curve[i + 1] - image_yoff) | 0)
-         }
+         };
       write(f)
-      }
+      };
 
-   return
+   return;
 
 end
 
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts()
-   return ["size=640,480", "bg=pale gray", "label=Caricaturist"]
+procedure ui_atts();
+   return ["size=640,480", "bg=pale gray", "label=Caricaturist"];
 end
 
-procedure ui(win, cbk)
+procedure ui(win, cbk);
 return vsetup(win, cbk,
    [":Sizer:::0,0,640,480:Caricaturist",],
    ["distort:Slider:h:1:10,436,230,22:-300,300,0",slider_cb],
@@ -787,6 +787,6 @@ return vsetup(win, cbk,
    ["prompt:Rect:invisible::252,1,387,19:",],
    ["guide:Rect:invisible::1,24,247,280:",],
    ["image:Rect:invisible::252,24,387,455:",point_cb],
-   )
+   );
 end
 #===<<vib:end>>===	end of section maintained by vib

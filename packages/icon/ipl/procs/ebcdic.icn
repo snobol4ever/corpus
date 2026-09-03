@@ -82,8 +82,8 @@
 #
 ############################################################################
 
-procedure _Eascii()
-    static EinAorder
+procedure _Eascii();
+    static EinAorder;
     initial
         EinAorder :=
 #            NUL SOH STX ETX EOT ENQ ACK BEL BS  HT  NL  VT  FF  CR  SO  SI
@@ -109,53 +109,53 @@ procedure _Eascii()
             \x75\x76\x77\x78\x80\x8a\x8c\x8d\x8e\x8f\x90\x9a\x9c\x9d\x9e\x9f_
             \xa0\xaa\xab\xac\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9_
             \xba\xbb\xbc\xbe\xbf\xca\xcb\xcc\xcd\xce\xcf\xda\xdb\xdc\xdd\xde_
-            \xdf\xe1\xea\xeb\xec\xed\xee\xef\xfa\xfb\xfc\x8b\x6a\x9b\xfd\xfe"
-    return EinAorder
+            \xdf\xe1\xea\xeb\xec\xed\xee\xef\xfa\xfb\xfc\x8b\x6a\x9b\xfd\xfe";
+    return EinAorder;
 end
 
-procedure Ascii128()
-    if "\l" == "\n" then return string(&ascii)
-    return _Eascii()[1+:128]
+procedure Ascii128();
+    if "\l" == "\n" then return string(&ascii);
+    return _Eascii()[1+:128];
 end
 
-procedure Ascii256()
-    if "\l" == "\n" then return string(&cset)
-    return _Eascii()
+procedure Ascii256();
+    if "\l" == "\n" then return string(&cset);
+    return _Eascii();
 end
 
-procedure Ebcdic()
-    if "\l" ~== "\n" then return &cset
-    return map(&cset, _Eascii(), &cset)
+procedure Ebcdic();
+    if "\l" ~== "\n" then return &cset;
+    return map(&cset, _Eascii(), &cset);
 end
 
-procedure AsciiChar(i)
-    if "\l" == "\n" then return char(i)
-    return _Eascii()[0 < i+1] | runerr(205,i)
+procedure AsciiChar(i);
+    if "\l" == "\n" then return char(i);
+    return _Eascii()[0 < i+1] | runerr(205,i);
 end
 
-procedure AsciiOrd(c)
-    if "\l" == "\n" then return ord(c)
-    return ord(MapEtoA(c))
+procedure AsciiOrd(c);
+    if "\l" == "\n" then return ord(c);
+    return ord(MapEtoA(c));
 end
 
-procedure EbcdicChar(i)
-    if "\l" ~== "\n" then return char(i)
-    return map(char(i), _Eascii(), &cset)
+procedure EbcdicChar(i);
+    if "\l" ~== "\n" then return char(i);
+    return map(char(i), _Eascii(), &cset);
 end
 
-procedure EbcdicOrd(c)
-    if "\l" ~== "\n" then return ord(c)
-    return ord(MapAtoE(c))
+procedure EbcdicOrd(c);
+    if "\l" ~== "\n" then return ord(c);
+    return ord(MapAtoE(c));
 end
 
-procedure MapEtoA(s)
-    return map(s, _Eascii(), &cset)
+procedure MapEtoA(s);
+    return map(s, _Eascii(), &cset);
 end
 
-procedure MapAtoE(s)
-    return map(s, &cset, _Eascii())
+procedure MapAtoE(s);
+    return map(s, &cset, _Eascii());
 end
 
-procedure Control(c)
-    return AsciiChar(iand(AsciiOrd(c),16r1f))
+procedure Control(c);
+    return AsciiChar(iand(AsciiOrd(c),16r1f));
 end

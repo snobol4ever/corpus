@@ -31,8 +31,8 @@
 link lists
 link wopen
 
-procedure main(args)
-   local colors, width, height, x, y, c
+procedure main(args);
+   local colors, width, height, x, y, c;
 
    WOpen("image=" || args[1]) | stop("*** cannot open image");
 
@@ -50,10 +50,10 @@ procedure main(args)
       if x % width = 0 then {
          x := 0;
          y +:= 1
-         }
+         };
       /colors[c] := [];  # new color
       put(colors[c], x, y)
-      }
+      };
 
    #  Write Icon code for an include file.  A list of argument lists
    #  is assigned to "pixels".  Each argument list consists of the
@@ -72,9 +72,9 @@ procedure main(args)
    every c := key(colors) do {
       push(colors[c], c);
       write(limage(colors[c]), ",")
-      }
+      };
 
    write("[", width, ",", height, ",", *colors,  "]");
-   write("]")
+   write("]");
 
 end

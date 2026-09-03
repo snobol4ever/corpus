@@ -38,29 +38,29 @@
 ############################################################################
 
 
-procedure gdl(dir)
+procedure gdl(dir);
 
-    local getdir
+    local getdir;
 
-    getdir := set_getdir_by_os()
-    return getdir(dir)
+    getdir := set_getdir_by_os();
+    return getdir(dir);
 
 end
 
-procedure gdlrec(dir, method)
+procedure gdlrec(dir, method);
 
 # Unix method to use:   &null for compatibility (uses "/bin/ls"), 
 #                       not null for speed (uses "find")
 
-    local getdir
+    local getdir;
 
-    getdir := set_getdir_rec_by_os(method)
-    return getdir(dir)
+    getdir := set_getdir_rec_by_os(method);
+    return getdir(dir);
 
 end
 
 
-procedure set_getdir_by_os()
+procedure set_getdir_by_os();
 
     # Decide how to get a directory, based on whether we are running
     # under Unix or MS-DOS.
@@ -69,11 +69,11 @@ procedure set_getdir_by_os()
     then return unix_get_dir
     else if find("MS-DOS", &features)
     then return msdos_get_dir
-    else stop("Your operating system is not (yet) supported.")
+    else stop("Your operating system is not (yet) supported.");
 
 end
 
-procedure set_getdir_rec_by_os(method)
+procedure set_getdir_rec_by_os(method);
 
     # Decide how to get a directory, based on whether we are running
     # under Unix or MS-DOS.
@@ -87,12 +87,12 @@ procedure set_getdir_rec_by_os(method)
     else if find("MS-DOS", &features) then
         return msdos_get_dir_rec
     else
-        stop("Your operating system is not (yet) supported.")
+        stop("Your operating system is not (yet) supported.");
 
 end
 
 
-procedure msdos_get_dir(dir)
+procedure msdos_get_dir(dir);
 
     # Returns a sorted list of all filenames (full paths included) in
     # directory "dir."  The list is sorted.  Fails on invalid or empty
@@ -103,13 +103,13 @@ procedure msdos_get_dir(dir)
     # value of the environment variable TEMPDIR to an appropriate
     # directory name.
 
-    local in_dir, filename_list, line, temp_name, filename
-    static temp_dir
+    local in_dir, filename_list, line, temp_name, filename;
+    static temp_dir;
     initial {
         temp_dir := 
             (trim(map(getenv("TEMPDIR"), "/", "\\"), '\\') || "\\") |
                 ".\\"
-    }
+    };
 
     # Get name of tempfile to be used.
     temp_name := get_dos_tempname(temp_dir) |
@@ -121,7 +121,7 @@ procedure msdos_get_dir(dir)
     if  (dir == "") |
         (dir ? (tab(any(&letters)) & =":" & pos(0)) )
     then
-        dir ||:= "."
+        dir ||:= ".";
 
     # Make sure we have an unambiguous directory name, with backslashes
     # instead of Unix-like forward slashes.
@@ -133,7 +133,7 @@ procedure msdos_get_dir(dir)
     if  (dir == "") |
         (dir ? (tab(any(&letters)) & =":" & pos(0)) )
     then
-        dir ||:= "\\"
+        dir ||:= "\\";
 
     # Put dir listing into a temp file.
     system("dir "||dir||" > "||temp_name);
@@ -153,24 +153,24 @@ procedure msdos_get_dir(dir)
     if filename ? (
         ="ICONDIR." & tab(any(&digits)) & tab(any(&digits)) & tab(any(&digits))
     ) then
-        next
+        next;
     
     ### Change: C. Shartsis - 9/19/94
     # Otherwise file f in directory c:\d comes out as "c:\df" instead of "c:\d\f"
     #put(filename_list, map(dir || filename))
     put(filename_list, map(trim(dir, '\\') || "\\" || filename))
-    }
+    };
 
     # Clean up.
     close(in_dir) & remove(temp_name);
 
     # Check to be sure we actually managed to read some files.
     if *filename_list = 0 then fail
-    else return sort(filename_list)
+    else return sort(filename_list);
 
 end
 
-procedure msdos_get_dir_rec(dir, level)
+procedure msdos_get_dir_rec(dir, level);
 
     # Returns a sorted list of all filenames (full paths included) in
     # directory "dir."  The list is sorted.  Fails on invalid or empty
@@ -181,14 +181,14 @@ procedure msdos_get_dir_rec(dir, level)
     # value of the environment variable TEMPDIR to an appropriate
     # directory name.
 
-    local in_dir, line, filename, raw_list
-    local tmp_filelist, tmp_dirlist
-    static temp_dir, temp_name, filename_list
+    local in_dir, line, filename, raw_list;
+    local tmp_filelist, tmp_dirlist;
+    static temp_dir, temp_name, filename_list;
     initial {
         temp_dir := 
             (trim(map(getenv("TEMPDIR"), "/", "\\"), '\\') || "\\") |
                 ".\\"
-    }
+    };
     
     # Establish recursion level
     /level := 0;
@@ -197,14 +197,14 @@ procedure msdos_get_dir_rec(dir, level)
         # Get name of tempfile to be used.
         temp_name := get_dos_tempname(temp_dir) |
             stop("No more available tempfile names!")
-    }
+    };
     
     # Make implicit current directory explicit
     # Otherwise current and root directory get mapped to same thing
     if  (dir == "") |
         (dir ? (tab(any(&letters)) & =":" & pos(0)) )
     then
-        dir ||:= "."
+        dir ||:= ".";
 
     # Make sure we have an unambiguous directory name, with backslashes
     # instead of Unix-like forward slashes.
@@ -215,7 +215,7 @@ procedure msdos_get_dir_rec(dir, level)
     if  (dir == "") |
         (dir ? (tab(any(&letters)) & =":" & pos(0)) )
     then
-        dir ||:= "\\"
+        dir ||:= "\\";
 
     # Put dir listing into a temp file.
     system("dir "||dir||" > "||temp_name);
@@ -226,7 +226,7 @@ procedure msdos_get_dir_rec(dir, level)
     in_dir := open(temp_name,"r") |
     stop("Can't open temp file in directory ",temp_dir,".");
     raw_list := [];
-    every put(raw_list, !in_dir)
+    every put(raw_list, !in_dir);
     # Clean up.
     close(in_dir) & remove(temp_name);
     tmp_dirlist := [];
@@ -249,42 +249,42 @@ procedure msdos_get_dir_rec(dir, level)
                 # Otherwise file f in directory c:\d comes out as "c:\df" instead of "c:\d\f"
                 put(tmp_filelist, map(trim(dir, '\\') || "\\" || filename))
         }
-    }
+    };
     
     # Add files to master list
-    every put(filename_list, !sort(tmp_filelist))
+    every put(filename_list, !sort(tmp_filelist));
     # Process remaining directories
-    every msdos_get_dir_rec(!sort(tmp_dirlist), level + 1)
+    every msdos_get_dir_rec(!sort(tmp_dirlist), level + 1);
 
     # Check to be sure we actually managed to read some files.
     if level = 0 then {
         if *filename_list = 0 then fail
         else return filename_list
-    }
+    };
 
 end
 
 
 
-procedure get_dos_tempname(dir)
+procedure get_dos_tempname(dir);
 
-    local temp_name, temp_file
+    local temp_name, temp_file;
 
     # Don't clobber existing files.  Get a unique temp file name for
     # use as a temporary storage site.
 
     every temp_name := dir || "icondir." || right(string(1 to 999),3,"0") do {
-    temp_file := open(temp_name,"r") | break
+    temp_file := open(temp_name,"r") | break;
         close(temp_file)
-    }
-    return \temp_name
+    };
+    return \temp_name;
 
 end
 
 
-procedure unix_get_dir(dir)
+procedure unix_get_dir(dir);
 
-    local filename_list, in_dir, filename
+    local filename_list, in_dir, filename;
 
     dir := trim(dir, '/') || "/";
     filename_list := list();
@@ -292,29 +292,29 @@ procedure unix_get_dir(dir)
     every filename := ("" ~== !in_dir) do {
     match("/",filename,*filename) & next;
     put(filename_list, trim(dir || filename, '*'))
-    }
+    };
     close(in_dir);
 
     if *filename_list = 0 then fail
-    else return filename_list
+    else return filename_list;
 
 end
 
 
-procedure unix_get_dir_rec(dir, level)
+procedure unix_get_dir_rec(dir, level);
 
     # Returns a sorted list of all filenames (full paths included) in
     # directory "dir."  The list is sorted.  Fails on invalid or empty
     # directory.  Aborts if temp file cannot be opened.
 
-    local in_dir, filename, raw_list, cmd
-    local tmp_filelist, tmp_dirlist
-    static filename_list
+    local in_dir, filename, raw_list, cmd;
+    local tmp_filelist, tmp_dirlist;
+    static filename_list;
     
     # Establish recursion level
     /level := 0;
     if level = 0 then
-        filename_list := list()
+        filename_list := list();
     
     # Append trailing slash
     dir := trim(dir, '/') || "/";
@@ -326,34 +326,34 @@ procedure unix_get_dir_rec(dir, level)
     in_dir := open(cmd,"pr") |
         stop(cmd, " will not run on this system");
     raw_list := [];
-    every put(raw_list, !in_dir)
+    every put(raw_list, !in_dir);
     # Clean up.
     close(in_dir);
     tmp_dirlist := [];
     tmp_filelist := [];
     every filename := ("" ~== !raw_list) do {
         if match(" ",filename) | match(".",filename) | filename[-1] == "=" then
-            next
+            next;
         if filename[-1] == "*" then
-            filename := filename[1:-1]
+            filename := filename[1:-1];
         # Process Directories
         if filename[-1] == "/" then
             put(tmp_dirlist, dir || filename)
         # Save files to list
         else
             put(tmp_filelist, dir || filename)
-    }
+    };
     
     # Add files to master list
-    every put(filename_list, !sort(tmp_filelist))
+    every put(filename_list, !sort(tmp_filelist));
     # Process remaining directories
-    every unix_get_dir_rec(!sort(tmp_dirlist), level + 1)
+    every unix_get_dir_rec(!sort(tmp_dirlist), level + 1);
 
     # Check to be sure we actually managed to read some files.
     if level = 0 then {
         if *filename_list = 0 then fail
         else return filename_list
-    }
+    };
 
 end
 
@@ -361,19 +361,19 @@ end
 # This works too.
 # This routine is faster but depends on the Unix "find" program.
 # Don't know if all Unixes have this.
-procedure unix_get_dir_rec2(dir)
+procedure unix_get_dir_rec2(dir);
 
-    local filename_list, in_dir, cmd
+    local filename_list, in_dir, cmd;
 
     dir := trim(dir, '/') || "/";
     filename_list := list();
     cmd := "find " || dir || " -type f -print";
     in_dir := open(cmd, "pr") |
         stop(cmd, " will not run on this system");
-    every put(filename_list, !in_dir)
+    every put(filename_list, !in_dir);
     close(in_dir);
 
     if *filename_list = 0 then fail
-    else return filename_list
+    else return filename_list;
 
 end

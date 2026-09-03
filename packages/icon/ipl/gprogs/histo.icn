@@ -46,9 +46,9 @@ link numbers
 link options
 link wopen
 
-procedure main(args)
-   local height, window_height, y, window_width, numbers, opts, scale
-   local number, gap, bar, name
+procedure main(args);
+   local height, window_height, y, window_width, numbers, opts, scale;
+   local number, gap, bar, name;
 
    opts := options(args, "s.w+g+m");
 
@@ -58,7 +58,7 @@ procedure main(args)
    if \opts["m"] then {
       bar := 1;
       gap := 0
-      }
+      };
    name := \opts["n"] | "untitled";
    
    height := bar + gap;
@@ -69,9 +69,9 @@ procedure main(args)
       number := numeric(number) | stop("*** nonnumeric data");
       number <:= 0;  # clamp negative number to 0
       put(numbers, number)
-      }
+      };
 
-   if *numbers = 0 then stop("*** no data")
+   if *numbers = 0 then stop("*** no data");
 
    window_height := *numbers * height + gap;
 
@@ -84,16 +84,16 @@ procedure main(args)
    y := 0;
 
    while FillRectangle(0, y + gap, scale * get(numbers), height - gap) do
-      y +:= height
+      y +:= height;
 
    WAttrib("canvas=normal");
 
-   until WQuit()
+   until WQuit();
 
    WriteImage(name || ".gif");
 
-   WClose()
+   WClose();
 
-   return
+   return;
 
 end

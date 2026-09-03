@@ -32,16 +32,16 @@ global size
 #  length is the length of line segments and delta is the amount of
 #  direction change.
 
-procedure lindterp(x, y, lsys, gener, length, color, fnc)
-   local rewrite, delta, axiom, symbols, c
+procedure lindterp(x, y, lsys, gener, length, color, fnc);
+   local rewrite, delta, axiom, symbols, c;
 
-   /size := 500
-   /x := size / 2
+   /size := 500;
+   /x := size / 2;
    /y := size / 2;
    rewrite := lsys.rewrite;
    axiom := lsys.axiom;
-   delta := lsys.delta
-   /gener := lsys.gener
+   delta := lsys.delta;
+   /gener := lsys.gener;
    /length := lsys.length;
 
 #  The table symbols contains definitions for other symbols as
@@ -56,18 +56,18 @@ procedure lindterp(x, y, lsys, gener, length, color, fnc)
 
    every c := lindgen(!axiom, rewrite, gener) do
       case c of {
-         "F":   TDraw(length)			# draw forward
-         "f":   TSkip(length)			# skip forward
-         "+":   TRight(delta)			# turn right
-         "-":   TLeft(delta)			# turn left
-         "[":   TSave()				# save state
-         "]":   TRestore()			# restore state
+         "F":   TDraw(length);			# draw forward
+         "f":   TSkip(length);			# skip forward
+         "+":   TRight(delta);			# turn right
+         "-":   TLeft(delta);			# turn left
+         "[":   TSave();				# save state
+         "]":   TRestore();			# restore state
 						# interpret defined symbol
          default:   lindterp(\symbols[c], length, delta)
-         }					# ignore other characters
+         };					# ignore other characters
 
-   WFlush()
+   WFlush();
 
-   return
+   return;
 
 end

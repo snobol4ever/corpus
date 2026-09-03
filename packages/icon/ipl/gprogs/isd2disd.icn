@@ -25,8 +25,8 @@
 link weavutil
 link xcode
 
-procedure main()
-   local draft
+procedure main();
+   local draft;
 
    isd;  # fly a kite, linker
 
@@ -36,6 +36,6 @@ procedure main()
    draft.weft_colors := list(*draft.treadling, 2);  # white
    draft.color_list := [ColorValue("black"), ColorValue("white")];
 
-   xencode(draft, &output)
+   xencode(draft, &output);
 
 end

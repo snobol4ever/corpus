@@ -22,8 +22,8 @@
 #
 ############################################################################
 
-procedure main(args)
-   local factor, line, i
+procedure main(args);
+   local factor, line, i;
 
    factor := \args[1] | 10;
 
@@ -32,6 +32,6 @@ procedure main(args)
          i := tab(upto(' \t') | 0);
          write(i * factor, tab(0))
          }
-      }
+      };
 
 end

@@ -23,8 +23,8 @@
 #
 ############################################################################
 
-procedure divide(i, j, k)		# long division
-   local q, pad
+procedure divide(i, j, k);		# long division
+   local q, pad;
 
    /k := 5;
 
@@ -38,8 +38,8 @@ procedure divide(i, j, k)		# long division
       q ||:= i / j;
       i %:= j;
       if i = 0 then break
-      }
+      };
 
-   return q[1:-pad]
+   return q[1:-pad];
 
 end

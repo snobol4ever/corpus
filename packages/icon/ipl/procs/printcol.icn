@@ -89,11 +89,11 @@
 #  
 ############################################################################
 
-procedure printcol(items,fields,title,pagelength,linelength,auxdata)
+procedure printcol(items,fields,title,pagelength,linelength,auxdata);
   local maxwidth,maxhead,groups,columns,itemlist,cont,f,p,underline,
-	hfield
-  /linelength := 80
-  /pagelength := 30000
+	hfield;
+  /linelength := 80;
+  /pagelength := 30000;
   /title := "";
 #
 #  Compute the maximum field width (so we know the column spacing) and
@@ -102,16 +102,16 @@ procedure printcol(items,fields,title,pagelength,linelength,auxdata)
 #
   maxwidth := maxhead := -1;
   cont := "";
-  every maxwidth <:= (!fields)("width",auxdata)
+  every maxwidth <:= (!fields)("width",auxdata);
   hfield := get(fields);
-  every maxhead <:= *(!fields)("header",auxdata)
+  every maxhead <:= *(!fields)("header",auxdata);
   columns := (linelength - maxhead) / (maxwidth + 1);
   groups := pagelength / (6 + *fields);
 #
 #  Loop to print groups of data.
 #
   repeat {
-    if pagelength < 30000 then writes("\f")
+    if pagelength < 30000 then writes("\f");
 #
 #  Loop to print data of a group (a page's worth).
 #
@@ -121,29 +121,29 @@ procedure printcol(items,fields,title,pagelength,linelength,auxdata)
 #  of columns that can fit across the page.
 #
       itemlist := [];
-      every 1 to columns do put(itemlist,@items) | break
-      if *itemlist = 0 then break break
+      every 1 to columns do put(itemlist,@items) | break;
+      if *itemlist = 0 then break break;
 #
 #  Print a title and the column headings.
 #
-      write(repl("=",*write("\n",title || cont)))
+      write(repl("=",*write("\n",title || cont)));
       cont := " (continued)";
       writes(underline := left("",maxhead));
       every f := hfield(!itemlist,auxdata) do {
 	p := if *f < maxwidth then center else left;
 	writes(" ",p(f,maxwidth));
 	underline ||:= " " || p(repl("-",*f),maxwidth)
-      }
+      };
       write("\n",underline);
 #
 #  Print the fields.
 #
       every f := !fields do {
 	writes(right(f("header",auxdata),maxhead));
-	every writes(" ",center(f(!itemlist,auxdata),maxwidth))
+	every writes(" ",center(f(!itemlist,auxdata),maxwidth));
 	write()
       }
     }	# End of loop to print groups.
-  }	# End of loop to print all items.
-  return
+  };	# End of loop to print all items.
+  return;
 end

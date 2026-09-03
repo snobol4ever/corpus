@@ -32,9 +32,9 @@
 
 link options
 
-procedure main(args)
-   local opts, sep, gutter, justify, fname, f 
-   local data, colsz, s, n, i, t
+procedure main(args);
+   local opts, sep, gutter, justify, fname, f; 
+   local data, colsz, s, n, i, t;
 
    # process options and set defaults
    opts := options(args, "g+t:r");  # command options
@@ -51,7 +51,7 @@ procedure main(args)
          f := open(fname) | stop("can't open ", fname);
 	 while put(data, read(f))
 	 }
-      }
+      };
 
    # scan data to record maximum column widths needed
    colsz := [];
@@ -61,18 +61,18 @@ procedure main(args)
 	 move(1);
 	 i +:= 1;
 	 if n <= colsz[i] then
-	    next
+	    next;
 	 if i > *colsz then
 	    put(colsz, n)
 	 else
 	    colsz[i] := n
          }
-      }
+      };
 
    # adjust column sizes to allow for gutters
-   every !colsz +:= gutter
+   every !colsz +:= gutter;
    if justify === right then
-      colsz[1] -:= gutter
+      colsz[1] -:= gutter;
 
    # write padded output
    every s := !data do s ? {
@@ -80,8 +80,8 @@ procedure main(args)
       while t := tab(upto(sep)) do {
          writes(justify(t, colsz[i +:= 1]));
 	 move(1)
-	 }
+	 };
       write(justify(tab(0), colsz[i +:= 1]))
-      }
+      };
    
 end

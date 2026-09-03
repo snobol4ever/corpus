@@ -24,13 +24,13 @@
 
 link patutils
 
-procedure main(args)
-   local input, rlist
+procedure main(args);
+   local input, rlist;
 
    input := open(args[1]) | stop("*** cannot open image file");
 
    rlist := [];
-   every put(rlist, xbm2rows(input))
-   write(rows2pat(rlist),"	# ", args[1])
+   every put(rlist, xbm2rows(input));
+   write(rows2pat(rlist),"	# ", args[1]);
 
 end

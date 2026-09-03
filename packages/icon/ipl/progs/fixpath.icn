@@ -28,8 +28,8 @@
 ############################################################################
 
 
-procedure main(args)
-   local fname, oldpath, newpath, f, pgm, n, p, s
+procedure main(args);
+   local fname, oldpath, newpath, f, pgm, n, p, s;
 
    (*args == 3) | stop("usage: fixpath filename oldpath newpath");
    fname := args[1];
@@ -38,14 +38,14 @@ procedure main(args)
    if *newpath > *oldpath then {
       write(&errout, "warning: newpath is longer than oldpath");
       oldpath := left(oldpath, *newpath, "\0")
-   }
+   };
    oldpath ||:= "\0";
-   newpath := left(newpath, *oldpath, "\0")
+   newpath := left(newpath, *oldpath, "\0");
 
    (f := open(fname, "rwu"))		| stop(fname, ": can't open");
    pgm := "";
-   while pgm ||:= reads(f, 8192)
-   (*pgm > 0)				| stop(fname, ": empty file")
+   while pgm ||:= reads(f, 8192);
+   (*pgm > 0)				| stop(fname, ": empty file");
    n := 0;
    pgm ? {
       while tab(p := find(oldpath)) do {
@@ -53,10 +53,10 @@ procedure main(args)
          writes(f, s, newpath)		| stop(fname, ": can't write");
          move(*newpath);
          n +:= 1
-      }
+      };
       (n > 0) | stop(fname, ": can't find string `", args[2], "'")
-   }
-   write("replaced ", n, " occurrence", if n>1 then "s" else "")
+   };
+   write("replaced ", n, " occurrence", if n>1 then "s" else "");
 
 end
 

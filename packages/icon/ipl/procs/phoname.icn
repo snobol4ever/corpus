@@ -24,9 +24,9 @@
 #
 ############################################################################
 
-procedure phoname(number)
+procedure phoname(number);
 
-    local buttons, nondigits, pstr, t, x
+    local buttons, nondigits, pstr, t, x;
 
 
     buttons := ["000","111","abc","def","ghi","jkl","mno", "prs","tuv","wxy"];
@@ -34,18 +34,18 @@ procedure phoname(number)
 
     pstr := stripstr(number,nondigits);
 
-    if 7 ~= *pstr then fail
+    if 7 ~= *pstr then fail;
     t := [];
     every x := !pstr do
-	put(t,buttons[x+1])
+	put(t,buttons[x+1]);
     
-    suspend !t[1] || !t[2] || !t[3] || !t[4] || !t[5] || !t[6] || !t[7]
+    suspend !t[1] || !t[2] || !t[3] || !t[4] || !t[5] || !t[6] || !t[7];
 
 end
 
-procedure stripstr(str,delchs)
+procedure stripstr(str,delchs);
 
-    local i
+    local i;
 
     i := 1;
     while i <= *str do
@@ -54,8 +54,8 @@ procedure stripstr(str,delchs)
 	    str[i] := ""
 	else
 	    i +:= 1
-	}
+	};
 
-    return str
+    return str;
 
 end # stripstr

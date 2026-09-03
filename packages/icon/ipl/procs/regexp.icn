@@ -299,7 +299,7 @@ invocable "=":1
 ###################  Pattern Translation Procedures  ###################
 
 
-procedure RePat(s)	#: regular expression pattern list
+procedure RePat(s);	#: regular expression pattern list
 #
 #  Produce pattern list representing pattern string s.
 #
@@ -348,45 +348,45 @@ procedure RePat(s)	#: regular expression pattern list
    #  \<digit>  Re_Tok(Re_MatchParenGroup,[n])  The string matched by
    #                                            parenthesis group <digit>
    #
-   local plist
-   static lastString,lastPList
+   local plist;
+   static lastString,lastPList;
    #
    #  Initialize.
    #
    initial {
-      Re_Default()
-      lastString := ""
+      Re_Default();
+      lastString := "";
       lastPList := []
-      }
+      };
 
-   if s === lastString then return lastPList
+   if s === lastString then return lastPList;
 
-   Re_WordChars := cset(Re_WordChars)
-   Re_NonWordChars := ~Re_WordChars
-   Re_Space := cset(Re_Space)
-   Re_NonSpace := ~Re_Space
-   Re_Digits := cset(Re_Digits)
-   Re_NonDigits := ~Re_Digits
+   Re_WordChars := cset(Re_WordChars);
+   Re_NonWordChars := ~Re_WordChars;
+   Re_Space := cset(Re_Space);
+   Re_NonSpace := ~Re_Space;
+   Re_Digits := cset(Re_Digits);
+   Re_NonDigits := ~Re_Digits;
 
 
-   s ? (plist := Re_pat1(0)) | fail
-   lastString := s
-   lastPList := plist
-   return plist
+   s ? (plist := Re_pat1(0)) | fail;
+   lastString := s;
+   lastPList := plist;
+   return plist;
 end
 
 
-procedure Re_pat1(level) # L
+procedure Re_pat1(level); # L
 #
 #  Recursive portion of RePat()
 #
-   local plist,n,m,c,comma
-   static parenNbr
+   local plist,n,m,c,comma;
+   static parenNbr;
    initial {
       if /Re__match then ReCaseDependent()
-      }
-   if level = 0 then parenNbr := 0
-   plist := []
+      };
+   if level = 0 then parenNbr := 0;
+   plist := [];
    #
    #  Loop to put pattern elements on list.
    #
@@ -424,220 +424,220 @@ procedure Re_pat1(level) # L
          (="\\",n := tab(any(&digits)),Re_Tok(Re_MatchParenGroup,[integer(n)]))
          ) |
       fail
-      }
-   return plist
+      };
+   return plist;
 end
 
 
-procedure Re_prevTok(plist)
+procedure Re_prevTok(plist);
 #
 #  Pull previous token from the pattern list.  This procedure must take
 #  into account the fact that successive character tokens have been
 #  optimized into a single string token.
 #
-   local lastTok,s,r
-   lastTok := pull(plist) | fail
+   local lastTok,s,r;
+   lastTok := pull(plist) | fail;
    if lastTok.proc === Re__tabmatch then {
-      s := lastTok.args[1]
-      r := Re_Tok(Re__tabmatch,[s[-1]])
-      s[-1] := ""
+      s := lastTok.args[1];
+      r := Re_Tok(Re__tabmatch,[s[-1]]);
+      s[-1] := "";
       if *s > 0 then {
-         put(plist,lastTok)
+         put(plist,lastTok);
          lastTok.args[1] := s
-         }
+         };
       return r
-      }
-   return lastTok
+      };
+   return lastTok;
 end
 
 
-procedure Re_Default()
+procedure Re_Default();
 #
 #  Assign default values to regular expression translation globals, but
 #  only to variables whose values are null.
 #
-   /Re_WordChars := &letters ++ &digits ++ "_"
-   /Re_Space := ' \t\v\n\r\f'
-   /Re_Digits := &digits
-   /Re_ArbString := ".*"
-   /Re_AnyString := "."
-   return
+   /Re_WordChars := &letters ++ &digits ++ "_";
+   /Re_Space := ' \t\v\n\r\f';
+   /Re_Digits := &digits;
+   /Re_ArbString := ".*";
+   /Re_AnyString := ".";
+   return;
 end
 
 
-procedure Re_cset()
+procedure Re_cset();
 #
 #  Matches a [...] construct and returns a cset.
 #
-   local complement,c,e,ch,chars
-   ="[" | fail
+   local complement,c,e,ch,chars;
+   ="[" | fail;
    (complement := ="^" | &null,c := move(1) || tab(find("]")),move(1)) |
-         return &null
+         return &null;
    c ? {
-      e := (="-" | "")
+      e := (="-" | "");
       while chars := tab(upto('-\\')) do {
          e ++:= case move(1) of {
             "-": chars[1:-1] ++
-                  &cset[ord(chars[-1]) + 1:ord(move(1)) + 2] | return &null
+                  &cset[ord(chars[-1]) + 1:ord(move(1)) + 2] | return &null;
             "\\": case ch := move(1) of {
-               "w": Re_WordChars
-               "W": Re_NonWordChars
-               "s": Re_Space
-               "S": Re_NonSpace
-               "d": Re_Digits
-               "D": Re_NonDigits
+               "w": Re_WordChars;
+               "W": Re_NonWordChars;
+               "s": Re_Space;
+               "S": Re_NonSpace;
+               "d": Re_Digits;
+               "D": Re_NonDigits;
                default: ch
                }
             }
-         }
-      e ++:= tab(0)
+         };
+      e ++:= tab(0);
       if \complement then e := ~e
-      }
-   e := (\Re_Filter)(e)
-   return cset(e)
+      };
+   e := (\Re_Filter)(e);
+   return cset(e);
 end
 
 
-procedure Re_string(level)
+procedure Re_string(level);
 #
 #  Matches a string of non-special characters, returning a string.
 #
-   local special,s,p
-   static nondigits
-   initial nondigits := ~&digits
-   special := if level = 0 then '\\.+*|[({?' else  '\\.+*|[({?)'
-   s := tab(upto(special) | 0)
+   local special,s,p;
+   static nondigits;
+   initial nondigits := ~&digits;
+   special := if level = 0 then '\\.+*|[({?' else  '\\.+*|[({?)';
+   s := tab(upto(special) | 0);
    while ="\\" do {
-      p := &pos
+      p := &pos;
       if tab(any('wWbBsSdD')) |
             (tab(any('123456789')) & (pos(0) | any(nondigits))) then {
-         tab(p - 1)
+         tab(p - 1);
          break
-         }
+         };
       s ||:= move(1) || tab(upto(special) | 0)
-      }
+      };
    if pos(0) & s[-1] == "$" then {
-      move(-1)
+      move(-1);
       s[-1] := ""
-      }
-   s := string((\Re_Filter)(s))
-   return "" ~== s
+      };
+   s := string((\Re_Filter)(s));
+   return "" ~== s;
 end
 
 
 #####################  Matching Engine Procedures  ########################
 
 
-procedure ReMatch(plist,s,i1,i2) #: position past regular expression matched
+procedure ReMatch(plist,s,i1,i2); #: position past regular expression matched
 #
 #  Produce the sequence of positions in s past a string starting at i1
 #  that matches the pattern plist, but fails if there is no such
 #  position.  Similar to match(), but is capable of generating multiple
 #  positions.
 #
-   local i
-   if type(plist) ~== "list" then plist := RePat(plist) | fail
-   if /s := &subject then /i1 := &pos else /i1 := 1 ; /i2 := 0
-   i := match("",s,i1,i2) - 1 | fail
-   Re_ParenGroups := []
-   suspend s[i1:i2] ? (Re_match1(plist,1),i + &pos)
+   local i;
+   if type(plist) ~== "list" then plist := RePat(plist) | fail;
+   if /s := &subject then /i1 := &pos else /i1 := 1 ; /i2 := 0;
+   i := match("",s,i1,i2) - 1 | fail;
+   Re_ParenGroups := [];
+   suspend s[i1:i2] ? (Re_match1(plist,1),i + &pos);
 end
 
 
-procedure Re_match1(plist,i) # s1,s2,...,sN
+procedure Re_match1(plist,i); # s1,s2,...,sN
 #
 #  Used privately by ReMatch() to simulate a computed conjunction
 #  expression via recursive generation.
 #
-   local tok
+   local tok;
    suspend if tok := plist[i] then
-      Re_tok_match(tok,plist,i) & Re_match1(plist,i + 1) else &null
+      Re_tok_match(tok,plist,i) & Re_match1(plist,i + 1) else &null;
 end
 
 
-procedure ReFind(plist,s,i1,i2) #: position where regular expression matched
+procedure ReFind(plist,s,i1,i2); #: position where regular expression matched
 #
 #  Produce the sequence of positions in s where strings begin that match
 #  the pattern plist, but fails if there is no such position.  Similar
 #  to find().
 #
-   local i,p
-   if type(plist) ~== "list" then plist := RePat(plist) | fail
-   if /s := &subject then /i1 := &pos else /i1 := 1 ; /i2 := 0
-   i := match("",s,i1,i2) - 1 | fail
-   Re_ParenGroups := []
+   local i,p;
+   if type(plist) ~== "list" then plist := RePat(plist) | fail;
+   if /s := &subject then /i1 := &pos else /i1 := 1 ; /i2 := 0;
+   i := match("",s,i1,i2) - 1 | fail;
+   Re_ParenGroups := [];
    s[i1:i2] ? suspend (
          tab(Re_skip(plist)) &
          p := &pos &
          Re_match1(plist,1)\1 &
-         i + p)
+         i + p);
 end
 
 
-procedure Re_tok_match(tok,plist,i)
+procedure Re_tok_match(tok,plist,i);
 #
 #  Match a single token.  Can be recursively called by the token
 #  procedure.
 #
-   local prc,results,result
-   prc := tok.proc
+   local prc,results,result;
+   prc := tok.proc;
    if \Re_LeftmostShortest then
          suspend if prc === Re_Arb then Re_Arb(plist,i) else prc!tok.args
    else {
-      results := []
+      results := [];
       every (if prc === Re_Arb then Re_Arb(plist,i) else prc!tok.args) do
-        push(results,[&pos,copy(Re_ParenGroups)])
+        push(results,[&pos,copy(Re_ParenGroups)]);
       every result := !results do {
-         Re_ParenGroups := result[2]
+         Re_ParenGroups := result[2];
      suspend tab(result[1])
          }
-      }
+      };
 end
 
 
 ##########  Heuristic Code for Matching Arbitrary Characters  ##########
 
 
-procedure Re_skip(plist,i) # s1,s2,...,sN
+procedure Re_skip(plist,i); # s1,s2,...,sN
 #
 #  Used privately -- match a sequence of strings in s past which a match
 #  of the first pattern element in plist is likely to succeed.  This
 #  procedure is used for heuristic performance improvement by ReMatch()
 #  for the ".*" pattern element, and by ReFind().
 #
-   local x,s,p,prc,args
-   /i := 1
-   x := if type(plist) == "list" then plist[i] else plist
+   local x,s,p,prc,args;
+   /i := 1;
+   x := if type(plist) == "list" then plist[i] else plist;
    if /x then suspend find("")
    else {
-      args := x.args
+      args := x.args;
       suspend case prc := x.proc of {
-     Re__tabmatch: Re__find!args
-     Re_TabAny: Re__upto!args
-     pos: args[1]
+     Re__tabmatch: Re__find!args;
+     Re_TabAny: Re__upto!args;
+     pos: args[1];
      Re_WordBoundary |
      Re_NonWordBoundary:
-           p := &pos & tab(Re_skip(plist,i + 1)) & prc!args & untab(p)
+           p := &pos & tab(Re_skip(plist,i + 1)) & prc!args & untab(p);
      Re_MatchParenGroup: if s := \(\Re_ParenGroups)[args[1]] then
-           find(s) else find("")
+           find(s) else find("");
      Re_NToMTimes |
      Re_NOrMoreTimes |
      Re_NTimes:
-           if args[2] > 0 then Re_skip(args[1]) else find("")
+           if args[2] > 0 then Re_skip(args[1]) else find("");
      Re_OneOrMore |
-     Re_MatchReg: Re_skip(args[1])
+     Re_MatchReg: Re_skip(args[1]);
      Re_Alt:
            if \Re_Ordered then
              Re_result_merge{Re_skip(args[1]),Re_skip(args[2])}
            else
-             Re_skip(args[1 | 2])
+             Re_skip(args[1 | 2]);
      default: find("")
      }
-      }
+      };
 end
 
 
-procedure Re_result_merge(L)
+procedure Re_result_merge(L);
 #
 #  Programmer-defined control operation to merge the result sequences of
 #  two integer-producing generators.  Both generators must produce their
@@ -645,20 +645,20 @@ procedure Re_result_merge(L)
 #  and the output sequence will be in increasing order with no
 #  duplicates.
 #
-   local e1,e2,r1,r2
-   e1 := L[1] ; e2 := L[2]
-   r1 := @e1 ; r2 := @e2
+   local e1,e2,r1,r2;
+   e1 := L[1] ; e2 := L[2];
+   r1 := @e1 ; r2 := @e2;
    while \(r1 | r2) do
          if /r2 | \r1 < r2 then
                suspend r1 do r1 := @e1 | &null
          else if /r1 | r1 > r2 then
                suspend r2 do r2 := @e2 | &null
          else
-               r2 := @e2 | &null
+               r2 := @e2 | &null;
 end
 
 
-procedure untab(origPos)
+procedure untab(origPos);
 #
 #  Converts a string scanning expression that moves the cursor to one
 #  that produces a cursor position and doesn't move the cursor (converts
@@ -667,135 +667,135 @@ procedure untab(origPos)
 #
 #       origPos := &pos ; tab(x) & ... & untab(origPos)
 #
-   local newPos
-   newPos := &pos
-   tab(origPos)
-   suspend newPos
-   tab(newPos)
+   local newPos;
+   newPos := &pos;
+   tab(origPos);
+   suspend newPos;
+   tab(newPos);
 end
 
 
 #######################  Matching Procedures #######################
 
 
-procedure Re_Arb(plist,i)
+procedure Re_Arb(plist,i);
 #
 #  Match arbitrary characters (.*)
 #
-   suspend tab(if plist[i + 1] then Re_skip(plist,i + 1) else Re__find(""))
+   suspend tab(if plist[i + 1] then Re_skip(plist,i + 1) else Re__find(""));
 end
 
 
-procedure Re_TabAny(C)
+procedure Re_TabAny(C);
 #
 #  Match a character of a character set ([...],\w,\W,\s,\S,\d,\D)
 #
-   suspend tab(Re__any(C))
+   suspend tab(Re__any(C));
 end
 
 
-procedure Re_MatchReg(tokList,groupNbr)
+procedure Re_MatchReg(tokList,groupNbr);
 #
 #  Match parenthesized group and assign matched string to list Re_ParenGroup
 #
-   local p,s
-   p := &pos
-   /Re_ParenGroups := []
+   local p,s;
+   p := &pos;
+   /Re_ParenGroups := [];
    every Re_match1(tokList,1) do {
-      while *Re_ParenGroups < groupNbr do put(Re_ParenGroups)
-      s := &subject[p:&pos]
-      Re_ParenGroups[groupNbr] := s
+      while *Re_ParenGroups < groupNbr do put(Re_ParenGroups);
+      s := &subject[p:&pos];
+      Re_ParenGroups[groupNbr] := s;
       suspend s
-      }
-   Re_ParenGroups[groupNbr] := &null
+      };
+   Re_ParenGroups[groupNbr] := &null;
 end
 
 
-procedure Re_WordBoundary(wd,nonwd)
+procedure Re_WordBoundary(wd,nonwd);
 #
 #  Match word-boundary (\b)
 #
    suspend ((pos(1),any(wd)) | (pos(0),move(-1),tab(any(wd))) | (move(-1),
-         (tab(any(wd)),any(nonwd)) | (tab(any(nonwd)),any(wd))),"")
+         (tab(any(wd)),any(nonwd)) | (tab(any(nonwd)),any(wd))),"");
 end
 
 
-procedure Re_NonWordBoundary(wd,nonwd)
+procedure Re_NonWordBoundary(wd,nonwd);
 #
 #  Match non-word-boundary (\B)
 #
    suspend ((pos(1),any(nonwd)) | (pos(0),move(-1),tab(any(nonwd))) | (move(-1),
-         (tab(any(wd)),any(wd)) | (tab(any(nonwd)),any(nonwd)),""))
+         (tab(any(wd)),any(wd)) | (tab(any(nonwd)),any(nonwd)),""));
 end
 
 
-procedure Re_MatchParenGroup(n)
+procedure Re_MatchParenGroup(n);
 #
 #  Match same string matched by previous parenthesized group (\N)
 #
-   local s
-   suspend if s := \Re_ParenGroups[n] then =s else ""
+   local s;
+   suspend if s := \Re_ParenGroups[n] then =s else "";
 end
 
 
 ###################  Control Operation Procedures  ###################
 
 
-procedure Re_ArbNo(tok)
+procedure Re_ArbNo(tok);
 #
 #  Match any number of times (*)
 #
-   suspend "" | (Re_tok_match(tok) & Re_ArbNo(tok))
+   suspend "" | (Re_tok_match(tok) & Re_ArbNo(tok));
 end
 
 
-procedure Re_OneOrMore(tok)
+procedure Re_OneOrMore(tok);
 #
 #  Match one or more times (+)
 #
-   suspend Re_tok_match(tok) & Re_ArbNo(tok)
+   suspend Re_tok_match(tok) & Re_ArbNo(tok);
 end
 
 
-procedure Re_NToMTimes(tok,n,m)
+procedure Re_NToMTimes(tok,n,m);
 #
 #  Match n to m times ({n,m}
 #
-   suspend Re_NTimes(tok,n) & Re_ArbNo(tok)\(m - n + 1)
+   suspend Re_NTimes(tok,n) & Re_ArbNo(tok)\(m - n + 1);
 end
 
 
-procedure Re_NOrMoreTimes(tok,n)
+procedure Re_NOrMoreTimes(tok,n);
 #
 #  Match n or more times ({n,})
 #
-   suspend Re_NTimes(tok,n) & Re_ArbNo(tok)
+   suspend Re_NTimes(tok,n) & Re_ArbNo(tok);
 end
 
 
-procedure Re_NTimes(tok,n)
+procedure Re_NTimes(tok,n);
 #
 #  Match exactly n times ({n})
 #
    if n > 0 then
       suspend Re_tok_match(tok) & Re_NTimes(tok,n - 1)
-   else suspend
+   else suspend;
 end
 
 
-procedure Re_ZeroOrOneTimes(tok)
+procedure Re_ZeroOrOneTimes(tok);
 #
 #  Match zero or one times (?)
 #
-   suspend "" | Re_tok_match(tok)
+   suspend "" | Re_tok_match(tok);
 end
 
 
-procedure Re_Alt(tokList1,tokList2)
+procedure Re_Alt(tokList1,tokList2);
 #
 #  Alternation (|)
 #
-   suspend Re_match1(tokList1 | tokList2,1)
+   suspend Re_match1(tokList1 | tokList2,1);
 end
 
 
@@ -806,26 +806,26 @@ link noncase
 
 global Re__find,Re__match,Re__any,Re__many,Re__upto,Re__tabmatch
 
-procedure ReCaseIndependent()
-  Re__find := c_find
-  Re__match := c_match
-  Re__any := c_any
-  Re__many := c_many
-  Re__upto := c_upto
-  Re__tabmatch := Re_c_tabmatch
-  return
+procedure ReCaseIndependent();
+  Re__find := c_find;
+  Re__match := c_match;
+  Re__any := c_any;
+  Re__many := c_many;
+  Re__upto := c_upto;
+  Re__tabmatch := Re_c_tabmatch;
+  return;
 end
 
-procedure ReCaseDependent()
-  Re__find := find
-  Re__match := match
-  Re__any := any
-  Re__many := many
-  Re__upto := upto
-  Re__tabmatch := proc("=",1)
-  return
+procedure ReCaseDependent();
+  Re__find := find;
+  Re__match := match;
+  Re__any := any;
+  Re__many := many;
+  Re__upto := upto;
+  Re__tabmatch := proc("=",1);
+  return;
 end
 
-procedure Re_c_tabmatch(s)
-  suspend tab(c_match(s))
+procedure Re_c_tabmatch(s);
+  suspend tab(c_match(s));
 end

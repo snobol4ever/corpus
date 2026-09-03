@@ -42,8 +42,8 @@ link wopen
 global win, mono, h, w
 global Window, XMAX, YMAX
 
-procedure main (args)
-    local dist, angle, incr, n, nextarg, arg, t
+procedure main (args);
+    local dist, angle, incr, n, nextarg, arg, t;
 
     XMAX := YMAX := 700;  # physical screen size
     w := h := 1.0;
@@ -55,12 +55,12 @@ procedure main (args)
 
     nextarg := create !args;
     while arg := @nextarg do {
-       if arg == ("-help"|"-h") then stop(helpmsg())
+       if arg == ("-help"|"-h") then stop(helpmsg());
        if match(arg, "-distance") then dist := numeric(@nextarg)
        else if match(arg, "-angle") then angle := numeric(@nextarg)
        else if match(arg, "-increment") then incr := numeric(@nextarg)
        else if arg == "-n" then n := integer(@nextarg)
-       }
+       };
 
     win := WOpen("label=Poly Spiral", "width="||XMAX, "height="||YMAX);
     mono := WAttrib (win, "depth") == "1";
@@ -74,27 +74,27 @@ procedure main (args)
     polyspiral(t, dist, angle, incr, n);
 
     Event(win);
-    close(win)
+    close(win);
 end
 
-procedure polyspiral(t, dist, angle, incr, n)
-   local i
+procedure polyspiral(t, dist, angle, incr, n);
+   local i;
 
    every i := 1 to n do {
       Line_Forward(t, dist);
       Right(t, angle);
       dist +:= incr
-      }
+      };
 
 end
 
-procedure helpmsg()
+procedure helpmsg();
    write("Usage: Spiral [-d dist] [-a angle] [-i increment] [-n nlines]");
    write("   where");
    write("     -d N		-- initial line length {default: 0.02");
    write("     -a N		-- angle of change (degrees) {144}");
    write("     -i N		-- incremental change to line {0.01}");
-   write("     -n N		-- number of lines to draw {100}")
-   return
+   write("     -n N		-- number of lines to draw {100}");
+   return;
 end
 

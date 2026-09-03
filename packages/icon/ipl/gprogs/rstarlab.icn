@@ -55,10 +55,10 @@ link rstartbl
 
 global size
 
-procedure main(argl)
+procedure main(argl);
 
    size := integer(argl[1]) | 600;
 
-   drawlab(rstar, rstartbl, "regular stars")
+   drawlab(rstar, rstartbl, "regular stars");
 
 end

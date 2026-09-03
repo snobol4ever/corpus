@@ -94,9 +94,9 @@ global areas			# areas used for display
 
 
 
-procedure main(args)
-   local cw, ch, bigh, bigw, x, y, w, h, gg, aspr, aspmax, horz
-   local fname, label, f, tw, s, nchars, nlines, img, imwin, e
+procedure main(args);
+   local cw, ch, bigh, bigw, x, y, w, h, gg, aspr, aspmax, horz;
+   local fname, label, f, tw, s, nchars, nlines, img, imwin, e;
 
    # generate a random name for the temporary file
    randomize();
@@ -106,13 +106,13 @@ procedure main(args)
    Window("size=800,500", "bg=pale gray", "font=sans,8", "gamma=1.0", args);
    opts := options(args, "g+c+w+h+s+rmtud");
    if \opts["m"] then
-      WAttrib("canvas=maximal")
+      WAttrib("canvas=maximal");
    if *args = 0 then
-      stop("usage: ", &progname, " [-{gc}n] [-{whd}nnn] [-{mtv}] file...")
+      stop("usage: ", &progname, " [-{gc}n] [-{whd}nnn] [-{mtv}] file...");
 
    # allow user resizing of window
-   &error := 1
-   WAttrib("resize=on")
+   &error := 1;
+   WAttrib("resize=on");
    &error := 0;
 
    # record window dimensions
@@ -121,7 +121,7 @@ procedure main(args)
    if \opts["u"] then
       fh := 0
    else
-      fh := WAttrib("fheight")
+      fh := WAttrib("fheight");
    fw := WAttrib("fwidth");
 
    # Determine thumbnail sizes.
@@ -143,15 +143,15 @@ procedure main(args)
       # Check for an interrupt
       while *Pending() > 0 do
          if Event() === QuitEvents() then
-            return
+            return;
 
       # Get the next file and translate its image.
       f := open(fname, "ru") |
-         { write(&errout, fname, ": can't open"); next }
+         { write(&errout, fname, ": can't open"); next };
 
       # Read the image, full sized, into a scratch canvas
       if not (img := rdimage(fname, f, maxw, maxh)) then
-         { write(&errout, fname, ": can't decode"); next }
+         { write(&errout, fname, ": can't decode"); next };
       imwin := img.win;
 
       # Scale the image to the desired size
@@ -166,26 +166,26 @@ procedure main(args)
          else {
             w := maxh * aspr;
             h := maxh
-            }
+            };
          w <:= 1;
          h <:= 1;
          Zoom(imwin, , , , , , , w, h)
-         }
+         };
 
       # Trim the file name if so requested.
       if \opts["t"] then
          fname ? {
-            while tab(upto('/') + 1)
-            ="cache"
+            while tab(upto('/') + 1);
+            ="cache";
             label := tab(upto('.') | 0)
             }
       else
-         label := fname
+         label := fname;
 
       # Calculate the area needed for display
       cw := w;  # cell width
       if /opts["u"] then
-         cw <:= TextWidth(label)		# ensure room for label
+         cw <:= TextWidth(label);		# ensure room for label
       ch := h + fh;  # cell height
 
       # Place the new image on a new row or new window if needed.
@@ -200,7 +200,7 @@ procedure main(args)
             x := Gap;  # start new row
             y +:= bigh + Gap;
             bigh := 0
-            }
+            };
 
          if x + cw > ww | y + ch > wh then {
             # no room for new row or column
@@ -212,12 +212,12 @@ procedure main(args)
             bigw := bigh := 0;
             areas := list()
             }
-         }
+         };
 
       # Draw the image and its label.
       CopyArea(imwin, &window, 0, 0, w, h, x, y);
       if /opts["u"] then
-         DrawString(x, y + h + fh - WAttrib("descent"), label)
+         DrawString(x, y + h + fh - WAttrib("descent"), label);
 
       # Record the space it occupies
       put(areas, area(fname, x - Gap / 2, y - Gap / 2, w + Gap, h + fh + Gap,
@@ -227,10 +227,10 @@ procedure main(args)
       if /opts["r"] then
          y +:= ch + Gap
       else
-         x +:= cw + Gap
+         x +:= cw + Gap;
       bigh <:= ch;
       bigw <:= cw
-      }
+      };
 
    # All images have been displayed.  Wait for "q" before exiting.
    close(\f);
@@ -245,10 +245,10 @@ procedure main(args)
    FillPolygon(w, h, w - gg, h - 1, w - 1, h - gg);
 
    while e := Event() do case e of {		# wait for event
-      QuitEvents():		exit()		# quit on "q" etc
-      !"sS":			snapshot()	# save window shapshot
+      QuitEvents():		exit();		# quit on "q" etc
+      !"sS":			snapshot();	# save window shapshot
       &lpress | &rpress:	info(e)		# display info about image
-      }
+      };
 end
 
 
@@ -257,49 +257,49 @@ end
 
 $define GuessAspect 1.5		# aspect ratio guess used for layout
 
-procedure layout(n)
-   local aspf, nhigh, nwide
+procedure layout(n);
+   local aspf, nhigh, nwide;
 
-   aspf := real(ww) / real(wh) / GuessAspect
-   nhigh := integer(sqrt(n / aspf) + 0.5)
-   nhigh <:= 1
-   nwide := (n + nhigh - 1) / nhigh
-   maxw := ((ww - Gap) / nwide) - Gap
-   maxh := ((wh - Gap) / nhigh) - Gap - fh
-   maxw <:= MinWidth
-   maxh <:= MinHeight
+   aspf := real(ww) / real(wh) / GuessAspect;
+   nhigh := integer(sqrt(n / aspf) + 0.5);
+   nhigh <:= 1;
+   nwide := (n + nhigh - 1) / nhigh;
+   maxw := ((ww - Gap) / nwide) - Gap;
+   maxh := ((wh - Gap) / nhigh) - Gap - fh;
+   maxw <:= MinWidth;
+   maxh <:= MinHeight;
 
    if \opts["d"] then
       write(&errout, "npix=", n, " aspf=", aspf, " nhigh=", nhigh,
-         " nwide=", nwide, " maxh=", maxh, " maxw=", maxw)
-   return
+         " nwide=", nwide, " maxh=", maxh, " maxw=", maxw);
+   return;
 end
 
 
 
 ## pause() -- wait for clearance to start a new window
 
-procedure pause()
-   local w, h, gg, e
+procedure pause();
+   local w, h, gg, e;
 
    while *Pending() > 0 do		# consume and ignore older events
-      Event()
+      Event();
 
-   w := WAttrib("width")
-   h := WAttrib("height")
-   gg := 2 * Gap - 1
-   DrawLine(0, gg - 1, gg - 1, 0)	# draw diagonals to indicate pause
-   DrawLine(0, h - gg, gg - 1, h - 1)
-   DrawLine(w - gg, 0, w - 1, gg - 1)
-   DrawLine(w - gg, h - 1, w - 1, h - gg)
+   w := WAttrib("width");
+   h := WAttrib("height");
+   gg := 2 * Gap - 1;
+   DrawLine(0, gg - 1, gg - 1, 0);	# draw diagonals to indicate pause
+   DrawLine(0, h - gg, gg - 1, h - 1);
+   DrawLine(w - gg, 0, w - 1, gg - 1);
+   DrawLine(w - gg, h - 1, w - 1, h - gg);
 
    while e := Event() do case e of {		# wait for event
-      QuitEvents():		exit()		# quit on "q" etc
-      !" \t\r\n":		break		# continue on "\r" etc
-      !"sS":			snapshot()	# save window shapshot
+      QuitEvents():		exit();		# quit on "q" etc
+      !" \t\r\n":		break;		# continue on "\r" etc
+      !"sS":			snapshot();	# save window shapshot
       &lpress | &rpress:	info(e)		# display info about image
-      }
-   return
+      };
+   return;
 end
 
 
@@ -310,26 +310,26 @@ $define InfoMargin 10	# margin around image
 $define InfoHeight 80	# text area height
 $define InfoWidth 300	# text area width
 
-procedure info(e)
-   local a, w, h, wmin, wmax, hmax
+procedure info(e);
+   local a, w, h, wmin, wmax, hmax;
 
-   wmin := InfoWidth + 2 * InfoMargin
-   wmax := WAttrib("width") - 4 * InfoMargin
-   hmax := WAttrib("height") - 5 * InfoMargin - InfoHeight
+   wmin := InfoWidth + 2 * InfoMargin;
+   wmax := WAttrib("width") - 4 * InfoMargin;
+   hmax := WAttrib("height") - 5 * InfoMargin - InfoHeight;
 
    every a := !areas do
       if InBounds(a.x, a.y, a.w, a.h) then {
-         w := a.iw
-         h := a.ih
+         w := a.iw;
+         h := a.ih;
          if w >:= wmax then
-            h := a.ih * w / a.iw
+            h := a.ih * w / a.iw;
          if h >:= hmax then
-            w := a.iw * h / a.ih
-         wmin <:= w + 2 * InfoMargin
-         Popup(, , wmin, h + InfoHeight + 3 * InfoMargin, popinfo, a, e, w, h)
+            w := a.iw * h / a.ih;
+         wmin <:= w + 2 * InfoMargin;
+         Popup(, , wmin, h + InfoHeight + 3 * InfoMargin, popinfo, a, e, w, h);
          break
-         }
-   return
+         };
+   return;
 end
 
 
@@ -339,137 +339,137 @@ end
 #   if event was &rpress, wait for &rrelease
 #   otherwise wait for &lpress, Enter, or space to dismiss
 
-procedure popinfo(a, e, w, h)
-   local f, i, n, x, y
+procedure popinfo(a, e, w, h);
+   local f, i, n, x, y;
 
-   f := open(a.fname, "ru")
-   seek(f, 0)
-   n := where(f)
-   seek(f, 1)
-   i := rdimage(a.fname, f, w, h) | fail
+   f := open(a.fname, "ru");
+   seek(f, 0);
+   n := where(f);
+   seek(f, 1);
+   i := rdimage(a.fname, f, w, h) | fail;
 
-   x := (WAttrib("clipw") - w) / 2
-   y := InfoMargin
-   Zoom(i.win, &window, , , , , x, y, w, h)
+   x := (WAttrib("clipw") - w) / 2;
+   y := InfoMargin;
+   Zoom(i.win, &window, , , , , x, y, w, h);
 
-   Font("sans,bold,12")
-   WAttrib("leading=16")
-   GotoXY(0, InfoMargin + h + InfoMargin + WAttrib("ascent"))
-   WWrite("    ", a.fname)
-   WWrite("    ", a.iw, " x ", a.ih, " pixels")
-   WWrite("    ", n, " bytes")
-   WWrite("    ", iformat(f), " format")
+   Font("sans,bold,12");
+   WAttrib("leading=16");
+   GotoXY(0, InfoMargin + h + InfoMargin + WAttrib("ascent"));
+   WWrite("    ", a.fname);
+   WWrite("    ", a.iw, " x ", a.ih, " pixels");
+   WWrite("    ", n, " bytes");
+   WWrite("    ", iformat(f), " format");
 
    if e === &rpress then
       until Event() === &rrelease		# dismiss upon button release
    else {
-      until Event() === &lrelease		# consume matching release
+      until Event() === &lrelease;		# consume matching release
       until Event() === &lrelease | !" \n\r"	# wait for dismissal
-   }
+   };
 
-   WClose(i.win)
-   return
+   WClose(i.win);
+   return;
 end
 
 
 
 ## iformat(f) -- return image format of file f
 
-procedure iformat(f)
-   local s
+procedure iformat(f);
+   local s;
 
-   seek(f, 1)
-   s := reads(f, 1024) | fail
-   seek(f, 1)
+   seek(f, 1);
+   s := reads(f, 1024) | fail;
+   seek(f, 1);
    s ? {
-      if ="GIF8"		then return "GIF"
-      if ="\x89PNG"		then return "PNG"
-      if ="\xFF\xD8\xFF"	then return "JPEG"
-      if ="MM\x00\x2A"		then return "TIFF"
-      if ="II\x2A\x00"		then return "TIFF"
-      if =("P1" | "P4")		then return "PBM"
-      if =("P2" | "P5")		then return "PGM"
-      if =("P3" | "P6")		then return "PPM"
-      if ="\x52\xCC"		then return "RLE"
-      if ="BM"			then return "BMP"
-      if find("XPM")		then return "XPM"
+      if ="GIF8"		then return "GIF";
+      if ="\x89PNG"		then return "PNG";
+      if ="\xFF\xD8\xFF"	then return "JPEG";
+      if ="MM\x00\x2A"		then return "TIFF";
+      if ="II\x2A\x00"		then return "TIFF";
+      if =("P1" | "P4")		then return "PBM";
+      if =("P2" | "P5")		then return "PGM";
+      if =("P3" | "P6")		then return "PPM";
+      if ="\x52\xCC"		then return "RLE";
+      if ="BM"			then return "BMP";
+      if find("XPM")		then return "XPM";
       fail
-      }
+      };
 end
 
 
 
 ## rdimage(fname, f, maxw, maxh) -- read image into scratch window
 
-procedure rdimage(fname, f, maxw, maxh)
-   local iwin
+procedure rdimage(fname, f, maxw, maxh);
+   local iwin;
 
    case iformat(f) of {
-      "GIF" | "XPM":		iwin := load(fname)
-      "PNG":			iwin := convert(fname, "pngtopnm")
-      "TIFF":			iwin := convert(fname, "tifftopnm")
-      "PBM" | "PGM" | "PPM":	iwin := convert(fname, "cat")
-      "RLE":			iwin := convert(fname, "rletopnm")
-      "BMP":			iwin := convert(fname, "bmptoppm")
+      "GIF" | "XPM":		iwin := load(fname);
+      "PNG":			iwin := convert(fname, "pngtopnm");
+      "TIFF":			iwin := convert(fname, "tifftopnm");
+      "PBM" | "PGM" | "PPM":	iwin := convert(fname, "cat");
+      "RLE":			iwin := convert(fname, "rletopnm");
+      "BMP":			iwin := convert(fname, "bmptoppm");
       "JPEG":			return jpegread(fname, maxw, maxh)
-      }
+      };
 
-   return imrec(\iwin, WAttrib(iwin, "width"), WAttrib(iwin, "height"))
+   return imrec(\iwin, WAttrib(iwin, "width"), WAttrib(iwin, "height"));
 end
 
 
 
 ## convert(fname, utilname) -- read image by converting through PPM to GIF
 
-procedure convert(fname, utilname)
-   needprog(utilname) | fail
-   needprog("ppmquant") | fail
-   needprog("ppmtogif") | fail
+procedure convert(fname, utilname);
+   needprog(utilname) | fail;
+   needprog("ppmquant") | fail;
+   needprog("ppmtogif") | fail;
    return mkgif(utilname ||
       " 2>/dev/null | ppmquant 256 2>/dev/null | ppmtogif 2>/dev/null",
-      fname)
+      fname);
 end
 
 
 
 ## mkgif(cmd, fname) -- run filter to produce GIF file
 
-procedure mkgif(cmd, fname)
-   local win, f
+procedure mkgif(cmd, fname);
+   local win, f;
 
-   remove(tempname)
-   cmd := "<\"" || fname || "\" " || cmd || " >" || tempname
+   remove(tempname);
+   cmd := "<\"" || fname || "\" " || cmd || " >" || tempname;
    if \opts["d"] then
-      write(&errout, "+ ", cmd)
-   system(cmd)
-   f := open(tempname, "ru") | fail
-   win := load(tempname)
-   close(f)
-   remove(tempname)
-   return \win
+      write(&errout, "+ ", cmd);
+   system(cmd);
+   f := open(tempname, "ru") | fail;
+   win := load(tempname);
+   close(f);
+   remove(tempname);
+   return \win;
 end
 
 
 
 ## jpegread(fname, maxw, maxh) -- read JPEG image
 
-procedure jpegread(fname, maxw, maxh)
-   local scale, iwin, irec
+procedure jpegread(fname, maxw, maxh);
+   local scale, iwin, irec;
 
    $ifdef _JAVA
-      iwin := load(fname)
-      return imrec(\iwin, WAttrib(iwin, "width"), WAttrib(iwin, "height"))
+      iwin := load(fname);
+      return imrec(\iwin, WAttrib(iwin, "width"), WAttrib(iwin, "height"));
    $else
-      needprog("djpeg") | fail
-      irec := imrec()
+      needprog("djpeg") | fail;
+      irec := imrec();
       if jsize(irec, fname) then
          scale := jscale(irec, \maxw, \maxh) | ""
       else
-         scale := ""
-      irec.win := mkgif("djpeg " || scale || " -g 2>/dev/null", fname) | fail
-      /irec.fullw := WAttrib(iwin, "width")
-      /irec.fullh := WAttrib(iwin, "height")
-      return irec
+         scale := "";
+      irec.win := mkgif("djpeg " || scale || " -g 2>/dev/null", fname) | fail;
+      /irec.fullw := WAttrib(iwin, "width");
+      /irec.fullh := WAttrib(iwin, "height");
+      return irec;
    $endif
 
 
@@ -479,39 +479,39 @@ end
 
 ## jsize(irec, fname) -- set fullw and fullh fields for JPEG image
 
-procedure jsize(irec, fname)
-   local s, p, line, w, h
+procedure jsize(irec, fname);
+   local s, p, line, w, h;
 
-   s := ""
-   p := open("rdjpgcom -verbose \"" || fname || "\"", "p") | fail
+   s := "";
+   p := open("rdjpgcom -verbose \"" || fname || "\"", "p") | fail;
    while line := read(p) do line ? {
-      ="JPEG image is "				| next
-      w := tab(many(&digits))			| next
-      ="w * "					| next
-      h := tab(many(&digits))			| next
-      ="h, "					| next
-      close(p)
-      irec.fullw := integer(w)
-      irec.fullh := integer(h)
+      ="JPEG image is "				| next;
+      w := tab(many(&digits))			| next;
+      ="w * "					| next;
+      h := tab(many(&digits))			| next;
+      ="h, "					| next;
+      close(p);
+      irec.fullw := integer(w);
+      irec.fullh := integer(h);
       return
-      }
-   close(p)
-   fail
+      };
+   close(p);
+   fail;
 end
 
 
 
 ## jscale(irec, maxw, maxh) -- determine scaling for faster JPEG reading
 
-procedure jscale(irec, maxw, maxh)
-   local m
+procedure jscale(irec, maxw, maxh);
+   local m;
 
-   m := irec.fullw / maxw
-   m <:= irec.fullh / maxh
-   if m >= 8 then return "-scale 1/8"
-   if m >= 4 then return "-scale 1/4"
-   if m >= 2 then return "-scale 1/2"
-   return ""
+   m := irec.fullw / maxw;
+   m <:= irec.fullh / maxh;
+   if m >= 8 then return "-scale 1/8";
+   if m >= 4 then return "-scale 1/4";
+   if m >= 2 then return "-scale 1/2";
+   return "";
 end
 
 
@@ -520,9 +520,9 @@ end
 
 ## load(fname) -- read image using WOpen
 
-procedure load(fname)
+procedure load(fname);
    return WOpen("canvas=hidden", "bg=" || WAttrib("bg"),
-      "gamma=" || WAttrib("gamma"), "image=" || fname)
+      "gamma=" || WAttrib("gamma"), "image=" || fname);
 end
 
 
@@ -532,11 +532,11 @@ end
 #  Fails if the program is not available.
 #  Issues a diagnostic only once per program.
 
-procedure needprog(s)
-   static ptable
-   initial ptable := table()
+procedure needprog(s);
+   static ptable;
+   initial ptable := table();
 
    /ptable[s] := pathfind(s, map(getenv("PATH"), ":", " ")) |
-      (write(&errout, "can't find program \"", s, "\" in $PATH") & "")
-   return "" ~=== ptable[s]
+      (write(&errout, "can't find program \"", s, "\" in $PATH") & "");
+   return "" ~=== ptable[s];
 end

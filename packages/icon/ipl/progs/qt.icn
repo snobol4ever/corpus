@@ -32,8 +32,8 @@
 
 link datetime
 
-procedure main(arg)
-   local pre,suf
+procedure main(arg);
+   local pre,suf;
    if arg[1] == "-a" then {
       pop(arg);
       pre := suf := ""
@@ -41,7 +41,7 @@ procedure main(arg)
    else {
       pre := "It's ";
       suf := "."
-      }
+      };
    arg[1] | put(arg);
-   every write(pre,saytime(!arg),suf)
+   every write(pre,saytime(!arg),suf);
 end

@@ -27,8 +27,8 @@
 
 record idim(type, w, h)
 
-procedure imagedim(s)
-   local Image, line, dim
+procedure imagedim(s);
+   local Image, line, dim;
 
    Image := open(s) | stop("*** cannot open ", s);
 
@@ -51,14 +51,14 @@ procedure imagedim(s)
               =" " & dim.h := integer(tab(many(&digits)))
             } | idim_bad()
          }
-      }
+      };
 
 #  close(Image)
 
-   return dim
+   return dim;
 
 end
 
-procedure idim_bad()
-   stop("*** bad image data")
+procedure idim_bad();
+   stop("*** bad image data");
 end

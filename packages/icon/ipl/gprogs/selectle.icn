@@ -113,8 +113,8 @@ global current		# current selection
 $define PosX	"posx=10"
 $define PosY	"posy=10"
 
-procedure main()
-   local atts
+procedure main();
+   local atts;
 
    atts := ui_atts();
 
@@ -128,29 +128,29 @@ procedure main()
 
    init();
 
-   GetEvents(root, , shortcuts)
+   GetEvents(root, , shortcuts);
 
 end
 
 #  Auto-save callback toggle.
 
-procedure auto_cb(vidget, value)
+procedure auto_cb(vidget, value);
 
   auto := value;
 
   if \auto then {
-      if OpenDialog("Specify prefix for auto-saving:") == "Cancel" then fail
+      if OpenDialog("Specify prefix for auto-saving:") == "Cancel" then fail;
       prefix := dialog_value;
       count := -1		# initial count less 1
-      }
+      };
 
-  return
+  return;
 
 end
 
 #  Callback that handles all the buttons that change x, y, w, and h.
 
-procedure change_cb(vidget)
+procedure change_cb(vidget);
 
    # Cute code alert.  The selected reversible assignment is performed
    # and passed to check().  It checks the resulting selection rectangle
@@ -160,36 +160,36 @@ procedure change_cb(vidget)
 
    check(
       case vidget.s of {
-         "h +":       current.h <- current.h + 1
-         "h -":       current.h <- current.h - 1
-         "w +":       current.w <- current.w + 1
-         "w -":       current.w <- current.w - 1
-         "w + h +":   current.h <- current.h + 1 & current.w <- current.w + 1
-         "w - h -":   current.h <- current.h - 1 & current.w <- current.w - 1
-         "h max":     current.h <- hmax
-         "w max":     current.w <- wmax
-         "w h max":   current.h <- hmax & current.w <- wmax
-         "x +":       current.x <- current.x + 1
-         "x -":       current.x <- current.x - 1
-         "y +":       current.y <- current.y + 1
-         "y -":       current.y <- current.y - 1
-         "x + y +":   current.x <- current.x + 1 & current.y <- current.y + 1
-         "y - x -":   current.y <- current.y - 1 & current.x <- current.x - 1
-         "x 1/2":     current.x <- wmax / 2
-         "y 1/2":     current.y <- hmax / 2
+         "h +":       current.h <- current.h + 1;
+         "h -":       current.h <- current.h - 1;
+         "w +":       current.w <- current.w + 1;
+         "w -":       current.w <- current.w - 1;
+         "w + h +":   current.h <- current.h + 1 & current.w <- current.w + 1;
+         "w - h -":   current.h <- current.h - 1 & current.w <- current.w - 1;
+         "h max":     current.h <- hmax;
+         "w max":     current.w <- wmax;
+         "w h max":   current.h <- hmax & current.w <- wmax;
+         "x +":       current.x <- current.x + 1;
+         "x -":       current.x <- current.x - 1;
+         "y +":       current.y <- current.y + 1;
+         "y -":       current.y <- current.y - 1;
+         "x + y +":   current.x <- current.x + 1 & current.y <- current.y + 1;
+         "y - x -":   current.y <- current.y - 1 & current.x <- current.x - 1;
+         "x 1/2":     current.x <- wmax / 2;
+         "y 1/2":     current.y <- hmax / 2;
          "x y 1/2":   current.x <- wmax / 2 & current.y <- hmax / 2
          }
      ) | fail;
 
-   show()
+   show();
 
-   return
+   return;
 
 end
 
 #  Check validity of selection.
 
-procedure check()
+procedure check();
 
    if (0 <= current.h <= hmax) &
       (0 <= current.w <= wmax) &
@@ -198,7 +198,7 @@ procedure check()
    then return else {
       Alert();
       fail
-      }
+      };
 
 end
 
@@ -206,7 +206,7 @@ end
 
 $define Margin 20
 
-procedure copy_source(label)
+procedure copy_source(label);
 
    screen := WOpen("size=" || WAttrib(source, "width") || "," ||
       WAttrib(source, "height"), "posx=" || posx, "posy=" || posy,
@@ -222,57 +222,57 @@ procedure copy_source(label)
    WAttrib(pattern, "width=" || (WAttrib(screen, "width") + Margin));
    WAttrib(pattern, "height=" || (WAttrib(screen, "height") + Margin));
 
-   reset_cb()
+   reset_cb();
 
-   return
+   return;
 
 end
 
 #  Enable user-drawn selection.
 
-procedure draw_cb(vidget, value)
-   local sel
+procedure draw_cb(vidget, value);
+   local sel;
 
-   if /value then return
+   if /value then return;
 
    if /source then {
       Notice("No source image.");
       SetVidget(draw, &null);
       fail
-      }
+      };
 
    expose(screen);
 
    while current := select(screen) do
-      show()
+      show();
 
    SetVidget(draw, &null);
 
-   expose(controls)
+   expose(controls);
 
-   return
+   return;
 
 end
 
 #  File menu callback.
 
-procedure file_cb(vidget, value)
+procedure file_cb(vidget, value);
 
    case value[1] of {
-      "open  @O":  get_image()
-      "pick  @P":  pick()
-      "quit  @Q":  exit()
-      "save  @S":  snap()
+      "open  @O":  get_image();
+      "pick  @P":  pick();
+      "quit  @Q":  exit();
+      "save  @S":  snap();
       "tile  @T":  tile_selection()
-      }
+      };
 
-   return
+   return;
 
 end
 
 #  Utility procedure to get new source image.
 
-procedure get_image()
+procedure get_image();
 
    WClose(\source);
    WClose(\screen);
@@ -282,14 +282,14 @@ procedure get_image()
       source := WOpen("canvas=hidden", "image=" || dialog_value) | {
          Notice("Can't open " || dialog_value || ".");
          next
-         }
+         };
       copy_source(dialog_value);
       wmax := WAttrib(source, "width");
       hmax := WAttrib(source, "height");
       break
-      }
+      };
 
-   return
+   return;
 
 end
 
@@ -303,8 +303,8 @@ $define Offset2	82
 
 $define MinSize 600
 
-procedure init()
-   local iheight
+procedure init();
+   local iheight;
 
    current := rect(0, 0, 1, 1);
    hmax := wmax := 0;
@@ -325,95 +325,95 @@ procedure init()
 
    WAttrib("canvas=normal");
 
-   auto := &null
+   auto := &null;
 
-   return
+   return;
 
 end
 
 #  Utility procedure to let user pick an image file in the current directory.
 
-procedure pick()
-   local plist, ls
+procedure pick();
+   local plist, ls;
 
    plist := filelist("*.gif *.GIF") |
       return FailNotice("Pick not supported on this platform");
 
-   if *plist = 0 then return FailNotice("No files found.")
+   if *plist = 0 then return FailNotice("No files found.");
 
    repeat {
       if SelectDialog("Select image file:", plist, plist[1]) == "Cancel"
-         then fail
+         then fail;
       WClose(\source);
       WClose(\screen);
       source := WOpen("canvas=hidden", "image=" || dialog_value) | {
          Notice("Cannot open " || dialog_value || ".");
          next
-         }
+         };
       copy_source(dialog_value);
       break
-      }
+      };
 
-   return
+   return;
    
 end
    
 #  Callback to terminate program execution.
 
-procedure quit_cb()
+procedure quit_cb();
 
-   exit()
+   exit();
 
 end
 
 #  Callback to reset x, y, w, and h to initial values.
 
-procedure reset_cb()
+procedure reset_cb();
 
    current := rect(0, 0, 1, 1);
 
-   show()
+   show();
 
-   return
+   return;
 
 end
 
 #  Callback procedure to save the current selection as an image file.
 
-procedure save_cb()
+procedure save_cb();
 
-   snap()
+   snap();
 
 end
 
 #  Callback procedure to allow use of standard tile sizes.
 
-procedure select_cb(vidget, value)
+procedure select_cb(vidget, value);
 
    check(current.w := current.h := case value of {
-      "     4 x 4":    4
-      "     8 x 8":    8
-      "   16 x 16":   16
-      "   32 x 32":   32
-      "   64 x 64":   64
-      "   72 x 72":   72
-      "   96 x 96":   96
-      " 100 x 100":  100
-      " 128 x 128":  128
-      " 256 x 256":  256
-      " 400 x 400":  400
+      "     4 x 4":    4;
+      "     8 x 8":    8;
+      "   16 x 16":   16;
+      "   32 x 32":   32;
+      "   64 x 64":   64;
+      "   72 x 72":   72;
+      "   96 x 96":   96;
+      " 100 x 100":  100;
+      " 128 x 128":  128;
+      " 256 x 256":  256;
+      " 400 x 400":  400;
       " 512 x 512":  512
       }) | fail;
 
-   show()
+   show();
 
-   return
+   return;
 
 end
 
 #  Callback to allow setting of specific selection rectangle values.
 
-procedure set_cb()
+procedure set_cb();
 
    repeat {
       if TextDialog("Set values:",
@@ -423,7 +423,7 @@ procedure set_cb()
             current.w,
             current.h
             ]
-         ) == "Cancel" then fail
+         ) == "Cancel" then fail;
       check(
          current.x <- integer(dialog_value[1]) &
          current.y <- integer(dialog_value[2]) &
@@ -432,28 +432,28 @@ procedure set_cb()
          ) | {
             Notice("Invalid value");
             next
-            }
-      show()
+            };
+      show();
       return
-      }
+      };
 
 end
 
 #  Keyboard shortcuts.
 
-procedure shortcuts(e)
+procedure shortcuts(e);
 
    if &meta then
       case map(e) of {			# fold case
-         "d":   SetVidget(draw, 1)
-         "o":   get_image()
-         "p":   pick()
-         "q":	exit()
-         "s":	snap()
+         "d":   SetVidget(draw, 1);
+         "o":   get_image();
+         "p":   pick();
+         "q":	exit();
+         "s":	snap();
          "t":   tile_selection()
-         }
+         };
 
-   return
+   return;
 
 end
 
@@ -465,71 +465,71 @@ $define Width	200
 $define Height	 30
 $define YOff	 10
 
-procedure show()
-   static sx, sy
+procedure show();
+   static sx, sy;
 
    initial {
       sx := text.ax;
       sy := text.ay
-      }
+      };
 
-   if /source then return FailNotice("No source image.")
+   if /source then return FailNotice("No source image.");
 
    tile(source, pattern, current.x, current.y, current.w, current.h);
 
    if \auto then {
       name := prefix || right(count +:= 1, 3, "0") || ".gif";
       WriteImage(source, name, current.x, current.y, current.w, current.h)
-      }
+      };
 
    EraseArea(sx, sy, Width, Height);
 
    DrawString(sx, sy + YOff, "x=" || current.x  || " y=" || current.y ||
       " w=" || current.w || " h=" || current.h);
 
-   if \auto then DrawString(sx, sy + 30, "last auto-save: " || name)
+   if \auto then DrawString(sx, sy + 30, "last auto-save: " || name);
 
-   return
+   return;
 
 end
 
 #  Utility procedure to save current selection.
 
-procedure snap()
+procedure snap();
 
    return snapshot(\source, current.x, current.y, current.w, current.h) |
-     FailNotice("No source image.")
+     FailNotice("No source image.");
 
 end
 
 #  Callback for System menu.
 
-procedure system_cb(vidget, value)
+procedure system_cb(vidget, value);
 
    case value[1] of {
-      "edit":     edit_file()
+      "edit":     edit_file();
       "execute":  execute()
-      }
+      };
 
-   return
+   return;
 
 end
 
-procedure tile_selection()
+procedure tile_selection();
 
    tile(pattern, screen, current.x, current.y, current.w, current.h);
-   CopyArea(screen, source)
+   CopyArea(screen, source);
 
-   return
+   return;
 
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts()
-   return ["size=397,360", "bg=gray-white"]
+procedure ui_atts();
+   return ["size=397,360", "bg=gray-white"];
 end
 
-procedure ui(win, cbk)
+procedure ui(win, cbk);
 return vsetup(win, cbk,
    [":Sizer:::0,0,397,360:",],
    ["auto save:Button:regular:1:12,74,70,20:auto save",auto_cb],
@@ -566,6 +566,6 @@ return vsetup(win, cbk,
    ["y minus:Button:regular::172,231,35,20:y -",change_cb],
    ["y plus:Button:regular::173,206,35,20:y +",change_cb],
    ["yhalf:Button:regular::212,177,56,20:y 1/2",change_cb],
-   )
+   );
 end
 #===<<vib:end>>===	end of section maintained by vib

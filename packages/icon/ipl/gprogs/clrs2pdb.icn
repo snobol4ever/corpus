@@ -32,25 +32,25 @@ link xcode
 
 global PDB_
 
-procedure main(args)
-   local file, input, clist, line, name
+procedure main(args);
+   local file, input, clist, line, name;
 
     every file := !args do {
        input := open(file) | {
           write(&errout, "*** cannot open ", image(file));
           next
-          }
+          };
        name := basename(file, ".clr");
        clist := [];
        while line := read(input) do {
           line ?:= tab(upto('\t'));
           put(clist, line)
-          }
+          };
        close(input);
        makepalette(name, clist) |
           write(&errout, "*** could not make palette from ", image(file))
-       }
+       };
 
-    xencode(PDB_, &output)
+    xencode(PDB_, &output);
        
 end

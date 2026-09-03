@@ -35,15 +35,15 @@
 #
 #  Note that revadd() returns an integer (native or large).
 
-procedure revadd(i)
-   local j
+procedure revadd(i);
+   local j;
 
    i := integer(i) | stop("*** invalid type to revadd()");
 
    repeat {
       j := reverse(i);
-      if i == j then return i else suspend i
+      if i == j then return i else suspend i;
       i +:= j
-      }
+      };
 
 end

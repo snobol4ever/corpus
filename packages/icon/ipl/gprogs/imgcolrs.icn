@@ -33,26 +33,26 @@ link imgcolor
 link basename
 link wopen
 
-procedure main(args)
-   local file, colors, output, name
+procedure main(args);
+   local file, colors, output, name;
 
    every file := !args do {
       WOpen("canvas=hidden", "image=" || file) | {
          write(&errout, "*** cannot open image file ", file);
          next
-         }
+         };
      colors := imgcolor();
      WClose();
      name := basename(file, ".gif");
      output := open(name || ".clr", "w") | {
         write("*** cannot open ", name, ".clr");
         next
-        }
+        };
       colors := sort(colors, 4);
       while pull(colors) do
-         write(output, pull(colors))
-      close(output)
+         write(output, pull(colors));
+      close(output);
       &window := &null
-      }
+      };
 
 end

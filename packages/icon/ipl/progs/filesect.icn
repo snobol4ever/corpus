@@ -31,21 +31,21 @@
 #
 ############################################################################
 
-procedure main(argl)
-   local start, count
+procedure main(argl);
+   local start, count;
 
    start := argl[1] | stop("*** starting value missing");
    count := argl[2] | stop("*** count missing");
 
    if not (start := integer(start) & start > 0) then
-      stop("starting value not positive integer")
+      stop("starting value not positive integer");
    if not (count := integer(count) & count >= 0) then
-      stop("starting value not non-negative integer")
+      stop("starting value not non-negative integer");
 
    every 1 to start - 1 do
-      read() | exit()
+      read() | exit();
 
    every 1 to count do
-      write(read()) | exit()
+      write(read()) | exit();
 
 end

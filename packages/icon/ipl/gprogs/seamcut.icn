@@ -36,18 +36,18 @@
 link basename
 link wopen
 
-procedure main(args)
-   local name, base, width, height, half_width, half_height, win1, win2
+procedure main(args);
+   local name, base, width, height, half_width, half_height, win1, win2;
 
    every name := !args do {
       base := basename(name, ".gif") | {
          write(&errout, "*** unexpected file extension ", name);
          next
-         }
+         };
       win1 := WOpen("canvas=hidden", "image=" || name) | {
          write(&errout, "*** cannot open ", name);
          next
-         }
+         };
 
       width := WAttrib(win1, "width");
       height := WAttrib(win1, "height");
@@ -65,6 +65,6 @@ procedure main(args)
       WriteImage(win1, base || "_s.gif");
       WClose(win1);
       WClose(win2)
-      }
+      };
 
 end

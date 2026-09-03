@@ -39,33 +39,33 @@ invocable all
 
 link ifncs
 
-procedure iftrace(args[])		#: trace built-in functions
-   local nextarg, arg
+procedure iftrace(args[]);		#: trace built-in functions
+   local nextarg, arg;
 
-   every set_trace(!args)
+   every set_trace(!args);
 
-   return
+   return;
 end
 
-procedure set_trace(vf)
-   local vp
-   static traceset, case1, case2
+procedure set_trace(vf);
+   local vp;
+   static traceset, case1, case2;
 
    initial {
       traceset := set();
-      every insert(traceset, function())
+      every insert(traceset, function());
       case1 := &lcase || &ucase;
       case2 := &ucase || &lcase
-      }
+      };
     
    if member(traceset,vf) then {
       &trace := -1;  # have to also trace all procedures!
       vp := vf;
 				# reverse case of first letter
       vp[1] := map(vp[1], case1, case2);
-      variable(vp) :=: variable(vf)
+      variable(vp) :=: variable(vf);
       return
       }
-   else fail
+   else fail;
 
 end

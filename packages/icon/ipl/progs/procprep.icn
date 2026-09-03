@@ -20,20 +20,20 @@
 #
 ############################################################################
 
-procedure main()
-   local files, file, input, line, prefix
+procedure main();
+   local files, file, input, line, prefix;
 
    files := open("ls [a-z]*.icn", "p");
 
    while file := read(files) do {
-      if *file > 13 then write(&errout,"*** file name too long: ", file)
+      if *file > 13 then write(&errout,"*** file name too long: ", file);
       prefix := file[1:-4];
       input := open(file);
-      every 1 to 4 do read(input)		# skip to subject line
+      every 1 to 4 do read(input);		# skip to subject line
       line := read(input) | {
          write(&errout, "*** no subject in ", file);
          next
-         }
+         };
       line ? {
          if tab(find("Subject:  Procedures") + 21) |
             tab(find("Subject:  Declarations ") + 23) |
@@ -46,7 +46,7 @@ procedure main()
              close(input);
              next
              }
-         }
+         };
       
       while line := read(input) do
          line ? {
@@ -55,9 +55,9 @@ procedure main()
                write(prefix, ":", tab(upto('(')), ": ", (tab(find("#: ") + 3),
                   tab(0)))
                }
-         }
+         };
                
       close(input)
-      }
+      };
 
 end

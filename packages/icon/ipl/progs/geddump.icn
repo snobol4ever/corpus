@@ -37,13 +37,13 @@ record person(n, k, r)	# number, sort key, gedrec node
 global ptab		# person number table, indexed by gedrec node
 
 
-procedure main(args)
-   local f, g, i, n, p, r, plist, fam, husb, sp, b, d, byr, dyr
+procedure main(args);
+   local f, g, i, n, p, r, plist, fam, husb, sp, b, d, byr, dyr;
 
    if *args > 0 then
       f := open(args[1]) | stop("can't open ", args[1])
    else
-      f := &input
+      f := &input;
 
    g := gedload(f);
    close(f);
@@ -51,12 +51,12 @@ procedure main(args)
    plist := [];
    ptab := table();
    every r := !g.ind do
-      put(plist, ptab[r] := person(0, sortkey(r), r))
+      put(plist, ptab[r] := person(0, sortkey(r), r));
 
    plist := sortf(plist, 2);
 
    n := 0;
-   every (!plist).n := (n +:= 1)
+   every (!plist).n := (n +:= 1);
 
    every p := !plist do {
       b := gedsub(p.r, "BIRT") | &null;
@@ -67,13 +67,13 @@ procedure main(args)
       byr := gedyear(\b) | &null;
       dyr := gedyear(\d) | &null;
       if \byr | \dyr then 
-         writes("  (", byr, " - ", dyr, ")")
+         writes("  (", byr, " - ", dyr, ")");
       write();
 
       if fam := gedref(p.r, "FAMC") then {
          refto("father", gedref(fam, "HUSB"));
          refto("mother", gedref(fam, "WIFE"))
-         }
+         };
 
       event("b.", \b);
 
@@ -84,40 +84,40 @@ procedure main(args)
          r := refto("  wife", p.r ~=== gedref(fam, "WIFE"));
          # if had earlier kids and did not indicate remarriage, do so now
          if \r then
-            write("   m.")
+            write("   m.");
          # print children under husband, or under wife if no husband
          if (p.r === gedref(fam, "HUSB")) | (not gedref(fam, "HUSB")) then {
             every r := gedref(fam, "CHIL") do {
                case (gedval(r, "SEX") | "") of {
-                  "M":		refto("   son", r)
-                  "F":		refto("   dau", r)
+                  "M":		refto("   son", r);
+                  "F":		refto("   dau", r);
                   default:	refto(" child", r)
                   }
                }
             }
-         }
+         };
 
       event("d.", \d)
-      }
+      };
 end
 
-procedure event(label, r)
-   local date, place
+procedure event(label, r);
+   local date, place;
 
    date := ("" ~== geddate(r));
    place := ("" ~== gedval(r, "PLAC"));
    if /place then
       write("   ", label, " ", \date)
    else
-      write("   ", label, " ", \date | "            ", "  ", place)
-   return
+      write("   ", label, " ", \date | "            ", "  ", place);
+   return;
 end
 
-procedure refto(label, r)
-   write("   ", label, " [", ptab[r].n, "] ", gedfnf(r))
-   return
+procedure refto(label, r);
+   write("   ", label, " [", ptab[r].n, "] ", gedfnf(r));
+   return;
 end
 
-procedure sortkey(r)
-   return map(gedlnf(r))
+procedure sortkey(r);
+   return map(gedlnf(r));
 end

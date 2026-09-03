@@ -35,8 +35,8 @@
 ############################################################################
 
 
-procedure main(args)
-   local line, x, i, recordtable, recordlist, comments, recordname 
+procedure main(args);
+   local line, x, i, recordtable, recordlist, comments, recordname; 
 
    comments := [];  # list of comment lines
    recordtable := table();  # table of record declarations
@@ -57,18 +57,18 @@ procedure main(args)
 					#  other declarations
          else if =("global" | "procedure" | "link" | "invocable")
          then {
-            while write(get(comments))
+            while write(get(comments));
             write(line)
             }
          else put(comments, line)
          }
-      }
+      };
 
-   while write(get(comments))
+   while write(get(comments));
 
    recordlist := sort(recordtable, 3);  #  sort record
 
    while get(recordlist) do
-      every write(!get(recordlist))
+      every write(!get(recordlist));
 
 end

@@ -26,8 +26,8 @@ link patxform
 link weavutil
 link xcode
 
-procedure main()
-   local draft, i, lift_table, line
+procedure main();
+   local draft, i, lift_table, line;
 
    isd;  # protect from linker
 
@@ -94,41 +94,41 @@ procedure main()
    write("[COLOR TABLE]");
 
    every i := 1 to *draft.color_list do
-      write(i, "=", ColorValue(draft.color_list[i]))
+      write(i, "=", ColorValue(draft.color_list[i]));
 
    write("[THREADING]");
    every i := 1 to *draft.threading do
-      write(i, "=", draft.threading[i])
+      write(i, "=", draft.threading[i]);
 
    write("[TREADLING]");
    every i := 1 to *draft.treadling do
-      write(i, "=", draft.treadling[i])
+      write(i, "=", draft.treadling[i]);
 
    write("[WARP COLORS]");
    every i := 1 to *draft.warp_colors do
-      write(i, "=", draft.warp_colors[i])
+      write(i, "=", draft.warp_colors[i]);
 
    write("[WEFT COLORS]");
    every i := 1 to *draft.weft_colors do
-      write(i, "=", draft.weft_colors[i])
+      write(i, "=", draft.weft_colors[i]);
 
    draft.tieup := protate(draft.tieup);
 
    write("[TIEUP]");
    every i := 1 to *draft.tieup do
-      write(i, "=", tromp(draft.tieup[i]))
+      write(i, "=", tromp(draft.tieup[i]));
 
 end
 
-procedure tromp(treadle)
-   local result
+procedure tromp(treadle);
+   local result;
 
    result := "";
    
    treadle ? {
       every result ||:= upto("1") || ","
-      }
+      };
 
-   return result[1:-1]
+   return result[1:-1];
 
 end

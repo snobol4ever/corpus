@@ -30,8 +30,8 @@
 
 link wopen
 
-procedure pixelmap(name, p, args[])
-   local input, width, height, x, y, win
+procedure pixelmap(name, p, args[]);
+   local input, width, height, x, y, win;
 
    /p := 1;
    push(args);  # place holder
@@ -52,8 +52,8 @@ procedure pixelmap(name, p, args[])
          args[1] := read(input) | stop("*** short data in pixel list");
          Fg(win, p ! args);
          DrawPoint(x, y)
-         }
+         };
 
-   return win
+   return win;
 
 end

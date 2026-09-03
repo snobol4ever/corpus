@@ -23,11 +23,11 @@
 #
 ############################################################################
 
-procedure list2tab(L)
+procedure list2tab(L);
 
-   every writes(map(L[1 to *L - 1], "\n", "\v"),"\t")
-   write(map(L[-1], "\n", "\v"))
+   every writes(map(L[1 to *L - 1], "\n", "\v"),"\t");
+   write(map(L[-1], "\n", "\v"));
 
-   return
+   return;
 
 end

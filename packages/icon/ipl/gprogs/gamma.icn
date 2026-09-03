@@ -43,7 +43,7 @@ global vidgets			# table of vidgets
 
 
 
-procedure main()
+procedure main();
 
    vidgets := ui();
 
@@ -56,93 +56,93 @@ procedure main()
 
    set_gamma(default_gamma);
 
-   GetEvents(vidgets["root"], , shortcuts)
+   GetEvents(vidgets["root"], , shortcuts);
 
 end
 
-procedure continuous_cb(vidget, value)
+procedure continuous_cb(vidget, value);
 
    if \value then VSetFilter(gamma_vidget, &null) else
-      VSetFilter(gamma_vidget, "1")
+      VSetFilter(gamma_vidget, "1");
 
-   return
+   return;
 
 end
 
-procedure file_cb(vidget, value)
+procedure file_cb(vidget, value);
 
    case value[1] of {
-      "load @L" :  load_image()
-      "quit @Q" :  exit()
+      "load @L" :  load_image();
+      "quit @Q" :  exit();
       "save @S" :  save_image()
-      }
+      };
 
-   return
-
-end
-
-procedure gamma_cb(vidget, value)
-
-   set_gamma(10.0 ^ value)
-
-   return
+   return;
 
 end
 
-procedure load_image()
+procedure gamma_cb(vidget, value);
+
+   set_gamma(10.0 ^ value);
+
+   return;
+
+end
+
+procedure load_image();
 
    WClose(\pane);
 
    repeat {
-      if OpenDialog("Load image file:") == "Cancel" then fail
+      if OpenDialog("Load image file:") == "Cancel" then fail;
       pane := WOpen("label=" || dialog_value, "image=" || dialog_value,
          "gamma=" || gamma) | {
             Notice("Cannot open image file.");
             next
-            }
+            };
       name := dialog_value;
-      Raise()
+      Raise();
       return
-      }
+      };
 
 end
 
-procedure reset_cb()
+procedure reset_cb();
 
-   set_gamma(default_gamma)
+   set_gamma(default_gamma);
 
 end
 
-procedure save_image()
+procedure save_image();
 
    WAttrib(\pane, "gamma=" || default_gamma) | {
       Notice("No image loaded.");
       fail
-      }
+      };
    snapshot(pane);
-   WAttrib(pane, "gamma=" || gamma)
+   WAttrib(pane, "gamma=" || gamma);
 
-   return
+   return;
 
 end
 
-procedure set_cb()
+procedure set_cb();
 
    repeat {
-      if OpenDialog("Set gamma value:", gamma, 10) == "Cancel" then fail
+      if OpenDialog("Set gamma value:", gamma, 10) == "Cancel" then fail;
       if 0.0 <= numeric(dialog_value) <= 100.0 then {
-         set_gamma(dialog_value)
+         set_gamma(dialog_value);
          return
          }
       else {
          Notice("Invalid gamma value.");
          next
          }
-      }
+      };
 
 end
 
-procedure set_gamma(value)
+procedure set_gamma(value);
 
    gamma := value;
 
@@ -150,51 +150,51 @@ procedure set_gamma(value)
    VSetState(gamma_vidget, log(value, 10));
    show_gamma();
    ReadImage(\pane, name);
-   Raise()
+   Raise();
 
-   return
+   return;
 
 end
 
-procedure shortcuts(value)
+procedure shortcuts(value);
 
    if &meta then case map(value) of {
-      "l" :  load_image()
-      "q" :  exit()
-      "r" :  set_gamma(default_gamma)
+      "l" :  load_image();
+      "q" :  exit();
+      "r" :  set_gamma(default_gamma);
       "s" :  save_image()
-      }
+      };
 
-   return
+   return;
 
 end
 
-procedure show_gamma()
-   static old_gamma, x, y
+procedure show_gamma();
+   static old_gamma, x, y;
 
    initial {
       old_gamma := "";
       x := vidgets["show_gamma"].ax;
       y := vidgets["show_gamma"].ay
-      }
+      };
 
    WAttrib("drawop=reverse");
    DrawString(x, y, old_gamma);
    DrawString(x, y, gamma);
    WAttrib("drawop=copy");
 
-   old_gamma := gamma
+   old_gamma := gamma;
 
-   return
+   return;
 
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts()
-   return ["size=337,210", "bg=pale gray"]
+procedure ui_atts();
+   return ["size=337,210", "bg=pale gray"];
 end
 
-procedure ui(win, cbk)
+procedure ui(win, cbk);
 return vsetup(win, cbk,
    [":Sizer:::0,0,337,210:",],
    ["10:Label:::109,97,21,13:1.0",],
@@ -215,6 +215,6 @@ return vsetup(win, cbk,
    ["reset:Button:regular::57,159,42,20:reset",reset_cb],
    ["set:Button:regular::12,159,35,20:set",set_cb],
    ["show_gamma:Button:regularno::179,174,35,20:",],
-   )
+   );
 end
 #===<<vib:end>>===	end of section maintained by vib

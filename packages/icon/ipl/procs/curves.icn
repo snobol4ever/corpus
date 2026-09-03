@@ -72,8 +72,8 @@ link gobject
 link math
 link step
 
-procedure bullet_nose(x, y, a, b, steps, lo, hi)
-   local incr, theta
+procedure bullet_nose(x, y, a, b, steps, lo, hi);
+   local incr, theta;
 
    /steps := 300;
    lo := dtor(\lo) | -&pi;
@@ -85,12 +85,12 @@ procedure bullet_nose(x, y, a, b, steps, lo, hi)
          x + a * cos(theta),
          y + b * tan(&pi / 2 - theta),
          0
-         )
+         );
 
 end
 
-procedure cardioid(x, y, a, steps, lo, hi)
-   local incr, theta, fact
+procedure cardioid(x, y, a, steps, lo, hi);
+   local incr, theta, fact;
 
    /steps := 300;
    lo := dtor(\lo) | -&pi;
@@ -98,18 +98,18 @@ procedure cardioid(x, y, a, steps, lo, hi)
    incr := (hi - lo) / steps;
 
    every theta := step(lo, hi, incr) do {
-      fact := 2 * a * (1 + cos(theta))
+      fact := 2 * a * (1 + cos(theta));
       suspend Point(
          x + cos(theta) * fact,
          y + sin(theta) * fact,
          0
          )
-      }
+      };
 
 end
 
-procedure cissoid_diocles(x, y, a, steps, lo, hi)
-   local incr, theta, radius
+procedure cissoid_diocles(x, y, a, steps, lo, hi);
+   local incr, theta, radius;
 
    /steps := 300;
    lo := dtor(\lo) | (-2 * &pi);
@@ -117,18 +117,18 @@ procedure cissoid_diocles(x, y, a, steps, lo, hi)
    incr := (hi - lo) / steps;
 
    every theta := step(lo, hi, incr) do {
-      radius := a * sin(theta) * cos(theta)
+      radius := a * sin(theta) * cos(theta);
       suspend Point(
          x + radius * cos(theta),
          y + radius * sin(theta),
          0
          )
-      }
+      };
 
 end
 
-procedure cross_curve(x, y, a, b, steps, lo, hi)
-   local incr, theta
+procedure cross_curve(x, y, a, b, steps, lo, hi);
+   local incr, theta;
 
    /steps := 300;
    lo := dtor(\lo) | -&pi;
@@ -140,12 +140,12 @@ procedure cross_curve(x, y, a, b, steps, lo, hi)
          x + a / cos(theta),
          y + b / sin(theta),
          0
-         )
+         );
 
 end
 
-procedure cycloid(x, y, a, b, steps, lo, hi)
-   local incr, theta
+procedure cycloid(x, y, a, b, steps, lo, hi);
+   local incr, theta;
 
    /steps := 100;
    lo := dtor(\lo) | 0;
@@ -157,12 +157,12 @@ procedure cycloid(x, y, a, b, steps, lo, hi)
          x + a * theta - b * sin(theta),
          y + a - b * cos(theta),
          0
-         )
+         );
 
 end
 
-procedure deltoid(x, y, a, steps, lo, hi)
-   local incr, theta
+procedure deltoid(x, y, a, steps, lo, hi);
+   local incr, theta;
 
    /steps := 300;
    lo := dtor(\lo) | -&pi;
@@ -174,12 +174,12 @@ procedure deltoid(x, y, a, steps, lo, hi)
          x + a * (2 * cos(theta) + cos(2 * theta)),
          y + a * (2 * sin(theta) - sin(2 * theta)),
          0
-         )
+         );
 
 end
 
-procedure ellipse(x, y, a, b, steps, lo, hi)
-   local incr, theta
+procedure ellipse(x, y, a, b, steps, lo, hi);
+   local incr, theta;
 
    /steps := 300;
    lo := dtor(\lo) | -&pi;
@@ -191,12 +191,12 @@ procedure ellipse(x, y, a, b, steps, lo, hi)
          x + a * cos(theta),
          y + b * sin(theta),
          0
-         )
+         );
 
 end
 
-procedure ellipse_evolute(x, y, a, b, steps, lo, hi)
-   local incr, theta
+procedure ellipse_evolute(x, y, a, b, steps, lo, hi);
+   local incr, theta;
 
    /steps := 300;
    lo := dtor(\lo) | -&pi;
@@ -208,12 +208,12 @@ procedure ellipse_evolute(x, y, a, b, steps, lo, hi)
          x + a * cos(theta) ^ 3,
          y + b * sin(theta) ^ 3,
          0
-         )
+         );
 
 end
 
-procedure epitrochoid(x, y, a, b, h, steps, lo, hi)
-   local incr, theta, sum, fact
+procedure epitrochoid(x, y, a, b, h, steps, lo, hi);
+   local incr, theta, sum, fact;
 
    /steps := 300;
    lo := dtor(\lo) | -&pi;
@@ -228,12 +228,12 @@ procedure epitrochoid(x, y, a, b, h, steps, lo, hi)
          x + sum * cos(theta) - h * cos(fact * theta),
          y + sum * sin(theta) - h * sin(fact * theta),
          0
-         )
+         );
 
 end
 
-procedure folium(x, y, a, b, steps, lo, hi)
-   local incr, theta, radius
+procedure folium(x, y, a, b, steps, lo, hi);
+   local incr, theta, radius;
 
    /steps := 300;
    lo := dtor(\lo) | -&pi;
@@ -242,18 +242,18 @@ procedure folium(x, y, a, b, steps, lo, hi)
 
    every theta := step(lo, hi, incr) do {
       radius := (3 * a * sin(theta) * cos(theta)) /
-         (sin(theta) ^ 2 + cos(theta) ^ 2)
+         (sin(theta) ^ 2 + cos(theta) ^ 2);
       suspend Point(
          x + radius * cos(theta),
          y + radius * sin(theta),
          0
          )
-      }
+      };
 
 end
 
-procedure hippopede(x, y, a, b, steps, lo, hi)
-   local incr, theta, mul
+procedure hippopede(x, y, a, b, steps, lo, hi);
+   local incr, theta, mul;
 
    /steps := 300;
    lo := dtor(\lo) | -&pi;
@@ -262,19 +262,19 @@ procedure hippopede(x, y, a, b, steps, lo, hi)
 
    every theta := step(lo, hi, incr) do {
       mul := a * b - b ^ 2 * sin(theta) ^ 2;
-      if mul < 0 then next
-      mul := 2 * sqrt(mul)
+      if mul < 0 then next;
+      mul := 2 * sqrt(mul);
       suspend Point(
          x + mul *  cos(theta),
          y + mul *sin(theta),
          0
          )
-      }
+      };
 
 end
 
-procedure kampyle_exodus(x, y, a, b, steps, lo, hi)
-   local incr, theta, fact
+procedure kampyle_exodus(x, y, a, b, steps, lo, hi);
+   local incr, theta, fact;
 
    /steps := 300;
    lo := dtor(\lo) | (-&pi / 2);
@@ -282,18 +282,18 @@ procedure kampyle_exodus(x, y, a, b, steps, lo, hi)
    incr := (hi - lo) / steps;
 
    every theta := step(lo, hi, incr) do {
-      fact := a / cos(theta)
+      fact := a / cos(theta);
       suspend Point(
          x + fact,
          y + fact * tan(theta),
          0
          )
-      }
+      };
 
 end
 
-procedure kappa(x, y, a, b, steps, lo, hi)
-   local incr, theta, fact
+procedure kappa(x, y, a, b, steps, lo, hi);
+   local incr, theta, fact;
 
    /steps := 300;
    lo := dtor(\lo) | 0;
@@ -301,18 +301,18 @@ procedure kappa(x, y, a, b, steps, lo, hi)
    incr := (hi - lo) / steps;
 
    every theta := step(lo, hi, incr) do {
-      fact := a * cos(theta)
+      fact := a * cos(theta);
       suspend Point(
          x + fact / (0 ~= tan(theta)),
          y + fact,
          0
          )
-      }
+      };
 
 end
 
-procedure lemniscate_bernoulli(x, y, a, steps, lo, hi)
-   local incr, theta, fact
+procedure lemniscate_bernoulli(x, y, a, steps, lo, hi);
+   local incr, theta, fact;
 
    /steps := 300;
    lo := dtor(\lo) | -&pi;
@@ -320,18 +320,18 @@ procedure lemniscate_bernoulli(x, y, a, steps, lo, hi)
    incr := (hi - lo) / steps;
 
    every theta := step(lo, hi, incr) do {
-      fact := a * cos(theta) / (1 + sin(theta) ^ 2)
+      fact := a * cos(theta) / (1 + sin(theta) ^ 2);
       suspend Point(
          x + fact,
          y + fact * sin(theta),
          0
          )
-      }
+      };
 
 end
 
-procedure lemniscate_gerono(x, y, a, b, steps, lo, hi)
-   local incr, theta, fact
+procedure lemniscate_gerono(x, y, a, b, steps, lo, hi);
+   local incr, theta, fact;
 
    /steps := 300;
    lo := dtor(\lo) | -&pi;
@@ -339,18 +339,18 @@ procedure lemniscate_gerono(x, y, a, b, steps, lo, hi)
    incr := (hi - lo) / steps;
 
    every theta := step(lo, hi, incr) do {
-      fact :=  a * cos(theta)
+      fact :=  a * cos(theta);
       suspend Point(
          x + fact,
          y + sin(theta) * fact,
          0
          )
-      }
+      };
 
 end
 
-procedure limacon_pascal(x, y, a, b, steps, lo, hi)
-   local incr, theta, fact
+procedure limacon_pascal(x, y, a, b, steps, lo, hi);
+   local incr, theta, fact;
 
    /steps := 300;
    lo := dtor(\lo) | -&pi;
@@ -358,18 +358,18 @@ procedure limacon_pascal(x, y, a, b, steps, lo, hi)
    incr := (hi - lo) / steps;
 
    every theta := step(lo, hi, incr) do {
-      fact := b + 2 * a * cos(theta)
+      fact := b + 2 * a * cos(theta);
       suspend Point(
          x + fact * cos(theta),
          y + fact * sin(theta),
          0
          )
-      }
+      };
 
 end
 
-procedure line(x, y, x1, y1, steps)
-   local xincr, yincr
+procedure line(x, y, x1, y1, steps);
+   local xincr, yincr;
 
    /steps := 100;
 
@@ -380,12 +380,12 @@ procedure line(x, y, x1, y1, steps)
       suspend Point(x, y, 0);
       x +:= xincr;
       y +:= yincr
-      }
+      };
 
 end
 
-procedure lissajous(x, y, a, b, r, delta, steps, lo, hi)
-   local incr, theta
+procedure lissajous(x, y, a, b, r, delta, steps, lo, hi);
+   local incr, theta;
 
    /steps := 300;
    lo := dtor(\lo) | 0;
@@ -399,12 +399,12 @@ procedure lissajous(x, y, a, b, r, delta, steps, lo, hi)
          x + a * sin(r * theta + delta),
          y + b * sin(theta),
          0
-         )
+         );
 
 end
 
-procedure nephroid(x, y, a, steps, lo, hi)
-   local incr, theta
+procedure nephroid(x, y, a, steps, lo, hi);
+   local incr, theta;
 
    /steps := 300;
    lo := dtor(\lo) | -&pi;
@@ -416,14 +416,14 @@ procedure nephroid(x, y, a, steps, lo, hi)
          x + a * (3 * cos(theta) - cos(3 * theta)),
          y + a * (3 * sin(theta) - sin(3 * theta)),
          0
-         )
+         );
 
 end
 
 #  Needs to be checked out
 
-procedure parabola(x, y, a, steps, lo, hi)
-   local incr, theta, denom, radius
+procedure parabola(x, y, a, steps, lo, hi);
+   local incr, theta, denom, radius;
 
    /steps := 300;
    lo := dtor(\lo) | -&pi;
@@ -432,19 +432,19 @@ procedure parabola(x, y, a, steps, lo, hi)
 
    every theta := step(lo, hi, incr) do {
       denom := 1 - cos(theta);
-      if denom = 0 then next
-      radius := 2 * a / denom
+      if denom = 0 then next;
+      radius := 2 * a / denom;
       suspend Point(
          radius * cos(theta),
          radius * sin(theta),
          0
          )
-      }
+      };
 
 end
 
-procedure piriform(x, y, a, b, steps, lo, hi)
-   local incr, theta, fact
+procedure piriform(x, y, a, b, steps, lo, hi);
+   local incr, theta, fact;
 
    /steps := 300;
    lo := dtor(\lo) | (-&pi / 2);
@@ -452,18 +452,18 @@ procedure piriform(x, y, a, b, steps, lo, hi)
    incr := (hi - lo) / steps;
 
    every theta := step(lo, hi, incr) do {
-      fact := 1 + sin(theta)
+      fact := 1 + sin(theta);
       suspend Point(
          x + a * fact,
          y + b * cos(theta) * fact,
          0
          )
-      }
+      };
 
 end
 
-procedure trisectrix_catalan(x, y, a, steps, lo, hi)
-   local incr, theta, radius
+procedure trisectrix_catalan(x, y, a, steps, lo, hi);
+   local incr, theta, radius;
 
    /steps := 300;
    lo := dtor(\lo) | (-2 * &pi);
@@ -471,18 +471,18 @@ procedure trisectrix_catalan(x, y, a, steps, lo, hi)
    incr := (hi - lo) / steps;
 
    every theta := step(lo, hi, incr) do {
-      radius := a / cos(theta / 3) ^ 3
+      radius := a / cos(theta / 3) ^ 3;
       suspend Point(
          x + radius * cos(theta),
          y + radius * sin(theta),
          0
          )
-      }
+      };
 
 end
 
-procedure trisectrix_maclaurin(x, y, a, b, steps, lo, hi)
-   local incr, theta, fact
+procedure trisectrix_maclaurin(x, y, a, b, steps, lo, hi);
+   local incr, theta, fact;
 
    /steps := 300;
    lo := dtor(\lo) | (-&pi / 2);
@@ -490,18 +490,18 @@ procedure trisectrix_maclaurin(x, y, a, b, steps, lo, hi)
    incr := (hi - lo) / steps;
 
    every theta := step(lo, hi, incr) do {
-      fact := a * (1 - 4 * cos(theta) ^ 2)
+      fact := a * (1 - 4 * cos(theta) ^ 2);
       suspend Point(
          x + fact,
          y + fact * tan(theta),
          0
          )
-      }
+      };
 
 end
 
-procedure witch_agnesi(x, y, a, steps, lo, hi)
-   local incr, theta, fact
+procedure witch_agnesi(x, y, a, steps, lo, hi);
+   local incr, theta, fact;
 
    /steps := 300;
    lo := dtor(\lo) | (-&pi /2);
@@ -515,6 +515,6 @@ procedure witch_agnesi(x, y, a, steps, lo, hi)
          x + fact * tan(theta),
          y - fact * cos(theta) ^ 2,
          0
-         )
+         );
 
 end

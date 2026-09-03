@@ -36,10 +36,10 @@
 #
 ############################################################################
 
-procedure indices(spec, last)		#: generate indices
-   local item, hi, lo, result
+procedure indices(spec, last);		#: generate indices
+   local item, hi, lo, result;
 
-   if \last then last := (0 < integer(last)) | fail
+   if \last then last := (0 < integer(last)) | fail;
 
    result := set();
 
@@ -48,22 +48,22 @@ procedure indices(spec, last)		#: generate indices
          if item := integer(item) then
             ((insert(result, 0 < item)) | fail)
          else if *item = 0 then {
-             move(1) | break
+             move(1) | break;
              next
              }
          else item ? {
             (lo := (0 < integer(tab(upto('-')))) | fail);
             move(1);
             hi := (if pos(0) then last else
-               ((0 < integer(tab(0)) | fail)))
+               ((0 < integer(tab(0)) | fail)));
             /hi := lo;
-            if lo > hi then lo :=: hi
+            if lo > hi then lo :=: hi;
             every insert(result, lo to hi)
-            }
+            };
          move(1) | break
          }
-      }
+      };
 
-   return sort(result)
+   return sort(result);
 
 end

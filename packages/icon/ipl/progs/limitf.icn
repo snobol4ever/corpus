@@ -26,13 +26,13 @@
 
 link options
 
-procedure main(args)
-   local opts, limit
+procedure main(args);
+   local opts, limit;
 
    opts := options(args, "l+");
 
    limit := \opts["l"] | 10;
 
-   every write(!&input) \ limit
+   every write(!&input) \ limit;
 
 end

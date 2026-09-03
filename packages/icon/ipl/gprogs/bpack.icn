@@ -71,8 +71,8 @@ global shelf2		# packed bins
 
 #########################  main program  #########################
 
-procedure main(args)
-   local v, r, c, gc
+procedure main(args);
+   local v, r, c, gc;
 
    randomize();  # set irreproducible mode
 
@@ -81,7 +81,7 @@ procedure main(args)
    shelf1 := v["shelf1"];
    shelf2 := v["shelf2"];
    if shelf1.uw ~= shelf2.uw | shelf1.uw ~= shelf2.uw then
-      runerr(500, "inconsistent layout")
+      runerr(500, "inconsistent layout");
 
    # make a set of colors for different bin heights
    # note that exactly half are reds/yellows and half are blues & darker
@@ -92,12 +92,12 @@ procedure main(args)
       gc := Clone(&window);
       Fg(gc, c);
       put(color, gc)
-      }
+      };
    color := copy(color);  # ensure contiguous array
    cscale := *color / real(FULL + 1);
 
    reload();  # initialize random bins
-   GetEvents(r)				# enter event loop
+   GetEvents(r);				# enter event loop
 end
 
 
@@ -107,49 +107,49 @@ end
 
 #  prepare(v) -- prepare shelf v for placing pieces
 
-procedure prepare(v)
+procedure prepare(v);
    xll := v.ux;
    yll := v.uy + v.uh;
    bin := list(*pieces, 0);
    nfilled := 0;
-   EraseArea(v.ux, v.uy, v.uw, v.uh)
-   return
+   EraseArea(v.ux, v.uy, v.uw, v.uh);
+   return;
 end
 
 
 #  place(p, b) -- add a piece of size p to bin b
 
-procedure place(p, b)
-   local o, t, x, y0, y1
-   static m
-   initial m := shelf1.uh / real(FULL)
+procedure place(p, b);
+   local o, t, x, y0, y1;
+   static m;
+   initial m := shelf1.uh / real(FULL);
 
    o := bin[b] | fail;
    if (t := o + p) > FULL then
-      fail
+      fail;
    bin[b] := t;
    nfilled <:= b;
 
    x := xll + (b - 1) * (PieceWidth + 1);
    y0 := integer(yll - m * o);
    y1 := integer(yll - m * t) + 1;
-   FillRectangle(color[cscale * p + 1], x, y1, PieceWidth, 0 < (y0 - y1))
-   return
+   FillRectangle(color[cscale * p + 1], x, y1, PieceWidth, 0 < (y0 - y1));
+   return;
 end
 
 
 #  status(s) -- write string s and shelf population at end of output shelf
 
-procedure status(s)
-   local x
+procedure status(s);
+   local x;
 
    x := xll + nfilled * BinWidth + 4;
    x >:= xll + shelf1.uw - TextWidth("000 ");
    GotoXY(x, yll - WAttrib("leading") - WAttrib("descent"));
    WWrites(s);
    GotoXY(x, yll - WAttrib("descent"));
-   WWrites(nfilled)
-   return
+   WWrites(nfilled);
+   return;
 end
 
 
@@ -159,83 +159,83 @@ end
 
 #  reload() -- reload first shelf with random-sized pieces.
 
-procedure reload()
-   local i, j, z, p
+procedure reload();
+   local i, j, z, p;
 
    pieces := list(shelf1.uw / BinWidth);
    prepare(shelf1);
-   every place(pieces[i := 1 to *pieces] := ?FULL, i)
-   status("")
-   return
+   every place(pieces[i := 1 to *pieces] := ?FULL, i);
+   status("");
+   return;
 end
 
 
 
 #  mix() -- randomly reorder the first shelf.
 
-procedure mix()
-   local i
+procedure mix();
+   local i;
 
    every i := *pieces to 2 by -1 do
-      pieces[?i] :=: pieces[i]
+      pieces[?i] :=: pieces[i];
 
    prepare(shelf1);
-   every place(pieces[i := 1 to *pieces], i)
-   status("")
-   return
+   every place(pieces[i := 1 to *pieces], i);
+   status("");
+   return;
 end
 
 
 
 #  regular() -- place equally-spaced using golden ratio
 
-procedure regular()
-   local i, n, p
+procedure regular();
+   local i, n, p;
 
    n := integer(*pieces / &phi + 1);
    while gcd(*pieces, n) > 1 do
-      n -:= 1
+      n -:= 1;
    i := 0;
    every p := !sort(pieces) do {
       i := (i + n) % *pieces;
       pieces[i + 1] := p
-      }
+      };
 
    prepare(shelf1);
-   every place(pieces[i := 1 to *pieces], i)
-   status("")
-   return
+   every place(pieces[i := 1 to *pieces], i);
+   status("");
+   return;
 end
 
 
 
 #  ascending() -- sort the first shelf in ascending order
 
-procedure ascending()
-   local i
+procedure ascending();
+   local i;
 
    pieces := sort(pieces);
    prepare(shelf1);
-   every place(pieces[i := 1 to *pieces], i)
-   status("")
-   return
+   every place(pieces[i := 1 to *pieces], i);
+   status("");
+   return;
 end
 
 
 
 #  descending() -- sort the first shelf in descending order
 
-procedure descending()
-   local i
+procedure descending();
+   local i;
 
    pieces := sort(pieces);
    every i := 1 to *pieces / 2 do	# change from ascending to descending
-      pieces[i] :=: pieces[-i]
+      pieces[i] :=: pieces[-i];
 
    prepare(shelf1);
-   every place(pieces[i := 1 to *pieces], i)
-   status("")
-   return
+   every place(pieces[i := 1 to *pieces], i);
+   status("");
+   return;
 end
 
 
@@ -245,42 +245,42 @@ end
 
 #  nextfit(l) -- pack using next-fit algorithm
 
-procedure nextfit(l)
-   local p
+procedure nextfit(l);
+   local p;
 
    every p := !l do
-      place(p, nfilled | nfilled + 1)
-   return
+      place(p, nfilled | nfilled + 1);
+   return;
 end
 
 
 
 #  firstfit(l) -- pack using first-fit algorithm
 
-procedure firstfit(l)
-   local p
+procedure firstfit(l);
+   local p;
 
    every p := !l do
-      place(p, 1 to nfilled + 1)
-   return
+      place(p, 1 to nfilled + 1);
+   return;
 end
 
 
 #  lastfit(l) -- pack using last-fit algorithm
 
-procedure lastfit(l)
-   local p
+procedure lastfit(l);
+   local p;
 
    every p := !l do
-      place(p, (nfilled to 1 by -1) | (nfilled + 1))
-   return
+      place(p, (nfilled to 1 by -1) | (nfilled + 1));
+   return;
 end
 
 
 #  bestfit(l) -- pack using best-fit algorithm
 
-procedure bestfit(l)
-   local p, b, i, max, found
+procedure bestfit(l);
+   local p, b, i, max, found;
 
    every p := !l do {
       max := FULL - p;  # fullest acceptable bin size
@@ -288,34 +288,34 @@ procedure bestfit(l)
       b := nfilled + 1;  # index of where found
       every i := 1 to nfilled do
          if found <:= (max >= bin[i]) then
-            b := i
+            b := i;
       place(p, b)			# place in best bin found
-      }
-   return
+      };
+   return;
 end
 
 
 #  worstfit(l, n) -- pack using worst-fit algorithm
 
-procedure worstfit(l, n)
-   local p, b, i, found
+procedure worstfit(l, n);
+   local p, b, i, found;
 
    every p := !l do {
       found := FULL - p;  # size of best bin found so far
       b := nfilled + 1;  # index of where found
       every i := 1 to nfilled do
          if found >:= bin[i] then
-            b := i
+            b := i;
       place(p, b)			# place in best bin found
-      }
-   return
+      };
+   return;
 end
 
 
 #  nearworst(l, n) -- pack using almost-worst-fit algorithm
 
-procedure nearworst(l, n)
-   local p, a, b, i, found
+procedure nearworst(l, n);
+   local p, a, b, i, found;
 
    every p := !l do {
       found := FULL - p;  # size of best bin found so far
@@ -324,10 +324,10 @@ procedure nearworst(l, n)
          if found >:= bin[i] then {
             a := b;
             b := i
-            }
+            };
       place(p, \a | \b | (nfilled + 1))	# place in second-best bin found
-      }
-   return
+      };
+   return;
 end
 
 
@@ -338,50 +338,50 @@ end
 
 #  menu_cb(v, a) -- File and Reorder menu callback
 
-procedure menu_cb(v, a)
+procedure menu_cb(v, a);
    case a[1] of {
-      "About":		about()
-      "New":		reload()
-      "Quit":		exit()
-      "Random":		mix()
-      "Regular":	regular()
-      "Ascending":	ascending()
+      "About":		about();
+      "New":		reload();
+      "Quit":		exit();
+      "Random":		mix();
+      "Regular":	regular();
+      "Ascending":	ascending();
       "Descending":	descending()
-      }
+      };
 end
 
 
 
 #  pack_cb(v, a) -- Pack menu callback
 
-procedure pack_cb(v, a)
-   local s, p
+procedure pack_cb(v, a);
+   local s, p;
 
    a[1] ? {
       s := tab(upto(' '))		# get 2- or 3-letter name
-      }
+      };
 
    prepare(shelf2);  # clear the shelf
    p := copy(pieces);
    case s of {
-      "FF":	firstfit(p)
-      "LF":	lastfit(p)
-      "NF":	nextfit(p)
-      "BF":	bestfit(p)
-      "WF":	worstfit(p)
+      "FF":	firstfit(p);
+      "LF":	lastfit(p);
+      "NF":	nextfit(p);
+      "BF":	bestfit(p);
+      "WF":	worstfit(p);
       "AWF":	nearworst(p)
-   }
+   };
 
-   status(s)
-   return
+   status(s);
+   return;
 end
 
 
 
 #  about() -- handle "about" menu entry
 
-procedure about(x, v)
-   static text
+procedure about(x, v);
+   static text;
    initial text := ["",
          Version,
          "by Gregg Townsend, The University of Arizona",
@@ -404,20 +404,20 @@ procedure about(x, v)
          "",
          "   `Fast Algorithms for Bin Packing' by David S. Johnson,",
          "   Journal of Computer and System Sciences 8, 272-314 (1974)",
-         ""]
+         ""];
 
-   Notice ! text
-   return
+   Notice ! text;
+   return;
 end
 
 
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts()
-   return ["size=600,400", "bg=pale gray", "label=Bin Packer"]
+procedure ui_atts();
+   return ["size=600,400", "bg=pale gray", "label=Bin Packer"];
 end
 
-procedure ui(win, cbk)
+procedure ui(win, cbk);
 return vsetup(win, cbk,
    [":Sizer:::0,0,600,400:Bin Packer",],
    ["file:Menu:pull::0,0,36,21:File",menu_cb,
@@ -430,6 +430,6 @@ return vsetup(win, cbk,
       ["Random","Regular","Ascending","Descending"]],
    ["shelf1:Rect:sunken::12,34,576,170:",],
    ["shelf2:Rect:sunken::12,217,576,170:",],
-   )
+   );
 end
 #===<<vib:end>>===	end of section maintained by vib

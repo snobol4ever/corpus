@@ -29,13 +29,13 @@
 global oldname, newname, ixname, ixprev
 global added, deleted, chgadd, chgdel
 
-procedure main(args)
-   local f, line
+procedure main(args);
+   local f, line;
 
    if *args > 0 then
       f := open(args[1]) | stop("can't open ", args[1])
    else
-      f := &input
+      f := &input;
 
    added := deleted := 0;
    oldname := newname := "";
@@ -66,7 +66,7 @@ procedure main(args)
          }
       else if ="diff" then {
          report();
-         while =" -" do tab(upto(' '))
+         while =" -" do tab(upto(' '));
          tab(many(' '));
          oldname := tab(upto(' ')) | "???";
          tab(many(' '));
@@ -74,32 +74,32 @@ procedure main(args)
          }
       else if ="Only " then
          only()
-      }
+      };
    ixprev := ixname;
-   report()
+   report();
 end
 
-procedure report()
-   local net
+procedure report();
+   local net;
 
    if oldname := \ixprev then
-      newname := ""
+      newname := "";
    if added > 0 | deleted > 0 then {
       net := string(added - deleted);
       if net > 0 then
-         net := "+" || net
+         net := "+" || net;
       write(right(added, 6) || right(net, 8), "\t", oldname, " ", newname)
-      }
+      };
    added := deleted := 0;
    chgadd := chgdel := 0;
-   ixprev := &null
-   return
+   ixprev := &null;
+   return;
 end
 
-procedure only()
+procedure only();
    report();
    if tab(-2) & ="." & any('oa') then
-      return
-   tab(1)
-   write("#\t", tab(0))
+      return;
+   tab(1);
+   write("#\t", tab(0));
 end

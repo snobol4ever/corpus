@@ -49,8 +49,8 @@ link options
 
 $define Epsilon 1.e-16	# maximum precision (more risks overflow)
 
-procedure main(args)
-   local v, t, x, y, a, d, i, j, ops, opts, limit
+procedure main(args);
+   local v, t, x, y, a, d, i, j, ops, opts, limit;
 
    opts := options(args, "n.l+");
 
@@ -67,14 +67,14 @@ procedure main(args)
       y[i + 1] := 1;
       y[i + 2] := 0;
       every j := i - 1 to 0 by -1 do
-         y[j + 1] := x[j + 2] * y[j + 2] + y[j + 3]
+         y[j + 1] := x[j + 2] * y[j + 2] + y[j + 3];
       a := real(integer(y[1])) / integer(y[2]);
-      if a < 0 then exit()
+      if a < 0 then exit();
       write(integer(y[1]), " / ", integer(y[2]), " \t",  a);
-      if abs(a - v) < Epsilon then exit()
+      if abs(a - v) < Epsilon then exit();
       d := t - integer(t);
-      if d < Epsilon then exit()
+      if d < Epsilon then exit();
       t := 1.0 / d
-      }
+      };
 
 end

@@ -43,7 +43,7 @@ global size
 global v_off
 global vidgets
 
-procedure main()
+procedure main();
 
    vidgets := ui();
    root := vidgets["root"];
@@ -64,121 +64,121 @@ procedure main()
    h_off := 0;
    v_off := 0;
 
-   GetEvents(root, , shortcuts)
+   GetEvents(root, , shortcuts);
 
 end
 
-procedure offset_cb()
+procedure offset_cb();
 
    repeat {
       if TextDialog("Set offset:", ["horizontal", "vertical"],
-         [h_off, v_off], 5) == "Cancel" then fail
+         [h_off, v_off], 5) == "Cancel" then fail;
       if h_off <- integer(dialog_value[1]) &
          v_off <- integer(dialog_value[2]) then break
       else {
          Notice("Nonnumeric offset value.");
          next
          }
-      }
+      };
 
-   return
+   return;
 
 end
 
-procedure scale_cb()
+procedure scale_cb();
 
    repeat {
-      if TextDialog("Set scale:", , scale, 5) == "Cancel" then fail
+      if TextDialog("Set scale:", , scale, 5) == "Cancel" then fail;
       if scale := integer(dialog_value[1]) then break
       else {
          Notice("Nonnumeric scale value.");
          next
          }
-      }
+      };
 
-   return
+   return;
 
 end
 
-procedure file_cb(vidgets, value)
+procedure file_cb(vidgets, value);
 
    case value[1] of {
-      "clear @C":     clear_cb()
-      "plot @P":      plot_cb()
-      "quit @Q":      exit()
+      "clear @C":     clear_cb();
+      "plot @P":      plot_cb();
+      "quit @Q":      exit();
       "snapshot @S":  snapshot(pane, -half, -half, size, size)
-      }
+      };
 
-   return
+   return;
 
 end
 
-procedure coord_cb(vidget, value)
-   local input
+procedure coord_cb(vidget, value);
+   local input;
 
    input := open(value) | {
       Notice("Cannot open " || image(value) || ".");
       fail
-      }
+      };
 
    coords := [];
 
-   every put(coords, coord2pt(!input))
+   every put(coords, coord2pt(!input));
 
-   close(input)
+   close(input);
 
-   return
+   return;
 
 end
 
-procedure plot_cb()
-   local p
+procedure plot_cb();
+   local p;
 
    every p := !coords do {
       case plane of { 
-         "xy":  DrawPoint(pane, scale * p.x + h_off, scale * p.y + v_off)
-         "yz":  DrawPoint(pane, scale * p.y + h_off, scale * p.z + v_off)
+         "xy":  DrawPoint(pane, scale * p.x + h_off, scale * p.y + v_off);
+         "yz":  DrawPoint(pane, scale * p.y + h_off, scale * p.z + v_off);
          "xz":  DrawPoint(pane, scale * p.x + h_off, scale * p.z + v_off)
          }
-      }
+      };
 
 end
 
-procedure plane_cb(vidget, value)
+procedure plane_cb(vidget, value);
 
-   plane := value
+   plane := value;
 
-   return
-
-end
-
-procedure clear_cb()
-
-   EraseArea(pane, -half, -half, size, size)
-
-   return
+   return;
 
 end
 
-procedure shortcuts(e)
+procedure clear_cb();
+
+   EraseArea(pane, -half, -half, size, size);
+
+   return;
+
+end
+
+procedure shortcuts(e);
 
    if &meta then case map(e) of {			# fold case
-         "c":   clear_cb()
-         "p":   plot_cb()
-         "q":	exit()
+         "c":   clear_cb();
+         "p":   plot_cb();
+         "q":	exit();
          "s":	snapshot(pane, -half, -half, size, size)
-         }
+         };
 
-   return
+   return;
 
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts()
-   return ["size=633,459", "bg=gray-white"]
+procedure ui_atts();
+   return ["size=633,459", "bg=gray-white"];
 end
 
-procedure ui(win, cbk)
+procedure ui(win, cbk);
 return vsetup(win, cbk,
    [":Sizer:::0,0,633,459:",],
    ["clear:Button:regular::82,101,50,20:clear",clear_cb],
@@ -194,6 +194,6 @@ return vsetup(win, cbk,
    ["plot:Button:regular::81,71,50,20:plot",plot_cb],
    ["scale:Button:regular::144,101,50,20:scale",scale_cb],
    ["pane:Rect:grooved::220,43,400,400:",],
-   )
+   );
 end
 #===<<vib:end>>===	end of section maintained by vib

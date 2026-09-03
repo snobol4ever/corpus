@@ -34,8 +34,8 @@
 #
 ############################################################################
 
-procedure sername(p, s, n, i)
-   static prefix, suffix, cols, serial, name, first
+procedure sername(p, s, n, i);
+   static prefix, suffix, cols, serial, name, first;
 
    initial {
       prefix := "file";
@@ -43,7 +43,7 @@ procedure sername(p, s, n, i)
       cols := 3;
       serial := 0;
       first := serial
-      }
+      };
 
    # See if anything has changed.
 
@@ -52,12 +52,12 @@ procedure sername(p, s, n, i)
       suffix := \s;
       cols := \n;
       first := serial := \i
-      }
+      };
 
    name := prefix || right(serial, cols, "0") || suffix;
 
-   serial +:= 1
+   serial +:= 1;
 
-   return name
+   return name;
 
 end

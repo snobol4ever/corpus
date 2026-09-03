@@ -38,8 +38,8 @@
 #
 ############################################################################
 
-procedure segment(line,dlms)
-   local ndlms
+procedure segment(line,dlms);
+   local ndlms;
 
    dlms := (any(dlms,line[1]) & ~dlms);
    ndlms := ~dlms;
@@ -47,14 +47,14 @@ procedure segment(line,dlms)
       suspend tab(many(ndlms)) \ 1;
       suspend tab(many(dlms)) \ 1;
       pos(0) & break
-      }
+      };
 end
 
-procedure seglist(s,c)
-   local L
+procedure seglist(s,c);
+   local L;
 
    L := [];
    c := (any(c,s[1]) & ~c);
-   s ? while put(L,tab(many(c := ~c)))
-   return L
+   s ? while put(L,tab(many(c := ~c)));
+   return L;
 end

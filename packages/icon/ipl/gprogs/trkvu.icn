@@ -130,8 +130,8 @@ global stdwin		# std bg/fg window
 
 #  ========================= Overall Control =========================
 
-procedure main(args)
-   local e, v, xywh
+procedure main(args);
+   local e, v, xywh;
 
    Window("size=800,800", "resize=on", "canvas=hidden",
       "linewidth=2", "font=sans,bold,12", args);
@@ -151,13 +151,13 @@ procedure main(args)
       view('Mm', "Minute", byminute, minutelegend),
       view('Tt', "Time", bytime, timelegend),
       ];
-   while /viewlist[-1] do pull(viewlist)
+   while /viewlist[-1] do pull(viewlist);
 
    seglist := [];  # init data structures
    fnlist := [];
    fhlist := [];
 
-   every load(!args)		# load data
+   every load(!args);		# load data
    survey();  # find extremes
    fnlist := fnsimp(fnlist);  # simplify filename list
 
@@ -171,7 +171,7 @@ procedure main(args)
    else if tmax > 0 then
       Enqueue("a")		# show initially by age
    else
-      Enqueue("o")		# show initially by orientation
+      Enqueue("o");		# show initially by orientation
 
    # ==================== main event loop ====================
 
@@ -182,119 +182,119 @@ procedure main(args)
          mapgen()				# regenerate map
          }
       else case e of {
-         !" \n\r": nextview(+1)			# cycle view forward
-         !"\b\d":  nextview(-1)			# cycle view backward
-         &resize:  { layout(); mapevent(e) }	# resize window
+         !" \n\r": nextview(+1);			# cycle view forward
+         !"\b\d":  nextview(-1);			# cycle view backward
+         &resize:  { layout(); mapevent(e) };	# resize window
          default:  { mapevent(e) }		# possible standard action
          }
-      }
+      };
 end
 
-procedure nextview(d)			# advance to next view in sequence
-   local i
+procedure nextview(d);			# advance to next view in sequence
+   local i;
 
    every i := 1 to *viewlist do
       if curview === viewlist[i] then {
-         i := (i + *viewlist - 1 + d) % *viewlist + 1
-         curview := viewlist[i]
-         mapgen()
+         i := (i + *viewlist - 1 + d) % *viewlist + 1;
+         curview := viewlist[i];
+         mapgen();
          return
-         }
+         };
 end
 
 
 
 #  ========================= Input =========================
 
-procedure load(fname)			# load data from one file
-   local f, h, p, w, t, x, y, a, line, ptlist
+procedure load(fname);			# load data from one file
+   local f, h, p, w, t, x, y, a, line, ptlist;
 
-   f := open(fname) | stop("cannot open ", fname)
-   put(fnlist, fname)
-   put(fhlist, huenum(*fnlist))
+   f := open(fname) | stop("cannot open ", fname);
+   put(fnlist, fname);
+   put(fhlist, huenum(*fnlist));
    while line := read(f) do {
-      every put(w := [], words(line))
+      every put(w := [], words(line));
       if -90.0 <= numeric(w[-3]) <= 90.0 then
-         a := pull(w)			# altitude
+         a := pull(w);			# altitude
       if x := numeric(w[-1]) & y := numeric(w[-2]) then {
-         t := tcrack(w[-4], w[-3]) | &null
-         /ptlist := []
+         t := tcrack(w[-4], w[-3]) | &null;
+         /ptlist := [];
          put(ptlist, p := point(t, x, y, *fnlist))
          }
       else {
-         put(seglist, \ptlist)
-         ptlist := &null
+         put(seglist, \ptlist);
+         ptlist := &null;
          next
          }
-      }
+      };
 
-   put(seglist, \ptlist)
-   close(f)
+   put(seglist, \ptlist);
+   close(f);
    if /p then
-      write(&errout, "   no data: ", fname)
-   return
+      write(&errout, "   no data: ", fname);
+   return;
 end
 
-procedure tcrack(date, time)		# translate date + time into real value
-   local day, sec
-   static smul
-   initial smul := 1.0 / (24 * 60 * 60)
+procedure tcrack(date, time);		# translate date + time into real value
+   local day, sec;
+   static smul;
+   initial smul := 1.0 / (24 * 60 * 60);
 
    if date[3] == "/" then
-      date := map("CcYy/Mm/Dd", "Mm/Dd/CcYy", date)
+      date := map("CcYy/Mm/Dd", "Mm/Dd/CcYy", date);
    if date <<= "1990/01/01" then	# if indicator of missing date
-      return &null
-   *time =  8 | fail
-   *date = 10 | fail
-   day := DateToSec(date) | fail
-   sec := ClockToSec(time) | fail
-   return smul * (day + sec)
+      return &null;
+   *time =  8 | fail;
+   *date = 10 | fail;
+   day := DateToSec(date) | fail;
+   sec := ClockToSec(time) | fail;
+   return smul * (day + sec);
 end
 
-procedure survey()			# survey data ranges
-   local p
+procedure survey();			# survey data ranges
+   local p;
 
-   xmin := 180
-   xmax := -180
-   ymin := 90
-   ymax := -90
-   tmin := 100 * 365.25
-   tmax := 0
+   xmin := 180;
+   xmax := -180;
+   ymin := 90;
+   ymax := -90;
+   tmin := 100 * 365.25;
+   tmax := 0;
 
    every p := !!seglist do {
-      tmin >:= \p.t
-      tmax <:= \p.t
-      xmin >:= p.x
-      xmax <:= p.x
-      ymin >:= p.y
+      tmin >:= \p.t;
+      tmax <:= \p.t;
+      xmin >:= p.x;
+      xmax <:= p.x;
+      ymin >:= p.y;
       ymax <:= p.y
-      }
+      };
 
    if xmin > xmax then
-      stop("   nothing to display")	# diagnostic already issued
+      stop("   nothing to display");	# diagnostic already issued
 
    if tmin > tmax then
-      tmin := tmax := 0
+      tmin := tmax := 0;
 
-   return
+   return;
 end
 
-procedure fnsimp(fnlist)		# simplify filename list
-   local f, i, j, s
+procedure fnsimp(fnlist);		# simplify filename list
+   local f, i, j, s;
 
-   if *fnlist < 2 then fail
+   if *fnlist < 2 then fail;
    (coprefix ! fnlist) ? {
-      i := 1
+      i := 1;
       while i := upto('/') + 1 do
          move(1)
-      }
+      };
    (cosuffix ! fnlist) ? {
-      tab(upto('.') | 0)
+      tab(upto('.') | 0);
       j := -*tab(0)
-      }
-   f := []
-   every put(f, (!fnlist)[i:j])
-   return f
+      };
+   f := [];
+   every put(f, (!fnlist)[i:j]);
+   return f;
 end
 
 
@@ -308,110 +308,110 @@ end
 #  a darkened yellow is really ugly.  (For better contrast, some colorings
 #  use hue 55 instead of 60 for a yellow color.)
 
-procedure hueinit()		# initialize hue table (360 entries)
-   local d, d2, v
+procedure hueinit();		# initialize hue table (360 entries)
+   local d, d2, v;
 
-   huelist := list(360)
+   huelist := list(360);
    every d := 0 to 359 do {
-      d2 := d - d % 2			# use 2-degree quanta
+      d2 := d - d % 2;			# use 2-degree quanta
       if 60 < d2 < 180 then		# darken green region
          v := integer(100 - 0.8 * (60 - abs(d2 - 120)))
       else
-         v := 100
+         v := 100;
       huelist[d + 1] := HSVValue(d2 || "/100/" || v)
-      }
-   return
+      };
+   return;
 end
 
-procedure sethue(h)		# set & cache color, given hue in degrees >= 0
-   local k
-   static kprev
+procedure sethue(h);		# set & cache color, given hue in degrees >= 0
+   local k;
+   static kprev;
 
    if h := integer(h) % 360 then
       k := huelist[h + 1]
    else				# use gray for invalid argument
-      k := "gray"
-   Fg(kprev ~===:= k)
-   return
+      k := "gray";
+   Fg(kprev ~===:= k);
+   return;
 end
 
-procedure huenum(n)		# return hue from ordered list
-   static predef
-   initial predef := [240, 0, 120, 30, 180, 300, 50, 270, 70, 210, 330]
+procedure huenum(n);		# return hue from ordered list
+   static predef;
+   initial predef := [240, 0, 120, 30, 180, 300, 50, 270, 70, 210, 330];
    #                  blu red grn org cyan mgnta tan purp grn blu plum
 
-   return predef[n] | (137 * n) % 360
+   return predef[n] | (137 * n) % 360;
 end
 
 
 
 #  ========================= Map Drawing =========================
 
-procedure layout()			# configure window layout
-   local w, h, lh
+procedure layout();			# configure window layout
+   local w, h, lh;
 
-   Bg("pale weak yellow")
-   Clip()
-   EraseArea()
-   Bg("white")
+   Bg("pale weak yellow");
+   Clip();
+   EraseArea();
+   Bg("white");
 
-   w := WAttrib("width")
-   h := WAttrib("height")
+   w := WAttrib("width");
+   h := WAttrib("height");
 
    # set legend size and baseline
-   lh := 2 * BORDER + WAttrib("ascent")
-   lbase := BORDER + lh - BORDER
+   lh := 2 * BORDER + WAttrib("ascent");
+   lbase := BORDER + lh - BORDER;
 
    # set legend clipping, and clear
-   lclip := [BORDER, BORDER, w - 2 * BORDER, lh]
-   Clip ! ([stdwin] ||| lclip)
-   Clip ! lclip
-   EraseArea()
+   lclip := [BORDER, BORDER, w - 2 * BORDER, lh];
+   Clip ! ([stdwin] ||| lclip);
+   Clip ! lclip;
+   EraseArea();
 
    # set map clipping, and clear
-   mclip := [BORDER, lh + 2 * BORDER, w - 2 * BORDER, h - lh - 3 * BORDER]
-   Clip ! mclip
-   EraseArea()
+   mclip := [BORDER, lh + 2 * BORDER, w - 2 * BORDER, h - lh - 3 * BORDER];
+   Clip ! mclip;
+   EraseArea();
 
-   return
+   return;
 end
 
-procedure draw(win, pjn, a)		# display map using curview
-   local ptlist, h, n, p, q, x1, y1, x2, y2, l
+procedure draw(win, pjn, a);		# display map using curview
+   local ptlist, h, n, p, q, x1, y1, x2, y2, l;
 
-   Clip ! lclip
-   EraseArea()
-   GotoXY(2 * BORDER, lbase)
-   ltext(curview.ltitle)
-   ltext(": ")
-   curview.lproc(pjn)
+   Clip ! lclip;
+   EraseArea();
+   GotoXY(2 * BORDER, lbase);
+   ltext(curview.ltitle);
+   ltext(": ");
+   curview.lproc(pjn);
 
-   Clip ! mclip
+   Clip ! mclip;
    every ptlist := !seglist do {
-      if *Pending() > 0 then break
-      p := &null
+      if *Pending() > 0 then break;
+      p := &null;
       every q := !ptlist do {
-         l := project(pjn, [q.x, q.y])
-         x2 := integer(get(l))
-         y2 := integer(get(l))
-         x2 <:= -32767
-         y2 <:= -32767
-         x2 >:= 32767
-         y2 >:= 32767
+         l := project(pjn, [q.x, q.y]);
+         x2 := integer(get(l));
+         y2 := integer(get(l));
+         x2 <:= -32767;
+         y2 <:= -32767;
+         x2 >:= 32767;
+         y2 >:= 32767;
          if \p then {
-            sethue(curview.hproc(p, q) | &null)
+            sethue(curview.hproc(p, q) | &null);
             DrawLine(x1, y1, x2, y2)
             }
          else if *ptlist = 1 then {
-            sethue(curview.hproc(q, q) | &null)
+            sethue(curview.hproc(q, q) | &null);
             FillRectangle(x2 - 1, y2 - 1, 3, 3)
-            }
-         p := q
-         x1 := x2
+            };
+         p := q;
+         x1 := x2;
          y1 := y2
          }
-      }
-   return
+      };
+   return;
 end
 
 
@@ -420,31 +420,31 @@ end
 #
 #  Colors are written via &window, text in black via stdwin.
 
-procedure ltext(s)		# write text
+procedure ltext(s);		# write text
 
-   return WWrites(stdwin, s)
+   return WWrites(stdwin, s);
 end
 
-procedure lhue(h, t)		# write hue block with optional caption
-   local x, w
+procedure lhue(h, t);		# write hue block with optional caption
+   local x, w;
 
-   sethue(h)
-   x := WAttrib("x")
-   w := WAttrib("ascent")
-   FillRectangle(x, lbase + 1, w - 1, -w)
-   GotoXY(x + w, lbase)
-   ltext(\t)
-   return
+   sethue(h);
+   x := WAttrib("x");
+   w := WAttrib("ascent");
+   FillRectangle(x, lbase + 1, w - 1, -w);
+   GotoXY(x + w, lbase);
+   ltext(\t);
+   return;
 end
 
-procedure lspectrum(h1, h2, n)	# write spectrum of 6 colors from h1 to h2
-   local i, m
+procedure lspectrum(h1, h2, n);	# write spectrum of 6 colors from h1 to h2
+   local i, m;
 
-   /n := 6
-   m := (h2 - h1) / (n - 1.0)
+   /n := 6;
+   m := (h2 - h1) / (n - 1.0);
    every i := 1 to n do
-      lhue(h1 + m * (i - 1))
-   return
+      lhue(h1 + m * (i - 1));
+   return;
 end
 
 
@@ -461,263 +461,263 @@ end
 #  show in the legend only those files containing a point in view
 #  (note: won't show legend for tracks that "just pass through")
 
-procedure flegend(pjn)
-   local winlim, viewlim, fset, vset, i, seg, pt, x0, x1, y0, y1
+procedure flegend(pjn);
+   local winlim, viewlim, fset, vset, i, seg, pt, x0, x1, y0, y1;
 
-   fset := set()		# set of potential file source indices
-   every insert(fset, 1 to *fnlist)
-   vset := set()		# set of indices of files in view
+   fset := set();		# set of potential file source indices
+   every insert(fset, 1 to *fnlist);
+   vset := set();		# set of indices of files in view
 
    # find limits of the current field of view
-   winlim := [mclip[1], mclip[2] + mclip[4], mclip[1] + mclip[3], mclip[2]]
-   viewlim := project(invp(pjn), winlim)
-   x0 := get(viewlim)
-   y0 := get(viewlim)
-   x1 := get(viewlim)
-   y1 := get(viewlim)
+   winlim := [mclip[1], mclip[2] + mclip[4], mclip[1] + mclip[3], mclip[2]];
+   viewlim := project(invp(pjn), winlim);
+   x0 := get(viewlim);
+   y0 := get(viewlim);
+   x1 := get(viewlim);
+   y1 := get(viewlim);
 
    # find files in view
    every seg := !seglist do {
-      pt := !seg	# first pt
+      pt := !seg;	# first pt
       if member(fset, pt.f) then {
          every pt := !seg do {
             if x0 <= pt.x <= x1 & y0 <= pt.y <= y1 then {
-               delete(fset, pt.f)
-               insert(vset, pt.f)
+               delete(fset, pt.f);
+               insert(vset, pt.f);
                if *fset = 0 then
                   break break
                }
             }
          }
-      }
+      };
 
    # now, finally draw the legend
    every i := !sort(vset) do
-      lhue(fhlist[i], fnlist[i] || " ")
-   return
+      lhue(fhlist[i], fnlist[i] || " ");
+   return;
 end
 
-procedure byfile(p, q)
-   return fhlist[q.f]
+procedure byfile(p, q);
+   return fhlist[q.f];
 end
 
 
 #  A: color segments by age (relative to range of timestamps seen)
 
-procedure agelegend()
+procedure agelegend();
 
-   ltext("oldest")
-   lspectrum(630, 360, 12)
-   ltext("newest")
-   return
+   ltext("oldest");
+   lspectrum(630, 360, 12);
+   ltext("newest");
+   return;
 end
 
-procedure byage(p, q)
+procedure byage(p, q);
 
    # purple oldest, green mid, red newest
-   return 630. - 270. * (\q.t - tmin) / (tmax - tmin)
+   return 630. - 270. * (\q.t - tmin) / (tmax - tmin);
 end
 
 
 #  O: color segments by orientation (direction of travel)
 
-procedure olegend()
+procedure olegend();
 
-   ltext("N"); lspectrum(270, 180)
-   ltext("E"); lspectrum(180, 90)
-   ltext("S"); lspectrum(90, 0)
-   ltext("W"); lspectrum(360, 270)
-   ltext("N")
-   return
+   ltext("N"); lspectrum(270, 180);
+   ltext("E"); lspectrum(180, 90);
+   ltext("S"); lspectrum(90, 0);
+   ltext("W"); lspectrum(360, 270);
+   ltext("N");
+   return;
 end
 
-procedure orientation(p, q)
+procedure orientation(p, q);
 
    # blue north, teal east, olive south, red west
-   return 180. + rtod(atan(q.y - p.y, cos(dtor(q.y)) * (q.x - p.x)))
+   return 180. + rtod(atan(q.y - p.y, cos(dtor(q.y)) * (q.x - p.x)));
 end
 
 
 #  V: color segments by velocity
 
-procedure vlegend()
+procedure vlegend();
 
-   lhue(240, "1 ")
-   lhue(210, "2 ")
-   lhue(180, "3 ")
-   lhue(120, "4 ")
-   lhue( 55, "5 ")
-   lhue( 30, "6 ")
-   lhue(  0, "7 ")
-   lhue(300, "8 ")
-   lhue(270, "9 ")
-   ltext(" mph (x1, x10, ...)")
-   return
+   lhue(240, "1 ");
+   lhue(210, "2 ");
+   lhue(180, "3 ");
+   lhue(120, "4 ");
+   lhue( 55, "5 ");
+   lhue( 30, "6 ");
+   lhue(  0, "7 ");
+   lhue(300, "8 ");
+   lhue(270, "9 ");
+   ltext(" mph (x1, x10, ...)");
+   return;
 end
 
-procedure velocity(p, q)
-   local dt, dx, dy, d, mph
-   static hues
-   initial hues := [270, 240, 210, 180, 120, 55, 30,  0, 300, 270]
+procedure velocity(p, q);
+   local dt, dx, dy, d, mph;
+   static hues;
+   initial hues := [270, 240, 210, 180, 120, 55, 30,  0, 300, 270];
    #                  0    1    2    3    4   5   6   7    8    9
    #                      10   20   30   40  50  60  70   80   90
    #                     100  200  300  400 500 600 700  800  900
 
-   dt := 0 < (\q.t - \p.t) | fail
-   dx := cos(dtor(p.y)) * (q.x - p.x)
-   dy := q.y - p.y
-   d := sqrt(dx ^ 2 + dy ^ 2)
-   mph := integer(2.877 * d / dt + 0.5)
+   dt := 0 < (\q.t - \p.t) | fail;
+   dx := cos(dtor(p.y)) * (q.x - p.x);
+   dy := q.y - p.y;
+   d := sqrt(dx ^ 2 + dy ^ 2);
+   mph := integer(2.877 * d / dt + 0.5);
    while mph > 9 do
-      mph /:= 10
-   return hues[mph + 1]
+      mph /:= 10;
+   return hues[mph + 1];
 end
 
 
 #  I: color segments by length of time interval
 
-procedure intlegend()
+procedure intlegend();
 
-   lhue(  0, "0 ")
-   lhue( 30, "1 ")
-   lhue( 55, "2 ")
-   lhue(120, "4 ")
-   lhue(180, "8 ")
-   lhue(220, "16 ")
-   lhue(240, "32 ")
-   lhue(290, "64 sec")
-   return
+   lhue(  0, "0 ");
+   lhue( 30, "1 ");
+   lhue( 55, "2 ");
+   lhue(120, "4 ");
+   lhue(180, "8 ");
+   lhue(220, "16 ");
+   lhue(240, "32 ");
+   lhue(290, "64 sec");
+   return;
 end
 
-procedure byinterval(p, q)
-   local dt, i
-   static hues
-   initial hues := [0, 30, 55, 120, 180, 220, 240, 290]
+procedure byinterval(p, q);
+   local dt, i;
+   static hues;
+   initial hues := [0, 30, 55, 120, 180, 220, 240, 290];
    #                 0  1   2    4    8   16   32   64
 
-   dt := integer(86400. * (\q.t - \p.t) + 0.5) | fail
-   i := (2 + integer(log(0 < dt, 2))) | 1
-   return hues[i | -1]
+   dt := integer(86400. * (\q.t - \p.t) + 0.5) | fail;
+   i := (2 + integer(log(0 < dt, 2))) | 1;
+   return hues[i | -1];
 end
 
 
 #  S: emphasize individual segments in contrasting colors.
 
-procedure seglegend()
+procedure seglegend();
 
-   lspectrum(137, 12*137, 12)
-   ltext("...")
-   return
+   lspectrum(137, 12*137, 12);
+   ltext("...");
+   return;
 end
 
-procedure segments(p, q)
-   static n
-   initial n := 0
+procedure segments(p, q);
+   static n;
+   initial n := 0;
 
-   return n +:= 137
+   return n +:= 137;
 end
 
 
 #  Y: color segments by time of year as a spectrum
 
-procedure monthlegend()
+procedure monthlegend();
 
-   ltext("January")
-   lspectrum(525, 195, 12)
-   ltext("December")
-   return
+   ltext("January");
+   lspectrum(525, 195, 12);
+   ltext("December");
+   return;
 end
 
-procedure bymonth(p, q)
+procedure bymonth(p, q);
 
    # cyan winter, green spring, red summer, blue fall
-   return 540. - (\q.t % 365.25) * (360. / 365.25)
+   return 540. - (\q.t % 365.25) * (360. / 365.25);
 end
 
 
 #  D: color segments by day of week
 
-procedure daylegend()
+procedure daylegend();
 
-   lhue(240, "Sun ")
-   lhue(120, "Mon ")
-   lhue(165, "Tue ")
-   lhue( 55, "Wed ")
-   lhue( 30, "Thu ")
-   lhue(285, "Fri ")
-   lhue(  0, "Sat ")
-   return
+   lhue(240, "Sun ");
+   lhue(120, "Mon ");
+   lhue(165, "Tue ");
+   lhue( 55, "Wed ");
+   lhue( 30, "Thu ");
+   lhue(285, "Fri ");
+   lhue(  0, "Sat ");
+   return;
 end
 
-procedure byday(p, q)
-   static hues
-   initial hues := [240, 120, 165, 55, 30, 285, 0]
+procedure byday(p, q);
+   static hues;
+   initial hues := [240, 120, 165, 55, 30, 285, 0];
 
-   return hues[1 + ((4 + integer(\q.t)) % 7)]
+   return hues[1 + ((4 + integer(\q.t)) % 7)];
 end
 
 
 #  H: color segments by hour in the day (0 to 11, repeated)
 
-procedure hourlegend()
+procedure hourlegend();
 
-   lhue(240, "12 ")
-   lhue(290, "1 ")
-   lhue(350, "2 ")
-   lhue( 30, "3 ")
-   lhue( 80, "4 ")
-   lhue(150, "5 ")
-   lhue(210, "6 ")
-   lhue(270, "7 ")
-   lhue(330, "8 ")
-   lhue( 55, "9 ")
-   lhue(120, "10 ")
-   lhue(180, "11 ")
-   return
+   lhue(240, "12 ");
+   lhue(290, "1 ");
+   lhue(350, "2 ");
+   lhue( 30, "3 ");
+   lhue( 80, "4 ");
+   lhue(150, "5 ");
+   lhue(210, "6 ");
+   lhue(270, "7 ");
+   lhue(330, "8 ");
+   lhue( 55, "9 ");
+   lhue(120, "10 ");
+   lhue(180, "11 ");
+   return;
 end
 
-procedure byhour(p, q)
-   local h
-   static hues
-   initial hues := [240, 290, 350, 30, 80, 150, 210, 270, 330, 55, 120, 180]
+procedure byhour(p, q);
+   local h;
+   static hues;
+   initial hues := [240, 290, 350, 30, 80, 150, 210, 270, 330, 55, 120, 180];
 
-   h := integer(24 * (\q.t - integer(q.t))) | fail
-   return hues[1 + h % 12]
+   h := integer(24 * (\q.t - integer(q.t))) | fail;
+   return hues[1 + h % 12];
 end
 
 
 #  M: color segments by minute of the hour, mod 10
 
-procedure minutelegend()
-   local i
+procedure minutelegend();
+   local i;
 
    every i := 0 to 9 do
-      lhue(huenum(i + 1), ":x" || i || " ")
-   return
+      lhue(huenum(i + 1), ":x" || i || " ");
+   return;
 end
 
-procedure byminute(p, q)
-   local t
+procedure byminute(p, q);
+   local t;
 
-   t := 24 * 30 * (\p.t + \q.t) | fail		# time in minutes since epoch
-   return huenum(1 + integer(t) % 10)
+   t := 24 * 30 * (\p.t + \q.t) | fail;		# time in minutes since epoch
+   return huenum(1 + integer(t) % 10);
 end
 
 
 #  T: color segments by a time-of-day spectrum
 
-procedure timelegend()
+procedure timelegend();
 
-   ltext("midnight")
-   lspectrum(600, 420, 13)
-   ltext("noon")
-   lspectrum(420, 240, 13)
-   ltext("midnight")
-   return
+   ltext("midnight");
+   lspectrum(600, 420, 13);
+   ltext("noon");
+   lspectrum(420, 240, 13);
+   ltext("midnight");
+   return;
 end
 
-procedure bytime(p, q)
+procedure bytime(p, q);
 
    # green morning, yellow noon, red afternoon, blue night
-   return 600. - 360. * (\q.t - integer(q.t))
+   return 600. - 360. * (\q.t - integer(q.t));
 end

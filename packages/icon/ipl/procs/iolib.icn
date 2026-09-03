@@ -175,7 +175,7 @@ global tc_table, isDOS
 record true()
 
 
-procedure check_features()
+procedure check_features();
 
     initial {
 
@@ -183,19 +183,19 @@ procedure check_features()
 	    isDOS := &null
 	else if find("MS-DOS", &features) then
 	    isDOS := 1
-	else stop("check_features:  OS not (yet?) supported.")
+	else stop("check_features:  OS not (yet?) supported.");
 
 	find("expressi",&features) |
 	    er("check_features","co-expressions not implemented - &$#!",1)
-    }
+    };
 
-    return
+    return;
 
 end
 
 
 
-procedure setname(name)
+procedure setname(name);
 
     # Sets current terminal type to "name" and builds a new termcap
     # capability database (residing in tc_table).  Fails if unable to
@@ -208,15 +208,15 @@ procedure setname(name)
     check_features();
 
     tc_table := table();
-    tc_table := maketc_table(getentry(name)) | fail
+    tc_table := maketc_table(getentry(name)) | fail;
     # er("setname","no termcap entry found for "||name,3)
-    return "successfully reset for terminal " || name
+    return "successfully reset for terminal " || name;
 
 end
 
 
 
-procedure getname()
+procedure getname();
 
     # Getname() first checks to be sure we're running under DOS or
     # UNIX, and, if so, tries to figure out what the current terminal
@@ -225,7 +225,7 @@ procedure getname()
     # Terminates with an error message if the terminal type cannot be
     # ascertained.  DOS defaults to "mono."
 
-    local term, tset_output
+    local term, tset_output;
 
     check_features();
 
@@ -239,26 +239,26 @@ procedure getname()
 	    term := !tset_output;
 	    close(tset_output)
 	}
-    }
+    };
 
     return \term |
-	er("getname","can't seem to determine your terminal type",1)
+	er("getname","can't seem to determine your terminal type",1);
 
 end
 
 
 
-procedure er(func,msg,errnum)
+procedure er(func,msg,errnum);
 
     # short error processing utility
     write(&errout,func,":  ",msg);
-    exit(errnum)
+    exit(errnum);
 
 end
 
 
 
-procedure getentry(name, termcap_string)
+procedure getentry(name, termcap_string);
 
     # "Name" designates the current terminal type.  Getentry() scans
     # the current environment for the variable TERMCAP.  If the
@@ -272,8 +272,8 @@ procedure getentry(name, termcap_string)
     # found, getentry() returns that entry.  Otherwise, getentry()
     # fails.
 
-    local isFILE, f, getline, line, nm, ent1, ent2, entry
-    static slash, termcap_names
+    local isFILE, f, getline, line, nm, ent1, ent2, entry;
+    static slash, termcap_names;
     initial {
 	if \isDOS then {
 	    slash := "\\";
@@ -283,7 +283,7 @@ procedure getentry(name, termcap_string)
 	    slash := "/";
 	    termcap_names := ["/etc/termcap"]
 	}
-    }
+    };
 
 
     # You can force getentry() to use a specific termcap file by cal-
@@ -305,7 +305,7 @@ procedure getentry(name, termcap_string)
 		    # termcap environment variable, so getentry() will look for
 		    # a termcap file.
 		    (move(3), getentry(tab(find(":"))) ?
-		     (tab(find(":")+1), tab(0)))
+		     (tab(find(":")+1), tab(0)));
 		return termcap_string
 	    }
 	    else isFILE := 1
@@ -320,12 +320,12 @@ procedure getentry(name, termcap_string)
 		termcap_string ?:= tab(find("tc=")) ||
 		    # Recursively fetch the new termcap entry w/ name trimmed.
 		    (move(3), getentry(tab(find(":")), "/etc/termcap") ?
-		     (tab(find(":")+1), tab(0)))
+		     (tab(find(":")+1), tab(0)));
 		return termcap_string
 	    }
 	    else isFILE := 1
 	}
-    }
+    };
 
     # The logic here probably isn't clear.  The idea is to try to use
     # the termcap environment variable successively as 1) a termcap en-
@@ -335,9 +335,9 @@ procedure getentry(name, termcap_string)
     # handles 1.
 
     if \isFILE			# if find(slash, \termcap_string)
-    then f := open(\termcap_string)
+    then f := open(\termcap_string);
     /f := open(!termcap_names) |
-	er("getentry","I can't access your termcap file.  Read iolib.icn.",1)
+	er("getentry","I can't access your termcap file.  Read iolib.icn.",1);
     
     getline := create read_file(f);
     
@@ -353,7 +353,7 @@ procedure getentry(name, termcap_string)
 		    # recursively fetch the new termcap entry
 			(move(3), getentry(tab(find(":"))) ?
 			 # remove the name field from the new entry
-			 (tab(find(":")+1), tab(0)))
+			 (tab(find(":")+1), tab(0)));
 		    return entry
 		}
 		else {
@@ -362,49 +362,49 @@ procedure getentry(name, termcap_string)
 		}
 	    }
 	}
-    }
+    };
 
     close(f);
-    er("getentry","can't find and/or process your termcap entry",3)
+    er("getentry","can't find and/or process your termcap entry",3);
  
 end
 
 
 
-procedure read_file(f)
+procedure read_file(f);
 
     # Suspends all non #-initial lines in the file f.
     # Removes leading tabs and spaces from lines before suspending
     # them.
 
-    local line
+    local line;
 
     \f | er("read_tcap_file","no valid termcap file found",3);
     while line := read(f) do {
 	match("#",line) & next;
-	line ?:= (tab(many('\t ')) | &null, tab(0))
+	line ?:= (tab(many('\t ')) | &null, tab(0));
 	suspend line
-    }
+    };
 
-    fail
+    fail;
 
 end
 
 
 
-procedure maketc_table(entry)
+procedure maketc_table(entry);
 
     # Maketc_table(s) (where s is a valid termcap entry for some
     # terminal-type): Returns a table in which the keys are termcap
     # capability designators, and the values are the entries in
     # "entry" for those designators.
 
-    local k, v, str, decoded_value
+    local k, v, str, decoded_value;
 
     /entry & er("maketc_table","no entry given",8);
-    if entry[-1] ~== ":" then entry ||:= ":"
+    if entry[-1] ~== ":" then entry ||:= ":";
     
-    /tc_table := table()
+    /tc_table := table();
 
     entry ? {
 
@@ -424,36 +424,36 @@ procedure maketc_table(entry)
 	    then decoded_value := integer(tab(find(":")))
 	    else if k := 1(tab(find(":")), pos(-1))
 	    then decoded_value := true()
-	    else er("maketc_table", "your termcap file has a bad entry",3)
-	    /tc_table[k] := decoded_value
+	    else er("maketc_table", "your termcap file has a bad entry",3);
+	    /tc_table[k] := decoded_value;
 	    &null
 	}
-    }
+    };
 
-    return tc_table
+    return tc_table;
 
 end
 
 
 
-procedure getval(id)
+procedure getval(id);
 
     /tc_table := maketc_table(getentry(getname())) |
-	er("getval","can't make a table for your terminal",4)
+	er("getval","can't make a table for your terminal",4);
 
-    return \tc_table[id] | fail
+    return \tc_table[id] | fail;
 	# er("getval","the current terminal doesn't support "||id,7)
 
 end
 
 
 
-procedure Decode(s)
+procedure Decode(s);
 
     # Does things like turn ^ plus a letter into a genuine control
     # character.
 
-    local new_s, chr, chr2
+    local new_s, chr, chr2;
 
     new_s := "";
 
@@ -464,14 +464,14 @@ procedure Decode(s)
 	    if chr == "\\" then {
 		new_s ||:= {
 		    case chr2 := move(1) of {
-			"\\" : "\\"
-			"^"  : "^"
-			"E"  : "\e"
-			"b"  : "\b"
-			"f"  : "\f"
-			"n"  : "\n"
-			"r"  : "\r"
-			"t"  : "\t"
+			"\\" : "\\";
+			"^"  : "^";
+			"E"  : "\e";
+			"b"  : "\b";
+			"f"  : "\f";
+			"n"  : "\n";
+			"r"  : "\r";
+			"t"  : "\t";
 			default : {
 			    if any(&digits,chr2) then {
 				char(integer("8r"||chr2||move(2 to 0 by -1))) |
@@ -483,25 +483,25 @@ procedure Decode(s)
 		}
 	    }
 	    else new_s ||:= char(ord(map(move(1),&lcase,&ucase)) - 64)
-	}
+	};
 	new_s ||:= tab(0)
-    }
+    };
 
-    return new_s
+    return new_s;
 
 end
 
 
 
-procedure igoto(cm,col,line)
+procedure igoto(cm,col,line);
 
-    local colline, range, increment, padding, str, outstr, chr, x, y
+    local colline, range, increment, padding, str, outstr, chr, x, y;
 
     if \col > (tc_table["co"]) | \line > (tc_table["li"]) then {
 	colline := string(\col) || "," || string(\line) | string(\col|line);
 	range := "(" || tc_table["co"]-1 || "," || tc_table["li"]-1 || ")";
 	er("igoto",colline || " out of range " || (\range|""),9)
-    } 
+    }; 
 
     # Use the Iconish 1;1 upper left corner & not the C-ish 0 offsets
     increment := -1;
@@ -512,10 +512,10 @@ procedure igoto(cm,col,line)
 	    tab(match("%"));
 	    if padding := integer(tab(any('23')))
 	    then chr := (="d" | "d")
-	    else chr := move(1)
+	    else chr := move(1);
 	    if case \chr of {
-		"." :  outstr ||:= char(line + increment)
-		"+" :  outstr ||:= char(line + ord(move(1)) + increment)
+		"." :  outstr ||:= char(line + increment);
+		"+" :  outstr ||:= char(line + ord(move(1)) + increment);
 		"d" :  {
 		    str := string(line + increment);
 		    outstr ||:= right(str, \padding, "0") | str
@@ -524,44 +524,44 @@ procedure igoto(cm,col,line)
 	    then line :=: col
 	    else {
 		case chr of {
-		    "n" :  line := ixor(line,96) & col := ixor(col,96)
-		    "i" :  increment := 0
-		    "r" :  line :=: col
-		    "%" :  outstr ||:= "%"
-		    "B" :  line := ior(ishift(line / 10, 4), line % 10)
+		    "n" :  line := ixor(line,96) & col := ixor(col,96);
+		    "i" :  increment := 0;
+		    "r" :  line :=: col;
+		    "%" :  outstr ||:= "%";
+		    "B" :  line := ior(ishift(line / 10, 4), line % 10);
 		    ">" :  {
 			x := move(1); y := move(1);
-			line > ord(x) & line +:= ord(y)
+			line > ord(x) & line +:= ord(y);
 			&null
 		    }
 		} | er("goto","bad termcap entry",5)
 	    }
-	}
+	};
     return outstr || tab(0)
-    }
+    };
 
 end
 
 
 
-procedure iputs(cp, affcnt)
+procedure iputs(cp, affcnt);
 
     # Writes cp to the screen.  Use this instead of writes() for
     # compatibility with itlib (a UNIX-only version which can handle
     # albeit inelegantly) terminals that need padding.
 
-    static num_chars
-    initial num_chars := &digits ++ '.'
+    static num_chars;
+    initial num_chars := &digits ++ '.';
 
     type(cp) == "string" |
 	er("iputs","you can't iputs() a non-string value!",10);
 
     cp ? {
 	if tab(many(num_chars)) & ="*" then
-	    stop("iputs:  iolib can't use terminals that require padding.")
+	    stop("iputs:  iolib can't use terminals that require padding.");
 	writes(tab(0))
-    }
+    };
 
-    return
+    return;
 
 end

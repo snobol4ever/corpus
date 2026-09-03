@@ -38,8 +38,8 @@ link xgtrace
 
 global size	# can be set by caller to control the window size
 
-procedure drawlab(p, callt, label)
-   local line, ws, calls, arg, trace, dlist, name
+procedure drawlab(p, callt, label);
+   local line, ws, calls, arg, trace, dlist, name;
 
    /size := 600;
 
@@ -48,7 +48,7 @@ procedure drawlab(p, callt, label)
    calls := callt();
 
    dlist := [];
-   every put(dlist, key(calls))
+   every put(dlist, key(calls));
    dlist := sort(dlist);
 
 #  If a window can be opened, set things up for drawing.  If not, just
@@ -63,7 +63,7 @@ procedure drawlab(p, callt, label)
    else {
       gdisable();
       trace := list_coords
-      }
+      };
 
    while line := read() do {
       EraseArea();  # clear window if there is one
@@ -96,13 +96,13 @@ procedure drawlab(p, callt, label)
                      write(&errout, "*** erroneous specification");
                      next
                      }
-                  }
-               move(1) | break
+                  };
+               move(1) | break;
                tab(many(ws))
-               }
+               };
             trace(call(p, args))
             }
          }
-      }
+      };
 
 end

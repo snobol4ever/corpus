@@ -59,9 +59,9 @@
 #
 ############################################################################
 
-procedure main()
-   local index, page, line, lines, temp1, temp2, x, xcase
-   local lline
+procedure main();
+   local index, page, line, lines, temp1, temp2, x, xcase;
+   local lline;
 
    index := table();
    xcase := table(" *** empty line");
@@ -72,18 +72,18 @@ procedure main()
          if ="=" then {
             page := tab(0);
             page := integer(page);  # for sorting; may fail
-            if page === "" then page := "<empty page number>"
+            if page === "" then page := "<empty page number>";
             next
             }
-         }
+         };
       line ?:= (tab(many(' ')), tab(0));  # trim leading blanks
-      if *line = 0 then next
+      if *line = 0 then next;
       lline := map(line);
       xcase[lline] := line;
-      if lline == "" then lline := " *** empty line"
-      /index[lline] := set()
+      if lline == "" then lline := " *** empty line";
+      /index[lline] := set();
       insert(index[lline], page)
-      }
+      };
 
    index := sort(index, 3);
 
@@ -94,10 +94,10 @@ procedure main()
       while x := get(lines) do {
          if type(x) == "string" then put(temp1, x)
          else put(temp2, x)
-         }
+         };
       lines := temp1 ||| temp2;
-      while writes(", ", get(lines))
+      while writes(", ", get(lines));
       write()
-      }
+      };
 
 end

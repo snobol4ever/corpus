@@ -35,8 +35,8 @@
 
 link regexp
 
-procedure ReAssign( s )
-local s1, n
+procedure ReAssign( s );
+local s1, n;
 
 s1 := "";
 
@@ -44,14 +44,14 @@ s ?
 { 
    while s1 := 1( tab(upto('\\')), move(1) ) do
    { 
-         if s1 ||:= ="\\" then next
+         if s1 ||:= ="\\" then next;
          if n := integer(tab(many(&digits))) then
          {
             n := Re_ParenGroups[n];
             s1 ||:= n;
             if ( =".", tab(any(&digits)) ) then move(-1)
          }
-   }
+   };
    return s1 ||:= tab(0)
-}
+};
 end

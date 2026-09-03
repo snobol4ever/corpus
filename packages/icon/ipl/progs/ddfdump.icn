@@ -37,31 +37,31 @@ $define ShowUnitSep "\xA7"	# show unit separator as section mark
 
 
 
-procedure main(args)
-   local f, nbytes
+procedure main(args);
+   local f, nbytes;
 
    if *args > 0 then
       every dofile(!args)
    else
-      dofile()
+      dofile();
 
 end
 
-procedure dofile(fname)
-   local f, dda, d, e, s
+procedure dofile(fname);
+   local f, dda, d, e, s;
 
    write("\n", \fname, ":");
    if /fname then
       f := ddfopen(&input) | stop("standard input is not a DDF file")
    else
-      f := ddfopen(fname) | stop("can't open ", fname, " as DDF file")
+      f := ddfopen(fname) | stop("can't open ", fname, " as DDF file");
    write();
 
    dda := ddfdda(f);
    every e := !dda do {
       write(e.tag, ": ", img(e.control), " ", img(e.name), " ", img(e.format));
       every write("   ", img(!e.labels))
-      }
+      };
 
    while d := ddfread(f) do {
       write();
@@ -71,24 +71,24 @@ procedure dofile(fname)
             if type(s) == "string" then
                writes(" ", img(s))
             else
-               writes(" ", image(s))
+               writes(" ", image(s));
          write()
          }
-      }
+      };
 
-   ddfclose(f)
+   ddfclose(f);
 end
 
-procedure img(s, n)
-   static s1, s2
+procedure img(s, n);
+   static s1, s2;
    initial {
       s1 := s2 := string(&cset);
-      every !s2[1+:32] := "."		# show unprintables as "."
-      every !s2[128+:33] := "."
+      every !s2[1+:32] := ".";		# show unprintables as "."
+      every !s2[128+:33] := ".";
       s2[1+ord(RecSep)] := ShowRecSep;  # show record sep (1E) as section mark
       s2[1+ord(UnitSep)] := ShowUnitSep	# show unit sep (1F) as paragraph mark
-   }
+   };
    if *s > \n then
-      s := s[1+:n]
-   return "<" || map(s, s1, s2) || ">"
+      s := s[1+:n];
+   return "<" || map(s, s1, s2) || ">";
 end

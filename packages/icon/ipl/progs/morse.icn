@@ -28,21 +28,21 @@
 
 link colmize
 
-procedure main(arg)
-   local lst, c, s
+procedure main(arg);
+   local lst, c, s;
    if *arg = 0 then {
       lst := [];
       every c := !(&ucase || "    " || &digits) do {
 	 put(lst,c || " " || morse(c))
-	 }
+	 };
       every write(colmize(lst))
       }
    else {
       s := "";
-      every s ||:= !arg || " "
+      every s ||:= !arg || " ";
       s := trim(s);
       write((if any('.-',s) then unmorse else morse)(s))
-      }
+      };
 end
 
 
@@ -52,16 +52,16 @@ end
 #
 ############################################################################
 
-procedure morse(s)
-   local i, t, c, x
-   static morsemeander, morseindex
+procedure morse(s);
+   local i, t, c, x;
+   static morsemeander, morseindex;
 
    initial {
       morsemeander :=
       "....------.----..---.-.---...--.--.-..--..-.--....-.-.-...-..-.....";
       morseindex :=
       "TMOT09TTT1T8TT2GQTTTJTZ7T3NKYTTCTTTTDXTTWPTB64EARTTLTVTIUFTSH5"
-      }
+      };
 
    x := "";
    every c := !map(s,&lcase,&ucase) do
@@ -69,8 +69,8 @@ procedure morse(s)
       else {
 	 t := morsemeander[i+:6];
 	 x ||:= t[find("-",t)+1:0] || " "
-	 }
-   return x
+	 };
+   return x;
 end
 
 
@@ -81,19 +81,19 @@ end
 #
 ############################################################################
 
-procedure unmorse(s)
-   local x, t, c
+procedure unmorse(s);
+   local x, t, c;
    x := "";
    s ? {
       until pos(0) do {
 	 tab(many(' \t'));
 	 t := tab(upto(' \t') | 0);
-	 if t == "" then next
+	 if t == "" then next;
 	 x ||:= (every c := !(&ucase || &digits) do {
 	    if trim(morse(c)) == t then break c
 	    }) | "?"
 	 }
-      }
-   return x
+      };
+   return x;
 end
 

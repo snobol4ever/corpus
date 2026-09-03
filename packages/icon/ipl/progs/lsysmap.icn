@@ -41,8 +41,8 @@
 link options
 link strings
 
-procedure main(args)
-   local isyms, osyms, line, defs, axiom, i, opts, symbols, done
+procedure main(args);
+   local isyms, osyms, line, defs, axiom, i, opts, symbols, done;
 
    opts := options(args, "i:s:a");
 
@@ -51,7 +51,7 @@ procedure main(args)
       osyms := \opts["o"] | &ucase;
       if *isyms ~= *osyms then
          stop("*** input and output strings not of equal length")
-      }
+      };
 
    defs := [];
    symbols := '';
@@ -63,10 +63,10 @@ procedure main(args)
             if not(/axiom := move(1)) then	# not first axiom
             done := 1			# turn off gathering nontrminals 
             }
-         else if =\axiom & ="->" & /isyms then isyms := tab(0)
+         else if =\axiom & ="->" & /isyms then isyms := tab(0);
          if /done & find("->") then symbols ++:= move(1)
          }
-      }
+      };
 
    isyms := deletec(isyms, &cset -- symbols);
    isyms := ochars(isyms);
@@ -78,8 +78,8 @@ procedure main(args)
          (find("->") & map(tab(0), isyms, osyms)) |
          tab(0)
          }
-      }
+      };
          
-   every write(!defs)
+   every write(!defs);
 
 end

@@ -38,9 +38,9 @@ link interact
 link options
 link wopen
 
-procedure main(args)
-   local i, j, k, angle, incr, xpoint, ypoint, size, radius, opts
-   local extent, max, limit, run
+procedure main(args);
+   local i, j, k, angle, incr, xpoint, ypoint, size, radius, opts;
+   local extent, max, limit, run;
 
    opts := options(args, "gl+n+s+");
 
@@ -57,35 +57,35 @@ procedure main(args)
 
    every 1 to limit do {
       i := ?max;
-      if i < 4 then i+:= 3 + ?10	# too few doesn't work well ...
+      if i < 4 then i+:= 3 + ?10;	# too few doesn't work well ...
       angle := 0.0;
       incr := 2 * &pi / i;
       every j := 1 to i do {
          spokes(radius * cos(angle), radius * sin(angle), radius, i, angle);
          angle +:= incr
-         }
+         };
       if /run then repeat case Event() of {
-         "q":   exit()
-         "s":   snapshot()
+         "q":   exit();
+         "s":   snapshot();
          "n":   break
-         }
+         };
       WDelay(1000);
       EraseArea()
-      }
+      };
    
 end
 
-procedure spokes(x, y, r, i, angle)
-   local incr, j
+procedure spokes(x, y, r, i, angle);
+   local incr, j;
 
    incr := 2 * &pi / i;
 
    every j := 1 to i do {
       DrawLine(x, y, x + r * cos(angle), y + r * sin(angle));
       angle +:= incr
-      }
+      };
 
-   return
+   return;
 
 end
 

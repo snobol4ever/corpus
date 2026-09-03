@@ -108,15 +108,15 @@ link lindgen
 link makelsys
 link options
 
-procedure main(args)
-   local line, gener, axiom, opts, i, s, c, symbol, rewrite
-   local low, lsys, lst
+procedure main(args);
+   local line, gener, axiom, opts, i, s, c, symbol, rewrite;
+   local low, lsys, lst;
 
    opts := options(args,"n:g+a:A");
 
    lst := [];
 
-   while put(lst, read())
+   while put(lst, read());
 
    lsys := makelsys(lst);
 
@@ -125,18 +125,18 @@ procedure main(args)
    rewrite := lsys.productions;
 
    axiom := \opts["a"];
-   gener := \opts["g"]
+   gener := \opts["g"];
    /gener := 3;
 
-   if /axiom then stop("*** no axiom")
+   if /axiom then stop("*** no axiom");
 
    #  The following approach is inefficient if low is not gener.
 
    low := if /opts["A"] then gener else 1;
 
    every i := low to gener do {
-      every writes(lindgen(!axiom, rewrite, i))
+      every writes(lindgen(!axiom, rewrite, i));
       write()
-      }
+      };
 
 end

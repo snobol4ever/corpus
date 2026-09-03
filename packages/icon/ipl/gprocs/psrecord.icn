@@ -90,60 +90,61 @@ global PS_active, PS_f, PS_win, PS_width, PS_height
 #
 #  window and filename are significant only on the very first call.
 
-procedure PSEnable(w, f)		#: enable PostScript recording
-   initial PS_init(w, f)
+procedure PSEnable(w, f);		#: enable PostScript recording
+   initial PS_init(w, f);
    if /PS_active := 1 then
-      PS_swap()
-   return
+      PS_swap();
+   return;
 end
 
 #  PSSnap() -- take snapshot at this point
 
-procedure PSSnap()			#: take PostScript snapshot
-   static inited
+procedure PSSnap();			#: take PostScript snapshot
+   static inited;
    if /PS_active then
-      fail
+      fail;
    if /inited := 1 then {
       seek(PS_f, 1);
       write(PS_f, "%! nonconforming.......");  # overwrite 1st line
       seek(PS_f, 0)
-   }
-   PS_out("copypage")
-   return
+   };
+   PS_out("copypage");
+   return;
 end
 
 #  PSRaw(s) -- output a line of raw PostScript (at user's own risk)
 
-procedure PSRaw(s)			#: output raw PostScript
+procedure PSRaw(s);			#: output raw PostScript
    if /PS_active then
-      fail
-   return write(PS_f, s)
+      fail;
+   return write(PS_f, s);
 end
 
 #  PSDisable() -- temporarily turn off recording
 
-procedure PSDisable()			#: disable PostScript recording
+procedure PSDisable();			#: disable PostScript recording
    if \PS_active := &null then
-      PS_swap()
-   return
+      PS_swap();
+   return;
 end
 
 #  PSDone(sw) -- terminate output
 
-procedure PSDone(sw)			#: terminate PostScript recording
-   initial PS_init()
+procedure PSDone(sw);			#: terminate PostScript recording
+   initial PS_init();
    PSDisable();
-   if /sw then PS_out("showpage") 	# if sw nonnull, do not output
+   if /sw then PS_out("showpage"); 	# if sw nonnull, do not output
    PS_out("%%EOF");
-   close(PS_f)
-   return
+   close(PS_f);
+   return;
 end
-
+
+
 #########################  Internal Functions  #########################
 
 #  PS_swap() -- swap local functions for the real versions
 
-procedure PS_swap()
+procedure PS_swap();
    PS_attrib :=: WAttrib;
    PS_bg :=: Bg;
    PS_clip :=: Clip;
@@ -162,21 +163,22 @@ procedure PS_swap()
    PS_fillrect :=: FillRectangle;
    PS_fillpoly :=: FillPolygon;
    PS_flush :=: WFlush;
-   PS_font :=: Font
-   return
+   PS_font :=: Font;
+   return;
 end
-
+
+
 #  PS_init(w, f) -- initialize recording system
 
-procedure PS_init(a[])
-   if /PS_active then PSStart ! a
-   return
+procedure PS_init(a[]);
+   if /PS_active then PSStart ! a;
+   return;
 end
 
-procedure PSStart(a[])
-local fname, scale, psw, psh, llx, lly
+procedure PSStart(a[]);
+local fname, scale, psw, psh, llx, lly;
 
-   if \PS_active then PSDone()
+   if \PS_active then PSDone();
    PS_afix(a);
    PS_win := \a[1] | \&window | runerr(140, a[1]);
    fname := \a[2] | "xlog.ps";
@@ -197,7 +199,7 @@ local fname, scale, psw, psh, llx, lly
    llx := integer((72 * 8.5 - psw) / 2);  # center horizontally
    lly := integer((72 * 11.0 - psh) / 2);  # center vertically
    if lly + psh < 72 * 9.5 then
-      lly := integer(72 * 9.5 - psh)		# but not over 1.5" from top
+      lly := integer(72 * 9.5 - psh);		# but not over 1.5" from top
 
    # write EPS header
    PS_out("%!PS-Adobe-3.0 EPSF-3.0");
@@ -243,7 +245,7 @@ local fname, scale, psw, psh, llx, lly
       "/a {gsave translate 1.0 exch scale arc stroke grestore} bd",	# arc
       "/af {gsave translate 1.0 exch scale 0 0 moveto arc fill grestore} bd",
       "/er {gsave r BGR BGG BGB setrgbcolor fill grestore} bd",	# erase area
-   ])
+   ]);
 
    # establish coordinate system
    PS_out(llx, lly + psh, "translate");
@@ -254,7 +256,7 @@ local fname, scale, psw, psh, llx, lly
 
    # swap our routines for those of Icon
    if /PS_active := 1 then
-      PS_swap()
+      PS_swap();
 
    # note graphics values in PS file
    Font(PS_win, Font(PS_win));
@@ -262,183 +264,187 @@ local fname, scale, psw, psh, llx, lly
    Bg(PS_win, Bg(PS_win));
 
    PS_out(PS_width, PS_height, "0 0 er");  # fill background
-   write(PS_f)
-return
+   write(PS_f);
+return;
 end
-
+
+
 #  PS_out(s, s, ...) -- output strings to PS file, with spaces between
 
-procedure PS_out(a[])
+procedure PS_out(a[]);
    if /a[1] then
-      return
-   writes(PS_f, get(a))
-   while writes(PS_f, " ", get(a))
-   write(PS_f)
-   return
+      return;
+   writes(PS_f, get(a));
+   while writes(PS_f, " ", get(a));
+   write(PS_f);
+   return;
 end
 
 #  PS_path(a, s) -- output path from a[2..*] followed by command s
 
-procedure PS_path(a, s)
-   local i
+procedure PS_path(a, s);
+   local i;
 
    PS_out(a[2], a[3], "m");
    every i := 4 to *a - 3 by 2 do
-      PS_out(a[i], a[i+1], "l")
-   PS_out(a[-2], a[-1], "l", s)
-   return
+      PS_out(a[i], a[i+1], "l");
+   PS_out(a[-2], a[-1], "l", s);
+   return;
 end
 
 #  PS_afix(a) -- fix arg list to ensure that first arg is a window
 
-procedure PS_afix(a)
+procedure PS_afix(a);
    if not (type(a[1]) == "window") then
-      push(a, &window)
-   return a
+      push(a, &window);
+   return a;
 end
-
+
+
 ####################  Icon Function Substitutes  ####################
 
-procedure PS_flush(a[])		# replaces WFlush
+procedure PS_flush(a[]);		# replaces WFlush
    # we don't know why they're flushing, but we'll flush, too
-   flush(PS_f)
-   return PS_flush ! a
+   flush(PS_f);
+   return PS_flush ! a;
 end
 
 
-procedure PS_bg(a[])		# replaces Bg
+procedure PS_bg(a[]);		# replaces Bg
    PS_afix(a);
    # note that following line fails if there is no a[2]
-   PS_out(PS_color(a[2]), "bg")
-   return PS_bg ! a
+   PS_out(PS_color(a[2]), "bg");
+   return PS_bg ! a;
 end
 
-procedure PS_fg(a[])		# replaces Fg
+procedure PS_fg(a[]);		# replaces Fg
    PS_afix(a);
    # note that following line fails if there is no a[2]
-   PS_out(PS_color(a[2]), "fg")
-   return PS_fg ! a
+   PS_out(PS_color(a[2]), "fg");
+   return PS_fg ! a;
 end
 
-procedure PS_color(color)	# parse color, return string of PS r, g, b
-   local r, g, b
+procedure PS_color(color);	# parse color, return string of PS r, g, b
+   local r, g, b;
    (ColorValue(PS_win, color) | fail) ? {
       r := tab(many(&digits));  move(1);
       g := tab(many(&digits));  move(1);
       b := tab(many(&digits))
-      }
-   return (r / 65535.0) || " " || (g / 65535.0) || " " || (b / 65535.0)
+      };
+   return (r / 65535.0) || " " || (g / 65535.0) || " " || (b / 65535.0);
 end
-
-procedure PS_drawpoint(a[])	# replaces DrawPoint
-   local i
+
+
+procedure PS_drawpoint(a[]);	# replaces DrawPoint
+   local i;
 
    PS_afix(a);
    every i := 2 to *a by 2 do
-      PS_out(a[i], a[i+1], "p")
-   return PS_drawpoint ! a
+      PS_out(a[i], a[i+1], "p");
+   return PS_drawpoint ! a;
 end
 
-procedure PS_drawsegment(a[])	# replaces DrawSegment
-   local i
+procedure PS_drawsegment(a[]);	# replaces DrawSegment
+   local i;
 
    PS_afix(a);
    every i := 2 to *a by 4 do
-      PS_out(a[i], a[i+1], a[i+2], a[i+3], "g")
-   return PS_drawsegment ! a
+      PS_out(a[i], a[i+1], a[i+2], a[i+3], "g");
+   return PS_drawsegment ! a;
 end
 
-procedure PS_drawline(a[])	# replaces DrawLine
-   local i
+procedure PS_drawline(a[]);	# replaces DrawLine
+   local i;
 
    PS_afix(a);
    if *a == 5 then
       PS_out(a[2], a[3], a[4], a[5], "g")
    else
-      PS_path(a, "s")
-   return PS_drawline ! a
+      PS_path(a, "s");
+   return PS_drawline ! a;
 end
 
-procedure PS_drawcurve(a[])	# replaces DrawCurve -- approx with line segs
-   local i
+procedure PS_drawcurve(a[]);	# replaces DrawCurve -- approx with line segs
+   local i;
 
    PS_afix(a);
-   PS_path(a, "s")
-   return PS_drawcurve ! a
+   PS_path(a, "s");
+   return PS_drawcurve ! a;
 end
 
-procedure PS_drawrect(a[])	# replaces DrawRectangle
-   local i
-
-   PS_afix(a);
-   every i := 2 to *a by 4 do
-      PS_out(a[i+2], a[i+3], a[i], a[i+1], "r s")
-   return PS_drawrect ! a
-end
-
-procedure PS_fillrect(a[])	# replaces FillRectangle
-   local i
+procedure PS_drawrect(a[]);	# replaces DrawRectangle
+   local i;
 
    PS_afix(a);
    every i := 2 to *a by 4 do
-      PS_out(a[i+2], a[i+3], a[i], a[i+1], "r f")
-   return PS_fillrect ! a
+      PS_out(a[i+2], a[i+3], a[i], a[i+1], "r s");
+   return PS_drawrect ! a;
 end
 
-procedure PS_fillpoly(a[])	# replaces FillPolygon
-   local i
+procedure PS_fillrect(a[]);	# replaces FillRectangle
+   local i;
 
    PS_afix(a);
-   PS_path(a, "pf")
-   return PS_fillpoly ! a
+   every i := 2 to *a by 4 do
+      PS_out(a[i+2], a[i+3], a[i], a[i+1], "r f");
+   return PS_fillrect ! a;
+end
+
+procedure PS_fillpoly(a[]);	# replaces FillPolygon
+   local i;
+
+   PS_afix(a);
+   PS_path(a, "pf");
+   return PS_fillpoly ! a;
 end
 
 
-procedure PS_clip(a[])		# replaces Clip
-   PS_area(a, "cp")
-   return PS_clip ! a
+procedure PS_clip(a[]);		# replaces Clip
+   PS_area(a, "cp");
+   return PS_clip ! a;
 end
 
-procedure PS_erasearea(a[])	# replaces EraseArea
-   PS_area(a, "er")
-   return PS_erasearea ! a
+procedure PS_erasearea(a[]);	# replaces EraseArea
+   PS_area(a, "er");
+   return PS_erasearea ! a;
 end
 
-procedure PS_area(a, cmd)	# generate w, h, x, y, and cmd, with defaults
-   local x, y, w, h
+procedure PS_area(a, cmd);	# generate w, h, x, y, and cmd, with defaults
+   local x, y, w, h;
    PS_afix(a);
 
    x := \a[2] | 0;
    y := \a[3] | 0;
    w := (0 ~= \a[4]) | PS_width;
    h := (0 ~= \a[5]) | PS_height;
-   PS_out(w, h, x, y, cmd)
-end
-
-procedure PS_drawcircle(a[])	# replaces DrawCircle
-   PS_arc(a, 0, "")
-   return PS_drawcircle ! a
+   PS_out(w, h, x, y, cmd);
 end
 
-procedure PS_fillcircle(a[])	# replaces FillCircle
-   PS_arc(a, 0, "f")
-   return PS_fillcircle ! a
+
+procedure PS_drawcircle(a[]);	# replaces DrawCircle
+   PS_arc(a, 0, "");
+   return PS_drawcircle ! a;
+end
+
+procedure PS_fillcircle(a[]);	# replaces FillCircle
+   PS_arc(a, 0, "f");
+   return PS_fillcircle ! a;
 end
   
-procedure PS_drawarc(a[])	# replaces DrawArc
-   PS_arc(a, 1, "")
-   return PS_drawarc ! a
+procedure PS_drawarc(a[]);	# replaces DrawArc
+   PS_arc(a, 1, "");
+   return PS_drawarc ! a;
 end
 
-procedure PS_fillarc(a[])	# replaces FillArc
-   PS_arc(a, 1, "f")
-   return PS_fillarc ! a
+procedure PS_fillarc(a[]);	# replaces FillArc
+   PS_arc(a, 1, "f");
+   return PS_fillarc ! a;
 end
 
-procedure PS_arc(a, n, f)	# handle draw/fill arc/circle, append f to cmd
-   local x, y, w, h, ar, a1, a2, r, i
-   static mul
-   initial mul := 180 / &pi
+procedure PS_arc(a, n, f);	# handle draw/fill arc/circle, append f to cmd
+   local x, y, w, h, ar, a1, a2, r, i;
+   static mul;
+   initial mul := 180 / &pi;
 
    PS_afix(a);
    every i := 2 to *a by (5 + n) do {
@@ -454,30 +460,31 @@ procedure PS_arc(a, n, f)	# handle draw/fill arc/circle, append f to cmd
          y +:= h / 2.0
          }
       else			# Draw/Fill Circle
-         r := w
+         r := w;
       if w = h & abs(a2) > 359.99 then	# if circle
          PS_out(x, y, r, "c" || f)
       else {				# general case
          if a2 < 0 then {
             a1 := a1 + a2;  # ensure counterclockwise arc (in PS coords)
             a2 := -a2
-            }
+            };
          if w = 0 then
             ar := 0.0
          else
-            ar := real(h) / real(w)
+            ar := real(h) / real(w);
          PS_out("0 0", r, a1, a1 + a2, ar, x, y, "a" || f)
          }
-      }
-   return
+      };
+   return;
 end
-
-procedure PS_font(a[])	     	# replaces Font (very crudely)
-   local ret, xname, psname, n
+
+
+procedure PS_font(a[]);	     	# replaces Font (very crudely)
+   local ret, xname, psname, n;
 
    PS_afix(a);
    if not (ret := PS_font ! a) then
-      fail
+      fail;
    if xname := \a[2] then {
       map(xname) ? {
          if tab(many(&digits)) & ="x" & tab(many(&digits)) & pos(0) then
@@ -504,38 +511,39 @@ procedure PS_font(a[])	     	# replaces Font (very crudely)
             psname := "/Palatino-Italic"
          else
             psname := "/Palatino-Roman"
-         }
+         };
       n := WAttrib(PS_win, "ascent") + 1;  # could possibly be smarter
       PS_out(n, psname, "ft  %", xname)
-      }
-   return ret
+      };
+   return ret;
 end
 
-procedure PS_drawstring(a[])		# replaces DrawString
+procedure PS_drawstring(a[]);		# replaces DrawString
    PS_afix(a);
    PS_psstring(a[4]);
-   PS_out("", a[2], a[3], "t")
-   return PS_drawstring ! a
+   PS_out("", a[2], a[3], "t");
+   return PS_drawstring ! a;
 end
 
-procedure PS_psstring(s)		# output a string as a PS string
+procedure PS_psstring(s);		# output a string as a PS string
    s ? {
       writes(PS_f, "(");
       while writes(PS_f, tab(upto('()\\'))) do
-         writes(PS_f, "\\", move(1))
+         writes(PS_f, "\\", move(1));
       writes(PS_f, tab(0), ")")
-   }
-   return
+   };
+   return;
 end
-
+
+
 #  PS_attrib() -- handle WAttrib calls
 #
 #  Any attribute that is accepted here should also be checked and set to
 #  the correct value during initialization in order to catch attributes
 #  that were set on the open() call.
 
-procedure PS_attrib(alist[])		# replaces WAttrib
-   local win, ret, name, val, a
+procedure PS_attrib(alist[]);		# replaces WAttrib
+   local win, ret, name, val, a;
 
    PS_afix(alist);
    ret := alist;
@@ -546,10 +554,10 @@ procedure PS_attrib(alist[])		# replaces WAttrib
       move(1);
       val := tab(0);
       case name of {
-         "fg":    Fg(win, val)
-         "bg":    Bg(win, val)
+         "fg":    Fg(win, val);
+         "bg":    Bg(win, val);
          "font":  Font(win, val)
          }
-      }
-   return a ~=== ret			# return value or fail if WAttrib failed
+      };
+   return a ~=== ret;			# return value or fail if WAttrib failed
 end

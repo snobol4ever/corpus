@@ -24,27 +24,27 @@
 
 link random
 
-procedure shaftmap(s)			#: produce shaft map for characters
-   local j, map_table
+procedure shaftmap(s);			#: produce shaft map for characters
+   local j, map_table;
 
    map_table := table();
 
    j := 0;
 
-   every /map_table[!s] := (j +:= 1)
+   every /map_table[!s] := (j +:= 1);
 
-   return map_table
-
-end
-
-procedure genshafts(s, tbl)		#: generate shafts for string mapping
-
-   suspend tbl[!s]
+   return map_table;
 
 end
 
-procedure genmapshafts(s1, s2)		#: map string and generate shafts
+procedure genshafts(s, tbl);		#: generate shafts for string mapping
 
-   suspend genshafts(s1, shaftmap(s2))
+   suspend tbl[!s];
+
+end
+
+procedure genmapshafts(s1, s2);		#: map string and generate shafts
+
+   suspend genshafts(s1, shaftmap(s2));
 
 end

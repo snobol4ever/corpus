@@ -54,9 +54,9 @@ link io
 
 global expr_error
 
-procedure exprfile(exp, links[])	#: pipe for Icon expression
-   local output
-   static name, input
+procedure exprfile(exp, links[]);	#: pipe for Icon expression
+   local output;
+   static name, input;
 
    expr_error := &null;
 
@@ -68,10 +68,10 @@ procedure exprfile(exp, links[])	#: pipe for Icon expression
    image(output) ? {
       ="file(";
       name := tab(find(".icn"))
-      }
+      };
 
    write(output, "invocable all");
-   every write(output, "link ", image(!links)) 
+   every write(output, "link ", image(!links)); 
    write(output, "procedure main(args)");
    write(output, "   every write(", exp, ")");
    write(output, "end");
@@ -83,52 +83,52 @@ procedure exprfile(exp, links[])	#: pipe for Icon expression
           expr_error := 1;
           remove(name || ".icn");
           fail
-          }
+          };
 
-   remove(name || ".icn")		# remove source code file
+   remove(name || ".icn");		# remove source code file
 
    #  Return a pipe for the executable.  Error messages are discarded.
 
-   return input := open(name || " 2>/dev/null", "p")
+   return input := open(name || " 2>/dev/null", "p");
    
 end
 
-procedure exec_expr(expr_list, links[])	#: execute expression in lists
+procedure exec_expr(expr_list, links[]);	#: execute expression in lists
 
-   suspend !(exprfile ! push(links, plst2pstr(expr_list)))
+   suspend !(exprfile ! push(links, plst2pstr(expr_list)));
 
 end
 
-procedure plst2pstr(L)			#: convert program list to string
-   local result
+procedure plst2pstr(L);			#: convert program list to string
+   local result;
 
    result := "";
 
-   every result ||:= !L || "\n"
+   every result ||:= !L || "\n";
 
-   return result
+   return result;
 
 end
 
-procedure pstr2plst(s)			#: convert program string to list
-   local result
+procedure pstr2plst(s);			#: convert program string to list
+   local result;
 
    result := [];
 
    s ? {
       while put(result, tab(upto('\n'))) do
-         move(1)
+         move(1);
       if not pos(0) then put(result, tab(0))
-      }
+      };
 
-   return result
+   return result;
 
 end
 
-procedure ucode(file)			#: create ucode file
+procedure ucode(file);			#: create ucode file
 
-   if system("icont -s -c " || file) ~= 0 then fail
+   if system("icont -s -c " || file) ~= 0 then fail;
 
-   return
+   return;
 
 end

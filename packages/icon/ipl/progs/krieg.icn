@@ -137,25 +137,25 @@ global	Me, Yu, Mycname, Yrcname, Mycomm, Yrcomm, Logname, Logfile,
 	Mycol, Yrcol, Blind, Bg, Frinclst, Lmv, Any, Tries, Remind
 
 
-procedure automov( )
+procedure automov( );
 
 #   Returns a pseudo-randomly selected move type-in to be used in
 #   "auto opponent" mode.  But if possible, try to recapture (unless in
 #   blind mode):
 
-    local	m, ms
-    static	anyflag
+    local	m, ms;
+    static	anyflag;
 
-    initial	anyflag := 0
+    initial	anyflag := 0;
 
     if anyflag = 0 then {
-	anyflag := 1
+	anyflag := 1;
 	return "any"
-	}
+	};
     anyflag := 0;
 
     ms := set( );
-    every insert( ms, movgen( Bg))
+    every insert( ms, movgen( Bg));
 
     if / Any then {
 	if find( ":", \ Lmv) & not find( "ep", \ Lmv) & / Blind then {
@@ -163,51 +163,51 @@ procedure automov( )
 		if m[ 4:6] == Lmv[ 4:6]  & movlegal( Bg, m) then
 		    return m[ 2:6] || "Q"
 		}
-	    }
+	    };
 	while * ms ~= 0 do {
 	    if movlegal( Bg, m := ? ms) then
-		return m[ 2:6] || "Q"
+		return m[ 2:6] || "Q";
 	    delete( ms, m)
-	    }
+	    };
 	return "end"
 	}
     else {
 	every m := ! ms do {
 	    if m[ 1] == "P" & m[ 6] == ":" & movlegal( Bg, m) then
 		return m[ 2:6] || "Q"
-	    }
+	    };
 	return "end"
-	}
+	};
 end
 
 
-procedure chksqrs( b)
+procedure chksqrs( b);
 
 #   Generates the set of squares of pieces giving check in board b;
 #   fails if moving side's king not in check:
 
-    local	sk
+    local	sk;
 
-    sk := find( pc2p( "K", b.cmv), b.pcs)
-    suspend sqratks( b.pcs, sk, b.cnm)
+    sk := find( pc2p( "K", b.cmv), b.pcs);
+    suspend sqratks( b.pcs, sk, b.cnm);
 end
 
 
-procedure fr2s( file, rank)
+procedure fr2s( file, rank);
 
 #   Returns the square number corresponding to "file" and "rank"
 #   numbers; fails if invalid file and/or rank:
 
-    return (0 < (9 > file)) + 8 * (0 < ( 9 > rank)) - 8
+    return (0 < (9 > file)) + 8 * (0 < ( 9 > rank)) - 8;
 end
 
 
-procedure gamend( b)
+procedure gamend( b);
 
 #   If the position b is at end of game,
 #   return an ascii string giving the result; otherwise, fail:
 
-    local	nbn, sk
+    local	nbn, sk;
 
     sk := find( pc2p( "K", b.cmv), b.pcs);
 
@@ -224,18 +224,18 @@ procedure gamend( b)
     else if not upto( 'PRQprq', b.pcs) then {
 	nbn := 0;
 	every upto( 'NBnb', b.pcs) do
-	    nbn +:= 1
+	    nbn +:= 1;
 	if nbn < 2 then
 	    return "1/2-1/2"
-	}
+	};
 end
 	
 
-procedure init( )
+procedure init( );
 
 #   init initializes the program:
 
-    local	whopipe, line, namdelim
+    local	whopipe, line, namdelim;
 
 #   Setup a data table for move generation:
 
@@ -258,7 +258,7 @@ procedure init( )
 
 #   Set reminder bell flag to off:
 
-    Remind := ""
+    Remind := "";
 
 #   Set random number seed:
 
@@ -273,14 +273,14 @@ procedure init( )
 	whopipe := open( "who am i | awk '{print $1}' | sed 's/^.*!//'", "rp");
 	Me := tokens( read( whopipe), namdelim);
 	close( \whopipe)
-	}
+	};
     if /Me then
-	write( "Can't get user name from system.")
+	write( "Can't get user name from system.");
     while /Me do {
 	writes( "Your name? ");
 	line := read( ) | kstop( "can't get user name");
 	Me := tokens( line, namdelim)
-	}
+	};
     write( "Welcome, ", Me, ", to Kriegspiel (double blind chess).");
 
 #   Prompt user to enter color:
@@ -289,7 +289,7 @@ procedure init( )
 	line := read( ) | kstop( "can't read color");
 	if find( line[ 1], "WwBb") then
 	    break
-	}
+	};
     Mycol := (find( line[ 1], "Ww"), "White") | "Black";
     Yrcol := map( Mycol, "WhiteBlack", "BlackWhite");
 
@@ -315,7 +315,7 @@ procedure init( )
 	remove( Mycname);
 	system( "/etc/mknod " || Mycname || " p && chmod 644 " ||
 		Mycname) = 0 | kstop( "can't create my comm file")
-	}
+	};
 
 #   Get name of my log file, open it, then remove from directory:
 
@@ -325,21 +325,21 @@ procedure init( )
 	line := read( ) | kstop( "can't read log file name");
 	Logname := tokens( line);
 	Logfile := open( Logname, "cr")
-	}
+	};
     remove( Logname);
 
 #   Open our communication files, trying to avoid deadlock:
 
     write( "Attempting to establish communication with ", Yu);
     if Mycol == "White" then
-	Mycomm := open( Mycname, "w") | kstop( "can't open my comm file")
+	Mycomm := open( Mycname, "w") | kstop( "can't open my comm file");
     while not (Yrcomm := open( Yrcname)) do {
 	write( "Still attempting to establish communication");
 	if system( "sleep 3") ~= 0 then
 	    kstop( "gave up on establishing communications")
-	}
+	};
     if Mycol == "Black" then
-	Mycomm := open( Mycname, "w") | kstop( "can't open my comm file")
+	Mycomm := open( Mycname, "w") | kstop( "can't open my comm file");
 
 #   Initialize board and moves:
 
@@ -353,22 +353,22 @@ procedure init( )
     Tries := set( );
 
     write( Logfile, "Kriegspiel game begins ", &dateline);
-    write( Logfile, Me, " is ", Mycol, "; ", Yu, " is ", Yrcol)
+    write( Logfile, Me, " is ", Mycol, "; ", Yu, " is ", Yrcol);
     \ Blind & write( Logfile, Me, " is in 'totally blind' mode!");
 
-    write( "You have the ", Mycol, " pieces against ", Yu)
+    write( "You have the ", Mycol, " pieces against ", Yu);
     \ Blind & write( "You have chosen to play in 'totally blind' mode!");
     write( "At the \"Try\" prompt you may type help for assistance.");
-    write( "Initialization complete; awaiting first white move.")
-    return
+    write( "Initialization complete; awaiting first white move.");
+    return;
 end
 
 
-procedure kstop( s)
+procedure kstop( s);
 
 #   Clean up and terminate execution with message s:
 
-    local	logtemp
+    local	logtemp;
 
     close( \Mycomm);
     remove( \Mycname);
@@ -376,40 +376,40 @@ procedure kstop( s)
     logboard( \ Logfile, \ Bg);
     if seek( \Logfile) then {
 	logtemp := open( Logname, "w") | kstop( "can't open my log file");
-	every write( logtemp, ! Logfile)
+	every write( logtemp, ! Logfile);
 	write( "Game log is on file ", Logname)
-	}
-    stop( "Kriegspiel stop: ", s)
+	};
+    stop( "Kriegspiel stop: ", s);
 end
 
 
-procedure logboard( file, b)
+procedure logboard( file, b);
 
 #   Print the full board position in b to file:
 
-    local	f, r, p
+    local	f, r, p;
 
     write( file, "Current board position:");
     write( file, " a  b  c  d  e  f  g  h");
     every r := 8 to 1 by -1 do {
 	write( file, "-------------------------");
 	every writes( file, "|", p2c( p := b.pcs[ fr2s( 1 to 8, r)])[ 1],
-	    pc2p( p, "W"))
+	    pc2p( p, "W"));
 	write( file, "|", r)
-	}
+	};
     write( file, "-------------------------");
     writes( file, b.cmv, " to move;");
     writes( file, " enp file: ", "abcdefgh"[ \ b.fepp], ";");
     writes( file, " castle mvs ", b.caswq || " " || b.caswk || " " ||
 	b.casbq || " " || b.casbk, ";");
     write( file, " half-mvs played ", b.ply);
-    write( file, "")
+    write( file, "");
 end
 
 
-procedure main( )
+procedure main( );
 
-    local	line
+    local	line;
 
 #   Initialize player names and colors and establish communications:
 
@@ -426,39 +426,39 @@ procedure main( )
 	    write( Logfile, Me, " typed: ", line);
 	    line := map( tokens( line)) | "";
 	    case line of {
-		""			: 0
-		left( "any", *line)	: myany( )
-		left( "board", *line)	: myboard( )
-		"end"			: myend( )
-		left( "help", *line)	: myhelp( )
-		left( "message", *line)	: mymessage( )
-		left( "remind", *line)	: myremind( )
+		""			: 0;
+		left( "any", *line)	: myany( );
+		left( "board", *line)	: myboard( );
+		"end"			: myend( );
+		left( "help", *line)	: myhelp( );
+		left( "message", *line)	: mymessage( );
+		left( "remind", *line)	: myremind( );
 		default			: mytry( line)
 		}
-	    }
+	    };
 	while Yrcol == Bg.cmv do {
 	    if Yu == "auto" then
 		line := automov( )
 	    else
-		line := read( Yrcomm) | kstop( "opponent read fail")
+		line := read( Yrcomm) | kstop( "opponent read fail");
 	    write( Logfile, Yu, " typed: ", line);
 	    line := map( tokens( line)) | "";
 	    case line of {
-		""			: 0
-		left( "any", *line)	: yrany( )
-		left( "board", *line)	: 0
-		"end"			: yrend( )
-		left( "help", *line)	: 0
-		left( "message", *line)	: yrmessage( )
-		left( "remind", *line)	: 0
+		""			: 0;
+		left( "any", *line)	: yrany( );
+		left( "board", *line)	: 0;
+		"end"			: yrend( );
+		left( "help", *line)	: 0;
+		left( "message", *line)	: yrmessage( );
+		left( "remind", *line)	: 0;
 		default			: yrtry( line)
 		}
 	    }
-	}
+	};
 end
 
 
-procedure movgen( b, s)
+procedure movgen( b, s);
 
 #   movgen generates the pseudo-legal moves in board position b from the
 #   piece on square s; if s is unspecified all pieces are considered.
@@ -467,7 +467,7 @@ procedure movgen( b, s)
 #   king in check:
 
     local	r, f, p, snfr, m, fto, rto, sl, sh,
-		sto, fril, rp, r2, r4, r5, r7, ps
+		sto, fril, rp, r2, r4, r5, r7, ps;
 
     ps := b.pcs;
 
@@ -488,7 +488,7 @@ procedure movgen( b, s)
 		    }
 		else {
 		    rp := -1; r2 := 7; r4 := 5; r5 := 4; r7 := 2
-		    }
+		    };
 		if ps[ sto := fr2s( f, r + rp)] == " " then {
 		    m := "P" || snfr || s2sn( sto);
 		    if r = r7 then
@@ -498,7 +498,7 @@ procedure movgen( b, s)
 			if r = r2 & ps[ sto := fr2s( f, r4)] == " " then
 			    suspend "P" || snfr || s2sn( sto)
 			}
-		    }
+		    };
 		every fto := 0 < (9 > (f - 1 to f + 1 by 2)) do {
 		    m := "P" || snfr ||
 			s2sn( sto := fr2s( fto, r + rp)) || ":";
@@ -507,7 +507,7 @@ procedure movgen( b, s)
 			    every suspend m || ! "RNBQ"
 			else
 			    suspend m
-			}
+			};
 		    if r = r5 & fto = \ b.fepp then
 			suspend m || "ep"
 		    }
@@ -525,7 +525,7 @@ procedure movgen( b, s)
 			else {
 			    if p2c( ps[ sto]) == b.cnm then
 				suspend pc2p( p, "W") ||
-				    snfr || s2sn( sto) || ":"
+				    snfr || s2sn( sto) || ":";
 			    break
 			    }
 			}
@@ -543,12 +543,12 @@ procedure movgen( b, s)
 			else if ps[ sto] == " " then
 			    suspend pc2p( p, "W") || snfr || s2sn( sto)
 			}
-		    }
+		    };
 		if p == "K" then {
 		    if (b.caswq ~== "", ps[ sn2s( "b1") : sn2s( "e1")] == "   ",
 			not sqratks( ps, sn2s( "d1"), "Black"),
 			not sqratks( ps, sn2s( "e1"), "Black")) then
-			    suspend "Ke1c1cas"
+			    suspend "Ke1c1cas";
 		    if (b.caswk ~== "", ps[ sn2s( "f1") : sn2s( "h1")] == "  ",
 			not sqratks( ps, sn2s( "f1"), "Black"),
 			not sqratks( ps, sn2s( "e1"), "Black")) then
@@ -558,7 +558,7 @@ procedure movgen( b, s)
 		    if (b.casbq ~== "", ps[ sn2s( "b8") : sn2s( "e8")] == "   ",
 			not sqratks( ps, sn2s( "d8"), "White"),
 			not sqratks( ps, sn2s( "e8"), "White")) then
-			    suspend "Ke8c8cas"
+			    suspend "Ke8c8cas";
 		    if (b.casbk ~== "", ps[ sn2s( "f8") : sn2s( "h8")] == "  ",
 			not sqratks( ps, sn2s( "f8"), "White"),
 			not sqratks( ps, sn2s( "e8"), "White")) then
@@ -566,16 +566,16 @@ procedure movgen( b, s)
 		    }
 		}
 	    }
-	}
+	};
 end
 
 
-procedure movlegal( b, m)
+procedure movlegal( b, m);
 
 #   Tests move m on board b and, if it does not leave the moving color in
 #   check, returns m; fails otherwise:
 
-    local	ps, sfr, sto, sk
+    local	ps, sfr, sto, sk;
 
     ps := b.pcs;
     sfr := sn2s( m[ 2:4]);
@@ -585,35 +585,35 @@ procedure movlegal( b, m)
 
     if m[ 6:9] == "cas" then {
 	if m == "Ke1c1cas" then
-	    return not sqratks( ps, sn2s( "c1"), "Black") & m
+	    return not sqratks( ps, sn2s( "c1"), "Black") & m;
 	if m == "Ke1g1cas" then
-	    return not sqratks( ps, sn2s( "g1"), "Black") & m
+	    return not sqratks( ps, sn2s( "g1"), "Black") & m;
 	if m == "Ke8c8cas" then
-	    return not sqratks( ps, sn2s( "c8"), "White") & m
+	    return not sqratks( ps, sn2s( "c8"), "White") & m;
 	if m == "Ke8g8cas" then
 	    return not sqratks( ps, sn2s( "g8"), "White") & m
-	}
+	};
 
 #   Enpassant pawn capture:
 
     if m[ 6:9] == ":ep" then
-	ps[ fr2s( s2f( sto), s2r( sfr))] := " "
+	ps[ fr2s( s2f( sto), s2r( sfr))] := " ";
 
 #   All non-castling moves:
 
     ps[ sto] := ps[ sfr];
     ps[ sfr] := " ";
-    sk := find( pc2p( "K", b.cmv), ps)
-    return not sqratks( ps, sk, b.cnm) & m
+    sk := find( pc2p( "K", b.cmv), ps);
+    return not sqratks( ps, sk, b.cnm) & m;
 
 end
 
 
-procedure movmake( b, m)
+procedure movmake( b, m);
 
 #   Makes move m on board b:
 
-    local	sfr, sto
+    local	sfr, sto;
 
     if m == "Ke1c1cas" then {
 	b.pcs[ sn2s( "a1")] := " ";
@@ -630,7 +630,7 @@ procedure movmake( b, m)
     else if m == "Ke8g8cas" then {
 	b.pcs[ sn2s( "h8")] := " ";
 	b.pcs[ sn2s( "f8")] := "r"
-	}
+	};
 
     sfr := sn2s( m[ 2:4]);
     sto := sn2s( m[ 4:6]);
@@ -638,29 +638,29 @@ procedure movmake( b, m)
     b.pcs[ sfr] := " ";
 
     if find( m[ -1], "rnbqRNBQ") then
-	b.pcs[ sto] := pc2p( m[ -1], b.cmv)
+	b.pcs[ sto] := pc2p( m[ -1], b.cmv);
 
-    if sfr = sn2s( "e1") then	b.caswq := b.caswk := ""
-    if sfr = sn2s( "e8") then	b.casbq := b.casbk := ""
+    if sfr = sn2s( "e1") then	b.caswq := b.caswk := "";
+    if sfr = sn2s( "e8") then	b.casbq := b.casbk := "";
 
-    if (sfr | sto) = sn2s( "a1") then	b.caswq := ""
-    if (sfr | sto) = sn2s( "h1") then	b.caswk := ""
-    if (sfr | sto) = sn2s( "a8") then	b.casbq := ""
-    if (sfr | sto) = sn2s( "h8") then	b.casbk := ""
+    if (sfr | sto) = sn2s( "a1") then	b.caswq := "";
+    if (sfr | sto) = sn2s( "h1") then	b.caswk := "";
+    if (sfr | sto) = sn2s( "a8") then	b.casbq := "";
+    if (sfr | sto) = sn2s( "h8") then	b.casbk := "";
 
     if m[ 6:9] == ":ep" then
-	b.pcs[ fr2s( s2f( sto), s2r( sfr))] := " "
+	b.pcs[ fr2s( s2f( sto), s2r( sfr))] := " ";
 
     b.fepp := &null;
     if m[ 1] == "P" & abs( s2r( sfr) - s2r( sto)) = 2 then
-	b.fepp := s2f( sto)
+	b.fepp := s2f( sto);
 
     b.ply +:= 1;
-    b.cmv :=: b.cnm
+    b.cmv :=: b.cnm;
 end
 
 
-procedure movtry( m)
+procedure movtry( m);
 
 #   Tests whether the typed move m is legal in the global board Bg and, if so,
 #   returns the corresponding move returned from movgen (which will be in a
@@ -668,27 +668,27 @@ procedure movtry( m)
 #   legal.  Note that if the any flag is set, only captures by pawns are
 #   allowed:
 
-    local	ml, mt, sfr, sto
+    local	ml, mt, sfr, sto;
 
     mt := map( tokens( m)) | "";
     if mt == "o-o" then
 	mt := (Bg.cmv == "White", "e1g1") | "e8g8"
     else if mt == "o-o-o" then
-	mt := (Bg.cmv == "White", "e1c1") | "e8c8"
+	mt := (Bg.cmv == "White", "e1c1") | "e8c8";
 
     sfr := sn2s( mt[ 1:3]) | fail;
     sto := sn2s( mt[ 3:5]) | fail;
 
     if find( mt[ 5], "rnbq") then
 	mt[ 5] := map( mt[ 5], "rnbq", "RNBQ")
-    else mt := mt[ 1:5] || "Q"
+    else mt := mt[ 1:5] || "Q";
     
     if \ Any then {
-	if Bg.pcs[ sfr] ~== pc2p( "P", Bg.cmv) then fail
+	if Bg.pcs[ sfr] ~== pc2p( "P", Bg.cmv) then fail;
 	every ml := movgen( Bg, sfr) do {
 	    if ml[ 4:7] == mt[ 3:5] || ":" then {
 		if find( ml[ -1], "RNBQ") then
-		    ml[ -1] := mt[ 5]
+		    ml[ -1] := mt[ 5];
 		return movlegal( Bg, ml)
 		}
 	    }
@@ -697,27 +697,27 @@ procedure movtry( m)
 	every ml := movgen( Bg, sfr) do {
 	    if ml[ 4:6] == mt[ 3:5] then {
 		if find( ml[ -1], "RNBQ") then
-		    ml[ -1] := mt[ 5]
+		    ml[ -1] := mt[ 5];
 		return movlegal( Bg, ml)
 		}
 	    }
-	}
+	};
 end
 
 
-procedure myany( )
+procedure myany( );
 
 #   Process my any command.
 #   Check for captures by pawns and inform the player of any, and, if
 #   at least one, set Any flag to require that player try only captures
 #   by pawns:
 
-    local	m, p, s
+    local	m, p, s;
 
     if \ Any then {
 	write( "You have already asked 'Any' and received yes answer!");
 	fail
-	}
+	};
 
     p := pc2p( "P", Bg.cmv);
     if movlegal( Bg, 1( m := movgen( Bg, 1(s := 9 to 56, Bg.pcs[ s] == p)),
@@ -726,18 +726,18 @@ procedure myany( )
 	Any := "Yes"
 	}
     else
-	write( "No.")
+	write( "No.");
 end
 
 
-procedure myboard( )
+procedure myboard( );
 
 #   Process my board command by printing the board but omitting the
 #   opponent's pieces and the enpassant status; a count of pieces of
 #   both colors is printed:
 #   Note: no board printed in blind mode.
 
-    local	f, r, p, nw, nb
+    local	f, r, p, nw, nb;
 
     \ Blind & write( "Sorry; no board printout in blind mode!") & fail;
 
@@ -750,31 +750,31 @@ procedure myboard( )
 		writes( "|", Mycol[ 1], pc2p( p, "W"))
 	    else
 		writes( "|  ")
-	    }
+	    };
 	write( "|", r)
-	}
+	};
     write( "-------------------------");
     writes( Bg.cmv, " to move; ");
     writes( "castle mvs ", (Mycol == "White", Bg.caswq || " " || Bg.caswk) |
 	Bg.casbq || " " || Bg.casbk);
     write( "; half-mvs played ", Bg.ply);
     nw := nb := 0;
-    every upto( &ucase, Bg.pcs) do nw +:= 1
-    every upto( &lcase, Bg.pcs) do nb +:= 1
+    every upto( &ucase, Bg.pcs) do nw +:= 1;
+    every upto( &lcase, Bg.pcs) do nb +:= 1;
     write( nw, " White pieces, ", nb, " Black.");
-    write( "")
+    write( "");
 end
 
 
-procedure myend( )
+procedure myend( );
 
 #   Process my end command:
 
-    kstop( "by " || Me)
+    kstop( "by " || Me);
 end
 
 
-procedure myhelp( )
+procedure myhelp( );
 
 #   Process my help command:
 
@@ -804,7 +804,7 @@ procedure myhelp( )
 
     writes( "Type empty line for more or 'q' to return from help: ");
     if map( read( ))[ 1] == "q" then
-	fail
+	fail;
 
     write( "");
     write( "The program will let you know of certain events that take place");
@@ -832,7 +832,7 @@ procedure myhelp( )
 
     writes( "Type empty line for more or 'q' to return from help: ");
     if map( read( ))[ 1] == "q" then
-	fail
+	fail;
 
     write( "");
     write( "Description of commands; note: upper and lower case letters");
@@ -858,7 +858,7 @@ procedure myhelp( )
 
     writes( "Type empty line for more or 'q' to return from help: ");
     if map( read( ))[ 1] == "q" then
-	fail
+	fail;
 
     write( "");
     write( "board");
@@ -880,7 +880,7 @@ procedure myhelp( )
 
     writes( "Type empty line for more or 'q' to return from help: ");
     if map( read( ))[ 1] == "q" then
-	fail
+	fail;
 
     write( "");
     write( "message");
@@ -895,16 +895,16 @@ procedure myhelp( )
     write( "The 'remind' command turns on (if off) or off (if on) the");
     write( "bell that is rung when the program is ready to accept your");
     write( "move or command.  The bell is initially off.");
-    write( "")
+    write( "");
 
 end
 
 
-procedure mymessage( )
+procedure mymessage( );
 
 #   Process my message command:
 
-    local	line
+    local	line;
 
     write( "Please type a one-line message:");
     line := read( ) | kstop( "can't read message");
@@ -914,35 +914,35 @@ procedure mymessage( )
     if Yu == "auto" then
 	line := "I'm just your auto opponent."
     else
-	line := read( Yrcomm) | kstop( "can't read message response")
+	line := read( Yrcomm) | kstop( "can't read message response");
     write( Yu, " answers: ", line);
-    write( Logfile, line)
+    write( Logfile, line);
 end
 
 
-procedure myremind( )
+procedure myremind( );
 
 #   Process my remind command:
 
     if Remind == "" then
 	Remind := "\^g"
     else
-	Remind := ""
+	Remind := "";
 end
 
 
-procedure mytry( mt)
+procedure mytry( mt);
 
 #   Process my move try mt:
 
-    local	ml, result
+    local	ml, result;
 
     if ml := movtry( mt) then {
 	Lmv := ml;
 	write( Me, " (", Mycol, ") has moved.");
-	write( Logfile, Me, "'s move ", Bg.ply / 2 + 1, " is ", ml)
+	write( Logfile, Me, "'s move ", Bg.ply / 2 + 1, " is ", ml);
 	/ Blind & write( Me, " captures on ", s2sn( sqrcap( Bg, ml)));
-	movmake( Bg, ml)
+	movmake( Bg, ml);
 	/ Blind & saycheck( );
 	Any := &null;
 	Tries := set( );
@@ -953,11 +953,11 @@ procedure mytry( mt)
 	    }
 	}
     else
-	write( "Illegal move, ", Me, "; try again:")
+	write( "Illegal move, ", Me, "; try again:");
 end
 
 
-procedure p2c( p)
+procedure p2c( p);
 
 #   Returns "White" if p is white piece code ("PRNBQK"), "Black"
 #   if p is black piece code ("prnbqk"), and " " if empty square
@@ -968,11 +968,11 @@ procedure p2c( p)
     else if find( p, "prnbqk") then
 	return "Black"
     else
-	return " "
+	return " ";
 end
 
 
-procedure pc2p( p, c)
+procedure pc2p( p, c);
 
 #   Returns the piece letter for the piece of type p but color c;
 #   returns " " if p == " ".  Thus pc2p( "R", "Black") == "r".
@@ -981,42 +981,42 @@ procedure pc2p( p, c)
     if c[ 1] == "W" then
 	return map( p, "prnbqk", "PRNBQK")
     else
-	return map( p, "PRNBQK", "prnbqk")
+	return map( p, "PRNBQK", "prnbqk");
 end
 
 
-procedure s2f( square)
+procedure s2f( square);
 
 #   Returns the file number of the square number "square"; fails
 #   if invalid square number:
 
-    return ( (0 < ( 65 > integer( square))) - 1) % 8 + 1
+    return ( (0 < ( 65 > integer( square))) - 1) % 8 + 1;
 end
 
 
-procedure s2r( square)
+procedure s2r( square);
 
 #   Returns the rank number of the square number "square"; fails
 #   if invalid square number:
 
-    return ( (0 < ( 65 > integer( square))) - 1) / 8 + 1
+    return ( (0 < ( 65 > integer( square))) - 1) / 8 + 1;
 end
 
 
-procedure s2sn( square)
+procedure s2sn( square);
 
 #   Returns the algebraic square name corresponding to square number
 #   "square"; fails if invalid square number:
 
-    return "abcdefgh"[ s2f( square)] || string( s2r( square))
+    return "abcdefgh"[ s2f( square)] || string( s2r( square));
 end
 
 
-procedure saycheck( )
+procedure saycheck( );
 
 #   Announce checks, if any, in global board Bg:
 
-    local	s, sk
+    local	s, sk;
 
     sk := find( pc2p( "K", Bg.cmv), Bg.pcs);
 
@@ -1032,26 +1032,26 @@ procedure saycheck( )
 	    write( "on the - diagonal.")
 	else
 	    write( "by knight.")
-	}
+	};
 end
 
 
-procedure sn2s( sn)
+procedure sn2s( sn);
 
 #   Returns the square number corresponding to the algebraic square
 #   name sn; examples: sn2s( "a1") = 1, sn2s( "b1") = 2, sn2s( "h8") = 64.
 #   Fails if invalid square name:
 
-    return find( sn[ 1], "abcdefgh") + 8 * (0 < (9 > integer( sn[ 2]))) - 8
+    return find( sn[ 1], "abcdefgh") + 8 * (0 < (9 > integer( sn[ 2]))) - 8;
 end
 
 
-procedure sqratks( ps, s, c)
+procedure sqratks( ps, s, c);
 
 #   Generates the numbers of squares of pieces of color c that "attack"
 #   square s in board piece array ps; fails if no such squares:
 
-    local	file, rank, rfr, sfr, fril, p, ffr
+    local	file, rank, rfr, sfr, fril, p, ffr;
 
     file := s2f( s);
     rank := s2r( s);
@@ -1062,7 +1062,7 @@ procedure sqratks( ps, s, c)
     every sfr := fr2s( file - 1 to file + 1 by 2, rfr) do {
 	if ps[ sfr] == pc2p( "P", c) then
 	    suspend sfr
-	}
+	};
 
 #   Check for attack from king or knights:
 
@@ -1071,7 +1071,7 @@ procedure sqratks( ps, s, c)
 	    if ps[ sfr] == pc2p( p, c) then
 		suspend sfr
 	    }
-	}
+	};
 
 #   Check for attacks from sweep (rook and bishop) directions:
 
@@ -1081,32 +1081,32 @@ procedure sqratks( ps, s, c)
 	while sfr := fr2s( ffr +:= fril[ 1], rfr +:= fril[ 2]) do {
 	    if ps[ sfr] ~== " " then {
 		if ps[ sfr] == pc2p( p | "Q", c) then
-		    suspend sfr
+		    suspend sfr;
 		break
 		}
 	    }
-	}
+	};
 end
 
 
-procedure sqrcap( b, m)
+procedure sqrcap( b, m);
 
 #   Returns square of piece captured by move m in board b; fails if m
 #   not a capture:
 
-    local	fto, rfr
+    local	fto, rfr;
 
     if m[ 6:9] == ":ep" then {
 	fto := find( m[ 4], "abcdefgh");
-	rfr := integer( m[ 3])
+	rfr := integer( m[ 3]);
 	return fr2s( fto, rfr)
 	}
     else if m[ 6] == ":" then
-	return sn2s( m[ 4:6])
+	return sn2s( m[ 4:6]);
 end
 
 
-procedure tokens( s, d)
+procedure tokens( s, d);
 
 #   Generate tokens from left to right in string s given delimiters in cset
 #   d, where a token is a contiguous string of 1 or more characters not in
@@ -1117,20 +1117,20 @@ procedure tokens( s, d)
     d := (cset( d) | ' \t');
 
     s ? while tab( upto( ~d)) do
-	suspend( tab( many( ~d)) \ 1)
+	suspend( tab( many( ~d)) \ 1);
 end
 
 
-procedure yrany( )
+procedure yrany( );
 
 #   Process opponent's any command:
 
-    local	m, p, s
+    local	m, p, s;
 
-    if \ Any then fail
+    if \ Any then fail;
 
     p := pc2p( "P", Bg.cmv);
-    if not find( p, Bg.pcs) then fail
+    if not find( p, Bg.pcs) then fail;
 
     / Blind & writes( Yu, " asked 'any' and was told ");
 
@@ -1140,24 +1140,24 @@ procedure yrany( )
 	Any := "Yes"
 	}
     else
-	/ Blind & write( "no.")
+	/ Blind & write( "no.");
 end
 
 
-procedure yrend( )
+procedure yrend( );
 
 #   Process opponent's end command:
 
     write( "Game terminated by ", Yu, ".");
-    kstop( "by " || Yu)
+    kstop( "by " || Yu);
 end
 
 
-procedure yrmessage( )
+procedure yrmessage( );
 
 #   Process opponent's message command:
 
-    local	line
+    local	line;
 
     line := read( Yrcomm) | kstop( "can't read opponent message");
     write( "Message from ", Yu, ": ", line);
@@ -1165,24 +1165,24 @@ procedure yrmessage( )
     write( "Please write a one-line response:");
     line := read( ) | kstop( "can't read response to opponent message");
     write( Mycomm, line);
-    write( Logfile, line)
+    write( Logfile, line);
 end
 
 
-procedure yrtry( mt)
+procedure yrtry( mt);
 
 #   Process opponent move try (or other type-in!) mt:
 
-    local	ml, result, s, mtr, b, po, sfr, sto
+    local	ml, result, s, mtr, b, po, sfr, sto;
 
     if ml := movtry( mt) then {
 	Lmv := ml;
 	write( Yu, " (", Yrcol, ") has moved.");
-	write( Logfile, Yu, "'s move ", Bg.ply / 2 + 1, " is ", ml)
+	write( Logfile, Yu, "'s move ", Bg.ply / 2 + 1, " is ", ml);
 	/ Blind & write( Yu, " captures on ", s2sn( sqrcap( Bg, ml)));
 	if find( ml[ -1], "RNBQ") then
-	    / Blind & write( Yu, " promotes a pawn.")
-	movmake( Bg, ml)
+	    / Blind & write( Yu, " promotes a pawn.");
+	movmake( Bg, ml);
 	/ Blind & saycheck( );
 	Any := &null;
 	Tries := set( );
@@ -1204,9 +1204,9 @@ procedure yrtry( mt)
 	if mtr == "o-o" then
 	    mtr := (Bg.cmv == "White", "e1g1") | "e8g8"
 	else if mtr == "o-o-o" then
-	    mtr := (Bg.cmv == "White", "e1c1") | "e8c8"
+	    mtr := (Bg.cmv == "White", "e1c1") | "e8c8";
 	mtr := mtr[ 1:5] | fail;
-	if member( Tries, mtr) then fail
+	if member( Tries, mtr) then fail;
 	insert( Tries, mtr);
 	b := copy( Bg);
 	po := (b.cmv[ 1] == "W", "prnbqk") | "PRNBQK";
@@ -1220,5 +1220,5 @@ procedure yrtry( mt)
 	    if sn2s( movgen( b, sfr)[ 4:6]) = sto then
 		write( Yu, " tried illegal move.")
 	    }
-	}
+	};
 end

@@ -34,12 +34,12 @@
 #
 ############################################################################
 
-procedure main(a)
+procedure main(a);
 
-    local fname, infile, outfile, line, temp_name
+    local fname, infile, outfile, line, temp_name;
 
     # Static variables, initial clause not really necessary in main().
-    static slash, l, ms, DOSos, nok, ok
+    static slash, l, ms, DOSos, nok, ok;
     initial {
 
 	nok := string(~&letters);
@@ -59,7 +59,7 @@ procedure main(a)
 	}
 	# Don't take this out unless you're sure of what you're doing.
 	else stop("nocr:  tested only under UNIX and MS-DOS")
-    }
+    };
 
     # Check to see if we have any arguments.
     *a = 0 & stop("usage:  nocr file1 [file2...]");
@@ -74,9 +74,9 @@ procedure main(a)
 	    pathname(fname, slash) ||
 	    map(left(basename(fname,slash),l,"X"), nok, ok) ||
 	    "." || right(0 to 999,3,"0")
-	do close(open(temp_name)) | break
+	do close(open(temp_name)) | break;
 	# Open temporary file.
-	outfile := open(\temp_name,"w"||ms) | (er_out(fname), next)
+	outfile := open(\temp_name,"w"||ms) | (er_out(fname), next);
 
 	if \DOSos then {
 	    # Infile above was opened in translate mode (removing the CR),
@@ -89,10 +89,10 @@ procedure main(a)
 	    # we've been hacked).  Trim CR manually, then write.
 	    while line := read(infile) do {
                 if line[-1] == "\x0D" then
-		    line[-1] := ""
+		    line[-1] := "";
 	        write(outfile, line)
             }
-	}
+	};
 
 	# Close opened input and output files.
 	close(infile)  | stop("nocr:  cannot close, ",fname,"; aborting");
@@ -105,31 +105,31 @@ procedure main(a)
 	# conversion process.
 	rename(temp_name,fname) |
 	    stop("nocr:  Can't find temp file ",temp_name,"; aborting")
-    }
+    };
 
 end
 
 
-procedure er_out(s)
-    write(&errout,"nocr:  cannot open ",s," for reading")
-    return
+procedure er_out(s);
+    write(&errout,"nocr:  cannot open ",s," for reading");
+    return;
 end
 
 
-procedure basename(s,slash)
+procedure basename(s,slash);
     s ? {
-	while tab(find(slash)+1)
+	while tab(find(slash)+1);
 	return tab(0)
-    }
+    };
 end
 
 
-procedure pathname(s,slash)
-    local s2
+procedure pathname(s,slash);
+    local s2;
 
     s2 := "";
     s ? {
-	while s2 ||:= tab(find(slash)+1)
+	while s2 ||:= tab(find(slash)+1);
 	return s2
-    }
+    };
 end

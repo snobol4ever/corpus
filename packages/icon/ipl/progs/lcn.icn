@@ -23,13 +23,13 @@
 #
 ############################################################################
 
-procedure main(args)
-   local name, lc, uc
+procedure main(args);
+   local name, lc, uc;
 
    uc := &ucase || " ";
    lc := &lcase || "_";
 
    every name := !args do
-      rename(name, map(name, uc, lc))
+      rename(name, map(name, uc, lc));
 
 end

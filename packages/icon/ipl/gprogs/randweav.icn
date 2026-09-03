@@ -78,7 +78,7 @@ $define PALETTE "c1"				# color palette
 $define PREFCOLORS "06NBCDFsHIJM?!"		# preferred colors
 
 
-procedure main(args)
+procedure main(args);
 
    randomize();
    allcolors := PREFCOLORS || (PaletteChars(PALETTE) -- PREFCOLORS);
@@ -97,145 +97,145 @@ procedure main(args)
    maxsiz >:= region.uh;
    
    render();  # draw once without prompting
-   GetEvents(root, , all)		# then wait for events
+   GetEvents(root, , all);		# then wait for events
 end
 
 
 #  all(a, x, y) -- process all events, checking for keyboard shortcuts
 
-procedure all(a, x, y)
+procedure all(a, x, y);
    if a === !" \n\r" then render()	# draw new pattern for SPACE, CR, LF
    else if &meta then case a of {
-      !"qQ":  exit()			# exit for @Q
+      !"qQ":  exit();			# exit for @Q
       !"sS":  save()			# save image for @S
-      }
-   return
+      };
+   return;
 end
 
 
 #  render() -- draw a new pattern according to current parameters
 
-procedure render()
-   local ncolors, bias
-   local s, x, y, w, h, z, k
-   static prevsize
+procedure render();
+   local ncolors, bias;
+   local s, x, y, w, h, z, k;
+   static prevsize;
 
-   ncolors := txtval("colors", 1, *allcolors)	# retrieve "Colors" setting
-   patsize := txtval("side", 1, maxsiz)		# retrieve "Side" setting
-   bias := txtval("bias", 0, 100)		# retrieve "Bias" setting
+   ncolors := txtval("colors", 1, *allcolors);	# retrieve "Colors" setting
+   patsize := txtval("side", 1, maxsiz);		# retrieve "Side" setting
+   bias := txtval("bias", 0, 100);		# retrieve "Bias" setting
 
-   k := (shuffle(PREFCOLORS) | allcolors)[1+:ncolors]	  # pick a color set
-   s := genpatt(patsize, k, bias / 100.0) 		  # generate a pattern
-   DrawImage(hidwin, 0, 0, s)				  # draw on hidden win
+   k := (shuffle(PREFCOLORS) | allcolors)[1+:ncolors];	  # pick a color set
+   s := genpatt(patsize, k, bias / 100.0); 		  # generate a pattern
+   DrawImage(hidwin, 0, 0, s);				  # draw on hidden win
 
-   z := maxsiz / patsize				# calculate scaling
-   x := region.ux + (region.uw - z * patsize) / 2
-   y := region.uy + (region.uh - z * patsize) / 2
+   z := maxsiz / patsize;				# calculate scaling
+   x := region.ux + (region.uw - z * patsize) / 2;
+   y := region.uy + (region.uh - z * patsize) / 2;
 
    #  copy to main window with enlargement
    if prevsize ~===:= patsize then
-      EraseArea(region.ux, region.uy, region.uw, region.uh)  # erase old pattern
-   Zoom(hidwin, &window, 0, 0, patsize, patsize, x, y, z * patsize, z * patsize)
+      EraseArea(region.ux, region.uy, region.uw, region.uh);  # erase old pattern
+   Zoom(hidwin, &window, 0, 0, patsize, patsize, x, y, z * patsize, z * patsize);
 
-   return
+   return;
 end
 
 
 #  genpatt(size, colors, bias) -- generate a new pattern as DrawImage() string
 
-procedure genpatt(size, colors, bias)
-   local warp, weft, perfect, s, x, y, w
+procedure genpatt(size, colors, bias);
+   local warp, weft, perfect, s, x, y, w;
 
    #  choose thread colors
-   warp := genthreads(size, colors, VGetState(vidgets["vcyclic"]))
-   weft := genthreads(size, colors, VGetState(vidgets["hcyclic"]))
+   warp := genthreads(size, colors, VGetState(vidgets["vcyclic"]));
+   weft := genthreads(size, colors, VGetState(vidgets["hcyclic"]));
 
    #  initialize output string (including first row)
-   s := size || "," || PALETTE || "," || warp
+   s := size || "," || PALETTE || "," || warp;
 
-   perfect := VGetState(vidgets["perfect"])
+   perfect := VGetState(vidgets["perfect"]);
 
    #  fill in remaining rows
    every y := 2 to size do {
-      w := ?weft[y]			# get weft color
-      s ||:= w				# put in first column
+      w := ?weft[y];			# get weft color
+      s ||:= w;				# put in first column
       if \perfect then
          every x := 2 to size do	# fill the rest (perfect case)
             s ||:= if ((x + y) % 2) = 0 then w else warp[x]
       else
          every x := 2 to size do	# fill the rest (random case)
             s ||:= if ?0 > bias then w else warp[x]
-      }
+      };
 
-   return s
+   return s;
 end
 
 
 #  genthreads(n, colors, cyclic) -- generate a set of warp or weft threads
 
-procedure genthreads(n, colors, cyclic)
-   local s
+procedure genthreads(n, colors, cyclic);
+   local s;
 
    if \cyclic then
-      return repl(shuffle(colors), 1 + n / *colors)[1+:n]
+      return repl(shuffle(colors), 1 + n / *colors)[1+:n];
 
-   s := ""
-   every 1 to n do s ||:= ?colors
-   return s
+   s := "";
+   every 1 to n do s ||:= ?colors;
+   return s;
 end
 
 
 
 #  txtval(s, min, max) -- get numeric value from named vidget and clamp to range
 
-procedure txtval(s, min, max)
-   local v, n
+procedure txtval(s, min, max);
+   local v, n;
 
-   v := vidgets[s]			# find the vidget
-   VEvent(v, "\r", v.ax, v.ay)		# set RETURN event to update state
-   n := integer(VGetState(v)) | min	# retrieve int value, else use minimum
-   n <:= min				# limit value by min and max
-   n >:= max
-   VSetState(v, n)			# update vidget with validated value
-   return n				# return value
+   v := vidgets[s];			# find the vidget
+   VEvent(v, "\r", v.ax, v.ay);		# set RETURN event to update state
+   n := integer(VGetState(v)) | min;	# retrieve int value, else use minimum
+   n <:= min;				# limit value by min and max
+   n >:= max;
+   VSetState(v, n);			# update vidget with validated value
+   return n;				# return value
 end
 
 
 #  save() -- present dialog box and save pattern as image file
 
-procedure save()
-   local g
+procedure save();
+   local g;
 
-   g := WAttrib("gamma")	# save old gamma value
-   WAttrib("gamma=1.0")		# don't gamma-correct on write
+   g := WAttrib("gamma");	# save old gamma value
+   WAttrib("gamma=1.0");		# don't gamma-correct on write
    repeat case OpenDialog("Save pattern as:") of {
       "Cancel": {
-         WAttrib("gamma=" || g)
+         WAttrib("gamma=" || g);
          fail
-         }
+         };
       "Okay": {
          if WriteImage(hidwin, dialog_value, 0, 0, patsize, patsize) then
             break
          else
             Notice("cannot write file:", dialog_value)
          }
-      }
-   WAttrib("gamma=" || g)	# restore gamma value
-   return
+      };
+   WAttrib("gamma=" || g);	# restore gamma value
+   return;
 end
 
 
-procedure quit()
-   exit()
+procedure quit();
+   exit();
 end
 
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts()
-   return ["size=380,492", "bg=pale gray", "label=weaver"]
+procedure ui_atts();
+   return ["size=380,492", "bg=pale gray", "label=weaver"];
 end
 
-procedure ui(win, cbk)
+procedure ui(win, cbk);
 return vsetup(win, cbk,
    [":Sizer:::0,0,380,492:weaver",],
    ["bias:Text::3:285,37,87,19:Bias:   \\=60",],
@@ -249,6 +249,6 @@ return vsetup(win, cbk,
    ["vcyclic:Button:checkno:1:5,36,97,17:cycle warp",],
    ["outline:Rect:sunken::153,18,84,48:",],
    ["region:Rect:grooved::8,84,364,364:",],
-   )
+   );
 end
 #===<<vib:end>>===	end of section maintained by vib

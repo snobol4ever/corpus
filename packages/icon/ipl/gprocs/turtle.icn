@@ -204,163 +204,164 @@ global T_win			# current window
 
 #  TWindow(win) -- set turtle window
 
-procedure TWindow(win)		#: set turtle window
+procedure TWindow(win);		#: set turtle window
    /win := &window;
    if type(win) ~== "window" then
-      runerr(140, win)
-   T_win := win
-   return
+      runerr(140, win);
+   T_win := win;
+   return;
 end
 
 #  TInit() -- initialize turtle system, opening window if needed
 
-procedure TInit()		#: initialize turtle system
+procedure TInit();		#: initialize turtle system
    TInit := 1;  # suppress any subsequent calls
    if /T_win then {
       /&window := open("turtle", "g", "width=500", "height=500") |
          stop("can't open window");
       T_win := &window
-      }
+      };
    T_stack := [];
    T_scale := 1.0;
-   TGoto(, , -90.0)
-   return
+   TGoto(, , -90.0);
+   return;
 end
 
 #  TReset() -- clear window and stack, reset scaling, go to center, head -90
 
-procedure TReset()		#: reset turtle system
-   initial TInit()
+procedure TReset();		#: reset turtle system
+   initial TInit();
    T_stack := [];
    EraseArea(T_win, -WAttrib(T_win, "dx"), -WAttrib(T_win, "dy"));
-   T_scale := 1.0
-   return TGoto(, , -90.0)
+   T_scale := 1.0;
+   return TGoto(, , -90.0);
 end
 
 #  THome() -- go to center and set heading to 90 degrees
 
-procedure THome()		#: return turtle to home
-   initial TInit()
-   return TGoto(, , -90.0)
+procedure THome();		#: return turtle to home
+   initial TInit();
+   return TGoto(, , -90.0);
 end
 
 #  TScale(n) -- set / return scaling
 
-procedure TScale(n)		#: turtle scaling
-   initial TInit()
+procedure TScale(n);		#: turtle scaling
+   initial TInit();
    if T_scale *:= (0.0 ~= \n) then
-      THeading(T_deg)
-   return T_scale
+      THeading(T_deg);
+   return T_scale;
 end
 
 #  THeading(d), TLeft(d), TRight(d), TFace(x, y) -- set / return heading
 
-procedure THeading(d)		#: turtle heading
-   initial TInit()
+procedure THeading(d);		#: turtle heading
+   initial TInit();
 
-   T_deg := \d % 360		# set normalized heading
-   return T_deg
+   T_deg := \d % 360;		# set normalized heading
+   return T_deg;
 end
 
-procedure TRight(d)		#: turn turtle right
-   initial TInit()
-   return THeading(T_deg + (\d | 90.0))
+procedure TRight(d);		#: turn turtle right
+   initial TInit();
+   return THeading(T_deg + (\d | 90.0));
 end
 
-procedure TLeft(d)		#: turn turtle left
-   initial TInit()
-   return THeading(T_deg - (\d | 90.0))
+procedure TLeft(d);		#: turn turtle left
+   initial TInit();
+   return THeading(T_deg - (\d | 90.0));
 end
 
-procedure TFace(x, y)		#: face turtle
-   initial TInit()
-   /x := WAttrib(T_win, "width") / 2 + 0.5
-   /y := WAttrib(T_win, "height") / 2 + 0.5
+procedure TFace(x, y);		#: face turtle
+   initial TInit();
+   /x := WAttrib(T_win, "width") / 2 + 0.5;
+   /y := WAttrib(T_win, "height") / 2 + 0.5;
    if not (x = \T_x & y = \T_y) then
       return THeading(rtod(atan(y - T_y, x - T_x)))
    else
-      return THeading()
+      return THeading();
 end
 
 #  TX(x), TY(y) -- set or return current x / y location (unscaled).
 
-procedure TX(x)			#: turtle x coordinate
-   initial TInit()
-   return (T_x := \x) | T_x
+procedure TX(x);			#: turtle x coordinate
+   initial TInit();
+   return (T_x := \x) | T_x;
 end
 
-procedure TY(y)			#: turtle y coordinate
-   initial TInit()
-   return (T_y := \y) | T_y
+procedure TY(y);			#: turtle y coordinate
+   initial TInit();
+   return (T_y := \y) | T_y;
 end
 
 #  TDraw(n) -- move forward n units while drawing a line
 
-procedure TDraw(n)		#: draw with turtle
-   local rad
-   initial TInit()
+procedure TDraw(n);		#: draw with turtle
+   local rad;
+   initial TInit();
 
-   /n := 1.0
+   /n := 1.0;
    rad := dtor(T_deg);
    DrawLine(T_win, .T_x, .T_y,
-      T_x +:= T_scale * cos(rad) * n, T_y +:= T_scale * sin(rad) * n)
-   return
+      T_x +:= T_scale * cos(rad) * n, T_y +:= T_scale * sin(rad) * n);
+   return;
 end
 
 #  TSkip(n) -- move forward n units without drawing
 
-procedure TSkip(n)		#: skip with turtle
-   local rad
-   initial TInit()
+procedure TSkip(n);		#: skip with turtle
+   local rad;
+   initial TInit();
 
-   /n := 1.0
+   /n := 1.0;
    rad := dtor(T_deg);
    T_x +:= T_scale * cos(rad) * n;
-   T_y +:= T_scale * sin(rad) * n
-   return
+   T_y +:= T_scale * sin(rad) * n;
+   return;
 end
 
 #  TGoto(x, y, a) -- move to (x,y) without drawing, and set heading if given
 
-procedure TGoto(x, y, a)	#: go to with turtle
-   initial TInit()
+procedure TGoto(x, y, a);	#: go to with turtle
+   initial TInit();
    T_x := \x | WAttrib(T_win, "width") / 2 + 0.5;
    T_y := \y | WAttrib(T_win, "height") / 2 + 0.5;
-   THeading(\a)
-   return
+   THeading(\a);
+   return;
 end
 
 #  TDrawto(x, y, a) -- draw line to (x,y), and set heading if given
 
-procedure TDrawto(x, y, a)	#: draw to with turtle
-   initial TInit()
-   /x := WAttrib(T_win, "width") / 2 + 0.5
-   /y := WAttrib(T_win, "height") / 2 + 0.5
+procedure TDrawto(x, y, a);	#: draw to with turtle
+   initial TInit();
+   /x := WAttrib(T_win, "width") / 2 + 0.5;
+   /y := WAttrib(T_win, "height") / 2 + 0.5;
    if /a then
-      TFace(x, y)
+      TFace(x, y);
    DrawLine(T_win, .T_x, .T_y, T_x := x, T_y := y);
-   THeading(\a)
-   return
+   THeading(\a);
+   return;
 end
 
 #  TSave() -- save turtle state
 
-procedure TSave()		#: save turtle state
-   initial TInit()
-   push(T_stack, T_deg, T_y, T_x, T_scale, T_win)
-   return
+procedure TSave();		#: save turtle state
+   initial TInit();
+   push(T_stack, T_deg, T_y, T_x, T_scale, T_win);
+   return;
 end
 
 #  TRestore() -- restore turtle state
 
-procedure TRestore()		#: restore turtle state
-   initial TInit()
+procedure TRestore();		#: restore turtle state
+   initial TInit();
    T_win := pop(T_stack);
-   T_scale := pop(T_stack)
-   return TGoto(pop(T_stack), pop(T_stack), pop(T_stack))
+   T_scale := pop(T_stack);
+   return TGoto(pop(T_stack), pop(T_stack), pop(T_stack));
 end
 
-
+
+
 ############################################################################
 #
 #  Higher level routines.
@@ -371,18 +372,18 @@ end
 #  TRect(h, w) -- draw a rectangle centered at the turtle
 #  TFRect(h, w) -- draw a filled rectangle centered at the turtle
 
-procedure TRect(h, w)		#: draw rectangle centered at turtle
-   return T_rectangle(h, w, DrawLine)
+procedure TRect(h, w);		#: draw rectangle centered at turtle
+   return T_rectangle(h, w, DrawLine);
 end
 
-procedure TFRect(h, w)		#: draw filled rectangle centered at turtle
-   return T_rectangle(h, w, FillPolygon)
+procedure TFRect(h, w);		#: draw filled rectangle centered at turtle
+   return T_rectangle(h, w, FillPolygon);
 end
 
-procedure T_rectangle(h, w, xcall)
-   local l
+procedure T_rectangle(h, w, xcall);
+   local l;
 
-   /h := 1.0
+   /h := 1.0;
    /w := h;
    l := [T_win];
    TSkip(h / 2.0);  TRight();
@@ -393,42 +394,42 @@ procedure T_rectangle(h, w, xcall)
    TSkip(w / 2.0);  put(l, TX(), TY());  TLeft();
    TSkip(-h / 2.0);
    put(l, l[2], l[3]);
-   xcall ! l
-   return
+   xcall ! l;
+   return;
 end
 
 #  TCircle(d) -- draw a circle centered at the turtle
 #  TFCircle(d) -- draw a filled circle centered at the turtle
 
-procedure TCircle(d)		#: draw circle centered at turtle
-   local r
+procedure TCircle(d);		#: draw circle centered at turtle
+   local r;
    d := TScale() * (abs(\d) | 1.0);
    r := d / 2.0;
-   DrawArc(T_win, TX() - r, TY() - r, d, d)
-   return
+   DrawArc(T_win, TX() - r, TY() - r, d, d);
+   return;
 end
 
-procedure TFCircle(d)		#: draw filled circle centered at turtle
-   local r
+procedure TFCircle(d);		#: draw filled circle centered at turtle
+   local r;
    d := TScale() * (abs(\d) | 1.0);
    r := d / 2.0;
-   FillArc(T_win, TX() - r, TY() - r, d, d)
-   return
+   FillArc(T_win, TX() - r, TY() - r, d, d);
+   return;
 end
 
 #  TPoly(d, n) -- draw an n-sided regular polygon centered at the turtle
 #  TFPoly(d, n) -- draw an n-sided filled polygon centered at the turtle
 
-procedure TPoly(d, n)		#: draw polygon centered at turtle
-   return T_polygon(d, n, DrawLine)
+procedure TPoly(d, n);		#: draw polygon centered at turtle
+   return T_polygon(d, n, DrawLine);
 end
 
-procedure TFPoly(d, n)		#: draw filled polygon centered at turtle
-   return T_polygon(d, n, FillPolygon)
+procedure TFPoly(d, n);		#: draw filled polygon centered at turtle
+   return T_polygon(d, n, FillPolygon);
 end
 
-procedure T_polygon(d, n, xcall)
-   local r, a, da, cx, cy, x, y, l
+procedure T_polygon(d, n, xcall);
+   local r, a, da, cx, cy, x, y, l;
    r := TScale() * ((\d / 3.0) | 1.0);
    n := abs(integer(\n + 0.5)) | 3.0;
    n <:= 2.0;
@@ -440,7 +441,7 @@ procedure T_polygon(d, n, xcall)
    every 1 to n do {
       put(l, x := cx + r * cos(a+:=da));
       put(l, y := cy + r * sin(a))
-      }
-   xcall ! l
-   return
+      };
+   xcall ! l;
+   return;
 end

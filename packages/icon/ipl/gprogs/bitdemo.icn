@@ -54,11 +54,11 @@ $define WindowMargin 10
 global bitwin, rgbbase, panebase, panecolor
 
 
-procedure main(args)
-   local win, m, b, w, h, i
-   local px, py, pw, ph, x, y, d, a
-   local bw, bh
-   local colors
+procedure main(args);
+   local win, m, b, w, h, i;
+   local px, py, pw, ph, x, y, d, a;
+   local bw, bh;
+   local colors;
 
    # get options and open window
    win := Window("size=800,600", "font=Helvetica,bold,14", args);
@@ -88,7 +88,7 @@ procedure main(args)
       Bg(win), "red", "yellow", "red-yellow",
       "blue", "purple-magenta", "dark green", "dark brown"];
    every i := 0 to 7 do
-      Color(bitwin, rgbbase + i, colors[i + 1])
+      Color(bitwin, rgbbase + i, colors[i + 1]);
    PlaneOp(bitwin, rgbbase, "copy");
    FillRectangle(bitwin, m + 100 + b, m + b, w - 100 - 2 * b, 250 - 2 * b);
    PlaneOp(bitwin, rgbbase+4, "set"); FillArc(bitwin, w/2-25, 100, 100, 100);
@@ -130,9 +130,9 @@ procedure main(args)
    FrontPlane(bitwin, panebase + 1, panecolor[1] := "light gray");
    PlaneOp(bitwin, panebase + 1, "set");
    every x := 20 to pw - 1 by 40 do
-      FillRectangle(bitwin, px + x, py + b, 3, ph - 2 * b)
+      FillRectangle(bitwin, px + x, py + b, 3, ph - 2 * b);
    every y := 20 to ph - 1 by 40 do
-      FillRectangle(bitwin, px + b, py + y, pw - 2 * b, 3)
+      FillRectangle(bitwin, px + b, py + y, pw - 2 * b, 3);
 
    # draw curves on plane 8
    FrontPlane(bitwin, panebase + 8, panecolor[8] := "dark blue");
@@ -140,19 +140,19 @@ procedure main(args)
    every y := 20 to ph-40 by 30 do {
       a := [bitwin];
       every put(a, px + (0 to pw+24 by 25)) do
-         put(a, py + y + ?20)
+         put(a, py + y + ?20);
       every 1 to 3 do {
          DrawCurve ! a;
          every a[3 to *a by 2] +:= 1
          }
-      }
+      };
 
    # draw squares on plane 2
    FrontPlane(bitwin, panebase + 2, panecolor[2] := "dark brown");
    PlaneOp(bitwin, panebase + 2, "set");
    d := 20;
    every 1 to 50 do
-      FillRectangle(bitwin, px + ?(pw - d), py + ?(ph - d), d, d)
+      FillRectangle(bitwin, px + ?(pw - d), py + ?(ph - d), d, d);
 
    # draw circles on plane 4
    FrontPlane(bitwin, panebase + 4, panecolor[4] := "dark moderate green");
@@ -160,32 +160,32 @@ procedure main(args)
    every 1 to 50 do {
       d := 20 + ?10;
       FillArc(bitwin, px + ?(pw - d), py + ?(ph - d), d, d)
-      }
+      };
 
    # enter event loop
    Clip(bitwin);
-   evmux(win)
+   evmux(win);
 end
 
 
 ## draw(w, v) -- set plane and drawing op in response to "draw" button
 
-procedure draw(w, v)
-   PlaneOp(bitwin, rgbbase + v, "set")
+procedure draw(w, v);
+   PlaneOp(bitwin, rgbbase + v, "set");
 end
 
 
 ## erase(w, v) -- set plane and drawing op in response to "erase" button
 
-procedure erase(w, v)
-   PlaneOp(bitwin, rgbbase + v, "clear")
+procedure erase(w, v);
+   PlaneOp(bitwin, rgbbase + v, "clear");
 end
 
 
 ## drag(w, dummy, x, y) -- handle mouse drag by drawing (or erasing) on window
 
-procedure drag(w, dummy, x, y)
-   FillRectangle(bitwin, x - 5, y - 5, 10, 10)
+procedure drag(w, dummy, x, y);
+   FillRectangle(bitwin, x - 5, y - 5, 10, 10);
 end
 
 
@@ -194,17 +194,17 @@ end
 #  first click moves to front
 #  second click makes invisible
 
-procedure mvplane(w, v, x, y)
-   static prev, rep
-   initial prev := rep := 0
+procedure mvplane(w, v, x, y);
+   static prev, rep;
+   initial prev := rep := 0;
 
    if prev ~=:= v then
       rep := 0				# this is a new button
    else
-      rep := (rep + 1) % 2		# repeat count for old button
+      rep := (rep + 1) % 2;		# repeat count for old button
 
    case rep of {
-      0:  FrontPlane(bitwin, panebase + v, panecolor[v])
+      0:  FrontPlane(bitwin, panebase + v, panecolor[v]);
       1:  BackPlane(bitwin, panebase + v, panecolor[0])
-      }
+      };
 end

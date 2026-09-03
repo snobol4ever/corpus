@@ -39,8 +39,8 @@ $define Bias 20		# bias setting -- affects size choices
 
 
 
-procedure main(args)
-   local w, h
+procedure main(args);
+   local w, h;
 
    Window("bg=white", "width=600", "height=400", args);
    w := integer(WAttrib("width"));
@@ -50,12 +50,12 @@ procedure main(args)
    rect(Gap, Gap, w - Gap, h - Gap);
 
    repeat case Event() of {
-      "q":  exit()
+      "q":  exit();
       " ": {
          EraseArea();
          rect(Gap, Gap, w - Gap, h - Gap)
          }
-   }
+   };
 
 end
 
@@ -63,13 +63,13 @@ end
 
 #  rect(x,y,w,h) -- draw rectangle, possibly subdivided, at (x,y)
 
-procedure rect(x, y, w, h)
-   local d
-   static darkness, hue
+procedure rect(x, y, w, h);
+   local d;
+   static darkness, hue;
    initial {
       darkness := ["light", "medium", "dark", "deep"];
       hue := ["red", "orange", "yellow", "green", "blue", "gray"]
-      }
+      };
 
    if d := divide(w < h) then {		# if cut horizontally:
       rect(x, y, w, d);  #    draw top portion
@@ -82,9 +82,9 @@ procedure rect(x, y, w, h)
    else {				# else draw single rect
       Fg(?darkness || " strong " || ?hue);  # set random color
       FillRectangle(x, y, w - Gap, h - Gap)	# draw
-      }
+      };
 
-   return
+   return;
 
 end
 
@@ -96,11 +96,11 @@ end
 #  either end.  Fail if the length is too small to subdivide;
 #  also fail randomly, depending partially on the Bias setting.
 
-procedure divide(n)
+procedure divide(n);
 
    if (n > 2 * MinSide) & (?n > Bias) then
       return MinSide + ?(n - 2 * MinSide)
    else
-      fail
+      fail;
 
 end

@@ -51,15 +51,15 @@
 #
 ############################################################################
 
-procedure NumberOfDays(sMonth, iDay, iYear)
+procedure NumberOfDays(sMonth, iDay, iYear);
 
-	static	LMonths
-	static	LDays
-	static	sThisMonth
-	static	iThisDay
-	static	iThisYear
-	local	iDays
-	local	i
+	static	LMonths;
+	static	LDays;
+	static	sThisMonth;
+	static	iThisDay;
+	static	iThisYear;
+	local	iDays;
+	local	i;
 
 	initial {	
 		LMonths := [
@@ -89,20 +89,20 @@ procedure NumberOfDays(sMonth, iDay, iYear)
 			30,
 			31,
 			30
-		]
+		];
 
 		&dateline ? {
 			&pos := find(" ") + 1;
-			sThisMonth := tab(find(" "))
+			sThisMonth := tab(find(" "));
 			&pos +:= 1;
-			iThisDay := integer(tab(find(",")))
+			iThisDay := integer(tab(find(",")));
 			&pos +:= 2;
 			iThisYear := integer(move(4))
 		}
-	}
+	};
 
-	/sMonth := sThisMonth
-	/iDay := iThisDay
+	/sMonth := sThisMonth;
+	/iDay := iThisDay;
 	/iYear := iThisYear;
 
 	sMonth := string(sMonth) | fail;
@@ -113,15 +113,15 @@ procedure NumberOfDays(sMonth, iDay, iYear)
 		LDays[2] := 28
 	} else {
 		LDays[2] := 29
-	}
+	};
 
 	iDays := iDay;
 	every i := 1 to *LMonths do {
 		if CaselessMatch(sMonth, LMonths[i]) then {
 			return iDays
-		}
+		};
 		iDays +:= LDays[i]
-	}
+	};
 
 end
 
@@ -147,13 +147,13 @@ end
 #
 ############################################################################
 
-procedure CaselessMatch(s1, s2, i1, i2)
+procedure CaselessMatch(s1, s2, i1, i2);
 
-	s1 := map(string(s1))
+	s1 := map(string(s1));
 	/i1 := (/s2 & &pos);
-	s2 := map(string(s2) | (/s2 & &subject))
+	s2 := map(string(s2) | (/s2 & &subject));
 
-	return match(s1, s2, i1, i2)
+	return match(s1, s2, i1, i2);
 	
 
 end
@@ -172,13 +172,13 @@ end
 #
 ############################################################################
 
-procedure Usage(fErrout, iStatus)
+procedure Usage(fErrout, iStatus);
 
 	/fErrout := &errout;
 	iStatus := (integer(iStatus) | 1);
 
 	write(fErrout, "Usage: DaysTil sMonth iDay");
-	exit(iStatus)
+	exit(iStatus);
 
 end
 
@@ -197,34 +197,34 @@ end
 #
 ############################################################################
 
-procedure main(LArguments)
+procedure main(LArguments);
 
-	local	sArgument
-	local	sMonth
-	local	iDay
-	local	iToday
-	local	iNumberOfDays
+	local	sArgument;
+	local	sMonth;
+	local	iDay;
+	local	iToday;
+	local	iNumberOfDays;
 
 
 	if 2 ~= *LArguments then {
 		Usage()
-	}
+	};
 
 	every sArgument := !LArguments do {
 		(iDay := integer(sArgument)) | (sMonth := sArgument)
-	}
+	};
 
 	if /iDay | /sMonth then {
 		Usage()
-	}
+	};
 	
 	iToday := NumberOfDays();
 	iNumberOfDays := NumberOfDays(sMonth, iDay) | Usage();
 	if iNumberOfDays < iToday then {
 		iNumberOfDays := NumberOfDays("december", 31) + NumberOfDays(sMonth, iDay, integer(&date[1+:4]) + 1)
-	}
+	};
 	
-	write(iNumberOfDays - iToday)
+	write(iNumberOfDays - iToday);
 
 end
 

@@ -51,8 +51,8 @@ global width			# width of scrolling area
 global vidgets
 global root
 
-procedure main()
-   local value, n, color
+procedure main();
+   local value, n, color;
 
    init();
 
@@ -60,16 +60,16 @@ procedure main()
 
    while value := read() do {
       if (*Pending() > 0) | \state then
-         ProcessEvent(root, , shortcuts)
+         ProcessEvent(root, , shortcuts);
       value ? {
          n := tab(upto(' \t') | 0);
          if tab(many(' \t')) then color := tab(0)
-         }
+         };
       n := (scale * numeric(n)) | {
          Fg("black");
          Notice("Nonnumeric data; terminating.");
          exit()
-         }
+         };
       n >:= height;  # clip to avoid window-manager bugs
       CopyArea(strip, 1, 0, width - 1, height, 0, 0);
       EraseArea(strip, width - 1, 0, width, height);
@@ -79,19 +79,19 @@ procedure main()
       if \animate then
          WriteImage(strip, prefix || right(count +:= 1, 4, "0") || ".gif",
                0, 0, width, height)
-      }
+      };
 
    Fg("black");
 
    case TextDialog("End of stream.", , , , ["Quit", "Snapshot", "Hold"]) of {
-      "Quit"      :  exit()
-      "Snapshot"  :  snapshot(strip, 0, 0, width, height)
+      "Quit"      :  exit();
+      "Snapshot"  :  snapshot(strip, 0, 0, width, height);
       "Hold"      :  WDone()
-      }
+      };
 
 end
 
-procedure init()
+procedure init();
 
    vidgets := ui();
 
@@ -111,149 +111,149 @@ procedure init()
    height :=  vidgets["strip"].uh;
 
    strip := Clone("dx=" || vidgets["strip"].ux, "dy=" || vidgets["strip"].uy);
-   Clip(strip, 0, 0, width, height)
+   Clip(strip, 0, 0, width, height);
 
-   return
+   return;
 
 end
 
-procedure animation_cb(vidget, value)
+procedure animation_cb(vidget, value);
 
    case value[1] of {
-      "prefix"  :  set_prefix()
+      "prefix"  :  set_prefix();
       "rate"    :  set_frame_rate()
-      }
+      };
 
 end
 
-procedure set_prefix()
+procedure set_prefix();
 
-   return
-
-end
-
-procedure set_frame_rate()
-
-   return
+   return;
 
 end
 
-procedure animate_cb(vidget, value)
+procedure set_frame_rate();
 
-   animate := value
-
-   return
+   return;
 
 end
 
-procedure parameters_cb(vidget, value)
+procedure animate_cb(vidget, value);
+
+   animate := value;
+
+   return;
+
+end
+
+procedure parameters_cb(vidget, value);
 
    case value[1] of {
-      "scale  @V"  :  set_scale()
-      "offset @F"  :  set_offset()
+      "scale  @V"  :  set_scale();
+      "offset @F"  :  set_offset();
       "rate   @R"  :  set_rate()
-      }
+      };
 
-   fail
+   fail;
 
 end
 
-procedure file_cb(vidget, value)
+procedure file_cb(vidget, value);
 
    case value[1] of {
-      "snapshot @S"  :  return snapshot(strip, 0, 0, width, height)
+      "snapshot @S"  :  return snapshot(strip, 0, 0, width, height);
       "quit     @Q"  :  exit()
-      }
+      };
    
 end
 
-procedure pause_cb(vidget, value)
+procedure pause_cb(vidget, value);
 
-   state := value
+   state := value;
 
-   return
-
-end
-
-procedure clear_cb()
-
-   EraseArea(strip)
-
-   return
+   return;
 
 end
 
-procedure set_rate()
+procedure clear_cb();
+
+   EraseArea(strip);
+
+   return;
+
+end
+
+procedure set_rate();
 
    repeat {
       if TextDialog(, "sample rate", rate, 10) == "Okay" then {
          rate := (0 < numeric(dialog_value[1])) | {
             Notice("Invalid sample rate.");
             next
-            }
-         clear_cb()
+            };
+         clear_cb();
          return
          }
       else fail			# user canceled
-      }
+      };
 
 end
 
-procedure set_offset()
+procedure set_offset();
 
    repeat {
       if TextDialog(, "vertical offset", offset, 10) == "Okay" then {
          offset := numeric(dialog_value[1]) | {
             Notice("Invalid offset.");
             next
-            }
-         clear_cb()
+            };
+         clear_cb();
          return
          }
       else fail			# user canceled
-      }
+      };
 
 end
 
-procedure set_scale()
+procedure set_scale();
 
    repeat {
       if TextDialog(, "vertical scale", scale, 10) == "Okay" then {
          scale := (0 < numeric(dialog_value[1])) | {
             Notice("Invalid scale value.");
             next
-            }
-         clear_cb()
+            };
+         clear_cb();
          return
          }
       else fail			# user canceled
-      }
+      };
 
 end
 
-procedure shortcuts(e)
+procedure shortcuts(e);
 
    if &meta then
       case map(e) of {
-         "c"  :  clear_cb()
-         "f"  :  set_offset()
-         "p"  :  if \state then VSetState(pause) else VSetState(pause, 1)
-         "q"  :  exit()
-         "r"  :  set_rate()
-         "s"  :  snapshot(strip, 0, 0, width, height)
+         "c"  :  clear_cb();
+         "f"  :  set_offset();
+         "p"  :  if \state then VSetState(pause) else VSetState(pause, 1);
+         "q"  :  exit();
+         "r"  :  set_rate();
+         "s"  :  snapshot(strip, 0, 0, width, height);
          "v"  :  set_scale()
-         }
+         };
 
-   return
+   return;
 
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts()
-   return ["size=651,305", "bg=pale gray", "label=Scrolling Histogram"]
+procedure ui_atts();
+   return ["size=651,305", "bg=pale gray", "label=Scrolling Histogram"];
 end
 
-procedure ui(win, cbk)
+procedure ui(win, cbk);
 return vsetup(win, cbk,
    [":Sizer:::0,0,651,305:Scrolling Histogram",],
    ["animate:Button:regular:1:21,189,56,20:movie",animate_cb],
@@ -300,6 +300,6 @@ return vsetup(win, cbk,
       ["scale  @V","offset @F","rate   @R"]],
    ["pause:Button:regular:1:21,41,56,20:pause",pause_cb],
    ["strip:Rect:grooved::100,50,504,204:",],
-   )
+   );
 end
 #===<<vib:end>>===	end of section maintained by vib

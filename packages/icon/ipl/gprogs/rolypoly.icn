@@ -37,14 +37,14 @@ link gobject
 link randfigs
 link wopen
 
-procedure main(argl)
-   local opts, n, size, points, p
+procedure main(argl);
+   local opts, n, size, points, p;
 
    opts := options(argl, "p+s+r");
 
    n := \opts["p"] | 10;
    size := \opts["s"] | 300;
-   if \opts["r"] then randomize()
+   if \opts["r"] then randomize();
 
    WOpen("label=rolypoly", "size=" || size || "," || size) |
       stop("*** cannot open window");
@@ -52,11 +52,11 @@ procedure main(argl)
    points := [];  # list of x,y coordinates
 
    every p := random_points(size, size) \ n do
-      every put(points, \!p)	# z coordinate is null
+      every put(points, \!p);	# z coordinate is null
 
 				# here's the fun
-   every (FillPolygon | DrawCurve) ! points
+   every (FillPolygon | DrawCurve) ! points;
 
-   Event()			# hold window open for an event
+   Event();			# hold window open for an event
 
 end

@@ -25,8 +25,8 @@
 ############################################################################
 
 
-procedure main()
-   local s
+procedure main();
+   local s;
 
    header();
 
@@ -40,20 +40,20 @@ procedure main()
    every s := function() do
       if s ~== "proc" then
          write("procedure ", s, "(a[]); static p; initial p:=_func(\"",
-	    s, "\",0); suspend p!a; end")
+	    s, "\",0); suspend p!a; end");
 end
 
 
-procedure header()
-   local divider, date
+procedure header();
+   local divider, date;
 
-   divider := repl("#", 76)
+   divider := repl("#", 76);
 
    &dateline ? {
       tab(upto(',') + 1);
       tab(many(' '));
       date := tab(upto(',') + 6)
-      }
+      };
 
    every write(![
       divider,
@@ -67,7 +67,7 @@ procedure header()
       "#\tDate:     " || date,
       "#",
       divider
-      ])
+      ]);
 
    every write ("#  ", ![
       "",
@@ -82,13 +82,13 @@ procedure header()
       "",
       "   If the user program overloads any built-in function, linking fails",
       "due to an \"inconsistent redeclaration\".",
-      ""])
+      ""]);
 
    write(divider);
    write("#");
    write("#  Generated under:  ", &version);
    write("#");
-   write(divider)
+   write(divider);
 
-   return
+   return;
 end

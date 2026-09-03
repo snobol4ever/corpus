@@ -46,10 +46,10 @@
 link options
 global Printertype
 
-procedure main(arg)
+procedure main(arg);
   local opts, lp, separator, printerinit, printerclear, 
 	hpinit, hppos, xorigin, yorigin, rotate, font, 
-	prn, addr, psprefix, preface, optstr, usage, goodline
+	prn, addr, psprefix, preface, optstr, usage, goodline;
 
   usage := ["usage: envelope [options] < address(es)",
 	    "\t-p | -postscript",
@@ -78,11 +78,11 @@ procedure main(arg)
   optstr := "hpl:f:r+i:c:x+y+s:?";
   optstr ||:= "-help!-printer:-hpinit:-hppos:-postscript!:-font:-hplj!";
   optstr ||:= "-rotate+-xorigin+-yorigin+-init:-clear:-separator:";
-  opts := options(arg, optstr)
+  opts := options(arg, optstr);
   \opts["?"|"help"] | arg[1] == "?" & { 
-    every write (!usage)
+    every write (!usage);
     exit (-1)
-  }
+  };
 					# change defaults below as needed
   Printertype := 				"hplj";
   lp := \opts["l"|"printer"] |			"lpr";
@@ -97,95 +97,95 @@ procedure main(arg)
 					# these two are hplj-only
 					# comm. env., manual feed, landscape
   hpinit := \opts["hpinit"] |			"\33&k2G\33&l81a3h1O";
-  hppos := \opts["hppos"] |			"\33&a40L\33*p550Y"
+  hppos := \opts["hppos"] |			"\33&a40L\33*p550Y";
 
-  \opts["h"|"hplj"] & Printertype := "hplj"
+  \opts["h"|"hplj"] & Printertype := "hplj";
   \opts["p"|"postscript"] & Printertype := "postscript";
   if "pipes" == &features then prn := open(lp, "pw")
   else if "MS-DOS" == &features then prn := open ("PRN", "w")
-  else stop ("envelope: please configure printer")
+  else stop ("envelope: please configure printer");
   writes(prn, printerinit);
 
   if map(Printertype) == "postscript" then {
-    every write(prn, !psprefix)
+    every write(prn, !psprefix);
     write(prn, "  ", xorigin, " ", yorigin, " translate ", rotate, " rotate");
     write(prn, "  /", font, " findfont 12 scalefont setfont } def");
     preface := "newenvelope\n"
   }
-  else preface := hpinit || hppos
+  else preface := hpinit || hppos;
   addr := [];
   every !&input ? {
 				# filter troff junk
-    =(".DE" | ".fi") & break
+    =(".DE" | ".fi") & break;
     if =(".DS" | ".nf") then tab(0);
 				# multiple addresses with separators
     if =separator then {
-      (*addr > 0) & address(addr, prn, preface) 
-      addr := []
+      (*addr > 0) & address(addr, prn, preface); 
+      addr := [];
       tab(0)
     }
 				# filter LaTeX junk
     else {
       if ="\\begin" then { 
-	every tab(upto('{')+1) \2
+	every tab(upto('{')+1) \2;
 	goodline := clean(tab(0), '\\')
       }
-      else goodline := clean(tab(0), '\\')
+      else goodline := clean(tab(0), '\\');
       put(addr, trim(goodline, ' }'))
     }
-  }
-  (*addr > 0) & address(addr, prn, preface)
-  writes(prn, printerclear)
+  };
+  (*addr > 0) & address(addr, prn, preface);
+  writes(prn, printerclear);
 end
 
 
-procedure address(addr, prn, preface)
-  local zip, zline
+procedure address(addr, prn, preface);
+  local zip, zline;
 
-  zip := ""
-  writes(prn, preface)
+  zip := "";
+  writes(prn, preface);
   every !addr ? 
     if map(Printertype) == "postscript" then 
       write(prn, "(", tab(0), ") adline")
-    else write(prn, tab(0))
+    else write(prn, tab(0));
 				# scan for zipcode
-  while *(zline := trim(pull(addr))) = 0
+  while *(zline := trim(pull(addr))) = 0;
   reverse(zline) ? if many(&digits++'-') = (6|11) then
-      while tab(upto(&digits)) do zip ||:= tab(many(&digits))
-  (*zip = (5|9)) & barcode(reverse(zip), prn)
+      while tab(upto(&digits)) do zip ||:= tab(many(&digits));
+  (*zip = (5|9)) & barcode(reverse(zip), prn);
   if map(Printertype) == "postscript" then write(prn, "showpage")
-  else writes(prn, "\33E")
+  else writes(prn, "\33E");
 end
 
 
-procedure barcode(zip, prn)
-  local z, zipstring, cksum, bar
+procedure barcode(zip, prn);
+  local z, zipstring, cksum, bar;
 
-  cksum := 0
-  every cksum +:= !zip
-  zip := zip || (100 - cksum) % 10
+  cksum := 0;
+  every cksum +:= !zip;
+  zip := zip || (100 - cksum) % 10;
   bar := ["LLSSS", "SSSLL", "SSLSL", "SSLLS", "SLSSL", 
-	  "SLSLS", "SLLSS", "LSSSL", "LSSLS", "LSLSS" ]
+	  "SLSLS", "SLLSS", "LSSSL", "LSSLS", "LSLSS" ];
 				# The barcode is wrapped in long marks
-  zipstring := "L"
+  zipstring := "L";
 				# Icon lists are indexed from 1
-  every z := !zip do zipstring ||:= bar[z + 1]
-  zipstring ||:= "L"
+  every z := !zip do zipstring ||:= bar[z + 1];
+  zipstring ||:= "L";
   if map(Printertype) == "postscript" then write(prn, "barcode")
-  else writes(prn, "\33*p990y1575X\33*c6A")	
+  else writes(prn, "\33*p990y1575X\33*c6A");	
   every !zipstring ? 
     if map(Printertype) == "postscript" then write(prn, tab(0))
     else {
       if =("S") then writes(prn, "\33*p+21Y\33*c15b0P\33*p-21Y")
-      else writes(prn, "\33*c36b0P")
+      else writes(prn, "\33*c36b0P");
       writes(prn, "\33*p+15X")
-    }
+    };
 end
 
 
-procedure clean(s, c)
-  local i
+procedure clean(s, c);
+  local i;
 
-  while i := upto(c, s) do s[i:many(c,s,i)] := ""
-  return s
+  while i := upto(c, s) do s[i:many(c,s,i)] := "";
+  return s;
 end

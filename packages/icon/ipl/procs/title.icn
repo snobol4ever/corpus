@@ -27,18 +27,18 @@
 
 link titleset
 
-procedure title(name)
-   local result
-   static titles
+procedure title(name);
+   local result;
+   static titles;
 
-   initial titles := titleset()
+   initial titles := titleset();
 
    result := "";
 
    name ? {
       while result ||:= =!titles || " " do
-        tab(many(' \t'))
+        tab(many(' \t'));
       return result ? tab(-1 | 0)
-      }
+      };
 
 end

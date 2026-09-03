@@ -22,8 +22,8 @@
 #
 ############################################################################
 
-procedure main()
-   local line
+procedure main();
+   local line;
 
    while line := read() do
       line ? {
@@ -32,8 +32,8 @@ procedure main()
             break
             }
       else write(&errout, line)
-      }
+      };
 
-   while write(read())
+   while write(read());
 
 end

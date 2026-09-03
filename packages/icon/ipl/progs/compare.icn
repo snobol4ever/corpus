@@ -27,8 +27,8 @@
 #
 ############################################################################
 
-procedure main(args)
-   local filesets, filelist, file, xfile, size, line, input
+procedure main(args);
+   local filesets, filelist, file, xfile, size, line, input;
 
    filesets := table();
 
@@ -42,10 +42,10 @@ procedure main(args)
          move(20);
          tab(many(' '));
          size := integer(tab(many(&digits))) | stop("bogus size")
-         }
+         };
       /filesets[size] := [];
       put(filesets[size], file)
-      }
+      };
 
    filesets := sort(filesets, 3);
 
@@ -55,6 +55,6 @@ procedure main(args)
          every xfile := !filelist do 		# compare against the rest
             if system("cmp -s " || image(file) || " " || image(xfile) ||
                ">/dev/null") = 0 then write(file, "==", xfile)
-      }
+      };
    
 end

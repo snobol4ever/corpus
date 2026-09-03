@@ -51,21 +51,21 @@
 
 global fast, place, array, csave, fsave, number
 
-procedure main()
-   local words, nonletter, line
+procedure main();
+   local words, nonletter, line;
    nonletter := ~&letters;
    words := [];
 
    while line := map(read()) do
       if upto(nonletter,line) then stop("input contains nonletter")
-      else put(words,line)
+      else put(words,line);
    number := *words;
-   kross(words)
+   kross(words);
 
 end
 
-procedure kross(words)
-   local one, tst, t
+procedure kross(words);
+   local one, tst, t;
    array := [get(words)];
    t := 0;
    while one := get(words) do {
@@ -78,13 +78,13 @@ procedure kross(words)
 	 if t > tst then
 	    break
 	 }
-      }
+      };
    if *words = 0 then Print(array)
-   else write(&errout,"cannot construct puzzle")
+   else write(&errout,"cannot construct puzzle");
 end
 
-procedure fit(word,matrix,where)
-   local i, j, k, l, one, test, t, s
+procedure fit(word,matrix,where);
+   local i, j, k, l, one, test, t, s;
    s := *matrix;
    t := *matrix[1];
    every k := gen(*word) do
@@ -98,57 +98,57 @@ procedure fit(word,matrix,where)
                      if tstv(matrix,i,j,l,s,t) then {
                         test := 1;
                         break
-                        }
+                        };
                   if test = 0 then
                      return putvert(matrix,word,i,j,k)
-                  }
+                  };
                if where = 1 then {
                   test := 0;
                   every l := (j - k + 1) to (j + (*word - k)) do
                      if tsth(matrix,i,j,l,s,t) then {
                         test := 1;
                         break
-                        }
+                        };
                   if test = 0 then
                      return puthoriz(matrix,word,i,j,k)
                   }
-               }
+               };
 end
 
-procedure tstv(matrix,i,j,l,s,t)
+procedure tstv(matrix,i,j,l,s,t);
    return ((matrix[(l ~= i) & (s >= l) & (0 < l)][0 < j-1] ~== " ") |
       (matrix[(l ~= i) & (s >= l) & (0 < l)][t >= j + 1] ~== " ") |
       (matrix[(i ~= l-1) & (s >= l-1) & (0 < l-1)][j] ~== " ") |
       (matrix[(i ~= l + 1) & (s >= l+1) & (0 < l + 1)][j] ~== " ") |
-      (matrix[(l ~= i) & (s >= l) & (0 < l)][j] ~== " "))
+      (matrix[(l ~= i) & (s >= l) & (0 < l)][j] ~== " "));
 end
 
-procedure tsth(matrix,i,j,l,s,t)
+procedure tsth(matrix,i,j,l,s,t);
    return ((matrix[0 < i-1][(l ~= j) & (t >= l) & (0 < l)] ~== " ") |
       (matrix[s >= i + 1][(l ~= j) & (t >= l) & (0 < l)] ~== " ") |
       (matrix[i][(j ~= l-1) & (t >= l-1) & (0 < l-1)] ~== " ") |
       (matrix[i][(j ~= l + 1) & (t >= l + 1) & (0 < l + 1)] ~== " ") |
-      (matrix[i][(l ~= j) & (t >= l) & (0 < l)] ~== " "))
+      (matrix[i][(l ~= j) & (t >= l) & (0 < l)] ~== " "));
 end
 
-procedure gen(i)
-   local tmp, up, down
+procedure gen(i);
+   local tmp, up, down;
    tmp := i / 2;
    if (i % 2) = 1 then
-      tmp +:= 1
+      tmp +:= 1;
    suspend tmp;
    up := tmp;
    down := tmp;
    while (up < i) do {
       suspend up +:= 1;
       suspend (down > 1) & (down -:= 1)
-      }
+      };
 end
 
 # put `word' in vertically at pos(i,j)
 
-procedure putvert(matrix,word,i,j,k)
-   local hdim, vdim, up, down, l, m, n
+procedure putvert(matrix,word,i,j,k);
+   local hdim, vdim, up, down, l, m, n;
    vdim := *matrix;
    hdim := *matrix[1];
    up := 0;
@@ -156,19 +156,19 @@ procedure putvert(matrix,word,i,j,k)
    up := abs(0 > (i - k));
    down := abs(0 > ((vdim - i) - (*word - k)));
    every m := 1 to up do
-      push(matrix,repl(" ",hdim))
+      push(matrix,repl(" ",hdim));
    i +:= up;
    every m := 1 to down do
-      put(matrix,repl(" ",hdim))
+      put(matrix,repl(" ",hdim));
    every l := 1 to *word do
-      matrix[i + l - k][j] := word[l]
-   return matrix
+      matrix[i + l - k][j] := word[l];
+   return matrix;
 end
 
 # put `word' in horizontally at position i,j in matrix
 
-procedure puthoriz(matrix,word,i,j,k)
-   local hdim, vdim, left, right, l, m, n
+procedure puthoriz(matrix,word,i,j,k);
+   local hdim, vdim, left, right, l, m, n;
    vdim := *matrix;
    hdim := *matrix[1];
    left := 0;
@@ -177,20 +177,20 @@ procedure puthoriz(matrix,word,i,j,k)
    right := (abs(0 > ((hdim - j) - (*word - k)))) | 0;
    every m := 1 to left do
       every l := 1 to vdim do
-  	 matrix[l] := " " || matrix[l]
+  	 matrix[l] := " " || matrix[l];
    j +:= left;
    every m := 1 to right do
       every l := 1 to vdim do
- 	 matrix[l] ||:= " "
+ 	 matrix[l] ||:= " ";
    every l := 1 to *word do
-      matrix[i][j + l - k] := word[l]
-   return matrix
+      matrix[i][j + l - k] := word[l];
+   return matrix;
 end
 
-procedure Print(matrix)
-   local i
+procedure Print(matrix);
+   local i;
    write("+",repl("-",*matrix[1]),"+");
    every i := 1 to *matrix do
-      write("|",matrix[i],"|")
-   write("+",repl("-",*matrix[1]),"+")
+      write("|",matrix[i],"|");
+   write("+",repl("-",*matrix[1]),"+");
 end

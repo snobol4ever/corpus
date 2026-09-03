@@ -22,20 +22,20 @@
 #
 ############################################################################
 
-procedure strip(s,c)
+procedure strip(s,c);
 
     # Return string s stripped of characters c.  Succeed whether
     # any characters c were found in s or not.
 
-    local s2
+    local s2;
 
     s2 := "";
     s ? {
 	while s2 ||:= tab(upto(c))
-	do tab(many(c))
+	do tab(many(c));
 	s2 ||:= tab(0)
-    }
+    };
 
-    return s2
+    return s2;
 
 end

@@ -29,11 +29,11 @@
 link tile
 link wopen
 
-procedure repeats(name, i, j)		#: repeat image
-   local opts, prefix, win1, win2, width, height
-   local auto, wdim, hdim, limit
+procedure repeats(name, i, j);		#: repeat image
+   local opts, prefix, win1, win2, width, height;
+   local auto, wdim, hdim, limit;
 
-   /i := 1			# horizontal repeats
+   /i := 1;			# horizontal repeats
    /j := 1;  # vertical repeats
 
    win1 := WOpen("canvas=hidden", "image=" || name) | fail;
@@ -47,7 +47,7 @@ procedure repeats(name, i, j)		#: repeat image
 
    tile(win1, win2);
 
-   WClose(win1)
+   WClose(win1);
 
-   return win2
+   return win2;
 end

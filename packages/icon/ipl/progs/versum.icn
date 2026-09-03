@@ -38,8 +38,8 @@
 
 link options
 
-procedure main(args)
-   local start, output, input, i, opts, limit, name, max, count
+procedure main(args);
+   local start, output, input, i, opts, limit, name, max, count;
 
    opts := options(args, "t+s+m+f:F:");
    start := (0 < \opts["s"]) | 196;
@@ -51,16 +51,16 @@ procedure main(args)
    if input := open(name) then {
       count := 0;
       while i := read(input) do {
-          if not integer(i) then exit()			# link, not term
+          if not integer(i) then exit();			# link, not term
          count +:= 1;
          if count > limit then exit()
-         }
+         };
       close(input)
-      }
+      };
 
    /i := start;  # in case file doesn't exist or is empty
 
-   if not integer(i) then stop("*** invalid data")
+   if not integer(i) then stop("*** invalid data");
 
    output := open(name, "a") | stop("*** cannot open file");
 
@@ -68,8 +68,8 @@ procedure main(args)
  
    until (limit -:= 1) = -1 do {
       i +:= reverse(i);
-      if i > \max then break
+      if i > \max then break;
       write(output, i := string(i))
-      }
+      };
 
 end

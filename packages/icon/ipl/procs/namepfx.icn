@@ -29,18 +29,18 @@
 
 link lastname, titleset
 
-procedure namepfx(s)
-   static titles
+procedure namepfx(s);
+   static titles;
 
-   initial titles := titleset()
+   initial titles := titleset();
 
    s ?:= {				# Get past title
-      while =!titles do tab(many(' '))	# "Professor Doctor ... "
+      while =!titles do tab(many(' '));	# "Professor Doctor ... "
       tab(0)
-      }
+      };
 
-   s ?:= trim(tab(find(lastname(s))))
+   s ?:= trim(tab(find(lastname(s))));
 
-   return s
+   return s;
 
 end

@@ -69,19 +69,19 @@ global draft
 
 $define CellSize 6
 
-procedure main(args)
-   local opts, input, file
+procedure main(args);
+   local opts, input, file;
 
    isd;
 
    opts := options(args, "ghps+v");
 
-   if /opts["p"] then printing := 1
+   if /opts["p"] then printing := 1;
    if \opts["v"] then {
        canvas := "canvas=normal";
        hold := opts["h"]		# only if images are visible
        }
-   else canvas := "canvas=hidden"
+   else canvas := "canvas=hidden";
 
    gridlines := opts["g"];
 
@@ -91,18 +91,18 @@ procedure main(args)
       input := open(file) | {
          Notice("Cannot open " || file);
          next
-         }
+         };
    name := basename(file, ".isd");
    draft := xdecode(input);
 
    draw_panes();
    close(input)
-   }
+   };
 
 end
 
-procedure clear_pane(win, n, m, size)
-   local x, y, width, height, save_fg
+procedure clear_pane(win, n, m, size);
+   local x, y, width, height, save_fg;
 
    width := n * size + 1;
    height := m * size + 1;
@@ -112,21 +112,21 @@ procedure clear_pane(win, n, m, size)
    Fg(win, "black");
 
    every x := 0 to width by size do
-      DrawLine(win, x, 0, x, height)
+      DrawLine(win, x, 0, x, height);
 
    every y := 0 to height by size do
-      DrawLine(win, 0, y, width, y)
+      DrawLine(win, 0, y, width, y);
 
-   Fg(win, save_fg)
+   Fg(win, save_fg);
 
-   return
+   return;
 
 end
 
-procedure draw_panes()
-   local i, j, x, y, treadle, k, treadle_list, c, color
-   local tieup_win, threading_win, treadling_win, liftplan_win
-   local drawdown_win, pattern_win
+procedure draw_panes();
+   local i, j, x, y, treadle, k, treadle_list, c, color;
+   local tieup_win, threading_win, treadling_win, liftplan_win;
+   local drawdown_win, pattern_win;
 
    if \draft.tieup then {
 
@@ -141,13 +141,13 @@ procedure draw_panes()
          every j := 1 to draft.treadles do {
             if draft.tieup[j, i] == "1" then 
                fillcell(tieup_win, j, i, "black") 
-            }
+            };
 
       PSDone(printing);
 
       WriteImage(tieup_win, name || "_tieup.gif")
 
-      }
+      };
 
    if *\draft.liftplan > 0 then {
 
@@ -162,13 +162,13 @@ procedure draw_panes()
          every j := 1 to draft.treadles do {
             if draft.liftplan[i, j] == "1" then 
                fillcell(liftplan_win, j, i, "black") 
-            }
+            };
 
       PSDone(printing);
 
       WriteImage(liftplan_win, name || "_liftplan.gif")
 
-      }
+      };
 
    threading_win := WOpen(canvas, "width=" || (cellsize * *draft.threading + 1),
       "height=" || (cellsize * draft.shafts) + 1);
@@ -178,7 +178,7 @@ procedure draw_panes()
    clear_pane(threading_win, *draft.threading, draft.shafts + 1, cellsize);
 
    every i := 1 to *draft.threading do
-      fillcell(threading_win, i, draft.threading[i], "black")
+      fillcell(threading_win, i, draft.threading[i], "black");
 
    PSDone(printing);
 
@@ -191,7 +191,7 @@ procedure draw_panes()
 
    clear_pane(treadling_win, draft.treadles + 1, *draft.treadling, cellsize);
    every i := 1 to *draft.treadling do
-      fillcell(treadling_win, draft.treadling[i], i, "black")
+      fillcell(treadling_win, draft.treadling[i], i, "black");
 
    PSDone(printing);
 
@@ -215,36 +215,36 @@ procedure draw_panes()
          FillRectangle(pattern_win, i * cellsize, 0, cellsize - 1,
             *draft.treadling * cellsize)
          }
-      }
+      };
 
    Fg(pattern_win, "black");
 
    treadle_list := list(draft.treadles);
-   every !treadle_list := []
+   every !treadle_list := [];
 
    every i := 1 to draft.treadles do
       every j := 1 to draft.shafts do
          if draft.tieup[i, j] == "1" then
             every k := 1 to *draft.threading do
                if draft.threading[k] == j then
-                  put(treadle_list[i], k, 0)
+                  put(treadle_list[i], k, 0);
 
    every y := 1 to *draft.treadling do {
       treadle := draft.treadling[y];
       color := draft.color_list[draft.weft_colors[y]];
-      if *treadle_list[treadle] = 0 then next	# blank pick
+      if *treadle_list[treadle] = 0 then next;	# blank pick
       every i := 1 to *treadle_list[treadle] by 2 do
          fillcell(pattern_win, treadle_list[treadle][i], y, color)
-      }
+      };
 
    Fg(pattern_win, "black");
 
    if \gridlines then {
       every x := 0 to WAttrib(pattern_win, "width") by cellsize do
-         DrawLine(pattern_win, x, 0, x, WAttrib(pattern_win, "height"))
+         DrawLine(pattern_win, x, 0, x, WAttrib(pattern_win, "height"));
       every y := 0 to WAttrib(pattern_win, "height") by cellsize do
          DrawLine(pattern_win, 0, y, WAttrib(pattern_win, "width"), y)
-      }
+      };
 
    PSDone(printing);
 
@@ -263,30 +263,30 @@ procedure draw_panes()
       *draft.treadling * cellsize);
 
    treadle_list := list(draft.treadles);
-   every !treadle_list := []
+   every !treadle_list := [];
 
    every i := 1 to draft.treadles do
       every j := 1 to draft.shafts do
          if draft.tieup[i, j] == "1" then
             every k := 1 to *draft.threading do
                if draft.threading[k] == j then
-                  put(treadle_list[i], k, 0)
+                  put(treadle_list[i], k, 0);
 
    every y := 1 to *draft.treadling do {
       treadle := draft.treadling[y];
-      if *treadle_list[treadle] = 0 then next	# blank pick
+      if *treadle_list[treadle] = 0 then next;	# blank pick
       every i := 1 to *treadle_list[treadle] by 2 do
          fillcell(drawdown_win, treadle_list[treadle][i], y, "black")
-      }
+      };
 
    Fg(drawdown_win, "black");
 
    if \gridlines then {
       every x := 0 to WAttrib(drawdown_win, "width") by cellsize do
-         DrawLine(drawdown_win, x, 0, x, WAttrib(drawdown_win, "height"))
+         DrawLine(drawdown_win, x, 0, x, WAttrib(drawdown_win, "height"));
       every y := 0 to WAttrib(drawdown_win, "height") by cellsize do
          DrawLine(drawdown_win, 0, y, WAttrib(drawdown_win, "width"), y)
-      }
+      };
 
    PSDone(printing);
 
@@ -296,17 +296,17 @@ procedure draw_panes()
       repeat {
          if Event(Active()) === "q" then break
          }
-      }
+      };
 
    every WClose(tieup_win | \liftplan_win | threading_win | treadling_win |
-      pattern_win, drawdown_win)
+      pattern_win, drawdown_win);
 
-   return
+   return;
 
 end
 
-procedure fillcell(win, n, m, color)
-   local  save_fg
+procedure fillcell(win, n, m, color);
+   local  save_fg;
 
    save_fg := Fg(win);
    Fg(win, color);
@@ -314,8 +314,8 @@ procedure fillcell(win, n, m, color)
    FillRectangle(win, (n - 1) * cellsize, (m - 1) * cellsize, cellsize,
       cellsize);
 
-   Fg(win, save_fg)
+   Fg(win, save_fg);
 
-   return
+   return;
 
 end

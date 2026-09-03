@@ -29,24 +29,24 @@
 
 link wopen
 
-procedure mirror(win, x, y, w, h)	# mirror with p2mm symmetry
-   local width, height, sym, x1, y1
+procedure mirror(win, x, y, w, h);	# mirror with p2mm symmetry
+   local width, height, sym, x1, y1;
 
-   /win := &window
-   /x := 0
-   /y := 0
-   /w := WAttrib(win, "width")
+   /win := &window;
+   /x := 0;
+   /y := 0;
+   /w := WAttrib(win, "width");
    /h := WAttrib(win, "height");
 
    if w < 0 then {
       w := -w;
       x -:= w
-      }
+      };
 
    if h < 0 then {
       h := -h;
       y -:= h
-      }
+      };
 
    width := 2 * w;
    height := 2 * h;
@@ -56,11 +56,11 @@ procedure mirror(win, x, y, w, h)	# mirror with p2mm symmetry
    CopyArea(win, sym, x, y, w, h);
 
    every x := 0 to w - 1 do 
-      CopyArea(sym, sym, x, 0, 1, h, width - x - 1, 0)
+      CopyArea(sym, sym, x, 0, 1, h, width - x - 1, 0);
 
    every y := 0 to h - 1 do
-      CopyArea(sym, sym, 0, y, width, 1, 0, height - y - 1)
+      CopyArea(sym, sym, 0, y, width, 1, 0, height - y - 1);
 
-   return sym
+   return sym;
 
 end

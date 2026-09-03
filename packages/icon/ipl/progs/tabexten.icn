@@ -22,24 +22,24 @@
 #  
 ############################################################################
 
-procedure main()
-   local line, base, ext, dir
+procedure main();
+   local line, base, ext, dir;
 
    ext := table(0);
 
    while line := read() do {
-      if *line = 0 then next			# skip blank lines
+      if *line = 0 then next;			# skip blank lines
       line ? {
-         if upto(':') then next
-         if not tab(upto('.')) then next
+         if upto(':') then next;
+         if not tab(upto('.')) then next;
          while tab(upto('.'))
-            do move(1)
+            do move(1);
          if &pos > 1 then ext[tab(0)] +:= 1
          }
-      }
+      };
 
    ext := sort(ext, 3);
 
-   while write(left(get(ext), 20), right(get(ext), 6))
+   while write(left(get(ext), 20), right(get(ext), 6));
 
 end

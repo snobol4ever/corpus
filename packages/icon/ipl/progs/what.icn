@@ -30,8 +30,8 @@
 
 link basename
 
-procedure main(args)
-   local ID, line, terminator, key, f, fin, here
+procedure main(args);
+   local ID, line, terminator, key, f, fin, here;
 
    ID := "@(#)what.icn (1.0) - plt - 2 May, 96";
    ID := "@(#)-- Identify source code information.";
@@ -44,7 +44,7 @@ procedure main(args)
       write("Usage: ", basename(&progname, ".EXE"),
          " file1 [file2 [file3]]");
       exit(1)
-      }
+      };
 
    while f := pop(args) do  {
       fin := open(f, "ru") | next;
@@ -58,12 +58,12 @@ procedure main(args)
                   move(4);
                   write('\t', tab(here := upto(terminator)))
                   }
-               }
+               };
             line := line[here:0]
             }  # line
-         } # while
+         }; # while
       close(fin)
-      }  # while files
+      };  # while files
    write("[Time: ", &time / 1000.0, " seconds.]");
-   exit(0)
+   exit(0);
 end

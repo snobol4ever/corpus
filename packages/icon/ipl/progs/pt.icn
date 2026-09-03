@@ -108,8 +108,8 @@ record prod(num, rhs)           # assigned values for prod_table
 record arc(From, To)            # firsts computation -- closure
 record item(prodN, lhs, rhs1, rhs2, NextI)
 record state(C_Set, I_Set, goto)
-procedure main(opt_list)
-  local opt
+procedure main(opt_list);
+  local opt;
 
   start := "START";  # start symbol for augmented grammar
   eoi := "EOI";  # end-of-input token (constant)
@@ -119,28 +119,28 @@ procedure main(opt_list)
   Ts := set();  # terminals
   firsts := table();  # nonterminals only; first(T) = {T}
   get_firsts(get_productions());
-  if /StartSymbol then exit(0)	# input file empty
+  if /StartSymbol then exit(0);	# input file empty
   write_prods();
   if opt := (!opt_list == "-nt") then
-    write_NTs()
+    write_NTs();
   if opt := (!opt_list == "-t") then
-    write_Ts()
+    write_Ts();
   if opt := (!opt_list == "-f") then
-    write_firsts()
+    write_firsts();
   if opt := (!opt_list == "-e") then
     erratta := 1  
   else
-    erratta := 0  
+    erratta := 0;  
   stateL := list();  # not popped, only for referencing
   itemL := list();  # not popped, only for referencing
   state0();  # closure of start production
   gotos();  # sets if items
-  p_table()                     # output parse table
+  p_table();                     # output parse table
 end
  
-procedure get_productions()
-  local Epsilon_Set, LHS, first_RHS_token, grammarFile, line, prods, temp_list
-  local token, ws
+procedure get_productions();
+  local Epsilon_Set, LHS, first_RHS_token, grammarFile, line, prods, temp_list;
+  local token, ws;
 
   prods := 0;  # for enumeration of productions
   ws := ' \t';
@@ -151,8 +151,8 @@ procedure get_productions()
     temp_list := [];  # RHS of production--list of tokens
     line ? {
       tab(many(ws));
-      LHS := tab(upto(ws))      # LHS of production--nonterminal
-      /firsts[LHS] := set()     
+      LHS := tab(upto(ws));      # LHS of production--nonterminal
+      /firsts[LHS] := set();     
       /StartSymbol := LHS;  # start symbol for unaug. grammar
       insert(NTs, LHS);  # collect nonterminals
       tab(many(ws)); tab(match("->")); tab(many(ws));
@@ -160,24 +160,24 @@ procedure get_productions()
         /first_RHS_token := token;
         insert(Ts, token);  # put all RHS tokens into T set for now
         tab(many(ws))
-      }
+      };
       token := tab(0);  # get last RHS non-ws token
       if *token > 0 then {
-        put(temp_list, token)
+        put(temp_list, token);
         /first_RHS_token := token;
         insert(Ts, token)
-      }
+      };
       Ts --:= NTs;  # set of terminals
-      delete(Ts, epsilon)	# EPSILON is not a terminal
+      delete(Ts, epsilon);	# EPSILON is not a terminal
       /prod_table[LHS] := [];
       put(prod_table[LHS], prod(prods +:=1, temp_list))
-    }
+    };
     if first_RHS_token == epsilon then
       insert(Epsilon_Set, LHS)
-  }
+  };
   if not (grammarFile === &input) then 
-    close(grammarFile)
-  return Epsilon_Set
+    close(grammarFile);
+  return Epsilon_Set;
 end
 #**********************************************************************
 #*                                                                    *
@@ -308,8 +308,8 @@ end
 #
 #**********************************************************************
  
-procedure get_firsts(Epsilon_Set)
-  local needs, prods, i, j, k, token
+procedure get_firsts(Epsilon_Set);
+  local needs, prods, i, j, k, token;
 
   needs := table();
   prods := sort(prod_table, 3);
@@ -326,23 +326,23 @@ procedure get_firsts(Epsilon_Set)
           /needs[prods[i]] := [];
           put(needs[prods[i]], token);
           if not (member(Epsilon_Set, token)) then # not B -> EPSILON
-            break
+            break;
           if k = *prods[i+1][j].rhs then   # all RHS tokens are NTs &
             insert(Epsilon_Set, prods[i])  # each has epsilon production
-        }
+        };
   fill_firsts(needs);  # do firsts that contain firsts of other NT(s)
-  every insert(firsts[!Epsilon_Set], epsilon) # add epsilon last
+  every insert(firsts[!Epsilon_Set], epsilon); # add epsilon last
 end
  
-procedure fill_firsts(needs)
-  local G, L, NTy, SS, closed_set, closure_table, has_all_1st, i, lhs
-  local new_temp, rhs, size_has_all_1st, ss, ss_table, tempL, x
+procedure fill_firsts(needs);
+  local G, L, NTy, SS, closed_set, closure_table, has_all_1st, i, lhs;
+  local new_temp, rhs, size_has_all_1st, ss, ss_table, tempL, x;
 
   closure_table := table();
   has_all_1st := copy(NTs);  # set of NTs whose firsts fully defined
   tempL := sort(needs, 3);
   every i := 1 to *tempL by 2 do
-    delete(has_all_1st, tempL[i])
+    delete(has_all_1st, tempL[i]);
   repeat {
     ss := "";
     ss_table := table();
@@ -356,40 +356,40 @@ procedure fill_firsts(needs)
           if member(has_all_1st, NTy) then
             firsts[lhs] ++:= firsts[NTy]
           else
-            put(L, NTy)
+            put(L, NTy);
       if *L = 0 then
         insert(has_all_1st, lhs)
       else {
         put(new_temp, lhs);
         put(new_temp, L)
       }
-    }
+    };
     tempL := new_temp;
     if *has_all_1st = *NTs then
-      break
+      break;
     if size_has_all_1st = *has_all_1st then {
       G := buildgraph(tempL);
       every i := 1 to *tempL by 2 do 
-        closure_table[tempL[i]] := closure(G, tempL[i])
+        closure_table[tempL[i]] := closure(G, tempL[i]);
       every i := 1 to *tempL by 2 do {
         closed_set := set();
         SS := set([tempL[i]]);
         every x := !closure_table[tempL[i]] do
-          insert(SS, G[x])
+          insert(SS, G[x]);
         closed_set := closed_loop(G,SS,closure_table,tempL[i]);
         if \closed_set then {
           finish_firsts(closed_set);
-          every insert(has_all_1st, !closed_set)
+          every insert(has_all_1st, !closed_set);
           break
         }
       }
     }
-  }
-  return
+  };
+  return;
 end
  
-procedure buildgraph(tempL)     # modified from the original version 
-  local arclist, nodetable, x, i
+procedure buildgraph(tempL);     # modified from the original version 
+  local arclist, nodetable, x, i;
 
   arclist := [];  # by Ralph Griswold
   nodetable := table();
@@ -399,59 +399,59 @@ procedure buildgraph(tempL)     # modified from the original version
      addnode(x, nodetable);
      put(arclist, arc(tempL[i], x))
     }
-  }
+  };
   while x := get(arclist) do
-    insert(nodetable[x.From], nodetable[x.To])
-  return nodetable
+    insert(nodetable[x.From], nodetable[x.To]);
+  return nodetable;
 end
  
-procedure closure(G, S1, S2)    # modified from the original version 
-  local S
+procedure closure(G, S1, S2);    # modified from the original version 
+  local S;
 
   /S2 := set([G[S1]]);  # by Ralph Griswold
   every S := !(G[S1]) do
     if not member(S2, S) then {
       insert(S2, S);
       closure(G, G[S], S2)
-    }
-  return S2
+    };
+  return S2;
 end
  
-procedure addnode(n, t)         # author: Ralph Griswold 
-  local S
+procedure addnode(n, t);         # author: Ralph Griswold 
+  local S;
 
   if /t[n] then {
     S := set();
     t[n] := S;
     t[S] := n
-  }
-  return
+  };
+  return;
 end
  
-procedure closed_loop(G, SS, closure_table, tempL_i)
-  local S, x, y
+procedure closed_loop(G, SS, closure_table, tempL_i);
+  local S, x, y;
 
   delete(SS, tempL_i);
   every x := !SS do {
     S := set();
     every y := !closure_table[x] do
-      insert(S, G[y])
+      insert(S, G[y]);
     delete(S, tempL_i);
-    if *S ~= *SS then fail
+    if *S ~= *SS then fail;
     every y := !S do
       if not member(SS, y) then fail
-  }
-  return insert(SS, tempL_i)
+  };
+  return insert(SS, tempL_i);
 end 
  
-procedure finish_firsts(closed_set)
-  local S, x
+procedure finish_firsts(closed_set);
+  local S, x;
 
   S := set();
   every x := !closed_set do
-    every insert(S, !firsts[x]) 
+    every insert(S, !firsts[x]); 
   every x := !closed_set do
-    every insert(firsts[x], !S)
+    every insert(firsts[x], !S);
 end
 #**********************************************************************
 #*                                                                    *
@@ -609,41 +609,41 @@ end
 #
 #**********************************************************************
  
-procedure state0()
-  local itm, st
+procedure state0();
+  local itm, st;
 
   itm := item_num(0, start, [], [StartSymbol], eoi);
   st := state(set(), set([itm]), table());
   put(stateL, st);
-  state_closure(st)     # closure on initial state
+  state_closure(st);     # closure on initial state
 end
  
-procedure item_num(P_num, N_lhs, N_rhs1, N_rhs2, NI)
-  local itm, i
+procedure item_num(P_num, N_lhs, N_rhs1, N_rhs2, NI);
+  local itm, i;
 
   itm := item(P_num, N_lhs, N_rhs1, N_rhs2, NI);
   every i := 1 to *itemL do {
-    if itm.prodN ~== itemL[i].prodN then next
-    if itm.lhs ~== itemL[i].lhs then next
-    if not prod_equal(itm.rhs1, itemL[i].rhs1) then next
-    if not prod_equal(itm.rhs2, itemL[i].rhs2) then next
+    if itm.prodN ~== itemL[i].prodN then next;
+    if itm.lhs ~== itemL[i].lhs then next;
+    if not prod_equal(itm.rhs1, itemL[i].rhs1) then next;
+    if not prod_equal(itm.rhs2, itemL[i].rhs2) then next;
     if itm.NextI == itemL[i].NextI then return i
-  }
-  put(itemL, itm)
-  return *itemL
+  };
+  put(itemL, itm);
+  return *itemL;
 end
  
-procedure prod_equal(prod1, prod2)      # compare 2 lists of strings
-  local i
+procedure prod_equal(prod1, prod2);      # compare 2 lists of strings
+  local i;
 
-  if *prod1 ~= *prod2 then fail
+  if *prod1 ~= *prod2 then fail;
   every i := 1 to *prod1 do
-    if prod1[i] ~== prod2[i] then fail
-  return
+    if prod1[i] ~== prod2[i] then fail;
+  return;
 end
  
-procedure state_closure(st)
-  local addset, more_set, i
+procedure state_closure(st);
+  local addset, more_set, i;
 
   st.C_Set := copy(st.I_Set);
   addset := copy(st.C_Set);
@@ -652,13 +652,13 @@ procedure state_closure(st)
     every i := !addset do
       if (itemL[i].rhs2[1] ~== epsilon) then
         if member(NTs, itemL[i].rhs2[1]) then
-          more_set ++:= new_item(st,itemL[i])
+          more_set ++:= new_item(st,itemL[i]);
     addset := more_set
-  }
+  };
 end
  
-procedure new_item(st,O_itm)
-  local N_Lhs, N_Rhs1, N_prod, NxtInput, T_itm, i, rtn_set
+procedure new_item(st,O_itm);
+  local N_Lhs, N_Rhs1, N_prod, NxtInput, T_itm, i, rtn_set;
   rtn_set := set();
   NxtInput := all_firsts(O_itm);
   N_Lhs := O_itm.rhs2[1];
@@ -670,15 +670,15 @@ procedure new_item(st,O_itm)
         insert(st.C_Set, T_itm);
         insert(rtn_set, T_itm)
       }
-    }
-  return rtn_set
+    };
+  return rtn_set;
 end
  
-procedure all_firsts(itm)
-  local rtn_set, i
+procedure all_firsts(itm);
+  local rtn_set, i;
 
   if *itm.rhs2 = 1 then
-    return set([itm.NextI])
+    return set([itm.NextI]);
   rtn_set := set();
   every i := 2 to *itm.rhs2 do
     if member(Ts, itm.rhs2[i]) then 
@@ -687,22 +687,22 @@ procedure all_firsts(itm)
       rtn_set ++:= firsts[itm.rhs2[i]];
       if not member(firsts[itm.rhs2[i]], epsilon) then
         return rtn_set
-    }
-  return insert(rtn_set, itm.NextI)
+    };
+  return insert(rtn_set, itm.NextI);
 end
  
-procedure gotos()
-  local New_I_Set, gost, i, i_num, j, j_num, looked_at, scan, st, st_num, x
+procedure gotos();
+  local New_I_Set, gost, i, i_num, j, j_num, looked_at, scan, st, st_num, x;
   st_num := 1;
   repeat{
     looked_at := set();
     scan := sort(stateL[st_num].C_Set);
     every i := 1 to *scan do {
       i_num := scan[i];
-      if member(looked_at, i_num) then next
+      if member(looked_at, i_num) then next;
       insert(looked_at, i_num);
       x := itemL[i_num].rhs2[1];  # next LHS
-      if ((*itemL[i_num].rhs2 = 0) | (x == epsilon)) then next
+      if ((*itemL[i_num].rhs2 = 0) | (x == epsilon)) then next;
       New_I_Set := set([moved_item(itemL[i_num])]);
       every j := i+1 to *scan do {
         j_num := scan[j];
@@ -711,7 +711,7 @@ procedure gotos()
             insert(New_I_Set, moved_item(itemL[j_num]));
             insert(looked_at, j_num)
           }
-      }
+      };
       if gost := exists_I_Set(New_I_Set) then 
         stateL[st_num].goto[x] := gost    #add into goto
       else { # add a new state
@@ -720,47 +720,47 @@ procedure gotos()
         state_closure(st);
         stateL[st_num].goto[x] := *stateL    #add into goto
       }
-    }
+    };
     if erratta=1 then {
       write("--------------------------------");
       write("State ", st_num-1);
       write_state(stateL[st_num])
-    }
+    };
     st_num +:= 1;
     if st_num > *stateL then {
       if erratta=1 then
-        write("--------------------------------")
+        write("--------------------------------");
       return stateL
     }
-  }
+  };
 end
  
-procedure moved_item(itm)
-  local N_Rhs1, N_Rhs2, i
+procedure moved_item(itm);
+  local N_Rhs1, N_Rhs2, i;
 
   N_Rhs1 := copy(itm.rhs1);
   put(N_Rhs1, itm.rhs2[1]);
   N_Rhs2 := list();
   every i := 2 to *itm.rhs2 do
-    put(N_Rhs2, itm.rhs2[i])
-  return item_num(itm.prodN, itm.lhs, N_Rhs1, N_Rhs2, itm.NextI)
+    put(N_Rhs2, itm.rhs2[i]);
+  return item_num(itm.prodN, itm.lhs, N_Rhs1, N_Rhs2, itm.NextI);
 end
  
-procedure exists_I_Set(test)
-  local st
+procedure exists_I_Set(test);
+  local st;
 
   every st := 1 to *stateL do
-    if set_equal(test, stateL[st].I_Set) then return st
-  fail
+    if set_equal(test, stateL[st].I_Set) then return st;
+  fail;
 end
  
-procedure set_equal(set1, set2)         
-  local i
+procedure set_equal(set1, set2);         
+  local i;
 
-   if *set1 ~= *set2 then fail
+   if *set1 ~= *set2 then fail;
    every i := !set2 do
-     if not member(set1, i) then fail
-   return set1
+     if not member(set1, i) then fail;
+   return set1;
 end
 #**********************************************************************
 #*                                                                    *
@@ -783,53 +783,53 @@ end
 # 
 #**********************************************************************
  
-procedure write_item(itm)
-  local i
+procedure write_item(itm);
+  local i;
 
   writes("[(",itm.prodN,") ",itm.lhs," ->");
-  every i := !itm.rhs1 do writes(" ",i)
+  every i := !itm.rhs1 do writes(" ",i);
   writes(" .");
-  every i := !itm.rhs2 do writes(" ",i)
-  writes(", ",itm.NextI,"]\n")
+  every i := !itm.rhs2 do writes(" ",i);
+  writes(", ",itm.NextI,"]\n");
 end
  
-procedure write_state(st)
-  local i, tgoto
+procedure write_state(st);
+  local i, tgoto;
 
   write("I_Set");
   every i := ! st.I_Set do {
     writes("Item ", i, " ");
     write_item(itemL[i])
-  }
+  };
   write();
   write("C_Set");
   every i := ! st.C_Set do {
     writes("Item ", i, " ");
     write_item(itemL[i])
-  }
+  };
   tgoto := sort(st.goto, 3);
   write();
   write("Gotos");
   every i := 1 to *tgoto by 2 do
-    write("Goto state ", tgoto[i+1]-1, " on ", tgoto[i])
+    write("Goto state ", tgoto[i+1]-1, " on ", tgoto[i]);
 end
  
-procedure write_tbl_list(out)
-  local i, j
+procedure write_tbl_list(out);
+  local i, j;
 
   every i := 1 to *out by 2 do {
     writes(out[i], ", [");
     every j := *out[i+1] do {
       if j ~= 1 then
-        writes(", ")
+        writes(", ");
       writes(out[i+1][j])
-    }
+    };
     writes("]\n")
-  }
+  };
 end
  
-procedure write_prods()
-  local i, j, k, prods
+procedure write_prods();
+  local i, j, k, prods;
 
   prods := sort(prod_table, 3);
   every i := 1 to *prods by 2 do 
@@ -837,31 +837,31 @@ procedure write_prods()
       writes(right(string(prods[i+1][j].num),3," "),":  ");
       writes(prods[i], " ->");
       every k := 1 to *prods[i+1][j].rhs do
-        writes(" ", prods[i+1][j].rhs[k])
+        writes(" ", prods[i+1][j].rhs[k]);
       writes("\n")
-    }
+    };
 end
  
-procedure write_NTs()
-  local temp_list
+procedure write_NTs();
+  local temp_list;
 
   temp_list := sort(NTs);
   write("\n");
   write("nonterminal sets are:");
-  every write(|pop(temp_list))
+  every write(|pop(temp_list));
 end
  
-procedure write_Ts()
-  local temp_list
+procedure write_Ts();
+  local temp_list;
 
   temp_list := sort(Ts);
   write("\n");
   write("terminal sets are:");
-  every write(|pop(temp_list))
+  every write(|pop(temp_list));
 end
  
-procedure write_firsts()
-  local temp_list, i, j, first_list
+procedure write_firsts();
+  local temp_list, i, j, first_list;
 
   temp_list := sort(firsts, 3);
   write("\nfirst sets:::::");
@@ -869,21 +869,21 @@ procedure write_firsts()
     writes(temp_list[i], ": ");
     first_list := sort(temp_list[i+1]);
     every j := 1 to *first_list do
-      writes(" ", pop(first_list))
+      writes(" ", pop(first_list));
     writes("\n\n")
-  }
+  };
 end
  
-procedure write_needs(L)
-  local i, temp
+procedure write_needs(L);
+  local i, temp;
 
   write("tempL : ");
   every i := 1 to *L by 2 do {
     writes(L[i], " ");
     temp := copy(L[i+1]);
-    every writes(|pop(temp))
+    every writes(|pop(temp));
     writes("\n")
-  }
+  };
 end
 #**********************************************************************
 #*                                                                    *
@@ -911,8 +911,8 @@ end
 #
 #**********************************************************************
  
-procedure p_table()
-  local NT_list, T_list, action, gs, i, itm, msize, out, s, size, st_num, tsize
+procedure p_table();
+  local NT_list, T_list, action, gs, i, itm, msize, out, s, size, st_num, tsize;
 
   T_list := sort(Ts);
   put(T_list, eoi);
@@ -921,20 +921,20 @@ procedure p_table()
   out := table();
   if *stateL < 1000 then msize := 4
   else if *stateL < 10000 then msize := 5
-  else msize := 6
+  else msize := 6;
   tsize := 7;
   every s := !T_list do {
     size[s] := *s;
     size[s] <:= msize;
     tsize +:= size[s] + 3;
     out[s] := s
-  }
+  };
   every s := !NT_list do {
     size[s] := *s;
     size[s] <:= msize;
     tsize +:= size[s] + 3;
     out[s] := s
-  }
+  };
   write();
   write();
   write("PARSE TABLE");
@@ -942,7 +942,7 @@ procedure p_table()
   if tsize <= 80 then {
     outline(size, out, 0, T_list, NT_list);
     border(size, T_list, NT_list, "+")
-  }
+  };
   every st_num := 1 to *stateL do {
     out := table();
     gs := sort(stateL[st_num].goto,3);
@@ -951,13 +951,13 @@ procedure p_table()
         out[gs[i]] := "S" || string(gs[i+1]-1)	# shift (action table)
       else
         out[gs[i]] := string(gs[i+1]-1)		# for goto table
-    }
+    };
     every itm := itemL[!stateL[st_num].C_Set] do {
       if ((*itm.rhs2 = 0) | (itm.rhs2[1] == epsilon))  then {
         if itm.prodN = 0 then
           action := "ACC"			# accept state
         else
-          action := "R" || string(itm.prodN)	# reduce (action table)
+          action := "R" || string(itm.prodN);	# reduce (action table)
         if /out[itm.NextI] then
           out[itm.NextI] := action
         else { # conflict
@@ -966,52 +966,52 @@ procedure p_table()
           write(&errout, "  ", out[itm.NextI], " takes presidence")
         }
       }
-    }
+    };
     if tsize <= 80 then
       outline(size, out, st_num, T_list, NT_list)
     else
       outstate(st_num, out, T_list, NT_list)
-  }
+  };
 end
  
-procedure outline(size, out, st_num, T_list, NT_list)
-  local s
+procedure outline(size, out, st_num, T_list, NT_list);
+  local s;
 
   if st_num = 0 then
     writes("State")
   else
-    writes(right(string(st_num-1),5," "))
+    writes(right(string(st_num-1),5," "));
   writes(" ||");
   every s := !T_list do {
     /out[s] := "";
     writes(" ", center(out[s],size[s]," "), " |")
-  }
+  };
   writes("|");
   every s := !NT_list do {
     /out[s] := "";
     writes(" ", center(out[s],size[s]," "), " |")
-  }
+  };
   write();
   if st_num < * stateL then
     border(size, T_list, NT_list, "+")
   else
-    border(size, T_list, NT_list, "-")
+    border(size, T_list, NT_list, "-");
 end
  
-procedure border(size, T_list, NT_list, col)
-  local s
+procedure border(size, T_list, NT_list, col);
+  local s;
 
   writes("------", col, col);
   every s := !T_list do
-    writes("-", center("",size[s],"-"),"-", col)
+    writes("-", center("",size[s],"-"),"-", col);
   writes(col);
   every s := !NT_list do
-    writes("-",center("",size[s],"-"), "-", col)
-  writes("\n")
+    writes("-",center("",size[s],"-"), "-", col);
+  writes("\n");
 end
  
-procedure outstate(st, out, T_list, NT_list)
-  local s
+procedure outstate(st, out, T_list, NT_list);
+  local s;
 
   write();
   write("Actions for state ", st-1);
@@ -1022,10 +1022,10 @@ procedure outstate(st, out, T_list, NT_list)
       else if out[s][1] == "A" then
 	write("   On ", s, " ACCEPT")
       else
-        write("   On ", s, " shift to state ", out[s][2:0])
+        write("   On ", s, " shift to state ", out[s][2:0]);
   every s := !NT_list do
     if \out[s] then
-      write("   On ", s, " Goto ", out[s])
-  write()
+      write("   On ", s, " Goto ", out[s]);
+  write();
 end
 

@@ -54,9 +54,9 @@ link graphics
 link options
 link strings
 
-procedure main(args)
-   local file, opts, name, output, literal, length, seg, palette, str
-   local suffix
+procedure main(args);
+   local file, opts, name, output, literal, length, seg, palette, str;
+   local suffix;
 
    opts := options(args, "i+lp:");
 
@@ -67,45 +67,45 @@ procedure main(args)
    suffix := if \literal then ".iml" else ".ims";
 
    if not PaletteChars(palette) then
-      stop("*** invalid palette specification")
+      stop("*** invalid palette specification");
 
    every file := !args do {
       name := basename(file, ".gif") || suffix;
       WOpen("canvas=hidden", "image=" || file) | {
          write(&errout, "**** can't open ", file);
          next
-         }
+         };
       output := open(name, "w") | {
          write(&errout, "*** can't write to ", name);
          next
-         }
+         };
       str := Capture(palette);
       if /literal then writes(output, str)
       else {
          if  /length then str ? {
          length := integer(tab(upto(',')))
-         }
+         };
          str ? {
             write(output, "   \"", tab(upto(',') + 1), tab(upto(',') + 1), "_");
             while seg := move(length) do {
                if pos(0) then write(output, "   ", esc(seg), "\"")
                else write(output, "   ", esc(seg), "_")
-               }
+               };
             if not pos(0) then write(output, "   ", esc(tab(0)), "\"")
             }
-         }
+         };
       close(output);
       WClose()
-      }
+      };
 
 end
 
-procedure esc(s)
+procedure esc(s);
 
    s := image(s);
    s := replace(s, "$", "\\x24");
-   s := replace(s, "#", "\\x23")
+   s := replace(s, "#", "\\x23");
 
-   return s[2:-1]
+   return s[2:-1];
 
 end

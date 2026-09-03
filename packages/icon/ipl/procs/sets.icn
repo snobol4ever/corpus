@@ -44,38 +44,38 @@
 #
 ############################################################################
 
-procedure cset2set(cs)			#: set of characters
-   local result
+procedure cset2set(cs);			#: set of characters
+   local result;
 
    result := set();
-   every insert(result, !cs)
+   every insert(result, !cs);
 
-   return result
+   return result;
 
 end
 
-procedure pairset(T)			#: set of table pairs
-    return set(sort(T))
+procedure pairset(T);			#: set of table pairs
+    return set(sort(T));
 end
 
-procedure domain(T)			#: domain of table
-    local dom
+procedure domain(T);			#: domain of table
+    local dom;
 
     dom := set();
-    every insert(dom, key(T))
-    return dom
+    every insert(dom, key(T));
+    return dom;
 end
 
-procedure range(T)			#: range of table
-    local ran
+procedure range(T);			#: range of table
+    local ran;
 
     ran := set();
-    every insert(ran, !T)
-    return ran
+    every insert(ran, !T);
+    return ran;
 end
 
-procedure inverse(T, Default)		#: inverse of table function
-    local inv, delem, relem
+procedure inverse(T, Default);		#: inverse of table function
+    local inv, delem, relem;
 
     inv := table(Default);
     every delem := key(T) do {
@@ -88,37 +88,37 @@ procedure inverse(T, Default)		#: inverse of table function
             insert(inv[relem], delem)
           else inv[relem] := set([delem])
         else inv[T[delem]] := delem
-    }
-    return inv
+    };
+    return inv;
 end
 
-procedure seteq(set1, set2)		#: set equivalence
-   local x
+procedure seteq(set1, set2);		#: set equivalence
+   local x;
 
-   if *set1 ~= *set2 then fail
+   if *set1 ~= *set2 then fail;
    every x := !set1 do
-      if not member(set2, x) then fail
-   return set2
+      if not member(set2, x) then fail;
+   return set2;
 
 end
 
-procedure setlt(set1, set2)		#: set inclusion
-   local x
+procedure setlt(set1, set2);		#: set inclusion
+   local x;
 
-   if *set1 >= *set2 then fail
+   if *set1 >= *set2 then fail;
    every x := !set1 do
-      if not member(set2, x) then fail
-   return set2
+      if not member(set2, x) then fail;
+   return set2;
 
 end
 
-procedure simage(set)			#: string image of set
-   local result
+procedure simage(set);			#: string image of set
+   local result;
 
    result := "";
 
-   every result ||:= image(!set) || ", "
+   every result ||:= image(!set) || ", ";
 
-   return "{ " || result[1:-2] || " }"
+   return "{ " || result[1:-2] || " }";
 
 end

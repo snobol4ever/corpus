@@ -35,14 +35,14 @@ link gobject
 #  list_coords(call) lists the coordinates of the trace produced by
 #  invoke(call)
 
-procedure list_coords(call, p, w)
-   local point
+procedure list_coords(call, p, w);
+   local point;
 
-   /p := 6
+   /p := 6;
    /w := 20;
 
    every point := invoke(call) do
-      write(decipos(point.x, p, w), decipos(point.y, p, w))
+      write(decipos(point.x, p, w), decipos(point.y, p, w));
 
 end
 
@@ -50,8 +50,8 @@ end
 #  point_list(call, i) returns a list of the points in the trace produced
 #  by invoke(call).  If i is nonnull, the list is limited to i points.
 
-procedure point_list(call, i)
-   local plist
+procedure point_list(call, i);
+   local plist;
 
    plist := [];
 
@@ -60,9 +60,9 @@ procedure point_list(call, i)
       }
    else {
       every put(plist, invoke(call))
-      }
+      };
 
-   return plist
+   return plist;
 
 end
 
@@ -71,8 +71,8 @@ end
 #  produced by invoke(call).  If i is nonnull, the list is limited
 #  to i points.
 
-procedure coord_list(call, limit)
-   local clist
+procedure coord_list(call, limit);
+   local clist;
 
    clist := [];
 
@@ -81,19 +81,19 @@ procedure coord_list(call, limit)
       }
    else {
       every put(clist, !(invoke(call)))
-      }
+      };
 
-   return clist
+   return clist;
 
 end
 
 #  read_trace(f) produces a trace from the coordinate file f
 
-procedure read_trace(f)
-   local line
-   static schar
+procedure read_trace(f);
+   local line;
+   static schar;
 
-   initial schar := &digits ++ '.'
+   initial schar := &digits ++ '.';
 
    while line := read(f) do
       line ? {
@@ -101,19 +101,19 @@ procedure read_trace(f)
             tab(upto(schar)) & tab(many(schar)),
             tab(upto(schar)) & tab(many(schar))
             )
-         }
+         };
 
 end
 
 #  write_trace(header, call) writes a trace file from the trace of call.
 
-procedure write_trace(header, call)
-   local point
+procedure write_trace(header, call);
+   local point;
 
    write(header, ":");
 
    every point := invoke(call) do
-      write(point.x, " ", point.y)
+      write(point.x, " ", point.y);
 
 end
 
@@ -126,14 +126,14 @@ end
 #  the x and y coordinates of the point in which it is interested
 #  (standard trace format).
 
-procedure compose_trace(trace, call_1, call_2)
-   local point
+procedure compose_trace(trace, call_1, call_2);
+   local point;
 
    every point := invoke(call_1) do {
       call_2.args[1] := point.x;  # set the origin for call_2
-      call_2.args[2] := point.y
+      call_2.args[2] := point.y;
       suspend invoke(call_2)
-      }
+      };
 
 end
 
@@ -141,23 +141,23 @@ end
 #  produced by call.  The first point of the trace is the first
 #  point of the trace produced by calls.
 
-procedure tcompress(call, i)
-   local j, point
+procedure tcompress(call, i);
+   local j, point;
 
    j := 0;
 
    every point := invoke(call) do {
-      if j % i = 0 then suspend point
+      if j % i = 0 then suspend point;
       i +:= 1
-      }
+      };
 
 end
 
 #  interp_call(call) inserts a point midway on a line between every two points
 #  on the trace produced by call.
 
-procedure interp_trace(call)
-   local point, last_point
+procedure interp_trace(call);
+   local point, last_point;
 
    every point := invoke(call) do {
       if \last_point then {
@@ -166,38 +166,38 @@ procedure interp_trace(call)
             (point.x - last_point.x) / 2,
             (point.y - last_point.y) / 2
             )
-         }
+         };
       last_point := point
-      }
+      };
 
-   suspend last_point
+   suspend last_point;
 
 end
 
 #  coord2point(cl) creates a list of points from a list of coordinates.
 #  It destroys cl.
 
-procedure coord2point(cl)
-   local pl
+procedure coord2point(cl);
+   local pl;
 
    pl := [];
 
-   while put(pl, Point(get(cl), get(cl)))
+   while put(pl, Point(get(cl), get(cl)));
 
-   return pl
+   return pl;
 
 end
 
 #  point2coord(pl) creates a list of coordinates from a list of points.
 #  It does not destroy pl.
 
-procedure point2coord(pl)
-   local cl
+procedure point2coord(pl);
+   local cl;
 
    cl := [];
 
-   every put(cl, !!pl)
+   every put(cl, !!pl);
 
-   return cl
+   return cl;
 
 end

@@ -36,9 +36,9 @@
 #  from a file.
 #
 
-procedure signed(s)
-   local i
+procedure signed(s);
+   local i;
    i := if ord(s[1]) >= 128 then -1 else 0;
-   every i := ior(ord(!s),ishift(i,8))
-   return i
+   every i := ior(ord(!s),ishift(i,8));
+   return i;
 end

@@ -30,17 +30,17 @@
 ############################################################################
 
 
-procedure gdl(dir)
+procedure gdl(dir);
 
-    local getdir
-    getdir := set_getdir_by_os()
-    return getdir(dir)
+    local getdir;
+    getdir := set_getdir_by_os();
+    return getdir(dir);
 
 end
 
 
 
-procedure set_getdir_by_os()
+procedure set_getdir_by_os();
 
     # Decide how to get a directory, based on whether we are running
     # under Unix or MS-DOS.
@@ -49,13 +49,13 @@ procedure set_getdir_by_os()
     then return unix_get_dir
     else if find("MS-DOS", &features)
     then return msdos_get_dir
-    else stop("Your operating system is not (yet) supported.")
+    else stop("Your operating system is not (yet) supported.");
 
 end
 
 
 
-procedure msdos_get_dir(dir)
+procedure msdos_get_dir(dir);
 
     # Returns a sorted list of all filenames (full paths included) in
     # directory "dir."  The list is sorted.  Fails on invalid or empty
@@ -66,13 +66,13 @@ procedure msdos_get_dir(dir)
     # value of the environment variable TEMPDIR to an appropriate
     # directory name.
 
-    local in_dir, filename_list, line, temp_name, filename
-    static temp_dir
+    local in_dir, filename_list, line, temp_name, filename;
+    static temp_dir;
     initial {
         temp_dir := 
             (trim(map(getenv("TEMPDIR"), "/", "\\"), '\\') || "\\") |
                 ".\\"
-    }
+    };
 
     # Get name of tempfile to be used.
     temp_name := get_dos_tempname(temp_dir) |
@@ -96,37 +96,37 @@ procedure msdos_get_dir(dir)
 	# Exclude our own tempfiles (may not always be appropriate).
 	filename ?:= trim(trim(tab(10)) || "." || tab(13), '. ');
 	put(filename_list, map(dir || filename))
-    }
+    };
 
     # Clean up.
     close(in_dir) & remove(temp_name);
 
     # Check to be sure we actually managed to read some files.
     if *filename_list = 0 then fail
-    else return sort(filename_list)
+    else return sort(filename_list);
 
 end
 
 
 
-procedure get_dos_tempname(dir)
-    local temp_name, temp_file
+procedure get_dos_tempname(dir);
+    local temp_name, temp_file;
 
     # Don't clobber existing files.  Get a unique temp file name for
     # use as a temporary storage site.
 
     every temp_name := dir || "icondir." || right(string(1 to 999),3,"0") do {
-	temp_file := open(temp_name,"r") | break
+	temp_file := open(temp_name,"r") | break;
         close(temp_file)
-    }
-    return \temp_name
+    };
+    return \temp_name;
 
 end
 
 
 
-procedure unix_get_dir(dir)
-    local filename_list, in_dir, filename
+procedure unix_get_dir(dir);
+    local filename_list, in_dir, filename;
 
     dir := trim(dir, '/') || "/";
     filename_list := list();
@@ -134,10 +134,10 @@ procedure unix_get_dir(dir)
     every filename := ("" ~== !in_dir) do {
 	match("/",filename,*filename) & next;
 	put(filename_list, trim(dir || filename, '*'))
-    }
+    };
     close(in_dir);
 
     if *filename_list = 0 then fail
-    else return filename_list
+    else return filename_list;
 
 end

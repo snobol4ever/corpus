@@ -46,15 +46,15 @@ global fnc
 global width
 global height
 
-procedure main(args)
+procedure main(args);
 
    init(args);
 
-   display()
+   display();
 
 end
 
-procedure init(args)
+procedure init(args);
 
    vidgets := ui();
 
@@ -63,54 +63,54 @@ procedure init(args)
    state := &null;
    scale := 1;
    fnc := 1;  # linear scaling  :-)
-   if args[1] == "-p" then input := &input
+   if args[1] == "-p" then input := &input;
 
    width :=  vidgets["strip"].uw;
    height :=  vidgets["strip"].uh;
 
    strip := Clone("dx=" || vidgets["strip"].ux, "dy=" || vidgets["strip"].uy);
-   Clip(strip, 0, 0, width, height)
+   Clip(strip, 0, 0, width, height);
 
 end
 
-procedure display()
-   local n
+procedure display();
+   local n;
 
    repeat {
       repeat {
          while (*Pending() > 0) | \state | /input do
-            ProcessEvent(root, , shortcuts)
+            ProcessEvent(root, , shortcuts);
          n := read(input) | {
             Notice("End of data");
             break
-            }
+            };
          n := integer(fnc(n * scale)) | {
             Notice("Nonnumeric data; terminating input");
             break
-            }
+            };
          n >:= height;  # Motif bug avoidance
          EraseArea(strip, width - 1, 0, width - 1, height);
          DrawLine(strip, width - 1, height - n, width - 1, height);
          CopyArea(strip, 1, 0, width - 1, height, 0, 0)
-         }
+         };
    input := &null
-   }
+   };
 
 end
 
-procedure file_cb(vidget, value)
+procedure file_cb(vidget, value);
 
    case value[1] of {
-      "open      @O":  load()
-      "snapshot  @S":  return snapshot(strip)
+      "open      @O":  load();
+      "snapshot  @S":  return snapshot(strip);
       "quit      @Q":  exit()
-      }
+      };
    
-   fail
+   fail;
 
 end
 
-procedure configure_cb(vidget, value)
+procedure configure_cb(vidget, value);
 
    case value[1] of {
       "scale":  {
@@ -119,78 +119,78 @@ procedure configure_cb(vidget, value)
                scale := (0 < numeric(dialog_value[1])) | {
                   Notice("Invalid scale value");
                   next
-                  }
-               reset_cb()
+                  };
+               reset_cb();
                return
                }
             else fail			# user canceled
             }
-         }
+         };
       "function":  {
          repeat {
             if TextDialog(,  "function", fnc, 10) == "Okay" then {
                (proc | numeric)(fnc <-dialog_value[1]) | {
                   Notice("Invalid function specification");
                   next
-                  }
-               reset_cb()
+                  };
+               reset_cb();
                return
                }
             else fail			# user canceled
             }
          }
-      }
+      };
 
-   fail
-
-end
-procedure pause_cb(vidget, value)
-
-   state := value
-
-   return
+   fail;
 
 end
+procedure pause_cb(vidget, value);
 
-procedure reset_cb()
+   state := value;
 
-   EraseArea(strip)
-
-   return
+   return;
 
 end
 
-procedure shortcuts(e)
+procedure reset_cb();
+
+   EraseArea(strip);
+
+   return;
+
+end
+
+procedure shortcuts(e);
 
    if &meta then
       case map(e) of {
-         "o":  load()
-         "q":  exit()
+         "o":  load();
+         "q":  exit();
          "s":  return snapshot(strip)
          }
-   else fail
+   else fail;
 
 end
 
-procedure load()
+procedure load();
 
    if load_file() == "Okay" then {
       input := dialog_value;
-      reset_cb()
+      reset_cb();
       return
       }
-   else fail
+   else fail;
 
 end
 
   
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts()
-   return ["size=477,255", "bg=gray-white"]
+procedure ui_atts();
+   return ["size=477,255", "bg=gray-white"];
 end
 
-procedure ui(win, cbk)
+procedure ui(win, cbk);
 return vsetup(win, cbk,
    [":Sizer:::0,0,477,255:",],
    ["configure:Menu:pull::36,0,71,21:Configure",configure_cb,
@@ -201,6 +201,6 @@ return vsetup(win, cbk,
    ["pause:Button:regular:1:11,43,42,20:pause",pause_cb],
    ["reset:Button:regular::11,76,42,20:reset",reset_cb],
    ["strip:Rect:grooved::63,37,400,200:",],
-   )
+   );
 end
 #===<<vib:end>>===	end of section maintained by vib

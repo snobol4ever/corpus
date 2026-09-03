@@ -26,12 +26,12 @@
 #  right shift operation.
 #
 
-procedure intstr(i,size)
-   local s
+procedure intstr(i,size);
+   local s;
    s := "";
    every 1 to size do {
       s := char(iand(i,16rFF)) || s;
       i := ishift(i,-8)
-      }
-   return s
+      };
+   return s;
 end

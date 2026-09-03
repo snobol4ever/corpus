@@ -79,7 +79,7 @@ global draw_circle
 
 global du_v, de_v, rs_v, sk_v
 
-procedure main (args)
+procedure main (args);
 
    draw_circle := DrawCircle;
 
@@ -95,11 +95,11 @@ procedure main (args)
       }
    else {			# just rely on command line arguments
       kaleidoscope(r_seed)
-      }
+      };
 
 end
 
-procedure init_globs()
+procedure init_globs();
 
    duration := 500;  # set default characteristics
    density := 30;
@@ -114,32 +114,32 @@ procedure init_globs()
    r_seed := map("HhMmYy", "Hh:Mm:Yy", &clock);
    # See if the Vidget library is available or not
    if \VSet then use_dialog := "yes"
-            else use_dialog := &null
+            else use_dialog := &null;
 
 end
 
-procedure process_args(args)
-   local arg
+procedure process_args(args);
+   local arg;
 
    # really only needed if you don't use the dialog box
    every arg := !args do case arg[1+:2] of {
-      "-w" : win_size := integer(arg[3:0])	 # window size
-      "-d" : density := integer(arg[3:0])        # density of circles
-      "-l" : duration := integer(arg[3:0])       # duration
-      "-M" : maxradius := integer(arg[3:0])      # maximum radius
-      "-m" : minradius := integer(arg[3:0])      # minimum radius
-      "-X" : maxoff := integer(arg[3:0])         # maximum offset
-      "-x" : minoff := integer(arg[3:0])         # minimum offset
-      "-s" : skew := numeric(arg[3:0])           # set skewedness
-      "-F" : fill := &null                       # turn off fill
-      "-C" : Clear := "yes"                      # turn on clear mode
-      "-r" : r_seed := integer(arg[3:0])         # random seed
+      "-w" : win_size := integer(arg[3:0]);	 # window size
+      "-d" : density := integer(arg[3:0]);        # density of circles
+      "-l" : duration := integer(arg[3:0]);       # duration
+      "-M" : maxradius := integer(arg[3:0]);      # maximum radius
+      "-m" : minradius := integer(arg[3:0]);      # minimum radius
+      "-X" : maxoff := integer(arg[3:0]);         # maximum offset
+      "-x" : minoff := integer(arg[3:0]);         # minimum offset
+      "-s" : skew := numeric(arg[3:0]);           # set skewedness
+      "-F" : fill := &null;                       # turn off fill
+      "-C" : Clear := "yes";                      # turn on clear mode
+      "-r" : r_seed := integer(arg[3:0]);         # random seed
       "-h" : stop("usage: kal [-wn] [-dn] [-ln] [-Mn] [-mn] [-Xn] [-xn] _
                      [-sn] [-F] [-C] [-rn]")
-      }
+      };
    # adjust parameters that depend on the window size...
    mid_win := win_size/2;
-   maxoff := win_size-1
+   maxoff := win_size-1;
 end
 
 # Lorraine Callahan's kaleidoscope program, translated into icon.
@@ -150,11 +150,11 @@ end
 
 global putcircle, clrcircle
 
-procedure kaleidoscope(r)
-   local colors
+procedure kaleidoscope(r);
+   local colors;
 
    # What colors to use?  This can be changed to whatever!
-   colors := ["red","green","blue","cyan","magenta","yellow"]
+   colors := ["red","green","blue","cyan","magenta","yellow"];
 
    &window := WOpen("label=Kaleidoscope: 'q' quits", "width="||win_size,
                                   "height="||win_size, "bg=black");
@@ -165,39 +165,39 @@ procedure kaleidoscope(r)
    #   place them, these both just draw the circles!)
 
    putcircle := create {                # draws sequence of circles
-      &random :=: r
+      &random :=: r;
       |{
        Fg(?colors);
-       outcircle()
+       outcircle();
        &random <-> r
        }
-      }
+      };
 
    clrcircle := create {                # erases sequence of circles
-      &random :=: r
+      &random :=: r;
       |{
        Fg(?colors);
-       outcircle()
+       outcircle();
        &random <-> r
        }
-      }
+      };
 
-   every 1 to density do @putcircle	# fill screen to density
+   every 1 to density do @putcircle;	# fill screen to density
 
    every 1 to duration do {		# maintain steady state
-      @putcircle
+      @putcircle;
       @clrcircle;
       if *Pending(&window) > 0 then break
-      }
+      };
 
-   every (Clear == "On") & 1 to density do @clrcircle
+   every (Clear == "On") & 1 to density do @clrcircle;
 
-   close(&window)
+   close(&window);
 end
 
 
-procedure outcircle()                   # select a circle at random,
-local radius, xoff, yoff                #  draw it in kaleidoscopic form
+procedure outcircle();                   # select a circle at random,
+local radius, xoff, yoff;                #  draw it in kaleidoscopic form
 
 	# get a random center point and radius
    xoff := (?(maxoff - minoff) + minoff) % mid_win;
@@ -218,8 +218,8 @@ local radius, xoff, yoff                #  draw it in kaleidoscopic form
    draw_circle(mid_win-yoff, mid_win+xoff, radius);
    draw_circle(mid_win-yoff, mid_win-xoff, radius);
 
-   WDelay(10)
-   return
+   WDelay(10);
+   return;
 end
 
 
@@ -230,8 +230,8 @@ end
 #	you should have to play with it!
 #
 ############################################################################
-procedure ui (win)
-   local cv1, cv2, cv3, cv4
+procedure ui (win);
+   local cv1, cv2, cv3, cv4;
    local 
          radio_button2, 
          radio_button1, 
@@ -242,7 +242,7 @@ procedure ui (win)
          text_input4, 
          text_input3, 
          slider2, 
-         slider1 
+         slider1; 
 
    /win := WOpen("label=ui", "width=404", "height=313", "font=6x12") | 
            stop ("bad win");
@@ -317,66 +317,66 @@ procedure ui (win)
    VInsert (root, de_v := Vtext(win,"Density:\\="||density, get_density,,8),
               71, 16);
 
-   VResize (root)
-   return root
+   VResize (root);
+   return root;
 end
 
-procedure get_skew (wit, value)
-   skew := value
+procedure get_skew (wit, value);
+   skew := value;
 end
 
-procedure get_duration (wit, value)
-   duration := value
+procedure get_duration (wit, value);
+   duration := value;
 end
 
-procedure do_quit (wit, value)
-   stop()
+procedure do_quit (wit, value);
+   stop();
 end
 
-procedure do_display (wit, value)
+procedure do_display (wit, value);
    r_seed   := numeric(rs_v.data);
    duration := integer(du_v.data);
    density  := integer(de_v.data);
    skew     := integer(sk_v.data);
    kaleidoscope(r_seed);
    wit.callback.value := &null;
-   VDraw(check1)
+   VDraw(check1);
 end
 
-procedure get_clear (wit, value)
-   Clear := value
+procedure get_clear (wit, value);
+   Clear := value;
 end
 
-procedure get_fill (wit, value)
+procedure get_fill (wit, value);
    fill := value;
    if fill == "Off" then draw_circle := DrawCircle
-   else draw_circle := FillCircle
+   else draw_circle := FillCircle;
 end
 
-procedure get_max_offset (wit, value)
-   maxoff := value
+procedure get_max_offset (wit, value);
+   maxoff := value;
 end
 
-procedure get_min_offset (wit, value)
-   minoff := value
+procedure get_min_offset (wit, value);
+   minoff := value;
 end
 
-procedure get_max_radius (wit, value)
-   maxradius := value
+procedure get_max_radius (wit, value);
+   maxradius := value;
 end
 
-procedure get_min_radius (wit, value)
-   minradius := value
+procedure get_min_radius (wit, value);
+   minradius := value;
 end
 
-procedure get_random (wit, value)
-   r_seed := integer(value)
+procedure get_random (wit, value);
+   r_seed := integer(value);
 end
 
-procedure get_density (wit, value)
-   density := integer(value)
+procedure get_density (wit, value);
+   density := integer(value);
 end
 
-procedure quit(e)
-   if e === "q" then stop ("Exiting Kaleidoscope")
+procedure quit(e);
+   if e === "q" then stop ("Exiting Kaleidoscope");
 end

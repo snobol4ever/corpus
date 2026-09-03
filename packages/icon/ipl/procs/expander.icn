@@ -38,9 +38,9 @@
 link strings
 link weaving
 
-procedure pfl2str(pattern)		#: pattern-form to plain string
-   local result, expr1, expr2, op
-   static operator, optbl
+procedure pfl2str(pattern);		#: pattern-form to plain string
+   local result, expr1, expr2, op;
+   static operator, optbl;
 
    initial {
       operator := '*-!|+,/~:?%<>#`';
@@ -64,7 +64,7 @@ procedure pfl2str(pattern)		#: pattern-form to plain string
       optbl["#"] := rotate;
       optbl["`"] := reverse;
       optbl[","] := proc("||", 2)
-      }
+      };
 
    result := "";
 
@@ -76,22 +76,22 @@ procedure pfl2str(pattern)		#: pattern-form to plain string
             result ||:= pfl2str(tab(bal(']', '[', ']')));
             move(1);
             next
-            }
+            };
          op := tab(many(operator)) | return error("2", pattern);
          expr2 := pfl2str(tab(bal(']', '[', ']'))) | return error("3", pattern);
          result ||:= \optbl[op](expr1, expr2) | return error("4", pattern);
          move(1)
-         }
+         };
       if not pos(0) then result ||:= tab(0)
-      }
+      };
 
-   return result
+   return result;
 
 end
 
-procedure pfl2pwl(pattern)		#: pattern form to Painter expression
-   local result, i, j, slist, s, expr1, expr2, op, head
-   static operator, optbl
+procedure pfl2pwl(pattern);		#: pattern form to Painter expression
+   local result, i, j, slist, s, expr1, expr2, op, head;
+   static operator, optbl;
 
    initial {
       operator := '*-!|+,;/~:?%<>#`';
@@ -115,13 +115,13 @@ procedure pfl2pwl(pattern)		#: pattern form to Painter expression
       optbl["#"] := "#";
       optbl["`"] := "`";
       optbl[","] := ","
-      }
+      };
 
    result := "";
 
    pattern ? {
       while head :=  tab(upto('[')) do {
-         if *head > 0 then result ||:= "," || head
+         if *head > 0 then result ||:= "," || head;
          move(1);
          expr1 := pfl2pwl(tab(bal(operator, '[', ']'))) | return error();
          op := tab(many(operator)) | return error();
@@ -129,25 +129,25 @@ procedure pfl2pwl(pattern)		#: pattern form to Painter expression
          result ||:= "," ||  "(" || expr1 || \optbl[op] || expr2 || ")" |
             return error();
          move(1)
-         }
+         };
       if not pos(0) then result ||:= "," || tab(0)
-      }
+      };
 
-   return result[2:0]
+   return result[2:0];
 
 end
 
-procedure error(expr1, expr2)
+procedure error(expr1, expr2);
 
    write(&errout, "*** error ", expr1, " ", expr2);
 
-   fail
+   fail;
 
 end
 
-procedure pfl2gxp(pattern, arg)		#: pattern form to generating expression
-   local result, i, j, slist, s, expr1, expr2, op
-   static operator, optbl, argtbl
+procedure pfl2gxp(pattern, arg);		#: pattern form to generating expression
+   local result, i, j, slist, s, expr1, expr2, op;
+   static operator, optbl, argtbl;
 
    initial {
 
@@ -173,7 +173,7 @@ procedure pfl2gxp(pattern, arg)		#: pattern form to generating expression
       optbl["#"] := "Rotate{";
       optbl["`"] := "Reverse{";
       optbl["*"] := repl
-      }
+      };
 
    /arg := str;
 
@@ -184,7 +184,7 @@ procedure pfl2gxp(pattern, arg)		#: pattern form to generating expression
       argtbl["#"] := 1;
       argtbl["->"] := 1;
 
-   if /pattern | (*pattern = 0) then return image("")
+   if /pattern | (*pattern = 0) then return image("");
 
    result := "";
 
@@ -195,50 +195,50 @@ procedure pfl2gxp(pattern, arg)		#: pattern form to generating expression
             result ||:= tab(bal(']', '[', ']')) || " | ";  # no operator
             move(1);
             next
-            }
+            };
          if ="." then result ||:= tab(bal(']', '[', ']')) || " | "
          else {
             op := tab(many(operator))  | return error();
             expr2 := pfl2gxp(tab(bal(']', '[', ']')), argtbl[op]) | return error();
             result ||:= \optbl[op] || expr1 || "," || expr2 || ") | " |
               return error()
-            }
+            };
          move(1)
-         }
+         };
       if not pos(0) then result ||:= arg(tab(0))
-      }
+      };
 
-   return trim(result, '| ')
-
-end
-
-procedure lit(s)
-
-   return "!" || image(s)
+   return trim(result, '| ');
 
 end
 
-procedure str(s)
+procedure lit(s);
 
-   return lit(s) || " | "
-
-end
-
-procedure galt(s)
-
-   return "Galt{" || collate(s, repl(",", *s - 1)) || "}"
+   return "!" || image(s);
 
 end
 
-procedure pwl2pfl(wexpr)		#: Painter expression to pattern form
+procedure str(s);
 
-   return pwlcvt(prepare(wexpr))
+   return lit(s) || " | ";
 
 end
 
-procedure prepare(wexpr)		# preprocess pwl
-   local inter, result
-   static names, names1
+procedure galt(s);
+
+   return "Galt{" || collate(s, repl(",", *s - 1)) || "}";
+
+end
+
+procedure pwl2pfl(wexpr);		#: Painter expression to pattern form
+
+   return pwlcvt(prepare(wexpr));
+
+end
+
+procedure prepare(wexpr);		# preprocess pwl
+   local inter, result;
+   static names, names1;
 
    initial {
       names := [
@@ -276,7 +276,7 @@ procedure prepare(wexpr)		# preprocess pwl
          "rev", "`"
          ]
 
-      }
+      };
 
    result := "";
 
@@ -285,104 +285,104 @@ procedure prepare(wexpr)		# preprocess pwl
          move(1);
          inter := tab(bal(']'));
          if *inter > 0 then result ||:= spray(inter)
-         else result ||:= "[]"
+         else result ||:= "[]";
          move(1)
-         }
+         };
       result ||:= tab(0)
-      }
+      };
 
    if upto(result, ' ') then {
       if upto(result, &letters) then {
          names[1] := result;
          result := (replacem ! names)
          }
-      }
+      };
 
    if upto(result, &letters) then {
       names1[1] := result;
       result := (replacem ! names1)
-      }
+      };
 
-   return deletec(map(result, "[]", "=="), ' ')
+   return deletec(map(result, "[]", "=="), ' ');
 
 end
 
-procedure pwlcvt(wexpr)
-   local result, inter
+procedure pwlcvt(wexpr);
+   local result, inter;
 
    wexpr ?:= {
       2(="(", tab(bal(')')), pos(-1))
-      }
+      };
       
    result := "";
 
    wexpr ? {
-      while result ||:= form1(pwlcvt(tab(bal('|`', '([', ']('))), move(1))
+      while result ||:= form1(pwlcvt(tab(bal('|`', '([', ']('))), move(1));
       result ||:= tab(0)
-      }
+      };
 
    wexpr := result;
    result := "";
 
    wexpr ? {
       while result ||:= form2(pwlcvt(tab(bal('->:#*=~', '([', ')]'))),
-         =("#" | "*" | "->" | "~" | ":" | "=="), pwlcvt(tab(0)))
+         =("#" | "*" | "->" | "~" | ":" | "=="), pwlcvt(tab(0)));
       result ||:= tab(0)
-      }
+      };
 
    wexpr := result;
    result := "";
  
    wexpr ? {
       while result ||:= form2(pwlcvt(tab(bal('<>', '([', ')]'))),
-         =("><" | "<>"), pwlcvt(tab(0)))
+         =("><" | "<>"), pwlcvt(tab(0)));
       result ||:= tab(0)
-      }
+      };
 
    wexpr := result;
    result := "";
  
    wexpr ? {
       while result ||:= form2(pwlcvt(tab(bal('<->,', '([', ')]'))),
-         =(">" | "<" | "-" | ","), pwlcvt(tab(0)))
+         =(">" | "<" | "-" | ","), pwlcvt(tab(0)));
       result ||:= tab(0)
-      }
+      };
       
-   return result
+   return result;
 
 end
 
-procedure form1(wexpr, op)
+procedure form1(wexpr, op);
 
-   return "[" || wexpr || op || "]"
-
-end
-
-procedure form2(wexpr1, op, wexpr2)
-
-   return "[" || wexpr1 || op || wexpr2 || "]"
+   return "[" || wexpr || op || "]";
 
 end
 
-procedure spray(inter)
-   local count, s1, s2, s3, colors
+procedure form2(wexpr1, op, wexpr2);
+
+   return "[" || wexpr1 || op || wexpr2 || "]";
+
+end
+
+procedure spray(inter);
+   local count, s1, s2, s3, colors;
 
    s1 := s2 := s3 := "";
 
    inter ?:= {		# only palindome and reflection allowed, it seems
       1(tab(upto('|`') | 0), s3 := tab(0))
-      }
+      };
 
    inter ? {
       while s1 ||:= colors := tab(upto(' ')) do {
          tab(many(' '));
          count := tab(upto(' ') | 0);
          if *count = 1 then s2 ||:= repl(count, *colors)
-         else s2 ||:= repl("{" || count || "}", *colors)
+         else s2 ||:= repl("{" || count || "}", *colors);
          move(1) | break
          }
-      }
+      };
    
-   return "((" || s1 || s3 || ")" || "[]" || s2 || ")"
+   return "((" || s1 || s3 || ")" || "[]" || s2 || ")";
 
 end

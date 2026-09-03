@@ -44,9 +44,9 @@ link interact
 link options
 link wopen
 
-procedure main(args)
-   local extent, size, colors, ncolors, k, x, i, y, j, c, palette
-   local opts, init, incr, limit, run
+procedure main(args);
+   local extent, size, colors, ncolors, k, x, i, y, j, c, palette;
+   local opts, init, incr, limit, run;
 
    opts := options(args, "gs+p:i+k+l+");
 
@@ -84,15 +84,15 @@ procedure main(args)
                -i, j
                );
             y +:= k
-            }
+            };
          x +:= k
-         }
+         };
       Fg("black");
       if /run then repeat case Event() of {
-         "q":   exit()
-         "s":   snapshot()
+         "q":   exit();
+         "s":   snapshot();
          "n":   break
          }
-      }
+      };
 
 end

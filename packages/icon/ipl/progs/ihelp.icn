@@ -59,8 +59,8 @@
 link options
 
 
-procedure main(arg)
-   local defaultHelpFile, opts, fn, f, item, line, keywords, i, lline, k
+procedure main(arg);
+   local defaultHelpFile, opts, fn, f, item, line, keywords, i, lline, k;
 
    #
    #  Initialize.
@@ -75,20 +75,20 @@ procedure main(arg)
    if item := map(arg[1]) then {
       line := "";
       until item == map(line[1:*item + 1]) do {
-	 while read(f) ~== "-"
+	 while read(f) ~== "-";
 	 line := read(f) | stop("No help for ",item)
 	 }
-      }
+      };
    #
    #  Output the section lines that contain the keywords.
    #
    write(line);
    keywords := arg[2:0] | [];
-   every i := 1 to *keywords do keywords[i] := map(keywords[i])
+   every i := 1 to *keywords do keywords[i] := map(keywords[i]);
    while "-" ~== (line := read(f)) do {
       lline := map(line);
       if not (every k := !keywords do if not find(k,lline) then break) then
 	    write(line)
-      }
+      };
 end
 

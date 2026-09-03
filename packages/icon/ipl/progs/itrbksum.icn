@@ -24,28 +24,28 @@
 
 $define CountWidth 10
 
-procedure main()
-   local line, count
+procedure main();
+   local line, count;
 
    while line := read() do {
       if line ? =("Trace back:" | "Traceback") then break
       else write(line)
-      }
+      };
 
    write();
    write(read());
 
    count := 0;
    while line := read() do
-      count +:= 1
+      count +:= 1;
 
    every 1 to 3 do
-      write("\t.")
+      write("\t.");
 
    write(line);
 
    write();
 
-   write("at level ", count)
+   write("at level ", count);
 
 end

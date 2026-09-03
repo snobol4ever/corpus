@@ -42,8 +42,8 @@
 
 link patutils
 
-procedure main(args)
-   local file, input, i, hitlist, patlist, spec, lo, hi, subspec
+procedure main(args);
+   local file, input, i, hitlist, patlist, spec, lo, hi, subspec;
 
    file := args[1] | stop("*** no pattern list specified");
 
@@ -55,7 +55,7 @@ procedure main(args)
       spec ? {
          while subspec := tab(upto(',') | 0) do {
             if insert(hitlist, integer(subspec)) then {		# integer
-               move(1) | break
+               move(1) | break;
                tab(many(' '))
                }
             else {
@@ -66,20 +66,20 @@ procedure main(args)
                   lo <= hi &
                   pos(0) | write(&errout, "*** bad specification");
                   every insert(hitlist, 0 < integer(lo to hi))
-                  }
-               move(1) | break
+                  };
+               move(1) | break;
                tab(many(' '))
                }
             }
          }
-      }
+      };
 
    patlist := [];  # read in list of patterns
 
-   while put(patlist, readpatt(input))
+   while put(patlist, readpatt(input));
    
    every i := !sort(hitlist) do {		# write out selected patterns
       write(patlist[i]) | write(&errout, "*** ", i, " out of bounds")
-      }
+      };
 
 end

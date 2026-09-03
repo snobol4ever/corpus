@@ -20,17 +20,17 @@
 #
 ############################################################################
 
-procedure rec2tab(rec, output)
-   local i, x
+procedure rec2tab(rec, output);
+   local i, x;
 
    i := *rec - 1;
    every i := 1 to *rec - 1 do {
-      x := rec[i]
+      x := rec[i];
       /x := "";
       writes(output, map(x, "\n", "\v"),"\t")
-      }
-   write(output, map(\rec[-1], "\n", "\v")) | write(output)
+      };
+   write(output, map(\rec[-1], "\n", "\v")) | write(output);
 
-   return
+   return;
 
 end

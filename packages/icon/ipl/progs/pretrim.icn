@@ -25,16 +25,16 @@
 
 link options
 
-procedure main(args)
-   local opts, i
+procedure main(args);
+   local opts, i;
 
    opts := options(args, "n+");
 
    i := \opts["n"] | 0;
 
    every 1 to i do
-      read()
+      read();
 
-   while write(read())
+   while write(read());
 
 end

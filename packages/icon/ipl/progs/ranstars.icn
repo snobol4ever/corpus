@@ -48,8 +48,8 @@ link ansi
 link options
 link random
 
-procedure main(args)
-   local length, steady, star, opts, r, ran1, ran2
+procedure main(args);
+   local length, steady, star, opts, r, ran1, ran2;
 
    randomize();
 
@@ -64,29 +64,29 @@ procedure main(args)
    ran2 := ^ran1;
    clear();  # clear the screen
    every 1 to length do			# start up the universe
-      place(ran1,star)
+      place(ran1,star);
    every 1 to steady do {		# steady state condition
       place(ran2," ");  # clean up the beginning
       place(ran1,star)			# create more
-      }
+      };
    every 1 to length do			# and the universe dies
-      place(ran2," ")			# clean up the end
+      place(ran2," ");			# clean up the end
    clear();  # clear the screen
-   home()				# home the cursor
+   home();				# home the cursor
 end
 
-procedure clear()
-   ED()
-   return
+procedure clear();
+   ED();
+   return;
 end
 
-procedure home()
-   CUP(1,1)
-   return
+procedure home();
+   CUP(1,1);
+   return;
 end
 
-procedure place(e,s)
+procedure place(e,s);
    CUP(@e,@e);
-   writes(s)
-   return
+   writes(s);
+   return;
 end

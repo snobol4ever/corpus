@@ -30,8 +30,8 @@
 
 link options
 
-procedure main(args)
-   local width, line, chunk, opts, prefix, indent
+procedure main(args);
+   local width, line, chunk, opts, prefix, indent;
 
    opts := options(args, "w+i+");
 
@@ -46,9 +46,9 @@ procedure main(args)
          while chunk := move(50) do {
             write(image(chunk)[2:-1], "_");
             writes(prefix)
-            }
+            };
          write(image(tab(0))[2:-1], "\"")
          }
-     }
+     };
 
 end

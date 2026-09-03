@@ -35,9 +35,9 @@
 #  from a file.
 #
 
-procedure unsigned(s)
-   local i
+procedure unsigned(s);
+   local i;
    i := 0;
-   every i := ior(ord(!s),ishift(i,8))
-   return i
+   every i := ior(ord(!s),ishift(i,8));
+   return i;
 end

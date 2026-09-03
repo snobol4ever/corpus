@@ -19,13 +19,13 @@
 #
 ############################################################################
 
-procedure distance(d[])
-   local sum
+procedure distance(d[]);
+   local sum;
 
    sum := 0;
 
-   every sum +:= !d ^ 2
+   every sum +:= !d ^ 2;
 
-   return sqrt(sum)
+   return sqrt(sum);
 
 end

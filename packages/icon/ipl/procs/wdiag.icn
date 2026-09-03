@@ -27,17 +27,17 @@
 ############################################################################
 
 
-procedure wdiag(names__[])		#: write labeled global values
-   local wlist__, s__
+procedure wdiag(names__[]);		#: write labeled global values
+   local wlist__, s__;
 
    wlist__ := [];
 
    every put(wlist__, " ", s__ := !names__, "=") do
       put(wlist__, image(variable(s__))) |
-         write(&errout, image(s__), " is not a variable")
+         write(&errout, image(s__), " is not a variable");
 
-   write ! wlist__
+   write ! wlist__;
 
-   return
+   return;
 
 end

@@ -30,8 +30,8 @@
 
 link options,colmize
 
-procedure main(arg)
-   local opt,linear,Colmize,Sort,namechar,fn,f,names,line,name,type
+procedure main(arg);
+   local opt,linear,Colmize,Sort,namechar,fn,f,names,line,name,type;
    #
    #  Process command line options and file names.
    #
@@ -39,16 +39,16 @@ procedure main(arg)
    linear := opt["l"];
    Colmize := if \opt["l"] then proc("!",1) else colmize;
    Sort := if \opt["s"] then sort else 1;
-   if *arg = 0 then arg := ["-"] # if no arguments, standard input
+   if *arg = 0 then arg := ["-"]; # if no arguments, standard input
    namechar := &letters ++ &digits ++ "_";
    #
    #  Loop to process files.
    #
    every fn := !arg do {
       f := if fn == "-" then &input else {
-	 if not (fn[-4:0] == ".icn") then fn ||:= ".icn"
+	 if not (fn[-4:0] == ".icn") then fn ||:= ".icn";
 	 open(fn) | stop("Can't open input file \"",fn,"\"")
-         }
+         };
       names := [];
       write("#  Procedures and Records",
 	  if f === &input then "" else " in " || fn,":");
@@ -62,13 +62,13 @@ procedure main(arg)
 	       (tab(many(' \t')) | "")\1 & ="(" then {
 	    put(names,name || if type == "procedure" then "()" else ".")
 	    }
-	 }
+	 };
       #
       #  Close this file.
       #
       close(&input ~=== f);
       every write("#    ",Colmize(Sort(names),71))
-      }
+      };
    #
    #  End of program.
    #

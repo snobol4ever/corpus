@@ -43,8 +43,8 @@ global line, loc, exceptions, key_width,  program_width, tag
 
 record pair(name, line)
 
-procedure main(args)
-   local exceptfile, opts
+procedure main(args);
+   local exceptfile, opts;
 
    opts := options(args, "k+p+");
    key_width := \opts["k"] | 16;
@@ -52,7 +52,7 @@ procedure main(args)
 
    if exceptfile := open("except.wrd") then {
       exceptions := set();
-      every insert(exceptions, lcword(exceptfile))
+      every insert(exceptions, lcword(exceptfile));
       close(exceptfile)
       }
    else
@@ -63,18 +63,18 @@ procedure main(args)
          "obtaining", "using", "value", "values", "various", "with",
          "begin", "end", "not", "way", "possible", "required", "until",
          "that", "within", "once", "the"
-         ])
+         ]);
 
    write(left("keyword", key_width), left("location", program_width),
       "description");
    write();
 
-   every write(filter(indexer(&input)))
+   every write(filter(indexer(&input)));
 
 end
 
-procedure indexer(file)
-   local index, word
+procedure indexer(file);
+   local index, word;
 
 #  Each word, in lowercase form, is a key in the table "index".
 #  The corresponding values are lists of the lines for that word.
@@ -86,7 +86,7 @@ procedure indexer(file)
          /index[word] := [];
          index[word] := put(index[word],line)
          }
-      }
+      };
 
    index := sort(index,3);
 
@@ -94,25 +94,25 @@ procedure indexer(file)
 #     suspend !get(index)
 
    while name := get(index) do
-      suspend pair(name, !get(index))
+      suspend pair(name, !get(index));
 
 end
 
-procedure lcword(file)
-   local name, word
-   static chars
+procedure lcword(file);
+   local name, word;
+   static chars;
 
    initial {
       chars := &letters ++ &digits;
       tag := table()
-      }
+      };
 
    every line := !file do {
       line ?:= {
          name := tab(find(": "));  # program name
          move(2);  # skip trash
          tab(0)				# rest is now line
-         }
+         };
       tag[line] := name;  # name for the line
       line ? {
          while tab(loc := upto(chars)) do {
@@ -120,12 +120,12 @@ procedure lcword(file)
             if *word > 2 & not(any('(')) then suspend word
             }
           }
-      }
+      };
 end
 
-procedure filter(result)
+procedure filter(result);
 
    return left(result.name, key_width) ||
-      left(tag[result.line], program_width) || result.line
+      left(tag[result.line], program_width) || result.line;
 
 end

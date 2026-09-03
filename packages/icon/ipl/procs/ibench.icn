@@ -54,11 +54,11 @@ global Save__, Saves__, Name__, Labels__
 
 # List information before running.
 #
-procedure Init__(prog)
+procedure Init__(prog);
    if getenv("NOBENCH") then {	# don't do benchmarking
-      Term__ := 1
+      Term__ := 1;
       return
-      }
+      };
    Name__ := prog;  # program name
    Labels__ := ["total ","static","string","block "];
    write(Name__,": benchmarking\n");
@@ -70,102 +70,102 @@ procedure Init__(prog)
       Saves__ := writes;
       write := writes := -1
       }
-   else write(Name__,": output\n")
-   return
+   else write(Name__,": output\n");
+   return;
 end
 
 # List information at termination.
 
-procedure Term__()
+procedure Term__();
    if not getenv("OUTPUT") then {	# if OUTPUT is not set, restore output
       write := Save__;
       writes := Saves__
-      }
+      };
 					# final information
    Regions__();
    Storage__();
    Collections__();
    Allocated__();
-   write("\n",Name__,": elapsed time = ",Time__()," ms.")
-   return
+   write("\n",Name__,": elapsed time = ",Time__()," ms.");
+   return;
 end
 
 #
 # List total amounts of allocation.  Needs Icon Version 8.5 or above.
 #
-procedure Allocated__()
-   local allocated
+procedure Allocated__();
+   local allocated;
 
    allocated := [];
-   every put(allocated,&allocated)
-   Display__(allocated,"allocated")
-   return
+   every put(allocated,&allocated);
+   Display__(allocated,"allocated");
+   return;
 
 end
 
 # List garbage collections performed.
 #
-procedure Collections__()
-   local collections
+procedure Collections__();
+   local collections;
 
    collections := [];
-   every put(collections,&collections)
-   Display__(collections,"collections")
-   return
+   every put(collections,&collections);
+   Display__(collections,"collections");
+   return;
 end
 
 # List region sizes.
 #
-procedure Regions__()
-   local regions, count
+procedure Regions__();
+   local regions, count;
    
    regions := [];
-   every put(regions,&regions)
+   every put(regions,&regions);
    count := 0;
-   every count +:= !regions
+   every count +:= !regions;
    push(regions,count);
-   Display__(regions,"regions")
-   return
+   Display__(regions,"regions");
+   return;
 end
 
 # List relveant implementation information
 #
-procedure Signature__()
+procedure Signature__();
 
-   every write(&version | &host | &features)
-   return
+   every write(&version | &host | &features);
+   return;
 
 end
 
 # List storage used.
 #
-procedure Storage__()
-   local storage, count
+procedure Storage__();
+   local storage, count;
    
    storage := [];
-   every put(storage,&storage)
+   every put(storage,&storage);
    count := 0;
-   every count +:= !storage
+   every count +:= !storage;
    push(storage,count);
-   Display__(storage,"storage")
-   return
+   Display__(storage,"storage");
+   return;
 end
 
 # List elapsed time.
 #
-procedure Time__()
-   static lasttime
+procedure Time__();
+   static lasttime;
 
-   initial lasttime := &time
-   return &time - lasttime
+   initial lasttime := &time;
+   return &time - lasttime;
 end
 
 # Display storage information
 #
-procedure Display__(data,name)
-   local i
+procedure Display__(data,name);
+   local i;
 
    write("\n",name,":\n");
    every i := 1 to *Labels__ do
-      write(Labels__[i],right(data[i],8))
+      write(Labels__[i],right(data[i],8));
 end

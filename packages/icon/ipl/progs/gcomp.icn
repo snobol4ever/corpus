@@ -35,11 +35,11 @@
 #
 ############################################################################
 
-procedure main(args)
-   local files
+procedure main(args);
+   local files;
    files := set();
    read(open("echo * .*","rp")) ? while insert(files,tab(upto(' ') | 0)) do
-      move(1) | break
+      move(1) | break;
    every delete(files,"." | ".." | !args);
-   every write(!sort(files))
+   every write(!sort(files));
 end

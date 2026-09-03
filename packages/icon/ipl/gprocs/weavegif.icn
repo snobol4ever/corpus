@@ -36,13 +36,13 @@ link wopen
 
 link tables, wopen
 
-procedure weavegif(draft, attribs)	#: create GIF from ISD
-   local x, y, color, treadle, i, j, treadle_list, k
-   local win, treadle_colors, lst, s
+procedure weavegif(draft, attribs);	#: create GIF from ISD
+   local x, y, color, treadle, i, j, treadle_list, k;
+   local win, treadle_colors, lst, s;
 
-   /attribs := []
+   /attribs := [];
 
-   /draft.width := *draft.threading
+   /draft.width := *draft.threading;
    /draft.height := *draft.treadling;
 
    put(attribs, "label=" || draft.name, "size=" || draft.width || "," ||
@@ -51,7 +51,7 @@ procedure weavegif(draft, attribs)	#: create GIF from ISD
    win := (WOpen ! attribs) | {
       write(&errout, "Cannot open window for woven image.");
       fail
-      }
+      };
 
    #  Draw warp threads as "background".
 
@@ -59,7 +59,7 @@ procedure weavegif(draft, attribs)	#: create GIF from ISD
       if *set(draft.warp_colors) = 1 then {		# solid warp ground
          Fg(draft.color_list[draft.warp_colors[1]]);
          FillRectangle()
-         }
+         };
       every i := 1 to draft.width do {
          Fg(win, draft.color_list[draft.warp_colors[i]]);
          DrawLine(win, i - 1, 0, i - 1, *draft.treadling - 1)
@@ -70,13 +70,13 @@ procedure weavegif(draft, attribs)	#: create GIF from ISD
          Fg(win, draft.warp_colors[i]);
          DrawLine(win, i - 1, 0, i - 1, *draft.treadling - 1)
          }
-      }
+      };
 
    #  Precompute points at which weft threads are on top.
 
    treadle_list := list(draft.treadles);
    
-   every !treadle_list := [win]
+   every !treadle_list := [win];
 
    every i := 1 to draft.treadles do {
       every j := 1 to draft.shafts do
@@ -84,11 +84,11 @@ procedure weavegif(draft, attribs)	#: create GIF from ISD
             every k := 1 to *draft.threading do
                if draft.threading[k] = j then
                   put(treadle_list[i], k - 1, 0)
-      }
+      };
 
    if \draft.color_list then {
       treadle_colors := list(*draft.color_list);
-      every !treadle_colors := []
+      every !treadle_colors := [];
       every i := 1 to draft.height do {
          j := draft.weft_colors[i];
          put(treadle_colors[j], i)
@@ -97,11 +97,11 @@ procedure weavegif(draft, attribs)	#: create GIF from ISD
    else {
       treadle_colors := table();
       every i := 1 to draft.width do {
-         j := draft.weft_colors[i]
+         j := draft.weft_colors[i];
          /treadle_colors[j] := [];
          put(treadle_colors[j], i)
          }
-      }
+      };
    
       #  "Overlay" weft threads.
    
@@ -110,7 +110,7 @@ procedure weavegif(draft, attribs)	#: create GIF from ISD
          Fg(win, draft.color_list[i]) | stop("bogon");
          every y := !treadle_colors[i] do {
             WAttrib(win, "dy=" || (y - 1));
-            if *treadle_list[draft.treadling[y]] = 1 then next	# blank pick
+            if *treadle_list[draft.treadling[y]] = 1 then next;	# blank pick
             DrawPoint ! treadle_list[draft.treadling[y]]
             }
          }
@@ -121,12 +121,12 @@ procedure weavegif(draft, attribs)	#: create GIF from ISD
          lst := treadle_colors[s];
          every y := !lst do {
             WAttrib(win, "dy=" || (y - 1));
-            if *treadle_list[draft.treadling[y]] = 1 then next	# blank pick
+            if *treadle_list[draft.treadling[y]] = 1 then next;	# blank pick
             DrawPoint ! treadle_list[draft.treadling[y]]
             }
          }
-      }
+      };
 
-   return win
+   return win;
 
 end

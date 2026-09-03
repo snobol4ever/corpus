@@ -29,9 +29,9 @@ link xcompat
 
 global FH
 
-procedure main(args)
-local opts, font, wid, h
-local root, win, s1, s2, s3, s4, s5
+procedure main(args);
+local opts, font, wid, h;
+local root, win, s1, s2, s3, s4, s5;
 
    opts := options(args, "f:wh");
    font := \opts["f"];
@@ -66,30 +66,30 @@ local root, win, s1, s2, s3, s4, s5
    smile(s4.thumb, s4.callback.value);
    face(s5.thumb, s5.callback.value);
 
-   GetEvents(root, quit)
+   GetEvents(root, quit);
 end
 
 
-procedure quit(e)
-   if e === "q" then stop()
+procedure quit(e);
+   if e === "q" then stop();
 end
 
-procedure write_val(vid, val)
+procedure write_val(vid, val);
    GotoXY(vid.win, vid.ax-10, vid.ay-5);
-   writes(vid.win, val||"  ")
+   writes(vid.win, val||"  ");
 end
 
-procedure put_label(root, sc, str)
-   local x, l
+procedure put_label(root, sc, str);
+   local x, l;
 
    l := TextWidth(root.win, str);
    x := sc.ax+sc.aw-l;
-   VDraw(Vmessage(root, x, sc.ay-5-FH, root.win, str))
+   VDraw(Vmessage(root, x, sc.ay-5-FH, root.win, str));
 end
 
-procedure face(vid, val)
-   local x1, y, x
-   static faceval, ox1, oy
+procedure face(vid, val);
+   local x1, y, x;
+   static faceval, ox1, oy;
 
    write_val(vid, val);
    x1 := 250 - val/2;
@@ -99,12 +99,12 @@ procedure face(vid, val)
    rev_off(vid.win);
    XDrawArc(vid.win, x1, y, val, val);
    faceval := val;
-   ox1 := x1; oy := y
+   ox1 := x1; oy := y;
 end
 
-procedure eyes(vid, val)
-   local x1, x2, y
-   static eyeval, ox1, ox2, oy
+procedure eyes(vid, val);
+   local x1, x2, y;
+   static eyeval, ox1, ox2, oy;
 
    write_val(vid, val);
    x1 := 200 - val/2;
@@ -117,12 +117,12 @@ procedure eyes(vid, val)
    XDrawArc(vid.win, x1, y, val, val);
    XDrawArc(vid.win, x2, y, val, val);
    eyeval := val;
-   ox1 := x1; ox2 := x2; oy := y
+   ox1 := x1; ox2 := x2; oy := y;
 end
 
-procedure pupils(vid, val)
-   local x1, x2, y
-   static pupilval, ox1, ox2, oy
+procedure pupils(vid, val);
+   local x1, x2, y;
+   static pupilval, ox1, ox2, oy;
 
    write_val(vid, val);
    x1 := 200 - val/2;
@@ -135,35 +135,35 @@ procedure pupils(vid, val)
    XFillArc(vid.win, x1, y, val, val);
    XFillArc(vid.win, x2, y, val, val);
    pupilval := val;
-   ox1 := x1; ox2 := x2; oy := y
+   ox1 := x1; ox2 := x2; oy := y;
 end
 
-procedure smile(vid, val)
-   static oldsmile
+procedure smile(vid, val);
+   static oldsmile;
 
    write_val(vid, val);
    rev_on(vid.win);
    XDrawArc(vid.win, 185, 190, 130, 40, \oldsmile*360, (48-\oldsmile)*2*360);
    rev_off(vid.win);
    XDrawArc(vid.win, 185, 190, 130, 40, val*360, (48-val)*2*360);
-   oldsmile := val
+   oldsmile := val;
 end
 
-procedure nose(vid, val)
-   static oldnose
+procedure nose(vid, val);
+   static oldnose;
 
    write_val(vid, val);
    rev_on(vid.win);
    DrawLine(vid.win, 250, 140, 275, 180+\oldnose, 250, 190);
    rev_off(vid.win);
    DrawLine(vid.win, 250, 140, 275, 180+val, 250, 190);
-   oldnose := val
+   oldnose := val;
 
 end
 
-procedure rev_on(win)
-   WAttrib(win, "reverse=on", "linewidth=3")
+procedure rev_on(win);
+   WAttrib(win, "reverse=on", "linewidth=3");
 end
-procedure rev_off(win)
-   WAttrib(win, "reverse=off", "linewidth=1")
+procedure rev_off(win);
+   WAttrib(win, "reverse=off", "linewidth=1");
 end

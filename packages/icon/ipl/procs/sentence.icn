@@ -46,14 +46,14 @@
 ############################################################################
 
 
-procedure sentence(intext)
+procedure sentence(intext);
 
-    local sentence, get_line, line, tmp_s, end_part, whole_thing
-    static inits, punct
+    local sentence, get_line, line, tmp_s, end_part, whole_thing;
+    static inits, punct;
     initial {
 	inits := &ucase ++ &digits;
 	punct := ".\"'!?)]"
-    }
+    };
     sentence := "";
     get_line := create read_line(intext);
 
@@ -69,7 +69,7 @@ procedure sentence(intext)
 	    suspend sentence;
 	    sentence := "";
 	    next
-	}
+	};
 
 	# Go on until you can't find any more sentence-endings in line,
 	# then break and get another line.
@@ -98,7 +98,7 @@ procedure sentence(intext)
 		    # Don't bother with little two-letter hunks.
 		    whole_thing := sentence || tmp_s || end_part;
 		    if *whole_thing > 3 | find(" ",whole_thing)
-		    then suspend whole_thing
+		    then suspend whole_thing;
 
 		    tab(many(' '));
 		    line := tab(0);
@@ -107,35 +107,35 @@ procedure sentence(intext)
 		}
 		else break
 	    }
-	}
+	};
 
 	# Otherwise just tack line onto sentence & try again.
 	sentence ||:= line
-    }
+    };
 
-    return sentence
+    return sentence;
 
 end
 
 
 
 
-procedure read_line(intext)
+procedure read_line(intext);
 
-    local new_line, ilevel, junk_count, space_count, line
-    static last_ilevel, blank_flag
+    local new_line, ilevel, junk_count, space_count, line;
+    static last_ilevel, blank_flag;
     last_ilevel := 0;
 
     while line := trim(!intext,'\t ') do {
 
 	# Check to see if line is blank; if so, set blank_flag.
 	if line == "" then
-	    { blank_flag := 1; next }
+	    { blank_flag := 1; next };
 
 	# Determine current indentation level.
 	detab(line) ? {
 	    ilevel := *tab(many(' ')) | 0
-	}
+	};
 
 	line ? {
 
@@ -144,17 +144,17 @@ procedure read_line(intext)
 	    # Signal the calling procedure if there is a change in the
 	    # indentation level by suspending a blank line.
 	    if (ilevel > last_ilevel) | (ilevel < last_ilevel, \blank_flag)
-	    then suspend ""
+	    then suspend "";
 	    last_ilevel := ilevel;
 
 	    # Put a space on the end of line, unless it ends in a dash.
 	    new_line := tab(-1) || (="-" | (move(1) || " "));
 	    # Make sure the flag that indicates blank lines is unset.
 	    blank_flag := &null
-	}
+	};
 
 	# Suspend the newly reformatted, trimmed, space-terminated line.
 	suspend new_line
-    }
+    };
 
 end

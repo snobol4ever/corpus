@@ -25,15 +25,15 @@
 #
 ############################################################################
 
-procedure main()
-   local name, file, icode, okay
+procedure main();
+   local name, file, icode, okay;
 
    while name := read() do {
       writes(name, ": ");
       file := open(name,"u") | {
          write("cannot open");
          next
-         }
+         };
       okay := &null;
       while icode := reads(file,30000) do	# enough for most UNIX headers
          icode ? {
@@ -44,13 +44,13 @@ procedure main()
                   exit()			# one is enough ...
                   }
                }
-            }
+            };
       if /okay then {
          write("no version");
          write("may have shell header or not be icode file")
-         }
+         };
       close(file)
-      }
+      };
 
 end
 

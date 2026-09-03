@@ -54,7 +54,7 @@
 #  operations are done using the same pattern.
 #
 
-procedure wild_match(plist,s,i1,i2) # i3,i4,...,iN
+procedure wild_match(plist,s,i1,i2); # i3,i4,...,iN
 #
 #  Produce the sequence of positions in s past a string starting at i1
 #  that matches the pattern plist, but fails if there is no such
@@ -62,33 +62,33 @@ procedure wild_match(plist,s,i1,i2) # i3,i4,...,iN
 #  positions.
 #
    /i1:= if /s := &subject then &pos else 1 ; /i2 := 0;
-   plist := (if type(plist) == "string" then wild_pat else copy)(plist)
-   suspend s[i1:i2] ? (wild_match1(plist) & i1 + &pos - 1)
+   plist := (if type(plist) == "string" then wild_pat else copy)(plist);
+   suspend s[i1:i2] ? (wild_match1(plist) & i1 + &pos - 1);
 end
 
 
-procedure wild_find(plist,s,i1,i2) # i3,i4,...,iN
+procedure wild_find(plist,s,i1,i2); # i3,i4,...,iN
 #
 #  Produce the sequence of positions in s where strings begin that match
 #  the pattern plist, but fails if there is no such position.  Similar
 #  to find().
 #
-   local p
+   local p;
    /i1 := if /s := &subject then &pos else 1 ; /i2 := 0;
-   if type(plist) == "string" then plist := wild_pat(plist)
+   if type(plist) == "string" then plist := wild_pat(plist);
    s[i1:i2] ? suspend (
 	 wild_skip(plist) &
 	 p := &pos &
 	 tab(wild_match(plist))\1 &
-	 i1 + p - 1)
+	 i1 + p - 1);
 end
 
 
-procedure wild_pat(s) # L
+procedure wild_pat(s); # L
 #
 #  Produce pattern list representing pattern string s.
 #
-   local c,ch,chars,complement,e,plist,special
+   local c,ch,chars,complement,e,plist,special;
    #
    #  Create a list of pattern elements.  Pattern strings are parsed
    #  and converted into list elements as follows:
@@ -112,7 +112,7 @@ procedure wild_pat(s) # L
 	 e := (="*" & 0) | (="?" & 1) | (="\\" & move(1)) |
 	       (="[" & c := (=("]" | "!]" | "!-]" | "") || tab(find("]"))) &
 		     move(1)) |
-	       move(1) || tab(upto('*?[\\') | 0)
+	       move(1) || tab(upto('*?[\\') | 0);
 	 #
 	 #  If it's [abc], create a cset.  Special notations:
 	 #
@@ -127,24 +127,24 @@ procedure wild_pat(s) # L
 	    while ch := tab(any(special)) do {
 	       e ++:= ch;
 	       special --:= ch
-	       }
+	       };
 	    while chars := tab(find("-")) do {
 	       move(1);
 	       e ++:= chars[1:-1] ++
 		     &cset[ord(chars[-1]) + 1:ord(move(1)) + 2]
-	       }
+	       };
 	    e ++:= tab(0);
 	    if \complement then e := ~e
-	    }
+	    };
 	 if type(e) == "string" == type(plist[-1]) then plist[-1] ||:= e
 	 else put(plist,e)
 	 }
-      }
-   return plist
+      };
+   return plist;
 end
 
 
-procedure wild_skip(plist) # s1,s2,...,sN
+procedure wild_skip(plist); # s1,s2,...,sN
 #
 #  Used privately -- match a sequence of strings in s past which a match
 #  of the first pattern element in plist is likely to succeed.	This
@@ -153,34 +153,34 @@ procedure wild_skip(plist) # s1,s2,...,sN
 #  where the next element is likely to succeed, and by wild_find() to
 #  attempt matches only at likely positions.
 #
-   local x,t
-   x := plist[1]
+   local x,t;
+   x := plist[1];
    suspend tab(
       case type(x) of {
-	 "string": find(x)
-	 "cset": upto(x)
+	 "string": find(x);
+	 "cset": upto(x);
 	 default: &pos to *&subject + 1
 	 }
-      )
+      );
 end
 
 
-procedure wild_match1(plist,v) # s1,s2,...,sN
+procedure wild_match1(plist,v); # s1,s2,...,sN
 #
 #  Used privately by wild_match() to simulate a computed conjunction
 #  expression via recursive suspension.
 #
-   local c
+   local c;
    if c := pop(plist) then {
       suspend wild_match1(plist,case c of {
-	 0: wild_skip(plist)
-	 1: move(1)    
+	 0: wild_skip(plist);
+	 1: move(1);    
 	 default: case type(c) of {
-	       "cset": tab(any(c))
+	       "cset": tab(any(c));
 	       default: =c
 	       } 
 	 });
       push(plist,c)
       }
-   else return v
+   else return v;
 end

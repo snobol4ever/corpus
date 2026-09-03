@@ -35,8 +35,8 @@ link patxform
 
 $define Minimum 16
 
-procedure main()
-   local line, rows, q, r, new_rows
+procedure main();
+   local line, rows, q, r, new_rows;
 
    rows := [];
 
@@ -46,35 +46,35 @@ procedure main()
    else {
       rows := [line];
       while put(rows, read())	# read in row pattern
-      }
+      };
 
-   while put(rows, read())
+   while put(rows, read());
 
    # extend width if necessary
 
    if *rows[1] < Minimum then {
       q := Minimum / *rows[1];
       r := Minimum % *rows[1];
-      if r ~= 0 then q +:= 1		# extension factor
+      if r ~= 0 then q +:= 1;		# extension factor
       new_rows := copy(rows);
       every 2 to q do
-         new_rows := pcaten(new_rows, rows, "h") 
+         new_rows := pcaten(new_rows, rows, "h"); 
       rows := new_rows
-      }
+      };
 
    # extend height if necessary
 
    if *rows < Minimum then {
       q := Minimum / *rows;
       r := Minimum % *rows;
-      if r ~= 0 then q +:= 1		# extension factor
+      if r ~= 0 then q +:= 1;		# extension factor
       new_rows := copy(rows);
       every 2 to q do
-         new_rows := pcaten(new_rows, rows, "v") 
+         new_rows := pcaten(new_rows, rows, "v"); 
       rows := new_rows
-      }
+      };
 
-   write(rows2pat(rows))
+   write(rows2pat(rows));
 
 
 end

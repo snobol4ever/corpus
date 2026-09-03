@@ -35,46 +35,46 @@
 #  
 ############################################################################
 
-procedure days()
+procedure days();
 
    suspend "Sunday" | "Monday" | "Tuesday" | "Wednesday" | "Thursday" |
-      "Friday" | "Saturday"
+      "Friday" | "Saturday";
 
 end
 
-procedure hex()
+procedure hex();
 
-   suspend !"0123456789abcdef" || !"0123456789abcdef"
-
-end
-
-procedure label(s,i)
-
-   suspend s || (i | (i +:= |1))
+   suspend !"0123456789abcdef" || !"0123456789abcdef";
 
 end
 
-procedure multii(i, j)
+procedure label(s,i);
 
-   suspend (i to i * j) & i
+   suspend s || (i | (i +:= |1));
 
 end
 
-procedure months()
+procedure multii(i, j);
+
+   suspend (i to i * j) & i;
+
+end
+
+procedure months();
 
    suspend "January" | "February" | "March" | "April" | "May" | "June" |
-      "July" | "August" | "September" | "October" | "November" | "December"
+      "July" | "August" | "September" | "October" | "November" | "December";
 
 end
 
-procedure octal()
+procedure octal();
 
-   suspend (0 to 3) || (0 to 7) || (0 to 7)
+   suspend (0 to 3) || (0 to 7) || (0 to 7);
 
 end
 
-procedure star(s)
+procedure star(s);
 
-   suspend "" | (star(s) || !s)
+   suspend "" | (star(s) || !s);
 
 end

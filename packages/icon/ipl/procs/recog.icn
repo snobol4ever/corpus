@@ -23,8 +23,8 @@
 #
 ############################################################################
 
-procedure main()
-   local line
+procedure main();
+   local line;
 
    init();
    while line := read() do {
@@ -32,5 +32,5 @@ procedure main()
       if line ? (goal() & pos(0)) then 
          write(": accepted")
       else write(": rejected")
-      }
+      };
 end

@@ -28,8 +28,8 @@
 
 link matrix
 
-procedure read_cpt(input)	#: convert numerical carpet to matrix
-   local carpet, width, height, i, j, line
+procedure read_cpt(input);	#: convert numerical carpet to matrix
+   local carpet, width, height, i, j, line;
 
    read(input) ? {
       ="width=" &
@@ -47,8 +47,8 @@ procedure read_cpt(input)	#: convert numerical carpet to matrix
          while carpet[j, i +:= 1] := tab(upto(' ')) do
             move(1) | stop("*** narrow carpet data")
          }
-      }
+      };
 
-   return carpet
+   return carpet;
 
 end

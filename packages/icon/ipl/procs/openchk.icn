@@ -24,10 +24,10 @@
 #
 #############################################################################
 
-procedure OpenCheck(p,x)
+procedure OpenCheck(p,x);
 
-local    f, e
-static   openS
+local    f, e;
+static   openS;
 
 if type(p) == "procedure" then
 {
@@ -37,7 +37,7 @@ if type(p) == "procedure" then
    {
       write(&errout,"OpenCheck has not been initialized.");
       runerr(500)
-   }
+   };
 
    case p of 
    {
@@ -51,14 +51,14 @@ if type(p) == "procedure" then
          else 
          {
             writes( &errout, "Open of ");
-            every writes( &errout, image(!x) )
+            every writes( &errout, image(!x) );
             write( &errout, " failed." )
          }
-      }
+      };
 
       OpenCheck_close:  
       {
-         e := 1
+         e := 1;
          &error :=: e;
          if ( f := p!x ) then 
          {  
@@ -71,14 +71,14 @@ if type(p) == "procedure" then
             &error :=: e;
             write( &errout, "Close of ", image(f), " failed." )
          }
-      }
+      };
 
       default:
          runerr(500)
-   }
+   };
    
    write( &errout, *openS, " objects are open:" );
-   every write( &errout, "   ", image(!sort( openS )) )
+   every write( &errout, "   ", image(!sort( openS )) );
    
    if type(f) == "file" then 
       return f
@@ -100,14 +100,14 @@ else
       }
    else
       runerr(123, \p | \x )
-}
-return
+};
+return;
 end
 
-procedure OpenCheck_open( x[] )
-return OpenCheck(OpenCheck_open,x)
+procedure OpenCheck_open( x[] );
+return OpenCheck(OpenCheck_open,x);
 end 
 
-procedure OpenCheck_close( x[] )
-return OpenCheck(OpenCheck_close,x)
+procedure OpenCheck_close( x[] );
+return OpenCheck(OpenCheck_close,x);
 end 

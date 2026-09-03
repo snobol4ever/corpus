@@ -41,8 +41,8 @@ record graph(nodes, lookup)
 #  Construct a graph from the specification given in file f.  Error checking
 #  is minimal.
 
-procedure read_graph(f)		#: read graph
-   local node, nodes, node_list, lookup, arc, from_name, to_name
+procedure read_graph(f);		#: read graph
+   local node, nodes, node_list, lookup, arc, from_name, to_name;
 
    nodes := [];  # list of the graph nodes
    lookup := table();  # two-way table of names and nodes
@@ -57,7 +57,7 @@ procedure read_graph(f)		#: read graph
          lookup[node] := name;  # node to name
          tab(many(' \t')) | break
          }
-      }
+      };
 
    while arc := read(f) do {		# process arcs
       arc ? {
@@ -67,36 +67,36 @@ procedure read_graph(f)		#: read graph
          insert(\lookup[from_name], \lookup[to_name]) |
             stop("*** non-existent node")
          }
-      }
+      };
          
 
-   return graph(nodes, lookup)		# now put the pieces together
+   return graph(nodes, lookup);		# now put the pieces together
 
 end
 
 #  Write graph g to file f.
 
-procedure write_graph(g, f)	#: write graph
-   local name_list, node
+procedure write_graph(g, f);	#: write graph
+   local name_list, node;
 
    name_list := "";  # initialize
 
    every node := !g.nodes do		# construct the list of names
-      name_list ||:= g.lookup[node] || " "
+      name_list ||:= g.lookup[node] || " ";
 
    write(f, name_list[1:-1]);
    
    every node := !g.nodes do		# write the arc specifications
-      every write(f, g.lookup[node], "->", g.lookup[!node])
+      every write(f, g.lookup[node], "->", g.lookup[!node]);
 
-   return
+   return;
 
 end
 
 #  Transitive closure of node.  Called as closure(node) without second argument
 
-procedure closure(node, close)	#: transitive closure of graph
-   local n
+procedure closure(node, close);	#: transitive closure of graph
+   local n;
 
    /close := set();  # initialize closure
 
@@ -104,8 +104,8 @@ procedure closure(node, close)	#: transitive closure of graph
 
    every n := !node do			# process all the arcs
 					# if not member, recurse
-      member(close, n) | closure(n, close)
+      member(close, n) | closure(n, close);
 
-   return close
+   return close;
 
 end

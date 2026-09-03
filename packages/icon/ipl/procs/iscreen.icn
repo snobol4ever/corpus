@@ -51,76 +51,76 @@
 
 link itlib
 
-procedure clear()
+procedure clear();
 
     # Clears the screen.  Tries several methods.
-    local i
+    local i;
 
     normal();
     if not iputs(getval("cl"))
-    then iputs(igoto(getval("cm"),1,1) | getval("ho"))
+    then iputs(igoto(getval("cm"),1,1) | getval("ho"));
     if not iputs(getval("cd"))
     then {
 	every i := 1 to getval("li") do {
 	    iputs(igoto(getval("cm"),1,i));
 	    iputs(getval("ce"))
-	}
+	};
 	iputs(igoto(getval("cm"),1,1))
-    }
-    return
+    };
+    return;
 
 end
 
 
 
-procedure boldface()
+procedure boldface();
     
-    static bold_str, cookie_str
+    static bold_str, cookie_str;
     initial {
 	if bold_str := getval("md")
 	then cookie_str := repl(getval("le"|"bc") | "\b", getval("mg"))
 	else {
 	    # One global procedure value substituted for another.
-	    boldface := emphasize
+	    boldface := emphasize;
 	    return emphasize()
 	}
-    }	    
+    };	    
  
     normal();
     iputs(\bold_str);
-    iputs(\cookie_str)
-    return
+    iputs(\cookie_str);
+    return;
 
 end
 
 
 
-procedure blink()
+procedure blink();
     
-    static blink_str, cookie_str
+    static blink_str, cookie_str;
     initial {
 	if blink_str := getval("mb")
 	then cookie_str :=
 		 repl(getval("le"|"bc") | "\b", getval("mg"))
 	else {
 	    # One global procedure value substituted for another.
-	    blink := emphasize
+	    blink := emphasize;
 	    return emphasize()
 	}
-    }	    
+    };	    
  
     normal();
     iputs(\blink_str);
-    iputs(\cookie_str)
-    return
+    iputs(\cookie_str);
+    return;
 
 end
 
 
 
-procedure emphasize()
+procedure emphasize();
     
-    static emph_str, cookie_str
+    static emph_str, cookie_str;
     initial {
 	if emph_str := getval("so")
 	then cookie_str := repl(getval("le"|"bc") | "\b", getval("sg"))
@@ -130,39 +130,39 @@ procedure emphasize()
 	    else if emph_str := getval("us")
 	    then cookie_str := repl(getval("le"|"bc") | "\b", getval("ug"))
 	}
-    }	    
+    };	    
  
     normal();
     iputs(\emph_str);
-    iputs(\cookie_str)
-    return
+    iputs(\cookie_str);
+    return;
 
 end
 
 
 
-procedure underline()
+procedure underline();
     
-    static underline_str, cookie_str
+    static underline_str, cookie_str;
     initial {
 	if underline_str := getval("us")
 	then cookie_str := repl(getval("le"|"bc") | "\b", getval("ug"))
-    }
+    };
 
     normal();
     iputs(\underline_str);
-    iputs(\cookie_str)
-    return
+    iputs(\cookie_str);
+    return;
 
 end
 
 
 
-procedure normal(mode)
+procedure normal(mode);
 
     static UN_emph_str, emph_cookie_str,
 	UN_underline_str, underline_cookie_str,
-	UN_bold_str, bold_cookie_str
+	UN_bold_str, bold_cookie_str;
 
     initial {
 
@@ -170,12 +170,12 @@ procedure normal(mode)
 	if UN_emph_str := getval("se") then
 	    # Figure out how many backspaces we need to erase cookies.
 	    emph_cookie_str := repl(getval("le"|"bc") | "\b", getval("sg"))
-	else UN_emph_str := ""
+	else UN_emph_str := "";
 
 	# Finally, figure out how to turn off underline mode.
 	if UN_underline_str := (UN_emph_str ~== getval("ue")) then
 	    underline_cookie_str := repl(getval("le"|"bc")|"\b", getval("ug"))
-	else UN_underline_str := ""
+	else UN_underline_str := "";
 
 	# Figure out how to turn off boldface mode.
 	if UN_bold_str := 
@@ -184,7 +184,7 @@ procedure normal(mode)
 	    bold_cookie_str := repl(getval("le"|"bc") | "\b", getval("mg"))
 	else UN_bold_str := ""
 
-    }	    
+    };	    
     
     iputs("" ~== UN_emph_str) &
 	iputs(\emph_cookie_str);
@@ -193,15 +193,15 @@ procedure normal(mode)
 	iputs(\underline_cookie_str);
 
     iputs("" ~== UN_bold_str) &
-	iputs(\bold_cookie_str)
+	iputs(\bold_cookie_str);
 
-    return
+    return;
 
 end
 
 
 
-procedure status_line(s,s2,p)
+procedure status_line(s,s2,p);
 
     # Writes a status line on the terminal's third-to-last line
     # The only necessary argument is s.  S2 (optional) is used
@@ -212,32 +212,32 @@ procedure status_line(s,s2,p)
     # centered (if equal to "c"), left justified ("l"), or right
     # justified ("r").
 
-    local width
+    local width;
 
     /s := ""; /s2 := ""; /p := "c";
     width := getval("co");
     if *s > width then {
 	(*s2 < width, s := s2) |
 	    er("status_line","Your terminal is too narrow.",4)
-    }
+    };
 
     case p of {
-	"c"    : s := center(s,width)
-	"l"    : s := left(s,width)
-	"r"    : s := right(s,width)
+	"c"    : s := center(s,width);
+	"l"    : s := left(s,width);
+	"r"    : s := right(s,width);
 	default: stop("status_line:  Unknown option "||string(p),4)
-    }
+    };
 
     iputs(igoto(getval("cm"), 1, getval("li")-2));
     emphasize(); writes(s);
-    normal()
-    return
+    normal();
+    return;
 
 end
 
 
 
-procedure message(s)
+procedure message(s);
 
     # Display prompt s on the second-to-last line of the screen.
     # I hate to use the last line, due to all the problems with
@@ -250,20 +250,20 @@ procedure message(s)
     normal();
     iputs(igoto(getval("cm"), 1, getval("li")-1));
     iputs(getval("ce"));
-    writes(s[1:getval("co")] | s)
-    return
+    writes(s[1:getval("co")] | s);
+    return;
 
 end
 
 
 
-procedure clear_underline()
+procedure clear_underline();
 
     # Horrible way of clearing the screen to all underline mode, but
     # the only apparent way we can do it "portably" using the termcap
     # capability database.
 
-    local i
+    local i;
 
     underline();
     iputs(igoto(getval("cm"),1,1));
@@ -278,20 +278,20 @@ procedure clear_underline()
 	    underline();
 	    writes(repl(" ",getval("co")))
 	}
-    }
-    iputs(igoto(getval("cm"),1,1))
+    };
+    iputs(igoto(getval("cm"),1,1));
 
 end
 
 
 
-procedure clear_emphasize()
+procedure clear_emphasize();
 
     # Horrible way of clearing the screen to all reverse-video, but
     # the only apparent way we can do it "portably" using the termcap
     # capability database.
 
-    local i
+    local i;
 
     emphasize();
     iputs(igoto(getval("cm"),1,1));
@@ -306,7 +306,7 @@ procedure clear_emphasize()
 	    emphasize();
 	    writes(repl(" ",getval("co")))
 	}
-    }
-    iputs(igoto(getval("cm"),1,1))
+    };
+    iputs(igoto(getval("cm"),1,1));
 
 end

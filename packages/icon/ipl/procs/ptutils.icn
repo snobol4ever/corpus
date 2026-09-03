@@ -25,14 +25,14 @@
 
 link gobject
 
-procedure pt2coord(p)			#: convert point to coordinate
+procedure pt2coord(p);			#: convert point to coordinate
 
-   return p.x || " " || p.y || " " || p.z
+   return p.x || " " || p.y || " " || p.z;
 
 end
 
-procedure coord2pt(c)			#: convert coordinate to path
-   local p
+procedure coord2pt(c);			#: convert coordinate to path
+   local p;
 
    p := Point();
 
@@ -42,33 +42,33 @@ procedure coord2pt(c)			#: convert coordinate to path
       p.y := tab(upto(' '));
       move(1);
       p.z := tab(0)
-      }
+      };
 
-   return p
-
-end
-
-procedure negpt(p)			#: negative of point
-
-    return Point(-p.x, -p.y, -p.z)
+   return p;
 
 end
 
-procedure pteq(p1, p2)			#: test point equality
+procedure negpt(p);			#: negative of point
 
-   if p1.x = p2.x & p1.y = p2.y & p1.z = p2.z then return p2 else fail
+    return Point(-p.x, -p.y, -p.z);
 
 end
 
-procedure getpts(s)			#: make point list from coordinate file
-   local input, pts
+procedure pteq(p1, p2);			#: test point equality
+
+   if p1.x = p2.x & p1.y = p2.y & p1.z = p2.z then return p2 else fail;
+
+end
+
+procedure getpts(s);			#: make point list from coordinate file
+   local input, pts;
 
    input := open(s) | stop("*** cannot open ", image(s));
 
    pts := [];
 
-   while put(pts, coord2pt(read(input)))
+   while put(pts, coord2pt(read(input)));
 
-   return pts
+   return pts;
 
 end

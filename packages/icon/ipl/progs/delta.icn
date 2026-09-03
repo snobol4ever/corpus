@@ -19,14 +19,14 @@
 #
 ############################################################################
 
-procedure main()
-   local i, j
+procedure main();
+   local i, j;
 
    i := read() | exit();
 
    while j := read() do {
       write(j - i);
       i := j
-      }
+      };
 
 end

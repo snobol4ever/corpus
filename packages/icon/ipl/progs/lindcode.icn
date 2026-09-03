@@ -32,9 +32,9 @@
 
 link options
 
-procedure main(args)
-   local allchar, rchar, line, prefix, symbol, rhs, file, name, spec
-   local value, c, opts, expand
+procedure main(args);
+   local allchar, rchar, line, prefix, symbol, rhs, file, name, spec;
+   local value, c, opts, expand;
 
    opts := options(args, "e");
    expand := opts["e"];
@@ -47,7 +47,7 @@ procedure main(args)
             break
             }
          }
-      }
+      };
 
    repeat {
 
@@ -72,10 +72,10 @@ procedure main(args)
                "axiom":  {
                   allchar ++:= value;
                   write(prefix, ".axiom := ", image(value))
-                  }
-               "gener":  write(prefix, ".gener := ", integer(value))
-               "angle":  write(prefix, ".angle := ", real(value))
-               "length":  write(prefix, ".length := ", integer(value))
+                  };
+               "gener":  write(prefix, ".gener := ", integer(value));
+               "angle":  write(prefix, ".angle := ", real(value));
+               "length":  write(prefix, ".length := ", integer(value));
                "name":   {
                    name := value;
                    break
@@ -83,7 +83,7 @@ procedure main(args)
                }
             }
 
-         }
+         };
 
       if \expand then {
          allchar --:= rchar;
@@ -91,7 +91,7 @@ procedure main(args)
             write(prefix, ".rewrite[", c, "] := ", c)
          }
 
-      }
+      };
 
 
 end

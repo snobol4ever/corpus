@@ -32,8 +32,8 @@
 
 link options
 
-procedure main(args)
-   local opts, length, line, limit, sep, ssize
+procedure main(args);
+   local opts, length, line, limit, sep, ssize;
 
    opts := options(args, "l+s:");
    limit := opts["l"];
@@ -45,8 +45,8 @@ procedure main(args)
    while line := writes(read(), sep) do {
       length +:= *line + ssize;
       if length >= \limit then break
-      }
+      };
 
-   write()
+   write();
 
 end

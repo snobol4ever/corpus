@@ -23,10 +23,10 @@
 #
 ############################################################################
 
-procedure main()
-   local name
+procedure main();
+   local name;
 
    while name := read() do
-      system("mv " || name || " " || map(name))
+      system("mv " || name || " " || map(name));
 
 end

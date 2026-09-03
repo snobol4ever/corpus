@@ -52,10 +52,10 @@ global V_RECT_NO, V_2D_NO, V_CHECK_NO, V_CIRCLE_NO, V_DIAMOND_NO, V_XBOX_NO
 global V_CANCEL, V_OK, V_NEXT, V_PREVIOUS
 global V_ARROW, V_COUPLER, V_DUMMY_ID
 
-procedure null_proc()
+procedure null_proc();
 end
 
-procedure VInit()
+procedure VInit();
 initial {
 
 #  Define the cset of all allowable vidget record types.
@@ -104,43 +104,43 @@ initial {
    V_ARROW		:= -690424;
    V_COUPLER 		:= -690425;
    V_DUMMY_ID		:= -690426
-}
+};
 
 end
    
-procedure Vget_uid()
-   static uid
-   initial uid := 0
+procedure Vget_uid();
+   static uid;
+   initial uid := 0;
 
-   uid +:= 1
-   return uid
+   uid +:= 1;
+   return uid;
 end
 
-procedure _Vbomb(str)
+procedure _Vbomb(str);
 
    write(&errout, "Vidget error: ", str);
-   runerr(600)
+   runerr(600);
 
 end   
 
-procedure Vinsert_check(p)
-   static type
+procedure Vinsert_check(p);
+   static type;
 
-   initial type := proc("type", 0)	# protect attractive name
+   initial type := proc("type", 0);	# protect attractive name
 
    if type(p[1]) ? find("frame") then {
       if not (numeric(p[2]), numeric(p[3])) then
-         _Vbomb("invalid x or y coordinate to VInsert()")
+         _Vbomb("invalid x or y coordinate to VInsert()");
       return 1
    }
-   else fail
+   else fail;
 end
 
-procedure Vwin_check(win, caller)
-   static type
+procedure Vwin_check(win, caller);
+   static type;
 
-   initial type := proc("type", 0)	# protect attractive name
+   initial type := proc("type", 0);	# protect attractive name
 
    if not (type(win) ? ="window") then
-      _Vbomb("invalid window parameter to "|| caller)
+      _Vbomb("invalid window parameter to "|| caller);
 end

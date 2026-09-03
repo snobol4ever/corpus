@@ -27,29 +27,29 @@
 
 link weighted
 
-procedure main()
-local before, after, num, pct, yn, seed
+procedure main();
+local before, after, num, pct, yn, seed;
   write (center("Weighted Shuffle Demonstration", 80));
   repeat {
     writes ("Enter random number seed: ");
     seed := read();
-    if seed == "" then break               # Use default random seed.
+    if seed == "" then break;               # Use default random seed.
     if seed = integer(seed) then 
       break &random := seed                # Use given random seed.
-  }
+  };
   repeat {
     repeat {
       writes ("Size of list to shuffle (1-500)? ");
       num := read();
       if num = integer(num) then if (0 < num <= 500) then break
-    }
+    };
     repeat {
       writes ("Shuffle what percentage (0=none, 100=all)? ");
       pct := read();
       if pct = numeric(pct) then if (0 <= pct <= 100) then break
-    }
+    };
     before := list();
-    every put (before, (1 to num))
+    every put (before, (1 to num));
     write ("\nBefore shuffle:");
     DisplayList (before);
     after := WeightedShuffle (before, pct);
@@ -59,10 +59,10 @@ local before, after, num, pct, yn, seed
     yn := getche();
     write("\n");
     if not (yn == ("Y" | "y")) then break
-  }
+  };
 end
 
-procedure DisplayList (L)  
-  every writes (right(!L, 4))
+procedure DisplayList (L);  
+  every writes (right(!L, 4));
 end  
 

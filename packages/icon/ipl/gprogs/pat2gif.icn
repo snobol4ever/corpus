@@ -31,8 +31,8 @@ link basename
 link patutils
 link wopen
 
-procedure main(args)
-   local matrix, ims, input, file
+procedure main(args);
+   local matrix, ims, input, file;
 
    while file := get(args) do {
       input := open(file) | stop("cannot open ", file);
@@ -43,6 +43,6 @@ procedure main(args)
       DrawImage(0, 0, ims);
       WriteImage(basename(file, ".blp") || ".gif");
       close(input)
-      }
+      };
 
 end

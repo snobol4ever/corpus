@@ -32,13 +32,13 @@
 
 link graphics
 
-procedure winsnap(win, x, y, w, h)
-   local name, f
+procedure winsnap(win, x, y, w, h);
+   local name, f;
 
    if type(win) ~== "window" then {
       win :=: x :=: y :=: w :=: h;
       win := \&window | runerr(140, &window)
-      }
+      };
 
    repeat {
       if OpenDialog("Image file name") == "Okay" then {
@@ -47,16 +47,16 @@ procedure winsnap(win, x, y, w, h)
             close(f);
             if Dialog("Overwrite existing file?", , , ,
                ["Okay", "Cancel"]) == "Cancel" then next
-            }
+            };
          WriteImage(win, name, x, y, w, h) | {
             Notice("Cannot write image");
             fail
-            }
+            };
          return
          }
       else fail
-      }
+      };
       
-   return
+   return;
 
 end

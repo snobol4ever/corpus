@@ -28,8 +28,8 @@
 
 link pbkform,bkutil
 
-procedure main(args)
-   local fn, f, x
+procedure main(args);
+   local fn, f, x;
 
    every fn := !args do {
       f := open(fn,"u") | stop("Can't open ",fn);
@@ -38,10 +38,10 @@ procedure main(args)
 	 write("Name:   ",x.name);
 	 write("Number: ",x.number);
 	 write("Address:");
-	 every write(!bk_format_lines(x.address))
+	 every write(!bk_format_lines(x.address));
 	 write()
-	 }
+	 };
       pbk_read_end(f) | write("Fail on end record");
       close(f)
-      }
+      };
 end

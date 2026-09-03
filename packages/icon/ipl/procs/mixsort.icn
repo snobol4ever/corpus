@@ -27,21 +27,21 @@
 #
 ############################################################################
 
-procedure mixsort(T, i)		#: mixed-case string sorting
-   local xcase, x, y, temp, j
+procedure mixsort(T, i);		#: mixed-case string sorting
+   local xcase, x, y, temp, j;
 
    xcase := table();  # key-mapping table
    temp := table();  # parallel table
 
-   if i = (2 | 4) then return sort(T, i)	# doesn't apply
+   if i = (2 | 4) then return sort(T, i);	# doesn't apply
 						# (could do values ...)
 
    every x := key(T) do {	# map keys
       if type(x) == "string" then y := map(x)	# only transform strings
-         else y := x
+         else y := x;
       temp[y] := T[x];  # lowercase table
       xcase[y] := x		# key mapping
-      }
+      };
 
    temp := sort(temp, i);  # basic sort on lowercase table
 
@@ -54,8 +54,8 @@ procedure mixsort(T, i)		#: mixed-case string sorting
          x[1] := xcase[x[1]]
       }
 
-   else return sort(T, i)	# error, but pass the buck
+   else return sort(T, i);	# error, but pass the buck
 
-   return temp
+   return temp;
 
 end

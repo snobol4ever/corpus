@@ -32,8 +32,8 @@ global	WHITE,	# the white space cset
 	MFLAG,	# the modified flag
 	PRTBL	# the program table
 
-procedure main(arg)
-   local line, lno, pline
+procedure main(arg);
+   local line, lno, pline;
 
 #	define the needed cset
 	WHITE := ' \t\n\f';
@@ -129,21 +129,21 @@ procedure main(arg)
 				write("Syntax Error: ",line);
 				helpprog()
 			}
-		}
+		};
 		writes("Icon> ")
-	}
+	};
 
 end
 
-procedure execprog()
-   local runargs, out, prog, line, command
+procedure execprog();
+   local runargs, out, prog, line, command;
 
-	static	tmpfile
+	static	tmpfile;
 
-	initial tmpfile := "TMPFILE.icn"
+	initial tmpfile := "TMPFILE.icn";
 
 #	get any runtime arguments
-	runargs := tab(0)
+	runargs := tab(0);
 
 #	create the temporary Icon file
 	(out := open(tmpfile,"w")) |
@@ -157,7 +157,7 @@ procedure execprog()
 #	put the program in the file
 	every line := !prog do {
 		write(out,line[2])
-	}
+	};
 	close(out);
 
 #	format the command to execute the program
@@ -167,12 +167,12 @@ procedure execprog()
 	command ||:= " ; rm -f " || tmpfile;
 
 #	execute the command
-	system(command)
+	system(command);
 
 end
 
-procedure seqprog()
-   local begno, incno, prog, lno, l
+procedure seqprog();
+   local begno, incno, prog, lno, l;
 
 #	initialize the sequencing numbers
 	begno := incno := 10;
@@ -200,12 +200,12 @@ procedure seqprog()
 	every l := !prog do {
 		PRTBL[lno] := l[2];
 		lno +:= incno
-	}
+	};
 
 end
 
-procedure readprog()
-   local readfile, response, in, lno, line
+procedure readprog();
+   local readfile, response, in, lno, line;
 
 #	get a possible command line file name
 	tab(many(WHITE));
@@ -215,7 +215,7 @@ procedure readprog()
 	if /readfile | *readfile = 0 then {
 		writes("Read file name: ");
 		readfile := read()
-	}
+	};
 
 #	make sure a modified file has been written
 	if MFLAG > 0 then {
@@ -223,7 +223,7 @@ procedure readprog()
 		response := read();
 		if any('yY',response) then
 			writeprog()
-	}
+	};
 
 #	initialize the program table
 	PRTBL := table();
@@ -234,16 +234,16 @@ procedure readprog()
 	every line := !in do {
 		PRTBL[lno] := line;
 		lno +:= 10
-	}
+	};
 	close(in);
 
 #	tell them what you did
-	write("Read '",readfile,"'...",*PRTBL," lines")
+	write("Read '",readfile,"'...",*PRTBL," lines");
 
 end
 
-procedure writeprog()
-   local writefile, prog, out, l
+procedure writeprog();
+   local writefile, prog, out, l;
 
 #	get a possible command line file name
 	tab(many(WHITE));
@@ -253,7 +253,7 @@ procedure writeprog()
 	if /writefile | *writefile = 0 then {
 		writes("Write file name: ");
 		writefile := read()
-	}
+	};
 
 #	sort the program table
 	prog := sort(PRTBL);
@@ -262,16 +262,16 @@ procedure writeprog()
 	out := open(writefile,"w");
 	every l := !prog do {
 		write(out,l[2])
-	}
+	};
 	close(out);
 
 #	tell them what you did
-	write("Write '",writefile,"'...",*PRTBL," lines")
+	write("Write '",writefile,"'...",*PRTBL," lines");
 
 end
 
-procedure delprog()
-   local begno, endno, prog, l, lno
+procedure delprog();
+   local begno, endno, prog, l, lno;
 
 #	initialize the line numbers
 	begno := 0;
@@ -299,12 +299,12 @@ procedure delprog()
 	every l := !prog do {
 		lno := numeric(l[1]);
 		if (lno < begno) | (lno > endno) then PRTBL[lno] := l[2]
-	}
+	};
 
 end
 
-procedure listprog()
-   local begno, endno, prog, l, lno
+procedure listprog();
+   local begno, endno, prog, l, lno;
 
 #	initialize the line numbers
 	begno := 0;
@@ -329,15 +329,15 @@ procedure listprog()
 	every l := !prog do {
 		lno := numeric(l[1]);
 		if (lno >= begno) & (lno <= endno) then
-			write(right(lno,5),": ",l[2])
+			write(right(lno,5),": ",l[2]);
 		if lno > endno then break
-	}
+	};
 
 end
 
-procedure helpprog()
+procedure helpprog();
 
-	static helpmsg
+	static helpmsg;
 
 #	define the help message
 	initial {
@@ -358,15 +358,15 @@ procedure helpprog()
 		"quit",
 		"help"
 		]
-	}
+	};
 
 #	print it
-	every write(!helpmsg)
+	every write(!helpmsg);
 
 end
 
-procedure quitprog()
-   local response
+procedure quitprog();
+   local response;
 
 #	make sure a modified file has been written
 	if MFLAG > 0 then {
@@ -374,9 +374,9 @@ procedure quitprog()
 		response := read();
 		if any('yY',response) then
 			writeprog()
-	}
+	};
 
-	stop("Goodbye.")
+	stop("Goodbye.");
 
 end
 

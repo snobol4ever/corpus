@@ -60,22 +60,22 @@ link convert
 link random
 link wopen
 
-procedure main(args)
-   local opts, rule, bits, binary, i, j, phi, width, height, v, old, new
-   local ilist, name, canvas
+procedure main(args);
+   local opts, rule, bits, binary, i, j, phi, width, height, v, old, new;
+   local ilist, name, canvas;
 
    opts := options(args, "w+h+r+sRe:i:H");
 
    width := \opts["w"] | 200;
    height := \opts["h"] | width;
    rule := \opts["r"] | 110;
-   if \opts["R"] then randomize()
+   if \opts["R"] then randomize();
    name := \opts["i"];
    if \opts["H"] then {
-      canvas := "canvas=hidden"
+      canvas := "canvas=hidden";
       /name := "ca21.gif"
       }
-   else canvas := "canvas=normal"
+   else canvas := "canvas=normal";
 
    WOpen(canvas, "width=" || width, "height=" || height) |
       stop("*** cannot open window");
@@ -85,7 +85,7 @@ procedure main(args)
 
    phi := table();
 
-   while phi[@binary] := @bits
+   while phi[@binary] := @bits;
 
    new := repl("0", width);
 
@@ -106,7 +106,7 @@ procedure main(args)
    else {
       new[width / 2] := "1";  # single, centered seed
       DrawPoint(width / 2 - 1, 0)
-      }
+      };
 
    every j := 2 to height do {
       old := new;
@@ -115,8 +115,8 @@ procedure main(args)
          new[i] := v := phi[old[i - 1 : i + 2]];
          if v == "1" then DrawPoint(i - 1, j - 1)
          }
-      }
+      };
 
-   WriteImage(\name)
+   WriteImage(\name);
 
 end

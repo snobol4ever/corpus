@@ -26,14 +26,14 @@
 
 link options
 
-procedure main(args)
-   local opts, sep
+procedure main(args);
+   local opts, sep;
 
    opts := options(args, "s:");
    sep := \opts["s"] | " ";
 
-   every writes(!&input, sep)
+   every writes(!&input, sep);
 
-   write()
+   write();
 
 end

@@ -57,10 +57,10 @@ global pi_6
 
 $define Size 200
 
-procedure main(args)
-   local x, y, xnew, ynew, lambda, alpha, beta, gamma, omega, ma, shift
-   local mcount, sx, sy, xp, yp, max, min, i
-   local count, prefix, iter, opts, interval, limit
+procedure main(args);
+   local x, y, xnew, ynew, lambda, alpha, beta, gamma, omega, ma, shift;
+   local mcount, sx, sy, xp, yp, max, min, i;
+   local count, prefix, iter, opts, interval, limit;
 
    pi_2 := 2 * &pi;
    pi_4 := 4 * &pi;
@@ -212,9 +212,9 @@ procedure main(args)
          sin(pi_4 * y) + gamma * sin(pi_6 * y) * cos(pi_4 * x) + ma *
          y + shift;
       if xnew > 1.0 then xnew -:= integer(xnew)
-      else if xnew < 0.0 then xnew +:= integer(-xnew) + 1
+      else if xnew < 0.0 then xnew +:= integer(-xnew) + 1;
       if ynew > 1.0 then ynew -:= integer(ynew)
-      else if ynew < 0.0 then ynew +:= integer(-ynew) + 1
+      else if ynew < 0.0 then ynew +:= integer(-ynew) + 1;
       x := xnew;
       y := ynew;
 
@@ -228,12 +228,12 @@ procedure main(args)
          every i := mcount[1 to Size, 1 to Size] do {
             max <:= i;
             min >:= i
-            }
-         if min < 0 then min := 0
+            };
+         if min < 0 then min := 0;
          write_cpt(prefix || right(count +:= 1, 3, "0") || ".cpt",
             mcount, min, max)
-         }
+         };
       if iter >= \limit then exit()
-      }
+      };
 
 end

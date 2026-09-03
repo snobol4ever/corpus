@@ -36,22 +36,22 @@ link options,word
 
 global Diff,ArgStr
 
-procedure Options(arg)
-   local opt,c
+procedure Options(arg);
+   local opt,c;
    opt := options(arg,"dbitwrsS:");
    Diff := \opt["d"] | "diff";
    ArgStr := "";
    ArgStr ||:= " -S " || \opt["S"];
    every c := !"bitwrs" do {     # single-character options passed to diff
       if \opt[c] then ArgStr ||:= " -" || c
-      }
-   return opt
+      };
+   return opt;
 end
 
-procedure main(arg)
-   local argstr,fn1,fn2,p,dargs,cmd
+procedure main(arg);
+   local argstr,fn1,fn2,p,dargs,cmd;
    Options(arg);
-   every ArgStr ||:= " " || !arg
+   every ArgStr ||:= " " || !arg;
    fn1 := arg[-2];
    fn2 := arg[-1];
    cmd := Diff || ArgStr;
@@ -66,14 +66,14 @@ procedure main(arg)
       else if ="diff" & tab(many(' \t')) then {
 	 write(&subject);
 	 dargs := [];
-	 while put(dargs,word_dequote(tab(word()))) do tab(many(' \t'))
+	 while put(dargs,word_dequote(tab(word()))) do tab(many(' \t'));
 	 fn1 := dargs[-2];
 	 fn2 := dargs[-1];
-	 while match("./",fn1) do fn1[1+:2] := ""
+	 while match("./",fn1) do fn1[1+:2] := "";
 	 while match("./",fn2) do fn2[1+:2] := ""
 	 }
-      else write(tab(0))
+      else write(tab(0));
       {}
-      }
-   exit(close(p))
+      };
+   exit(close(p));
 end

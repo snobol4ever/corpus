@@ -36,14 +36,14 @@
 
 link options
 
-procedure main(args)
-   local switches, n, linecount, ngrams, preline
-   local line, ngram, nextchar, firstngram, Show
+procedure main(args);
+   local switches, n, linecount, ngrams, preline;
+   local line, ngram, nextchar, firstngram, Show;
 
    switches := options(args,"sn+l+r+");
-   if \switches["s"] then Show := writes else Show := 1
+   if \switches["s"] then Show := writes else Show := 1;
    n := \switches["n"] | 3;
-   linecount := \switches["l"] | 10
+   linecount := \switches["l"] | 10;
    &random := \switches["r"];
 
    ngrams := table();
@@ -55,24 +55,24 @@ procedure main(args)
       Show(line);
       line ? {
             while ngram := move(n) & nextchar := move(1) do {
-               /firstngram := ngram
+               /firstngram := ngram;
                /ngrams[ngram] := "";
                ngrams[ngram] ||:= nextchar;
                move(-n)
-               }
+               };
             preline := tab(0) || "\n"
             }
-      }
+      };
 
    Show("\n\nGenerating Sentences\n\n");
 
    ngram := writes(firstngram);
    while linecount > 0 do {
       if /ngrams[ngram] then
-         exit()                 # if hit EOF ngram early
+         exit();                 # if hit EOF ngram early
       ngram := ngram[2:0] || writes(nextchar := ?ngrams[ngram]);
       if (nextchar == "\n") then
          linecount -:= 1
-      }
+      };
 
 end

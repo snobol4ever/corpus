@@ -30,8 +30,8 @@
 
 link options
 
-procedure main(args)
-   local opts, limit, repeats, values
+procedure main(args);
+   local opts, limit, repeats, values;
 
    opts := options(args, "l+r+");
 
@@ -40,9 +40,9 @@ procedure main(args)
 
    values := [];
 
-   every put(values, !&input) \ limit
+   every put(values, !&input) \ limit;
 
    every 1 to repeats do
-      every write(!values)
+      every write(!values);
 
 end

@@ -76,13 +76,13 @@ link adjuncts
 # declared in adjuncts.icn
 # global _slash, _baselen, _delimiter
 
-procedure main(a)
+procedure main(a);
 
-   local ABORT, idxfile_name, fname, infile, outfile
+   local ABORT, idxfile_name, fname, infile, outfile;
 
    Set_OS();
    
-   if \a[1] == "-a" then ABORT := pop(a)  
+   if \a[1] == "-a" then ABORT := pop(a);  
 
    # Check to see if we have any arguments.
 
@@ -92,7 +92,7 @@ procedure main(a)
       }
    else  {
       *a = 0 & stop("usage: idxtext [-a] file1 [file2 [...]]")
-      }
+      };
 
    # Start popping filenames off of the argument list.
 
@@ -101,13 +101,13 @@ procedure main(a)
       # Open input file.
 
       infile := open(fname) |
-         { write(&errout, "idxtext:  ",fname," not found"); next }
+         { write(&errout, "idxtext:  ",fname," not found"); next };
 
       # Get index file name.
 
       idxfile_name := Pathname(fname) || getidxname(fname);
       if \ABORT then if close(open(idxfile_name)) then
-         stop("idxtext:  index file ",idxfile_name, " already exists")
+         stop("idxtext:  index file ",idxfile_name, " already exists");
       outfile := open(idxfile_name, "w") |
          stop("idxtext:  can't open ", idxfile_name);
 
@@ -115,14 +115,14 @@ procedure main(a)
 
       write_index(infile, outfile);
       every close(infile | outfile)
-      }
-   exit()
+      };
+   exit();
 end
 
 
-procedure write_index(in, out)
+procedure write_index(in, out);
 
-   local key_offset_table, w, line, KEY
+   local key_offset_table, w, line, KEY;
 
    # Write to out all keys in file "in," with their byte
    # offsets.
@@ -137,7 +137,7 @@ procedure write_index(in, out)
             then key_offset_table[KEY] ||:= _delimiter || w
             }
          }
-      }
+      };
 
    # First line of index contains the offset of the last
    # indexed byte in write_index, so that we can still
@@ -148,8 +148,8 @@ procedure write_index(in, out)
    # Write sorted KEY\toffset lines.
 
    if *key_offset_table > 0 then  {
-      every write(out, (!sort(key_offset_table))[2])
+      every write(out, (!sort(key_offset_table))[2]);
       return
       }
-   else stop("No indexed items found.")
+   else stop("No indexed items found.");
 end

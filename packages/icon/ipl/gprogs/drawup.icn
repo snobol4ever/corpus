@@ -38,9 +38,9 @@ link patxform
 link weavutil
 link xcode
 
-procedure main(args)
-   local threading, treadling, rows, pattern, i
-   local symbols, symbol, drawdown, draft, opts
+procedure main(args);
+   local threading, treadling, rows, pattern, i;
+   local symbols, symbol, drawdown, draft, opts;
 
    opts := options(args, "rn:");
 
@@ -48,7 +48,7 @@ procedure main(args)
       drawdown := [];
       while put(drawdown, read())
       }
-   else drawdown := pat2rows(read()) | stop("*** invalid input")
+   else drawdown := pat2rows(read()) | stop("*** invalid input");
 
    treadling := analyze(drawdown);
    drawdown := protate(drawdown, "cw");
@@ -63,13 +63,13 @@ procedure main(args)
          every i := upto('1') do
             symbols[symbol][threading.sequence[i]] := "1"
          }
-      }
+      };
 
    symbols := sort(symbols, 3);
    rows := [];
 
    while get(symbols) do
-      put(rows, get(symbols))
+      put(rows, get(symbols));
 
    draft := isd();
 
@@ -83,6 +83,6 @@ procedure main(args)
    draft.treadles := *treadling.rows;
    draft.tieup := rows;
 
-   xencode(draft, &output)
+   xencode(draft, &output);
 
 end

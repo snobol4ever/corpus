@@ -34,7 +34,7 @@ link vsetup
 
 global vidgets, root, region, rwin
 
-procedure main(args)
+procedure main(args);
 
    Window ! put(ui_atts(), args);
    vidgets := ui();  # set up vidgets
@@ -44,101 +44,101 @@ procedure main(args)
    Bg(rwin, "white");
    
    render();
-   GetEvents(root, , all)
+   GetEvents(root, , all);
 end
 
-procedure all(a, x, y)
+procedure all(a, x, y);
    if a === !" \n\r" then render()
    else if &meta then case a of {
-      !"qQ":  exit()
+      !"qQ":  exit();
       !"sS":  save()
-      }
-   return
+      };
+   return;
 end
 
-procedure huebutton(v, x)
+procedure huebutton(v, x);
    case v.id of {
-      "r": huerange(0, 15) 
-      "o": huerange(15, 45) 
-      "y": huerange(45, 60) 
-      "g": huerange(90, 150) 
-      "c": huerange(165, 195) 
-      "b": huerange(195, 225) 
-      "p": huerange(255, 285) 
-      "m": huerange(285, 315)
-      "all": huerange(0, 360)
-      "ygb": huerange(45, 195)
+      "r": huerange(0, 15); 
+      "o": huerange(15, 45); 
+      "y": huerange(45, 60); 
+      "g": huerange(90, 150); 
+      "c": huerange(165, 195); 
+      "b": huerange(195, 225); 
+      "p": huerange(255, 285); 
+      "m": huerange(285, 315);
+      "all": huerange(0, 360);
+      "ygb": huerange(45, 195);
       "bmr": huerange(195,360)
-   }
+   };
 end
 
-procedure huerange(min, max)
-   txtval("hmin", min, min)
-   txtval("hmax", max, max)
-   render()
+procedure huerange(min, max);
+   txtval("hmin", min, min);
+   txtval("hmax", max, max);
+   render();
 end
 
-procedure render()
-   local side, gap, across, down
-   local hmin, hmax, smin, smax, vmin, vmax
-   local i, j, h, s, v, color ,clist
+procedure render();
+   local side, gap, across, down;
+   local hmin, hmax, smin, smax, vmin, vmax;
+   local i, j, h, s, v, color ,clist;
 
-   side := txtval("side", 1, 100)
-   gap := txtval("gap", 0, 100)
-   across := txtval("across", 1, 1000)
-   down := txtval("down", 1, 1000)
-   hmin := txtval("hmin", 0, 360)
-   hmax := txtval("hmax", hmin, 360)
-   smin := txtval("smin", 0, 100)
-   smax := txtval("smax", smin, 100)
-   vmin := txtval("vmin", 0, 100)
-   vmax := txtval("vmax", vmin, 100)
+   side := txtval("side", 1, 100);
+   gap := txtval("gap", 0, 100);
+   across := txtval("across", 1, 1000);
+   down := txtval("down", 1, 1000);
+   hmin := txtval("hmin", 0, 360);
+   hmax := txtval("hmax", hmin, 360);
+   smin := txtval("smin", 0, 100);
+   smax := txtval("smax", smin, 100);
+   vmin := txtval("vmin", 0, 100);
+   vmax := txtval("vmax", vmin, 100);
 
-   EraseArea()	# for color recycling
-   VDraw(root)	# needed after erase
+   EraseArea();	# for color recycling
+   VDraw(root);	# needed after erase
 
-   EraseArea(rwin)
-   clist := []
+   EraseArea(rwin);
+   clist := [];
    every i := 0 to down - 1 do {
       every j := 0 to across - 1 do {
-	 h := hmin + integer(?(hmax - hmin))
-	 s := smin + integer(?(smax - smin))
-	 v := vmin + integer(?(vmax - vmin))
-	 color := HSVValue(h || "/" || s || "/" || v)
+	 h := hmin + integer(?(hmax - hmin));
+	 s := smin + integer(?(smax - smin));
+	 v := vmin + integer(?(vmax - vmin));
+	 color := HSVValue(h || "/" || s || "/" || v);
 	 if Fg(rwin, color) then
 	    put(clist, color)
 	 else
-	    Fg(rwin, ?clist)
+	    Fg(rwin, ?clist);
 	 FillRectangle(rwin,
 	    gap + j * (gap + side), gap + i * (gap + side), side, side)
          }
-      }
+      };
 
-   return
+   return;
 end
 
-procedure txtval(s, min, max)
-   local v, n
+procedure txtval(s, min, max);
+   local v, n;
 
-   v := vidgets[s]
-   VEvent(v, "\r", v.ax, v.ay)
-   n := integer(VGetState(v)) | min
-   n <:= min
-   n >:= max
-   VSetState(v, n)
-   return n
+   v := vidgets[s];
+   VEvent(v, "\r", v.ax, v.ay);
+   n := integer(VGetState(v)) | min;
+   n <:= min;
+   n >:= max;
+   VSetState(v, n);
+   return n;
 end
 
-procedure save()
-   local g
+procedure save();
+   local g;
 
-   g := WAttrib("gamma")
-   WAttrib("gamma=1.0")		# don't gamma-correct on write
+   g := WAttrib("gamma");
+   WAttrib("gamma=1.0");		# don't gamma-correct on write
    repeat case OpenDialog("Save confetti image:") of {
       "Cancel": {
-	 WAttrib("gamma=" || g)
+	 WAttrib("gamma=" || g);
 	 fail
-	 }
+	 };
       "Okay": {
          if WriteImage(dialog_value, region.ax, region.ay, region.aw, region.ah)
 	 then
@@ -146,23 +146,23 @@ procedure save()
          else
 	    Notice("cannot write file:", dialog_value)
          }
-      }
-   WAttrib("gamma=" || g)
-   return
+      };
+   WAttrib("gamma=" || g);
+   return;
 end
 
-procedure quit()
-   exit()
+procedure quit();
+   exit();
 end
 
 
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts()
-   return ["size=400,500", "bg=pale gray", "label=fetti"]
+procedure ui_atts();
+   return ["size=400,500", "bg=pale gray", "label=fetti"];
 end
 
-procedure ui(win, cbk)
+procedure ui(win, cbk);
 return vsetup(win, cbk,
    [":Sizer:::0,0,400,500:fetti",],
    ["across:Text::3:300,59,87,19:Across: \\=5",],
@@ -197,6 +197,6 @@ return vsetup(win, cbk,
    ["ygb:Button:regular::287,235,28,17:ygb",huebutton],
    ["outline:Rect:sunken::261,309,78,52:",],
    ["region:Rect:invisible::0,0,200,500:",],
-   )
+   );
 end
 #===<<vib:end>>===	end of section maintained by vib

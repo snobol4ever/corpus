@@ -31,17 +31,17 @@ link random
 
 global vocab,index
 
-procedure main()
-  local line, i, n, word, follows
+procedure main();
+  local line, i, n, word, follows;
 
   vocab:= [];
   index:= table([]);
   while line := read() do
     {
     vocab |||:= parse(line,' ')
-    }
+    };
 
-  every i := 1 to *vocab-2 do index[vocab[i]] |||:= [i]
+  every i := 1 to *vocab-2 do index[vocab[i]] |||:= [i];
   index[vocab[-2]] |||:= [-2];  # wrap end to front in order to
   index[vocab[-1]] |||:= [-1];  # prevent stuck loop if last word chosen
 
@@ -58,10 +58,10 @@ procedure main()
       {
       write(line);
       line := ""
-      }
+      };
     line ||:= word || " " || follows || " "
-    }
-  write(line,".")
+    };
+  write(line,".");
   end
 
 #
@@ -72,14 +72,14 @@ procedure main()
 # one wishes to extract.
 #
 
-procedure parse(line,delims)
-  local tokens
-  static chars
+procedure parse(line,delims);
+  local tokens;
+  static chars;
 
   chars  := &cset -- delims;
   tokens := [];
-  line ? while tab(upto(chars)) do put(tokens,tab(many(chars)))
-  return tokens
+  line ? while tab(upto(chars)) do put(tokens,tab(many(chars)));
+  return tokens;
   end
 
 #
@@ -87,7 +87,7 @@ procedure parse(line,delims)
 # an input string
 #
 
-procedure input(prompt)
-  writes(prompt)
-  return read()
+procedure input(prompt);
+  writes(prompt);
+  return read();
   end

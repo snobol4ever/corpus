@@ -27,9 +27,9 @@
 
 record Lsys(name, axiom, gener, angle, comment, productions)
 
-procedure makelsys(lst)			#: make L-system from list
-   local line, i, s, c, symbol, rewrite
-   local allchars, rhs, value, spec, result
+procedure makelsys(lst);			#: make L-system from list
+   local line, i, s, c, symbol, rewrite;
+   local allchars, rhs, value, spec, result;
 
    result := Lsys();
 
@@ -47,32 +47,32 @@ procedure makelsys(lst)			#: make L-system from list
             move(1);
             value := tab(0);
             if spec == "axiom" then allchars ++:= value
-            else if spec == "end" then break
+            else if spec == "end" then break;
             /result[spec] := value
             }
          }
-      }
+      };
 
 #  At this point, we have the table to map characters, but it may lack
 #  mappings for characters that "go into themselves" by default.  For
 #  efficiency in rewriting, these mappings are added.
 
    every c := !allchars do
-     /rewrite[c] := c
+     /rewrite[c] := c;
 
-   result.productions := rewrite
+   result.productions := rewrite;
 
-   return result
+   return result;
 
 end
 
-procedure readlsys(input)		#: make L-system from a file
-   local result
+procedure readlsys(input);		#: make L-system from a file
+   local result;
 
    result := [];
 
-   while put(result, read(input))
+   while put(result, read(input));
 
-   return makelsys(result)
+   return makelsys(result);
 
 end

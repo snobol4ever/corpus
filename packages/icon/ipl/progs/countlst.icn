@@ -31,8 +31,8 @@
 
 link adlutils, options
 
-procedure main(args)
-   local line_count, counter, lines, opts, sort_method, line, total, count
+procedure main(args);
+   local line_count, counter, lines, opts, sort_method, line, total, count;
 
    line_count := table(0);  # counts for each line
    counter := table();  # lists of lines for each count
@@ -42,7 +42,7 @@ procedure main(args)
    sort_method := opts["a"];
 
    while line_count[read()] +:= 1 do
-      total +:= 1
+      total +:= 1;
        
    if \sort_method then {		# alphabetical sort
       line_count := sort(line_count,3);
@@ -54,7 +54,7 @@ procedure main(args)
       while count := pull(line_count) do {
          /counter[count] := [];
          put(counter[count],pull(line_count))
-         }
+         };
    
       counter := sort(counter,3);
    
@@ -62,8 +62,8 @@ procedure main(args)
          count := pull(counter);
          every write(!lines,"\t",count)
          }
-     }
+     };
 
-   if \opts["t"] then write("\ntotal\t",total)
+   if \opts["t"] then write("\ntotal\t",total);
 
 end

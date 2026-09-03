@@ -35,8 +35,8 @@ link cells
 link options
 link wopen
 
-procedure main(args)
-   local x, y, width, height, c, panel, opts, cellsize, prefix
+procedure main(args);
+   local x, y, width, height, c, panel, opts, cellsize, prefix;
 
    opts := options(args, "s+p:");
 
@@ -58,8 +58,8 @@ procedure main(args)
          colorcell(panel, x + 1, y + 1, c);
          x +:= 1
          }
-      }
+      };
 
-   WriteImage(panel.window, prefix || ".gif")
+   WriteImage(panel.window, prefix || ".gif");
 
 end

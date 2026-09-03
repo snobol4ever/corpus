@@ -27,12 +27,12 @@
 
 link matrix
 
-procedure transform(p, M)		#: transform point list by matrix
-   local pl, i
+procedure transform(p, M);		#: transform point list by matrix
+   local pl, i;
 
    # convert p to a matrix for matrix multiply...
 
-   every put((pl := [[]])[1], (!p)|1.0)	# the 1.0 makes it homogeneous
+   every put((pl := [[]])[1], (!p)|1.0);	# the 1.0 makes it homogeneous
 
    # do the conversion...
 
@@ -42,76 +42,76 @@ procedure transform(p, M)		#: transform point list by matrix
 
    p := copy(p);
    every i := 1 to *p do
-      p[i] := pl[1][i]
+      p[i] := pl[1][i];
 
-   return p
+   return p;
 
 end
 
-procedure transform_points(pl,M)	#: transform point list
-   local xformed
+procedure transform_points(pl,M);	#: transform point list
+   local xformed;
 
-   every put(xformed := [], !transform(!pl,M))
+   every put(xformed := [], !transform(!pl,M));
 
-   return xformed
+   return xformed;
 
 end
    
-procedure set_scale(x, y)		#: matrix for scaling
-   local M
+procedure set_scale(x, y);		#: matrix for scaling
+   local M;
 
    M := identity_matrix(3,3);
 
    M[1][1] := x;
-   M[2][2] := y
+   M[2][2] := y;
 
-   return M
+   return M;
 
 end
 
-procedure set_trans(x, y)		#: matrix for translation
-   local M
+procedure set_trans(x, y);		#: matrix for translation
+   local M;
 
    M := identity_matrix(3,3);
 
    M[*M][1] := x;
-   M[*M][2] := y
+   M[*M][2] := y;
 
-   return M
+   return M;
 
 end
 
-procedure set_xshear(x)			#: matrix for x shear
-   local M
+procedure set_xshear(x);			#: matrix for x shear
+   local M;
 
    M :=  identity_matrix(3,3);
 
-   M[1][2] := x
+   M[1][2] := x;
 
-   return M
+   return M;
 
 end
 
-procedure set_yshear(y)			#: matrix for y shear
-   local M
+procedure set_yshear(y);			#: matrix for y shear
+   local M;
 
    M := identity_matrix(3,3);
 
-   M[2][1] := y
+   M[2][1] := y;
 
-   return M
+   return M;
 
 end
 
-procedure set_rotate(x)			#: matrix for rotation
-   local M
+procedure set_rotate(x);			#: matrix for rotation
+   local M;
 
    M := identity_matrix(3,3);
    M[1][1] := cos(x);
    M[2][2] := M[1][1];
    M[1][2] := sin(x);
-   M[2][1] := -M[1][2]
+   M[2][1] := -M[1][2];
 
-   return M
+   return M;
 
 end

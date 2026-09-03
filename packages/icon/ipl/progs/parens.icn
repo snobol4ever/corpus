@@ -71,8 +71,8 @@ link random
 
 global r, k, lp, rp
 
-procedure main(args)
-   local string, i, s, bound, limit, varying, opts
+procedure main(args);
+   local string, i, s, bound, limit, varying, opts;
 
    randomize();
    
@@ -87,31 +87,31 @@ procedure main(args)
    rp := \opts["r"] | ")";
    varying := opts["v"];
    every 1 to limit do {
-      if \varying then k := 2 * ?bound else k := 2 * bound
+      if \varying then k := 2 * ?bound else k := 2 * bound;
       string := "";
       r := 0;
       while k ~= r do {
          if r = 0 then string ||:= Open()
          else if ?0 < probClose()
             then string ||:= Close() else string ||:= Open()
-         }
-      while k > 0 do string ||:= Close()
+         };
+      while k > 0 do string ||:= Close();
       write(string)
-      }
+      };
 end
 
-procedure Open()
+procedure Open();
    r +:= 1;
-   k -:= 1
-   return lp
+   k -:= 1;
+   return lp;
 end
 
-procedure Close()
+procedure Close();
    r -:= 1;
-   k -:= 1
-   return rp
+   k -:= 1;
+   return rp;
 end
 
-procedure probClose()
-   return ((r * (r + k + 2)) / (2.0 * k * (r + 1)))
+procedure probClose();
+   return ((r * (r + k + 2)) / (2.0 * k * (r + 1)));
 end

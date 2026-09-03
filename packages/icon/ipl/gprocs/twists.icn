@@ -32,9 +32,9 @@
 link gobject
 
 procedure twist1(x, y, extent, n, t1, t2, j1, j2, k1, k2, rscale1, rscale2,
-sfact, sscale, soff, yfact)
-   local radius1, radius2, angle, s, s1, s2, c1, c2, i
-   local jangle1, jangle2, kangle1, kangle2, sangle
+sfact, sscale, soff, yfact);
+   local radius1, radius2, angle, s, s1, s2, c1, c2, i;
+   local jangle1, jangle2, kangle1, kangle2, sangle;
    
    radius1 := rscale1 * extent;  # scaling
    radius2 := rscale2 * extent;
@@ -50,17 +50,17 @@ sfact, sscale, soff, yfact)
       c1 := cos(jangle1 * i);
       s1 := sin(jangle2 * i);
       c2 := s * cos(kangle1 * i);
-      s2 := s * sin(kangle2 * i)
+      s2 := s * sin(kangle2 * i);
       suspend Point(x + radius1 * c1 + radius2 * (c1 * c2 - s1 * s2),
          y + yfact * (radius1 * s1 + radius2 * (s1 * c2 + c1 * s2)))
-      }
+      };
 
 end
 
 procedure twist2(x, y, extent, n, t1, t2, j1, j2, k1, k2, rscale1, rscale2,
-sfact, yfact)
-   local radius1, radius2, angle, s1, s2, c1, c2, i
-   local jangle1, jangle2, kangle1, kangle2, sangle
+sfact, yfact);
+   local radius1, radius2, angle, s1, s2, c1, c2, i;
+   local jangle1, jangle2, kangle1, kangle2, sangle;
 
    radius1 := rscale1 * extent;  # scaling
    radius2 := rscale2 * extent;
@@ -75,9 +75,9 @@ sfact, yfact)
       c1 := cos(jangle1 * i);
       s1 := sin(jangle2 * i);
       c2 := cos(kangle1 * i);
-      s2 := sin(kangle2 * i)
+      s2 := sin(kangle2 * i);
       suspend Point(x + radius1 * c1 + radius2 * (c1 * c2 - s1 * s2),
          y + yfact * (radius1 * s1 + radius2 * (s1 * c2 + c1 * s2)))
-      }
+      };
 
 end

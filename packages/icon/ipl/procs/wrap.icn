@@ -80,26 +80,26 @@
 #
 ############################################################################
 
-procedure wrap(s,i)
-   local t
-   static line
-   initial line := ""
+procedure wrap(s,i);
+   local t;
+   static line;
+   initial line := "";
    /s := "" ; /i := 0;
    if *(t := line || s) > i then
-	 return "" ~== (s :=: line)
-   line := t
+	 return "" ~== (s :=: line);
+   line := t;
 end
 
-procedure wraps(s,i)
-   local t
-   static size
-   initial size := 0
+procedure wraps(s,i);
+   local t;
+   static size;
+   initial size := 0;
    /s := "" ; /i := 0;
    t := size + *s;
    if t > i & size > 0 then {
-      size := *s
+      size := *s;
       return "\n" || s
-      }
-   size := t
-   return s
+      };
+   size := t;
+   return s;
 end

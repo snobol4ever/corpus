@@ -146,51 +146,51 @@ link io
 
 global values, blank, nonblank
 
-procedure main (args)
-    local line
+procedure main (args);
+    local line;
 
-    if map(args[1]) == "-t" then &trace := -1
+    if map(args[1]) == "-t" then &trace := -1;
 
      init();
 
      while line := prompt() do {
          process(line || " ")      # pad with a blank to make life easy
-     }
-     windup()
+     };
+     windup();
 end
 ############################################################################
 #
 # windup
 #
-procedure windup()
-     write(&errout,"windup")
+procedure windup();
+     write(&errout,"windup");
 end
 ############################################################################
 #
 # process
 #
-procedure process(str)
+procedure process(str);
 
      case parse(str) of {
-     "load"        : load(str)
-     "save"        : save(str)
-     "print"       : conman(butfirst(str))          # strip first token
-     "list"        : zlist()
+     "load"        : load(str);
+     "save"        : save(str);
+     "print"       : conman(butfirst(str));          # strip first token
+     "list"        : zlist();
      default       : isare(str) # didn't start with a kw, try is or are
-     }
+     };
 end
 ############################################################################
 #
 # parse
 #
-procedure parse(str)
-    local token
+procedure parse(str);
+    local token;
 
      token := first(str);
      case token of  {
-         "?"       : return "print"             # only special case at present
+         "?"       : return "print";             # only special case at present
          default   : return token
-     }
+     };
 end
 ############################################################################
 #
@@ -199,9 +199,9 @@ end
 # compute and write result - During initial design, this was perceived to
 #                            require 50 lines of complicated lookup etc.!
 #
-procedure conman(strn) 
+procedure conman(strn); 
 
-     write (strn , " equals ", eval(stack(strn, 1, *strn)))
+     write (strn , " equals ", eval(stack(strn, 1, *strn)));
 end
 ############################################################################
 #
@@ -213,8 +213,8 @@ end
 # compute subsequent
 # store word, subsequent/foregoing in values
 #
-procedure isare(str)
-    local after, before, foregoing, subsequent
+procedure isare(str);
+    local after, before, foregoing, subsequent;
 
 # locate blank-delimited is or are - early (?clumsy) Icon code replaced at
 # the suggestion of one of REG's students
@@ -226,9 +226,9 @@ procedure isare(str)
                  after := \tab(0)))  then {  }                    # are
 
      else {                          # found nothing - try to eval anyhow
-         conman(str)
+         conman(str);
          return 
-     } 
+     }; 
 #
 # here if is or are
 #
@@ -239,8 +239,8 @@ procedure isare(str)
 #
 # next line so we can support "100 cms are 1 meter"
 #
-     values[name] := eval(subsequent) / eval(foregoing) 
-     return
+     values[name] := eval(subsequent) / eval(foregoing); 
+     return;
 end
 ############################################################################
 #
@@ -248,16 +248,16 @@ end
 #
 #  stack the "words" in str - needs cset nonblank
 #
-procedure stack(str)
-    local i, j, words
+procedure stack(str);
+    local i, j, words;
 
     words := [] ; i := 1;
 
     while j := upto(nonblank, str, i) do {
          i := many(nonblank, str, j);
          push(words, str[i:j])
-         }
-    return words
+         };
+    return words;
 end
 ############################################################################
 #
@@ -270,8 +270,8 @@ end
 #    else if in values, multiply/divide value
 #    else gripe and leave accum alone
 #
-procedure eval(stk)
-    local accum, action, token
+procedure eval(stk);
+    local accum, action, token;
 
     accum := 1.0  ;  action := "multiply";
 
@@ -294,14 +294,14 @@ procedure eval(stk)
                    write (&errout,
                          "Can't evaluate ", token, " - using 1.0 instead")
          }
-     }#........................................ # end of while more tokens
-    return accum       
+     };#........................................ # end of while more tokens
+    return accum;       
 end
 ############################################################################
 #
 # init
 #
-procedure init()
+procedure init();
      write(&errout, "Conman version 1.1, 7/24/87");
      values := table(&null);
      nonblank := &ascii -- ' ';
@@ -314,96 +314,96 @@ procedure init()
      values["?"]     := 1.0;
      values["meter"] := 1.0;
      values["kilogram"] := 1.0;
-     values["second"]   := 1.0
+     values["second"]   := 1.0;
 
 end
 ############################################################################
 #
 # prompt
 #
-procedure prompt()
-    return read()
+procedure prompt();
+    return read();
 end
 ############################################################################
 #
 # load - loads table from a file - assumes save format compatible 
 #        with isare
 #
-procedure load(str)
-    local intext, line, filnam
+procedure load(str);
+    local intext, line, filnam;
 
     filnam := (\second(str) | "conman.sav");
     write (&errout, "Load from ", filnam, ".  May take a minute or so.");
     intext := dopen(filnam,"r") | { write(&errout, "can't open ", filnam);
-                                    fail}
+                                    fail};
      while line := read(intext)  do {
          isare(line || " ")  # pad with a blank to make life easy
-     }
-    close(intext)
-    return
+     };
+    close(intext);
+    return;
 end
 ############################################################################
 #
 # save - saves table to file in format compatible with isare
 #
-procedure save(str)
-    local i, outtext, pair, wlist, filnam
+procedure save(str);
+    local i, outtext, pair, wlist, filnam;
  
     filnam := (\second(str) | "conman.sav");
     write (&errout, "Save into ", filnam);
     outtext := open(filnam,"a") | { write(&errout, "can't save to ", filnam);
-                                    fail}
+                                    fail};
     wlist := sort(values);
     i := 0;
     every pair := !wlist do {
          write(outtext, pair[1], " is ", pair[2])
-    }
-    close(outtext)
+    };
+    close(outtext);
 end
 ############################################################################
 #
 # zlist - lists the table
 #
-procedure zlist()
-    local i, pair, wlist
+procedure zlist();
+    local i, pair, wlist;
 
     i := 0;
     wlist := sort(values);
     every pair := !wlist do {
          write(&errout, pair[1], " is ", pair[2])
-    }
+    };
 end
 ############################################################################
 #
 # first - returns first token in a string - needs cset nonblank
 #
-procedure first(s)
-    local stuff
+procedure first(s);
+    local stuff;
 
-    s? (tab(upto(nonblank)) , (stuff := tab(many(nonblank))))
-    return \stuff 
+    s? (tab(upto(nonblank)) , (stuff := tab(many(nonblank))));
+    return \stuff; 
 end
 ############################################################################
 #
 # second - returns second token in a string - needs cset nonblank
 #
-procedure second(s)
-    local stuff
+procedure second(s);
+    local stuff;
 
     s? (tab(upto(nonblank)) , (tab(many(nonblank)) & tab(upto(nonblank)) &
-         (stuff := tab(many(nonblank)))))
-    return \stuff 
+         (stuff := tab(many(nonblank)))));
+    return \stuff; 
 end
 ############################################################################
 #
 # butfirst - returns all butfirst token in a string - needs cset nonblank
 #
-procedure butfirst(s)
-    local stuff
+procedure butfirst(s);
+    local stuff;
 
     s? (tab(upto(nonblank)) , tab(many(nonblank)) & tab(upto(nonblank)) &
-         (stuff := tab(0)))
-    return \stuff 
+         (stuff := tab(0)));
+    return \stuff; 
 end
 ############################################################################
 #
@@ -411,17 +411,17 @@ end
 #            an obvious way.  Note: singulars ending in "e" should be handled
 #            here also "per second" units which end in "s".
 #
-procedure singular(str)
-    local s
+procedure singular(str);
+    local s;
 
     s := str;
-    if s == "fps" then return "fps"
-    if s == "feet" then return "foot"
-    if s == "minutes" then return "minute"
-    if s == "miles" then return "mile"
+    if s == "fps" then return "fps";
+    if s == "feet" then return "foot";
+    if s == "minutes" then return "minute";
+    if s == "miles" then return "mile";
 #
 ## otherwise strip "es" or "s".  Slick code by Icon grad student
 #
-    return s? (1(tab(-2), ="es") | 1(tab(-1), ="s" ) | tab(0))
+    return s? (1(tab(-2), ="es") | 1(tab(-1), ="s" ) | tab(0));
 end
 ############################################################################

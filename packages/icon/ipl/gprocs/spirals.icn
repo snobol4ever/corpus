@@ -29,8 +29,8 @@
 link gobject
 link numbers
 
-procedure spiral(x, y, extent, n, t, e, r, incr, yfact)
-   local i, c, s, angle, redrad, x1, y1
+procedure spiral(x, y, extent, n, t, e, r, incr, yfact);
+   local i, c, s, angle, redrad, x1, y1;
 
    incr := dtor(incr);
 
@@ -40,9 +40,9 @@ procedure spiral(x, y, extent, n, t, e, r, incr, yfact)
       x1 := redrad * cos(t * angle);
       y1 := redrad * e * sin(t * angle);
       c := cos(angle);
-      s := sin(angle)
+      s := sin(angle);
       suspend Point(x + extent / 2 * (1 + x1 * c - y1 * s),
          y + extent / 2 * yfact * (1 + x1 * s + y1 * c))
-      }
+      };
 
 end

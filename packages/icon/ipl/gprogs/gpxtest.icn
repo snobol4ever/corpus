@@ -65,8 +65,8 @@ global cx, cy				# current cell indices
 ##############################  Overall control  ##############################
 
 
-procedure main(args)
-   local x, y
+procedure main(args);
+   local x, y;
 
    # Start with a medium window; shrink, test defaults, grow.
    Window("size=300,300", "bg=light-weak-reddish-yellow", args);
@@ -86,9 +86,9 @@ procedure main(args)
 
    # Make a simple background.
    if WAttrib("depth") > 1 then
-      Fg("44000,39000,24000")
+      Fg("44000,39000,24000");
    every y := (3 * CELL / 2) to (2 * HEIGHT) by 7 do
-      DrawLine(0, y, 2 * y, 0)
+      DrawLine(0, y, 2 * y, 0);
    Fg("#000");
 
    # Run a series of tests confined to small, square cells.
@@ -120,7 +120,7 @@ procedure main(args)
       0, - 3 * GAP, "Quit", argless, exit, "Dialog", argless, dltest);
    quitsensor(&window);
    sensor(&window, 'Dd', argless, dltest);
-   evmux(&window)
+   evmux(&window);
 end
 
 
@@ -129,23 +129,23 @@ end
 #  Proc is called with a private graphics context assigned to &window.
 #  Clipping set to cell boundaries and the origin is at the center.
 
-procedure cell(proc)
-   local x, y, stdwin
+procedure cell(proc);
+   local x, y, stdwin;
 
    if (cx +:= 1) >= NWIDE then {
       cx := 0;
       cy +:= 1
-      }
+      };
    x := integer((cx + .5) * (CELL + GAP));
    y := integer((cy + .5) * (CELL + GAP));
 
-   stdwin := &window
+   stdwin := &window;
    &window := Clone("dx=" || x, "dy=" || y, "bg=white");
    ClearOutline(-HALF - 1, -HALF - 1, CELL + 1, CELL + 1);
    Clip(-HALF, -HALF, CELL, CELL);
    proc();
-   Uncouple(&window)
-   &window := stdwin
+   Uncouple(&window);
+   &window := stdwin;
 end
 
 
@@ -156,8 +156,8 @@ end
 #
 #  Tests DrawCircle with angle limits.
 
-procedure arcs()
-   local r, a, d
+procedure arcs();
+   local r, a, d;
 
    r := 2;
    a := 0;
@@ -167,7 +167,7 @@ procedure arcs()
       r +:= 1;
       a +:= d;
       d +:= &pi / 40
-      }
+      };
 end
 
 
@@ -177,8 +177,8 @@ end
 #  setting, set it to that value, and get it back again.  If that works,
 #  display some system-dependent attributes in the cell window.
 
-procedure attribs()
-   local alist, afail, n, a, f, cw, ch, cl, v1, v2
+procedure attribs();
+   local alist, afail, n, a, f, cw, ch, cl, v1, v2;
 
    alist := [
       "fg", "bg", "reverse", "drawop", "gamma", "font", "leading", 
@@ -191,11 +191,11 @@ procedure attribs()
    afail := [];
 
    every a := \!alist do {
-      v1 := WAttrib(a)		| { put(afail, a); next }
-      WAttrib(a || "=" || v1)	| { put(afail, a || "=" || v1); next }
-      v2 := WAttrib(a)		| { put(afail, a); next }
+      v1 := WAttrib(a)		| { put(afail, a); next };
+      WAttrib(a || "=" || v1)	| { put(afail, a || "=" || v1); next };
+      v2 := WAttrib(a)		| { put(afail, a); next };
       v1 == v2		| { put(afail, a || ": " || v1 || "/" || v2); next }
-      }
+      };
 
    Translate(-HALF, -HALF);
    GotoRC(1, 1);
@@ -203,10 +203,10 @@ procedure attribs()
    if *afail > 0 then {
       Font("sans,bold,10");
       WWrite("FAILED:");
-      every WWrite("  ", !afail)
-      every write(&errout, "WAttrib() failure: ", !afail)
+      every WWrite("  ", !afail);
+      every write(&errout, "WAttrib() failure: ", !afail);
       fail
-      }
+      };
 
    f := WAttrib("font") | "[FAILED]";
    cw := WAttrib("fwidth") | "[FAILED]";
@@ -217,9 +217,9 @@ procedure attribs()
    WWrite("  (", WAttrib("displaywidth") | "????", "x", 
       WAttrib("displayheight") | "????", "x", WAttrib("depth") | "??", ")");
    every a := "gamma" | "pointer" do
-      WWrite(a, "=", WAttrib(a) | "[FAILED]")
+      WWrite(a, "=", WAttrib(a) | "[FAILED]");
    WWrite("vfont=", f);
-   WWrite("  (", cw, "x", ch, ", +", cl, ")")
+   WWrite("  (", cw, "x", ch, ", +", cl, ")");
 end
 
 
@@ -227,14 +227,14 @@ end
 #
 #  Tests DrawImage using g16 palette.
 
-procedure balls()
+procedure balls();
    every DrawImage(-HALF + 2 to HALF by 20, -HALF + 2 to HALF by 20, 
       " 16 , g16 , FFFFB98788AEFFFF_
       FFD865554446AFFF FD856886544339FF E8579BA9643323AF_
       A569DECA7433215E 7569CDB86433211A 5579AA9643222108_
       4456776533221007 4444443332210007 4333333222100008_
       533322221100000A 822222111000003D D41111100000019F_
-      FA200000000018EF FFA4000000028EFF FFFD9532248BFFFF")
+      FA200000000018EF FFA4000000028EFF FFFD9532248BFFFF");
 end
 
 
@@ -242,8 +242,8 @@ end
 #
 #  Tests mutable colors, WDelay, various drawing operations.
 
-procedure cheshire()
-   local face, eyes, grin, i, g
+procedure cheshire();
+   local face, eyes, grin, i, g;
 
    if (face := NewColor("white")) & 
    (eyes := NewColor("black")) & (grin := NewColor("black")) then {
@@ -265,7 +265,7 @@ procedure cheshire()
          Color(eyes, g || "," || g || "," || g);
          g := 65535 - g;
          Color(face, g || "," || g || "," || g)
-         }
+         };
       every i := 0 to 26 by 2 do {
          WDelay(100);
          g := i * 65535 / 60;
@@ -276,7 +276,7 @@ procedure cheshire()
       Translate(-HALF + 4, -HALF);
       GotoRC(1, 1);
       WWrite("this test\nrequires\nmutable\ncolors")
-      }
+      };
 end
 
 
@@ -285,15 +285,15 @@ end
 #  Tests hidden canvas, overlapping copies, and generation
 #  of background color for missing source pixels.
 
-procedure copying()
-   local win, o, w, h
+procedure copying();
+   local win, o, w, h;
 
    win := WOpen("canvas=hidden", "size=" || CELL || "," || CELL) | {
       GotoRC(1, 1);
       WWrite("Can't get\nhidden\ncanvas");
       fail
-      }
-   every DrawCircle(win, HALF, HALF, HALF - 2 to sqrt(2) * HALF by 3)
+      };
+   every DrawCircle(win, HALF, HALF, HALF - 2 to sqrt(2) * HALF by 3);
 
    o := 5;  # offset for copy
    w := CELL / 4;  # width of square to be copied
@@ -317,7 +317,7 @@ procedure copying()
    CopyArea(win, CELL - o, CELL - o, -w, -w, HALF, HALF);
 
    CopyArea(win, &window, , , , , -HALF, -HALF);
-   close(win)
+   close(win);
 end
 
 
@@ -329,7 +329,7 @@ end
 #  This test must be run first.  It uses the entire window and leaves
 #  results in the first cell.
 
-procedure deftest()
+procedure deftest();
    WAttrib("drawop=reverse");
    WAttrib("size=" || CELL || "," || CELL / 2);
    FillArc();
@@ -337,7 +337,7 @@ procedure deftest()
    FillArc(3 * CELL / 4);
    WAttrib("height=" || CELL);
    DrawArc(, CELL / 2);
-   WAttrib("drawop=copy")
+   WAttrib("drawop=copy");
 end
 
 
@@ -345,7 +345,7 @@ end
 #
 #  Tests some of the details of filling and stroking.
 
-procedure details()
+procedure details();
    Shade("light gray");
    FillRectangle();
 
@@ -372,7 +372,7 @@ procedure details()
    Fg("white");
    FillPolygon(-5,20, -17,23, -20,35, -23,23, -35,20, -23,17, -20,5, -17,17);
    Fg("black");
-   DrawPolygon(-5,20, -17,23, -20,35, -23,23, -35,20, -23,17, -20,5, -17,17)
+   DrawPolygon(-5,20, -17,23, -20,35, -23,23, -35,20, -23,17, -20,5, -17,17);
 end
 
 
@@ -381,7 +381,7 @@ end
 #  Tests various font characteristics combined with standard font names.
 #  Also exercises Shade, GoToXY, WWrites.
 
-procedure fontvars()
+procedure fontvars();
    Translate(-HALF + 4, -HALF);
    Shade("gray");
    FillRectangle(-4);
@@ -391,7 +391,7 @@ procedure fontvars()
    WWrites("\n", if Font("mono,12") then ABET else "no mono 12");
    WWrites("\n", if Font("serif,italic") then ABET else "no SF ital");
    WWrites("\n", if Font("sans,bold,18") then ABET else "no SN B 18");
-   WWrites("\n", if Font("fixed") then ABET else "no fixed!") 
+   WWrites("\n", if Font("fixed") then ABET else "no fixed!"); 
 end
 
 
@@ -400,8 +400,8 @@ end
 #  Draws 50%-gray bars with various values of the gamma attribute, beginning
 #  with the system default.  Incidentally tests some font attributes.
 
-procedure gamma()
-   local g
+procedure gamma();
+   local g;
 
    GotoXY(0, -HALF + WAttrib("leading") - WAttrib("descent"));
    every g := &null | 1.0 | 1.5 | 2.2 | 3.3 | 5.0 | 7.5 do {
@@ -411,7 +411,7 @@ procedure gamma()
          -HALF, -WAttrib("leading"));
       Shade("black");
       WWrite(WAttrib("gamma"))
-      }
+      };
 end
 
 
@@ -420,14 +420,14 @@ end
 #  Tests proper drawing and joining of lines of various widths.  There
 #  once were problems here in Icon, and there still are in some X servers.
 
-procedure lines()
-   local i, y
+procedure lines();
+   local i, y;
    y := -HALF - 6;
    every WAttrib("linewidth=" || (0 to 4)) do
-      tline(-HALF + 10, y +:= 15)
+      tline(-HALF + 10, y +:= 15);
 end
 
-procedure tline(x, y)
+procedure tline(x, y);
    DrawLine(x + 1, y, x + 3, y);
    DrawLine(x - 1, y, x - 3, y);
    DrawLine(x, y + 1, x, y + 3);
@@ -446,7 +446,7 @@ procedure tline(x, y)
    DrawLine(x, y + 4, x - 4, y);
    DrawLine(x - 4, y, x, y - 4);
    x +:= 15;
-   DrawRectangle(x - 4, y - 4, 8, 8)
+   DrawRectangle(x - 4, y - 4, 8, 8);
 end
 
 
@@ -454,8 +454,8 @@ end
 #
 #  Tests custom patterns in hex and decimal forms; tests fillstyle=masked.
 
-procedure patts()
-   local i, j, s, w
+procedure patts();
+   local i, j, s, w;
 
    WAttrib("linewidth=4");
    DrawCircle(0, 0, 0.38 * CELL);  # circle should persist after patts
@@ -473,7 +473,7 @@ procedure patts()
       every j := 0 to 2 do {
          WAttrib("pattern=" || s[3 * i + j + 1]);
          FillRectangle(w * j, w * i, w, w)
-         }
+         };
 end
 
 
@@ -481,10 +481,10 @@ end
 #
 #  Tests DrawCurve.
 
-procedure pretzel()
+procedure pretzel();
    WAttrib("linewidth=3");
    DrawCurve(20, -20, -5, 0, 20, 20, 35, 0, 0,
-      -20, -35, 0, -20, 20, 5, 0, -20, -20)
+      -20, -35, 0, -20, 20, 5, 0, -20, -20);
 end
 
 
@@ -492,8 +492,8 @@ end
 #
 #  Tests several color naming variations.
 
-procedure rainbow()
-   local r, c, l
+procedure rainbow();
+   local r, c, l;
 
    Shade("moderate blue-cyan");
    FillRectangle();
@@ -503,7 +503,7 @@ procedure rainbow()
          "light bluish violet", " pale violet"];
    WAttrib("linewidth=3");
    every Fg(!l) do
-      DrawCircle(0, 20, r +:= 3, 0, -&pi)
+      DrawCircle(0, 20, r +:= 3, 0, -&pi);
 end
 
 
@@ -511,13 +511,13 @@ end
 #
 #  Tests rectangles specified with positive & negative width & height.
 
-procedure rects()
-   local r, a
+procedure rects();
+   local r, a;
 
    WAttrib("drawop=reverse");
    r := HALF;
    every a := 1 to 19 by 2 do
-      DrawRectangle(0, 0, r * cos(0.33 * a), r * sin(0.33 * a))
+      DrawRectangle(0, 0, r * cos(0.33 * a), r * sin(0.33 * a));
 end 
 
 
@@ -525,8 +525,8 @@ end
 #
 #  Tests linewidth and DrawCircle in combination.
 
-procedure rings()
-   local x, y
+procedure rings();
+   local x, y;
    Translate(-HALF, -HALF);
    FillRectangle();
    every 1 to 15 do {
@@ -536,7 +536,7 @@ procedure rings()
       DrawCircle(x, y, 30);  # draw ring in black
       WAttrib("fg=white", "linewidth=3");
       DrawCircle(x, y, 30)		# color with white band
-      }
+      };
 end
 
 
@@ -544,7 +544,7 @@ end
 #
 #  Tests DrawString, DrawCircle, FillRectangle, EraseArea, linestyles.
 
-procedure simple()
+procedure simple();
    DrawCircle(0, 0, CELL / 3);
    DrawString(-HALF + 4, -HALF + 12, "hello,");
    DrawString(-HALF + 4, -HALF + 25, "world");
@@ -553,7 +553,7 @@ procedure simple()
    WAttrib("linestyle=dashed");
    DrawLine(HALF - 3, HALF, HALF - 3, -HALF);
    WAttrib("linestyle=striped");
-   DrawLine(HALF - 6, HALF, HALF - 6, -HALF)
+   DrawLine(HALF - 6, HALF, HALF - 6, -HALF);
 end
 
 
@@ -561,8 +561,8 @@ end
 #
 #  Tests RandomColor, Shade, FillArc.
 
-procedure slices()
-   local n, a, da, ov
+procedure slices();
+   local n, a, da, ov;
 
    n := 10;
    da := 2 * &pi / n;  # change in angle
@@ -573,7 +573,7 @@ procedure slices()
    every 1 to n do {
       Shade(RandomColor());
       FillArc(-HALF, -CELL / 3, CELL, 2 * CELL / 3, a +:= da, da + ov)
-      }
+      };
 end
 
 
@@ -581,8 +581,8 @@ end
 #
 #  Tests DrawPoint.
 
-procedure spiral()
-   local r, a, d
+procedure spiral();
+   local r, a, d;
 
    r := 3;  # initial radius
    a := 0;  # initial start angle
@@ -591,7 +591,7 @@ procedure spiral()
       d := 1.0 / r;
       a +:= d;
       r +:= 2 * d
-      }
+      };
 end
 
 
@@ -599,8 +599,8 @@ end
 #
 #  Tests FillPolygon and the even-odd winding rule.
 
-procedure star()
-   FillPolygon(-40, -10, 40, -10, -25, 40, 0, -40, 25, 40)
+procedure star();
+   FillPolygon(-40, -10, 40, -10, -25, 40, 0, -40, 25, 40);
 end
 
 
@@ -609,7 +609,7 @@ end
 #
 #  Shows the default font (the header line), standard fonts, and "fixed".
 
-procedure stdfonts()
+procedure stdfonts();
    Translate(-HALF + 4, -HALF);
    Shade("gray");
    FillRectangle(-4);
@@ -619,7 +619,7 @@ procedure stdfonts()
    WWrite(if Font("typewriter") then "typewriter" else "no typewriter!");
    WWrite(if Font("sans") then "sans" else "no sans!");
    WWrite(if Font("serif") then "serif" else "no serif!");
-   WWrite(if Font("fixed") then "fixed" else "no fixed!") 
+   WWrite(if Font("fixed") then "fixed" else "no fixed!"); 
 end
 
 
@@ -627,8 +627,8 @@ end
 #
 #  Tests standard pattern names; tests fillstyle=textured.
 
-procedure stdpats()
-   local i, j, s, x, y
+procedure stdpats();
+   local i, j, s, x, y;
 
    WAttrib("fillstyle=textured");
    s := [
@@ -641,7 +641,7 @@ procedure stdpats()
          x := -HALF + j * CELL / 4;
          y := -HALF + i * CELL / 4;
          FillRectangle(x, y)	# depends on opacity of patterns to work
-         }
+         };
 end
 
 
@@ -649,8 +649,8 @@ end
 #
 #  Tests transparent and regular images, Capture, Zoom.
 
-procedure whale()
-   local s
+procedure whale();
+   local s;
 
    Fg("moderate greenish cyan");
    FillRectangle();
@@ -693,7 +693,7 @@ procedure whale()
    s := Capture(, 0, 0, 36, 36);
    DrawImage(0, 40, s);
 
-   Zoom(0, 0, 36, 36, 40, 20, 72, 72)
+   Zoom(0, 0, 36, 36, 40, 20, 72, 72);
 end
 
 
@@ -706,25 +706,25 @@ end
 #  For "Validate", check all values, and repeat dialog if incorrect.
 #  For "Cancel", return immediately.
 
-procedure dltest()
+procedure dltest();
    while dlog() ~== "Cancel" do {
       if dialog_value["button"] ~=== 1 then
-         { Notice("The button was not left dark."); next }
+         { Notice("The button was not left dark."); next };
       if dialog_value["xbox"] ~=== 1 then
-         { Notice("The checkbox was not checked."); next }
+         { Notice("The checkbox was not checked."); next };
       if dialog_value["slider"] < 0.8 then
-         { Notice("The slider was not set."); next }
+         { Notice("The slider was not set."); next };
       if map(dialog_value["text"]) ~== "icon" then
-         { Notice("The text did not say `Icon'"); next }
-      Notice("All values were correct.")
+         { Notice("The text did not say `Icon'"); next };
+      Notice("All values were correct.");
       return
-      }
+      };
 end
 
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure dlog(win, deftbl)
-static dstate
+procedure dlog(win, deftbl);
+static dstate;
 initial dstate := dsetup(win,
    ["dlog:Sizer::1:0,0,370,220:",],
    ["button:Button:regular:1:291,21,56,21:button",],
@@ -737,7 +737,7 @@ initial dstate := dsetup(win,
    ["text:Text::6:20,115,214,17:Enter the word `Icon': \\=here",],
    ["validate:Button:regular:-1:75,174,100,30:Validate",],
    ["xbox:Button:xbox:1:131,54,16,16:",],
-   )
-return dpopup(win, deftbl, dstate)
+   );
+return dpopup(win, deftbl, dstate);
 end
 #===<<vib:end>>===	end of section maintained by vib

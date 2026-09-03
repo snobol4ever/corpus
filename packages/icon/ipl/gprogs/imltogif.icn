@@ -44,12 +44,12 @@ link numbers
 link options
 link wopen
 
-procedure main(args)
-   local count, ims, image, w, h, s, opts, pattern, prefix
+procedure main(args);
+   local count, ims, image, w, h, s, opts, pattern, prefix;
 
    count := 0;
 
-   opts := options(args, "n:c+f+p")
+   opts := options(args, "n:c+f+p");
    /opts["c"] := 4;
 
    seq_init(opts);
@@ -62,12 +62,12 @@ procedure main(args)
       if (w | h) = 0 then {
          write(&errout, "line ", count, ": bad image string");
          next
-         }
-      if \pattern then w := h := max(w,h)
+         };
+      if \pattern then w := h := max(w,h);
       image := WOpen("canvas=hidden", "size=" || w || "," || h) | {
          write(&errout, "line ", count, ": cannot open window");
          next
-         }
+         };
       if \pattern then {
          WAttrib(image, "fillstyle=opaquepatterned");
          Pattern(image, ims);
@@ -77,9 +77,9 @@ procedure main(args)
          write(&errout, "line ", count, ":  cannot draw image");
          WClose(image);
          next
-         }
+         };
       save_image(image);
       WClose(image)
-      }
+      };
 
 end

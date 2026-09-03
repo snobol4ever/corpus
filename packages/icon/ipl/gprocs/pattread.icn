@@ -24,8 +24,8 @@
 
 link patutils
 
-procedure pattread(file)
-   local line, rows
+procedure pattread(file);
+   local line, rows;
 
    line := read(file) | fail;
 
@@ -35,8 +35,8 @@ procedure pattread(file)
          rows := [line];
          while put(rows, read(file))	# read in row pattern
          }
-      }
+      };
 
-   return rows
+   return rows;
 
 end

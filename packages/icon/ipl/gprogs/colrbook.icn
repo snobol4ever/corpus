@@ -50,9 +50,9 @@ $define LEFT (m+TSIZ+HUEW+labw)	# total space to left of grid and its margin
 global cwin, huelist, sats, lgts, colrs, fillargs
 global labw, leftx, w, h, m
 
-procedure main(args)
-   local x, y, dx, dy, cw, ch
-   local i, j, ij, hue, r
+procedure main(args);
+   local x, y, dx, dy, cw, ch;
+   local i, j, ij, hue, r;
 
    lgts := ["pale", "light", "medium", "dark", "deep"];
    sats := ["weak", "moderate", "strong", "vivid"];
@@ -84,15 +84,15 @@ procedure main(args)
             cw - 2 * BevelWidth, ch - 2 * BevelWidth];
          if Fg(cwin, colrs[ij] := NewColor("gray")) then	# may fail
             FillRectangle ! fillargs[ij]
-         }
+         };
    every i := 1 to *sats do {
       GrooveRectangle(leftx + m + dx * (i - 1), m / 2, dx - m, HEADER);
       CenterString(leftx + dx * i - cw / 2, m / 2 + HEADER / 2, sats[i])
-      }
+      };
    every j := 1 to *lgts do {
       GrooveRectangle(leftx, HEADER + dy*j - ch/2 - HEADER/2, -labw + m, HEADER);
       RightString(leftx - m, HEADER + dy*j - ch/2, lgts[j])
-      }
+      };
 
    # define sensors
    button(&window, "QUIT", argless, exit, m+TSIZ+HUEW+m, m, labw-2*m, HEADER);
@@ -104,11 +104,11 @@ procedure main(args)
    hueclick(&window, 0, m, m + integer((*huelist - 4.5) / *huelist * h));
 
    # enter event loop
-   evmux(&window)
+   evmux(&window);
 end
 
-procedure hueclick(win, arg, x, y)
-   local hue, e, n, i, j
+procedure hueclick(win, arg, x, y);
+   local hue, e, n, i, j;
 
    e := &ldrag;
    while e ~=== &lrelease do {
@@ -123,16 +123,16 @@ procedure hueclick(win, arg, x, y)
             EraseArea(LEFT, m + h - FOOTER, w, FOOTER + m);
             CenterString(LEFT + (w - LEFT + m)/2, m + h + m/2 - FOOTER/2, hue)
             }
-         }
+         };
       e := Event(win);
       y := &y
-      }
-   return
+      };
+   return;
 end
 
-procedure setcolor(hue)
-   local i, j, ij, prefix
-   static prev
+procedure setcolor(hue);
+   local i, j, ij, prefix;
+   static prev;
 
    every i := 1 to *sats do
       every j := 1 to *lgts do {
@@ -143,18 +143,18 @@ procedure setcolor(hue)
             # free old static color, preserving grays (used for decoration)
             # also preserving labeling colors ("medium vivid")
             if \prev ~== "black" & \prev ~== "gray" & \prev ~== "white" then
-               FreeColor(cwin, ("medium vivid " ~== prefix) || \prev)
+               FreeColor(cwin, ("medium vivid " ~== prefix) || \prev);
             Fg(cwin, prefix || hue);
             FillRectangle ! fillargs[ij]
             }
-         }
+         };
 
-   prev := hue
-   return
+   prev := hue;
+   return;
 end
 
-procedure inithues()
-   local i, y1, y2, dy, win
+procedure inithues();
+   local i, y1, y2, dy, win;
 
    huelist := [
       "red", "orange", "red-yellow", "reddish yellow",
@@ -173,7 +173,7 @@ procedure inithues()
       y2 := integer(dy * i);
       Fg(win, huelist[i]);
       FillRectangle(win, m + TSIZ + 1, m + y1, HUEW - 1, y2 - y1 - HGAP)
-      }
-   Uncouple(win)
-   return
+      };
+   Uncouple(win);
+   return;
 end

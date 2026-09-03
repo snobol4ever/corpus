@@ -19,13 +19,13 @@
 #
 ############################################################################
 
-procedure main()
-   local line
+procedure main();
+   local line;
 
    line := "";
 
-   while line ||:= read()
+   while line ||:= read();
 
-   write(line)
+   write(line);
 
 end

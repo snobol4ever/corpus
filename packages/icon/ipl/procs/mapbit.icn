@@ -26,12 +26,12 @@
 
 link strings
 
-procedure bilit(text,alpha,first,second)
-   return collate(map(text,alpha,first),map(text,alpha,second))
+procedure bilit(text,alpha,first,second);
+   return collate(map(text,alpha,first),map(text,alpha,second));
 end
 
-procedure mapbit(s)
-   static all, base16, hex1, hex2, quad1, quad2, pair1, pair2
+procedure mapbit(s);
+   static all, base16, hex1, hex2, quad1, quad2, pair1, pair2;
 
    #  The following is a bit ornate, but then ... .  It could be
    #  made more compact (and cryptic) by using lists of templates
@@ -41,17 +41,17 @@ procedure mapbit(s)
       all := string(&cset);
       base16 := "0123456789ABCDEF";
       hex1 := "";
-      every hex1 ||:= repl(!base16,16)
+      every hex1 ||:= repl(!base16,16);
       hex2 := repl(base16,16);
       quad1 := "";
-      every quad1 ||:= repl(!left(base16,4),4)
+      every quad1 ||:= repl(!left(base16,4),4);
       quad2 := repl(left(base16,4),4);
       pair1 := "";
-      every pair1 ||:= repl(!left(base16,2),2)
+      every pair1 ||:= repl(!left(base16,2),2);
       pair2 := repl(left(base16,2),2)
-      }
+      };
 
    s := bilit(bilit(bilit(s,all,hex1,hex2),base16,quad1,quad2),left(base16,4),
-           pair1,pair2)
-   return s
+           pair1,pair2);
+   return s;
 end

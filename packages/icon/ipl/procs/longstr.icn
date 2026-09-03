@@ -42,11 +42,11 @@
 #
 ############################################################################
 
-procedure longstr(l,s,i,j)
+procedure longstr(l,s,i,j);
 
-    local elem, tmp_table
-    static l_table
-    initial l_table := table()
+    local elem, tmp_table;
+    static l_table;
+    initial l_table := table();
 
     #
     # No-arg invocation wipes out all static structures, and forces an
@@ -54,9 +54,9 @@ procedure longstr(l,s,i,j)
     #
     if (/l, /s) then {
 	l_table := table();
-	collect()		# do it NOW
+	collect();		# do it NOW
 	return			# return &null
-    }
+    };
 
     #
     # Is l a list, set, or table?
@@ -75,16 +75,16 @@ procedure longstr(l,s,i,j)
 	every elem := !l do {
 	    /tmp_table[*elem] := [];
 	    put(tmp_table[*elem], elem)
-	}
+	};
 	# sort by key; stuff values, in reverse order, into a list
 	every put(l_table[l], !sort(tmp_table,3)[*tmp_table*2 to 2 by -2])
 
-    }
+    };
 
     #
     # First element in l_table[l] to match is the longest match (it's
     # sorted longest-to-shortest, remember?).
     #
-    return match(!l_table[l],s,i,j)
+    return match(!l_table[l],s,i,j);
 
 end

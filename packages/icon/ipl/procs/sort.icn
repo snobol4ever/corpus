@@ -58,20 +58,20 @@
 #
 ############################################################################
 
-procedure isort(x,keyproc,y)
-   local items,item,key,result
+procedure isort(x,keyproc,y);
+   local items,item,key,result;
    if y := integer(keyproc) then
 	 keyproc := proc("[]",2)
-   else /keyproc := 1
+   else /keyproc := 1;
    items := table();
    every item := !x do {
-      key := keyproc(item,y)
+      key := keyproc(item,y);
       (/items[key] := [item]) | put(items[key],item)
-      }
+      };
    items := sort(items,3);
    result := [];
-   while get(items) do every put(result,!get(items))
-   return result
+   while get(items) do every put(result,!get(items));
+   return result;
 end
 
 #
@@ -85,14 +85,14 @@ end
 #     sorted on field[2], etc.
 #
 
-procedure sortff(L, fields[])		#: sort on multiple fields
-    *L <= 1 & { return copy(L) }
-    return sortff_1(L, fields, 1, [])
+procedure sortff(L, fields[]);		#: sort on multiple fields
+    *L <= 1 & { return copy(L) };
+    return sortff_1(L, fields, 1, []);
 end
 
-procedure sortff_1(L, fields, k, uniqueObject)
+procedure sortff_1(L, fields, k, uniqueObject);
 
-    local sortField, cachedKeyValue, i, startOfRun, thisKey
+    local sortField, cachedKeyValue, i, startOfRun, thisKey;
 
     sortField := fields[k];
     L := sortf(L, sortField);  # initial sort using fields[k]
@@ -120,12 +120,12 @@ procedure sortff_1(L, fields, k, uniqueObject)
 		    L := L[1:startOfRun] |||
 			 sortff_1(L[startOfRun:i], fields, k, uniqueObject) |||
 			 L[i:0]
-		}
+		};
 	        # Reset the equal-key-run pointer to this key and cache.
 		startOfRun := i;
 		cachedKeyValue := L[startOfRun][sortField] | uniqueObject
             }
-	}
+	};
 	#
 	#  Sort a final run if it exists.
 	#
@@ -133,38 +133,38 @@ procedure sortff_1(L, fields, k, uniqueObject)
 	    L := L[1:startOfRun] |||
 		 sortff_1(L[startOfRun:0], fields, k, uniqueObject)
 	}
-    }
+    };
 
-    return L
+    return L;
 
 end
 
-procedure sortgen(T, m)		#: generate by different sorting orders
-   local L
+procedure sortgen(T, m);		#: generate by different sorting orders
+   local L;
 
    L := sort(T, case m of {
-      "k+" | "k-":  1
+      "k+" | "k-":  1;
       "v+" | "v-":  2
       });
 
    case m of {
-      "k+" | "v+":  suspend !L
+      "k+" | "v+":  suspend !L;
       "k-" | "v-":  suspend L[*L to 1 by -1]
-      }
+      };
 
 end
 
 record element(key, value)
 
-procedure sortt(T, i)		#: sort to produce list of records
-   local result, k
+procedure sortt(T, i);		#: sort to produce list of records
+   local result, k;
 
-   if not(integer(i) = (1 | 2)) then runerr(205, i)
+   if not(integer(i) = (1 | 2)) then runerr(205, i);
 
    result := [];
 
-   every put(result, element(k := key(T), T[k]))
+   every put(result, element(k := key(T), T[k]));
 
-   return sortf(result, i)
+   return sortf(result, i);
 
 end

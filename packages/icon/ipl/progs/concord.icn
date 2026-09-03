@@ -41,8 +41,8 @@ link options
 
 global uses, colmax, namewidth, lineno
 
-procedure main(args)
-   local opts, uselist, name, line, pad, i, j, fill
+procedure main(args);
+   local opts, uselist, name, line, pad, i, j, fill;
 
    opts := options(args, "l+w+");  # process options
    colmax := \opts["l"] | 72;
@@ -52,7 +52,7 @@ procedure main(args)
    uses := table();
    lineno := 0;
 
-   every tabulate(item(), lineno)		# tabulate all the citations
+   every tabulate(item(), lineno);		# tabulate all the citations
 
    uselist := sort(uses, 3);  # sort by uses
    while fill := left(get(uselist), namewidth) do {
@@ -63,49 +63,49 @@ procedure main(args)
              every i := upto(' ') do {
                 if i > (colmax - namewidth) then break
                 else j := i
-                }
+                };
              write(fill, tab(j));
              move(1);
              fill := pad;
              tab(0)				# new value of line
              }
-         }
+         };
          if *line > 0 then write(fill, trim(line))
-      } 
+      }; 
  
 end
 
 #  Add to count of line number to citations for name.
 #
-procedure tabulate(name, lineno)
+procedure tabulate(name, lineno);
 
    /uses[name] := table(0);
-   uses[name][lineno] +:= 1
+   uses[name][lineno] +:= 1;
 
-   return
+   return;
 
 end
 
 #  Format the line numbers, breaking long lines as necessary.
 #
-procedure format(linenos)
-   local i, line
+procedure format(linenos);
+   local i, line;
 
    linenos := sort(linenos, 3);
    line := "";
 
    while line ||:= get(linenos) do
-      line ||:= ("(" || (1 < get(linenos)) || ") ") | " "
+      line ||:= ("(" || (1 < get(linenos)) || ") ") | " ";
 
-   return line
+   return line;
 
 end
 
 #  Get an item. Different kinds of concordances can be obtained by
 #  modifying this procedure.
 #
-procedure item()
-   local i, word, line
+procedure item();
+   local i, word, line;
 
    while line := read() do {
       lineno +:= 1;
@@ -118,6 +118,6 @@ procedure item()
             if *word >= 3 then suspend word	# skip short words
             }
          }
-      }
+      };
 
 end

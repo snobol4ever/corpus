@@ -27,45 +27,45 @@
 #
 ############################################################################
 
-procedure acker(i, j)
-   static memory
+procedure acker(i, j);
+   static memory;
 
    initial {
       memory := table();
       every memory[0 to 100] := table()
-      }
+      };
 
-   if i = 0 then return j + 1
+   if i = 0 then return j + 1;
 
    if j = 0 then /memory[i][j] := acker(i - 1, 1)
-   else /memory[i][j] := acker(i - 1, acker(i, j - 1))
+   else /memory[i][j] := acker(i - 1, acker(i, j - 1));
 
-   return memory[i][j]
+   return memory[i][j];
 
 end
 
-procedure fib(i)
-   static memory
+procedure fib(i);
+   static memory;
 
    initial {
       memory := table();
       memory[1] := memory[2] := 1
-      }
+      };
 
-   /memory[i] := fib(i - 1) + fib(i - 2)
-   return memory[i]
+   /memory[i] := fib(i - 1) + fib(i - 2);
+   return memory[i];
 
 end
 
-procedure q(i)
-   static memory
+procedure q(i);
+   static memory;
 
    initial {
       memory := table();
       memory[1] := memory[2] := 1
-      }
+      };
 
-   /memory[i] := q(i - q(i - 1)) + q(i - q(i - 2))
-   return memory[i]
+   /memory[i] := q(i - q(i - 1)) + q(i - q(i - 2));
+   return memory[i];
 
 end

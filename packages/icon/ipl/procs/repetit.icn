@@ -24,8 +24,8 @@
 #
 ############################################################################
 
-procedure repetit(L)
-   local c, n, l, e, i
+procedure repetit(L);
+   local c, n, l, e, i;
 
    c := L[1];  # starting value
    l := *L;  # end of list
@@ -40,21 +40,21 @@ procedure repetit(L)
                   if L[i] === c then break i
                 } | return l		# no repetition; whole thing - 1
             } | return l
-         }
+         };
 
-   return n - 1
+   return n - 1;
 
 end
 
-procedure hypothesis(L, n)
-   local s, i, j
+procedure hypothesis(L, n);
+   local s, i, j;
 
    s := *L / n;
 
    every j := 1 to s do
       every i := 1 to n do
-         if L[i] ~=== L[i + (n - 1) * j] then fail
+         if L[i] ~=== L[i + (n - 1) * j] then fail;
 
-   return
+   return;
 
 end

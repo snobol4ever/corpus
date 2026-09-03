@@ -153,83 +153,83 @@
 
 global __buf
 
-procedure bufopen(fname)
+procedure bufopen(fname);
 
-    local file
+    local file;
     
     if /__buf then
-        __buf := table(&null)
+        __buf := table(&null);
     
     if /fname then {
         /__buf[&input] | stop("bufopen: Standard input is already open");
-        __buf[&input] := []
+        __buf[&input] := [];
         return &input
     }
     else
         if file := open(fname, "r") then {
-            __buf[file] := []
+            __buf[file] := [];
             return file
         }
-        else fail
+        else fail;
         
 end
 
-procedure bufclose(file)
+procedure bufclose(file);
 
     if /__buf then
-        __buf := table(&null)
+        __buf := table(&null);
         
     if /file then {
-        __buf[&input] := &null
+        __buf[&input] := &null;
         return &input
     }
     else {
         close(file);
-        __buf[file] := &null
+        __buf[file] := &null;
         return file
-    }
+    };
 
 end
 
-procedure bufread(file)
+procedure bufread(file);
 
-    local buf
+    local buf;
 
     if /__buf then
-        __buf := table(&null)
+        __buf := table(&null);
         
     if /file then
-        file := &input
+        file := &input;
 
     type(file) == "file" | stop("bufread: Parameter is not a file");
-    buf := \__buf[file] | stop("bufread: File not open for buffered reads")
-    return get(buf) | read(file)
+    buf := \__buf[file] | stop("bufread: File not open for buffered reads");
+    return get(buf) | read(file);
 
 end
 
-procedure bufnext(file, n)
+procedure bufnext(file, n);
 
-    local buf
+    local buf;
 
     if /__buf then
-        __buf := table(&null)
+        __buf := table(&null);
     
     if /file then
-        file := &input
+        file := &input;
         
     if /n then
-        n := 1
+        n := 1;
         
     type(file) == "file" | stop("bufnext: Parameter is not a file");
-    integer(n) | stop("bufnext: Look ahead count was not convertible to integer")
+    integer(n) | stop("bufnext: Look ahead count was not convertible to integer");
     (n > 0) | stop("bufnext: Look ahead count was non-positive");
-    buf := \__buf[file] | stop("bufnext: File not open for buffered reads")
+    buf := \__buf[file] | stop("bufnext: File not open for buffered reads");
 
     return buf[n] |
         (
             while *buf < n do
                 (put(buf, read(file)) | break &fail) 
         ) |
-        buf[n]
+        buf[n];
 
 end

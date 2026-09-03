@@ -26,26 +26,26 @@
 ############################################################################
 
 
-procedure Width(win)
+procedure Width(win);
 
-   /win := &window
+   /win := &window;
 
-   return WAttrib(win, "width")
-
-end
-
-procedure Height(win)
-
-   /win := &window
-
-   return WAttrib(win, "height")
+   return WAttrib(win, "width");
 
 end
 
-procedure LineWidth(win)
+procedure Height(win);
 
-   /win := &window
+   /win := &window;
 
-   return WAttrib(win, "linewidth")
+   return WAttrib(win, "height");
+
+end
+
+procedure LineWidth(win);
+
+   /win := &window;
+
+   return WAttrib(win, "linewidth");
 
 end

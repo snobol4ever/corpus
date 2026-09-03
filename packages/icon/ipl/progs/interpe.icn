@@ -38,20 +38,20 @@
 #
 ############################################################################
 
-procedure main(args)
-   local line, run, echo
+procedure main(args);
+   local line, run, echo;
 
-   if args[1] == "-e" then echo := 1
+   if args[1] == "-e" then echo := 1;
 
    while line := read() do {
       run := open("icont -s - -x","pw");
       write(run,"procedure main()");
-      if \echo then write(run,"   write(",image(line),")")
+      if \echo then write(run,"   write(",image(line),")");
       write(run,"   every write(image(",line,"))");
       write(run,"end");
       close(run)
-      }
+      };
 
-   system("rm -f stdin stdin.u1 stdin.u2")
+   system("rm -f stdin stdin.u1 stdin.u2");
 
 end

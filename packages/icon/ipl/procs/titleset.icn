@@ -19,8 +19,8 @@
 #
 ############################################################################
 
-procedure titleset()
-   local titles
+procedure titleset();
+   local titles;
 
    titles := set();
 
@@ -29,8 +29,8 @@ procedure titleset()
       "Mister" | "Miss" | "Doctor" | "Professor" | "Herr" |
       "-Phys." | "Dipl.-Phys." | "Dipl." | "Ing." |
       "Sgt." | "Tsgt." | "Col." | "Lt" | "Capt." | "Gen." | "Adm."
-      )
+      );
 
-   return titles
+   return titles;
 
 end

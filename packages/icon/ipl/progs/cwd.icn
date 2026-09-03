@@ -27,15 +27,15 @@
 #
 ############################################################################
 
-procedure main()
-   local i
+procedure main();
+   local i;
 
    read(open("pwd", "p")) ? {
       i := 0;  # for safety
-      every i := upto('/')		# expect full path
+      every i := upto('/');		# expect full path
       tab(i + 1);
       write(tab(0))
-      }
+      };
 
 end
       

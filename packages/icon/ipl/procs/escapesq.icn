@@ -29,15 +29,15 @@
 #
 ############################################################################
 
-procedure escapeseq() # s
+procedure escapeseq(); # s
 #
 #  Matching routine for Icon string escape sequence.
 #
-   static oct,hex
+   static oct,hex;
    initial {
       oct := '01234567';
       hex := '0123456789ABCDEFabcdef'
-      }
+      };
    return (
       ="\\" ||
       (
@@ -46,29 +46,29 @@ procedure escapeseq() # s
      tab(any('xX')) || tab(any(hex)) || (tab(any(hex)) | "") |
       ="^" || move(1)
          )
-      )
+      );
 end
 
 
-procedure escchar(s1) # s2
+procedure escchar(s1); # s2
 #
 #  Character value of Icon string escape sequence s1.
 #
-   local c
+   local c;
    s1 ? {
-      ="\\"
+      ="\\";
       return case c := map(move(1)) of {
-     "b": "\b"         # backspace
-     "d": "\d"         # delete (rubout)
-     "e": "\e"         # escape (altmode)
-     "f": "\f"         # formfeed
-     "l": "\l"         # linefeed (newline)
-     "n": "\n"         # newline (linefeed)
-     "r": "\r"         # carriage return
-     "t": "\t"         # horizontal tab
-     "v": "\v"         # vertical tab
-     "x": escchar_convert(16,2)  # hexadecimal code
-     "^": char(ord(move(1)) % 32) | &fail  # control code
+     "b": "\b";         # backspace
+     "d": "\d";         # delete (rubout)
+     "e": "\e";         # escape (altmode)
+     "f": "\f";         # formfeed
+     "l": "\l";         # linefeed (newline)
+     "n": "\n";         # newline (linefeed)
+     "r": "\r";         # carriage return
+     "t": "\t";         # horizontal tab
+     "v": "\v";         # vertical tab
+     "x": escchar_convert(16,2);  # hexadecimal code
+     "^": char(ord(move(1)) % 32) | &fail;  # control code
      default: {                # either octal code or non-escaped character
         if any('01234567',c) then {     # if octal digit
            move(-1);
@@ -77,53 +77,53 @@ procedure escchar(s1) # s2
         else c                          # else return escaped character
         }
      }
-      }
+      };
 end
 
 
-procedure escchar_convert(r,max)
+procedure escchar_convert(r,max);
 #
 #  Private utility procedure used by escchar -- performs conversion
 #  of numeric character strings of radix "r", where 2 <= r <= 16.
 #  The procedure operates in a string scanning context, and will
 #  consume a maximum of "max" characters.
 #
-   local n,d,i,c
+   local n,d,i,c;
    d := "0123456789abcdef"[1:r + 1];
    n := 0;
    every 1 to max do {
-      c := move(1) | break
+      c := move(1) | break;
       if not (i := find(map(c),d) - 1) then {
      move(-1);
      break
-     }
+     };
       n := n * r + i
-      }
-   return char(n)
+      };
+   return char(n);
 end
 
 
-procedure escape(s1) # s2
+procedure escape(s1); # s2
 #
 #  Returns string s1 with escape sequences (as in Icon string
 #  representation) converted.
 #
-   local esc
+   local esc;
    s1 ? {
       s1 := "";
       while s1 ||:= tab(find("\\")) do {
      if esc := escapeseq() then s1 ||:= escchar(esc)
      else move(1)
-     }
+     };
       s1 ||:= tab(0)
-      }
-   return s1
+      };
+   return s1;
 end
 
 
-procedure quotedstring() # s
+procedure quotedstring(); # s
 #
 #  Matching routine for a quoted string.
 #
-   suspend ="\"" || 1(tab(find("\"") + 1),&subject[&pos - 2] ~== "\\")
+   suspend ="\"" || 1(tab(find("\"") + 1),&subject[&pos - 2] ~== "\\");
 end

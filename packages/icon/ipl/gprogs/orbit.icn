@@ -34,8 +34,8 @@
 
 link wopen
 
-procedure main()
-   local extent, c, i, j, m, x
+procedure main();
+   local extent, c, i, j, m, x;
 
    extent := 360;
 
@@ -48,11 +48,11 @@ procedure main()
       m := 160 * (c + 2);
       every j := 0 to extent do {
          x := x ^ 2 + c;
-         if j < 50 then next		# wait for things to take hold
+         if j < 50 then next;		# wait for things to take hold
          DrawPoint(m,  75 * (2 - x))
          }
-      }
+      };
     
-   Event()
+   Event();
 
 end

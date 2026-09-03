@@ -31,14 +31,14 @@
 
 link wopen
 
-procedure main(args)
-  local s2, w
+procedure main(args);
+  local s2, w;
 
   pos := "pos=";
-  every s2 := QueryPointer() do pos ||:= (s2-10) || ","
+  every s2 := QueryPointer() do pos ||:= (s2-10) || ",";
 
   w := WOpen("label=prompt", "cursor=on", "font="||("12x24"|"fixed"),
 	    "lines=1", pos[1:-1]) | stop("opening the window fails");
-  every writes(w,!args," ")
-  write(read(w))
+  every writes(w,!args," ");
+  write(read(w));
 end

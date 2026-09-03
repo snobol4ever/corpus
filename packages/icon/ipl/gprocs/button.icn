@@ -102,28 +102,28 @@ $define BORDER 2	# border width
 
 record Button_Rec(win, label, proc, arg, x, y, w, h)
 
-procedure button(win, label, proc, arg, x, y, w, h)
-   local r
+procedure button(win, label, proc, arg, x, y, w, h);
+   local r;
 
    r := Button_Rec(win, label, proc, arg, x, y, w, h);
    buttonlabel(r, label);
    if \proc then {
       BevelRectangle(win, x, y, w, h, BORDER);
       sensor(win, &lpress, Exec_Button, r, x, y, w, h)
-      }
-   return r
+      };
+   return r;
 end
 
-procedure buttonrow(win, x, y, w, h, dx, dy, args[])
-   local hlist, label, proc, arg
+procedure buttonrow(win, x, y, w, h, dx, dy, args[]);
+   local hlist, label, proc, arg;
 
-   if dx < 0 then x -:= w
-   if dy < 0 then y -:= h
+   if dx < 0 then x -:= w;
+   if dy < 0 then y -:= h;
    hlist := [];
    repeat {
-      label := get(args) | break
-      proc := get(args) | break
-      arg := get(args) | break
+      label := get(args) | break;
+      proc := get(args) | break;
+      arg := get(args) | break;
       if label === proc === arg === &null then {
          x +:= dx / 2;
          y +:= dy / 2
@@ -133,22 +133,22 @@ procedure buttonrow(win, x, y, w, h, dx, dy, args[])
          x +:= dx;
          y +:= dy
          }
-      }
-   return hlist
+      };
+   return hlist;
 end
 
-procedure buttonlabel(r, s)
+procedure buttonlabel(r, s);
    r.label := s;
    if /r.proc then
       EraseArea(r.win, r.x, r.y, r.w, r.h)	# borderless button
    else
-      EraseArea(r.win, r.x+BORDER, r.y+BORDER, r.w-2*BORDER, r.h-2*BORDER)
-   CenterString(r.win, r.x + r.w/2, r.y + r.h/2, r.label)
-   return
+      EraseArea(r.win, r.x+BORDER, r.y+BORDER, r.w-2*BORDER, r.h-2*BORDER);
+   CenterString(r.win, r.x + r.w/2, r.y + r.h/2, r.label);
+   return;
 end
 
-procedure Exec_Button(win, r, x, y)
-   local e, b, t
+procedure Exec_Button(win, r, x, y);
+   local e, b, t;
 
    WAttrib(win, "drawop=reverse");
    FillRectangle(win, r.x + BORDER, r.y + BORDER, r.w - 2*BORDER, r.h -2*BORDER);
@@ -165,19 +165,19 @@ procedure Exec_Button(win, r, x, y)
                FillRectangle(win,
                   r.x + BORDER, r.y + BORDER, r.w - 2*BORDER, r.h - 2*BORDER)
                }
-            }
+            };
          &lrelease: {			# release leftbutton
             if b < 0 then {
-               BevelRectangle(win, r.x, r.y, r.w, r.h, BORDER)
+               BevelRectangle(win, r.x, r.y, r.w, r.h, BORDER);
                FillRectangle(win,
-                  r.x + BORDER, r.y + BORDER, r.w - 2*BORDER, r.h - 2*BORDER)
-               WAttrib(win, "drawop=copy")
+                  r.x + BORDER, r.y + BORDER, r.w - 2*BORDER, r.h - 2*BORDER);
+               WAttrib(win, "drawop=copy");
                r.proc(win, r.arg)
                }
             else
-               WAttrib(win, "drawop=copy")
+               WAttrib(win, "drawop=copy");
             return
             }
          }
-      }
+      };
 end

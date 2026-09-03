@@ -31,52 +31,52 @@
 global path, todo
 
 
-procedure main(args)
-   local fname
+procedure main(args);
+   local fname;
 
    path := [""];
    getenv("LPATH") ? repeat {
       tab(many(' '));
       if pos(0) then
-         break
+         break;
       put(path, tab(upto(' ')|0) || "/")
-   }
+   };
    todo := args;
    if *todo = 0 then
-      dofile(&input)
+      dofile(&input);
    while fname := get(todo) do
-      dofile(newfile(fname))
+      dofile(newfile(fname));
 end
 
 
 #  newfile(fname) -- open and return a file, if it wasn't seen earlier
 
-procedure newfile(fname)
-   local f, fullname
-   static done
-   initial done := set()
+procedure newfile(fname);
+   local f, fullname;
+   static done;
+   initial done := set();
 
    if member(done, fname) then
-      fail
+      fail;
    insert(done, fname);
    if f := open(fullname := !path || fname) then {
-      write("\n\n\n#", right("  " || fullname, 78, "="), "\n\n\n")
+      write("\n\n\n#", right("  " || fullname, 78, "="), "\n\n\n");
       return f
       }
    else {
       write(&errout, "can't open ", fname);
       write("\n\n\n#", right("  can't open " || fname, 78, "="), "\n\n\n");
       fail
-      }
+      };
 end
 
 
 #  dofile(f) -- copy one file, stacking file names seen on link directives
 
-procedure dofile(f)
-   local line, base
-   static idset
-   initial idset := &letters ++ &digits ++ '_'
+procedure dofile(f);
+   local line, base;
+   static idset;
+   initial idset := &letters ++ &digits ++ '_';
 
    while line := read(f) do {
       line ? {
@@ -86,11 +86,11 @@ procedure dofile(f)
             repeat {
                tab(many(' \t,'));
                if pos(0) | ="#" then
-                  break
+                  break;
                if ="\"" then
                   base := tab(upto('"')|0)
                else
-                  base := tab(many(idset)) | break
+                  base := tab(many(idset)) | break;
                put(todo, base || ".icn")
                }
             }
@@ -98,7 +98,7 @@ procedure dofile(f)
             write(line)
             }
          }
-      }
+      };
     
-   close(f)
+   close(f);
 end

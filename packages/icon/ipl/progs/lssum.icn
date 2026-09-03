@@ -24,8 +24,8 @@
 #
 ############################################################################
 
-procedure main()
-   local sum, line
+procedure main();
+   local sum, line;
 
    sum := 0;
 
@@ -34,8 +34,8 @@ procedure main()
          move(30) | next;
          tab(upto(&digits));
          sum +:= write(tab(many(&digits)))
-         }
+         };
 
-   write(sum)
+   write(sum);
 
 end

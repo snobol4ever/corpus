@@ -40,8 +40,8 @@
 #  
 ############################################################################
 
-procedure Seqimage(L)
-   local seq, result, i, j, resid
+procedure Seqimage(L);
+   local seq, result, i, j, resid;
 
    seq := "";
    i := @L[2];
@@ -54,11 +54,11 @@ procedure Seqimage(L)
             }
          else {
             resid := [", " || result];
-            every put(resid,", " || image(|@L[1]))
-            if *resid > j then seq ||:= ", ..."
+            every put(resid,", " || image(|@L[1]));
+            if *resid > j then seq ||:= ", ...";
             every seq ||:= resid[*resid -j + 1 to *resid]
             }
          }
-      else seq ||:= ", " || result
-   return "{" || seq[3:0] || "}" | "{}"
+      else seq ||:= ", " || result;
+   return "{" || seq[3:0] || "}" | "{}";
 end

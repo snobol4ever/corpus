@@ -31,29 +31,29 @@ global dlines	# diff lines
 
 ##  main program
 
-procedure main(args)
+procedure main(args);
    clines := [];
    dlines := [];
 
    if *args > 0 then
       every dofile(!args)
    else
-      dofile()
+      dofile();
 
-   every write(!sort(clines))
-   every write(!dlines)
+   every write(!sort(clines));
+   every write(!dlines);
 end
 
 
 ##  dofile(fname) - process one named file, or standard input if unnamed  
 
-procedure dofile(fname)
-   local f, separator
+procedure dofile(fname);
+   local f, separator;
 
    if /fname then
       f := &input
    else
-      f := open(fname) | stop("can't open ", fname)
+      f := open(fname) | stop("can't open ", fname);
 
    separator := "\n\n" || repl("=", 78) || "\n\n";
 
@@ -62,11 +62,11 @@ procedure dofile(fname)
          put(clines, &subject)
       else {
          if ="diff " then
-            put(dlines, separator)
+            put(dlines, separator);
          put(dlines, &subject)
       }
-   }
+   };
 
-   close(f)
-   return
+   close(f);
+   return;
 end

@@ -19,8 +19,8 @@
 #
 ############################################################################
 
-procedure clrnames()
-   static lightness, saturation, hue1, hue2
+procedure clrnames();
+   static lightness, saturation, hue1, hue2;
 
    hue2 := ["black", "gray", "white", "pink", "violet",
       "brown", "red", "orange", "yellow", "green", "cyan",
@@ -29,9 +29,9 @@ procedure clrnames()
       "violetish", "brownish", "reddish", "orangish", "yellowish",
       "greenish", "cyanish", "bluish", "purplish", "magentaish"];
    saturation := ["weak", "moderate", "strong", "vivid"];
-   lightness := ["very light", "light", "medium", "dark", "very dark"]
+   lightness := ["very light", "light", "medium", "dark", "very dark"];
 
    suspend !lightness || " " || !saturation || " " || !hue2;
-   suspend !lightness || " " || !saturation || " " || !hue1 || " " || !hue2
+   suspend !lightness || " " || !saturation || " " || !hue1 || " " || !hue2;
 
 end
