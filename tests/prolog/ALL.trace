@@ -2126,230 +2126,6 @@
 (22) Exit: lit_string -> call_prolog_α
 (23) Call: call_prolog $nl0
 (23) Exit: call_prolog $nl0 -> main_γ
-%---- ladder__rung05_ite_both_branches m3 total=72 prefix=72
-(1) Call: lit_integer
-(1) Exit: lit_integer -> call_proc_staged_α
-(2) Call: call_proc_staged q/1
-(3) Call: call_prolog $trail_mark
-(3) Exit: call_prolog $trail_mark -> var_ref_α
-(4) Call: var_ref A0
-(4) Exit: var_ref A0 -> lit_integer_α
-(5) Call: lit_integer
-(5) Exit: lit_integer -> lit_integer_α
-(6) Call: lit_integer
-(6) Exit: lit_integer -> call_prolog_α
-(7) Call: call_prolog $ix_g
-(7) Fail: call_prolog $ix_g -> var_ref_α
-(8) Call: var_ref A0
-(8) Exit: var_ref A0 -> lit_integer_α
-(9) Call: lit_integer
-(9) Exit: lit_integer -> lit_integer_α
-(10) Call: lit_integer
-(10) Exit: lit_integer -> call_prolog_α
-(11) Call: call_prolog $ix_g
-(11) Exit: call_prolog $ix_g -> var_ref_α
-(12) Call: var_ref A0
-(12) Exit: var_ref A0 -> lit_integer_α
-(13) Call: lit_integer
-(13) Exit: lit_integer -> call_prolog_α
-(14) Call: call_prolog $unify
-(14) Exit: call_prolog $unify -> suspend_α
-(15) Call: suspend
-(15) Exit: suspend -> q/1_γ
-(2) Exit: call_proc_staged q/1 -> lit_string_α
-(16) Call: lit_string yes
-(16) Exit: lit_string yes -> call_prolog_α
-(17) Call: call_prolog $write
-(17) Exit: call_prolog $write -> lit_string_α
-(18) Call: lit_string
-(18) Exit: lit_string -> call_prolog_α
-(19) Call: call_prolog $nl0
-(19) Exit: call_prolog $nl0 -> lit_integer_α
-(20) Call: lit_integer
-(20) Exit: lit_integer -> call_proc_staged_α
-(21) Call: call_proc_staged q/1
-(22) Call: call_prolog $trail_mark
-(22) Exit: call_prolog $trail_mark -> var_ref_α
-(23) Call: var_ref A0
-(23) Exit: var_ref A0 -> lit_integer_α
-(24) Call: lit_integer
-(24) Exit: lit_integer -> lit_integer_α
-(25) Call: lit_integer
-(25) Exit: lit_integer -> call_prolog_α
-(26) Call: call_prolog $ix_g
-(26) Fail: call_prolog $ix_g -> var_ref_α
-(27) Call: var_ref A0
-(27) Exit: var_ref A0 -> lit_integer_α
-(28) Call: lit_integer
-(28) Exit: lit_integer -> lit_integer_α
-(29) Call: lit_integer
-(29) Exit: lit_integer -> call_prolog_α
-(30) Call: call_prolog $ix_g
-(30) Fail: call_prolog $ix_g -> call_prolog_α
-(31) Call: call_prolog $trail_unwind
-(31) Exit: call_prolog $trail_unwind -> q/1_ω
-(21) Fail: call_proc_staged q/1 -> call_prolog_α
-(32) Call: call_prolog $no_throw_or_fail
-(32) Exit: call_prolog $no_throw_or_fail -> lit_string_α
-(33) Call: lit_string no
-(33) Exit: lit_string no -> call_prolog_α
-(34) Call: call_prolog $write
-(34) Exit: call_prolog $write -> lit_string_α
-(35) Call: lit_string
-(35) Exit: lit_string -> call_prolog_α
-(36) Call: call_prolog $nl0
-(36) Exit: call_prolog $nl0 -> pat_flat_γ
-%---- ladder__rung05_ite_both_branches m4 total=72 prefix=72
-(1) Call: lit_integer
-(1) Exit: lit_integer -> call_proc_staged_α
-(2) Call: call_proc_staged q/1
-(3) Call: call_prolog $trail_mark
-(3) Exit: call_prolog $trail_mark -> var_ref_α
-(4) Call: var_ref A0
-(4) Exit: var_ref A0 -> lit_integer_α
-(5) Call: lit_integer
-(5) Exit: lit_integer -> lit_integer_α
-(6) Call: lit_integer
-(6) Exit: lit_integer -> call_prolog_α
-(7) Call: call_prolog $ix_g
-(7) Fail: call_prolog $ix_g -> var_ref_α
-(8) Call: var_ref A0
-(8) Exit: var_ref A0 -> lit_integer_α
-(9) Call: lit_integer
-(9) Exit: lit_integer -> lit_integer_α
-(10) Call: lit_integer
-(10) Exit: lit_integer -> call_prolog_α
-(11) Call: call_prolog $ix_g
-(11) Exit: call_prolog $ix_g -> var_ref_α
-(12) Call: var_ref A0
-(12) Exit: var_ref A0 -> lit_integer_α
-(13) Call: lit_integer
-(13) Exit: lit_integer -> call_prolog_α
-(14) Call: call_prolog $unify
-(14) Exit: call_prolog $unify -> suspend_α
-(15) Call: suspend
-(15) Exit: suspend -> q/1_γ
-(2) Exit: call_proc_staged q/1 -> lit_string_α
-(16) Call: lit_string yes
-(16) Exit: lit_string yes -> call_prolog_α
-(17) Call: call_prolog $write
-(17) Exit: call_prolog $write -> lit_string_α
-(18) Call: lit_string
-(18) Exit: lit_string -> call_prolog_α
-(19) Call: call_prolog $nl0
-(19) Exit: call_prolog $nl0 -> lit_integer_α
-(20) Call: lit_integer
-(20) Exit: lit_integer -> call_proc_staged_α
-(21) Call: call_proc_staged q/1
-(22) Call: call_prolog $trail_mark
-(22) Exit: call_prolog $trail_mark -> var_ref_α
-(23) Call: var_ref A0
-(23) Exit: var_ref A0 -> lit_integer_α
-(24) Call: lit_integer
-(24) Exit: lit_integer -> lit_integer_α
-(25) Call: lit_integer
-(25) Exit: lit_integer -> call_prolog_α
-(26) Call: call_prolog $ix_g
-(26) Fail: call_prolog $ix_g -> var_ref_α
-(27) Call: var_ref A0
-(27) Exit: var_ref A0 -> lit_integer_α
-(28) Call: lit_integer
-(28) Exit: lit_integer -> lit_integer_α
-(29) Call: lit_integer
-(29) Exit: lit_integer -> call_prolog_α
-(30) Call: call_prolog $ix_g
-(30) Fail: call_prolog $ix_g -> call_prolog_α
-(31) Call: call_prolog $trail_unwind
-(31) Exit: call_prolog $trail_unwind -> q/1_ω
-(21) Fail: call_proc_staged q/1 -> call_prolog_α
-(32) Call: call_prolog $no_throw_or_fail
-(32) Exit: call_prolog $no_throw_or_fail -> lit_string_α
-(33) Call: lit_string no
-(33) Exit: lit_string no -> call_prolog_α
-(34) Call: call_prolog $write
-(34) Exit: call_prolog $write -> lit_string_α
-(35) Call: lit_string
-(35) Exit: lit_string -> call_prolog_α
-(36) Call: call_prolog $nl0
-(36) Exit: call_prolog $nl0 -> main_γ
-%---- ladder__rung05_ite_condition_committed m3 total=38 prefix=38
-(1) Call: var_ref G0
-(1) Exit: var_ref G0 -> call_proc_staged_α
-(2) Call: call_proc_staged q/1
-(3) Call: call_prolog $trail_mark
-(3) Exit: call_prolog $trail_mark -> var_ref_α
-(4) Call: var_ref A0
-(4) Exit: var_ref A0 -> lit_integer_α
-(5) Call: lit_integer
-(5) Exit: lit_integer -> lit_integer_α
-(6) Call: lit_integer
-(6) Exit: lit_integer -> call_prolog_α
-(7) Call: call_prolog $ix_g
-(7) Exit: call_prolog $ix_g -> var_ref_α
-(8) Call: var_ref A0
-(8) Exit: var_ref A0 -> lit_integer_α
-(9) Call: lit_integer
-(9) Exit: lit_integer -> call_prolog_α
-(10) Call: call_prolog $unify
-(10) Exit: call_prolog $unify -> suspend_α
-(11) Call: suspend
-(11) Exit: suspend -> q/1_γ
-(2) Exit: call_proc_staged q/1 -> var_α
-(12) Call: var G0
-(12) Exit: var G0 -> call_prolog_α
-(13) Call: call_prolog $write
-(13) Exit: call_prolog $write -> lit_string_α
-(14) Call: lit_string
-(14) Exit: lit_string -> call_prolog_α
-(15) Call: call_prolog $nl0
-(15) Exit: call_prolog $nl0 -> lit_string_α
-(16) Call: lit_string done
-(16) Exit: lit_string done -> call_prolog_α
-(17) Call: call_prolog $write
-(17) Exit: call_prolog $write -> lit_string_α
-(18) Call: lit_string
-(18) Exit: lit_string -> call_prolog_α
-(19) Call: call_prolog $nl0
-(19) Exit: call_prolog $nl0 -> pat_flat_γ
-%---- ladder__rung05_ite_condition_committed m4 total=38 prefix=38
-(1) Call: var_ref G0
-(1) Exit: var_ref G0 -> call_proc_staged_α
-(2) Call: call_proc_staged q/1
-(3) Call: call_prolog $trail_mark
-(3) Exit: call_prolog $trail_mark -> var_ref_α
-(4) Call: var_ref A0
-(4) Exit: var_ref A0 -> lit_integer_α
-(5) Call: lit_integer
-(5) Exit: lit_integer -> lit_integer_α
-(6) Call: lit_integer
-(6) Exit: lit_integer -> call_prolog_α
-(7) Call: call_prolog $ix_g
-(7) Exit: call_prolog $ix_g -> var_ref_α
-(8) Call: var_ref A0
-(8) Exit: var_ref A0 -> lit_integer_α
-(9) Call: lit_integer
-(9) Exit: lit_integer -> call_prolog_α
-(10) Call: call_prolog $unify
-(10) Exit: call_prolog $unify -> suspend_α
-(11) Call: suspend
-(11) Exit: suspend -> q/1_γ
-(2) Exit: call_proc_staged q/1 -> var_α
-(12) Call: var G0
-(12) Exit: var G0 -> call_prolog_α
-(13) Call: call_prolog $write
-(13) Exit: call_prolog $write -> lit_string_α
-(14) Call: lit_string
-(14) Exit: lit_string -> call_prolog_α
-(15) Call: call_prolog $nl0
-(15) Exit: call_prolog $nl0 -> lit_string_α
-(16) Call: lit_string done
-(16) Exit: lit_string done -> call_prolog_α
-(17) Call: call_prolog $write
-(17) Exit: call_prolog $write -> lit_string_α
-(18) Call: lit_string
-(18) Exit: lit_string -> call_prolog_α
-(19) Call: call_prolog $nl0
-(19) Exit: call_prolog $nl0 -> main_γ
 %---- ladder__rung05_ite_condition_throws m3 total=20 prefix=20
 (1) Call: lit_string before
 (1) Exit: lit_string before -> call_prolog_α
@@ -2392,638 +2168,6 @@
 (9) Exit: lit_string Warning: initialization goal failed: main/0
 (10) Call: call_prolog $write2
 (10) Exit: call_prolog $write2 -> main_γ
-%---- ladder__rung05_negation m3 total=48 prefix=48
-(1) Call: lit_integer
-(1) Exit: lit_integer -> call_proc_staged_α
-(2) Call: call_proc_staged q/1
-(3) Call: call_prolog $trail_mark
-(3) Exit: call_prolog $trail_mark -> var_ref_α
-(4) Call: var_ref A0
-(4) Exit: var_ref A0 -> lit_integer_α
-(5) Call: lit_integer
-(5) Exit: lit_integer -> call_prolog_α
-(6) Call: call_prolog $unify
-(6) Fail: call_prolog $unify -> call_prolog_α
-(7) Call: call_prolog $trail_unwind
-(7) Exit: call_prolog $trail_unwind -> q/1_ω
-(2) Fail: call_proc_staged q/1 -> call_prolog_α
-(8) Call: call_prolog $no_throw_or_fail
-(8) Exit: call_prolog $no_throw_or_fail -> lit_string_α
-(9) Call: lit_string a
-(9) Exit: lit_string a -> call_prolog_α
-(10) Call: call_prolog $write
-(10) Exit: call_prolog $write -> lit_string_α
-(11) Call: lit_string
-(11) Exit: lit_string -> call_prolog_α
-(12) Call: call_prolog $nl0
-(12) Exit: call_prolog $nl0 -> lit_integer_α
-(13) Call: lit_integer
-(13) Exit: lit_integer -> call_proc_staged_α
-(14) Call: call_proc_staged q/1
-(15) Call: call_prolog $trail_mark
-(15) Exit: call_prolog $trail_mark -> var_ref_α
-(16) Call: var_ref A0
-(16) Exit: var_ref A0 -> lit_integer_α
-(17) Call: lit_integer
-(17) Exit: lit_integer -> call_prolog_α
-(18) Call: call_prolog $unify
-(18) Exit: call_prolog $unify -> move_label_α
-(19) Call: move_label
-(19) Exit: move_label -> q/1_γ
-(14) Exit: call_proc_staged q/1 -> call_prolog_α
-(20) Call: call_prolog $no_throw_or_fail
-(20) Exit: call_prolog $no_throw_or_fail -> lit_string_α
-(21) Call: lit_string d
-(21) Exit: lit_string d -> call_prolog_α
-(22) Call: call_prolog $write
-(22) Exit: call_prolog $write -> lit_string_α
-(23) Call: lit_string
-(23) Exit: lit_string -> call_prolog_α
-(24) Call: call_prolog $nl0
-(24) Exit: call_prolog $nl0 -> pat_flat_γ
-%---- ladder__rung05_negation m4 total=48 prefix=48
-(1) Call: lit_integer
-(1) Exit: lit_integer -> call_proc_staged_α
-(2) Call: call_proc_staged q/1
-(3) Call: call_prolog $trail_mark
-(3) Exit: call_prolog $trail_mark -> var_ref_α
-(4) Call: var_ref A0
-(4) Exit: var_ref A0 -> lit_integer_α
-(5) Call: lit_integer
-(5) Exit: lit_integer -> call_prolog_α
-(6) Call: call_prolog $unify
-(6) Fail: call_prolog $unify -> call_prolog_α
-(7) Call: call_prolog $trail_unwind
-(7) Exit: call_prolog $trail_unwind -> q/1_ω
-(2) Fail: call_proc_staged q/1 -> call_prolog_α
-(8) Call: call_prolog $no_throw_or_fail
-(8) Exit: call_prolog $no_throw_or_fail -> lit_string_α
-(9) Call: lit_string a
-(9) Exit: lit_string a -> call_prolog_α
-(10) Call: call_prolog $write
-(10) Exit: call_prolog $write -> lit_string_α
-(11) Call: lit_string
-(11) Exit: lit_string -> call_prolog_α
-(12) Call: call_prolog $nl0
-(12) Exit: call_prolog $nl0 -> lit_integer_α
-(13) Call: lit_integer
-(13) Exit: lit_integer -> call_proc_staged_α
-(14) Call: call_proc_staged q/1
-(15) Call: call_prolog $trail_mark
-(15) Exit: call_prolog $trail_mark -> var_ref_α
-(16) Call: var_ref A0
-(16) Exit: var_ref A0 -> lit_integer_α
-(17) Call: lit_integer
-(17) Exit: lit_integer -> call_prolog_α
-(18) Call: call_prolog $unify
-(18) Exit: call_prolog $unify -> move_label_α
-(19) Call: move_label
-(19) Exit: move_label -> q/1_γ
-(14) Exit: call_proc_staged q/1 -> call_prolog_α
-(20) Call: call_prolog $no_throw_or_fail
-(20) Exit: call_prolog $no_throw_or_fail -> lit_string_α
-(21) Call: lit_string d
-(21) Exit: lit_string d -> call_prolog_α
-(22) Call: call_prolog $write
-(22) Exit: call_prolog $write -> lit_string_α
-(23) Call: lit_string
-(23) Exit: lit_string -> call_prolog_α
-(24) Call: call_prolog $nl0
-(24) Exit: call_prolog $nl0 -> main_γ
-%---- ladder__rung05_once_forall_ignore m3 total=266 prefix=266
-(1) Call: var_ref G0
-(1) Exit: var_ref G0 -> call_proc_staged_α
-(2) Call: call_proc_staged q/1
-(3) Call: call_prolog $trail_mark
-(3) Exit: call_prolog $trail_mark -> var_ref_α
-(4) Call: var_ref A0
-(4) Exit: var_ref A0 -> lit_integer_α
-(5) Call: lit_integer
-(5) Exit: lit_integer -> lit_integer_α
-(6) Call: lit_integer
-(6) Exit: lit_integer -> call_prolog_α
-(7) Call: call_prolog $ix_g
-(7) Exit: call_prolog $ix_g -> var_ref_α
-(8) Call: var_ref A0
-(8) Exit: var_ref A0 -> lit_integer_α
-(9) Call: lit_integer
-(9) Exit: lit_integer -> call_prolog_α
-(10) Call: call_prolog $unify
-(10) Exit: call_prolog $unify -> suspend_α
-(11) Call: suspend
-(11) Exit: suspend -> q/1_γ
-(2) Exit: call_proc_staged q/1 -> var_α
-(12) Call: var G0
-(12) Exit: var G0 -> call_prolog_α
-(13) Call: call_prolog $write
-(13) Exit: call_prolog $write -> lit_string_α
-(14) Call: lit_string
-(14) Exit: lit_string -> call_prolog_α
-(15) Call: call_prolog $nl0
-(15) Exit: call_prolog $nl0 -> var_ref_α
-(16) Call: var_ref G1
-(16) Exit: var_ref G1 -> call_proc_staged_α
-(17) Call: call_proc_staged q/1
-(18) Call: call_prolog $trail_mark
-(18) Exit: call_prolog $trail_mark -> var_ref_α
-(19) Call: var_ref A0
-(19) Exit: var_ref A0 -> lit_integer_α
-(20) Call: lit_integer
-(20) Exit: lit_integer -> lit_integer_α
-(21) Call: lit_integer
-(21) Exit: lit_integer -> call_prolog_α
-(22) Call: call_prolog $ix_g
-(22) Exit: call_prolog $ix_g -> var_ref_α
-(23) Call: var_ref A0
-(23) Exit: var_ref A0 -> lit_integer_α
-(24) Call: lit_integer
-(24) Exit: lit_integer -> call_prolog_α
-(25) Call: call_prolog $unify
-(25) Exit: call_prolog $unify -> suspend_α
-(26) Call: suspend
-(26) Exit: suspend -> q/1_γ
-(17) Exit: call_proc_staged q/1 -> var_ref_α
-(27) Call: var_ref G1
-(27) Exit: var_ref G1 -> call_proc_staged_α
-(28) Call: call_proc_staged r/1
-(29) Call: call_prolog $trail_mark
-(29) Exit: call_prolog $trail_mark -> var_ref_α
-(30) Call: var_ref A0
-(30) Exit: var_ref A0 -> lit_integer_α
-(31) Call: lit_integer
-(31) Exit: lit_integer -> lit_integer_α
-(32) Call: lit_integer
-(32) Exit: lit_integer -> call_prolog_α
-(33) Call: call_prolog $ix_g
-(33) Exit: call_prolog $ix_g -> var_ref_α
-(34) Call: var_ref A0
-(34) Exit: var_ref A0 -> lit_integer_α
-(35) Call: lit_integer
-(35) Exit: lit_integer -> call_prolog_α
-(36) Call: call_prolog $unify
-(36) Exit: call_prolog $unify -> suspend_α
-(37) Call: suspend
-(37) Exit: suspend -> r/1_γ
-(28) Exit: call_proc_staged r/1 -> call_proc_staged_β
-(17) Redo: call_proc_staged q/1
-(38) Call: call_prolog $trail_mark
-(38) Exit: call_prolog $trail_mark -> var_ref_α
-(39) Call: var_ref A0
-(39) Exit: var_ref A0 -> lit_integer_α
-(40) Call: lit_integer
-(40) Exit: lit_integer -> lit_integer_α
-(41) Call: lit_integer
-(41) Exit: lit_integer -> call_prolog_α
-(42) Call: call_prolog $ix_g
-(42) Exit: call_prolog $ix_g -> var_ref_α
-(43) Call: var_ref A0
-(43) Exit: var_ref A0 -> lit_integer_α
-(44) Call: lit_integer
-(44) Exit: lit_integer -> call_prolog_α
-(45) Call: call_prolog $unify
-(45) Exit: call_prolog $unify -> suspend_α
-(46) Call: suspend
-(46) Redo: suspend
-(47) Call: call_prolog $unwind_nothrow
-(47) Exit: call_prolog $unwind_nothrow -> var_ref_α
-(48) Call: var_ref A0
-(48) Exit: var_ref A0 -> lit_integer_α
-(49) Call: lit_integer
-(49) Exit: lit_integer -> lit_integer_α
-(50) Call: lit_integer
-(50) Exit: lit_integer -> call_prolog_α
-(51) Call: call_prolog $ix_g
-(51) Fail: call_prolog $ix_g -> var_ref_α
-(52) Call: var_ref A0
-(52) Exit: var_ref A0 -> lit_integer_α
-(53) Call: lit_integer
-(53) Exit: lit_integer -> lit_integer_α
-(54) Call: lit_integer
-(54) Exit: lit_integer -> call_prolog_α
-(55) Call: call_prolog $ix_g
-(55) Fail: call_prolog $ix_g -> call_prolog_α
-(56) Call: call_prolog $trail_unwind
-(56) Exit: call_prolog $trail_unwind -> r/1_ω
-(17) Fail: call_proc_staged q/1 -> call_prolog_α
-(57) Call: call_prolog $no_throw_or_fail
-(57) Exit: call_prolog $no_throw_or_fail -> lit_string_α
-(58) Call: lit_string all
-(58) Exit: lit_string all -> call_prolog_α
-(59) Call: call_prolog $write
-(59) Exit: call_prolog $write -> lit_string_α
-(60) Call: lit_string
-(60) Exit: lit_string -> call_prolog_α
-(61) Call: call_prolog $nl0
-(61) Exit: call_prolog $nl0 -> var_ref_α
-(62) Call: var_ref G2
-(62) Exit: var_ref G2 -> call_proc_staged_α
-(63) Call: call_proc_staged q/1
-(64) Call: call_prolog $trail_mark
-(64) Exit: call_prolog $trail_mark -> var_ref_α
-(65) Call: var_ref A0
-(65) Exit: var_ref A0 -> lit_integer_α
-(66) Call: lit_integer
-(66) Exit: lit_integer -> lit_integer_α
-(67) Call: lit_integer
-(67) Exit: lit_integer -> call_prolog_α
-(68) Call: call_prolog $ix_g
-(68) Exit: call_prolog $ix_g -> var_ref_α
-(69) Call: var_ref A0
-(69) Exit: var_ref A0 -> lit_integer_α
-(70) Call: lit_integer
-(70) Exit: lit_integer -> call_prolog_α
-(71) Call: call_prolog $unify
-(71) Exit: call_prolog $unify -> suspend_α
-(72) Call: suspend
-(72) Exit: suspend -> q/1_γ
-(63) Exit: call_proc_staged q/1 -> var_ref_α
-(73) Call: var_ref G2
-(73) Exit: var_ref G2 -> call_proc_staged_α
-(74) Call: call_proc_staged s/1
-(75) Call: call_prolog $trail_mark
-(75) Exit: call_prolog $trail_mark -> var_ref_α
-(76) Call: var_ref A0
-(76) Exit: var_ref A0 -> lit_integer_α
-(77) Call: lit_integer
-(77) Exit: lit_integer -> call_prolog_α
-(78) Call: call_prolog $unify
-(78) Exit: call_prolog $unify -> move_label_α
-(79) Call: move_label
-(79) Exit: move_label -> s/1_γ
-(74) Exit: call_proc_staged s/1 -> call_proc_staged_β
-(63) Redo: call_proc_staged q/1
-(80) Call: call_prolog $trail_mark
-(80) Exit: call_prolog $trail_mark -> var_ref_α
-(81) Call: var_ref A0
-(81) Exit: var_ref A0 -> lit_integer_α
-(82) Call: lit_integer
-(82) Exit: lit_integer -> lit_integer_α
-(83) Call: lit_integer
-(83) Exit: lit_integer -> call_prolog_α
-(84) Call: call_prolog $ix_g
-(84) Exit: call_prolog $ix_g -> var_ref_α
-(85) Call: var_ref A0
-(85) Exit: var_ref A0 -> lit_integer_α
-(86) Call: lit_integer
-(86) Exit: lit_integer -> call_prolog_α
-(87) Call: call_prolog $unify
-(87) Exit: call_prolog $unify -> suspend_α
-(88) Call: suspend
-(88) Redo: suspend
-(89) Call: call_prolog $unwind_nothrow
-(89) Exit: call_prolog $unwind_nothrow -> var_ref_α
-(90) Call: var_ref A0
-(90) Exit: var_ref A0 -> lit_integer_α
-(91) Call: lit_integer
-(91) Exit: lit_integer -> lit_integer_α
-(92) Call: lit_integer
-(92) Exit: lit_integer -> call_prolog_α
-(93) Call: call_prolog $ix_g
-(93) Exit: call_prolog $ix_g -> var_ref_α
-(94) Call: var_ref A0
-(94) Exit: var_ref A0 -> lit_integer_α
-(95) Call: lit_integer
-(95) Exit: lit_integer -> call_prolog_α
-(96) Call: call_prolog $unify
-(96) Exit: call_prolog $unify -> suspend_α
-(97) Call: suspend
-(97) Exit: suspend -> q/1_γ
-(63) Exit: call_proc_staged q/1 -> var_ref_α
-(98) Call: var_ref G2
-(98) Exit: var_ref G2 -> call_proc_staged_α
-(99) Call: call_proc_staged s/1
-(100) Call: call_prolog $trail_mark
-(100) Exit: call_prolog $trail_mark -> var_ref_α
-(101) Call: var_ref A0
-(101) Exit: var_ref A0 -> lit_integer_α
-(102) Call: lit_integer
-(102) Exit: lit_integer -> call_prolog_α
-(103) Call: call_prolog $unify
-(103) Fail: call_prolog $unify -> call_prolog_α
-(104) Call: call_prolog $trail_unwind
-(104) Exit: call_prolog $trail_unwind -> s/1_ω
-(99) Fail: call_proc_staged s/1 -> call_prolog_α
-(105) Call: call_prolog $no_throw_or_fail
-(105) Exit: call_prolog $no_throw_or_fail -> call_prolog_α
-(106) Call: call_prolog $no_throw_or_fail
-(106) Exit: call_prolog $no_throw_or_fail -> lit_string_α
-(107) Call: lit_string notall
-(107) Exit: lit_string notall -> call_prolog_α
-(108) Call: call_prolog $write
-(108) Exit: call_prolog $write -> lit_string_α
-(109) Call: lit_string
-(109) Exit: lit_string -> call_prolog_α
-(110) Call: call_prolog $nl0
-(110) Exit: call_prolog $nl0 -> lit_integer_α
-(111) Call: lit_integer
-(111) Exit: lit_integer -> call_proc_staged_α
-(112) Call: call_proc_staged q/1
-(113) Call: call_prolog $trail_mark
-(113) Exit: call_prolog $trail_mark -> var_ref_α
-(114) Call: var_ref A0
-(114) Exit: var_ref A0 -> lit_integer_α
-(115) Call: lit_integer
-(115) Exit: lit_integer -> lit_integer_α
-(116) Call: lit_integer
-(116) Exit: lit_integer -> call_prolog_α
-(117) Call: call_prolog $ix_g
-(117) Fail: call_prolog $ix_g -> var_ref_α
-(118) Call: var_ref A0
-(118) Exit: var_ref A0 -> lit_integer_α
-(119) Call: lit_integer
-(119) Exit: lit_integer -> lit_integer_α
-(120) Call: lit_integer
-(120) Exit: lit_integer -> call_prolog_α
-(121) Call: call_prolog $ix_g
-(121) Fail: call_prolog $ix_g -> var_ref_α
-(122) Call: var_ref A0
-(122) Exit: var_ref A0 -> lit_integer_α
-(123) Call: lit_integer
-(123) Exit: lit_integer -> lit_integer_α
-(124) Call: lit_integer
-(124) Exit: lit_integer -> call_prolog_α
-(125) Call: call_prolog $ix_g
-(125) Fail: call_prolog $ix_g -> call_prolog_α
-(126) Call: call_prolog $trail_unwind
-(126) Exit: call_prolog $trail_unwind -> q/1_ω
-(112) Fail: call_proc_staged q/1 -> call_prolog_α
-(127) Call: call_prolog $no_throw_or_fail
-(127) Exit: call_prolog $no_throw_or_fail -> lit_string_α
-(128) Call: lit_string end
-(128) Exit: lit_string end -> call_prolog_α
-(129) Call: call_prolog $write
-(129) Exit: call_prolog $write -> lit_string_α
-(130) Call: lit_string
-(130) Exit: lit_string -> call_prolog_α
-(131) Call: call_prolog $nl0
-(131) Exit: call_prolog $nl0 -> pat_flat_γ
-%---- ladder__rung05_once_forall_ignore m4 total=266 prefix=266
-(1) Call: var_ref G0
-(1) Exit: var_ref G0 -> call_proc_staged_α
-(2) Call: call_proc_staged q/1
-(3) Call: call_prolog $trail_mark
-(3) Exit: call_prolog $trail_mark -> var_ref_α
-(4) Call: var_ref A0
-(4) Exit: var_ref A0 -> lit_integer_α
-(5) Call: lit_integer
-(5) Exit: lit_integer -> lit_integer_α
-(6) Call: lit_integer
-(6) Exit: lit_integer -> call_prolog_α
-(7) Call: call_prolog $ix_g
-(7) Exit: call_prolog $ix_g -> var_ref_α
-(8) Call: var_ref A0
-(8) Exit: var_ref A0 -> lit_integer_α
-(9) Call: lit_integer
-(9) Exit: lit_integer -> call_prolog_α
-(10) Call: call_prolog $unify
-(10) Exit: call_prolog $unify -> suspend_α
-(11) Call: suspend
-(11) Exit: suspend -> q/1_γ
-(2) Exit: call_proc_staged q/1 -> var_α
-(12) Call: var G0
-(12) Exit: var G0 -> call_prolog_α
-(13) Call: call_prolog $write
-(13) Exit: call_prolog $write -> lit_string_α
-(14) Call: lit_string
-(14) Exit: lit_string -> call_prolog_α
-(15) Call: call_prolog $nl0
-(15) Exit: call_prolog $nl0 -> var_ref_α
-(16) Call: var_ref G1
-(16) Exit: var_ref G1 -> call_proc_staged_α
-(17) Call: call_proc_staged q/1
-(18) Call: call_prolog $trail_mark
-(18) Exit: call_prolog $trail_mark -> var_ref_α
-(19) Call: var_ref A0
-(19) Exit: var_ref A0 -> lit_integer_α
-(20) Call: lit_integer
-(20) Exit: lit_integer -> lit_integer_α
-(21) Call: lit_integer
-(21) Exit: lit_integer -> call_prolog_α
-(22) Call: call_prolog $ix_g
-(22) Exit: call_prolog $ix_g -> var_ref_α
-(23) Call: var_ref A0
-(23) Exit: var_ref A0 -> lit_integer_α
-(24) Call: lit_integer
-(24) Exit: lit_integer -> call_prolog_α
-(25) Call: call_prolog $unify
-(25) Exit: call_prolog $unify -> suspend_α
-(26) Call: suspend
-(26) Exit: suspend -> q/1_γ
-(17) Exit: call_proc_staged q/1 -> var_ref_α
-(27) Call: var_ref G1
-(27) Exit: var_ref G1 -> call_proc_staged_α
-(28) Call: call_proc_staged r/1
-(29) Call: call_prolog $trail_mark
-(29) Exit: call_prolog $trail_mark -> var_ref_α
-(30) Call: var_ref A0
-(30) Exit: var_ref A0 -> lit_integer_α
-(31) Call: lit_integer
-(31) Exit: lit_integer -> lit_integer_α
-(32) Call: lit_integer
-(32) Exit: lit_integer -> call_prolog_α
-(33) Call: call_prolog $ix_g
-(33) Exit: call_prolog $ix_g -> var_ref_α
-(34) Call: var_ref A0
-(34) Exit: var_ref A0 -> lit_integer_α
-(35) Call: lit_integer
-(35) Exit: lit_integer -> call_prolog_α
-(36) Call: call_prolog $unify
-(36) Exit: call_prolog $unify -> suspend_α
-(37) Call: suspend
-(37) Exit: suspend -> r/1_γ
-(28) Exit: call_proc_staged r/1 -> call_proc_staged_β
-(17) Redo: call_proc_staged q/1
-(38) Call: call_prolog $trail_mark
-(38) Exit: call_prolog $trail_mark -> var_ref_α
-(39) Call: var_ref A0
-(39) Exit: var_ref A0 -> lit_integer_α
-(40) Call: lit_integer
-(40) Exit: lit_integer -> lit_integer_α
-(41) Call: lit_integer
-(41) Exit: lit_integer -> call_prolog_α
-(42) Call: call_prolog $ix_g
-(42) Exit: call_prolog $ix_g -> var_ref_α
-(43) Call: var_ref A0
-(43) Exit: var_ref A0 -> lit_integer_α
-(44) Call: lit_integer
-(44) Exit: lit_integer -> call_prolog_α
-(45) Call: call_prolog $unify
-(45) Exit: call_prolog $unify -> suspend_α
-(46) Call: suspend
-(37) Redo: suspend
-(47) Call: call_prolog $unwind_nothrow
-(47) Exit: call_prolog $unwind_nothrow -> var_ref_α
-(48) Call: var_ref A0
-(48) Exit: var_ref A0 -> lit_integer_α
-(49) Call: lit_integer
-(49) Exit: lit_integer -> lit_integer_α
-(50) Call: lit_integer
-(50) Exit: lit_integer -> call_prolog_α
-(51) Call: call_prolog $ix_g
-(51) Fail: call_prolog $ix_g -> var_ref_α
-(52) Call: var_ref A0
-(52) Exit: var_ref A0 -> lit_integer_α
-(53) Call: lit_integer
-(53) Exit: lit_integer -> lit_integer_α
-(54) Call: lit_integer
-(54) Exit: lit_integer -> call_prolog_α
-(55) Call: call_prolog $ix_g
-(55) Fail: call_prolog $ix_g -> call_prolog_α
-(56) Call: call_prolog $trail_unwind
-(56) Exit: call_prolog $trail_unwind -> r/1_ω
-(17) Fail: call_proc_staged q/1 -> call_prolog_α
-(57) Call: call_prolog $no_throw_or_fail
-(57) Exit: call_prolog $no_throw_or_fail -> lit_string_α
-(58) Call: lit_string all
-(58) Exit: lit_string all -> call_prolog_α
-(59) Call: call_prolog $write
-(59) Exit: call_prolog $write -> lit_string_α
-(60) Call: lit_string
-(60) Exit: lit_string -> call_prolog_α
-(61) Call: call_prolog $nl0
-(61) Exit: call_prolog $nl0 -> var_ref_α
-(62) Call: var_ref G2
-(62) Exit: var_ref G2 -> call_proc_staged_α
-(63) Call: call_proc_staged q/1
-(64) Call: call_prolog $trail_mark
-(64) Exit: call_prolog $trail_mark -> var_ref_α
-(65) Call: var_ref A0
-(65) Exit: var_ref A0 -> lit_integer_α
-(66) Call: lit_integer
-(66) Exit: lit_integer -> lit_integer_α
-(67) Call: lit_integer
-(67) Exit: lit_integer -> call_prolog_α
-(68) Call: call_prolog $ix_g
-(68) Exit: call_prolog $ix_g -> var_ref_α
-(69) Call: var_ref A0
-(69) Exit: var_ref A0 -> lit_integer_α
-(70) Call: lit_integer
-(70) Exit: lit_integer -> call_prolog_α
-(71) Call: call_prolog $unify
-(71) Exit: call_prolog $unify -> suspend_α
-(72) Call: suspend
-(72) Exit: suspend -> q/1_γ
-(63) Exit: call_proc_staged q/1 -> var_ref_α
-(73) Call: var_ref G2
-(73) Exit: var_ref G2 -> call_proc_staged_α
-(74) Call: call_proc_staged s/1
-(75) Call: call_prolog $trail_mark
-(75) Exit: call_prolog $trail_mark -> var_ref_α
-(76) Call: var_ref A0
-(76) Exit: var_ref A0 -> lit_integer_α
-(77) Call: lit_integer
-(77) Exit: lit_integer -> call_prolog_α
-(78) Call: call_prolog $unify
-(78) Exit: call_prolog $unify -> move_label_α
-(79) Call: move_label
-(79) Exit: move_label -> s/1_γ
-(74) Exit: call_proc_staged s/1 -> call_proc_staged_β
-(63) Redo: call_proc_staged q/1
-(80) Call: call_prolog $trail_mark
-(80) Exit: call_prolog $trail_mark -> var_ref_α
-(81) Call: var_ref A0
-(81) Exit: var_ref A0 -> lit_integer_α
-(82) Call: lit_integer
-(82) Exit: lit_integer -> lit_integer_α
-(83) Call: lit_integer
-(83) Exit: lit_integer -> call_prolog_α
-(84) Call: call_prolog $ix_g
-(84) Exit: call_prolog $ix_g -> var_ref_α
-(85) Call: var_ref A0
-(85) Exit: var_ref A0 -> lit_integer_α
-(86) Call: lit_integer
-(86) Exit: lit_integer -> call_prolog_α
-(87) Call: call_prolog $unify
-(87) Exit: call_prolog $unify -> suspend_α
-(88) Call: suspend
-(88) Redo: suspend
-(89) Call: call_prolog $unwind_nothrow
-(89) Exit: call_prolog $unwind_nothrow -> var_ref_α
-(90) Call: var_ref A0
-(90) Exit: var_ref A0 -> lit_integer_α
-(91) Call: lit_integer
-(91) Exit: lit_integer -> lit_integer_α
-(92) Call: lit_integer
-(92) Exit: lit_integer -> call_prolog_α
-(93) Call: call_prolog $ix_g
-(93) Exit: call_prolog $ix_g -> var_ref_α
-(94) Call: var_ref A0
-(94) Exit: var_ref A0 -> lit_integer_α
-(95) Call: lit_integer
-(95) Exit: lit_integer -> call_prolog_α
-(96) Call: call_prolog $unify
-(96) Exit: call_prolog $unify -> suspend_α
-(97) Call: suspend
-(97) Exit: suspend -> q/1_γ
-(63) Exit: call_proc_staged q/1 -> var_ref_α
-(98) Call: var_ref G2
-(98) Exit: var_ref G2 -> call_proc_staged_α
-(99) Call: call_proc_staged s/1
-(100) Call: call_prolog $trail_mark
-(100) Exit: call_prolog $trail_mark -> var_ref_α
-(101) Call: var_ref A0
-(101) Exit: var_ref A0 -> lit_integer_α
-(102) Call: lit_integer
-(102) Exit: lit_integer -> call_prolog_α
-(103) Call: call_prolog $unify
-(103) Fail: call_prolog $unify -> call_prolog_α
-(104) Call: call_prolog $trail_unwind
-(104) Exit: call_prolog $trail_unwind -> s/1_ω
-(99) Fail: call_proc_staged s/1 -> call_prolog_α
-(105) Call: call_prolog $no_throw_or_fail
-(105) Exit: call_prolog $no_throw_or_fail -> call_prolog_α
-(106) Call: call_prolog $no_throw_or_fail
-(106) Exit: call_prolog $no_throw_or_fail -> lit_string_α
-(107) Call: lit_string notall
-(107) Exit: lit_string notall -> call_prolog_α
-(108) Call: call_prolog $write
-(108) Exit: call_prolog $write -> lit_string_α
-(109) Call: lit_string
-(109) Exit: lit_string -> call_prolog_α
-(110) Call: call_prolog $nl0
-(110) Exit: call_prolog $nl0 -> lit_integer_α
-(111) Call: lit_integer
-(111) Exit: lit_integer -> call_proc_staged_α
-(112) Call: call_proc_staged q/1
-(113) Call: call_prolog $trail_mark
-(113) Exit: call_prolog $trail_mark -> var_ref_α
-(114) Call: var_ref A0
-(114) Exit: var_ref A0 -> lit_integer_α
-(115) Call: lit_integer
-(115) Exit: lit_integer -> lit_integer_α
-(116) Call: lit_integer
-(116) Exit: lit_integer -> call_prolog_α
-(117) Call: call_prolog $ix_g
-(117) Fail: call_prolog $ix_g -> var_ref_α
-(118) Call: var_ref A0
-(118) Exit: var_ref A0 -> lit_integer_α
-(119) Call: lit_integer
-(119) Exit: lit_integer -> lit_integer_α
-(120) Call: lit_integer
-(120) Exit: lit_integer -> call_prolog_α
-(121) Call: call_prolog $ix_g
-(121) Fail: call_prolog $ix_g -> var_ref_α
-(122) Call: var_ref A0
-(122) Exit: var_ref A0 -> lit_integer_α
-(123) Call: lit_integer
-(123) Exit: lit_integer -> lit_integer_α
-(124) Call: lit_integer
-(124) Exit: lit_integer -> call_prolog_α
-(125) Call: call_prolog $ix_g
-(125) Fail: call_prolog $ix_g -> call_prolog_α
-(126) Call: call_prolog $trail_unwind
-(126) Exit: call_prolog $trail_unwind -> q/1_ω
-(112) Fail: call_proc_staged q/1 -> call_prolog_α
-(127) Call: call_prolog $no_throw_or_fail
-(127) Exit: call_prolog $no_throw_or_fail -> lit_string_α
-(128) Call: lit_string end
-(128) Exit: lit_string end -> call_prolog_α
-(129) Call: call_prolog $write
-(129) Exit: call_prolog $write -> lit_string_α
-(130) Call: lit_string
-(130) Exit: lit_string -> call_prolog_α
-(131) Call: call_prolog $nl0
-(131) Exit: call_prolog $nl0 -> main_γ
 %---- ladder__rung06_read_get_char m3 total=22 prefix=22
 (1) Call: call_proc_staged main/0
 (2) Call: var_ref G0
@@ -5444,6 +4588,184 @@
 (3) Redo: call_proc_staged p/1
 (3) Fail: call_proc_staged p/1 -> main/0_step
 (1) Exit: call_proc_staged main/0 -> main_γ
+%---- ladder__rung05_ite_both_branches m3 total=56 prefix=56
+(1) Call: call_proc_staged main/0
+(2) Call: bound
+(2) Exit: bound -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> call_proc_staged_α
+(4) Call: call_proc_staged q/1
+(5) Call: var_ref A0
+(5) Exit: var_ref A0 -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> call_α
+(7) Call: call $unify
+(7) Fail: call $unify -> q/1_step
+(8) Call: var_ref A0
+(8) Exit: var_ref A0 -> lit_integer_α
+(9) Call: lit_integer
+(9) Exit: lit_integer -> call_α
+(10) Call: call $unify
+(10) Exit: call $unify -> q/1_γ
+(4) Exit: call_proc_staged q/1 -> lit_string_α
+(11) Call: lit_string yes
+(11) Exit: lit_string yes -> call_α
+(12) Call: call $write
+(12) Exit: call $write -> move_label_α
+(13) Call: move_label
+(13) Exit: move_label -> call_α
+(14) Call: call $nl
+(14) Exit: call $nl -> bound_α
+(15) Call: bound
+(15) Exit: bound -> lit_integer_α
+(16) Call: lit_integer
+(16) Exit: lit_integer -> call_proc_staged_α
+(17) Call: call_proc_staged q/1
+(18) Call: var_ref A0
+(18) Exit: var_ref A0 -> lit_integer_α
+(19) Call: lit_integer
+(19) Exit: lit_integer -> call_α
+(20) Call: call $unify
+(20) Fail: call $unify -> q/1_step
+(21) Call: var_ref A0
+(21) Exit: var_ref A0 -> lit_integer_α
+(22) Call: lit_integer
+(22) Exit: lit_integer -> call_α
+(23) Call: call $unify
+(23) Fail: call $unify -> q/1_step
+(17) Fail: call_proc_staged q/1 -> unmark_α
+(24) Call: unmark
+(24) Exit: unmark -> lit_string_α
+(25) Call: lit_string no
+(25) Exit: lit_string no -> call_α
+(26) Call: call $write
+(26) Exit: call $write -> move_label_α
+(27) Call: move_label
+(27) Exit: move_label -> call_α
+(28) Call: call $nl
+(28) Exit: call $nl -> main/0_ret0
+(1) Exit: call_proc_staged main/0 -> pat_flat_γ
+%---- ladder__rung05_ite_both_branches m4 total=56 prefix=56
+(1) Call: call_proc_staged main/0
+(2) Call: bound
+(2) Exit: bound -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> call_proc_staged_α
+(4) Call: call_proc_staged q/1
+(5) Call: var_ref A0
+(5) Exit: var_ref A0 -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> call_α
+(7) Call: call $unify
+(7) Fail: call $unify -> q/1_step
+(8) Call: var_ref A0
+(8) Exit: var_ref A0 -> lit_integer_α
+(9) Call: lit_integer
+(9) Exit: lit_integer -> call_α
+(10) Call: call $unify
+(10) Exit: call $unify -> q/1_γ
+(4) Exit: call_proc_staged q/1 -> lit_string_α
+(11) Call: lit_string yes
+(11) Exit: lit_string yes -> call_α
+(12) Call: call $write
+(12) Exit: call $write -> move_label_α
+(13) Call: move_label
+(13) Exit: move_label -> call_α
+(14) Call: call $nl
+(14) Exit: call $nl -> bound_α
+(15) Call: bound
+(15) Exit: bound -> lit_integer_α
+(16) Call: lit_integer
+(16) Exit: lit_integer -> call_proc_staged_α
+(17) Call: call_proc_staged q/1
+(18) Call: var_ref A0
+(18) Exit: var_ref A0 -> lit_integer_α
+(19) Call: lit_integer
+(19) Exit: lit_integer -> call_α
+(20) Call: call $unify
+(20) Fail: call $unify -> q/1_step
+(21) Call: var_ref A0
+(21) Exit: var_ref A0 -> lit_integer_α
+(22) Call: lit_integer
+(22) Exit: lit_integer -> call_α
+(23) Call: call $unify
+(23) Fail: call $unify -> q/1_step
+(17) Fail: call_proc_staged q/1 -> unmark_α
+(24) Call: unmark
+(24) Exit: unmark -> lit_string_α
+(25) Call: lit_string no
+(25) Exit: lit_string no -> call_α
+(26) Call: call $write
+(26) Exit: call $write -> move_label_α
+(27) Call: move_label
+(27) Exit: move_label -> call_α
+(28) Call: call $nl
+(28) Exit: call $nl -> main/0_ret0
+(1) Exit: call_proc_staged main/0 -> main_γ
+%---- ladder__rung05_ite_condition_committed m3 total=31 prefix=31
+(1) Call: call_proc_staged main/0
+(2) Call: bound
+(2) Exit: bound -> var_ref_α
+(3) Call: var_ref G0
+(3) Exit: var_ref G0 -> call_proc_staged_α
+(4) Call: call_proc_staged q/1
+(5) Call: var_ref A0
+(5) Exit: var_ref A0 -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> call_α
+(7) Call: call $unify
+(7) Exit: call $unify -> q/1_γ
+(4) Exit: call_proc_staged q/1 -> var_α
+(8) Call: var G0
+(8) Exit: var G0 -> call_α
+(9) Call: call $write
+(9) Exit: call $write -> move_label_α
+(10) Call: move_label
+(10) Exit: move_label -> call_α
+(11) Call: call $nl
+(11) Exit: call $nl -> indirect_goto_β
+(0) Redo: indirect_goto
+(12) Call: indirect_goto
+(12) Fail: indirect_goto -> main/0_step
+(13) Call: lit_string done
+(13) Exit: lit_string done -> call_α
+(14) Call: call $write
+(14) Exit: call $write -> call_α
+(15) Call: call $nl
+(15) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> pat_flat_γ
+%---- ladder__rung05_ite_condition_committed m4 total=31 prefix=31
+(1) Call: call_proc_staged main/0
+(2) Call: bound
+(2) Exit: bound -> var_ref_α
+(3) Call: var_ref G0
+(3) Exit: var_ref G0 -> call_proc_staged_α
+(4) Call: call_proc_staged q/1
+(5) Call: var_ref A0
+(5) Exit: var_ref A0 -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> call_α
+(7) Call: call $unify
+(7) Exit: call $unify -> q/1_γ
+(4) Exit: call_proc_staged q/1 -> var_α
+(8) Call: var G0
+(8) Exit: var G0 -> call_α
+(9) Call: call $write
+(9) Exit: call $write -> move_label_α
+(10) Call: move_label
+(10) Exit: move_label -> call_α
+(11) Call: call $nl
+(11) Exit: call $nl -> indirect_goto_β
+(0) Redo: indirect_goto
+(12) Call: indirect_goto
+(12) Fail: indirect_goto -> main/0_step
+(13) Call: lit_string done
+(13) Exit: lit_string done -> call_α
+(14) Call: call $write
+(14) Exit: call $write -> call_α
+(15) Call: call $nl
+(15) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> main_γ
 %---- ladder__rung04_cut_commit m3 total=30 prefix=30
 (1) Call: call_proc_staged main/0
 (2) Call: var_ref G0
@@ -5505,6 +4827,590 @@
 (14) Exit: call $write -> call_α
 (15) Call: call $nl
 (15) Exit: call $nl -> main/0_ret0
+(1) Exit: call_proc_staged main/0 -> main_γ
+%---- ladder__rung05_negation m3 total=56 prefix=56
+(1) Call: call_proc_staged main/0
+(2) Call: bound
+(2) Exit: bound -> bound_α
+(3) Call: bound
+(3) Exit: bound -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> call_proc_staged_α
+(5) Call: call_proc_staged q/1
+(6) Call: var_ref A0
+(6) Exit: var_ref A0 -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> call_α
+(8) Call: call $unify
+(8) Fail: call $unify -> q/1_step
+(5) Fail: call_proc_staged q/1 -> unmark_α
+(9) Call: unmark
+(9) Exit: unmark -> move_label_α
+(10) Call: move_label
+(10) Exit: move_label -> lit_string_α
+(11) Call: lit_string a
+(11) Exit: lit_string a -> call_α
+(12) Call: call $write
+(12) Exit: call $write -> move_label_α
+(13) Call: move_label
+(13) Exit: move_label -> call_α
+(14) Call: call $nl
+(14) Exit: call $nl -> bound_α
+(15) Call: bound
+(15) Exit: bound -> bound_α
+(16) Call: bound
+(16) Exit: bound -> lit_integer_α
+(17) Call: lit_integer
+(17) Exit: lit_integer -> call_proc_staged_α
+(18) Call: call_proc_staged q/1
+(19) Call: var_ref A0
+(19) Exit: var_ref A0 -> lit_integer_α
+(20) Call: lit_integer
+(20) Exit: lit_integer -> call_α
+(21) Call: call $unify
+(21) Exit: call $unify -> q/1_γ
+(18) Exit: call_proc_staged q/1 -> unmark_α
+(22) Call: unmark
+(22) Exit: unmark -> indirect_goto_α
+(23) Call: indirect_goto
+(23) Fail: indirect_goto -> unmark_α
+(24) Call: unmark
+(24) Exit: unmark -> lit_string_α
+(25) Call: lit_string d
+(25) Exit: lit_string d -> call_α
+(26) Call: call $write
+(26) Exit: call $write -> move_label_α
+(27) Call: move_label
+(27) Exit: move_label -> call_α
+(28) Call: call $nl
+(28) Exit: call $nl -> main/0_ret0
+(1) Exit: call_proc_staged main/0 -> pat_flat_γ
+%---- ladder__rung05_negation m4 total=56 prefix=56
+(1) Call: call_proc_staged main/0
+(2) Call: bound
+(2) Exit: bound -> bound_α
+(3) Call: bound
+(3) Exit: bound -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> call_proc_staged_α
+(5) Call: call_proc_staged q/1
+(6) Call: var_ref A0
+(6) Exit: var_ref A0 -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> call_α
+(8) Call: call $unify
+(8) Fail: call $unify -> q/1_step
+(5) Fail: call_proc_staged q/1 -> unmark_α
+(9) Call: unmark
+(9) Exit: unmark -> move_label_α
+(10) Call: move_label
+(10) Exit: move_label -> lit_string_α
+(11) Call: lit_string a
+(11) Exit: lit_string a -> call_α
+(12) Call: call $write
+(12) Exit: call $write -> move_label_α
+(13) Call: move_label
+(13) Exit: move_label -> call_α
+(14) Call: call $nl
+(14) Exit: call $nl -> bound_α
+(15) Call: bound
+(15) Exit: bound -> bound_α
+(16) Call: bound
+(16) Exit: bound -> lit_integer_α
+(17) Call: lit_integer
+(17) Exit: lit_integer -> call_proc_staged_α
+(18) Call: call_proc_staged q/1
+(19) Call: var_ref A0
+(19) Exit: var_ref A0 -> lit_integer_α
+(20) Call: lit_integer
+(20) Exit: lit_integer -> call_α
+(21) Call: call $unify
+(21) Exit: call $unify -> q/1_γ
+(18) Exit: call_proc_staged q/1 -> unmark_α
+(22) Call: unmark
+(22) Exit: unmark -> indirect_goto_α
+(23) Call: indirect_goto
+(23) Fail: indirect_goto -> unmark_α
+(24) Call: unmark
+(24) Exit: unmark -> lit_string_α
+(25) Call: lit_string d
+(25) Exit: lit_string d -> call_α
+(26) Call: call $write
+(26) Exit: call $write -> move_label_α
+(27) Call: move_label
+(27) Exit: move_label -> call_α
+(28) Call: call $nl
+(28) Exit: call $nl -> main/0_ret0
+(1) Exit: call_proc_staged main/0 -> main_γ
+%---- ladder__rung05_once_forall_ignore m3 total=234 prefix=234
+(1) Call: call_proc_staged main/0
+(2) Call: bound
+(2) Exit: bound -> var_ref_α
+(3) Call: var_ref G0
+(3) Exit: var_ref G0 -> call_proc_staged_α
+(4) Call: call_proc_staged q/1
+(5) Call: var_ref A0
+(5) Exit: var_ref A0 -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> call_α
+(7) Call: call $unify
+(7) Exit: call $unify -> q/1_γ
+(4) Exit: call_proc_staged q/1 -> move_label_α
+(8) Call: move_label
+(8) Exit: move_label -> var_α
+(9) Call: var G0
+(9) Exit: var G0 -> call_α
+(10) Call: call $write
+(10) Exit: call $write -> call_α
+(11) Call: call $nl
+(11) Exit: call $nl -> bound_α
+(12) Call: bound
+(12) Exit: bound -> bound_α
+(13) Call: bound
+(13) Exit: bound -> var_ref_α
+(14) Call: var_ref G1
+(14) Exit: var_ref G1 -> call_proc_staged_α
+(15) Call: call_proc_staged q/1
+(16) Call: var_ref A0
+(16) Exit: var_ref A0 -> lit_integer_α
+(17) Call: lit_integer
+(17) Exit: lit_integer -> call_α
+(18) Call: call $unify
+(18) Exit: call $unify -> q/1_γ
+(15) Exit: call_proc_staged q/1 -> bound_α
+(19) Call: bound
+(19) Exit: bound -> var_ref_α
+(20) Call: var_ref G1
+(20) Exit: var_ref G1 -> call_proc_staged_α
+(21) Call: call_proc_staged r/1
+(22) Call: var_ref A0
+(22) Exit: var_ref A0 -> lit_integer_α
+(23) Call: lit_integer
+(23) Exit: lit_integer -> call_α
+(24) Call: call $unify
+(24) Exit: call $unify -> r/1_γ
+(21) Exit: call_proc_staged r/1 -> unmark_α
+(25) Call: unmark
+(25) Exit: unmark -> indirect_goto_α
+(26) Call: indirect_goto
+(26) Fail: indirect_goto -> call_proc_staged_β
+(15) Redo: call_proc_staged q/1
+(27) Call: var_ref A0
+(27) Exit: var_ref A0 -> lit_integer_α
+(28) Call: lit_integer
+(28) Exit: lit_integer -> call_α
+(29) Call: call $unify
+(29) Exit: call $unify -> q/1_γ
+(15) Exit: call_proc_staged q/1 -> bound_α
+(30) Call: bound
+(30) Exit: bound -> var_ref_α
+(31) Call: var_ref G1
+(31) Exit: var_ref G1 -> call_proc_staged_α
+(32) Call: call_proc_staged r/1
+(33) Call: var_ref A0
+(33) Exit: var_ref A0 -> lit_integer_α
+(34) Call: lit_integer
+(34) Exit: lit_integer -> call_α
+(35) Call: call $unify
+(35) Fail: call $unify -> r/1_step
+(36) Call: var_ref A0
+(36) Exit: var_ref A0 -> lit_integer_α
+(37) Call: lit_integer
+(37) Exit: lit_integer -> call_α
+(38) Call: call $unify
+(38) Exit: call $unify -> r/1_γ
+(32) Exit: call_proc_staged r/1 -> unmark_α
+(39) Call: unmark
+(39) Exit: unmark -> indirect_goto_α
+(40) Call: indirect_goto
+(40) Fail: indirect_goto -> call_proc_staged_β
+(15) Redo: call_proc_staged q/1
+(41) Call: var_ref A0
+(41) Exit: var_ref A0 -> lit_integer_α
+(42) Call: lit_integer
+(42) Exit: lit_integer -> call_α
+(43) Call: call $unify
+(43) Exit: call $unify -> q/1_γ
+(15) Exit: call_proc_staged q/1 -> bound_α
+(44) Call: bound
+(44) Exit: bound -> var_ref_α
+(45) Call: var_ref G1
+(45) Exit: var_ref G1 -> call_proc_staged_α
+(46) Call: call_proc_staged r/1
+(47) Call: var_ref A0
+(47) Exit: var_ref A0 -> lit_integer_α
+(48) Call: lit_integer
+(48) Exit: lit_integer -> call_α
+(49) Call: call $unify
+(49) Fail: call $unify -> r/1_step
+(50) Call: var_ref A0
+(50) Exit: var_ref A0 -> lit_integer_α
+(51) Call: lit_integer
+(51) Exit: lit_integer -> call_α
+(52) Call: call $unify
+(52) Fail: call $unify -> r/1_step
+(53) Call: var_ref A0
+(53) Exit: var_ref A0 -> lit_integer_α
+(54) Call: lit_integer
+(54) Exit: lit_integer -> call_α
+(55) Call: call $unify
+(55) Exit: call $unify -> r/1_γ
+(46) Exit: call_proc_staged r/1 -> unmark_α
+(56) Call: unmark
+(56) Exit: unmark -> indirect_goto_α
+(57) Call: indirect_goto
+(57) Fail: indirect_goto -> call_proc_staged_β
+(15) Redo: call_proc_staged q/1
+(15) Fail: call_proc_staged q/1 -> unmark_α
+(58) Call: unmark
+(58) Exit: unmark -> move_label_α
+(59) Call: move_label
+(59) Exit: move_label -> lit_string_α
+(60) Call: lit_string all
+(60) Exit: lit_string all -> call_α
+(61) Call: call $write
+(61) Exit: call $write -> move_label_α
+(62) Call: move_label
+(62) Exit: move_label -> call_α
+(63) Call: call $nl
+(63) Exit: call $nl -> bound_α
+(64) Call: bound
+(64) Exit: bound -> bound_α
+(65) Call: bound
+(65) Exit: bound -> var_ref_α
+(66) Call: var_ref G2
+(66) Exit: var_ref G2 -> call_proc_staged_α
+(67) Call: call_proc_staged q/1
+(68) Call: var_ref A0
+(68) Exit: var_ref A0 -> lit_integer_α
+(69) Call: lit_integer
+(69) Exit: lit_integer -> call_α
+(70) Call: call $unify
+(70) Exit: call $unify -> q/1_γ
+(67) Exit: call_proc_staged q/1 -> bound_α
+(71) Call: bound
+(71) Exit: bound -> var_ref_α
+(72) Call: var_ref G2
+(72) Exit: var_ref G2 -> call_proc_staged_α
+(73) Call: call_proc_staged s/1
+(74) Call: var_ref A0
+(74) Exit: var_ref A0 -> lit_integer_α
+(75) Call: lit_integer
+(75) Exit: lit_integer -> call_α
+(76) Call: call $unify
+(76) Exit: call $unify -> s/1_γ
+(73) Exit: call_proc_staged s/1 -> unmark_α
+(77) Call: unmark
+(77) Exit: unmark -> indirect_goto_α
+(78) Call: indirect_goto
+(78) Fail: indirect_goto -> call_proc_staged_β
+(67) Redo: call_proc_staged q/1
+(79) Call: var_ref A0
+(79) Exit: var_ref A0 -> lit_integer_α
+(80) Call: lit_integer
+(80) Exit: lit_integer -> call_α
+(81) Call: call $unify
+(81) Exit: call $unify -> q/1_γ
+(67) Exit: call_proc_staged q/1 -> bound_α
+(82) Call: bound
+(82) Exit: bound -> var_ref_α
+(83) Call: var_ref G2
+(83) Exit: var_ref G2 -> call_proc_staged_α
+(84) Call: call_proc_staged s/1
+(85) Call: var_ref A0
+(85) Exit: var_ref A0 -> lit_integer_α
+(86) Call: lit_integer
+(86) Exit: lit_integer -> call_α
+(87) Call: call $unify
+(87) Fail: call $unify -> s/1_step
+(84) Fail: call_proc_staged s/1 -> unmark_α
+(88) Call: unmark
+(88) Exit: unmark -> move_label_α
+(89) Call: move_label
+(89) Exit: move_label -> unmark_α
+(90) Call: unmark
+(90) Exit: unmark -> indirect_goto_α
+(91) Call: indirect_goto
+(91) Fail: indirect_goto -> unmark_α
+(92) Call: unmark
+(92) Exit: unmark -> lit_string_α
+(93) Call: lit_string notall
+(93) Exit: lit_string notall -> call_α
+(94) Call: call $write
+(94) Exit: call $write -> move_label_α
+(95) Call: move_label
+(95) Exit: move_label -> call_α
+(96) Call: call $nl
+(96) Exit: call $nl -> bound_α
+(97) Call: bound
+(97) Exit: bound -> lit_integer_α
+(98) Call: lit_integer
+(98) Exit: lit_integer -> call_proc_staged_α
+(99) Call: call_proc_staged q/1
+(100) Call: var_ref A0
+(100) Exit: var_ref A0 -> lit_integer_α
+(101) Call: lit_integer
+(101) Exit: lit_integer -> call_α
+(102) Call: call $unify
+(102) Fail: call $unify -> q/1_step
+(103) Call: var_ref A0
+(103) Exit: var_ref A0 -> lit_integer_α
+(104) Call: lit_integer
+(104) Exit: lit_integer -> call_α
+(105) Call: call $unify
+(105) Fail: call $unify -> q/1_step
+(106) Call: var_ref A0
+(106) Exit: var_ref A0 -> lit_integer_α
+(107) Call: lit_integer
+(107) Exit: lit_integer -> call_α
+(108) Call: call $unify
+(108) Fail: call $unify -> q/1_step
+(99) Fail: call_proc_staged q/1 -> unmark_α
+(109) Call: unmark
+(109) Exit: unmark -> move_label_α
+(110) Call: move_label
+(110) Exit: move_label -> lit_string_α
+(111) Call: lit_string end
+(111) Exit: lit_string end -> call_α
+(112) Call: call $write
+(112) Exit: call $write -> call_α
+(113) Call: call $nl
+(113) Exit: call $nl -> main/0_ret0
+(1) Exit: call_proc_staged main/0 -> pat_flat_γ
+%---- ladder__rung05_once_forall_ignore m4 total=234 prefix=234
+(1) Call: call_proc_staged main/0
+(2) Call: bound
+(2) Exit: bound -> var_ref_α
+(3) Call: var_ref G0
+(3) Exit: var_ref G0 -> call_proc_staged_α
+(4) Call: call_proc_staged q/1
+(5) Call: var_ref A0
+(5) Exit: var_ref A0 -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> call_α
+(7) Call: call $unify
+(7) Exit: call $unify -> q/1_γ
+(4) Exit: call_proc_staged q/1 -> move_label_α
+(8) Call: move_label
+(8) Exit: move_label -> var_α
+(9) Call: var G0
+(9) Exit: var G0 -> call_α
+(10) Call: call $write
+(10) Exit: call $write -> call_α
+(11) Call: call $nl
+(11) Exit: call $nl -> bound_α
+(12) Call: bound
+(12) Exit: bound -> bound_α
+(13) Call: bound
+(13) Exit: bound -> var_ref_α
+(14) Call: var_ref G1
+(14) Exit: var_ref G1 -> call_proc_staged_α
+(15) Call: call_proc_staged q/1
+(16) Call: var_ref A0
+(16) Exit: var_ref A0 -> lit_integer_α
+(17) Call: lit_integer
+(17) Exit: lit_integer -> call_α
+(18) Call: call $unify
+(18) Exit: call $unify -> q/1_γ
+(15) Exit: call_proc_staged q/1 -> bound_α
+(19) Call: bound
+(19) Exit: bound -> var_ref_α
+(20) Call: var_ref G1
+(20) Exit: var_ref G1 -> call_proc_staged_α
+(21) Call: call_proc_staged r/1
+(22) Call: var_ref A0
+(22) Exit: var_ref A0 -> lit_integer_α
+(23) Call: lit_integer
+(23) Exit: lit_integer -> call_α
+(24) Call: call $unify
+(24) Exit: call $unify -> r/1_γ
+(21) Exit: call_proc_staged r/1 -> unmark_α
+(25) Call: unmark
+(25) Exit: unmark -> indirect_goto_α
+(26) Call: indirect_goto
+(26) Fail: indirect_goto -> call_proc_staged_β
+(15) Redo: call_proc_staged q/1
+(27) Call: var_ref A0
+(27) Exit: var_ref A0 -> lit_integer_α
+(28) Call: lit_integer
+(28) Exit: lit_integer -> call_α
+(29) Call: call $unify
+(29) Exit: call $unify -> q/1_γ
+(15) Exit: call_proc_staged q/1 -> bound_α
+(30) Call: bound
+(30) Exit: bound -> var_ref_α
+(31) Call: var_ref G1
+(31) Exit: var_ref G1 -> call_proc_staged_α
+(32) Call: call_proc_staged r/1
+(33) Call: var_ref A0
+(33) Exit: var_ref A0 -> lit_integer_α
+(34) Call: lit_integer
+(34) Exit: lit_integer -> call_α
+(35) Call: call $unify
+(35) Fail: call $unify -> r/1_step
+(36) Call: var_ref A0
+(36) Exit: var_ref A0 -> lit_integer_α
+(37) Call: lit_integer
+(37) Exit: lit_integer -> call_α
+(38) Call: call $unify
+(38) Exit: call $unify -> r/1_γ
+(32) Exit: call_proc_staged r/1 -> unmark_α
+(39) Call: unmark
+(39) Exit: unmark -> indirect_goto_α
+(40) Call: indirect_goto
+(40) Fail: indirect_goto -> call_proc_staged_β
+(15) Redo: call_proc_staged q/1
+(41) Call: var_ref A0
+(41) Exit: var_ref A0 -> lit_integer_α
+(42) Call: lit_integer
+(42) Exit: lit_integer -> call_α
+(43) Call: call $unify
+(43) Exit: call $unify -> q/1_γ
+(15) Exit: call_proc_staged q/1 -> bound_α
+(44) Call: bound
+(44) Exit: bound -> var_ref_α
+(45) Call: var_ref G1
+(45) Exit: var_ref G1 -> call_proc_staged_α
+(46) Call: call_proc_staged r/1
+(47) Call: var_ref A0
+(47) Exit: var_ref A0 -> lit_integer_α
+(48) Call: lit_integer
+(48) Exit: lit_integer -> call_α
+(49) Call: call $unify
+(49) Fail: call $unify -> r/1_step
+(50) Call: var_ref A0
+(50) Exit: var_ref A0 -> lit_integer_α
+(51) Call: lit_integer
+(51) Exit: lit_integer -> call_α
+(52) Call: call $unify
+(52) Fail: call $unify -> r/1_step
+(53) Call: var_ref A0
+(53) Exit: var_ref A0 -> lit_integer_α
+(54) Call: lit_integer
+(54) Exit: lit_integer -> call_α
+(55) Call: call $unify
+(55) Exit: call $unify -> r/1_γ
+(46) Exit: call_proc_staged r/1 -> unmark_α
+(56) Call: unmark
+(56) Exit: unmark -> indirect_goto_α
+(57) Call: indirect_goto
+(57) Fail: indirect_goto -> call_proc_staged_β
+(15) Redo: call_proc_staged q/1
+(15) Fail: call_proc_staged q/1 -> unmark_α
+(58) Call: unmark
+(58) Exit: unmark -> move_label_α
+(59) Call: move_label
+(59) Exit: move_label -> lit_string_α
+(60) Call: lit_string all
+(60) Exit: lit_string all -> call_α
+(61) Call: call $write
+(61) Exit: call $write -> move_label_α
+(62) Call: move_label
+(62) Exit: move_label -> call_α
+(63) Call: call $nl
+(63) Exit: call $nl -> bound_α
+(64) Call: bound
+(64) Exit: bound -> bound_α
+(65) Call: bound
+(65) Exit: bound -> var_ref_α
+(66) Call: var_ref G2
+(66) Exit: var_ref G2 -> call_proc_staged_α
+(67) Call: call_proc_staged q/1
+(68) Call: var_ref A0
+(68) Exit: var_ref A0 -> lit_integer_α
+(69) Call: lit_integer
+(69) Exit: lit_integer -> call_α
+(70) Call: call $unify
+(70) Exit: call $unify -> q/1_γ
+(67) Exit: call_proc_staged q/1 -> bound_α
+(71) Call: bound
+(71) Exit: bound -> var_ref_α
+(72) Call: var_ref G2
+(72) Exit: var_ref G2 -> call_proc_staged_α
+(73) Call: call_proc_staged s/1
+(74) Call: var_ref A0
+(74) Exit: var_ref A0 -> lit_integer_α
+(75) Call: lit_integer
+(75) Exit: lit_integer -> call_α
+(76) Call: call $unify
+(76) Exit: call $unify -> s/1_γ
+(73) Exit: call_proc_staged s/1 -> unmark_α
+(77) Call: unmark
+(77) Exit: unmark -> indirect_goto_α
+(78) Call: indirect_goto
+(78) Fail: indirect_goto -> call_proc_staged_β
+(67) Redo: call_proc_staged q/1
+(79) Call: var_ref A0
+(79) Exit: var_ref A0 -> lit_integer_α
+(80) Call: lit_integer
+(80) Exit: lit_integer -> call_α
+(81) Call: call $unify
+(81) Exit: call $unify -> q/1_γ
+(67) Exit: call_proc_staged q/1 -> bound_α
+(82) Call: bound
+(82) Exit: bound -> var_ref_α
+(83) Call: var_ref G2
+(83) Exit: var_ref G2 -> call_proc_staged_α
+(84) Call: call_proc_staged s/1
+(85) Call: var_ref A0
+(85) Exit: var_ref A0 -> lit_integer_α
+(86) Call: lit_integer
+(86) Exit: lit_integer -> call_α
+(87) Call: call $unify
+(87) Fail: call $unify -> s/1_step
+(84) Fail: call_proc_staged s/1 -> unmark_α
+(88) Call: unmark
+(88) Exit: unmark -> move_label_α
+(89) Call: move_label
+(89) Exit: move_label -> unmark_α
+(90) Call: unmark
+(90) Exit: unmark -> indirect_goto_α
+(91) Call: indirect_goto
+(91) Fail: indirect_goto -> unmark_α
+(92) Call: unmark
+(92) Exit: unmark -> lit_string_α
+(93) Call: lit_string notall
+(93) Exit: lit_string notall -> call_α
+(94) Call: call $write
+(94) Exit: call $write -> move_label_α
+(95) Call: move_label
+(95) Exit: move_label -> call_α
+(96) Call: call $nl
+(96) Exit: call $nl -> bound_α
+(97) Call: bound
+(97) Exit: bound -> lit_integer_α
+(98) Call: lit_integer
+(98) Exit: lit_integer -> call_proc_staged_α
+(99) Call: call_proc_staged q/1
+(100) Call: var_ref A0
+(100) Exit: var_ref A0 -> lit_integer_α
+(101) Call: lit_integer
+(101) Exit: lit_integer -> call_α
+(102) Call: call $unify
+(102) Fail: call $unify -> q/1_step
+(103) Call: var_ref A0
+(103) Exit: var_ref A0 -> lit_integer_α
+(104) Call: lit_integer
+(104) Exit: lit_integer -> call_α
+(105) Call: call $unify
+(105) Fail: call $unify -> q/1_step
+(106) Call: var_ref A0
+(106) Exit: var_ref A0 -> lit_integer_α
+(107) Call: lit_integer
+(107) Exit: lit_integer -> call_α
+(108) Call: call $unify
+(108) Fail: call $unify -> q/1_step
+(99) Fail: call_proc_staged q/1 -> unmark_α
+(109) Call: unmark
+(109) Exit: unmark -> move_label_α
+(110) Call: move_label
+(110) Exit: move_label -> lit_string_α
+(111) Call: lit_string end
+(111) Exit: lit_string end -> call_α
+(112) Call: call $write
+(112) Exit: call $write -> call_α
+(113) Call: call $nl
+(113) Exit: call $nl -> main/0_ret0
 (1) Exit: call_proc_staged main/0 -> main_γ
 %---- ladder__rung04_cut_under_backtrack m3 total=38 prefix=38
 (1) Call: call_proc_staged main/0

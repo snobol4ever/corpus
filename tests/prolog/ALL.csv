@@ -304,7 +304,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,findall,bagof,setof,forall,ass
 303,cut_directive_replace_1,roman__roman,roman,block,0,23,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 304,cut_directive_5,rung10_programs_puzzle_01__rung10_programs_puzzle_01,rung10_programs_puzzle_01,block,0,37,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0
 305,clause_ite_1,rung45_reflect_clause_nonexistent__rung45_reflect_clause_nonexistent,rung45_reflect_clause_nonexistent,block,0,2,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,1,0,0,0,0,1,0,0,0
-306,throw_ite_directive_1,ladder__rung05_ite_condition_throws,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
+306,throw_ite_directive_1,ladder__rung09_ite_condition_throws,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
 307,assertz_ite_2,rung45_reflect_predicate_property__rung45_reflect_predicate_property,rung45_reflect_predicate_property,block,0,3,UNKNOWN,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
 308,between_ite_directive_1,rung50_between_test__rung50_between_test,rung50_between_test,block,0,3,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
 309,format_directive_7,ladder__rung06_format_sink_current_stream,ladder,block,0,3,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
