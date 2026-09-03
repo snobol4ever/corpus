@@ -1,11 +1,16 @@
-icon-scan-resume-through-non-resumable-while-condition
-jtran is the full 17-module translator and does not build in either mode: the compiler
-itself aborts. m3: `bb_emit_end: 2 unresolved forward reference(s)`; m4 emits an .s that
-assembles but fails at ld with `undefined reference to n<N>_var_β`. Both sites are in
-lexer.icn's `yylex`/`lex_yylex0`, on the shape `EXPR ? { while COND do ... suspend ... }`.
-Root-caused 2026-09-03 (hq_B), minimal witness (2 lines, in the FINDING): the scan's
-resume operand is the while's loop-back GOTO, whose beta-follow lands on the loop
-CONDITION's beta port -- and a non-resumable condition (a literal or a plain variable)
-emits only an alpha entry. `while f()` (resumable condition) compiles and links fine.
-Routed to hq_C: the fix needs a resume-at-alpha marker, which the 2-ref IR_t
-(FROZEN LABEL MODEL, GOAL-JCON-IN-SCRIP.md) has no room for today.
+icon-jcon-class-genhost-recursive-generator
+jtran is the full 17-module translator. It now COMPILES AND LINKS in both modes and runs to
+rc=0 -- the previous class on this marker (icon-scan-resume-through-non-resumable-while-condition,
+`bb_emit_end: 2 unresolved forward reference(s)` in m3, `undefined reference to n<N>_var_β` at ld
+in m4) was CURED by hq_C 2026-09-03 in src/emitter/emit.cpp (flat_beta_kind_keeps: the SCAN
+resume-operand walk asked a node it reached through a γ edge for that node's β port, and a
+non-resumable box emits only α).
+THE REMAINING DIFF IS A DIFFERENT CLASS, re-measured on the cured tree. `jtran preproc
+inputs/hello.icn : stdout` prints nothing where the oracle prints hello.icn's 4 preprocessed
+lines, and stderr carries two GENHOST refusals:
+    [GENHOST] ⛔ host=proc_ir_a_ProcDecl RESERVES NOTHING: a generator callee (direct or
+    transitive) is not yet registered (forward reference) or is recursive/cyclic
+    [GENHOST] ⛔ host=pat_flat RESERVES NOTHING: ...
+That is the recursive-generator-host / per-activation-storage class, owned by the row
+icon-jcon-class-genhost-recursive-generator. ⭐ A cure there is what makes this row XPASS;
+until then the marker is honest and the gate stays green on it.
