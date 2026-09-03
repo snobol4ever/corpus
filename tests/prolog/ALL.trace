@@ -5702,3 +5702,303 @@
 (27) Call: call $nl
 (27) Exit: call $nl -> main/0_γ
 (1) Exit: call_proc_staged main/0 -> main_γ
+%---- ladder__rung07_sub_atom_generates m3 total=102 prefix=102
+(1) Call: call_proc_staged main/0
+(2) Call: var_ref G0
+(2) Exit: var_ref G0 -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> var_ref_α
+(4) Call: var_ref G1
+(4) Exit: var_ref G1 -> var_ref_α
+(5) Call: var_ref G2
+(5) Exit: var_ref G2 -> lit_string_α
+(6) Call: lit_string abc
+(6) Exit: lit_string abc -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> lit_string_α
+(8) Call: lit_string abc
+(8) Exit: lit_string abc -> call_α
+(9) Call: call $sub_atom_n
+(9) Exit: call $sub_atom_n -> to_α
+(10) Call: to
+(10) Exit: to -> call_α
+(11) Call: call $sub_atom_at
+(11) Fail: call $sub_atom_at -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(12) Call: call $sub_atom_at
+(12) Exit: call $sub_atom_at -> lit_string_α
+(13) Call: lit_string -
+(13) Exit: lit_string - -> var_ref_α
+(14) Call: var_ref G0
+(14) Exit: var_ref G0 -> var_ref_α
+(15) Call: var_ref G2
+(15) Exit: var_ref G2 -> call_α
+(16) Call: call $mkc
+(16) Exit: call $mkc -> call_α
+(17) Call: call $write
+(17) Exit: call $write -> call_α
+(18) Call: call $nl
+(18) Exit: call $nl -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(19) Call: call $sub_atom_at
+(19) Fail: call $sub_atom_at -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(20) Call: call $sub_atom_at
+(20) Fail: call $sub_atom_at -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(21) Call: call $sub_atom_at
+(21) Fail: call $sub_atom_at -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(22) Call: call $sub_atom_at
+(22) Exit: call $sub_atom_at -> lit_string_α
+(23) Call: lit_string -
+(23) Exit: lit_string - -> var_ref_α
+(24) Call: var_ref G0
+(24) Exit: var_ref G0 -> var_ref_α
+(25) Call: var_ref G2
+(25) Exit: var_ref G2 -> call_α
+(26) Call: call $mkc
+(26) Exit: call $mkc -> call_α
+(27) Call: call $write
+(27) Exit: call $write -> call_α
+(28) Call: call $nl
+(28) Exit: call $nl -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(29) Call: call $sub_atom_at
+(29) Fail: call $sub_atom_at -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(30) Call: call $sub_atom_at
+(30) Fail: call $sub_atom_at -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(31) Call: call $sub_atom_at
+(31) Exit: call $sub_atom_at -> lit_string_α
+(32) Call: lit_string -
+(32) Exit: lit_string - -> var_ref_α
+(33) Call: var_ref G0
+(33) Exit: var_ref G0 -> var_ref_α
+(34) Call: var_ref G2
+(34) Exit: var_ref G2 -> call_α
+(35) Call: call $mkc
+(35) Exit: call $mkc -> call_α
+(36) Call: call $write
+(36) Exit: call $write -> call_α
+(37) Call: call $nl
+(37) Exit: call $nl -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(38) Call: call $sub_atom_at
+(38) Fail: call $sub_atom_at -> to_β
+(10) Redo: to
+(10) Fail: to -> main/0_step
+(39) Call: lit_string done
+(39) Exit: lit_string done -> call_α
+(40) Call: call $write
+(40) Exit: call $write -> call_α
+(41) Call: call $nl
+(41) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> pat_flat_γ
+%---- ladder__rung07_sub_atom_generates m4 total=102 prefix=102
+(1) Call: call_proc_staged main/0
+(2) Call: var_ref G0
+(2) Exit: var_ref G0 -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> var_ref_α
+(4) Call: var_ref G1
+(4) Exit: var_ref G1 -> var_ref_α
+(5) Call: var_ref G2
+(5) Exit: var_ref G2 -> lit_string_α
+(6) Call: lit_string abc
+(6) Exit: lit_string abc -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> lit_string_α
+(8) Call: lit_string abc
+(8) Exit: lit_string abc -> call_α
+(9) Call: call $sub_atom_n
+(9) Exit: call $sub_atom_n -> to_α
+(10) Call: to
+(10) Exit: to -> call_α
+(11) Call: call $sub_atom_at
+(11) Fail: call $sub_atom_at -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(12) Call: call $sub_atom_at
+(12) Exit: call $sub_atom_at -> lit_string_α
+(13) Call: lit_string -
+(13) Exit: lit_string - -> var_ref_α
+(14) Call: var_ref G0
+(14) Exit: var_ref G0 -> var_ref_α
+(15) Call: var_ref G2
+(15) Exit: var_ref G2 -> call_α
+(16) Call: call $mkc
+(16) Exit: call $mkc -> call_α
+(17) Call: call $write
+(17) Exit: call $write -> call_α
+(18) Call: call $nl
+(18) Exit: call $nl -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(19) Call: call $sub_atom_at
+(19) Fail: call $sub_atom_at -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(20) Call: call $sub_atom_at
+(20) Fail: call $sub_atom_at -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(21) Call: call $sub_atom_at
+(21) Fail: call $sub_atom_at -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(22) Call: call $sub_atom_at
+(22) Exit: call $sub_atom_at -> lit_string_α
+(23) Call: lit_string -
+(23) Exit: lit_string - -> var_ref_α
+(24) Call: var_ref G0
+(24) Exit: var_ref G0 -> var_ref_α
+(25) Call: var_ref G2
+(25) Exit: var_ref G2 -> call_α
+(26) Call: call $mkc
+(26) Exit: call $mkc -> call_α
+(27) Call: call $write
+(27) Exit: call $write -> call_α
+(28) Call: call $nl
+(28) Exit: call $nl -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(29) Call: call $sub_atom_at
+(29) Fail: call $sub_atom_at -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(30) Call: call $sub_atom_at
+(30) Fail: call $sub_atom_at -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(31) Call: call $sub_atom_at
+(31) Exit: call $sub_atom_at -> lit_string_α
+(32) Call: lit_string -
+(32) Exit: lit_string - -> var_ref_α
+(33) Call: var_ref G0
+(33) Exit: var_ref G0 -> var_ref_α
+(34) Call: var_ref G2
+(34) Exit: var_ref G2 -> call_α
+(35) Call: call $mkc
+(35) Exit: call $mkc -> call_α
+(36) Call: call $write
+(36) Exit: call $write -> call_α
+(37) Call: call $nl
+(37) Exit: call $nl -> to_β
+(10) Redo: to
+(10) Exit: to -> call_α
+(38) Call: call $sub_atom_at
+(38) Fail: call $sub_atom_at -> to_β
+(10) Redo: to
+(10) Fail: to -> main/0_step
+(39) Call: lit_string done
+(39) Exit: lit_string done -> call_α
+(40) Call: call $write
+(40) Exit: call $write -> call_α
+(41) Call: call $nl
+(41) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> main_γ
+%---- ladder__rung07_between_generates m3 total=46 prefix=46
+(1) Call: call_proc_staged main/0
+(2) Call: var_ref G0
+(2) Exit: var_ref G0 -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> to_α
+(5) Call: to
+(5) Exit: to -> call_α
+(6) Call: call $is_v
+(6) Exit: call $is_v -> var_α
+(7) Call: var G0
+(7) Exit: var G0 -> call_α
+(8) Call: call $write
+(8) Exit: call $write -> call_α
+(9) Call: call $nl
+(9) Exit: call $nl -> to_β
+(5) Redo: to
+(5) Exit: to -> call_α
+(10) Call: call $is_v
+(10) Exit: call $is_v -> var_α
+(11) Call: var G0
+(11) Exit: var G0 -> call_α
+(12) Call: call $write
+(12) Exit: call $write -> call_α
+(13) Call: call $nl
+(13) Exit: call $nl -> to_β
+(5) Redo: to
+(5) Exit: to -> call_α
+(14) Call: call $is_v
+(14) Exit: call $is_v -> var_α
+(15) Call: var G0
+(15) Exit: var G0 -> call_α
+(16) Call: call $write
+(16) Exit: call $write -> call_α
+(17) Call: call $nl
+(17) Exit: call $nl -> to_β
+(5) Redo: to
+(5) Fail: to -> main/0_step
+(18) Call: lit_string done
+(18) Exit: lit_string done -> call_α
+(19) Call: call $write
+(19) Exit: call $write -> call_α
+(20) Call: call $nl
+(20) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> pat_flat_γ
+%---- ladder__rung07_between_generates m4 total=46 prefix=46
+(1) Call: call_proc_staged main/0
+(2) Call: var_ref G0
+(2) Exit: var_ref G0 -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> to_α
+(5) Call: to
+(5) Exit: to -> call_α
+(6) Call: call $is_v
+(6) Exit: call $is_v -> var_α
+(7) Call: var G0
+(7) Exit: var G0 -> call_α
+(8) Call: call $write
+(8) Exit: call $write -> call_α
+(9) Call: call $nl
+(9) Exit: call $nl -> to_β
+(5) Redo: to
+(5) Exit: to -> call_α
+(10) Call: call $is_v
+(10) Exit: call $is_v -> var_α
+(11) Call: var G0
+(11) Exit: var G0 -> call_α
+(12) Call: call $write
+(12) Exit: call $write -> call_α
+(13) Call: call $nl
+(13) Exit: call $nl -> to_β
+(5) Redo: to
+(5) Exit: to -> call_α
+(14) Call: call $is_v
+(14) Exit: call $is_v -> var_α
+(15) Call: var G0
+(15) Exit: var G0 -> call_α
+(16) Call: call $write
+(16) Exit: call $write -> call_α
+(17) Call: call $nl
+(17) Exit: call $nl -> to_β
+(5) Redo: to
+(5) Fail: to -> main/0_step
+(18) Call: lit_string done
+(18) Exit: lit_string done -> call_α
+(19) Call: call $write
+(19) Exit: call $write -> call_α
+(20) Call: call $nl
+(20) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> main_γ
