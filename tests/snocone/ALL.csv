@@ -249,7 +249,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 248,arb_span_break_replace_2,test_pattern__test_pattern,test_pattern,block,0,33,"m3,m4",0,1,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0
 249,arb_span_break_replace_1,pattern_suite__pattern_suite,pattern_suite,block,0,112,"m3,m4",0,1,0,0,1,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0
 250,simple_output_124,crosscheck_rungB11__B11_comment_hash,crosscheck_rungB11,block,1,3,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-251,simple_output_104,crosscheck_rungB07__B07_percent_assign,crosscheck_rungB07,block,1,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+251,simple_output_104,crosscheck_rungB07__B07_percent_assign,crosscheck_rungB07,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 252,simple_output_92,crosscheck_rungB05__B05_alt_both_fail,crosscheck_rungB05,block,1,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 253,simple_output_96,crosscheck_rungB06__B06_query_empty,crosscheck_rungB06,block,1,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 254,simple_output_97,crosscheck_rungB06__B06_query_nonempty,crosscheck_rungB06,block,1,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

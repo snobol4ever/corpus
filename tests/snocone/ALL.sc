@@ -1751,7 +1751,7 @@ if (s ? (SPAN('a') . aa && SPAN('b') . bb)) { OUTPUT = 'COMBO-4 aa=' && aa && ' 
 # B11_comment_hash: # is also a line-comment introducer
 x = 7; # ignored
 OUTPUT = x; # also ignored
-/*----------------------------------------------- 251 simple_output_104 XFAIL */
+/*----------------------------------------------------- 251 simple_output_104 */
 // B07_percent_assign: x %= n gives remainder
 x = 17;
 x %= 5;
