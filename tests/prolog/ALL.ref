@@ -1154,10 +1154,10 @@ no
 %--------------------------------------------------- 401 setof_bagof_directive_1
 [a,b,c]
 [c,a,b,a]
-%--------------------------------------------- 402 catch_throw_directive_5 XFAIL
+%--------------------------------------------- 402 catch_throw_directive_5
 caught(boom)
 done
-%--------------------------------------------- 403 catch_throw_directive_6 XFAIL
+%--------------------------------------------- 403 catch_throw_directive_6
 oops
 after
 %----------------------------------------- 404 assertz_retract_directive_2 XFAIL

@@ -2383,10 +2383,10 @@ q(a).
 q(b).
 q(a).
 main :- setof(X, q(X), S), write(S), nl, bagof(Y, q(Y), B), write(B), nl.
-%--------------------------------------------- 402 catch_throw_directive_5 XFAIL
+%--------------------------------------------- 402 catch_throw_directive_5
 :- initialization(main).
 main :- catch(throw(boom), E, (write(caught(E)), nl)), write(done), nl.
-%--------------------------------------------- 403 catch_throw_directive_6 XFAIL
+%--------------------------------------------- 403 catch_throw_directive_6
 :- initialization(main).
 p :- throw(oops).
 main :- catch(p, E, (write(E), nl)), write(after), nl.

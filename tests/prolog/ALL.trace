@@ -6328,3 +6328,157 @@
 (69) Call: call $nl
 (69) Exit: call $nl -> main/0_γ
 (1) Exit: call_proc_staged main/0 -> main_γ
+%---- ladder__rung09_ite_condition_throws m3 total=16 prefix=16
+(1) Call: call_proc_staged main/0
+(2) Call: lit_string before
+(2) Exit: lit_string before -> call_α
+(3) Call: call $write
+(3) Exit: call $write -> call_α
+(4) Call: call $nl
+(4) Exit: call $nl -> bound_α
+(5) Call: bound
+(5) Exit: bound -> lit_string_α
+(6) Call: lit_string oops
+(6) Exit: lit_string oops -> call_α
+(7) Call: call $throw
+(7) Fail: call $throw -> unmark_α
+(8) Call: unmark
+(8) Fail: unmark -> main/0_step
+(1) Fail: call_proc_staged main/0 -> pat_flat_step
+%---- ladder__rung09_ite_condition_throws m4 total=16 prefix=16
+(1) Call: call_proc_staged main/0
+(2) Call: lit_string before
+(2) Exit: lit_string before -> call_α
+(3) Call: call $write
+(3) Exit: call $write -> call_α
+(4) Call: call $nl
+(4) Exit: call $nl -> bound_α
+(5) Call: bound
+(5) Exit: bound -> lit_string_α
+(6) Call: lit_string oops
+(6) Exit: lit_string oops -> call_α
+(7) Call: call $throw
+(7) Fail: call $throw -> unmark_α
+(8) Call: unmark
+(8) Fail: unmark -> main/0_step
+(1) Fail: call_proc_staged main/0 -> main_step
+%---- ladder__rung09_catch_recovers m3 total=30 prefix=30
+(1) Call: call_proc_staged main/0
+(2) Call: bound
+(2) Exit: bound -> lit_string_α
+(3) Call: lit_string boom
+(3) Exit: lit_string boom -> call_α
+(4) Call: call $throw
+(4) Fail: call $throw -> unmark_α
+(5) Call: unmark
+(5) Exit: unmark -> var_ref_α
+(6) Call: var_ref G0
+(6) Exit: var_ref G0 -> call_α
+(7) Call: call $catch_handle
+(7) Exit: call $catch_handle -> lit_string_α
+(8) Call: lit_string caught
+(8) Exit: lit_string caught -> var_ref_α
+(9) Call: var_ref G0
+(9) Exit: var_ref G0 -> call_α
+(10) Call: call $mkc
+(10) Exit: call $mkc -> call_α
+(11) Call: call $write
+(11) Exit: call $write -> call_α
+(12) Call: call $nl
+(12) Exit: call $nl -> lit_string_α
+(13) Call: lit_string done
+(13) Exit: lit_string done -> call_α
+(14) Call: call $write
+(14) Exit: call $write -> call_α
+(15) Call: call $nl
+(15) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> pat_flat_γ
+%---- ladder__rung09_catch_recovers m4 total=30 prefix=30
+(1) Call: call_proc_staged main/0
+(2) Call: bound
+(2) Exit: bound -> lit_string_α
+(3) Call: lit_string boom
+(3) Exit: lit_string boom -> call_α
+(4) Call: call $throw
+(4) Fail: call $throw -> unmark_α
+(5) Call: unmark
+(5) Exit: unmark -> var_ref_α
+(6) Call: var_ref G0
+(6) Exit: var_ref G0 -> call_α
+(7) Call: call $catch_handle
+(7) Exit: call $catch_handle -> lit_string_α
+(8) Call: lit_string caught
+(8) Exit: lit_string caught -> var_ref_α
+(9) Call: var_ref G0
+(9) Exit: var_ref G0 -> call_α
+(10) Call: call $mkc
+(10) Exit: call $mkc -> call_α
+(11) Call: call $write
+(11) Exit: call $write -> call_α
+(12) Call: call $nl
+(12) Exit: call $nl -> lit_string_α
+(13) Call: lit_string done
+(13) Exit: lit_string done -> call_α
+(14) Call: call $write
+(14) Exit: call $write -> call_α
+(15) Call: call $nl
+(15) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> main_γ
+%---- ladder__rung09_throw_across_clause m3 total=28 prefix=28
+(1) Call: call_proc_staged main/0
+(2) Call: bound
+(2) Exit: bound -> call_proc_staged_α
+(3) Call: call_proc_staged p/0
+(4) Call: lit_string oops
+(4) Exit: lit_string oops -> call_α
+(5) Call: call $throw
+(5) Fail: call $throw -> p/0_step
+(3) Fail: call_proc_staged p/0 -> unmark_α
+(6) Call: unmark
+(6) Exit: unmark -> var_ref_α
+(7) Call: var_ref G0
+(7) Exit: var_ref G0 -> call_α
+(8) Call: call $catch_handle
+(8) Exit: call $catch_handle -> var_α
+(9) Call: var G0
+(9) Exit: var G0 -> call_α
+(10) Call: call $write
+(10) Exit: call $write -> call_α
+(11) Call: call $nl
+(11) Exit: call $nl -> lit_string_α
+(12) Call: lit_string after
+(12) Exit: lit_string after -> call_α
+(13) Call: call $write
+(13) Exit: call $write -> call_α
+(14) Call: call $nl
+(14) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> pat_flat_γ
+%---- ladder__rung09_throw_across_clause m4 total=28 prefix=28
+(1) Call: call_proc_staged main/0
+(2) Call: bound
+(2) Exit: bound -> call_proc_staged_α
+(3) Call: call_proc_staged p/0
+(4) Call: lit_string oops
+(4) Exit: lit_string oops -> call_α
+(5) Call: call $throw
+(5) Fail: call $throw -> p/0_step
+(3) Fail: call_proc_staged p/0 -> unmark_α
+(6) Call: unmark
+(6) Exit: unmark -> var_ref_α
+(7) Call: var_ref G0
+(7) Exit: var_ref G0 -> call_α
+(8) Call: call $catch_handle
+(8) Exit: call $catch_handle -> var_α
+(9) Call: var G0
+(9) Exit: var G0 -> call_α
+(10) Call: call $write
+(10) Exit: call $write -> call_α
+(11) Call: call $nl
+(11) Exit: call $nl -> lit_string_α
+(12) Call: lit_string after
+(12) Exit: lit_string after -> call_α
+(13) Call: call $write
+(13) Exit: call $write -> call_α
+(14) Call: call $nl
+(14) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> main_γ

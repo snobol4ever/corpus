@@ -400,6 +400,6 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,findall,bagof,setof,forall,ass
 399,findall_directive_5,ladder__rung08_findall_collect,ladder,block,0,2,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 400,cut_ite_directive_1,probe_plz__plz_p8_cut_bars_retry,probe_plz,block,1,6,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1,0,0,0,0,1,0,0,0
 401,setof_bagof_directive_1,ladder__rung08_setof_bagof,ladder,block,0,6,"m3,m4",0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-402,catch_throw_directive_5,ladder__rung09_catch_recovers,ladder,block,1,2,"m3,m4",0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0
-403,catch_throw_directive_6,ladder__rung09_throw_across_clause,ladder,block,1,3,"m3,m4",0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0
+402,catch_throw_directive_5,ladder__rung09_catch_recovers,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0
+403,catch_throw_directive_6,ladder__rung09_throw_across_clause,ladder,block,0,3,"m3,m4",0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0
 404,assertz_retract_directive_2,ladder__rung10_assert_retract_dynamic,ladder,block,1,3,"m3,m4",1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1
