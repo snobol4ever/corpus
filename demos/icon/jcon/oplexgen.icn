@@ -1,0 +1,2 @@
+#  oplexgen.icn -- SCRIP demo entry for JCON's oplexgen (single module).
+link "../../../packages/icon/jcon-compiler/oplexgen";

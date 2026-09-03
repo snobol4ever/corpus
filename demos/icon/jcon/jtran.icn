@@ -1,0 +1,21 @@
+#  jtran.icn -- SCRIP demo entry for the JCON translator (Proebsting & Townsend, Arizona).
+#  Links the 17 modules of jtran in the link order from JCON's tran/Makefile, through SCRIP's
+#  own link directive rather than a concatenated command line. procedure main comes from
+#  jtran_main. do_ops and interface are GENERATED -- see the package README.
+link "../../../packages/icon/jcon-compiler/dump";
+link "../../../packages/icon/jcon-compiler/do_ops";
+link "../../../packages/icon/jcon-compiler/preprocessor";
+link "../../../packages/icon/jcon-compiler/lexer";
+link "../../../packages/icon/jcon-compiler/ast";
+link "../../../packages/icon/jcon-compiler/parse";
+link "../../../packages/icon/jcon-compiler/ir";
+link "../../../packages/icon/jcon-compiler/keyword";
+link "../../../packages/icon/jcon-compiler/irgen";
+link "../../../packages/icon/jcon-compiler/gen_bc";
+link "../../../packages/icon/jcon-compiler/gen_symbolic";
+link "../../../packages/icon/jcon-compiler/gen_dot";
+link "../../../packages/icon/jcon-compiler/gen_ucode";
+link "../../../packages/icon/jcon-compiler/optimize";
+link "../../../packages/icon/jcon-compiler/interface";
+link "../../../packages/icon/jcon-compiler/bytecode";
+link "../../../packages/icon/jcon-compiler/jtran_main";

@@ -1,0 +1,2 @@
+#  interfacegen.icn -- SCRIP demo entry for JCON's interfacegen (single module).
+link "../../../packages/icon/jcon-compiler/interfacegen";

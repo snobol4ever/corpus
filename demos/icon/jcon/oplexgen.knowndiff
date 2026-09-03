@@ -1,0 +1,8 @@
+icon-key-table-iteration-order-differs-from-arizona-oracle
+oplexgen emits JCON's operator-lexer decision tree by walking `every i := key(t.t)`
+(oplexgen.icn:235,240,246,254). SCRIP's key(table) yields a different order than the
+Arizona oracle's, so the generated tree is emitted in a different order. MEASURED
+2026-09-03 (hq_B): 611 lines on both sides, `sort` of the two outputs is BYTE-IDENTICAL,
+and m3 == m4 exactly -- the multiset of emitted lines agrees, only the order differs.
+Icon does not specify key() order, so the generated source stays valid Icon either way;
+this is a byte-identity gap against the oracle, not a wrong answer.

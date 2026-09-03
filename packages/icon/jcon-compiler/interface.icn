@@ -1,0 +1,419 @@
+#GEN: produced by JCON's own interfacegen.icn, then run through SCRIP's
+#     tools/semicolonize_icon.py (semicolons only -- verified: stripping trailing ";" restores the
+#     generator's byte-exact output, and icont -c gives the same verdict before and after).
+#     Regenerate, do not hand-edit: see scripts/util_regen_jcon_generated_sources.sh.
+#  AUTOMATICALLY GENERATED FILE -- DO NOT EDIT!
+procedure bc_keywords(name);
+	static t;
+	initial {
+		t := table();
+		t["allocated"] := [ "allocated", "Ljcon/kZeroes;"];
+		t["ascii"] := [ "ascii", "Ljcon/kValue;"];
+		t["clock"] := [ "clock", "Ljcon/vProc;"];
+		t["col"] := [ "col", "Ljcon/kPaired;"];
+		t["collections"] := [ "collections", "Ljcon/kZeroes;"];
+		t["control"] := [ "control", "Ljcon/kValue;"];
+		t["cset"] := [ "cset", "Ljcon/kValue;"];
+		t["current"] := [ "current", "Ljcon/kValue;"];
+		t["date"] := [ "date", "Ljcon/vProc;"];
+		t["dateline"] := [ "dateline", "Ljcon/vProc;"];
+		t["digits"] := [ "digits", "Ljcon/kValue;"];
+		t["dump"] := [ "dump", "Ljcon/kCounter;"];
+		t["e"] := [ "e", "Ljcon/kValue;"];
+		t["error"] := [ "error", "Ljcon/kCounter;"];
+		t["errornumber"] := [ "errornumber", "Ljcon/kValue;"];
+		t["errortext"] := [ "errortext", "Ljcon/kValue;"];
+		t["errorvalue"] := [ "errorvalue", "Ljcon/kValue;"];
+		t["errout"] := [ "errout", "Ljcon/kValue;"];
+		t["fail"] := [ "fail", "Ljcon/kValue;"];
+		t["features"] := [ "features", "Ljcon/vProc;"];
+		t["host"] := [ "host", "Ljcon/vProc;"];
+		t["input"] := [ "input", "Ljcon/kValue;"];
+		t["interval"] := [ "interval", "Ljcon/kValue;"];
+		t["lcase"] := [ "lcase", "Ljcon/kValue;"];
+		t["ldrag"] := [ "ldrag", "Ljcon/kValue;"];
+		t["letters"] := [ "letters", "Ljcon/kValue;"];
+		t["level"] := [ "level", "Ljcon/vProc;"];
+		t["lpress"] := [ "lpress", "Ljcon/kValue;"];
+		t["lrelease"] := [ "lrelease", "Ljcon/kValue;"];
+		t["main"] := [ "main", "Ljcon/kValue;"];
+		t["mdrag"] := [ "mdrag", "Ljcon/kValue;"];
+		t["meta"] := [ "meta", "Ljcon/kValue;"];
+		t["mpress"] := [ "mpress", "Ljcon/kValue;"];
+		t["mrelease"] := [ "mrelease", "Ljcon/kValue;"];
+		t["null"] := [ "nulll", "Ljcon/kValue;"];
+		t["output"] := [ "output", "Ljcon/kValue;"];
+		t["phi"] := [ "phi", "Ljcon/kValue;"];
+		t["pi"] := [ "pi", "Ljcon/kValue;"];
+		t["pos"] := [ "pos", "Ljcon/k$pos;"];
+		t["progname"] := [ "progname", "Ljcon/kValue;"];
+		t["random"] := [ "random", "Ljcon/k$random;"];
+		t["rdrag"] := [ "rdrag", "Ljcon/kValue;"];
+		t["regions"] := [ "regions", "Ljcon/kZeroes;"];
+		t["resize"] := [ "resize", "Ljcon/kValue;"];
+		t["row"] := [ "row", "Ljcon/kPaired;"];
+		t["rpress"] := [ "rpress", "Ljcon/kValue;"];
+		t["rrelease"] := [ "rrelease", "Ljcon/kValue;"];
+		t["shift"] := [ "shift", "Ljcon/kValue;"];
+		t["source"] := [ "source", "Ljcon/vProc;"];
+		t["storage"] := [ "storage", "Ljcon/kZeroes;"];
+		t["subject"] := [ "subject", "Ljcon/k$subject;"];
+		t["time"] := [ "time", "Ljcon/k$time;"];
+		t["trace"] := [ "trace", "Ljcon/kCounter;"];
+		t["ucase"] := [ "ucase", "Ljcon/kValue;"];
+		t["version"] := [ "version", "Ljcon/kValue;"];
+		t["window"] := [ "window", "Ljcon/k$window;"];
+		t["x"] := [ "x", "Ljcon/kPaired;"];
+		t["y"] := [ "y", "Ljcon/kPaired;"]
+	};
+	return t[name];
+end
+procedure bc_op_methodref(c, name, arity, rval);
+	if arity = 1 & name == "." then return j_create_methodref(c, "Deref", "()Ljcon/vValue;", "jcon/vDescriptor");
+	if arity = 2 & name == ":=" then return j_create_methodref(c, "Assign", "(Ljcon/vDescriptor;)Ljcon/vVariable;", "jcon/vDescriptor");
+	if arity = 2 & name == ":=:" then return j_create_methodref(c, "Swap", "(Ljcon/vDescriptor;)Ljcon/vVariable;", "jcon/vDescriptor");
+	if arity = 2 & name == ":?" then return j_create_methodref(c, "SubjAssign", "(Ljcon/vDescriptor;)Ljcon/vVariable;", "jcon/vDescriptor");
+	if arity = 2 & name == "<-" then return j_create_methodref(c, "RevAssign", "(Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	if arity = 2 & name == "<->" then return j_create_methodref(c, "RevSwap", "(Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	if arity = 1 & name == "#" then return j_create_methodref(c, "Limit", "()Ljcon/vNumeric;", "jcon/vDescriptor");
+	if arity = 2 & name == "&" then return j_create_methodref(c, "Conjunction", "(Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	if arity = 2 & name == "!" then return j_create_methodref(c, "ProcessArgs", "(Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	if arity = 2 & name == "@" then return j_create_methodref(c, "Activate", "(Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	if arity = 3 & name == "..." then return j_create_methodref(c, "ToBy", "(Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	if arity = 1 & name == "+" then return j_create_methodref(c, "Numerate", "()Ljcon/vNumeric;", "jcon/vDescriptor");
+	if arity = 1 & name == "-" then return j_create_methodref(c, "Negate", "()Ljcon/vNumeric;", "jcon/vDescriptor");
+	if arity = 1 & name == "*" then return j_create_methodref(c, "Size", "()Ljcon/vInteger;", "jcon/vDescriptor");
+	if arity = 1 & name == "~" then return j_create_methodref(c, "Complement", "()Ljcon/vCset;", "jcon/vDescriptor");
+	if arity = 1 & name == "^" then return j_create_methodref(c, "Refresh", "()Ljcon/vCoexp;", "jcon/vDescriptor");
+	if arity = 1 & name == "=" then return j_create_methodref(c, "TabMatch", "()Ljcon/vDescriptor;", "jcon/vDescriptor");
+	if arity = 1 & name == "/" then return j_create_methodref(c, "IsNull", "()Ljcon/vDescriptor;", "jcon/vDescriptor");
+	if arity = 1 & name == "\\" then return j_create_methodref(c, "IsntNull", "()Ljcon/vDescriptor;", "jcon/vDescriptor");
+	if arity = 1 & name == "?" then return if \rval then j_create_methodref(c, "SelectVal", "()Ljcon/vValue;", "jcon/vDescriptor") else j_create_methodref(c, "Select", "()Ljcon/vDescriptor;", "jcon/vDescriptor");
+	if arity = 1 & name == "!" then return if \rval then j_create_methodref(c, "BangVal", "()Ljcon/vDescriptor;", "jcon/vDescriptor") else j_create_methodref(c, "Bang", "()Ljcon/vDescriptor;", "jcon/vDescriptor");
+	if arity = 2 & name == "[]" then return if \rval then j_create_methodref(c, "IndexVal", "(Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/vDescriptor") else j_create_methodref(c, "Index", "(Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	if arity = 3 & name == "[:]" then return if \rval then j_create_methodref(c, "SectionVal", "(Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/vDescriptor") else j_create_methodref(c, "Section", "(Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	if arity = 3 & name == "[+:]" then return if \rval then j_create_methodref(c, "SectPlusVal", "(Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/vDescriptor") else j_create_methodref(c, "SectPlus", "(Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	if arity = 3 & name == "[-:]" then return if \rval then j_create_methodref(c, "SectMinusVal", "(Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/vDescriptor") else j_create_methodref(c, "SectMinus", "(Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	if arity = 2 & name == "+" then return j_create_methodref(c, "Add", "(Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/vDescriptor");
+	if arity = 2 & name == "-" then return j_create_methodref(c, "Sub", "(Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/vDescriptor");
+	if arity = 2 & name == "*" then return j_create_methodref(c, "Mul", "(Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/vDescriptor");
+	if arity = 2 & name == "/" then return j_create_methodref(c, "Div", "(Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/vDescriptor");
+	if arity = 2 & name == "%" then return j_create_methodref(c, "Mod", "(Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/vDescriptor");
+	if arity = 2 & name == "^" then return j_create_methodref(c, "Power", "(Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/vDescriptor");
+	if arity = 2 & name == "<" then return j_create_methodref(c, "NLess", "(Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/vDescriptor");
+	if arity = 2 & name == "<=" then return j_create_methodref(c, "NLessEq", "(Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/vDescriptor");
+	if arity = 2 & name == "=" then return j_create_methodref(c, "NEqual", "(Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/vDescriptor");
+	if arity = 2 & name == "~=" then return j_create_methodref(c, "NUnequal", "(Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/vDescriptor");
+	if arity = 2 & name == ">=" then return j_create_methodref(c, "NGreaterEq", "(Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/vDescriptor");
+	if arity = 2 & name == ">" then return j_create_methodref(c, "NGreater", "(Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/vDescriptor");
+	if arity = 2 & name == "<<" then return j_create_methodref(c, "LLess", "(Ljcon/vDescriptor;)Ljcon/vString;", "jcon/vDescriptor");
+	if arity = 2 & name == "<<=" then return j_create_methodref(c, "LLessEq", "(Ljcon/vDescriptor;)Ljcon/vString;", "jcon/vDescriptor");
+	if arity = 2 & name == "==" then return j_create_methodref(c, "LEqual", "(Ljcon/vDescriptor;)Ljcon/vString;", "jcon/vDescriptor");
+	if arity = 2 & name == "~==" then return j_create_methodref(c, "LUnequal", "(Ljcon/vDescriptor;)Ljcon/vString;", "jcon/vDescriptor");
+	if arity = 2 & name == ">>=" then return j_create_methodref(c, "LGreaterEq", "(Ljcon/vDescriptor;)Ljcon/vString;", "jcon/vDescriptor");
+	if arity = 2 & name == ">>" then return j_create_methodref(c, "LGreater", "(Ljcon/vDescriptor;)Ljcon/vString;", "jcon/vDescriptor");
+	if arity = 2 & name == "===" then return j_create_methodref(c, "VEqual", "(Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/vDescriptor");
+	if arity = 2 & name == "~===" then return j_create_methodref(c, "VUnequal", "(Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/vDescriptor");
+	if arity = 2 & name == "||" then return j_create_methodref(c, "Concat", "(Ljcon/vDescriptor;)Ljcon/vString;", "jcon/vDescriptor");
+	if arity = 2 & name == "|||" then return j_create_methodref(c, "ListConcat", "(Ljcon/vDescriptor;)Ljcon/vList;", "jcon/vDescriptor");
+	if arity = 2 & name == "**" then return j_create_methodref(c, "Intersect", "(Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/vDescriptor");
+	if arity = 2 & name == "++" then return j_create_methodref(c, "Union", "(Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/vDescriptor");
+	if arity = 2 & name == "--" then return j_create_methodref(c, "Diff", "(Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/vDescriptor");
+	runerr(500, name || arity);
+end
+procedure bc_trampoline_op_methodref(c, name, arity, rval);
+	if arity = 1 & name == "." then return j_create_methodref(c, "Deref", "(Ljava/lang/String;ILjcon/vDescriptor;)Ljcon/vValue;", "jcon/iTrampoline");
+	if arity = 2 & name == ":=" then return j_create_methodref(c, "Assign", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vVariable;", "jcon/iTrampoline");
+	if arity = 2 & name == ":=:" then return j_create_methodref(c, "Swap", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vVariable;", "jcon/iTrampoline");
+	if arity = 2 & name == ":?" then return j_create_methodref(c, "SubjAssign", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vVariable;", "jcon/iTrampoline");
+	if arity = 2 & name == "<-" then return j_create_methodref(c, "RevAssign", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	if arity = 2 & name == "<->" then return j_create_methodref(c, "RevSwap", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	if arity = 1 & name == "#" then return j_create_methodref(c, "Limit", "(Ljava/lang/String;ILjcon/vDescriptor;)Ljcon/vNumeric;", "jcon/iTrampoline");
+	if arity = 2 & name == "&" then return j_create_methodref(c, "Conjunction", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	if arity = 2 & name == "!" then return j_create_methodref(c, "ProcessArgs", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	if arity = 2 & name == "@" then return j_create_methodref(c, "Activate", "(Ljava/lang/String;ILjava/lang/String;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	if arity = 3 & name == "..." then return j_create_methodref(c, "ToBy", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	if arity = 1 & name == "+" then return j_create_methodref(c, "Numerate", "(Ljava/lang/String;ILjcon/vDescriptor;)Ljcon/vNumeric;", "jcon/iTrampoline");
+	if arity = 1 & name == "-" then return j_create_methodref(c, "Negate", "(Ljava/lang/String;ILjcon/vDescriptor;)Ljcon/vNumeric;", "jcon/iTrampoline");
+	if arity = 1 & name == "*" then return j_create_methodref(c, "Size", "(Ljava/lang/String;ILjcon/vDescriptor;)Ljcon/vInteger;", "jcon/iTrampoline");
+	if arity = 1 & name == "~" then return j_create_methodref(c, "Complement", "(Ljava/lang/String;ILjcon/vDescriptor;)Ljcon/vCset;", "jcon/iTrampoline");
+	if arity = 1 & name == "^" then return j_create_methodref(c, "Refresh", "(Ljava/lang/String;ILjcon/vDescriptor;)Ljcon/vCoexp;", "jcon/iTrampoline");
+	if arity = 1 & name == "=" then return j_create_methodref(c, "TabMatch", "(Ljava/lang/String;ILjcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	if arity = 1 & name == "/" then return j_create_methodref(c, "IsNull", "(Ljava/lang/String;ILjcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	if arity = 1 & name == "\\" then return j_create_methodref(c, "IsntNull", "(Ljava/lang/String;ILjcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	if arity = 1 & name == "?" then return if \rval then j_create_methodref(c, "SelectVal", "(Ljava/lang/String;ILjcon/vDescriptor;)Ljcon/vValue;", "jcon/iTrampoline") else j_create_methodref(c, "Select", "(Ljava/lang/String;ILjcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	if arity = 1 & name == "!" then return if \rval then j_create_methodref(c, "BangVal", "(Ljava/lang/String;ILjcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline") else j_create_methodref(c, "Bang", "(Ljava/lang/String;ILjcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	if arity = 2 & name == "[]" then return if \rval then j_create_methodref(c, "IndexVal", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/iTrampoline") else j_create_methodref(c, "Index", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	if arity = 3 & name == "[:]" then return if \rval then j_create_methodref(c, "SectionVal", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/iTrampoline") else j_create_methodref(c, "Section", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	if arity = 3 & name == "[+:]" then return if \rval then j_create_methodref(c, "SectPlusVal", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/iTrampoline") else j_create_methodref(c, "SectPlus", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	if arity = 3 & name == "[-:]" then return if \rval then j_create_methodref(c, "SectMinusVal", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/iTrampoline") else j_create_methodref(c, "SectMinus", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	if arity = 2 & name == "+" then return j_create_methodref(c, "Add", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/iTrampoline");
+	if arity = 2 & name == "-" then return j_create_methodref(c, "Sub", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/iTrampoline");
+	if arity = 2 & name == "*" then return j_create_methodref(c, "Mul", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/iTrampoline");
+	if arity = 2 & name == "/" then return j_create_methodref(c, "Div", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/iTrampoline");
+	if arity = 2 & name == "%" then return j_create_methodref(c, "Mod", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/iTrampoline");
+	if arity = 2 & name == "^" then return j_create_methodref(c, "Power", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/iTrampoline");
+	if arity = 2 & name == "<" then return j_create_methodref(c, "NLess", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/iTrampoline");
+	if arity = 2 & name == "<=" then return j_create_methodref(c, "NLessEq", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/iTrampoline");
+	if arity = 2 & name == "=" then return j_create_methodref(c, "NEqual", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/iTrampoline");
+	if arity = 2 & name == "~=" then return j_create_methodref(c, "NUnequal", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/iTrampoline");
+	if arity = 2 & name == ">=" then return j_create_methodref(c, "NGreaterEq", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/iTrampoline");
+	if arity = 2 & name == ">" then return j_create_methodref(c, "NGreater", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vNumeric;", "jcon/iTrampoline");
+	if arity = 2 & name == "<<" then return j_create_methodref(c, "LLess", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vString;", "jcon/iTrampoline");
+	if arity = 2 & name == "<<=" then return j_create_methodref(c, "LLessEq", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vString;", "jcon/iTrampoline");
+	if arity = 2 & name == "==" then return j_create_methodref(c, "LEqual", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vString;", "jcon/iTrampoline");
+	if arity = 2 & name == "~==" then return j_create_methodref(c, "LUnequal", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vString;", "jcon/iTrampoline");
+	if arity = 2 & name == ">>=" then return j_create_methodref(c, "LGreaterEq", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vString;", "jcon/iTrampoline");
+	if arity = 2 & name == ">>" then return j_create_methodref(c, "LGreater", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vString;", "jcon/iTrampoline");
+	if arity = 2 & name == "===" then return j_create_methodref(c, "VEqual", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/iTrampoline");
+	if arity = 2 & name == "~===" then return j_create_methodref(c, "VUnequal", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/iTrampoline");
+	if arity = 2 & name == "||" then return j_create_methodref(c, "Concat", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vString;", "jcon/iTrampoline");
+	if arity = 2 & name == "|||" then return j_create_methodref(c, "ListConcat", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vList;", "jcon/iTrampoline");
+	if arity = 2 & name == "**" then return j_create_methodref(c, "Intersect", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/iTrampoline");
+	if arity = 2 & name == "++" then return j_create_methodref(c, "Union", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/iTrampoline");
+	if arity = 2 & name == "--" then return j_create_methodref(c, "Diff", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/iTrampoline");
+	runerr(500, name || arity);
+end
+procedure bc_init_methodref(c, class);
+    return j_create_methodref(c, "<init>", "()V", class);
+end
+procedure bc_initV_methodref(c, class);
+    return j_create_methodref(c, "<init>", "([Ljcon/vDescriptor;)V", class);
+end
+procedure bc_initVI_methodref(c, class);
+    return j_create_methodref(c, "<init>", "([Ljcon/vDescriptor;I)V", class);
+end
+procedure bc_Assign_methodref(c);
+    return j_create_methodref(c, "Assign", "(Ljcon/vDescriptor;)Ljcon/vVariable;", "jcon/vDescriptor");
+end
+procedure bc_CallV_methodref(c);
+    return j_create_methodref(c, "Call", "([Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+end
+procedure bc_New_vNull_methodref(c);
+    return j_create_methodref(c, "New", "()Ljcon/vNull;", "jcon/vNull");
+end
+procedure bc_New_vInteger_methodref(c);
+    return j_create_methodref(c, "New", "(J)Ljcon/vInteger;", "jcon/vInteger");
+end
+procedure bc_New_vBigInt_methodref(c);
+    return j_create_methodref(c, "New", "(Ljava/lang/String;)Ljcon/vBigInt;", "jcon/vBigInt");
+end
+procedure bc_New_vCoexp_methodref(c);
+    return j_create_methodref(c, "New", "(Ljcon/vClosure;)Ljcon/vCoexp;", "jcon/vCoexp");
+end
+procedure bc_New_vCset_methodref(c);
+    return j_create_methodref(c, "New", "(Ljava/lang/String;)Ljcon/vCset;", "jcon/vCset");
+end
+procedure bc_New_vReal_methodref(c);
+    return j_create_methodref(c, "New", "(Ljava/lang/String;)Ljcon/vReal;", "jcon/vReal");
+end
+procedure bc_New_vSimpleVar_Assign_methodref(c);
+    return j_create_methodref(c, "New", "(Ljava/lang/String;Ljcon/vDescriptor;)Ljcon/vSimpleVar;", "jcon/vSimpleVar");
+end
+procedure bc_New_vSimpleVar_methodref(c);
+    return j_create_methodref(c, "New", "(Ljava/lang/String;)Ljcon/vSimpleVar;", "jcon/vSimpleVar");
+end
+procedure bc_New_Local_Assign_Unstacked_methodref(c);
+    return j_create_methodref(c, "NewLocalUnstacked", "(Ljava/lang/String;Ljcon/vDescriptor;)Ljcon/vLocalVar;", "jcon/vLocalVar");
+end
+procedure bc_New_Local_Assign_methodref(c);
+    return j_create_methodref(c, "NewLocal", "(Ljava/lang/String;Ljcon/vDescriptor;)Ljcon/vLocalVar;", "jcon/vLocalVar");
+end
+procedure bc_New_Local_methodref(c);
+    return j_create_methodref(c, "NewLocal", "(Ljava/lang/String;)Ljcon/vLocalVar;", "jcon/vLocalVar");
+end
+procedure bc_New_vString_methodref(c);
+    return j_create_methodref(c, "New", "(Ljava/lang/String;)Ljcon/vString;", "jcon/vString");
+end
+procedure bc_New_vList_methodref(c);
+    return j_create_methodref(c, "New", "([Ljcon/vDescriptor;)Ljcon/vList;", "jcon/vList");
+end
+procedure bc_Free_methodref(c);
+    return j_create_methodref(c, "Free", "(Ljcon/vLocalVar;)V", "jcon/vLocalVar");
+end
+procedure bc_cofail_methodref(c);
+    return j_create_methodref(c, "cofail", "()V", "jcon/vCoexp");
+end
+procedure bc_trampoline_cofail_methodref(c);
+    return j_create_methodref(c, "cofail", "(Ljava/lang/String;ILjava/lang/String;Ljcon/vCoexp;)V", "jcon/iTrampoline");
+end
+procedure bc_copy_methodref(c, class);
+    return j_create_methodref(c, "copy", "(I)Ljcon/vClosure;", class);
+end
+procedure bc_coret_methodref(c);
+    return j_create_methodref(c, "coret", "(Ljcon/vDescriptor;)V", "jcon/vCoexp");
+end
+procedure bc_trampoline_coret_methodref(c);
+    return j_create_methodref(c, "coret", "(Ljava/lang/String;ILjava/lang/String;Ljcon/vCoexp;Ljcon/vDescriptor;)V", "jcon/iTrampoline");
+end
+procedure bc_create_methodref(c);
+    return j_create_methodref(c, "create", "()V", "jcon/vCoexp");
+end
+procedure bc_createVars_methodref(c, class);
+    return j_create_methodref(c, "createVars", "()V", class);
+end
+procedure bc_declareDebugging_methodref(c);
+    return j_create_methodref(c, "declareDebugging", "()V", "jcon/iEnv");
+end
+procedure bc_declareGlobal_methodref(c);
+    return j_create_methodref(c, "declareGlobal", "(Ljava/lang/String;)V", "jcon/iEnv");
+end
+procedure bc_declareInvoke_methodref(c);
+    return j_create_methodref(c, "declareInvoke", "(Ljava/lang/String;)V", "jcon/iEnv");
+end
+procedure bc_declareInvokeAll_methodref(c);
+    return j_create_methodref(c, "declareInvokeAll", "()V", "jcon/iEnv");
+end
+procedure bc_declareProcedure_methodref(c);
+    return j_create_methodref(c, "declareProcedure", "(Ljava/lang/String;Ljcon/vProc;I)V", "jcon/iEnv");
+end
+procedure bc_declareRecord_methodref(c);
+    return j_create_methodref(c, "declareRecord", "(Ljava/lang/String;[Ljava/lang/String;)V", "jcon/iEnv");
+end
+procedure bc_Deref_methodref(c);
+    return j_create_methodref(c, "Deref", "()Ljcon/vValue;", "jcon/vDescriptor");
+end
+procedure bc_DerefLocal_methodref(c);
+    return j_create_methodref(c, "DerefLocal", "()Ljcon/vDescriptor;", "jcon/vDescriptor");
+end
+procedure bc_Return_methodref(c);
+    return j_create_methodref(c, "Return", "()Ljcon/vDescriptor;", "jcon/vDescriptor");
+end
+procedure bc_Field_methodref(c);
+    return j_create_methodref(c, "Field", "(Ljava/lang/String;)Ljcon/vVariable;", "jcon/vDescriptor");
+end
+procedure bc_trampoline_Field_methodref(c);
+    return j_create_methodref(c, "Field", "(Ljava/lang/String;ILjcon/vDescriptor;Ljava/lang/String;)Ljcon/vVariable;", "jcon/iTrampoline");
+end
+procedure bc_error_methodref(c);
+    return j_create_methodref(c, "error", "(I)V", "jcon/iRuntime");
+end
+procedure bc_link_methodref(c);
+    return j_create_methodref(c, "link", "(Ljcon/iFile;Ljava/lang/String;)V", "jcon/iInterface");
+end
+procedure bc_marshal_methodref(c);
+    return j_create_methodref(c, "marshal", "([Ljcon/vDescriptor;I)Ljcon/vList;", "jcon/iInterface");
+end
+procedure bc_propagate_methodref(c);
+    return j_create_methodref(c, "propagate", "(Ljava/lang/String;[Ljcon/vDescriptor;)V", "jcon/iError");
+end
+procedure bc_resolve_methodref(c);
+    return j_create_methodref(c, "resolve", "(Ljava/lang/String;)Ljcon/vVariable;", "jcon/iEnv");
+end
+procedure bc_resolveKey_methodref(c);
+    return j_create_methodref(c, "resolveKey", "(Ljava/lang/String;)Ljcon/vProc;", "jcon/iEnv");
+end
+procedure bc_resolveProc_methodref(c);
+    return j_create_methodref(c, "resolveProc", "(Ljava/lang/String;I)Ljcon/vDescriptor;", "jcon/iEnv");
+end
+procedure bc_Resume_methodref(c);
+    return j_create_methodref(c, "Resume", "()Ljcon/vDescriptor;", "jcon/vDescriptor");
+end
+procedure bc_trampoline_Resume_methodref(c);
+    return j_create_methodref(c, "Resume", "(Ljava/lang/String;ILjcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+end
+procedure bc_undeclared_methodref(c);
+    return j_create_methodref(c, "undeclared", "(Ljava/lang/String;)V", "jcon/iEnv");
+end
+procedure bc_announce_undeclared_methodref(c);
+    return j_create_methodref(c, "undeclared", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "jcon/iEnv");
+end
+procedure bc_CallN_methodref(c, N);
+	return case N of {
+	0: j_create_methodref(c, "Call", "()Ljcon/vDescriptor;", "jcon/vDescriptor");
+	1: j_create_methodref(c, "Call", "(Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	2: j_create_methodref(c, "Call", "(Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	3: j_create_methodref(c, "Call", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	4: j_create_methodref(c, "Call", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	5: j_create_methodref(c, "Call", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	6: j_create_methodref(c, "Call", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	7: j_create_methodref(c, "Call", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	8: j_create_methodref(c, "Call", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	9: j_create_methodref(c, "Call", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/vDescriptor");
+	default : runerr(500, N)
+	};
+end
+procedure bc_trampoline_CallN_methodref(c, N);
+	return case N of {
+	0: j_create_methodref(c, "Call", "(Ljava/lang/String;ILjcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	1: j_create_methodref(c, "Call", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	2: j_create_methodref(c, "Call", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	3: j_create_methodref(c, "Call", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	4: j_create_methodref(c, "Call", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	5: j_create_methodref(c, "Call", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	6: j_create_methodref(c, "Call", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	7: j_create_methodref(c, "Call", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	8: j_create_methodref(c, "Call", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	9: j_create_methodref(c, "Call", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline");
+	default : j_create_methodref(c, "Call", "(Ljava/lang/String;ILjcon/vDescriptor;[Ljcon/vDescriptor;)Ljcon/vDescriptor;", "jcon/iTrampoline")
+	};
+end
+procedure bc_initN_methodref(c, classname, N);
+	return case N of {
+	0: j_create_methodref(c, "<init>", "()V", classname);
+	1: j_create_methodref(c, "<init>", "(Ljcon/vDescriptor;)V", classname);
+	2: j_create_methodref(c, "<init>", "(Ljcon/vDescriptor;Ljcon/vDescriptor;)V", classname);
+	3: j_create_methodref(c, "<init>", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)V", classname);
+	4: j_create_methodref(c, "<init>", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)V", classname);
+	5: j_create_methodref(c, "<init>", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)V", classname);
+	6: j_create_methodref(c, "<init>", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)V", classname);
+	7: j_create_methodref(c, "<init>", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)V", classname);
+	8: j_create_methodref(c, "<init>", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)V", classname);
+	9: j_create_methodref(c, "<init>", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)V", classname);
+	default : runerr(500, N)
+	};
+end
+procedure bc_CallN_method(c, N);
+	return case N of {
+	0: j_create_method(c, 0, "Call", "()Ljcon/vDescriptor;");
+	1: j_create_method(c, 0, "Call", "(Ljcon/vDescriptor;)Ljcon/vDescriptor;");
+	2: j_create_method(c, 0, "Call", "(Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;");
+	3: j_create_method(c, 0, "Call", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;");
+	4: j_create_method(c, 0, "Call", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;");
+	5: j_create_method(c, 0, "Call", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;");
+	6: j_create_method(c, 0, "Call", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;");
+	7: j_create_method(c, 0, "Call", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;");
+	8: j_create_method(c, 0, "Call", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;");
+	9: j_create_method(c, 0, "Call", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vDescriptor;");
+	default : runerr(500, N)
+	};
+end
+procedure bc_initN_method(c, N);
+	return case N of {
+	0: j_create_method(c, 0, "<init>", "()V");
+	1: j_create_method(c, 0, "<init>", "(Ljcon/vDescriptor;)V");
+	2: j_create_method(c, 0, "<init>", "(Ljcon/vDescriptor;Ljcon/vDescriptor;)V");
+	3: j_create_method(c, 0, "<init>", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)V");
+	4: j_create_method(c, 0, "<init>", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)V");
+	5: j_create_method(c, 0, "<init>", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)V");
+	6: j_create_method(c, 0, "<init>", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)V");
+	7: j_create_method(c, 0, "<init>", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)V");
+	8: j_create_method(c, 0, "<init>", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)V");
+	9: j_create_method(c, 0, "<init>", "(Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;Ljcon/vDescriptor;)V");
+	default : runerr(500, N)
+	};
+end
+procedure bc_PC_fieldref(c, class);
+    return j_create_fieldref(c, "PC", "I", class);
+end
+procedure bc_arguments_fieldref(c);
+    return j_create_fieldref(c, "arguments", "[Ljcon/vDescriptor;", "jcon/vClosure");
+end
+procedure bc_retval_fieldref(c);
+    return j_create_fieldref(c, "retval", "Ljcon/vDescriptor;", "jcon/vClosure");
+end
+procedure bc_refreshArray_fieldref(c, class);
+    return j_create_fieldref(c, "refreshArray", "[Ljcon/vDescriptor;", class);
+end
+procedure bc_refreshPC_fieldref(c, class);
+    return j_create_fieldref(c, "refreshPC", "I", class);
+end
+procedure bc_cur_coexp_fieldref(c);
+    return j_create_fieldref(c, "cur_coexp", "Ljcon/vCoexp;", "jcon/iEnv");
+end
+procedure bc_file_fieldref(c);
+    return j_create_fieldref(c, "file", "Ljava/lang/String;", "jcon/iTrace");
+end
+procedure bc_line_fieldref(c);
+    return j_create_fieldref(c, "line", "I", "jcon/iTrace");
+end

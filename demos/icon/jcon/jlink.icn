@@ -1,0 +1,3 @@
+#  jlink.icn -- SCRIP demo entry for the JCON linker (jlink), 2 modules.
+link "../../../packages/icon/jcon-compiler/bytecode";
+link "../../../packages/icon/jcon-compiler/linker";

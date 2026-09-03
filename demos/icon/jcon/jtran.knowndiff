@@ -1,0 +1,11 @@
+icon-scan-resume-through-non-resumable-while-condition
+jtran is the full 17-module translator and does not build in either mode: the compiler
+itself aborts. m3: `bb_emit_end: 2 unresolved forward reference(s)`; m4 emits an .s that
+assembles but fails at ld with `undefined reference to n<N>_var_β`. Both sites are in
+lexer.icn's `yylex`/`lex_yylex0`, on the shape `EXPR ? { while COND do ... suspend ... }`.
+Root-caused 2026-09-03 (hq_B), minimal witness (2 lines, in the FINDING): the scan's
+resume operand is the while's loop-back GOTO, whose beta-follow lands on the loop
+CONDITION's beta port -- and a non-resumable condition (a literal or a plain variable)
+emits only an alpha entry. `while f()` (resumable condition) compiles and links fine.
+Routed to hq_C: the fix needs a resume-at-alpha marker, which the 2-ref IR_t
+(FROZEN LABEL MODEL, GOAL-JCON-IN-SCRIP.md) has no room for today.

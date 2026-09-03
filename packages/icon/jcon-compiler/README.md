@@ -26,26 +26,55 @@ dropped here (exactly as JCON's own preprocessor would drop it).
 
 ## Modules and build order
 
-`jtran` is a multi-module program. Its link order (from JCON's Makefile) is:
+`jtran` is a **17-module** program. Its link order (from JCON's `tran/Makefile`) is:
 
-    dump preprocessor lexer ast parse ir keyword irgen
-    gen_bc gen_symbolic gen_dot gen_ucode optimize bytecode jtran_main
+    dump do_ops preprocessor lexer ast parse ir keyword irgen
+    gen_bc gen_symbolic gen_dot gen_ucode optimize interface bytecode jtran_main
 
-Only `jtran_main.icn` (plus the standalone utilities `interfacegen.icn`,
-`oplexgen.icn`, and the linker `linker.icn`) defines `procedure main()`. The rest
-are library modules and only compile as part of the whole program.
+⛔ **Two of those seventeen are GENERATED, not hand-written** — `do_ops.icn` (by
+`oplexgen`) and `interface.icn` (by `interfacegen`), exactly as JCON's own Makefile
+builds them. They are checked in here beside the hand-written modules, each carrying a
+`#GEN:` header. Regenerate with `scripts/util_regen_jcon_generated_sources.sh`; never
+hand-edit them.
 
-To compile the whole translator with SCRIP, pass all modules together in the
-order above; the driver merges them into one program.
+⭐ **This list said fifteen modules until 2026-09-03, and omitted both generated ones.**
+That is worth recording because of how quietly it failed: a `jtran` linked from the
+other fifteen *builds and runs*, so nothing looks wrong — but `lexer.icn` reaches into
+`do_ops` at its very first token, so every pipeline stage past `preproc` died at
+`lexer.icn:14` with `procedure or integer expected, offending value: &null`. A missing
+build input presented as a lexer bug.
+
+Only `jtran_main.icn` (plus the standalone generators `interfacegen.icn` and
+`oplexgen.icn`, and the linker `linker.icn`) defines `procedure main()`. The rest are
+library modules and only compile as part of the whole program.
+
+⛔ **Do not compile this package by handing SCRIP all 18 files at once** — that merges
+JCON's four separate `procedure main`s into one program. The demo entries in
+`corpus/demos/icon/jcon/` name the right module set per program, through SCRIP's own
+`link` directive; use those.
 
 ## Status
 
-All 18 modules parse cleanly under SCRIP. The full self-host toolchain now
-BUILDS: the 17-module merged translator (`jtran`) and the 2-module linker
-(`jlink`) both compile to x86 assembly and link against `libscrip_rt.so`, and
-the JCON Java runtime (`jcon.zip`) builds from the SCRIP-generated iTrampoline.
-End-to-end self-host of a trivial program (`hello, world`) succeeds:
-SCRIP-`jtran` -> SCRIP-`jlink` -> JVM matches the icont/iconx oracle.
+All modules parse cleanly under SCRIP. Graded state, measured 2026-09-03 by
+`scripts/test_demo_icon_jcon.sh` against an `icont` oracle built from these same
+sources (see `corpus/demos/icon/jcon/` for the demo entries):
+
+| program | m3 | m4 | vs oracle |
+|---|:---:|:---:|---|
+| `interfacegen` | ✅ | ✅ | byte-identical |
+| `jlink` (2 modules) | ✅ | ✅ | byte-identical |
+| `oplexgen` | ⚠ | ⚠ | same 611 lines, different `key(table)` order |
+| `jtran` (17 modules) | ⛔ | ⛔ | does not build |
+
+⛔ **`jtran` does not currently build in either mode**, so there is no self-host
+toolchain at this HEAD. It compiles to assembly (638,965 lines) but the compiler
+stops before a binary exists: m3 aborts with `bb_emit_end: 2 unresolved forward
+reference(s)`, and m4's assembly fails at `ld` with `undefined reference to
+n<N>_var_β`. Both sites are in `lexer.icn`, on `EXPR ? { while COND do … suspend … }`
+— the scan's resume path lands on the loop *condition*'s β port, and a non-resumable
+condition emits only an α entry. Tracked as
+`icon-scan-resume-through-non-resumable-while-condition` (see
+`corpus/demos/icon/jcon/jtran.knowndiff` for the two-line minimal witness).
 
 The remaining blocker is a value-alternation case selector nested inside a live
 string-scan environment (`preprocessor.icn` `case move(1) of { "\"" | "'": ... }`):

@@ -1,0 +1,615 @@
+#GEN: produced by JCON's own oplexgen.icn, then run through SCRIP's
+#     tools/semicolonize_icon.py (semicolons only -- verified: stripping trailing ";" restores the
+#     generator's byte-exact output, and icont -c gives the same verdict before and after).
+#     Regenerate, do not hand-edit: see scripts/util_regen_jcon_generated_sources.sh.
+#  AUTOMATICALLY GENERATED FILE -- DO NOT EDIT!
+global lex_IDENT
+global lex_INTLIT
+global lex_REALLIT
+global lex_STRINGLIT
+global lex_CSETLIT
+global lex_EOFX
+global lex_BREAK
+global lex_BY
+global lex_CASE
+global lex_CREATE
+global lex_DEFAULT
+global lex_DO
+global lex_ELSE
+global lex_END
+global lex_EVERY
+global lex_FAIL
+global lex_GLOBAL
+global lex_IF
+global lex_INITIAL
+global lex_INVOCABLE
+global lex_LINK
+global lex_LOCAL
+global lex_NEXT
+global lex_NOT
+global lex_OF
+global lex_PROCEDURE
+global lex_RECORD
+global lex_REPEAT
+global lex_RETURN
+global lex_STATIC
+global lex_SUSPEND
+global lex_THEN
+global lex_TO
+global lex_UNTIL
+global lex_WHILE
+global lex_ASSIGN
+global lex_AT
+global lex_AUGAT
+global lex_AUGAND
+global lex_AUGNMEQ
+global lex_AUGEQUIV
+global lex_AUGNMGE
+global lex_AUGNMGT
+global lex_AUGNMLE
+global lex_AUGNMLT
+global lex_AUGNMNE
+global lex_AUGNEQUIV
+global lex_AUGSEQ
+global lex_AUGSGE
+global lex_AUGSGT
+global lex_AUGSLE
+global lex_AUGSLT
+global lex_AUGSNE
+global lex_BACKSLASH
+global lex_BANG
+global lex_BAR
+global lex_CARET
+global lex_AUGCARET
+global lex_COLON
+global lex_COMMA
+global lex_CONCAT
+global lex_AUGCONCAT
+global lex_AND
+global lex_DOT
+global lex_DIFF
+global lex_AUGDIFF
+global lex_EQUIV
+global lex_INTER
+global lex_AUGINTER
+global lex_LBRACE
+global lex_LBRACK
+global lex_LCONCAT
+global lex_AUGLCONCAT
+global lex_SEQ
+global lex_SGE
+global lex_SGT
+global lex_SLE
+global lex_SLT
+global lex_SNE
+global lex_LPAREN
+global lex_MCOLON
+global lex_MINUS
+global lex_AUGMINUS
+global lex_MOD
+global lex_AUGMOD
+global lex_NEQUIV
+global lex_NMEQ
+global lex_NMGE
+global lex_NMGT
+global lex_NMLE
+global lex_NMLT
+global lex_NMNE
+global lex_PCOLON
+global lex_PLUS
+global lex_AUGPLUS
+global lex_QMARK
+global lex_REVASSIGN
+global lex_REVSWAP
+global lex_RBRACE
+global lex_RBRACK
+global lex_RPAREN
+global lex_SEMICOL
+global lex_AUGQMARK
+global lex_SLASH
+global lex_AUGSLASH
+global lex_STAR
+global lex_AUGSTAR
+global lex_SWAP
+global lex_TILDE
+global lex_UNION
+global lex_AUGUNION
+global lex_RHSARG
+global lex_BEGGLOB
+global lex_ENDGLOB
+global lex_NEWSECT
+global lex_beginner_set
+global lex_ender_set
+procedure initialize();
+	lex_IDENT:= lex_TOK("IDENT","identifier");
+	lex_INTLIT:= lex_TOK("INTLIT","integer-literal");
+	lex_REALLIT:= lex_TOK("REALLIT","real-literal");
+	lex_STRINGLIT:= lex_TOK("STRINGLIT","string-literal");
+	lex_CSETLIT:= lex_TOK("CSETLIT","cset-literal");
+	lex_EOFX:= lex_TOK("EOFX","end-of-file");
+	lex_BREAK:= lex_TOK("BREAK","break");
+	lex_BY:= lex_TOK("BY","by");
+	lex_CASE:= lex_TOK("CASE","case");
+	lex_CREATE:= lex_TOK("CREATE","create");
+	lex_DEFAULT:= lex_TOK("DEFAULT","default");
+	lex_DO:= lex_TOK("DO","do");
+	lex_ELSE:= lex_TOK("ELSE","else");
+	lex_END:= lex_TOK("END","end");
+	lex_EVERY:= lex_TOK("EVERY","every");
+	lex_FAIL:= lex_TOK("FAIL","fail");
+	lex_GLOBAL:= lex_TOK("GLOBAL","global");
+	lex_IF:= lex_TOK("IF","if");
+	lex_INITIAL:= lex_TOK("INITIAL","initial");
+	lex_INVOCABLE:= lex_TOK("INVOCABLE","invocable");
+	lex_LINK:= lex_TOK("LINK","link");
+	lex_LOCAL:= lex_TOK("LOCAL","local");
+	lex_NEXT:= lex_TOK("NEXT","next");
+	lex_NOT:= lex_TOK("NOT","not");
+	lex_OF:= lex_TOK("OF","of");
+	lex_PROCEDURE:= lex_TOK("PROCEDURE","procedure");
+	lex_RECORD:= lex_TOK("RECORD","record");
+	lex_REPEAT:= lex_TOK("REPEAT","repeat");
+	lex_RETURN:= lex_TOK("RETURN","return");
+	lex_STATIC:= lex_TOK("STATIC","static");
+	lex_SUSPEND:= lex_TOK("SUSPEND","suspend");
+	lex_THEN:= lex_TOK("THEN","then");
+	lex_TO:= lex_TOK("TO","to");
+	lex_UNTIL:= lex_TOK("UNTIL","until");
+	lex_WHILE:= lex_TOK("WHILE","while");
+	lex_ASSIGN:= lex_TOK("ASSIGN",":=");
+	lex_AT:= lex_TOK("AT","@");
+	lex_AUGAT:= lex_TOK("AUGAT","@:=");
+	lex_AUGAND:= lex_TOK("AUGAND","&:=");
+	lex_AUGNMEQ:= lex_TOK("AUGNMEQ","=:=");
+	lex_AUGEQUIV:= lex_TOK("AUGEQUIV","===:=");
+	lex_AUGNMGE:= lex_TOK("AUGNMGE",">=:=");
+	lex_AUGNMGT:= lex_TOK("AUGNMGT",">:=");
+	lex_AUGNMLE:= lex_TOK("AUGNMLE","<=:=");
+	lex_AUGNMLT:= lex_TOK("AUGNMLT","<:=");
+	lex_AUGNMNE:= lex_TOK("AUGNMNE","~=:=");
+	lex_AUGNEQUIV:= lex_TOK("AUGNEQUIV","~===:=");
+	lex_AUGSEQ:= lex_TOK("AUGSEQ","==:=");
+	lex_AUGSGE:= lex_TOK("AUGSGE",">>=:=");
+	lex_AUGSGT:= lex_TOK("AUGSGT",">>:=");
+	lex_AUGSLE:= lex_TOK("AUGSLE","<<=:=");
+	lex_AUGSLT:= lex_TOK("AUGSLT","<<:=");
+	lex_AUGSNE:= lex_TOK("AUGSNE","~==:=");
+	lex_BACKSLASH:= lex_TOK("BACKSLASH","\\");
+	lex_BANG:= lex_TOK("BANG","!");
+	lex_BAR:= lex_TOK("BAR","|");
+	lex_CARET:= lex_TOK("CARET","^");
+	lex_AUGCARET:= lex_TOK("AUGCARET","^:=");
+	lex_COLON:= lex_TOK("COLON",":");
+	lex_COMMA:= lex_TOK("COMMA",",");
+	lex_CONCAT:= lex_TOK("CONCAT","||");
+	lex_AUGCONCAT:= lex_TOK("AUGCONCAT","||:=");
+	lex_AND:= lex_TOK("AND","&");
+	lex_DOT:= lex_TOK("DOT",".");
+	lex_DIFF:= lex_TOK("DIFF","--");
+	lex_AUGDIFF:= lex_TOK("AUGDIFF","--:=");
+	lex_EQUIV:= lex_TOK("EQUIV","===");
+	lex_INTER:= lex_TOK("INTER","**");
+	lex_AUGINTER:= lex_TOK("AUGINTER","**:=");
+	lex_LBRACE:= lex_TOK("LBRACE","{");
+	lex_LBRACK:= lex_TOK("LBRACK","[");
+	lex_LCONCAT:= lex_TOK("LCONCAT","|||");
+	lex_AUGLCONCAT:= lex_TOK("AUGLCONCAT","|||:=");
+	lex_SEQ:= lex_TOK("SEQ","==");
+	lex_SGE:= lex_TOK("SGE",">>=");
+	lex_SGT:= lex_TOK("SGT",">>");
+	lex_SLE:= lex_TOK("SLE","<<=");
+	lex_SLT:= lex_TOK("SLT","<<");
+	lex_SNE:= lex_TOK("SNE","~==");
+	lex_LPAREN:= lex_TOK("LPAREN","(");
+	lex_MCOLON:= lex_TOK("MCOLON","-:");
+	lex_MINUS:= lex_TOK("MINUS","-");
+	lex_AUGMINUS:= lex_TOK("AUGMINUS","-:=");
+	lex_MOD:= lex_TOK("MOD","%");
+	lex_AUGMOD:= lex_TOK("AUGMOD","%:=");
+	lex_NEQUIV:= lex_TOK("NEQUIV","~===");
+	lex_NMEQ:= lex_TOK("NMEQ","=");
+	lex_NMGE:= lex_TOK("NMGE",">=");
+	lex_NMGT:= lex_TOK("NMGT",">");
+	lex_NMLE:= lex_TOK("NMLE","<=");
+	lex_NMLT:= lex_TOK("NMLT","<");
+	lex_NMNE:= lex_TOK("NMNE","~=");
+	lex_PCOLON:= lex_TOK("PCOLON","+:");
+	lex_PLUS:= lex_TOK("PLUS","+");
+	lex_AUGPLUS:= lex_TOK("AUGPLUS","+:=");
+	lex_QMARK:= lex_TOK("QMARK","?");
+	lex_REVASSIGN:= lex_TOK("REVASSIGN","<-");
+	lex_REVSWAP:= lex_TOK("REVSWAP","<->");
+	lex_RBRACE:= lex_TOK("RBRACE","}");
+	lex_RBRACK:= lex_TOK("RBRACK","]");
+	lex_RPAREN:= lex_TOK("RPAREN",")");
+	lex_SEMICOL:= lex_TOK("SEMICOL",";");
+	lex_AUGQMARK:= lex_TOK("AUGQMARK","?:=");
+	lex_SLASH:= lex_TOK("SLASH","/");
+	lex_AUGSLASH:= lex_TOK("AUGSLASH","/:=");
+	lex_STAR:= lex_TOK("STAR","*");
+	lex_AUGSTAR:= lex_TOK("AUGSTAR","*:=");
+	lex_SWAP:= lex_TOK("SWAP",":=:");
+	lex_TILDE:= lex_TOK("TILDE","~");
+	lex_UNION:= lex_TOK("UNION","++");
+	lex_AUGUNION:= lex_TOK("AUGUNION","++:=");
+	lex_RHSARG:= lex_TOK("RHSARG","$");
+	lex_BEGGLOB:= lex_TOK("BEGGLOB","%$(");
+	lex_ENDGLOB:= lex_TOK("ENDGLOB","%$)");
+	lex_NEWSECT:= lex_TOK("NEWSECT","%%");
+	lex_beginner_set := set();
+	lex_ender_set := set();
+	insert(lex_beginner_set, lex_IDENT);
+	insert(lex_ender_set, lex_IDENT);
+	insert(lex_beginner_set, lex_INTLIT);
+	insert(lex_ender_set, lex_INTLIT);
+	insert(lex_beginner_set, lex_REALLIT);
+	insert(lex_ender_set, lex_REALLIT);
+	insert(lex_beginner_set, lex_STRINGLIT);
+	insert(lex_ender_set, lex_STRINGLIT);
+	insert(lex_beginner_set, lex_CSETLIT);
+	insert(lex_ender_set, lex_CSETLIT);
+	insert(lex_beginner_set, lex_BREAK);
+	insert(lex_ender_set, lex_BREAK);
+	insert(lex_beginner_set, lex_CASE);
+	insert(lex_beginner_set, lex_CREATE);
+	insert(lex_beginner_set, lex_DEFAULT);
+	insert(lex_beginner_set, lex_END);
+	insert(lex_beginner_set, lex_EVERY);
+	insert(lex_beginner_set, lex_FAIL);
+	insert(lex_ender_set, lex_FAIL);
+	insert(lex_beginner_set, lex_IF);
+	insert(lex_beginner_set, lex_INITIAL);
+	insert(lex_beginner_set, lex_LOCAL);
+	insert(lex_beginner_set, lex_NEXT);
+	insert(lex_ender_set, lex_NEXT);
+	insert(lex_beginner_set, lex_NOT);
+	insert(lex_beginner_set, lex_REPEAT);
+	insert(lex_beginner_set, lex_RETURN);
+	insert(lex_ender_set, lex_RETURN);
+	insert(lex_beginner_set, lex_STATIC);
+	insert(lex_beginner_set, lex_SUSPEND);
+	insert(lex_ender_set, lex_SUSPEND);
+	insert(lex_beginner_set, lex_UNTIL);
+	insert(lex_beginner_set, lex_WHILE);
+	insert(lex_beginner_set, lex_AT);
+	insert(lex_beginner_set, lex_BACKSLASH);
+	insert(lex_beginner_set, lex_BANG);
+	insert(lex_beginner_set, lex_BAR);
+	insert(lex_beginner_set, lex_CARET);
+	insert(lex_beginner_set, lex_AUGCARET);
+	insert(lex_beginner_set, lex_CONCAT);
+	insert(lex_beginner_set, lex_AND);
+	insert(lex_beginner_set, lex_DOT);
+	insert(lex_beginner_set, lex_DIFF);
+	insert(lex_beginner_set, lex_EQUIV);
+	insert(lex_beginner_set, lex_INTER);
+	insert(lex_beginner_set, lex_LBRACE);
+	insert(lex_beginner_set, lex_LBRACK);
+	insert(lex_beginner_set, lex_LCONCAT);
+	insert(lex_beginner_set, lex_SEQ);
+	insert(lex_beginner_set, lex_SNE);
+	insert(lex_beginner_set, lex_LPAREN);
+	insert(lex_beginner_set, lex_MINUS);
+	insert(lex_beginner_set, lex_NEQUIV);
+	insert(lex_beginner_set, lex_NMEQ);
+	insert(lex_beginner_set, lex_NMNE);
+	insert(lex_beginner_set, lex_PLUS);
+	insert(lex_beginner_set, lex_QMARK);
+	insert(lex_ender_set, lex_RBRACE);
+	insert(lex_ender_set, lex_RBRACK);
+	insert(lex_ender_set, lex_RPAREN);
+	insert(lex_beginner_set, lex_SLASH);
+	insert(lex_beginner_set, lex_STAR);
+	insert(lex_beginner_set, lex_TILDE);
+	insert(lex_beginner_set, lex_UNION);
+	insert(lex_beginner_set, lex_LBRACE);
+	insert(lex_ender_set, lex_RBRACE);
+	insert(lex_beginner_set, lex_LBRACK);
+	insert(lex_ender_set, lex_RBRACK);
+	insert(lex_beginner_set, lex_RHSARG);
+	insert(lex_beginner_set, lex_BEGGLOB);
+	insert(lex_ender_set, lex_ENDGLOB);
+	insert(lex_beginner_set, lex_BEGGLOB);
+	insert(lex_ender_set, lex_ENDGLOB);
+	insert(lex_beginner_set, lex_NEWSECT);
+	insert(lex_ender_set, lex_NEWSECT);
+end # end initialize
+
+procedure do_reserveds(str);
+	static reserved_sym_tbl;
+	initial {
+		reserved_sym_tbl := table(&null);
+		reserved_sym_tbl["invocable"] := lex_INVOCABLE;
+		reserved_sym_tbl["procedure"] := lex_PROCEDURE;
+		reserved_sym_tbl["default"] := lex_DEFAULT;
+		reserved_sym_tbl["initial"] := lex_INITIAL;
+		reserved_sym_tbl["suspend"] := lex_SUSPEND;
+		reserved_sym_tbl["create"] := lex_CREATE;
+		reserved_sym_tbl["global"] := lex_GLOBAL;
+		reserved_sym_tbl["record"] := lex_RECORD;
+		reserved_sym_tbl["repeat"] := lex_REPEAT;
+		reserved_sym_tbl["return"] := lex_RETURN;
+		reserved_sym_tbl["static"] := lex_STATIC;
+		reserved_sym_tbl["break"] := lex_BREAK;
+		reserved_sym_tbl["every"] := lex_EVERY;
+		reserved_sym_tbl["local"] := lex_LOCAL;
+		reserved_sym_tbl["until"] := lex_UNTIL;
+		reserved_sym_tbl["while"] := lex_WHILE;
+		reserved_sym_tbl["case"] := lex_CASE;
+		reserved_sym_tbl["else"] := lex_ELSE;
+		reserved_sym_tbl["fail"] := lex_FAIL;
+		reserved_sym_tbl["link"] := lex_LINK;
+		reserved_sym_tbl["next"] := lex_NEXT;
+		reserved_sym_tbl["then"] := lex_THEN;
+		reserved_sym_tbl["end"] := lex_END;
+		reserved_sym_tbl["not"] := lex_NOT;
+		reserved_sym_tbl["by"] := lex_BY;
+		reserved_sym_tbl["do"] := lex_DO;
+		reserved_sym_tbl["if"] := lex_IF;
+		reserved_sym_tbl["of"] := lex_OF;
+		reserved_sym_tbl["to"] := lex_TO
+	};
+	 return \reserved_sym_tbl[str];
+	fail;
+end
+procedure do_ops();
+	if ="@" then { # @
+	  if =":=" then { # @:=
+	    { return lex_AUGAT }
+	  }
+	  else { return lex_AT }
+	};
+	if ="-" then { # -
+	  if ="-" then { # --
+	    if =":=" then { # --:=
+	      { return lex_AUGDIFF }
+	    }
+	    else { return lex_DIFF }
+	  };
+	  if =":" then { # -:
+	    if ="=" then { # -:=
+	      { return lex_AUGMINUS }
+	    }
+	    else { return lex_MCOLON }
+	  }
+	  else { return lex_MINUS }
+	};
+	if ="=" then { # =
+	  if ="=" then { # ==
+	    if ="=" then { # ===
+	      if =":=" then { # ===:=
+	        { return lex_AUGEQUIV }
+	      }
+	      else { return lex_EQUIV }
+	    };
+	    if =":=" then { # ==:=
+	      { return lex_AUGSEQ }
+	    }
+	    else { return lex_SEQ }
+	  };
+	  if =":=" then { # =:=
+	    { return lex_AUGNMEQ }
+	  }
+	  else { return lex_NMEQ }
+	};
+	if ="]" then { # ]
+	  { return lex_RBRACK }
+	};
+	if ="}" then { # }
+	  { return lex_RBRACE }
+	};
+	if ="*" then { # *
+	  if ="*" then { # **
+	    if =":=" then { # **:=
+	      { return lex_AUGINTER }
+	    }
+	    else { return lex_INTER }
+	  };
+	  if =":=" then { # *:=
+	    { return lex_AUGSTAR }
+	  }
+	  else { return lex_STAR }
+	};
+	if =":" then { # :
+	  if ="=" then { # :=
+	    if =":" then { # :=:
+	      { return lex_SWAP }
+	    }
+	    else { return lex_ASSIGN }
+	  }
+	  else { return lex_COLON }
+	};
+	if ="$" then { # $
+	  if =">" then { # $>
+	    { return lex_RBRACK }
+	  };
+	  if ="(" then { # $(
+	    { return lex_LBRACE }
+	  };
+	  if ="<" then { # $<
+	    { return lex_LBRACK }
+	  };
+	  if =")" then { # $)
+	    { return lex_RBRACE }
+	  }
+	  else { return lex_RHSARG }
+	};
+	if ="!" then { # !
+	  { return lex_BANG }
+	};
+	if ="." then { # .
+	  { return lex_DOT }
+	};
+	if =">" then { # >
+	  if ="=" then { # >=
+	    if =":=" then { # >=:=
+	      { return lex_AUGNMGE }
+	    }
+	    else { return lex_NMGE }
+	  };
+	  if =">" then { # >>
+	    if ="=" then { # >>=
+	      if =":=" then { # >>=:=
+	        { return lex_AUGSGE }
+	      }
+	      else { return lex_SGE }
+	    };
+	    if =":=" then { # >>:=
+	      { return lex_AUGSGT }
+	    }
+	    else { return lex_SGT }
+	  };
+	  if =":=" then { # >:=
+	    { return lex_AUGNMGT }
+	  }
+	  else { return lex_NMGT }
+	};
+	if ="^" then { # ^
+	  if =":=" then { # ^:=
+	    { return lex_AUGCARET }
+	  }
+	  else { return lex_CARET }
+	};
+	if ="~" then { # ~
+	  if ="=" then { # ~=
+	    if ="=" then { # ~==
+	      if ="=" then { # ~===
+	        if =":=" then { # ~===:=
+	          { return lex_AUGNEQUIV }
+	        }
+	        else { return lex_NEQUIV }
+	      };
+	      if =":=" then { # ~==:=
+	        { return lex_AUGSNE }
+	      }
+	      else { return lex_SNE }
+	    };
+	    if =":=" then { # ~=:=
+	      { return lex_AUGNMNE }
+	    }
+	    else { return lex_NMNE }
+	  }
+	  else { return lex_TILDE }
+	};
+	if ="+" then { # +
+	  if =":" then { # +:
+	    if ="=" then { # +:=
+	      { return lex_AUGPLUS }
+	    }
+	    else { return lex_PCOLON }
+	  };
+	  if ="+" then { # ++
+	    if =":=" then { # ++:=
+	      { return lex_AUGUNION }
+	    }
+	    else { return lex_UNION }
+	  }
+	  else { return lex_PLUS }
+	};
+	if =";" then { # ;
+	  { return lex_SEMICOL }
+	};
+	if ="[" then { # [
+	  { return lex_LBRACK }
+	};
+	if ="{" then { # {
+	  { return lex_LBRACE }
+	};
+	if ="(" then { # (
+	  { return lex_LPAREN }
+	};
+	if ="%" then { # %
+	  if ="}" then { # %}
+	    { return lex_ENDGLOB }
+	  };
+	  if ="$)" then { # %$)
+	    { return lex_ENDGLOB }
+	  };
+	  if ="{" then { # %{
+	    { return lex_BEGGLOB }
+	  };
+	  if ="%" then { # %%
+	    { return lex_NEWSECT }
+	  };
+	  if =":=" then { # %:=
+	    { return lex_AUGMOD }
+	  };
+	  if ="$(" then { # %$(
+	    { return lex_BEGGLOB }
+	  }
+	  else { return lex_MOD }
+	};
+	if ="/" then { # /
+	  if =":=" then { # /:=
+	    { return lex_AUGSLASH }
+	  }
+	  else { return lex_SLASH }
+	};
+	if ="?" then { # ?
+	  if =":=" then { # ?:=
+	    { return lex_AUGQMARK }
+	  }
+	  else { return lex_QMARK }
+	};
+	if ="," then { # ,
+	  { return lex_COMMA }
+	};
+	if ="<" then { # <
+	  if ="-" then { # <-
+	    if =">" then { # <->
+	      { return lex_REVSWAP }
+	    }
+	    else { return lex_REVASSIGN }
+	  };
+	  if ="=" then { # <=
+	    if =":=" then { # <=:=
+	      { return lex_AUGNMLE }
+	    }
+	    else { return lex_NMLE }
+	  };
+	  if ="<" then { # <<
+	    if ="=" then { # <<=
+	      if =":=" then { # <<=:=
+	        { return lex_AUGSLE }
+	      }
+	      else { return lex_SLE }
+	    };
+	    if =":=" then { # <<:=
+	      { return lex_AUGSLT }
+	    }
+	    else { return lex_SLT }
+	  };
+	  if =":=" then { # <:=
+	    { return lex_AUGNMLT }
+	  }
+	  else { return lex_NMLT }
+	};
+	if ="\\" then { # \
+	  { return lex_BACKSLASH }
+	};
+	if ="|" then { # |
+	  if ="|" then { # ||
+	    if ="|" then { # |||
+	      if =":=" then { # |||:=
+	        { return lex_AUGLCONCAT }
+	      }
+	      else { return lex_LCONCAT }
+	    };
+	    if =":=" then { # ||:=
+	      { return lex_AUGCONCAT }
+	    }
+	    else { return lex_CONCAT }
+	  }
+	  else { return lex_BAR }
+	};
+	if =")" then { # )
+	  { return lex_RPAREN }
+	};
+	if ="&" then { # &
+	  if =":=" then { # &:=
+	    { return lex_AUGAND }
+	  }
+	  else { return lex_AND }
+	};
+	fail;
+end
