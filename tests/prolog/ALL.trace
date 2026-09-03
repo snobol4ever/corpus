@@ -4436,60 +4436,6 @@
 (13) Call: call $nl
 (13) Exit: call $nl -> main/0_ret0
 (1) Exit: call_proc_staged main/0 -> main_γ
-%---- ladder__rung03_disjunction m3 total=26 prefix=26
-(1) Call: call_proc_staged main/0
-(2) Call: call_proc_staged p/0
-(3) Call: disjunction
-(4) Call: lit_string a
-(4) Exit: lit_string a -> call_α
-(5) Call: call $write
-(5) Exit: call $write -> .Ldisjunction_γ_0_as
-(3) Redo: .Ldisjunction_γ_0_as
-(3) Exit: disjunction -> call_α
-(6) Call: call $nl
-(6) Exit: call $nl -> disjunction_β
-(3) Redo: disjunction
-(3) Redo: .Ldisjunction_ω_0_af
-(7) Call: lit_string b
-(7) Exit: lit_string b -> call_α
-(8) Call: call $write
-(8) Exit: call $write -> .Ldisjunction_γ_0_as
-(3) Redo: .Ldisjunction_γ_0_as
-(3) Exit: disjunction -> call_α
-(9) Call: call $nl
-(9) Exit: call $nl -> disjunction_β
-(3) Redo: disjunction
-(3) Redo: .Ldisjunction_ω_0_af
-(3) Fail: disjunction -> p/0_step
-(2) Exit: call_proc_staged p/0 -> main/0_ret0
-(1) Exit: call_proc_staged main/0 -> pat_flat_γ
-%---- ladder__rung03_disjunction m4 total=26 prefix=26
-(1) Call: call_proc_staged main/0
-(2) Call: call_proc_staged p/0
-(3) Call: disjunction
-(4) Call: lit_string a
-(4) Exit: lit_string a -> call_α
-(5) Call: call $write
-(5) Exit: call $write -> .Ldisjunction_γ_0_as
-(3) Redo: .Ldisjunction_γ_0_as
-(3) Exit: disjunction -> call_α
-(6) Call: call $nl
-(6) Exit: call $nl -> disjunction_β
-(3) Redo: disjunction
-(3) Redo: .Ldisjunction_ω_0_af
-(7) Call: lit_string b
-(7) Exit: lit_string b -> call_α
-(8) Call: call $write
-(8) Exit: call $write -> .Ldisjunction_γ_0_as
-(3) Redo: .Ldisjunction_γ_0_as
-(3) Exit: disjunction -> call_α
-(9) Call: call $nl
-(9) Exit: call $nl -> disjunction_β
-(3) Redo: disjunction
-(3) Redo: .Ldisjunction_ω_0_af
-(3) Fail: disjunction -> p/0_step
-(2) Exit: call_proc_staged p/0 -> main/0_ret0
-(1) Exit: call_proc_staged main/0 -> main_γ
 %---- ladder__rung02_choice_redo m3 total=48 prefix=48
 (1) Call: call_proc_staged main/0
 (2) Call: var_ref G0
@@ -7284,3 +7230,55 @@
 (204) Exit: var_ref G2 -> var_α
 (205) Call: var G0
 (205) Exit: var G0 -> lit_integer_α
+%---- ladder__rung03_disjunction m3 total=25 prefix=25
+(1) Call: call_proc_staged main/0
+(2) Call: call_proc_staged p/0
+(3) Call: disjunction
+(4) Call: lit_string a
+(4) Exit: lit_string a -> call_α
+(5) Call: call $write
+(5) Exit: call $write -> .Ldisjunction_γ_0_as
+(3) Redo: .Ldisjunction_γ_0_as
+(3) Exit: disjunction -> call_α
+(6) Call: call $nl
+(6) Exit: call $nl -> disjunction_β
+(3) Redo: disjunction
+(3) Redo: .Ldisjunction_ω_0_af
+(7) Call: lit_string b
+(7) Exit: lit_string b -> call_α
+(8) Call: call $write
+(8) Exit: call $write -> .Ldisjunction_γ_0_as
+(3) Redo: .Ldisjunction_γ_0_as
+(3) Exit: disjunction -> call_α
+(9) Call: call $nl
+(9) Exit: call $nl -> disjunction_β
+(3) Redo: disjunction
+(3) Redo: .Ldisjunction_ω_0_af
+(3) Fail: disjunction -> p/0_step
+(2) Exit: call_proc_staged main/0 -> pat_flat_γ
+%---- ladder__rung03_disjunction m4 total=25 prefix=25
+(1) Call: call_proc_staged main/0
+(2) Call: call_proc_staged p/0
+(3) Call: disjunction
+(4) Call: lit_string a
+(4) Exit: lit_string a -> call_α
+(5) Call: call $write
+(5) Exit: call $write -> .Ldisjunction_γ_0_as
+(3) Redo: .Ldisjunction_γ_0_as
+(3) Exit: disjunction -> call_α
+(6) Call: call $nl
+(6) Exit: call $nl -> disjunction_β
+(3) Redo: disjunction
+(3) Redo: .Ldisjunction_ω_0_af
+(7) Call: lit_string b
+(7) Exit: lit_string b -> call_α
+(8) Call: call $write
+(8) Exit: call $write -> .Ldisjunction_γ_0_as
+(3) Redo: .Ldisjunction_γ_0_as
+(3) Exit: disjunction -> call_α
+(9) Call: call $nl
+(9) Exit: call $nl -> disjunction_β
+(3) Redo: disjunction
+(3) Redo: .Ldisjunction_ω_0_af
+(3) Fail: disjunction -> p/0_step
+(1) Exit: call_proc_staged main/0 -> main_γ
