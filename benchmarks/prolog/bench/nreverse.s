@@ -470,6 +470,31 @@ n18_call_proc_staged_α: mov              r11, 19
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_proc_staged_α_55_1
+                        sub              rsp, 8
+                        push             rax
+                        mov              edi, 3
+                        mov              rsi, rbp
+                        lea              rdx, [rbp + 1056]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_pl_tail_args_safe@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r10d, eax
+                        pop              rax
+                        add              rsp, 8
+                        test             r10, r10;                            je    .Lcall_proc_staged_α_55_99
+                        mov              r10, qword ptr [rbp + 1016]
+                        cmp              r13, r10;                            jne   .Lcall_proc_staged_α_55_99
+                        lea              r10, [rsp + 16]
+                        cmp              r10, rbp;                            jne   .Lcall_proc_staged_α_55_99
+                        mov              rcx, qword ptr [rbp + 1032]
+                        mov              rdx, qword ptr [rbp + 1040]
+                        lea              rsp, [rbp + 1056]
+                        mov              rbp, qword ptr [rbp + 1048];         jmp   rax
+.Lcall_proc_staged_α_55_99:
                         lea              rcx, [rip + .Lcall_proc_staged_α_55_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_proc_staged_α_55_3]
@@ -663,6 +688,7 @@ nreverse$2F2_step:
 nreverse$2F2_alt1:
                         xor              eax, eax
                         mov              qword ptr [rbp + 1000], rax
+                        mov              r13, qword ptr [rbp + 1016]
                                                                               jmp   n19_var_ref_α
 #-----------------------------------------------------------------------------------------------------------------------
 nreverse$2F2_res:
@@ -917,6 +943,31 @@ n73_call_proc_staged_α: mov              r11, 35
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_proc_staged_α_90_1
+                        sub              rsp, 8
+                        push             rax
+                        mov              edi, 3
+                        mov              rsi, rbp
+                        lea              rdx, [rbp + 496]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_pl_tail_args_safe@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r10d, eax
+                        pop              rax
+                        add              rsp, 8
+                        test             r10, r10;                            je    .Lcall_proc_staged_α_90_99
+                        mov              r10, qword ptr [rbp + 456]
+                        cmp              r13, r10;                            jne   .Lcall_proc_staged_α_90_99
+                        lea              r10, [rsp + 16]
+                        cmp              r10, rbp;                            jne   .Lcall_proc_staged_α_90_99
+                        mov              rcx, qword ptr [rbp + 472]
+                        mov              rdx, qword ptr [rbp + 480]
+                        lea              rsp, [rbp + 496]
+                        mov              rbp, qword ptr [rbp + 488];          jmp   rax
+.Lcall_proc_staged_α_90_99:
                         lea              rcx, [rip + .Lcall_proc_staged_α_90_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_proc_staged_α_90_3]
@@ -1548,6 +1599,31 @@ n118_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_proc_staged_α_163_1
+                        sub              rsp, 8
+                        push             rax
+                        mov              edi, 3
+                        mov              rsi, rbp
+                        lea              rdx, [rbp + 1152]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_pl_tail_args_safe@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r10d, eax
+                        pop              rax
+                        add              rsp, 8
+                        test             r10, r10;                            je    .Lcall_proc_staged_α_163_99
+                        mov              r10, qword ptr [rbp + 1112]
+                        cmp              r13, r10;                            jne   .Lcall_proc_staged_α_163_99
+                        lea              r10, [rsp + 16]
+                        cmp              r10, rbp;                            jne   .Lcall_proc_staged_α_163_99
+                        mov              rcx, qword ptr [rbp + 1128]
+                        mov              rdx, qword ptr [rbp + 1136]
+                        lea              rsp, [rbp + 1152]
+                        mov              rbp, qword ptr [rbp + 1144];         jmp   rax
+.Lcall_proc_staged_α_163_99:
                         lea              rcx, [rip + .Lcall_proc_staged_α_163_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_proc_staged_α_163_3]
@@ -1649,6 +1725,7 @@ $reverse_$2F3_step:
 $reverse_$2F3_alt1:
                         xor              eax, eax
                         mov              qword ptr [rbp + 1096], rax
+                        mov              r13, qword ptr [rbp + 1112]
                                                                               jmp   n100_var_ref_α
 #-----------------------------------------------------------------------------------------------------------------------
 $reverse_$2F3_res:
@@ -2053,6 +2130,31 @@ n182_call_proc_staged_α:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_proc_staged_α_222_1
+                        sub              rsp, 8
+                        push             rax
+                        mov              edi, 3
+                        mov              rsi, rbp
+                        lea              rdx, [rbp + 1152]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_pl_tail_args_safe@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r10d, eax
+                        pop              rax
+                        add              rsp, 8
+                        test             r10, r10;                            je    .Lcall_proc_staged_α_222_99
+                        mov              r10, qword ptr [rbp + 1112]
+                        cmp              r13, r10;                            jne   .Lcall_proc_staged_α_222_99
+                        lea              r10, [rsp + 16]
+                        cmp              r10, rbp;                            jne   .Lcall_proc_staged_α_222_99
+                        mov              rcx, qword ptr [rbp + 1128]
+                        mov              rdx, qword ptr [rbp + 1136]
+                        lea              rsp, [rbp + 1152]
+                        mov              rbp, qword ptr [rbp + 1144];         jmp   rax
+.Lcall_proc_staged_α_222_99:
                         lea              rcx, [rip + .Lcall_proc_staged_α_222_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_proc_staged_α_222_3]
@@ -2291,6 +2393,7 @@ concatenate$2F3_step:
 concatenate$2F3_alt1:
                         xor              eax, eax
                         mov              qword ptr [rbp + 1096], rax
+                        mov              r13, qword ptr [rbp + 1112]
                                                                               jmp   n183_var_ref_α
 #-----------------------------------------------------------------------------------------------------------------------
 concatenate$2F3_res:
