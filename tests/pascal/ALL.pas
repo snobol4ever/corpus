@@ -3379,3 +3379,39 @@ begin
     writeln('ne');
   writeln(a)
 end.
+{---------------------------------------------------- 160 parser__assign_simple}
+program assignsimple;
+var x: integer;
+begin
+  x := 5
+end.
+{----------------------------------------------------- 161 parser__if_then_else}
+program ifthenelse;
+var x: integer;
+begin
+  if x > 0 then
+    x := 1
+  else
+    x := 2
+end.
+{--------------------------------------------------------- 162 parser__for_loop}
+program forloop;
+var i: integer;
+begin
+  for i := 1 to 10 do
+    i := i
+end.
+{---------------------------------------------- 163 parser__procedure_call_args}
+program proccallargs;
+procedure p(a, b: integer);
+begin
+end;
+begin
+  p(1, 2)
+end.
+{------------------------------------------------------ 164 parser__array_index}
+program arrayindex;
+var a: array[1..5] of integer;
+begin
+  a[3] := 7
+end.
