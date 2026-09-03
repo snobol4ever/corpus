@@ -3248,3 +3248,134 @@ begin
   writeln(nstmts);
   writeln(ndecls)
 end.
+{----------------------------------------------------- 150 ladder__rung00_hello}
+program rung00hello;
+begin
+  writeln('Hello, world!')
+end.
+{------------------------------------------------ 151 ladder__rung01_var_assign}
+program rung01var;
+var
+  x: integer;
+begin
+  x := 7;
+  writeln(x)
+end.
+{------------------------------------------------ 152 ladder__rung02_arithmetic}
+program rung02arith;
+var
+  a, b: integer;
+begin
+  a := 6;
+  b := 4;
+  writeln(a + b);
+  writeln(a - b);
+  writeln(a * b);
+  writeln(a div b);
+  writeln(a mod b)
+end.
+{-------------------------------------------------- 153 ladder__rung03_if_while}
+program rung03ifwhile;
+var
+  n: integer;
+begin
+  n := 5;
+  if n > 3 then
+    writeln('big')
+  else
+    writeln('small');
+  while n > 0 do begin
+    writeln(n);
+    n := n - 1
+  end
+end.
+{------------------------------------------------ 154 ladder__rung04_for_repeat}
+program rung04forrepeat;
+var
+  i: integer;
+begin
+  for i := 1 to 3 do
+    writeln(i);
+  i := 3;
+  repeat
+    writeln(i);
+    i := i - 1
+  until i = 0
+end.
+{------------------------------------------------- 155 ladder__rung05_proc_func}
+program rung05procfunc;
+var
+  r: integer;
+
+procedure greet(name: integer);
+begin
+  writeln('n=', name)
+end;
+
+function square(x: integer): integer;
+begin
+  square := x * x
+end;
+
+begin
+  greet(9);
+  r := square(6);
+  writeln(r)
+end.
+{---------------------------------------------------- 156 ladder__rung06_arrays}
+program rung06arrays;
+var
+  a: array[1..5] of integer;
+  i, s: integer;
+begin
+  for i := 1 to 5 do
+    a[i] := i * i;
+  s := 0;
+  for i := 1 to 5 do
+    s := s + a[i];
+  writeln(s)
+end.
+{--------------------------------------------------- 157 ladder__rung07_records}
+program rung07records;
+type
+  point = record
+    x, y: integer
+  end;
+var
+  p: point;
+begin
+  p.x := 3;
+  p.y := 4;
+  writeln(p.x + p.y)
+end.
+{------------------------------------------------------ 158 ladder__rung08_sets}
+program rung08sets;
+type
+  digset = set of 0..9;
+var
+  s: digset;
+begin
+  s := [1, 3, 5, 7];
+  if 3 in s then
+    writeln('yes')
+  else
+    writeln('no');
+  if 4 in s then
+    writeln('yes')
+  else
+    writeln('no')
+end.
+{--------------------------------------------------- 159 ladder__rung09_strings}
+program rung09strings;
+type
+  str3 = packed array[1..3] of char;
+var
+  a: str3;
+begin
+  a := 'foo';
+  if a = 'foo' then
+    writeln('eq')
+  else
+    writeln('ne');
+  writeln(a)
+end.
