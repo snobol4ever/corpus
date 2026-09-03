@@ -4613,10 +4613,162 @@ zebra$2F1_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 8208], 0
-                        lea              rdi, [rbp + 32]
-                        xor              eax, eax
-                        mov              ecx, 1248
-                        rep              stosb
+                        mov              qword ptr [rbp + 6992], 0
+                        mov              qword ptr [rbp + 7000], 0
+                        mov              qword ptr [rbp + 8128], 0
+                        mov              qword ptr [rbp + 8136], 0
+                        mov              qword ptr [rbp + 8144], 0
+                        mov              qword ptr [rbp + 8152], 0
+                        mov              qword ptr [rbp + 8160], 0
+                        mov              qword ptr [rbp + 8168], 0
+                        mov              qword ptr [rbp + 8080], 0
+                        mov              qword ptr [rbp + 8088], 0
+                        mov              qword ptr [rbp + 8096], 0
+                        mov              qword ptr [rbp + 8104], 0
+                        mov              qword ptr [rbp + 8112], 0
+                        mov              qword ptr [rbp + 8120], 0
+                        mov              qword ptr [rbp + 8032], 0
+                        mov              qword ptr [rbp + 8040], 0
+                        mov              qword ptr [rbp + 8048], 0
+                        mov              qword ptr [rbp + 8056], 0
+                        mov              qword ptr [rbp + 8064], 0
+                        mov              qword ptr [rbp + 8072], 0
+                        mov              qword ptr [rbp + 7984], 0
+                        mov              qword ptr [rbp + 7992], 0
+                        mov              qword ptr [rbp + 8000], 0
+                        mov              qword ptr [rbp + 8008], 0
+                        mov              qword ptr [rbp + 8016], 0
+                        mov              qword ptr [rbp + 8024], 0
+                        mov              qword ptr [rbp + 7856], 0
+                        mov              qword ptr [rbp + 7864], 0
+                        mov              qword ptr [rbp + 7872], 0
+                        mov              qword ptr [rbp + 7880], 0
+                        mov              qword ptr [rbp + 7888], 0
+                        mov              qword ptr [rbp + 7896], 0
+                        mov              qword ptr [rbp + 7904], 0
+                        mov              qword ptr [rbp + 7912], 0
+                        mov              qword ptr [rbp + 7920], 0
+                        mov              qword ptr [rbp + 7928], 0
+                        mov              qword ptr [rbp + 7936], 0
+                        mov              qword ptr [rbp + 7944], 0
+                        mov              qword ptr [rbp + 7952], 0
+                        mov              qword ptr [rbp + 7960], 0
+                        mov              qword ptr [rbp + 7968], 0
+                        mov              qword ptr [rbp + 7976], 0
+                        mov              qword ptr [rbp + 7808], 0
+                        mov              qword ptr [rbp + 7816], 0
+                        mov              qword ptr [rbp + 7824], 0
+                        mov              qword ptr [rbp + 7832], 0
+                        mov              qword ptr [rbp + 7840], 0
+                        mov              qword ptr [rbp + 7848], 0
+                        mov              qword ptr [rbp + 7760], 0
+                        mov              qword ptr [rbp + 7768], 0
+                        mov              qword ptr [rbp + 7776], 0
+                        mov              qword ptr [rbp + 7784], 0
+                        mov              qword ptr [rbp + 7792], 0
+                        mov              qword ptr [rbp + 7800], 0
+                        mov              qword ptr [rbp + 7744], 0
+                        mov              qword ptr [rbp + 7752], 0
+                        mov              qword ptr [rbp + 7728], 0
+                        mov              qword ptr [rbp + 7736], 0
+                        mov              qword ptr [rbp + 7664], 0
+                        mov              qword ptr [rbp + 7672], 0
+                        mov              qword ptr [rbp + 7680], 0
+                        mov              qword ptr [rbp + 7688], 0
+                        mov              qword ptr [rbp + 7696], 0
+                        mov              qword ptr [rbp + 7704], 0
+                        mov              qword ptr [rbp + 7712], 0
+                        mov              qword ptr [rbp + 7720], 0
+                        mov              qword ptr [rbp + 7648], 0
+                        mov              qword ptr [rbp + 7656], 0
+                        mov              qword ptr [rbp + 7632], 0
+                        mov              qword ptr [rbp + 7640], 0
+                        mov              qword ptr [rbp + 7568], 0
+                        mov              qword ptr [rbp + 7576], 0
+                        mov              qword ptr [rbp + 7584], 0
+                        mov              qword ptr [rbp + 7592], 0
+                        mov              qword ptr [rbp + 7600], 0
+                        mov              qword ptr [rbp + 7608], 0
+                        mov              qword ptr [rbp + 7616], 0
+                        mov              qword ptr [rbp + 7624], 0
+                        mov              qword ptr [rbp + 7552], 0
+                        mov              qword ptr [rbp + 7560], 0
+                        mov              qword ptr [rbp + 7424], 0
+                        mov              qword ptr [rbp + 7432], 0
+                        mov              qword ptr [rbp + 7440], 0
+                        mov              qword ptr [rbp + 7448], 0
+                        mov              qword ptr [rbp + 7456], 0
+                        mov              qword ptr [rbp + 7464], 0
+                        mov              qword ptr [rbp + 7472], 0
+                        mov              qword ptr [rbp + 7480], 0
+                        mov              qword ptr [rbp + 7488], 0
+                        mov              qword ptr [rbp + 7496], 0
+                        mov              qword ptr [rbp + 7504], 0
+                        mov              qword ptr [rbp + 7512], 0
+                        mov              qword ptr [rbp + 7520], 0
+                        mov              qword ptr [rbp + 7528], 0
+                        mov              qword ptr [rbp + 7536], 0
+                        mov              qword ptr [rbp + 7544], 0
+                        mov              qword ptr [rbp + 7296], 0
+                        mov              qword ptr [rbp + 7304], 0
+                        mov              qword ptr [rbp + 7312], 0
+                        mov              qword ptr [rbp + 7320], 0
+                        mov              qword ptr [rbp + 7328], 0
+                        mov              qword ptr [rbp + 7336], 0
+                        mov              qword ptr [rbp + 7344], 0
+                        mov              qword ptr [rbp + 7352], 0
+                        mov              qword ptr [rbp + 7360], 0
+                        mov              qword ptr [rbp + 7368], 0
+                        mov              qword ptr [rbp + 7376], 0
+                        mov              qword ptr [rbp + 7384], 0
+                        mov              qword ptr [rbp + 7392], 0
+                        mov              qword ptr [rbp + 7400], 0
+                        mov              qword ptr [rbp + 7408], 0
+                        mov              qword ptr [rbp + 7416], 0
+                        mov              qword ptr [rbp + 7248], 0
+                        mov              qword ptr [rbp + 7256], 0
+                        mov              qword ptr [rbp + 7264], 0
+                        mov              qword ptr [rbp + 7272], 0
+                        mov              qword ptr [rbp + 7280], 0
+                        mov              qword ptr [rbp + 7288], 0
+                        mov              qword ptr [rbp + 7200], 0
+                        mov              qword ptr [rbp + 7208], 0
+                        mov              qword ptr [rbp + 7216], 0
+                        mov              qword ptr [rbp + 7224], 0
+                        mov              qword ptr [rbp + 7232], 0
+                        mov              qword ptr [rbp + 7240], 0
+                        mov              qword ptr [rbp + 7072], 0
+                        mov              qword ptr [rbp + 7080], 0
+                        mov              qword ptr [rbp + 7088], 0
+                        mov              qword ptr [rbp + 7096], 0
+                        mov              qword ptr [rbp + 7104], 0
+                        mov              qword ptr [rbp + 7112], 0
+                        mov              qword ptr [rbp + 7120], 0
+                        mov              qword ptr [rbp + 7128], 0
+                        mov              qword ptr [rbp + 7136], 0
+                        mov              qword ptr [rbp + 7144], 0
+                        mov              qword ptr [rbp + 7152], 0
+                        mov              qword ptr [rbp + 7160], 0
+                        mov              qword ptr [rbp + 7168], 0
+                        mov              qword ptr [rbp + 7176], 0
+                        mov              qword ptr [rbp + 7184], 0
+                        mov              qword ptr [rbp + 7192], 0
+                        mov              qword ptr [rbp + 7008], 0
+                        mov              qword ptr [rbp + 7016], 0
+                        mov              qword ptr [rbp + 7024], 0
+                        mov              qword ptr [rbp + 7032], 0
+                        mov              qword ptr [rbp + 7040], 0
+                        mov              qword ptr [rbp + 7048], 0
+                        mov              qword ptr [rbp + 7056], 0
+                        mov              qword ptr [rbp + 7064], 0
+                        mov              qword ptr [rbp + 6928], 0
+                        mov              qword ptr [rbp + 6936], 0
+                        mov              qword ptr [rbp + 6944], 0
+                        mov              qword ptr [rbp + 6952], 0
+                        mov              qword ptr [rbp + 6960], 0
+                        mov              qword ptr [rbp + 6968], 0
+                        mov              qword ptr [rbp + 6976], 0
+                        mov              qword ptr [rbp + 6984], 0
                         mov              rax, qword ptr [rbp + 8200]
                         test             rax, rax
                                                                               je    zebra$2F1_ω
@@ -5296,10 +5448,14 @@ right_of$2F3_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1216], 0
-                        lea              rdi, [rbp + 64]
-                        xor              eax, eax
-                        mov              ecx, 80
-                        rep              stosb
+                        mov              qword ptr [rbp + 1136], 0
+                        mov              qword ptr [rbp + 1144], 0
+                        mov              qword ptr [rbp + 1152], 0
+                        mov              qword ptr [rbp + 1160], 0
+                        mov              qword ptr [rbp + 1120], 0
+                        mov              qword ptr [rbp + 1128], 0
+                        mov              qword ptr [rbp + 1168], 0
+                        mov              qword ptr [rbp + 1176], 0
                         mov              rax, qword ptr [rbp + 1208]
                         test             rax, rax
                                                                               je    right_of$2F3_ω
@@ -6221,10 +6377,14 @@ next_to$2F3_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1728], 0
-                        lea              rdi, [rbp + 64]
-                        xor              eax, eax
-                        mov              ecx, 80
-                        rep              stosb
+                        mov              qword ptr [rbp + 1664], 0
+                        mov              qword ptr [rbp + 1672], 0
+                        mov              qword ptr [rbp + 1648], 0
+                        mov              qword ptr [rbp + 1656], 0
+                        mov              qword ptr [rbp + 1632], 0
+                        mov              qword ptr [rbp + 1640], 0
+                        mov              qword ptr [rbp + 1680], 0
+                        mov              qword ptr [rbp + 1688], 0
                         mov              rax, qword ptr [rbp + 1720]
                         test             rax, rax
                                                                               je    next_to$2F3_ω
@@ -6744,10 +6904,12 @@ my_member$2F2_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 848], 0
-                        lea              rdi, [rbp + 48]
-                        xor              eax, eax
-                        mov              ecx, 64
-                        rep              stosb
+                        mov              qword ptr [rbp + 784], 0
+                        mov              qword ptr [rbp + 792], 0
+                        mov              qword ptr [rbp + 768], 0
+                        mov              qword ptr [rbp + 776], 0
+                        mov              qword ptr [rbp + 800], 0
+                        mov              qword ptr [rbp + 808], 0
                         mov              rax, qword ptr [rbp + 840]
                         test             rax, rax
                                                                               je    my_member$2F2_ω
@@ -7576,10 +7738,56 @@ houses$2F1_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2160], 0
-                        lea              rdi, [rbp + 32]
-                        xor              eax, eax
-                        mov              ecx, 416
-                        rep              stosb
+                        mov              qword ptr [rbp + 2048], 0
+                        mov              qword ptr [rbp + 2056], 0
+                        mov              qword ptr [rbp + 2064], 0
+                        mov              qword ptr [rbp + 2072], 0
+                        mov              qword ptr [rbp + 2080], 0
+                        mov              qword ptr [rbp + 2088], 0
+                        mov              qword ptr [rbp + 2096], 0
+                        mov              qword ptr [rbp + 2104], 0
+                        mov              qword ptr [rbp + 2112], 0
+                        mov              qword ptr [rbp + 2120], 0
+                        mov              qword ptr [rbp + 1968], 0
+                        mov              qword ptr [rbp + 1976], 0
+                        mov              qword ptr [rbp + 1984], 0
+                        mov              qword ptr [rbp + 1992], 0
+                        mov              qword ptr [rbp + 2000], 0
+                        mov              qword ptr [rbp + 2008], 0
+                        mov              qword ptr [rbp + 2016], 0
+                        mov              qword ptr [rbp + 2024], 0
+                        mov              qword ptr [rbp + 2032], 0
+                        mov              qword ptr [rbp + 2040], 0
+                        mov              qword ptr [rbp + 1888], 0
+                        mov              qword ptr [rbp + 1896], 0
+                        mov              qword ptr [rbp + 1904], 0
+                        mov              qword ptr [rbp + 1912], 0
+                        mov              qword ptr [rbp + 1920], 0
+                        mov              qword ptr [rbp + 1928], 0
+                        mov              qword ptr [rbp + 1936], 0
+                        mov              qword ptr [rbp + 1944], 0
+                        mov              qword ptr [rbp + 1952], 0
+                        mov              qword ptr [rbp + 1960], 0
+                        mov              qword ptr [rbp + 1808], 0
+                        mov              qword ptr [rbp + 1816], 0
+                        mov              qword ptr [rbp + 1824], 0
+                        mov              qword ptr [rbp + 1832], 0
+                        mov              qword ptr [rbp + 1840], 0
+                        mov              qword ptr [rbp + 1848], 0
+                        mov              qword ptr [rbp + 1856], 0
+                        mov              qword ptr [rbp + 1864], 0
+                        mov              qword ptr [rbp + 1872], 0
+                        mov              qword ptr [rbp + 1880], 0
+                        mov              qword ptr [rbp + 1728], 0
+                        mov              qword ptr [rbp + 1736], 0
+                        mov              qword ptr [rbp + 1744], 0
+                        mov              qword ptr [rbp + 1752], 0
+                        mov              qword ptr [rbp + 1760], 0
+                        mov              qword ptr [rbp + 1768], 0
+                        mov              qword ptr [rbp + 1776], 0
+                        mov              qword ptr [rbp + 1784], 0
+                        mov              qword ptr [rbp + 1792], 0
+                        mov              qword ptr [rbp + 1800], 0
                         mov              rax, qword ptr [rbp + 2152]
                         test             rax, rax
                                                                               je    houses$2F1_ω
@@ -7821,10 +8029,8 @@ main$2F0_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 224], 0
-                        lea              rdi, [rbp + 16]
-                        xor              eax, eax
-                        mov              ecx, 16
-                        rep              stosb
+                        mov              qword ptr [rbp + 176], 0
+                        mov              qword ptr [rbp + 184], 0
                         mov              rax, qword ptr [rbp + 216]
                         test             rax, rax
                                                                               je    main$2F0_ω

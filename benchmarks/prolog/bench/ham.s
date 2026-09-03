@@ -639,10 +639,16 @@ del$2F3_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1232], 0
-                        lea              rdi, [rbp + 64]
-                        xor              eax, eax
-                        mov              ecx, 96
-                        rep              stosb
+                        mov              qword ptr [rbp + 1136], 0
+                        mov              qword ptr [rbp + 1144], 0
+                        mov              qword ptr [rbp + 1120], 0
+                        mov              qword ptr [rbp + 1128], 0
+                        mov              qword ptr [rbp + 1184], 0
+                        mov              qword ptr [rbp + 1192], 0
+                        mov              qword ptr [rbp + 1152], 0
+                        mov              qword ptr [rbp + 1160], 0
+                        mov              qword ptr [rbp + 1168], 0
+                        mov              qword ptr [rbp + 1176], 0
                         mov              rax, qword ptr [rbp + 1224]
                         test             rax, rax
                                                                               je    del$2F3_ω
@@ -1157,10 +1163,12 @@ el$2F2_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 848], 0
-                        lea              rdi, [rbp + 48]
-                        xor              eax, eax
-                        mov              ecx, 64
-                        rep              stosb
+                        mov              qword ptr [rbp + 784], 0
+                        mov              qword ptr [rbp + 792], 0
+                        mov              qword ptr [rbp + 768], 0
+                        mov              qword ptr [rbp + 776], 0
+                        mov              qword ptr [rbp + 800], 0
+                        mov              qword ptr [rbp + 808], 0
                         mov              rax, qword ptr [rbp + 840]
                         test             rax, rax
                                                                               je    el$2F2_ω
@@ -7122,10 +7130,14 @@ cycle_ham$2F2_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1152], 0
-                        lea              rdi, [rbp + 48]
-                        xor              eax, eax
-                        mov              ecx, 96
-                        rep              stosb
+                        mov              qword ptr [rbp + 1072], 0
+                        mov              qword ptr [rbp + 1080], 0
+                        mov              qword ptr [rbp + 1088], 0
+                        mov              qword ptr [rbp + 1096], 0
+                        mov              qword ptr [rbp + 1056], 0
+                        mov              qword ptr [rbp + 1064], 0
+                        mov              qword ptr [rbp + 1104], 0
+                        mov              qword ptr [rbp + 1112], 0
                         mov              rax, qword ptr [rbp + 1144]
                         test             rax, rax
                                                                               je    cycle_ham$2F2_ω
@@ -8456,10 +8468,8 @@ ham1$2F1_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2528], 0
-                        lea              rdi, [rbp + 32]
-                        xor              eax, eax
-                        mov              ecx, 16
-                        rep              stosb
+                        mov              qword ptr [rbp + 2480], 0
+                        mov              qword ptr [rbp + 2488], 0
                         mov              rax, qword ptr [rbp + 2520]
                         test             rax, rax
                                                                               je    ham1$2F1_ω
@@ -9572,10 +9582,18 @@ chain_ham$2F3_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1728], 0
-                        lea              rdi, [rbp + 64]
-                        xor              eax, eax
-                        mov              ecx, 112
-                        rep              stosb
+                        mov              qword ptr [rbp + 1600], 0
+                        mov              qword ptr [rbp + 1608], 0
+                        mov              qword ptr [rbp + 1664], 0
+                        mov              qword ptr [rbp + 1672], 0
+                        mov              qword ptr [rbp + 1616], 0
+                        mov              qword ptr [rbp + 1624], 0
+                        mov              qword ptr [rbp + 1680], 0
+                        mov              qword ptr [rbp + 1688], 0
+                        mov              qword ptr [rbp + 1648], 0
+                        mov              qword ptr [rbp + 1656], 0
+                        mov              qword ptr [rbp + 1632], 0
+                        mov              qword ptr [rbp + 1640], 0
                         mov              rax, qword ptr [rbp + 1720]
                         test             rax, rax
                                                                               je    chain_ham$2F3_ω
@@ -9822,10 +9840,8 @@ main$2F0_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 224], 0
-                        lea              rdi, [rbp + 16]
-                        xor              eax, eax
-                        mov              ecx, 16
-                        rep              stosb
+                        mov              qword ptr [rbp + 176], 0
+                        mov              qword ptr [rbp + 184], 0
                         mov              rax, qword ptr [rbp + 216]
                         test             rax, rax
                                                                               je    main$2F0_ω
@@ -10286,10 +10302,12 @@ edge$2F2_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 544], 0
-                        lea              rdi, [rbp + 48]
-                        xor              eax, eax
-                        mov              ecx, 48
-                        rep              stosb
+                        mov              qword ptr [rbp + 496], 0
+                        mov              qword ptr [rbp + 504], 0
+                        mov              qword ptr [rbp + 464], 0
+                        mov              qword ptr [rbp + 472], 0
+                        mov              qword ptr [rbp + 480], 0
+                        mov              qword ptr [rbp + 488], 0
                         mov              rax, qword ptr [rbp + 536]
                         test             rax, rax
                                                                               je    edge$2F2_ω

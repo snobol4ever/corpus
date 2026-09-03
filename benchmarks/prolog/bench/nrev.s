@@ -303,10 +303,10 @@ reverse$2F2_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 448], 0
-                        lea              rdi, [rbp + 48]
-                        xor              eax, eax
-                        mov              ecx, 32
-                        rep              stosb
+                        mov              qword ptr [rbp + 384], 0
+                        mov              qword ptr [rbp + 392], 0
+                        mov              qword ptr [rbp + 400], 0
+                        mov              qword ptr [rbp + 408], 0
                         mov              rax, qword ptr [rbp + 440]
                         test             rax, rax
                                                                               je    reverse$2F2_ω
@@ -933,10 +933,14 @@ $reverse_$2F3_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], 0
-                        lea              rdi, [rbp + 64]
-                        xor              eax, eax
-                        mov              ecx, 80
-                        rep              stosb
+                        mov              qword ptr [rbp + 1008], 0
+                        mov              qword ptr [rbp + 1016], 0
+                        mov              qword ptr [rbp + 1056], 0
+                        mov              qword ptr [rbp + 1064], 0
+                        mov              qword ptr [rbp + 1040], 0
+                        mov              qword ptr [rbp + 1048], 0
+                        mov              qword ptr [rbp + 1024], 0
+                        mov              qword ptr [rbp + 1032], 0
                         mov              rax, qword ptr [rbp + 1096]
                         test             rax, rax
                                                                               je    $reverse_$2F3_ω
@@ -1571,10 +1575,14 @@ append$2F3_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], 0
-                        lea              rdi, [rbp + 64]
-                        xor              eax, eax
-                        mov              ecx, 96
-                        rep              stosb
+                        mov              qword ptr [rbp + 1008], 0
+                        mov              qword ptr [rbp + 1016], 0
+                        mov              qword ptr [rbp + 1056], 0
+                        mov              qword ptr [rbp + 1064], 0
+                        mov              qword ptr [rbp + 1024], 0
+                        mov              qword ptr [rbp + 1032], 0
+                        mov              qword ptr [rbp + 1040], 0
+                        mov              qword ptr [rbp + 1048], 0
                         mov              rax, qword ptr [rbp + 1096]
                         test             rax, rax
                                                                               je    append$2F3_ω
@@ -2269,10 +2277,14 @@ nrev$2F2_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1008], 0
-                        lea              rdi, [rbp + 48]
-                        xor              eax, eax
-                        mov              ecx, 80
-                        rep              stosb
+                        mov              qword ptr [rbp + 944], 0
+                        mov              qword ptr [rbp + 952], 0
+                        mov              qword ptr [rbp + 928], 0
+                        mov              qword ptr [rbp + 936], 0
+                        mov              qword ptr [rbp + 960], 0
+                        mov              qword ptr [rbp + 968], 0
+                        mov              qword ptr [rbp + 912], 0
+                        mov              qword ptr [rbp + 920], 0
                         mov              rax, qword ptr [rbp + 1000]
                         test             rax, rax
                                                                               je    nrev$2F2_ω
@@ -2861,10 +2873,12 @@ data$2F2_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1008], 0
-                        lea              rdi, [rbp + 48]
-                        xor              eax, eax
-                        mov              ecx, 64
-                        rep              stosb
+                        mov              qword ptr [rbp + 960], 0
+                        mov              qword ptr [rbp + 968], 0
+                        mov              qword ptr [rbp + 928], 0
+                        mov              qword ptr [rbp + 936], 0
+                        mov              qword ptr [rbp + 944], 0
+                        mov              qword ptr [rbp + 952], 0
                         mov              rax, qword ptr [rbp + 1000]
                         test             rax, rax
                                                                               je    data$2F2_ω
@@ -3138,10 +3152,8 @@ data$2F1_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 288], 0
-                        lea              rdi, [rbp + 32]
-                        xor              eax, eax
-                        mov              ecx, 16
-                        rep              stosb
+                        mov              qword ptr [rbp + 240], 0
+                        mov              qword ptr [rbp + 248], 0
                         mov              rax, qword ptr [rbp + 280]
                         test             rax, rax
                                                                               je    data$2F1_ω
@@ -3530,10 +3542,10 @@ main$2F0_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 352], 0
-                        lea              rdi, [rbp + 16]
-                        xor              eax, eax
-                        mov              ecx, 32
-                        rep              stosb
+                        mov              qword ptr [rbp + 304], 0
+                        mov              qword ptr [rbp + 312], 0
+                        mov              qword ptr [rbp + 288], 0
+                        mov              qword ptr [rbp + 296], 0
                         mov              rax, qword ptr [rbp + 344]
                         test             rax, rax
                                                                               je    main$2F0_ω
@@ -4163,10 +4175,14 @@ app$2F3_step:
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], 0
-                        lea              rdi, [rbp + 64]
-                        xor              eax, eax
-                        mov              ecx, 96
-                        rep              stosb
+                        mov              qword ptr [rbp + 1008], 0
+                        mov              qword ptr [rbp + 1016], 0
+                        mov              qword ptr [rbp + 1056], 0
+                        mov              qword ptr [rbp + 1064], 0
+                        mov              qword ptr [rbp + 1024], 0
+                        mov              qword ptr [rbp + 1032], 0
+                        mov              qword ptr [rbp + 1040], 0
+                        mov              qword ptr [rbp + 1048], 0
                         mov              rax, qword ptr [rbp + 1096]
                         test             rax, rax
                                                                               je    app$2F3_ω
