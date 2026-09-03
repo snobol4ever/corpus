@@ -128,3 +128,13 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,sub,multi,my,our,say,print,giv
 127,method_sub_for_replace_1,scrip_test_rk_listmeth__rk_listmeth,scrip_test_rk_listmeth,block,0,24,"m3,m4",1,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0
 128,sub_regex_smartmatch_replace_1,scrip_test_rk_regex23__rk_regex23,scrip_test_rk_regex23,block,0,28,"m3,m4",1,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,1
 129,sub_when_junction_replace_1,scrip_test_rk_junctions__rk_junctions,scrip_test_rk_junctions,block,0,25,"m3,m4",1,0,1,0,1,0,0,1,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0
+130,ladder__rung00_hello,ladder__rung00_hello,ladder,block,0,1,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+131,ladder__rung01_variables,ladder__rung01_variables,ladder,block,0,4,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+132,ladder__rung02_arithmetic,ladder__rung02_arithmetic,ladder,block,0,6,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+133,ladder__rung03_strings,ladder__rung03_strings,ladder,block,0,4,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
+134,ladder__rung04_arrays,ladder__rung04_arrays,ladder,block,0,4,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
+135,ladder__rung05_hashes,ladder__rung05_hashes,ladder,block,0,3,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+136,ladder__rung06_control,ladder__rung06_control,ladder,block,0,4,"m3,m4",0,0,1,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+137,ladder__rung07_subs,ladder__rung07_subs,ladder,block,0,2,"m3,m4",1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+138,ladder__rung08_for_loop,ladder__rung08_for_loop,ladder,block,0,1,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,1,0
+139,ladder__rung09_string_methods,ladder__rung09_string_methods,ladder,block,0,3,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0

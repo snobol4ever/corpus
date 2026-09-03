@@ -967,3 +967,45 @@ sub main() {
     if ($x == (1 | 2 | 3))   { say('pipe-hit'); }   # ⇒ pipe-hit
     if ($x == (3 & 3 & 3))   { say('amp-hit');  }   # ⇒ amp-hit
 }
+#------------------------------------------------------ 130 ladder__rung00_hello
+say "Hello, world!";
+#-------------------------------------------------- 131 ladder__rung01_variables
+my $name = "Raku";
+my $n = 42;
+say $name;
+say $n;
+#------------------------------------------------- 132 ladder__rung02_arithmetic
+my $a = 7;
+my $b = 3;
+say $a + $b;
+say $a - $b;
+say $a * $b;
+say $a % $b;
+#---------------------------------------------------- 133 ladder__rung03_strings
+my $s = "Hello";
+my $t = $s ~ ", world!";
+say $t;
+say "value: $s";
+#----------------------------------------------------- 134 ladder__rung04_arrays
+my @arr = (1, 2, 3);
+say @arr[0];
+say @arr[2];
+say @arr.elems;
+#----------------------------------------------------- 135 ladder__rung05_hashes
+my %h = a => 1, b => 2;
+say %h{'a'};
+say %h{'b'};
+#---------------------------------------------------- 136 ladder__rung06_control
+my $x = 5;
+if ($x > 3) { say "big"; } else { say "small"; }
+my $i = 0;
+while ($i < 3) { say $i; $i = $i + 1; }
+#------------------------------------------------------- 137 ladder__rung07_subs
+sub add($a, $b) { return $a + $b; }
+say add(3, 4);
+#--------------------------------------------------- 138 ladder__rung08_for_loop
+for 1..3 -> $i { say $i; }
+#--------------------------------------------- 139 ladder__rung09_string_methods
+my $s = "Raku";
+say $s.uc;
+say $s.chars;
