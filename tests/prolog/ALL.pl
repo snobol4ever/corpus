@@ -2288,7 +2288,7 @@ main :- atom_codes(abc, Cs), atom_chars(abc, Chs), atom_length(abcde, L), atom_c
 :- initialization(main).
 f(a).
 main :- f(X), write(X), nl.
-%------------------------------------------------ 384 sub_atom_directive_1 XFAIL
+%------------------------------------------------------ 384 sub_atom_directive_1
 :- initialization(main).
 main :- sub_atom(abc, B, 1, _, S), write(B-S), nl, fail.
 main :- write(done), nl.
@@ -2312,7 +2312,7 @@ main :- fact(b, V), write(V), nl.
 %-------------------------------------------------------------- 388 directive_15
 :- initialization(main).
 main :- ( ( X = a ; X = b ), write(X), nl, fail ) ; true.
-%------------------------------------------------- 389 between_directive_1 XFAIL
+%------------------------------------------------------- 389 between_directive_1
 :- initialization(main).
 main :- between(1, 3, X), write(X), nl, fail.
 main :- write(done), nl.
