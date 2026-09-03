@@ -168,7 +168,7 @@
 #
 ############################################################################
 
-link lists
+link lists_lib
 
 procedure cat(args[]);			#: concatenate strings
    local result;

@@ -71,7 +71,7 @@
 #
 ############################################################################
 
-link io
+link io_lib
 link numbers
 
 procedure divisors(n);			#: generate the divisors of n
