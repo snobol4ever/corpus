@@ -14,14 +14,6 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 144
-                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
-                        mov              rax, qword ptr [rax + 0]
-                        add              dword ptr [rax + 0], 1
-                        mov              ecx, dword ptr [rax + 0]
-                        movsxd           rcx, ecx
-                        sub              rcx, 1
-                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
-                        mov              qword ptr [rax + 0], rcx
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 1
