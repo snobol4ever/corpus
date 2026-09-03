@@ -3118,120 +3118,6 @@
 (130) Exit: lit_string -> call_prolog_α
 (131) Call: call_prolog $nl0
 (131) Exit: call_prolog $nl0 -> main_γ
-%---- ladder__rung03_disjunction m3 total=56 prefix=56
-(1) Call: call_proc_staged p/0
-(2) Call: call_prolog $trail_mark
-(2) Exit: call_prolog $trail_mark -> call_proc_staged_α
-(3) Call: call_proc_staged $disj0/0
-(4) Call: call_prolog $trail_mark
-(4) Exit: call_prolog $trail_mark -> lit_string_α
-(5) Call: lit_string a
-(5) Exit: lit_string a -> call_prolog_α
-(6) Call: call_prolog $write
-(6) Exit: call_prolog $write -> suspend_α
-(7) Call: suspend
-(7) Exit: suspend -> $disj0/0_γ
-(3) Exit: call_proc_staged $disj0/0 -> lit_string_α
-(8) Call: lit_string
-(8) Exit: lit_string -> call_prolog_α
-(9) Call: call_prolog $nl0
-(9) Exit: call_prolog $nl0 -> call_proc_staged_β
-(3) Redo: call_proc_staged $disj0/0
-(10) Call: call_prolog $trail_mark
-(10) Exit: call_prolog $trail_mark -> lit_string_α
-(11) Call: lit_string a
-(11) Exit: lit_string a -> call_prolog_α
-(12) Call: call_prolog $write
-(12) Exit: call_prolog $write -> suspend_α
-(13) Call: suspend
-(13) Redo: suspend
-(14) Call: call_prolog $unwind_nothrow
-(14) Exit: call_prolog $unwind_nothrow -> lit_string_α
-(15) Call: lit_string b
-(15) Exit: lit_string b -> call_prolog_α
-(16) Call: call_prolog $write
-(16) Exit: call_prolog $write -> suspend_α
-(17) Call: suspend
-(17) Exit: suspend -> $disj0/0_γ
-(3) Exit: call_proc_staged $disj0/0 -> lit_string_α
-(18) Call: lit_string
-(18) Exit: lit_string -> call_prolog_α
-(19) Call: call_prolog $nl0
-(19) Exit: call_prolog $nl0 -> call_proc_staged_β
-(3) Redo: call_proc_staged $disj0/0
-(20) Call: call_prolog $trail_mark
-(20) Exit: call_prolog $trail_mark -> lit_string_α
-(21) Call: lit_string a
-(21) Exit: lit_string a -> call_prolog_α
-(22) Call: call_prolog $write
-(22) Exit: call_prolog $write -> suspend_α
-(23) Call: suspend
-(17) Redo: suspend
-(24) Call: call_prolog $trail_unwind
-(24) Exit: call_prolog $trail_unwind -> $disj0/0_ω
-(3) Fail: call_proc_staged $disj0/0 -> call_prolog_α
-(25) Call: call_prolog $unwind_nothrow
-(25) Exit: call_prolog $unwind_nothrow -> suspend_α
-(26) Call: suspend
-(26) Exit: suspend -> p/0_γ
-(1) Exit: call_proc_staged p/0 -> pat_flat_γ
-%---- ladder__rung03_disjunction m4 total=56 prefix=56
-(1) Call: call_proc_staged p/0
-(2) Call: call_prolog $trail_mark
-(2) Exit: call_prolog $trail_mark -> call_proc_staged_α
-(3) Call: call_proc_staged $disj0/0
-(4) Call: call_prolog $trail_mark
-(4) Exit: call_prolog $trail_mark -> lit_string_α
-(5) Call: lit_string a
-(5) Exit: lit_string a -> call_prolog_α
-(6) Call: call_prolog $write
-(6) Exit: call_prolog $write -> suspend_α
-(7) Call: suspend
-(7) Exit: suspend -> $disj0/0_γ
-(3) Exit: call_proc_staged $disj0/0 -> lit_string_α
-(8) Call: lit_string
-(8) Exit: lit_string -> call_prolog_α
-(9) Call: call_prolog $nl0
-(9) Exit: call_prolog $nl0 -> call_proc_staged_β
-(3) Redo: call_proc_staged $disj0/0
-(10) Call: call_prolog $trail_mark
-(10) Exit: call_prolog $trail_mark -> lit_string_α
-(11) Call: lit_string a
-(11) Exit: lit_string a -> call_prolog_α
-(12) Call: call_prolog $write
-(12) Exit: call_prolog $write -> suspend_α
-(13) Call: suspend
-(13) Redo: suspend
-(14) Call: call_prolog $unwind_nothrow
-(14) Exit: call_prolog $unwind_nothrow -> lit_string_α
-(15) Call: lit_string b
-(15) Exit: lit_string b -> call_prolog_α
-(16) Call: call_prolog $write
-(16) Exit: call_prolog $write -> suspend_α
-(17) Call: suspend
-(17) Exit: suspend -> $disj0/0_γ
-(3) Exit: call_proc_staged $disj0/0 -> lit_string_α
-(18) Call: lit_string
-(18) Exit: lit_string -> call_prolog_α
-(19) Call: call_prolog $nl0
-(19) Exit: call_prolog $nl0 -> call_proc_staged_β
-(3) Redo: call_proc_staged $disj0/0
-(20) Call: call_prolog $trail_mark
-(20) Exit: call_prolog $trail_mark -> lit_string_α
-(21) Call: lit_string a
-(21) Exit: lit_string a -> call_prolog_α
-(22) Call: call_prolog $write
-(22) Exit: call_prolog $write -> suspend_α
-(23) Call: suspend
-(17) Redo: suspend
-(24) Call: call_prolog $trail_unwind
-(24) Exit: call_prolog $trail_unwind -> $disj0/0_ω
-(3) Fail: call_proc_staged $disj0/0 -> call_prolog_α
-(25) Call: call_prolog $unwind_nothrow
-(25) Exit: call_prolog $unwind_nothrow -> suspend_α
-(26) Call: suspend
-(26) Exit: suspend -> p/0_γ
-(1) Exit: call_proc_staged p/0 -> main_γ
 %---- ladder__rung04_cut_under_backtrack m3 total=118 prefix=118
 (1) Call: var_ref G0
 (1) Exit: var_ref G0 -> call_proc_staged_α
@@ -3989,4 +3875,58 @@
 (21) Exit: call $nl -> call_proc_staged_β
 (3) Redo: call_proc_staged p/1
 (3) Fail: call_proc_staged p/1 -> main/0_step
+(1) Exit: call_proc_staged main/0 -> main_γ
+%---- ladder__rung03_disjunction m3 total=26 prefix=26
+(1) Call: call_proc_staged main/0
+(2) Call: call_proc_staged p/0
+(3) Call: disjunction
+(4) Call: lit_string a
+(4) Exit: lit_string a -> call_α
+(5) Call: call $write
+(5) Exit: call $write -> .Ldisjunction_γ_0_as
+(3) Redo: .Ldisjunction_γ_0_as
+(3) Exit: disjunction -> call_α
+(6) Call: call $nl
+(6) Exit: call $nl -> disjunction_β
+(3) Redo: disjunction
+(3) Redo: .Ldisjunction_ω_0_af
+(7) Call: lit_string b
+(7) Exit: lit_string b -> call_α
+(8) Call: call $write
+(8) Exit: call $write -> .Ldisjunction_γ_0_as
+(3) Redo: .Ldisjunction_γ_0_as
+(3) Exit: disjunction -> call_α
+(9) Call: call $nl
+(9) Exit: call $nl -> disjunction_β
+(3) Redo: disjunction
+(3) Redo: .Ldisjunction_ω_0_af
+(3) Fail: disjunction -> p/0_step
+(2) Exit: call_proc_staged p/0 -> main/0_ret0
+(1) Exit: call_proc_staged main/0 -> pat_flat_γ
+%---- ladder__rung03_disjunction m4 total=26 prefix=26
+(1) Call: call_proc_staged main/0
+(2) Call: call_proc_staged p/0
+(3) Call: disjunction
+(4) Call: lit_string a
+(4) Exit: lit_string a -> call_α
+(5) Call: call $write
+(5) Exit: call $write -> .Ldisjunction_γ_0_as
+(3) Redo: .Ldisjunction_γ_0_as
+(3) Exit: disjunction -> call_α
+(6) Call: call $nl
+(6) Exit: call $nl -> disjunction_β
+(3) Redo: disjunction
+(3) Redo: .Ldisjunction_ω_0_af
+(7) Call: lit_string b
+(7) Exit: lit_string b -> call_α
+(8) Call: call $write
+(8) Exit: call $write -> .Ldisjunction_γ_0_as
+(3) Redo: .Ldisjunction_γ_0_as
+(3) Exit: disjunction -> call_α
+(9) Call: call $nl
+(9) Exit: call $nl -> disjunction_β
+(3) Redo: disjunction
+(3) Redo: .Ldisjunction_ω_0_af
+(3) Fail: disjunction -> p/0_step
+(2) Exit: call_proc_staged p/0 -> main/0_ret0
 (1) Exit: call_proc_staged main/0 -> main_γ

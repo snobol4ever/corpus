@@ -2187,7 +2187,7 @@ main :- f(X), write(X), nl.
 f(a).
 f(b).
 main :- f(X), write(X), nl.
-%-------------------------------------------------------- 374 directive_85 XFAIL
+%-------------------------------------------------------------- 374 directive_85
 :- initialization(main).
 p :- ( write(a) ; write(b) ), nl, fail.
 p.
