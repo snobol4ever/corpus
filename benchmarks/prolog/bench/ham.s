@@ -10361,8 +10361,7 @@ main:
                                                                               jmp   main_α
 .Lmain_zf_γ:            xor              edi, edi
                         call             exit@PLT
-.Lmain_zf_ω:            mov              edi, 1
-                        call             exit@PLT
+.Lmain_zf_ω:            call             rt_pl_root_omega@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 128

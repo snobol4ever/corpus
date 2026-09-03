@@ -6308,7 +6308,9 @@ n645_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n645_unmark_α:          mov              r11, 266
                         mov              rdi, qword ptr [rbp + 64]
-                        call             rt_pl_tr_unwind@PLT;                 jmp   n646_lit_string_α
+                        call             rt_pl_tr_unwind@PLT
+                        test             r15, r15;                            jne   main$2F0_step
+                                                                              jmp   n646_lit_string_α
                         .size            n645_unmark_bx, .-n645_unmark_bx
                         .type            n646_lit_string_bx, @function
 n646_lit_string_bx:
@@ -6356,7 +6358,9 @@ n649_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n649_unmark_α:          mov              r11, 270
                         mov              rdi, qword ptr [rbp + 64]
-                        call             rt_pl_tr_unwind@PLT;                 jmp   n650_indirect_goto_α
+                        call             rt_pl_tr_unwind@PLT
+                        test             r15, r15;                            jne   main$2F0_step
+                                                                              jmp   n650_indirect_goto_α
                         .size            n649_unmark_bx, .-n649_unmark_bx
                         .type            n650_indirect_goto_bx, @function
 n650_indirect_goto_bx:
@@ -6452,8 +6456,7 @@ main:
                                                                               jmp   main_α
 .Lmain_zf_γ:            xor              edi, edi
                         call             exit@PLT
-.Lmain_zf_ω:            mov              edi, 1
-                        call             exit@PLT
+.Lmain_zf_ω:            call             rt_pl_root_omega@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 128

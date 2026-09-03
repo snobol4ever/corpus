@@ -1069,7 +1069,9 @@ n68_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n68_unmark_α:           mov              r11, 46
                         mov              rdi, qword ptr [rbp + 336]
-                        call             rt_pl_tr_unwind@PLT;                 jmp   n69_var_ref_α
+                        call             rt_pl_tr_unwind@PLT
+                        test             r15, r15;                            jne   interpret$2F2_step
+                                                                              jmp   n69_var_ref_α
                         .size            n68_unmark_bx, .-n68_unmark_bx
                         .type            n69_var_ref_bx, @function
 n69_var_ref_bx:
@@ -1228,7 +1230,9 @@ n73_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n73_unmark_α:           mov              r11, 51
                         mov              rdi, qword ptr [rbp + 336]
-                        call             rt_pl_tr_unwind@PLT;                 jmp   n74_indirect_goto_α
+                        call             rt_pl_tr_unwind@PLT
+                        test             r15, r15;                            jne   interpret$2F2_step
+                                                                              jmp   n74_indirect_goto_α
                         .size            n73_unmark_bx, .-n73_unmark_bx
                         .type            n74_indirect_goto_bx, @function
 n74_indirect_goto_bx:
@@ -9139,7 +9143,9 @@ n1041_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1041_unmark_α:         mov              r11, 456
                         mov              rdi, qword ptr [rbp + 96]
-                        call             rt_pl_tr_unwind@PLT;                 jmp   n1042_var_ref_α
+                        call             rt_pl_tr_unwind@PLT
+                        test             r15, r15;                            jne   interpret_disjunction$2F3_step
+                                                                              jmp   n1042_var_ref_α
                         .size            n1041_unmark_bx, .-n1041_unmark_bx
                         .type            n1042_var_ref_bx, @function
 n1042_var_ref_bx:
@@ -9300,7 +9306,9 @@ n1046_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1046_unmark_α:         mov              r11, 461
                         mov              rdi, qword ptr [rbp + 96]
-                        call             rt_pl_tr_unwind@PLT;                 jmp   n1047_indirect_goto_α
+                        call             rt_pl_tr_unwind@PLT
+                        test             r15, r15;                            jne   interpret_disjunction$2F3_step
+                                                                              jmp   n1047_indirect_goto_α
                         .size            n1046_unmark_bx, .-n1046_unmark_bx
                         .type            n1047_indirect_goto_bx, @function
 n1047_indirect_goto_bx:
@@ -10478,7 +10486,9 @@ n1219_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1219_unmark_α:         mov              r11, 508
                         mov              rdi, qword ptr [rbp + 64]
-                        call             rt_pl_tr_unwind@PLT;                 jmp   n1220_lit_string_α
+                        call             rt_pl_tr_unwind@PLT
+                        test             r15, r15;                            jne   main$2F0_step
+                                                                              jmp   n1220_lit_string_α
                         .size            n1219_unmark_bx, .-n1219_unmark_bx
                         .type            n1220_lit_string_bx, @function
 n1220_lit_string_bx:
@@ -10527,7 +10537,9 @@ n1223_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1223_unmark_α:         mov              r11, 512
                         mov              rdi, qword ptr [rbp + 64]
-                        call             rt_pl_tr_unwind@PLT;                 jmp   n1224_indirect_goto_α
+                        call             rt_pl_tr_unwind@PLT
+                        test             r15, r15;                            jne   main$2F0_step
+                                                                              jmp   n1224_indirect_goto_α
                         .size            n1223_unmark_bx, .-n1223_unmark_bx
                         .type            n1224_indirect_goto_bx, @function
 n1224_indirect_goto_bx:
@@ -10623,8 +10635,7 @@ main:
                                                                               jmp   main_α
 .Lmain_zf_γ:            xor              edi, edi
                         call             exit@PLT
-.Lmain_zf_ω:            mov              edi, 1
-                        call             exit@PLT
+.Lmain_zf_ω:            call             rt_pl_root_omega@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 128
