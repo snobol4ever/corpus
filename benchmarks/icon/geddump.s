@@ -4066,10 +4066,24 @@ n00169_scan_many_bx:
 n00169_scan_many_α:       mov              r11, 206
                         mov              eax, r14d
 .Lscan_many_α_531_0:    cmp              eax, r15d;                           jge   .Lscan_many_α_531_1
+                        mov              r12d, eax
+                        mov              rdi, qword ptr [rsp + 480]
+                        mov              rsi, qword ptr [rsp + 488]
+                        sub              rsp, 8
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_scan_needle@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        add              rsp, 8
+                        mov              rbx, rax
+                        mov              eax, r12d
                         movsxd           rcx, eax
                         movzx            esi, byte ptr [r13+rcx]
-                        mov              rdi, qword ptr [rsp + 488]
-                        push             rax
+                        mov              rdi, rbx
                         sub              rsp, 8
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -4081,7 +4095,7 @@ n00169_scan_many_α:       mov              r11, 206
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 8
                         test             rax, rax
-                        pop              rax;                                 je    .Lscan_many_α_531_1
+                        mov              eax, r12d;                           je    .Lscan_many_α_531_1
                         add              eax, 1;                              jmp   .Lscan_many_α_531_0
 .Lscan_many_α_531_1:    cmp              eax, r14d;                           je    .Ldisjunction_ω_437_af
                         mov              qword ptr [rsp + 464], 3
