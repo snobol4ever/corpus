@@ -5908,3 +5908,423 @@
 (20) Call: call $nl
 (20) Exit: call $nl -> main/0_γ
 (1) Exit: call_proc_staged main/0 -> main_γ
+%---- ladder__rung08_findall_collect m3 total=54 prefix=54
+(1) Call: call_proc_staged main/0
+(2) Call: var_ref G1
+(2) Exit: var_ref G1 -> call_α
+(3) Call: call $findall_new
+(3) Exit: call $findall_new -> var_ref_α
+(4) Call: var_ref G0
+(4) Exit: var_ref G0 -> lit_integer_α
+(5) Call: lit_integer
+(5) Exit: lit_integer -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> to_α
+(7) Call: to
+(7) Exit: to -> call_α
+(8) Call: call $is_v
+(8) Exit: call $is_v -> var_α
+(9) Call: var G0
+(9) Exit: var G0 -> call_α
+(10) Call: call $findall_add
+(10) Exit: call $findall_add -> to_β
+(7) Redo: to
+(7) Exit: to -> call_α
+(11) Call: call $is_v
+(11) Exit: call $is_v -> var_α
+(12) Call: var G0
+(12) Exit: var G0 -> call_α
+(13) Call: call $findall_add
+(13) Exit: call $findall_add -> to_β
+(7) Redo: to
+(7) Exit: to -> call_α
+(14) Call: call $is_v
+(14) Exit: call $is_v -> var_α
+(15) Call: var G0
+(15) Exit: var G0 -> call_α
+(16) Call: call $findall_add
+(16) Exit: call $findall_add -> to_β
+(7) Redo: to
+(7) Exit: to -> call_α
+(17) Call: call $is_v
+(17) Exit: call $is_v -> var_α
+(18) Call: var G0
+(18) Exit: var G0 -> call_α
+(19) Call: call $findall_add
+(19) Exit: call $findall_add -> to_β
+(7) Redo: to
+(7) Fail: to -> call_α
+(20) Call: call $findall_result
+(20) Exit: call $findall_result -> var_α
+(21) Call: var G1
+(21) Exit: var G1 -> call_α
+(22) Call: call $write
+(22) Exit: call $write -> call_α
+(23) Call: call $nl
+(23) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> pat_flat_γ
+%---- ladder__rung08_findall_collect m4 total=54 prefix=54
+(1) Call: call_proc_staged main/0
+(2) Call: var_ref G1
+(2) Exit: var_ref G1 -> call_α
+(3) Call: call $findall_new
+(3) Exit: call $findall_new -> var_ref_α
+(4) Call: var_ref G0
+(4) Exit: var_ref G0 -> lit_integer_α
+(5) Call: lit_integer
+(5) Exit: lit_integer -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> to_α
+(7) Call: to
+(7) Exit: to -> call_α
+(8) Call: call $is_v
+(8) Exit: call $is_v -> var_α
+(9) Call: var G0
+(9) Exit: var G0 -> call_α
+(10) Call: call $findall_add
+(10) Exit: call $findall_add -> to_β
+(7) Redo: to
+(7) Exit: to -> call_α
+(11) Call: call $is_v
+(11) Exit: call $is_v -> var_α
+(12) Call: var G0
+(12) Exit: var G0 -> call_α
+(13) Call: call $findall_add
+(13) Exit: call $findall_add -> to_β
+(7) Redo: to
+(7) Exit: to -> call_α
+(14) Call: call $is_v
+(14) Exit: call $is_v -> var_α
+(15) Call: var G0
+(15) Exit: var G0 -> call_α
+(16) Call: call $findall_add
+(16) Exit: call $findall_add -> to_β
+(7) Redo: to
+(7) Exit: to -> call_α
+(17) Call: call $is_v
+(17) Exit: call $is_v -> var_α
+(18) Call: var G0
+(18) Exit: var G0 -> call_α
+(19) Call: call $findall_add
+(19) Exit: call $findall_add -> to_β
+(7) Redo: to
+(7) Fail: to -> call_α
+(20) Call: call $findall_result
+(20) Exit: call $findall_result -> var_α
+(21) Call: var G1
+(21) Exit: var G1 -> call_α
+(22) Call: call $write
+(22) Exit: call $write -> call_α
+(23) Call: call $nl
+(23) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> main_γ
+%---- ladder__rung08_setof_bagof m3 total=154 prefix=154
+(1) Call: call_proc_staged main/0
+(2) Call: var_ref G1
+(2) Exit: var_ref G1 -> call_α
+(3) Call: call $findall_new
+(3) Exit: call $findall_new -> var_ref_α
+(4) Call: var_ref G0
+(4) Exit: var_ref G0 -> call_proc_staged_α
+(5) Call: call_proc_staged q/1
+(6) Call: var_ref A0
+(6) Exit: var_ref A0 -> lit_string_α
+(7) Call: lit_string c
+(7) Exit: lit_string c -> call_α
+(8) Call: call $unify
+(8) Exit: call $unify -> q/1_γ
+(5) Exit: call_proc_staged q/1 -> var_α
+(9) Call: var G0
+(9) Exit: var G0 -> call_α
+(10) Call: call $findall_add
+(10) Exit: call $findall_add -> call_proc_staged_β
+(5) Redo: call_proc_staged q/1
+(11) Call: var_ref A0
+(11) Exit: var_ref A0 -> lit_string_α
+(12) Call: lit_string a
+(12) Exit: lit_string a -> call_α
+(13) Call: call $unify
+(13) Exit: call $unify -> q/1_γ
+(5) Exit: call_proc_staged q/1 -> var_α
+(14) Call: var G0
+(14) Exit: var G0 -> call_α
+(15) Call: call $findall_add
+(15) Exit: call $findall_add -> call_proc_staged_β
+(5) Redo: call_proc_staged q/1
+(16) Call: var_ref A0
+(16) Exit: var_ref A0 -> lit_string_α
+(17) Call: lit_string b
+(17) Exit: lit_string b -> call_α
+(18) Call: call $unify
+(18) Exit: call $unify -> q/1_γ
+(5) Exit: call_proc_staged q/1 -> var_α
+(19) Call: var G0
+(19) Exit: var G0 -> call_α
+(20) Call: call $findall_add
+(20) Exit: call $findall_add -> call_proc_staged_β
+(5) Redo: call_proc_staged q/1
+(21) Call: var_ref A0
+(21) Exit: var_ref A0 -> lit_string_α
+(22) Call: lit_string a
+(22) Exit: lit_string a -> call_α
+(23) Call: call $unify
+(23) Exit: call $unify -> q/1_γ
+(5) Exit: call_proc_staged q/1 -> var_α
+(24) Call: var G0
+(24) Exit: var G0 -> call_α
+(25) Call: call $findall_add
+(25) Exit: call $findall_add -> call_proc_staged_β
+(5) Redo: call_proc_staged q/1
+(5) Fail: call_proc_staged q/1 -> call_α
+(26) Call: call $findall_result
+(26) Exit: call $findall_result -> var_ref_α
+(27) Call: var_ref G1
+(27) Exit: var_ref G1 -> lit_string_α
+(28) Call: lit_string []
+(28) Exit: lit_string [] -> call_α
+(29) Call: call $atop_ne
+(29) Exit: call $atop_ne -> var_ref_α
+(30) Call: var_ref G1
+(30) Exit: var_ref G1 -> var_ref_α
+(31) Call: var_ref G2
+(31) Exit: var_ref G2 -> call_α
+(32) Call: call $sort
+(32) Exit: call $sort -> var_α
+(33) Call: var G2
+(33) Exit: var G2 -> call_α
+(34) Call: call $write
+(34) Exit: call $write -> call_α
+(35) Call: call $nl
+(35) Exit: call $nl -> var_ref_α
+(36) Call: var_ref G4
+(36) Exit: var_ref G4 -> call_α
+(37) Call: call $findall_new
+(37) Exit: call $findall_new -> var_ref_α
+(38) Call: var_ref G3
+(38) Exit: var_ref G3 -> call_proc_staged_α
+(39) Call: call_proc_staged q/1
+(40) Call: var_ref A0
+(40) Exit: var_ref A0 -> lit_string_α
+(41) Call: lit_string c
+(41) Exit: lit_string c -> call_α
+(42) Call: call $unify
+(42) Exit: call $unify -> q/1_γ
+(39) Exit: call_proc_staged q/1 -> var_α
+(43) Call: var G3
+(43) Exit: var G3 -> call_α
+(44) Call: call $findall_add
+(44) Exit: call $findall_add -> call_proc_staged_β
+(39) Redo: call_proc_staged q/1
+(45) Call: var_ref A0
+(45) Exit: var_ref A0 -> lit_string_α
+(46) Call: lit_string a
+(46) Exit: lit_string a -> call_α
+(47) Call: call $unify
+(47) Exit: call $unify -> q/1_γ
+(39) Exit: call_proc_staged q/1 -> var_α
+(48) Call: var G3
+(48) Exit: var G3 -> call_α
+(49) Call: call $findall_add
+(49) Exit: call $findall_add -> call_proc_staged_β
+(39) Redo: call_proc_staged q/1
+(50) Call: var_ref A0
+(50) Exit: var_ref A0 -> lit_string_α
+(51) Call: lit_string b
+(51) Exit: lit_string b -> call_α
+(52) Call: call $unify
+(52) Exit: call $unify -> q/1_γ
+(39) Exit: call_proc_staged q/1 -> var_α
+(53) Call: var G3
+(53) Exit: var G3 -> call_α
+(54) Call: call $findall_add
+(54) Exit: call $findall_add -> call_proc_staged_β
+(39) Redo: call_proc_staged q/1
+(55) Call: var_ref A0
+(55) Exit: var_ref A0 -> lit_string_α
+(56) Call: lit_string a
+(56) Exit: lit_string a -> call_α
+(57) Call: call $unify
+(57) Exit: call $unify -> q/1_γ
+(39) Exit: call_proc_staged q/1 -> var_α
+(58) Call: var G3
+(58) Exit: var G3 -> call_α
+(59) Call: call $findall_add
+(59) Exit: call $findall_add -> call_proc_staged_β
+(39) Redo: call_proc_staged q/1
+(39) Fail: call_proc_staged q/1 -> call_α
+(60) Call: call $findall_result
+(60) Exit: call $findall_result -> var_ref_α
+(61) Call: var_ref G4
+(61) Exit: var_ref G4 -> lit_string_α
+(62) Call: lit_string []
+(62) Exit: lit_string [] -> call_α
+(63) Call: call $atop_ne
+(63) Exit: call $atop_ne -> var_ref_α
+(64) Call: var_ref G4
+(64) Exit: var_ref G4 -> var_ref_α
+(65) Call: var_ref G5
+(65) Exit: var_ref G5 -> call_α
+(66) Call: call $unify
+(66) Exit: call $unify -> var_α
+(67) Call: var G5
+(67) Exit: var G5 -> call_α
+(68) Call: call $write
+(68) Exit: call $write -> call_α
+(69) Call: call $nl
+(69) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> pat_flat_γ
+%---- ladder__rung08_setof_bagof m4 total=154 prefix=154
+(1) Call: call_proc_staged main/0
+(2) Call: var_ref G1
+(2) Exit: var_ref G1 -> call_α
+(3) Call: call $findall_new
+(3) Exit: call $findall_new -> var_ref_α
+(4) Call: var_ref G0
+(4) Exit: var_ref G0 -> call_proc_staged_α
+(5) Call: call_proc_staged q/1
+(6) Call: var_ref A0
+(6) Exit: var_ref A0 -> lit_string_α
+(7) Call: lit_string c
+(7) Exit: lit_string c -> call_α
+(8) Call: call $unify
+(8) Exit: call $unify -> q/1_γ
+(5) Exit: call_proc_staged q/1 -> var_α
+(9) Call: var G0
+(9) Exit: var G0 -> call_α
+(10) Call: call $findall_add
+(10) Exit: call $findall_add -> call_proc_staged_β
+(5) Redo: call_proc_staged q/1
+(11) Call: var_ref A0
+(11) Exit: var_ref A0 -> lit_string_α
+(12) Call: lit_string a
+(12) Exit: lit_string a -> call_α
+(13) Call: call $unify
+(13) Exit: call $unify -> q/1_γ
+(5) Exit: call_proc_staged q/1 -> var_α
+(14) Call: var G0
+(14) Exit: var G0 -> call_α
+(15) Call: call $findall_add
+(15) Exit: call $findall_add -> call_proc_staged_β
+(5) Redo: call_proc_staged q/1
+(16) Call: var_ref A0
+(16) Exit: var_ref A0 -> lit_string_α
+(17) Call: lit_string b
+(17) Exit: lit_string b -> call_α
+(18) Call: call $unify
+(18) Exit: call $unify -> q/1_γ
+(5) Exit: call_proc_staged q/1 -> var_α
+(19) Call: var G0
+(19) Exit: var G0 -> call_α
+(20) Call: call $findall_add
+(20) Exit: call $findall_add -> call_proc_staged_β
+(5) Redo: call_proc_staged q/1
+(21) Call: var_ref A0
+(21) Exit: var_ref A0 -> lit_string_α
+(22) Call: lit_string a
+(22) Exit: lit_string a -> call_α
+(23) Call: call $unify
+(23) Exit: call $unify -> q/1_γ
+(5) Exit: call_proc_staged q/1 -> var_α
+(24) Call: var G0
+(24) Exit: var G0 -> call_α
+(25) Call: call $findall_add
+(25) Exit: call $findall_add -> call_proc_staged_β
+(5) Redo: call_proc_staged q/1
+(5) Fail: call_proc_staged q/1 -> call_α
+(26) Call: call $findall_result
+(26) Exit: call $findall_result -> var_ref_α
+(27) Call: var_ref G1
+(27) Exit: var_ref G1 -> lit_string_α
+(28) Call: lit_string []
+(28) Exit: lit_string [] -> call_α
+(29) Call: call $atop_ne
+(29) Exit: call $atop_ne -> var_ref_α
+(30) Call: var_ref G1
+(30) Exit: var_ref G1 -> var_ref_α
+(31) Call: var_ref G2
+(31) Exit: var_ref G2 -> call_α
+(32) Call: call $sort
+(32) Exit: call $sort -> var_α
+(33) Call: var G2
+(33) Exit: var G2 -> call_α
+(34) Call: call $write
+(34) Exit: call $write -> call_α
+(35) Call: call $nl
+(35) Exit: call $nl -> var_ref_α
+(36) Call: var_ref G4
+(36) Exit: var_ref G4 -> call_α
+(37) Call: call $findall_new
+(37) Exit: call $findall_new -> var_ref_α
+(38) Call: var_ref G3
+(38) Exit: var_ref G3 -> call_proc_staged_α
+(39) Call: call_proc_staged q/1
+(40) Call: var_ref A0
+(40) Exit: var_ref A0 -> lit_string_α
+(41) Call: lit_string c
+(41) Exit: lit_string c -> call_α
+(42) Call: call $unify
+(42) Exit: call $unify -> q/1_γ
+(39) Exit: call_proc_staged q/1 -> var_α
+(43) Call: var G3
+(43) Exit: var G3 -> call_α
+(44) Call: call $findall_add
+(44) Exit: call $findall_add -> call_proc_staged_β
+(39) Redo: call_proc_staged q/1
+(45) Call: var_ref A0
+(45) Exit: var_ref A0 -> lit_string_α
+(46) Call: lit_string a
+(46) Exit: lit_string a -> call_α
+(47) Call: call $unify
+(47) Exit: call $unify -> q/1_γ
+(39) Exit: call_proc_staged q/1 -> var_α
+(48) Call: var G3
+(48) Exit: var G3 -> call_α
+(49) Call: call $findall_add
+(49) Exit: call $findall_add -> call_proc_staged_β
+(39) Redo: call_proc_staged q/1
+(50) Call: var_ref A0
+(50) Exit: var_ref A0 -> lit_string_α
+(51) Call: lit_string b
+(51) Exit: lit_string b -> call_α
+(52) Call: call $unify
+(52) Exit: call $unify -> q/1_γ
+(39) Exit: call_proc_staged q/1 -> var_α
+(53) Call: var G3
+(53) Exit: var G3 -> call_α
+(54) Call: call $findall_add
+(54) Exit: call $findall_add -> call_proc_staged_β
+(39) Redo: call_proc_staged q/1
+(55) Call: var_ref A0
+(55) Exit: var_ref A0 -> lit_string_α
+(56) Call: lit_string a
+(56) Exit: lit_string a -> call_α
+(57) Call: call $unify
+(57) Exit: call $unify -> q/1_γ
+(39) Exit: call_proc_staged q/1 -> var_α
+(58) Call: var G3
+(58) Exit: var G3 -> call_α
+(59) Call: call $findall_add
+(59) Exit: call $findall_add -> call_proc_staged_β
+(39) Redo: call_proc_staged q/1
+(39) Fail: call_proc_staged q/1 -> call_α
+(60) Call: call $findall_result
+(60) Exit: call $findall_result -> var_ref_α
+(61) Call: var_ref G4
+(61) Exit: var_ref G4 -> lit_string_α
+(62) Call: lit_string []
+(62) Exit: lit_string [] -> call_α
+(63) Call: call $atop_ne
+(63) Exit: call $atop_ne -> var_ref_α
+(64) Call: var_ref G4
+(64) Exit: var_ref G4 -> var_ref_α
+(65) Call: var_ref G5
+(65) Exit: var_ref G5 -> call_α
+(66) Call: call $unify
+(66) Exit: call $unify -> var_α
+(67) Call: var G5
+(67) Exit: var G5 -> call_α
+(68) Call: call $write
+(68) Exit: call $write -> call_α
+(69) Call: call $nl
+(69) Exit: call $nl -> main/0_γ
+(1) Exit: call_proc_staged main/0 -> main_γ
