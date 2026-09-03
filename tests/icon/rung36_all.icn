@@ -1035,7 +1035,7 @@ procedure xprint(s1,s2,j,k);
    write(s1);
    every write(right(s2[ k+1 to *s2 ],j));
 end
-#----------------------------------------------------- 12 rung36_jcon_kwds XFAIL
+#----------------------------------------------------- 12 rung36_jcon_kwds
 #SRC: JCON
 
 #  kwds.icn -- check keywords, as best can do reproducibly
