@@ -1,2 +1,2 @@
 my $i = 0;
-while ($i < 3) { say($i); }
+while ($i < 3) { say($i); $i = $i + 1; }

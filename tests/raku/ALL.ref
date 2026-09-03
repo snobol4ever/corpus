@@ -71,7 +71,7 @@ foo bar
 (STMT :subj (TT_SAY (TT_VAR x)))
 #------------------------------------------------------------ 28 simple_assign_9
 (STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 0)))
-(STMT :subj (TT_REPEAT (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR x) (TT_ADD (TT_VAR x) (TT_ILIT 1))))))
+(STMT :subj (TT_REPEAT (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR x) (TT_ADD (TT_VAR x) (TT_ILIT 1)))) (TT_LT (TT_VAR x) (TT_ILIT 3))))
 (STMT :subj (TT_SAY (TT_VAR x)))
 #------------------------------------------------------------------ 29 sub_say_3
 (STMT :subj (TT_SUB_DECL (TT_VAR greet) (TT_SAY (TT_QLIT "hello"))))
