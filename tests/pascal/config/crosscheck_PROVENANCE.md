@@ -35,19 +35,27 @@ any. Calling it ISO-RULED would assert a conformance claim the standard does not
 not *graded* — they pin a choice, they do not prove one. If SCRIP's real formatting ever changes, regenerate
 them deliberately and re-affirm the delegation; never let them silently re-pin.
 
-## 1 block — NO ORACLE, and the ISO question is **OPEN**
+## 1 block — NO ORACLE, permanently — `ISO-EXTENSION` (✅ SETTLED, seat10 2026-09-03)
 
 `pb:1 pb36` — `writeln(<enum>)`. `fpc -Miso` cannot compile it (`Fatal: Unknown compilerproc
 "fpc_write_text_enum_iso"`), so there is no oracle output to compare against; the ref (`blck` / `blck`) is
-SCRIP-self-derived and **unproven**.
+SCRIP-self-derived. **This is not a gap awaiting an oracle — no ISO oracle can ever grade this construct,
+by ruling below, so the SCRIP-self-derived ref is the permanent, correct provenance.**
 
 ⛔ **This is NOT a real-formatting block and is NOT covered by the delegation ruling above** — it contains no
 reals at all. It was held in the same batch as the other four, which is the only thing it shares with them.
-**Whether ISO 7185 permits writing an enumerated value directly is unresolved, and local evidence points both
-ways:** the ISO 7185 acceptance test writes enums exclusively via `ord(e):1`, never `writeln(e)`
-(`/home/resources/Pascal-P5/standard_tests/iso7185pat.pas:559,562,570`) — suggesting it is not standard; while
-fpc's own missing routine is *named* `fpc_write_text_enum_iso`, suggesting fpc intended to support it in ISO
-mode. Tracked by row `pascal-writeln-enum-iso-conformance-unresolved`. Its loose twin is `pb37` (same fpc gap).
 
-⚠️ `../KEEP.md` §4 characterizes this as "a real gap in this fpc build's `-Miso` RTL, not a SCRIP or ref
-defect." **That is asserted, not sourced.** Do not cite it as settled.
+✅ **RULING (row `pascal-writeln-enum-iso-conformance-unresolved`, full citation in
+`.github/ARCH-LANGUAGES.md` § PASCAL): ISO 7185 does NOT permit writing an enumerated value directly.**
+Moore's Rules of ISO 7185 (<https://standardpascal.org/iso7185rules.html>, § "Predefined procedures and
+text files") lists only integer/real/boolean/string as text-file-writable types — enums are not in the
+list, and the list is closed, not illustrative. Corroborated by the ISO 7185 acceptance test itself, which
+writes every enum exclusively via `ord(e):1`, never `writeln(e)`
+(`/home/resources/Pascal-P5/standard_tests/iso7185pat.pas:559,562,570`). **`writeln(<enum>)` is therefore a
+SCRIP extension beyond the standard, not a defect** — this block is re-marked `ISO-EXTENSION`, not
+oracle-pending. `fpc`'s own missing routine being *named* `fpc_write_text_enum_iso` does not contradict
+this: fpc plausibly still accepts the extension syntactically under `-Miso` (routing it to an
+ISO-mode-specific compilerproc, distinct from default mode's implemented `fpc_write_text_enum` at
+`/usr/share/fpcsrc/3.2.2/rtl/inc/text.inc:1191`) but never finished that routine's RTL implementation — fpc's
+own incompleteness handling an extension under strict mode, not evidence about ISO 7185's own text. Its
+loose twin is `pb37` (same fpc gap, same ruling, see `../KEEP.md` §4).

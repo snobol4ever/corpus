@@ -81,7 +81,16 @@ width move — neither prints a plain unspecified-width integer that a width bum
 - **`pb37.pas`** — `fpc -Miso pb37.pas` fails to compile: `Fatal: Unknown compilerproc
   "fpc_write_text_enum_iso"`. FPC's ISO-mode runtime library is missing the support routine for
   `writeln` on an enum value directly (`writeln(chartp[ch])` where `chartp: array[char] of chtp`).
-  A real gap in this fpc build's `-Miso` RTL, not a SCRIP or ref defect.
+  ✅ **SETTLED (seat10, row `pascal-writeln-enum-iso-conformance-unresolved`, 2026-09-03; full ruling
+  + citation in `.github/ARCH-LANGUAGES.md` § PASCAL):** this is **not** "a real gap in a legitimate
+  ISO feature's RTL" — ISO 7185 does not permit writing an enumerated value directly at all (Moore's
+  Rules of ISO 7185, <https://standardpascal.org/iso7185rules.html>: only integer/real/boolean/string
+  are listed as text-file-writable; corroborated by the ISO acceptance test itself, which writes every
+  enum as `ord(e):1`, never `writeln(e)` — `iso7185pat.pas:559,562,570`). `writeln(<enum>)` is a
+  **SCRIP extension beyond the standard**, not a defect — `pb36`/`pb37` are re-marked
+  `ISO-EXTENSION`, their SCRIP-self-derived refs are the correct, permanent provenance (no ISO oracle
+  can grade a construct outside its own conformance mode), and `fpc -Miso`'s crash here is fpc's own
+  incomplete handling of that extension under strict mode, not evidence about ISO 7185's text either way.
 - **`read3.pas`** — compiles, but crashes at runtime: `Runtime error 106` (invalid numeric
   format) inside the `while not eof do read(i)` loop reading `read3.in` ("1 2 3 4 5\n"). FPC's
   ISO-mode `eof`/numeric-`read` is strict about the trailing newline after the last token in a
@@ -95,8 +104,9 @@ The 96 blocks in `crosscheck/` are not all oracle-derived: **91 are, 4 are `ISO-
 (real-number formatting, ruled by Lon via CEO-72/CEO-74 2026-08-28), and 1 (`pb:1 pb36`) has no oracle at all.**
 Full provenance, sources and the measured audit: `crosscheck/PROVENANCE.md`.
 
-⛔ **§4 above says the `pb37`/`pb36` enum-write failure is "a real gap in this fpc build's `-Miso` RTL, not a
-SCRIP or ref defect". That characterization is ASSERTED, NOT SOURCED**, and the ISO conformance question is
-open in both directions — see `crosscheck/PROVENANCE.md` and row
-`pascal-writeln-enum-iso-conformance-unresolved`. Do not cite §4 as settled.
+✅ **§4 above's `pb37`/`pb36` enum-write characterization is now SOURCED and SETTLED (seat10, 2026-09-03,
+row `pascal-writeln-enum-iso-conformance-unresolved`, citation in `.github/ARCH-LANGUAGES.md` § PASCAL):**
+ISO 7185 forbids `writeln(<enum>)`, SCRIP's support for it is a non-standard extension, and `pb37`/`pb36`
+are `ISO-EXTENSION` witnesses with permanent SCRIP-self-derived refs, not oracle-pending ones — see
+`crosscheck/PROVENANCE.md`.
 
