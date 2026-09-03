@@ -8,6 +8,14 @@ FN__event:
                         xor              eax, eax
                         mov              ecx, 32
                         rep              stosb
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rdi, rsp
                         mov              esi, 2
                         mov              edx, 2
@@ -725,6 +733,14 @@ event_dcα:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__refto:
                         sub              rsp, 528
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rdi, rsp
                         mov              esi, 2
                         mov              edx, 1
@@ -1035,6 +1051,14 @@ refto_dcα:
 #-----------------------------------------------------------------------------------------------------------------------
 FN__sortkey:
                         sub              rsp, 208
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 0
@@ -1201,6 +1225,14 @@ FN__gedload:
                         xor              eax, eax
                         mov              ecx, 144
                         rep              stosb
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 16
@@ -3111,6 +3143,14 @@ FN__gedscan:
                         xor              eax, eax
                         mov              ecx, 64
                         rep              stosb
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 10
@@ -5647,6 +5687,14 @@ FN__gedfnf:
                         xor              eax, eax
                         mov              ecx, 48
                         rep              stosb
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 6
@@ -6925,6 +6973,14 @@ FN__gedlnf:
                         xor              eax, eax
                         mov              ecx, 48
                         rep              stosb
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 6
@@ -8056,6 +8112,14 @@ FN__geddate:
                         xor              eax, eax
                         mov              ecx, 48
                         rep              stosb
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 7
@@ -10581,6 +10645,14 @@ main_α:
                         xor              eax, eax
                         mov              ecx, 128
                         rep              stosb
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 13
