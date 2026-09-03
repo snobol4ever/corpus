@@ -2366,7 +2366,7 @@ main :- f(X), write(X), nl.
 %---------------------------------------------------- 398 call_directive_1 XFAIL
 :- initialization(main).
 main :- G = write(hi), call(G), nl, call(write, there), nl.
-%------------------------------------------------- 399 findall_directive_5 XFAIL
+%------------------------------------------------------- 399 findall_directive_5
 :- initialization(main).
 main :- findall(X, between(1, 4, X), L), write(L), nl.
 %------------------------------------------------- 400 cut_ite_directive_1 XFAIL
@@ -2376,7 +2376,7 @@ t(2).
 t(3).
 g :- t(X), !, X > 2.
 main :- ( g -> write(yes) ; write(no) ), nl.
-%--------------------------------------------- 401 setof_bagof_directive_1 XFAIL
+%--------------------------------------------------- 401 setof_bagof_directive_1
 :- initialization(main).
 q(c).
 q(a).
