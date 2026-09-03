@@ -295,34 +295,40 @@ foo(a).
 :- write(starting).
 foo(b).
 %--------------------------------------------------------- 140 simple_program_91
+:- initialization(main).
 main :-
     plus(3, Y, 10), write(Y), nl,
     plus(0, W, 5),  write(W), nl.
 main.
 %--------------------------------------------------------- 141 simple_program_92
+:- initialization(main).
 main :-
     plus(X, 4, 10), write(X), nl,
     plus(Y, 3, 3),  write(Y), nl.
 main.
 %-------------------------------------------------------- 142 simple_program_100
+:- initialization(main).
 main :-
     sub_atom(abcdef, 2, 3, _, Sub),
     write(Sub), nl,
     sub_atom(abcdef, B, 1, _, b),
     write(B), nl.
 %-------------------------------------------------------- 143 simple_program_102
+:- initialization(main).
 main :-
     upcase_atom(hello, U),
     write(U), nl,
     downcase_atom('WORLD', D),
     write(D), nl.
 %--------------------------------------------------------- 144 simple_program_90
+:- initialization(main).
 main :-
     plus(3, 4, Z), write(Z), nl,
     plus(0, 7, W), write(W), nl,
     plus(10, 20, V), write(V), nl.
 main.
 %-------------------------------------------------------- 145 simple_program_103
+:- initialization(main).
 main :-
     atom_to_term('foo(1,2)', T, B),
     write(T), nl,
@@ -331,12 +337,14 @@ main :-
     write(A), nl.
 %--------------------------------------------------------- 146 simple_program_97
 % ** and ^ for exponentiation
+:- initialization(main).
 main :-
     A is 2 ** 10, write(A), nl,
     B is 2 ^ 10,  write(B), nl,
     C is 3 ** 0,  write(C), nl,
     D is 2 ** -1, write(D), nl.
 %-------------------------------------------------------- 147 simple_program_101
+:- initialization(main).
 main :-
     atom_number('42', N),
     write(N), nl,
@@ -346,6 +354,7 @@ main :-
     write(A), nl.
 %-------------------------------------------------------- 148 simple_program_104
 % sub_atom in determinate mode: Before and Length both bound
+:- initialization(main).
 main :-
     sub_atom(hello, 1, 3, _, Sub1),
     write(Sub1), nl,
@@ -355,6 +364,7 @@ main :-
     write(Sub3), nl.
 %--------------------------------------------------------- 149 simple_program_96
 % ISO §8.7 — truncate/round/ceiling/floor
+:- initialization(main).
 main :-
     A is truncate(3.7),  write(A), nl,
     B is truncate(-3.7), write(B), nl,
@@ -365,6 +375,7 @@ main :-
     G is floor(-3.2),    write(G), nl.
 %--------------------------------------------------------- 150 simple_program_98
 % abs/1, sign/1, max/2, min/2
+:- initialization(main).
 main :-
     A is abs(-7),      write(A), nl,
     B is abs(7),       write(B), nl,
@@ -375,6 +386,7 @@ main :-
     G is min(3, 7),    write(G), nl.
 %--------------------------------------------------------- 151 simple_program_95
 % ISO §8.4 mod (sign of divisor) vs rem (sign of dividend)
+:- initialization(main).
 main :-
     A is 7 mod 3,   write(A), nl,
     B is -7 mod 3,  write(B), nl,
@@ -385,6 +397,7 @@ main :-
     G is 7 rem -3,  write(G), nl,
     H is -7 rem -3, write(H), nl.
 %-------------------------------------------------------- 152 simple_program_105
+:- initialization(main).
 main :-
     writeln(hello),
     writeln([1,2,3]),
@@ -412,10 +425,13 @@ main :-
     format("~s~n", [[104,105]]),
     format("~d~n", [42]).
 %-------------------------------------------------------------------- 154 ite_10
+:- initialization(main).
 main :- read(X), read(Y), ( ( X == end_of_file, Y == end_of_file ) -> write(both_eof) ; write(no) ), nl.
 %-------------------------------------------------------------------- 155 ite_11
+:- initialization(main).
 main :- read_term(X, []), ( X == end_of_file -> write(rt_eof) ; write(X) ), nl.
 %--------------------------------------------------------------------- 156 ite_9
+:- initialization(main).
 main :- read(X), ( X == end_of_file -> write(eof) ; write(X) ), nl.
 %-------------------------------------------------------------- 157 directive_24
 :- initialization(main).
@@ -509,6 +525,7 @@ main :-
 p(a,b).
 main :- p(X,_), write(X), nl.
 %----------------------------------------------------------------- 186 abolish_1
+:- initialization(main).
 main :-
     abolish(ghost/1),
     write(ok), nl.
@@ -697,60 +714,70 @@ main :-
     Y is float_fractional_part(3.7), write(Y), nl,
     Z is float(5), write(Z), nl.
 %--------------------------------------------------------------------- 221 ite_4
+:- initialization(main).
 main :-
     ( b @>= a -> write(yes) ; write(no) ), nl,
     ( b @>= b -> write(yes) ; write(no) ), nl,
     ( a @>= b -> write(yes) ; write(no) ), nl.
 main.
 %--------------------------------------------------------------------- 222 ite_5
+:- initialization(main).
 main :-
     ( b @> a -> write(yes) ; write(no) ), nl,
     ( a @> b -> write(yes) ; write(no) ), nl,
     ( z @> z -> write(yes) ; write(no) ), nl.
 main.
 %--------------------------------------------------------------------- 223 ite_6
+:- initialization(main).
 main :-
     ( a @=< b -> write(yes) ; write(no) ), nl,
     ( a @=< a -> write(yes) ; write(no) ), nl,
     ( b @=< a -> write(yes) ; write(no) ), nl.
 main.
 %--------------------------------------------------------------------- 224 ite_7
+:- initialization(main).
 main :-
     ( a @< b -> write(yes) ; write(no) ), nl,
     ( b @< a -> write(yes) ; write(no) ), nl,
     ( a @< a -> write(yes) ; write(no) ), nl.
 main.
 %---------------------------------------------------------- 225 simple_assign_13
+:- initialization(main).
 main :-
     msort([c,a,b,a], S),
     S = [A,B,C,D],
     write(A), nl, write(B), nl, write(C), nl, write(D), nl.
 main.
 %---------------------------------------------------------- 226 simple_assign_14
+:- initialization(main).
 main :-
     msort([b,b,a,a,c], S),
     S = [X1,X2,X3,X4,X5],
     write(X1), nl, write(X2), nl, write(X3), nl, write(X4), nl, write(X5), nl.
 main.
 %---------------------------------------------------------- 227 simple_assign_15
+:- initialization(main).
 main :-
     sort([apple,banana,cherry], S),
     S = [A,B,C],
     write(A), nl, write(B), nl, write(C), nl.
 main.
 %---------------------------------------------------------- 228 simple_assign_16
+:- initialization(main).
 main :-
     sort([c,a,b,a], S),
     S = [A,B,C],
     write(A), nl, write(B), nl, write(C), nl.
 main.
 %--------------------------------------------------------- 229 simple_program_93
+:- initialization(main).
 main :-
     succ(X, 1), write(X), nl,
     succ(Y, 5), write(Y), nl,
     succ(Z, 100), write(Z), nl.
 main.
 %--------------------------------------------------------- 230 simple_program_94
+:- initialization(main).
 main :-
     succ(0, A), write(A), nl,
     succ(4, B), write(B), nl,
@@ -832,12 +859,14 @@ main :- p(X), write(X), nl, fail.
 main.
 %----------------------------------------------------------------- 242 functor_2
 % functor/3: functor(Term, Name, Arity)
+:- initialization(main).
 main :-
     functor(foo(a,b), F, A), write(F/A), nl,
     functor(hello, F2, A2), write(F2/A2), nl,
     functor(42, F3, A3), write(F3/A3), nl,
-    functor(T, bar, 2), write(T), nl.
+    functor(T, bar, 2), numbervars(T, 0, _), write(T), nl.
 %--------------------------------------------------------------------- 243 ite_8
+:- initialization(main).
 main :-
     ( apple @< banana -> write(ok1) ; write(fail1) ), nl,
     ( zebra @> mango  -> write(ok2) ; write(fail2) ), nl,
@@ -846,12 +875,14 @@ main :-
 main.
 %--------------------------------------------------------- 244 simple_program_99
 % arg(+N, +Term, ?Arg): 1-based argument access
+:- initialization(main).
 main :-
     arg(1, foo(a,b,c), X), write(X), nl,
     arg(2, foo(a,b,c), Y), write(Y), nl,
     arg(3, foo(a,b,c), Z), write(Z), nl,
     arg(1, f(hello), W), write(W), nl.
 %------------------------------------------------------------------- 245 bagof_1
+:- initialization(main).
 item(banana).
 item(apple).
 item(cherry).
@@ -861,6 +892,7 @@ main :-
     write(L), nl.
 %------------------------------------------------------------------- 246 catch_1
 % catch a type_error thrown by is/2 on non-numeric
+:- initialization(main).
 main :-
     catch(
         ( X is foo + 1, write(X) ),
@@ -869,6 +901,7 @@ main :-
     ), nl.
 %------------------------------------------------------------------- 247 catch_2
 % catch instantiation_error from is/2 on unbound var
+:- initialization(main).
 main :-
     catch(
         ( X is _ + 1, write(X) ),
@@ -877,6 +910,7 @@ main :-
     ), nl.
 %------------------------------------------------------------------- 248 catch_3
 % catch existence_error for calling undefined predicate
+:- initialization(main).
 main :-
     catch(
         no_such_pred(42),
@@ -892,6 +926,7 @@ person(jones).
 person(smith).
 main :- person(X), write(X), nl, fail ; true.
 %------------------------------------------------------------------- 250 setof_1
+:- initialization(main).
 num(3).
 num(1).
 num(2).
@@ -902,6 +937,7 @@ main :-
 %---------------------------------------------------------- 251 simple_assign_17
 % ISO §8.4 — integer division truncates toward zero
 % 7 // 2 = 3,  -7 // 2 = -3,  7 // -2 = -3,  -7 // -2 = 3
+:- initialization(main).
 main :-
     A is 7 // 2,   write(A), nl,
     B is -7 // 2,  write(B), nl,
@@ -926,6 +962,7 @@ main :-
         (write(cleanup), nl)
     ).
 %------------------------------------------------------------------- 254 setof_2
+:- initialization(main).
 age(peter, 7).
 age(ann, 11).
 age(pat, 8).
@@ -1023,20 +1060,24 @@ main :-
     fib(6, F), write(F), nl,
     factorial(3, G), write(G), nl.
 %-------------------------------------------------------------- 259 clause_ite_1
+:- initialization(main).
 main :- ( clause(ghost(_), _) -> write(found) ; write(nofact) ), nl.
 %--------------------------------------------------------- 260 arith_directive_1
 :- initialization(main).
 main :- X is 3 + 4 * 2, Y is X - 1, Z is X mod 3, X > Y, Y >= 10, Z =:= 2, X =\= Y, Y < X, Y =< X, write(X), nl, write(Y), nl, write(Z), nl.
 %------------------------------------------------------------- 261 assertz_ite_2
+:- initialization(main).
 main :- assertz(gadget(1)),
         ( predicate_property(gadget(_), dynamic) -> write(yes) ; write(no) ), nl.
 %------------------------------------------------------- 262 findall_directive_4
 :- initialization(main).
 main :- findall(X, fail, Xs), write(Xs), nl.
 %------------------------------------------------------------- 263 retract_ite_1
+:- initialization(main).
 main :-
     ( retract(ghost(x)) -> write(found) ; write(notfound) ), nl.
 %------------------------------------------------------------- 264 assertz_ite_1
+:- initialization(main).
 main :- assertz(widget(1)), assertz(widget(2)),
         ( current_predicate(widget/1) -> write(yes) ; write(no) ), nl,
         ( current_predicate(nothing/3) -> write(yes) ; write(no) ), nl.
@@ -1074,6 +1115,7 @@ q(1).
 q(2).
 main :- ( q(2) -> write(yes) ; write(no) ), nl, ( q(3) -> write(yes) ; write(no) ), nl.
 %------------------------------------------------------------- 272 ite_replace_1
+:- initialization(main).
 main :-
     sort([], S),
     ( S = [] -> write(ok) ; write(fail) ), nl.
@@ -1132,12 +1174,14 @@ member(X, [_|T]) :- member(X, T).
 main :- member(X, [a, b, c]), write(X), nl, fail ; true.
 %-------------------------------------------------------------------- 281 univ_3
 % =.. (univ): decompose and construct terms
+:- initialization(main).
 main :-
     foo(a,b,c) =.. L, write(L), nl,
     T =.. [bar, 1, 2], write(T), nl,
     hello =.. L2, write(L2), nl,
     42 =.. L3, write(L3), nl.
 %------------------------------------------------------- 282 assertz_directive_1
+:- initialization(main).
 :- assertz(fact(1, one)).
 :- assertz(fact(2, two)).
 :- assertz(fact(3, three)).
@@ -1188,6 +1232,7 @@ main :-
     ( fail -> write(t) ; write(e) ), nl,
     ( fail -> write(a) ; fail -> write(b) ; write(c) ), nl.
 %------------------------------------------------------- 288 assertz_directive_2
+:- initialization(main).
 :- assertz(color(red)).
 :- assertz(color(green)).
 :- assertz(color(blue)).
@@ -1198,6 +1243,7 @@ main :-
     fail.
 main.
 %------------------------------------------------------- 289 assertz_directive_3
+:- initialization(main).
 :- assertz(person(alice, 30)).
 :- assertz(person(bob, 25)).
 :- assertz(person(carol, 35)).
@@ -1248,6 +1294,7 @@ main :-
         C
     ).
 %------------------------------------------------------- 294 assertz_directive_4
+:- initialization(main).
 :- assertz(animal(cat)).
 :- assertz(animal(dog)).
 :- assertz(animal(bird)).
@@ -1433,6 +1480,7 @@ main :- catch(between(a,3,_), error(F1,_), (write(F1), nl)),
         catch(between(1,3,foo), error(F5,_), (write(F5), nl)).
 %------------------------------------------------------------- 311 catch_throw_1
 % throw and catch a user-defined error term
+:- initialization(main).
 main :-
     catch(
         throw(my_error(42, hello)),
@@ -1466,6 +1514,7 @@ main :-
     ( 1.5 = 2.5 -> write(eq) ; write(neq) ),
     nl.
 %----------------------------------------------- 315 asserta_assertz_directive_1
+:- initialization(main).
 :- assertz(item(b)).
 :- assertz(item(c)).
 :- asserta(item(a)).
@@ -1517,6 +1566,7 @@ main :-
     write(A), nl.
 %------------------------------------------------------------- 320 catch_throw_2
 % inner catch handles its own error; outer catch not triggered
+:- initialization(main).
 risky :- throw(inner_err).
 
 main :-
@@ -1588,6 +1638,7 @@ main :-
       ) -> write(goal_ok) ; write(goal_failed) ),
     nl.
 %------------------------------------------------------------- 327 ite_replace_2
+:- initialization(main).
 main :-
     ( a \= b -> write(t1_differ) ; write(t1_eq) ), nl,
     ( a \= a -> write(t2_differ) ; write(t2_eq) ), nl,
@@ -1650,6 +1701,7 @@ main :-
     ( catch(open(123, read, _), error(domain_error(source_sink, 123), _), true) -> write(sourcesink_ok) ; write(sourcesink_bad) ), nl,
     write(done), nl.
 %------------------------------------------------------- 332 catch_ite_replace_1
+:- initialization(main).
 main :-
     open('/tmp/rung83_probe.txt', write, S0), close(S0),
     open('/tmp/rung83_probe.txt', read, R),
@@ -1664,6 +1716,7 @@ main :-
     ( catch(G3, _, fail) -> write(w2_after) ; write(w2_fail) ), nl.
 main :- write(main_failed), nl.
 %----------------------------------------------------------------- 333 cut_ite_1
+:- initialization(main).
 main :-
     ( acyclic_term(foo(a,b,c)) -> write(compound_yes) ; write(compound_no) ), nl,
     ( acyclic_term(_) -> write(var_yes) ; write(var_no) ), nl,
@@ -1830,6 +1883,7 @@ main :-
     write(done), nl,
     halt.
 %----------------------------------------------------- 342 assertz_clause_call_1
+:- initialization(main).
 main :- assertz((greet :- write(hello), nl)),
         ( clause(greet, Body) -> call(Body) ; write(noclause), nl ).
 %------------------------------------------------- 343 writeq_format_directive_3
@@ -1866,6 +1920,7 @@ main :-
     ( forall(member(Y,[2,3,4]), Y mod 2 =:= 0) -> write(all_even2) ; write(not_all2) ), nl,
     ( forall(member(_,[]), fail) -> write(vacuous_true) ; write(vacuous_false) ), nl.
 %----------------------------------------------- 350 assertz_retract_directive_1
+:- initialization(main).
 :- assertz(age(alice, 30)).
 :- assertz(age(bob, 25)).
 
@@ -1881,12 +1936,13 @@ main :-
     ( ~ (b + c) == ~(b + c) -> write(yes) ; write(no) ), nl.
 %---------------------------------------------- 352 copy_term_ite_list_replace_1
 % copy_term/2: fresh copy with new variables
+:- initialization(main).
 main :-
     copy_term(f(X,X), f(A,B)),
     ( A == B -> write(shared) ; write(not_shared) ), nl,
     X = original,
     ( A == original -> write(aliased) ; write(independent) ), nl,
-    copy_term([H|T], Copy), write(Copy), nl.
+    copy_term([H|T], Copy), numbervars(Copy, 0, _), write(Copy), nl.
 %----------------------------------------------- 353 findall_directive_replace_1
 % rung34_bridge_setof/03_findall_var_fail
 % findall/3 with goal-as-Var that always fails. Should produce empty list (not exception).
@@ -1960,6 +2016,7 @@ main :-
     ( call(G) -> write(succeeded) ; write(failed) ),
     nl.
 %----------------------------------------------------- 361 findall_bagof_setof_1
+:- initialization(main).
 num(1).
 num(2).
 main :-
@@ -1981,6 +2038,7 @@ main :-
     write(Xs), nl.
 %----------------------------------------------------------- 363 ite_univ_list_1
 % compound/1, atomic/1, is_list/1 style checks via =..
+:- initialization(main).
 main :-
     ( compound(foo(a)) -> write(yes) ; write(no) ), nl,
     ( compound(hello)  -> write(yes) ; write(no) ), nl,
@@ -2132,6 +2190,7 @@ main :-
     ( member(A,[1,2,3,4]), (A mod 2 =:= 0 -> true ; fail), write(even(A)), nl, fail ; true ),
     ( between(1,4,N), \+ (N =:= 2), write(n(N)), nl, fail ; true ).
 %----------------------------------------------------- 375 assertz_retract_ite_1
+:- initialization(main).
 :- assertz(item(a)).
 :- assertz(item(b)).
 :- assertz(item(c)).
