@@ -7,6 +7,8 @@ FN__sel$2F3:
                         mov              qword ptr [rsp + 1264], rdx
                         mov              qword ptr [rsp + 1272], rbp
                         mov              rbp, rsp
+                        lea              rax, [rsp + 1280]
+                        mov              qword ptr [rsp + 1248], rax
                         mov              qword ptr [rsp + 1240], r13
                         mov              qword ptr [rsp + 1232], 0
                         mov              qword ptr [rsp + 1224], 0
@@ -691,6 +693,8 @@ FN__q10$2F1:
                         mov              qword ptr [rsp + 1440], rdx
                         mov              qword ptr [rsp + 1448], rbp
                         mov              rbp, rsp
+                        lea              rax, [rsp + 1456]
+                        mov              qword ptr [rsp + 1424], rax
                         mov              qword ptr [rsp + 1416], r13
                         mov              qword ptr [rsp + 1408], 0
                         mov              qword ptr [rsp + 1400], 0
@@ -1473,6 +1477,8 @@ FN__test$2F2:
                         mov              qword ptr [rsp + 880], rdx
                         mov              qword ptr [rsp + 888], rbp
                         mov              rbp, rsp
+                        lea              rax, [rsp + 896]
+                        mov              qword ptr [rsp + 864], rax
                         mov              qword ptr [rsp + 856], r13
                         mov              qword ptr [rsp + 848], 0
                         mov              qword ptr [rsp + 840], 0
@@ -2086,6 +2092,8 @@ FN__nd$2F2:
                         mov              qword ptr [rsp + 1360], rdx
                         mov              qword ptr [rsp + 1368], rbp
                         mov              rbp, rsp
+                        lea              rax, [rsp + 1376]
+                        mov              qword ptr [rsp + 1344], rax
                         mov              qword ptr [rsp + 1336], r13
                         mov              qword ptr [rsp + 1328], 0
                         mov              qword ptr [rsp + 1320], 0
@@ -2684,6 +2692,8 @@ FN__safe$2F2:
                         mov              qword ptr [rsp + 992], rdx
                         mov              qword ptr [rsp + 1000], rbp
                         mov              rbp, rsp
+                        lea              rax, [rsp + 1008]
+                        mov              qword ptr [rsp + 976], rax
                         mov              qword ptr [rsp + 968], r13
                         mov              qword ptr [rsp + 960], 0
                         mov              qword ptr [rsp + 952], 0
@@ -3348,6 +3358,8 @@ FN__perm$2F2:
                         mov              qword ptr [rsp + 928], rdx
                         mov              qword ptr [rsp + 936], rbp
                         mov              rbp, rsp
+                        lea              rax, [rsp + 944]
+                        mov              qword ptr [rsp + 912], rax
                         mov              qword ptr [rsp + 904], r13
                         mov              qword ptr [rsp + 896], 0
                         mov              qword ptr [rsp + 888], 0
@@ -3991,6 +4003,8 @@ FN__pair$2F3:
                         mov              qword ptr [rsp + 1376], rdx
                         mov              qword ptr [rsp + 1384], rbp
                         mov              rbp, rsp
+                        lea              rax, [rsp + 1392]
+                        mov              qword ptr [rsp + 1360], rax
                         mov              qword ptr [rsp + 1352], r13
                         mov              qword ptr [rsp + 1344], 0
                         mov              qword ptr [rsp + 1336], 0
@@ -4731,6 +4745,8 @@ FN__q$2F2:
                         mov              qword ptr [rsp + 720], rdx
                         mov              qword ptr [rsp + 728], rbp
                         mov              rbp, rsp
+                        lea              rax, [rsp + 736]
+                        mov              qword ptr [rsp + 704], rax
                         mov              qword ptr [rsp + 696], r13
                         mov              qword ptr [rsp + 688], 0
                         mov              qword ptr [rsp + 680], 0
@@ -5371,6 +5387,8 @@ FN__main$2F0:
                         mov              qword ptr [rsp + 256], rdx
                         mov              qword ptr [rsp + 264], rbp
                         mov              rbp, rsp
+                        lea              rax, [rsp + 272]
+                        mov              qword ptr [rsp + 240], rax
                         mov              qword ptr [rsp + 232], r13
                         mov              qword ptr [rsp + 224], 0
                         mov              qword ptr [rsp + 216], 0
@@ -5633,6 +5651,8 @@ main_α:
                         mov              rbp, rsp
                         lea              rdi, [rsp + 64]
                         call             rt_pl_quad_seed@PLT
+                        lea              rax, [rsp + 128]
+                        mov              qword ptr [rsp + 96], rax
                         mov              qword ptr [rsp + 88], r13
                         mov              qword ptr [rsp + 80], 0
                         mov              qword ptr [rsp + 72], 0
