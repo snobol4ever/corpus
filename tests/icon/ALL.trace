@@ -1,0 +1,36 @@
+%---- rung03_suspend_gen__rung03_suspend_gen total=8 prefix=8
+alpha upto
+gamma upto
+beta upto
+gamma upto
+beta upto
+gamma upto
+beta upto
+gamma upto
+%---- rung03_suspend_gen_compose__rung03_suspend_gen_compose total=12 prefix=12
+alpha upto
+gamma upto
+beta upto
+gamma upto
+beta upto
+gamma upto
+beta upto
+omega upto
+alpha upto
+gamma upto
+beta upto
+gamma upto
+%---- rung03_suspend_gen_filter__rung03_suspend_gen_filter total=8 prefix=8
+alpha downto
+gamma downto
+beta downto
+gamma downto
+beta downto
+gamma downto
+beta downto
+gamma downto
+%---- rung03_suspend_return__rung03_suspend_return total=4 prefix=4
+alpha g
+gamma g
+beta g
+gamma g
