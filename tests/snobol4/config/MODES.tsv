@@ -1,0 +1,1 @@
+ladder	m3,m4	# hq_T 2026-09-03: test_snobol4_ladder.sh runs each ladder__rungNN_* entry ALONE in m3 and m4, stdout vs .ref, rc vs ALL.wantrc
