@@ -20,6 +20,14 @@ FN__loadfile:
                         mov              esi, 0
                         mov              edx, 10
                         call             rt_icn_zframe_args_install@PLT
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
 loadfile_α_body:
                         .type            n0_call_icon_bx, @function
 n0_call_icon_bx:
@@ -1923,6 +1931,14 @@ FN__dumpcode:
                         mov              esi, 1
                         mov              edx, 7
                         call             rt_icn_zframe_args_install@PLT
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
 dumpcode_α_body:
                         .type            n00031_var_ref_bx, @function
 n00031_var_ref_bx:
@@ -3581,6 +3597,14 @@ FN__putchain:
                         mov              esi, 3
                         mov              edx, 13
                         call             rt_icn_zframe_args_install@PLT
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
 putchain_α_body:
                         .type            n00109_disjunction_bx, @function
 n00109_disjunction_bx:
@@ -6976,6 +7000,14 @@ FN__putdel:
                         mov              esi, 1
                         mov              edx, 7
                         call             rt_icn_zframe_args_install@PLT
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
 putdel_α_body:
                         .type            n00278_disjunction_bx, @function
 n00278_disjunction_bx:
@@ -8343,6 +8375,14 @@ FN__collapse:
                         mov              esi, 0
                         mov              edx, 14
                         call             rt_icn_zframe_args_install@PLT
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
 collapse_α_body:
                         .type            n00340_disjunction_bx, @function
 n00340_disjunction_bx:
@@ -11856,6 +11896,14 @@ FN__successor:
                         mov              esi, 1
                         mov              edx, 10
                         call             rt_icn_zframe_args_install@PLT
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
 successor_α_body:
                         .type            n00517_var_ref_bx, @function
 n00517_var_ref_bx:
@@ -13143,6 +13191,14 @@ FN__crack:
                         mov              esi, 1
                         mov              edx, 13
                         call             rt_icn_zframe_args_install@PLT
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
 crack_α_body:
                         .type            n00588_disjunction_bx, @function
 n00588_disjunction_bx:
@@ -16126,6 +16182,14 @@ FN__options:
                         mov              esi, 2
                         mov              edx, 14
                         call             rt_icn_zframe_args_install@PLT
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
 options_α_body:
                         .type            n00729_var_ref_bx, @function
 n00729_var_ref_bx:
