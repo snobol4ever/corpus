@@ -6016,7 +6016,7 @@ n00245_scan_β:            mov              r11, 279
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              r14, rax;                            jmp   n00239_scan_tab_β
+                        mov              r14, rax;                            jmp   n00239_scan_tab_α
                                                                               jmp   n00246_disjunction_α
                         .size            n00245_scan_bx, .-n00245_scan_bx
                         .type            n00241_lit_integer_bx, @function
@@ -7302,7 +7302,7 @@ n00296_scan_β:            mov              r11, 330
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              r14, rax;                            jmp   n00290_scan_tab_β
+                        mov              r14, rax;                            jmp   n00290_scan_tab_α
                                                                               jmp   n00297_var_α
                         .size            n00296_scan_bx, .-n00296_scan_bx
                         .type            n00292_lit_integer_bx, @function

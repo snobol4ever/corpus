@@ -1210,7 +1210,7 @@ n97_scan_β:             mov              r11, 49
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              r14, rax;                            jmp   n93_scan_tab_β
+                        mov              r14, rax;                            jmp   n93_scan_tab_α
                                                                               jmp   define_ω
                         .size            n97_scan_bx, .-n97_scan_bx
                         .type            n98_return_bx, @function
@@ -1711,7 +1711,7 @@ n00019_scan_β:            mov              r11, 69
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              r14, rax;                            jmp   n00017_scan_tab_β
+                        mov              r14, rax;                            jmp   n00017_scan_tab_α
                                                                               jmp   .Ldisjunction_ω_134_af
                         .size            n00019_scan_bx, .-n00019_scan_bx
                         .type            n00020_var_bx, @function
