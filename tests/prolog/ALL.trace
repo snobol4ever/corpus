@@ -6482,3 +6482,805 @@
 (14) Call: call $nl
 (14) Exit: call $nl -> main/0_γ
 (1) Exit: call_proc_staged main/0 -> main_γ
+%---- ladder__rung11_last_call_count m3 total=4500028 prefix=400
+(1) Call: call_proc_staged main/0
+(2) Call: lit_integer
+(2) Exit: lit_integer -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> call_proc_staged_α
+(4) Call: call_proc_staged count/2
+(5) Call: var_ref A0
+(5) Exit: var_ref A0 -> var_ref_α
+(6) Call: var_ref G0
+(6) Exit: var_ref G0 -> call_α
+(7) Call: call $unify
+(7) Exit: call $unify -> var_ref_α
+(8) Call: var_ref A1
+(8) Exit: var_ref A1 -> var_ref_α
+(9) Call: var_ref G0
+(9) Exit: var_ref G0 -> call_α
+(10) Call: call $unify
+(10) Fail: call $unify -> count/2_step
+(11) Call: var_ref A0
+(11) Exit: var_ref A0 -> var_ref_α
+(12) Call: var_ref G0
+(12) Exit: var_ref G0 -> call_α
+(13) Call: call $unify
+(13) Exit: call $unify -> var_ref_α
+(14) Call: var_ref A1
+(14) Exit: var_ref A1 -> var_ref_α
+(15) Call: var_ref G1
+(15) Exit: var_ref G1 -> call_α
+(16) Call: call $unify
+(16) Exit: call $unify -> var_α
+(17) Call: var G0
+(17) Exit: var G0 -> var_α
+(18) Call: var G1
+(18) Exit: var G1 -> call_α
+(19) Call: call $cmp_lt
+(19) Exit: call $cmp_lt -> var_ref_α
+(20) Call: var_ref G2
+(20) Exit: var_ref G2 -> var_α
+(21) Call: var G0
+(21) Exit: var G0 -> lit_integer_α
+(22) Call: lit_integer
+(22) Exit: lit_integer -> call_α
+(23) Call: call $ax_add
+(23) Exit: call $ax_add -> call_α
+(24) Call: call $is_v
+(24) Exit: call $is_v -> var_ref_α
+(25) Call: var_ref G2
+(25) Exit: var_ref G2 -> var_ref_α
+(26) Call: var_ref G1
+(26) Exit: var_ref G1 -> call_proc_staged_α
+(27) Call: call_proc_staged count/2
+(28) Call: var_ref A0
+(28) Exit: var_ref A0 -> var_ref_α
+(29) Call: var_ref G0
+(29) Exit: var_ref G0 -> call_α
+(30) Call: call $unify
+(30) Exit: call $unify -> var_ref_α
+(31) Call: var_ref A1
+(31) Exit: var_ref A1 -> var_ref_α
+(32) Call: var_ref G0
+(32) Exit: var_ref G0 -> call_α
+(33) Call: call $unify
+(33) Fail: call $unify -> count/2_step
+(34) Call: var_ref A0
+(34) Exit: var_ref A0 -> var_ref_α
+(35) Call: var_ref G0
+(35) Exit: var_ref G0 -> call_α
+(36) Call: call $unify
+(36) Exit: call $unify -> var_ref_α
+(37) Call: var_ref A1
+(37) Exit: var_ref A1 -> var_ref_α
+(38) Call: var_ref G1
+(38) Exit: var_ref G1 -> call_α
+(39) Call: call $unify
+(39) Exit: call $unify -> var_α
+(40) Call: var G0
+(40) Exit: var G0 -> var_α
+(41) Call: var G1
+(41) Exit: var G1 -> call_α
+(42) Call: call $cmp_lt
+(42) Exit: call $cmp_lt -> var_ref_α
+(43) Call: var_ref G2
+(43) Exit: var_ref G2 -> var_α
+(44) Call: var G0
+(44) Exit: var G0 -> lit_integer_α
+(45) Call: lit_integer
+(45) Exit: lit_integer -> call_α
+(46) Call: call $ax_add
+(46) Exit: call $ax_add -> call_α
+(47) Call: call $is_v
+(47) Exit: call $is_v -> var_ref_α
+(48) Call: var_ref G2
+(48) Exit: var_ref G2 -> var_ref_α
+(49) Call: var_ref G1
+(49) Exit: var_ref G1 -> call_proc_staged_α
+(50) Call: call_proc_staged count/2
+(51) Call: var_ref A0
+(51) Exit: var_ref A0 -> var_ref_α
+(52) Call: var_ref G0
+(52) Exit: var_ref G0 -> call_α
+(53) Call: call $unify
+(53) Exit: call $unify -> var_ref_α
+(54) Call: var_ref A1
+(54) Exit: var_ref A1 -> var_ref_α
+(55) Call: var_ref G0
+(55) Exit: var_ref G0 -> call_α
+(56) Call: call $unify
+(56) Fail: call $unify -> count/2_step
+(57) Call: var_ref A0
+(57) Exit: var_ref A0 -> var_ref_α
+(58) Call: var_ref G0
+(58) Exit: var_ref G0 -> call_α
+(59) Call: call $unify
+(59) Exit: call $unify -> var_ref_α
+(60) Call: var_ref A1
+(60) Exit: var_ref A1 -> var_ref_α
+(61) Call: var_ref G1
+(61) Exit: var_ref G1 -> call_α
+(62) Call: call $unify
+(62) Exit: call $unify -> var_α
+(63) Call: var G0
+(63) Exit: var G0 -> var_α
+(64) Call: var G1
+(64) Exit: var G1 -> call_α
+(65) Call: call $cmp_lt
+(65) Exit: call $cmp_lt -> var_ref_α
+(66) Call: var_ref G2
+(66) Exit: var_ref G2 -> var_α
+(67) Call: var G0
+(67) Exit: var G0 -> lit_integer_α
+(68) Call: lit_integer
+(68) Exit: lit_integer -> call_α
+(69) Call: call $ax_add
+(69) Exit: call $ax_add -> call_α
+(70) Call: call $is_v
+(70) Exit: call $is_v -> var_ref_α
+(71) Call: var_ref G2
+(71) Exit: var_ref G2 -> var_ref_α
+(72) Call: var_ref G1
+(72) Exit: var_ref G1 -> call_proc_staged_α
+(73) Call: call_proc_staged count/2
+(74) Call: var_ref A0
+(74) Exit: var_ref A0 -> var_ref_α
+(75) Call: var_ref G0
+(75) Exit: var_ref G0 -> call_α
+(76) Call: call $unify
+(76) Exit: call $unify -> var_ref_α
+(77) Call: var_ref A1
+(77) Exit: var_ref A1 -> var_ref_α
+(78) Call: var_ref G0
+(78) Exit: var_ref G0 -> call_α
+(79) Call: call $unify
+(79) Fail: call $unify -> count/2_step
+(80) Call: var_ref A0
+(80) Exit: var_ref A0 -> var_ref_α
+(81) Call: var_ref G0
+(81) Exit: var_ref G0 -> call_α
+(82) Call: call $unify
+(82) Exit: call $unify -> var_ref_α
+(83) Call: var_ref A1
+(83) Exit: var_ref A1 -> var_ref_α
+(84) Call: var_ref G1
+(84) Exit: var_ref G1 -> call_α
+(85) Call: call $unify
+(85) Exit: call $unify -> var_α
+(86) Call: var G0
+(86) Exit: var G0 -> var_α
+(87) Call: var G1
+(87) Exit: var G1 -> call_α
+(88) Call: call $cmp_lt
+(88) Exit: call $cmp_lt -> var_ref_α
+(89) Call: var_ref G2
+(89) Exit: var_ref G2 -> var_α
+(90) Call: var G0
+(90) Exit: var G0 -> lit_integer_α
+(91) Call: lit_integer
+(91) Exit: lit_integer -> call_α
+(92) Call: call $ax_add
+(92) Exit: call $ax_add -> call_α
+(93) Call: call $is_v
+(93) Exit: call $is_v -> var_ref_α
+(94) Call: var_ref G2
+(94) Exit: var_ref G2 -> var_ref_α
+(95) Call: var_ref G1
+(95) Exit: var_ref G1 -> call_proc_staged_α
+(96) Call: call_proc_staged count/2
+(97) Call: var_ref A0
+(97) Exit: var_ref A0 -> var_ref_α
+(98) Call: var_ref G0
+(98) Exit: var_ref G0 -> call_α
+(99) Call: call $unify
+(99) Exit: call $unify -> var_ref_α
+(100) Call: var_ref A1
+(100) Exit: var_ref A1 -> var_ref_α
+(101) Call: var_ref G0
+(101) Exit: var_ref G0 -> call_α
+(102) Call: call $unify
+(102) Fail: call $unify -> count/2_step
+(103) Call: var_ref A0
+(103) Exit: var_ref A0 -> var_ref_α
+(104) Call: var_ref G0
+(104) Exit: var_ref G0 -> call_α
+(105) Call: call $unify
+(105) Exit: call $unify -> var_ref_α
+(106) Call: var_ref A1
+(106) Exit: var_ref A1 -> var_ref_α
+(107) Call: var_ref G1
+(107) Exit: var_ref G1 -> call_α
+(108) Call: call $unify
+(108) Exit: call $unify -> var_α
+(109) Call: var G0
+(109) Exit: var G0 -> var_α
+(110) Call: var G1
+(110) Exit: var G1 -> call_α
+(111) Call: call $cmp_lt
+(111) Exit: call $cmp_lt -> var_ref_α
+(112) Call: var_ref G2
+(112) Exit: var_ref G2 -> var_α
+(113) Call: var G0
+(113) Exit: var G0 -> lit_integer_α
+(114) Call: lit_integer
+(114) Exit: lit_integer -> call_α
+(115) Call: call $ax_add
+(115) Exit: call $ax_add -> call_α
+(116) Call: call $is_v
+(116) Exit: call $is_v -> var_ref_α
+(117) Call: var_ref G2
+(117) Exit: var_ref G2 -> var_ref_α
+(118) Call: var_ref G1
+(118) Exit: var_ref G1 -> call_proc_staged_α
+(119) Call: call_proc_staged count/2
+(120) Call: var_ref A0
+(120) Exit: var_ref A0 -> var_ref_α
+(121) Call: var_ref G0
+(121) Exit: var_ref G0 -> call_α
+(122) Call: call $unify
+(122) Exit: call $unify -> var_ref_α
+(123) Call: var_ref A1
+(123) Exit: var_ref A1 -> var_ref_α
+(124) Call: var_ref G0
+(124) Exit: var_ref G0 -> call_α
+(125) Call: call $unify
+(125) Fail: call $unify -> count/2_step
+(126) Call: var_ref A0
+(126) Exit: var_ref A0 -> var_ref_α
+(127) Call: var_ref G0
+(127) Exit: var_ref G0 -> call_α
+(128) Call: call $unify
+(128) Exit: call $unify -> var_ref_α
+(129) Call: var_ref A1
+(129) Exit: var_ref A1 -> var_ref_α
+(130) Call: var_ref G1
+(130) Exit: var_ref G1 -> call_α
+(131) Call: call $unify
+(131) Exit: call $unify -> var_α
+(132) Call: var G0
+(132) Exit: var G0 -> var_α
+(133) Call: var G1
+(133) Exit: var G1 -> call_α
+(134) Call: call $cmp_lt
+(134) Exit: call $cmp_lt -> var_ref_α
+(135) Call: var_ref G2
+(135) Exit: var_ref G2 -> var_α
+(136) Call: var G0
+(136) Exit: var G0 -> lit_integer_α
+(137) Call: lit_integer
+(137) Exit: lit_integer -> call_α
+(138) Call: call $ax_add
+(138) Exit: call $ax_add -> call_α
+(139) Call: call $is_v
+(139) Exit: call $is_v -> var_ref_α
+(140) Call: var_ref G2
+(140) Exit: var_ref G2 -> var_ref_α
+(141) Call: var_ref G1
+(141) Exit: var_ref G1 -> call_proc_staged_α
+(142) Call: call_proc_staged count/2
+(143) Call: var_ref A0
+(143) Exit: var_ref A0 -> var_ref_α
+(144) Call: var_ref G0
+(144) Exit: var_ref G0 -> call_α
+(145) Call: call $unify
+(145) Exit: call $unify -> var_ref_α
+(146) Call: var_ref A1
+(146) Exit: var_ref A1 -> var_ref_α
+(147) Call: var_ref G0
+(147) Exit: var_ref G0 -> call_α
+(148) Call: call $unify
+(148) Fail: call $unify -> count/2_step
+(149) Call: var_ref A0
+(149) Exit: var_ref A0 -> var_ref_α
+(150) Call: var_ref G0
+(150) Exit: var_ref G0 -> call_α
+(151) Call: call $unify
+(151) Exit: call $unify -> var_ref_α
+(152) Call: var_ref A1
+(152) Exit: var_ref A1 -> var_ref_α
+(153) Call: var_ref G1
+(153) Exit: var_ref G1 -> call_α
+(154) Call: call $unify
+(154) Exit: call $unify -> var_α
+(155) Call: var G0
+(155) Exit: var G0 -> var_α
+(156) Call: var G1
+(156) Exit: var G1 -> call_α
+(157) Call: call $cmp_lt
+(157) Exit: call $cmp_lt -> var_ref_α
+(158) Call: var_ref G2
+(158) Exit: var_ref G2 -> var_α
+(159) Call: var G0
+(159) Exit: var G0 -> lit_integer_α
+(160) Call: lit_integer
+(160) Exit: lit_integer -> call_α
+(161) Call: call $ax_add
+(161) Exit: call $ax_add -> call_α
+(162) Call: call $is_v
+(162) Exit: call $is_v -> var_ref_α
+(163) Call: var_ref G2
+(163) Exit: var_ref G2 -> var_ref_α
+(164) Call: var_ref G1
+(164) Exit: var_ref G1 -> call_proc_staged_α
+(165) Call: call_proc_staged count/2
+(166) Call: var_ref A0
+(166) Exit: var_ref A0 -> var_ref_α
+(167) Call: var_ref G0
+(167) Exit: var_ref G0 -> call_α
+(168) Call: call $unify
+(168) Exit: call $unify -> var_ref_α
+(169) Call: var_ref A1
+(169) Exit: var_ref A1 -> var_ref_α
+(170) Call: var_ref G0
+(170) Exit: var_ref G0 -> call_α
+(171) Call: call $unify
+(171) Fail: call $unify -> count/2_step
+(172) Call: var_ref A0
+(172) Exit: var_ref A0 -> var_ref_α
+(173) Call: var_ref G0
+(173) Exit: var_ref G0 -> call_α
+(174) Call: call $unify
+(174) Exit: call $unify -> var_ref_α
+(175) Call: var_ref A1
+(175) Exit: var_ref A1 -> var_ref_α
+(176) Call: var_ref G1
+(176) Exit: var_ref G1 -> call_α
+(177) Call: call $unify
+(177) Exit: call $unify -> var_α
+(178) Call: var G0
+(178) Exit: var G0 -> var_α
+(179) Call: var G1
+(179) Exit: var G1 -> call_α
+(180) Call: call $cmp_lt
+(180) Exit: call $cmp_lt -> var_ref_α
+(181) Call: var_ref G2
+(181) Exit: var_ref G2 -> var_α
+(182) Call: var G0
+(182) Exit: var G0 -> lit_integer_α
+(183) Call: lit_integer
+(183) Exit: lit_integer -> call_α
+(184) Call: call $ax_add
+(184) Exit: call $ax_add -> call_α
+(185) Call: call $is_v
+(185) Exit: call $is_v -> var_ref_α
+(186) Call: var_ref G2
+(186) Exit: var_ref G2 -> var_ref_α
+(187) Call: var_ref G1
+(187) Exit: var_ref G1 -> call_proc_staged_α
+(188) Call: call_proc_staged count/2
+(189) Call: var_ref A0
+(189) Exit: var_ref A0 -> var_ref_α
+(190) Call: var_ref G0
+(190) Exit: var_ref G0 -> call_α
+(191) Call: call $unify
+(191) Exit: call $unify -> var_ref_α
+(192) Call: var_ref A1
+(192) Exit: var_ref A1 -> var_ref_α
+(193) Call: var_ref G0
+(193) Exit: var_ref G0 -> call_α
+(194) Call: call $unify
+(194) Fail: call $unify -> count/2_step
+(195) Call: var_ref A0
+(195) Exit: var_ref A0 -> var_ref_α
+(196) Call: var_ref G0
+(196) Exit: var_ref G0 -> call_α
+(197) Call: call $unify
+(197) Exit: call $unify -> var_ref_α
+(198) Call: var_ref A1
+(198) Exit: var_ref A1 -> var_ref_α
+(199) Call: var_ref G1
+(199) Exit: var_ref G1 -> call_α
+(200) Call: call $unify
+(200) Exit: call $unify -> var_α
+(201) Call: var G0
+(201) Exit: var G0 -> var_α
+(202) Call: var G1
+(202) Exit: var G1 -> call_α
+(203) Call: call $cmp_lt
+(203) Exit: call $cmp_lt -> var_ref_α
+(204) Call: var_ref G2
+(204) Exit: var_ref G2 -> var_α
+(205) Call: var G0
+(205) Exit: var G0 -> lit_integer_α
+%---- ladder__rung11_last_call_count m4 total=4500028 prefix=400
+(1) Call: call_proc_staged main/0
+(2) Call: lit_integer
+(2) Exit: lit_integer -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> call_proc_staged_α
+(4) Call: call_proc_staged count/2
+(5) Call: var_ref A0
+(5) Exit: var_ref A0 -> var_ref_α
+(6) Call: var_ref G0
+(6) Exit: var_ref G0 -> call_α
+(7) Call: call $unify
+(7) Exit: call $unify -> var_ref_α
+(8) Call: var_ref A1
+(8) Exit: var_ref A1 -> var_ref_α
+(9) Call: var_ref G0
+(9) Exit: var_ref G0 -> call_α
+(10) Call: call $unify
+(10) Fail: call $unify -> count/2_step
+(11) Call: var_ref A0
+(11) Exit: var_ref A0 -> var_ref_α
+(12) Call: var_ref G0
+(12) Exit: var_ref G0 -> call_α
+(13) Call: call $unify
+(13) Exit: call $unify -> var_ref_α
+(14) Call: var_ref A1
+(14) Exit: var_ref A1 -> var_ref_α
+(15) Call: var_ref G1
+(15) Exit: var_ref G1 -> call_α
+(16) Call: call $unify
+(16) Exit: call $unify -> var_α
+(17) Call: var G0
+(17) Exit: var G0 -> var_α
+(18) Call: var G1
+(18) Exit: var G1 -> call_α
+(19) Call: call $cmp_lt
+(19) Exit: call $cmp_lt -> var_ref_α
+(20) Call: var_ref G2
+(20) Exit: var_ref G2 -> var_α
+(21) Call: var G0
+(21) Exit: var G0 -> lit_integer_α
+(22) Call: lit_integer
+(22) Exit: lit_integer -> call_α
+(23) Call: call $ax_add
+(23) Exit: call $ax_add -> call_α
+(24) Call: call $is_v
+(24) Exit: call $is_v -> var_ref_α
+(25) Call: var_ref G2
+(25) Exit: var_ref G2 -> var_ref_α
+(26) Call: var_ref G1
+(26) Exit: var_ref G1 -> call_proc_staged_α
+(27) Call: call_proc_staged count/2
+(28) Call: var_ref A0
+(28) Exit: var_ref A0 -> var_ref_α
+(29) Call: var_ref G0
+(29) Exit: var_ref G0 -> call_α
+(30) Call: call $unify
+(30) Exit: call $unify -> var_ref_α
+(31) Call: var_ref A1
+(31) Exit: var_ref A1 -> var_ref_α
+(32) Call: var_ref G0
+(32) Exit: var_ref G0 -> call_α
+(33) Call: call $unify
+(33) Fail: call $unify -> count/2_step
+(34) Call: var_ref A0
+(34) Exit: var_ref A0 -> var_ref_α
+(35) Call: var_ref G0
+(35) Exit: var_ref G0 -> call_α
+(36) Call: call $unify
+(36) Exit: call $unify -> var_ref_α
+(37) Call: var_ref A1
+(37) Exit: var_ref A1 -> var_ref_α
+(38) Call: var_ref G1
+(38) Exit: var_ref G1 -> call_α
+(39) Call: call $unify
+(39) Exit: call $unify -> var_α
+(40) Call: var G0
+(40) Exit: var G0 -> var_α
+(41) Call: var G1
+(41) Exit: var G1 -> call_α
+(42) Call: call $cmp_lt
+(42) Exit: call $cmp_lt -> var_ref_α
+(43) Call: var_ref G2
+(43) Exit: var_ref G2 -> var_α
+(44) Call: var G0
+(44) Exit: var G0 -> lit_integer_α
+(45) Call: lit_integer
+(45) Exit: lit_integer -> call_α
+(46) Call: call $ax_add
+(46) Exit: call $ax_add -> call_α
+(47) Call: call $is_v
+(47) Exit: call $is_v -> var_ref_α
+(48) Call: var_ref G2
+(48) Exit: var_ref G2 -> var_ref_α
+(49) Call: var_ref G1
+(49) Exit: var_ref G1 -> call_proc_staged_α
+(50) Call: call_proc_staged count/2
+(51) Call: var_ref A0
+(51) Exit: var_ref A0 -> var_ref_α
+(52) Call: var_ref G0
+(52) Exit: var_ref G0 -> call_α
+(53) Call: call $unify
+(53) Exit: call $unify -> var_ref_α
+(54) Call: var_ref A1
+(54) Exit: var_ref A1 -> var_ref_α
+(55) Call: var_ref G0
+(55) Exit: var_ref G0 -> call_α
+(56) Call: call $unify
+(56) Fail: call $unify -> count/2_step
+(57) Call: var_ref A0
+(57) Exit: var_ref A0 -> var_ref_α
+(58) Call: var_ref G0
+(58) Exit: var_ref G0 -> call_α
+(59) Call: call $unify
+(59) Exit: call $unify -> var_ref_α
+(60) Call: var_ref A1
+(60) Exit: var_ref A1 -> var_ref_α
+(61) Call: var_ref G1
+(61) Exit: var_ref G1 -> call_α
+(62) Call: call $unify
+(62) Exit: call $unify -> var_α
+(63) Call: var G0
+(63) Exit: var G0 -> var_α
+(64) Call: var G1
+(64) Exit: var G1 -> call_α
+(65) Call: call $cmp_lt
+(65) Exit: call $cmp_lt -> var_ref_α
+(66) Call: var_ref G2
+(66) Exit: var_ref G2 -> var_α
+(67) Call: var G0
+(67) Exit: var G0 -> lit_integer_α
+(68) Call: lit_integer
+(68) Exit: lit_integer -> call_α
+(69) Call: call $ax_add
+(69) Exit: call $ax_add -> call_α
+(70) Call: call $is_v
+(70) Exit: call $is_v -> var_ref_α
+(71) Call: var_ref G2
+(71) Exit: var_ref G2 -> var_ref_α
+(72) Call: var_ref G1
+(72) Exit: var_ref G1 -> call_proc_staged_α
+(73) Call: call_proc_staged count/2
+(74) Call: var_ref A0
+(74) Exit: var_ref A0 -> var_ref_α
+(75) Call: var_ref G0
+(75) Exit: var_ref G0 -> call_α
+(76) Call: call $unify
+(76) Exit: call $unify -> var_ref_α
+(77) Call: var_ref A1
+(77) Exit: var_ref A1 -> var_ref_α
+(78) Call: var_ref G0
+(78) Exit: var_ref G0 -> call_α
+(79) Call: call $unify
+(79) Fail: call $unify -> count/2_step
+(80) Call: var_ref A0
+(80) Exit: var_ref A0 -> var_ref_α
+(81) Call: var_ref G0
+(81) Exit: var_ref G0 -> call_α
+(82) Call: call $unify
+(82) Exit: call $unify -> var_ref_α
+(83) Call: var_ref A1
+(83) Exit: var_ref A1 -> var_ref_α
+(84) Call: var_ref G1
+(84) Exit: var_ref G1 -> call_α
+(85) Call: call $unify
+(85) Exit: call $unify -> var_α
+(86) Call: var G0
+(86) Exit: var G0 -> var_α
+(87) Call: var G1
+(87) Exit: var G1 -> call_α
+(88) Call: call $cmp_lt
+(88) Exit: call $cmp_lt -> var_ref_α
+(89) Call: var_ref G2
+(89) Exit: var_ref G2 -> var_α
+(90) Call: var G0
+(90) Exit: var G0 -> lit_integer_α
+(91) Call: lit_integer
+(91) Exit: lit_integer -> call_α
+(92) Call: call $ax_add
+(92) Exit: call $ax_add -> call_α
+(93) Call: call $is_v
+(93) Exit: call $is_v -> var_ref_α
+(94) Call: var_ref G2
+(94) Exit: var_ref G2 -> var_ref_α
+(95) Call: var_ref G1
+(95) Exit: var_ref G1 -> call_proc_staged_α
+(96) Call: call_proc_staged count/2
+(97) Call: var_ref A0
+(97) Exit: var_ref A0 -> var_ref_α
+(98) Call: var_ref G0
+(98) Exit: var_ref G0 -> call_α
+(99) Call: call $unify
+(99) Exit: call $unify -> var_ref_α
+(100) Call: var_ref A1
+(100) Exit: var_ref A1 -> var_ref_α
+(101) Call: var_ref G0
+(101) Exit: var_ref G0 -> call_α
+(102) Call: call $unify
+(102) Fail: call $unify -> count/2_step
+(103) Call: var_ref A0
+(103) Exit: var_ref A0 -> var_ref_α
+(104) Call: var_ref G0
+(104) Exit: var_ref G0 -> call_α
+(105) Call: call $unify
+(105) Exit: call $unify -> var_ref_α
+(106) Call: var_ref A1
+(106) Exit: var_ref A1 -> var_ref_α
+(107) Call: var_ref G1
+(107) Exit: var_ref G1 -> call_α
+(108) Call: call $unify
+(108) Exit: call $unify -> var_α
+(109) Call: var G0
+(109) Exit: var G0 -> var_α
+(110) Call: var G1
+(110) Exit: var G1 -> call_α
+(111) Call: call $cmp_lt
+(111) Exit: call $cmp_lt -> var_ref_α
+(112) Call: var_ref G2
+(112) Exit: var_ref G2 -> var_α
+(113) Call: var G0
+(113) Exit: var G0 -> lit_integer_α
+(114) Call: lit_integer
+(114) Exit: lit_integer -> call_α
+(115) Call: call $ax_add
+(115) Exit: call $ax_add -> call_α
+(116) Call: call $is_v
+(116) Exit: call $is_v -> var_ref_α
+(117) Call: var_ref G2
+(117) Exit: var_ref G2 -> var_ref_α
+(118) Call: var_ref G1
+(118) Exit: var_ref G1 -> call_proc_staged_α
+(119) Call: call_proc_staged count/2
+(120) Call: var_ref A0
+(120) Exit: var_ref A0 -> var_ref_α
+(121) Call: var_ref G0
+(121) Exit: var_ref G0 -> call_α
+(122) Call: call $unify
+(122) Exit: call $unify -> var_ref_α
+(123) Call: var_ref A1
+(123) Exit: var_ref A1 -> var_ref_α
+(124) Call: var_ref G0
+(124) Exit: var_ref G0 -> call_α
+(125) Call: call $unify
+(125) Fail: call $unify -> count/2_step
+(126) Call: var_ref A0
+(126) Exit: var_ref A0 -> var_ref_α
+(127) Call: var_ref G0
+(127) Exit: var_ref G0 -> call_α
+(128) Call: call $unify
+(128) Exit: call $unify -> var_ref_α
+(129) Call: var_ref A1
+(129) Exit: var_ref A1 -> var_ref_α
+(130) Call: var_ref G1
+(130) Exit: var_ref G1 -> call_α
+(131) Call: call $unify
+(131) Exit: call $unify -> var_α
+(132) Call: var G0
+(132) Exit: var G0 -> var_α
+(133) Call: var G1
+(133) Exit: var G1 -> call_α
+(134) Call: call $cmp_lt
+(134) Exit: call $cmp_lt -> var_ref_α
+(135) Call: var_ref G2
+(135) Exit: var_ref G2 -> var_α
+(136) Call: var G0
+(136) Exit: var G0 -> lit_integer_α
+(137) Call: lit_integer
+(137) Exit: lit_integer -> call_α
+(138) Call: call $ax_add
+(138) Exit: call $ax_add -> call_α
+(139) Call: call $is_v
+(139) Exit: call $is_v -> var_ref_α
+(140) Call: var_ref G2
+(140) Exit: var_ref G2 -> var_ref_α
+(141) Call: var_ref G1
+(141) Exit: var_ref G1 -> call_proc_staged_α
+(142) Call: call_proc_staged count/2
+(143) Call: var_ref A0
+(143) Exit: var_ref A0 -> var_ref_α
+(144) Call: var_ref G0
+(144) Exit: var_ref G0 -> call_α
+(145) Call: call $unify
+(145) Exit: call $unify -> var_ref_α
+(146) Call: var_ref A1
+(146) Exit: var_ref A1 -> var_ref_α
+(147) Call: var_ref G0
+(147) Exit: var_ref G0 -> call_α
+(148) Call: call $unify
+(148) Fail: call $unify -> count/2_step
+(149) Call: var_ref A0
+(149) Exit: var_ref A0 -> var_ref_α
+(150) Call: var_ref G0
+(150) Exit: var_ref G0 -> call_α
+(151) Call: call $unify
+(151) Exit: call $unify -> var_ref_α
+(152) Call: var_ref A1
+(152) Exit: var_ref A1 -> var_ref_α
+(153) Call: var_ref G1
+(153) Exit: var_ref G1 -> call_α
+(154) Call: call $unify
+(154) Exit: call $unify -> var_α
+(155) Call: var G0
+(155) Exit: var G0 -> var_α
+(156) Call: var G1
+(156) Exit: var G1 -> call_α
+(157) Call: call $cmp_lt
+(157) Exit: call $cmp_lt -> var_ref_α
+(158) Call: var_ref G2
+(158) Exit: var_ref G2 -> var_α
+(159) Call: var G0
+(159) Exit: var G0 -> lit_integer_α
+(160) Call: lit_integer
+(160) Exit: lit_integer -> call_α
+(161) Call: call $ax_add
+(161) Exit: call $ax_add -> call_α
+(162) Call: call $is_v
+(162) Exit: call $is_v -> var_ref_α
+(163) Call: var_ref G2
+(163) Exit: var_ref G2 -> var_ref_α
+(164) Call: var_ref G1
+(164) Exit: var_ref G1 -> call_proc_staged_α
+(165) Call: call_proc_staged count/2
+(166) Call: var_ref A0
+(166) Exit: var_ref A0 -> var_ref_α
+(167) Call: var_ref G0
+(167) Exit: var_ref G0 -> call_α
+(168) Call: call $unify
+(168) Exit: call $unify -> var_ref_α
+(169) Call: var_ref A1
+(169) Exit: var_ref A1 -> var_ref_α
+(170) Call: var_ref G0
+(170) Exit: var_ref G0 -> call_α
+(171) Call: call $unify
+(171) Fail: call $unify -> count/2_step
+(172) Call: var_ref A0
+(172) Exit: var_ref A0 -> var_ref_α
+(173) Call: var_ref G0
+(173) Exit: var_ref G0 -> call_α
+(174) Call: call $unify
+(174) Exit: call $unify -> var_ref_α
+(175) Call: var_ref A1
+(175) Exit: var_ref A1 -> var_ref_α
+(176) Call: var_ref G1
+(176) Exit: var_ref G1 -> call_α
+(177) Call: call $unify
+(177) Exit: call $unify -> var_α
+(178) Call: var G0
+(178) Exit: var G0 -> var_α
+(179) Call: var G1
+(179) Exit: var G1 -> call_α
+(180) Call: call $cmp_lt
+(180) Exit: call $cmp_lt -> var_ref_α
+(181) Call: var_ref G2
+(181) Exit: var_ref G2 -> var_α
+(182) Call: var G0
+(182) Exit: var G0 -> lit_integer_α
+(183) Call: lit_integer
+(183) Exit: lit_integer -> call_α
+(184) Call: call $ax_add
+(184) Exit: call $ax_add -> call_α
+(185) Call: call $is_v
+(185) Exit: call $is_v -> var_ref_α
+(186) Call: var_ref G2
+(186) Exit: var_ref G2 -> var_ref_α
+(187) Call: var_ref G1
+(187) Exit: var_ref G1 -> call_proc_staged_α
+(188) Call: call_proc_staged count/2
+(189) Call: var_ref A0
+(189) Exit: var_ref A0 -> var_ref_α
+(190) Call: var_ref G0
+(190) Exit: var_ref G0 -> call_α
+(191) Call: call $unify
+(191) Exit: call $unify -> var_ref_α
+(192) Call: var_ref A1
+(192) Exit: var_ref A1 -> var_ref_α
+(193) Call: var_ref G0
+(193) Exit: var_ref G0 -> call_α
+(194) Call: call $unify
+(194) Fail: call $unify -> count/2_step
+(195) Call: var_ref A0
+(195) Exit: var_ref A0 -> var_ref_α
+(196) Call: var_ref G0
+(196) Exit: var_ref G0 -> call_α
+(197) Call: call $unify
+(197) Exit: call $unify -> var_ref_α
+(198) Call: var_ref A1
+(198) Exit: var_ref A1 -> var_ref_α
+(199) Call: var_ref G1
+(199) Exit: var_ref G1 -> call_α
+(200) Call: call $unify
+(200) Exit: call $unify -> var_α
+(201) Call: var G0
+(201) Exit: var G0 -> var_α
+(202) Call: var G1
+(202) Exit: var G1 -> call_α
+(203) Call: call $cmp_lt
+(203) Exit: call $cmp_lt -> var_ref_α
+(204) Call: var_ref G2
+(204) Exit: var_ref G2 -> var_α
+(205) Call: var G0
+(205) Exit: var G0 -> lit_integer_α
