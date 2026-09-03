@@ -2281,10 +2281,10 @@ main :-
     ( integer(42)   -> write(yes) ; write(no) ), nl,
     ( atom(42)      -> write(yes) ; write(no) ), nl,
     ( integer(hello)-> write(yes) ; write(no) ), nl.
-%------------------------------------------------ 382 atomconv_directive_1 XFAIL
+%------------------------------------------------------ 382 atomconv_directive_1
 :- initialization(main).
 main :- atom_codes(abc, Cs), atom_chars(abc, Chs), atom_length(abcde, L), atom_concat(foo, bar, FB), number_codes(N, [0'4,0'2]), number_chars(M, ['1','7']), char_code(a, C), write(Cs), nl, write(Chs), nl, write(L), nl, write(FB), nl, write(N), nl, write(M), nl, write(C), nl.
-%-------------------------------------------------------- 383 directive_12 XFAIL
+%-------------------------------------------------------------- 383 directive_12
 :- initialization(main).
 f(a).
 main :- f(X), write(X), nl.
@@ -2292,24 +2292,24 @@ main :- f(X), write(X), nl.
 :- initialization(main).
 main :- sub_atom(abc, B, 1, _, S), write(B-S), nl, fail.
 main :- write(done), nl.
-%-------------------------------------------------------- 385 directive_13 XFAIL
+%-------------------------------------------------------------- 385 directive_13
 :- initialization(main).
 f(a).
 f(b).
 main :- f(X), write(X), nl.
-%-------------------------------------------------------- 386 directive_14 XFAIL
+%-------------------------------------------------------------- 386 directive_14
 :- initialization(main).
 f(a).
 f(b).
 f(c).
 main :- ( f(X), write(X), nl, fail ) ; true.
-%--------------------------------------------------- 387 index_directive_1 XFAIL
+%--------------------------------------------------------- 387 index_directive_1
 :- initialization(main).
 fact(a, 1).
 fact(b, 2).
 fact(c, 3).
 main :- fact(b, V), write(V), nl.
-%-------------------------------------------------------- 388 directive_15 XFAIL
+%-------------------------------------------------------------- 388 directive_15
 :- initialization(main).
 main :- ( ( X = a ; X = b ), write(X), nl, fail ) ; true.
 %------------------------------------------------- 389 between_directive_1 XFAIL
@@ -2335,7 +2335,7 @@ main :- ( f(X), write(X), nl, fail ) ; true.
 count(N, N) :- !.
 count(I, N) :- I < N, J is I + 1, count(J, N).
 main :- count(0, 100000), write(done), nl.
-%---------------------------------------------------- 394 list_directive_1 XFAIL
+%---------------------------------------------------------- 394 list_directive_1
 :- initialization(main).
 mem(X, [X|_]).
 mem(X, [_|T]) :- mem(X, T).

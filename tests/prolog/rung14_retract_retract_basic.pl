@@ -1,3 +1,4 @@
+:- initialization(main).
 :- assertz(color(red)).
 :- assertz(color(green)).
 :- assertz(color(blue)).

@@ -1,3 +1,4 @@
+:- initialization(main).
 :- assertz(fact(1)).
 :- assertz(fact(2)).
 :- assertz(fact(3)).

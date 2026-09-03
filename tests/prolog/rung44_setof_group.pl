@@ -1,3 +1,4 @@
+:- initialization(main).
 age(peter, 7).
 age(ann, 11).
 age(pat, 8).
