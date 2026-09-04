@@ -1,6 +1,9 @@
 rc=134 SIGABRT — NOT an output mismatch.
 SIGNATURE: FATAL emit_drive: IR op=121 has no template in the universal driver.
-ROUTING:   A MISSING TEMPLATE, not a semantic defect: the driver's own invariant is that every op is handled. Needs its own row.
+ROUTING:   op 121 = IR_SWAP. ⛔ NOT a missing template:  and  both emit and run correctly today.
+           What has no arm is the NON-LVALUE operand (), which icont answers with Run-time error 111
+           "variable expected" AT RUN TIME. Same class as rung36_jcon_errors' .
+ROUTING:   icon-assignment-to-a-non-lvalue-aborts-the-compiler-where-icon-raises-runtime-error-111 — cure once, both close.
 
 RE-CLASSED 2026-09-03 (hq_B, row icon-every-xfail-fixed-as-a-faulty-test-or-cured-as-a-defect).
 The previous text read: 'exits rc=1 (stdout does not match .expected). Not further diagnosed.'
