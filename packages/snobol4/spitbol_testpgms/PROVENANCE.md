@@ -20,38 +20,28 @@ refs cut LIVE from `sbl -bf` fed `testpgms.in` on every run. ⛔ There are NO st
 this directory ON PURPOSE: a stored ref proves only "unchanged since someone cut it", and cannot tell
 a cured compiler from a ref that was cut while the compiler was broken.
 
-**⛔ CORRECTED 2026-09-04 18:4x — MOST OF WHAT LOOKED LIKE AN ORACLE CRASH WAS OUR OWN SPLIT DAMAGE.** The first
-version of this file said the oracle SIGSEGVs on tests 2-4. Re-measured after the 18:19 oracle swap, against
-BOTH binaries, and then against a repaired split:
+**⛔ CORRECTED AGAIN 2026-09-04 18:5x — THERE ARE EIGHT PROGRAMS, NOT FOUR, AND THE COMBINED FILE IS CORRUPTED.**
+hq_P measured that `corpus/benchmarks/snobol4/testpgms.spt` holds **eight** `-TITLE SPITBOL TEST PROGRAM` banners;
+only #1-#4 had ever been split out. All eight are now vendored here, cut at their measured boundaries
+(start/END line pairs 1/422 · 424/683 · 685/743 · 745/844 · 863/939 · 965/1063 · 1075/1216 · 1280/1411).
+#5 TREESORT4 · #6 TOPOLOGICAL SORT · #7 SYMBOL TABLE GENERATOR · #8 BRIDGE DEALER were absent from every
+runner and master before this.
 
-| program | OLD oracle (pre-swap) | NEW oracle | after stripping the stray first line |
-|---|---|---|---|
-| test1 | rc=0, 120 lines | rc=0, 120 lines (**byte-identical**) | rc=0, 120 lines |
-| test2 | rc=231, 8 lines | rc=231, 8 lines | **rc=231** — genuine, see below |
-| test3 | rc=139 (SIGSEGV), 5 lines | rc=231, 5 lines | **rc=0, 46 lines** |
-| test4 | rc=139 (SIGSEGV), 5 lines | rc=231, 5 lines | **rc=0, 16 lines** |
+⛔⛔ **NEITHER SOURCE IS WHOLE, AND THAT IS WHY BOTH ARE KEPT.** In the combined `testpgms.spt`, every `!`
+character has been replaced by a **newline** — so `TEST = !(IDENT(A,'A') ...)` became a line ending in `TEST = `
+followed by a line starting with `(`, and `ANY('+-&.$*?!@%#')` became an unterminated string. Splitting #1 and
+#4 straight out of it therefore REGRESSED two programs that already worked here (#1 rc=0 → rc=231 at line 119,
+#4 rc=0 → rc=231 "unmatched string quote" at line 25). The per-program files carry a hand repair of that damage;
+the combined file carries four programs the split never had. So: **#1-#4 keep the repaired text, #5-#8 come from
+the combined file**, and both facts are written down because a future re-split from either source alone will
+silently undo half of this.
+⭐ The damage has a signature worth reusing: a line ending in `= ` followed by a line starting with `(`, or a
+line with an odd number of `'`. Censused across all eight — #1 (5 orphan parens, 23 trailing `=`) and #4 (4
+odd-quote lines) are damaged in the combined file; #5-#8 are clean (#5's single odd quote is an apostrophe in a
+comment, `FLOYD'S TREESORT3`, checked by eye — a signature is a candidate, never a verdict).
 
-⛔ **The stray first line was `./*`, and it is the separator that FOLLOWS `END` in the concatenated upstream
-file.** Whoever split `testpgms.spt` into `testpgms-test<N>.spt` put each program's trailing separator at the
-HEAD of the next file. A `.` in column 1 is SPITBOL's continuation marker, so every affected program died at
-line 1 with `ERROR 214 -- bad label or misplaced continuation line` — before executing a single statement.
-⭐ **That is why the run status is not enough on its own to say whose fault a failure is.** Three programs
-looked like an oracle defect for as long as nobody read the first line of the file. The oracle swap was real
-and did fix the SIGSEGVs, but it converted them into a graceful error exit on OUR broken input, not into a
-pass — so the swap alone would have left this suite reading 1 of 4 forever.
-
-**test2 is genuinely rejected, and it is not split damage.** The oracle stops at `test2.spt(238)`:
-
-```
-D75      TEST NOTANY(*'ABCDEFGHJKLMPQRSTUWXYZ') $ VARA :S(D77) ;
-.                                                          ERROR()
-```
-
-A `;`-separated statement followed by a `.` continuation line. That region is **byte-identical** to the
-upstream concatenation (`testpgms.spt` lines 659-662, checked), so nothing we did produced it: this build of
-SPITBOL rejects the construct under `-bf`. Named and UNSCORED, never counted as a SCRIP failure.
-
-⚠ **The upstream file holds at least SIX programs, not four** (`-TITLE SPITBOL TEST PROGRAM #5` and `#6` are
-in `corpus/benchmarks/snobol4/testpgms.spt` at lines 863 and 965). Lon's order named 1-4 and that is what is
-vendored here; 5 and 6 are available for a later row and are not lost.
+**Measured on the shared oracle after the repair (`sbl -bf`, fed `testpgms.in`):** seven of eight run clean —
+#1 rc=0/120 lines · #3 rc=0/46 · #4 rc=0/16 · #5 rc=0/16 · #6 rc=0/44 · #7 rc=0/16 · #8 rc=0/16. Only **#2**
+still exits rc=231, at `test2.spt(238)`, on a `;`-separated statement followed by a `.` continuation line whose
+region is byte-identical to the combined file — genuinely rejected by this SPITBOL build, named and UNSCORED.
 
