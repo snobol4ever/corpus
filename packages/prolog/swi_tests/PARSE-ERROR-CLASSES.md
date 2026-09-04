@@ -16,6 +16,24 @@ standalone witness distilled from that line -- not by grep pattern-matching on t
 Probes were run from `SCRIP/` against `./scrip` built on the current tree. THERE IS NO XFAIL: every
 file below is OUR defect and stays red; none of this is a reason to touch EXCLUDED.md.
 
+⭐ CURED 2026-09-04 (seat06, SCRIP `4e883963e`): the FIVE classes `table/1`, `thread_local/1`,
+`public/1`, `record/1` (all "not declared as a prefix operator") and `as/2` ("not declared as an
+infix operator") -- 33 files -- are fixed: `table`/`thread_local`/`public`/`record` added to the
+existing hardcoded directive-prefix list in `prolog_parse.c` (same mechanism as `dynamic`/
+`discontiguous`/etc, comma-separated PI-list argument, priority 1150); `as` added to `BIN_OPS[]` as
+a plain `700 xfx` infix op. Re-verified against the REAL vendored files (not just the minimal
+witnesses below): 32/33 now parse clean via `--dump-ast`. The 33rd, `tabling/test_tabling.pl`, is
+fixed AT ITS OWN FLAGGED LINE (103, the `table a/2` this class names) but the parser now gets
+further into the file and hits a SECOND, separate, already-known gap: CLP(FD) `#>`/`#<`/`#=` at
+lines 964-1199 (the "CLP(FD) in/../#=" class below) -- this file was always a member of BOTH
+classes, just double-blocked, and only the first blocker was visible before. None of these 33 files
+pass the suite yet -- they were all blocked on the SAME plunit.pl/nb_setval gap as the other 114
+graded files before this fix, and remain blocked on it now (hq_C's cure, rung 10); this fix removes
+their PARSE blocker only, which is a precondition for them to ever be gradable at all, not a suite
+PASS. None of the 66 files' `.ref` exists yet (all 66 are still in the 135 UNGRADED, not the 114
+graded population) -- generating `.ref` via real swipl is separate work, coordinated through hq_T's
+container-shape row, not done here.
+
 Denominator check: 13+11+2+1+6+1+7+6+2+4+4+3+2+1+1+1+1 = 66.
 
 ## Class: `table/1` not declared as a prefix operator (13 files)
