@@ -13502,7 +13502,7 @@ END
 OK        OUTPUT = 'match'                                 :(END)
 NO        OUTPUT = 'nomatch'
 END
-*-------------------------------------------- 1702 tab_trim_size_replace_2 XFAIL
+*-------------------------------------------- 1702 tab_trim_size_replace_2
 *  KW-5b witness: the keyword block's oracle-true INITIAL VALUES must be live
 *  before statement one, for a program that never mentions a keyword at all.
 *  &TRIM's oracle default is 1 (FINDING s146 §3 -- the oracle disagrees with
@@ -13520,7 +13520,7 @@ END
 	OUTPUT = '[' M ']'
 	OUTPUT = 'size=' SIZE(M)
 END
-*-------------------------------------------- 1703 tab_trim_size_replace_1 XFAIL
+*-------------------------------------------- 1703 tab_trim_size_replace_1
 *  KW-1 witness: &TRIM must actually TRIM (manual Ch.16 p.191 -- "Nonzero to
 *  strip trailing blanks and tab characters from lines read from files").
 *  SCRIP s146: the assignment lands in keywords.c's g_trim while the input

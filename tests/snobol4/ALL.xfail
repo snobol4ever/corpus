@@ -1,138 +1,136 @@
 *--------------------------------------------------- 1667 simple_output_93 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+gimpel_triage class1: -INCLUDE "class1_dup_label_shared.sno" is a stale path from the tests/snobol4 flatten (real file renamed gimpel_triage_class1_dup_label_shared.sno), so this copy never reaches the documented mechanism (no include-guard, diamond -INCLUDE duplicates labels -- FINDING-2026-08-27-seat10 rank1). Corpus-hygiene gap, not a fresh SCRIP defect.
 *-------------------------------------------------- 1668 simple_output_186 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+-INCLUDE 'rtx11_dynvar.inc' names a file absent from the entire corpus tree; cannot reproduce the SIGSEGV the comment describes because the include never resolves at all. Missing corpus fixture.
 *--------------------------------------------------- 1669 simple_program_1 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+Deliberate: -INCLUDE 'nonexistent_target.sno' names a file that exists nowhere in the corpus by design (mirrors the lon_cherryholmes 24-file include gap, RULES.md ABSOLUTE RULES); scrip and sbl -bf both refuse identically, ERROR 285. Missing fixture, not a SCRIP defect.
+*--------------------------------------------------- 1670 simple_output_63 XFAIL
+Deliberate dialect rejection: SCRIP requires uppercase END (design choice, RULES.md); this csnobol4_suite-style witness ends lowercase. BOTH scrip and the sbl -bf oracle reject it identically (.ref is empty, matching). Corpus dialect, not a SCRIP-only defect; util_uppercase_keywords.py already exists to normalize this corpus-wide but has not been run. This entry itself was missing from ALL.xfail entirely before this session (present as an XFAIL banner in ALL.sno/ALL.ref with no reason line) -- added now, not previously counted in the row's 69/70-entry census.
 *--------------------------------------------------- 1671 simple_output_67 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+Same root cause as span_replace_1/span_replace_2: BLANKS calls DIFF(S,' '), whose S2=SPAN(S2) self-rebind is inert in SCRIP (FINDING-2026-08-20-s186 section1, still open). Silent wrong answer, known and tracked, not this row's to cure.
 *--------------------------------------------------- 1672 simple_output_61 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+SCRIP keeps label-scanning text physically after a valid END (SPITBOL stops at END); two trailing data lines trigger a spurious duplicate-label parse error -- root cause of csnobol4_suite/sudoku.sno. Real parser defect; filed to hq_P as class row parser-scans-past-end.
 *--------------------------------------------------- 1673 simple_output_64 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+ORD (char->ordinal) is unimplemented in scrip, Error 5 parse-time fatal; the oracle ALSO lacks it (runtime ERROR 022, degrades softer). Root cause of csnobol4_suite/ord.sno RC1. Likely a CSNOBOL4-only extension outside SPITBOL-semantics scope -- deferred, not a confirmed SCRIP gap.
 *--------------------------------------------------- 1674 simple_output_68 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+Including the same file twice hangs scrip (rc=124, no output, both modes) where the oracle is include-once; distilled from gimpel batch D. Real defect, same family as simple_output_93 (-INCLUDE has no include-guard, re-expands on re-include); filed to hq_P as class row include-guard.
 *--------------------------------------------------- 1675 simple_output_70 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+OR(LIST) with a single one-character alternative crashes scrip nondeterministically (SIGSEGV/SIGABRT flip run to run on the identical binary, n=12/mode measured); needs no alternation. Real, already-ablated defect; filed to hq_P as class row or-single-alternative-nondeterministic-crash.
 *---------------------------------------------------- 1676 array_replace_2 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+gimpel_triage class5: -INCLUDE "class5_sig11_seq_module.sno" is a stale path (real file renamed gimpel_triage_class5_sig11_seq_module.sno); never reaches the documented CODE()+indirect-goto SIGSEGV (FINDING-2026-08-27-seat10 rank5). Corpus-hygiene gap.
 *---------------------------------------------------- 1677 user_function_6 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+DEFINE(PROTO) with a non-literal (variable-held) prototype string is outside the landed GZ#5 subset (compiler's own FATAL, runtime-DEFINE pending; see GOAL-SNOBOL4-BB.md). Declared scope boundary, not a bug.
 *--------------------------------------------------------- 1678 keyword_19 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+&DUMP keyword (termination variable/keyword dump) is unimplemented: SCRIP accepts the assignment but silently no-ops it, oracle prints a real dump. SCRIP-only defect, real feature gap (whole &DUMP feature); filed to hq_P, deferred given size.
 *--------------------------------------------------- 1679 simple_output_62 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+INPUT() on a file it cannot open never signals failure in scrip -- the S(loop) branch keeps succeeding forever (infinite loop, both modes); oracle fails fast (ERROR 116). Root cause of two real suite timeouts (openi/openo2). Real defect; filed to hq_P as class row input-open-failure-not-signaled.
 *-------------------------------------------- 1680 user_function_replace_4 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+DEFINE-based function redefinition is resolved as if declarative/hoisted rather than as an ordered runtime statement: the SECOND DEFINE('F()','G') retroactively changes what the FIRST (already-executed) F() call printed. Real defect, one mechanism with user_function_replace_7; filed to hq_P as class row define-redefinition-ordering.
 *-------------------------------------------------- 1681 keyword_replace_1 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+SETEXIT+&ERRLIMIT composition: an armed SETEXIT handler is never invoked when &ERRLIMIT survives an arithmetic runtime error (division by zero) -- execution silently falls through past the failing statement instead of routing to the handler. One mechanism with keyword_replace_2/_branch_10/_branch_11; filed to hq_P as class row setexit-not-invoked-under-errlimit-survival.
 *-------------------------------------------- 1682 user_function_replace_7 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+Same mechanism as user_function_replace_4: a later DEFINE('F(x)','F2') retroactively repoints the FIRST call site's already-executed dispatch, so both calls print via the second body. Filed to hq_P as class row define-redefinition-ordering.
 *-------------------------------------------------- 1683 keyword_replace_3 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+SETEXIT FACE 9 (handler's &LASTNO view): RED BY DESIGN beyond the trap rung -- g_core_err_stmt never advances in this tree, so every runtime error reports statement 0 (already named, seat8 s194, not fixed). This row is what will notice when that is cured.
 *-------------------------------------------- 1684 user_function_replace_6 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+An omitted LEADING call argument, F(, 'y'), shifts the remaining arguments left in SCRIP ('y' lands in the first parameter instead of the second); a trailing omission is handled correctly. Real defect distilled from INSERT.sno's contract case; filed to hq_P as class row omitted-leading-arg-shift.
 *-------------------------------------------------- 1685 keyword_replace_2 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+Same mechanism as keyword_replace_1: the armed SETEXIT handler is never entered when &ERRLIMIT survives the division-by-zero error; execution falls through to 'AFTER' instead of the handler. Filed to hq_P as class row setexit-not-invoked-under-errlimit-survival.
 *----------------------------------------------------- 1686 span_replace_1 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+X=SPAN(X) self-rebind (a variable rebound to a pattern built over its own former value) is an inert pattern in SCRIP: the replacement removes nothing. Root of the s183 BLANKS silent wrong answer. Known, root-caused, still-open defect -- FINDING-2026-08-20-s186 section1.
 *----------------------------------------------------- 1687 span_replace_2 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+Same defect as span_replace_1 (gimpel_triage class3, non-include witness): X=SPAN(X) self-rebind inert, both modes agree with each other and disagree with the oracle. FINDING-2026-08-20-s186 section1 / FINDING-2026-08-27-seat10 rank3, still open.
 *------------------------------------------------- 1688 indirect_replace_1 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+An indirect store through the NAME OF A DATA FIELD (P=.R(X) then $P=...) is a silent no-op; the same idiom over a plain variable works. Root cause of LINEARIZE/READL gimpel bugs. Real defect; filed to hq_P as class row indirect-store-through-field-name.
 *------------------------------------------------------- 1689 eval_defer_3 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+Chained deferred-expression evaluation (a=*(1+2); b=*a; EVAL(b)) does not reach the EXPRESSION-datatype answer the oracle gives (oracle prints the literal string 'EXPRESSION', scrip prints nothing). Narrow EVAL/defer datatype corner case, not further root-caused this session; filed to hq_P.
 *--------------------------------------------- 1690 opsyn_replace_branch_1 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+Genuine parse error (not the GZ#5 gate): OPSYN('#','DIFFER',2) redefines '#' as a binary operator per the manual's own p.116 worked example, but scrip's parser does not have '#' in its recognized operator-character set, so '1 # 2' fails to parse at all ('missing END statement' cascade). Real, narrow lexer/grammar gap; filed to hq_P.
 *--------------------------------------------- 1691 array_replace_branch_2 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+gimpel_triage class8: -INCLUDE "class8_sig6_perm_module.sno" (itself including class8_sig6_perm_swap.sno) is a stale two-level path (real files renamed gimpel_triage_class8_sig6_perm_*); never reaches the documented workspace-heap-exhaustion bug (FINDING-2026-08-27-seat10 rank8, same self-DEFINE-recursion root as class4). Corpus-hygiene gap.
 *------------------------------------------- 1692 keyword_replace_branch_9 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+&ERRLIMIT alone (no SETEXIT) over an 'undefined function called' error: the oracle takes the statement's own :F(NX) failure branch (survivable), scrip aborts the whole program instead. Distinct, smaller defect from the SETEXIT/&ERRLIMIT composition class (keyword_replace_1) -- a different error class not made survivable at all. Filed to hq_P.
 *------------------------------------------ 1693 keyword_replace_branch_10 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+Same SETEXIT/&ERRLIMIT composition defect as keyword_replace_1: the FIRST division-by-zero's armed handler never fires (no 'HANDLER S4' line), though execution correctly continues to MID/AFTER. m3 completes with a partial-wrong answer; m4 refuses to compile this shape at all (mode divergence noted). Filed to hq_P as class row setexit-not-invoked-under-errlimit-survival.
 *------------------------------------------ 1694 keyword_replace_branch_11 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+Same composition defect again (re-arm face): neither the first nor the second armed handler fires ('HANDLER S4'/'HANDLER S6' both missing), though MID/AFTER still print. m4 refuses to compile this shape (mode divergence noted). Filed to hq_P as class row setexit-not-invoked-under-errlimit-survival.
 *----------------------------------- 1695 user_function_indirect_replace_1 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+A GOTO whose operand is a function call, :(GO()), is a parse error in SCRIP; the oracle compiles it (the function returns a label NAME by name and control transfers there) -- the entire published contract of STATEF.inc. Ordinary direct and indirect gotos both work; only the call-in-goto is refused. Real, well-isolated parser gap; filed to hq_P.
 *---------------------------------------- 1696 user_function_len_capture_1 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+Declared scope boundary (compiler's own FATAL): 'capture target in a runtime-built pattern is not a simple variable' -- calling a user function as a pattern match's capture target (LEN(1) . S()) is outside the landed GZ#5 subset. See GOAL-SNOBOL4-BB.md.
 *-------------------------------- 1697 user_function_len_capture_replace_1 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+Same declared GZ#5 boundary as user_function_len_capture_1 (NRETURN-as-lvalue via a function-call capture target); compiler's own FATAL names it exactly. Not a bug, a documented unlanded subset.
 *------------------------------- 1698 user_function_array_replace_branch_1 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+RED ON ARRIVAL, already named in its own header: a pre-existing defect in SPITBOL's parenthesised comma expression alternation, exposed (not caused) by queue row subscript-silent-accept. Already tracked; not this row's to re-diagnose.
 *---------------------------------------- 1699 opsyn_any_capture_replace_1 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+OPSYN'd unary operator (!X as ANY(X), manual p.116) matches the WRONG character of the target set when scanning ('ABC321' ? !'3C' should land on 'C' at position 3, scrip returns '3'). Real, narrow bug in OPSYN-created-unary-operator dispatch/scan order; filed to hq_P.
 *--------------------------------- 1700 user_function_len_capture_branch_2 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+Same declared GZ#5 boundary as user_function_len_capture_1: 'capture target in a runtime-built pattern is not a simple variable' (F() as a LEN(2)-capture target). Documented unlanded subset, not a bug.
 *------------------------- 1701 fence_capture_imm_capture_replace_branch_1 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
-*-------------------------------------------- 1702 tab_trim_size_replace_2 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
-*-------------------------------------------- 1703 tab_trim_size_replace_1 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+Minimal witness for the fz_abort_05/fz_abort_25 SIGABRT class (FINDING-2026-08-20-s188, row fuzz-abort-batch): a one-argument FENCE1 with two stacked captures on its body bombs at bb_match_capture.cpp:88 (IR_MATCH_CAPTURE_SAVE: no home) -- the classifier's cap_in_repeat_body bracketing is wrong for FENCE1 specifically. Known, root-caused, tracked defect; not a fresh discovery.
 *----------------------------- 1704 size_indirect_keyword_replace_branch_1 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+CHECKED IN RED ON PURPOSE (s194, row indirect-nonname-silent-accept): SPITBOL accepts a variable name whose first byte is NUL (e.g. $&ALPHABET); SCRIP's namespace is C-string keyed and cannot spell such a name, so it refuses the statement instead (costing no &ERRLIMIT credit, proving namespace limitation not a false ERROR 239). Goes green when names become counted strings; deliberate pin until then.
 *---------------------------------- 1705 trim_alt_keyword_replace_branch_1 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+RED ON PURPOSE until the feature lands (RULES.md THE INSTRUMENT LAWS clause 3): pre-authored instrument for LAMBDA/lambda pattern primitives (row lang-lambda-pattern-primitives, not yet built) and Greek-letter spellings. Self-pinned against its own .ref; never graded against sbl (SPITBOL cannot run lambda).
 *------------------------------------ 1706 fence_rpos_rem_replace_branch_1 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
+Pattern-engine crash-corpus witness (probe/fuzz, fz_red_m2_breach_m4only); part of the actively-tracked, multi-session fuzzer-discovered crash/hang class (FINDING-2026-08-20-s188/s189 series, FINDING-2026-08-29-hq_C/seat09 fuzz FINDINGs). Known, not a fresh discovery; still open.
 *---------------------------------- 1707 arbno_fence_rpos_replace_branch_1 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
+Same tracked probe/fuzz crash corpus (fz_red_m1a_arbno_defer_fencenull); see FINDING-2026-08-20-s188 (eleven-fuzz-segvs, four mechanisms) and successors. Known, still open, not this row's to re-derive.
 *----------------------------------------- 1708 user_function_arbno_rpos_1 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+Genuine parse error ('missing END statement'): a deferred pattern assignment to a keyword-shaped variable (&Parse5 = nPush() ARBNO(*Command)) containing a function call inside ARBNO(*subject). Narrow/obscure construct combination; symptom confirmed, grammar-level root cause not further bottomed out this session -- filed to hq_P as its own witness.
 *------------------------------ 1709 user_function_table_datatype_branch_1 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+gimpel_triage class4 (COPYL): runtime self-DEFINE recursion (DEFINE('F(...)','OTHER_ENTRY') called from inside F to swap its own entry point) never terminates in SCRIP, overflowing the C call stack (ERROR 246) on a 2-node case the oracle finishes instantly. Root-caused, FINDING-2026-08-27-seat10 section4 (shared mechanism with array_replace_branch_2/class8's workspace-heap exhaustion). Known, still open.
 *---------------------------- 1710 user_function_convert_indirect_branch_1 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+gimpel_triage class6 (ONCE): mode-divergent on the self-modifying CONVERT(...,'EXPRESSION')-built indirect self-reference. m3 matches FINDING-2026-08-27-seat10 rank6 exactly (Error 22, undefined function called, rc=1); m4 now refuses to compile rather than the FINDING's recorded SIGSEGV -- apparent drift since 2026-08-27, worth a note to whoever re-triages this class, not re-diagnosed fresh here.
 *------------------------------------------ 1711 break_len_array_replace_1 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+A conditional assignment whose target is a deferred non-simple name (an array element, *A<I>) captures nothing and says nothing (oracle: [x][y][z], scrip: [][][], rc=0, no diagnostic). Distilled from CRACK.sno. Real defect; filed to hq_P as class row deferred-array-element-capture-target.
 *------------------------------------ 1712 arbno_arb_rpos_replace_branch_1 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
+Tracked probe/fuzz crash corpus (fz_red_m3_arbno_nullalt_gen); see FINDING-2026-08-20-s189 (fuzz-diff-batch, two classes) and successors. Known, still open.
 *----------------------------------- 1713 fence_span_rpos_replace_branch_1 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
+Tracked probe/fuzz crash corpus (fz_red_m2_breach_m3only); see FINDING-2026-08-20-s188/s189 series. Known, still open.
 *----------------------------------- 1714 arbno_fence_pos_replace_branch_2 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
+s183 pattern-fuzz witness (SEGV), generated by util_pattern_fuzz.py --seed 11 --depth 4, part of the ~2,000-program random-grammar-fuzzer campaign that produced 9 oracle-differential classes (GOAL-SNOBOL4-100.md s183 history). Known, tracked pattern-engine crash corpus; still open.
 *----------------------------------- 1715 arbno_fence_tab_replace_branch_1 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+Tracked probe/fuzz crash/hang corpus (fz_red_m1b_arbno_defer_blob); m3 hangs, m4 crashes -- itself an m3/m4 divergence worth a note. See FINDING-2026-08-20-s188/s189 series. Known, still open.
 *------------------------------------ 1716 fence_pos_rpos_replace_branch_3 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+probe_passthru (ptw class): reproduces beauty's own Commands = *Command FENCE(*Commands | epsilon) shape verbatim (beauty line 217/X4 line 128) -- the left element's alternatives are exactly what the wholesale FENCE seal throws away. Active, documented passthru/beauty correctness campaign (ARCH-PASSTHRU.md, board_passthru_combo.sh); deliberately red per that campaign's own law ('a red row is never denied').
 *--------------------- 1717 user_function_code_eval_array_replace_branch_1 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
+A DEFINE'd function reaching its loop variable indirectly through a name argument, combined with a CODE()-compiled indirect-goto loop (:<ARG_S>), SIGSEGVs on the way out after the loop body runs correctly -- each ingredient is independently correct (see the sibling CODE loop and F1 in the same witness), only the combination crashes. Distilled from gimpel SEQ/AI/AOPA drivers. Real defect; filed to hq_P as class row indirect-loop-var-plus-code-indirect-goto.
 *------------------------------------------- 1718 arbno_pos_rpos_branch_81 XFAIL
-does not complete (exceeded 10.0s). Not further diagnosed -- see RULES.md on rc/timeout as a duration proxy, not a duration.
+probe_passthru (ptw class, ptw_min_defer2_hang): a stored/deferred ARBNO pattern (*G1) anchored by RPOS(0) hangs instead of cleanly failing. Active, documented passthru correctness campaign (ARCH-PASSTHRU.md); deliberately red.
 *------------------------------------- 1719 arbno_bal_tab_replace_branch_1 XFAIL
-does not complete (exceeded 10.0s). Not further diagnosed -- see RULES.md on rc/timeout as a duration proxy, not a duration.
+Tracked probe/fuzz crash corpus (fz_segv_24); m3/m4 mode-divergent (FAIL/CRASH). See FINDING-2026-08-20-s188/s189 series (own-noise caveat: fz_segv_24 was separately measured as a flaky, non-deterministic signal across repeated runs of one binary -- read any single run here as one draw, not a verdict). Known, still open.
 *------------------------------------ 1720 arbno_arb_rpos_replace_branch_2 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
+Tracked probe/fuzz crash corpus (fz_segv_17). See FINDING-2026-08-20-s188 (eleven-fuzz-segvs, four mechanisms). Known, still open.
 *------------------------------------ 1721 fence_arb_span_replace_branch_1 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
+Tracked probe/fuzz crash corpus (fz_red_m2b_fence_cap_nullalt). See FINDING-2026-08-20-s188/s189 series. Known, still open.
 *------------------------------------- 1722 fence_arb_tab_replace_branch_1 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
+Tracked probe/fuzz crash corpus (fz_red_m2c_cap_around_defer); m3/m4 mode-divergent (SIG11/SIG4). See FINDING-2026-08-20-s188/s189 series. Known, still open.
 *------------------------------------- 1723 fence_arb_tab_replace_branch_2 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
+Tracked probe/fuzz crash corpus (fz_segv_18); m3/m4 mode-divergent (SIG11/SIG4). See FINDING-2026-08-20-s188. Known, still open.
 *------------------------------- 1724 user_function_code_eval_bal_branch_1 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+gimpel_triage class2 (DEXP): declared scope boundary, compiler's own FATAL -- DEFINE with a non-literal prototype string plus CODE()-driven dynamic function synthesis is outside the landed GZ#5 subset (see GOAL-SNOBOL4-BB.md). m3 and m4 print the identical FATAL; not a bug. FINDING-2026-08-27-seat10 rank1 (second row).
 *----------------------------------- 1725 arbno_fence_pos_replace_branch_4 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+probe_passthru (ptw class, ptw_min_rseal_unsealed_ctl). Active, documented passthru correctness campaign (ARCH-PASSTHRU.md); deliberately red per that campaign's xfail law.
 *----------------------------------- 1726 arbno_fence_pos_replace_branch_3 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+probe_passthru (ptw class, ptw_min_rseal_arbno). Active, documented passthru correctness campaign (ARCH-PASSTHRU.md); deliberately red.
 *------------------------------------------ 1727 arbno_fence_pos_branch_22 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+probe_passthru (ptw class, ptw_min_arbno_alt_fence_L1). Active, documented passthru correctness campaign (ARCH-PASSTHRU.md); deliberately red.
 *----------------------------------- 1728 arbno_fence_bal_replace_branch_3 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+Tracked probe/fuzz crash corpus (fzr_13_alt_of_arbno); see FINDING-2026-08-20-s189 (fuzz-diff-batch: 5 reduced red + 7 one-ingredient green controls, alternation-of-ARBNO class). Known, still open.
 *---------------------------------- 1729 arbno_fence_span_replace_branch_1 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
+Tracked probe/fuzz crash corpus (fz_abort_05); minimal SIGABRT witness for the same FENCE1-stacked-capture classifier bug as fence_capture_imm_capture_replace_branch_1 (FINDING-2026-08-20-s188). Known, root-caused, still open.
 *----------------------------------- 1730 arbno_fence_bal_replace_branch_1 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+Tracked probe/fuzz crash corpus (fz_diff_13); oracle-differential, not a crash. See FINDING-2026-08-20-s189 (fuzz-diff-batch, two classes). Known, still open.
 *---------------------------------- 1731 arbno_span_break_replace_branch_1 XFAIL
-does not complete (exceeded 10.0s). Not further diagnosed -- see RULES.md on rc/timeout as a duration proxy, not a duration.
+Tracked probe/fuzz hang corpus (fz_hang_11); see FINDING-2026-08-20-s189 (six-fuzz-hangs, three mechanisms). Known, still open.
 *------------------------------------ 1732 arbno_span_tab_replace_branch_1 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
+Tracked probe/fuzz crash corpus (fz_segv_02); see FINDING-2026-08-20-s188 (eleven-fuzz-segvs, four mechanisms). Known, still open.
 *----------------------------------- 1733 arbno_fence_bal_replace_branch_2 XFAIL
-crashes: SIGSEGV (rc=-11). Not further diagnosed.
+Tracked probe/fuzz crash corpus (fz_segv_03); named elsewhere as a live control witness (an unrelated lower_snobol4.c indirect-pattern-operand fix's own regression sweep measured this exact witness's SIG4-vs-SIG11 signal varying run-to-run on one unpatched binary -- read any single run as one draw). See FINDING-2026-08-20-s188. Known, still open.
 *---------------------------------- 1734 arbno_fence_span_replace_branch_2 XFAIL
-does not complete (exceeded 10.0s). Not further diagnosed -- see RULES.md on rc/timeout as a duration proxy, not a duration.
+Tracked probe/fuzz crash corpus (fz_min_nested_alt_red); see FINDING-2026-08-20-s189 (fuzz-diff-batch class with a named corpus witness that SIGSEGVs). Known, still open.
 *------------------------------------ 1735 arbno_span_len_replace_branch_1 XFAIL
-exits rc=1, stdout does not match .ref. Not further diagnosed.
+Regression guard for an ALREADY-FIXED m4-only SIGSEGV (SPAN-FRAME fix, s188 seat7 d3251f23 -- confirmed by its own header's SCRIP_SPAN_FRAME/SCRIP_ARBNO_ALTSIB killswitch A/B) -- but the witness itself currently fails for an unrelated, purely mechanical reason: its -INCLUDE hardcodes a seat-specific absolute path (/home/claude4/corpus/programs/gimpel/FORTPUT.sno) that cannot resolve on any other seat (D-17 PORTABLE-HOME violation; the real file lives at corpus/packages/snobol4/gimpel/FORTPUT.sno on every seat). Portability bug in the fixture, not a live SCRIP defect -- the guard cannot currently fire either way.
 *--------------------------- 1736 user_function_eval_span_replace_branch_1 XFAIL
-runs to completion (rc=0) but stdout does not match .ref. Not further diagnosed.
+Known, already-filed performance-characterization witness (FINDING-2026-08-22-m3-run-only-is-alpha-cell-scan-pollution.md, row m3-executes-three-times-m4-on-beauty); ALSO appears to be missing its required multi-line stdin in the master's ALL.in (same fixture-gap class as tab_trim_size_replace_1/_2, cured this session) -- but its source (crosscheck/control/expr_eval.sno) no longer exists at the cited path so the exact original input isn't recoverable from this witness alone. Flagged, not guessed; a fixture gap for whoever owns this witness.
