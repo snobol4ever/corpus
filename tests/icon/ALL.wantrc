@@ -1,3 +1,11 @@
 ladder_rung36_sets_refusal	1
 ladder_rung37_bal_refusal	1
 procedure_every_to_18	1
+ladder_rung06_cset_scan_refuse_any	1
+ladder_rung06_cset_scan_refuse_many	1
+ladder_rung06_cset_scan_refuse_upto	1
+ladder_rung08_strbuiltins_scan_refuse_find	1
+ladder_rung08_strbuiltins_scan_refuse_match	1
+ladder_rung08_strbuiltins_scan_refuse_tab	1
+ladder_rung08_strbuiltins_scan_refuse_move	1
+ladder_rung37_bal_scan_refuse	1

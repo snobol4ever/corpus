@@ -7405,21 +7405,21 @@ procedure warn(a[])
    errors +:= 1;
    return;
 end
-#------------------------------------------------- 717 procedure_write_172
+#------------------------------------------------------- 717 procedure_write_172
 procedure main();
   write(2.0^0.5);
 end
-#------------------------------------------------- 718 procedure_write_194
+#------------------------------------------------------- 718 procedure_write_194
 procedure main();
   write(sqrt(4.0));
   write(sqrt(9.0));
   write(sqrt(2.0));
 end
-#----------------------------------------------- 719 procedure_every_to_48
+#----------------------------------------------------- 719 procedure_every_to_48
 procedure main();
   every write(3.0 to 1.0 by -1.0);
 end
-#----------------------------------------------- 720 procedure_every_to_49
+#----------------------------------------------------- 720 procedure_every_to_49
 procedure main();
   every write(1.0 to 3.0 by 1.0);
 end
@@ -7485,7 +7485,7 @@ procedure main()
   every write(!sort(a ** b));
   every write(!sort(a -- b));
 end
-#------------------------------------------ 727 ladder_rung36_sets_refusal
+#------------------------------------------------ 727 ladder_rung36_sets_refusal
 procedure main()
   write("before");
   insert(3, 1);
@@ -7522,7 +7522,7 @@ procedure main()
   s ? write(tab(upto(',')));
   s ? write(tab(bal(',')));
 end
-#------------------------------------------- 731 ladder_rung37_bal_refusal
+#------------------------------------------------- 731 ladder_rung37_bal_refusal
 procedure main()
   write("before");
   write(bal([1,2,3]));
@@ -7539,4 +7539,134 @@ procedure main();
   if ("bcd" >> "abc") then write("gt");
   if ("abc" >> "abc") then write("nope");
   write("done");
+end
+#---------------------------------------- 734 ladder_rung06_cset_scan_refuse_any
+procedure main();
+  write("before");
+  "abc" ? any([1,2]);
+  write("after");
+end
+#--------------------------------------- 735 ladder_rung06_cset_scan_refuse_many
+procedure main();
+  write("before");
+  "abc" ? many([1,2]);
+  write("after");
+end
+#--------------------------------------- 736 ladder_rung06_cset_scan_refuse_upto
+procedure main();
+  write("before");
+  "abc" ? upto([1,2]);
+  write("after");
+end
+#-------------------------------- 737 ladder_rung08_strbuiltins_scan_refuse_find
+procedure main();
+  write("before");
+  "abc" ? find([1,2]);
+  write("after");
+end
+#------------------------------- 738 ladder_rung08_strbuiltins_scan_refuse_match
+procedure main();
+  write("before");
+  "abc" ? match([1,2]);
+  write("after");
+end
+#--------------------------------- 739 ladder_rung08_strbuiltins_scan_refuse_tab
+procedure main();
+  write("before");
+  "abc" ? tab([1,2]);
+  write("after");
+end
+#-------------------------------- 740 ladder_rung08_strbuiltins_scan_refuse_move
+procedure main();
+  write("before");
+  "abc" ? move([1,2]);
+  write("after");
+end
+#----------------------------- 741 ladder_rung08_strbuiltins_scan_coerce_tab_str
+procedure main();
+  "abc" ? write(tab("2"));
+end
+#---------------------------- 742 ladder_rung08_strbuiltins_scan_coerce_tab_real
+procedure main();
+  "abc" ? write(tab(2.0));
+end
+#---------------------------- 743 ladder_rung08_strbuiltins_scan_coerce_move_str
+procedure main();
+  "abc" ? write(move("1"));
+end
+#--------------------------------------------- 744 ladder_rung37_bal_scan_refuse
+procedure main();
+  write("before");
+  "a(b)" ? bal([1,2]);
+  write("after");
+end
+#------------------------------------------------- 745 procedure_write_keyword_6
+#SRC: JCON
+
+procedure main();
+	write(&level);
+	foo(3);
+	write(&level);
+	every bar(3);
+	write(&level);
+end
+
+procedure foo(n);
+	write(&level);
+	if n ~= 0 then foo(n-1);
+	write(&level);
+end
+
+procedure bar(n);
+	write(&level);
+	suspend 1 to n do write(&level);
+	write(&level);
+end
+#--------------------------------------------------- 746 procedure_write_image_1
+procedure main()
+    write(image([1,2,3]))
+end
+#------------------------------------------------- 747 procedure_write_keyword_7
+procedure main();
+   write(&level);
+   foo(3);
+   write(&level);
+   every bar(3);
+   write(&level);
+end
+
+procedure foo(n);
+   write(&level);
+   if n ~= 0 then foo(n - 1);
+   write(&level);
+end
+
+procedure bar(n);
+   write(&level);
+   suspend 1 to n do write(&level);
+   write(&level);
+end
+#------------------------------------------------------ 748 procedure_scan_tab_2
+procedure main()
+    local y, z
+    y := 101559956668416.0;
+    y ? write(tab(0));
+    z := -101559956668416.0;
+    z ? write(tab(0));
+    write(y);
+    write(z);
+end
+#----------------------------------------------------- 749 procedure_scan_size_1
+procedure main();
+   local s;
+   s := "-n10";
+   s ? {
+      write("first *subj=", *&subject, " subj=[", &subject, "]");
+   };
+   s ? {
+      if ="-" then write("blk1 matched");
+   };
+   s ? {
+      write("second *subj=", *&subject, " subj=[", &subject, "]");
+   };
 end

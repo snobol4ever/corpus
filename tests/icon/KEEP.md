@@ -404,3 +404,24 @@ appearing (would mean the file became convertible). Re-check the 2 rung37 witnes
 FINDING/task state before assuming either is still open. Re-check `icon-n2-generator-activation-
 frames`' QUEUE.tsv state before assuming rung03 is still blocked — once it lands, re-run
 `convert-blocks` on all 5 rung03 files fresh rather than trusting this table.
+
+## 2 files — DELIBERATELY-INVALID ICON, the oracle REFUSES to compile them
+
+`rung16_seqexpr_gen_basic.icn rung20_section_seqexpr_excluded.icn`
+
+Both use `;` to sequence expressions inside parentheses, which is not valid Icon: icont refuses both
+with `"; ": missing right parenthesis`. Excluded from the construct ladder when they were written
+(seat01, 2026-09-03) and carrying that reasoning in their own headers; deliberately shipped with NO
+`.ref`, because a pairless witness is "not a board member", never a guessed pass.
+
+They are KEEPERS rather than conversions because the suite grades stdout against an oracle-cut ref
+and there is no oracle output to cut — the oracle rejects the program. Converting them would require
+inventing an expectation, which is the one thing a suite entry must never contain.
+
+⭐ **Measured while classifying these (hq_B, 2026-09-04) and worth a row someone else's lane owns:
+SCRIP ACCEPTS BOTH PROGRAMS** — it prints `10` and `3` where icont refuses to compile them at all.
+So this is not only a corpus-hygiene case; it is a live parser-permissiveness divergence, SCRIP
+accepting a `;` inside parens that real Icon rejects. Not filed as a defect row here on purpose: the
+brace/semicolon dialect law (2026-09-04, row `icon-dialect-procedure-braces-no-end-...`) is about to
+re-decide exactly what `;` means in SCRIP Icon, so the correct expectation for these two is a
+question for that row, not a bug to fix underneath it. Re-check both when the dialect lands.

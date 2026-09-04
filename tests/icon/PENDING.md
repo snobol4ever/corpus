@@ -99,16 +99,6 @@ its GOAL**, and pointing at a row on topical resemblance is how a false stale-de
 ⭐ All three are **m3≡m4 identical** in their failure (verified, not assumed): none is a mode-
 divergence, so none needs a per-mode deferral note.
 
-## DEFERRED icon-level-keyword-not-tracked
-- rung36_jcon_level.icn — clean exit both modes (rc=0), 16 lines out for 16 expected, all values
-  wrong: prints `1 1 1 1 1 1 0 -1 -2 -3 -2 -2 -2 -2 -2 -3` where `.expected` has
-  `1 2 3 4 5 5 4 3 2 1 2 2 2 2 2 1`. ⭐ **The negative drift is the EXPECTED transitional shape, not
-  a new regression** — SCRIP `41730a7f` landed the EXIT side only (`xa_flat.cpp`'s Icon-scoped
-  epilogue-γ arm decrements `rt_k_level`/`kw_fnclevel`; the entry-side increment is explicitly NOT
-  yet landed, per that commit's own message), and decrement-without-increment predicts exactly this
-  monotonic slide below zero. Recorded here so nobody chases the stale `1 1 1 1 1 1 1 1` description
-  that predates the half-cure. Converts when the entry-side increment lands.
-
 ## DEFERRED icon-assign-nameless-emit-guard-var
 - rung36_jcon_var.icn — rc=134 both modes. ⭐ **NOT a crash — an INTENTIONAL guard, and reading it
   as a crash is the trap here** (it aborts and dumps core, so `m4` presents as a compiler blow-up):

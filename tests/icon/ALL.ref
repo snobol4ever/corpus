@@ -5218,17 +5218,17 @@ Barbecuing with Liquid Oxygen</a>
 <hr>
 <address><a href="http://www.cs.arizona.edu/~gmt">Gregg Townsend</a></address>
 </body></html>
-#------------------------------------------------- 717 procedure_write_172
+#------------------------------------------------------- 717 procedure_write_172
 1.414213562
-#------------------------------------------------- 718 procedure_write_194
+#------------------------------------------------------- 718 procedure_write_194
 2.0
 3.0
 1.414213562
-#----------------------------------------------- 719 procedure_every_to_48
+#----------------------------------------------------- 719 procedure_every_to_48
 3
 2
 1
-#----------------------------------------------- 720 procedure_every_to_49
+#----------------------------------------------------- 720 procedure_every_to_49
 1
 2
 3
@@ -5256,7 +5256,7 @@ absent
 2
 3
 1
-#------------------------------------------ 727 ladder_rung36_sets_refusal
+#------------------------------------------------ 727 ladder_rung36_sets_refusal
 before
 #------------------------------------------------- 728 ladder_rung37_bal_default
 f(a,b)
@@ -5268,7 +5268,7 @@ d
 #------------------------------------------------- 730 ladder_rung37_bal_vs_upto
 a(b
 a(b,c)
-#------------------------------------------- 731 ladder_rung37_bal_refusal
+#------------------------------------------------- 731 ladder_rung37_bal_refusal
 before
 #------------------------------------------- 732 ladder_rung12_strrelop_size_sle
 le
@@ -5276,3 +5276,70 @@ done
 #------------------------------------------- 733 ladder_rung12_strrelop_size_sgt
 gt
 done
+#---------------------------------------- 734 ladder_rung06_cset_scan_refuse_any
+before
+#--------------------------------------- 735 ladder_rung06_cset_scan_refuse_many
+before
+#--------------------------------------- 736 ladder_rung06_cset_scan_refuse_upto
+before
+#-------------------------------- 737 ladder_rung08_strbuiltins_scan_refuse_find
+before
+#------------------------------- 738 ladder_rung08_strbuiltins_scan_refuse_match
+before
+#--------------------------------- 739 ladder_rung08_strbuiltins_scan_refuse_tab
+before
+#-------------------------------- 740 ladder_rung08_strbuiltins_scan_refuse_move
+before
+#----------------------------- 741 ladder_rung08_strbuiltins_scan_coerce_tab_str
+a
+#---------------------------- 742 ladder_rung08_strbuiltins_scan_coerce_tab_real
+a
+#---------------------------- 743 ladder_rung08_strbuiltins_scan_coerce_move_str
+a
+#--------------------------------------------- 744 ladder_rung37_bal_scan_refuse
+before
+#------------------------------------------------- 745 procedure_write_keyword_6
+1
+2
+3
+4
+5
+5
+4
+3
+2
+1
+2
+2
+2
+2
+2
+1
+#--------------------------------------------------- 746 procedure_write_image_1
+list_1(3)
+#------------------------------------------------- 747 procedure_write_keyword_7
+1
+2
+3
+4
+5
+5
+4
+3
+2
+1
+2
+2
+2
+2
+2
+1
+#------------------------------------------------------ 748 procedure_scan_tab_2
+1.015599567e+14
+-1.015599567e+14
+1.015599567e+14
+-1.015599567e+14
+#----------------------------------------------------- 749 procedure_scan_size_1
+first *subj=4 subj=[-n10]
+blk1 matched
+second *subj=4 subj=[-n10]
