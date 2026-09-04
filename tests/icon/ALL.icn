@@ -7670,3 +7670,18 @@ procedure main()
       write("second *subj=", *&subject, " subj=[", &subject, "]");
    };
 end
+#------------------------------------------ 750 ladder_rung18_real_relop_real_ge
+procedure main()
+  if 2.5 >= 2.5 then write("ge") else write("lt");
+end
+#------------------------------------------ 751 ladder_rung18_real_relop_real_le
+procedure main()
+  local x, y;
+  x := 2.5;
+  y := 3.0;
+  if x <= y then write("yes") else write("no");
+end
+#------------------------------------------ 752 ladder_rung18_real_relop_real_ne
+procedure main()
+  if 2.5 ~= 3.0 then write("ne") else write("eq");
+end

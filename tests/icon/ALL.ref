@@ -5343,3 +5343,9 @@ list_1(3)
 first *subj=4 subj=[-n10]
 blk1 matched
 second *subj=4 subj=[-n10]
+#------------------------------------------ 750 ladder_rung18_real_relop_real_ge
+ge
+#------------------------------------------ 751 ladder_rung18_real_relop_real_le
+yes
+#------------------------------------------ 752 ladder_rung18_real_relop_real_ne
+ne
