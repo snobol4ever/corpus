@@ -1,0 +1,28 @@
+# LADDER.tsv — THE REBUS CONSTRUCT CENSUS. DECLARED, NEVER DERIVED; the LAST rung line is the TOP.
+# Lon 2026-09-03 20:45: 100% = 100% of the industry standard language. Rebus has NO public conformance
+# suite, so the REFERENCE censused into this ladder IS the standard and the ladder green to its top IS
+# the score (ceo, row rebus-ladder-top-rung-census-from-the-rebus-report-is-the-score).
+#
+# SOURCE OF THE CENSUS: Griswold, "Rebus" TR 84-9 (/home/resources/REBUS tr84_9.pdf) — its construct
+# table as already extracted into .github/GOAL-REBUS-100.md § THE MODEL, plus that file's native-frontend
+# rung list RB-1..RB-14. Rebus is goal-directed like Icon with SNOBOL4-style pattern primitives, so the
+# order below runs value -> control -> procedure -> data -> generator -> pattern, which is report order.
+#
+# ⛔ A RUNG DECLARED HERE AND NOT BUILT IS RED, NOT ABSENT. test_rebus_ladder.sh derives its population
+# from ALL.csv's `ladder__rungNN_*` origins, so before this file existed `--to <top>` graded only the
+# rungs that HAPPENED to exist and went green over the gaps. The runner now cross-checks this file and
+# REFUSES rc=2 naming any declared rung with no witness.
+#
+# columns: rung  slug  construct (TR 84-9)  state
+rung00	hello	program + OUTPUT of a literal	BUILT
+rung01	arith	integer arithmetic and operator precedence	BUILT
+rung02	assign	x := expr, reassignment	BUILT
+rung03	cond	if cond then stmt	BUILT
+rung04	loop	while cond do stmt	BUILT
+rung05	func	function f(args) ... end, call with arguments	BUILT
+rung06	exit	return expr / fail — the two function exits	OWED
+rung07	record	record R(f1,f2), construction, field access	OWED
+rung08	output	OUTPUT := expr as the output idiom, vs plain assignment	OWED
+rung09	alt	alternation generator a | b | c (BB_PUMP)	OWED
+rung10	scan	pattern match expr ? pat (BB_SCAN)	OWED
+rung11	replace	pattern replace expr ? pat <- repl	OWED
