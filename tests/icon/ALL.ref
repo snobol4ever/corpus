@@ -5260,3 +5260,15 @@ absent
 1
 #------------------------------------------ 727 ladder_rung36_sets_refusal XFAIL
 before
+#------------------------------------------------- 728 ladder_rung37_bal_default
+f(a,b)
+c
+failed
+#------------------------------------------- 729 ladder_rung37_bal_custom_delims
+[a,[b,c]]
+d
+#------------------------------------------------- 730 ladder_rung37_bal_vs_upto
+a(b
+a(b,c)
+#------------------------------------------- 731 ladder_rung37_bal_refusal XFAIL
+before

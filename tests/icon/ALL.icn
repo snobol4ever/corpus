@@ -7491,3 +7491,40 @@ procedure main()
   insert(3, 1);
   write("after");
 end
+#------------------------------------------------- 728 ladder_rung37_bal_default
+procedure main()
+  local s;
+  s := "f(a,b),c";
+  s ? {
+    write(tab(bal(',')));
+    move(1);
+    write(tab(0));
+  }
+  s := "(a,b)";
+  s ? {
+    if tab(bal(',')) then write("matched") else write("failed");
+  }
+end
+#------------------------------------------- 729 ladder_rung37_bal_custom_delims
+procedure main()
+  local s;
+  s := "[a,[b,c]],d";
+  s ? {
+    write(tab(bal(',', '[', ']')));
+    move(1);
+    write(tab(0));
+  }
+end
+#------------------------------------------------- 730 ladder_rung37_bal_vs_upto
+procedure main()
+  local s;
+  s := "a(b,c),d";
+  s ? write(tab(upto(',')));
+  s ? write(tab(bal(',')));
+end
+#------------------------------------------- 731 ladder_rung37_bal_refusal XFAIL
+procedure main()
+  write("before");
+  write(bal([1,2,3]));
+  write("after");
+end
