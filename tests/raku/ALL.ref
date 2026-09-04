@@ -2279,3 +2279,13 @@ two
 mid
 #-------------------------- 897 ladder__rung10_given_when_no_match_falls_through
 after
+#-------------------------------------------------- 898 ladder__rung11_junctions
+yes
+#---------------------------------------------- 899 ladder__rung11_junctions_all
+yes
+#---------------------------------------------- 900 ladder__rung11_junctions_one
+yes
+#--------------------------------------------- 901 ladder__rung11_junctions_none
+yes
+#----------------------------------------- 902 ladder__rung11_junctions_operator
+yes

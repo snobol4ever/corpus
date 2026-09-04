@@ -896,3 +896,8 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,sub,multi,my,our,say,print,giv
 895,ladder__rung10_given_when_multiple_when,ladder__rung10_given_when_multiple_when,ladder,block,0,5,"m3,m4",0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 896,ladder__rung10_given_when_when_with_range,ladder__rung10_given_when_when_with_range,ladder,block,0,5,"m3,m4",0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
 897,ladder__rung10_given_when_no_match_falls_through,ladder__rung10_given_when_no_match_falls_through,ladder,block,0,4,"m3,m4",0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+898,ladder__rung11_junctions,ladder__rung11_junctions,ladder,block,0,5,"m3,m4",0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+899,ladder__rung11_junctions_all,ladder__rung11_junctions_all,ladder,block,0,5,"m3,m4",0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+900,ladder__rung11_junctions_one,ladder__rung11_junctions_one,ladder,block,0,5,"m3,m4",0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+901,ladder__rung11_junctions_none,ladder__rung11_junctions_none,ladder,block,0,5,"m3,m4",0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+902,ladder__rung11_junctions_operator,ladder__rung11_junctions_operator,ladder,block,0,5,"m3,m4",0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

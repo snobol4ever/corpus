@@ -3460,3 +3460,33 @@ given 99 {
     when 1 { say "one"; }
 }
 say "after";
+#-------------------------------------------------- 898 ladder__rung11_junctions
+if any(1,2,3) == 2 {
+    say "yes";
+} else {
+    say "no";
+}
+#---------------------------------------------- 899 ladder__rung11_junctions_all
+if all(1,2,3) > 0 {
+    say "yes";
+} else {
+    say "no";
+}
+#---------------------------------------------- 900 ladder__rung11_junctions_one
+if one(1,2,3) == 2 {
+    say "yes";
+} else {
+    say "no";
+}
+#--------------------------------------------- 901 ladder__rung11_junctions_none
+if none(1,2,3) == 5 {
+    say "yes";
+} else {
+    say "no";
+}
+#----------------------------------------- 902 ladder__rung11_junctions_operator
+if 1|2|3 == 2 {
+    say "yes";
+} else {
+    say "no";
+}
