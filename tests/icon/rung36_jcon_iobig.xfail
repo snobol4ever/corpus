@@ -1,1 +1,10 @@
-exits rc=1 (stdout does not match .expected). Not further diagnosed.
+rc=139 SEGV (core dumped) — NOT an output mismatch and NOT rc=1.
+SIGNATURE: Segmentation fault; no diagnostic emitted before the fault.
+ROUTING:   A silent SEGV with no diagnostic is its own class — see icon-arizona-class-silent-segv-no-diagnostic.
+
+RE-CLASSED 2026-09-03 (hq_B, row icon-every-xfail-fixed-as-a-faulty-test-or-cured-as-a-defect).
+The previous text read: 'exits rc=1 (stdout does not match .expected). Not further diagnosed.'
+That was measured stale IN THE DANGEROUS DIRECTION: it described a CRASH as a mild output mismatch,
+so anyone triaging by marker text would sort three crashes to the bottom of an output-diff pile.
+Lon 2026-09-03: there is no XFAIL. This marker is a ROUTING SLIP toward a named cure, not a resting
+place -- it is deleted when the row it names goes green.

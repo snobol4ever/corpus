@@ -17,7 +17,14 @@ procedure main()
    write(); every power(11213, 2 to 16);
    write(); every impower(3, 60 to 75);
    write(); every minpower(!primes);
-   write(); every bigexp(3 | 6 | -7 | 3 ^ 41 | 6 ^ 25 | -7 ^ 23);
+# ⛔ TRIMMED 2026-09-03 (hq_B, row icon-every-xfail-fixed-as-a-faulty-test-or-cured-as-a-defect).
+# The dropped arguments were 3 ^ 41 | 6 ^ 25 | -7 ^ 23 -- exponents of ~3.6e19. bigexp() evaluates x ^ v for
+# integer x, so 2 ^ (3 ^ 41) is a bignum of roughly 10^19 digits: UNCOMPUTABLE BY CONSTRUCTION, not slow.
+# The oracle (Arizona icont/iconx) ran 420 s and produced 142 lines before this line; with these three
+# arguments removed it completes in under a second with 413 lines, so a reference is obtainable and every
+# other case in the file -- fact, fib, mersenne, perfect, power, impower, minpower, and bigexp on 3|6|-7 --
+# is preserved. Lon 2026-09-03: an xfail that is a faulty test gets FIXED, not carried.
+   write(); every bigexp(3 | 6 | -7);
    write(); every tmul(2 | 3 | 5 | 7 | 10 | 17 | 51 | -3 | -11 | -43);
    write(); every tmul(3 ^ (2 to 50));
    write(); every conv(787 ^ (1 to 24) | -5781 ^ (1 to 18));
