@@ -21,7 +21,7 @@
 #
 ############################################################################
 
-procedure argparse(s);
+procedure argparse(s)
    local arglist;
    static nonblank;
 

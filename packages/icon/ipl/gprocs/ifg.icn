@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure ifg();
+procedure ifg()
    local win;
 
    if (&features == "graphics") &

@@ -24,7 +24,7 @@
 #
 #############################################################################
 
-procedure OpenCheck(p,x);
+procedure OpenCheck(p,x)
 
 local    f, e;
 static   openS;
@@ -104,10 +104,10 @@ else
 return;
 end
 
-procedure OpenCheck_open( x[] );
+procedure OpenCheck_open( x[] )
 return OpenCheck(OpenCheck_open,x);
 end 
 
-procedure OpenCheck_close( x[] );
+procedure OpenCheck_close( x[] )
 return OpenCheck(OpenCheck_close,x);
 end 

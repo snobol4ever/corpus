@@ -24,7 +24,7 @@
 #
 ############################################################################
 
-procedure repetit(L);
+procedure repetit(L)
    local c, n, l, e, i;
 
    c := L[1];  # starting value
@@ -46,7 +46,7 @@ procedure repetit(L);
 
 end
 
-procedure hypothesis(L, n);
+procedure hypothesis(L, n)
    local s, i, j;
 
    s := *L / n;

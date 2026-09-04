@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local func;
 
    func := args[1] | stop("*** no function specified");

@@ -39,7 +39,7 @@ link options
 link optwindw
 link graphics
 
-procedure main(args);
+procedure main(args)
    local win, gc, line, cval, mono, color, opts, m, w, h, l;
    local r, g, b, rr, gg, bb, x;
 

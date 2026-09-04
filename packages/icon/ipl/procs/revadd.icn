@@ -35,7 +35,7 @@
 #
 #  Note that revadd() returns an integer (native or large).
 
-procedure revadd(i);
+procedure revadd(i)
    local j;
 
    i := integer(i) | stop("*** invalid type to revadd()");

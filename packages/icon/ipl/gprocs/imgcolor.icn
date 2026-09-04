@@ -24,7 +24,7 @@
 #
 ############################################################################
 
-procedure imgcolor(win, x, y, w, h);
+procedure imgcolor(win, x, y, w, h)
    local colors;
 
    colors := table(0);

@@ -20,7 +20,7 @@
 #
 ############################################################################
 
-procedure soundex(name);
+procedure soundex(name)
    local first, c, i;
    name := map(name,string(&lcase),string(&ucase));  # Convert to uppercase..
    first := name[1];

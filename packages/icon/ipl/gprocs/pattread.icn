@@ -24,7 +24,7 @@
 
 link patutils
 
-procedure pattread(file);
+procedure pattread(file)
    local line, rows;
 
    line := read(file) | fail;

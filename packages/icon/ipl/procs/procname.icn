@@ -29,7 +29,7 @@
 #
 ############################################################################
 
-procedure procname(p, x);
+procedure procname(p, x)
    local result;
 
    image(p) ? {

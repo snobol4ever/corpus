@@ -21,7 +21,7 @@
 #  Icon programs.  Or even for writing Icon programs that write Icon
 #  programs that ... .
 
-procedure main();
+procedure main()
 
    while  write("write(",image(read()),")");
 

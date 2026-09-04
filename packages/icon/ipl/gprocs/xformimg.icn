@@ -33,7 +33,7 @@ link numbers
 link wattrib
 link wopen
 
-procedure wreflect(win1, dir);
+procedure wreflect(win1, dir)
    local win2, x1, x2, y1, y2, width, height;
 
    /dir := "v";  # vertical reflection is the default
@@ -76,7 +76,7 @@ procedure wreflect(win1, dir);
 
 end
 
-procedure wrotate(win1, dir);
+procedure wrotate(win1, dir)
    local win2, x1, x2, y1, y2, width, height;
 
    /dir := "90";  # 90-degree rotation is the default
@@ -135,7 +135,7 @@ procedure wrotate(win1, dir);
 
 end
 
-procedure wcatenate(win1, win2, dir);
+procedure wcatenate(win1, win2, dir)
    local width1, width2, height1, height2, win3;
 
    /dir := "h";			# horizontal concatenation is the default

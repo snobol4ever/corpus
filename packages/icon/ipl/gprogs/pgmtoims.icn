@@ -34,7 +34,7 @@
 
 link options
 
-procedure main(args);
+procedure main(args)
    local opts, g, cs, f, w, h, maxv, data, s, i, n, ln;
 
    # Process options.
@@ -96,7 +96,7 @@ end
 
 #  wdata(s, n) -- write one line of data with max linelength n
 
-procedure wdata(s, n);
+procedure wdata(s, n)
    s ? while not pos(0) do 
       write(image(move(n) | tab(0)) [2:-1], "_");
    return;
@@ -105,7 +105,7 @@ end
 
 #  ws() -- skip whitespace.
 
-procedure ws();
+procedure ws()
    while tab(many(' \t\r\n')) | (="#" & tab(upto('\n')));
    return;
 end

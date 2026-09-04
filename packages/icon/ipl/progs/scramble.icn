@@ -31,7 +31,7 @@ link random
 
 global vocab,index
 
-procedure main();
+procedure main()
   local line, i, n, word, follows;
 
   vocab:= [];
@@ -72,7 +72,7 @@ procedure main();
 # one wishes to extract.
 #
 
-procedure parse(line,delims);
+procedure parse(line,delims)
   local tokens;
   static chars;
 
@@ -87,7 +87,7 @@ procedure parse(line,delims);
 # an input string
 #
 
-procedure input(prompt);
+procedure input(prompt)
   writes(prompt);
   return read();
   end

@@ -1,4 +1,4 @@
-procedure main();
+procedure main()
     local a, b;
     a := 1;
 end

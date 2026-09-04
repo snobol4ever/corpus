@@ -31,7 +31,7 @@ link basename
 link patutils
 link wopen
 
-procedure main(args);
+procedure main(args)
    local matrix, ims, input, file;
 
    while file := get(args) do {

@@ -174,7 +174,7 @@ procedure nadcon(f, t);		#: define NAD data conversion
    return d;
 end
 
-procedure gdt_nadcon_fwd(p, L);
+procedure gdt_nadcon_fwd(p, L)
    local i, a;
 
    a := [];
@@ -184,7 +184,7 @@ procedure gdt_nadcon_fwd(p, L);
    return a;
 end
 
-procedure gdt_nadcon_bck(p, L);
+procedure gdt_nadcon_bck(p, L)
    local i, a;
     
    a := [];
@@ -194,11 +194,11 @@ procedure gdt_nadcon_bck(p, L);
    return a;
 end
 
-procedure gdt_identity(p, L);
+procedure gdt_identity(p, L)
    return L;
 end
 
-procedure gdt_nadcon_inv(p);
+procedure gdt_nadcon_inv(p)
    local q;
 
    q := copy(p);
@@ -210,7 +210,7 @@ procedure gdt_nadcon_inv(p);
    return q;
 end
 
-procedure gdt_nadcon_datum(x);
+procedure gdt_nadcon_datum(x)
    case x of {
       "NAD27":		return "NAD27";
       "NAD83":		return "NAD83";
@@ -219,7 +219,7 @@ procedure gdt_nadcon_datum(x);
 end
 
 
-procedure gdt_nadcon_initGrids(names);
+procedure gdt_nadcon_initGrids(names)
    local grids, latf, lonf, a1, a2, b1, b2, g;
 
    grids := [];
@@ -273,7 +273,7 @@ procedure gdt_nadcon_initGrids(names);
    return grids;
 end
 
-procedure gdt_nadcon_findGrid(grids, xpt, ypt);
+procedure gdt_nadcon_findGrid(grids, xpt, ypt)
    local g;
 
    every g := !grids do {
@@ -282,7 +282,7 @@ procedure gdt_nadcon_findGrid(grids, xpt, ypt);
    fail;
 end
 
-procedure gdt_nadcon_box(f, g, xcol, yrow);
+procedure gdt_nadcon_box(f, g, xcol, yrow)
 # This procedure is very sensitive to the format of the .loa & .laa
 # files.  In particular, it assumes:
 #	1) each line contains 6 numbers (except, possibly, the
@@ -310,7 +310,7 @@ procedure gdt_nadcon_box(f, g, xcol, yrow);
 end
 
 
-procedure gdt_nadcon_fwdPoint(p, a, xpt, ypt);
+procedure gdt_nadcon_fwdPoint(p, a, xpt, ypt)
    local g, latf, lonf, xgrid, ygrid, xcol, yrow, t, dlas, dlos;
 
    if not(g := gdt_nadcon_findGrid(p.grids, xpt, ypt)) then {
@@ -343,7 +343,7 @@ end
 
 $define CTG_NADCON_SMALL 0.000000001	# close enough for NADCON inverse
 
-procedure gdt_nadcon_bckPoint(p, a, xpt, ypt);
+procedure gdt_nadcon_bckPoint(p, a, xpt, ypt)
    local xguess, yguess, b, i, dx, dy;
 
    xguess := xpt;
@@ -417,7 +417,7 @@ procedure molodensky(dx,dy,dz,ain,fin,aout,fout); #: define geodetic conversion
    return p;
 end
 
-procedure gdt_molo_proj(p, L);
+procedure gdt_molo_proj(p, L)
    local e2, slam, clam, sphi, cphi, Rm, Rn, dlam, dphi;
    local i, bbya, da, df, lam, phi, lllist;
 
@@ -444,7 +444,7 @@ procedure gdt_molo_proj(p, L);
    return lllist;
 end
 
-procedure gdt_molo_inv(p);
+procedure gdt_molo_inv(p)
    local q;
 
    q := gdt_molo();
@@ -517,18 +517,18 @@ record gdt_datum_rec(
    )
 
 
-procedure gdt_datum_params(codename);
+procedure gdt_datum_params(codename)
    initial gdt_datum_init();
    return \gdt_datum_ptab[codename] | runerr(207, codename);
 end
 
 
-procedure gdt_datum_add(key, fields[]);
+procedure gdt_datum_add(key, fields[])
    return gdt_datum_ptab[key] := gdt_datum_rec ! fields;
 end
 
 
-procedure gdt_datum_init();
+procedure gdt_datum_init()
    gdt_datum_ptab := table();
 
 $define add gdt_datum_add;

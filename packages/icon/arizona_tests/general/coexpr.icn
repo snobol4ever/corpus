@@ -1,15 +1,15 @@
 record array(a,b,c,d,e,f,g)
 
-procedure dummy(u,v,x,y,z);
+procedure dummy(u,v,x,y,z)
    suspend u | v;
    return x;
 end
 
 
-procedure f(x,y,z);
+procedure f(x,y,z)
 end
 
-procedure main();
+procedure main()
    if not(&features == "co-expressions") then
       stop("co-expressions not supported");
    write(image(&main));
@@ -65,7 +65,7 @@ procedure main();
    while write("return value ", @e);
 end
 
-procedure writer(n);
+procedure writer(n)
    return write("in cx write ", n);
 end
 

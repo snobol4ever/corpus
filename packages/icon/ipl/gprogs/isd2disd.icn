@@ -25,7 +25,7 @@
 link weavutil
 link xcode
 
-procedure main();
+procedure main()
    local draft;
 
    isd;  # fly a kite, linker

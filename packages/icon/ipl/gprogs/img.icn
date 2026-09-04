@@ -74,7 +74,7 @@ global buttons			# button colors
 
 #  main program
 
-procedure main(args);
+procedure main(args)
    local wwidth, wheight;
    local hcells, vcells, cellsize, x0, y0;
    local black, white;
@@ -260,7 +260,7 @@ end
 
 #  setbutton(event, key) -- set the color of a button
 
-procedure setbutton(e, k);
+procedure setbutton(e, k)
    local i, x, y;
 
    buttons[e] := k;
@@ -280,7 +280,7 @@ end
 
 #  newimage() -- update image (in memory and onscreen) from rows
 
-procedure newimage();
+procedure newimage()
    imspec := rowstoims(palette, rows);
    DrawImage(Border, Border, imspec);
    return;
@@ -289,7 +289,7 @@ end
 
 #  rowstoims(pal, rows) -- convert array of rows into image string
 
-procedure rowstoims(pal, rows);
+procedure rowstoims(pal, rows)
    local w, s, im;
 
    w := *rows[1] | fail;
@@ -304,7 +304,7 @@ end
 
 # replacecolor(color1, color2) -- replace color1 with color2
 
-procedure colorreplace(color1, color2);
+procedure colorreplace(color1, color2)
    local i, j;
 
    every i := 1 to *rows do
@@ -318,7 +318,7 @@ end
 
 #  readicon(fname) -- read image, returning image string
 
-procedure readicon(fname);
+procedure readicon(fname)
    local res, f, x;
 
    f := open(fname) | stop("cannot open " || fname);

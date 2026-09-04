@@ -47,7 +47,7 @@ link vstyle
 record Vmenu_item_rec (win, s, callback, id, aw, ah, menu, ax, ay,
    uid, P, D, V, style)
 
-procedure Vmenu_item(params[]);
+procedure Vmenu_item(params[])
    local self;
    static procs;
 
@@ -76,7 +76,7 @@ end
 #  A menu item needs to be sized a little smaller than a normal
 #  button, so we steal the 2d init procedure.
 #
-procedure init_Vmenu_item(self);
+procedure init_Vmenu_item(self)
    local TW, FH, ascent, descent, basey;
 
    /self.s := "";
@@ -97,23 +97,23 @@ procedure init_Vmenu_item(self);
 
 end
 
-procedure draw_Vmenu_item(s);
+procedure draw_Vmenu_item(s)
    s.D.draw_off(s);
 end
 
-procedure draw_on_entry(s);
+procedure draw_on_entry(s)
    GotoXY(s.win, s.ax+s.D.basex, s.ay+s.D.basey);
    writes(s.win, s.s);
    BevelRectangle(s.win, s.ax, s.ay, s.aw, s.ah);
 end
 
-procedure draw_off_entry(s);
+procedure draw_off_entry(s)
    EraseArea(s.win, s.ax, s.ay, s.aw, s.ah);
    GotoXY(s.win, s.ax+s.D.basex, s.ay+s.D.basey);
    writes(s.win, s.s);
 end
 
-procedure couplerset_Vmenu_item(s);
+procedure couplerset_Vmenu_item(s)
    s.V.draw(s);
 end
 
@@ -127,7 +127,7 @@ end
 #  This will take return value of submenu (if successful choice) and pass
 #  it back up to menu bar item.
 #
-procedure event_Vmenu_item(self, e, sub);
+procedure event_Vmenu_item(self, e, sub)
 local  rv;
 
    self.D.draw_on(self);
@@ -163,7 +163,7 @@ end
 # Vmenu_bar_item
 ############################################################################
 
-procedure Vmenu_bar_item(params[]);
+procedure Vmenu_bar_item(params[])
    local self;
    static procs;
 
@@ -189,7 +189,7 @@ end
 #  Resize ourselves, then tell our submenu to resize itself at the
 #  right location.
 #
-procedure resize_Vmenu_bar_item(self, x, y, w, h);
+procedure resize_Vmenu_bar_item(self, x, y, w, h)
 
    resize_Vidget(self, x, y, w, h);
    (\self.menu).V.resize(self.menu, self.ax, self.ay+self.ah);
@@ -203,7 +203,7 @@ end
 #  Take return value ( a list) from submenu, and reference callback tables
 #  to call correct callback for submenu choice made.
 #
-procedure event_Vmenu_bar_item(self, e);
+procedure event_Vmenu_bar_item(self, e)
 local rv, callback, i, t, labels;
 
    if e ~=== &lpress & e ~=== &mpress & e ~=== &rpress then
@@ -246,7 +246,7 @@ end
 record Vmenu_frame_rec(win, callback, aw, ah, id, temp, drawn,
    lookup, draw, ax, ay, uid, P, F, V)
 
-procedure Vmenu_frame(params[]);
+procedure Vmenu_frame(params[])
 local self;
 static procs;
 
@@ -277,7 +277,7 @@ end
 #
 #  Draw beveled, raised outline
 #
-procedure outline_menu_pane(self);
+procedure outline_menu_pane(self)
    BevelRectangle(self.win, self.ax, self.ay, self.aw, self.ah);
 end
 
@@ -285,7 +285,7 @@ end
 #  Find minimum bounding encompassing frame.  At the same time, set
 #  children to be flush against left edge.
 #
-procedure format_Vmenu_frame(self, width);
+procedure format_Vmenu_frame(self, width)
 local maxwidth, child;
 
    maxwidth := \width | Vmin_frame_width(self) + 4;
@@ -299,7 +299,7 @@ end
 #  Open up menu frame.  Copy window on temporary binding.
 #  Usually invoked by parent menu item.
 #
-procedure show_Vmenu_frame(self);
+procedure show_Vmenu_frame(self)
 
    WAttrib(self.temp, "width="||(self.aw+10), "height="||(self.ah+10));
    CopyArea(self.win, self.temp, self.ax, self.ay, self.aw+5, self.ah+5, 0, 0);
@@ -311,7 +311,7 @@ end
 #  Hide menu frame.  Copy contents of temporary binding back onto window.
 #  Also invoked by parent menu item.
 #
-procedure hide_Vmenu_frame(self);
+procedure hide_Vmenu_frame(self)
 
    CopyArea(self.temp, self.win, 0, 0, self.aw+5, self.ah+5, self.ax, self.ay);
    self.drawn := &null;
@@ -321,7 +321,7 @@ end
 #  Basically the event loop for the menu frame.  Routes events to the
 #  appropriate menu item.
 #
-procedure pick_Vmenu_frame(self, e, sub);
+procedure pick_Vmenu_frame(self, e, sub)
 local  focus, rv;
 
    /e := -1;
@@ -344,7 +344,7 @@ end
 #  entry has a submenu, put its callback table and string label in, else
 #  put the callback procedure and string label in.
 #
-procedure insert_Vmenu_frame(self, vid, x, y);
+procedure insert_Vmenu_frame(self, vid, x, y)
    local s;
 
    insert_Vframe(self, vid, x, y);
@@ -356,7 +356,7 @@ end
 # wrappers for Vsub_menu and Vmwenu_bar
 ############################################################################
 
-procedure Vsub_menu(w, p[]);
+procedure Vsub_menu(w, p[])
    local frame, id, name, callback, ypos, item;
 
    Vwin_check(w, "Vsub_menu()");
@@ -381,7 +381,7 @@ procedure Vsub_menu(w, p[]);
    return frame;
 end
 
-procedure Vmenu_bar(p[]);
+procedure Vmenu_bar(p[])
    local parent, x, y, ins, frame, id, name, submenu, xpos, item, win;
 
    if ins := Vinsert_check(p) then {
@@ -418,7 +418,7 @@ end
 record Vpull_down_button_rec (win, callback, id, sz, pd, data, s, style,
    aw, ah, ax, ay, abx, uid, P, D, V)
 
-procedure Vpull_down_button(params[]);
+procedure Vpull_down_button(params[])
 local self;
 local frame, x, y, ins;
 static procs;
@@ -442,14 +442,14 @@ static procs;
    return self;
 end
 
-procedure draw_Vpull_down_button(self);
+procedure draw_Vpull_down_button(self)
 
    self.s := self.data[1:self.sz|0];
    self.D.draw_off(self);
    draw_Vpull_down_button_off(self);
 end
 
-procedure draw_Vpull_down_button_arrow(self);
+procedure draw_Vpull_down_button_arrow(self)
 local x, y, sz;
 
    x := self.ax+self.abx; y := self.ay; sz := self.ah;
@@ -458,7 +458,7 @@ local x, y, sz;
                 x+0.5*sz, y+0.9*sz, x+0.1*sz, y+0.2*sz);
 end
 
-procedure draw_Vpull_down_button_off(self);
+procedure draw_Vpull_down_button_off(self)
 local x, y;
 
    x := self.ax; y := self.ay;
@@ -467,7 +467,7 @@ local x, y;
    draw_Vpull_down_button_arrow(self);
 end
 
-procedure draw_Vpull_down_button_on(self);
+procedure draw_Vpull_down_button_on(self)
 
    FillRectangle(self.win, self.ax+self.abx+1, self.ay+1, self.aw-self.abx, self.ah);
    WAttrib(self.win, "reverse=on");
@@ -475,20 +475,20 @@ procedure draw_Vpull_down_button_on(self);
    WAttrib(self.win, "reverse=off");
 end
 
-procedure resize_Vpull_down_button(self, x, y, w, h);
+procedure resize_Vpull_down_button(self, x, y, w, h)
 
    resize_Vidget(self, x, y, w, h);
    self.pd.F.format(self.pd, self.aw);
    self.pd.V.resize(self.pd, self.ax, self.ay+self.ah);
 end
 
-procedure couplerset_Vpull_down_button(self, name, value);
+procedure couplerset_Vpull_down_button(self, name, value)
 
    self.D.draw_off(self);
 end
 
 
-procedure event_Vpull_down_button(self, e);
+procedure event_Vpull_down_button(self, e)
 local rv;
 
    if \self.callback.locked then fail;
@@ -517,12 +517,12 @@ local rv;
       };
 end
 
-procedure set_value_Vpull_down_button(self, value);
+procedure set_value_Vpull_down_button(self, value)
 
    self.data := \value | "";
 end
 
-procedure init_Vpull_down_button(self);
+procedure init_Vpull_down_button(self)
 local p;
 
    /self.data := "";
@@ -551,7 +551,7 @@ end
 # any string can be followed in the list by a list of data for a submenu
 ############################################################################
 
-procedure Vmenu_set_items(self, data);
+procedure Vmenu_set_items(self, data)
    local cb, item;
 
    cb := !!self.lookup[1].callback;
@@ -562,7 +562,7 @@ procedure Vmenu_set_items(self, data);
    return;
 end
 
-procedure Vmenu_set_submenu(win, data, cbk);
+procedure Vmenu_set_submenu(win, data, cbk)
    local a, c, e, i, lbl;
 
    if type(data) ~== "list" | *data = 0 then
@@ -585,11 +585,11 @@ end
 # Vmenu_get_items
 ############################################################################
 
-procedure Vmenu_get_items(self);
+procedure Vmenu_get_items(self)
    return Vmenu_get_submenu(self)[2];
 end
 
-procedure Vmenu_get_submenu(frame);
+procedure Vmenu_get_submenu(frame)
    local l, r;
 
    l := list();
@@ -620,7 +620,7 @@ end
 #  size - is the number of characters in the data field to be displayed.
 #  centered - non-&null if entries are centered in pull_down.
 #
-procedure Vpull_down_pick_menu(params[]);
+procedure Vpull_down_pick_menu(params[])
 local frame, x, y, ins, pd, self;
 
    if ins := Vinsert_check(params) then {
@@ -647,7 +647,7 @@ end
 #
 #  (This procedure does not support the optional VInsert parameters.)
 #
-procedure Vpull_down(win, s, centered);
+procedure Vpull_down(win, s, centered)
 local cv, frame, id, name, style, ypos;
 local max, i, TW, FH, item, string_list;
 

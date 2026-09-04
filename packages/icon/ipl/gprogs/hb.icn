@@ -78,14 +78,14 @@ link wopen
 global height, width, nbr_bones, x1, y1, sq, print_bone_count
 
 
-procedure main(arg);
+procedure main(arg)
    initialize(arg);
    play();
    return;
 end
 
 
-procedure draw_board(win);
+procedure draw_board(win)
    local x, y, x2, y2;
    x2 := x1 + width * sq;
    y2 := y1 + height * sq;
@@ -103,7 +103,7 @@ procedure draw_board(win);
 end
 
 
-procedure set_up_board(win, visited);
+procedure set_up_board(win, visited)
    local board, pt;
    EraseArea(win);
    board := make_board();
@@ -119,7 +119,7 @@ procedure set_up_board(win, visited);
 end
 
 
-procedure draw_hearts(win);
+procedure draw_hearts(win)
    local pt;
    every pt := generate_heart_squares() do
 	 write_to_square(win, pt[1], pt[2], "$");
@@ -127,7 +127,7 @@ procedure draw_hearts(win);
 end
 
 
-procedure legal_move(x, y, visited);
+procedure legal_move(x, y, visited)
    local xx, yy;
    every xx := x - 1 to x + 1 & yy := y - 1 to y + 1 do
 	 if \visited[xx, yy] then {
@@ -137,7 +137,7 @@ procedure legal_move(x, y, visited);
 end
 
 
-procedure play();
+procedure play()
    local win, x, y, evt, mark, marks, board, visited, pt, value;
    sq := (if match("OS/2", &host) then 30 else 20);
    x1 := 10;
@@ -208,7 +208,7 @@ procedure play();
 end
 
 
-procedure spread_zeros(board, x, y, doneset);
+procedure spread_zeros(board, x, y, doneset)
    local xx, yy, v, donekey;
    /doneset := set();
    donekey := x || "," || y;
@@ -224,7 +224,7 @@ procedure spread_zeros(board, x, y, doneset);
 end
 
 
-procedure write_to_square(win, x, y, s);
+procedure write_to_square(win, x, y, s)
    WAttrib(win,
 	 "x=" || x1 + (x - 1) * sq + sq / 2 - 2,
 	 "y=" || y1 + (y - 1) * sq + sq / 2 + 4);
@@ -232,7 +232,7 @@ procedure write_to_square(win, x, y, s);
 end
 
 
-procedure get_options(arg);
+procedure get_options(arg)
    local opt;
    opt := options(arg, "h+w+b+B");
    height := \opt["h"] | 9;
@@ -246,14 +246,14 @@ procedure get_options(arg);
 end
 
 
-procedure initialize(arg);
+procedure initialize(arg)
    randomize();
    get_options(arg);
    return;
 end
 
 
-procedure make_board(init_value);
+procedure make_board(init_value)
    local board;
    board := list(width);
    every !board := list(height, init_value);
@@ -261,12 +261,12 @@ procedure make_board(init_value);
 end
 
 
-procedure generate_heart_squares();
+procedure generate_heart_squares()
    suspend [1 | (width + 1) / 2 | width, 1 | (height + 1) / 2 | height];
 end
 
 
-procedure set_bones(board, nbr_bones);
+procedure set_bones(board, nbr_bones)
    local i, j, pt, bone_count;
    every pt := generate_heart_squares() do board[pt[1], pt[2]] := "$";
    board[1, 2] := board[2, 1] := board[2, 2] := "$";
@@ -294,7 +294,7 @@ procedure set_bones(board, nbr_bones);
 end
 
 
-procedure calc_neighbors(board);
+procedure calc_neighbors(board)
    local i, j, ii, jj, neighbors;
    every i := 1 to width & j := 1 to height do {
       if board[i, j] ~=== "X" then {
@@ -309,7 +309,7 @@ procedure calc_neighbors(board);
 end
 
 
-procedure hearts_reachable(board);
+procedure hearts_reachable(board)
    local pt;
    every pt := generate_heart_squares() do {
       if not path_to_start(pt[1], pt[2], board) then fail
@@ -318,7 +318,7 @@ procedure hearts_reachable(board);
 end
 
 
-procedure path_to_start(x, y, board, doneset);
+procedure path_to_start(x, y, board, doneset)
    local xx, yy, donekey;
    /doneset := set();
    if not(board[x, y] ~=== "X") then fail;

@@ -76,7 +76,7 @@ link adjuncts
 # declared in adjuncts.icn
 # global _slash, _baselen, _delimiter
 
-procedure main(a);
+procedure main(a)
 
    local ABORT, idxfile_name, fname, infile, outfile;
 
@@ -120,7 +120,7 @@ procedure main(a);
 end
 
 
-procedure write_index(in, out);
+procedure write_index(in, out)
 
    local key_offset_table, w, line, KEY;
 

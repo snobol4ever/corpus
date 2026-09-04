@@ -25,7 +25,7 @@
 link bincvt
 link convert
 
-procedure main();
+procedure main()
    local rest, track, tracks, width, track_segs, seg, byte, bytes, code;
    local meta_event, event, command, channel;
 
@@ -121,7 +121,7 @@ end
 
 # Decode delta-time.
 
-procedure get_time();
+procedure get_time()
    local delta, byte;
 
    delta := "";

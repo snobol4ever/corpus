@@ -1,21 +1,21 @@
 #---------------------------------------------------------------- 1 procedure_10
-procedure main();
+procedure main()
   "hello";
 end
 #---------------------------------------------------------------- 2 procedure_46
-procedure main();
+procedure main()
   x <- 1;
 end
 #---------------------------------------------------------------- 3 procedure_47
-procedure main();
+procedure main()
   x <-> y;
 end
 #----------------------------------------------------------------- 4 procedure_8
-procedure main();
+procedure main()
   x;
 end
 #----------------------------------------------------------------- 5 procedure_9
-procedure main();
+procedure main()
   42;
 end
 #--------------------------------------------------------- 6 procedure_write_107
@@ -63,332 +63,332 @@ procedure main(); f(); f(); end
 invocable all
 procedure main(); write("ok"); end
 #---------------------------------------------------------------- 27 procedure_1
-procedure main();
+procedure main()
   x := 1 + 2;
 end
 #--------------------------------------------------------------- 28 procedure_11
-procedure main();
+procedure main()
   x >=:= 2;
 end
 #--------------------------------------------------------------- 29 procedure_12
-procedure main();
+procedure main()
   x >:= 2;
 end
 #--------------------------------------------------------------- 30 procedure_13
-procedure main();
+procedure main()
   x <=:= 2;
 end
 #--------------------------------------------------------------- 31 procedure_14
-procedure main();
+procedure main()
   x <:= 2;
 end
 #--------------------------------------------------------------- 32 procedure_15
-procedure main();
+procedure main()
   x %:= 2;
 end
 #--------------------------------------------------------------- 33 procedure_16
-procedure main();
+procedure main()
   x ~=:= 2;
 end
 #--------------------------------------------------------------- 34 procedure_17
-procedure main();
+procedure main()
   x =:= 2;
 end
 #--------------------------------------------------------------- 35 procedure_18
-procedure main();
+procedure main()
   x ^:= 2;
 end
 #--------------------------------------------------------------- 36 procedure_19
-procedure main();
+procedure main()
   x ?:= 2;
 end
 #---------------------------------------------------------------- 37 procedure_2
-procedure main();
+procedure main()
   x := 3 - 1;
 end
 #--------------------------------------------------------------- 38 procedure_20
-procedure main();
+procedure main()
   x >>=:= "y";
 end
 #--------------------------------------------------------------- 39 procedure_21
-procedure main();
+procedure main()
   x >>:= "y";
 end
 #--------------------------------------------------------------- 40 procedure_22
-procedure main();
+procedure main()
   x <<=:= "y";
 end
 #--------------------------------------------------------------- 41 procedure_23
-procedure main();
+procedure main()
   x <<:= "y";
 end
 #--------------------------------------------------------------- 42 procedure_24
-procedure main();
+procedure main()
   x ~==:= "y";
 end
 #--------------------------------------------------------------- 43 procedure_25
-procedure main();
+procedure main()
   x ==:= "y";
 end
 #--------------------------------------------------------------- 44 procedure_26
-procedure main();
+procedure main()
   s := "a" || "b" || "c";
 end
 #--------------------------------------------------------------- 45 procedure_27
-procedure main();
+procedure main()
   s := "a" || "b";
 end
 #--------------------------------------------------------------- 46 procedure_28
-procedure main();
+procedure main()
   x := 1 & y := 2;
 end
 #--------------------------------------------------------------- 47 procedure_29
-procedure main();
+procedure main()
   x := a & b & c;
 end
 #---------------------------------------------------------------- 48 procedure_3
-procedure main();
+procedure main()
   x := 42;
 end
 #--------------------------------------------------------------- 49 procedure_30
-procedure main();
+procedure main()
   x := a & b;
 end
 #--------------------------------------------------------------- 50 procedure_31
-procedure main();
+procedure main()
     x := ~'aeiou';
 end
 #--------------------------------------------------------------- 51 procedure_32
-procedure main();
+procedure main()
     x := 'aeiou';
 end
 #--------------------------------------------------------------- 52 procedure_33
-procedure main();
+procedure main()
   L := A ||| B;
 end
 #--------------------------------------------------------------- 53 procedure_35
-procedure main();
+procedure main()
   x := =y;
 end
 #--------------------------------------------------------------- 54 procedure_37
-procedure main();
+procedure main()
     x := not y;
 end
 #--------------------------------------------------------------- 55 procedure_38
-procedure main();
+procedure main()
   x := /y;
 end
 #--------------------------------------------------------------- 56 procedure_39
-procedure main();
+procedure main()
   x := 2 ^ 3;
 end
 #--------------------------------------------------------------- 57 procedure_41
-procedure main();
+procedure main()
     x := 1.0e2;
 end
 #--------------------------------------------------------------- 58 procedure_42
-procedure main();
+procedure main()
     x := 3.14;
 end
 #--------------------------------------------------------------- 59 procedure_44
-procedure main();
+procedure main()
   x := s[1:-2];
 end
 #--------------------------------------------------------------- 60 procedure_45
-procedure main();
+procedure main()
   x := s[1:+2];
 end
 #--------------------------------------------------------------- 61 procedure_48
-procedure main();
+procedure main()
   x := a[1].y;
 end
 #--------------------------------------------------------------- 62 procedure_49
-procedure main();
+procedure main()
   x := ~y;
 end
 #--------------------------------------------------------------- 63 procedure_50
-procedure main();
+procedure main()
   x := -y;
 end
 #--------------------------------------------------------------- 64 procedure_51
-procedure main();
+procedure main()
   x := +y;
 end
 #--------------------------------------------------------------- 65 procedure_52
-procedure main();
+procedure main()
   x := *y;
 end
 #--------------------------------------------------------------- 66 procedure_53
-procedure main();
+procedure main()
   x := ~~y;
 end
 #---------------------------------------------------------------- 67 procedure_6
-procedure main();
+procedure main()
   x := "hello";
 end
 #---------------------------------------------------------------- 68 procedure_7
-procedure main();
+procedure main()
   x := y;
 end
 #-------------------------------------------------------- 69 procedure_elemgen_2
-procedure main();
+procedure main()
   write ! args;
 end
 #----------------------------------------------------------- 70 procedure_scan_1
-procedure main();
+procedure main()
   s ? (x & y);
 end
 #-------------------------------------------------------- 71 procedure_write_100
-procedure main();
+procedure main()
   if "a" << "b" then write("yes");
 end
 #-------------------------------------------------------- 72 procedure_write_102
-procedure main();
+procedure main()
   write(1 + 2);
 end
 #-------------------------------------------------------- 73 procedure_write_103
-procedure main();
+procedure main()
   write(42);
 end
 #-------------------------------------------------------- 74 procedure_write_104
-procedure main();
+procedure main()
   write("hello");
 end
 #-------------------------------------------------------- 75 procedure_write_105
-procedure main();
+procedure main()
   write(x);
 end
 #--------------------------------------------------------- 76 procedure_write_14
-procedure main();
+procedure main()
   write(3.14);
 end
 #-------------------------------------------------------- 77 procedure_write_156
-procedure main();
+procedure main()
   write(3.14);
 end
 #-------------------------------------------------------- 78 procedure_write_160
-procedure main();
+procedure main()
   write("icon"[2]);
 end
 #-------------------------------------------------------- 79 procedure_write_164
-procedure main();
+procedure main()
   write(real(5));
 end
 #-------------------------------------------------------- 80 procedure_write_165
-procedure main();
+procedure main()
   write(2.0 * 3.5);
 end
 #-------------------------------------------------------- 81 procedure_write_169
-procedure main();
+procedure main()
   if 1.5 > 2.5 then write("gt") else write("le");
 end
 #-------------------------------------------------------- 82 procedure_write_171
-procedure main();
+procedure main()
   write(2^10);
 end
 #--------------------------------------------------------- 83 procedure_write_18
-procedure main();
+procedure main()
   write("icon"[2]);
 end
 #-------------------------------------------------------- 84 procedure_write_181
-procedure main();
+procedure main()
   write(2 ^ 2 ^ 3);
 end
 #-------------------------------------------------------- 85 procedure_write_199
-procedure main();
+procedure main()
   if /(1 < 2) then write("yes") else write("no");
 end
 #--------------------------------------------------------- 86 procedure_write_22
-procedure main();
+procedure main()
   write(real(5));
 end
 #--------------------------------------------------------- 87 procedure_write_23
-procedure main();
+procedure main()
   write(2.0 * 3.5);
 end
 #--------------------------------------------------------- 88 procedure_write_27
-procedure main();
+procedure main()
   if 1.5 > 2.5 then write("gt") else write("le");
 end
 #--------------------------------------------------------- 89 procedure_write_29
-procedure main();
+procedure main()
   write(2^10);
 end
 #--------------------------------------------------------- 90 procedure_write_30
-procedure main();
+procedure main()
   write(2.0^0.5);
 end
 #--------------------------------------------------------- 91 procedure_write_41
-procedure main();
+procedure main()
   write(2 ^ 2 ^ 3);
 end
 #--------------------------------------------------------- 92 procedure_write_62
-procedure main();
+procedure main()
   if /(1 < 2) then write("yes") else write("no");
 end
 #--------------------------------------------------------- 93 procedure_write_73
-procedure main();
+procedure main()
   write(1) & write(2);
 end
 #--------------------------------------------------------- 94 procedure_write_84
-procedure main();
+procedure main()
   write((x + 1));
 end
 #--------------------------------------------------------- 95 procedure_write_89
-procedure f(x);
+procedure f(x)
   write(x);
 end
 #--------------------------------------------------------- 96 procedure_write_91
-procedure greet();
+procedure greet()
   write("hi");
 end
 #--------------------------------------------------------- 97 procedure_write_92
-procedure add(a, b);
+procedure add(a, b)
   write(a + b);
 end
 #--------------------------------------------------------- 98 procedure_write_93
-procedure main(args[]);
+procedure main(args[])
   write(args[1]);
 end
 #--------------------------------------------------------- 99 procedure_write_97
-procedure main();
+procedure main()
   if x === y then write("eq");
 end
 #-------------------------------------------------------- 100 procedure_write_98
-procedure main();
+procedure main()
   if x ~=== y then write("ne");
 end
 #-------------------------------------------------------- 101 procedure_write_99
-procedure main();
+procedure main()
   if "b" >> "a" then write("yes");
 end
 #------------------------------------------------ 102 procedure_write_replace_10
-procedure main();
+procedure main()
   if "a" ~== "b" then write("yes");
 end
 #------------------------------------------------- 103 procedure_write_replace_6
-procedure main();
+procedure main()
   if "a" || "b" = "ab" then write("yes");
 end
 #------------------------------------------------- 104 procedure_write_replace_7
-procedure main();
+procedure main()
   if "a" == "a" then write("yes");
 end
 #------------------------------------------------- 105 procedure_write_replace_8
-procedure main();
+procedure main()
   if "b" >>= "a" then write("yes");
 end
 #------------------------------------------------- 106 procedure_write_replace_9
-procedure main();
+procedure main()
   if "a" <<= "b" then write("yes");
 end
 #-------------------------------------------------------------- 107 procedure_43
-procedure fact(n);
+procedure fact(n)
     if n <= 1 then return 1;
     return n * fact(n - 1);
 end
 #--------------------------------------------------------------- 108 procedure_5
-procedure main();
+procedure main()
   a := 1;
   b := 2;
 end
@@ -399,86 +399,86 @@ procedure main()
 end
 #------------------------------------------------------- 110 procedure_write_144
 # rung00: hello world -- the ladder's first rung (write() procedure call, no args, no control flow)
-procedure main();
+procedure main()
   write("Hello, World!");
 end
 #------------------------------------------------------- 111 procedure_write_146
 # rung04 t02: string concatenation of two literals
-procedure main();
+procedure main()
   write("foo" || "bar");
 end
 #------------------------------------------------------- 112 procedure_write_149
 # rung04 t01: string literal write
-procedure main();
+procedure main()
   write("hello");
 end
 #------------------------------------------------------- 113 procedure_write_152
 # rung07 t01: not E succeeds iff E fails
-procedure main();
+procedure main()
   if not (1 > 2) then write(1);
 end
 #------------------------------------------------------- 114 procedure_write_166
-procedure main();
+procedure main()
   write(string(42));
   write(string(3.14));
 end
 #------------------------------------------------------- 115 procedure_write_180
-procedure main();
+procedure main()
   write(2 ^ 10);
   write(3 ^ 3);
 end
 #------------------------------------------------------- 116 procedure_write_183
-procedure main();
+procedure main()
   write(5 ^ 0);
   write(0 ^ 5);
 end
 #------------------------------------------------------- 117 procedure_write_184
-procedure main();
+procedure main()
   write(4.0 ^ 0.5);
   write(2.0 ^ 8.0);
 end
 #-------------------------------------------------------- 118 procedure_write_24
-procedure main();
+procedure main()
   write(string(42));
   write(string(3.14));
 end
 #--------------------------------------------------------- 119 procedure_write_3
 # rung04 t02: string concatenation of two literals
-procedure main();
+procedure main()
   write("foo" || "bar");
 end
 #-------------------------------------------------------- 120 procedure_write_40
-procedure main();
+procedure main()
   write(2 ^ 10);
   write(3 ^ 3);
 end
 #-------------------------------------------------------- 121 procedure_write_43
-procedure main();
+procedure main()
   write(5 ^ 0);
   write(0 ^ 5);
 end
 #-------------------------------------------------------- 122 procedure_write_44
-procedure main();
+procedure main()
   write(4.0 ^ 0.5);
   write(2.0 ^ 8.0);
 end
 #--------------------------------------------------------- 123 procedure_write_6
 # rung04 t01: string literal write
-procedure main();
+procedure main()
   write("hello");
 end
 #-------------------------------------------------------- 124 procedure_write_81
-procedure main();
+procedure main()
     initial { write("init") };
     write("body");
 end
 #--------------------------------------------------------- 125 procedure_write_9
 # rung07 t01: not E succeeds iff E fails
-procedure main();
+procedure main()
   if not (1 > 2) then write(1);
 end
 #--------------------------------------------------------------- 126 procedure_4
-procedure main();
+procedure main()
   x := 7;
   y := "hi";
   z := w;
@@ -486,7 +486,7 @@ end
 #--------------------------------------------------------- 127 procedure_write_1
 # SCRIP DEMO1 -- Hello World (Icon section)
 # Idiom: write() procedure call
-procedure main();
+procedure main()
     write("Hello, World!");
 end
 #------------------------------------------------------- 128 procedure_write_106
@@ -496,194 +496,194 @@ procedure main()
     write("Hello, World!")
 end
 #-------------------------------------------------------- 129 procedure_write_12
-procedure main();
+procedure main()
   if ("abc" << "bcd") then write("less");
   if ("bcd" << "abc") then write("nope");
   write("done");
 end
 #------------------------------------------------------- 130 procedure_write_155
-procedure main();
+procedure main()
   if ("abc" << "bcd") then write("less");
   if ("bcd" << "abc") then write("nope");
   write("done");
 end
 #------------------------------------------------------- 131 procedure_write_185
-procedure main();
+procedure main()
   write(char(65));
   write(ord("A"));
   write(char(ord("z")));
 end
 #------------------------------------------------------- 132 procedure_write_186
-procedure main();
+procedure main()
   write(left("hi", 5));
   write(right("hi", 5));
   write(center("hi", 6));
 end
 #------------------------------------------------------- 133 procedure_write_187
-procedure main();
+procedure main()
   write(reverse("hello"));
   write(reverse(""));
   write(reverse("a"));
 end
 #------------------------------------------------------- 134 procedure_write_191
-procedure main();
+procedure main()
   write(numeric("42"));
   write(numeric("100"));
   if numeric("abc") then write("yes") else write("no");
 end
 #------------------------------------------------------- 135 procedure_write_193
-procedure main();
+procedure main()
   write(abs(-5));
   write(abs(3));
   write(abs(0));
 end
 #-------------------------------------------------------- 136 procedure_write_46
-procedure main();
+procedure main()
   write(char(65));
   write(ord("A"));
   write(char(ord("z")));
 end
 #-------------------------------------------------------- 137 procedure_write_47
-procedure main();
+procedure main()
   write(left("hi", 5));
   write(right("hi", 5));
   write(center("hi", 6));
 end
 #-------------------------------------------------------- 138 procedure_write_48
-procedure main();
+procedure main()
   write(reverse("hello"));
   write(reverse(""));
   write(reverse("a"));
 end
 #-------------------------------------------------------- 139 procedure_write_52
-procedure main();
+procedure main()
   write(numeric("42"));
   write(numeric("100"));
   if numeric("abc") then write("yes") else write("no");
 end
 #-------------------------------------------------------- 140 procedure_write_54
-procedure main();
+procedure main()
   write(abs(-5));
   write(abs(3));
   write(abs(0));
 end
 #-------------------------------------------------------- 141 procedure_write_55
-procedure main();
+procedure main()
   write(max(3, 7));
   write(min(3, 7));
   write(max(5, 5));
 end
 #-------------------------------------------------------- 142 procedure_write_56
-procedure main();
+procedure main()
   write(abs(-3.5));
   write(max(1, 5, 3));
   write(min(4, 2, 6));
 end
 #-------------------------------------------------------- 143 procedure_write_57
-procedure main();
+procedure main()
   write(sqrt(4.0));
   write(sqrt(9.0));
   write(sqrt(2.0));
 end
 #------------------------------------------------- 144 procedure_write_replace_1
 # rung07 t04: string equality ==
-procedure main();
+procedure main()
   if ("hello" == "hello") then write(1);
   if ("hello" == "world") then write(2);
 end
 #------------------------------------------------ 145 procedure_write_replace_12
 # rung07 t04: string equality ==
-procedure main();
+procedure main()
   if ("hello" == "hello") then write(1);
   if ("hello" == "world") then write(2);
 end
 #------------------------------------------------ 146 procedure_write_replace_13
-procedure main();
+procedure main()
   if ("abc" == "abc") then write("equal");
   if ("abc" == "def") then write("nope");
   write("done");
 end
 #------------------------------------------------ 147 procedure_write_replace_14
-procedure main();
+procedure main()
   if ("bcd" >>= "abc") then write("ge");
   if ("abc" >>= "bcd") then write("nope");
   write("done");
 end
 #------------------------------------------------ 148 procedure_write_replace_15
-procedure main();
+procedure main()
   if ("abc" ~== "def") then write("differ");
   if ("abc" ~== "abc") then write("nope");
   write("done");
 end
 #------------------------------------------------- 149 procedure_write_replace_2
-procedure main();
+procedure main()
   if ("abc" == "abc") then write("equal");
   if ("abc" == "def") then write("nope");
   write("done");
 end
 #------------------------------------------------- 150 procedure_write_replace_3
-procedure main();
+procedure main()
   if ("bcd" >>= "abc") then write("ge");
   if ("abc" >>= "bcd") then write("nope");
   write("done");
 end
 #------------------------------------------------- 151 procedure_write_replace_4
-procedure main();
+procedure main()
   if ("abc" ~== "def") then write("differ");
   if ("abc" ~== "abc") then write("nope");
   write("done");
 end
 #-------------------------------------------------------------- 152 procedure_36
-procedure foo();
+procedure foo()
   x := 1;
 end
-procedure bar();
+procedure bar()
   x := 2;
 end
 #------------------------------------------------------- 153 procedure_write_148
 # rung04 t04: multiple string writes
-procedure main();
+procedure main()
   write("one");
   write("two");
   write("three");
 end
 #--------------------------------------------------------- 154 procedure_write_5
 # rung04 t04: multiple string writes
-procedure main();
+procedure main()
   write("one");
   write("two");
   write("three");
 end
 #-------------------------------------------------------- 155 procedure_write_77
-procedure main();
+procedure main()
   if x > 0 then {
     write("a");
     write("b");
   };
 end
 #-------------------------------------------------------- 156 procedure_write_86
-procedure greet();
+procedure greet()
   write("hi");
 end
-procedure main();
+procedure main()
   greet();
 end
 #-------------------------------------------------------- 157 procedure_write_87
-procedure show(x);
+procedure show(x)
   write(x);
 end
-procedure main();
+procedure main()
   show(42);
 end
 #-------------------------------------------------------- 158 procedure_write_88
-procedure add(a, b);
+procedure add(a, b)
   write(a + b);
 end
-procedure main();
+procedure main()
   add(1, 2);
 end
 #-------------------------------------------------------- 159 procedure_write_76
-procedure main();
+procedure main()
   if x > 0 then {
     write("pos");
     write("ok");
@@ -693,7 +693,7 @@ procedure main();
 end
 #------------------------------------------------- 160 procedure_write_replace_5
 # rung37: string relop hello — IJ-8
-procedure main();
+procedure main()
    if ("a" << "b") then write("a<<b");
    if ("b" >> "a") then write("b>>a");
    if ("a" == "a") then write("a==a");
@@ -704,7 +704,7 @@ end
 #-------------------------------------------------------- 161 procedure_write_69
 # rung37: math builtins hello — IJ-4
 # simplest possible check: each builtin produces correct output
-procedure main();
+procedure main()
    write(sqrt(4.0));
    write(sin(0.0));
    write(cos(0.0));
@@ -719,7 +719,7 @@ end
 #-------------------------------------------------------- 162 procedure_write_66
 #SRC: JCON
 
-procedure main();
+procedure main()
     write(center("12345",3, ""));
     write(center("1",3, ""));
     write(center("123"));
@@ -765,51 +765,51 @@ procedure main(); write(&line); end
 procedure fact(n); if n <= 1 then return 1; return n * fact(n - 1); end
 procedure main(); write(fact(5)); end
 #----------------------------------------------------------- 175 procedure_alt_1
-procedure main();
+procedure main()
   x := 1 + 2 | 3 + 4;
 end
 #----------------------------------------------------------- 176 procedure_alt_2
-procedure main();
+procedure main()
   x := "a" | "b";
 end
 #----------------------------------------------------------- 177 procedure_alt_3
-procedure main();
+procedure main()
   x := 1 | 2 | 3;
 end
 #----------------------------------------------------------- 178 procedure_alt_4
-procedure main();
+procedure main()
   x := 1 | 2;
 end
 #----------------------------------------------------------- 179 procedure_alt_6
-procedure main();
+procedure main()
   s := "a" || "b" | "c" || "d";
 end
 #----------------------------------------------------- 180 procedure_alt_write_2
-procedure main();
+procedure main()
   write(1 | 2);
 end
 #----------------------------------------------------- 181 procedure_augassign_1
-procedure main();
+procedure main()
   x +:= 1;
 end
 #----------------------------------------------------- 182 procedure_augassign_2
-procedure main();
+procedure main()
   x ||:= "y";
 end
 #----------------------------------------------------- 183 procedure_augassign_3
-procedure main();
+procedure main()
   x --:= "y";
 end
 #----------------------------------------------------- 184 procedure_augassign_4
-procedure main();
+procedure main()
   x ++:= "y";
 end
 #----------------------------------------------------- 185 procedure_augassign_5
-procedure main();
+procedure main()
   x -:= 1;
 end
 #--------------------------------------------- 186 procedure_augassign_replace_1
-procedure main();
+procedure main()
   x **:= "y";
 end
 #--------------------------------------------------- 187 procedure_case_write_17
@@ -821,51 +821,51 @@ procedure main()
   write(case "b" of { "a": 1; "b": 2; "c": 3; default: 0; });
 end
 #---------------------------------------------------- 189 procedure_case_write_8
-procedure main();
+procedure main()
     case x of { 1 : write("one"); 2 : write("two") };
 end
 #---------------------------------------------------- 190 procedure_case_write_9
-procedure main();
+procedure main()
     case x of { 1 : write("one"); 2 : write("two"); default : write("other") };
 end
 #------------------------------------------------------- 191 procedure_elemgen_1
-procedure main();
+procedure main()
   x := f ! args;
 end
 #------------------------------------------------------- 192 procedure_elemgen_3
-procedure main();
+procedure main()
   x := !y;
 end
 #--------------------------------------------------- 193 procedure_every_write_4
-procedure main();
+procedure main()
   every i do { write(i) };
 end
 #--------------------------------------------------- 194 procedure_every_write_5
-procedure main();
+procedure main()
   every i do { write(i); write(i) };
 end
 #---------------------------------------------------------- 195 procedure_fail_1
-procedure main();
+procedure main()
     x := fail;
 end
 #------------------------------------------------------- 196 procedure_keyword_1
-procedure main();
+procedure main()
     x := &pos;
 end
 #------------------------------------------------------- 197 procedure_keyword_2
-procedure main();
+procedure main()
   x := &null;
 end
 #--------------------------------------------------------- 198 procedure_limit_1
-procedure main();
+procedure main()
   x := \y;
 end
 #--------------------------------------------------- 199 procedure_limit_write_1
-procedure main();
+procedure main()
   if \(1 > 2) then write("yes") else write("no");
 end
 #--------------------------------------------------- 200 procedure_limit_write_8
-procedure main();
+procedure main()
   if \(1 > 2) then write("yes") else write("no");
 end
 #-------------------------------------------------- 201 procedure_repeat_write_1
@@ -873,27 +873,27 @@ procedure main()
   repeat write("x")
 end
 #---------------------------------------------------------- 202 procedure_scan_2
-procedure main();
+procedure main()
   "hello" ? r := "ok";
 end
 #---------------------------------------------------------- 203 procedure_scan_3
-procedure main();
+procedure main()
   x := ?y;
 end
 #--------------------------------------------------- 204 procedure_scan_write_12
-procedure main();
+procedure main()
   "hello" ? write("found");
 end
 #--------------------------------------------------- 205 procedure_scan_write_13
-procedure main();
+procedure main()
   write("test") ? write("found");
 end
 #---------------------------------------------------------- 206 procedure_swap_1
-procedure main();
+procedure main()
   x :=: y;
 end
 #--------------------------------------------------- 207 procedure_until_write_1
-procedure main();
+procedure main()
   until x > 5 do write(x);
 end
 #-------------------------------------------------------- 208 procedure_write_85
@@ -901,20 +901,20 @@ procedure main()
   write((x := 1; x))
 end
 #-------------------------------------------------------- 209 procedure_write_94
-procedure try(c, n);
+procedure try(c, n)
     if c > n then { write("done"); return; };
 end
 #-------------------------------------------------------- 210 procedure_write_96
-procedure main();
+procedure main()
   x := (write("a") & write("b"));
 end
 #-------------------------------------------------------------- 211 procedure_34
-procedure main();
+procedure main()
     local a, b;
     a := 1;
 end
 #----------------------------------------------------------- 212 procedure_alt_5
-procedure main();
+procedure main()
   x := 1;
   y := x | 99;
 end
@@ -929,122 +929,122 @@ procedure main()
   write(case 5 of { 1: "one"; 2: "two"; 3: "three"; default: "other"; });
 end
 #-------------------------------------------------------- 215 procedure_static_1
-procedure main();
+procedure main()
     static s1;
     s1 := 42;
 end
 #--------------------------------------------------------- 216 procedure_while_1
-procedure main();
+procedure main()
   i := 3;
   while i > 0 do i := i - 1;
 end
 #------------------------------------------------------- 217 procedure_write_101
-procedure main();
+procedure main()
   x := a[1];
   write(x);
 end
 #-------------------------------------------------------- 218 procedure_write_11
-procedure main();
+procedure main()
   s := "hello";
   write(*s);
 end
 #-------------------------------------------------------- 219 procedure_write_13
-procedure main();
+procedure main()
   s := "hello" ||| " world";
   write(s);
 end
 #-------------------------------------------------------- 220 procedure_write_15
-procedure main();
+procedure main()
   x := 2.5;
   write(x);
 end
 #------------------------------------------------------- 221 procedure_write_154
-procedure main();
+procedure main()
   s := "hello";
   write(*s);
 end
 #------------------------------------------------------- 222 procedure_write_157
-procedure main();
+procedure main()
   x := 2.5;
   write(x);
 end
 #------------------------------------------------------- 223 procedure_write_159
-procedure main();
+procedure main()
   s := "hi";
   if s[5] then write("yes") else write("no");
 end
 #------------------------------------------------------- 224 procedure_write_162
-procedure main();
+procedure main()
   write(integer(3.9));
   write(integer("42"));
 end
 #------------------------------------------------------- 225 procedure_write_167
-procedure main();
+procedure main()
   n := 2;
   if n < 2.5 then write("yes") else write("no");
 end
 #------------------------------------------------------- 226 procedure_write_168
-procedure main();
+procedure main()
   x := 3.0;
   if x = 3.0 then write("equal") else write("nope");
 end
 #-------------------------------------------------------- 227 procedure_write_17
-procedure main();
+procedure main()
   s := "hi";
   if s[5] then write("yes") else write("no");
 end
 #------------------------------------------------------- 228 procedure_write_173
-procedure main();
+procedure main()
   x := 3.0;
   write(x^2);
 end
 #------------------------------------------------------- 229 procedure_write_174
-procedure main();
+procedure main()
   s := "hello";
   write(s[1:4]);
 end
 #------------------------------------------------------- 230 procedure_write_175
-procedure main();
+procedure main()
   s := "hello";
   write(s[1:6]);
 end
 #------------------------------------------------------- 231 procedure_write_178
-procedure main();
+procedure main()
   L := [1, 2, 3];
   write(pull(L));
 end
 #-------------------------------------------------------- 232 procedure_write_20
-procedure main();
+procedure main()
   write(integer(3.9));
   write(integer("42"));
 end
 #------------------------------------------------------- 233 procedure_write_200
-procedure main();
+procedure main()
   x := /(1 > 2);
   write("ok");
 end
 #-------------------------------------------------------- 234 procedure_write_25
-procedure main();
+procedure main()
   n := 2;
   if n < 2.5 then write("yes") else write("no");
 end
 #-------------------------------------------------------- 235 procedure_write_26
-procedure main();
+procedure main()
   x := 3.0;
   if x = 3.0 then write("equal") else write("nope");
 end
 #-------------------------------------------------------- 236 procedure_write_31
-procedure main();
+procedure main()
   x := 3.0;
   write(x^2);
 end
 #-------------------------------------------------------- 237 procedure_write_32
-procedure main();
+procedure main()
   s := "hello";
   write(s[1:4]);
 end
 #-------------------------------------------------------- 238 procedure_write_33
-procedure main();
+procedure main()
   s := "hello";
   write(s[1:6]);
 end
@@ -1054,57 +1054,57 @@ procedure main()
   write(x);
 end
 #-------------------------------------------------------- 240 procedure_write_38
-procedure main();
+procedure main()
   L := [1, 2, 3];
   write(pull(L));
 end
 #-------------------------------------------------------- 241 procedure_write_63
-procedure main();
+procedure main()
   x := /(1 > 2);
   write("ok");
 end
 #-------------------------------------------------------- 242 procedure_write_70
-procedure main();
+procedure main()
   x := 5;
   if x = 5 then write("eq");
 end
 #-------------------------------------------------------- 243 procedure_write_71
-procedure main();
+procedure main()
   x := 3;
   if x < 5 then write("lt");
 end
 #-------------------------------------------------------- 244 procedure_write_74
-procedure main();
+procedure main()
   x := r.f;
   write(x);
 end
 #-------------------------------------------------------- 245 procedure_write_75
-procedure main();
+procedure main()
   x := 2;
   if x >= 2 then write("ge") else write("lt");
 end
 #-------------------------------------------------------- 246 procedure_write_78
-procedure main();
+procedure main()
   x := 1;
   if x > 0 then write("pos") else write("neg");
 end
 #-------------------------------------------------------- 247 procedure_write_80
-procedure main();
+procedure main()
   x := 1;
   if x > 0 then write("pos");
 end
 #-------------------------------------------------------- 248 procedure_write_82
-procedure main();
+procedure main()
   x := [1, 2, 3];
   write(x);
 end
 #-------------------------------------------------------- 249 procedure_write_83
-procedure main();
+procedure main()
   x := 7 % 3;
   write(x);
 end
 #-------------------------------------------------------- 250 procedure_write_95
-procedure main();
+procedure main()
   x := a[1:3];
   write(x);
 end
@@ -1122,84 +1122,84 @@ procedure main()
 end
 #---------------------------------------------------- 253 procedure_find_write_1
 # rung08 t01: find(s1,s2) — one-shot first match
-procedure main();
+procedure main()
   write(find("b","abc"));
   write(find("lo","hello"));
 end
 #---------------------------------------------------- 254 procedure_find_write_2
 # rung08 t01: find(s1,s2) — one-shot first match
-procedure main();
+procedure main()
   write(find("b","abc"));
   write(find("lo","hello"));
 end
 #------------------------------------------------ 255 procedure_record_replace_2
 record Point(x, y)
 
-procedure main();
+procedure main()
     p := Point(1, 2);
 end
 #---------------------------------------------------- 256 procedure_repl_write_1
-procedure main();
+procedure main()
   write(repl("ab", 3));
   write(repl("x", 0));
   write(repl("-", 4));
 end
 #---------------------------------------------------- 257 procedure_repl_write_2
-procedure main();
+procedure main()
   write(repl("ab", 3));
   write(repl("x", 0));
   write(repl("-", 4));
 end
 #------------------------------------------------------- 258 procedure_suspend_1
-procedure gen(n);
+procedure gen(n)
     suspend n;
     suspend n + 1;
     return;
 end
 #------------------------------------------------------- 259 procedure_write_161
-procedure main();
+procedure main()
   s := "hello";
   write(s[-1]);
   write(s[-2]);
 end
 #------------------------------------------------------- 260 procedure_write_163
-procedure main();
+procedure main()
   x := 1.5;
   y := 2.5;
   write(x + y);
 end
 #------------------------------------------------------- 261 procedure_write_170
-procedure main();
+procedure main()
   x := 2.5;
   y := 3.0;
   if x < y then write("yes") else write("no");
 end
 #------------------------------------------------------- 262 procedure_write_189
-procedure main();
+procedure main()
   write(image(42));
   write(image("hello"));
   write(image(3.14));
 end
 #-------------------------------------------------------- 263 procedure_write_19
-procedure main();
+procedure main()
   s := "hello";
   write(s[-1]);
   write(s[-2]);
 end
 #------------------------------------------------------- 264 procedure_write_192
-procedure main();
+procedure main()
   write(type(42));
   write(type("hello"));
   write(type(3.14));
 end
 #-------------------------------------------------------- 265 procedure_write_21
-procedure main();
+procedure main()
   x := 1.5;
   y := 2.5;
   write(x + y);
 end
 #-------------------------------------------------------- 266 procedure_write_28
-procedure main();
+procedure main()
   x := 2.5;
   y := 3.0;
   if x < y then write("yes") else write("no");
@@ -1211,19 +1211,19 @@ procedure main()
   write(y);
 end
 #-------------------------------------------------------- 268 procedure_write_50
-procedure main();
+procedure main()
   write(image(42));
   write(image("hello"));
   write(image(3.14));
 end
 #-------------------------------------------------------- 269 procedure_write_53
-procedure main();
+procedure main()
   write(type(42));
   write(type("hello"));
   write(type(3.14));
 end
 #-------------------------------------------------------- 270 procedure_write_79
-procedure main();
+procedure main()
     x := 5;
     if x > 3 then
         write("big");
@@ -1231,14 +1231,14 @@ end
 #------------------------------------------------- 271 procedure_write_global_10
 global g1, g2
 
-procedure main();
+procedure main()
     write(g1);
 end
 #------------------------------------------------ 272 procedure_record_replace_1
 record Point(x, y)
 record Color(r, g, b)
 
-procedure main();
+procedure main()
   p := Point(1, 2);
 end
 #------------------------------------------------------- 273 procedure_write_139
@@ -1256,63 +1256,63 @@ procedure main()
   write(x[1][2]);
 end
 #------------------------------------------------------- 275 procedure_write_158
-procedure main();
+procedure main()
   s := "hello";
   write(s[1]);
   write(s[3]);
   write(s[5]);
 end
 #-------------------------------------------------------- 276 procedure_write_16
-procedure main();
+procedure main()
   s := "hello";
   write(s[1]);
   write(s[3]);
   write(s[5]);
 end
 #------------------------------------------------------- 277 procedure_write_176
-procedure main();
+procedure main()
   s := "abcdef";
   i := 2;
   j := 5;
   write(s[i:j]);
 end
 #------------------------------------------------------- 278 procedure_write_195
-procedure greet(name);
+procedure greet(name)
   return "hello " || name;
 end
-procedure main();
+procedure main()
   write(greet("world"));
 end
 #-------------------------------------------------------- 279 procedure_write_34
-procedure main();
+procedure main()
   s := "abcdef";
   i := 2;
   j := 5;
   write(s[i:j]);
 end
 #-------------------------------------------------------- 280 procedure_write_58
-procedure greet(name);
+procedure greet(name)
   return "hello " || name;
 end
-procedure main();
+procedure main()
   write(greet("world"));
 end
 #-------------------------------------------------------- 281 procedure_write_90
-procedure double(x);
+procedure double(x)
   return x + x;
 end
-procedure main();
+procedure main()
   write(double(5));
 end
 #---------------------------------------------------- 282 procedure_write_read_1
-procedure main();
+procedure main()
   if read() then
     write("got line")
   else
     write("eof");
 end
 #---------------------------------------------------- 283 procedure_write_read_3
-procedure main();
+procedure main()
   if read() then
     write("got line")
   else
@@ -1327,47 +1327,47 @@ procedure main()
   }
 end
 #---------------------------------------------------- 285 procedure_fail_write_1
-procedure tryit();
+procedure tryit()
     fail;
 end
 
-procedure main();
+procedure main()
     write("x");
 end
 #-------------------------------------------------------- 286 procedure_global_1
 global x, y, z
 
-procedure main();
+procedure main()
   x := 1;
   y := 2;
   z := x + y;
 end
 #------------------------------------------------- 287 procedure_suspend_write_1
-procedure gen();
+procedure gen()
     suspend 1 do write("done");
 end
 
-procedure main();
+procedure main()
     write("x");
 end
 #------------------------------------------------- 288 procedure_suspend_write_2
-procedure gen();
+procedure gen()
     suspend 1;
 end
 
-procedure main();
+procedure main()
     write("x");
 end
 #------------------------------------------------------- 289 procedure_write_198
-procedure join(a, b);
+procedure join(a, b)
   return a || "-" || b;
 end
-procedure main();
+procedure main()
   write(join("foo", "bar"));
   write(join("hello", "world"));
 end
 #------------------------------------------------------- 290 procedure_write_201
-procedure main();
+procedure main()
   x := 5;
   if x > 3 then {
     write("big");
@@ -1375,15 +1375,15 @@ procedure main();
   };
 end
 #-------------------------------------------------------- 291 procedure_write_61
-procedure join(a, b);
+procedure join(a, b)
   return a || "-" || b;
 end
-procedure main();
+procedure main()
   write(join("foo", "bar"));
   write(join("hello", "world"));
 end
 #-------------------------------------------------------- 292 procedure_write_64
-procedure main();
+procedure main()
   x := 5;
   if x > 3 then {
     write("big");
@@ -1391,7 +1391,7 @@ procedure main();
   };
 end
 #-------------------------------------------------------- 293 procedure_write_72
-procedure main();
+procedure main()
     x := 1;
     {
         write(x);
@@ -1400,7 +1400,7 @@ procedure main();
 end
 #--------------------------------------------------- 294 procedure_limit_write_3
 # rung37: detab/entab hello — IJ-5
-procedure main();
+procedure main()
    write(detab("\tabc"));
    write(entab("        x"));
    write(center("hi", 6));
@@ -1409,7 +1409,7 @@ procedure main();
 end
 #--------------------------------------------------- 295 procedure_limit_write_4
 # IJ-5: test center/left/right/detab/entab string formatting builtins
-procedure main();
+procedure main()
   write(center("hi",6));
   write(left("hi",6,"."));
   write(right("hi",6,"."));
@@ -1418,26 +1418,26 @@ procedure main();
 end
 #------------------------------------------------------- 296 procedure_write_145
 # rung03 t03: procedure that fails (no return value)
-procedure positive(n);
+procedure positive(n)
   if n > 0 then return n;
 end
 
-procedure main();
+procedure main()
   if positive(5) then write(1);
   if positive(0) then write(2) else write(3);
 end
 #--------------------------------------------------------- 297 procedure_write_2
 # rung03 t03: procedure that fails (no return value)
-procedure positive(n);
+procedure positive(n)
   if n > 0 then return n;
 end
 
-procedure main();
+procedure main()
   if positive(5) then write(1);
   if positive(0) then write(2) else write(3);
 end
 #------------------------------------------------------- 298 procedure_write_202
-procedure main();
+procedure main()
   x := 2;
   if x > 3 then {
     write("big");
@@ -1447,7 +1447,7 @@ procedure main();
   };
 end
 #-------------------------------------------------------- 299 procedure_write_65
-procedure main();
+procedure main()
   x := 2;
   if x > 3 then {
     write("big");
@@ -1457,29 +1457,29 @@ procedure main();
   };
 end
 #------------------------------------------------------- 300 procedure_write_196
-procedure prefix(s);
+procedure prefix(s)
   return "pre:" || s;
 end
-procedure suffix(s);
+procedure suffix(s)
   return s || ":suf";
 end
-procedure wrap(s);
+procedure wrap(s)
   return prefix(suffix(s));
 end
-procedure main();
+procedure main()
   write(wrap("mid"));
 end
 #-------------------------------------------------------- 301 procedure_write_59
-procedure prefix(s);
+procedure prefix(s)
   return "pre:" || s;
 end
-procedure suffix(s);
+procedure suffix(s)
   return s || ":suf";
 end
-procedure wrap(s);
+procedure wrap(s)
   return prefix(suffix(s));
 end
-procedure main();
+procedure main()
   write(wrap("mid"));
 end
 #------------------------------------------------------- 302 procedure_write_142
@@ -1502,7 +1502,7 @@ end
 #------------------------------------------------- 303 procedure_write_keyword_1
 #SRC: JCON
 
-procedure main();
+procedure main()
 
    write(left("abc"));
    write(left("def", ));
@@ -1534,7 +1534,7 @@ end
 #------------------------------------------------- 304 procedure_write_keyword_2
 #SRC: JCON
 
-procedure main();
+procedure main()
 
    write(right("abc"));
    write(right("def", ));
@@ -1594,11 +1594,11 @@ procedure main(); g_count := 0; g_name := "hello"; g_count := g_count + 1; g_cou
 global g
 procedure main(); g := 5; write(g); end
 #----------------------------------------------------- 318 procedure_every_to_17
-procedure main();
+procedure main()
   every write(3.0 to 1.0 by -1.0);
 end
 #----------------------------------------------------- 319 procedure_every_to_18
-procedure main();
+procedure main()
   every write(1.0 to 2.0 by 0.5);
 end
 #----------------------------------------------------- 320 procedure_every_to_31
@@ -1606,19 +1606,19 @@ procedure main()
   every write((1 to 2) & (10 to 11));
 end
 #--------------------------------------------------- 321 procedure_every_write_3
-procedure main();
+procedure main()
   every { if x > 5 then break; write(x) };
 end
 #--------------------------------------------------- 322 procedure_every_write_6
-procedure main();
+procedure main()
   every { if x < 0 then next; write(x) };
 end
 #-------------------------------------------------- 323 procedure_fail_keyword_1
-procedure main();
+procedure main()
   x := &fail;
 end
 #----------------------------------------------------- 324 procedure_scan_move_2
-procedure main();
+procedure main()
   s ? (r := move(1));
 end
 #--------------------------------------------------- 325 procedure_case_write_16
@@ -1633,253 +1633,253 @@ procedure main()
 end
 #---------------------------------------------------- 327 procedure_every_find_1
 # rung08 t02: find() as generator — every occurrence
-procedure main();
+procedure main()
   every write(find("a","banana"));
 end
 #---------------------------------------------------- 328 procedure_every_find_2
 # rung08 t02: find() as generator — every occurrence
-procedure main();
+procedure main()
   every write(find("a","banana"));
 end
 #------------------------------------------------------ 329 procedure_every_to_1
 # paper §2 example 5: 3 < ((1 to 3) * (1 to 2)) generates 4,6
-procedure main();
+procedure main()
   every write(3 < ((1 to 3) * (1 to 2)));
 end
 #----------------------------------------------------- 330 procedure_every_to_10
 # rung02 t05: Proebsting paper example — 5 > ((1 to 2) * (3 to 4))
-procedure main();
+procedure main()
   every write(5 > ((1 to 2) * (3 to 4)));
 end
 #----------------------------------------------------- 331 procedure_every_to_11
 # rung02 t01: basic range generator
-procedure main();
+procedure main()
   every write(1 to 5);
 end
 #----------------------------------------------------- 332 procedure_every_to_12
 # rung02 t02: relational filter — (1 to 6) > 3 yields 3 for each i > 3
-procedure main();
+procedure main()
   every write((1 to 6) > 3);
 end
 #----------------------------------------------------- 333 procedure_every_to_14
 # rung07 t03: every (1 to 10 by 3)
-procedure main();
+procedure main()
   every write(1 to 10 by 3);
 end
 #------------------------------------------------------ 334 procedure_every_to_2
 # paper §2 example 4: 2 < (1 to 4) generates 3,4
-procedure main();
+procedure main()
   every write(2 < (1 to 4));
 end
 #------------------------------------------------------ 335 procedure_every_to_3
 # paper §2 example 2: (1 to 3) * (1 to 2) generates 1,2,2,4,3,6
-procedure main();
+procedure main()
   every write((1 to 3) * (1 to 2));
 end
 #----------------------------------------------------- 336 procedure_every_to_32
 # paper §2 example 5: 3 < ((1 to 3) * (1 to 2)) generates 4,6
-procedure main();
+procedure main()
   every write(3 < ((1 to 3) * (1 to 2)));
 end
 #----------------------------------------------------- 337 procedure_every_to_33
 # paper §2 example 4: 2 < (1 to 4) generates 3,4
-procedure main();
+procedure main()
   every write(2 < (1 to 4));
 end
 #----------------------------------------------------- 338 procedure_every_to_34
 # paper §2 example 2: (1 to 3) * (1 to 2) generates 1,2,2,4,3,6
-procedure main();
+procedure main()
   every write((1 to 3) * (1 to 2));
 end
 #----------------------------------------------------- 339 procedure_every_to_35
 # paper §2 example 3: (1 to 2) to (2 to 3) generates 1,2,1,2,3,2,2,3
-procedure main();
+procedure main()
   every write((1 to 2) to (2 to 3));
 end
 #----------------------------------------------------- 340 procedure_every_to_37
 # paper §2 example 1: "1 to 5" generates 1,2,3,4,5
-procedure main();
+procedure main()
   every write(1 to 5);
 end
 #----------------------------------------------------- 341 procedure_every_to_39
 # rung02 t03: nested generators — (1 to 3) + (1 to 3)
-procedure main();
+procedure main()
   every write((1 to 3) + (1 to 3));
 end
 #------------------------------------------------------ 342 procedure_every_to_4
 # paper §2 example 3: (1 to 2) to (2 to 3) generates 1,2,1,2,3,2,2,3
-procedure main();
+procedure main()
   every write((1 to 2) to (2 to 3));
 end
 #----------------------------------------------------- 343 procedure_every_to_41
 # rung02 t05: Proebsting paper example — 5 > ((1 to 2) * (3 to 4))
-procedure main();
+procedure main()
   every write(5 > ((1 to 2) * (3 to 4)));
 end
 #----------------------------------------------------- 344 procedure_every_to_42
 # rung02 t01: basic range generator
-procedure main();
+procedure main()
   every write(1 to 5);
 end
 #----------------------------------------------------- 345 procedure_every_to_43
 # rung02 t02: relational filter — (1 to 6) > 3 yields 3 for each i > 3
-procedure main();
+procedure main()
   every write((1 to 6) > 3);
 end
 #----------------------------------------------------- 346 procedure_every_to_45
 # rung07 t03: every (1 to 10 by 3)
-procedure main();
+procedure main()
   every write(1 to 10 by 3);
 end
 #------------------------------------------------------ 347 procedure_every_to_6
 # paper §2 example 1: "1 to 5" generates 1,2,3,4,5
-procedure main();
+procedure main()
   every write(1 to 5);
 end
 #------------------------------------------------------ 348 procedure_every_to_8
 # rung02 t03: nested generators — (1 to 3) + (1 to 3)
-procedure main();
+procedure main()
   every write((1 to 3) + (1 to 3));
 end
 #--------------------------------------------------- 349 procedure_limit_write_2
-procedure main();
+procedure main()
   x := \(1 + 2);
   write(x);
 end
 #--------------------------------------------------- 350 procedure_limit_write_5
-procedure main();
+procedure main()
   x := gen \ 5;
   write(x);
 end
 #--------------------------------------------------- 351 procedure_limit_write_9
-procedure main();
+procedure main()
   x := \(1 + 2);
   write(x);
 end
 #----------------------------------------------------- 352 procedure_map_write_1
-procedure main();
+procedure main()
   write(trim("  hello  "));
   write(map("Hello World", "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"));
 end
 #----------------------------------------------------- 353 procedure_map_write_2
-procedure main();
+procedure main()
   write(trim("  hello  "));
   write(map("Hello World", "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"));
 end
 #----------------------------------------------------- 354 procedure_scan_many_2
 # rung06 t03: many() spans chars in cset
-procedure main();
+procedure main()
   "aaabcd" ? write(many('abc'));
 end
 #----------------------------------------------------- 355 procedure_scan_many_3
 # rung06 t03: many() spans chars in cset
-procedure main();
+procedure main()
   "aaabcd" ? write(many('abc'));
 end
 #----------------------------------------------------- 356 procedure_scan_move_1
 # rung08 t05: move(n) — advance by n
-procedure main();
+procedure main()
   "abcdef" ? write(move(3));
 end
 #----------------------------------------------------- 357 procedure_scan_move_5
 # rung08 t05: move(n) — advance by n
-procedure main();
+procedure main()
   "abcdef" ? write(move(3));
 end
 #--------------------------------------------------- 358 procedure_scan_write_15
 # rung05 t04: scan of concat result
-procedure main();
+procedure main()
   ("foo" || "bar") ? write(&subject);
 end
 #--------------------------------------------------- 359 procedure_scan_write_18
 # rung05 t01: scan sets &subject; body reads it
-procedure main();
+procedure main()
   "hello" ? write(&subject);
 end
 #---------------------------------------------------- 360 procedure_scan_write_4
 # rung05 t04: scan of concat result
-procedure main();
+procedure main()
   ("foo" || "bar") ? write(&subject);
 end
 #---------------------------------------------------- 361 procedure_scan_write_7
 # rung05 t01: scan sets &subject; body reads it
-procedure main();
+procedure main()
   "hello" ? write(&subject);
 end
 #----------------------------------------------------- 362 procedure_every_to_40
 # rung02 t04: nested generators + relational filter
 # (1 to 3) + (1 to 3) > 4 yields 4 for each sum > 4
-procedure main();
+procedure main()
   every write((1 to 3) + (1 to 3) > 4);
 end
 #------------------------------------------------------ 363 procedure_every_to_9
 # rung02 t04: nested generators + relational filter
 # (1 to 3) + (1 to 3) > 4 yields 4 for each sum > 4
-procedure main();
+procedure main()
   every write((1 to 3) + (1 to 3) > 4);
 end
 #------------------------------------------------------- 364 procedure_write_177
-procedure main();
+procedure main()
   L := [5, 6, 7];
   write(get(L));
   write(get(L));
 end
 #------------------------------------------------------- 365 procedure_write_182
-procedure main();
+procedure main()
   local x;
   x := 2 ^ 3 + 1;
   write(x);
 end
 #------------------------------------------------------- 366 procedure_write_188
-procedure main();
+procedure main()
   s := copy("hello");
   write(s);
   write(type(s));
 end
 #-------------------------------------------------------- 367 procedure_write_37
-procedure main();
+procedure main()
   L := [5, 6, 7];
   write(get(L));
   write(get(L));
 end
 #-------------------------------------------------------- 368 procedure_write_42
-procedure main();
+procedure main()
   local x;
   x := 2 ^ 3 + 1;
   write(x);
 end
 #-------------------------------------------------------- 369 procedure_write_49
-procedure main();
+procedure main()
   s := copy("hello");
   write(s);
   write(type(s));
 end
 #---------------------------------------------- 370 procedure_write_augassign_12
-procedure main();
+procedure main()
   s := "hello";
   s ||:= " world";
   write(s);
 end
 #----------------------------------------------- 371 procedure_write_augassign_4
-procedure main();
+procedure main()
   s := "hello";
   s ||:= " world";
   write(s);
 end
 #----------------------------------------------- 372 procedure_write_augassign_7
-procedure main();
+procedure main()
   s := "hello";
   s ||:= " world";
   write(s);
 end
 #--------------------------------------- 373 procedure_write_augassign_replace_1
-procedure main();
+procedure main()
   x := 3;
   x *:= 4;
   write(x);
 end
 #--------------------------------------- 374 procedure_write_augassign_replace_3
-procedure main();
+procedure main()
   x := 3;
   x *:= 4;
   write(x);
@@ -1899,21 +1899,21 @@ procedure main()
 end
 #----------------------------------------------------- 377 procedure_every_to_38
 # paper §2: "lo to hi by step" step variants
-procedure main();
+procedure main()
   every write(1 to 10 by 3);
   every write(10 to 1 by -3);
   every write(2 to 2 by 1);
 end
 #------------------------------------------------------ 378 procedure_every_to_7
 # paper §2: "lo to hi by step" step variants
-procedure main();
+procedure main()
   every write(1 to 10 by 3);
   every write(10 to 1 by -3);
   every write(2 to 2 by 1);
 end
 #-------------------------------------------------- 379 procedure_record_write_1
 record point(x, y)
-procedure main();
+procedure main()
   p := point(3, 4);
   write(p.x);
   write(p.y);
@@ -1921,13 +1921,13 @@ end
 #-------------------------------------------------- 380 procedure_record_write_4
 record person(name, age)
 record coord(x, y)
-procedure main();
+procedure main()
   c := coord(5, 6);
   write(c.x + c.y);
 end
 #-------------------------------------------------- 381 procedure_record_write_6
 record point(x, y)
-procedure main();
+procedure main()
   p := point(3, 4);
   write(p.x);
   write(p.y);
@@ -1935,7 +1935,7 @@ end
 #-------------------------------------------------- 382 procedure_record_write_9
 record person(name, age)
 record coord(x, y)
-procedure main();
+procedure main()
   c := coord(5, 6);
   write(c.x + c.y);
 end
@@ -1947,7 +1947,7 @@ procedure main()
   write(t["real"]);
 end
 #--------------------------------------------------- 384 procedure_while_write_4
-procedure main();
+procedure main()
   while x > 0 do {
     x := x - 1;
     write(x);
@@ -1955,41 +1955,41 @@ procedure main();
 end
 #-------------------------------------------------------- 385 procedure_write_10
 # rung07 t05: nested not and alternation
-procedure main();
+procedure main()
   local x;
   x := 7;
   if not (x < 5) then write(x);
 end
 #------------------------------------------------------- 386 procedure_write_150
 # rung04 t03: string variable and concat
-procedure main();
+procedure main()
   local s;
   s := "hello";
   write(s || " world");
 end
 #------------------------------------------------------- 387 procedure_write_151
 # rung07 t02: unary minus
-procedure main();
+procedure main()
   local x;
   x := 5;
   write(-x);
 end
 #------------------------------------------------------- 388 procedure_write_153
 # rung07 t05: nested not and alternation
-procedure main();
+procedure main()
   local x;
   x := 7;
   if not (x < 5) then write(x);
 end
 #------------------------------------------------------- 389 procedure_write_179
-procedure main();
+procedure main()
   L := [];
   push(L, 10);
   push(L, 20);
   write(*L);
 end
 #-------------------------------------------------------- 390 procedure_write_39
-procedure main();
+procedure main()
   L := [];
   push(L, 10);
   push(L, 20);
@@ -1997,48 +1997,48 @@ procedure main();
 end
 #--------------------------------------------------------- 391 procedure_write_7
 # rung04 t03: string variable and concat
-procedure main();
+procedure main()
   local s;
   s := "hello";
   write(s || " world");
 end
 #--------------------------------------------------------- 392 procedure_write_8
 # rung07 t02: unary minus
-procedure main();
+procedure main()
   local x;
   x := 5;
   write(-x);
 end
 #----------------------------------------------- 393 procedure_write_augassign_1
-procedure main();
+procedure main()
   x := 0;
   x +:= 5;
   x +:= 3;
   write(x);
 end
 #---------------------------------------------- 394 procedure_write_augassign_10
-procedure main();
+procedure main()
   x := 0;
   x +:= 5;
   x +:= 3;
   write(x);
 end
 #---------------------------------------------- 395 procedure_write_augassign_14
-procedure main();
+procedure main()
   s := "he";
   s ||:= "ll";
   s ||:= "o";
   write(s);
 end
 #----------------------------------------------- 396 procedure_write_augassign_6
-procedure main();
+procedure main()
   s := "he";
   s ||:= "ll";
   s ||:= "o";
   write(s);
 end
 #-------------------------------------------------------------- 397 procedure_40
-procedure swap(a, b);
+procedure swap(a, b)
   local tmp;
   tmp := a;
   a := b;
@@ -2049,7 +2049,7 @@ end
 # paper §5 full example: 5 > ((1 to 2) * (3 to 4))
 # 5 > x returns x when 5>x; products 3,4,6,8 → 3 and 4 succeed
 # every loop simply exhausts with no output
-procedure main();
+procedure main()
   every write(5 > ((1 to 2) * (3 to 4)));
   write("done");
 end
@@ -2057,13 +2057,13 @@ end
 # paper §5 full example: 5 > ((1 to 2) * (3 to 4))
 # 5 > x returns x when 5>x; products 3,4,6,8 → 3 and 4 succeed
 # every loop simply exhausts with no output
-procedure main();
+procedure main()
   every write(5 > ((1 to 2) * (3 to 4)));
   write("done");
 end
 #-------------------------------------------------- 400 procedure_record_write_2
 record box(w, h)
-procedure main();
+procedure main()
   b := box(10, 20);
   b.w := 99;
   write(b.w);
@@ -2071,14 +2071,14 @@ procedure main();
 end
 #-------------------------------------------------- 401 procedure_record_write_7
 record box(w, h)
-procedure main();
+procedure main()
   b := box(10, 20);
   b.w := 99;
   write(b.w);
   write(b.h);
 end
 #---------------------------------------------------- 402 procedure_swap_write_1
-procedure main();
+procedure main()
   x := 1;
   y := 2;
   x :=: y;
@@ -2086,7 +2086,7 @@ procedure main();
   write(y);
 end
 #---------------------------------------------------- 403 procedure_swap_write_2
-procedure main();
+procedure main()
   a := "hello";
   b := "world";
   a :=: b;
@@ -2094,7 +2094,7 @@ procedure main();
   write(b);
 end
 #---------------------------------------------------- 404 procedure_swap_write_4
-procedure main();
+procedure main()
   x := 1;
   y := 2;
   x :=: y;
@@ -2102,7 +2102,7 @@ procedure main();
   write(y);
 end
 #---------------------------------------------------- 405 procedure_swap_write_5
-procedure main();
+procedure main()
   a := "hello";
   b := "world";
   a :=: b;
@@ -2118,7 +2118,7 @@ procedure main()
   write((5 & 6) + 10);
 end
 #---------------------------------------------- 407 procedure_write_augassign_11
-procedure main();
+procedure main()
   x := 20;
   x -:= 5;
   write(x);
@@ -2126,7 +2126,7 @@ procedure main();
   write(x);
 end
 #---------------------------------------------- 408 procedure_write_augassign_13
-procedure main();
+procedure main()
   a := "foo";
   b := "bar";
   a ||:= "-";
@@ -2134,7 +2134,7 @@ procedure main();
   write(a);
 end
 #----------------------------------------------- 409 procedure_write_augassign_2
-procedure main();
+procedure main()
   x := 20;
   x -:= 5;
   write(x);
@@ -2142,7 +2142,7 @@ procedure main();
   write(x);
 end
 #----------------------------------------------- 410 procedure_write_augassign_5
-procedure main();
+procedure main()
   a := "foo";
   b := "bar";
   a ||:= "-";
@@ -2151,20 +2151,20 @@ procedure main();
 end
 #--------------------------------------------------- 411 procedure_every_write_1
 # rung02 t01: procedure add(x,y) — tests param passing
-procedure add(x, y);
+procedure add(x, y)
   return x + y;
 end
 
-procedure main();
+procedure main()
   every write(add(3, 4));
 end
 #--------------------------------------------------- 412 procedure_every_write_7
 # rung02 t01: procedure add(x,y) — tests param passing
-procedure add(x, y);
+procedure add(x, y)
   return x + y;
 end
 
-procedure main();
+procedure main()
   every write(add(3, 4));
 end
 #---------------------------------------------------- 413 procedure_scan_match_1
@@ -2173,11 +2173,11 @@ end
 #  The affected set is exactly {tab, move, match}: the three carve-compensated
 #  sites (emit.cpp:1230/1231/1236).  many/any/upto/find/bal/pos are all clean.
 #  Oracle: A4C
-procedure main();
+procedure main()
    "112 xy" ? { write("A", match("112"), "C"); };
 end
 #--------------------------------------------------- 414 procedure_table_write_1
-procedure main();
+procedure main()
   t := table();
   t["p"] := 7;
   t["q"] := 8;
@@ -2186,7 +2186,7 @@ procedure main();
   write(*t);
 end
 #-------------------------------------------------- 415 procedure_table_write_12
-procedure main();
+procedure main()
   t := table();
   t["p"] := 7;
   t["q"] := 8;
@@ -2205,7 +2205,7 @@ procedure main()
 end
 #------------------------------------------------------- 417 procedure_write_147
 # rung04 t05: concat chain
-procedure main();
+procedure main()
   local a;
   local b;
   a := "hel";
@@ -2213,17 +2213,17 @@ procedure main();
   write(a || b || "!");
 end
 #------------------------------------------------------- 418 procedure_write_197
-procedure shout(s);
+procedure shout(s)
   return s || "!";
 end
-procedure main();
+procedure main()
   r := shout("hi");
   write(r);
   write(shout("bye"));
 end
 #--------------------------------------------------------- 419 procedure_write_4
 # rung04 t05: concat chain
-procedure main();
+procedure main()
   local a;
   local b;
   a := "hel";
@@ -2231,32 +2231,32 @@ procedure main();
   write(a || b || "!");
 end
 #-------------------------------------------------------- 420 procedure_write_60
-procedure shout(s);
+procedure shout(s)
   return s || "!";
 end
-procedure main();
+procedure main()
   r := shout("hi");
   write(r);
   write(shout("bye"));
 end
 #--------------------------------------------------- 421 procedure_every_write_2
 # rung02 t02: factorial — tests recursion + return
-procedure fact(n);
+procedure fact(n)
   if n = 0 then return 1;
   return n * fact(n - 1);
 end
 
-procedure main();
+procedure main()
   every write(fact(5));
 end
 #--------------------------------------------------- 422 procedure_every_write_8
 # rung02 t02: factorial — tests recursion + return
-procedure fact(n);
+procedure fact(n)
   if n = 0 then return 1;
   return n * fact(n - 1);
 end
 
-procedure main();
+procedure main()
   every write(fact(5));
 end
 #------------------------------------------------------- 423 procedure_write_141
@@ -2271,7 +2271,7 @@ procedure main()
 end
 #-------------------------------------------------------- 424 procedure_write_68
 # rung37: augop power hello — IJ-3b
-procedure main();
+procedure main()
    local i;
    i := 2;
    i ^:= 3;
@@ -2350,24 +2350,24 @@ procedure main()
   write(x + y);
 end
 #-------------------------------------------------- 431 procedure_write_static_3
-procedure counter();
+procedure counter()
   static n;
   initial n := 0;
   n := n + 1;
   write(n);
 end
 
-procedure main();
+procedure main()
   counter();
   counter();
 end
 #---------------------------------------------------- 432 procedure_case_write_1
-procedure main();
+procedure main()
     write(f(2));
     write(f(1));
     write(f(9));
 end
-procedure f(x);
+procedure f(x)
     case x of {
         1: return "a";
         2: { write("side"); return "b" }
@@ -2375,12 +2375,12 @@ procedure f(x);
     return "c";
 end
 #--------------------------------------------------- 433 procedure_case_write_12
-procedure main();
+procedure main()
     write(f(2));
     write(f(1));
     write(f(9));
 end
-procedure f(x);
+procedure f(x)
     case x of {
         1: return "a";
         2: { write("side"); return "b" }
@@ -2427,67 +2427,67 @@ procedure main()
   write(*L[1])
 end
 #-------------------------------------------------- 437 procedure_write_static_1
-procedure count();
+procedure count()
   static x;
   initial x := 10;
   x := x + 1;
   write(x);
 end
 
-procedure main();
+procedure main()
   count();
   count();
   count();
 end
 #-------------------------------------------------- 438 procedure_write_static_2
-procedure count();
+procedure count()
   static x;
   initial x := 10;
   x := x + 1;
   write(x);
 end
 
-procedure main();
+procedure main()
   count();
   count();
   count();
 end
 #-------------------------------------------------- 439 procedure_write_static_4
-procedure count();
+procedure count()
   static x;
   initial x := 10;
   x := x + 1;
   write(x);
 end
 
-procedure main();
+procedure main()
   count();
   count();
   count();
 end
 #----------------------------------------------------- 440 procedure_alt_write_1
-procedure fs(n);
+procedure fs(n)
   if n = 0 then return 1;
   return n * fs(n - 1);
 end
-procedure sign(n);
+procedure sign(n)
   (n > 0 & return "pos") | return "npos";
 end
-procedure main();
+procedure main()
   write(fs(5));
   write(if 2 > 1 then "t" else "e");
   write(sign(4));
   write(sign(-4));
 end
 #----------------------------------------------------- 441 procedure_alt_write_6
-procedure fs(n);
+procedure fs(n)
   if n = 0 then return 1;
   return n * fs(n - 1);
 end
-procedure sign(n);
+procedure sign(n)
   (n > 0 & return "pos") | return "npos";
 end
-procedure main();
+procedure main()
   write(fs(5));
   write(if 2 > 1 then "t" else "e");
   write(sign(4));
@@ -2580,7 +2580,7 @@ end
 #-------------------------------------------------- 448 procedure_activate_map_1
 #SRC: JCON
 
-procedure main();
+procedure main()
     write(map("aBcDeF"));
     write(map("AbCdEf"));
     write(map("aBcDeF", "abcdefghijklmnopqrstuvwxyz"));
@@ -2594,23 +2594,23 @@ procedure main();
 end
 #------------------------------------------------------ 449 procedure_alt_fail_1
 #SRC: IJ-7 operator string invocation
-procedure main();
+procedure main()
    call1("+", "3");
    call1("-", "3");
    call1("*", "hello");
    call2("[]", "hello", 2);
    call2("++", 'abc', 'bcd');
 end
-procedure call1(o, x);
+procedure call1(o, x)
    write(o(x) | "fail");
 end
-procedure call2(o, x, y);
+procedure call2(o, x, y)
    write(o(x, y) | "fail");
 end
 #-------------------------------------------------------- 450 procedure_write_67
 #SRC: JCON
 
-procedure main();
+procedure main()
     write(image(trim("abc  ")));
     write(image(trim("abc  ", ' ')));
     write(image(trim("abc  ", 'x')));
@@ -2663,252 +2663,252 @@ procedure main(); every write(g()); end
 procedure add(a, b); local s; s := a + b; return s; end
 procedure main(); write(add(2, 3)); end
 #---------------------------------------------------- 463 procedure_every_alt_16
-procedure main();
+procedure main()
   every write(3.0 < (2.5 | 3.5 | 4.5));
 end
 #----------------------------------------------------- 464 procedure_every_alt_2
-procedure main();
+procedure main()
   every write(1 | 2, ":", 3 | 4);
 end
 #---------------------------------------------------- 465 procedure_every_alt_21
-procedure main();
+procedure main()
   every write(x | y);
 end
 #---------------------------------------------------- 466 procedure_every_alt_23
-procedure main();
+procedure main()
   every write(1 | 2);
 end
 #---------------------------------------------------- 467 procedure_every_alt_24
-procedure main();
+procedure main()
   every write(1 | 2 | 3);
 end
 #---------------------------------------------------- 468 procedure_every_alt_28
-procedure main();
+procedure main()
   every write(1 | 2, ":", 3 | 4);
 end
 #---------------------------------------------------- 469 procedure_every_alt_30
-procedure main();
+procedure main()
   every write("a"|"b"|"c");
 end
 #---------------------------------------------------- 470 procedure_every_alt_31
-procedure main();
+procedure main()
   every write(1|2|3);
 end
 #---------------------------------------------------- 471 procedure_every_alt_32
-procedure main();
+procedure main()
   every write(("a"|"b") || ("x"|"y"));
 end
 #----------------------------------------------------- 472 procedure_every_alt_4
-procedure main();
+procedure main()
   every write("a"|"b"|"c");
 end
 #---------------------------------------------------- 473 procedure_every_alt_42
-procedure main();
+procedure main()
   every write(3.0 < (2.5 | 3.5 | 4.5));
 end
 #----------------------------------------------------- 474 procedure_every_alt_5
-procedure main();
+procedure main()
   every write(1|2|3);
 end
 #----------------------------------------------------- 475 procedure_every_alt_6
-procedure main();
+procedure main()
   every write(("a"|"b") || ("x"|"y"));
 end
 #--------------------------------------------------- 476 procedure_every_limit_1
-procedure main();
+procedure main()
   every write((1 to 3) \ 10);
 end
 #-------------------------------------------------- 477 procedure_every_limit_11
-procedure main();
+procedure main()
   every write(seq(1) \ 3);
 end
 #-------------------------------------------------- 478 procedure_every_limit_12
-procedure main();
+procedure main()
   every write(\(1 to 3));
 end
 #--------------------------------------------------- 479 procedure_every_limit_2
-procedure main();
+procedure main()
   every write((1 to 10) \ 3);
 end
 #--------------------------------------------------- 480 procedure_every_limit_4
-procedure main();
+procedure main()
   every write(seq(1) \ 3);
 end
 #--------------------------------------------------- 481 procedure_every_limit_5
-procedure main();
+procedure main()
   every write(\(1 to 3));
 end
 #--------------------------------------------------- 482 procedure_every_limit_8
-procedure main();
+procedure main()
   every write((1 to 3) \ 10);
 end
 #--------------------------------------------------- 483 procedure_every_limit_9
-procedure main();
+procedure main()
   every write((1 to 10) \ 3);
 end
 #----------------------------------------------------- 484 procedure_every_to_22
-procedure main();
+procedure main()
   every i := (1 + 1) to (5 * 2) do write(i);
 end
 #----------------------------------------------------- 485 procedure_every_to_23
-procedure main();
+procedure main()
   every i := 1 to 10 do write(i);
 end
 #----------------------------------------------------- 486 procedure_every_to_24
-procedure main();
+procedure main()
   every i := 1 to 10 by 2 do write(i);
 end
 #------------------------------------------------ 487 procedure_every_elemgen_11
-procedure main();
+procedure main()
   s := "abc";
   every write(!s);
 end
 #------------------------------------------------ 488 procedure_every_elemgen_12
-procedure main();
+procedure main()
   s := "xyz";
   every write(!s);
 end
 #------------------------------------------------ 489 procedure_every_elemgen_14
-procedure main();
+procedure main()
   L := [1, 2, 3];
   every write(!L);
 end
 #------------------------------------------------- 490 procedure_every_elemgen_2
-procedure main();
+procedure main()
   s := "abc";
   every write(!s);
 end
 #------------------------------------------------- 491 procedure_every_elemgen_3
-procedure main();
+procedure main()
   s := "xyz";
   every write(!s);
 end
 #------------------------------------------------- 492 procedure_every_elemgen_4
-procedure main();
+procedure main()
   L := [1, 2, 3];
   every write(!L);
 end
 #-------------------------------------------------- 493 procedure_every_limit_10
-procedure main();
+procedure main()
   every write((1 to 5) \ 0);
   write("done");
 end
 #--------------------------------------------------- 494 procedure_every_limit_3
-procedure main();
+procedure main()
   every write((1 to 5) \ 0);
   write("done");
 end
 #----------------------------------------------------- 495 procedure_every_to_16
-procedure main();
+procedure main()
   s := "abc";
   every write(s[1 to 3]);
 end
 #----------------------------------------------------- 496 procedure_every_to_47
-procedure main();
+procedure main()
   s := "abc";
   every write(s[1 to 3]);
 end
 #------------------------------------------------------ 497 procedure_scan_tab_5
 # rung08 t04: tab(n) — scanned substring
-procedure main();
+procedure main()
   "abcdef" ? write(tab(4));
 end
 #------------------------------------------------------ 498 procedure_scan_tab_9
 # rung08 t04: tab(n) — scanned substring
-procedure main();
+procedure main()
   "abcdef" ? write(tab(4));
 end
 #--------------------------------------------------- 499 procedure_scan_write_20
 # rung06 t01: any() matches single char in cset; returns new pos (2)
-procedure main();
+procedure main()
   "apple" ? write(any('aeiou'));
 end
 #---------------------------------------------------- 500 procedure_scan_write_9
 # rung06 t01: any() matches single char in cset; returns new pos (2)
-procedure main();
+procedure main()
   "apple" ? write(any('aeiou'));
 end
 #------------------------------------------------------ 501 procedure_scan_alt_1
 # rung08 t03: match(s) — match at current scan pos
-procedure main();
+procedure main()
   "hello" ? write(match("hel"));
   "world" ? write(match("xyz") | 0);
 end
 #------------------------------------------------------ 502 procedure_scan_alt_2
 # rung08 t03: match(s) — match at current scan pos
-procedure main();
+procedure main()
   "hello" ? write(match("hel"));
   "world" ? write(match("xyz") | 0);
 end
 #-------------------------------------------------------- 503 procedure_write_45
-procedure main();
+procedure main()
   local s;
   s := reads(5);
   write(s);
 end
 #---------------------------------------------------- 504 procedure_write_read_2
-procedure main();
+procedure main()
   local line;
   line := read();
   write(line);
 end
 #---------------------------------------------------- 505 procedure_write_read_4
-procedure main();
+procedure main()
   local line;
   line := read();
   write(line);
 end
 #----------------------------------------------------- 506 procedure_every_to_19
-procedure main();
+procedure main()
   every x := 1 to 3 do {
     y := x * 2;
     write(y);
   };
 end
 #----------------------------------------------------- 507 procedure_every_to_50
-procedure main();
+procedure main()
   every x := 1 to 3 do {
     y := x * 2;
     write(y);
   };
 end
 #---------------------------------------------------- 508 procedure_scan_write_3
-procedure main();
+procedure main()
    local s;
    s := ".abc";
    s ? { if ="." & ="9" then write("Y") else write("N") };
    write("done");
 end
 #-------------------------------------------------- 509 procedure_table_write_13
-procedure main();
+procedure main()
   local t;
   t := table(0);
   t[1] := 42;
   write(t[1]);
 end
 #--------------------------------------------------- 510 procedure_table_write_2
-procedure main();
+procedure main()
   local t;
   t := table(0);
   t[1] := 42;
   write(t[1]);
 end
 #------------------------------------------------------- 511 procedure_write_190
-procedure main();
+procedure main()
   x := 100;
   write(type(x));
   write(image(x));
   write(numeric("7") + 1);
 end
 #-------------------------------------------------------- 512 procedure_write_51
-procedure main();
+procedure main()
   x := 100;
   write(type(x));
   write(image(x));
   write(numeric("7") + 1);
 end
 #-------------------------------------------------- 513 procedure_table_write_14
-procedure main();
+procedure main()
   local t;
   t := table(99);
   t[1] := 7;
@@ -2916,7 +2916,7 @@ procedure main();
   write(t[2]);
 end
 #-------------------------------------------------- 514 procedure_table_write_17
-procedure main();
+procedure main()
   local t;
   t := table("none");
   t[1] := "yes";
@@ -2924,7 +2924,7 @@ procedure main();
   write(t[2]);
 end
 #--------------------------------------------------- 515 procedure_table_write_3
-procedure main();
+procedure main()
   local t;
   t := table(99);
   t[1] := 7;
@@ -2932,7 +2932,7 @@ procedure main();
   write(t[2]);
 end
 #--------------------------------------------------- 516 procedure_table_write_6
-procedure main();
+procedure main()
   local t;
   t := table("none");
   t[1] := "yes";
@@ -2941,7 +2941,7 @@ procedure main();
 end
 #------------------------------------------- 517 procedure_until_write_replace_1
 # rung09 t02: until with side-effect in condition
-procedure main();
+procedure main()
   local i;
   i := 0;
   until (i := i + 1) >= 3 do write(i);
@@ -2949,7 +2949,7 @@ procedure main();
 end
 #------------------------------------------- 518 procedure_until_write_replace_3
 # rung09 t03: until with assignment as condition
-procedure main();
+procedure main()
   local i;
   i := 0;
   until (i := i + 1) > 4 do write(i);
@@ -2957,7 +2957,7 @@ procedure main();
 end
 #------------------------------------------- 519 procedure_until_write_replace_4
 # rung09 t02: until with side-effect in condition
-procedure main();
+procedure main()
   local i;
   i := 0;
   until (i := i + 1) >= 3 do write(i);
@@ -2965,14 +2965,14 @@ procedure main();
 end
 #------------------------------------------- 520 procedure_until_write_replace_6
 # rung09 t03: until with assignment as condition
-procedure main();
+procedure main()
   local i;
   i := 0;
   until (i := i + 1) > 4 do write(i);
   write(i);
 end
 #--------------------------------------------------- 521 procedure_while_write_3
-procedure main();
+procedure main()
   i := 1;
   while i <= 3 do {
     write(i);
@@ -2980,7 +2980,7 @@ procedure main();
   };
 end
 #--------------------------------------------------- 522 procedure_while_write_9
-procedure main();
+procedure main()
   i := 1;
   while i <= 3 do {
     write(i);
@@ -2989,7 +2989,7 @@ procedure main();
 end
 #----------------------------------------------- 523 procedure_write_augassign_3
 # rung10 t04: augmented divide
-procedure main();
+procedure main()
   local x;
   x := 100;
   x /:= 4;
@@ -2997,7 +2997,7 @@ procedure main();
 end
 #----------------------------------------------- 524 procedure_write_augassign_9
 # rung10 t04: augmented divide
-procedure main();
+procedure main()
   local x;
   x := 100;
   x /:= 4;
@@ -3005,19 +3005,19 @@ procedure main();
 end
 #-------------------------------------------------- 525 procedure_record_write_3
 record pair(a, b)
-procedure sum(p);
+procedure sum(p)
   return p.a + p.b;
 end
-procedure main();
+procedure main()
   q := pair(7, 8);
   write(sum(q));
 end
 #-------------------------------------------------- 526 procedure_record_write_8
 record pair(a, b)
-procedure sum(p);
+procedure sum(p)
   return p.a + p.b;
 end
-procedure main();
+procedure main()
   q := pair(7, 8);
   write(sum(q));
 end
@@ -3026,7 +3026,7 @@ end
 #  and the damage COMPOUNDS with multiple scan calls in one list.
 #  Line 1 oracle: ABC112D   (only "C", the immediate predecessor, is lost)
 #  Line 2 oracle: A1B12     (two carves, two victims)
-procedure main();
+procedure main()
    "112 xy" ? { write("A", "B", "C", tab(4), "D"); };
    "112 xy" ? { write("A", tab(2), "B", tab(4)); };
 end
@@ -3040,7 +3040,7 @@ procedure main()
   write(*t)
 end
 #------------------------------------------- 529 procedure_table_write_replace_1
-procedure main();
+procedure main()
   t := table();
   insert(t, "x", 10);
   insert(t, "y", 20);
@@ -3049,7 +3049,7 @@ procedure main();
   write(*t);
 end
 #------------------------------------------- 530 procedure_table_write_replace_5
-procedure main();
+procedure main()
   t := table();
   insert(t, "x", 10);
   insert(t, "y", 20);
@@ -3064,11 +3064,11 @@ end
 #  16 bytes low, exactly on the slot of the box allocated immediately before it.
 #  Slots are handed out in sequential 16B units, so the victim is deterministic.
 #  Oracle: A112C
-procedure main();
+procedure main()
    "112 xy" ? { write("A", tab(4), "C"); };
 end
 #-------------------------------------------------- 532 procedure_table_write_18
-procedure main();
+procedure main()
   local t;
   t := table("0");
   t["alice"] := "1";
@@ -3078,7 +3078,7 @@ procedure main();
   write(t["carol"]);
 end
 #--------------------------------------------------- 533 procedure_table_write_7
-procedure main();
+procedure main()
   local t;
   t := table("0");
   t["alice"] := "1";
@@ -3089,22 +3089,22 @@ procedure main();
 end
 #------------------------------------------- 534 procedure_until_write_replace_2
 # rung09 t04: until with procedure doing the work
-procedure count(n);
+procedure count(n)
   local i;
   i := n;
   until (i := i - 1) < 0 do write(i);
 end
-procedure main();
+procedure main()
   count(3);
 end
 #------------------------------------------- 535 procedure_until_write_replace_5
 # rung09 t04: until with procedure doing the work
-procedure count(n);
+procedure count(n)
   local i;
   i := n;
   until (i := i - 1) < 0 do write(i);
 end
-procedure main();
+procedure main()
   count(3);
 end
 #-------------------------------------------------- 536 procedure_table_write_11
@@ -3156,7 +3156,7 @@ end
 # Verify bb_strrel coerces int/real to image string, cset to member string.
 # Uses semicolon separators (no auto-semicolon in this frontend).
 
-procedure main();
+procedure main()
    local s; local t;
    # basic string ordering
    s := "a"; t := "b";
@@ -3192,127 +3192,127 @@ procedure main(); "aabbcc" ? write(tab(many('ab'))); end
 #--------------------------------------------------- 544 procedure_while_write_6
 procedure main(); i := 0; while (i +:= 1) <= 4 do { if i = 2 then next; write(i) }; end
 #---------------------------------------------------- 545 procedure_every_alt_10
-procedure main();
+procedure main()
   every write(|"hi" \ 2);
 end
 #---------------------------------------------------- 546 procedure_every_alt_14
-procedure main();
+procedure main()
   every write((1|2|3|4|5) \ 2);
 end
 #---------------------------------------------------- 547 procedure_every_alt_15
-procedure main();
+procedure main()
   every write(("a"|"b"|"c") \ 2);
 end
 #---------------------------------------------------- 548 procedure_every_alt_22
-procedure main();
+procedure main()
   every i := 1 | 2 | 3 do write(i);
 end
 #---------------------------------------------------- 549 procedure_every_alt_35
-procedure main();
+procedure main()
   every write(|1 \ 3);
 end
 #---------------------------------------------------- 550 procedure_every_alt_36
-procedure main();
+procedure main()
   every write(|"hi" \ 2);
 end
 #---------------------------------------------------- 551 procedure_every_alt_40
-procedure main();
+procedure main()
   every write((1|2|3|4|5) \ 2);
 end
 #---------------------------------------------------- 552 procedure_every_alt_41
-procedure main();
+procedure main()
   every write(("a"|"b"|"c") \ 2);
 end
 #----------------------------------------------------- 553 procedure_every_alt_9
-procedure main();
+procedure main()
   every write(|1 \ 3);
 end
 #-------------------------------------------- 554 procedure_every_alt_replace_10
-procedure main();
+procedure main()
   every (x := (1|2|3|4|5)) > 2 & write(x);
 end
 #--------------------------------------------- 555 procedure_every_alt_replace_2
-procedure main();
+procedure main()
   every (x := (1|2|3|4|5)) > 2 & write(x);
 end
 #------------------------------------------------ 556 procedure_every_elemgen_16
-procedure main();
+procedure main()
   L := [1, 2, 3, 4, 5];
   every write(!sort(L));
 end
 #------------------------------------------------ 557 procedure_every_elemgen_18
-procedure main();
+procedure main()
   L := [5, 3, 1, 4, 2];
   every write(!sort(L));
 end
 #------------------------------------------------- 558 procedure_every_elemgen_6
-procedure main();
+procedure main()
   L := [1, 2, 3, 4, 5];
   every write(!sort(L));
 end
 #------------------------------------------------- 559 procedure_every_elemgen_8
-procedure main();
+procedure main()
   L := [5, 3, 1, 4, 2];
   every write(!sort(L));
 end
 #---------------------------------------------------- 560 procedure_every_scan_1
 # rung06 t04: upto() generates positions up to chars in cset
-procedure main();
+procedure main()
   every ("hello world" ? write(upto(' ')));
 end
 #---------------------------------------------------- 561 procedure_every_scan_3
 # rung06 t04: upto() generates positions up to chars in cset
-procedure main();
+procedure main()
   every ("hello world" ? write(upto(' ')));
 end
 #------------------------------------------------ 562 procedure_every_elemgen_13
-procedure main();
+procedure main()
   local s;
   s := [1, 2] ||| [3, 4];
   every write(!s);
 end
 #------------------------------------------------ 563 procedure_every_elemgen_17
-procedure main();
+procedure main()
   L := [3, 1, 2];
   S := sort(L);
   every write(!S);
 end
 #------------------------------------------------- 564 procedure_every_elemgen_7
-procedure main();
+procedure main()
   L := [3, 1, 2];
   S := sort(L);
   every write(!S);
 end
 #--------------------------------------------------- 565 procedure_while_write_2
-procedure main();
+procedure main()
   local line;
   while line := read() do
     write(line);
 end
 #--------------------------------------------------- 566 procedure_while_write_8
-procedure main();
+procedure main()
   local line;
   while line := read() do
     write(line);
 end
 #------------------------------------------------- 567 procedure_write_keyword_5
-procedure main();
+procedure main()
   local s;
   s := reads(&input, 5);
   write(s);
 end
 #---------------------------------------------------- 568 procedure_every_alt_17
-procedure tag(s);
+procedure tag(s)
   return "[" || s || "]";
 end
-procedure main();
+procedure main()
   every write(tag("a" | "b" | "c"));
 end
 #---------------------------------------------------- 569 procedure_every_alt_43
-procedure tag(s);
+procedure tag(s)
   return "[" || s || "]";
 end
-procedure main();
+procedure main()
   every write(tag("a" | "b" | "c"));
 end
 #--------------------------------------------- 570 procedure_every_alt_replace_3
@@ -3323,14 +3323,14 @@ procedure main()
   write(x);
 end
 #------------------------------------------------- 571 procedure_every_elemgen_1
-procedure main();
+procedure main()
   s := "xy";
   result := "";
   every result ||:= !s;
   write(result);
 end
 #------------------------------------------------ 572 procedure_every_elemgen_10
-procedure main();
+procedure main()
   s := "xy";
   result := "";
   every result ||:= !s;
@@ -3345,14 +3345,14 @@ procedure main()
 end
 #----------------------------------------------------- 574 procedure_every_to_21
 # rung37: every-do body hello — simplest every i := 1 to 3 do write(i)
-procedure main();
+procedure main()
    local i;
    every i := 1 to 3 do write(i);
    write("done");
 end
 #-------------------------------------------------- 575 procedure_record_every_1
 record counter(n)
-procedure main();
+procedure main()
   c := counter(0);
   every c.n := 1 to 3 do
     write(c.n);
@@ -3373,7 +3373,7 @@ procedure main()
 end
 #-------------------------------------------------- 578 procedure_record_every_4
 record counter(n)
-procedure main();
+procedure main()
   c := counter(0);
   every c.n := 1 to 3 do
     write(c.n);
@@ -3393,7 +3393,7 @@ procedure main()
   every p := !S do write(p.x);
 end
 #---------------------------------------------------- 581 procedure_scan_write_1
-procedure main();
+procedure main()
    local s;
    s := "-n10";
    s ? { if ="-" then write("blk1 matched"); };
@@ -3401,46 +3401,46 @@ procedure main();
 end
 #--------------------------------------------------- 582 procedure_scan_write_11
 # rung06 t05: cset stored in variable, used in any()
-procedure main();
+procedure main()
   local vowels;
   vowels := 'aeiou';
   "icon" ? write(any(vowels));
 end
 #--------------------------------------------------- 583 procedure_scan_write_19
 # rung05 t02: scan from variable
-procedure main();
+procedure main()
   local s;
   s := "world";
   s ? write(&subject);
 end
 #--------------------------------------------------- 584 procedure_scan_write_22
 # rung06 t05: cset stored in variable, used in any()
-procedure main();
+procedure main()
   local vowels;
   vowels := 'aeiou';
   "icon" ? write(any(vowels));
 end
 #---------------------------------------------------- 585 procedure_scan_write_8
 # rung05 t02: scan from variable
-procedure main();
+procedure main()
   local s;
   s := "world";
   s ? write(&subject);
 end
 #---------------------------------------------------- 586 procedure_every_alt_29
-procedure noisy();
+procedure noisy()
   write("[eval]");
   return "X";
 end
-procedure main();
+procedure main()
   every write(1 | 2, noisy(), 3 | 4);
 end
 #----------------------------------------------------- 587 procedure_every_alt_3
-procedure noisy();
+procedure noisy()
   write("[eval]");
   return "X";
 end
-procedure main();
+procedure main()
   every write(1 | 2, noisy(), 3 | 4);
 end
 #--------------------------------------------- 588 procedure_every_alt_replace_7
@@ -3448,11 +3448,11 @@ end
 # Distinct from rung37_every_in_arg.icn: there the argument (1|2|3) is RESUMABLE, which takes
 # lower_call's la_res path. Here write("y") is NON-resumable, which takes the degenerate
 # cx->beta == ω fallback -- the shape that is actually broken.
-procedure main();
+procedure main()
    write(image(every write("y")) | "none");
 end
 #------------------------------------------------ 589 procedure_every_elemgen_15
-procedure main();
+procedure main()
   L := [];
   put(L, 4);
   put(L, 5);
@@ -3460,7 +3460,7 @@ procedure main();
   every write(!L);
 end
 #------------------------------------------------- 590 procedure_every_elemgen_5
-procedure main();
+procedure main()
   L := [];
   put(L, 4);
   put(L, 5);
@@ -3468,7 +3468,7 @@ procedure main();
   every write(!L);
 end
 #----------------------------------------------------- 591 procedure_every_to_20
-procedure main();
+procedure main()
   total := 0;
   every x := 1 to 3 do {
     total +:= x;
@@ -3476,7 +3476,7 @@ procedure main();
   write(total);
 end
 #----------------------------------------------------- 592 procedure_every_to_51
-procedure main();
+procedure main()
   total := 0;
   every x := 1 to 3 do {
     total +:= x;
@@ -3484,7 +3484,7 @@ procedure main();
   write(total);
 end
 #---------------------------------------------- 593 procedure_every_to_replace_6
-procedure show(n);
+procedure show(n)
     local i;
     every i := 1 to n do {
         write(i);
@@ -3493,7 +3493,7 @@ procedure show(n);
 end
 #--------------------------------------------------- 594 procedure_scan_write_10
 # rung06 t02: any() fails if first char not in cset; write not called
-procedure main();
+procedure main()
   local found;
   found := 0;
   "xyz" ? (any('aeiou') & (found := 1));
@@ -3501,7 +3501,7 @@ procedure main();
 end
 #--------------------------------------------------- 595 procedure_scan_write_17
 # rung05 t03: &subject restored after scan
-procedure main();
+procedure main()
   local s;
   s := "outer";
   s ? write(&subject);
@@ -3509,7 +3509,7 @@ procedure main();
 end
 #--------------------------------------------------- 596 procedure_scan_write_21
 # rung06 t02: any() fails if first char not in cset; write not called
-procedure main();
+procedure main()
   local found;
   found := 0;
   "xyz" ? (any('aeiou') & (found := 1));
@@ -3517,7 +3517,7 @@ procedure main();
 end
 #---------------------------------------------------- 597 procedure_scan_write_6
 # rung05 t03: &subject restored after scan
-procedure main();
+procedure main()
   local s;
   s := "outer";
   s ? write(&subject);
@@ -3532,7 +3532,7 @@ procedure main()
   write(member(t, "a"));
 end
 #--------------------------------------------------- 599 procedure_while_write_1
-procedure main();
+procedure main()
   local n;
   n := 0;
   while read() do
@@ -3540,7 +3540,7 @@ procedure main();
   write(n);
 end
 #--------------------------------------------------- 600 procedure_while_write_7
-procedure main();
+procedure main()
   local n;
   n := 0;
   while read() do
@@ -3548,11 +3548,11 @@ procedure main();
   write(n);
 end
 #------------------------------------------------- 601 procedure_every_suspend_4
-procedure g();
+procedure g()
   suspend 1;
   return 2;
 end
-procedure main();
+procedure main()
   every write(g());
   write("done");
 end
@@ -3566,7 +3566,7 @@ procedure main()
   if \x then write("e") else write("f");
 end
 #-------------------------------------------------- 603 procedure_table_write_16
-procedure main();
+procedure main()
   local t;
   t := table(0);
   t[5] := 1;
@@ -3575,7 +3575,7 @@ procedure main();
   write(3);
 end
 #--------------------------------------------------- 604 procedure_table_write_5
-procedure main();
+procedure main()
   local t;
   t := table(0);
   t[5] := 1;
@@ -3585,7 +3585,7 @@ procedure main();
 end
 #--------------------------------------------------- 605 procedure_scan_write_16
 # rung05 t05: nested scan — inner restores outer subject
-procedure main();
+procedure main()
   local a;
   local b;
   a := "first";
@@ -3595,7 +3595,7 @@ procedure main();
 end
 #---------------------------------------------------- 606 procedure_scan_write_5
 # rung05 t05: nested scan — inner restores outer subject
-procedure main();
+procedure main()
   local a;
   local b;
   a := "first";
@@ -3605,44 +3605,44 @@ procedure main();
 end
 #--------------------------------------------------- 607 procedure_while_until_1
 # rung09 t01: until E do body — runs while E fails, stops when E succeeds
-procedure countdown(n);
+procedure countdown(n)
   local i;
   i := 1;
   until i > n do write(i) & (i := i + 1);
 end
-procedure main();
+procedure main()
   countdown(3);
 end
 #--------------------------------------------------- 608 procedure_while_until_2
 # rung09 t01: until E do body — runs while E fails, stops when E succeeds
-procedure countdown(n);
+procedure countdown(n)
   local i;
   i := 1;
   until i > n do write(i) & (i := i + 1);
 end
-procedure main();
+procedure main()
   countdown(3);
 end
 #---------------------------------------------- 609 procedure_to_until_replace_1
 # rung09 t05: until with separate proc to avoid slot collision
-procedure decr(n);
+procedure decr(n)
   local x;
   x := n;
   until (x := x - 1) < 0 do 0;
   write(x);
 end
-procedure main();
+procedure main()
   decr(3);
 end
 #---------------------------------------------- 610 procedure_to_until_replace_2
 # rung09 t05: until with separate proc to avoid slot collision
-procedure decr(n);
+procedure decr(n)
   local x;
   x := n;
   until (x := x - 1) < 0 do 0;
   write(x);
 end
-procedure main();
+procedure main()
   decr(3);
 end
 #--------------------------------------------- 611 procedure_every_alt_replace_9
@@ -3661,14 +3661,14 @@ end
 #--------------------------------------- 612 procedure_write_augassign_replace_2
 #SRC: JCON
 
-procedure main();
+procedure main()
 	foo();
 	foo();
 	p();
 	p();
 end
 
-procedure foo();
+procedure foo()
 	static a;
 
 	write(image(a));
@@ -3676,7 +3676,7 @@ procedure foo();
 end
 
 
-procedure p();
+procedure p()
    static c;
    initial c := 0;
 
@@ -3799,61 +3799,61 @@ procedure main(); c := create (1 to 2); while x := @c do write(x); write("done")
 #------------------------------------------------------ 615 procedure_scan_tab_6
 procedure main(); "abcdef" ? { tab(upto("c")); write(move(1)) }; end
 #---------------------------------------------------- 616 procedure_every_alt_11
-procedure main();
+procedure main()
   every write(|(1 to 2) \ 5);
 end
 #---------------------------------------------------- 617 procedure_every_alt_12
-procedure main();
+procedure main()
   every write(|(1 to 3) \ 7);
 end
 #---------------------------------------------------- 618 procedure_every_alt_37
-procedure main();
+procedure main()
   every write(|(1 to 2) \ 5);
 end
 #---------------------------------------------------- 619 procedure_every_alt_38
-procedure main();
+procedure main()
   every write(|(1 to 3) \ 7);
 end
 #---------------------------------------------------- 620 procedure_every_alt_13
-procedure main();
+procedure main()
   x := 5;
   every write(|x \ 3);
 end
 #---------------------------------------------------- 621 procedure_every_alt_34
-procedure main();
+procedure main()
   every write(|(1 to 0) \ 3);
   write("done");
 end
 #---------------------------------------------------- 622 procedure_every_alt_39
-procedure main();
+procedure main()
   x := 5;
   every write(|x \ 3);
 end
 #----------------------------------------------------- 623 procedure_every_alt_8
-procedure main();
+procedure main()
   every write(|(1 to 0) \ 3);
   write("done");
 end
 #----------------------------------------------------- 624 procedure_every_alt_1
-procedure main();
+procedure main()
   s := "";
   every s ||:= ("a"|"b"|"c");
   write(s);
 end
 #---------------------------------------------------- 625 procedure_every_alt_27
-procedure main();
+procedure main()
   s := "";
   every s ||:= ("a"|"b"|"c");
   write(s);
 end
 #----------------------------------------- 626 procedure_every_elemgen_replace_1
-procedure main();
+procedure main()
   t := table();
   insert(t, "only", 99);
   every v := !t do write(v);
 end
 #----------------------------------------- 627 procedure_every_elemgen_replace_8
-procedure main();
+procedure main()
   t := table();
   insert(t, "only", 99);
   every v := !t do write(v);
@@ -3865,26 +3865,26 @@ procedure main()
   every write((1 to 5) \ k)
 end
 #------------------------------------------------- 629 procedure_every_suspend_5
-procedure range(lo, hi);
+procedure range(lo, hi)
     local i;
     every i := lo to hi do
         suspend i;
 end
 #----------------------------------------------------- 630 procedure_scan_many_1
-procedure main();
+procedure main()
    local s;
    s := ".coord";
    s ? { if (="." & many(&digits)) then write("Y") else write("N") };
 end
 #------------------------------------------------------ 631 procedure_scan_tab_2
-procedure main();
+procedure main()
    local s;
    s := "-n10";
    s ? { tab(2); };
    write("s=[", s, "] *s=", *s);
 end
 #---------------------------------------------------- 632 procedure_scan_write_2
-procedure main();
+procedure main()
    local s;
    s := "-n10";
    s ? { if ="-" then write("A match"); };
@@ -3895,12 +3895,12 @@ end
 # rung37_every_expr_nonresumable_arg.icn -- same defect shape, WITH a do-clause). every still
 # produces no value in expression context: the do-body's side effects run once, then image(...)
 # must never be invoked with a value, so the alternation falls through to "none".
-procedure main();
+procedure main()
    write(image(every write("y") do write("z")) | "none");
 end
 #----------------------------------------------------- 634 procedure_every_to_15
 # rung10 t03: augmented add accumulator via every
-procedure main();
+procedure main()
   local sum;
   sum := 0;
   every sum +:= (1 to 5);
@@ -3908,28 +3908,28 @@ procedure main();
 end
 #----------------------------------------------------- 635 procedure_every_to_46
 # rung10 t03: augmented add accumulator via every
-procedure main();
+procedure main()
   local sum;
   sum := 0;
   every sum +:= (1 to 5);
   write(sum);
 end
 #---------------------------------------------------- 636 procedure_every_alt_33
-procedure absv(n);
+procedure absv(n)
   n > 0 | return -n;
   return n;
 end
-procedure main();
+procedure main()
   write(absv(5));
   write(absv(-7));
   every write((1 to 2) | (8 to 9));
 end
 #----------------------------------------------------- 637 procedure_every_alt_7
-procedure absv(n);
+procedure absv(n)
   n > 0 | return -n;
   return n;
 end
-procedure main();
+procedure main()
   write(absv(5));
   write(absv(-7));
   every write((1 to 2) | (8 to 9));
@@ -3955,7 +3955,7 @@ procedure main()
   write(t["k2"]);
 end
 #--------------------------------------------------- 640 procedure_every_table_1
-procedure main();
+procedure main()
   local t, total;
   t := table(0);
   t[1] := 10;
@@ -3966,7 +3966,7 @@ procedure main();
   write(total);
 end
 #--------------------------------------------------- 641 procedure_every_table_2
-procedure main();
+procedure main()
   local t, total;
   t := table(0);
   t[1] := 10;
@@ -3977,7 +3977,7 @@ procedure main();
   write(total);
 end
 #-------------------------------------------------- 642 procedure_table_write_15
-procedure main();
+procedure main()
   local t;
   t := table(0);
   insert(t, 1, 10);
@@ -3988,7 +3988,7 @@ procedure main();
   write(t[1]);
 end
 #--------------------------------------------------- 643 procedure_table_write_4
-procedure main();
+procedure main()
   local t;
   t := table(0);
   insert(t, 1, 10);
@@ -4000,26 +4000,26 @@ procedure main();
 end
 #----------------------------------------------------- 644 procedure_every_to_13
 # rung02 t03: local vars — tests local frame slots
-procedure sum_to(n);
+procedure sum_to(n)
   local total;
   total := 0;
   every total := total + (1 to n);
   return total;
 end
 
-procedure main();
+procedure main()
   every write(sum_to(5));
 end
 #----------------------------------------------------- 645 procedure_every_to_44
 # rung02 t03: local vars — tests local frame slots
-procedure sum_to(n);
+procedure sum_to(n)
   local total;
   total := 0;
   every total := total + (1 to n);
   return total;
 end
 
-procedure main();
+procedure main()
   every write(sum_to(5));
 end
 #---------------------------------------------- 646 procedure_every_to_replace_3
@@ -4027,7 +4027,7 @@ end
 
 # a simple and slow prime number generator
 
-procedure main();
+procedure main()
    local i;
    every i := 2 to 100 do {
       if i % (2 to i - 1) = 0 then
@@ -4037,13 +4037,13 @@ procedure main();
 end
 #----------------------------------------- 647 procedure_every_elemgen_replace_6
 #SRC: IJ-3 focused test: proc() builtin + indirect invocation
-procedure p0();
+procedure p0()
    write("p0");
 end
-procedure p1(x);
+procedure p1(x)
    write("p1", x);
 end
-procedure main();
+procedure main()
    local plist;
    write(image(proc("write", 1)));
    if not (proc("noexist", 1)) then write("noexist fails");
@@ -4052,7 +4052,7 @@ procedure main();
    every write((!plist)(1));
 end
 #------------------------------------------------ 648 procedure_every_elemgen_19
-procedure main();
+procedure main()
   L := [10, 20, 30];
   every v := !L do {
     w := v + 100;
@@ -4070,7 +4070,7 @@ procedure main();
   };
 end
 #------------------------------------------------- 649 procedure_every_elemgen_9
-procedure main();
+procedure main()
   L := [10, 20, 30];
   every v := !L do {
     w := v + 100;
@@ -4108,7 +4108,7 @@ end
 #---------------------------------------------- 651 procedure_every_to_replace_5
 # SCRIP DEMO6 -- Sieve of Eratosthenes, primes to 50 (Icon section)
 # Idiom: list subscript marks composites; every drives two passes
-procedure main();
+procedure main()
     limit := 50;
     sieve := list(limit, 1);
     sieve[1] := 0;
@@ -4165,7 +4165,7 @@ end
 #--------------------------------------------- 654 procedure_while_map_replace_1
 # SCRIP DEMO4 -- Palindrome (Icon section)
 # Idiom: subscript walk inward from both ends
-procedure palindrome(s);
+procedure palindrome(s)
     s := map(s);
     i := 1;
     j := *s;
@@ -4177,7 +4177,7 @@ procedure palindrome(s);
     return "yes";
 end
 
-procedure main();
+procedure main()
     write(palindrome("racecar"));
     write(palindrome("hello"));
     write(palindrome("level"));
@@ -4424,12 +4424,12 @@ end
 procedure main(); i := 0; every |1 do { i +:= 1; if i >= 3 then break }; write(i); end
 #---------------------------------------------------- 659 procedure_every_alt_19
 # rung37: every inside builtin arg — image(every i := 1 to 3)
-procedure main();
+procedure main()
    write(image(every 1 | 2 | 3));
    write("done");
 end
 #------------------------------------------------------ 660 procedure_scan_tab_3
-procedure main();
+procedure main()
    local s;
    s := "-n10";
    s ? { tab(match("-")); };
@@ -4437,13 +4437,13 @@ procedure main();
 end
 #------------------------------------------------- 661 procedure_every_suspend_3
 # rung03 t04: generator counting down via suspend
-procedure downto(n);
+procedure downto(n)
   local i;
   i := n;
   while i >= 1 do suspend i do i := i - 1;
 end
 
-procedure main();
+procedure main()
   every write(downto(4));
 end
 #------------------------------------------ 662 procedure_record_every_replace_9
@@ -4482,7 +4482,7 @@ end
 #---------------------------------------------- 664 procedure_every_to_replace_1
 # SCRIP DEMO3 -- Roman Numerals (Icon section)
 # Idiom: greedy subtraction loop with parallel vals/syms lists
-procedure roman(n);
+procedure roman(n)
     vals := [1000,900,500,400,100,90,50,40,10,9,5,4,1];
     syms := ["M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"];
     result := "";
@@ -4495,7 +4495,7 @@ procedure roman(n);
     return result;
 end
 
-procedure main();
+procedure main()
     write(roman(1776));
     write(roman(42));
     write(roman(9));
@@ -4523,7 +4523,7 @@ procedure main()
 end
 #------------------------------------------- 666 procedure_every_scan_replace_11
 #SRC: IJ-10 &pos / &subject keyword swap (:=: and <->)
-procedure main();
+procedure main()
    local x;
 
    # kw_is_lhs: &pos :=: var, both values in range -> full swap
@@ -4772,24 +4772,24 @@ end
 #------------------------------------------------- 669 procedure_every_suspend_1
 # rung03 t01: user-defined generator via suspend
 # upto(n) generates 1, 2, ..., n using suspend E do body
-procedure upto(n);
+procedure upto(n)
   local i;
   i := 1;
   while i <= n do suspend i do i := i + 1;
 end
 
-procedure main();
+procedure main()
   every write(upto(4));
 end
 #------------------------------------------------- 670 procedure_every_suspend_2
 # rung03 t05: two independent generators, sequential
-procedure upto(n);
+procedure upto(n)
   local i;
   i := 1;
   while i <= n do suspend i do i := i + 1;
 end
 
-procedure main();
+procedure main()
   every write(upto(3));
   every write(upto(2));
 end
@@ -4800,14 +4800,14 @@ end
 # r returns p's value, s returns q's, and p/q read off the end as ""/&null.
 # Extends the s234b argument-slot collision finding: the victims are not only
 # operand-list slots but LIVE PARAMETER slots of the enclosing activation.
-procedure t(p,q,r,s);
+procedure t(p,q,r,s)
    write("entry:       p=",image(p)," q=",image(q)," r=",image(r)," s=",image(s));
    p ? {
       if ="-" then
          write("after match: p=",image(p)," q=",image(q)," r=",image(r)," s=",image(s));
    };
 end
-procedure main();
+procedure main()
    t("-n10","AA","BB","CC");
 end
 #----------------------------------------- 672 procedure_every_suspend_replace_1
@@ -4816,14 +4816,14 @@ end
 # alpha, never its beta (beta with no staged activation = jmp through a zeroed
 # resume cell, rip=0 SEGV — the tgrlink class). Covers bounded, every-driven,
 # and every-with-assignment forms.
-procedure aseq();
+procedure aseq()
    suspend 2;
    suspend 4;
    suspend 3 to 3;
    suspend 1 to 1;
    fail;
 end
-procedure main();
+procedure main()
    local alist, l;
    alist := ["a1", "a2", "a3", "a4"];
    write(alist[aseq()]);
@@ -4842,7 +4842,7 @@ end
 #  the strings separated by semicolons.  It then diagrams all the
 #  intersections of the two strings in a common character.
 
-procedure main();
+procedure main()
    local line, j;
    while line := read() do { 
       write();
@@ -4851,14 +4851,14 @@ procedure main();
        };
 end
 
-procedure cross(s1,s2);
+procedure cross(s1,s2)
    local j, k;
    every j := upto(s2,s1) do
       every k := upto(s1[ j ],s2) do
          xprint(s1,s2,j,k);
 end
 
-procedure xprint(s1,s2,j,k);
+procedure xprint(s1,s2,j,k)
    write();
    every write(right(s2[ 1 to k-1 ],j));
    write(s1);
@@ -4866,7 +4866,7 @@ procedure xprint(s1,s2,j,k);
 end
 #----------------------------------------- 674 procedure_every_elemgen_replace_5
 # rung37_cset_ops.icn -- IJ-15: cset literal, cset() builtin, cset ops, augmented ops
-procedure main();
+procedure main()
    local cs, cs2, cs3;
    # cset literal type
    cs := 'abc';
@@ -4903,7 +4903,7 @@ end
 # Tests write/writes/read/reads/open/close routing via DT_FH descriptors.
 # scrip Icon requires explicit semicolons after every statement.
 
-procedure main();
+procedure main()
   local f;
   local outf;
   local s;
@@ -4936,7 +4936,7 @@ end
 #SRC: IJ-11
 # rung37_keywords.icn -- verify icn_kw_read: type/image/size for cset keywords,
 # math constants, &error r/w, &fail, &null.
-procedure main();
+procedure main()
    # type() detects cset keywords
    write(type(&lcase));
    write(type(&ucase));
@@ -4982,11 +4982,11 @@ procedure main();
    write(&y);
    write(&level);
 end
-procedure if_ok(x);
+procedure if_ok(x)
    return (x & "yes") | "no";
 end
 #---------------------------------------------- 677 procedure_scan_tab_replace_2
-procedure main();
+procedure main()
    local s, str;
    s := ".coord";
    s ? {
@@ -4994,7 +4994,7 @@ procedure main();
       };
 end
 #------------------------------------------------------ 678 procedure_scan_tab_4
-procedure main();
+procedure main()
    local s, str;
    s := ".abc";
    s ? {
@@ -5008,7 +5008,7 @@ procedure main();
       };
 end
 #------------------------------------------------------ 679 procedure_alt_case_1
-procedure main();
+procedure main()
    local pending, symbol, n;
    pending := ["A"];
    n := 0;
@@ -5035,10 +5035,10 @@ end
 #  it does not help when the operand was written pre-carve.  Do not record
 #  "hoist to a variable" as a workaround without re-measuring the exact shape.
 #  Oracle:  f:A/112/C  |  A 112 C  |  A112C
-procedure f(a, b, c);
+procedure f(a, b, c)
    write("f:", a, "/", b, "/", c);
 end
-procedure main();
+procedure main()
    local L, v, x;
    "112 xy" ? { f("A", tab(4), "C"); };
    "112 xy" ? { L := ["A", tab(4), "C"]; write(L[1], " ", L[2], " ", L[3]); };
@@ -5138,7 +5138,7 @@ end
 #-------------------------------------------- 683 procedure_scan_while_replace_2
 # SCRIP DEMO2 -- Word Count (Icon section)
 # Idiom: string scanning with tab(upto)/tab(many) generator
-procedure main();
+procedure main()
     s := "the quick brown fox jumps over the lazy dog";
     count := 0;
     s ? {
@@ -5270,7 +5270,7 @@ end
 
 # test grouping of various operators
 
-procedure main();
+procedure main()
 	write(3^3^2);
 	write(8/4/2);
 	write(2-2-2);
@@ -5280,11 +5280,11 @@ procedure main();
 	write("x" ? (tab(0)||"y") ? tab(0));
 end
 
-procedure f(x);
+procedure f(x)
 	return x;
 end
 
-procedure g(x);
+procedure g(x)
 	return x+2;
 end
 #--------------------------------------------- 689 procedure_every_alt_replace_5
@@ -5292,7 +5292,7 @@ end
 
 # lexical comparison test
 
-procedure main();
+procedure main()
    local s, t;
 
    write("    s1    s2    <<   <<=    ==   ~==   >>=    >>");
@@ -5311,7 +5311,7 @@ procedure main();
       };
    end
 
-procedure wr(s);
+procedure wr(s)
    writes(right(image(\s) | "---", 6));
    return;
 end
@@ -5325,25 +5325,25 @@ end
 #  This program takes strings from standard input and determines
 #  whether or not they are sentences in the language defined by <s>.
 
-procedure main();
+procedure main()
    local line;
    while line := read() do
       if recogn(s,line) then write("accepted") else write("rejected");
 end
 
-procedure recogn(goal,text);
+procedure recogn(goal,text)
    return text ? (goal() & pos(0));
 end
 
 #  <s> ::= a <s> | <t> b | c
 
-procedure s();
+procedure s()
    suspend (="a" || s()) | (t() || ="b") | ="c";
 end
 
 #  <t> ::= d <s> d | e | f
 
-procedure t();
+procedure t()
    suspend (="d" || s() || ="d") | ="e" | ="f";
 end
 #-------------------------------------------- 691 procedure_every_scan_replace_1
@@ -5353,7 +5353,7 @@ end
 # reads it; because "" is non-null the `/optstring := string(&letters)` default
 # never fires, find() searches an empty string, and every option is rejected.
 # Oracle-verified against Arizona Icon 9.5.25a.
-procedure opts(arg,optstring);
+procedure opts(arg,optstring)
    local c;
    arg ? {
       if ="-" then {
@@ -5363,7 +5363,7 @@ procedure opts(arg,optstring);
       };
    };
 end
-procedure main();
+procedure main()
    opts("-n10","n+");
 end
 #------------------------------------------- 692 procedure_every_scan_replace_12
@@ -5371,7 +5371,7 @@ end
 # rung37_scan_alt.icn — IJ-9: scan alternation beta semantics
 # Each subject in (A|B|C)?body gets exactly ONE body alpha tick.
 # External beta advances to next subject, never resumes body generator.
-procedure main();
+procedure main()
    local n;
 
    # Non-generative body: move(1) grabs first char; one result per subject
@@ -5441,7 +5441,7 @@ end
 
 # string test -- including operations on string *constants*
 
-procedure main();
+procedure main()
    local s, t;
 
    s := "abcde";
@@ -5584,7 +5584,7 @@ end
 #  This program illustrates the use of sets in implementing the
 #  classical sieve algorithm for computing prime numbers.
 
-procedure main(args);
+procedure main(args)
    local limit, s, i, primes;
    limit := integer(args[1]) | 1000;
    s := set();
@@ -5604,14 +5604,14 @@ end
 
 global n, placed, rows, up, down, qcount
 
-procedure safe(c, r);
+procedure safe(c, r)
     if rows[r]     ~= 0 then fail;
     if up[n+r-c]   ~= 0 then fail;
     if down[r+c-1] ~= 0 then fail;
     return;
 end
 
-procedure show();
+procedure show()
     local sep, line, col;
     qcount +:= 1;
     sep := repl("-", 4*n+1);
@@ -5625,7 +5625,7 @@ procedure show();
     write("  ", sep);
 end
 
-procedure try_col(c);
+procedure try_col(c)
     local r;
     if c > n then { show(); return; };
     every r := 1 to n do {
@@ -5638,7 +5638,7 @@ procedure try_col(c);
     };
 end
 
-procedure main(args);
+procedure main(args)
     n := integer(args[1]) | 6;
     placed := list(n, 0);
     rows   := list(n, 0);
@@ -5768,7 +5768,7 @@ end
 #  uses string invocation of operations
 
 
-procedure main();
+procedure main()
    local i, r, c, s;
 
    i := 1;
@@ -5793,7 +5793,7 @@ procedure main();
 end
 
 
-procedure toby(i, j, k);
+procedure toby(i, j, k)
    local n, s;
    s := image(i) || " to " || image(j) || " by " || image(k) || ":";
    writes(left(s, 24));
@@ -5803,7 +5803,7 @@ procedure toby(i, j, k);
 end
 
 
-procedure unop(o, i, r, c, s);
+procedure unop(o, i, r, c, s)
    write(left(o || "x", 7),
       right(o(i) | "---", 6),
       right(o(r) | "---", 6),
@@ -5813,7 +5813,7 @@ procedure unop(o, i, r, c, s);
 end
 
 
-procedure binop(o, i, r, c, s);
+procedure binop(o, i, r, c, s)
    write("x ", left(o || " y", 5),
       right(o(i, r) | "---", 6),
       right(o(i, c) | "---", 6),
@@ -5839,7 +5839,7 @@ end
 #  This program lists all the different words in the input text.
 #  The definition of a "word" is naive.
 
-procedure main();
+procedure main()
    words := set();
    while text := read() do
       text ? while tab(upto(&letters)) do
@@ -5941,13 +5941,13 @@ end
 #  This program takes Arabic numerals from standard input and writes
 #  the corresponding Roman numerals to standard outout.
 
-procedure main();
+procedure main()
    local n;
    while n := read() do
       write(roman(n) | "cannot convert");
 end
 
-procedure roman(n);
+procedure roman(n)
    local arabic, result;
    static equiv;
    initial equiv := [ "","I","II","III","IV","V","VI","VII","VIII","IX" ];
@@ -6004,11 +6004,11 @@ end
 #  results with the words in a column 20 characters wide.  The definition
 #  of a "word" is naive.
 
-procedure main();
+procedure main()
    wordcount(20);
 end
 
-procedure wordcount(n);
+procedure wordcount(n)
    local t, line, x, i;
    static letters;
    initial letters := &lcase ++ &ucase;
@@ -6234,7 +6234,7 @@ procedure wf (v)
 
 # table test
 
-procedure main();
+procedure main()
    local k, x, y;
 
    x := table();
@@ -6312,7 +6312,7 @@ end
 #
 #  also checks member()
 
-procedure tdump(label, T);
+procedure tdump(label, T)
    local x;
 
    writes(right(label, 10), " :", right(*T, 2), " :");
@@ -6464,7 +6464,7 @@ global defs, limit, tswitch
 record nonterm(name)
 record charset(chars)
 
-procedure gener(goal);
+procedure gener(goal)
    local pending, symbol;
    pending := [nonterm(goal)];
    while symbol := get(pending) do {
@@ -6488,7 +6488,7 @@ procedure gener(goal);
    write();
 end
 
-procedure listimage(a);
+procedure listimage(a)
    local s, x;
    s := "";
    every x := !a do
@@ -6496,7 +6496,7 @@ procedure listimage(a);
    return s;
 end
 
-procedure symimage(x);
+procedure symimage(x)
    return case type(x) of {
       "string":   x;
       "nonterm":  "<" || x.name || ">";
@@ -6504,7 +6504,7 @@ procedure symimage(x);
       };
 end
 
-procedure main();
+procedure main()
    defs := table();
    defs["s"] := [[nonterm("noun")," runs."]];
    defs["noun"] := [["he"],["she"]];
@@ -6514,7 +6514,7 @@ end
 #-------------------------------------------- 712 procedure_every_scan_replace_5
 #SRC: JCON
 
-procedure main();
+procedure main()
    local i, x, y, z;
 
    write(args(push));
@@ -6595,7 +6595,7 @@ procedure main();
 
 end
 
-procedure limage(label, lst);
+procedure limage(label, lst)
    writes(label, ". [", *lst, "]");
    every writes(" ", image(!lst));
    write();
@@ -7406,21 +7406,21 @@ procedure warn(a[])
    return;
 end
 #------------------------------------------------------- 717 procedure_write_172
-procedure main();
+procedure main()
   write(2.0^0.5);
 end
 #------------------------------------------------------- 718 procedure_write_194
-procedure main();
+procedure main()
   write(sqrt(4.0));
   write(sqrt(9.0));
   write(sqrt(2.0));
 end
 #----------------------------------------------------- 719 procedure_every_to_48
-procedure main();
+procedure main()
   every write(3.0 to 1.0 by -1.0);
 end
 #----------------------------------------------------- 720 procedure_every_to_49
-procedure main();
+procedure main()
   every write(1.0 to 3.0 by 1.0);
 end
 #------------------------------------------- 721 procedure_table_write_replace_7
@@ -7432,12 +7432,12 @@ procedure main()
   write(member(t, "a"));
 end
 #---------------------------------------------- 722 procedure_scan_while_1 XFAIL
-procedure main(args);
+procedure main(args)
    local r;
    r := opt2(args);
    write("flist size=", *r);
 end
-procedure opt2(arg);
+procedure opt2(arg)
    local x,i,c,otab,flist,o,p;
    otab := table();
    flist := [];
@@ -7529,73 +7529,73 @@ procedure main()
   write("after");
 end
 #------------------------------------------- 732 ladder_rung12_strrelop_size_sle
-procedure main();
+procedure main()
   if ("abc" <<= "abc") then write("le");
   if ("bcd" <<= "abc") then write("nope");
   write("done");
 end
 #------------------------------------------- 733 ladder_rung12_strrelop_size_sgt
-procedure main();
+procedure main()
   if ("bcd" >> "abc") then write("gt");
   if ("abc" >> "abc") then write("nope");
   write("done");
 end
 #---------------------------------------- 734 ladder_rung06_cset_scan_refuse_any
-procedure main();
+procedure main()
   write("before");
   "abc" ? any([1,2]);
   write("after");
 end
 #--------------------------------------- 735 ladder_rung06_cset_scan_refuse_many
-procedure main();
+procedure main()
   write("before");
   "abc" ? many([1,2]);
   write("after");
 end
 #--------------------------------------- 736 ladder_rung06_cset_scan_refuse_upto
-procedure main();
+procedure main()
   write("before");
   "abc" ? upto([1,2]);
   write("after");
 end
 #-------------------------------- 737 ladder_rung08_strbuiltins_scan_refuse_find
-procedure main();
+procedure main()
   write("before");
   "abc" ? find([1,2]);
   write("after");
 end
 #------------------------------- 738 ladder_rung08_strbuiltins_scan_refuse_match
-procedure main();
+procedure main()
   write("before");
   "abc" ? match([1,2]);
   write("after");
 end
 #--------------------------------- 739 ladder_rung08_strbuiltins_scan_refuse_tab
-procedure main();
+procedure main()
   write("before");
   "abc" ? tab([1,2]);
   write("after");
 end
 #-------------------------------- 740 ladder_rung08_strbuiltins_scan_refuse_move
-procedure main();
+procedure main()
   write("before");
   "abc" ? move([1,2]);
   write("after");
 end
 #----------------------------- 741 ladder_rung08_strbuiltins_scan_coerce_tab_str
-procedure main();
+procedure main()
   "abc" ? write(tab("2"));
 end
 #---------------------------- 742 ladder_rung08_strbuiltins_scan_coerce_tab_real
-procedure main();
+procedure main()
   "abc" ? write(tab(2.0));
 end
 #---------------------------- 743 ladder_rung08_strbuiltins_scan_coerce_move_str
-procedure main();
+procedure main()
   "abc" ? write(move("1"));
 end
 #--------------------------------------------- 744 ladder_rung37_bal_scan_refuse
-procedure main();
+procedure main()
   write("before");
   "a(b)" ? bal([1,2]);
   write("after");
@@ -7603,7 +7603,7 @@ end
 #------------------------------------------------- 745 procedure_write_keyword_6
 #SRC: JCON
 
-procedure main();
+procedure main()
 	write(&level);
 	foo(3);
 	write(&level);
@@ -7611,13 +7611,13 @@ procedure main();
 	write(&level);
 end
 
-procedure foo(n);
+procedure foo(n)
 	write(&level);
 	if n ~= 0 then foo(n-1);
 	write(&level);
 end
 
-procedure bar(n);
+procedure bar(n)
 	write(&level);
 	suspend 1 to n do write(&level);
 	write(&level);
@@ -7627,7 +7627,7 @@ procedure main()
     write(image([1,2,3]))
 end
 #------------------------------------------------- 747 procedure_write_keyword_7
-procedure main();
+procedure main()
    write(&level);
    foo(3);
    write(&level);
@@ -7635,13 +7635,13 @@ procedure main();
    write(&level);
 end
 
-procedure foo(n);
+procedure foo(n)
    write(&level);
    if n ~= 0 then foo(n - 1);
    write(&level);
 end
 
-procedure bar(n);
+procedure bar(n)
    write(&level);
    suspend 1 to n do write(&level);
    write(&level);
@@ -7657,7 +7657,7 @@ procedure main()
     write(z);
 end
 #----------------------------------------------------- 749 procedure_scan_size_1
-procedure main();
+procedure main()
    local s;
    s := "-n10";
    s ? {

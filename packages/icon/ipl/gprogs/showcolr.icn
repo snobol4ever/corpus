@@ -24,7 +24,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
    local palette, output;
 
    every palette := ("c" || (1 to 6)) | ("g" || (2 to 256)) do {

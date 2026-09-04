@@ -31,7 +31,7 @@
 global path, todo
 
 
-procedure main(args);
+procedure main(args)
    local fname;
 
    path := [""];
@@ -51,7 +51,7 @@ end
 
 #  newfile(fname) -- open and return a file, if it wasn't seen earlier
 
-procedure newfile(fname);
+procedure newfile(fname)
    local f, fullname;
    static done;
    initial done := set();
@@ -73,7 +73,7 @@ end
 
 #  dofile(f) -- copy one file, stacking file names seen on link directives
 
-procedure dofile(f);
+procedure dofile(f)
    local line, base;
    static idset;
    initial idset := &letters ++ &digits ++ '_';

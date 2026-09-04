@@ -34,7 +34,7 @@ link basename
 link wattrib
 link wopen
 
-procedure main(args);
+procedure main(args)
    local file, name, output;
 
    every file := !args do {

@@ -23,7 +23,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local name, lc, uc;
 
    uc := &ucase || " ";

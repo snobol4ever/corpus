@@ -45,7 +45,7 @@
 #
 ############################################################################
 
-procedure soundex(name);
+procedure soundex(name)
 local coded_name, new_name;
 
     coded_name := encode(strip(name));
@@ -59,7 +59,7 @@ local coded_name, new_name;
     return new_name || repl ("0", 4 - *new_name);
 end
 
-procedure encode(name);
+procedure encode(name)
 
     name := map(name, &ucase, &lcase);
     name := map(name, "aehiouwybfpvcgjkqsxzdtlmnr",
@@ -70,7 +70,7 @@ procedure encode(name);
     return name;
 end
 
-procedure strip(name);
+procedure strip(name)
 local result, ch;
 
 static alphabet;

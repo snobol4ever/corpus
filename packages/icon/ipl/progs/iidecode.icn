@@ -65,7 +65,7 @@ link options
 
 global oversizes
 
-procedure main ( a );
+procedure main ( a )
 
     local opt, in, out, dest, is_xx;
     initial oversizes := 0;
@@ -148,7 +148,7 @@ end
 # "uu" decoding is done unless \is_xx, in which case "xx" decoding is done.
 #
 ###########################################################################
-procedure decode(in, out, is_xx);
+procedure decode(in, out, is_xx)
     
     # Copy from in to out, decoding as you go along.
 
@@ -224,7 +224,7 @@ end
 # and packs the 6 lower data bits into group of 3 bytes.
 #
 ###########################################################################
-procedure repack ( s );
+procedure repack ( s )
 
     local n, grp;
 

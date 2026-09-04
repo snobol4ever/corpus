@@ -32,7 +32,7 @@
 
 link graphics
 
-procedure winsnap(win, x, y, w, h);
+procedure winsnap(win, x, y, w, h)
    local name, f;
 
    if type(win) ~== "window" then {

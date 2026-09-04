@@ -54,7 +54,7 @@ global Save__, Saves__, Name__, Labels__
 
 # List information before running.
 #
-procedure Init__(prog);
+procedure Init__(prog)
    if getenv("NOBENCH") then {	# don't do benchmarking
       Term__ := 1;
       return
@@ -76,7 +76,7 @@ end
 
 # List information at termination.
 
-procedure Term__();
+procedure Term__()
    if not getenv("OUTPUT") then {	# if OUTPUT is not set, restore output
       write := Save__;
       writes := Saves__
@@ -93,7 +93,7 @@ end
 #
 # List total amounts of allocation.  Needs Icon Version 8.5 or above.
 #
-procedure Allocated__();
+procedure Allocated__()
    local allocated;
 
    allocated := [];
@@ -105,7 +105,7 @@ end
 
 # List garbage collections performed.
 #
-procedure Collections__();
+procedure Collections__()
    local collections;
 
    collections := [];
@@ -116,7 +116,7 @@ end
 
 # List region sizes.
 #
-procedure Regions__();
+procedure Regions__()
    local regions, count;
    
    regions := [];
@@ -130,7 +130,7 @@ end
 
 # List relveant implementation information
 #
-procedure Signature__();
+procedure Signature__()
 
    every write(&version | &host | &features);
    return;
@@ -139,7 +139,7 @@ end
 
 # List storage used.
 #
-procedure Storage__();
+procedure Storage__()
    local storage, count;
    
    storage := [];
@@ -153,7 +153,7 @@ end
 
 # List elapsed time.
 #
-procedure Time__();
+procedure Time__()
    static lasttime;
 
    initial lasttime := &time;
@@ -162,7 +162,7 @@ end
 
 # Display storage information
 #
-procedure Display__(data,name);
+procedure Display__(data,name)
    local i;
 
    write("\n",name,":\n");

@@ -86,7 +86,7 @@
 #  
 #############################################################################
 
-procedure capture(p,x);
+procedure capture(p,x)
 
 local  keepxi;                    # used in list copy to keep/discard arguments
 local  xi;                        # equivalent to x[i]
@@ -156,7 +156,7 @@ end
 # these procedures get capture to echo text destined for &output
 # then call the original routine.
 
-procedure write_capture_(x[]);
+procedure write_capture_(x[])
 local tr;
 
 tr := &trace ; &trace := 0;  # suspend tracing
@@ -164,7 +164,7 @@ capture(write_capture_,x);
 return 1( write_capture_!x, &trace := tr );
 end
 
-procedure writes_capture_(x[]);
+procedure writes_capture_(x[])
 local tr;
 
 tr := &trace ; &trace := 0;  # suspend tracing
@@ -172,7 +172,7 @@ capture(writes_capture_,x);
 return 1( writes_capture_!x, &trace := tr );
 end
 
-procedure stop_capture_(x[]);
+procedure stop_capture_(x[])
 local tr;
 
 tr := &trace ; &trace := 0;  # suspend tracing
@@ -180,21 +180,21 @@ capture(write_capture_,x);                    # write, otherwise we stop too soo
 return 1( stop_capture_!x, &trace := tr );    # restore trace just in case 'stop' is changed
 end
 #subtitle Support procedures to provide uncaptured output
-procedure uncaptured_write(x[]);
+procedure uncaptured_write(x[])
 local tr;
 
 tr := &trace ; &trace := 0;                   # suspend tracing
 return 1( ((capture() & write_capture_) | write)!x, &trace := tr );
 end
 
-procedure uncaptured_writes(x[]);
+procedure uncaptured_writes(x[])
 local tr;
 
 tr := &trace ; &trace := 0;                   # suspend tracing
 return 1( ((capture() & writes_capture_) | writes)!x, &trace := tr );
 end
 
-procedure uncaptured_stop(x[]);
+procedure uncaptured_stop(x[])
 local tr;
 
 tr := &trace ; &trace := 0;                   # suspend tracing

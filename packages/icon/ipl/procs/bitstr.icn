@@ -66,7 +66,7 @@
 
 record BitString(s, buffer, bufferBits)
 
-procedure BitStringPut(bitString, nbits, value);
+procedure BitStringPut(bitString, nbits, value)
     local outvalue;
     #
     #  Initialize.
@@ -104,7 +104,7 @@ procedure BitStringPut(bitString, nbits, value);
 end
 
 
-procedure BitStringGet(bitString, nbits);
+procedure BitStringGet(bitString, nbits)
     local value, save, i;
     #
     #  Initialize.

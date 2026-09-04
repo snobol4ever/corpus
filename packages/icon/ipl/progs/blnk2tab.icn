@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local line;
 
    while line := read() do

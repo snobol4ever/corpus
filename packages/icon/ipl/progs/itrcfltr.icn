@@ -46,7 +46,7 @@ link options
 
 $define CountWidth 10
 
-procedure main(args);
+procedure main(args)
    local line, name, selected, opts;
 
    opts := options(args, "a");

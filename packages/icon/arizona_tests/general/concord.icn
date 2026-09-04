@@ -1,4 +1,4 @@
-procedure main();
+procedure main()
    local letters, line, wordlist, word, words, maxword, lineno, i;
    local j, lines, numbers;
    letters := &lcase ++ &ucase ++ '\'';

@@ -22,7 +22,7 @@
 #
 ############################################################################
  
-procedure main(Args);
+procedure main(Args)
    local count, i;
  
         count := integer(Args[1]) | 1;
@@ -35,7 +35,7 @@ end
 #
 # genpasswd: generate and return an 8-character password
 #
-procedure genpasswd();
+procedure genpasswd()
         
         local i, s, ucalnum;
  

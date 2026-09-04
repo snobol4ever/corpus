@@ -30,7 +30,7 @@
 
 link options
 
-procedure main(args);
+procedure main(args)
    local width, line, chunk, opts, prefix, indent;
 
    opts := options(args, "w+i+");

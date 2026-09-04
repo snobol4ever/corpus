@@ -15,7 +15,7 @@
 #  gmean    geometric mean of microbenchmark times
 
 
-procedure main(args);
+procedure main(args)
    local a, f;
 
    write("  N ovhead rmserr median  gmean   filename");
@@ -27,7 +27,7 @@ procedure main(args);
    };
 end
 
-procedure dofile(f, name);
+procedure dofile(f, name)
    local line, label, overhead, nothings, others, n, t, v;
    nothings := [];
    others := [];

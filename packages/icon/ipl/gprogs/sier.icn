@@ -55,7 +55,7 @@ global m, w, h
 global nsides, xpos, ypos, outline
 global running, xcur, ycur
 
-procedure main(args);
+procedure main(args)
    local i, vcolors;
 
    win := Window("size=400,400", "font=Helvetica,bold,14", "bg=pale gray", args);
@@ -128,7 +128,7 @@ end
 
 #  configure() -- set vertex points
 
-procedure configure();
+procedure configure()
    local a, da, i;
    local xmin, xmax, xscale, ymin, ymax, yscale;
 
@@ -173,7 +173,7 @@ end
 
 #  erase(gc) -- erase the polygon and draw its outline
 
-procedure erase(gc);
+procedure erase(gc)
    outline[1] := bwin;
    FillPolygon ! outline;
    outline[1] := \gc | win;
@@ -192,7 +192,7 @@ end
 #  n=0  start, from current point
 #  n>0  start, from (x,y)
 
-procedure setfill(win, n, x, y);
+procedure setfill(win, n, x, y)
    if n > 0 then {
       xcur := x;
       ycur := y
@@ -209,7 +209,7 @@ end
 
 #  setsides(win, dummy, x, y, event) - reset the number of sides
 
-procedure setsides(win, dummy, x, y, event);
+procedure setsides(win, dummy, x, y, event)
    nsides := integer(event);
    if nsides < 3 then nsides +:= 10;
    erase(bwin);

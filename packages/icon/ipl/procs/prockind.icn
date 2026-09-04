@@ -25,7 +25,7 @@
 #
 ############################################################################
 
-procedure prockind(p);
+procedure prockind(p)
 
    if type(p) ~== "procedure" then fail;
 

@@ -40,7 +40,7 @@ global level             #current level
 global hit               #sphere and block contact flag
 global blockclr1, blockclr2, blockclr3, invincclr
 
-procedure main();
+procedure main()
   local e;
   blockclr1 := "dark blue";  #default 1 hit block color
   blockclr2 := "dark red";  #default 2 hit block color
@@ -152,7 +152,7 @@ end
 #this keeps track of where the pad should be according
 #to where the mouse pointer is
 
-procedure move_pad();
+procedure move_pad()
   &x := image(WAttrib("pointerx"));  #get pointer position
   &y := image(WAttrib("pointery"));  #get pointer position
   EraseArea(0,310,293,310);          #erease old pad
@@ -167,7 +167,7 @@ end
 #hits on walls will change direction
 #hit on pad will change direction and possibly angle
 
-procedure move_sphere();
+procedure move_sphere()
 wait := 9;
 while ( Y < 312 ) do {
   if ( path == "up_right" ) then {
@@ -248,7 +248,7 @@ end
 #these next 4 procedures move the sphere
 #and then check for block contact
 
-procedure GO_UP_RIGHT();
+procedure GO_UP_RIGHT()
   if ( angle = 30 ) then {
     DrawImage(X, Y, blank);
     Y := Y - 1;
@@ -296,7 +296,7 @@ procedure GO_UP_RIGHT();
   };
 return;
 end
-procedure GO_UP_LEFT();
+procedure GO_UP_LEFT()
   if ( angle = 30 ) then {
     DrawImage(X, Y, blank);
     Y := Y - 1;
@@ -344,7 +344,7 @@ procedure GO_UP_LEFT();
   };
 return;
 end
-procedure GO_DOWN_RIGHT();
+procedure GO_DOWN_RIGHT()
   if ( angle = 30 ) then {
     DrawImage(X, Y, blank);
     Y := Y + 1;
@@ -392,7 +392,7 @@ procedure GO_DOWN_RIGHT();
   };
 return;
 end
-procedure GO_DOWN_LEFT();
+procedure GO_DOWN_LEFT()
   if ( angle = 30 ) then {
     DrawImage(X, Y, blank);
     Y := Y + 1;
@@ -446,7 +446,7 @@ end
 #this draws the play fields according to what the levels
 #are defined as
 
-procedure create_blocks();
+procedure create_blocks()
   local x, y, z;
 
   if ( level > 9 ) then {
@@ -523,7 +523,7 @@ end
 #the sphere's direction accordingly
 #it also checks if level is finished
 
-procedure block_check();
+procedure block_check()
   local x, y, z, temp, temp2;
   z := 1;
   y := 10;
@@ -694,7 +694,7 @@ end
 #will draw a white sphere over the old sphere, this fixes blocks
 #periodically by being called every block hit in the 4 move sphere procedures
 
-procedure fix_blocks();
+procedure fix_blocks()
   local x, y, z;
 
   z := 1;

@@ -71,7 +71,7 @@ $define DensityMax	100
 $define SliderMax	10.0		# shared knowledge
 $define SliderMin	1.0
 
-procedure main();
+procedure main()
 
    init();
 
@@ -79,7 +79,7 @@ procedure main();
 
 end
 
-procedure init();
+procedure init()
    local s;
 
    randomize();
@@ -123,7 +123,7 @@ procedure init();
 
 end
 
-procedure kaleidoscope();
+procedure kaleidoscope()
 
    #  Each time through this loop, the display is cleared and a
    #  new drawing is started.
@@ -154,7 +154,7 @@ procedure kaleidoscope();
 
 end
 
-procedure putcircle();
+procedure putcircle()
    local off1, off2, radius, color;
 
    # get a random center point and radius
@@ -174,7 +174,7 @@ procedure putcircle();
 
 end
 
-procedure clrcircle();
+procedure clrcircle()
    local circle;
 
    circle := get(draw_list);
@@ -190,7 +190,7 @@ procedure clrcircle();
 
 end
 
-procedure outcircle(off1, off2, radius, color);
+procedure outcircle(off1, off2, radius, color)
 
    Fg(pane, color);
 
@@ -209,7 +209,7 @@ procedure outcircle(off1, off2, radius, color);
 
 end
 
-procedure density_cb(vidget, value);
+procedure density_cb(vidget, value)
 
    density := (value / SliderMax) * DensityMax;
    density <:= 1;
@@ -218,7 +218,7 @@ procedure density_cb(vidget, value);
 
 end
 
-procedure delay_cb(vidget, value);
+procedure delay_cb(vidget, value)
 
    delay := value * DelayFactor;
 
@@ -226,7 +226,7 @@ procedure delay_cb(vidget, value);
 
 end
 
-procedure file_cb(vidget, value);
+procedure file_cb(vidget, value)
 
    case value[1] of {
       "snapshot @S":  snapshot(pane, -half, -half, size, size);
@@ -237,7 +237,7 @@ procedure file_cb(vidget, value);
 
 end
 
-procedure max_radius_cb(vidget, value);
+procedure max_radius_cb(vidget, value)
 
    max_radius := value;
 
@@ -252,7 +252,7 @@ procedure max_radius_cb(vidget, value);
 
 end
 
-procedure min_radius_cb(vidget, value);
+procedure min_radius_cb(vidget, value)
 
    min_radius := value;
 
@@ -267,7 +267,7 @@ procedure min_radius_cb(vidget, value);
 
 end
 
-procedure reset_cb(vidget, value);
+procedure reset_cb(vidget, value)
 
    reset := 1;
 
@@ -275,7 +275,7 @@ procedure reset_cb(vidget, value);
 
 end
 
-procedure shape_cb(vidget, value);
+procedure shape_cb(vidget, value)
 
    draw_proc := case value of {
      "discs":  FillCircle;
@@ -288,7 +288,7 @@ procedure shape_cb(vidget, value);
 
 end
 
-procedure shortcuts(e);
+procedure shortcuts(e)
 
    if &meta then
       case map(e) of {			# fold case
@@ -301,11 +301,11 @@ procedure shortcuts(e);
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=600,455", "bg=pale gray", "label=kaleido"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,600,455:kaleido",],
    ["delay:Slider:h:1:42,120,100,15:1.0,0.0,0.5",delay_cb],

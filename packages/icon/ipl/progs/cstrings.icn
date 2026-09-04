@@ -18,7 +18,7 @@
 #  files.
 #
 
-procedure main(arg);
+procedure main(arg)
    local c,f,fn,line,lineNbr,s;
    if *arg = 0 then stop("Usage: cstrings file...");
    every fn := !arg do {

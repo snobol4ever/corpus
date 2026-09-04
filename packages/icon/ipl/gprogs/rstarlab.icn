@@ -55,7 +55,7 @@ link rstartbl
 
 global size
 
-procedure main(argl);
+procedure main(argl)
 
    size := integer(argl[1]) | 600;
 

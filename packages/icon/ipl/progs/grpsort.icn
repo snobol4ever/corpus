@@ -76,7 +76,7 @@ link usage
 
 global lcount, linelst, ordflag
 
-procedure main(args);
+procedure main(args)
    local division, keytable, keylist, line, info, nexthdr, null;
    linelst := [];
    keytable := table();
@@ -130,7 +130,7 @@ procedure main(args);
 end
 
 # enter - enter the group info into the sort key table
-procedure enter(info,tbl);
+procedure enter(info,tbl)
    if /tbl[info[1]] then		# new key value
       tbl[info[1]] := [info[2]]
    else
@@ -138,7 +138,7 @@ procedure enter(info,tbl);
 end
 
 # eorec - suceed if a delimiter string has been found, fail otherwise
-procedure eorec(div,str);
+procedure eorec(div,str)
    if div == "" then			# If delimiter string is empty,
       if str == div then return	# then make exact match
       else
@@ -149,7 +149,7 @@ procedure eorec(div,str);
 end
 
 # getline - get the next line (or fail), trim off trailing tabs and blanks.
-procedure getline();
+procedure getline()
    local line;
    static trimset;
    initial trimset := ' \t';
@@ -162,7 +162,7 @@ procedure getline();
 end
 
 # lmany - skip over many lines matching string div.
-procedure lmany(div);
+procedure lmany(div)
    local line;
    while line := getline() do {
       if eorec(div,line) then next;	#skip over multiple dividing lines
@@ -171,7 +171,7 @@ procedure lmany(div);
 end
 
 # printord - print only the selection order of the records.
-procedure printord(slist);
+procedure printord(slist)
    local x, y;
    every x := !slist do
       every y := !x[2] do
@@ -179,7 +179,7 @@ procedure printord(slist);
 end
 
 # printrecs - write the records in sorted order, separated by div string.
-procedure printrecs(slist,div);
+procedure printrecs(slist,div)
    local x, y, z;
    every x := !slist do 
       every y := !x[2] do {

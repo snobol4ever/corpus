@@ -23,7 +23,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
    local input, old, new;
 
    input := open("ls", "p");

@@ -25,7 +25,7 @@
 
 link stripcom
 
-procedure main();
+procedure main()
    local line, nextline;
 
    while line := read() do {

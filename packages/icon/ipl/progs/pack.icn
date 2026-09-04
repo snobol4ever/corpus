@@ -28,7 +28,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local in, name;
 
    every name := !args do {

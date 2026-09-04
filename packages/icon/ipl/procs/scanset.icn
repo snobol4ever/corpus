@@ -58,7 +58,7 @@ record scan_setup_result(
    ss,		# substring to be scanned
    offset)	# length of substring preceding ss
 
-procedure scan_setup(s,i1,i2);
+procedure scan_setup(s,i1,i2)
    if /s := &subject then
       /i1 := &pos
    else

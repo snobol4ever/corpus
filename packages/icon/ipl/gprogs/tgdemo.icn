@@ -52,7 +52,7 @@ link graphics
 global msec	# delay between drawing actions
 global event	# interrupting event, if any
 
-procedure main(args);
+procedure main(args)
    local opts, dlist, p, e;
 
    opts := options(args, winoptions());
@@ -83,7 +83,7 @@ end
 
 #  run(p) -- execute procedure p after resetting screen environment
 
-procedure run(p);
+procedure run(p)
    TReset();
    return p();
 end
@@ -94,7 +94,7 @@ end
 #  The global "event" is set to the interrupting event and can be checked
 #  to exit from recursive calls.
 
-procedure continue();
+procedure continue()
    local evlist;
 
    event := &null;
@@ -112,7 +112,7 @@ end
 
 #  setdelay(e) -- handle delay-setting event, or fail
 
-procedure setdelay(e);
+procedure setdelay(e)
    while e === "0" do		# 0 is pause -- wait until anything else input
       e := Event();
    if type(e) == "string" & *e = 1 & (e ? any(&digits)) then {
@@ -191,7 +191,7 @@ procedure spiral();				# polygon spiral
 end
 
 
-procedure tile();
+procedure tile()
    local i, j, n, x0, y0, x, y, dx, dy, f;
 
    n := 5;
@@ -219,7 +219,7 @@ procedure tile();
 end
 
 
-procedure radial();
+procedure radial()
    local f, i, j, nrings, rwidth, fwd, circ, nfig, da;
 
    f := mkfig(?8);
@@ -242,7 +242,7 @@ procedure radial();
 end
 
 
-procedure mkfig(nseg);
+procedure mkfig(nseg)
    local f;
    f := [];
    every 1 to nseg do {
@@ -252,7 +252,7 @@ procedure mkfig(nseg);
    return f;
 end
 
-procedure putfig(f);
+procedure putfig(f)
    local i;
    TSave();
    every i := 1 to *f by 2 do {

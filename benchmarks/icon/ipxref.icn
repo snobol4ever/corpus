@@ -59,7 +59,7 @@ global inmaxcol, inlmarg, inchunk, localvar, lin
 
 record procrec(pname,begline,lastline)
 
-procedure main(args);
+procedure main(args)
 
    local word, w2, p, prec, i, L, ln, switches, nfile;
 
@@ -150,7 +150,7 @@ procedure main(args);
 
 end
 
-procedure addword(word,proc,lineno);
+procedure addword(word,proc,lineno)
    if any(letters,word) | \xflag then {
       /var[word] := table();
       if /var[word]["global"] | (word == !\localvar) then {
@@ -164,7 +164,7 @@ procedure addword(word,proc,lineno);
       };
 end
 
-procedure getword();
+procedure getword()
    local j, c;
    static i, nonwhite;
    initial nonwhite := ~' \t\n';
@@ -210,7 +210,7 @@ procedure getword();
    }; # repeat
 end
 
-procedure format(T);
+procedure format(T)
    local V, block, n, L, lin, maxcol, lmargin, chunk, col;
    initial {
       maxcol := \inmaxcol | 80;

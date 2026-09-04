@@ -31,7 +31,7 @@
 link eval
 link options
 
-procedure main(args);
+procedure main(args)
    local expr, opts, limit;
 
    opts := options(args, "l+");

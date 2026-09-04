@@ -24,7 +24,7 @@
 #
 ############################################################################
 
-procedure main(arg);
+procedure main(arg)
    local c, comment, line, parenLevel, suffix, tline;
 
    parenLevel := 0;
@@ -89,7 +89,7 @@ procedure main(arg);
 end
 
 
-procedure Out(line,comment);
+procedure Out(line,comment)
    line ||:= "/*" || ("" ~== \comment) || " */";
    line := trim(line,' \t');
    write(line);

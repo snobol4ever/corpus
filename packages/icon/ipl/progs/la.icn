@@ -28,7 +28,7 @@
 
 link lrgapprx
 
-procedure main();
+procedure main()
 
    while write(lrgapprx(read()));
 

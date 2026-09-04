@@ -2,7 +2,7 @@
 #     Original: Gregg Townsend & Todd Proebsting, Arizona. See COPYRIGHT in this dir.
 #  optimize.icn -- intermediate representation optimizer routines.
 
-procedure optim_optimize(t, start);
+procedure optim_optimize(t, start)
     local new, i;
 
     new := t;
@@ -12,7 +12,7 @@ procedure optim_optimize(t, start);
     return new;
 end
 
-procedure optim_dead_assignment(t, start);
+procedure optim_dead_assignment(t, start)
     local k, chunk, new, c, i;
 
     new := table();
@@ -35,7 +35,7 @@ procedure optim_dead_assignment(t, start);
     return new;
 end
 
-procedure optim_copy_propagation(t, start);
+procedure optim_copy_propagation(t, start)
     local rename, uses, defs, chunk, insn, newchunk, changes;
     local k, i;
 
@@ -74,7 +74,7 @@ procedure optim_copy_propagation(t, start);
     return t;
 end
 
-procedure optim_def_use(p, uses, defs);
+procedure optim_def_use(p, uses, defs)
     case type(p) of {
     "ir_Field" : { defs[\p.lhs] +:= 1;
 	    uses[p.expr] +:= 1
@@ -156,14 +156,14 @@ procedure optim_def_use(p, uses, defs);
     };
 end
 
-procedure optim_rename(p, rename);
+procedure optim_rename(p, rename)
     while member(rename, p) do {
 	p := rename[p]
     };
     return p;
 end
 
-procedure optim_rewrite(p, rename);
+procedure optim_rewrite(p, rename)
     local i;
 
     case type(p) of {
@@ -222,7 +222,7 @@ procedure optim_rewrite(p, rename);
     return p;
 end
 
-procedure optim_goto_elimination(t, start);
+procedure optim_goto_elimination(t, start)
     local new, i;
 
     new := table();
@@ -238,7 +238,7 @@ procedure optim_goto_elimination(t, start);
     return new;
 end
 
-procedure optim_fallthrough(new);
+procedure optim_fallthrough(new)
     local lab, insn, chunk, refcount;
 
     refcount := optim_refcount(new);
@@ -256,7 +256,7 @@ procedure optim_fallthrough(new);
     };
 end
 
-procedure optim_refcount(t);
+procedure optim_refcount(t)
     local refcount;
 
     refcount := table(0);
@@ -265,7 +265,7 @@ procedure optim_refcount(t);
 end
 
 
-procedure optim_goto_chain(lab, t);
+procedure optim_goto_chain(lab, t)
     local chunk, seen;
 
     seen := set([]);
@@ -278,7 +278,7 @@ procedure optim_goto_chain(lab, t);
     return lab;
 end
 
-procedure optim_goto_chain_defer(lab, t);
+procedure optim_goto_chain_defer(lab, t)
     local chunk, seen;
 
     seen := set([]);
@@ -292,7 +292,7 @@ procedure optim_goto_chain_defer(lab, t);
     return lab;
 end
 
-procedure optim_goto_transitive(t, new, lab);
+procedure optim_goto_transitive(t, new, lab)
     local p;
 
     if /t[lab] | \new[lab] then {
@@ -366,7 +366,7 @@ procedure optim_goto_transitive(t, new, lab);
     };
 end
 
-procedure optim_refcountX(refcount, p);
+procedure optim_refcountX(refcount, p)
     case type(p) of {
     "ir_CoFail" |
     "ir_Unreachable" |
@@ -431,7 +431,7 @@ procedure optim_refcountX(refcount, p);
     };
 end
 
-procedure optim_test_elimination(t, start);
+procedure optim_test_elimination(t, start)
 	local chunk;
 
 	every chunk := !t &
@@ -442,7 +442,7 @@ procedure optim_test_elimination(t, start);
 	};
 end
 
-procedure optim(irgen, flagList);
+procedure optim(irgen, flagList)
     local p, T, L, i;
 
     while p := @irgen do {

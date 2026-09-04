@@ -47,7 +47,7 @@
 
 link convert
 
-procedure pack(num,width);     
+procedure pack(num,width)     
 
     local int, sign, prep, packed, word;
 
@@ -77,7 +77,7 @@ end
 
 
 
-procedure unpack(val,width);   
+procedure unpack(val,width)   
 
     # THIS PROCEDURE UNPACKS A VALUE INTO A STRING-INTEGER. USING THIS
     # CODE SEGMENT REQUIRES LINKING WITH RADCON FROM THE IPL.
@@ -107,7 +107,7 @@ end
 
 
 
-procedure unpack2(val);
+procedure unpack2(val)
 
     # THIS PROCEDURE UNPACKS A VALUE INTO AN STRING-INTEGER.
     # Note:  Unpack2 assumes that pack is not recording positive

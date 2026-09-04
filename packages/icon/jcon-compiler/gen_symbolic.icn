@@ -4,30 +4,30 @@
 
 global symbolic_emit_table
 
-procedure symbolic_emit(label, code);
+procedure symbolic_emit(label, code)
     symbolic_emit_table[label] := code;
 end
 
-procedure symbolic_invocables(all, L);
+procedure symbolic_invocables(all, L)
     writes("invocable");
     writes(\all & " all");
     every writes(" ", image(!L));
     write();
 end
 
-procedure symbolic_links(L);
+procedure symbolic_links(L)
     writes("link ");
     every writes(" ", !L);
     write();
 end
 
-procedure symbolic_records(name, fields, coord);
+procedure symbolic_records(name, fields, coord)
     writes("record ", name, "(");
     every writes(" ", !fields);
     write(")");
 end
 
-procedure symbolic_globals(L);
+procedure symbolic_globals(L)
     writes("global ");
     every writes(" ", !L);
     write();
@@ -56,7 +56,7 @@ procedure symbolic_function(name, params, accumulate, locals, statics, code,
     write("end ", name);
 end
 
-procedure symbolic_table(p, t);
+procedure symbolic_table(p, t)
     local lab, c;
 
     every lab := key(t) & c := t[lab] do {
@@ -65,7 +65,7 @@ procedure symbolic_table(p, t);
     };
 end
 
-procedure symbolic_File(irgen, flagList);
+procedure symbolic_File(irgen, flagList)
     local p;
 
     while p := @irgen do {

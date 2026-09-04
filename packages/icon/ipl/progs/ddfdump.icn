@@ -37,7 +37,7 @@ $define ShowUnitSep "\xA7"	# show unit separator as section mark
 
 
 
-procedure main(args);
+procedure main(args)
    local f, nbytes;
 
    if *args > 0 then
@@ -47,7 +47,7 @@ procedure main(args);
 
 end
 
-procedure dofile(fname);
+procedure dofile(fname)
    local f, dda, d, e, s;
 
    write("\n", \fname, ":");
@@ -79,7 +79,7 @@ procedure dofile(fname);
    ddfclose(f);
 end
 
-procedure img(s, n);
+procedure img(s, n)
    static s1, s2;
    initial {
       s1 := s2 := string(&cset);

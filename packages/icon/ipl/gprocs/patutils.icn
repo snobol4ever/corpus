@@ -63,7 +63,7 @@ record tdim(w, h)
 #  Draw a tile at a given location.  If mode is nonnull, the
 #  area on which the tile is drawn is erased.
 
-procedure DrawTile(win, xoff, yoff, pattern, magnif, mode);
+procedure DrawTile(win, xoff, yoff, pattern, magnif, mode)
    local x, y, row, pixel, dims, arglist;
 
    if type(win) ~== "window" then {
@@ -109,7 +109,7 @@ end
 #  Draw rows at a given location.  If mode is nonnull, the
 #  area on which the tile is drawn is erased.
 
-procedure DrawRows(win, xoff, yoff, rows, magnif, mode);
+procedure DrawRows(win, xoff, yoff, rows, magnif, mode)
    local x, y, row, pixel, arglist;
 
    if type(win) ~== "window" then {
@@ -153,7 +153,7 @@ end
 #
 #  Convert bit string to hex pattern string
 
-procedure bits2hex(s);
+procedure bits2hex(s)
    static bittab;
    local hex;
 
@@ -191,7 +191,7 @@ end
 #
 #  Convert pattern specification to decimal form
 
-procedure decspec(pattern);
+procedure decspec(pattern)
    local cols, chunk, dec;
 
    pattern ? {
@@ -223,7 +223,7 @@ end
 #  Get pattern from line.  It trims off leading and trailing whitespace
 #  and removes any annotation (beginning with a # after the first whitespace
 
-procedure getpatt(line);
+procedure getpatt(line)
 
    line ? {
       tab(many(' \t'));
@@ -236,7 +236,7 @@ end
 #  Get pattern annotation.  It returns an empty string if there is
 #  no annotation.
 
-procedure getpattnote(line);
+procedure getpattnote(line)
 
    line ? {
       tab(many(' \t'));  # remove leading whitespace
@@ -250,7 +250,7 @@ end
 
 #  Convert hexadecimal string to bits
 
-procedure hex2bits(s);
+procedure hex2bits(s)
    static hextab;
    local bits;
 
@@ -287,7 +287,7 @@ end
 #
 #  Convert pattern to hexadecimal form
 
-procedure hexspec(pattern);
+procedure hexspec(pattern)
    local cols, chunk, hex;
 
    pattern ? {
@@ -308,7 +308,7 @@ end
 #  Succeed if tile is legal and small enough for (X) pattern.  Other
 #  windows systems may be more restrictive.
 
-procedure legalpat(tile);
+procedure legalpat(tile)
 
    if not legaltile(tile) then fail;
 
@@ -323,7 +323,7 @@ end
 #  Succeed if tile is legal.  Accepts tiles that are too big for
 #  patterns.
 
-procedure legaltile(tile);
+procedure legaltile(tile)
 
    map(tile) ? {				# first check syntax
       (tab(many(&digits)) & =",") | fail;
@@ -344,7 +344,7 @@ end
 #
 #  Convert pattern specification to an XBM image file.
 
-procedure pat2xbm(pattern, name);
+procedure pat2xbm(pattern, name)
    local dims, chunk, row;
 
    /name := "noname";
@@ -377,7 +377,7 @@ end
 #
 #  Count the number of bits set in a tile
 
-procedure tilebits(rows);
+procedure tilebits(rows)
    local bits;
 
    bits := 0;
@@ -391,7 +391,7 @@ end
 #
 #  Compute density (percentage of black bits) of pattern
 
-procedure pdensity(pattern);
+procedure pdensity(pattern)
 
    local dark, dims;
 
@@ -411,7 +411,7 @@ end
 #
 #  Procedure to produce pattern specification from a square section of a window.
 
-procedure pix2pat(window, x, y, cols, rows);
+procedure pix2pat(window, x, y, cols, rows)
    local c, j, tile, pattern, pixels, y0;
 
    pattern := "";
@@ -434,7 +434,7 @@ end
 #  empty lines, and trims off any trailing characters after the
 #  first whitespace of a pattern.
 
-procedure readpatt(input);
+procedure readpatt(input)
    local line;
 
    while line := read(input) do
@@ -452,7 +452,7 @@ end
 #  does not trim off any trailing characters after the first whitespace of
 #  a pattern.
 
-procedure readpattline(input);
+procedure readpattline(input)
    local line;
 
    while line := read(input) do
@@ -469,7 +469,7 @@ end
 #  Generate rows of bits in a pattern.  Doesn't work correctly for small
 #  patterns.  (Why?)
 
-procedure rowbits(pattern);
+procedure rowbits(pattern)
    local row, dims, chunk, hex;
 
    dims := tiledim(pattern);
@@ -489,7 +489,7 @@ end
 #
 #  Produce a list of the rows of a pattern
 
-procedure pat2rows(pattern);
+procedure pat2rows(pattern)
    local rlist;
 
    rlist := [];
@@ -503,7 +503,7 @@ end
 #
 #  Convert row list to pattern specification
 
-procedure rows2pat(rlist);
+procedure rows2pat(rlist)
    local pattern;
 
    pattern := *rlist[1] || ",#";
@@ -516,7 +516,7 @@ end
 
 #  Show bits of a pattern
 
-procedure showbits(pattern);
+procedure showbits(pattern)
 
    every write(rowbits(pattern));
 
@@ -530,7 +530,7 @@ end
 #
 #  Produce dimensions of the tile for a pattern
 
-procedure tiledim(pattern);
+procedure tiledim(pattern)
    local cols;
 
    hexspec(pattern) ? {
@@ -544,7 +544,7 @@ end
 #
 #  Generate rows of bits from an XBM file
 
-procedure xbm2rows(input);
+procedure xbm2rows(input)
    local image, bits, row, hex, width, height, chunks;
 
    image := "";

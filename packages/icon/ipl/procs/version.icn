@@ -20,7 +20,7 @@
 #
 ############################################################################
 
-procedure version();
+procedure version()
 
    &version ? {
       tab(find("Version ") + 8) | fail;

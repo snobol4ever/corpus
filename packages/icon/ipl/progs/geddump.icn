@@ -37,7 +37,7 @@ record person(n, k, r)	# number, sort key, gedrec node
 global ptab		# person number table, indexed by gedrec node
 
 
-procedure main(args);
+procedure main(args)
    local f, g, i, n, p, r, plist, fam, husb, sp, b, d, byr, dyr;
 
    if *args > 0 then
@@ -101,7 +101,7 @@ procedure main(args);
       };
 end
 
-procedure event(label, r);
+procedure event(label, r)
    local date, place;
 
    date := ("" ~== geddate(r));
@@ -113,11 +113,11 @@ procedure event(label, r);
    return;
 end
 
-procedure refto(label, r);
+procedure refto(label, r)
    write("   ", label, " [", ptab[r].n, "] ", gedfnf(r));
    return;
 end
 
-procedure sortkey(r);
+procedure sortkey(r)
    return map(gedlnf(r));
 end

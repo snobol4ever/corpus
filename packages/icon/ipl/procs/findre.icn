@@ -183,7 +183,7 @@ global biggest_nonmeta_str, __endpoint
 record o_a_s(op,arg,state)
 
 
-procedure findre(re, s, i, j);
+procedure findre(re, s, i, j)
 
     local p, default_val, x, nonmeta_len, tokenized_re, tmp;
     static FSTN_table, STRING_table;
@@ -271,7 +271,7 @@ end
 
 
 
-procedure apply_FSTN(ini,tbl);
+procedure apply_FSTN(ini,tbl)
 
     local biggest_pos, POS, tmp, fin;
     static s_tbl;
@@ -298,7 +298,7 @@ end
     
 
 
-procedure tokenize(s);
+procedure tokenize(s)
 
     local token_list, chr, tmp, b_loc, next_one, fixed_length_token_list, i;
 
@@ -371,7 +371,7 @@ end
 
 
 
-procedure UnMetaBrackets(l);
+procedure UnMetaBrackets(l)
 
     # Since brackets delineate a cset, it doesn't make
     # any sense to have metacharacters inside of them.
@@ -399,7 +399,7 @@ end
 
 
 
-procedure MakeFSTN(l,INI,FIN);
+procedure MakeFSTN(l,INI,FIN)
 
     # MakeFSTN recursively descends through the tree structure
     # implied by the tokenized string, l, recording in (global)
@@ -623,7 +623,7 @@ end
 
 
 
-procedure NextState(new);
+procedure NextState(new)
     static nextstate;
     if \new then nextstate := 1
     else nextstate +:= 1;
@@ -632,7 +632,7 @@ end
 
 
 
-procedure err_out(x,i,elem);
+procedure err_out(x,i,elem)
     writes(&errout,"Error number ",i," parsing ",image(x)," at ");
     if \elem 
     then write(&errout,image(elem),".")
@@ -642,13 +642,13 @@ end
 
 
 
-procedure zSucceed();
+procedure zSucceed()
     return .&pos;
 end
 
 
 
-procedure Expand(s);
+procedure Expand(s)
 
     local s2, c1, c2;
 
@@ -671,7 +671,7 @@ end
 
 
 
-procedure tab_bal(l,i1,i2);
+procedure tab_bal(l,i1,i2)
 
     local i, i1_count, i2_count;
 
@@ -689,7 +689,7 @@ procedure tab_bal(l,i1,i2);
 end
 
 
-procedure match_positive_ints(l);
+procedure match_positive_ints(l)
     
     # Matches the longest sequence of positive integers in l,
     # beginning at l[1], which neither contains, nor is fol-
@@ -709,7 +709,7 @@ procedure match_positive_ints(l);
 end
 
 
-procedure Ints2String(l);
+procedure Ints2String(l)
 
     local tmp;
 
@@ -720,7 +720,7 @@ procedure Ints2String(l);
 end
 
 
-procedure StripChar(s,s2);
+procedure StripChar(s,s2)
 
     local tmp;
 

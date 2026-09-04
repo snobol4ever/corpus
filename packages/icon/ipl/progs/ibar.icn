@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
    local bar, short_bar, line, notcom;
 
    bar := repl("#", 76);

@@ -30,7 +30,7 @@ link options
 
 $define MAXFILES 50
 
-procedure main(args);
+procedure main(args)
    local opts, maxfiles, f, line, mods, fname, files, text, s;
 
    opts := options(args, "n+");
@@ -101,7 +101,7 @@ end
 #  same(text1,text2) -- succeed if two mods are "the same",
 #  meaning that have identical nontrivial log messages
 
-procedure same(text1, text2);
+procedure same(text1, text2)
 
    if text1 ? find("*** empty log message ***") then
       fail

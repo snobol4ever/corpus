@@ -29,7 +29,7 @@
 
 link evplay
 
-procedure Event(win);
+procedure Event(win)
    static Event_;
 
    initial {

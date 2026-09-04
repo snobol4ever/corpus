@@ -31,7 +31,7 @@
 #
 ############################################################################
 
-procedure Usage(n);
+procedure Usage(n)
    write(&errout,
       "igrep -- emulates UNIX egrep\n_
       Usage: igrep -Options [expression] filename..._
@@ -54,7 +54,7 @@ end
 
 link options,regexp
 
-procedure main(arg);
+procedure main(arg)
    local compiledPattern;
    if *arg = 0 then Usage();
    Options(arg);
@@ -67,7 +67,7 @@ end
 global CountOnly,NoNames,NamesOnly,NumberLines,Out,Invert,Escapes,
       Pattern,PatternFile,Dump,Re_LeftmostShortest
 
-procedure Options(arg);
+procedure Options(arg)
    local opt;
    opt := options(arg,"chilnsve:E:f:DS");
    CountOnly := opt["c"];
@@ -85,7 +85,7 @@ procedure Options(arg);
    return opt;
 end
 
-procedure GetPattern(arg);
+procedure GetPattern(arg)
    local f,sep;
    if \PatternFile then {
       f := open(PatternFile) |
@@ -99,7 +99,7 @@ procedure GetPattern(arg);
    return RePat(if \Escapes then istring(Pattern) else Pattern);
 end
 
-procedure ScanFiles(arg,pattern);
+procedure ScanFiles(arg,pattern)
    local errors,totalCount,fn,f,header,lineNbr,count,line,fLine,status,
          lineNbrTag;
    totalCount := 0;
@@ -139,7 +139,7 @@ end
 #  characters.
 #
 
-procedure istring(s);
+procedure istring(s)
   local r,c;
   r := "";
   s ? {
@@ -171,7 +171,7 @@ procedure istring(s);
   return r;
 end
 
-procedure istring_radix(r,max);
+procedure istring_radix(r,max)
   local n,d,i,c;
   d := "0123456789abcdef"[1:r + 1];
   n := 0;

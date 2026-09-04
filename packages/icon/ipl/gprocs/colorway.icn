@@ -118,7 +118,7 @@ $define Pad	10		# name padding
 $define Lheight	30		# line height
 $define Cwidth 100		# color width
 
-procedure cw_init();
+procedure cw_init()
    local atts;
 
    atts := ui_atts();
@@ -138,7 +138,7 @@ procedure cw_init();
 
 end
 
-procedure edit_cw();
+procedure edit_cw()
    local name;
 
    expose(cw_win);
@@ -184,7 +184,7 @@ procedure edit_cw();
 
 end
 
-procedure control_mode();
+procedure control_mode()
 
    VSetState(cw_active_vidget, &null);
 
@@ -194,7 +194,7 @@ procedure control_mode();
 
 end
 
-procedure active_cb(vidget, value);
+procedure active_cb(vidget, value)
 
    cw_active := value;
 
@@ -202,7 +202,7 @@ procedure active_cb(vidget, value);
 
 end
 
-procedure way_cb(vidget, value);
+procedure way_cb(vidget, value)
 
    case value[1] of {
       "add     @A":   add_way();
@@ -213,7 +213,7 @@ procedure way_cb(vidget, value);
 
 end
 
-procedure file_cb(vidget, value);
+procedure file_cb(vidget, value)
 
    case value[1] of {
       "load  @L":   load_cw();
@@ -228,7 +228,7 @@ procedure file_cb(vidget, value);
 
 end
 
-procedure shortcuts(e);
+procedure shortcuts(e)
 
    if &meta then case map(e) of {
       "a":   add_way();
@@ -245,7 +245,7 @@ procedure shortcuts(e);
 
 end
 
-procedure add_way();
+procedure add_way()
    local name;
 
    repeat {
@@ -268,7 +268,7 @@ end
 
 #  NOTE:  Got error in line comparing dialog_value[i]:  &null.
 
-procedure delete_way();
+procedure delete_way()
    local i, x, count;
 
    if ToggleDialog("Delete ways:", cw_names) == "Cancel" then fail;
@@ -288,7 +288,7 @@ procedure delete_way();
 
 end
  
-procedure load_cw();
+procedure load_cw()
    local input, x;
 
    repeat {
@@ -314,7 +314,7 @@ procedure load_cw();
 end
 
 
-procedure win_cw();
+procedure win_cw()
    local y, name, height;
 
    WClose(\cw_win);
@@ -350,7 +350,7 @@ procedure win_cw();
 
 end
 
-procedure new_cw();
+procedure new_cw()
 
    if /cw_touched then {
 	# ask if colorway is to be saved first
@@ -364,7 +364,7 @@ procedure new_cw();
 
 end
 
-procedure save_cw();
+procedure save_cw()
    local output;
 
    repeat {
@@ -382,7 +382,7 @@ procedure save_cw();
 
 end
 
-procedure save_cw_as();
+procedure save_cw_as()
    local output, temp;
 
    repeat {
@@ -405,7 +405,7 @@ procedure save_cw_as();
 
 end
 
-procedure quit();
+procedure quit()
 
    if \cw_touched then {
 				# ask for save if touched
@@ -417,7 +417,7 @@ end
 
 #  Utility procedure to let user pick an image file in the current directory.
 
-procedure pick();
+procedure pick()
    local plist, ls, input, x;
 
    plist := filelist("*.cw") |
@@ -451,11 +451,11 @@ procedure pick();
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=134,169", "bg=gray-white"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,134,169:",],
    ["active:Button:regular:1:17,38,49,20:edit",active_cb],

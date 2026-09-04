@@ -31,7 +31,7 @@
 link lists
 link wopen
 
-procedure main(args);
+procedure main(args)
    local colors, width, height, x, y, c;
 
    WOpen("image=" || args[1]) | stop("*** cannot open image");

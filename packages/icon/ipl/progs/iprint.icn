@@ -94,7 +94,7 @@ global pagelines,tabsize,lines,page,datetime,title,subtitle,pagestatus,blanks,
 	group,numbers,noheaders,hstuff,gpat,comment,comment_end,laser,
 	ignore_ff
 
-procedure main(arg);
+procedure main(arg)
   local files,x;
   &dateline ? {tab(find(",")) ; move(2) ; datetime := tab(0)};
   files := [];
@@ -148,7 +148,7 @@ procedure main(arg);
   every x := !files do expand(x);
 end
 
-procedure expand(fn);
+procedure expand(fn)
   local f,line,cmd,linenbr,fname;
   f := open(fn) | stop("Can't open ",fn);
   fn ? {
@@ -196,7 +196,7 @@ procedure expand(fn);
   lines := pagelines;
 end
 
-procedure dumpgroup();
+procedure dumpgroup()
   local line,linenbr;
   if *group > 0 then {
     if lines + *group / ((\numbers & 2) | 1) + 2 >= pagelines then
@@ -222,11 +222,11 @@ procedure dumpgroup();
   return;
 end
 
-procedure endgroup(s);
+procedure endgroup(s)
   return match("" ~== gpat,s);
 end
 
-procedure printhead();
+procedure printhead()
   static ff,pg;
   writes(ff) ; ff := "\f";
   lines := 0;
@@ -243,7 +243,7 @@ procedure printhead();
   return;
 end
 
-procedure detab(s);
+procedure detab(s)
   local t;
   t := "";
   s ? {

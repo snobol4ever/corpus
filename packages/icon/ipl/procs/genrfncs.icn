@@ -254,13 +254,13 @@ procedure cfseq(i, j);	#: continued-fraction sequence
 
 end
 
-procedure dietzseq(str);
+procedure dietzseq(str)
 
    suspend !poly2profile(peval(str));
 
 end
 
-procedure dressseq(i);
+procedure dressseq(i)
    local seq, seq1, n;
 
    /i := 1;

@@ -1,6 +1,6 @@
 global words, lines, writer
 
-procedure main();
+procedure main()
    if not(&features == "co-expressions") then
       stop("co-expressions not supported");
    &trace := -1;
@@ -11,7 +11,7 @@ procedure main();
    @writer;
 end
 
-procedure word();
+procedure word()
    static letters;
    initial letters := &lcase ++ &ucase;
    while line := @lines do
@@ -19,11 +19,11 @@ procedure word();
          tab(many(letters)) @ writer;
 end
 
-procedure reader();
+procedure reader()
    while read() @ words;
 end
 
-procedure output();
+procedure output()
    while write(&errout,@words);
    @&main;
 end

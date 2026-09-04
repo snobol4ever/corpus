@@ -69,7 +69,7 @@ global cyr,jyr,days_in_jyr,current_molad,current_day,infolist
 
 #------- the following sections of code have been modified  - RLG -------#
 
-procedure main(a);
+procedure main(a)
     local n, p;
 
     iputs(getval("ti"));
@@ -90,7 +90,7 @@ end
 
 
 
-procedure display_startup_screen();
+procedure display_startup_screen()
 
     local T;
 
@@ -106,7 +106,7 @@ end
 
 
 
-procedure banner(l[]);
+procedure banner(l[])
 
     # Creates a banner to begin hebcalen.  Leaves it on the screen for
     # about a second.
@@ -154,7 +154,7 @@ end
 
 
 
-procedure get_paths();
+procedure get_paths()
 
     local paths, p;
 
@@ -171,7 +171,7 @@ end
 
 
 
-procedure instructions(filename);
+procedure instructions(filename)
 
     # Gives user access to a help file which is printed out in chunks
     # by "more."
@@ -201,7 +201,7 @@ end
 
 
 
-procedure clear();
+procedure clear()
     local i;
 
     # Clears the screen.  Tries several methods.
@@ -221,7 +221,7 @@ end
 
 
 
-procedure initialize_list();
+procedure initialize_list()
 
     # Put info of hebcalen.dat into a global list
 
@@ -240,7 +240,7 @@ end
 
 
 
-procedure initialize_variables();
+procedure initialize_variables()
 
     # Get the closest previous year in the table.
 
@@ -274,7 +274,7 @@ end
 
 
 
-procedure initialize(yr);
+procedure initialize(yr)
 
     local year;
     static current_year;
@@ -328,7 +328,7 @@ end
 
 
 
-procedure get_current_year();
+procedure get_current_year()
     local c_date;
 
     &date ? c_date := tab(find("/"));
@@ -337,7 +337,7 @@ end
 
 
 
-procedure cleanup(str);
+procedure cleanup(str)
 
     # Tidy up the string. Bugs still possible.
 
@@ -359,7 +359,7 @@ end
 
 
 
-procedure Strip(s,c);
+procedure Strip(s,c)
     local s2;
 
     s2 := "";
@@ -374,7 +374,7 @@ end
 
 
 
-procedure checkstr(s);
+procedure checkstr(s)
 
     # Does preliminary work on string before cleanup() cleans it up.
 
@@ -390,7 +390,7 @@ end
 
 
 
-procedure process();
+procedure process()
     local ans, yj, n;
 
     # Extracts information about the specified year.
@@ -477,7 +477,7 @@ end
 
 
 
-procedure how_many_can_fit();
+procedure how_many_can_fit()
 
     local LINES, how_many;
 
@@ -490,7 +490,7 @@ end
 
 
 
-procedure cyr_augment();
+procedure cyr_augment()
 
     # Make civil year a year later, we only need consider Aug,Sep,Nov.
 
@@ -525,7 +525,7 @@ end
 
 
 
-procedure header();
+procedure header()
     local COLS;
 
     # Creates the header for Jewish and English side.  Bug:  This
@@ -569,7 +569,7 @@ end
 
 
 
-procedure write_a_month();
+procedure write_a_month()
 
     # Writes a month on the screen
 
@@ -593,7 +593,7 @@ end
 
 
 
-procedure status_line(a,b);
+procedure status_line(a,b)
 
     # Create the status line at the bottom of screen.
 
@@ -617,7 +617,7 @@ end
 
 
 
-procedure boldface();
+procedure boldface()
     
     static bold_str, cookie_str;
     initial {
@@ -637,7 +637,7 @@ end
 
 
 
-procedure normal();
+procedure normal()
 
     static UN_bold_str, cookie_str;
     initial {
@@ -660,7 +660,7 @@ end
 
 # Okay, okay a couple of things have been modified below, but nothing major.
 
-procedure make_a_line();
+procedure make_a_line()
 #make a single line of the months
 local line,blanks1,blanks2,start_point,end_point,flag,fm;
 static number_of_spaces;
@@ -702,7 +702,7 @@ initial number_of_spaces := getval("co")-55;
 return line;
 end
 
-procedure mth_table(n,p);
+procedure mth_table(n,p)
 #generates the short names of Jewish and Civil months. Get to civil side
 #by adding 13 (=max no of Jewish months)
 static corresp;
@@ -714,14 +714,14 @@ initial corresp := ["NIS","IYA","SIV","TAM","AV ","ELU","TIS","HES","KIS",
 return corresp[n];
 end
 
-procedure d_augment();
+procedure d_augment()
 #increment the day of the week
   current_day +:= 1;
   if current_day = 8 then current_day := 1;
 return;
 end
 
-procedure augment();
+procedure augment()
 #increments civil day, modifies month and year if necessary, stores in
 #global variable cyr
   if cyr.day < 28 then
@@ -751,19 +751,19 @@ procedure augment();
 return;
 end
 
-procedure is_31(n);
+procedure is_31(n)
 #civil months with 31 days
 return n = 1 | n = 3 | n = 5 | n = 7 | n = 8 | n = 10 | n = 12;
 end
 
-procedure isleap(n);
+procedure isleap(n)
 #checks for civil leap year
   if n > 0 then
 return (n % 400 = 0) | ((n % 4 = 0) & (n % 100 ~= 0)) else
 return (n % 400 = -1) | ((n % 4 = -1) & (n % 100 ~= -1));
 end
 
-procedure j_augment();
+procedure j_augment()
 #increments jewish day. months are numbered from nisan, adar sheni is 13.
 #procedure fails at elul to allow determination of type of new year
   if jyr.day < 29 then
@@ -779,12 +779,12 @@ procedure j_augment();
 return;
 end
 
-procedure always_29(n);
+procedure always_29(n)
 #uncomplicated jewish months with 29 days
 return n = 2 | n = 4 | n = 10;
 end
 
-procedure jyr_augment();
+procedure jyr_augment()
 #determines the current time of lunation, using the ancient babylonian unit
 #of 1/1080 of an hour. lunation of tishri determines type of year. allows
 #for leap year. halaqim = parts of the hour
@@ -810,7 +810,7 @@ local days, halaqim;
 return;
 end
 
-procedure establish_jyr();
+procedure establish_jyr()
 #establish the jewish year from get_rh
 local res;
   res := get_rh(current_molad.day,current_molad.halaqim,no_lunar_yr(jyr.yr));
@@ -819,37 +819,37 @@ local res;
 return;
 end    
 
-procedure isin1(i);
+procedure isin1(i)
 #the isin procedures are sets of years in the Metonic cycle
 return i = (1 | 4 | 7 | 9 | 12 | 15 | 18);
 end
 
-procedure isin2(i);
+procedure isin2(i)
 return i = (2 | 5 | 10 | 13 | 16);
 end
 
-procedure isin3(i);
+procedure isin3(i)
 return i = (3 | 6 | 8 | 11 | 14 | 17 | 0);
 end
 
-procedure isin4(i);
+procedure isin4(i)
 return i = (1 | 2 | 4 | 5 | 7 | 9 | 10 | 12 | 13 | 15 | 16 | 18);
 end
 
-procedure isin5(i);
+procedure isin5(i)
 return i = (1 | 4 | 9 | 12 | 15);
 end
 
-procedure isin6(i);
+procedure isin6(i)
 return i = (2 | 5 | 7 | 10 | 13 | 16 | 18);
 end
 
-procedure no_lunar_yr(i);
+procedure no_lunar_yr(i)
 #what year in the metonic cycle is it?
 return i % 19;
 end
 
-procedure get_rh(d,h,yr);
+procedure get_rh(d,h,yr)
 #this is the heart of the program. check the day of lunation of tishri
 #and determine where breakpoint is that sets the new moon day in parts
 #of the hour. return result in a list where 1 is day of rosh hashana and

@@ -54,7 +54,7 @@ record Vstd_text(draw_cursor, erase_cursor, draw_data, unblock, block,
 record Vtext_rec (win, s, callback, id, MaxChars, mask, data, uid,
    ax, ay, aw, ah, T, P, V)
 
-procedure Vtext(params[]);
+procedure Vtext(params[])
    local frame, x, y, ins, self;
    static procs, type;
 
@@ -91,7 +91,7 @@ end
 #
 #  Initialization
 #
-procedure init_Vtext(self);
+procedure init_Vtext(self)
    local p;
 
    /self.s := "";
@@ -134,7 +134,7 @@ end
 #
 #  Reconfigure the text vidget.
 #
-procedure resize_Vtext(s, x, y, w, h);
+procedure resize_Vtext(s, x, y, w, h)
    s.T.dx := TextWidth (s.win, s.s) + 6;
    s.T.DataLength := *s.data;
    s.T.MaxPixelSize := WAttrib(s.win, "fwidth") * s.MaxChars;
@@ -148,7 +148,7 @@ end
 #  the cursor if it was already on previous to calling this
 #  procedure (happens with dialog boxes and resize events).
 #
-procedure draw_Vtext(self);
+procedure draw_Vtext(self)
    local t;
 
    t := self.T.CursorOn;
@@ -162,7 +162,7 @@ end
 #
 #  Outline the data field.
 #
-procedure outline_Vtext(self);
+procedure outline_Vtext(self)
 
    BevelRectangle(self.win, self.ax+self.T.dx-4, self.ay,
                   self.aw-(self.T.dx-4), self.ah, -2);
@@ -171,7 +171,7 @@ end
 #
 #  Draw the prompt.
 #
-procedure draw_prompt_Vtext(self);
+procedure draw_prompt_Vtext(self)
    GotoXY(self.win, self.ax, self.ay+self.T.dy);
    writes(self.win, self.s);
    return;
@@ -181,7 +181,7 @@ end
 #  Since the cursor is drawn in "reverse" mode, erase it only if it
 #  is "on" upon entering this procedure.
 #
-procedure erase_cursor_Vtext(self);
+procedure erase_cursor_Vtext(self)
    local ocx, cy;
 
    if /self.T.CursorOn then fail;
@@ -199,7 +199,7 @@ end
 #
 #  Draw the cursor only if it was previously "off" at this location.
 #
-procedure draw_cursor_Vtext(self);
+procedure draw_cursor_Vtext(self)
    local ocx, cx, cy;
 
    if \self.T.CursorOn then fail;
@@ -217,7 +217,7 @@ end
 #
 #  De-block the data (reset ta and tb to CursorPos).
 #
-procedure unblock_Vtext(self);
+procedure unblock_Vtext(self)
    self.T.ta := self.T.CursorPos := self.T.tb;
    draw_data_Vtext(self);
 end
@@ -225,7 +225,7 @@ end
 #
 #  Block (select) all the data
 #
-procedure block_Vtext(self);
+procedure block_Vtext(self)
    self.T.ta := 1;
    self.T.tb := self.T.CursorPos := self.T.DataLength + 1;
    draw_data_Vtext(self);
@@ -237,7 +237,7 @@ end
 #  Draw the data, reversing that text that lies between ta and tb
 #  fields.
 #
-procedure draw_data_Vtext(self);
+procedure draw_data_Vtext(self)
 
 #   if self.T.ta = self.T.tb then return
    erase_cursor_Vtext(self);
@@ -266,7 +266,7 @@ end
 #  etcetera stuff.  Call callback if linefeed key or return key
 #  is pressed.
 #
-procedure event_Vtext(self, e, x, y);
+procedure event_Vtext(self, e, x, y)
    static ota;
    local otb, rv;
 
@@ -324,7 +324,7 @@ end
 
 #  Move the cursor one way or another, determine if at bounds.
 #
-procedure move_cursor_Vtext(self, increment);
+procedure move_cursor_Vtext(self, increment)
    local t;
 
    t := self.T.CursorPos + increment;
@@ -336,7 +336,7 @@ end
 #
 #  Blank out the whole data field.
 #
-procedure delete_line_Vtext(self);
+procedure delete_line_Vtext(self)
 
    self.data := "";
    self.T.DataLength := *self.data;
@@ -348,7 +348,7 @@ end
 #
 #  Get the character position based on mouse x coordinate.
 #
-procedure get_pos_Vtext(self, x);
+procedure get_pos_Vtext(self, x)
    local tp, c, i, j;
 
    c := 1;
@@ -368,7 +368,7 @@ end
 #
 #  Get pixel position in data field based on character position.
 #
-procedure get_pixel_pos_Vtext(self, CursorPos);
+procedure get_pixel_pos_Vtext(self, CursorPos)
    local sum, i;
 
    sum := 1;
@@ -380,7 +380,7 @@ end
 #  Insert a character; could replace blocked out text.  Check if
 #  insertion will go over bounds.
 #
-procedure insert_char_Vtext(self, c);
+procedure insert_char_Vtext(self, c)
 
    if *c > 1 then
       fail;				# this isn't a character
@@ -405,7 +405,7 @@ end
 #
 #  Replace a character at current position.
 #
-procedure change_data_Vtext(self, c);
+procedure change_data_Vtext(self, c)
    if self.T.tb < self.T.ta then {
       self.data := self.data[1:self.T.tb] || (\c | "") ||
                    self.data[self.T.ta:0];
@@ -421,7 +421,7 @@ end
 #
 #  Delete the character to the left of the cursor.
 #
-procedure delete_left_Vtext(self);
+procedure delete_left_Vtext(self)
    if self.T.ta ~= self.T.tb then {
       change_data_Vtext(self);
       self.T.DataPixelSize := TextWidth(self.win, self.data);
@@ -443,7 +443,7 @@ end
 #  Call callback if value if different from internal coupler's
 #  value.
 #
-procedure couplerset_Vtext(self, caller, value);
+procedure couplerset_Vtext(self, caller, value)
    local data;
 
    data := string(\value) | "";
@@ -473,7 +473,7 @@ end
 #
 #  Call couplerset to set value.
 #
-procedure set_value_Vtext(self, value);
+procedure set_value_Vtext(self, value)
    couplerset_Vtext(self, , value);
    return;
 end

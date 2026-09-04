@@ -37,7 +37,7 @@ global clits, ilits, rlits, slits
 global summary, globals, locals, statics, declarations, fields, files, parms
 global fldref
 
-procedure main(args);
+procedure main(args)
    local names, tables, i, file, input, count, line, tbl, opts, k, limit;
    local total, result;
 
@@ -115,7 +115,7 @@ end
 #  This procedure returns the first index in L whose corresponding element
 #  is x
 
-procedure index(L, x);
+procedure index(L, x)
    local i;
 
    every i := 1 to *L do

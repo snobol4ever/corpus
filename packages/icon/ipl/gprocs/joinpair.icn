@@ -30,7 +30,7 @@
 link gobject
 link turtle
 
-procedure joinpair(points1, points2);
+procedure joinpair(points1, points2)
    local j, k, p1, p2;
 
    every p1 := !points1 do

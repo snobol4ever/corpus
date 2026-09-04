@@ -60,7 +60,7 @@ global call			# name suffix and parens
 global goal			# nonterminal goal name
 global nchars			# characters allowed in a nonterminal name
 
-procedure main();
+procedure main()
    local line;			# a line of input
 
    call := "_()";
@@ -91,7 +91,7 @@ end
 #  Transform a production.
 #
 
-procedure transprod();
+procedure transprod()
    local sym;				# the symbol being defined
 
    {
@@ -111,7 +111,7 @@ end
 #
 #  Transform a sequence of alternatives.
 #
-procedure transalts();
+procedure transalts()
    local alt;				# an alternative
 
    writes("      ");  # write indentation
@@ -131,7 +131,7 @@ end
 #
 #  Transform a sequence of symbols.
 #
-procedure transseq();
+procedure transseq()
 
    repeat {
       transsym();  # process a symbols
@@ -144,7 +144,7 @@ end
 #
 #  Transform a symbol.
 #
-procedure transsym();
+procedure transsym()
 
    if ="<" then {			# if it's a nonterminal
       {					# write it with suffix.
@@ -162,7 +162,7 @@ end
 #
 #  Issue error message and terminate execution.
 #
-procedure error();
+procedure error()
 
    stop("*** malformed definition: ",tab(0));
 

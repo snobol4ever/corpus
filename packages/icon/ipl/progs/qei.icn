@@ -51,7 +51,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
    local a, tag, header, incfiles, prog, extras, showtype;
    local uselines, line, inline, src, files, w, f, Generate, sfile;
    local curexp, t, rc, sc;
@@ -200,7 +200,7 @@ $endif
 
 end
 
-procedure WriteWR(f);
+procedure WriteWR(f)
    write(f, "procedure WR(tag, e)");
    write(f, "writes(\"   \",tag, image(e))");
    write(f, "\twrite(if \\showtype then \"  (\"|| type(e)|| \")\" else \"\")");
@@ -208,7 +208,7 @@ procedure WriteWR(f);
 
 end
 
-procedure Help();
+procedure Help()
 
    write("Enter any Icon expression to evaluate it");
    write();
@@ -228,7 +228,7 @@ procedure Help();
 
 end
 
-procedure Edit(p);
+procedure Edit(p)
    local f;
 
    f := open("qei_.icn", "w") | stop("*** cannot open program file");
@@ -249,7 +249,7 @@ procedure Edit(p);
 
 end
     
-procedure atos(a,delim);
+procedure atos(a,delim)
    local e, s;
 
    s := "";
@@ -265,7 +265,7 @@ end
 #
 #  replace string (from the IPL)
 #
-procedure replace(s1,s2,s3);
+procedure replace(s1,s2,s3)
    local result, i;
 
    result := "";
@@ -281,7 +281,7 @@ procedure replace(s1,s2,s3);
 
 end
 
-procedure split(line,dlms);
+procedure split(line,dlms)
    local w;
 
    /dlms := ' \t';
@@ -296,7 +296,7 @@ procedure split(line,dlms);
 
 end
 
-procedure shut_down();
+procedure shut_down()
 
    remove("qei_");
    remove("qei_.icn");

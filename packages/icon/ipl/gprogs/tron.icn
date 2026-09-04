@@ -62,7 +62,7 @@ global x, y, dx, dy
 global score
 global pixels
 
-procedure prepare_vars();
+procedure prepare_vars()
   actions := table();
   actions[Key_Down]  := ["v", +1];
   actions[Key_Up]    := ["v", -1];
@@ -77,38 +77,38 @@ procedure prepare_vars();
   every pixels[0 to 199] := table(0);
 end
 
-procedure set_color(n);
+procedure set_color(n)
   if n == 0 then WAttrib("fg=black");
   if n == 1 then WAttrib("fg=red");
   if n == 3 then WAttrib("fg=yellow");
 end
 
-procedure pset(x, y, color);
+procedure pset(x, y, color)
   set_color(color);
   pixels[y][x] := color;
   FillRectangle(x*2, y*2, 2, 2);
 end
 
-procedure point(x, y);
+procedure point(x, y)
   return pixels[y][x];
 end
 
-procedure draw_red_square();
+procedure draw_red_square()
   local x, y;
   x := ?316;
   y := ?188;
   every pset(x to x+2, y to y+2, 1);
 end
 
-procedure is_direction(action);
+procedure is_direction(action)
   return type(action) == "list";
 end
 
-procedure ignored_turn(newdirection);
+procedure ignored_turn(newdirection)
   return newdirection[1] == direction[1];
 end
 
-procedure set_direction(newdirection);
+procedure set_direction(newdirection)
   direction := newdirection;
   if direction[1] == "h" then {
     dx := direction[2]; dy := 0
@@ -117,7 +117,7 @@ procedure set_direction(newdirection);
   };
 end
 
-procedure process_events();
+procedure process_events()
   local e, action;
   while *Pending() > 0 do {
     e := Event();
@@ -135,20 +135,20 @@ procedure process_events();
   return;
 end
 
-procedure prepare_walls();
+procedure prepare_walls()
   every pset(0 to 319,   0, 3);
   every pset(0 to 319, 191, 3);
   every pset(0,   0 to 191, 3);
   every pset(319, 0 to 191, 3);
 end
 
-procedure draw_score();
+procedure draw_score()
   GotoXY(6, 396);
   set_color(3);
   WWrites("Score: " || score);
 end
 
-procedure play();
+procedure play()
   prepare_vars();
   set_color(0);
   FillRectangle(0, 0, 640, 400);
@@ -173,7 +173,7 @@ procedure play();
   };
 end
 
-procedure main(args);
+procedure main(args)
   local e;
 
   # w(actions)

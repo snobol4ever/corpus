@@ -34,7 +34,7 @@ link strings				# cat(s1, s2, ... )
 
 global code_gen
 
-procedure main();
+procedure main()
 
    code_gen := cat;  # so it can be changed easily
 
@@ -54,7 +54,7 @@ procedure Apply(e1, e2);		# e1 ! e2
 
 end
 
-procedure Arg(e);
+procedure Arg(e)
 
    return e;
 

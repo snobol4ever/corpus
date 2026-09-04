@@ -47,7 +47,7 @@
 
 link longstr
 
-procedure mapstrs(s, l1, l2);
+procedure mapstrs(s, l1, l2)
 
     local i, s2;
     static cs, tbl, last_l1, last_l2;

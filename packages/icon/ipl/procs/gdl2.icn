@@ -38,7 +38,7 @@
 ############################################################################
 
 
-procedure gdl(dir);
+procedure gdl(dir)
 
     local getdir;
 
@@ -47,7 +47,7 @@ procedure gdl(dir);
 
 end
 
-procedure gdlrec(dir, method);
+procedure gdlrec(dir, method)
 
 # Unix method to use:   &null for compatibility (uses "/bin/ls"), 
 #                       not null for speed (uses "find")
@@ -60,7 +60,7 @@ procedure gdlrec(dir, method);
 end
 
 
-procedure set_getdir_by_os();
+procedure set_getdir_by_os()
 
     # Decide how to get a directory, based on whether we are running
     # under Unix or MS-DOS.
@@ -73,7 +73,7 @@ procedure set_getdir_by_os();
 
 end
 
-procedure set_getdir_rec_by_os(method);
+procedure set_getdir_rec_by_os(method)
 
     # Decide how to get a directory, based on whether we are running
     # under Unix or MS-DOS.
@@ -92,7 +92,7 @@ procedure set_getdir_rec_by_os(method);
 end
 
 
-procedure msdos_get_dir(dir);
+procedure msdos_get_dir(dir)
 
     # Returns a sorted list of all filenames (full paths included) in
     # directory "dir."  The list is sorted.  Fails on invalid or empty
@@ -170,7 +170,7 @@ procedure msdos_get_dir(dir);
 
 end
 
-procedure msdos_get_dir_rec(dir, level);
+procedure msdos_get_dir_rec(dir, level)
 
     # Returns a sorted list of all filenames (full paths included) in
     # directory "dir."  The list is sorted.  Fails on invalid or empty
@@ -266,7 +266,7 @@ end
 
 
 
-procedure get_dos_tempname(dir);
+procedure get_dos_tempname(dir)
 
     local temp_name, temp_file;
 
@@ -282,7 +282,7 @@ procedure get_dos_tempname(dir);
 end
 
 
-procedure unix_get_dir(dir);
+procedure unix_get_dir(dir)
 
     local filename_list, in_dir, filename;
 
@@ -301,7 +301,7 @@ procedure unix_get_dir(dir);
 end
 
 
-procedure unix_get_dir_rec(dir, level);
+procedure unix_get_dir_rec(dir, level)
 
     # Returns a sorted list of all filenames (full paths included) in
     # directory "dir."  The list is sorted.  Fails on invalid or empty
@@ -361,7 +361,7 @@ end
 # This works too.
 # This routine is faster but depends on the Unix "find" program.
 # Don't know if all Unixes have this.
-procedure unix_get_dir_rec2(dir);
+procedure unix_get_dir_rec2(dir)
 
     local filename_list, in_dir, cmd;
 

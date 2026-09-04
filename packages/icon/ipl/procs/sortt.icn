@@ -25,7 +25,7 @@
 
 record element(key, value)
 
-procedure sortt(T, i);
+procedure sortt(T, i)
    local result, k;
 
    if not(integer(i) = (1 | 2)) then runerr(205, i);

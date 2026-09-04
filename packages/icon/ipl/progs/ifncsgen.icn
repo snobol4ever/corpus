@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
    local name, args, uname;
    static case1, case2;
 
@@ -46,7 +46,7 @@ procedure main();
 
 end
 
-procedure arglist(name);
+procedure arglist(name)
    local result, i, arg;
 
    i := args(proc(name, 0));

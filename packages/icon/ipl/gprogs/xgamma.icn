@@ -52,7 +52,7 @@ link wopen
 
 global ofile
 
-procedure main(args);
+procedure main(args)
    local gamma;
 
    if *args = 0 then {
@@ -78,7 +78,7 @@ procedure main(args);
 end
 
 
-procedure header();
+procedure header()
    every write(ofile, ![
       "",
       "    NAME                Unknown monitor",
@@ -90,7 +90,7 @@ procedure header();
 end
 
 
-procedure matrices();
+procedure matrices()
    # Trinitron specs from X11R5 contrib/clients/xcrtca/monitors
    every write(ofile, "    ", \![
       "COLORIMETRIC_BEGIN",
@@ -109,14 +109,14 @@ procedure matrices();
 end
 
 
-procedure ramps(gamma);
+procedure ramps(gamma)
    write(ofile, "    INTENSITY_PROFILE_BEGIN 0 3");
    every hue("RED" | "GREEN" | "BLUE", gamma);
    write(ofile, "    INTENSITY_PROFILE_END");
 end
 
 
-procedure hue(c, gamma);
+procedure hue(c, gamma)
    local i, x, v;
    static hextab;
    initial every put((hextab := []), !"0123456789abcdef" || !"0123456789abcdef");

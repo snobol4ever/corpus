@@ -25,7 +25,7 @@
 
 global procs
 
-procedure main();
+procedure main()
    local line, sym, new, keyword, value, axiom, gener, angle, length;
    local replace;
 
@@ -80,7 +80,7 @@ procedure main();
 
 end
 
-procedure gencode(replace, arg);
+procedure gencode(replace, arg)
    local sym;
 
    every sym := !replace do {
@@ -98,7 +98,7 @@ procedure gencode(replace, arg);
 
 end
 
-procedure genproc(name, replace);
+procedure genproc(name, replace)
 
    write("procedure ", name, "(gener)");
    write("   if gener > 0 then {");

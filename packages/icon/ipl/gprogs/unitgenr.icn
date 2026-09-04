@@ -34,7 +34,7 @@ link patxform
 
 global switch
 
-procedure main(args);
+procedure main(args)
    local opts, oldpat, pattern;
 
    opts := options(args, "c");
@@ -51,7 +51,7 @@ procedure main(args);
       
 end
 
-procedure unit(grid);
+procedure unit(grid)
 
    grid := grepeat(grid);
 
@@ -92,7 +92,7 @@ procedure grepeat(grid);		#: reduce grid to smallest repeat
          
 end
 
-procedure xperiod(s);
+procedure xperiod(s)
    local i;
 
    every i := 1 | divisors(*s) do

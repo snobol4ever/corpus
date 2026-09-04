@@ -27,7 +27,7 @@
 link io 
 link ximage
 
-procedure main(args);
+procedure main(args)
    local in_list, to_list, infile, tofile, colors, map, i;
 
    in_list := args[1] | stop("*** no input list specified");

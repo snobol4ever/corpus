@@ -33,7 +33,7 @@
 link wopen
 link xcompat
 
-procedure main();
+procedure main()
    local normal, highlight, line, s1, s2, i1, i2;
 
    normal := WOpen("label=palindrome check", "lines=20", "columns=80",

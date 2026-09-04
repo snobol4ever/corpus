@@ -1,3 +1,3 @@
-procedure greet();
+procedure greet()
   write("hi");
 end

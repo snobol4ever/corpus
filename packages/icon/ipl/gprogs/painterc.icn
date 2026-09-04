@@ -28,7 +28,7 @@
 
 link basename
 
-procedure main(args);
+procedure main(args)
    local line, file, name, input, output;
 
    every file := !args do {

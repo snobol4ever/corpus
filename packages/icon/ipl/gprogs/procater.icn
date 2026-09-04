@@ -45,7 +45,7 @@ global scale
 global width
 global height
 
-procedure main(args);
+procedure main(args)
 
    init(args);
 
@@ -53,7 +53,7 @@ procedure main(args);
 
 end
 
-procedure init(args);
+procedure init(args)
 
    WOpen ! ui_atts();
 
@@ -74,7 +74,7 @@ procedure init(args);
 
 end
 
-procedure display();
+procedure display()
    local n, gc;
 
    repeat {
@@ -105,7 +105,7 @@ procedure display();
 
 end
 
-procedure file_cb(vidget, value);
+procedure file_cb(vidget, value)
 
    case value[1] of {
       "snapshot  @S":  return snapshot(strip, 0, 0, width, height);
@@ -116,7 +116,7 @@ procedure file_cb(vidget, value);
 
 end
 
-procedure configure_cb(vidget, value);
+procedure configure_cb(vidget, value)
 
    case value[1] of {
       "scale":  {
@@ -137,7 +137,7 @@ procedure configure_cb(vidget, value);
    fail;
 
 end
-procedure pause_cb(vidget, value);
+procedure pause_cb(vidget, value)
 
    state := value;
 
@@ -145,7 +145,7 @@ procedure pause_cb(vidget, value);
 
 end
 
-procedure reset_cb();
+procedure reset_cb()
 
    EraseArea(strip);
 
@@ -153,7 +153,7 @@ procedure reset_cb();
 
 end
 
-procedure shortcuts(e);
+procedure shortcuts(e)
 
    if &meta then
       case map(e) of {
@@ -165,11 +165,11 @@ procedure shortcuts(e);
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=477,255", "bg=gray-white"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,477,255:",],
    ["configure:Menu:pull::36,0,71,21:Configure",configure_cb,

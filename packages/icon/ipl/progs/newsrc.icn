@@ -25,11 +25,11 @@
 #
 ############################################################################
 
-procedure main(times);
+procedure main(times)
 	process(times);
 end
 
-procedure process(times);
+procedure process(times)
 local active, inactive, defective, invar, outvar, line, newline;
 
 #create three empty lists
@@ -76,7 +76,7 @@ if *times = 0 then put(times,ask()) else {
 end
  
 
-procedure ask();
+procedure ask()
 local number,n;
 	n := 0;
 	write("You may save any number of lines at the top of the file.");

@@ -53,7 +53,7 @@ link random
 
 global deck, deckimage, handsize, suitsize, denom, rank, blanker
 
-procedure main(args);
+procedure main(args)
    local hands, opts;
 
    deck := deckimage := string(&letters);  # initialize global variables
@@ -73,7 +73,7 @@ end
 
 #  Display the hands
 #
-procedure disphand();
+procedure disphand()
    local layout, i;
    static bar, offset;
 
@@ -98,7 +98,7 @@ end
 
 #  Put the hands in a form to display
 #
-procedure show(hand);
+procedure show(hand)
    static clubmap, diamondmap, heartmap, spademap;
    initial {
       clubmap := denom || repl(blanker,3);
@@ -116,6 +116,6 @@ end
 
 #  Arrange hands for presentation
 #
-procedure arrange(hand,suit);
+procedure arrange(hand,suit)
    return map(map(hand,deckimage,suit) -- ' ',denom,rank);
 end

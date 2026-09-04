@@ -31,7 +31,7 @@ $define Width 20
 
 link graphics
 
-procedure draw_colors(clist);
+procedure draw_colors(clist)
    local i, j, k, depth, color, colors;
 
    depth := *clist / Cells;

@@ -40,7 +40,7 @@ link adjuncts
 
 global _slash, baselen
 
-procedure getkeys(FNAME);
+procedure getkeys(FNAME)
 
     local line, intext, start_unindexed_part;
     initial {

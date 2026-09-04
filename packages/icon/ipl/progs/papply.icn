@@ -31,7 +31,7 @@
 
 invocable all
 
-procedure main(args);
+procedure main(args)
    local p, line;
 
    p := proc(get(args)) | stop("*** invalid or missing procedure");

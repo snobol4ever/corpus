@@ -20,7 +20,7 @@
 #
 ############################################################################
 
-procedure int2bit(i);
+procedure int2bit(i)
    local s, sign;
 
    if i = 0 then return 0;
@@ -37,7 +37,7 @@ procedure int2bit(i);
    return sign || s;
 end
 
-procedure bit2int(s);
+procedure bit2int(s)
    if s[1] == "-" then return "-" || integer("2r" || s[2:0])
    else return integer("2r" || s);
 end

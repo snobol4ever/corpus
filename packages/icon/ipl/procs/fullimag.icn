@@ -23,7 +23,7 @@
 global fullimage_level,fullimage_maxlevel,fullimage_done,fullimage_used,
       fullimage_indent
 
-procedure fullimage(x,indent,maxlevel);
+procedure fullimage(x,indent,maxlevel)
    local tr,s,t;
    #
    #  Initialize
@@ -71,7 +71,7 @@ procedure fullimage(x,indent,maxlevel);
 end
 
 
-procedure fullimage_(x,noindent);
+procedure fullimage_(x,noindent)
    local s,t,tr;
    t := type(x);
    s := case t of {
@@ -90,7 +90,7 @@ procedure fullimage_(x,noindent);
    );
 end
 
-procedure fullimage_structure(x);
+procedure fullimage_structure(x)
    local sep,s,t,tag,y;
    #
    #  If this structure has already been output, just output its tag.

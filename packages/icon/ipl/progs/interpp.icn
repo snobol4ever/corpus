@@ -32,7 +32,7 @@ global	WHITE,	# the white space cset
 	MFLAG,	# the modified flag
 	PRTBL	# the program table
 
-procedure main(arg);
+procedure main(arg)
    local line, lno, pline;
 
 #	define the needed cset
@@ -135,7 +135,7 @@ procedure main(arg);
 
 end
 
-procedure execprog();
+procedure execprog()
    local runargs, out, prog, line, command;
 
 	static	tmpfile;
@@ -171,7 +171,7 @@ procedure execprog();
 
 end
 
-procedure seqprog();
+procedure seqprog()
    local begno, incno, prog, lno, l;
 
 #	initialize the sequencing numbers
@@ -204,7 +204,7 @@ procedure seqprog();
 
 end
 
-procedure readprog();
+procedure readprog()
    local readfile, response, in, lno, line;
 
 #	get a possible command line file name
@@ -242,7 +242,7 @@ procedure readprog();
 
 end
 
-procedure writeprog();
+procedure writeprog()
    local writefile, prog, out, l;
 
 #	get a possible command line file name
@@ -270,7 +270,7 @@ procedure writeprog();
 
 end
 
-procedure delprog();
+procedure delprog()
    local begno, endno, prog, l, lno;
 
 #	initialize the line numbers
@@ -303,7 +303,7 @@ procedure delprog();
 
 end
 
-procedure listprog();
+procedure listprog()
    local begno, endno, prog, l, lno;
 
 #	initialize the line numbers
@@ -335,7 +335,7 @@ procedure listprog();
 
 end
 
-procedure helpprog();
+procedure helpprog()
 
 	static helpmsg;
 
@@ -365,7 +365,7 @@ procedure helpprog();
 
 end
 
-procedure quitprog();
+procedure quitprog()
    local response;
 
 #	make sure a modified file has been written

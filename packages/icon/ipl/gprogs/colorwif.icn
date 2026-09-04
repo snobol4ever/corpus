@@ -42,7 +42,7 @@ link patxform
 
 record analysis(rows, sequence, patterns)
 
-procedure main(args);
+procedure main(args)
    local warp, weft, pattern, rows, i, j, count, opts;
    local threading, treadling, color_list, colors, choice;
    local symbols, symbol, drawdown, draft, warp_colors, weft_colors, pixels;
@@ -196,7 +196,7 @@ procedure main(args);
 
 end
 
-procedure tromp(treadle);
+procedure tromp(treadle)
    local result;
 
    result := "";
@@ -209,7 +209,7 @@ procedure tromp(treadle);
 
 end
 
-procedure analyze(drawdown);
+procedure analyze(drawdown)
    local sequence, rows, row, count, patterns;
 
    sequence := [];

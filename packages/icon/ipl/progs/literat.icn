@@ -132,7 +132,7 @@
 # which uses line() should contain a call to newkey(), because
 # otherwise line()'S function won't be available for cursor keys.
 
-	procedure newkey();
+	procedure newkey()
 
    local code, n_keys;
 		n_keys := list(9);
@@ -163,7 +163,7 @@ end
 #
 #
 # function to set cursor position
-	procedure locate(row,col);
+	procedure locate(row,col)
 
    local cursor;
 
@@ -173,7 +173,7 @@ end
 #
 # last(byte,string): detects the last occurrence of byte in
 # string and returns its position
-	procedure last(byte,string);
+	procedure last(byte,string)
 
    local a, r_string, rpos;
 
@@ -184,7 +184,7 @@ end
 end
 #
 # remword(string,acol): removes word at acol from string
-	procedure remword(string,acol);
+	procedure remword(string,acol)
 
    local blank, string_a, string_b;
 
@@ -227,7 +227,7 @@ end
 #
 # stat_line: function to display a status line with the actual row
 # and column
-	procedure stat_line(column);
+	procedure stat_line(column)
 	    locate(24,1);
 	    writes("LINE: ",lin_nm," COL: ",column,"  ","TIME: ",&clock,"    ");
 end
@@ -296,7 +296,7 @@ end
 # The main part of FIELD and the second element containing
 # the wrapped part if any.
 #
-	procedure line(row,bnumber,status,comment,field);
+	procedure line(row,bnumber,status,comment,field)
 
    local beg, blank, blanks, block, byte, byte_input, col, col2, dec_byte;
    local dec_bytes, e1, e2, editing, fa, fb, field2, field_1, field_2;
@@ -598,7 +598,7 @@ end
 #	byte_n		: number of bytes permitted within a line
 #	label		: label to be displayed as field's headline
 #	string		: string to be edited
-	procedure edit_field(startline,lnumber,byte_n,label,string);
+	procedure edit_field(startline,lnumber,byte_n,label,string)
 
    local feld, item, lin, liste, n, res, rest;
 
@@ -668,7 +668,7 @@ end
 #
 # show_field: see edit field (except editing routines) for
 # details.
-	procedure show_field(startline,lnumber,byte_n,label,string);
+	procedure show_field(startline,lnumber,byte_n,label,string)
 
    local feld, lin, n, rest;
 
@@ -709,7 +709,7 @@ end
 #	TYPE
 #	COMMENT1
 #	COMMENT2
-	procedure edit_item(item);
+	procedure edit_item(item)
 
    local ct, feld, felder, felder2, item2, labels, lin_e, n, zeile;
 
@@ -752,7 +752,7 @@ end
 end
 #
 # brightwrite(string): function to highlight a string
-	procedure brightwrite(string);
+	procedure brightwrite(string)
 
    local highl, normal;
 
@@ -763,7 +763,7 @@ end
 #
 # findlist(wlist,item): function to return the first
 # position of item in wlist.
-	procedure findlist(wlist,item);
+	procedure findlist(wlist,item)
 
    local n;
 
@@ -782,7 +782,7 @@ end
 # in klist, no arrow key), calls to menue() should be made
 # within a loop terminated on menue()'s success, see below
 # main().
-	procedure menue(header,wlist,klist);
+	procedure menue(header,wlist,klist)
 
    local add, byte, n;
 
@@ -829,7 +829,7 @@ end
 # in_itemm(): function to create new items. Standard file is literat.fil
 # The new items are handled as a sequential file which is added to the
 # existing file when input process is finished.
-	procedure in_itemm();
+	procedure in_itemm()
 
    local answer, count, items, itnum, out_item;
 
@@ -855,7 +855,7 @@ end
 end
 #
 # turn_over(): view and edit literat.fil item by item
-	procedure turn_over();
+	procedure turn_over()
 
    local answer, in_item, it, out_item;
 
@@ -879,7 +879,7 @@ end
 end
 #
 # del(num) remove numth item from filE
-	procedure del();
+	procedure del()
 
    local fil, in_item, itm, n, num, out_item;
 
@@ -910,7 +910,7 @@ end
 end
 #
 # alpha: sorting in alphabetical order
-	procedure alpha();
+	procedure alpha()
 
    local fil, in_item, itm, out_item;
 
@@ -938,7 +938,7 @@ end
 # search in the computer's ram, (function (query()). The results enable
 # the seek() function to place the internal file pointer on the desired
 # item in literat.fil.
-	procedure m_adress();
+	procedure m_adress()
 
    local a, adr, b, in_item, item, m, n, out_adr, out_line, wlist, wlist_2;
 
@@ -1002,7 +1002,7 @@ end
 #
 # query(): find items using the numbers in adress.fil * 846 as
 # arguments to the seek() function
-	procedure query();
+	procedure query()
 
    local byte, in_item, in_line, in_query, it_key, kkey, out_item, word, wrd;
 
@@ -1051,7 +1051,7 @@ end
 # at the beginning of the source code and of every user-defined
 # function if you are in doubt how to use them.
 #
-    procedure main();
+    procedure main()
 
     local alist, blist, opt;
 

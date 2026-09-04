@@ -24,7 +24,7 @@
 
 link lindrec
 
-procedure linddefs();
+procedure linddefs()
    local linden;
 
    linden := table();

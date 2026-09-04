@@ -25,7 +25,7 @@
 
 link gobject
 
-procedure randrect(x, y, w, h);
+procedure randrect(x, y, w, h)
 
    w := integer(w) | stop("*** bad value");
    h := integer(h) | stop("*** bad value");
@@ -37,7 +37,7 @@ procedure randrect(x, y, w, h);
 
 end
 
-procedure randellip(x, y, w, h);
+procedure randellip(x, y, w, h)
    local r1, r2, xc, yc, xp, yp, xq, yq, theta, rp, r;
 
    w := integer(w) | stop("*** bad value");

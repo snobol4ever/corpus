@@ -29,7 +29,7 @@ link xcompat
 
 global FH
 
-procedure main(args);
+procedure main(args)
 local opts, font, wid, h;
 local root, win, s1, s2, s3, s4, s5;
 
@@ -70,16 +70,16 @@ local root, win, s1, s2, s3, s4, s5;
 end
 
 
-procedure quit(e);
+procedure quit(e)
    if e === "q" then stop();
 end
 
-procedure write_val(vid, val);
+procedure write_val(vid, val)
    GotoXY(vid.win, vid.ax-10, vid.ay-5);
    writes(vid.win, val||"  ");
 end
 
-procedure put_label(root, sc, str);
+procedure put_label(root, sc, str)
    local x, l;
 
    l := TextWidth(root.win, str);
@@ -87,7 +87,7 @@ procedure put_label(root, sc, str);
    VDraw(Vmessage(root, x, sc.ay-5-FH, root.win, str));
 end
 
-procedure face(vid, val);
+procedure face(vid, val)
    local x1, y, x;
    static faceval, ox1, oy;
 
@@ -102,7 +102,7 @@ procedure face(vid, val);
    ox1 := x1; oy := y;
 end
 
-procedure eyes(vid, val);
+procedure eyes(vid, val)
    local x1, x2, y;
    static eyeval, ox1, ox2, oy;
 
@@ -120,7 +120,7 @@ procedure eyes(vid, val);
    ox1 := x1; ox2 := x2; oy := y;
 end
 
-procedure pupils(vid, val);
+procedure pupils(vid, val)
    local x1, x2, y;
    static pupilval, ox1, ox2, oy;
 
@@ -138,7 +138,7 @@ procedure pupils(vid, val);
    ox1 := x1; ox2 := x2; oy := y;
 end
 
-procedure smile(vid, val);
+procedure smile(vid, val)
    static oldsmile;
 
    write_val(vid, val);
@@ -149,7 +149,7 @@ procedure smile(vid, val);
    oldsmile := val;
 end
 
-procedure nose(vid, val);
+procedure nose(vid, val)
    static oldnose;
 
    write_val(vid, val);
@@ -161,9 +161,9 @@ procedure nose(vid, val);
 
 end
 
-procedure rev_on(win);
+procedure rev_on(win)
    WAttrib(win, "reverse=on", "linewidth=3");
 end
-procedure rev_off(win);
+procedure rev_off(win)
    WAttrib(win, "reverse=off", "linewidth=1");
 end

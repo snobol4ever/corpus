@@ -43,7 +43,7 @@
 
 record SpeedoRec(max,length,file,lastOut,string)
 
-procedure SpeedoNew(max,length,file,str);
+procedure SpeedoNew(max,length,file,str)
     /length := 79;
     /file := &errout;
     /str := "=";
@@ -51,7 +51,7 @@ procedure SpeedoNew(max,length,file,str);
     return SpeedoRec(max,length,file,0,str);
 end
 
-procedure SpeedoValue(self,value);
+procedure SpeedoValue(self,value)
     local len;
     if /value then {
 	 write(self.file);
@@ -65,7 +65,7 @@ procedure SpeedoValue(self,value);
     return self;
 end
 
-procedure FileSpeedo(file,length,outFile,str);
+procedure FileSpeedo(file,length,outFile,str)
     local savePos, fileSize;
     static speedo;
     if /file then {

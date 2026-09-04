@@ -38,7 +38,7 @@ link xcompat
 
 global Clipboard
 
-procedure NewClip(w, h);
+procedure NewClip(w, h)
 
    close(\Clipboard);
 
@@ -49,7 +49,7 @@ procedure NewClip(w, h);
 
 end
 
-procedure XCopy(window, x, y, w, h);
+procedure XCopy(window, x, y, w, h)
 
    NewClip(w, h);
 
@@ -59,7 +59,7 @@ procedure XCopy(window, x, y, w, h);
 
 end
 
-procedure XCut(window, x, y, w, h);
+procedure XCut(window, x, y, w, h)
 
    XCopy(window, x, y, w, h);
 
@@ -69,7 +69,7 @@ procedure XCut(window, x, y, w, h);
 
 end
 
-procedure XPaste(window, x, y);
+procedure XPaste(window, x, y)
 
    CopyArea(Clipboard, window, , , , , x, y);
 

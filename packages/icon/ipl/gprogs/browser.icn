@@ -31,7 +31,7 @@ global vidgets
 $define LineLength  75
 $define FileLength 500
 
-procedure main();
+procedure main()
    local root, root_cur;
 
    nav_init();
@@ -55,7 +55,7 @@ procedure main();
 
 end
 
-procedure process_file();
+procedure process_file()
    local input, file_list;
    static list_vidget;
 
@@ -82,7 +82,7 @@ procedure process_file();
 
 end
 
-procedure file_cb(vidget, value);
+procedure file_cb(vidget, value)
 
    case value[1] of {
       "find  @F"  :  find_file();
@@ -93,7 +93,7 @@ procedure file_cb(vidget, value);
 
 end
 
-procedure list_cb(vidget, value);
+procedure list_cb(vidget, value)
 
    if /value then return;		# deselection; no action
 
@@ -101,7 +101,7 @@ procedure list_cb(vidget, value);
 
 end
 
-procedure find_file();
+procedure find_file()
 
    WAttrib(nav_window, "canvas=normal");
 
@@ -109,7 +109,7 @@ procedure find_file();
 
 end
 
-procedure shortcuts(e);
+procedure shortcuts(e)
 
    if &meta then case map(e) of {
       "f"  :  find_file();
@@ -121,11 +121,11 @@ procedure shortcuts(e);
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=587,402", "bg=pale gray", "label=Browser"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,587,402:Browser",],
    ["file:Menu:pull::0,3,36,21:File",file_cb,

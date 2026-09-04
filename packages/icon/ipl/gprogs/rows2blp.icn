@@ -28,7 +28,7 @@
 
 link patutils
 
-procedure main();
+procedure main()
    local rows;
 
    rows := [];

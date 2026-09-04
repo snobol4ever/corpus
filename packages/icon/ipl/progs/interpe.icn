@@ -38,7 +38,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local line, run, echo;
 
    if args[1] == "-e" then echo := 1;

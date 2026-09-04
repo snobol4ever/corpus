@@ -4,6 +4,6 @@
 
 link link2
 
-procedure main(args);
+procedure main(args)
    every write(decorate(!args));
 end

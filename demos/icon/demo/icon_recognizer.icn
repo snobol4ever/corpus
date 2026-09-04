@@ -12,16 +12,16 @@ record tnode(tag, val, children)
 global _stk          # tree stack: list used as stack (push/pop from back)
 global _cstk         # counter stack: list of integers
 
-procedure stack_init();
+procedure stack_init()
   _stk  := [];
   _cstk := [];
 end
 
-procedure Shift(tag, val);
+procedure Shift(tag, val)
   push(_stk, tnode(tag, val, []));
 end
 
-procedure Reduce(tag, n);
+procedure Reduce(tag, n)
   local kids, i;
   kids := list(n);
   every i := n to 1 by -1 do kids[i] := pop(_stk);
@@ -29,23 +29,23 @@ procedure Reduce(tag, n);
   return;
 end
 
-procedure nPush();
+procedure nPush()
   push(_cstk, 0);
 end
 
-procedure nInc();
+procedure nInc()
   _cstk[1] +:= 1;
 end
 
-procedure nDec();
+procedure nDec()
   _cstk[1] -:= 1;
 end
 
-procedure nTop();
+procedure nTop()
   return _cstk[1];
 end
 
-procedure nPop();
+procedure nPop()
   return pop(_cstk);
 end
 
@@ -53,7 +53,7 @@ end
 # All operate on &subject / &pos via string scanning.
 
 # ws() -- optional whitespace (zero or more); always succeeds
-procedure ws();
+procedure ws()
   many(' \t\n\r');
   suspend &pos;
 end
@@ -65,7 +65,7 @@ procedure ws1();                          # one or more whitespace
 end
 
 # many(cset) -- Icon tab() equivalent: advance past chars in cset, return pos
-procedure many(cs);
+procedure many(cs)
   local p;
   p := &pos;
   tab(upto(~cs)) | tab(0);
@@ -73,13 +73,13 @@ procedure many(cs);
 end
 
 # lit(s) -- match literal string, skipping leading whitespace
-procedure lit(s);
+procedure lit(s)
   ws();
   suspend =s;
 end
 
 # kw(s) -- match keyword s (not followed by alphanum/_)
-procedure kw(s);
+procedure kw(s)
   local p;
   ws();
   p := &pos;
@@ -92,13 +92,13 @@ procedure kw(s);
 end
 
 # op(s) -- match operator/punctuation (no word-boundary check needed)
-procedure op(s);
+procedure op(s)
   ws();
   suspend =s;
 end
 
 # ident() -- match an identifier, return the name
-procedure ident();
+procedure ident()
   local p, name;
   skip_ws_comments();
   p := &pos;
@@ -110,7 +110,7 @@ procedure ident();
 end
 
 # integer_lit() -- match integer literal
-procedure integer_lit();
+procedure integer_lit()
   local p, v;
   skip_ws_comments();
   p := &pos;
@@ -122,7 +122,7 @@ procedure integer_lit();
 end
 
 # string_lit() -- match double-quoted string (with escape handling)
-procedure string_lit();
+procedure string_lit()
   local p, v;
   ws();
   p := &pos;
@@ -136,7 +136,7 @@ procedure string_lit();
 end
 
 # line_comment() -- match # comment to end of line
-procedure line_comment();
+procedure line_comment()
   ws();
   if ="#" then {
     tab(upto('\n') | 0);
@@ -145,7 +145,7 @@ procedure line_comment();
 end
 
 # skip_ws_comments() -- skip whitespace and # comments; always succeeds
-procedure skip_ws_comments();
+procedure skip_ws_comments()
   local p;
   repeat {
     p := &pos;
@@ -159,7 +159,7 @@ end
 # ── Keywords set ──────────────────────────────────────────────────────────────
 
 global _kws
-procedure init_kws();
+procedure init_kws()
   _kws := set(["procedure","end","global","local","static","record",
                "if","then","else","while","do","until","every","to","by",
                "break","next","return","suspend","fail","create","not","initial"]);
@@ -167,7 +167,7 @@ end
 
 # ── Operator precedence ───────────────────────────────────────────────────────
 
-procedure op_prec(s);
+procedure op_prec(s)
   case s of {
     ":="|"+:="|"-:="|"*:="|"/:="|"%:="|"^:="|"||:="|"<->" : suspend [10,"right"];
     "->"    : suspend [12,"right"];
@@ -185,7 +185,7 @@ end
 
 # ── Expression recognizer ─────────────────────────────────────────────────────
 
-procedure r_exprlist();
+procedure r_exprlist()
   nPush();
   r_xlist();
   if nTop() > 1 then Reduce("ExprList", nTop());
@@ -193,7 +193,7 @@ procedure r_exprlist();
   suspend &pos;
 end
 
-procedure r_xlist();
+procedure r_xlist()
   if r_expr() then {
     nInc();
     if op(",") then r_xlist()
@@ -201,11 +201,11 @@ procedure r_xlist();
   suspend &pos;
 end
 
-procedure r_expr();
+procedure r_expr()
   suspend r_expr_prec(0);
 end
 
-procedure r_expr_prec(min_prec);
+procedure r_expr_prec(min_prec)
   local p0, p1, op_s, info, prec, assoc, rp;
   p0 := &pos;
   r_primary() | fail;     # if no primary, whole expression fails
@@ -227,7 +227,7 @@ procedure r_expr_prec(min_prec);
 end
 
 # Try to scan a two-character or one-character binary operator
-procedure r_try_op2();
+procedure r_try_op2()
   local p, s2, s1;
   p := &pos;
   ws();
@@ -243,7 +243,7 @@ procedure r_try_op2();
   &pos := p;
 end
 
-procedure r_primary();
+procedure r_primary()
   local p, name, v, uop;
   skip_ws_comments();
   p := &pos;
@@ -326,7 +326,7 @@ end
 
 # ── Statement recognizer ──────────────────────────────────────────────────────
 
-procedure r_block();
+procedure r_block()
   local stmts, p;
   stmts := 0;
   skip_ws_comments();
@@ -345,14 +345,14 @@ procedure r_block();
   suspend &pos;
 end
 
-procedure r_braced_block();
+procedure r_braced_block()
   if op("{") then {
     r_block();
     if op("}") then suspend &pos
   };
 end
 
-procedure r_stmt();
+procedure r_stmt()
   local p, kw_s;
   p := &pos;
 
@@ -426,7 +426,7 @@ end
 
 # ── Top-level forms ───────────────────────────────────────────────────────────
 
-procedure r_namelist();
+procedure r_namelist()
   local names, p, name;
   names := 0;
   repeat {
@@ -445,7 +445,7 @@ procedure r_namelist();
   suspend &pos;
 end
 
-procedure r_decls();
+procedure r_decls()
   local found, dk;
   repeat {
     found := &null;
@@ -463,7 +463,7 @@ procedure r_decls();
   suspend &pos;
 end
 
-procedure r_proc();
+procedure r_proc()
   local p, name, ndecls, stk0;
   p := &pos;
   if kw("procedure") then {
@@ -497,7 +497,7 @@ procedure r_proc();
   &pos := p;
 end
 
-procedure r_global();
+procedure r_global()
   local p;
   p := &pos;
   if kw("global") then {
@@ -508,7 +508,7 @@ procedure r_global();
   &pos := p;
 end
 
-procedure r_record();
+procedure r_record()
   local p, name;
   p := &pos;
   if kw("record") then {
@@ -528,13 +528,13 @@ procedure r_record();
   &pos := p;
 end
 
-procedure r_top();
+procedure r_top()
   suspend r_proc() | r_global() | r_record();
 end
 
 # ── Compiland ─────────────────────────────────────────────────────────────────
 
-procedure compiland();
+procedure compiland()
   local n;
   n := 0;
   skip_ws_comments();
@@ -550,7 +550,7 @@ end
 
 # ── Tree dump ─────────────────────────────────────────────────────────────────
 
-procedure tdump(nd, indent);
+procedure tdump(nd, indent)
   local i;
   /nd & { write(repl(" ", indent) || "(null)"); return };
   if type(nd) ~== "tnode" then { write(repl(" ", indent) || image(nd)); return };
@@ -565,7 +565,7 @@ end
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-procedure main();
+procedure main()
   local src, line;
   init_kws();
   stack_init();

@@ -37,7 +37,7 @@ link options, post
 
 global uses, colmax, namewidth, lineno
 
-procedure main(args);
+procedure main(args)
    local opts, uselist, name, line;
 
    Init__("concord");
@@ -58,7 +58,7 @@ end
 #  Add line number to citations for name. If it already has been cited, 
 #  add (or increment) the number of citations.
 #
-procedure tabulate(name, lineno);
+procedure tabulate(name, lineno)
    local new, count, number;
    lineno := string(lineno);
    new := "";
@@ -78,7 +78,7 @@ end
 
 #  Format the output, breaking long lines as necessary.
 #
-procedure format(line);
+procedure format(line)
    local i;
    while *line > colmax + 2 do {
       i := colmax + 2;
@@ -92,7 +92,7 @@ end
 #  Get an item. Different kinds of concordances can be obtained by
 #  modifying this procedure.
 #
-procedure item();
+procedure item()
    local i, word, line;
    while line := read() do {
       lineno +:= 1;

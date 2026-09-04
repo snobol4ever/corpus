@@ -23,7 +23,7 @@
 #
 ############################################################################
 
-procedure apply(plist, arg);
+procedure apply(plist, arg)
    local p;
 
    plist := copy(plist);

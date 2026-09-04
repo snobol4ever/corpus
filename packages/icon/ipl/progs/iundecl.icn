@@ -43,7 +43,7 @@
 
 link io
 
-procedure main(arg);
+procedure main(arg)
    local f, fn, line, names, p, sep, t, argstring, undeclared, pn;
    #
    #  Process command line file names.

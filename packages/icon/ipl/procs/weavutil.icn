@@ -273,7 +273,7 @@ procedure check(s);		#: check for pattern form
 
 end
 
-procedure display(pfd);
+procedure display(pfd)
 
    write(&errout, "name=", pfd.name);
    write(&errout, "threading=", pfd.threading);
@@ -309,7 +309,7 @@ end
 
 $define Different 2
 
-procedure tier2prodl(tier, name);
+procedure tier2prodl(tier, name)
    local rows, row, count, unique, prodl, prod;
 
    unique := table();
@@ -342,7 +342,7 @@ procedure tier2prodl(tier, name);
 
 end
 
-procedure analyze(drawdown);
+procedure analyze(drawdown)
    local sequence, rows, row, count, patterns;
 
    sequence := [];

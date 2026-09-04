@@ -1,6 +1,6 @@
 # test type conversion and error handling in entab/detab
 
-procedure main ();
+procedure main ()
    s := "rutabaga";
    if entab('1987') ~== "1789" then write ("oops 1");
    if detab('1492') ~== "1249" then write ("oops 2");
@@ -24,7 +24,7 @@ procedure main ();
 
 # ferr(err,func,arglst) -- call func(args), verify that error "err" is produced
 
-procedure ferr (err, func, args);
+procedure ferr (err, func, args)
    local val;
 
    val := "";
@@ -62,7 +62,7 @@ procedure ferr (err, func, args);
 #  The result of each entab call is then passed to detab, with results expected
 #  to match the original entab argument (or its detab, if it had any tabs).
 
-procedure endetab1 ();
+procedure endetab1 ()
    params := setup ("=");		# start with default tabs (no args)
    while line := escape (read ()) do {	# read and preprocess line
       if line[1] == "=" then

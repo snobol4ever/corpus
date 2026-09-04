@@ -83,7 +83,7 @@ procedure makepanel(n, m, cellsize, fg, bg, pg);		#: make panel of cells
 
 end
 
-procedure clearpanel(panel);
+procedure clearpanel(panel)
    local width, height, x, y;
    
    if \panel.pg then {			# default is textured
@@ -108,7 +108,7 @@ procedure clearpanel(panel);
 
 end
 
-procedure matrixpanel(matrix, cellsize, fg, bg, pg);
+procedure matrixpanel(matrix, cellsize, fg, bg, pg)
 
    return makepanel(*matrix[1], *matrix, cellsize, fg, bg);
 
@@ -178,7 +178,7 @@ procedure tiercells(panel, tier);		#: color all cells in panel
  
 end
 
-procedure cell(panel, x, y);
+procedure cell(panel, x, y)
    local n, m;
 
    n := x / panel.size + 1;

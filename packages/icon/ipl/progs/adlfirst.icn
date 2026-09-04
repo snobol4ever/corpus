@@ -25,7 +25,7 @@
 #
 ############################################################################
 
-procedure main(arg);
+procedure main(arg)
    local s, line;
 
    s := cset(arg[1]) | &cset;

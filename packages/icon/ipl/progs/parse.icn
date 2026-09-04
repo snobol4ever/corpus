@@ -25,7 +25,7 @@ global next_tok	# next token from input
 
 record token(type, string)
 
-procedure main();
+procedure main()
    lex := create ((!&input ? get_tok()) | |token("eof", "eof"));
    prog();
 end
@@ -33,7 +33,7 @@ end
 #
 # get_tok is the main body of lexical analyzer
 #
-procedure get_tok();
+procedure get_tok()
    local tok;
    repeat {	# skip white space and comments
       tab(many(' 	'));
@@ -63,7 +63,7 @@ end
 # The procedures that follow make up the parser
 #
 
-procedure prog();
+procedure prog()
    next_tok := @lex;
    stmt();
    while next_tok.type == "semi" do {
@@ -74,7 +74,7 @@ procedure prog();
       err("eof expected");
 end
 
-procedure stmt();
+procedure stmt()
    if next_tok.type ~== "id" then
       err("id expected");
    write(next_tok.string);
@@ -85,7 +85,7 @@ procedure stmt();
    write(":=");
 end
 
-procedure expr();
+procedure expr()
    local op;
 
    term();
@@ -97,7 +97,7 @@ procedure expr();
       };
 end
 
-procedure term();
+procedure term()
    local op;
 
    factor();
@@ -109,7 +109,7 @@ procedure term();
       };
 end
 
-procedure factor();
+procedure factor()
    case next_tok.type of {
       "id" | "integer": {
          write(next_tok.string);
@@ -128,6 +128,6 @@ procedure factor();
       };
 end
 
-procedure err(s);
+procedure err(s)
    stop(" ** error **  ", s);
 end

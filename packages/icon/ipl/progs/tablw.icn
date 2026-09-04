@@ -46,7 +46,7 @@ link options, usage
 
 global limit, icase
 
-procedure main(args);
+procedure main(args)
    local wcount, unique, order, s, pair, lwidth, rwidth, max, opts, l, i;
 
    limit := 0;  # lower limit on usage to list
@@ -83,7 +83,7 @@ end
 
 #  generate words
 #
-procedure words();
+procedure words()
    local line, word;
    while line := read() do {
       if \icase then line := map(line);

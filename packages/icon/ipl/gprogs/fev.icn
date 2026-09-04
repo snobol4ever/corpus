@@ -37,7 +37,7 @@
 link wopen
 link xcompat
 
-procedure main(av);
+procedure main(av)
    local slope, fin, win, L, ht, focus, focuswidth, e, base;
    slope := 2;
    if av[1] == "-s" then slope := (pop(av), pop(av));
@@ -73,7 +73,7 @@ procedure main(av);
       };
 end
 
-procedure fisheye(w,L,focus,maxht,slope,family,weight,focuswidth);
+procedure fisheye(w,L,focus,maxht,slope,family,weight,focuswidth)
    static fonttable;
    local past_end, i, splt;
    initial {
@@ -101,7 +101,7 @@ procedure fisheye(w,L,focus,maxht,slope,family,weight,focuswidth);
 
 end
 
-procedure viewtop(w,L,focus,base,ht,slope,focuswidth);
+procedure viewtop(w,L,focus,base,ht,slope,focuswidth)
    local wh;
    wh := WAttrib(w[1],"height") | stop("no WAttrib");
    while focus >= 1 & base >= 1 do {
@@ -119,7 +119,7 @@ procedure viewtop(w,L,focus,base,ht,slope,focuswidth);
    return focus;
 end
 
-procedure viewbottom(w,L,focus,base,ht,slope,focuswidth);
+procedure viewbottom(w,L,focus,base,ht,slope,focuswidth)
    local wh;
    wh := WAttrib(w[1],"height") | stop("no WAttrib");
    while focus <= *L & base <= wh do {
@@ -137,7 +137,7 @@ procedure viewbottom(w,L,focus,base,ht,slope,focuswidth);
    return focus;
 end
 
-procedure moveFocusToMouse(w,L,focus,base,ht,slope,focuswidth);
+procedure moveFocusToMouse(w,L,focus,base,ht,slope,focuswidth)
    local wh, fh;
    wh := WAttrib(w,"height") | stop("no WAttrib");
    fh := WAttrib(w,"ascent") | stop("no WAttrib");

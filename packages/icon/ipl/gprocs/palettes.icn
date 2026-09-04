@@ -389,7 +389,7 @@ procedure colorseq(palette);			#: sequence of palette colors
 
 end
 
-procedure sort_colors(colors);
+procedure sort_colors(colors)
 
    return isort(colors, value);
 

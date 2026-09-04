@@ -46,7 +46,7 @@
 
 link options
 
-procedure main(args);
+procedure main(args)
    local T, input, output, input_eoln, output_eoln, last_part, line, result;
 
    T := options(args, "i:o:");
@@ -84,7 +84,7 @@ procedure main(args);
    close(output);
 end
 
-procedure eoln(file_type);
+procedure eoln(file_type)
    case file_type of {
       "u" : return "\n";
       "d" : return "\r\n";

@@ -65,7 +65,7 @@ global cx, cy				# current cell indices
 ##############################  Overall control  ##############################
 
 
-procedure main(args);
+procedure main(args)
    local x, y;
 
    # Start with a medium window; shrink, test defaults, grow.
@@ -129,7 +129,7 @@ end
 #  Proc is called with a private graphics context assigned to &window.
 #  Clipping set to cell boundaries and the origin is at the center.
 
-procedure cell(proc);
+procedure cell(proc)
    local x, y, stdwin;
 
    if (cx +:= 1) >= NWIDE then {
@@ -156,7 +156,7 @@ end
 #
 #  Tests DrawCircle with angle limits.
 
-procedure arcs();
+procedure arcs()
    local r, a, d;
 
    r := 2;
@@ -177,7 +177,7 @@ end
 #  setting, set it to that value, and get it back again.  If that works,
 #  display some system-dependent attributes in the cell window.
 
-procedure attribs();
+procedure attribs()
    local alist, afail, n, a, f, cw, ch, cl, v1, v2;
 
    alist := [
@@ -227,7 +227,7 @@ end
 #
 #  Tests DrawImage using g16 palette.
 
-procedure balls();
+procedure balls()
    every DrawImage(-HALF + 2 to HALF by 20, -HALF + 2 to HALF by 20, 
       " 16 , g16 , FFFFB98788AEFFFF_
       FFD865554446AFFF FD856886544339FF E8579BA9643323AF_
@@ -242,7 +242,7 @@ end
 #
 #  Tests mutable colors, WDelay, various drawing operations.
 
-procedure cheshire();
+procedure cheshire()
    local face, eyes, grin, i, g;
 
    if (face := NewColor("white")) & 
@@ -285,7 +285,7 @@ end
 #  Tests hidden canvas, overlapping copies, and generation
 #  of background color for missing source pixels.
 
-procedure copying();
+procedure copying()
    local win, o, w, h;
 
    win := WOpen("canvas=hidden", "size=" || CELL || "," || CELL) | {
@@ -329,7 +329,7 @@ end
 #  This test must be run first.  It uses the entire window and leaves
 #  results in the first cell.
 
-procedure deftest();
+procedure deftest()
    WAttrib("drawop=reverse");
    WAttrib("size=" || CELL || "," || CELL / 2);
    FillArc();
@@ -345,7 +345,7 @@ end
 #
 #  Tests some of the details of filling and stroking.
 
-procedure details();
+procedure details()
    Shade("light gray");
    FillRectangle();
 
@@ -381,7 +381,7 @@ end
 #  Tests various font characteristics combined with standard font names.
 #  Also exercises Shade, GoToXY, WWrites.
 
-procedure fontvars();
+procedure fontvars()
    Translate(-HALF + 4, -HALF);
    Shade("gray");
    FillRectangle(-4);
@@ -400,7 +400,7 @@ end
 #  Draws 50%-gray bars with various values of the gamma attribute, beginning
 #  with the system default.  Incidentally tests some font attributes.
 
-procedure gamma();
+procedure gamma()
    local g;
 
    GotoXY(0, -HALF + WAttrib("leading") - WAttrib("descent"));
@@ -420,14 +420,14 @@ end
 #  Tests proper drawing and joining of lines of various widths.  There
 #  once were problems here in Icon, and there still are in some X servers.
 
-procedure lines();
+procedure lines()
    local i, y;
    y := -HALF - 6;
    every WAttrib("linewidth=" || (0 to 4)) do
       tline(-HALF + 10, y +:= 15);
 end
 
-procedure tline(x, y);
+procedure tline(x, y)
    DrawLine(x + 1, y, x + 3, y);
    DrawLine(x - 1, y, x - 3, y);
    DrawLine(x, y + 1, x, y + 3);
@@ -454,7 +454,7 @@ end
 #
 #  Tests custom patterns in hex and decimal forms; tests fillstyle=masked.
 
-procedure patts();
+procedure patts()
    local i, j, s, w;
 
    WAttrib("linewidth=4");
@@ -481,7 +481,7 @@ end
 #
 #  Tests DrawCurve.
 
-procedure pretzel();
+procedure pretzel()
    WAttrib("linewidth=3");
    DrawCurve(20, -20, -5, 0, 20, 20, 35, 0, 0,
       -20, -35, 0, -20, 20, 5, 0, -20, -20);
@@ -492,7 +492,7 @@ end
 #
 #  Tests several color naming variations.
 
-procedure rainbow();
+procedure rainbow()
    local r, c, l;
 
    Shade("moderate blue-cyan");
@@ -511,7 +511,7 @@ end
 #
 #  Tests rectangles specified with positive & negative width & height.
 
-procedure rects();
+procedure rects()
    local r, a;
 
    WAttrib("drawop=reverse");
@@ -525,7 +525,7 @@ end
 #
 #  Tests linewidth and DrawCircle in combination.
 
-procedure rings();
+procedure rings()
    local x, y;
    Translate(-HALF, -HALF);
    FillRectangle();
@@ -544,7 +544,7 @@ end
 #
 #  Tests DrawString, DrawCircle, FillRectangle, EraseArea, linestyles.
 
-procedure simple();
+procedure simple()
    DrawCircle(0, 0, CELL / 3);
    DrawString(-HALF + 4, -HALF + 12, "hello,");
    DrawString(-HALF + 4, -HALF + 25, "world");
@@ -561,7 +561,7 @@ end
 #
 #  Tests RandomColor, Shade, FillArc.
 
-procedure slices();
+procedure slices()
    local n, a, da, ov;
 
    n := 10;
@@ -581,7 +581,7 @@ end
 #
 #  Tests DrawPoint.
 
-procedure spiral();
+procedure spiral()
    local r, a, d;
 
    r := 3;  # initial radius
@@ -599,7 +599,7 @@ end
 #
 #  Tests FillPolygon and the even-odd winding rule.
 
-procedure star();
+procedure star()
    FillPolygon(-40, -10, 40, -10, -25, 40, 0, -40, 25, 40);
 end
 
@@ -609,7 +609,7 @@ end
 #
 #  Shows the default font (the header line), standard fonts, and "fixed".
 
-procedure stdfonts();
+procedure stdfonts()
    Translate(-HALF + 4, -HALF);
    Shade("gray");
    FillRectangle(-4);
@@ -627,7 +627,7 @@ end
 #
 #  Tests standard pattern names; tests fillstyle=textured.
 
-procedure stdpats();
+procedure stdpats()
    local i, j, s, x, y;
 
    WAttrib("fillstyle=textured");
@@ -649,7 +649,7 @@ end
 #
 #  Tests transparent and regular images, Capture, Zoom.
 
-procedure whale();
+procedure whale()
    local s;
 
    Fg("moderate greenish cyan");
@@ -706,7 +706,7 @@ end
 #  For "Validate", check all values, and repeat dialog if incorrect.
 #  For "Cancel", return immediately.
 
-procedure dltest();
+procedure dltest()
    while dlog() ~== "Cancel" do {
       if dialog_value["button"] ~=== 1 then
          { Notice("The button was not left dark."); next };
@@ -723,7 +723,7 @@ end
 
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure dlog(win, deftbl);
+procedure dlog(win, deftbl)
 static dstate;
 initial dstate := dsetup(win,
    ["dlog:Sizer::1:0,0,370,220:",],

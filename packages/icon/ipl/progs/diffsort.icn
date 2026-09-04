@@ -31,7 +31,7 @@ global dlines	# diff lines
 
 ##  main program
 
-procedure main(args);
+procedure main(args)
    clines := [];
    dlines := [];
 
@@ -47,7 +47,7 @@ end
 
 ##  dofile(fname) - process one named file, or standard input if unnamed  
 
-procedure dofile(fname);
+procedure dofile(fname)
    local f, separator;
 
    if /fname then

@@ -130,7 +130,7 @@ global stdwin		# std bg/fg window
 
 #  ========================= Overall Control =========================
 
-procedure main(args);
+procedure main(args)
    local e, v, xywh;
 
    Window("size=800,800", "resize=on", "canvas=hidden",
@@ -461,7 +461,7 @@ end
 #  show in the legend only those files containing a point in view
 #  (note: won't show legend for tracks that "just pass through")
 
-procedure flegend(pjn);
+procedure flegend(pjn)
    local winlim, viewlim, fset, vset, i, seg, pt, x0, x1, y0, y1;
 
    fset := set();		# set of potential file source indices
@@ -497,14 +497,14 @@ procedure flegend(pjn);
    return;
 end
 
-procedure byfile(p, q);
+procedure byfile(p, q)
    return fhlist[q.f];
 end
 
 
 #  A: color segments by age (relative to range of timestamps seen)
 
-procedure agelegend();
+procedure agelegend()
 
    ltext("oldest");
    lspectrum(630, 360, 12);
@@ -512,7 +512,7 @@ procedure agelegend();
    return;
 end
 
-procedure byage(p, q);
+procedure byage(p, q)
 
    # purple oldest, green mid, red newest
    return 630. - 270. * (\q.t - tmin) / (tmax - tmin);
@@ -521,7 +521,7 @@ end
 
 #  O: color segments by orientation (direction of travel)
 
-procedure olegend();
+procedure olegend()
 
    ltext("N"); lspectrum(270, 180);
    ltext("E"); lspectrum(180, 90);
@@ -531,7 +531,7 @@ procedure olegend();
    return;
 end
 
-procedure orientation(p, q);
+procedure orientation(p, q)
 
    # blue north, teal east, olive south, red west
    return 180. + rtod(atan(q.y - p.y, cos(dtor(q.y)) * (q.x - p.x)));
@@ -540,7 +540,7 @@ end
 
 #  V: color segments by velocity
 
-procedure vlegend();
+procedure vlegend()
 
    lhue(240, "1 ");
    lhue(210, "2 ");
@@ -555,7 +555,7 @@ procedure vlegend();
    return;
 end
 
-procedure velocity(p, q);
+procedure velocity(p, q)
    local dt, dx, dy, d, mph;
    static hues;
    initial hues := [270, 240, 210, 180, 120, 55, 30,  0, 300, 270];
@@ -576,7 +576,7 @@ end
 
 #  I: color segments by length of time interval
 
-procedure intlegend();
+procedure intlegend()
 
    lhue(  0, "0 ");
    lhue( 30, "1 ");
@@ -589,7 +589,7 @@ procedure intlegend();
    return;
 end
 
-procedure byinterval(p, q);
+procedure byinterval(p, q)
    local dt, i;
    static hues;
    initial hues := [0, 30, 55, 120, 180, 220, 240, 290];
@@ -603,14 +603,14 @@ end
 
 #  S: emphasize individual segments in contrasting colors.
 
-procedure seglegend();
+procedure seglegend()
 
    lspectrum(137, 12*137, 12);
    ltext("...");
    return;
 end
 
-procedure segments(p, q);
+procedure segments(p, q)
    static n;
    initial n := 0;
 
@@ -620,7 +620,7 @@ end
 
 #  Y: color segments by time of year as a spectrum
 
-procedure monthlegend();
+procedure monthlegend()
 
    ltext("January");
    lspectrum(525, 195, 12);
@@ -628,7 +628,7 @@ procedure monthlegend();
    return;
 end
 
-procedure bymonth(p, q);
+procedure bymonth(p, q)
 
    # cyan winter, green spring, red summer, blue fall
    return 540. - (\q.t % 365.25) * (360. / 365.25);
@@ -637,7 +637,7 @@ end
 
 #  D: color segments by day of week
 
-procedure daylegend();
+procedure daylegend()
 
    lhue(240, "Sun ");
    lhue(120, "Mon ");
@@ -649,7 +649,7 @@ procedure daylegend();
    return;
 end
 
-procedure byday(p, q);
+procedure byday(p, q)
    static hues;
    initial hues := [240, 120, 165, 55, 30, 285, 0];
 
@@ -659,7 +659,7 @@ end
 
 #  H: color segments by hour in the day (0 to 11, repeated)
 
-procedure hourlegend();
+procedure hourlegend()
 
    lhue(240, "12 ");
    lhue(290, "1 ");
@@ -676,7 +676,7 @@ procedure hourlegend();
    return;
 end
 
-procedure byhour(p, q);
+procedure byhour(p, q)
    local h;
    static hues;
    initial hues := [240, 290, 350, 30, 80, 150, 210, 270, 330, 55, 120, 180];
@@ -688,7 +688,7 @@ end
 
 #  M: color segments by minute of the hour, mod 10
 
-procedure minutelegend();
+procedure minutelegend()
    local i;
 
    every i := 0 to 9 do
@@ -696,7 +696,7 @@ procedure minutelegend();
    return;
 end
 
-procedure byminute(p, q);
+procedure byminute(p, q)
    local t;
 
    t := 24 * 30 * (\p.t + \q.t) | fail;		# time in minutes since epoch
@@ -706,7 +706,7 @@ end
 
 #  T: color segments by a time-of-day spectrum
 
-procedure timelegend();
+procedure timelegend()
 
    ltext("midnight");
    lspectrum(600, 420, 13);
@@ -716,7 +716,7 @@ procedure timelegend();
    return;
 end
 
-procedure bytime(p, q);
+procedure bytime(p, q)
 
    # green morning, yellow noon, red afternoon, blue night
    return 600. - 360. * (\q.t - integer(q.t));

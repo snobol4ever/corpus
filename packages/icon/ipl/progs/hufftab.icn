@@ -37,7 +37,7 @@
 
 global curstate, sttab, line
 
-procedure main();
+procedure main()
    local code, val, n;
 
    sttab := list();
@@ -68,7 +68,7 @@ procedure main();
 end
 
 
-procedure bit(c);
+procedure bit(c)
    curstate +:= c;
    if integer(sttab[curstate]) then {
       curstate := sttab[curstate];
@@ -81,7 +81,7 @@ procedure bit(c);
 end
 
 
-procedure out(v);
+procedure out(v)
    if type(v) == "integer" then
       writes(right(v-1, 6), ",")
    else

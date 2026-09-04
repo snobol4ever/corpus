@@ -38,7 +38,7 @@
 #
 ############################################################################
 
-procedure lu_decomp(M, I);
+procedure lu_decomp(M, I)
    local small, d, n, vv, i, largest, j, sum, k, pivot_val, imax;
 
    initial small := 1.0e-20;
@@ -110,7 +110,7 @@ procedure lu_decomp(M, I);
 
 end
 
-procedure lu_back_sub(M, I, B);
+procedure lu_back_sub(M, I, B)
    local n, ii, i, ip, sum, j;
 
    n := *M;

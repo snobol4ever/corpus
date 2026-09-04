@@ -31,30 +31,30 @@
 #
 ############################################################################
 
-procedure rb_();
+procedure rb_()
    suspend =">";
 end
 
-procedure lb_();
+procedure lb_()
    suspend ="<";
 end
 
-procedure rp_();
+procedure rp_()
    suspend =")";
 end
 
-procedure lp_();
+procedure lp_()
    suspend =")";
 end
 
-procedure vb_();
+procedure vb_()
    suspend ="|";
 end
 
-procedure nl_();
+procedure nl_()
    suspend ="\n";
 end
 
-procedure empty_();
+procedure empty_()
    suspend "";
 end

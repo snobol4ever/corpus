@@ -1,7 +1,7 @@
 # test assignments to trapped variables
 # original source unknown; found 2013 in an ancient to-do collection
 
-procedure tvtbl_test ();
+procedure tvtbl_test ()
 local T;
 
     #
@@ -43,7 +43,7 @@ local T;
 end
 
 
-procedure subs_test (  );
+procedure subs_test (  )
 local T, s;
 
     write ( "TVSUBS test" );     
@@ -65,7 +65,7 @@ local T, s;
 end
 
 
-procedure main (  );
+procedure main (  )
     tvtbl_test ( );
     subs_test ( );
     return;

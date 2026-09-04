@@ -41,7 +41,7 @@ link numbers, strings
 
 
 
-procedure main(args);
+procedure main(args)
    local a, opr, files, lines;
 
    if args[1][1] == '-' then {
@@ -77,7 +77,7 @@ end
 
 #  merge(lines, opr) -- output the result of merging a list of lines.
 
-procedure merge(lines, opr);
+procedure merge(lines, opr)
    local a, s, w, fields, ws;
 
    fields := [];
@@ -107,21 +107,21 @@ end
 #  They must always return something regardless of the data.
 #  Those that involve arithmetic need to tolerate string data somehow.
 
-procedure minimum(a);
+procedure minimum(a)
    a := sort(a);
    return a[1];
 end
 
-procedure maximum(a);
+procedure maximum(a)
    a := sort(a);
    return a[-1];
 end
 
-procedure mean(a);
+procedure mean(a)
    return (amean ! nsubset(a)) | median(a);
 end
 
-procedure median(a);
+procedure median(a)
    a := sort(a);
    return a[(*a + 1) / 2];
 end
@@ -130,7 +130,7 @@ end
 
 #  nsubset(a) -- return subset of array a that contains numeric values
 
-procedure nsubset(a);
+procedure nsubset(a)
    local b;
    b := [];
    every put(b, numeric(!a));

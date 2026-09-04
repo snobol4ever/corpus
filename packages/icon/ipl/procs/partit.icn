@@ -31,7 +31,7 @@
 link fastfncs
 link numbers
 
-procedure partit(i, min, max, k);
+procedure partit(i, min, max, k)
    local j;
 
    if not(integer(i)) | (i < 0) | (\min > \max) then
@@ -52,7 +52,7 @@ procedure partit(i, min, max, k);
 
 end
 
-procedure partcount(i, min, max);
+procedure partcount(i, min, max)
    local count;
 
    count := 0;
@@ -67,7 +67,7 @@ end
 #  This is a version of partit() that doesn't do all the work
 #  of producing the partitions and is used only by partcount().
 
-procedure partitret(i, min, max, k);
+procedure partitret(i, min, max, k)
    local j;
 
    /min := 1;
@@ -87,7 +87,7 @@ end
 
 #  Partition of an integer into Fibonacci numbers.
 
-procedure fibpart(i);
+procedure fibpart(i)
    local partl, n;
    static m;
 

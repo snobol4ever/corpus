@@ -33,7 +33,7 @@ link ivalue
 
 global EventFile
 
-procedure evplay(win);
+procedure evplay(win)
    local event1, event2, event3;
 
    /EventFile := &input;

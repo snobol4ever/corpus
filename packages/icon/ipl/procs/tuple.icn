@@ -47,7 +47,7 @@
 #
 ############################################################################
 
-procedure tuple(tl);
+procedure tuple(tl)
    local tb, i, e, le;
 
    static tuptab;

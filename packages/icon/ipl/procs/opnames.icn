@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure opnames();
+procedure opnames()
    local opmap;
 
    initial {

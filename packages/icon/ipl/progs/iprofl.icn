@@ -49,7 +49,7 @@ record bucket(ticks, visits, fname, lnum)	# hash bucket (one data line)
 
 global tticks					# total ticks
 
-procedure main(args);
+procedure main(args)
    local a, b, f, line, fname, flist, ftable;
 
    if fname := get(args) then

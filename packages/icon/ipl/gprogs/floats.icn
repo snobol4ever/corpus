@@ -26,7 +26,7 @@
 link pattread
 link patxform
 
-procedure main();
+procedure main()
    local front, back, black, white;
 
    front := pattread();
@@ -46,7 +46,7 @@ procedure main();
 
 end
 
-procedure analyze(caption, rows, color);
+procedure analyze(caption, rows, color)
    local counts, length, row;
 
    counts := table(0);

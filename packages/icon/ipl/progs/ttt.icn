@@ -27,7 +27,7 @@ link random
 global me,you,true,false,draw,pointer,wins,pass,taken,winner
 global mark,row,routes,route
 
-procedure main();
+procedure main()
   local again, index, path, play, square, tmp, victory, your_last_move;
 
   init();
@@ -149,7 +149,7 @@ procedure main();
 #
 # procedure to display the current tictactoe grid and plays
 #               
-procedure display();
+procedure display()
   local line, x, y;
 
   if (pass +:= 1) = 1 then
@@ -171,7 +171,7 @@ procedure display();
 #
 # procedure to obtain a move choice from the player
 #
-procedure get_your_move();
+procedure get_your_move()
   local yours,all_moves;
   repeat {
   writes(at(5,22));
@@ -199,7 +199,7 @@ procedure get_your_move();
 #
 # procedure to test if computer has won, or the game is a draw
 #
-procedure done_yet();
+procedure done_yet()
   local outcome, test, part;
 
   every outcome := !wins do
@@ -238,68 +238,68 @@ procedure done_yet();
 #
 # prompts for an input from the user
 #
-procedure input(prompt);
+procedure input(prompt)
   writes(prompt);
   return read();
   end
 #
 # procedures to output ansi graphics and attributes
 #
-procedure at(x,y);
+procedure at(x,y)
   return "\e[" || y || ";" || x || "f";
   end
   
-procedure graf(str);
+procedure graf(str)
   return "\e(0" || str || "\e(B";
   end
 
-procedure uhalf(str);
+procedure uhalf(str)
   /str := "";
   return "\e#3" || str;
   end
 
-procedure lhalf(str);
+procedure lhalf(str)
   /str := "";
   return "\e#4" || str;
   end
 
-procedure high(str);
+procedure high(str)
   return "\e[1m" || str || "\e[0m";
   end
 
-procedure normal(str);
+procedure normal(str)
   return "\e[0m" || str;
   end
 
-procedure dim(str);
+procedure dim(str)
   return "\e[2m" || str || "\e[0m";
   end
   
-procedure under(str);
+procedure under(str)
   return "\e[4m" || str || "\e[0m";
   end
 
-procedure blink(str);
+procedure blink(str)
   return "\e[5m" || str || "\e[0m";
   end
 
-procedure cls(str);
+procedure cls(str)
   /str := "";
   return "\e[2J\e[H" || str;
   end
 
-procedure chop(str);
+procedure chop(str)
   /str := "";
   return "\e[J" || str;
   end
 
-procedure beep();
+procedure beep()
   return "\7";
   end
 #
 # procedure to init useful global variables for later use
 #
-procedure init();
+procedure init()
   true    := "y";
   false   := "n";
   draw    := "?";

@@ -34,7 +34,7 @@ link joinpair
 link random
 link wopen
 
-procedure main(argl);
+procedure main(argl)
    local i, j, k, angle, incr, points, size, radius;
 
    i := integer(argl[1]) | 20;

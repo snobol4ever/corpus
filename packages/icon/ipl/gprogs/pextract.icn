@@ -35,7 +35,7 @@
 link options
 link patutils
 
-procedure main(args);
+procedure main(args)
    local file, input, i, hitlist, patlist, spec, lo, hi, output;
    local subspec, opts;
 

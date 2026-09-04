@@ -45,7 +45,7 @@
 link options
 link wopen
 
-procedure main(args);
+procedure main(args)
    local file, hidden, count, prefix, opts, w, h, v, x, y;
 
    opts := options(args, "d:w+p:x+y+");

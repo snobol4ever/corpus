@@ -27,7 +27,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local filesets, filelist, file, xfile, size, line, input;
 
    filesets := table();

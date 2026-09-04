@@ -41,7 +41,7 @@
 link options
 link strings
 
-procedure main(args);
+procedure main(args)
    local isyms, osyms, line, defs, axiom, i, opts, symbols, done;
 
    opts := options(args, "i:s:a");

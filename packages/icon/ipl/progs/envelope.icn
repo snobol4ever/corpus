@@ -46,7 +46,7 @@
 link options
 global Printertype
 
-procedure main(arg);
+procedure main(arg)
   local opts, lp, separator, printerinit, printerclear, 
 	hpinit, hppos, xorigin, yorigin, rotate, font, 
 	prn, addr, psprefix, preface, optstr, usage, goodline;
@@ -139,7 +139,7 @@ procedure main(arg);
 end
 
 
-procedure address(addr, prn, preface);
+procedure address(addr, prn, preface)
   local zip, zline;
 
   zip := "";
@@ -158,7 +158,7 @@ procedure address(addr, prn, preface);
 end
 
 
-procedure barcode(zip, prn);
+procedure barcode(zip, prn)
   local z, zipstring, cksum, bar;
 
   cksum := 0;
@@ -183,7 +183,7 @@ procedure barcode(zip, prn);
 end
 
 
-procedure clean(s, c);
+procedure clean(s, c)
   local i;
 
   while i := upto(c, s) do s[i:many(c,s,i)] := "";

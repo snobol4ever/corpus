@@ -33,7 +33,7 @@
 
 link wopen
 
-procedure main(args);
+procedure main(args)
    local input, width, height, line;
 
    input := open(args[1]) | stop("*** cannot open file");

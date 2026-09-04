@@ -47,7 +47,7 @@ procedure iftrace(args[]);		#: trace built-in functions
    return;
 end
 
-procedure set_trace(vf);
+procedure set_trace(vf)
    local vp;
    static traceset, case1, case2;
 

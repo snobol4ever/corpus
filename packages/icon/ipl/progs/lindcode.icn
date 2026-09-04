@@ -32,7 +32,7 @@
 
 link options
 
-procedure main(args);
+procedure main(args)
    local allchar, rchar, line, prefix, symbol, rhs, file, name, spec;
    local value, c, opts, expand;
 

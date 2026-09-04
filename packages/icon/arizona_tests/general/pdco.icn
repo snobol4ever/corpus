@@ -6,7 +6,7 @@
 #  implemented in Icon using co-expressions and the p{ ... }
 #  syntax that facilitates their use.
 
-procedure main();
+procedure main()
    if not(&features == "co-expressions") then
       stop("co-expressions not supported");
    write(Seqimage{1 to 10});
@@ -26,16 +26,16 @@ procedure main();
    every Rotate{|write,!"abcd",1 to 10} \ 20;
 end
 
-procedure star(s);
+procedure star(s)
    suspend "" | (star(s) || !s);
 end
 
-procedure Galt(a);
+procedure Galt(a)
    local e;
    every e := !a do suspend |@e;
 end
 
-procedure Limit(a);
+procedure Limit(a)
    local i, x;
    while i := @a[2] do {
       a[1] := ^a[1];
@@ -45,19 +45,19 @@ procedure Limit(a);
       };
 end
 
-procedure Ranseq(a);
+procedure Ranseq(a)
    local x;
    while x := @?a do suspend x;
 end
 
-procedure Seqimage(L);
+procedure Seqimage(L)
    local s;
    s := "";
    while s ||:= ", " || image(@L[1]);
    return "{" || s[3:0] || "}" | "{}";
 end
 
-procedure Allpar(a);
+procedure Allpar(a)
    local i, x, done;
    x := list(*a);
    done := list(*a,1);
@@ -70,7 +70,7 @@ procedure Allpar(a);
        };
 end
 
-procedure Call(a);
+procedure Call(a)
    suspend case *a of {
       1 : a[1]();
       2 : a[1](a[2]);
@@ -86,7 +86,7 @@ procedure Call(a);
       };
 end
 
-procedure Extract(a);
+procedure Extract(a)
    local i, j, n, x;
    x := list(*a/2);
    repeat {
@@ -102,7 +102,7 @@ procedure Extract(a);
       };
 end
 
-procedure Lifo(a);
+procedure Lifo(a)
    local i, x, ptr;
    x := list(*a);
    ptr := 1;
@@ -121,7 +121,7 @@ procedure Lifo(a);
       };
 end
 
-procedure Parallel(a);
+procedure Parallel(a)
    local i, x;
    x := list(*a);
    repeat {
@@ -131,7 +131,7 @@ procedure Parallel(a);
       };
 end
 
-procedure Reverse(a);
+procedure Reverse(a)
    local i, x, ptr;
    x := list(*a);
    ptr := *a;
@@ -150,7 +150,7 @@ procedure Reverse(a);
       };
 end
 
-procedure Rotate(a);
+procedure Rotate(a)
    local i, x, done;
    x := list(*a);
    done := list(*a,1);
@@ -169,7 +169,7 @@ procedure Rotate(a);
         };
 end
 
-procedure Simple(a);
+procedure Simple(a)
    local i, x;
    x := list(*a);
    every i := 1 to *a do

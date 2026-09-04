@@ -82,7 +82,7 @@
 #
 ############################################################################
 
-procedure _Eascii();
+procedure _Eascii()
     static EinAorder;
     initial
         EinAorder :=
@@ -113,49 +113,49 @@ procedure _Eascii();
     return EinAorder;
 end
 
-procedure Ascii128();
+procedure Ascii128()
     if "\l" == "\n" then return string(&ascii);
     return _Eascii()[1+:128];
 end
 
-procedure Ascii256();
+procedure Ascii256()
     if "\l" == "\n" then return string(&cset);
     return _Eascii();
 end
 
-procedure Ebcdic();
+procedure Ebcdic()
     if "\l" ~== "\n" then return &cset;
     return map(&cset, _Eascii(), &cset);
 end
 
-procedure AsciiChar(i);
+procedure AsciiChar(i)
     if "\l" == "\n" then return char(i);
     return _Eascii()[0 < i+1] | runerr(205,i);
 end
 
-procedure AsciiOrd(c);
+procedure AsciiOrd(c)
     if "\l" == "\n" then return ord(c);
     return ord(MapEtoA(c));
 end
 
-procedure EbcdicChar(i);
+procedure EbcdicChar(i)
     if "\l" ~== "\n" then return char(i);
     return map(char(i), _Eascii(), &cset);
 end
 
-procedure EbcdicOrd(c);
+procedure EbcdicOrd(c)
     if "\l" ~== "\n" then return ord(c);
     return ord(MapAtoE(c));
 end
 
-procedure MapEtoA(s);
+procedure MapEtoA(s)
     return map(s, _Eascii(), &cset);
 end
 
-procedure MapAtoE(s);
+procedure MapAtoE(s)
     return map(s, &cset, _Eascii());
 end
 
-procedure Control(c);
+procedure Control(c)
     return AsciiChar(iand(AsciiOrd(c),16r1f));
 end

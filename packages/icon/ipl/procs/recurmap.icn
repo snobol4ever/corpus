@@ -33,7 +33,7 @@
 #
 ############################################################################
 
-procedure recurmap(recur);
+procedure recurmap(recur)
    local line, proto, result;
 
    result := "";

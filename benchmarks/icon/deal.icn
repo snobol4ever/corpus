@@ -48,7 +48,7 @@ link options, post, shuffle
 
 global deck, deckimage, handsize, suitsize, denom, rank, blanker
 
-procedure main(args);
+procedure main(args)
    local hands, opts;
 
    Init__("deal");
@@ -71,7 +71,7 @@ end
 
 #  Display the hands
 #
-procedure display();
+procedure display()
    local layout, i;
    static bar, offset;
 
@@ -96,7 +96,7 @@ end
 
 #  Put the hands in a form to display
 #
-procedure show(hand);
+procedure show(hand)
    static clubmap, diamondmap, heartmap, spademap;
    initial {
       clubmap := denom || repl(blanker,3);
@@ -114,6 +114,6 @@ end
 
 #  Arrange hands for presentation
 #
-procedure arrange(hand,suit);
+procedure arrange(hand,suit)
    return map(map(hand,deckimage,suit) -- ' ',denom,rank);
 end

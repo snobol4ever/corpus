@@ -175,7 +175,7 @@ global tc_table, isDOS
 record true()
 
 
-procedure check_features();
+procedure check_features()
 
     initial {
 
@@ -195,7 +195,7 @@ end
 
 
 
-procedure setname(name);
+procedure setname(name)
 
     # Sets current terminal type to "name" and builds a new termcap
     # capability database (residing in tc_table).  Fails if unable to
@@ -216,7 +216,7 @@ end
 
 
 
-procedure getname();
+procedure getname()
 
     # Getname() first checks to be sure we're running under DOS or
     # UNIX, and, if so, tries to figure out what the current terminal
@@ -248,7 +248,7 @@ end
 
 
 
-procedure er(func,msg,errnum);
+procedure er(func,msg,errnum)
 
     # short error processing utility
     write(&errout,func,":  ",msg);
@@ -258,7 +258,7 @@ end
 
 
 
-procedure getentry(name, termcap_string);
+procedure getentry(name, termcap_string)
 
     # "Name" designates the current terminal type.  Getentry() scans
     # the current environment for the variable TERMCAP.  If the
@@ -371,7 +371,7 @@ end
 
 
 
-procedure read_file(f);
+procedure read_file(f)
 
     # Suspends all non #-initial lines in the file f.
     # Removes leading tabs and spaces from lines before suspending
@@ -392,7 +392,7 @@ end
 
 
 
-procedure maketc_table(entry);
+procedure maketc_table(entry)
 
     # Maketc_table(s) (where s is a valid termcap entry for some
     # terminal-type): Returns a table in which the keys are termcap
@@ -436,7 +436,7 @@ end
 
 
 
-procedure getval(id);
+procedure getval(id)
 
     /tc_table := maketc_table(getentry(getname())) |
 	er("getval","can't make a table for your terminal",4);
@@ -448,7 +448,7 @@ end
 
 
 
-procedure Decode(s);
+procedure Decode(s)
 
     # Does things like turn ^ plus a letter into a genuine control
     # character.
@@ -493,7 +493,7 @@ end
 
 
 
-procedure igoto(cm,col,line);
+procedure igoto(cm,col,line)
 
     local colline, range, increment, padding, str, outstr, chr, x, y;
 
@@ -544,7 +544,7 @@ end
 
 
 
-procedure iputs(cp, affcnt);
+procedure iputs(cp, affcnt)
 
     # Writes cp to the screen.  Use this instead of writes() for
     # compatibility with itlib (a UNIX-only version which can handle

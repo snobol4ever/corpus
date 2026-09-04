@@ -31,7 +31,7 @@
 ############################################################################
 
 
-procedure XBind(args[]);
+procedure XBind(args[])
    local window;
 
    if type(args[2]) == type(args[1]) == "window" then
@@ -59,13 +59,13 @@ procedure XBind(args[]);
 end
 
 
-procedure XUnbind(args[]);
+procedure XUnbind(args[])
    XUnbind := proc("XUnbind" | "XUncouple" | "Uncouple", 0);
    return XUnbind ! args;
 end
 
 
-procedure XWindowLabel(win, s);
+procedure XWindowLabel(win, s)
    if type(win) == "window" then
       WAttrib(win, "label=" || s)
    else
@@ -74,7 +74,7 @@ procedure XWindowLabel(win, s);
 end
 
 
-procedure XDrawArc(args[]);
+procedure XDrawArc(args[])
    local a1, i;
    static m;
 
@@ -92,7 +92,7 @@ procedure XDrawArc(args[]);
 end
 
 
-procedure XFillArc(args[]);
+procedure XFillArc(args[])
    local a1, i;
    static m;
 

@@ -58,7 +58,7 @@ global bc_locals_set
 global bc_params_set
 global bc_statics_set
 
-procedure bc_transfer_to(s, p);
+procedure bc_transfer_to(s, p)
     case type(p) of {
     default: runerr(500, p);
     "ir_Label" : {
@@ -72,7 +72,7 @@ procedure bc_transfer_to(s, p);
     return s;
 end
 
-procedure bc_conditional_transfer_to(s, p, cond, notcond);
+procedure bc_conditional_transfer_to(s, p, cond, notcond)
     local tmp;
 
     tmp := j_label();
@@ -94,7 +94,7 @@ procedure bc_conditional_transfer_to(s, p, cond, notcond);
 end
 
 # assign top-of-stack to p
-procedure bc_gen_assign_to(s, p);
+procedure bc_gen_assign_to(s, p)
     local assign, call;
 
     case type(p) of {
@@ -124,7 +124,7 @@ end
 
 
 # record ir_Deref( lhs value )
-procedure bc_gen_ir_Deref(s, p);
+procedure bc_gen_ir_Deref(s, p)
     local deref;
 
     \p.lhs | return s;
@@ -139,7 +139,7 @@ procedure bc_gen_ir_Deref(s, p);
 end
 
 # record ir_Assign( lhs value )
-procedure bc_gen_ir_Assign(s, p);
+procedure bc_gen_ir_Assign(s, p)
     local assign;
 
     (type(p.target) == "ir_Tmp") | runerr(500, p);
@@ -154,27 +154,27 @@ procedure bc_gen_ir_Assign(s, p);
 end
 
 # record ir_Tmp( name )
-procedure bc_gen_ir_Tmp_rval(s, p);
+procedure bc_gen_ir_Tmp_rval(s, p)
     put(s, j_Aload(bc_tmp_table[p.name] + bc_tmp_offset));
     return s;
 end
-procedure bc_gen_ir_Tmp_assign(s, p);
+procedure bc_gen_ir_Tmp_assign(s, p)
     put(s, j_Astore(bc_tmp_table[p.name] + bc_tmp_offset));
     return s;
 end
 
 # record ir_TmpLabel( name )
-procedure bc_gen_ir_TmpLabel_rval(s, p);
+procedure bc_gen_ir_TmpLabel_rval(s, p)
     put(s, j_Iload(bc_tmplabel_table[p.name] + bc_tmplabel_offset));
     return s;
 end
-procedure bc_gen_ir_TmpLabel_assign(s, p);
+procedure bc_gen_ir_TmpLabel_assign(s, p)
     put(s, j_Istore(bc_tmplabel_table[p.name] + bc_tmplabel_offset));
     return s;
 end
 
 # record ir_Label( value )
-procedure bc_gen_ir_Label_rval(s, p);
+procedure bc_gen_ir_Label_rval(s, p)
 
     member(bc_indirect_targets, p) | runerr(500);
 
@@ -184,7 +184,7 @@ procedure bc_gen_ir_Label_rval(s, p);
 end
 
 # record ir_Field(coord, lhs, expr, field, failLabel)
-procedure bc_gen_ir_Field(s, p);
+procedure bc_gen_ir_Field(s, p)
     local lab, method, fieldname, field, d;
 
     (/p.lhs | (type(p.lhs) == "ir_Tmp")) | runerr(500, p);
@@ -219,7 +219,7 @@ procedure bc_gen_ir_Field(s, p);
 end
 
 # record ir_Move( lhs rhs )
-procedure bc_gen_ir_Move(s, p);
+procedure bc_gen_ir_Move(s, p)
     local deref, call;
 
     \p.lhs | return s;
@@ -240,7 +240,7 @@ procedure bc_gen_ir_Move(s, p);
 end
 
 # record ir_MoveLabel( lhs label )
-procedure bc_gen_ir_MoveLabel(s, p);
+procedure bc_gen_ir_MoveLabel(s, p)
     local deref, call;
 
     (type(p.lhs) == "ir_TmpLabel") | runerr(500, p);
@@ -253,7 +253,7 @@ procedure bc_gen_ir_MoveLabel(s, p);
 end
 
 # record ir_ScanSwap( subject pos )
-procedure bc_gen_ir_ScanSwap(s, p);
+procedure bc_gen_ir_ScanSwap(s, p)
     local subject, pos, Ksubject, Kpos, deref, assign, call;
 
     (type(p.subject) == "ir_Tmp") | runerr(500, p);
@@ -290,21 +290,21 @@ procedure bc_gen_ir_ScanSwap(s, p);
 end
 
 # record ir_Goto( targetLabel )
-procedure bc_gen_ir_Goto(s, p);
+procedure bc_gen_ir_Goto(s, p)
     (type(p.targetLabel) == "ir_Label") | runerr(500, p);
     bc_transfer_to(s, p.targetLabel);
     return s;
 end
 
 # record ir_IndirectGoto( targetTmpLabel )
-procedure bc_gen_ir_IndirectGoto(s, p);
+procedure bc_gen_ir_IndirectGoto(s, p)
     (type(p.targetTmpLabel) == "ir_TmpLabel") | runerr(500, p);
     bc_transfer_to(s, p.targetTmpLabel);
     return s;
 end
 
 # record ir_Var( lhs name )
-procedure bc_gen_ir_Var_rval(s, p);
+procedure bc_gen_ir_Var_rval(s, p)
 
     \p.lhs | return s;
     (type(p.lhs) == "ir_Tmp") | runerr(500, p);
@@ -315,7 +315,7 @@ procedure bc_gen_ir_Var_rval(s, p);
     return s;
 end
 
-procedure bc_gen_ir_Key_register(name);
+procedure bc_gen_ir_Key_register(name)
     if /bc_keywords(name) then {
 	semantic_error("invalid keyword" || " &" || name)
     };
@@ -325,7 +325,7 @@ procedure bc_gen_ir_Key_register(name);
                                                "jcon/iKeyword");
 end
 
-procedure bc_gen_push_Key(s, name);
+procedure bc_gen_push_Key(s, name)
     local call;
 
     (type(name) == "string") | runerr(500, name);
@@ -337,7 +337,7 @@ procedure bc_gen_push_Key(s, name);
 end
 
 # record ir_Key( lhs name failLabel )
-procedure bc_gen_ir_Key(s, p);
+procedure bc_gen_ir_Key(s, p)
     local target;
 
     \p.lhs | return s;
@@ -350,7 +350,7 @@ procedure bc_gen_ir_Key(s, p);
 end
 
 # record ir_IntLit( lhs val )
-procedure bc_gen_ir_IntLit(s, p);
+procedure bc_gen_ir_IntLit(s, p)
     local i, field;
 
     \p.lhs | return s;
@@ -365,7 +365,7 @@ procedure bc_gen_ir_IntLit(s, p);
 end
 
 # record ir_RealLit( lhs val )
-procedure bc_gen_ir_RealLit(s, p);
+procedure bc_gen_ir_RealLit(s, p)
     local r, x, field;
 
     \p.lhs | return s;
@@ -380,7 +380,7 @@ procedure bc_gen_ir_RealLit(s, p);
 end
 
 # record ir_StrLit( lhs val )
-procedure bc_gen_ir_StrLit(s, p);
+procedure bc_gen_ir_StrLit(s, p)
     local x, field;
 
     \p.lhs | return s;
@@ -394,7 +394,7 @@ procedure bc_gen_ir_StrLit(s, p);
 end
 
 # record ir_CsetLit( lhs val )
-procedure bc_gen_ir_CsetLit(s, p);
+procedure bc_gen_ir_CsetLit(s, p)
     local v, field;
 
     \p.lhs | return s;
@@ -407,7 +407,7 @@ procedure bc_gen_ir_CsetLit(s, p);
     return s;
 end
 
-procedure bc_save_tmps(s);
+procedure bc_save_tmps(s)
     local a, k;
 
     if *bc_tmp_table > 0 then {
@@ -425,7 +425,7 @@ procedure bc_save_tmps(s);
     };
 end
 
-procedure bc_save_tmplabels(s);
+procedure bc_save_tmplabels(s)
     local a, k;
 
     if *bc_tmplabel_table > 0 then {
@@ -444,7 +444,7 @@ procedure bc_save_tmplabels(s);
 end
 
 # record ir_Succeed( expr resumeLabel coord )
-procedure bc_gen_ir_Succeed(s, p);
+procedure bc_gen_ir_Succeed(s, p)
     local r, e, PC, k, a;
     local free, class_index;
     local dereflocal;
@@ -491,7 +491,7 @@ procedure bc_gen_ir_Succeed(s, p);
 end
 
 # record ir_Fail( coord )
-procedure bc_gen_ir_Fail(s, p);
+procedure bc_gen_ir_Fail(s, p)
     local free, class_index;
 
     if /bc_save_restore_flag & \bc_stackptr then {
@@ -512,7 +512,7 @@ procedure bc_gen_ir_Fail(s, p);
     return s;
 end
 
-procedure bc_emitlineinfo(s, coord, factor);
+procedure bc_emitlineinfo(s, coord, factor)
     local field;
 
     bc_push_coordinate(s, coord, factor);
@@ -523,7 +523,7 @@ procedure bc_emitlineinfo(s, coord, factor);
 end
 
 # record ir_Unreachable( )
-procedure bc_gen_ir_Unreachable(s, p);
+procedure bc_gen_ir_Unreachable(s, p)
     local runtimeerror;
 
     runtimeerror := bc_error_methodref(bc_current_classptr);
@@ -534,7 +534,7 @@ procedure bc_gen_ir_Unreachable(s, p);
     return s;
 end
 
-procedure bc_push_coordinate(s, coord, factor);
+procedure bc_push_coordinate(s, coord, factor)
     local c, line;
 
     if \coord then {
@@ -550,7 +550,7 @@ procedure bc_push_coordinate(s, coord, factor);
 end
 
 # record ir_ResumeValue( coord lhs value failLabel )
-procedure bc_gen_ir_ResumeValue(s, p);
+procedure bc_gen_ir_ResumeValue(s, p)
     local c, PC, target, resume, free;
 
     (/p.lhs | type(p.lhs) == "ir_Tmp") | runerr(500, p);
@@ -581,7 +581,7 @@ procedure bc_gen_ir_ResumeValue(s, p);
 end
 
 # record ir_MakeList( lhs valueList )
-procedure bc_gen_ir_MakeList(s, p);
+procedure bc_gen_ir_MakeList(s, p)
     local r, v, i, method, class_index;
 
     \p.lhs | return s;
@@ -608,7 +608,7 @@ procedure bc_gen_ir_MakeList(s, p);
 end
 
 # record ir_OpFunction( coord lhs fn argList failLabel )
-procedure bc_gen_ir_OpFunction(s, p);
+procedure bc_gen_ir_OpFunction(s, p)
     local c, method, i;
 
     (/p.lhs | type(p.lhs) == "ir_Tmp") | runerr(500, p);
@@ -637,7 +637,7 @@ procedure bc_gen_ir_OpFunction(s, p);
     return ir_CallTail(s, p);
 end
 
-procedure ir_CallTail(s, p);
+procedure ir_CallTail(s, p)
     local target;
 
     if \p.failLabel then {
@@ -663,7 +663,7 @@ procedure ir_CallTail(s, p);
 end
 
 # record ir_Call( coord lhs fn argList failLabel )
-procedure bc_gen_ir_Call(s, p);
+procedure bc_gen_ir_Call(s, p)
     local r, l, f, v, n, i, method, class_index;
 
     (type(p.lhs) == "ir_Tmp") | runerr(500, p);
@@ -704,7 +704,7 @@ procedure bc_gen_ir_Call(s, p);
 end
 
 # record ir_operator( name arity )
-procedure bc_gen_ir_operator(s, p);
+procedure bc_gen_ir_operator(s, p)
     local n, x, field;
 
     n := p.name || "," || p.arity;
@@ -716,7 +716,7 @@ procedure bc_gen_ir_operator(s, p);
 end
 
 # record ir_Create( lhs coexpLabel )
-procedure bc_gen_ir_Create(s, p);
+procedure bc_gen_ir_Create(s, p)
     local class, init, newmethod, createmethod, vararray;
 
     (type(p.lhs) == "ir_Tmp") | runerr(500, p);
@@ -751,7 +751,7 @@ procedure bc_gen_ir_Create(s, p);
 end
 
 # record ir_CoRet( value resumeLabel )
-procedure bc_gen_ir_CoRet(s, p);
+procedure bc_gen_ir_CoRet(s, p)
     local c, r, coretmethod, current;
 
     (type(p.value) == "ir_Tmp") | runerr(500, p);
@@ -776,7 +776,7 @@ procedure bc_gen_ir_CoRet(s, p);
 end
 
 # record ir_CoFail( )
-procedure bc_gen_ir_CoFail(s, p);
+procedure bc_gen_ir_CoFail(s, p)
     local c, cofailmethod, current;
 
     if /bc_nodebuginfo then {
@@ -800,7 +800,7 @@ procedure bc_gen_ir_CoFail(s, p);
 end
 
 # record ir_EnterInit( startLabel )
-procedure bc_gen_ir_EnterInit(s, p);
+procedure bc_gen_ir_EnterInit(s, p)
     local target, initialized;
 
     (type(p.startLabel) == "ir_Label") | runerr(500, p);
@@ -817,11 +817,11 @@ procedure bc_gen_ir_EnterInit(s, p);
     return s;
 end
 
-procedure bc_gen_rval(s, p);
+procedure bc_gen_rval(s, p)
     return bc_gen(s, p);
 end
 
-procedure bc_gen(s, p);
+procedure bc_gen(s, p)
     case type(p) of {
     "ir_Tmp" : return bc_gen_ir_Tmp_rval(s, p);
     "ir_TmpLabel" : return bc_gen_ir_TmpLabel_rval(s, p);
@@ -856,29 +856,29 @@ procedure bc_gen(s, p);
     };
 end
 
-procedure bc_emit(label, code);
+procedure bc_emit(label, code)
     return bc_emit_table[label] := code;
 end
 
-procedure bc_invocables(all, L);
+procedure bc_invocables(all, L)
     every insert(bc_invoke_set, !L);
     bc_invoke_all := \all;
 end
 
-procedure bc_links(L);
+procedure bc_links(L)
     every insert(bc_link_set, !L);
 end
 
-procedure bc_records(name, fields, coord);
+procedure bc_records(name, fields, coord)
     insert(bc_declare_set, name);
     bc_record_table[name] := fields;
 end
 
-procedure bc_globals(L);
+procedure bc_globals(L)
     every insert(bc_global_set, !L);
 end
 
-procedure bc_target_bookkeeping();
+procedure bc_target_bookkeeping()
     local a, t, k;
 
     bc_indirect_targets := set([]);
@@ -910,7 +910,7 @@ procedure bc_target_bookkeeping();
     };
 end
 
-procedure bc_find_save_restore(code);
+procedure bc_find_save_restore(code)
     local a;
 
     bc_save_restore_flag := &null;
@@ -922,7 +922,7 @@ procedure bc_find_save_restore(code);
     };
 end
 
-procedure bc_alloc_tmps(s, c, class, classname);
+procedure bc_alloc_tmps(s, c, class, classname)
     local a, class_index;
 
     if *bc_tmp_table > 0 then {
@@ -936,7 +936,7 @@ procedure bc_alloc_tmps(s, c, class, classname);
     };
 end
 
-procedure bc_alloc_tmplabels(s, c, class, classname);
+procedure bc_alloc_tmplabels(s, c, class, classname)
     local a;
     if *bc_tmplabel_table > 0 then {
         put(s, j_aload_0() );
@@ -948,7 +948,7 @@ procedure bc_alloc_tmplabels(s, c, class, classname);
     };
 end
 
-procedure bc_function_variables(c, params, locals);
+procedure bc_function_variables(c, params, locals)
     local undeclared, k;
 
     bc_locals_set := set(locals);
@@ -1051,7 +1051,7 @@ procedure bc_function(name, params, accumulate, locals, statics, code,
     };
 end
 
-procedure bc_class_constructor(c, statics);
+procedure bc_class_constructor(c, statics)
     local clinit, clinitcode, k, f, n, newsimplevar;
 
     clinit := j_create_method(c, 8, "<clinit>", "()V");
@@ -1071,7 +1071,7 @@ procedure bc_class_constructor(c, statics);
     put(clinitcode.code, j_return() );
 end
 
-procedure bc_create_vProc_constructor(c, params, accumulate);
+procedure bc_create_vProc_constructor(c, params, accumulate)
     local init, initcode, constructor, createvars, s, superclass;
 
     init := j_create_method(c, 1, "<init>", "()V");
@@ -1085,7 +1085,7 @@ procedure bc_create_vProc_constructor(c, params, accumulate);
     put(s, j_return() );
 end
 
-procedure bc_create_vClosure_constructor(c, params, locals, undeclared, accumulate);
+procedure bc_create_vClosure_constructor(c, params, locals, undeclared, accumulate)
     local init, initcode, constructor, createvars, s, superclass, PC;
     local class_index, vararray;
 
@@ -1124,7 +1124,7 @@ procedure bc_create_vClosure_constructor(c, params, locals, undeclared, accumula
     put(s, j_return() );
 end
 
-procedure bc_create_refresher(c);
+procedure bc_create_refresher(c)
     local refresher, code, s, class, init, refreshArray, refreshPC;
 
     refresher := j_create_method(c, 1, "refreshcopy", "()Ljcon/vClosure;");
@@ -1147,7 +1147,7 @@ procedure bc_create_refresher(c);
     put(s, j_areturn() );
 end
 
-procedure bc_create_vClosure_copy_constructor(c, params, locals, undeclared);
+procedure bc_create_vClosure_copy_constructor(c, params, locals, undeclared)
     local init, initcode, constructor, createvars, s, superclass, PC;
     local class_index, vararray, v;
     local newsimplevar, k, linkvalue, lab1, refresharray, deref;
@@ -1237,7 +1237,7 @@ procedure bc_create_vClosure_copy_constructor(c, params, locals, undeclared);
     put(s, j_return() );
 end
 
-procedure bc_register(t);
+procedure bc_register(t)
     local op;
 
     every op := !!!t do {
@@ -1248,7 +1248,7 @@ procedure bc_register(t);
     };
 end
 
-procedure bc_register0(op);
+procedure bc_register0(op)
     case type(op) of {
     "list" : every bc_register0(!op);
     "ir_Tmp" :        /bc_tmp_table[op.name] := *bc_tmp_table;
@@ -1260,7 +1260,7 @@ procedure bc_register0(op);
     };
 end
 
-procedure bc_restore_tmps(s);
+procedure bc_restore_tmps(s)
     local a, k;
 
     if *bc_tmp_table > 0 then {
@@ -1278,7 +1278,7 @@ procedure bc_restore_tmps(s);
     };
 end
 
-procedure bc_restore_tmplabels(s);
+procedure bc_restore_tmplabels(s)
     local a, k;
 
     if *bc_tmplabel_table > 0 then {
@@ -1296,7 +1296,7 @@ procedure bc_restore_tmplabels(s);
     };
 end
 
-procedure bc_create_Resume(c, start, params, locals, undeclared, accumulate);
+procedure bc_create_Resume(c, start, params, locals, undeclared, accumulate)
     local nextval, nextvalcode;
 
     nextval := j_create_method(c, 0, "Resume", "()Ljcon/vDescriptor;");
@@ -1306,7 +1306,7 @@ procedure bc_create_Resume(c, start, params, locals, undeclared, accumulate);
                     accumulate);
 end
 
-procedure bc_create_Call(c, start, params, locals, undeclared, accumulate);
+procedure bc_create_Call(c, start, params, locals, undeclared, accumulate)
     local nextval, nextvalcode;
 
     if \accumulate | (*params > 9) then {
@@ -1324,7 +1324,7 @@ procedure bc_create_Call(c, start, params, locals, undeclared, accumulate);
     };
 end
 
-procedure bc_trampoline(nextvalcode, c, params, locals, undeclared, accumulate);
+procedure bc_trampoline(nextvalcode, c, params, locals, undeclared, accumulate)
     local s, class, init, resume, target, retval;
 
     s := nextvalcode.code;
@@ -1353,7 +1353,7 @@ procedure bc_trampoline(nextvalcode, c, params, locals, undeclared, accumulate);
     put(s, j_areturn());
 end
 
-procedure bc_nextval_code(nextvalcode, c, start, params, locals, undeclared, accumulate);
+procedure bc_nextval_code(nextvalcode, c, start, params, locals, undeclared, accumulate)
     local k, lab, switch, insns, deflab;
     local runtimeerror, r, s, PC;
     local a, tmplab, prologue, var_load_label, t, tmpset;
@@ -1421,7 +1421,7 @@ procedure bc_nextval_code(nextvalcode, c, start, params, locals, undeclared, acc
 
 end
 
-procedure bc_emit_exception(c, s, params, etab, last_label, i);
+procedure bc_emit_exception(c, s, params, etab, last_label, i)
     local catch_type, lab, e, f, coord, class_index, k, propagate, v;
 
     catch_type := j_cp_Class(bc_current_classptr,
@@ -1456,7 +1456,7 @@ procedure bc_emit_exception(c, s, params, etab, last_label, i);
     put(s, j_areturn() );
 end
 
-procedure bc_load_variables(s);
+procedure bc_load_variables(s)
     local k, vararray;
 
     every k := key(bc_var_table) do {
@@ -1477,7 +1477,7 @@ procedure bc_load_variables(s);
     };
 end
 
-procedure bc_load_statics(s);
+procedure bc_load_statics(s)
     local k;
 
     every k := key(bc_var_table) & member(bc_statics_set, k) do {
@@ -1489,7 +1489,7 @@ procedure bc_load_statics(s);
     };
 end
 
-procedure bc_initialize_tmps(s);
+procedure bc_initialize_tmps(s)
     local k;
 
     every k := key(bc_tmp_table) do {
@@ -1504,7 +1504,7 @@ end
 
 global bc_emitted
 
-procedure bc_emit_code0(s, switch, k);
+procedure bc_emit_code0(s, switch, k)
     local lab, insns, i;
 
     if member(bc_emitted, k) then return;
@@ -1526,13 +1526,13 @@ procedure bc_emit_code0(s, switch, k);
     };
 end
 
-procedure bc_emit_code(s, switch, start);
+procedure bc_emit_code(s, switch, start)
     bc_emitted := set([]);
     bc_emit_code0(s, switch, start);
     every bc_emit_code0(s, switch, key(bc_emit_table));
 end
 
-procedure bc_emit_param_val(s, c, params, accumulate, i);
+procedure bc_emit_param_val(s, c, params, accumulate, i)
     local marshal, k, field, elselab, endlab, newsimplevar;
     local null, assign;
 
@@ -1564,7 +1564,7 @@ procedure bc_emit_param_val(s, c, params, accumulate, i);
     };
 end
 
-procedure bc_createvars_into_array(s, c, params, locals, undeclared, accumulate);
+procedure bc_createvars_into_array(s, c, params, locals, undeclared, accumulate)
     local newsimplevar, k, field, v, i, deref;
     local linkvalue, lab1, class_index;
 
@@ -1626,7 +1626,7 @@ procedure bc_createvars_into_array(s, c, params, locals, undeclared, accumulate)
     };
 end
 
-procedure bc_createvars(s, c, params, locals, undeclared, accumulate);
+procedure bc_createvars(s, c, params, locals, undeclared, accumulate)
     local newsimplevar, k, field, v, i, deref;
     local linkvalue, lab1;
 
@@ -1676,7 +1676,7 @@ procedure bc_createvars(s, c, params, locals, undeclared, accumulate);
     };
 end
 
-procedure bc_copy_variable(s, c, k);
+procedure bc_copy_variable(s, c, k)
     local deref, assign, field;
 
     deref := bc_Deref_methodref(c);
@@ -1692,7 +1692,7 @@ procedure bc_copy_variable(s, c, k);
     put(s, j_pop());
 end
 
-procedure bc_process_flags(flagList);
+procedure bc_process_flags(flagList)
     local k;
 
     if "-debug" == !flagList then {
@@ -1719,7 +1719,7 @@ procedure bc_process_flags(flagList);
     bc_directory := (!flagList ? (="-dir:" & tab(0)));
 end
 
-procedure bc_File(irgen, flagList);
+procedure bc_File(irgen, flagList)
     local k, i, op, c, f, p;
 
     bc_process_flags(flagList);
@@ -1771,7 +1771,7 @@ procedure bc_File(irgen, flagList);
     close(f);
 end
 
-procedure bc_create_declare(c);
+procedure bc_create_declare(c)
     local declare, declarecode, declareGlobal, k, s, declareProcedure;
     local declareRecord, stringclass, i, f, nm;
     local class, init;
@@ -1829,7 +1829,7 @@ procedure bc_create_declare(c);
     put(declarecode.code, j_return() );
 end
 
-procedure bc_create_unresolved(c);
+procedure bc_create_unresolved(c)
     local unresolved, unresolvedcode, invokeall, invokes, k, s;
     local undeclaredmethod;
 
@@ -1858,7 +1858,7 @@ procedure bc_create_unresolved(c);
     put(unresolvedcode.code, j_return() );
 end
 
-procedure bc_create_announce_unresolved(c);
+procedure bc_create_announce_unresolved(c)
     local unresolved, unresolvedcode, invokeall, invokes, k, s;
     local undeclaredmethod;
     local file, tuple, n;
@@ -1884,7 +1884,7 @@ procedure bc_create_announce_unresolved(c);
     put(unresolvedcode.code, j_return() );
 end
 
-procedure bc_create_linked(c);
+procedure bc_create_linked(c)
     local linked, linkedcode, linkref, lab, linkmethod, k, s, f;
     local linkclassname, ifile, constructor;
 
@@ -1925,7 +1925,7 @@ procedure bc_create_linked(c);
     close(f);
 end
 
-procedure bc_create_resolve(c);
+procedure bc_create_resolve(c)
     local resolve, resolvecode, resolvemethod, k, f, s, op;
 
     resolve := j_create_method(c, 0, "resolve", "()V");
@@ -1960,7 +1960,7 @@ procedure bc_create_resolve(c);
     put(resolvecode.code, j_return() );
 end
 
-procedure bc_create_linkinit(c);
+procedure bc_create_linkinit(c)
     local init, initcode, constructor, s;
 
     init := j_create_method(c, 1, "<init>", "()V");
@@ -1978,7 +1978,7 @@ procedure bc_create_linkinit(c);
     put(s, j_return() );
 end
 
-procedure bc_create_class_linkinit(c);
+procedure bc_create_class_linkinit(c)
     local clinit, clinitcode, newmethod, k, f, d, s;
 
     clinit := j_create_method(c, 8, "<clinit>", "()V");

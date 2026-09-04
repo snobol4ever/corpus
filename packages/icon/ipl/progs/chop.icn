@@ -20,7 +20,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local max, line, i;
 
    max := \args[1] | 200;

@@ -44,7 +44,7 @@ global pnames, ptable			# proc names and table
 
 # main procedure
 
-procedure main(args);
+procedure main(args)
    local opts, fname, name, need;
 
    # process options
@@ -74,7 +74,7 @@ end
 
 #  scan1(fname) -- read .u1 file, add proc names and refs to ptable
 
-procedure scan1(fname);
+procedure scan1(fname)
    local u1, line, i, name, flags, curr, locals;
    u1 := open(fname || ".u1") | stop(&progname, ": can't open", fname || ".u1");
    while line := read(u1) do line ? {
@@ -109,7 +109,7 @@ end
 
 #  dependencies() -- mark procs called directly or indirectly from main proc
 
-procedure dependencies();
+procedure dependencies()
    local need, p;
 
    need := ["main"];
@@ -122,7 +122,7 @@ end
 
 #  report(opts) -- write reports as selected by command options
 
-procedure report(opts);
+procedure report(opts)
    local name, p, ptrim, ltrim, ltotal;
 
    ltotal := ltrim := ptrim := 0;
@@ -153,7 +153,7 @@ end
 #
 #  For each proc body, copy only if marked as needed in ptable.
 
-procedure filter1(fname);
+procedure filter1(fname)
    local old, new, line;
 
    old := open(fname||".u1o") | stop(&progname, ": can't open", fname||".u1o");
@@ -175,7 +175,7 @@ end
 #  Copy header verbatim; read list of globals, remove procs trimmed from .u1,
 #  and write new (renumbered) global list.
 
-procedure filter2(fname);
+procedure filter2(fname)
    local old, new, line, n, glist, flags, name, args, p;
 
    old := open(fname||".u2o") | stop(&progname, ": can't open ", fname||".u2o");

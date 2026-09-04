@@ -22,7 +22,7 @@
 #  
 ############################################################################
 
-procedure main();
+procedure main()
    local line, base, ext, dir;
 
    ext := table(0);

@@ -1,6 +1,6 @@
 #------------------------------------------------------------ 1 rung37_augop_pow
 # rung37: augop power hello — IJ-3b
-procedure main();
+procedure main()
    local i;
    i := 2;
    i ^:= 3;
@@ -11,22 +11,22 @@ procedure main();
 end
 #--------------------------------------------------------------- 2 rung37_coerce
 #SRC: IJ-7 operator string invocation
-procedure main();
+procedure main()
    call1("+", "3");
    call1("-", "3");
    call1("*", "hello");
    call2("[]", "hello", 2);
    call2("++", 'abc', 'bcd');
 end
-procedure call1(o, x);
+procedure call1(o, x)
    write(o(x) | "fail");
 end
-procedure call2(o, x, y);
+procedure call2(o, x, y)
    write(o(x, y) | "fail");
 end
 #------------------------------------------------------------- 3 rung37_cset_ops
 # rung37_cset_ops.icn -- IJ-15: cset literal, cset() builtin, cset ops, augmented ops
-procedure main();
+procedure main()
    local cs, cs2, cs3;
    # cset literal type
    cs := 'abc';
@@ -60,7 +60,7 @@ procedure main();
 end
 #------------------------------------------------------- 4 rung37_every_do_hello
 # rung37: every-do body hello — simplest every i := 1 to 3 do write(i)
-procedure main();
+procedure main()
    local i;
    every i := 1 to 3 do write(i);
    write("done");
@@ -70,7 +70,7 @@ end
 # rung37_every_expr_nonresumable_arg.icn -- same defect shape, WITH a do-clause). every still
 # produces no value in expression context: the do-body's side effects run once, then image(...)
 # must never be invoked with a value, so the alternation falls through to "none".
-procedure main();
+procedure main()
    write(image(every write("y") do write("z")) | "none");
 end
 #------------------------------------------ 6 rung37_every_expr_nonresumable_arg
@@ -78,12 +78,12 @@ end
 # Distinct from rung37_every_in_arg.icn: there the argument (1|2|3) is RESUMABLE, which takes
 # lower_call's la_res path. Here write("y") is NON-resumable, which takes the degenerate
 # cx->beta == ω fallback -- the shape that is actually broken.
-procedure main();
+procedure main()
    write(image(every write("y")) | "none");
 end
 #--------------------------------------------------------- 7 rung37_every_in_arg
 # rung37: every inside builtin arg — image(every i := 1 to 3)
-procedure main();
+procedure main()
    write(image(every 1 | 2 | 3));
    write("done");
 end
@@ -92,7 +92,7 @@ end
 # Tests write/writes/read/reads/open/close routing via DT_FH descriptors.
 # scrip Icon requires explicit semicolons after every statement.
 
-procedure main();
+procedure main()
   local f;
   local outf;
   local s;
@@ -125,7 +125,7 @@ end
 #SRC: IJ-11
 # rung37_keywords.icn -- verify icn_kw_read: type/image/size for cset keywords,
 # math constants, &error r/w, &fail, &null.
-procedure main();
+procedure main()
    # type() detects cset keywords
    write(type(&lcase));
    write(type(&ucase));
@@ -171,13 +171,13 @@ procedure main();
    write(&y);
    write(&level);
 end
-procedure if_ok(x);
+procedure if_ok(x)
    return (x & "yes") | "no";
 end
 #---------------------------------------------------------- 10 rung37_math_hello
 # rung37: math builtins hello — IJ-4
 # simplest possible check: each builtin produces correct output
-procedure main();
+procedure main()
    write(sqrt(4.0));
    write(sin(0.0));
    write(cos(0.0));
@@ -229,7 +229,7 @@ procedure q(c)
 end
 #------------------------------------------------------------- 12 rung37_neg_pos
 #SRC: IJ-10 &pos / &subject keyword swap (:=: and <->)
-procedure main();
+procedure main()
    local x;
 
    # kw_is_lhs: &pos :=: var, both values in range -> full swap
@@ -286,7 +286,7 @@ end
 # rung37_scan_alt.icn — IJ-9: scan alternation beta semantics
 # Each subject in (A|B|C)?body gets exactly ONE body alpha tick.
 # External beta advances to next subject, never resumes body generator.
-procedure main();
+procedure main()
    local n;
 
    # Non-generative body: move(1) grabs first char; one result per subject
@@ -312,7 +312,7 @@ end
 # Verify bb_strrel coerces int/real to image string, cset to member string.
 # Uses semicolon separators (no auto-semicolon in this frontend).
 
-procedure main();
+procedure main()
    local s; local t;
    # basic string ordering
    s := "a"; t := "b";
@@ -339,7 +339,7 @@ procedure main();
 end
 #-------------------------------------------------------- 15 rung37_strfmt_hello
 # rung37: detab/entab hello — IJ-5
-procedure main();
+procedure main()
    write(detab("\tabc"));
    write(entab("        x"));
    write(center("hi", 6));
@@ -348,7 +348,7 @@ procedure main();
 end
 #------------------------------------------------------- 16 rung37_string_format
 # IJ-5: test center/left/right/detab/entab string formatting builtins
-procedure main();
+procedure main()
   write(center("hi",6));
   write(left("hi",6,"."));
   write(right("hi",6,"."));
@@ -357,7 +357,7 @@ procedure main();
 end
 #------------------------------------------------------ 17 rung37_strrelop_hello
 # rung37: string relop hello — IJ-8
-procedure main();
+procedure main()
    if ("a" << "b") then write("a<<b");
    if ("b" >> "a") then write("b>>a");
    if ("a" == "a") then write("a==a");

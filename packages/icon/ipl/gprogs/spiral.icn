@@ -42,7 +42,7 @@ link wopen
 global win, mono, h, w
 global Window, XMAX, YMAX
 
-procedure main (args);
+procedure main (args)
     local dist, angle, incr, n, nextarg, arg, t;
 
     XMAX := YMAX := 700;  # physical screen size
@@ -77,7 +77,7 @@ procedure main (args);
     close(win);
 end
 
-procedure polyspiral(t, dist, angle, incr, n);
+procedure polyspiral(t, dist, angle, incr, n)
    local i;
 
    every i := 1 to n do {
@@ -88,7 +88,7 @@ procedure polyspiral(t, dist, angle, incr, n);
 
 end
 
-procedure helpmsg();
+procedure helpmsg()
    write("Usage: Spiral [-d dist] [-a angle] [-i increment] [-n nlines]");
    write("   where");
    write("     -d N		-- initial line length {default: 0.02");

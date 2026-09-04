@@ -1,4 +1,4 @@
-procedure swap(a, b);
+procedure swap(a, b)
   local tmp;
   tmp := a;
   a := b;

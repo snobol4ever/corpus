@@ -28,7 +28,7 @@
 
 link wopen
 
-procedure main(args);
+procedure main(args)
    local width, height, row, p, y;
 
    WOpen("image=" || args[1], "canvas=hidden") |

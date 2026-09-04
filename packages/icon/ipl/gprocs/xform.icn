@@ -25,7 +25,7 @@
 
 link calls, gobject
 
-procedure p_xlate(call, x, y);
+procedure p_xlate(call, x, y)
    local point;
 
    every point := invoke(call) do {
@@ -36,7 +36,7 @@ procedure p_xlate(call, x, y);
 
 end
 
-procedure p_scale(call, factor);
+procedure p_scale(call, factor)
    local point;
 
    every point := invoke(call) do {
@@ -47,7 +47,7 @@ procedure p_scale(call, factor);
 
 end
 
-procedure p_rotate(call, angle);
+procedure p_rotate(call, angle)
    local point, radius;
 
    every point := invoke(call) do {

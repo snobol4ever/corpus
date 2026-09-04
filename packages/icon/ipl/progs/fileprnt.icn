@@ -44,7 +44,7 @@
 #
 ############################################################################
 
-procedure main(arg);
+procedure main(arg)
    local width, chars, nonprint, prntc, asc, hex, sym, dec;
    local oct, ascgen, hexgen, octgen, chrgen, prtgen, c;
    local cnt, line, length, bar, input;

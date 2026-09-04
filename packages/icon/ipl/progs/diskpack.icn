@@ -38,7 +38,7 @@
 
 link options
 
-procedure main(argl);
+procedure main(argl)
    local files, disksize, reserve, firstsize, thissize, file, size, flist;
    local disk, left, opts, spec, wc, used, number;
 

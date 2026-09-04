@@ -58,7 +58,7 @@ link itlib
 link iscreen
 global CM, LI, CO, CE
 
-procedure main(a);
+procedure main(a)
 
     local whitespace, firstidchars, idchars, usage, in_data,
 	cmd, line, filename, linenum, procname, t, threshhold;
@@ -137,7 +137,7 @@ end
 #
 # display_stats:  display the information in t interactively
 #
-procedure display_stats(t);
+procedure display_stats(t)
 
     local l, input, c;
     static top, len, firstline;
@@ -232,7 +232,7 @@ end
 #     number of invocations.  Yet another sort is done on the basis of
 #     total number of invocations.
 #
-procedure sort_table(t);
+procedure sort_table(t)
 
     local t2, total_t, k, total, i, l, l2;
     static old_totals;
@@ -266,7 +266,7 @@ end
 #
 # write_list:  write statistics in the upper part of the screen
 #
-procedure write_list(l, top, len, firstline);
+procedure write_list(l, top, len, firstline)
 
     local   i, j, k, z, w;
     static  last_i;
@@ -311,7 +311,7 @@ end
 #
 # setup_screen: clear screen, set up status line.
 #
-procedure setup_screen();
+procedure setup_screen()
 
     # global CM, LI, CO, CE
     initial {
@@ -345,7 +345,7 @@ end
 #
 # goodbye: exit, say something nice
 #
-procedure goodbye();
+procedure goodbye()
 
     # UNIX-specific command.
     system("stty echo");
@@ -367,7 +367,7 @@ end
 #
 # stop_profile:  graceful exit after error
 # 
-procedure stop_profile(s);
+procedure stop_profile(s)
 
     # UNIX-specific command.
     system("stty echo");

@@ -45,7 +45,7 @@ global w, h, m, l	# geometry options
 global sw		# slider width
 global colr		# selected color
 
-procedure main(args);
+procedure main(args)
    local cwin, x, y, ww, hh;
 
    # create window

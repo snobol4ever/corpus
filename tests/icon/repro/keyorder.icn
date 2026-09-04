@@ -1,4 +1,4 @@
-procedure main();
+procedure main()
    local t, k, out;
    t := table();
    t["@"] := 1;

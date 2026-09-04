@@ -1,7 +1,7 @@
-procedure gen();
+procedure gen()
     suspend 1;
 end
 
-procedure main();
+procedure main()
     write("x");
 end

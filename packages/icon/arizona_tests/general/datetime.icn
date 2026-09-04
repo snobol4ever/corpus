@@ -128,7 +128,7 @@ procedure ClockToSec(seconds);			#: convert &date to seconds
 	 );
 end
 
-procedure DateInit();
+procedure DateInit()
 #
 #  Initialize the date globals -- done automatically by calls to date
 #  procedures.
@@ -189,7 +189,7 @@ procedure DateLineToSec(dateline,hoursFromGmt);	#: convert &dateline to seconds
    return DateRecToSec(DateRec(year,month,day,hour,min,sec),hoursFromGmt);
 end
 
-procedure DateRecToSec(dateRec,hoursFromGmt);
+procedure DateRecToSec(dateRec,hoursFromGmt)
 #
 #  Converts a DateRec to seconds since start of DateBaseYear.
 #
@@ -279,7 +279,7 @@ procedure SecToDateLine(seconds,hoursFromGmt); #: convert seconds to &dateline
 	 halfday;
 end
 
-procedure SecToDateRec(seconds,hoursFromGmt);
+procedure SecToDateRec(seconds,hoursFromGmt)
 #
 #  Produces a date record computed from the seconds since the start of
 #  DateBaseYear.

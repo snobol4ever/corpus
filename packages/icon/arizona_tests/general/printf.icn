@@ -30,21 +30,21 @@
 #
 ############################################################################
 
-procedure sprintf(format, args[]);
+procedure sprintf(format, args[])
 	return _doprnt(format, args);
 end
 
-procedure fprintf(file, format, args[]);
+procedure fprintf(file, format, args[])
 	writes(file, _doprnt(format, args));
 	return;
 end
 
-procedure printf(format, args[]);
+procedure printf(format, args[])
 	writes(&output, _doprnt(format, args));
 	return;
 end
 
-procedure _doprnt(format, args);
+procedure _doprnt(format, args)
    local out, v, just, width, conv, prec, pad;
 
 	out := "";
@@ -88,15 +88,15 @@ procedure _doprnt(format, args);
 	return out;
 end
 
-procedure hexstr(n);
+procedure hexstr(n)
    return _basestr(n, 4);
 end
 
-procedure octstr(n);
+procedure octstr(n)
    return _basestr(n, 3);
 end
 
-procedure _basestr(n, b);
+procedure _basestr(n, b)
    local s, mask;
 
 	n := integer(n) | return image(n);
@@ -118,7 +118,7 @@ procedure _basestr(n, b);
 	return s;
 end
 
-procedure fixnum(x, prec);
+procedure fixnum(x, prec)
    local s;
 
 	/prec := 6;
@@ -150,7 +150,7 @@ end
 #   width, if possible.  The precision is never reduced-to-fit
 #   below 1 digit after the decimal point.
 #
-procedure eformatstr(x, prec, width);
+procedure eformatstr(x, prec, width)
    local signpart, wholepart, fracpart, exppart;
    local choppart, shiftcount, toowide;
    local rslt, s;
@@ -230,7 +230,7 @@ end
 #  precision, and the carry (result of possible rounding)
 #  is to be added into the whole number.
 #
-procedure adjustfracprec(fracpart, prec);
+procedure adjustfracprec(fracpart, prec)
 
    local choppart, carryout;
 

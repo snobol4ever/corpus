@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure distance(d[]);
+procedure distance(d[])
    local sum;
 
    sum := 0;

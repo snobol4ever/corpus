@@ -53,7 +53,7 @@ global last_k
 record outstr(on, off)
 
 
-procedure stripunb(c1,c2,s,i,j,t);
+procedure stripunb(c1,c2,s,i,j,t)
 
     # NB:  Stripunb() returns a string - not an integer (like find,
     # upto).

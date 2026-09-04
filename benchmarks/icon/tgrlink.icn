@@ -110,7 +110,7 @@ record crec (code, key, x1, x2, y1, y2, rev, aindex)	# chain record data
 
 #  main procedure
 
-procedure main(args);
+procedure main(args)
    local opts, w, hdr1, hdr2, e, k, l, latmin, latmax;
 
    opts := options(args, "a.e."); # process command options
@@ -142,7 +142,7 @@ end
 
 #  loadfile() -- load input file keys into tables
 
-procedure loadfile();
+procedure loadfile()
    local w, line, alist, t, l, r;
 
    chtab := table();
@@ -174,7 +174,7 @@ end
 
 # kgen(t) -- generate keys of t in better order, as in the "tgrsort" script
 
-procedure kgen(t);
+procedure kgen(t)
    local l, k;
 
    l := list();
@@ -190,7 +190,7 @@ end
 
 #  dumpcode(code) -- output all chains having a particular code
 
-procedure dumpcode(code);
+procedure dumpcode(code)
    local h, v, i, l, k, o, alist;
 
    alist := chtab[code];
@@ -211,7 +211,7 @@ end
 
 #  aseq() -- generate the orientation table subscripts in proper order
 
-procedure aseq();
+procedure aseq()
    local v, h;
 
    h := 1 + integer(0.25 * SECTORS);
@@ -228,7 +228,7 @@ end
 
 #  putchain(code, k, o) -- output chain of given code, key, and offset
 
-procedure putchain(code, k, o);
+procedure putchain(code, k, o)
    local t, r, x, y, x1, y1, xmin, xmax, ymin, ymax, d, w;
 
    if member(done, o) then		# if already processed
@@ -285,7 +285,7 @@ end
 
 # putdel(o) -- record deltas (only) for chain at offset o in input file.
 
-procedure putdel(o);
+procedure putdel(o)
    local line, r, dy;
 
    # read the line located at offset o
@@ -313,7 +313,7 @@ end
 
 #  collapse() -- collapse collinear points in global xoff/yoff lists
 
-procedure collapse();
+procedure collapse()
    local maxsq, maxa, i, x1, y1, a1, x2, y2, a2, da, d, dx, dy;
 
    if maxerr <= 0 then			# if no collapsing allowed
@@ -357,7 +357,7 @@ end
 
 #  successor(r) -- return offset of successor to chain given by crec record r
 
-procedure successor(r);
+procedure successor(r)
    local k, alist, t, i, o, e;
 
    alist := chtab[r.code]; # list, by orientation, for code
@@ -380,7 +380,7 @@ end
 
 # crack(line) -- return crec record giving data about chain
 
-procedure crack(line);
+procedure crack(line)
    local angle, x1, y1, x2, y2, a;
    static o;
    initial o := crec();

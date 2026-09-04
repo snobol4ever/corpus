@@ -56,7 +56,7 @@
 #
 ############################################################################
 
-procedure lindstrp(prod, band_tbl);
+procedure lindstrp(prod, band_tbl)
    local result;
 
    result := "";

@@ -24,7 +24,7 @@
 global outf,process,bb,quotechar
 global nrbrack,nlbrack,nrbrace,nlbrace,rbrack,lbrack,rbrace,lbrace
 
-procedure main(args);
+procedure main(args)
    local line;
 
    case map(args[1]) | stop("Usage: icvt -a | -e") of {
@@ -56,7 +56,7 @@ procedure main(args);
 
 end
 
-procedure standard();
+procedure standard()
    writes(tab(upto( '"\'#' ++ bb))) | (writes(tab(0)) & return);
 
    if match("#") then {
@@ -87,7 +87,7 @@ procedure standard();
    return;
 end
 
-procedure inquote();
+procedure inquote()
    writes( tab(upto( quotechar ++ '\\')) ) |
        (writes(tab(0)) & return);
    writes(="\\") & writes(move(1)) & return;

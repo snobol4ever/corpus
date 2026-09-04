@@ -54,7 +54,7 @@ $define WindowMargin 10
 global bitwin, rgbbase, panebase, panecolor
 
 
-procedure main(args);
+procedure main(args)
    local win, m, b, w, h, i;
    local px, py, pw, ph, x, y, d, a;
    local bw, bh;
@@ -170,21 +170,21 @@ end
 
 ## draw(w, v) -- set plane and drawing op in response to "draw" button
 
-procedure draw(w, v);
+procedure draw(w, v)
    PlaneOp(bitwin, rgbbase + v, "set");
 end
 
 
 ## erase(w, v) -- set plane and drawing op in response to "erase" button
 
-procedure erase(w, v);
+procedure erase(w, v)
    PlaneOp(bitwin, rgbbase + v, "clear");
 end
 
 
 ## drag(w, dummy, x, y) -- handle mouse drag by drawing (or erasing) on window
 
-procedure drag(w, dummy, x, y);
+procedure drag(w, dummy, x, y)
    FillRectangle(bitwin, x - 5, y - 5, 10, 10);
 end
 
@@ -194,7 +194,7 @@ end
 #  first click moves to front
 #  second click makes invisible
 
-procedure mvplane(w, v, x, y);
+procedure mvplane(w, v, x, y)
    static prev, rep;
    initial prev := rep := 0;
 

@@ -51,7 +51,7 @@ link graphics
 $define Palette "c1"			# default palette
 $define Size "500,300"			# default size
 
-procedure main(args);
+procedure main(args)
    local ww, wh, p, x, y, h, l, dh, dl, hls, c;
 
    Window("size=" || Size, args);

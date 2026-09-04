@@ -24,7 +24,7 @@
 
 record ScanEnvir(subject, pos)
 
-procedure Bscan(e1);
+procedure Bscan(e1)
    local OuterEnvir;
    OuterEnvir := ScanEnvir(&subject, &pos);
    &subject := e1;
@@ -35,7 +35,7 @@ procedure Bscan(e1);
    fail;
 end
 
-procedure Escan(OuterEnvir, e2);
+procedure Escan(OuterEnvir, e2)
    local InnerEnvir;
    InnerEnvir := ScanEnvir(&subject, &pos);
    &subject := OuterEnvir.subject;

@@ -28,7 +28,7 @@
 
 link colmize
 
-procedure main(arg);
+procedure main(arg)
    local lst, c, s;
    if *arg = 0 then {
       lst := [];
@@ -52,7 +52,7 @@ end
 #
 ############################################################################
 
-procedure morse(s);
+procedure morse(s)
    local i, t, c, x;
    static morsemeander, morseindex;
 
@@ -81,7 +81,7 @@ end
 #
 ############################################################################
 
-procedure unmorse(s);
+procedure unmorse(s)
    local x, t, c;
    x := "";
    s ? {

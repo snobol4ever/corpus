@@ -25,7 +25,7 @@
 
 link ivalue
 
-procedure main();
+procedure main()
 
    while write(*ivalue(read()));
 

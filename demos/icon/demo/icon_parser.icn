@@ -16,7 +16,7 @@ record tok(kind, val)
 
 # ── Tokeniser ────────────────────────────────────────────────────────────────
 
-procedure tokenise(src);
+procedure tokenise(src)
   local toks, i, n, c, start, s, op2;
   toks := []; i := 1; n := *src;
   while i <= n do {
@@ -58,7 +58,7 @@ procedure tokenise(src);
   return toks;
 end
 
-procedure init_globals();
+procedure init_globals()
   keywords := set();
   every insert(keywords, !["procedure","end","global","local","static",
     "record","if","then","else","while","do","until","every","to","by",
@@ -71,7 +71,7 @@ end
 
 # ── Combinator primitives ─────────────────────────────────────────────────────
 
-procedure p_tok(toks, kind, val);
+procedure p_tok(toks, kind, val)
   if *toks = 0 then fail;
   if toks[1].kind == kind then
     if /val | toks[1].val == val then
@@ -86,7 +86,7 @@ procedure p_str(toks);       suspend p_tok(toks, "str", &null); end
 
 # ── Operator precedence ───────────────────────────────────────────────────────
 
-procedure op_prec(op);
+procedure op_prec(op)
   case op of {
     ":=" | "+:=" | "-:=" | "*:=" | "/:=" | "%:=" |
     "^:=" | "||:=" | "<->" : return [10, "right"];
@@ -107,7 +107,7 @@ end
 
 # ── Expression parser ─────────────────────────────────────────────────────────
 
-procedure p_primary(toks);
+procedure p_primary(toks)
   local r, name, rest, inner, args, elts, uop;
   # parenthesised
   every r := p_op(toks, "(") do
@@ -150,7 +150,7 @@ procedure p_primary(toks);
   };
 end
 
-procedure p_exprlist(toks);
+procedure p_exprlist(toks)
   # Right-recursive: parse first expr, then consume comma-separated tail
   # iteratively to avoid stack overflow on long argument lists.
   local r, elts, rest;
@@ -165,7 +165,7 @@ procedure p_exprlist(toks);
 end
 
 # Operators that produce flat trees when chained (same op merges children)
-procedure is_flat_op(op);
+procedure is_flat_op(op)
   case op of {
     "|" | "||" | "++" | "--" | "**" : return 1;
     "+" | "-" | "*" | "/" | "%" | "//" : return 1
@@ -174,7 +174,7 @@ procedure is_flat_op(op);
 end
 
 # Build a node, flattening if op is associative and children share the tag
-procedure make_node(op, lhs, rhs);
+procedure make_node(op, lhs, rhs)
   local node;
   if is_flat_op(op) then {
     node := [op];
@@ -191,7 +191,7 @@ procedure make_node(op, lhs, rhs);
   return [op, lhs, rhs];
 end
 
-procedure p_expr(toks, min_prec);
+procedure p_expr(toks, min_prec)
   local lhs, rest, op, info, prec, rhs_prec, rhs, found;
   every lhs := p_primary(toks) do {
     rest := lhs[2]; lhs := lhs[1];
@@ -214,7 +214,7 @@ end
 
 # ── Statement parser ──────────────────────────────────────────────────────────
 
-procedure p_block(toks);
+procedure p_block(toks)
   local stmts, rest, r, found;
   stmts := []; rest := toks;
   repeat {
@@ -230,7 +230,7 @@ procedure p_block(toks);
   suspend [stmts, rest];
 end
 
-procedure p_braced_block(toks);
+procedure p_braced_block(toks)
   local r, b;
   every r := p_op(toks, "{") do
     every b := p_block(r[2]) do
@@ -238,7 +238,7 @@ procedure p_braced_block(toks);
         suspend [["block"] ||| b[1], b[2][2:0]];
 end
 
-procedure p_stmt(toks);
+procedure p_stmt(toks)
   local r, cond, body, els, test, decl;
   # if
   every r := p_kw(toks, "if") do
@@ -284,7 +284,7 @@ end
 
 # ── Top-level forms ───────────────────────────────────────────────────────────
 
-procedure p_namelist(toks);
+procedure p_namelist(toks)
   local names, rest;
   names := []; rest := toks;
   while *rest > 0 & rest[1].kind == "id" do {
@@ -297,7 +297,7 @@ procedure p_namelist(toks);
   suspend [names, rest];
 end
 
-procedure p_proc(toks);
+procedure p_proc(toks)
   local r, n, params, decls, rest, body, dr, dk, found, nl2;
   every r := p_kw(toks, "procedure") do
     every n := p_id(r[2]) do
@@ -332,14 +332,14 @@ procedure p_proc(toks);
       };
 end
 
-procedure p_global(toks);
+procedure p_global(toks)
   local r;
   every r := p_kw(toks, "global") do
     every nl := p_namelist(r[2]) do
       suspend [["global"] ||| nl[1], nl[2]];
 end
 
-procedure p_record(toks);
+procedure p_record(toks)
   local r, n, fields, rest;
   every r := p_kw(toks, "record") do
     every n := p_id(r[2]) do
@@ -357,7 +357,7 @@ end
 
 # ── S-expression printer ──────────────────────────────────────────────────────
 
-procedure print_sexp(tree);
+procedure print_sexp(tree)
   if type(tree) ~== "list" then { writes(image(tree)); return };
   if *tree = 0 then { writes("()"); return };
   writes("(");
@@ -370,7 +370,7 @@ end
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-procedure main();
+procedure main()
   local src, line, toks, rest, r, found, w;
   init_globals();
   MAX_WIDTH := 120;
@@ -399,7 +399,7 @@ end
 
 global MAX_WIDTH
 
-procedure flat(tree);
+procedure flat(tree)
   local s, i, item, tag;
   if type(tree) == "string"  then return tree;
   if type(tree) == "integer" then return string(tree);
@@ -422,7 +422,7 @@ procedure flat(tree);
   return s || ")";
 end
 
-procedure pp(tree, indent, col);
+procedure pp(tree, indent, col)
   local f, flen, tag, children, c, cflat, cflen, newcol;
   /indent := 0; /col := 0;
   f := flat(tree);
@@ -455,7 +455,7 @@ procedure pp(tree, indent, col);
   return col + 1;
 end
 
-procedure pp_top(tree);
+procedure pp_top(tree)
   pp(tree, 0, 0);
   write("");
 end

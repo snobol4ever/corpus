@@ -46,7 +46,7 @@
 #  
 ############################################################################
 
-procedure main();
+procedure main()
    local line, image, object, char;
    while line := read() do {
       line ? {
@@ -62,7 +62,7 @@ end
 
 #  process characters that have meaning to ed
 #
-procedure insert();
+procedure insert()
    static special;
    initial special := '\\/^&*[.$%';
    suspend {
@@ -73,13 +73,13 @@ procedure insert();
       };
 end
 
-procedure error(line);
+procedure error(line)
    write(&errout,"*** erroneous input: ",line);
 end
 
 #  transform line
 #
-procedure xform(line);
+procedure xform(line)
    line ?:= insert();
    return line;
 end

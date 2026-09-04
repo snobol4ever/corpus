@@ -23,7 +23,7 @@
 #  main() calls program(), which is produced by the meta-variant
 #  translation.
 
-procedure main();
+procedure main()
 
    program();
 
@@ -330,7 +330,7 @@ procedure Return_(e);			# return e
 
 end
 
-procedure Rlit_(e);
+procedure Rlit_(e)
 
    return e;
 

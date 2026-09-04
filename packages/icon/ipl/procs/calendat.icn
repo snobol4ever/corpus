@@ -28,7 +28,7 @@
 
 record date1(month, day, year)
 
-procedure calendat(julian);
+procedure calendat(julian)
    local ja, jalpha, jb, jc, jd, je, gregorian;
    local month, day, year;
 

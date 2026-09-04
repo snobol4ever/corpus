@@ -255,7 +255,7 @@ end
 
 record pack_template_rec(conversion,count)
 
-procedure pack_parse_template(template);
+procedure pack_parse_template(template)
    local c,n;
    template ? {
       pack_parse_space();
@@ -268,11 +268,11 @@ procedure pack_parse_template(template);
       };
 end
 
-procedure pack_parse_space();
+procedure pack_parse_space()
    suspend tab(many(' \t'));
 end
 
-procedure pack_big_endian();
+procedure pack_big_endian()
    pack_short := pack_nshort;
    pack_long := pack_nlong;
    unpack_short := unpack_nshort;
@@ -286,7 +286,7 @@ procedure pack_big_endian();
    return;
 end
 
-procedure pack_little_endian();
+procedure pack_little_endian()
    pack_short := pack_vshort;
    pack_long := pack_vlong;
    unpack_short := unpack_vshort;
@@ -300,14 +300,14 @@ procedure pack_little_endian();
    return;
 end
 
-procedure pack_int_as_long();
+procedure pack_int_as_long()
    pack_int_proc := pack_long;
    unpack_int_proc := unpack_long;
    unpack_unsigned_int_proc := unpack_unsigned_long;
    return;
 end
 
-procedure pack_int_as_short();
+procedure pack_int_as_short()
    pack_int_proc := pack_short;
    unpack_int_proc := unpack_short;
    unpack_unsigned_int_proc := unpack_unsigned_short;
@@ -317,7 +317,7 @@ end
 #
 # "b"
 #
-procedure pack_bits_low_to_high(v);
+procedure pack_bits_low_to_high(v)
    local result,n,b,buf;
    result := "";
    n := buf := 0;
@@ -338,7 +338,7 @@ end
 #
 # "B"
 #
-procedure pack_bits_high_to_low(v);
+procedure pack_bits_high_to_low(v)
    local result,n,b,buf;
    result := "";
    n := buf := 0;
@@ -359,7 +359,7 @@ end
 #
 # "h"
 #
-procedure pack_hex_low_to_high(v);
+procedure pack_hex_low_to_high(v)
    local result,pair;
    result := "";
    v ? {
@@ -375,7 +375,7 @@ end
 #
 # "H"
 #
-procedure pack_hex_high_to_low(v);
+procedure pack_hex_high_to_low(v)
    local result,pair;
    result := "";
    v ? {
@@ -388,7 +388,7 @@ procedure pack_hex_high_to_low(v);
    return result;
 end
 
-procedure pack_hex_digit(s);
+procedure pack_hex_digit(s)
    return (case map(s) of {
       "0": 2r0000;
       "1": 2r0001;
@@ -412,7 +412,7 @@ end
 #
 # "c" and "C"
 #
-procedure pack_char(v);
+procedure pack_char(v)
    if v < 0 then v +:= 256;
    return char(v);
 end
@@ -420,7 +420,7 @@ end
 #
 # "s" and "S" (big-endian)
 #
-procedure pack_nshort(v);
+procedure pack_nshort(v)
    if v < 0 then v +:= 65536;
    return char(v / 256) || char(v % 256);
 end
@@ -428,7 +428,7 @@ end
 #
 # "s" and "S" (little-endian)
 #
-procedure pack_vshort(v);
+procedure pack_vshort(v)
    if v < 0 then v +:= 65536;
    return char(v % 256) || char(v / 256);
 end
@@ -436,7 +436,7 @@ end
 #
 # "i" and "I"
 #
-procedure pack_int(v);
+procedure pack_int(v)
    initial /pack_int_proc := pack_long;
    return pack_int_proc(v);
 end
@@ -444,7 +444,7 @@ end
 #
 # "l" and "L" (big-endian)
 #
-procedure pack_nlong(v);
+procedure pack_nlong(v)
    local result;
    if v < 0 then v +:= 4294967296;
    result := "";
@@ -458,7 +458,7 @@ end
 #
 # "l" and "L" (little-endian)
 #
-procedure pack_vlong(v);
+procedure pack_vlong(v)
    local result;
    if v < 0 then v +:= 4294967296;
    result := "";
@@ -472,14 +472,14 @@ end
 #
 # "u"
 #
-procedure pack_uuencoded_string(v);
+procedure pack_uuencoded_string(v)
    return UUEncodeString(v);
 end
 
 #
 # "b"
 #
-procedure unpack_bits_low_to_high(n);
+procedure unpack_bits_low_to_high(n)
    local result,c,r;
    result := "";
    while *result < n do {
@@ -497,7 +497,7 @@ end
 #
 # "B"
 #
-procedure unpack_bits_high_to_low(n);
+procedure unpack_bits_high_to_low(n)
    local result,c,r;
    result := "";
    while *result < n do {
@@ -515,7 +515,7 @@ end
 #
 # "h"
 #
-procedure unpack_hex_low_to_high(n);
+procedure unpack_hex_low_to_high(n)
    local result,c;
    result := "";
    while *result < n do {
@@ -529,7 +529,7 @@ end
 #
 # "H"
 #
-procedure unpack_hex_high_to_low(n);
+procedure unpack_hex_high_to_low(n)
    local result,c;
    result := "";
    while *result < n do {
@@ -540,14 +540,14 @@ procedure unpack_hex_high_to_low(n);
    return result[1+:n] | result;
 end
 
-procedure unpack_hex_digit(i);
+procedure unpack_hex_digit(i)
    return "0123456789abcdef"[i + 1];
 end
 
 #
 # "c"
 #
-procedure unpack_char();
+procedure unpack_char()
    local v;
    v := ord(move(1)) | fail;
    if v >= 128 then v -:= 256;
@@ -557,14 +557,14 @@ end
 #
 # "C"
 #
-procedure unpack_unsigned_char();
+procedure unpack_unsigned_char()
    return ord(move(1));
 end
 
 #
 # "n" and "s" (big-endian)
 #
-procedure unpack_nshort();
+procedure unpack_nshort()
    local v;
    v := unpack_unsigned_nshort() | fail;
    if v >= 32768 then v -:= 65536;
@@ -574,7 +574,7 @@ end
 #
 # "v" and "s" (little-endian)
 #
-procedure unpack_vshort();
+procedure unpack_vshort()
    local v;
    v := unpack_unsigned_vshort() | fail;
    if v >= 32768 then v -:= 65536;
@@ -584,21 +584,21 @@ end
 #
 # "S" (big-endian)
 #
-procedure unpack_unsigned_nshort();
+procedure unpack_unsigned_nshort()
    return  256 * ord(move(1)) + ord(move(1));
 end
 
 #
 # "S" (little-endian)
 #
-procedure unpack_unsigned_vshort();
+procedure unpack_unsigned_vshort()
    return ord(move(1)) + 256 * ord(move(1));
 end
 
 #
 # "i"
 #
-procedure unpack_int();
+procedure unpack_int()
    initial /unpack_int_proc := unpack_long;
    return unpack_int_proc();
 end
@@ -606,7 +606,7 @@ end
 #
 # "I" (aye)
 #
-procedure unpack_unsigned_int();
+procedure unpack_unsigned_int()
    initial /unpack_unsigned_int_proc := unpack_unsigned_long;
    return unpack_unsigned_int_proc();
 end
@@ -614,7 +614,7 @@ end
 #
 # "N" and "l" (ell) (big-endian)
 #
-procedure unpack_nlong();
+procedure unpack_nlong()
    local v;
    v := 0;
    every 1 to 4 do {
@@ -627,7 +627,7 @@ end
 #
 # "V" and "l" (ell) (little-endian)
 #
-procedure unpack_vlong();
+procedure unpack_vlong()
    local v,m;
    v := 0;
    m := 1;
@@ -642,7 +642,7 @@ end
 #
 # "L" (big-endian)
 #
-procedure unpack_unsigned_nlong();
+procedure unpack_unsigned_nlong()
    local v;
    v := 0;
    every 1 to 4 do {
@@ -654,7 +654,7 @@ end
 #
 # "L" (little-endian)
 #
-procedure unpack_unsigned_vlong();
+procedure unpack_unsigned_vlong()
    local v,m;
    v := 0;
    m := 1;
@@ -668,7 +668,7 @@ end
 #
 # "u"
 #
-procedure unpack_uuencoded_string();
+procedure unpack_uuencoded_string()
    return UUDecodeString(tab(0));
 end
 
@@ -707,7 +707,7 @@ end
 #
 # "d"
 #
-procedure pack_double_float(v);
+procedure pack_double_float(v)
   local exp,mant,result,av;
   static dvsr;
   initial dvsr := 2.0 ^ 52;
@@ -736,7 +736,7 @@ end
 #
 # "f"
 #
-procedure pack_single_float(v);
+procedure pack_single_float(v)
   local exp,mant,result,av;
   static dvsr;
   initial dvsr := 2.0 ^ 23;
@@ -765,7 +765,7 @@ end
 #
 # "e"
 #
-procedure pack_extended_float(v);
+procedure pack_extended_float(v)
   local exp,mant,result,av;
   static dvsr;
   initial dvsr := 2.0 ^ 63;
@@ -794,14 +794,14 @@ end
 #
 # "E"
 #
-procedure pack_extended96_float(v);
+procedure pack_extended96_float(v)
   return pack_x80tox96(pack_extended_float(v));
 end
 
 #
 # "d"
 #
-procedure unpack_double_float();
+procedure unpack_double_float()
   local exp,mant,v,i,s;
   static dvsr;
   initial dvsr := 2.0 ^ 52;
@@ -820,7 +820,7 @@ end
 #
 # "f"
 #
-procedure unpack_single_float();
+procedure unpack_single_float()
   local exp,mant,v,i,s;
   static dvsr;
   initial dvsr := 2.0 ^ 23;
@@ -839,7 +839,7 @@ end
 #
 # "e"
 #
-procedure unpack_extended_float(s);
+procedure unpack_extended_float(s)
   local exp,mant,v,i;
   static dvsr;
   initial dvsr := 2.0 ^ 63;
@@ -859,17 +859,17 @@ end
 #
 # "E"
 #
-procedure unpack_extended96_float();
+procedure unpack_extended96_float()
   return unpack_extended_float(pack_x96tox80(move(12)));
 end
 
 
-procedure pack_x80tox96(s);
+procedure pack_x80tox96(s)
   return s[1:3] || "\0\0" || s[3:0];
 end
 
 
-procedure pack_x96tox80(s);
+procedure pack_x96tox80(s)
   return s[1:3] || s[5:0];
 end
 
@@ -883,7 +883,7 @@ global UUErrorText
 #
 # Decode a uu-encoded string.
 #
-procedure UUDecodeString(s);
+procedure UUDecodeString(s)
   local len;
   s ? {
     len := UUDecodeChar(move(1));
@@ -905,7 +905,7 @@ end
 #
 #  Get a binary value from a uu-encoded character.
 #
-procedure UUDecodeChar(s);
+procedure UUDecodeChar(s)
   static spaceVal;
   initial spaceVal := ord(" ");
   return ord(s) - spaceVal;
@@ -914,7 +914,7 @@ end
 #
 #  Decode 4-byte encoded string to 3-bytes of binary data.
 #
-procedure UUDecodeQuad(s);
+procedure UUDecodeQuad(s)
   local v1,v2,v3,v4;
   *s = 4 | {
     write(&errout,"Input string not of length 4");
@@ -934,7 +934,7 @@ end
 #
 # Convert "s" to uu-encoded format.
 #
-procedure UUEncodeString(s);
+procedure UUEncodeString(s)
   local outLine;
   s ? {
     outLine := "";
@@ -947,7 +947,7 @@ end
 #
 # Get the ascii character for uu-encoding "i".
 #
-procedure UUEncodeChar(i);
+procedure UUEncodeChar(i)
   static spaceVal;
   initial spaceVal := ord(" ");
   return char(i + spaceVal);
@@ -956,7 +956,7 @@ end
 #
 #  Encode to 3-bytes of binary data into 4-byte uu-encoded string.
 #
-procedure UUEncodeTriple(s);
+procedure UUEncodeTriple(s)
   local v1,v2,v3;
   v1 := ord(s[1]);
   v2 := ord(s[2]) | 0;

@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure progary(file, value);
+procedure progary(file, value)
    local A;
 
    A := [];

@@ -34,7 +34,7 @@
 
 link wopen
 
-procedure main();
+procedure main()
    local extent, x, y, i;
 
    extent := 300;

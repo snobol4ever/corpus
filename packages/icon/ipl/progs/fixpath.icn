@@ -28,7 +28,7 @@
 ############################################################################
 
 
-procedure main(args);
+procedure main(args)
    local fname, oldpath, newpath, f, pgm, n, p, s;
 
    (*args == 3) | stop("usage: fixpath filename oldpath newpath");

@@ -141,7 +141,7 @@ end
 
 #  XBF_defaults() - assign default values to any unset tuning parameters
 
-procedure XBF_defaults();
+procedure XBF_defaults()
    /XFW_defsize := 14;		# default size if unspecified
    /XFW_size := 1000;		# points for matching size exactly
    /XFW_maxover := 30;		# max allowable overage on size (per cent)
@@ -170,7 +170,7 @@ end
 
 #  XBF_tokenlist(args) -- turn list of args into list of tokens
 
-procedure XBF_tokenlist(args);
+procedure XBF_tokenlist(args)
    local tokens;
 
    tokens := [];
@@ -188,7 +188,7 @@ end
 #
 #  Also saves the size value in the global XBF_wantsize.
 
-procedure XBF_weights(tokens);
+procedure XBF_weights(tokens)
    local cklist, tk, pf;
 
    cklist := [];
@@ -225,7 +225,7 @@ end
 
 #  XBF_sizes(wantsize) -- build array of scores for evaluating font sizes
 
-procedure XBF_sizes(wantsize);
+procedure XBF_sizes(wantsize)
    local l, sz, diff, score, maxunder, maxover;
 
    l := [XFW_scaled];  # initial entry scores scaled fonts
@@ -256,7 +256,7 @@ end
 
 # XBF_fontlist(w) - generate list of font names for window (or list) w
 
-procedure XBF_fontlist(w);
+procedure XBF_fontlist(w)
    static fontlist;
    local pipe;
 
@@ -276,7 +276,7 @@ end
 
 #  XBF_eval(fontname, cklist) -- evaluate the score of an X font name
 
-procedure XBF_eval(fontname, cklist);
+procedure XBF_eval(fontname, cklist)
    local t, r;
 
    # find the size and look up its score in the XBF_sizval array
@@ -301,7 +301,7 @@ end
 #
 #  This is just the name itself except in the case of scalable fonts.
 
-procedure XBF_spec(fontname, size);
+procedure XBF_spec(fontname, size)
    local s;
 
    fontname ? {

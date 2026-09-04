@@ -24,7 +24,7 @@
 
 record array(structure, lbs)
 
-procedure create_array(lbs, ubs, value);
+procedure create_array(lbs, ubs, value)
    local lengths, i;
 
    if (*lbs ~= *ubs) | (*lbs = 0) then stop("*** bad specification");
@@ -38,7 +38,7 @@ procedure create_array(lbs, ubs, value);
 
 end
 
-procedure create_struct(lengths, value);
+procedure create_struct(lengths, value)
    local A;
 
    lengths := copy(lengths);
@@ -52,7 +52,7 @@ procedure create_struct(lengths, value);
 
 end
 
-procedure ref_array(A, subscrs[]);
+procedure ref_array(A, subscrs[])
    local lbs, i, A1;
 
    if *A.lbs ~= *subscrs then

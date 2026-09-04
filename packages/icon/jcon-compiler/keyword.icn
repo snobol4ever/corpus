@@ -2,7 +2,7 @@
 #     Original: Gregg Townsend & Todd Proebsting, Arizona. See COPYRIGHT in this dir.
 # keywords.icn:  provide information about keywords to the compiler
 
-procedure key_generator(name);
+procedure key_generator(name)
     static t;
     initial {
 	t := set([

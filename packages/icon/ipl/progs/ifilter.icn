@@ -58,7 +58,7 @@ link numbers
 link options
 link strings
 
-procedure main(args);
+procedure main(args)
    local op, opts, i, interp, limit;
 
    opts := options(args, "a+o+l+");

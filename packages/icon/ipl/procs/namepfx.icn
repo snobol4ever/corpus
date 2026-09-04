@@ -29,7 +29,7 @@
 
 link lastname, titleset
 
-procedure namepfx(s);
+procedure namepfx(s)
    static titles;
 
    initial titles := titleset();

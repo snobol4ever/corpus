@@ -49,7 +49,7 @@ link datetime
 link io
 link options
 
-procedure main(args);
+procedure main(args)
    local opts, overwrite, name, author, input, output, file;
 
    opts := options(args, "fpo");

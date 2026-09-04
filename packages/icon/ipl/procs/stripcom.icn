@@ -32,13 +32,13 @@
 
 
 # To preserve parallelism between file and procedure names.
-procedure stripcom(s);
+procedure stripcom(s)
     return strip_comments(s);
 end
 
 
 # The original name -
-procedure strip_comments(s);
+procedure strip_comments(s)
 
     local i, j, c, c2, s2;
 

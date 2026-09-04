@@ -96,7 +96,7 @@ record diff_proc(proc,arg)
 record diff_file(stream,queue)
 
 
-procedure dif(stream,compare,eof,group);
+procedure dif(stream,compare,eof,group)
   local f,linenbr,line,difflist,gf,i,j,k,l,m,n,x,test,
 	result,synclist,nsyncs,syncpoint;
   #
@@ -216,7 +216,7 @@ end
 #
 #  diffread() -- Read a line from an input stream.
 #
-procedure diffread(f);
+procedure diffread(f)
   local x;
   return get(f.queue) | case type(x := f.stream) of {
     "file" | "window": read(x);

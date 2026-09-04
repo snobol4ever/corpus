@@ -391,7 +391,7 @@ procedure unsupported();				#: unsupported feature alert
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure add_dialog(win, deftbl);
+procedure add_dialog(win, deftbl)
 static dstate;
 initial dstate := dsetup(win,
    ["add_dialog:Sizer::1:0,0,531,182:add",],

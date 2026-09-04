@@ -42,7 +42,7 @@ link vsetup
 
 global colors
 
-procedure main();
+procedure main()
    local vidgets;
 
    vidgets := ui();
@@ -51,7 +51,7 @@ procedure main();
 
 end
 
-procedure file_cb(vidgets, value);
+procedure file_cb(vidgets, value)
 
    case value[1] of {
       "load     @L":  load_colors();
@@ -63,13 +63,13 @@ procedure file_cb(vidgets, value);
 
 end
 
-procedure reload_cb();
+procedure reload_cb()
 
    return;
 
 end
 
-procedure load_colors();
+procedure load_colors()
    local clist;
    static file;
 
@@ -89,7 +89,7 @@ procedure load_colors();
 
 end
 
-procedure shortcuts(e);
+procedure shortcuts(e)
 
   if &meta then case map(e) of {
      "l":  load_colors();
@@ -103,11 +103,11 @@ procedure shortcuts(e);
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=197,288", "bg=gray-white"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,197,288:",],
    ["file:Menu:pull::1,0,36,21:File",file_cb,

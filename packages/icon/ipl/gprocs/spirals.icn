@@ -29,7 +29,7 @@
 link gobject
 link numbers
 
-procedure spiral(x, y, extent, n, t, e, r, incr, yfact);
+procedure spiral(x, y, extent, n, t, e, r, incr, yfact)
    local i, c, s, angle, redrad, x1, y1;
 
    incr := dtor(incr);

@@ -94,7 +94,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local i, fyls, arglist;
    if *args = 0 then return;
    if *args > 1 then

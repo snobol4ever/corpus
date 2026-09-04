@@ -47,7 +47,7 @@ record diff_rec(pos, diffs)
 
 global n1, n2, n3, n4
 
-procedure main(arg);
+procedure main(arg)
    local t, rev, source, dfile, diffs;
 
   t := options(arg, "r");

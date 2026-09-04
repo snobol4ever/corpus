@@ -97,7 +97,7 @@ $define MaxErrors 100
 
 #  main procedure
 
-procedure main(args);
+procedure main(args)
    local line, words, n, tm, ck, verb, p, s, w, r, atts, keywds, opts;
 
    atts := attnames();
@@ -207,7 +207,7 @@ end
 
 #  crack(s) -- parse line, returning list of words
 
-procedure crack(s);
+procedure crack(s)
    local words;
 
    words := [];
@@ -225,7 +225,7 @@ end
 
 #  getproc(s) -- get procedure named s, case insensitive
 
-procedure getproc(s);
+procedure getproc(s)
    local p, f, line, tname;
    static proctab;
 
@@ -265,7 +265,7 @@ end
 
 #  attnames() -- return set of known attribute names
 
-procedure attnames();
+procedure attnames()
    return set([
       "ascent", "bg", "canvas", "ceol", "cliph", "clipw", "clipx", "clipy",
       "col", "columns", "cursor", "depth", "descent", "display",
@@ -282,7 +282,7 @@ end
 
 #  kwnames() -- return set of known keyword names
 
-procedure kwnames();
+procedure kwnames()
    return set([
       "&allocated", "&ascii", "&clock", "&col", "&collections",
       "&control", "&cset", "&current", "&date", "&dateline", "&digits",
@@ -300,7 +300,7 @@ end
 
 #  kwval(name, n) -- generate values of a keyword n times
 
-procedure kwval(name, n);
+procedure kwval(name, n)
    case name of {
       "&allocated":	every 1 to n do suspend &allocated;
       "&ascii":		every 1 to n do suspend &ascii;
@@ -371,7 +371,7 @@ end
 #
 #  If a < b, the time is assumed to have wrapped past midnight.
 
-procedure clkdiff(a, b);
+procedure clkdiff(a, b)
    local t;
    t := ClockToSec(a) - ClockToSec(b);
    if t < 0 then

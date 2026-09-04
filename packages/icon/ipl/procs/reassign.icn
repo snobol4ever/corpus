@@ -35,7 +35,7 @@
 
 link regexp
 
-procedure ReAssign( s );
+procedure ReAssign( s )
 local s1, n;
 
 s1 := "";

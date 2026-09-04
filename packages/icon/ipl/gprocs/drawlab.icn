@@ -38,7 +38,7 @@ link xgtrace
 
 global size	# can be set by caller to control the window size
 
-procedure drawlab(p, callt, label);
+procedure drawlab(p, callt, label)
    local line, ws, calls, arg, trace, dlist, name;
 
    /size := 600;

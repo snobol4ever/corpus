@@ -4,15 +4,15 @@
 
 global dot_emit_table
 
-procedure dot_emit(label, code);
+procedure dot_emit(label, code)
     dot_emit_table[label] := code;
 end
 
-procedure dot_dump(i);
+procedure dot_dump(i)
     return map(ir_dump(i), "<>", "()");
 end
 
-procedure dot_output(t);
+procedure dot_output(t)
     local label, code, lab, s, i, insn;
 
     every label := key(t) & code := t[label] do {
@@ -86,7 +86,7 @@ procedure dot_function(name, params, accumulate, locals, statics, code,
     write("}");
 end
 
-procedure dot_File(irgen, flagList);
+procedure dot_File(irgen, flagList)
     local p;
     while p := @irgen do {
         case type(p) of {

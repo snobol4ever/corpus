@@ -80,7 +80,7 @@ end
 # Procedures named with a "pq__" prefix are not
 # intended for access outside this file.
 
-procedure pq__down(Q, i);
+procedure pq__down(Q, i)
    local left, right, largest;
 
    left := i * 2;
@@ -96,7 +96,7 @@ procedure pq__down(Q, i);
    return;
 end
 
-procedure pq__up(Q, i);
+procedure pq__up(Q, i)
    local parent;
 
    parent := i / 2;

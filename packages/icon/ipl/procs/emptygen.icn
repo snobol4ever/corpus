@@ -35,7 +35,7 @@
 
 link strings
 
-procedure main();
+procedure main()
 
    Mp();					# call meta-procedure
 

@@ -22,7 +22,7 @@
 #
 ############################################################################
 
-procedure ftype(file);
+procedure ftype(file)
    
    read(open("file " || file, "p")) ? {
       tab(upto('\t'));

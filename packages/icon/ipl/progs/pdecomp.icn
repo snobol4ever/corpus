@@ -25,7 +25,7 @@
 
 link factors
 
-procedure main();
+procedure main()
    local i;
 
    while i := factors(read()) do

@@ -2,7 +2,7 @@
 #     Original: Gregg Townsend & Todd Proebsting, Arizona. See COPYRIGHT in this dir.
 #  dump.icn -- routines for creating string representations of data
 
-procedure echo(c, flags);
+procedure echo(c, flags)
     local p;
     while p := @\c do {
         if "-verbose" == !\flags then {
@@ -13,7 +13,7 @@ procedure echo(c, flags);
     };
 end
 
-procedure dump_get_names(x);
+procedure dump_get_names(x)
     local L;
 
     static tab;
@@ -28,7 +28,7 @@ procedure dump_get_names(x);
     return L;
 end
 
-procedure dump_verbose(x, nm,  indent);
+procedure dump_verbose(x, nm,  indent)
     local s, i, n, v, names;
 
     s := image(x);
@@ -53,7 +53,7 @@ procedure dump_verbose(x, nm,  indent);
     return s;
 end
 
-procedure dump_simple(x, excl);
+procedure dump_simple(x, excl)
     local s, i, n, names;
 
     if type(x) == "list" then {

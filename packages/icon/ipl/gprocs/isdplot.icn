@@ -49,7 +49,7 @@ $define g_w 10
 
 # Create draft.
 
-procedure plot(draft, clip);
+procedure plot(draft, clip)
    local threading_pane, treadling_pane, tieup_pane;
    local tr_w, th_w, tr_h, th_h, i, j, weft_colors_pane;
    local x, y, k, width, height, warp_colors_pane;
@@ -212,7 +212,7 @@ procedure plot(draft, clip);
 
 end
 
-procedure clear_pane(win, n, m, size);
+procedure clear_pane(win, n, m, size)
    local x, y, width, height, save_fg;
 
    width := n * size + 1;
@@ -234,7 +234,7 @@ procedure clear_pane(win, n, m, size);
 
 end
 
-procedure fillcell(win, n, m, color);
+procedure fillcell(win, n, m, color)
    local  save_fg;
 
    save_fg := Fg(win);
@@ -249,7 +249,7 @@ procedure fillcell(win, n, m, color);
 
 end
 
-procedure incr_offset(x, y);
+procedure incr_offset(x, y)
 
    X_ +:= x;
    Y_ +:= y;

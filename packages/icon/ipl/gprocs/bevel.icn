@@ -170,7 +170,7 @@ end
 #
 #  (Internal procedure)
 
-procedure bev_lookup(win);
+procedure bev_lookup(win)
    local b, dx, dy;
    b := \(\bev_table)[win] | bev_table[BevelReset(win)];
    dx := "dx=" || WAttrib(win, "dx");
@@ -249,7 +249,7 @@ end
 
 #  BevelTriangle(win, x, y, r, o, bw) -- draw beveled triangle
 
-procedure BevelTriangle(win, x, y, r, o, bw);
+procedure BevelTriangle(win, x, y, r, o, bw)
    local b, upper, lower;
    static type;
 

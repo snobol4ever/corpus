@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure clrnames();
+procedure clrnames()
    static lightness, saturation, hue1, hue2;
 
    hue2 := ["black", "gray", "white", "pink", "violet",

@@ -38,7 +38,7 @@ link patutils
 
 global pixmap
 
-procedure main(args);
+procedure main(args)
    local x, y, pixels, i, j, size, rows, wcell, hcell;
    local opts, input, w, h, t, xoff, yoff;
 

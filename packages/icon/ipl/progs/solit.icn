@@ -84,7 +84,7 @@ global   VERSION, CLEAR, CLREOL, NORMAL, RED, BLACK
 
 global   whitespace, amode, seed, deck, over, hidden, run, ace
 
-procedure main(args);
+procedure main(args)
    local a, p, c, r, s, cnt, cheat, cmd, act, from, dest;
 
    VERSION := (!args == ("Atari ST" | "hp2621" | "IBM PC" | "vt100"));
@@ -301,7 +301,7 @@ end
 
 # this procedure moves cards from one place to another
 
-procedure movecard(from,dest,limitmove);
+procedure movecard(from,dest,limitmove)
 
    # if from and dest are the same fail
    if from == dest then fail;
@@ -337,7 +337,7 @@ procedure movecard(from,dest,limitmove);
 
 end
 
-procedure deck2run(dest);
+procedure deck2run(dest)
    local fcard, dcard, s;
 
    # set fcard to the top of the overturned pile or fail
@@ -366,7 +366,7 @@ procedure deck2run(dest);
 
 end
 
-procedure deck2ace();
+procedure deck2ace()
    local fcard, a, s;
 
    # set fcard to the top of the overturned pile or fail
@@ -396,7 +396,7 @@ procedure deck2ace();
 
 end
 
-procedure run2ace(from);
+procedure run2ace(from)
    local fcard, a, s;
 
    # set fcard to the low card of the run or fail if there are no
@@ -440,7 +440,7 @@ procedure run2ace(from);
 
 end
 
-procedure run2run(from,dest,limitmove);
+procedure run2run(from,dest,limitmove)
    local fcard, dcard, s;
 
    # set fcard to the high card of the run or fail if there are no
@@ -498,7 +498,7 @@ procedure run2run(from,dest,limitmove);
 
 end
 
-procedure chk2run(fcard,dcard);
+procedure chk2run(fcard,dcard)
 
    # if dcard is null the from card must be a king or
    if ( /dcard & (getvalue(fcard) = 13 | fail) ) |
@@ -514,7 +514,7 @@ end
 # this procedure finishes a game where there are no hidden cards left and the
 # deck is empty
 
-procedure finish(cheat);
+procedure finish(cheat)
 
    movecursor(16,0);
    writes("\007I'll finish for you now...\007");
@@ -536,7 +536,7 @@ end
 
 # this procedure takes over and plays the game for you
 
-procedure autopilot(cheat);
+procedure autopilot(cheat)
    local tseq, totdeck;
 
    movecursor(16,0);
@@ -632,7 +632,7 @@ end
 
 # this procedure updates the display
 
-procedure display(parts);
+procedure display(parts)
    local r, a, h, c, part, l;
 
    static   long;  # a list with the length of each run
@@ -710,7 +710,7 @@ end
 # Return "s" for values equal to 0 or greater than 1, e.g.,
 #     0 horses, 1 horse, 2 horses.
 
-procedure plural(n);
+procedure plural(n)
    /n := 0;                             # Handle &null values.
    if n = 1 then return ""
    else return "s";
@@ -718,7 +718,7 @@ end
 
 # this procedure thumbs the deck 3 cards at a time
 
-procedure thumb();
+procedure thumb()
    local s;
 
    # if the deck is all thumbed
@@ -755,7 +755,7 @@ end
 
 # this procedure shuffles a deck of cards
 
-procedure shuffle(cards);
+procedure shuffle(cards)
 
    static   fulldeck; # the default shuffle is a full deck of cards
 
@@ -786,7 +786,7 @@ procedure shuffle(cards);
 
 end
 
-procedure face(card);
+procedure face(card)
 
    static   cstr, # the list of card color escape sequences
       vstr, # the list of card value labels
@@ -812,7 +812,7 @@ end
 
 # a deck of cards is made up of 4 suites of 13 values; 1-13, 14-26, etc.
 
-procedure getvalue(card);
+procedure getvalue(card)
 
    return (card-1) % 13 + 1;
 
@@ -820,7 +820,7 @@ end
 
 # each suite of cards is made up of ace - king (1-13)
 
-procedure getsuite(card);
+procedure getsuite(card)
 
    return (card-1) / 13 + 1;
 
@@ -829,7 +829,7 @@ end
 # the first two suites are hearts and diamonds so all cards 1-26 are red
 # and all cards 27-52 are black.
 
-procedure getcolor(card);
+procedure getcolor(card)
 
    return (card-1) / 26 + 1;
 
@@ -837,7 +837,7 @@ end
 
 # this procedure counts cards that aren't in runs or the aces piles
 
-procedure cardsleft();
+procedure cardsleft()
    local totleft;
 
    # count the cards left in the deck and the overturned pile
@@ -852,7 +852,7 @@ end
 
 # this procedure implements a device dependent cursor positioning scheme
 
-procedure movecursor(line,col);
+procedure movecursor(line,col)
 
    if \VERSION == "Atari ST" then
       writes("\eY",&ascii[33+line],&ascii[33+col])
@@ -867,7 +867,7 @@ end
 
 # all invalid commands call this procedure
 
-procedure whoops(cmd);
+procedure whoops(cmd)
    local i, j;
 
    movecursor(15,0);
@@ -885,7 +885,7 @@ end
 
 # display the help message
 
-procedure disphelp();
+procedure disphelp()
 
    static   help;
 
@@ -923,7 +923,7 @@ end
 
 # display the rules message
 
-procedure disprules();
+procedure disprules()
 
    static   rules;
 

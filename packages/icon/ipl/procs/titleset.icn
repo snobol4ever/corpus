@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure titleset();
+procedure titleset()
    local titles;
 
    titles := set();

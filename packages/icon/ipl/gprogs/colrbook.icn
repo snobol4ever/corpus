@@ -50,7 +50,7 @@ $define LEFT (m+TSIZ+HUEW+labw)	# total space to left of grid and its margin
 global cwin, huelist, sats, lgts, colrs, fillargs
 global labw, leftx, w, h, m
 
-procedure main(args);
+procedure main(args)
    local x, y, dx, dy, cw, ch;
    local i, j, ij, hue, r;
 
@@ -107,7 +107,7 @@ procedure main(args);
    evmux(&window);
 end
 
-procedure hueclick(win, arg, x, y);
+procedure hueclick(win, arg, x, y)
    local hue, e, n, i, j;
 
    e := &ldrag;
@@ -130,7 +130,7 @@ procedure hueclick(win, arg, x, y);
    return;
 end
 
-procedure setcolor(hue);
+procedure setcolor(hue)
    local i, j, ij, prefix;
    static prev;
 
@@ -153,7 +153,7 @@ procedure setcolor(hue);
    return;
 end
 
-procedure inithues();
+procedure inithues()
    local i, y1, y2, dy, win;
 
    huelist := [

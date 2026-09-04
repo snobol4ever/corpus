@@ -40,7 +40,7 @@
 #  
 ############################################################################
 
-procedure Seqimage(L);
+procedure Seqimage(L)
    local seq, result, i, j, resid;
 
    seq := "";

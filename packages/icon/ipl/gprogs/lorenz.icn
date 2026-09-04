@@ -35,7 +35,7 @@
 link numbers
 link wopen
 
-procedure main();
+procedure main()
    local col, color, colorlist, cx, cy, cz, d0_x, d0_y, d0_z, d1_x;
    local d1_y, d1_z, d2_x, d2_y, d2_z, d3_x, d3_y, d3_z, dt, dt2;
    local i, old_col, old_row, old_y, row, sx, sy, sz, x, x_angle;

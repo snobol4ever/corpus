@@ -40,7 +40,7 @@ link slider
 
 record boxdata(win, color, button)
 
-procedure main(args);
+procedure main(args)
    local opts, w, h, m, boxwidth, sliderwidth, textheight;
    local win, box, boxwin, boxcolor, y;
    local mingamma, defaultgamma, maxgamma;
@@ -85,7 +85,7 @@ procedure main(args);
    evmux(win);
 end
 
-procedure setgamma(win, box, gamma);
+procedure setgamma(win, box, gamma)
    local v;
 
    buttonlabel(box.button, left(gamma + .05, 3));

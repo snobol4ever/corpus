@@ -81,7 +81,7 @@ procedure escchar(s1); # s2
 end
 
 
-procedure escchar_convert(r,max);
+procedure escchar_convert(r,max)
 #
 #  Private utility procedure used by escchar -- performs conversion
 #  of numeric character strings of radix "r", where 2 <= r <= 16.

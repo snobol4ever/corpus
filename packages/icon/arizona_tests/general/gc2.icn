@@ -4,7 +4,7 @@ record nonterm(name)
 record charset(chars)
 record query(name)
 
-procedure main(x);
+procedure main(x)
    local line, plist;
    plist := [define,generate,grammar,source,comment,prompter,error];
    defs := table();
@@ -37,16 +37,16 @@ procedure main(x);
       };
 end
 
-procedure comment(line);
+procedure comment(line)
    if line[1] == "#" then return;
 end
 
-procedure define(line);
+procedure define(line)
    return line ?
       defs[(="<",tab(find(">::=")))] := (move(4),alts(tab(0)));
 end
 
-procedure defnon(sym);
+procedure defnon(sym)
    if sym ? {
       ="'" &
       chars := cset(tab(-1)) &
@@ -61,12 +61,12 @@ procedure defnon(sym);
    else return nonterm(sym);
 end
 
-procedure error(line);
+procedure error(line)
    write("*** erroneous line:  ",line);
    return;
 end
 
-procedure gener(goal);
+procedure gener(goal)
    local pending, genstr, symbol;
    repeat {
       pending := [nonterm(goal)];
@@ -102,7 +102,7 @@ procedure gener(goal);
       };
 end
 
-procedure generate(line);
+procedure generate(line)
    local goal, count;
    if line ? {
       ="<" &
@@ -117,14 +117,14 @@ procedure generate(line);
    else fail;
 end
 
-procedure getrhs(a);
+procedure getrhs(a)
    local rhs;
    rhs := "";
    every rhs ||:= sform(!a) || "|";
    return rhs[1:-1];
 end
 
-procedure grammar(line);
+procedure grammar(line)
    local file, out;
    if line ? {
       name := tab(find("->")) &
@@ -146,7 +146,7 @@ procedure grammar(line);
    else fail;
 end
 
-procedure listimage(a);
+procedure listimage(a)
    local s, x;
    s := "";
    every x := !a do
@@ -154,21 +154,21 @@ procedure listimage(a);
    return s;
 end
 
-procedure alts(defn);
+procedure alts(defn)
    local alist;
    alist := [];
    defn ? while put(alist,syms(tab(many(~'|')))) do move(1);
    return alist;
 end
 
-procedure prompter(line);
+procedure prompter(line)
    if line[1] == "=" then {
       prompt := line[2:0];
       return
       };
 end
 
-procedure pwrite(name,ofile);
+procedure pwrite(name,ofile)
    local nt, a;
    static builtin;
    initial builtin := ["lb","rb","vb","nl","","&lcase","&ucase","&digit"];
@@ -183,7 +183,7 @@ procedure pwrite(name,ofile);
       write("*** undefined nonterminal:  ",name);
 end
 
-procedure sform(alt);
+procedure sform(alt)
    local s, x;
    s := "";
    every x := !alt do
@@ -195,7 +195,7 @@ procedure sform(alt);
    return s;
 end
 
-procedure source(line);
+procedure source(line)
    return line ? (="@" & push(ifile,in) & {
       in := open(file := tab(0)) | {
          write("*** cannot open ",file);
@@ -204,7 +204,7 @@ procedure source(line);
       });
 end
 
-procedure symimage(x);
+procedure symimage(x)
    return case type(x) of {
       "string":   x;
       "nonterm":  "<" || x.name || ">";
@@ -212,7 +212,7 @@ procedure symimage(x);
       };
 end
 
-procedure syms(alt);
+procedure syms(alt)
    local slist;
    slist := [];
    alt ? while put(slist,tab(many(~'<')) |

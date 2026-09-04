@@ -41,7 +41,7 @@ link options
 
 global uses, colmax, namewidth, lineno
 
-procedure main(args);
+procedure main(args)
    local opts, uselist, name, line, pad, i, j, fill;
 
    opts := options(args, "l+w+");  # process options
@@ -77,7 +77,7 @@ end
 
 #  Add to count of line number to citations for name.
 #
-procedure tabulate(name, lineno);
+procedure tabulate(name, lineno)
 
    /uses[name] := table(0);
    uses[name][lineno] +:= 1;
@@ -88,7 +88,7 @@ end
 
 #  Format the line numbers, breaking long lines as necessary.
 #
-procedure format(linenos);
+procedure format(linenos)
    local i, line;
 
    linenos := sort(linenos, 3);
@@ -104,7 +104,7 @@ end
 #  Get an item. Different kinds of concordances can be obtained by
 #  modifying this procedure.
 #
-procedure item();
+procedure item()
    local i, word, line;
 
    while line := read() do {

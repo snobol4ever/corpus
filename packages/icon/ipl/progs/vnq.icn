@@ -26,7 +26,7 @@ link options
 
 global n, nthq, solution, goslow, showall, line, border
 
-procedure main(args);
+procedure main(args)
 local i, opts;
 
    opts := options(args, "sah");
@@ -61,7 +61,7 @@ local i, opts;
 end
 
 # q(c) - place a queen in column c (this is c+1st routine).
-procedure q(c);
+procedure q(c)
 local r; 
 static up, down, rows;
 
@@ -92,7 +92,7 @@ end
 
 # show the solution on a chess board.
 
-procedure show();
+procedure show()
    local c;
    static count, lastsol;
 
@@ -132,7 +132,7 @@ procedure show();
 
 end
 
-procedure helpmesg();
+procedure helpmesg()
    write(&errout, "Usage: vnq [-s] [-a] [n]");
    write(&errout, "	where -s means to stop after each solution, ");
    write(&errout, "	      -a means to show placement of every queen");
@@ -143,7 +143,7 @@ end
 
 # Move cursor to x, y
 #
-procedure movexy (x, y);
+procedure movexy (x, y)
    writes("\^[[", y, ";", x, "H");
    return;
 end
@@ -151,7 +151,7 @@ end
 #
 # Clear the text screen
 #
-procedure clearscreen();
+procedure clearscreen()
    writes("\^[[2J");
    return;
 end
@@ -159,7 +159,7 @@ end
 #
 # Clear the rest of the line
 #
-procedure clearline();
+procedure clearline()
    writes("\^[[2K");
    return;
 end

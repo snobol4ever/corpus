@@ -34,7 +34,7 @@
 #
 ############################################################################
 
-procedure main(arg);
+procedure main(arg)
   local smarthost, editor, console, tmpdir, tmpfile, reply, fullname;
   local address, quoter, date, id, subject, newsgroup, refs, edstr, stdin;
   local mailstr;

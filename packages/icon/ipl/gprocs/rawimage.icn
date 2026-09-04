@@ -39,7 +39,7 @@ link wopen
 
 $define LineLen 64
 
-procedure WriteRaw(win, x, y, w, h);
+procedure WriteRaw(win, x, y, w, h)
    local nextid, palette, line, c, temp, tempname;
 
    if type(win) ~== "window" then {
@@ -93,7 +93,7 @@ procedure WriteRaw(win, x, y, w, h);
 
 end
 
-procedure ReadRaw(win, s, x, y);
+procedure ReadRaw(win, s, x, y)
    local input, palette, c, temp, size, width, height, line;
 
    if type(win) ~== "window" then {

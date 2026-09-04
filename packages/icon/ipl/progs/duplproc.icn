@@ -46,7 +46,7 @@
 
 record procedure_stats(name, file, lineno)
 
-procedure main(a);
+procedure main(a)
 
     local proc_table, fname, elem, lib_file, tmp, too_many_table;
 
@@ -90,7 +90,7 @@ end
 
 
 
-procedure getlibpaths(ipl_paths);
+procedure getlibpaths(ipl_paths)
 
     # Unite command-line args and ILIBS environment variable into one
     # path list.
@@ -122,14 +122,14 @@ end
 
 
 
-procedure fixup_path(s);
+procedure fixup_path(s)
     # Make sure paths have a consistent format.
     return "/" ~== (trim(s,'/') || "/");
 end
 
 
 
-procedure get_procedures(intext,fname);
+procedure get_procedures(intext,fname)
 
     # Extracts the names of all procedures declared in file f.
     # Returns them in a list, each of whose elements have the
@@ -162,7 +162,7 @@ end
 
 
 
-procedure take_out_comments(s);
+procedure take_out_comments(s)
 
     # Commented-out portions of Icon code - strip 'em.  Fails on lines
     # which, either stripped or otherwise, come out as an empty string.
@@ -202,7 +202,7 @@ end
 
 
 
-procedure get_icn_filenames(lib_paths);
+procedure get_icn_filenames(lib_paths)
 
     # Return the names of all .icn files in all of the paths in the
     # list lib_paths.  The dir routine used depends on which OS we
@@ -223,7 +223,7 @@ end
 
 
 
-procedure set_getdir_by_os();
+procedure set_getdir_by_os()
 
     if find("UNIX", &features)
     then return unix_get_dir
@@ -235,7 +235,7 @@ end
 
 
 
-procedure msdos_get_dir(dir);
+procedure msdos_get_dir(dir)
     local temp_name, filename;
 
     # Returns a sorted list of all filenames (full paths included) in
@@ -290,7 +290,7 @@ end
 
 
 
-procedure get_dos_tempname(dir);
+procedure get_dos_tempname(dir)
    local temp_name, temp_file;
 
     # Don't clobber existing files.  Get a unique temp file name for
@@ -306,7 +306,7 @@ end
 
 
 
-procedure unix_get_dir(dir);
+procedure unix_get_dir(dir)
    local filename_list, in_dir, filename;
 
     dir := trim(dir, '/') || "/";

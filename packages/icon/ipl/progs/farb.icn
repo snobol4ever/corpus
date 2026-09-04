@@ -32,7 +32,7 @@
 
 link random
 
-procedure main(arg);
+procedure main(arg)
    local farb;
    local count;
 

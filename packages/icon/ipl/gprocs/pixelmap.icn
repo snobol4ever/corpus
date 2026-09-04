@@ -30,7 +30,7 @@
 
 link wopen
 
-procedure pixelmap(name, p, args[]);
+procedure pixelmap(name, p, args[])
    local input, width, height, x, y, win;
 
    /p := 1;

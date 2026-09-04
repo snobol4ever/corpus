@@ -4,7 +4,7 @@ link cfunc
 
 record complex(r, i)
 
-procedure main();
+procedure main()
    local e, l, v1, v2, v3, v4;
    local r1,r2,r3,r4, s1, s2, s3, s4;
 
@@ -47,7 +47,7 @@ end
 
 #  write label, type(xval), image(xval)
 
-procedure xwrite(label, xval);
+procedure xwrite(label, xval)
    write(label, ": ", type(xval), ": ",image(xval));
    return;
 end
@@ -55,7 +55,7 @@ end
 
 #  test equivalence of id1 and id2, and nonequivalence of diff
 
-procedure teqv(id1, id2, diff);
+procedure teqv(id1, id2, diff)
    if id1 ~=== id2 then
       write("nonequivalent: ", image(id1), " and ", image(id2));
    if id2 ~=== id1 then

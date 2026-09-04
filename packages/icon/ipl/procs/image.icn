@@ -81,7 +81,7 @@
 #
 ############################################################################
 
-procedure Image(x,style,done,depth,nonewline);
+procedure Image(x,style,done,depth,nonewline)
    local retval;
 
    if style === 4 then return Imageb(x);	# breadth-first style
@@ -109,7 +109,7 @@ end
 
 #  list image
 #
-procedure Limage(a,done,depth,style);
+procedure Limage(a,done,depth,style)
    static i;
    local s, tag;
    initial i := 0;
@@ -125,7 +125,7 @@ end
 
 #  record image
 #
-procedure Rimage(x,done,depth,style);
+procedure Rimage(x,done,depth,style)
    static i;
    local s, tag;
    initial i := 0;
@@ -145,7 +145,7 @@ end
 
 # set image
 #
-procedure Simage(S,done,depth,style);
+procedure Simage(S,done,depth,style)
    static i;
    local s, tag;
    initial i := 0;
@@ -161,7 +161,7 @@ end
 
 #  table image
 #
-procedure Timage(t,done,depth,style);
+procedure Timage(t,done,depth,style)
    static i;
    local s, tag, a, a1;
    initial i := 0;
@@ -177,7 +177,7 @@ procedure Timage(t,done,depth,style);
    return s;
 end
 
-procedure endof (s,depth,style);
+procedure endof (s,depth,style)
    if style = 2 then return "\n" || repl(" ",depth) || "]"
    else return "]";
 end
@@ -187,7 +187,7 @@ end
 #  What follows is the breadth-first expansion style
 #
 
-procedure Imageb(x, done, tags);
+procedure Imageb(x, done, tags)
    local t;
 
    if /done then {
@@ -216,7 +216,7 @@ end
 #  Create and return a tag for a structure, and save it in tags[x].
 #  Otherwise, if x is not a structure, return image(x).
 #
-procedure tagit(x, tags);
+procedure tagit(x, tags)
    local ximage, t, prefix;
    static serial;
    initial serial := table(0);
@@ -239,7 +239,7 @@ end
 #  Every component sub-structure of the current structure gets tagged
 #  and added to a pseudo-done set.
 #
-procedure defer_image(a, done, tags);
+procedure defer_image(a, done, tags)
    local x, t;
    t := set();
    every x := !a do {
@@ -255,7 +255,7 @@ end
 #  Sub-structures get deleted from the local pseudo-done set before
 #  we actually create their image.
 #
-procedure do_image(a, done, tags);
+procedure do_image(a, done, tags)
    local x, t;
    t := done[-1];
    suspend (delete(t, x := !a), Imageb(x, done, tags));
@@ -264,7 +264,7 @@ end
 
 #  list image
 #
-procedure limageb(a, done, tags);
+procedure limageb(a, done, tags)
    local s;
    if *a = 0 then s := tags[a] || ":[]" else {
       defer_image(a, done, tags);
@@ -278,7 +278,7 @@ end
 
 #  record image
 #
-procedure rimageb(x, done, tags);
+procedure rimageb(x, done, tags)
    local s;
    s := image(x);
    s ?:=  (="record " & (":" || (tab(upto('(') + 1))));
@@ -294,7 +294,7 @@ end
 
 # set image
 #
-procedure simageb(S, done, tags);
+procedure simageb(S, done, tags)
    local s;
    if *S = 0 then s := tags[S] || ":[]" else {
       defer_image(S, done, tags);
@@ -308,7 +308,7 @@ end
 
 #  table image
 #
-procedure timageb(t, done, tags);
+procedure timageb(t, done, tags)
    local s, a;
    if *t = 0 then s := tags[t] || ":[]" else {
       a := sort(t,3);

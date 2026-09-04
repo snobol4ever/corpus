@@ -35,7 +35,7 @@
 
 global line, loc, exceptions, width
 
-procedure main(args);
+procedure main(args)
    local exceptfile;
 
    width := integer(args[1]) | 40;
@@ -53,7 +53,7 @@ procedure main(args);
 
 end
 
-procedure kwic(file);
+procedure kwic(file)
    local index, word;
 
 #  Each word, in lowercase form, is a key in the table "index".
@@ -79,7 +79,7 @@ procedure kwic(file);
       suspend !get(index);
 end
 
-procedure lcword(file);
+procedure lcword(file)
    static chars;
    initial chars := &ucase ++ &lcase ++ &digits ++ '\'';
    every line := !file do
@@ -87,7 +87,7 @@ procedure lcword(file);
          suspend map(tab(many(chars)) \ 1);
 end
 
-procedure position();
+procedure position()
    local offset;
 
 #  Note that "line" and ""loc" are global.

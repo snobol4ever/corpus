@@ -23,7 +23,7 @@
 #
 #  Increment a counter and convert to a label.
 
-procedure label(chars);
+procedure label(chars)
    static s, abet;
    local i;
 

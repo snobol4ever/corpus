@@ -35,7 +35,7 @@ link gobject
 #  list_coords(call) lists the coordinates of the trace produced by
 #  invoke(call)
 
-procedure list_coords(call, p, w);
+procedure list_coords(call, p, w)
    local point;
 
    /p := 6;
@@ -50,7 +50,7 @@ end
 #  point_list(call, i) returns a list of the points in the trace produced
 #  by invoke(call).  If i is nonnull, the list is limited to i points.
 
-procedure point_list(call, i);
+procedure point_list(call, i)
    local plist;
 
    plist := [];
@@ -71,7 +71,7 @@ end
 #  produced by invoke(call).  If i is nonnull, the list is limited
 #  to i points.
 
-procedure coord_list(call, limit);
+procedure coord_list(call, limit)
    local clist;
 
    clist := [];
@@ -89,7 +89,7 @@ end
 
 #  read_trace(f) produces a trace from the coordinate file f
 
-procedure read_trace(f);
+procedure read_trace(f)
    local line;
    static schar;
 
@@ -107,7 +107,7 @@ end
 
 #  write_trace(header, call) writes a trace file from the trace of call.
 
-procedure write_trace(header, call);
+procedure write_trace(header, call)
    local point;
 
    write(header, ":");
@@ -126,7 +126,7 @@ end
 #  the x and y coordinates of the point in which it is interested
 #  (standard trace format).
 
-procedure compose_trace(trace, call_1, call_2);
+procedure compose_trace(trace, call_1, call_2)
    local point;
 
    every point := invoke(call_1) do {
@@ -141,7 +141,7 @@ end
 #  produced by call.  The first point of the trace is the first
 #  point of the trace produced by calls.
 
-procedure tcompress(call, i);
+procedure tcompress(call, i)
    local j, point;
 
    j := 0;
@@ -156,7 +156,7 @@ end
 #  interp_call(call) inserts a point midway on a line between every two points
 #  on the trace produced by call.
 
-procedure interp_trace(call);
+procedure interp_trace(call)
    local point, last_point;
 
    every point := invoke(call) do {
@@ -177,7 +177,7 @@ end
 #  coord2point(cl) creates a list of points from a list of coordinates.
 #  It destroys cl.
 
-procedure coord2point(cl);
+procedure coord2point(cl)
    local pl;
 
    pl := [];
@@ -191,7 +191,7 @@ end
 #  point2coord(pl) creates a list of coordinates from a list of points.
 #  It does not destroy pl.
 
-procedure point2coord(pl);
+procedure point2coord(pl)
    local cl;
 
    cl := [];

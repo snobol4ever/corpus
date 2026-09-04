@@ -20,7 +20,7 @@
 #
 ############################################################################
 
-procedure rec2tab(rec, output);
+procedure rec2tab(rec, output)
    local i, x;
 
    i := *rec - 1;

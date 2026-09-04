@@ -44,7 +44,7 @@ link hexcvt, options, optwindw
 
 $include "keysyms.icn"
 
-procedure main(args);
+procedure main(args)
    local w, q, e, xhex, yhex, eimage;
 
    w := optwindow(options(args, winoptions()));
@@ -77,7 +77,7 @@ end
 
 # evname(e) -- translate e into text representation
 
-procedure evname(e);
+procedure evname(e)
    return case e of {
       &lpress:		"&lpress";
       &mpress:		"&mpress";
@@ -120,7 +120,7 @@ end
 
 #  r(v, n) -- right-justify image of v in at least n characters
 
-procedure r(v, n);
+procedure r(v, n)
    local s;
    s := image(v);
    if *s < n then
@@ -131,7 +131,7 @@ end
 
 #  l(v, n) -- left-justify image of v in at least n characters
 
-procedure l(v, n);
+procedure l(v, n)
    local s;
    s := image(v);
    if *s < n then

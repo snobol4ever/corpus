@@ -51,7 +51,7 @@ global	STICKS,	# the number of stick left
 	THEIRS,	# their trys for a given game
 	TRIED	# the combined tried table (game memory)
 
-procedure main(args);
+procedure main(args)
 
 	local	resp,	# player response
 		turn,	# who's turn
@@ -123,7 +123,7 @@ procedure main(args);
 	};
 end
 
-procedure theirturn(args);
+procedure theirturn(args)
 
 	local	pick;	# the players pick
 
@@ -151,7 +151,7 @@ procedure theirturn(args);
 	return "mine";
 end
 
-procedure myturn(args);
+procedure myturn(args)
 
 	local	pick;	# my pick
 
@@ -184,7 +184,7 @@ procedure myturn(args);
 	return "theirs";
 end
 
-procedure dispile();
+procedure dispile()
 	write();
 	every 1 to STICKS do writes("/ ");
 	write("\n");
@@ -195,7 +195,7 @@ end
 # multiple of 4 in the pile (0 is an even multiple of 4) if possible and if
 # not then randomly choose 1, 2 or 3 sticks.
 
-procedure algorpick(sticks);
+procedure algorpick(sticks)
 	return (0 ~= (sticks % 4)) | ?3;
 end
 
@@ -206,7 +206,7 @@ end
 # from all the unknown picks.  If there are no unknown picks just randomly
 # choose 1, 2 or 3 sticks and hope THEY screw up.
 
-procedure thinkpick(sticks,recurse);
+procedure thinkpick(sticks,recurse)
 
 	local	picks,	# unknown picks
 		take,	# take index
@@ -247,7 +247,7 @@ end
 # Save the results of each pick in this game in the programs game memory and
 # if the command line argument was "show" display the updated game memory.
 
-procedure learn(turn,show);
+procedure learn(turn,show)
 
 	local	them,	# their outcome flag
 		me,	# my outcome flag
@@ -293,13 +293,13 @@ end
 # the old result is different from the new result the game can't know for
 # sure anymore so go back to unknown.
 
-procedure comp(old,new);
+procedure comp(old,new)
 
 	return (old == new) | (old == "?" & new) | "?";
 
 end
 
-procedure quit(args,msg);
+procedure quit(args,msg)
 
 	local	fp,	# file pointer
 		stick,	# sticks index

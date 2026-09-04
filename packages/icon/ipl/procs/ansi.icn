@@ -68,7 +68,7 @@ invocable all
 
 link iolib
 
-procedure _isANSI();
+procedure _isANSI()
     static isANSI;
     initial {
 	if find("MS-DOS",&features) then {
@@ -91,7 +91,7 @@ procedure _isANSI();
     return \isANSI;
 end
 
-procedure CUD(i);
+procedure CUD(i)
     if _isANSI()
     then writes("\^[[",i,"B")
     else {
@@ -103,7 +103,7 @@ procedure CUD(i);
     return;
 end
 
-procedure CUB(i);
+procedure CUB(i)
     if _isANSI()
     then writes("\^[[",i,"D")
     else {
@@ -115,7 +115,7 @@ procedure CUB(i);
     return;
 end
 
-procedure CUF(i);
+procedure CUF(i)
     if _isANSI()
     then writes("\^[[",i,"C")
     else {
@@ -127,14 +127,14 @@ procedure CUF(i);
     return;
 end
 
-procedure CUP(i,j);
+procedure CUP(i,j)
     if _isANSI()
     then writes("\^[[",i,";",j,"H")
     else iputs(igoto(getval("cm"), j, i)) | stop("CUP:  no cm capability");
     return;
 end
 
-procedure CUU(i);
+procedure CUU(i)
     if _isANSI()
     then writes("\^[[",i,"A")
     else {
@@ -146,7 +146,7 @@ procedure CUU(i);
     return;
 end
 
-procedure ED(i);
+procedure ED(i)
     local emphasize, clear;
 
     /i := 2;
@@ -166,7 +166,7 @@ procedure ED(i);
    return;
 end
 
-procedure EL(i);
+procedure EL(i)
     /i := 0;
     if _isANSI() then {
 	if i = 0
@@ -183,7 +183,7 @@ procedure EL(i);
    return;
 end
 
-procedure SGR(i);
+procedure SGR(i)
 
     local emphasize, normal, boldface, underline, blink;
 

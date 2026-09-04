@@ -40,7 +40,7 @@
 link datetime
 link io
 
-procedure main(args);
+procedure main(args)
    local name, author, input, output, line;
 
    name := (args[1] | "foo");

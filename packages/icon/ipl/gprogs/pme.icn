@@ -41,7 +41,7 @@ link xcompat
 global w, WIDTH, HEIGHT, XBM, LMARGIN
 global colors, colorbinds
 
-procedure main(argv);
+procedure main(argv)
    local i, f, s, xpos, ypos, i8, j, j8, j8Plus, e, x, y;
    colors := [ "red", "green", "blue" ];
    i := 1;
@@ -147,7 +147,7 @@ procedure main(argv);
      };
 end
 
-procedure getacolor(n, s);
+procedure getacolor(n, s)
    local wtmp, theColor;
    wtmp := WOpen("label=" || image(s||" button: "), "lines=1") |
       stop("can't open temp window");
@@ -160,14 +160,14 @@ procedure getacolor(n, s);
    colors[n] := theColor;
 end
 
-procedure dot(x, y, color);
+procedure dot(x, y, color)
    if (x|y) < 0 then fail;
    FillRectangle(colorbinds[color+1], x*8+LMARGIN+5, y*8, 8, 8);
    DrawPoint(colorbinds[color+1], x, y);
    DrawRectangle( x*8+LMARGIN+5, y*8, 8, 8);
 end
 
-procedure getfilename();
+procedure getfilename()
    local s, pos, wprompt, rv;
    pos := "pos=";
    every s := QueryPointer() do pos||:= (s-10)||",";

@@ -40,7 +40,7 @@
 link cfunc
 link options
 
-procedure main(args);
+procedure main(args)
    local opts, req, url, host, port, path, f;
 
    opts := options(args, "hb");

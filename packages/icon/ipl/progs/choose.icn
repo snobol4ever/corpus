@@ -37,7 +37,7 @@ record chosen(		# one tentatively chosen input line
 
 global llist		# list of tentatively chosen lines
 
-procedure main(args);
+procedure main(args)
    local fname;
 
    if wanted := abs(integer(args[1])) then
@@ -58,7 +58,7 @@ procedure main(args);
    every write((!llist).text);
 end
 
-procedure dofile(f);
+procedure dofile(f)
    local line;
 
    while line := read(f) do {

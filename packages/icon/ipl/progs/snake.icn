@@ -57,7 +57,7 @@ global max_l, max_w, snake_char
 
 record wholething(poop,body)
 
-procedure main(a);
+procedure main(a)
 
     local snake, limit, sl, sw, CM, x, r, leftbehind;
 
@@ -99,7 +99,7 @@ end
 
 
 
-procedure findnext(L, snake);
+procedure findnext(L, snake)
 
     local i, j, k, op, l;
     static sub_lists;
@@ -126,7 +126,7 @@ end
 
 
 
-procedure different(l,snake);
+procedure different(l,snake)
 
     local bit;
     (l[1] = (bit := !\snake)[1], l[2] = bit[2]) & fail;
@@ -136,13 +136,13 @@ end
 
 
 
-procedure Null(a[]);
+procedure Null(a[])
     return;
 end
 
 
 
-procedure display(lb,snake);
+procedure display(lb,snake)
 
     local last_segment, character;
     static CM;
@@ -170,7 +170,7 @@ end
 
 
 
-procedure makenew(snake);
+procedure makenew(snake)
     local leftbehind, i;
 
     # Move each constituent list up one position in snake, discard
@@ -186,7 +186,7 @@ end
 
 
 
-procedure the_same(l1, l2);
+procedure the_same(l1, l2)
 
     if l1[1] = l2[1] & l1[2] = l2[2]
     then return else fail;
@@ -195,7 +195,7 @@ end
 
 
 
-procedure done_yet(l);
+procedure done_yet(l)
     local i, j;
 
     # Check to see if we've eaten every edible square on the screen.
@@ -223,7 +223,7 @@ end
 
 
 
-procedure Kludge();
+procedure Kludge()
     local i;
 
     # Horrible way of clearing the screen to all reverse-video, but

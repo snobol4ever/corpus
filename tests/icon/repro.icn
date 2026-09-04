@@ -1,5 +1,5 @@
 #---------------------------------------------------- 1 rsg_case_arm_disjunction
-procedure main();
+procedure main()
    local pending, symbol, n;
    pending := ["A"];
    n := 0;
@@ -20,7 +20,7 @@ global defs, limit, tswitch
 record nonterm(name)
 record charset(chars)
 
-procedure gener(goal);
+procedure gener(goal)
    local pending, symbol;
    pending := [nonterm(goal)];
    while symbol := get(pending) do {
@@ -44,7 +44,7 @@ procedure gener(goal);
    write();
 end
 
-procedure listimage(a);
+procedure listimage(a)
    local s, x;
    s := "";
    every x := !a do
@@ -52,7 +52,7 @@ procedure listimage(a);
    return s;
 end
 
-procedure symimage(x);
+procedure symimage(x)
    return case type(x) of {
       "string":   x;
       "nonterm":  "<" || x.name || ">";
@@ -60,7 +60,7 @@ procedure symimage(x);
       };
 end
 
-procedure main();
+procedure main()
    defs := table();
    defs["s"] := [[nonterm("noun")," runs."]];
    defs["noun"] := [["he"],["she"]];
@@ -68,13 +68,13 @@ procedure main();
    gener("s");
 end
 #---------------------------------------------------- 3 scan_conj_backtrack_segv
-procedure main();
+procedure main()
    local s;
    s := ".coord";
    s ? { if (="." & many(&digits)) then write("Y") else write("N") };
 end
 #----------------------------------------------------- 4 scan_conj_revassign_pos
-procedure main();
+procedure main()
    local s, str;
    s := ".coord";
    s ? {
@@ -82,14 +82,14 @@ procedure main();
       };
 end
 #-------------------------------------------------- 5 scan_match_beta_resucceeds
-procedure main();
+procedure main()
    local s;
    s := ".abc";
    s ? { if ="." & ="9" then write("Y") else write("N") };
    write("done");
 end
 #------------------------------------------------------ 6 scan_match_pos_restore
-procedure main();
+procedure main()
    local s, str;
    s := ".abc";
    s ? {

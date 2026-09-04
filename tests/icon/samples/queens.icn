@@ -4,14 +4,14 @@
 
 global n, placed, rows, up, down, qcount
 
-procedure safe(c, r);
+procedure safe(c, r)
     if rows[r]     ~= 0 then fail;
     if up[n+r-c]   ~= 0 then fail;
     if down[r+c-1] ~= 0 then fail;
     return;
 end
 
-procedure show();
+procedure show()
     local sep, line, col;
     qcount +:= 1;
     sep := repl("-", 4*n+1);
@@ -25,7 +25,7 @@ procedure show();
     write("  ", sep);
 end
 
-procedure try_col(c);
+procedure try_col(c)
     local r;
     if c > n then { show(); return; };
     every r := 1 to n do {
@@ -38,7 +38,7 @@ procedure try_col(c);
     };
 end
 
-procedure main(args);
+procedure main(args)
     n := integer(args[1]) | 6;
     placed := list(n, 0);
     rows   := list(n, 0);

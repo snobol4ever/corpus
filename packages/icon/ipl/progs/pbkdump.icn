@@ -28,7 +28,7 @@
 
 link pbkform,bkutil
 
-procedure main(args);
+procedure main(args)
    local fn, f, x;
 
    every fn := !args do {

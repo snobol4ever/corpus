@@ -41,7 +41,7 @@
 
 link options
 
-procedure main(args);
+procedure main(args)
    local line, x, i, proctable, proclist, comments, procname, opts, vib;
 
    opts := options(args, "v");

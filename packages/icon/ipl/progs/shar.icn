@@ -20,7 +20,7 @@
 #
 ############################################################################
 
-procedure main(arg);
+procedure main(arg)
    local fn, chars, f, line;
 
    write(

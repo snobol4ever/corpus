@@ -94,7 +94,7 @@ global areas			# areas used for display
 
 
 
-procedure main(args);
+procedure main(args)
    local cw, ch, bigh, bigw, x, y, w, h, gg, aspr, aspmax, horz;
    local fname, label, f, tw, s, nchars, nlines, img, imwin, e;
 
@@ -257,7 +257,7 @@ end
 
 $define GuessAspect 1.5		# aspect ratio guess used for layout
 
-procedure layout(n);
+procedure layout(n)
    local aspf, nhigh, nwide;
 
    aspf := real(ww) / real(wh) / GuessAspect;
@@ -279,7 +279,7 @@ end
 
 ## pause() -- wait for clearance to start a new window
 
-procedure pause();
+procedure pause()
    local w, h, gg, e;
 
    while *Pending() > 0 do		# consume and ignore older events
@@ -310,7 +310,7 @@ $define InfoMargin 10	# margin around image
 $define InfoHeight 80	# text area height
 $define InfoWidth 300	# text area width
 
-procedure info(e);
+procedure info(e)
    local a, w, h, wmin, wmax, hmax;
 
    wmin := InfoWidth + 2 * InfoMargin;
@@ -339,7 +339,7 @@ end
 #   if event was &rpress, wait for &rrelease
 #   otherwise wait for &lpress, Enter, or space to dismiss
 
-procedure popinfo(a, e, w, h);
+procedure popinfo(a, e, w, h)
    local f, i, n, x, y;
 
    f := open(a.fname, "ru");
@@ -375,7 +375,7 @@ end
 
 ## iformat(f) -- return image format of file f
 
-procedure iformat(f);
+procedure iformat(f)
    local s;
 
    seek(f, 1);
@@ -401,7 +401,7 @@ end
 
 ## rdimage(fname, f, maxw, maxh) -- read image into scratch window
 
-procedure rdimage(fname, f, maxw, maxh);
+procedure rdimage(fname, f, maxw, maxh)
    local iwin;
 
    case iformat(f) of {
@@ -421,7 +421,7 @@ end
 
 ## convert(fname, utilname) -- read image by converting through PPM to GIF
 
-procedure convert(fname, utilname);
+procedure convert(fname, utilname)
    needprog(utilname) | fail;
    needprog("ppmquant") | fail;
    needprog("ppmtogif") | fail;
@@ -434,7 +434,7 @@ end
 
 ## mkgif(cmd, fname) -- run filter to produce GIF file
 
-procedure mkgif(cmd, fname);
+procedure mkgif(cmd, fname)
    local win, f;
 
    remove(tempname);
@@ -453,7 +453,7 @@ end
 
 ## jpegread(fname, maxw, maxh) -- read JPEG image
 
-procedure jpegread(fname, maxw, maxh);
+procedure jpegread(fname, maxw, maxh)
    local scale, iwin, irec;
 
    $ifdef _JAVA
@@ -479,7 +479,7 @@ end
 
 ## jsize(irec, fname) -- set fullw and fullh fields for JPEG image
 
-procedure jsize(irec, fname);
+procedure jsize(irec, fname)
    local s, p, line, w, h;
 
    s := "";
@@ -503,7 +503,7 @@ end
 
 ## jscale(irec, maxw, maxh) -- determine scaling for faster JPEG reading
 
-procedure jscale(irec, maxw, maxh);
+procedure jscale(irec, maxw, maxh)
    local m;
 
    m := irec.fullw / maxw;
@@ -520,7 +520,7 @@ end
 
 ## load(fname) -- read image using WOpen
 
-procedure load(fname);
+procedure load(fname)
    return WOpen("canvas=hidden", "bg=" || WAttrib("bg"),
       "gamma=" || WAttrib("gamma"), "image=" || fname);
 end
@@ -532,7 +532,7 @@ end
 #  Fails if the program is not available.
 #  Issues a diagnostic only once per program.
 
-procedure needprog(s);
+procedure needprog(s)
    static ptable;
    initial ptable := table();
 

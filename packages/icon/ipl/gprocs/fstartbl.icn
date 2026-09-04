@@ -31,7 +31,7 @@ link calls
 link fstars
 link numbers
 
-procedure fstartbl();
+procedure fstartbl()
    local fstars;
 
    fstars := table();

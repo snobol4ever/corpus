@@ -5,7 +5,7 @@
 
 #  test tracing of procedure calls
 
-procedure main();
+procedure main()
    &trace := -1;
    every recurse(0 to 3);
    every divall("" | "314" | "x" | "12x");
@@ -16,7 +16,7 @@ end
 
 #  test tracing of recursion
 
-procedure recurse(n);
+procedure recurse(n)
    if n > 0 then
       return recurse(n - 1) + 1;
    failer();
@@ -24,15 +24,15 @@ procedure recurse(n);
    return func(3, 4);
 end
 
-procedure failer();
+procedure failer()
    fail;
 end
 
-procedure func(a, b);
+procedure func(a, b)
    return 3 * abs(a) + b;
 end
 
-procedure genr(i, j, k);
+procedure genr(i, j, k)
    suspend i to j by k;
 end
 
@@ -40,14 +40,14 @@ end
 
 #  test tracing in combination with errors
 
-procedure divall(s);
+procedure divall(s)
    &error := 1;
    every divide(9, !s);
    &error := 0;
    return;
 end
 
-procedure divide(a, b);
+procedure divide(a, b)
    return a / b;
 end
 
@@ -55,7 +55,7 @@ end
 
 #  test vararg tracing
 
-procedure varargs();
+procedure varargs()
    local args;
    every vproc();
    every vproc(1);
@@ -68,7 +68,7 @@ procedure varargs();
    return;
 end
 
-procedure vproc(a, b[]);
+procedure vproc(a, b[])
    if *b = 0 then return a
    else suspend !b;
 end

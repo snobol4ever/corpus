@@ -34,7 +34,7 @@
 
 link options
 
-procedure main(args);
+procedure main(args)
    local opts, limit, start, stop, incr, i, base;
 
    opts := options(args, "v+b+e+i+l+");

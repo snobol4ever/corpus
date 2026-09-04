@@ -26,7 +26,7 @@
 link polynom
 link strings
 
-procedure poly2seq(str);
+procedure poly2seq(str)
    local vars;
 
    str := deletec(str, ' ');  # delete blanks
@@ -37,7 +37,7 @@ procedure poly2seq(str);
 
 end
 
-procedure eval(str);
+procedure eval(str)
 
    while str ?:= 2(="(", tab(bal(')')), =")", pos(0));
 
@@ -45,13 +45,13 @@ procedure eval(str);
 
 end
 
-procedure oper(str);
+procedure oper(str)
 
    return str ? form(tab(bal('-+*^%')), move(1), tab(0));
 
 end
 
-procedure form(str1, op, str2);
+procedure form(str1, op, str2)
 
    return case op of {
       "+"  :  polyadd(eval(str1), eval(str2));

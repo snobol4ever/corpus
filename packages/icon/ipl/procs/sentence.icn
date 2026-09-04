@@ -46,7 +46,7 @@
 ############################################################################
 
 
-procedure sentence(intext);
+procedure sentence(intext)
 
     local sentence, get_line, line, tmp_s, end_part, whole_thing;
     static inits, punct;
@@ -120,7 +120,7 @@ end
 
 
 
-procedure read_line(intext);
+procedure read_line(intext)
 
     local new_line, ilevel, junk_count, space_count, line;
     static last_ilevel, blank_flag;

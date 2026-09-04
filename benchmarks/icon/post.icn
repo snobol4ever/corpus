@@ -26,7 +26,7 @@ global Save__, Saves__, Name__
 
 # List information before running.
 #
-procedure Init__(prog);
+procedure Init__(prog)
    Name__ := prog; # program name
    Signature__(); # initial information
    Regions__();
@@ -43,7 +43,7 @@ end
 
 # List information at termination.
 
-procedure Term__();
+procedure Term__()
    if not getenv("OUTPUT") then {	# if OUTPUT is not set, restore output
       write := Save__;
       writes := Saves__
@@ -58,7 +58,7 @@ end
 
 # List garbage collections performed.
 #
-procedure Collections__();
+procedure Collections__()
    static labels;
    local collections;
    
@@ -74,7 +74,7 @@ end
 
 # List region sizes.
 #
-procedure Regions__();
+procedure Regions__()
    static labels;
    local regions;
    
@@ -90,7 +90,7 @@ end
 
 # List relveant implementation information
 #
-procedure Signature__();
+procedure Signature__()
    write(&version);
    write(&host);
    every write(&features);
@@ -99,7 +99,7 @@ end
 
 # List storage used.
 #
-procedure Storage__();
+procedure Storage__()
    static labels;
    local storage;
    
@@ -115,7 +115,7 @@ end
 
 # List elapsed time.
 #
-procedure Time__();
+procedure Time__()
    static lasttime;
 
    initial lasttime := &time;

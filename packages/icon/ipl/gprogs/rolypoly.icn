@@ -37,7 +37,7 @@ link gobject
 link randfigs
 link wopen
 
-procedure main(argl);
+procedure main(argl)
    local opts, n, size, points, p;
 
    opts := options(argl, "p+s+r");

@@ -201,7 +201,7 @@ end
 
 #  ctg_rect_proj(p, L) -- project using rectangular projection
 
-procedure ctg_rect_proj(p, L);
+procedure ctg_rect_proj(p, L)
    local i, a, xmul, ymul, xadd, yadd;
 
    a := list();
@@ -220,7 +220,7 @@ end
 
 #  ctg_rect_inv(p) -- invert rectangular projection
 
-procedure ctg_rect_inv(p);
+procedure ctg_rect_inv(p)
    local q;
 
    q := copy(p);
@@ -296,7 +296,7 @@ end
 
 #  ctg_ppt_proj(p, L) -- project using planar projective transformation
 
-procedure ctg_ppt_proj(p, L);
+procedure ctg_ppt_proj(p, L)
    local a, i, x, y, d, h11, h12, h13, h21, h22, h23, h31, h32, h33;
 
    h11 := p.h11;
@@ -324,7 +324,7 @@ end
 
 #  ctg_ppt_inv(p, L) -- invert planar projective transformation
 
-procedure ctg_ppt_inv(p);
+procedure ctg_ppt_inv(p)
    return pptrans(p.tgt, p.org);
 end
 
@@ -383,7 +383,7 @@ end
 
 #  ctg_utm_proj(p, L) -- project using UTM projection  (Snyder, p61)
 
-procedure ctg_utm_proj(p, L);
+procedure ctg_utm_proj(p, L)
    local ulist, epsq, lat, lon, zone, phi, lambda, lamzero, cosphi;
    local i, N, T, C, A, M, x, u, y;
 
@@ -417,7 +417,7 @@ end
 
 #  ctg_utm_inv(p) -- invert UTM projection
 
-procedure ctg_utm_inv(p);
+procedure ctg_utm_inv(p)
    local q, e, e1;
 
    q := copy(p);
@@ -437,7 +437,7 @@ end
 
 #  ctg_iutm_proj(p, L) -- project using inverse UTM projection  (Snyder, p63)
 
-procedure ctg_iutm_proj(p, L);
+procedure ctg_iutm_proj(p, L)
    local a, esq, epsq;
    local lllist, i, x, y, zone;
    local lam0, mu, phi1, sin1, cos1, tan1, phi, lam, t1, t2, C1, T1, N1, R1, D;
@@ -482,7 +482,7 @@ end
 
 #  ctg_iutm_inv(p, L) -- invert inverse UTM projection
 
-procedure ctg_iutm_inv(p);
+procedure ctg_iutm_inv(p)
    return utm(p.a, p.f);
 end
 
@@ -512,7 +512,7 @@ procedure compose(a[]);		#: define composite projection
    return q;
 end
 
-procedure ctg_comp_proj(p, L);
+procedure ctg_comp_proj(p, L)
    local r;
 
    every r := !(p.projList) do
@@ -520,7 +520,7 @@ procedure ctg_comp_proj(p, L);
    return L;
 end
 
-procedure ctg_comp_inv(p);
+procedure ctg_comp_inv(p)
    local q, r;
 
    q := ctg_comp();

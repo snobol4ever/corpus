@@ -91,7 +91,7 @@ record u_unmark()
 record u_value()
 record u_var(s)
 
-procedure u_emit(i);
+procedure u_emit(i)
     local s;
 
     type(i) ? ="u_" | runerr(500, i);
@@ -122,10 +122,10 @@ global u_variables
 global u_u1, u_u2
 global u_lastline, u_lastfile, u_lastcolm
 
-procedure u_reset_coord();
+procedure u_reset_coord()
     u_lastline := u_lastfile := u_lastcolm := &null;
 end
-procedure u_coord(s, p);
+procedure u_coord(s, p)
     \p.coord | return;
 
     if not (\u_lastfile == p.coord.file) then {
@@ -142,17 +142,17 @@ procedure u_coord(s, p);
 end
 
 # record a_NoOp( )
-procedure u_gen_a_NoOp(s, p);
+procedure u_gen_a_NoOp(s, p)
 end
 
 # record a_ProcCode( init body )
-procedure u_gen_a_ProcCode(s, p);
+procedure u_gen_a_ProcCode(s, p)
     u_gen(s, p.init);
     u_gen(s, p.body);
 end
 
 # record a_Field( expr field )
-procedure u_gen_a_Field(s, p);
+procedure u_gen_a_Field(s, p)
     put(s, u_pnull());
     u_gen(s, p.expr);
     u_coord(s, p);
@@ -160,7 +160,7 @@ procedure u_gen_a_Field(s, p);
 end
 
 # record a_Case( expr clauseList dflt)
-procedure u_gen_a_Case(s, p);
+procedure u_gen_a_Case(s, p)
     local endlab, nextlab, i;
 
     endlab := @u_nextlab;
@@ -194,7 +194,7 @@ procedure u_gen_a_Case(s, p);
 end
 
 # record a_Not( expr )
-procedure u_gen_a_Not(s, p);
+procedure u_gen_a_Not(s, p)
     local lab;
 
     lab := @u_nextlab;
@@ -209,7 +209,7 @@ procedure u_gen_a_Not(s, p);
 end
 
 # record a_RepAlt( expr )
-procedure u_gen_a_RepAlt(s, p);
+procedure u_gen_a_RepAlt(s, p)
     local lab;
 
     lab := @u_nextlab;
@@ -223,7 +223,7 @@ procedure u_gen_a_RepAlt(s, p);
 end
 
 # record a_Call( fn args )
-procedure u_gen_a_Call(s, p);
+procedure u_gen_a_Call(s, p)
     u_gen(s, p.fn);
     u_gen(s, p.args);
     u_coord(s, p);
@@ -237,7 +237,7 @@ end
 # The following is used rather than a more natural solution to get
 # .u1 files that match icont.
 # record a_Alt( eList )
-procedure u_gen_a_Alt0(s, L);
+procedure u_gen_a_Alt0(s, L)
     local i, endlab, nextlab;
 
     if *L > 1 then {
@@ -256,12 +256,12 @@ procedure u_gen_a_Alt0(s, L);
         u_gen(s, L[1])
     };
 end
-procedure u_gen_a_Alt(s, p);
+procedure u_gen_a_Alt(s, p)
     u_gen_a_Alt0(s, p.eList);
 end
 
 # record a_Limitation( expr limit )
-procedure u_gen_a_Limitation(s, p);
+procedure u_gen_a_Limitation(s, p)
     u_gen(s, p.limit);
     u_coord(s, p);
     put(s, u_limit());
@@ -272,7 +272,7 @@ procedure u_gen_a_Limitation(s, p);
 end
 
 # record a_Scan( op expr body )
-procedure u_gen_a_Scan(s, p);
+procedure u_gen_a_Scan(s, p)
     case p.op of {
     "?": {
         u_gen(s, p.expr);
@@ -298,7 +298,7 @@ procedure u_gen_a_Scan(s, p);
 end
 
 # record a_Every( expr body )
-procedure u_gen_a_Every(s, p);
+procedure u_gen_a_Every(s, p)
     p.ir := u_loopinfo(@u_nextlab, @u_nextlab, 1, "every");
     push(u_loops, p);
     put(s, u_mark0());
@@ -319,7 +319,7 @@ procedure u_gen_a_Every(s, p);
 end
 
 # record a_Sectionop( op val left right )
-procedure u_gen_a_Sectionop(s, p);
+procedure u_gen_a_Sectionop(s, p)
     static fn;
     initial {
         fn := table();
@@ -348,7 +348,7 @@ procedure u_gen_a_Sectionop(s, p);
 end
 
 # record a_Binop( op left right )
-procedure u_gen_a_Binop(s, p);
+procedure u_gen_a_Binop(s, p)
     local op;
     static fn;
     initial {
@@ -428,7 +428,7 @@ procedure u_gen_a_Binop(s, p);
 end
 
 # record a_Unop( op operand )
-procedure u_gen_a_Unop(s, p);
+procedure u_gen_a_Unop(s, p)
     static fn;
     initial {
         fn := table();
@@ -459,12 +459,12 @@ procedure u_gen_a_Unop(s, p);
 end
 
 # record a_Global( idList )
-procedure u_gen_a_Global(s, p);
+procedure u_gen_a_Global(s, p)
     put(s, p);
 end
 
 # record a_If( expr thenexpr elseexpr )
-procedure u_gen_a_If(s, p);
+procedure u_gen_a_If(s, p)
     local elselab, endlab;
 
     if \p.elseexpr then {
@@ -491,7 +491,7 @@ procedure u_gen_a_If(s, p);
 end
 
 # record a_Initial( expr )
-procedure u_gen_a_Initial(s, p);
+procedure u_gen_a_Initial(s, p)
     local lab;
 
     if \p.expr then {
@@ -505,17 +505,17 @@ procedure u_gen_a_Initial(s, p);
 end
 
 # record a_Invocable( invocList )
-procedure u_gen_a_Invocable(s, p);
+procedure u_gen_a_Invocable(s, p)
     put(s, p);
 end
 
 # record a_Link( linkfileList )
-procedure u_gen_a_Link(s, p);
+procedure u_gen_a_Link(s, p)
     put(s, p);
 end
 
 # record a_Intlit( int )
-procedure u_gen_a_Intlit(s, p);
+procedure u_gen_a_Intlit(s, p)
     local v;
 
     v := p.int;
@@ -525,7 +525,7 @@ procedure u_gen_a_Intlit(s, p);
 end
 
 # record a_Reallit( real )
-procedure u_gen_a_Reallit(s, p);
+procedure u_gen_a_Reallit(s, p)
     local v;
 
     v := p.real;
@@ -535,7 +535,7 @@ procedure u_gen_a_Reallit(s, p);
 end
 
 # record a_Stringlit( str )
-procedure u_gen_a_Stringlit(s, p);
+procedure u_gen_a_Stringlit(s, p)
     local v;
 
     v := p.str;
@@ -545,7 +545,7 @@ procedure u_gen_a_Stringlit(s, p);
 end
 
 # record a_Csetlit( str )
-procedure u_gen_a_Csetlit(s, p);
+procedure u_gen_a_Csetlit(s, p)
     local v;
 
     v := p.str;
@@ -555,15 +555,15 @@ procedure u_gen_a_Csetlit(s, p);
 end
 
 # record a_Locals( idList )
-procedure u_gen_a_Locals(s, p);
+procedure u_gen_a_Locals(s, p)
 end
 
 # record a_Statics( idList )
-procedure u_gen_a_Statics(s, p);
+procedure u_gen_a_Statics(s, p)
 end
 
 # record a_ProcDecl( ident paramList localsList code )
-procedure u_gen_a_ProcDecl(s, p);
+procedure u_gen_a_ProcDecl(s, p)
     local x, i, k, code;
 
     put(s, p);
@@ -587,7 +587,7 @@ procedure u_gen_a_ProcDecl(s, p);
     write(u_u1, "\tend");
 end
 
-procedure u_local_declarations(p, code);
+procedure u_local_declarations(p, code)
     local i, x, k;
 
     i := 0;
@@ -614,7 +614,7 @@ procedure u_local_declarations(p, code);
     };
 end
 
-procedure u_constant_declarations();
+procedure u_constant_declarations()
     local i, x;
 
     every i := 1 to *u_constList & x := u_constList[i] do {
@@ -642,7 +642,7 @@ procedure u_constant_declarations();
 end
 
 # record a_ProcBody( nexprList )
-procedure u_gen_a_ProcBody(s, p);
+procedure u_gen_a_ProcBody(s, p)
     local lab, i;
 
     every i := !p.nexprList do {
@@ -664,12 +664,12 @@ procedure u_gen_a_ProcBody(s, p);
 end
 
 # record a_Record( ident idlist )
-procedure u_gen_a_Record(s, p);
+procedure u_gen_a_Record(s, p)
     put(s, p);
 end
 
 # record a_Repeat( expr )
-procedure u_gen_a_Repeat(s, p);
+procedure u_gen_a_Repeat(s, p)
     local lab;
 
     lab := @u_nextlab;
@@ -686,7 +686,7 @@ procedure u_gen_a_Repeat(s, p);
 end
 
 # record a_Return( expr )
-procedure u_gen_a_Return(s, p);
+procedure u_gen_a_Return(s, p)
     local lab;
 
     /u_createflag | semantic_error("invalid context for return or fail",p.coord);
@@ -707,14 +707,14 @@ procedure u_gen_a_Return(s, p);
 end
 
 # record a_Fail( )
-procedure u_gen_a_Fail(s, p);
+procedure u_gen_a_Fail(s, p)
     /u_createflag | semantic_error("invalid context for return or fail",p.coord);
     u_coord(s, p);
     put(s, u_pfail());
 end
 
 # record a_Suspend( expr body )
-procedure u_gen_a_Suspend(s, p);
+procedure u_gen_a_Suspend(s, p)
     /u_createflag | semantic_error("invalid context for suspend", p.coord);
     p.ir := u_loopinfo(@u_nextlab, @u_nextlab, 1, "every");
     push(u_loops, p);
@@ -738,7 +738,7 @@ procedure u_gen_a_Suspend(s, p);
 end
 
 # record a_Until( expr body )
-procedure u_gen_a_Until(s, p);
+procedure u_gen_a_Until(s, p)
     local exprlab, bodylab;
 
     exprlab := @u_nextlab;
@@ -761,7 +761,7 @@ procedure u_gen_a_Until(s, p);
 end
 
 # record a_While( expr body )
-procedure u_gen_a_While(s, p);
+procedure u_gen_a_While(s, p)
     local lab;
 
     lab := @u_nextlab;
@@ -783,7 +783,7 @@ procedure u_gen_a_While(s, p);
 end
 
 # record a_Create( expr )
-procedure u_gen_a_Create(s, p);
+procedure u_gen_a_Create(s, p)
     local exprlab, faillab, createlab;
 
     exprlab := @u_nextlab;
@@ -809,12 +809,12 @@ procedure u_gen_a_Create(s, p);
 end
 
 # record a_Ident( id )
-procedure u_gen_a_Ident(s, p);
+procedure u_gen_a_Ident(s, p)
     put(s, u_var(p.id));
 end
 
 # record a_Next( )
-procedure u_gen_a_Next(s, p);
+procedure u_gen_a_Next(s, p)
     *u_loops > 0 | semantic_error("invalid context for next", p.coord);
     if /u_loops[1].ir.everyflag then {
         every 1 to u_loops[1].ir.markcount-1 do {
@@ -825,7 +825,7 @@ procedure u_gen_a_Next(s, p);
 end
 
 # record a_Break( expr )
-procedure u_gen_a_Break(s, p);
+procedure u_gen_a_Break(s, p)
     local tmp;
 
     *u_loops > 0 | semantic_error("invalid context for break", p.coord);
@@ -839,7 +839,7 @@ procedure u_gen_a_Break(s, p);
 end
 
 # record a_ToBy( fromexpr toexpr byexpr )
-procedure u_gen_a_ToBy(s, p);
+procedure u_gen_a_ToBy(s, p)
     put(s, u_pnull());
     u_gen(s, p.fromexpr);
     u_gen(s, p.toexpr);
@@ -853,7 +853,7 @@ procedure u_gen_a_ToBy(s, p);
 end
 
 # record a_Mutual( exprList )
-procedure u_gen_a_Mutual(s, p);
+procedure u_gen_a_Mutual(s, p)
     if *p.exprList = 0 then {
         put(s, u_pnull())
     } else if *p.exprList = 1 then {
@@ -867,7 +867,7 @@ procedure u_gen_a_Mutual(s, p);
 end
 
 # record a_CoexpList( exprList )
-procedure u_gen_a_CoexpList(s, p);
+procedure u_gen_a_CoexpList(s, p)
     local L;
 
     L := [];
@@ -877,12 +877,12 @@ procedure u_gen_a_CoexpList(s, p);
 end
 
 # record a_Arglist( exprList )
-procedure u_gen_a_Arglist(s, p);
+procedure u_gen_a_Arglist(s, p)
     every u_gen(s, !p.exprList);
 end
 
 # record a_Compound( exprList )
-procedure u_gen_a_Compound(s, p);
+procedure u_gen_a_Compound(s, p)
     local i, lab;
 
     every i := 1 to *p.exprList-1 do {
@@ -898,7 +898,7 @@ procedure u_gen_a_Compound(s, p);
 end
 
 # record a_ListConstructor( exprList )
-procedure u_gen_a_ListConstructor(s, p);
+procedure u_gen_a_ListConstructor(s, p)
     put(s, u_pnull());
     every u_gen(s, !p.exprList);
     u_coord(s, p);
@@ -906,12 +906,12 @@ procedure u_gen_a_ListConstructor(s, p);
 end
 
 # record a_Key( id )
-procedure u_gen_a_Key(s, p);
+procedure u_gen_a_Key(s, p)
     u_coord(s, p);
     put(s, u_keywd(p.id));
 end
 
-procedure u_gen(s, p);
+procedure u_gen(s, p)
     case type(p) of {
 
     "null" : return put(s, u_pnull());
@@ -965,7 +965,7 @@ procedure u_gen(s, p);
     };
 end
 
-procedure u_gen_File(parse, flagList);
+procedure u_gen_File(parse, flagList)
     local g, p, outfile;
 
     outfile := (!flagList ? (="-out:" & tab(0)));
@@ -989,7 +989,7 @@ procedure u_gen_File(parse, flagList);
     u_global_declarations(g);
 end
 
-procedure u_record_declarations(g);
+procedure u_record_declarations(g)
     local p, i;
 
     every p := !g & type(p) == "a_Record" do {
@@ -1000,7 +1000,7 @@ procedure u_record_declarations(g);
     };
 end
 
-procedure u_link_declarations(g);
+procedure u_link_declarations(g)
     local p, i;
 
     every p := !g & type(p) == "a_Link" do {
@@ -1010,7 +1010,7 @@ procedure u_link_declarations(g);
     };
 end
 
-procedure u_invocable_declarations(g);
+procedure u_invocable_declarations(g)
     local p, i, t;
 
     every p := !g & type(p) == "a_Invocable" do {
@@ -1029,7 +1029,7 @@ procedure u_invocable_declarations(g);
     };
 end
 
-procedure u_global_declarations(g);
+procedure u_global_declarations(g)
     local p, t, i;
 
     t := 0;
@@ -1063,7 +1063,7 @@ procedure u_global_declarations(g);
     };
 end
 
-procedure u_octal(x);
+procedure u_octal(x)
     local s;
     s := "";
     while x > 0 do {

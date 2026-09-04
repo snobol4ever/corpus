@@ -44,7 +44,7 @@ link interact
 link options
 link wopen
 
-procedure main(args);
+procedure main(args)
    local extent, size, colors, ncolors, k, x, i, y, j, c, palette;
    local opts, init, incr, limit, run;
 

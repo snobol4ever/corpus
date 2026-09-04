@@ -65,7 +65,7 @@
 
 link gpxop
 
-procedure WOpen(args[]);
+procedure WOpen(args[])
    push(args, "g");
    push(args, "");
    if /&window then
@@ -75,14 +75,14 @@ procedure WOpen(args[]);
 end
 
 
-procedure WRead(window);
+procedure WRead(window)
    if /window then
       window := \&window | runerr(140, &window);
    return read(window);
 end
 
 
-procedure WReads(window, i);
+procedure WReads(window, i)
    static type;
 
    initial type := proc("type", 0);	# protect attractive name
@@ -96,7 +96,7 @@ procedure WReads(window, i);
 end
 
 
-procedure WWrite(args[]);
+procedure WWrite(args[])
    static type;
 
    initial type := proc("type", 0);	# protect attractive name
@@ -106,7 +106,7 @@ procedure WWrite(args[]);
 end
 
 
-procedure WWrites(args[]);
+procedure WWrites(args[])
    static type;
 
    initial type := proc("type", 0);	# protect attractive name
@@ -116,7 +116,7 @@ procedure WWrites(args[]);
 end
 
 
-procedure WDelay(window, n);
+procedure WDelay(window, n)
    static delay, type;
 
    initial {
@@ -140,7 +140,7 @@ procedure WDelay(window, n);
 end
 
 
-procedure WClose(window);
+procedure WClose(window)
    if /window then
       window := \&window | runerr(140, &window);
    if window === &window then
@@ -149,19 +149,19 @@ procedure WClose(window);
 end
 
 
-procedure QuitEvents();
+procedure QuitEvents()
    suspend !"qQ";
 end
 
 
-procedure QuitCheck(ev);
+procedure QuitCheck(ev)
    if ev === QuitEvents() then
       exit();
    return;
 end
 
 
-procedure WQuit(win);
+procedure WQuit(win)
    /win := &window;
    while *Pending(win) > 0 do
       if Event(win) === QuitEvents() then
@@ -170,7 +170,7 @@ procedure WQuit(win);
 end
 
 
-procedure WDone(win);
+procedure WDone(win)
    /win := &window;
    until Event(win) === QuitEvents();
    exit();
@@ -179,7 +179,7 @@ end
 
 #  ZDone(win) -- like WDone(), but zoom window if resized while waiting
 
-procedure ZDone(win);
+procedure ZDone(win)
    local org, e, w, h, ww, hh, x0, y0;
 
    /win := &window;
@@ -204,7 +204,7 @@ procedure ZDone(win);
       };
 end
 
-procedure SubWindow(win, x, y, w, h);
+procedure SubWindow(win, x, y, w, h)
    static type;
    initial type := proc("type", 0);	# protect attractive name
 

@@ -30,7 +30,7 @@
 
 link options
 
-procedure main(args);
+procedure main(args)
    local opts, limit, repeats, values;
 
    opts := options(args, "l+r+");

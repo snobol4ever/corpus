@@ -20,7 +20,7 @@
 
 global chars,program,cmd,token,name
 
-procedure main(param);
+procedure main(param)
   local ff, old;
 
   if find("p",map(param[1])) then ff := "\014"
@@ -96,7 +96,7 @@ procedure quit();           # allows CTRL_Z exit under VMS
   
 #SUB LOAD, SAVE, AND RESAVE COMMANDS
 #EJECT
-procedure load();
+procedure load()
   local file, in, lnum;
 
   if not(token[2]) then
@@ -114,7 +114,7 @@ procedure load();
   return ("\n" || file || " loaded.");
 end
 
-procedure save();
+procedure save()
   local file, i, line, lnum, out, text;
 
   if not(token[2]) then
@@ -136,7 +136,7 @@ procedure save();
   return ("\n" || file || " saved.");
 end
 
-procedure resave();
+procedure resave()
   local i, line, lnum, out, text;
 
   if not(string(name)) then return("Nothing LOADed to resave.");
@@ -154,7 +154,7 @@ procedure resave();
 end
 #SUB READ, WRITE, AND MERGE COMMANDS
 #EJECT
-procedure basread();
+procedure basread()
   local file, in, line, lnum, test;
 
   if not(token[2]) then
@@ -176,7 +176,7 @@ procedure basread();
   return ("\n" || file || " read in.");
 end
 
-procedure baswrite();
+procedure baswrite()
   local file, lnum, out;
 
   if not(token[2]) then
@@ -192,7 +192,7 @@ procedure baswrite();
   return ("\n" || file || " writen out.");
 end
 
-procedure merge();
+procedure merge()
   local file, i, in, line, lnum;
 
   if not(token[2]) then
@@ -213,7 +213,7 @@ procedure merge();
 end
 #SUB DIR, DEL, AND NEW COMMANDS
 #EJECT   
-procedure dir();
+procedure dir()
   local spec;
 
   spec  := (token[2]) | ("");
@@ -228,7 +228,7 @@ procedure dir();
   return "";
 end
 
-procedure del();
+procedure del()
   local From, To, element, lnum, num, other;
 
   if (From := integer(token[2])) & (To := integer(token[3])) then
@@ -260,14 +260,14 @@ procedure del();
   return ("Line " || num || " deleted.");
 end
 
-procedure new();                 
+procedure new()                 
   program := [];
   name    := &null;
   return ("Buffer cleared.");
 end
 #SUB FIND COMMAND
 #EJECT
-procedure search();
+procedure search()
   local From, To, delta, diff, i, item, j, k, l, line, lnum;
 
   if (From := token[2]) & (To := token[3]) then
@@ -396,7 +396,7 @@ procedure run();           # run built ware
   end
 #SUB LIST AND RENUM COMMANDS
 #EJECT
-procedure print();          
+procedure print()          
   local From, To, items, line;
 
   if *token = 1 then
@@ -431,7 +431,7 @@ procedure print();
   return "";
 end
 #
-procedure proc_list();
+procedure proc_list()
   local flag, line;
 
   flag := 0;
@@ -448,7 +448,7 @@ procedure proc_list();
   return "";
   end
 #
-procedure renum();
+procedure renum()
   local inc, line, lnum, other;
 
   (lnum := integer(token[2])) | (lnum := 10);
@@ -466,7 +466,7 @@ procedure renum();
 end
 #SUB ON LINE HELP DISPLAY
 #EJECT
-procedure help();
+procedure help()
   write("Basic Line Editor V1.3 by Tenaglia");
   write("     This editor works on the same principle as basic interpreter");
   write("     environments.  The lines are all prefixed with line numbers.");
@@ -492,7 +492,7 @@ procedure help();
 end
 #SUB LINE ENTRY AND HANDY PARSER PROCEDURE
 #EJECT
-procedure entry(stuff);
+procedure entry(stuff)
   local element, finish, flag, lnum, other;
 
   other  := list();
@@ -518,7 +518,7 @@ procedure entry(stuff);
   program := copy(other);
   end
             
-procedure shell();
+procedure shell()
   local command;
   command := cmd[find(" ",cmd):0];
   if trim(detab(command))=="" then return "No shell command";
@@ -526,14 +526,14 @@ procedure shell();
   return "\nReturn to editor";
   end
 
-procedure parse(line);
+procedure parse(line)
   local tokens;
   tokens := [];
   line ? while tab(upto(chars)) do put(tokens,tab(many(chars)));
   return tokens;
   end
                                 
-procedure last(substr,str);
+procedure last(substr,str)
   local  i;
   every  i := find(substr,str);
   return i;

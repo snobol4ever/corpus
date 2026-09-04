@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
    local j, k, line, eof;
  
    while /eof do {

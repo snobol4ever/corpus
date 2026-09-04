@@ -146,7 +146,7 @@ link io
 
 global values, blank, nonblank
 
-procedure main (args);
+procedure main (args)
     local line;
 
     if map(args[1]) == "-t" then &trace := -1;
@@ -162,14 +162,14 @@ end
 #
 # windup
 #
-procedure windup();
+procedure windup()
      write(&errout,"windup");
 end
 ############################################################################
 #
 # process
 #
-procedure process(str);
+procedure process(str)
 
      case parse(str) of {
      "load"        : load(str);
@@ -183,7 +183,7 @@ end
 #
 # parse
 #
-procedure parse(str);
+procedure parse(str)
     local token;
 
      token := first(str);
@@ -199,7 +199,7 @@ end
 # compute and write result - During initial design, this was perceived to
 #                            require 50 lines of complicated lookup etc.!
 #
-procedure conman(strn); 
+procedure conman(strn) 
 
      write (strn , " equals ", eval(stack(strn, 1, *strn)));
 end
@@ -213,7 +213,7 @@ end
 # compute subsequent
 # store word, subsequent/foregoing in values
 #
-procedure isare(str);
+procedure isare(str)
     local after, before, foregoing, subsequent;
 
 # locate blank-delimited is or are - early (?clumsy) Icon code replaced at
@@ -248,7 +248,7 @@ end
 #
 #  stack the "words" in str - needs cset nonblank
 #
-procedure stack(str);
+procedure stack(str)
     local i, j, words;
 
     words := [] ; i := 1;
@@ -270,7 +270,7 @@ end
 #    else if in values, multiply/divide value
 #    else gripe and leave accum alone
 #
-procedure eval(stk);
+procedure eval(stk)
     local accum, action, token;
 
     accum := 1.0  ;  action := "multiply";
@@ -301,7 +301,7 @@ end
 #
 # init
 #
-procedure init();
+procedure init()
      write(&errout, "Conman version 1.1, 7/24/87");
      values := table(&null);
      nonblank := &ascii -- ' ';
@@ -321,7 +321,7 @@ end
 #
 # prompt
 #
-procedure prompt();
+procedure prompt()
     return read();
 end
 ############################################################################
@@ -329,7 +329,7 @@ end
 # load - loads table from a file - assumes save format compatible 
 #        with isare
 #
-procedure load(str);
+procedure load(str)
     local intext, line, filnam;
 
     filnam := (\second(str) | "conman.sav");
@@ -346,7 +346,7 @@ end
 #
 # save - saves table to file in format compatible with isare
 #
-procedure save(str);
+procedure save(str)
     local i, outtext, pair, wlist, filnam;
  
     filnam := (\second(str) | "conman.sav");
@@ -364,7 +364,7 @@ end
 #
 # zlist - lists the table
 #
-procedure zlist();
+procedure zlist()
     local i, pair, wlist;
 
     i := 0;
@@ -377,7 +377,7 @@ end
 #
 # first - returns first token in a string - needs cset nonblank
 #
-procedure first(s);
+procedure first(s)
     local stuff;
 
     s? (tab(upto(nonblank)) , (stuff := tab(many(nonblank))));
@@ -387,7 +387,7 @@ end
 #
 # second - returns second token in a string - needs cset nonblank
 #
-procedure second(s);
+procedure second(s)
     local stuff;
 
     s? (tab(upto(nonblank)) , (tab(many(nonblank)) & tab(upto(nonblank)) &
@@ -398,7 +398,7 @@ end
 #
 # butfirst - returns all butfirst token in a string - needs cset nonblank
 #
-procedure butfirst(s);
+procedure butfirst(s)
     local stuff;
 
     s? (tab(upto(nonblank)) , tab(many(nonblank)) & tab(upto(nonblank)) &
@@ -411,7 +411,7 @@ end
 #            an obvious way.  Note: singulars ending in "e" should be handled
 #            here also "per second" units which end in "s".
 #
-procedure singular(str);
+procedure singular(str)
     local s;
 
     s := str;

@@ -329,7 +329,7 @@ end
 
 #  Deplane(win, color) -- restore normal drawop and set fg to color
 
-procedure Deplane(win, color);
+procedure Deplane(win, color)
 
    if type(win) ~== "window" then {
       color := win;

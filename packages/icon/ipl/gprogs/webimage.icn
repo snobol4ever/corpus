@@ -38,7 +38,7 @@ link wopen
 
 record dim(w, h)
 
-procedure main(args);
+procedure main(args)
    local name, opts, title, dim, align, names;
 
    opts := options(args, "t:a:n");

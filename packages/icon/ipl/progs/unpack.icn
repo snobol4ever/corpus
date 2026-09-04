@@ -23,7 +23,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
    local line, out;
    while line := read() do {
       if line == "##########" then {

@@ -27,7 +27,7 @@
 
 link titleset
 
-procedure title(name);
+procedure title(name)
    local result;
    static titles;
 

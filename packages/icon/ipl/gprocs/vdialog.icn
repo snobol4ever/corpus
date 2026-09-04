@@ -43,7 +43,7 @@ record DL_pos_rec(x,y)		# dialog position record
 record Vdialog_frame_rec(win, padx, pady, callback, aw, ah, lookup,
    draw, id, ax, ay, uid, F, P,  V)
 
-procedure Vdialog(params[]);
+procedure Vdialog(params[])
    local self;
    static procs;
 
@@ -71,7 +71,7 @@ procedure Vdialog(params[]);
    return self;
 end
 
-procedure open_dialog_Vdialog(self, x, y, values, def_str);
+procedure open_dialog_Vdialog(self, x, y, values, def_str)
    local i, c, e, newfocus, tid, rv, now, val;
    local entry, r, def, sel, v, args, parent, posn;
    static xytable, type;
@@ -228,7 +228,7 @@ procedure open_dialog_Vdialog(self, x, y, values, def_str);
    return \rv;
 end
 
-procedure switch_focus_Vdialog(self, newfocus);
+procedure switch_focus_Vdialog(self, newfocus)
    if (newfocus.id === !self.F.text_entries) then {
       self.F.focus.T.unblock(self.F.focus);
 #      self.F.focus.T.erase_cursor(self.F.focus)
@@ -237,13 +237,13 @@ procedure switch_focus_Vdialog(self, newfocus);
       };
 end
 
-procedure insert_Vdialog(self, vidget, x, y);
+procedure insert_Vdialog(self, vidget, x, y)
    if /self | /vidget | /x | /y then
       _Vbomb("incomplete or &null parameters to VInsert() for dialogs");
    pad_and_send_Vdialog(self, vidget, x, y);
 end
 
-procedure register_Vdialog(self, vidget, x, y);
+procedure register_Vdialog(self, vidget, x, y)
    static type;
 
    initial type := proc("type", 0);	# protect attractive name
@@ -256,7 +256,7 @@ procedure register_Vdialog(self, vidget, x, y);
    pad_and_send_Vdialog(self, vidget, x, y);
 end
 
-procedure unregister_Vdialog(self, kid);
+procedure unregister_Vdialog(self, kid)
 local new, i;
 
    if (kid.id === !self.F.text_entries) then {
@@ -270,7 +270,7 @@ local new, i;
    self.V.remove(self, kid, 1);
 end
 
-procedure pad_and_send_Vdialog(self, vidget, x, y);
+procedure pad_and_send_Vdialog(self, vidget, x, y)
    static type;
 
    initial type := proc("type", 0);	# protect attractive name
@@ -280,13 +280,13 @@ procedure pad_and_send_Vdialog(self, vidget, x, y);
    insert_Vframe(self, vidget, x+self.padx, y+self.pady);
 end
 
-procedure format_Vdialog(self);
+procedure format_Vdialog(self)
    self.V.resize(self, 0, 0,
                  Vmin_frame_width(self)+self.padx-1,
                  Vmin_frame_height(self)+self.pady-1);
 end
 
-procedure init_Vdialog(self);
+procedure init_Vdialog(self)
    init_Vframe(self);
    /self.padx := 20;
    /self.pady := 20;

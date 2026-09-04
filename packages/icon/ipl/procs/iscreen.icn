@@ -51,7 +51,7 @@
 
 link itlib
 
-procedure clear();
+procedure clear()
 
     # Clears the screen.  Tries several methods.
     local i;
@@ -73,7 +73,7 @@ end
 
 
 
-procedure boldface();
+procedure boldface()
     
     static bold_str, cookie_str;
     initial {
@@ -95,7 +95,7 @@ end
 
 
 
-procedure blink();
+procedure blink()
     
     static blink_str, cookie_str;
     initial {
@@ -118,7 +118,7 @@ end
 
 
 
-procedure emphasize();
+procedure emphasize()
     
     static emph_str, cookie_str;
     initial {
@@ -141,7 +141,7 @@ end
 
 
 
-procedure underline();
+procedure underline()
     
     static underline_str, cookie_str;
     initial {
@@ -158,7 +158,7 @@ end
 
 
 
-procedure normal(mode);
+procedure normal(mode)
 
     static UN_emph_str, emph_cookie_str,
 	UN_underline_str, underline_cookie_str,
@@ -201,7 +201,7 @@ end
 
 
 
-procedure status_line(s,s2,p);
+procedure status_line(s,s2,p)
 
     # Writes a status line on the terminal's third-to-last line
     # The only necessary argument is s.  S2 (optional) is used
@@ -237,7 +237,7 @@ end
 
 
 
-procedure message(s);
+procedure message(s)
 
     # Display prompt s on the second-to-last line of the screen.
     # I hate to use the last line, due to all the problems with
@@ -257,7 +257,7 @@ end
 
 
 
-procedure clear_underline();
+procedure clear_underline()
 
     # Horrible way of clearing the screen to all underline mode, but
     # the only apparent way we can do it "portably" using the termcap
@@ -285,7 +285,7 @@ end
 
 
 
-procedure clear_emphasize();
+procedure clear_emphasize()
 
     # Horrible way of clearing the screen to all reverse-video, but
     # the only apparent way we can do it "portably" using the termcap

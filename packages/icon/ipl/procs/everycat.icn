@@ -42,7 +42,7 @@
 #
 ############################################################################
 
-procedure everycat(args[]);
+procedure everycat(args[])
    local arg;
 
    arg := get(args) | fail;

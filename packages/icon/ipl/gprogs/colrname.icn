@@ -40,7 +40,7 @@ link wopen
 
 global w, L, startcols, rows, theBackGround
 
-procedure drawit();
+procedure drawit()
    local curcol, i, maxcol;
    curcol := 1;
    i := 0;
@@ -60,7 +60,7 @@ procedure drawit();
 end
 
 
-procedure doevents();
+procedure doevents()
    local e, varcol, lastvarcol, lastrow;
    repeat {
       Active();
@@ -84,7 +84,7 @@ procedure doevents();
    };
 end
 
-procedure main(av);
+procedure main(av)
    local filename, f, i, t, max, line, t2, r, g, b, rgb;
 
    filename := av[1] | "/usr/lib/X11/rgb.txt";

@@ -33,7 +33,7 @@
 link datetime
 link options
 
-procedure main(args);
+procedure main(args)
    local name, input, output, line, opts;
 
    opts := options(args, "f");

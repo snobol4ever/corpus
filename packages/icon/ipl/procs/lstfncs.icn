@@ -21,7 +21,7 @@
 link genrfncs
 link numbers
 
-procedure fiblist(l, m);
+procedure fiblist(l, m)
    local result;
 
    /l := 128;
@@ -35,7 +35,7 @@ procedure fiblist(l, m);
 
 end
 
-procedure multilist(l, m);
+procedure multilist(l, m)
    local result;
 
    /l := 128;
@@ -49,7 +49,7 @@ procedure multilist(l, m);
 
 end
 
-procedure primelist(l, m);
+procedure primelist(l, m)
    local result;
 
    /l := 128;

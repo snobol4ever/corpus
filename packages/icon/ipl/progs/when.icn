@@ -48,7 +48,7 @@ global base,      # 1970 calculation baseline number
        command,   # optional command to do on each file
        files      # list with files, sizes, and ages
 
-procedure main(param);
+procedure main(param)
   local i, option, j;
   calc_today();
   files   := directory();
@@ -90,7 +90,7 @@ procedure main(param);
 #
 # just show another ls with days old numbers & optionally sorts
 #
-procedure show_age();
+procedure show_age()
   local line, age, ks, file, text, results, i;
   case method of
     {
@@ -155,7 +155,7 @@ procedure show_age();
 #
 # remove elements later than a date
 #
-procedure before(lst,days);
+procedure before(lst,days)
   local i, mo, da, yr, tmp, dd, age, work, file, old;
   static  mtab;
   initial mtab := [0,31,59,90,120,151,181,212,243,273,304,334];
@@ -185,7 +185,7 @@ procedure before(lst,days);
 #
 # remove elements earlier than a date
 #
-procedure since(lst,days);
+procedure since(lst,days)
   local mo, da, yr, tmp, dd, age, work, file, old;
   static  mtab;
   initial mtab := [0,31,59,90,120,151,181,212,243,273,304,334];
@@ -215,7 +215,7 @@ procedure since(lst,days);
 #
 # calculate today and now figures
 #
-procedure calc_today();
+procedure calc_today()
   local tmpy, tmpm, tmpd, here;
   static  mtab;
   initial {
@@ -238,7 +238,7 @@ procedure calc_today();
 #
 # convert a ls -al output into a list for sorting and printing
 #
-procedure directory();
+procedure directory()
   local pipe, entries, line, size, file, day, year, sec, mark, text;
   static mtab;
   initial {
@@ -278,7 +278,7 @@ procedure directory();
 #
 # convert hh:mm into seconds since midnight
 #
-procedure hhmm(str);
+procedure hhmm(str)
   local hh, mm;
   hh := str[1+:2];
   mm := str[4+:2];
@@ -288,7 +288,7 @@ procedure hhmm(str);
 #
 # parse a string into a list with respect to a delimiter
 #
-procedure parse(line,delims);
+procedure parse(line,delims)
   local tokens;
   static chars;
   chars  := &cset -- delims;

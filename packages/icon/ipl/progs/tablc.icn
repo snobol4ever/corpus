@@ -36,7 +36,7 @@
 
 link options
 
-procedure main(args);
+procedure main(args)
    local ccount, unique, order, s, a, pair, rwidth, opts;
    unique := 0;  # switch to list unique usage only
    order := 3;  # alphabetical ordering switch

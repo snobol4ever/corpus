@@ -24,7 +24,7 @@
 
 record textdim(cols, rows)
 
-procedure filedim(s, p);
+procedure filedim(s, p)
    local input, rows, cols, line;
 
    /p := detab;

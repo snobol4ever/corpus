@@ -429,7 +429,7 @@ close(tempf);
 system("erase " || tempfn);
 end
 
-procedure dosdir_62();
+procedure dosdir_62()
 
 static  nb;
 local de;
@@ -448,7 +448,7 @@ if *&subject = 43  & (tab(any(nb)), move(-1)) then {
    };
 end
 
-procedure dosdir_xx();
+procedure dosdir_xx()
 
 static  nb;
 local de;
@@ -589,7 +589,7 @@ end
 
 $ifdef _MSDOS
  
-procedure extract_name(fnloc);
+procedure extract_name(fnloc)
    local asciiz;
    asciiz := Peek(fnloc, 13);
    return asciiz[1:upto("\x00", asciiz)];

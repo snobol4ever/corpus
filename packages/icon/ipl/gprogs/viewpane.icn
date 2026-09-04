@@ -41,7 +41,7 @@ global image_width, image_height		# image dimensions
 global xpos, ypos				# upper-left corner of image
 global hbar, vbar				# scrolling vidgets
 
-procedure main();
+procedure main()
    local vidgets;
 
    vidgets := ui();  # set up interface
@@ -61,7 +61,7 @@ end
 
 #  Process event for the file menu.
 
-procedure file_cb(vidget, menu);
+procedure file_cb(vidget, menu)
 
    case menu[1] of {
       "open  @O":   image_open();
@@ -74,7 +74,7 @@ end
 
 #  Check for keyboard shortcuts.
 
-procedure shortcuts(e);
+procedure shortcuts(e)
 
    case &meta & map(e) of {			# fold case
       "o":  image_open();
@@ -87,7 +87,7 @@ end
 
 #  Open image file.
 
-procedure image_open();
+procedure image_open()
 
       case OpenDialog() of {
          "Okay": {
@@ -106,7 +106,7 @@ end
 
 #  Process event for horizontal scroll bar.
 
-procedure horiz_cb(vidget, val);
+procedure horiz_cb(vidget, val)
 
    if /image_win then return;			# don't do anything if no image
 
@@ -120,7 +120,7 @@ end
 
 #  Process event for vertical scroll bar.
 
-procedure vert_cb(vidget, val);
+procedure vert_cb(vidget, val)
 
    if /image_win then return;			# don't do anything if no image
 
@@ -134,7 +134,7 @@ end
 
 #  Process event for "hide" button.
 
-procedure hide_cb(vidget, val);
+procedure hide_cb(vidget, val)
 
    if /image_win then return;			# don't do anything if no image
 
@@ -148,7 +148,7 @@ end
 
 #  Utility procedure for copying image.
 
-procedure copy_image();
+procedure copy_image()
 
    CopyArea(image_win, &window, xpos, ypos, view_width, view_height,
       view_xoff, view_yoff);
@@ -159,7 +159,7 @@ end
 
 #  Procedure to set up window.
 
-procedure setup_win(win);
+procedure setup_win(win)
 
    EraseArea(view_xoff, view_yoff, view_width, view_height);
    image_width := real(WAttrib(win, "width"));
@@ -180,7 +180,7 @@ procedure setup_win(win);
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:lucidasanstypewriter-bold-12::0,0,455,410:View",],
    ["file:Menu:pull::29,1,36,21:File",file_cb,

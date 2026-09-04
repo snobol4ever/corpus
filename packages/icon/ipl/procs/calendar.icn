@@ -263,7 +263,7 @@ end
 #  Produces a date record computed from the seconds since the start of
 #  DateBaseYear.
 #
-procedure Cal_SecToRec(seconds,timeZone);
+procedure Cal_SecToRec(seconds,timeZone)
    local day,hour,min,month,secs,weekday,year;
    static secPerYear;
    initial {
@@ -311,7 +311,7 @@ end
 #
 #  Converts a Cal_Rec to seconds since start of DateBaseYear.
 #
-procedure Cal_RecToSec(calRec,timeZone);
+procedure Cal_RecToSec(calRec,timeZone)
    local day,hour,min,month,sec,seconds,year;
    static days;
    initial {
@@ -348,7 +348,7 @@ end
 #
 # Gets the time zone record with ID "timeZoneName".
 #
-procedure Cal_GetTimeZone(timeZoneName);
+procedure Cal_GetTimeZone(timeZoneName)
    return \Cal_GetTimeZoneTable()[timeZoneName];
 end
 
@@ -356,7 +356,7 @@ end
 # Builds a table of time zones with keys the time zone names and values
 # the time zone records (Cal_TimeZoneRec).
 #
-procedure Cal_GetTimeZoneTable();
+procedure Cal_GetTimeZoneTable()
    local tzTbl,x;
    return \Cal_TimeZoneTable | {
       tzTbl := table();
@@ -369,11 +369,11 @@ end
 #
 # Builds a list of time zones ordered by increasing offset from GMT.
 #
-procedure Cal_GetTimeZoneList();
+procedure Cal_GetTimeZoneList()
    return \Cal_TimeZoneList | (Cal_TimeZoneList := Cal_MakeTimeZoneList());
 end
 
-procedure Cal_LocalToGMTSec(seconds,timeZone);
+procedure Cal_LocalToGMTSec(seconds,timeZone)
    initial Cal_Init();
    /timeZone := Cal_CurrentTimeZone;
    seconds -:= Cal_IsDST(seconds,timeZone) * Cal_SecPerHour;
@@ -381,7 +381,7 @@ procedure Cal_LocalToGMTSec(seconds,timeZone);
    return integer(seconds);
 end
 
-procedure Cal_GMTToLocalSec(seconds,timeZone);
+procedure Cal_GMTToLocalSec(seconds,timeZone)
    initial Cal_Init();
    /timeZone := Cal_CurrentTimeZone;
    seconds +:= timeZone.hoursFromGMT * Cal_SecPerHour;
@@ -400,7 +400,7 @@ end
 #
 # Counts leap years in the range [loYear,hiYear).
 #
-procedure Cal_LeapYearsBetween(loYear,hiYear);
+procedure Cal_LeapYearsBetween(loYear,hiYear)
    loYear -:= 1; hiYear -:= 1;
    return (hiYear /   4 - loYear /   4) -
 	  (hiYear / 100 - loYear / 100) +
@@ -621,7 +621,7 @@ end
 # Internal procedure to calculate seconds at the start of the day
 # specified for DST start or end.
 #
-procedure Cal_DSTDayOfMonthToSec(year,month,mode,day,dayOfWeek);
+procedure Cal_DSTDayOfMonthToSec(year,month,mode,day,dayOfWeek)
    return case mode of {
       "dayOfMonth": Cal_RecToSec(Cal_Rec(year,month,day),Cal_TimeZoneGMT);
       "dayOfWeek": Cal_NthWeekdayToSec(year,month,dayOfWeek,day);
@@ -635,7 +635,7 @@ end
 #
 # Time zone data, ordered by increasing hoursFromGMT
 #
-procedure Cal_MakeTimeZoneList();
+procedure Cal_MakeTimeZoneList()
     local data1,data2,data3,data4,data5,data6,data7,data8,data9,data10,
         data11,data12,data13,data14,data15,data16,data17,data18,data19,data20,
         data21,data22,data23,data24,data25,data26,data27,data28,data29,data30,

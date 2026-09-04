@@ -57,7 +57,7 @@ global patChar
 
 record Tag(fn,line,linenbr,shortline)
 
-procedure main(arg);
+procedure main(arg)
    local Write,f,fn,idChar,line,linenbr,noWarnings,opt,space,tag,tags,
        tf,tfn,typedef,x;
    #
@@ -114,15 +114,15 @@ end
 #
 #  Output procedures.
 #
-procedure Tags(x,f);
+procedure Tags(x,f)
    return write(f,x[1],"\t",x[2].fn,"\t",patChar,"^",x[2].shortline,patChar);
 end
 
-procedure Index(x);
+procedure Index(x)
    return write(left(x[1],*x[1] < 16) | x[1],right(x[2].linenbr,4)," ",
 	 left(x[2].fn,17),x[2].line);
 end
 
-procedure VGrind(x);
+procedure VGrind(x)
    return write(x[1]," ",x[2].fn," ",(x[2].linenbr - 1) / 64 + 1);
 end

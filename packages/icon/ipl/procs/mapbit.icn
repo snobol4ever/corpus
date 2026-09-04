@@ -26,11 +26,11 @@
 
 link strings
 
-procedure bilit(text,alpha,first,second);
+procedure bilit(text,alpha,first,second)
    return collate(map(text,alpha,first),map(text,alpha,second));
 end
 
-procedure mapbit(s);
+procedure mapbit(s)
    static all, base16, hex1, hex2, quad1, quad2, pair1, pair2;
 
    #  The following is a bit ornate, but then ... .  It could be

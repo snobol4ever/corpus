@@ -22,7 +22,7 @@ link wopen
 link gpxop
 link gpxlib
 
-procedure Quit(win);
+procedure Quit(win)
    /win := &window;
    while *Pending(win) > 0 do
       if Event(win) === QuitEvents() then
@@ -30,7 +30,7 @@ procedure Quit(win);
    fail;
 end
 
-procedure Done(win);
+procedure Done(win)
    /win := &window;
    until Event(win) === QuitEvents();
    exit();

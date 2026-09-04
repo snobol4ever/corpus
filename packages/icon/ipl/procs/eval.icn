@@ -37,7 +37,7 @@ invocable all
 
 link ivalue
 
-procedure eval(expr);
+procedure eval(expr)
    local p, args, tok;
 
    &error := -1;  # to prevent error termination ...

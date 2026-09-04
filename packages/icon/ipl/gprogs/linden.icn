@@ -133,7 +133,7 @@ link linddraw
 link options
 link wopen
 
-procedure main(args);
+procedure main(args)
    local line, gener, axiom, angle, opts, i, s, c, symbol, rewrite;
    local allchars, rhs, value, spec, x, y, length, w, h, delay, name;
 

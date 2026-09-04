@@ -4,7 +4,7 @@
 
 link printf
 
-procedure main();
+procedure main()
    local v, vlist;
 
    vlist := [ -16r80000000, -16r7FFFFFFF, -16r40000000, -16r3FFFFFFF, 
@@ -16,7 +16,7 @@ procedure main();
       printf("%16s %15.3r %10.3e %11d %12o %9x\n", v, v, v, v, v, v);
 end
 
-procedure realseq();
+procedure realseq()
    suspend 0.0;
    suspend 10.0 ^ (-12 to 30) * (1.0 | 13./9 | 3./2 | 5./2. | 14./9 );
 end

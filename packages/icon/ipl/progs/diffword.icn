@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
    local letter, words, text;
 
    letter := &letters;

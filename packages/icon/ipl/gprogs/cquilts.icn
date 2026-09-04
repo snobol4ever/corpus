@@ -57,7 +57,7 @@ global pi_6
 
 $define Size 200
 
-procedure main(args);
+procedure main(args)
    local x, y, xnew, ynew, lambda, alpha, beta, gamma, omega, ma, shift;
    local mcount, sx, sy, xp, yp, max, min, i;
    local count, prefix, iter, opts, interval, limit;

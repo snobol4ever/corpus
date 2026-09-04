@@ -28,7 +28,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local fname, path, f, header, hlength, pfx;
 
    if *args ~= 2 then

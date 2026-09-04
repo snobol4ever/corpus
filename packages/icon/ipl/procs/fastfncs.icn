@@ -36,7 +36,7 @@
 link factors
 link memrfncs
 
-procedure g(k, n);
+procedure g(k, n)
    local value;
    static psi;
 
@@ -52,7 +52,7 @@ procedure g(k, n);
 
 end 
 
-procedure robbins(n);
+procedure robbins(n)
    local numer, denom, i;
 
    numer := denom := 1;

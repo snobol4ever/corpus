@@ -57,7 +57,7 @@ record rgbrec(r, g, b, k)
 record boxrec(x, y, w, h, b, i)
 global val, colr, sl, win
 
-procedure main(args);
+procedure main(args)
    local cwin, h, m, c;
 
    # open window
@@ -124,7 +124,7 @@ procedure setcolors();			# set the colors in the color map
    return;
 end
 
-procedure colorbox(box, r, g, b);
+procedure colorbox(box, r, g, b)
    r := integer(r);
    g := integer(g);
    b := integer(b);

@@ -20,7 +20,7 @@
 #  each line.
 #
 
-procedure main(arg);
+procedure main(arg)
    local length, ruler, lines, i;
 
    length := "" ~== arg[1] | 80;

@@ -59,7 +59,7 @@
 link options
 
 
-procedure main(arg);
+procedure main(arg)
    local defaultHelpFile, opts, fn, f, item, line, keywords, i, lline, k;
 
    #

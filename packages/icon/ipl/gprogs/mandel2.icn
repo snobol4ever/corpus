@@ -67,7 +67,7 @@
 link random
 link wopen
 
-procedure main(args);
+procedure main(args)
    local a, b, c, colours, coords, events, gap, i, k, n, r, size;
    local startc, startr, t, x, xmand, y;
 

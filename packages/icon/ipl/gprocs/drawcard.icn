@@ -42,7 +42,7 @@
 link cardbits
 link graphics
 
-procedure drawcard(win, x, y, label);
+procedure drawcard(win, x, y, label)
    static cmap, gc, bk, plist, deck;
    local ysuit, yrank, r, s, i, l, dx, dy;
 

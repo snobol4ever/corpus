@@ -49,7 +49,7 @@ global Window, XMAX, YMAX
 
 global pre_defs
 
-procedure main (args);
+procedure main (args)
     local ls, arg, t;
 
     XMAX := YMAX := 700;  # physical screen size
@@ -99,7 +99,7 @@ procedure main (args);
     close(win);
 end
 
-procedure helpmsg();
+procedure helpmsg()
    write("Usage: Lsys [[-o n] [-d r] [-delta r] [-axiom s] [-map c s]... ]");
    write("        [-f file] [-n name] [-describe name]");
    write("   where");
@@ -123,7 +123,7 @@ procedure helpmsg();
    stop();
 end
 
-procedure init_pre_defs();
+procedure init_pre_defs()
 
    pre_defs := table();
 

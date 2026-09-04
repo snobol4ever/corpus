@@ -29,7 +29,7 @@
 global oldname, newname, ixname, ixprev
 global added, deleted, chgadd, chgdel
 
-procedure main(args);
+procedure main(args)
    local f, line;
 
    if *args > 0 then
@@ -79,7 +79,7 @@ procedure main(args);
    report();
 end
 
-procedure report();
+procedure report()
    local net;
 
    if oldname := \ixprev then
@@ -96,7 +96,7 @@ procedure report();
    return;
 end
 
-procedure only();
+procedure only()
    report();
    if tab(-2) & ="." & any('oa') then
       return;

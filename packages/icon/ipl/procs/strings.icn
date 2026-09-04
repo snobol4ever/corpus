@@ -322,7 +322,7 @@ procedure deletec(s, c);			#: delete characters
 
 end
 
-procedure deletep(s, L);
+procedure deletep(s, L)
 
    L := sort(L);
 

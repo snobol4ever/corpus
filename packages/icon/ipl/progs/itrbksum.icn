@@ -24,7 +24,7 @@
 
 $define CountWidth 10
 
-procedure main();
+procedure main()
    local line, count;
 
    while line := read() do {

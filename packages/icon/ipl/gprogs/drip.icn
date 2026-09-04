@@ -47,7 +47,7 @@ link random
 
 global opttab
 
-procedure main(args);
+procedure main(args)
    local win, mono, w, h, m, d;
    local a, r, i, xscale, yscale, rad, xctr, yctr, xrad, yrad;
    local cindex, cspec, ncolors, bg;
@@ -131,7 +131,7 @@ end
 
 #  newcolor -- return a new color spec somewhat close to the previous color
 
-procedure newcolor();
+procedure newcolor()
    static r, g, b, c;
 
    initial {

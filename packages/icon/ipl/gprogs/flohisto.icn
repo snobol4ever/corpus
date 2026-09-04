@@ -43,7 +43,7 @@ $define Gap 4
 $define Xoff 20
 $define Yoff 30
 
-procedure main(args);
+procedure main(args)
    local front, back, black, white, name, i, canvas;
    local warp_front, warp_back, weft_front, weft_back, win, input;
 
@@ -74,7 +74,7 @@ procedure main(args);
 
 end
 
-procedure analyze(rows, color);
+procedure analyze(rows, color)
    local counts, length, row, k, count_list;
 
    counts := table(0);
@@ -100,7 +100,7 @@ procedure analyze(rows, color);
 
 end
 
-procedure plot(data, legend);
+procedure plot(data, legend)
    local i, j, scale, maximum, y, width, win;
 
    win := WOpen("size=" || Width || "," || Height, "font=times,10", "canvas=hidden") |
@@ -136,7 +136,7 @@ procedure plot(data, legend);
 
 end
 
-procedure win2rows(win);
+procedure win2rows(win)
    local width, height, row, rows, pixel, y;
 
    width := WAttrib(win, "width");
@@ -155,7 +155,7 @@ procedure win2rows(win);
 
 end
 
-procedure rot(rows);
+procedure rot(rows)
    local cols, row, grid, i;
 
    cols := list(*rows[1], "");

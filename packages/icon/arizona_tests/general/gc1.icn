@@ -1,4 +1,4 @@
-procedure main();
+procedure main()
    write("filling ...");
    every 1 to 100 do {
       every 1 to 100 do

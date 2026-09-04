@@ -32,7 +32,7 @@
 
 link datetime
 
-procedure main(arg);
+procedure main(arg)
    local pre,suf;
    if arg[1] == "-a" then {
       pop(arg);

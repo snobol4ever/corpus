@@ -133,7 +133,7 @@ procedure htchunks(f);			#: generate chunks of HTML file
       };
 end
 
-procedure htc_tag(f);
+procedure htc_tag(f)
    local s;
 
    s := "<";
@@ -146,7 +146,7 @@ procedure htc_tag(f);
    return s;				# unclosed tag
 end
 
-procedure htc_comment(f);
+procedure htc_comment(f)
    local s;
 
    s := "";
@@ -161,7 +161,7 @@ procedure htc_comment(f);
    return "<!--";			# return error indicator
 end
 
-procedure htc_text(f);
+procedure htc_text(f)
    local s;
 
    s := "";

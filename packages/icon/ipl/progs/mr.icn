@@ -51,7 +51,7 @@ link iolib, options, io
 
 global Host, Editor, Spool, Status, Mail_cmd
 
-procedure main(arg);
+procedure main(arg)
   local i, opts, cmd, art, mailspool, print_cmd, ignore, non_unix_mailspool;
 
 				# configuration 
@@ -108,7 +108,7 @@ end
 
 				# Read the mail spool into a list of
 				# lists and set up a status list.
-procedure readin(spoolname, update);
+procedure readin(spoolname, update)
   local sf, i, article;
 
   Spool := [];
@@ -133,7 +133,7 @@ end
 
 				# Parse messages for author & subject,
 				# highlight the current message.
-procedure headers(spoolname, art);
+procedure headers(spoolname, art)
   local hlist, i, entry, author, subj;
 
   hlist := [];
@@ -161,7 +161,7 @@ end
 				# write a temporary spool.  Rename
 				# would be convenient, but won't work
 				# across file systems.
-procedure quit(spoolname);
+procedure quit(spoolname)
   local msave, f, tfn, i;
 
   every !Status ? { find("D") & break msave := 1 };
@@ -179,7 +179,7 @@ procedure quit(spoolname);
 end
 
 
-procedure save(where, art, append);
+procedure save(where, art, append)
   local mode, outf;
 
   mode := if \append then "a" else "w";
@@ -190,7 +190,7 @@ procedure save(where, art, append);
 end
 
 
-procedure pipeto(cmd, art);
+procedure pipeto(cmd, art)
   static real_pipes;
   local p, tfn, status;
 
@@ -207,7 +207,7 @@ procedure pipeto(cmd, art);
 end
 
 
-procedure print(cmd, art);
+procedure print(cmd, art)
   local p, status;
   
   if \cmd then status := pipeto(cmd, art)
@@ -223,7 +223,7 @@ end
 
 
 				# Lots of case-insensitive parsing.
-procedure reply(art);
+procedure reply(art)
   local tfn, fullname, address, quoter, date, id, subject, newsgroup, refs, r;
 
   r := open(tfn := tempname(), "w");
@@ -266,7 +266,7 @@ end
 				# Put user in an editor with a temp
 				# file, query for confirmation, if
 				# necessary rewrite address, and send.
-procedure send(what, where);
+procedure send(what, where)
   local edstr, mailstr, done;
   static console;
 
@@ -299,7 +299,7 @@ procedure send(what, where);
 end
 
 
-procedure forward(who, art);
+procedure forward(who, art)
   local out, tfn;
 
   out := open(tfn := tempname(), "w");
@@ -312,7 +312,7 @@ procedure forward(who, art);
 end
 
   
-procedure newmail(address);
+procedure newmail(address)
   local out, tfn;
 
   out := open(tfn := tempname(), "w");
@@ -322,7 +322,7 @@ procedure newmail(address);
 end
 
 
-procedure showart(art, noshow, eoh);
+procedure showart(art, noshow, eoh)
   local out;
 
   out := [];
@@ -336,7 +336,7 @@ procedure showart(art, noshow, eoh);
 end
       
 
-procedure help();
+procedure help()
   local hlist, item;
   static pr, sts;
 
@@ -379,7 +379,7 @@ end
 				# The second parameter specifies a
 				# default response if the user presses
 				# <return>.
-procedure query(prompt, def);
+procedure query(prompt, def)
   local ans;
 
   clear_line();
@@ -391,14 +391,14 @@ end
 				# Increment the count, then cycle
 				# through again when user reaches the
 				# end of the list.
-procedure inc(art);
+procedure inc(art)
 
   if (art +:= 1) > *Status then art := 1;
   return art;
 end
 
 
-procedure more(header, what, footer);
+procedure more(header, what, footer)
   local ans, lines;
 
   writes(getval("cl"));
@@ -423,7 +423,7 @@ procedure more(header, what, footer);
   };
 end
 
-procedure clear_line();
+procedure clear_line()
 
   return writes(getval("up") || getval("ce"));
 end

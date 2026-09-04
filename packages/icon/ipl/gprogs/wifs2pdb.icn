@@ -29,7 +29,7 @@ link xcode
 
 global PDB_
 
-procedure main(args);
+procedure main(args)
    local file, wifname, input, clist, line, range, i;
 
    every file := !args do {

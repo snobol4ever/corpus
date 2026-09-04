@@ -38,7 +38,7 @@ $define SQUARE 60			# size of squares, in pixels
 
 #  main procedure
 
-procedure main(args);
+procedure main(args)
    local patlist;
 
    Window("size=1000,700", "gamma=1.0", args);
@@ -78,7 +78,7 @@ end
 #  The screen is cleared and the fg/bg colors are reset.
 #  Each test procedure is responsible for restoring anything else it changes.
 
-procedure reset();
+procedure reset()
    WAttrib("fg=black", "bg=white");
    EraseArea();
    wwidth := WAttrib("width");
@@ -91,7 +91,7 @@ end
 #
 #  There should be no red or green tinge to the edges of the squares.
 
-procedure checkers();
+procedure checkers()
    local x, y;
 
    WAttrib("drawop=reverse");
@@ -110,7 +110,7 @@ end
 
 #  grid() -- a grid of white lines
 
-procedure grid();
+procedure grid()
    local x, y;
 
    FillRectangle();
@@ -128,7 +128,7 @@ end
 #  Look for white echoes of the black vertical lines
 #  displaced about 1mm to their right.
 
-procedure ghost();
+procedure ghost()
    $define NSTEPS 12
    local dx, x1, x2, y1, y2, i, g;
 
@@ -154,7 +154,7 @@ end
 #  The moire patterns that result on a Trinitron-type CRT
 #  reveal the consistency of pixel sizing across the display.
 
-procedure pinstripe();
+procedure pinstripe()
    WAttrib("pattern=2,#2", "fillstyle=textured");
    FillRectangle();
    WAttrib("fillstyle=solid");
@@ -164,14 +164,14 @@ end
 
 #  white() -- generate a white screen
 
-procedure white();
+procedure white()
    return;
 end
 
 
 #  bars() -- generate color bars
 
-procedure bars();
+procedure bars()
    local dx, i;
 
    dx := (wwidth + 7) / 8;
@@ -187,7 +187,7 @@ end
 
 #  palette() -- draw color palettes
 
-procedure palette();
+procedure palette()
    local dx;
 
    dx := (wwidth + 3) / 4;

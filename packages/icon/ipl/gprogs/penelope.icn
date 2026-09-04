@@ -102,7 +102,7 @@ global MaxPatt					# maximum width for patterns
 
 record pattrec(tile, note)
 
-procedure main(args);
+procedure main(args)
    local vidgets, e, i, j, x, y, v, h, input, mdigits;
 
 #  Initial state
@@ -189,7 +189,7 @@ end
 
 #  file menu
 
-procedure file_cb(vidget, value);
+procedure file_cb(vidget, value)
 
    case value[1] of {
       "load  @L"  :  load();
@@ -206,7 +206,7 @@ end
 
 #  editing grid
 
-procedure grid_cb(vidget, e);
+procedure grid_cb(vidget, e)
    local x, y, i, j;
 
    if e === (&lpress | &rpress | &ldrag | &rdrag) then {
@@ -224,7 +224,7 @@ end
 
 #  list menu
 
-procedure list_cb(vidget, value);
+procedure list_cb(vidget, value)
    local i;
 
    case value[1] of {
@@ -258,7 +258,7 @@ end
 
 #  Penelope logo
 
-procedure logo_cb(vidgets, event);
+procedure logo_cb(vidgets, event)
 
    if event === (&lpress | &mpress | &rpress) then
       Notice("Penelope", "Version 1.1",
@@ -270,7 +270,7 @@ end
 
 #  note menu
 
-procedure note_cb(vidget, value);
+procedure note_cb(vidget, value)
    local result, note, i;
 
    case value[1] of {
@@ -284,7 +284,7 @@ end
 
 #  symmetry buttons
 
-procedure symmet_cb(vidget, e);
+procedure symmet_cb(vidget, e)
    local col, row, symcount;
 
    if e === (&lpress | &rpress | &mpress) then {
@@ -310,7 +310,7 @@ end
 
 #  tile menu
 
-procedure tile_cb(vidget, value);
+procedure tile_cb(vidget, value)
    local result;
 
    case value[1] of {
@@ -361,7 +361,7 @@ end
 
 #  view menu
 
-procedure view_cb(vidget, value);
+procedure view_cb(vidget, value)
    static old_mode, old_zoom;
 
    old_mode := mode;
@@ -394,7 +394,7 @@ end
 
 #  transformation buttons
 
-procedure xform_cb(vidget, e);
+procedure xform_cb(vidget, e)
    local col, row, save_pindex;
 
    if e === (&lpress | &rpress | &mpress) then {
@@ -432,7 +432,7 @@ end
 
 #  clear bits on current tile
 
-procedure clear_tile();
+procedure clear_tile()
 
    rows := list(vbits, repl("0", hbits));
 
@@ -446,7 +446,7 @@ end
 
 #  copy current tile
 
-procedure copy_tile();
+procedure copy_tile()
 
    refresh_tile();
    put(plist, pattrec(old_pat := rows2pat(rows), ""));
@@ -461,7 +461,7 @@ end
 
 #  delete current tile
 
-procedure delete_tile();
+procedure delete_tile()
 						# should ask confirmation
    if *plist = 1 then plist := [pattrec(blank_pat, "")]
    else {
@@ -479,7 +479,7 @@ end
 
 #  draw view area
 
-procedure drawpat();
+procedure drawpat()
 
    if \mode then {				# draw pattern
       DrawRectangle(bordergc, PattXoff - 1, PattYoff - 1,
@@ -499,7 +499,7 @@ end
 
 #  edit annotation on current tile
 
-procedure edit_tile();
+procedure edit_tile()
    local result;
 
    case Dialog("Edit:", "note", [plist[pindex].note], 80,
@@ -517,7 +517,7 @@ end
 
 #  find tile with annotation
 
-procedure find_tile();
+procedure find_tile()
    local note, i;
 
    case Dialog("Find:", "note",  "", 80, ["Okay", "Cancel"]) of {
@@ -543,7 +543,7 @@ end
 
 #  go to specified tile
 
-procedure goto_tile();
+procedure goto_tile()
    local i;
 
    case Dialog("Go to:","#", 1, 5, ["Okay", "Cancel"]) of {
@@ -570,7 +570,7 @@ end
 
 #  draw editing grid
 
-procedure grid();
+procedure grid()
    local x, y;
 
    EraseArea(GridXoff, GridYoff, GridSize - 15, GridSize - 15);
@@ -588,7 +588,7 @@ end
 
 #  check for valid integers
 
-procedure icheck(values);
+procedure icheck(values)
    local i;
 
    every i := !values do
@@ -603,7 +603,7 @@ end
 
 #  assign and draw icons
 
-procedure icons();
+procedure icons()
    local shift_up, shift_left, shift_right, shift_down, pixmap;
    local clear, invert, scramble, trim, enlarge, resize, crop;
 
@@ -715,7 +715,7 @@ end
 
 #  invert bits on current pattern
 
-procedure invert();
+procedure invert()
 
    rows := pinvert(rows);
 
@@ -725,7 +725,7 @@ end
 
 #  load tile list
 
-procedure load();
+procedure load()
    local input;
 
    refresh_tile();
@@ -765,7 +765,7 @@ end
 
 #  load from file
 
-procedure load_file(input);
+procedure load_file(input)
    local line;
 
    plist := [];
@@ -780,7 +780,7 @@ end
 
 #  go to next tile
 
-procedure next_tile();
+procedure next_tile()
 
    refresh_tile();
    rows := pat2rows(plist[pindex + 1].tile) | {
@@ -796,7 +796,7 @@ end
 
 #  place icon
 
-procedure place(xoff, yoff, col, row, pattern);
+procedure place(xoff, yoff, col, row, pattern)
 
    Pattern(pattgc, pattern);
    FillRectangle(pattgc, xoff + col * IconSize, 
@@ -808,7 +808,7 @@ end
 
 #  go to previous tile
 
-procedure previous_tile();
+procedure previous_tile()
 
    rows := pat2rows(plist[pindex - 1].tile) | {
       Notice("No previous tile");
@@ -824,7 +824,7 @@ end
 
 #  terminate session
 
-procedure quit();
+procedure quit()
    local result;
 
    refresh_tile();
@@ -846,7 +846,7 @@ end
 
 #  read pattern specification
 
-procedure read_pattern(file);
+procedure read_pattern(file)
    local line;
 
    line := readpattline(file) | fail;
@@ -857,7 +857,7 @@ end
 
 #  read and add tile to tile list
 
-procedure read_tile();
+procedure read_tile()
 
    refresh_tile();
    put(plist, read_pattern(&input)) | fail;
@@ -872,7 +872,7 @@ end
 
 #  refresh tile in list
 
-procedure refresh_tile();
+procedure refresh_tile()
 
    if \tile_touched := &null then {
       plist[pindex].tile := rows2pat(rows);
@@ -906,7 +906,7 @@ end
 
 #  save tile list in new file
 
-procedure save_as();
+procedure save_as()
    local output;
 
    refresh_tile();
@@ -934,7 +934,7 @@ end
 
 #  scramble bits of current tile
 
-procedure bscramble();
+procedure bscramble()
 
    rows := pscramble(rows, "b");
 
@@ -944,7 +944,7 @@ end
 
 #  set bits of tile
 
-procedure setbit(i, j, c);
+procedure setbit(i, j, c)
    local x, y, xu, yu, xv, yv, xt, yt, action;
 
    if (symmetries = 0) & (rows[i + 1, j + 1] == c) then return;	# optimization
@@ -1005,7 +1005,7 @@ end
 
 #  set up editing grid and view area
 
-procedure setup();
+procedure setup()
    local i, j;
 
    hbits := *rows[1];
@@ -1037,7 +1037,7 @@ end
 
 #  keyboard shortcuts
 
-procedure shortcuts(e);
+procedure shortcuts(e)
 
    if &meta then case map(e) of {
       "c"  :  copy_tile();
@@ -1062,7 +1062,7 @@ end
 
 #  return number of bits set in tile for sorting
 
-procedure tile_bits(x);
+procedure tile_bits(x)
 
    return tilebits(pat2rows(x.tile));
 
@@ -1070,7 +1070,7 @@ end
 
 #  show information about tile
 
-procedure tile_info();
+procedure tile_info()
    local line1, line2, line3, line4, pattern, bits, density;
 
    pattern := rows2pat(rows);
@@ -1092,7 +1092,7 @@ end
 
 #  return annotation of tile for sorting
 
-procedure tile_note(x);
+procedure tile_note(x)
 
    return x.note;
 
@@ -1100,7 +1100,7 @@ end
 
 #  return tile size for sorting
 
-procedure tile_size(x);
+procedure tile_size(x)
    local dims;
 
    dims := tiledim(x.tile);
@@ -1111,7 +1111,7 @@ end
 
 #  undo transformation
 
-procedure undo_xform();
+procedure undo_xform()
 
    rows := pat2rows(old_pat);
 
@@ -1121,7 +1121,7 @@ end
 
 #  write pattern
 
-procedure write_pattern(file, pattern);
+procedure write_pattern(file, pattern)
 
    if *pattern.note = 0 then write(file, pattern.tile)
    else write(file, pattern.tile, "\t# ", pattern.note);
@@ -1132,7 +1132,7 @@ end
 
 #  write tile
 
-procedure write_tile();
+procedure write_tile()
 
    write_pattern(&output, pattrec(rows2pat(rows), (plist[pindex]).note));
 
@@ -1142,7 +1142,7 @@ end
 
 #  handle transformation
 
-procedure xform(col, row);
+procedure xform(col, row)
    local result;
    static params;
 
@@ -1221,11 +1221,11 @@ procedure xform(col, row);
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=730,420", "bg=pale gray", "label=Penelope"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,730,420:Penelope",],
    ["file:Menu:pull::0,1,36,21:file",file_cb,

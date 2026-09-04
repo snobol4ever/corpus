@@ -2,7 +2,7 @@
 
 # test csets and character conversions
 
-procedure main();
+procedure main()
    local a, c, i, n, s, cs, ct, x, y;
 
    x := 'a1b2c3';
@@ -78,7 +78,7 @@ procedure main();
       };
 end
 
-procedure kw(label, value);
+procedure kw(label, value)
    write(right("&" || label, 10), ": '", value, "'");
    return;
 end

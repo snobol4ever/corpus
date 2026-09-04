@@ -101,7 +101,7 @@ global wdw_debug			# non-null if to trace open call
 
 #  Window(att, ..., arglist, ..., att) -- open window and set &window
 
-procedure Window(args[]);
+procedure Window(args[])
    local cs, pname, att, omit1, omit2, name, val, a, win;
    static type;
 
@@ -171,7 +171,7 @@ end
 #  pname is the program name for calling xdefault.
 #  A list of several attribute names (see code) is checked.
 
-procedure wdw_defaults(att, arglist, pname);
+procedure wdw_defaults(att, arglist, pname)
    local w, oname, dpy;
 
    # We need to have a window in order to read defaults, and unless we honor
@@ -199,7 +199,7 @@ end
 #  Option cracking rules are identical with wdw_options().
 #  Fails if the option does not appear.
 
-procedure wdw_peekopt(arglist, ch);
+procedure wdw_peekopt(arglist, ch)
    local a, opt, val;
 
    arglist := copy(arglist);
@@ -232,7 +232,7 @@ end
 #
 #  The special option "-!" takes no value and causes wdw_debug to be set.
 
-procedure wdw_options(att, arglist);
+procedure wdw_options(att, arglist)
    local a, opt, name, val, rejects;
 
    rejects := [];
@@ -284,12 +284,12 @@ end
 #  error occurs if any of these is malformed.  Interactions with
 #  "canvas=maximal" are also handled.
 
-procedure wdw_register(att, name, val);
+procedure wdw_register(att, name, val)
    wdw_reg(att, name, val) | runerr(205, name || "=" || val);
    return;
 end
 
-procedure wdw_reg(att, name, val);
+procedure wdw_reg(att, name, val)
    case name of {
       "size": val ? {		# size=www,hhh
          att["width"] := tab(many(&digits)) | fail;
@@ -338,7 +338,7 @@ end
 #  Ignore null or empty attributes and those in the "omit" set.
 #  Trace open call if wdw_debug is set.  Set &window.
 
-procedure wdw_open(att, omit);
+procedure wdw_open(att, omit)
    local args, name;
    static image;
 
@@ -365,7 +365,7 @@ end
 #  Failure is diagnosed on stderr.
 #  The call is traced if wdw_debug is set.
 
-procedure wdw_attrib(win, att, name);
+procedure wdw_attrib(win, att, name)
    local val, s;
    static image;
 

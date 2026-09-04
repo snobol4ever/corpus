@@ -30,7 +30,7 @@
 link calls
 link rstars
 
-procedure rstartbl();
+procedure rstartbl()
    local rstars;
 
    rstars := table();

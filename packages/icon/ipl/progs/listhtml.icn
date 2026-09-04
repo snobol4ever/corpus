@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
    local file;
 
    write("<HTML><HEAD>");

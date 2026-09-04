@@ -47,7 +47,7 @@ global gap
 global minside
 global palette
 
-procedure main(args);
+procedure main(args)
    local w, h, opts, name;
 
    opts := options(args, "w+h+p:g+b+m+n:i");
@@ -78,7 +78,7 @@ end
 
 #  rect(x,y,w,h) -- draw rectangle, possibly subdivided, at (x,y)
 
-procedure rect(x, y, w, h);
+procedure rect(x, y, w, h)
    local d;
    static colors;
 
@@ -108,7 +108,7 @@ end
 #  either end.  Fail if the length is too small to subdivide;
 #  also fail randomly, depending partially on the bias setting.
 
-procedure divide(n);
+procedure divide(n)
 
    if (n > 2 * minside) & (?n > bias) then
       return minside + ?(n - 2 * minside)

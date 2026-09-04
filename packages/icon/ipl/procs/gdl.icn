@@ -30,7 +30,7 @@
 ############################################################################
 
 
-procedure gdl(dir);
+procedure gdl(dir)
 
     local getdir;
     getdir := set_getdir_by_os();
@@ -40,7 +40,7 @@ end
 
 
 
-procedure set_getdir_by_os();
+procedure set_getdir_by_os()
 
     # Decide how to get a directory, based on whether we are running
     # under Unix or MS-DOS.
@@ -55,7 +55,7 @@ end
 
 
 
-procedure msdos_get_dir(dir);
+procedure msdos_get_dir(dir)
 
     # Returns a sorted list of all filenames (full paths included) in
     # directory "dir."  The list is sorted.  Fails on invalid or empty
@@ -109,7 +109,7 @@ end
 
 
 
-procedure get_dos_tempname(dir);
+procedure get_dos_tempname(dir)
     local temp_name, temp_file;
 
     # Don't clobber existing files.  Get a unique temp file name for
@@ -125,7 +125,7 @@ end
 
 
 
-procedure unix_get_dir(dir);
+procedure unix_get_dir(dir)
     local filename_list, in_dir, filename;
 
     dir := trim(dir, '/') || "/";

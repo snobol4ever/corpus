@@ -18,7 +18,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
    local procs, name, args;
 
    procs := table();

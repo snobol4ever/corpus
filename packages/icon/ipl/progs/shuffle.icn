@@ -27,7 +27,7 @@
 
 link random
 
-procedure main(args);
+procedure main(args)
    local data, fname, f;
 
    randomize();

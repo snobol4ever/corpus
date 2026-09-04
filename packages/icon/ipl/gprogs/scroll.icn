@@ -34,7 +34,7 @@ link xcompat
 global win, im_win, view_width, view_height
 global scv, sch
 
-procedure main(args);
+procedure main(args)
    local opts, file, scrollbar_width, picw, pich, root;
 
    opts := options(args, "f:w+h+");
@@ -81,12 +81,12 @@ end
 #
 #  Terminate the program on a keypress of "q".
 #
-procedure quit(e);
+procedure quit(e)
 
    if e === "q" then stop("End scroll.");
 end
 
-procedure resize(root);
+procedure resize(root)
 
    VReformat(scv, WAttrib(scv.win, "height") - 15);
    VReformat(sch, WAttrib(sch.win, "width") - 15);
@@ -96,7 +96,7 @@ end
 #  Copy a portion of the bitmap to the main
 #  window based on the values of the scrollbars.
 #  
-procedure sl_cb(caller, val);
+procedure sl_cb(caller, val)
    static vpos, hpos;
    initial vpos := hpos := 0;
 

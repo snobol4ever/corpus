@@ -55,7 +55,7 @@
 
 record entry(name,address)
 
-procedure main(args);
+procedure main(args)
    local maptype, arg, file, nm, ldmap, tname, line, text, data, bss;
    local SPACE, COLON, DIGITS, HEXDIGITS, usize, address, name, nmtype;
    initial {
@@ -120,7 +120,7 @@ procedure main(args);
       };
 end
 
-procedure show(l,ssize,base);
+procedure show(l,ssize,base)
    local i1, i2, nrows;
    static ncols;
    initial ncols := 3;
@@ -138,7 +138,7 @@ procedure show(l,ssize,base);
    return;
 end
 
-procedure area(high,low);
+procedure area(high,low)
    if integer(low) & integer(high) then return high - low
    else return "????";
 end

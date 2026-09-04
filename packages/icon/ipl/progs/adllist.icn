@@ -36,7 +36,7 @@
 
 link adlutils, options
 
-procedure main(args);
+procedure main(args)
    local item, item_lists, opts, list_method, get_item, add;
 
    item_lists := table();

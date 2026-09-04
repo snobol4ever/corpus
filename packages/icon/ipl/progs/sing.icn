@@ -32,7 +32,7 @@
 # 
 ############################################################################
 
-procedure sing(singer);
+procedure sing(singer)
 
     local which, and;
     static day, gift;
@@ -88,7 +88,7 @@ end
 
 ############################################################################
 
-procedure main ();
+procedure main ()
 
     #
     # Try out sing procedure with standard output.

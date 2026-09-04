@@ -38,7 +38,7 @@
 # This is the core routine.
 # It succeeds if two things have the same value(s).
 #
-procedure same_value(d1,d2);
+procedure same_value(d1,d2)
     if d1 === d2 then return              # same object
     else
     if type(d1) ~== type(d2) then fail  # not the same type
@@ -58,7 +58,7 @@ end
 # used in same_value:
 #
 
-procedure same_elements(l1,l2);
+procedure same_elements(l1,l2)
    local i;
     if l1 === l2 then return   # same objects
     else
@@ -76,7 +76,7 @@ end
 #
 # The new insert operation. Insert2 always succeeds
 #
-procedure insert2(S,el);
+procedure insert2(S,el)
     every (if same_value(el,!S) then return);
     return insert(S,el);
 end     
@@ -84,7 +84,7 @@ end
 #
 # The new member operation, that also detects equal-valued elements
 #
-procedure member2(S,el);
+procedure member2(S,el)
     every(if same_value(!S,el) then return); 
     fail;
 end
@@ -93,7 +93,7 @@ end
 # The new delete operation, that detects equal-valued elements.
 # Always succeeds
 #
-procedure delete2(S,el);
+procedure delete2(S,el)
     local t;
     every(t := !S) do if same_value(t,el) then return delete(S,t);
     return;
@@ -102,7 +102,7 @@ end
 #
 # conversion of standard icon set into new mset.
 #
-procedure reduce2(iset);
+procedure reduce2(iset)
     local temp;
     temp := set();
     every(insert2(temp,!iset));

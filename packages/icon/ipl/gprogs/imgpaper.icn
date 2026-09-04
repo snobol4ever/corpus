@@ -54,7 +54,7 @@ link options
 link tiler
 link xio
 
-procedure main(args);
+procedure main(args)
    local opts, w, h, hold, names, name, prefix, images, count, number;
    local lines, ims, bad, Hold, mir, background, e, gamma, tmp1, tmp2;
    local rows, blp;
@@ -151,7 +151,7 @@ end
 #
 #  Produce a list of the rows of a pattern
 
-procedure pat2rows(pattern);
+procedure pat2rows(pattern)
    local rlist;
 
    rlist := [];

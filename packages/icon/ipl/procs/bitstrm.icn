@@ -52,7 +52,7 @@
 #
 ############################################################################
 
-procedure BitStreamWrite(outfile,bits,value,outproc);
+procedure BitStreamWrite(outfile,bits,value,outproc)
     local outvalue;
     static buffer,bufferbits;
     #
@@ -89,7 +89,7 @@ procedure BitStreamWrite(outfile,bits,value,outproc);
 end
 
 
-procedure BitStreamRead(infile,bits,inproc);
+procedure BitStreamRead(infile,bits,inproc)
     local value;
     static buffer,bufferbits;
     #

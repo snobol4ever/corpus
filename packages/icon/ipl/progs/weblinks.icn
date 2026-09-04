@@ -149,7 +149,7 @@ global todo, done, nscanned
 global refto, reffrom
 
 
-procedure main(args);
+procedure main(args)
    local opts, url, tmp;
 
    # initialize data structures
@@ -200,31 +200,31 @@ procedure main(args);
    report();
 end
 
-procedure setroot(s);
+procedure setroot(s)
    if s[-1] ~== "/" then
       s ||:= "/";
    root := s;
    return;
 end
 
-procedure sethome(s);
+procedure sethome(s)
    if s[-1] ~== "/" then
       s ||:= "/";
    home := s;
    return;
 end
 
-procedure setprune(s);
+procedure setprune(s)
    put(prune, s);
    return;
 end
 
-procedure setbounds(s);
+procedure setbounds(s)
    bounds := s;
    return;
 end
 
-procedure setfrom();
+procedure setfrom()
    local user, host, f;
 
    user := getenv("USER" | "LOGNAME")	| fail;
@@ -238,7 +238,7 @@ procedure setfrom();
 end
 
 
-procedure wheader();
+procedure wheader()
    write("From:\t", \vhttp_from | "[none]");
    write("root:\t", root);
    write("home:\t", home);
@@ -249,7 +249,7 @@ procedure wheader();
    return;
 end
 
-procedure try(url);
+procedure try(url)
    local result;
 
    (/done[url] := "[processing]") | return;	# return if already checked
@@ -268,7 +268,7 @@ procedure try(url);
 end
 
 
-procedure check(url);
+procedure check(url)
    local protocol, fspec, fname, f, s, ref, base;
 
    url ? {
@@ -342,7 +342,7 @@ procedure check(url);
    return "252 File Scanned";
 end
 
-procedure report();
+procedure report()
    local l, url, stat, s, t, u;
 
    l := sort(done, 4);
@@ -384,7 +384,7 @@ procedure report();
    return;
 end
 
-procedure addref(src, dst);
+procedure addref(src, dst)
    dst := (dst ? tab(upto('#') | 0));
    register(dst);
    insert(refto[dst], src);
@@ -394,7 +394,7 @@ procedure addref(src, dst);
    return;
 end
 
-procedure register(url);
+procedure register(url)
    /refto[url] := set();
    /reffrom[url] := set();
    return;
@@ -404,7 +404,7 @@ end
 
 #  pad(s, n) -- pad string to length n, never truncating
 
-procedure pad(s, n);
+procedure pad(s, n)
    if *s < n then
       return left(s, n)
    else

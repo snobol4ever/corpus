@@ -23,7 +23,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local dir1, dir2, set1, set2, set3, input1, input2;
 
    dir1 := args[1] | stop("*** no directories specified");

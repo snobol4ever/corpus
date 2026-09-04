@@ -40,7 +40,7 @@ link graphics, imscolor
 
 global flags
 
-procedure main(args);
+procedure main(args)
    local p, nw, nh, w, h, e;
 
    flags := "l";

@@ -34,7 +34,7 @@ link imgcolor
 link basename
 link wopen
 
-procedure main(args);
+procedure main(args)
    local file, colors, output, name, count;
 
    every file := !args do {

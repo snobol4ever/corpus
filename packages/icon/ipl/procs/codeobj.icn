@@ -112,7 +112,7 @@ record triple(type,value,tag)
 
 #  Encode an arbitary value as a string.
 #
-procedure encode(x,level);
+procedure encode(x,level)
    local str, tag, Type;
    static label;
    initial label := create "l" || star(string(&lcase));
@@ -152,7 +152,7 @@ end
 #  but for structures, it is called recursively and generates the
 #  the decoded elements. 
 #
-procedure decode(s,level);
+procedure decode(s,level)
    local p;
    if /level then inlab := table();	# global but reset
    every p := separ(s) do {
@@ -178,7 +178,7 @@ end
 
 #  Generate triples for the encoded values in concatenation.
 #
-procedure separ(s);
+procedure separ(s)
    local p, size;
 
    while *s ~= 0 do {
@@ -197,7 +197,7 @@ end
 #  Decode a list. The newly constructed list is added to the table that
 #  relates tags to structure values.
 #
-procedure delist(s,tag);
+procedure delist(s,tag)
    local a;
    inlab[tag] := a := [];  # insert object for label
    every put(a,decode(s,1));
@@ -206,7 +206,7 @@ end
 
 #  Decode a set. Compare to delist above.
 #
-procedure deset(s,tag);
+procedure deset(s,tag)
    local S;
    inlab[tag] := S := set();
    every insert(S,decode(s,1));
@@ -215,7 +215,7 @@ end
 
 #  Decode a record.
 #
-procedure derecord(s,tag);
+procedure derecord(s,tag)
    local R, e;
    e := create decode(s,1);  # note use of co-expressions to control
 				# generation, since record must be constructed
@@ -227,7 +227,7 @@ end
 
 #  Decode  a table.
 #
-procedure detable(s,tag);
+procedure detable(s,tag)
    local t, e;
    e := create decode(s,1);  # see derecord above; here it's the default
 				# value that motivates co-expressions.
@@ -238,7 +238,7 @@ end
 
 #  Decode a file.
 #
-procedure defile(s, tag);
+procedure defile(s, tag)
    return inlab[tag] := case s of {		# files aren't so simple ...
       "&input":  &input;
       "&output": &output;

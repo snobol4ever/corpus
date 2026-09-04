@@ -113,7 +113,7 @@ global current		# current selection
 $define PosX	"posx=10"
 $define PosY	"posy=10"
 
-procedure main();
+procedure main()
    local atts;
 
    atts := ui_atts();
@@ -134,7 +134,7 @@ end
 
 #  Auto-save callback toggle.
 
-procedure auto_cb(vidget, value);
+procedure auto_cb(vidget, value)
 
   auto := value;
 
@@ -150,7 +150,7 @@ end
 
 #  Callback that handles all the buttons that change x, y, w, and h.
 
-procedure change_cb(vidget);
+procedure change_cb(vidget)
 
    # Cute code alert.  The selected reversible assignment is performed
    # and passed to check().  It checks the resulting selection rectangle
@@ -189,7 +189,7 @@ end
 
 #  Check validity of selection.
 
-procedure check();
+procedure check()
 
    if (0 <= current.h <= hmax) &
       (0 <= current.w <= wmax) &
@@ -206,7 +206,7 @@ end
 
 $define Margin 20
 
-procedure copy_source(label);
+procedure copy_source(label)
 
    screen := WOpen("size=" || WAttrib(source, "width") || "," ||
       WAttrib(source, "height"), "posx=" || posx, "posy=" || posy,
@@ -230,7 +230,7 @@ end
 
 #  Enable user-drawn selection.
 
-procedure draw_cb(vidget, value);
+procedure draw_cb(vidget, value)
    local sel;
 
    if /value then return;
@@ -256,7 +256,7 @@ end
 
 #  File menu callback.
 
-procedure file_cb(vidget, value);
+procedure file_cb(vidget, value)
 
    case value[1] of {
       "open  @O":  get_image();
@@ -272,7 +272,7 @@ end
 
 #  Utility procedure to get new source image.
 
-procedure get_image();
+procedure get_image()
 
    WClose(\source);
    WClose(\screen);
@@ -303,7 +303,7 @@ $define Offset2	82
 
 $define MinSize 600
 
-procedure init();
+procedure init()
    local iheight;
 
    current := rect(0, 0, 1, 1);
@@ -333,7 +333,7 @@ end
 
 #  Utility procedure to let user pick an image file in the current directory.
 
-procedure pick();
+procedure pick()
    local plist, ls;
 
    plist := filelist("*.gif *.GIF") |
@@ -360,7 +360,7 @@ end
    
 #  Callback to terminate program execution.
 
-procedure quit_cb();
+procedure quit_cb()
 
    exit();
 
@@ -368,7 +368,7 @@ end
 
 #  Callback to reset x, y, w, and h to initial values.
 
-procedure reset_cb();
+procedure reset_cb()
 
    current := rect(0, 0, 1, 1);
 
@@ -380,7 +380,7 @@ end
 
 #  Callback procedure to save the current selection as an image file.
 
-procedure save_cb();
+procedure save_cb()
 
    snap();
 
@@ -388,7 +388,7 @@ end
 
 #  Callback procedure to allow use of standard tile sizes.
 
-procedure select_cb(vidget, value);
+procedure select_cb(vidget, value)
 
    check(current.w := current.h := case value of {
       "     4 x 4":    4;
@@ -413,7 +413,7 @@ end
 
 #  Callback to allow setting of specific selection rectangle values.
 
-procedure set_cb();
+procedure set_cb()
 
    repeat {
       if TextDialog("Set values:",
@@ -441,7 +441,7 @@ end
 
 #  Keyboard shortcuts.
 
-procedure shortcuts(e);
+procedure shortcuts(e)
 
    if &meta then
       case map(e) of {			# fold case
@@ -465,7 +465,7 @@ $define Width	200
 $define Height	 30
 $define YOff	 10
 
-procedure show();
+procedure show()
    static sx, sy;
 
    initial {
@@ -495,7 +495,7 @@ end
 
 #  Utility procedure to save current selection.
 
-procedure snap();
+procedure snap()
 
    return snapshot(\source, current.x, current.y, current.w, current.h) |
      FailNotice("No source image.");
@@ -504,7 +504,7 @@ end
 
 #  Callback for System menu.
 
-procedure system_cb(vidget, value);
+procedure system_cb(vidget, value)
 
    case value[1] of {
       "edit":     edit_file();
@@ -515,7 +515,7 @@ procedure system_cb(vidget, value);
 
 end
 
-procedure tile_selection();
+procedure tile_selection()
 
    tile(pattern, screen, current.x, current.y, current.w, current.h);
    CopyArea(screen, source);
@@ -525,11 +525,11 @@ procedure tile_selection();
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=397,360", "bg=gray-white"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,397,360:",],
    ["auto save:Button:regular:1:12,74,70,20:auto save",auto_cb],

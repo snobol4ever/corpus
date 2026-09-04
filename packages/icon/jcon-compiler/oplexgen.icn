@@ -4,7 +4,7 @@
 
 global primitives, reserveds, operators
 
-procedure init_lex_tables();
+procedure init_lex_tables()
 
     #Primitive Tokens
     primitives := [
@@ -137,7 +137,7 @@ procedure init_lex_tables();
                ["%%",              "NEWSECT",   "be"]];
 end
 
-procedure main(L);
+procedure main(L)
     local toks, prim, actual, token, res, op, elem;
 
     write("#  AUTOMATICALLY GENERATED FILE -- DO NOT EDIT!");
@@ -196,7 +196,7 @@ procedure main(L);
     write("end");
 end
 
-procedure lexgen_reserveds();
+procedure lexgen_reserveds()
     local l, res, actual, token, i;
 
     l := [];
@@ -213,7 +213,7 @@ end
 
 record node(actual, token, t)
 
-procedure lexgen_tree();
+procedure lexgen_tree()
     local t, op, actual, token;
 
     t := node(&null, &null, table());
@@ -226,7 +226,7 @@ procedure lexgen_tree();
     dotree(t, "\t");
 end
 
-procedure optimize_tree(t);
+procedure optimize_tree(t)
     local changes, i, s, j;
 
     changes := 1;
@@ -248,7 +248,7 @@ procedure optimize_tree(t);
     };
 end
 
-procedure dotree(t, indent);
+procedure dotree(t, indent)
     local i;
 
     every i := key(t.t) do {
@@ -265,7 +265,7 @@ procedure dotree(t, indent);
     };
 end
 
-procedure buildtree(a, sofar, token, t);
+procedure buildtree(a, sofar, token, t)
     t.actual := sofar;
     if a == "" then {
         t.token := "lex_" || token;

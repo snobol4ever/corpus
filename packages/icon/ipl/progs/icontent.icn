@@ -30,7 +30,7 @@
 
 link options,colmize
 
-procedure main(arg);
+procedure main(arg)
    local opt,linear,Colmize,Sort,namechar,fn,f,names,line,name,type;
    #
    #  Process command line options and file names.

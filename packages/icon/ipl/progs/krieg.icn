@@ -137,7 +137,7 @@ global	Me, Yu, Mycname, Yrcname, Mycomm, Yrcomm, Logname, Logfile,
 	Mycol, Yrcol, Blind, Bg, Frinclst, Lmv, Any, Tries, Remind
 
 
-procedure automov( );
+procedure automov( )
 
 #   Returns a pseudo-randomly selected move type-in to be used in
 #   "auto opponent" mode.  But if possible, try to recapture (unless in
@@ -181,7 +181,7 @@ procedure automov( );
 end
 
 
-procedure chksqrs( b);
+procedure chksqrs( b)
 
 #   Generates the set of squares of pieces giving check in board b;
 #   fails if moving side's king not in check:
@@ -193,7 +193,7 @@ procedure chksqrs( b);
 end
 
 
-procedure fr2s( file, rank);
+procedure fr2s( file, rank)
 
 #   Returns the square number corresponding to "file" and "rank"
 #   numbers; fails if invalid file and/or rank:
@@ -202,7 +202,7 @@ procedure fr2s( file, rank);
 end
 
 
-procedure gamend( b);
+procedure gamend( b)
 
 #   If the position b is at end of game,
 #   return an ascii string giving the result; otherwise, fail:
@@ -231,7 +231,7 @@ procedure gamend( b);
 end
 	
 
-procedure init( );
+procedure init( )
 
 #   init initializes the program:
 
@@ -364,7 +364,7 @@ procedure init( );
 end
 
 
-procedure kstop( s);
+procedure kstop( s)
 
 #   Clean up and terminate execution with message s:
 
@@ -383,7 +383,7 @@ procedure kstop( s);
 end
 
 
-procedure logboard( file, b);
+procedure logboard( file, b)
 
 #   Print the full board position in b to file:
 
@@ -407,7 +407,7 @@ procedure logboard( file, b);
 end
 
 
-procedure main( );
+procedure main( )
 
     local	line;
 
@@ -458,7 +458,7 @@ procedure main( );
 end
 
 
-procedure movgen( b, s);
+procedure movgen( b, s)
 
 #   movgen generates the pseudo-legal moves in board position b from the
 #   piece on square s; if s is unspecified all pieces are considered.
@@ -570,7 +570,7 @@ procedure movgen( b, s);
 end
 
 
-procedure movlegal( b, m);
+procedure movlegal( b, m)
 
 #   Tests move m on board b and, if it does not leave the moving color in
 #   check, returns m; fails otherwise:
@@ -609,7 +609,7 @@ procedure movlegal( b, m);
 end
 
 
-procedure movmake( b, m);
+procedure movmake( b, m)
 
 #   Makes move m on board b:
 
@@ -660,7 +660,7 @@ procedure movmake( b, m);
 end
 
 
-procedure movtry( m);
+procedure movtry( m)
 
 #   Tests whether the typed move m is legal in the global board Bg and, if so,
 #   returns the corresponding move returned from movgen (which will be in a
@@ -705,7 +705,7 @@ procedure movtry( m);
 end
 
 
-procedure myany( );
+procedure myany( )
 
 #   Process my any command.
 #   Check for captures by pawns and inform the player of any, and, if
@@ -730,7 +730,7 @@ procedure myany( );
 end
 
 
-procedure myboard( );
+procedure myboard( )
 
 #   Process my board command by printing the board but omitting the
 #   opponent's pieces and the enpassant status; a count of pieces of
@@ -766,7 +766,7 @@ procedure myboard( );
 end
 
 
-procedure myend( );
+procedure myend( )
 
 #   Process my end command:
 
@@ -774,7 +774,7 @@ procedure myend( );
 end
 
 
-procedure myhelp( );
+procedure myhelp( )
 
 #   Process my help command:
 
@@ -900,7 +900,7 @@ procedure myhelp( );
 end
 
 
-procedure mymessage( );
+procedure mymessage( )
 
 #   Process my message command:
 
@@ -920,7 +920,7 @@ procedure mymessage( );
 end
 
 
-procedure myremind( );
+procedure myremind( )
 
 #   Process my remind command:
 
@@ -931,7 +931,7 @@ procedure myremind( );
 end
 
 
-procedure mytry( mt);
+procedure mytry( mt)
 
 #   Process my move try mt:
 
@@ -957,7 +957,7 @@ procedure mytry( mt);
 end
 
 
-procedure p2c( p);
+procedure p2c( p)
 
 #   Returns "White" if p is white piece code ("PRNBQK"), "Black"
 #   if p is black piece code ("prnbqk"), and " " if empty square
@@ -972,7 +972,7 @@ procedure p2c( p);
 end
 
 
-procedure pc2p( p, c);
+procedure pc2p( p, c)
 
 #   Returns the piece letter for the piece of type p but color c;
 #   returns " " if p == " ".  Thus pc2p( "R", "Black") == "r".
@@ -985,7 +985,7 @@ procedure pc2p( p, c);
 end
 
 
-procedure s2f( square);
+procedure s2f( square)
 
 #   Returns the file number of the square number "square"; fails
 #   if invalid square number:
@@ -994,7 +994,7 @@ procedure s2f( square);
 end
 
 
-procedure s2r( square);
+procedure s2r( square)
 
 #   Returns the rank number of the square number "square"; fails
 #   if invalid square number:
@@ -1003,7 +1003,7 @@ procedure s2r( square);
 end
 
 
-procedure s2sn( square);
+procedure s2sn( square)
 
 #   Returns the algebraic square name corresponding to square number
 #   "square"; fails if invalid square number:
@@ -1012,7 +1012,7 @@ procedure s2sn( square);
 end
 
 
-procedure saycheck( );
+procedure saycheck( )
 
 #   Announce checks, if any, in global board Bg:
 
@@ -1036,7 +1036,7 @@ procedure saycheck( );
 end
 
 
-procedure sn2s( sn);
+procedure sn2s( sn)
 
 #   Returns the square number corresponding to the algebraic square
 #   name sn; examples: sn2s( "a1") = 1, sn2s( "b1") = 2, sn2s( "h8") = 64.
@@ -1046,7 +1046,7 @@ procedure sn2s( sn);
 end
 
 
-procedure sqratks( ps, s, c);
+procedure sqratks( ps, s, c)
 
 #   Generates the numbers of squares of pieces of color c that "attack"
 #   square s in board piece array ps; fails if no such squares:
@@ -1089,7 +1089,7 @@ procedure sqratks( ps, s, c);
 end
 
 
-procedure sqrcap( b, m);
+procedure sqrcap( b, m)
 
 #   Returns square of piece captured by move m in board b; fails if m
 #   not a capture:
@@ -1106,7 +1106,7 @@ procedure sqrcap( b, m);
 end
 
 
-procedure tokens( s, d);
+procedure tokens( s, d)
 
 #   Generate tokens from left to right in string s given delimiters in cset
 #   d, where a token is a contiguous string of 1 or more characters not in
@@ -1121,7 +1121,7 @@ procedure tokens( s, d);
 end
 
 
-procedure yrany( );
+procedure yrany( )
 
 #   Process opponent's any command:
 
@@ -1144,7 +1144,7 @@ procedure yrany( );
 end
 
 
-procedure yrend( );
+procedure yrend( )
 
 #   Process opponent's end command:
 
@@ -1153,7 +1153,7 @@ procedure yrend( );
 end
 
 
-procedure yrmessage( );
+procedure yrmessage( )
 
 #   Process opponent's message command:
 
@@ -1169,7 +1169,7 @@ procedure yrmessage( );
 end
 
 
-procedure yrtry( mt);
+procedure yrtry( mt)
 
 #   Process opponent move try (or other type-in!) mt:
 

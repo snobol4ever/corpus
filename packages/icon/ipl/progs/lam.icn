@@ -55,7 +55,7 @@ link usage
 
 global fndxs
 
-procedure main(a);
+procedure main(a)
    local bufs, i;
    bufs := list(*a);
    fndxs := [];
@@ -78,7 +78,7 @@ procedure main(a);
    if 0 ~= *fndxs then lamr(a,bufs) else Usage("lam file [file | -string]...");
 end
 
-procedure lamr(args,bufs);
+procedure lamr(args,bufs)
    local i, j;
    every i := !fndxs do
       bufs[i] := (read(args[i]) | &null);

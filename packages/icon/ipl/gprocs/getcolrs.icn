@@ -44,7 +44,7 @@ global	palette
 
 record	colorspec(palette, colors)
 
-procedure color_palette();
+procedure color_palette()
    local pal_win, e, number, color_win, x, y, c, i;
    static windows, attribs, colors_tmp, clist, palettes;
 
@@ -120,7 +120,7 @@ procedure color_palette();
 
 end
 
-procedure edit_colors(colors);
+procedure edit_colors(colors)
    local color_win, x, y;
 
    color_win := palette_win("color list", WAttrib("width") + WPad, 0) | fail;
@@ -142,7 +142,7 @@ procedure edit_colors(colors);
 
 end
 
-procedure palette_win(label, xoff, yoff);
+procedure palette_win(label, xoff, yoff)
    local win, x, y;
 
    win := WOpen("width=" || (ColorCols * CellSize), "height=" || (ColorRows *
@@ -174,7 +174,7 @@ end
 #  If i = 2 then both integers and color specifications are allowed.  This
 #  is for blend information.
 
-procedure get_list(i);
+procedure get_list(i)
    local n, list_tmp, x;
 
    if Dialog("Number of entries", , 2, NumberField, ["Okay", "Cancel"]) ==
@@ -204,7 +204,7 @@ procedure get_list(i);
 
 end
 
-procedure color_blend();
+procedure color_blend()
    local colors_tmp;
 
    colors_tmp := [];
@@ -215,7 +215,7 @@ procedure color_blend();
 
 end
 
-procedure get_colors(s);
+procedure get_colors(s)
 
    return case s of {
       "palette": color_palette();
@@ -227,7 +227,7 @@ procedure get_colors(s);
 
 end
 
-procedure select_color(palette);
+procedure select_color(palette)
    local clist,k;
 
    clist := [];
@@ -248,7 +248,7 @@ procedure select_color(palette);
 
 end
 
-procedure save_colortbl();
+procedure save_colortbl()
    local output, temp, n, clist;
 
    if /save_colortbl_name then return save_colortbl_as();
@@ -273,7 +273,7 @@ procedure save_colortbl();
 
 end
 
-procedure load_colortbl();
+procedure load_colortbl()
    local line, clist, tbl, name;
 
    load_file("Load color table:") == "Okay" | fail;
@@ -304,7 +304,7 @@ procedure load_colortbl();
 
 end
 
-procedure save_colortbl_as();
+procedure save_colortbl_as()
    local n, clist, temp;
 
    save_as("Save color table:") == "Yes" | fail;
@@ -328,7 +328,7 @@ procedure save_colortbl_as();
 
 end
 
-procedure delete_color();
+procedure delete_color()
    local clist, k;
 
    if *colortbl = 0 then {
@@ -350,7 +350,7 @@ procedure delete_color();
 
 end
 
-procedure delete_colortbl();
+procedure delete_colortbl()
 
    TextDialog("Delete entire color table?") == "Okay" | fail;
 
@@ -361,7 +361,7 @@ procedure delete_colortbl();
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure colors_dl(win, deftbl);
+procedure colors_dl(win, deftbl)
 static dstate;
 initial dstate := dsetup(win,
    ["colors_dl:Sizer::1:0,0,161,249:colors",],

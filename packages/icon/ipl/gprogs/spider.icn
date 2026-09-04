@@ -91,7 +91,7 @@ global readingGame	# =1 if reading game from file =0 o.w.
 global startTime        # start time of this game
 global histfile         # appendable history file, if any, else null
 
-procedure main(args);
+procedure main(args)
     local fromPile,maxCards,e,p;
 
     initialize(args);
@@ -157,7 +157,7 @@ procedure main(args);
 
 end
 
-procedure initialize(args);
+procedure initialize(args)
     local hfname;
 
     currentFile := "game1.spd";
@@ -201,7 +201,7 @@ end
 
 
 
-procedure newgame(initialDeck);
+procedure newgame(initialDeck)
    local i, j, s;
 
    while (pop(undoStack));		# empty stack
@@ -235,7 +235,7 @@ procedure newgame(initialDeck);
    return;
 end
 
-procedure drawPiles(p[]);
+procedure drawPiles(p[])
     local i,j,n,x,y,ht,mlap,upstart,yposns;
 
     if *pile[11] = 104 then {
@@ -279,7 +279,7 @@ procedure drawPiles(p[]);
     return;
 end
 
-procedure drawWin();
+procedure drawWin()
     local i, j, s, x, y, suits;
 
     EraseArea();
@@ -298,7 +298,7 @@ procedure drawWin();
     return;
 end
 
-procedure drawBoard();
+procedure drawBoard()
     if readingGame = 0 then {
         EraseArea();
 	WAttrib("label=Spider Deck "||104-nextCard+1);
@@ -307,7 +307,7 @@ procedure drawBoard();
     return;
 end
 
-procedure deal();
+procedure deal()
     local i;
 
     every i := 1 to 10 do {
@@ -326,7 +326,7 @@ procedure deal();
     return;
 end
 
-procedure undo();
+procedure undo()
     local undoFlag,i,toPile,fromPile,n;
 
 #    writes(">")
@@ -358,7 +358,7 @@ procedure undo();
     return;
 end
 
-procedure moveNoUndo(n,fromPile,toPile);
+procedure moveNoUndo(n,fromPile,toPile)
 #    write("moveNoUndo ",n," ",fromPile," ",toPile)
     pile[toPile] := pile[fromPile][1:n+1] || pile[toPile];
     up[toPile] +:= n;
@@ -368,7 +368,7 @@ procedure moveNoUndo(n,fromPile,toPile);
     return;
 end
 
-procedure moveCards(n,fromPile,toPile);
+procedure moveCards(n,fromPile,toPile)
     push(undoStack,n);
     push(undoStack,fromPile);
     push(undoStack,toPile);
@@ -383,7 +383,7 @@ procedure moveCards(n,fromPile,toPile);
     return;
 end
 
-procedure chainPrefix(p);
+procedure chainPrefix(p)
     local i;
 
     i := 1;
@@ -394,7 +394,7 @@ procedure chainPrefix(p);
 end
 
 
-procedure click(maxCards, fromPile, toPile);
+procedure click(maxCards, fromPile, toPile)
     local i,j,tail,chain,c;
 
 #    write("click ",fromPile," ",toPile)
@@ -447,7 +447,7 @@ procedure click(maxCards, fromPile, toPile);
 #   fail
 end
 
-procedure cantMove(c);
+procedure cantMove(c)
     message("Can't move " || rankName(c) || suitName(c));
     return;
 end
@@ -457,7 +457,7 @@ end
 # rank:  A23456789TJQK A23456789TJQK A23456789TJQK A23456789TJQK
 # suit:  hearts....... spades....... clubs........ diamonds.....
 
-procedure suit(c);
+procedure suit(c)
     if c >>= "A" & c <<= "M" then return "A";	#hearts
     if c >>= "N" & c <<= "Z" then return "N";	#spades
     if c >>= "a" & c <<= "m" then return "a";	#clubs
@@ -465,22 +465,22 @@ procedure suit(c);
 #   fail
 end
 
-procedure rank(c);
+procedure rank(c)
     return ord(c)-ord(suit(c));
 end
 
-procedure succ(c);
+procedure succ(c)
     if c == !"MZmz" then fail
     else return char(ord(c)+1);
 end
 
-procedure beep();
+procedure beep()
     writes(&errout, "\^g");
     flush(&errout);
     return;
 end
 
-procedure rankName(c);
+procedure rankName(c)
     local r;
 
     case r := rank(c) of {
@@ -492,7 +492,7 @@ procedure rankName(c);
     };
 end
 
-procedure suitName(c);
+procedure suitName(c)
     case suit(c) of {
 	"A": return "h";
 	"N": return "s";
@@ -501,7 +501,7 @@ procedure suitName(c);
     };
 end
 
-procedure message(s);
+procedure message(s)
     local x;
     x := 5;
     EraseArea(x,height-fheight,width,fheight);
@@ -511,7 +511,7 @@ procedure message(s);
 end
 
 
-procedure hiddenNames(p);
+procedure hiddenNames(p)
    local i, s, card;
 
    i := up[p];
@@ -522,7 +522,7 @@ procedure hiddenNames(p);
    return s;
 end
 
-procedure pileNames(p);
+procedure pileNames(p)
     local i,run,s;
 
     i := up[p];
@@ -544,7 +544,7 @@ procedure pileNames(p);
     return s;
 end
 
-procedure saveFile();
+procedure saveFile()
     local output;
 
     repeat {
@@ -568,7 +568,7 @@ procedure saveFile();
 end
 
 
-procedure readFile();
+procedure readFile()
     local input;
 
     repeat {
@@ -592,7 +592,7 @@ procedure readFile();
     };
 end
 
-procedure doAll();
+procedure doAll()
     local i,doFlag,toPile,fromPile,n;
 
 #    writes(">")
@@ -618,7 +618,7 @@ procedure doAll();
     return;
 end
 
-procedure report();
+procedure report()
     local i, u, s, stopTime, elapsed, nmoves, undealt, cardsleft;
 
     if *undoStack = 0 then return;       # don't report if no moves made

@@ -92,7 +92,7 @@ procedure attribs(win);		#: set graphics attributes via dialog
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure attributes(win, deftbl);
+procedure attributes(win, deftbl)
 static dstate;
 initial dstate := dsetup(win,
    ["attributes:Sizer::1:0,0,370,400:attributes",],

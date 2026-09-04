@@ -60,7 +60,7 @@ link convert
 link random
 link wopen
 
-procedure main(args);
+procedure main(args)
    local opts, rule, bits, binary, i, j, phi, width, height, v, old, new;
    local ilist, name, canvas;
 

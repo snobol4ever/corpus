@@ -3,7 +3,7 @@
 # SCRIP loses it across four layers (lexer OK; AST tree_t.sval has no length field; lower.c's
 # icn_cset_canon NUL-scans and collapses; codegen bakes CSETVAL's slen=-1 sentinel, deferring to
 # runtime strlen()) -- see FINDING-2026-08-27-seat09-icon-cset-embedded-nul-is-a-four-layer-representation-gap.md
-procedure main();
+procedure main()
    local skips;
    skips := '\x00ab';
    write(*skips);

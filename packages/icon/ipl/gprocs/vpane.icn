@@ -32,7 +32,7 @@ link vidgets
 record Vpane_rec(win, callback, id, style, aw, ah, ax, ay,
 	uw, uh, ux, uy, uid, P, V)
 
-procedure Vpane(params[]);
+procedure Vpane(params[])
    local self, frame, x, y, ins;
    static procs;
 
@@ -68,7 +68,7 @@ end
 #
 #  check if (x, y) lie within the bounds of a vidget.
 #
-procedure inrange_Vpane(self, x, y);
+procedure inrange_Vpane(self, x, y)
    if (/self.ax | /self.ay | /self.aw | /self.ah) then
       _Vbomb("VResize() not invoked on this vidget");
    return self.ax <= \x < self.ax + self.aw & self.ay <= \y < self.ay + self.ah;
@@ -77,7 +77,7 @@ end
 #
 #  Set the absolute position and size fields of a vidget.
 #
-procedure resize_Vidget(self, x, y, w, h);
+procedure resize_Vidget(self, x, y, w, h)
    self.ax := \x;
    self.ay := \y;
    self.aw := \w;
@@ -87,7 +87,7 @@ end
 #
 #  Set the absolute position and size fields of a Pane vidget.
 #
-procedure resize_Vpane(self, x, y, w, h);
+procedure resize_Vpane(self, x, y, w, h)
    local border;
 
    resize_Vidget(self, x, y, w, h);
@@ -104,14 +104,14 @@ end
 #
 #  Draw the outline of an arbitrary vidget
 #
-procedure outline_Vidget(self);
+procedure outline_Vidget(self)
    GrooveRectangle(self.win, self.ax, self.ay, self.aw, self.ah);
 end
 
 #
 #  Draw the outline of a Vpane vidget
 #
-procedure outline_Vpane(self);
+procedure outline_Vpane(self)
    case self.style of {
       "sunken":  BevelRectangle(self.win, self.ax, self.ay, self.aw, self.ah,-2);
       "grooved": GrooveRectangle(self.win, self.ax, self.ay, self.aw, self.ah);
@@ -121,14 +121,14 @@ end
 
 #  At the very least, tell a Vpane to outline itself.
 #
-procedure draw_Vpane(self);
+procedure draw_Vpane(self)
    self.V.outline(self);
 end
 
 #  
 #  If the Vpane has a callback, call (or set) it; otherwise, reject the event.
 #
-procedure event_Vpane(self, e, x, y);
+procedure event_Vpane(self, e, x, y)
    local cb;
    static type;
 
@@ -150,18 +150,18 @@ end
 #  If the vidget with this procedure as its couplerset is notified by
 #  a coupler, nothing will happen.
 #
-procedure couplerset_Vpane(self);
+procedure couplerset_Vpane(self)
 end
 
 #
 #  Release the resources associated with the binding on a window.
 #
-procedure destruct_Vpane(self);
+procedure destruct_Vpane(self)
    Uncouple(self.win);
 end
 
 #
 #  No init for Vpane.
 #
-procedure init_Vpane(self);
+procedure init_Vpane(self)
 end

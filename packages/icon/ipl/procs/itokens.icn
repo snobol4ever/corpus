@@ -96,7 +96,7 @@ record TOK(sym, str)
 #     newlines.  It may be useful to keep them when the original line
 #     structure of the input file must be maintained.
 #
-procedure itokens(stream, nostrip);
+procedure itokens(stream, nostrip)
 
     local T, last_token;
 
@@ -136,7 +136,7 @@ end
 #     Here is where we decide whether to break the sequence up into
 #     more than one op or not.
 #
-procedure expand_fake_beginner(next_token);
+procedure expand_fake_beginner(next_token)
 
     static exptbl;
     initial {
@@ -183,7 +183,7 @@ end
 #     stream, thus preserving the line structure of the original
 #     file, and making later diagnostic messages more usable.
 #
-procedure iparse_tokens(stream, getchar);
+procedure iparse_tokens(stream, getchar)
 
     local elem, whitespace, token, last_token, primitives, reserveds;
     static be_tbl, reserved_tbl, operators;
@@ -461,7 +461,7 @@ end
 #      a dot operator.  Note that do_dot resets next_c for the next
 #      cycle through the main case loop in the calling procedure.
 #
-procedure do_dot(getchar);
+procedure do_dot(getchar)
 
     local token;
     # global next_c
@@ -510,7 +510,7 @@ end
 #      then we have to suspend a SEMICOL token.  In either event, both
 #      the last and next token are suspended.
 #
-procedure do_newline(getchar, last_token, be_tbl);
+procedure do_newline(getchar, last_token, be_tbl)
 
     local next_token;
     # global next_c
@@ -586,7 +586,7 @@ end
 #      returns with next_c == "\n".  Since the starting character was
 #      a number sign, this has the effect of stripping comments.
 #
-procedure do_number_sign(getchar);
+procedure do_number_sign(getchar)
 
     # global next_c
 
@@ -612,7 +612,7 @@ end
 #      non-backslashed quotation mark into the str field.  Handles the
 #      underscore continuation convention.
 #
-procedure do_quotation_mark(getchar);
+procedure do_quotation_mark(getchar)
 
     local token;
     # global next_c
@@ -649,7 +649,7 @@ end
 #      as its sym field.  Puts everything upto and including the next
 #      non-backslashed apostrope into the str field.
 #
-procedure do_apostrophe(getchar);
+procedure do_apostrophe(getchar)
 
     local token;
     # global next_c
@@ -686,7 +686,7 @@ end
 #      either "REALLIT" or "INTLIT" in its sym field, and the text of
 #      the numeric literal in its str field.
 #
-procedure do_digits(getchar);
+procedure do_digits(getchar)
 
     local token, tok_record, extras, digits, over;
     # global next_c
@@ -748,7 +748,7 @@ end
 #      membership of a given character in the whitespace argument (a
 #      cset). 
 #
-procedure do_whitespace(getchar, whitespace);
+procedure do_whitespace(getchar, whitespace)
 
 #   write(&errout, "it's junk")
     while any(whitespace, next_c) do
@@ -770,7 +770,7 @@ end
 #      letter or underscore).  Note that next_c is global and gets
 #      reset by do_identifier.
 #
-procedure do_identifier(getchar, reserved_tbl);
+procedure do_identifier(getchar, reserved_tbl)
 
     local token;
     # global next_c
@@ -796,7 +796,7 @@ end
 #     containing valid Icon operator string values and names (see
 #     above).
 #
-procedure do_operator(getchar, operators);
+procedure do_operator(getchar, operators)
 
     local token, elem;
 
@@ -836,7 +836,7 @@ record start_state(b, e, tbl, master_list)
 #      recognized.  If it is of length 0, then string s did not
 #      contain any recognizable operator.
 #
-procedure recognop(l, s, i);
+procedure recognop(l, s, i)
 
     local   current_state, master_list, c, result, j;
     static  dfstn_table;
@@ -898,7 +898,7 @@ end
 #                state, and place that table in the tbl field for
 #                current_state
 #
-procedure create_arcs(master_list, field, current_state, POS);
+procedure create_arcs(master_list, field, current_state, POS)
 
     local elem, i, first_char, old_first_char;
 

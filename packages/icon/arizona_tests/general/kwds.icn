@@ -2,7 +2,7 @@
 
 #  kwds.icn -- check keywords, as best can do reproducibly
 
-procedure main();
+procedure main()
    local f;
 
    &error := 747;
@@ -71,7 +71,7 @@ procedure main();
    # every kw("y", &y | "[failed]")
 end
 
-procedure kw(label, value);
+procedure kw(label, value)
    local s;
    static prev;
 
@@ -87,6 +87,6 @@ procedure kw(label, value);
    return;
 end
 
-procedure nmap(s);
+procedure nmap(s)
    return map(s, "0123456789", "nnnnnnnnnn");
 end

@@ -1,11 +1,11 @@
 record array(a,b,c,d,e,f,g)
 
-procedure dummy(u,v,x,y,z);
+procedure dummy(u,v,x,y,z)
    suspend u | v;
    return x;
 end
 
-procedure main();
+procedure main()
    p1();
    p2();
    p3();
@@ -17,7 +17,7 @@ procedure main();
    p9();
 end
 
-procedure p1();
+procedure p1()
    write("image(2) ----> ",image(image(2)) | "none");
    write("image('cab') ----> ",image(image('cab')) | "none");
    write("image(&lcase) ----> ",image(image(&lcase)) | "none");
@@ -40,7 +40,7 @@ procedure p1();
    write("image(image) ----> ",image(image(image)) | "none");
 end
 
-procedure p2();
+procedure p2()
    write("integer(2) ----> ",image(integer(2)) | "none");
    write("integer(\"2\") ----> ",image(integer("2")) | "none");
    write("integer(\" 2\") ----> ",image(integer(" 2")) | "none");
@@ -68,7 +68,7 @@ procedure p2();
    write("integer := abs ----> ",image(integer := abs) | "none");
 end
 
-procedure p3();
+procedure p3()
    write("numeric(2) ----> ",image(numeric(2)) | "none");
    write("numeric(\"2\") ----> ",image(numeric("2")) | "none");
    write("numeric(\" 2\") ----> ",image(numeric(" 2")) | "none");
@@ -94,10 +94,10 @@ procedure p3();
    write("numeric(\"2r0\") ----> ",image(numeric("2r0")) | "none");
 end
 
-procedure p4();
+procedure p4()
 end
 
-procedure p5();
+procedure p5()
    write("numeric(2) ----> ",image(numeric(2)) | "none");
    write("numeric(2) ----> ",image(numeric(2)) | "none");
    write("numeric(+2) ----> ",image(numeric(+2)) | "none");
@@ -114,18 +114,18 @@ procedure p5();
    write("numeric(--2) ----> ",image(numeric(--2)) | "none");
 end
 
-procedure p6();
+procedure p6()
    write("36 ^ -9 ----> ",image(36 ^ -9) | "none");
    write("-36 ^ -9 ----> ",image(-36 ^ -9) | "none");
 end
 
-procedure p7();
+procedure p7()
    write("f := open(\"foo.baz\",\"w\") ----> ",image(f := open("foo.baz","w")) | "none");
    write("write(f,\"hello world\") ----> ",image(write(f,"hello world")) | "none");
    write("close(f) ----> ",image(close(f)) | "none");
 end
 
-procedure p8();
+procedure p8()
    write("\ncset sizes and images:");
    L := [
       '',
@@ -163,7 +163,7 @@ procedure p8();
    write();
 end
 
-procedure p9();
+procedure p9()
    write(image(&ascii) | "failed");
 #   write(image(&clock) | "failed")
    write(image(&cset) | "failed");

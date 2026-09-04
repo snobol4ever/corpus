@@ -23,7 +23,7 @@
 #
 ############################################################################
 
-procedure statemap();
+procedure statemap()
    local state_list, state_map, i;
 
    state_map := table();
@@ -38,7 +38,7 @@ procedure statemap();
 
 end
 
-procedure __list1();
+procedure __list1()
 
    return [
       "AK", "Alaska",
@@ -73,7 +73,7 @@ procedure __list1();
 
 end
 
-procedure __list2();
+procedure __list2()
 
    return [
       "MO", "Missouri",

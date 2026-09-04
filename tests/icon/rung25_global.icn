@@ -54,27 +54,27 @@ procedure main()
   write(accum);
 end
 #-------------------------------------------------- 5 rung25_global_initial_once
-procedure count();
+procedure count()
   static x;
   initial x := 10;
   x := x + 1;
   write(x);
 end
 
-procedure main();
+procedure main()
   count();
   count();
   count();
 end
 #-------------------------------------------------- 6 rung25_global_initial_zero
-procedure counter();
+procedure counter()
   static n;
   initial n := 0;
   n := n + 1;
   write(n);
 end
 
-procedure main();
+procedure main()
   counter();
   counter();
 end

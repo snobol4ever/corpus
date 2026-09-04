@@ -28,7 +28,7 @@
 #
 ############################################################################
 
-procedure inbits(f, len);
+procedure inbits(f, len)
 
     local i, byte, old_byte_mask;
     static old_byte, old_len, byte_length;

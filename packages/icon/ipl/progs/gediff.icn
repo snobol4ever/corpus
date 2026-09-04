@@ -36,7 +36,7 @@ link options,word
 
 global Diff,ArgStr
 
-procedure Options(arg);
+procedure Options(arg)
    local opt,c;
    opt := options(arg,"dbitwrsS:");
    Diff := \opt["d"] | "diff";
@@ -48,7 +48,7 @@ procedure Options(arg);
    return opt;
 end
 
-procedure main(arg);
+procedure main(arg)
    local argstr,fn1,fn2,p,dargs,cmd;
    Options(arg);
    every ArgStr ||:= " " || !arg;

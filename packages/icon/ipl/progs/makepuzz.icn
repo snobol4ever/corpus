@@ -63,7 +63,7 @@ link colmize
 
 global height, width, _debug_
 
-procedure main(a);
+procedure main(a)
 
     local usage, opttbl, inputfile, outputfile, maxrejects, puzzle,
 	wordlist, rejects, master_list, word, timeout, x, y, l_puzzle,
@@ -184,7 +184,7 @@ procedure main(a);
 end
 
 
-procedure sort_words(wordlist);
+procedure sort_words(wordlist)
 
     local t, t2, word, sum, l;
 
@@ -213,7 +213,7 @@ procedure sort_words(wordlist);
 end
 
 
-procedure blind_luck_insert(puzzle, wordlist, rejects);
+procedure blind_luck_insert(puzzle, wordlist, rejects)
 
     local s, s2, s3, begy, begx, y, x, diry, dirx, diry2, dirx2, i;
     # global height, width
@@ -257,7 +257,7 @@ procedure blind_luck_insert(puzzle, wordlist, rejects);
 end
 
 
-procedure brute_force_insert(puzzle, wordlist, rejects, timeout);
+procedure brute_force_insert(puzzle, wordlist, rejects, timeout)
 
     local s, start, dirs, begy, begx, y, x;
     
@@ -287,7 +287,7 @@ procedure brute_force_insert(puzzle, wordlist, rejects, timeout);
 end
 
 
-procedure insert_word(puzzle, s, ydir, xdir, y, x);
+procedure insert_word(puzzle, s, ydir, xdir, y, x)
 
     local incry, incrx, firstchar;
 

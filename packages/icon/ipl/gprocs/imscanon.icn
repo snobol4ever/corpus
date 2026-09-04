@@ -32,7 +32,7 @@
 
 link strings
 
-procedure imscanon(ims);
+procedure imscanon(ims)
    local head, spec, dspec, max, val, imax, i, width;
 
    ims ? {

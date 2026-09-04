@@ -52,7 +52,7 @@
 link io
 link options
 
-procedure main(arglist);
+procedure main(arglist)
 
 local opt, diropts, dir, paths , fn, ext; 
 local tempfn, tempf, file, line;

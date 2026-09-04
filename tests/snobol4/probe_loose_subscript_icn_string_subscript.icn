@@ -3,7 +3,7 @@
 #  WORKING.  rt_subscript_var is shared -- s[i] on a string is a legal Icon substring
 #  variable and L[i] on a list is a legal element -- so this file is the witness that the
 #  permissive face is still the one Icon reaches.  SCRIP Icon is SEMICOLON-REQUIRED.
-procedure main();
+procedure main()
     s := "hello";
     write(s[2]);
     write(s[1]);

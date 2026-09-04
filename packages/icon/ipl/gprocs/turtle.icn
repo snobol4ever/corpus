@@ -380,7 +380,7 @@ procedure TFRect(h, w);		#: draw filled rectangle centered at turtle
    return T_rectangle(h, w, FillPolygon);
 end
 
-procedure T_rectangle(h, w, xcall);
+procedure T_rectangle(h, w, xcall)
    local l;
 
    /h := 1.0;
@@ -428,7 +428,7 @@ procedure TFPoly(d, n);		#: draw filled polygon centered at turtle
    return T_polygon(d, n, FillPolygon);
 end
 
-procedure T_polygon(d, n, xcall);
+procedure T_polygon(d, n, xcall)
    local r, a, da, cx, cy, x, y, l;
    r := TScale() * ((\d / 3.0) | 1.0);
    n := abs(integer(\n + 0.5)) | 3.0;

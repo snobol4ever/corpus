@@ -29,7 +29,7 @@
 link complex
 link graphics 
 
-procedure main(); 
+procedure main() 
    local width, height, limit, x, y, z, c, j;
    width := 750;
    height := 600;
@@ -51,7 +51,7 @@ procedure main();
    WDone(); 
 end 
 
-procedure mColor(x, limit); 
+procedure mColor(x, limit) 
    if x = limit then
       return "black"
    else

@@ -55,7 +55,7 @@ record Vframe_rec(win, aw, ah, callback, id, lookup, draw, ax, ay,
 #	Get a unique id (uid).
 #	check implicit insertion, insert if necessary.
 #
-procedure Vframe(params[]);
+procedure Vframe(params[])
    local self, procs, spec_procs, frame, x, y, ins;
 
    procs := Vstd(event_Vframe, draw_Vframe, outline_Vidget,
@@ -86,7 +86,7 @@ end
 #
 #  Initialize procedure for Vframe.  Other frame types call this.
 #
-procedure init_Vframe(s);
+procedure init_Vframe(s)
    s.lookup := [];
    s.draw := [];
 end
@@ -94,7 +94,7 @@ end
 #
 #  draw the contents of the frame.
 #
-procedure draw_Vframe(s, erased);
+procedure draw_Vframe(s, erased)
 local p;
 
 #  PMIcon: fixed bug; drawig before resize.
@@ -111,7 +111,7 @@ end
 #  a resize event was sent, so that it would notify its callback.
 #  That "feature" has been commented out in the code below.
 #
-procedure resize_Vframe(s, x,y,wid,h);
+procedure resize_Vframe(s, x,y,wid,h)
    local w, slots;
    static type;
 
@@ -133,7 +133,7 @@ end
 #  Allows for the fact that a pane can have relative
 #  position and size constraints intertwined with absolute.
 #
-procedure set_abs_Vframe(s, vid);
+procedure set_abs_Vframe(s, vid)
 local ax,ay,aw,ah, a, b, w, h, vx, vy, vw, vh;
    static type;
 
@@ -168,7 +168,7 @@ end
 #
 # Don't erase the vidget if erase is non-&null.
 #
-procedure remove_Vframe(s, pane, erase);
+procedure remove_Vframe(s, pane, erase)
 local new, k;
 
    new := [];
@@ -184,7 +184,7 @@ end
 #
 #  Insert a vidget into a frame.
 #
-procedure insert_Vframe(s, pane, x, y, w, h);
+procedure insert_Vframe(s, pane, x, y, w, h)
 local wc;
 static image;
 
@@ -213,7 +213,7 @@ end
 #
 #  Get events, lookup vidget based on (x, y), call its event loop.
 #
-procedure event_Vframe(s, e, x, y);
+procedure event_Vframe(s, e, x, y)
 local dest;
 
    if dest := s.V.lookup(s, x, y) then {
@@ -225,7 +225,7 @@ end
 #  For every vidget on lookup list, check if (x, y) lie within its
 #  boundaries.  Doesn't address overlapping vidgets.
 #
-procedure lookup_Vframe(s, x, y);
+procedure lookup_Vframe(s, x, y)
 local w;
 
    every w := !s.lookup do
@@ -238,7 +238,7 @@ end
 #  all vidgets within the frame.  Restriction is that all vidgies must have
 #  been inserted with absolute coordinates and sizes.
 #
-procedure format_Vframe(self);
+procedure format_Vframe(self)
    resize_Vidget(self, , , Vmin_frame_width(self), Vmin_frame_height(self));
 end
 
@@ -250,7 +250,7 @@ end
 # subdivided.
 ############################################################################
 
-procedure Vroot_frame(params[]);
+procedure Vroot_frame(params[])
    local self;
    static procs, spec_procs;
 
@@ -274,7 +274,7 @@ procedure Vroot_frame(params[]);
    return self;
 end
 
-procedure init_Vroot_frame(s);
+procedure init_Vroot_frame(s)
    s.ax := s.ay := 0;
    init_Vframe(s);
 end
@@ -283,7 +283,7 @@ end
 #  Process events (same as for a frame).  Difference, is if we get a resize,
 #  resize all vidgets within, and redraw screen (no lookup performed).
 #
-procedure event_Vroot_frame(s,e,x,y);
+procedure event_Vroot_frame(s,e,x,y)
 local dest;
 
    if e === &resize then {
@@ -302,7 +302,7 @@ end
 # position and sizes for all panes.  This benefits relative values
 # the most.
 #
-procedure resize_Vroot_frame(s);
+procedure resize_Vroot_frame(s)
 
    s.aw := WAttrib(s.win, "width");
    s.ah := WAttrib(s.win, "height");
@@ -320,7 +320,7 @@ end
 # were inserted with absolute co-ords and sizes. I.e. positive and
 # integral x, y, w, & h.
 #
-procedure Vmin_frame_width(s);
+procedure Vmin_frame_width(s)
    local max, vid;
    static type;
 
@@ -337,7 +337,7 @@ procedure Vmin_frame_width(s);
    return max;
 end
 
-procedure Vmin_frame_height(s);
+procedure Vmin_frame_height(s)
    local max, vid;
    static type;
 

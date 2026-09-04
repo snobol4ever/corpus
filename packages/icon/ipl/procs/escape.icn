@@ -31,7 +31,7 @@
 
 link ebcdic
 
-procedure escape(s);
+procedure escape(s)
    local ns, c;
 
    ns := "";
@@ -59,7 +59,7 @@ procedure escape(s);
 
 end
 
-procedure hexcode();
+procedure hexcode()
    local i, s;
 
    s := tab(many('0123456789ABCDEFabcdef')) | "";	# get hex digits
@@ -73,7 +73,7 @@ procedure hexcode();
 
 end
 
-procedure octcode();
+procedure octcode()
    local i, s;
 
    move(-1);				# put back first octal digit
@@ -93,7 +93,7 @@ procedure octcode();
 
 end
 
-procedure ctrlcode(s);
+procedure ctrlcode(s)
 
    return Control(move(1));
 

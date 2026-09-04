@@ -37,7 +37,7 @@ link io
 
 global mapchars,intabs,outtabs
 
-procedure main(arg);
+procedure main(arg)
 
    local opt, fn, f, outfn, outf, f1, f2, buf;
 
@@ -60,7 +60,7 @@ procedure main(arg);
 end
 
 
-procedure itab(f,outf);
+procedure itab(f,outf)
    local line,c,nonwhite,comment,delim;
    line := "";
    while c := readx(f) do {
@@ -91,7 +91,7 @@ procedure itab(f,outf);
 end
 
 
-procedure readx(f);
+procedure readx(f)
    static buf,printchars;
    initial {
       buf := "";

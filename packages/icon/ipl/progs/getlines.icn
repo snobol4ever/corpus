@@ -29,7 +29,7 @@
 #
 ############################################################################
 
-procedure main(lines);
+procedure main(lines)
    local i, line;
 
    if *lines = 0 then stop("*** no lines specified");

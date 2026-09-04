@@ -25,7 +25,7 @@
 ############################################################################
 
 
-procedure main();
+procedure main()
    local s;
 
    header();
@@ -44,7 +44,7 @@ procedure main();
 end
 
 
-procedure header();
+procedure header()
    local divider, date;
 
    divider := repl("#", 76);

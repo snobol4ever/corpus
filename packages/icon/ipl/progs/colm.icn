@@ -67,7 +67,7 @@
 
 link options, colmize
 
-procedure main(arg);
+procedure main(arg)
    local usage, help, opt, rowwise, distribute, maxcols, space, minwidth;
    local tabwidth, f, entries, entry;
    #

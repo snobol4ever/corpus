@@ -37,7 +37,7 @@
 
 global PIPE_cmd, PIPE_fname
 
-procedure popen(cmd, mode);
+procedure popen(cmd, mode)
   local tfn, p;
 
   initial ("pipes" == &features) | {
@@ -54,7 +54,7 @@ procedure popen(cmd, mode);
 end
 
 
-procedure pclose(pipe);
+procedure pclose(pipe)
   local status;
 
   (type(PIPE_fname) ~== "table") & return close(pipe);
@@ -71,7 +71,7 @@ end
 
 	# Richard Goerwitz's ever-useful generator.
 
-procedure tempfile(template);
+procedure tempfile(template)
   local temp_name;
   static dir;
 

@@ -22,7 +22,7 @@
 #
 ############################################################################
 
-procedure strip(s,c);
+procedure strip(s,c)
 
     # Return string s stripped of characters c.  Succeed whether
     # any characters c were found in s or not.

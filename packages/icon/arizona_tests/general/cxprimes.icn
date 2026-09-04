@@ -1,6 +1,6 @@
 #  prime number generation using co-expressions
 
-procedure main(args);
+procedure main(args)
    local s, n, x;
 
    n := integer(get(args)) | 100;
@@ -11,7 +11,7 @@ procedure main(args);
    };
 end
 
-procedure sieve(x, s);
+procedure sieve(x, s)
    local t;
 
    while t := @s do {

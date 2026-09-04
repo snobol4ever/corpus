@@ -42,7 +42,7 @@ record Vcoupler_rec(value, callers, clients, id, curr_id, old_id,
 # Vcoupler
 ############################################################################
 
-procedure Vcoupler(params[]);
+procedure Vcoupler(params[])
    local self;
    static procs;
 
@@ -58,7 +58,7 @@ procedure Vcoupler(params[]);
 end
 
 
-procedure call_clients_Vcoupler(s, caller, val);
+procedure call_clients_Vcoupler(s, caller, val)
    local i, c;
    static type;
 
@@ -77,7 +77,7 @@ procedure call_clients_Vcoupler(s, caller, val);
       };
 end
 
-procedure set_Vcoupler(s, caller, val, call_clients);
+procedure set_Vcoupler(s, caller, val, call_clients)
    if \s.locked then fail;
    s.value := val;
    if /call_clients then
@@ -89,7 +89,7 @@ end
 #  Client is the client of course; caller is the vidget record to be passed
 #  to this client if type(client) == "procedure".
 #
-procedure add_client_Vcoupler(s, client, caller);
+procedure add_client_Vcoupler(s, client, caller)
 local pl;
 static image;
 
@@ -102,7 +102,7 @@ static image;
    put (s.callers, caller);
 end
 
-procedure init_Vcoupler(s);
+procedure init_Vcoupler(s)
   /s.clients := [];
   /s.callers := [];
   s.id := V_COUPLER;
@@ -117,7 +117,7 @@ end
 record Vrange_coupler_rec(min, max, value, inc, callers, clients, real, id, 
    locked, uid, V)
 
-procedure Vrange_coupler(params[]);
+procedure Vrange_coupler(params[])
    local self;
    static procs;
 
@@ -135,7 +135,7 @@ end
 
 #
 #  If the value passed is out of range, change caller
-procedure set_Vrange_coupler(s, caller, val, call_clients);
+procedure set_Vrange_coupler(s, caller, val, call_clients)
    local theMax;
    static type;
 
@@ -152,7 +152,7 @@ procedure set_Vrange_coupler(s, caller, val, call_clients);
    return val;
 end
 
-procedure init_Vrange_coupler(s);
+procedure init_Vrange_coupler(s)
    static type;
 
    initial type := proc("type", 0);	# protect attractive name
@@ -172,7 +172,7 @@ end
 # strset_coupler
 ############################################################################
 
-procedure Vstrset_coupler(params[]);
+procedure Vstrset_coupler(params[])
    local self;
    static procs;
 
@@ -188,13 +188,13 @@ procedure Vstrset_coupler(params[]);
    return self;
 end
 
-procedure set_Vstrset_coupler(s, id, val);
+procedure set_Vstrset_coupler(s, id, val)
    if \s.locked then fail;
    if !s.allowed === val then 
       return set_Vcoupler(s, id, val);
 end
 
-procedure init_Vstrset_coupler(s);
+procedure init_Vstrset_coupler(s)
   /s.allowed := [];
   init_Vcoupler(s);
 end
@@ -203,7 +203,7 @@ end
 # Vbool_coupler
 ############################################################################
 
-procedure Vbool_coupler(params[]);
+procedure Vbool_coupler(params[])
    local self;
    static procs;
 
@@ -219,24 +219,24 @@ procedure Vbool_coupler(params[]);
    return self;
 end
 
-procedure eval_Vbool_coupler(s);
+procedure eval_Vbool_coupler(s)
    return \s.value;
 end
 
-procedure set_Vbool_coupler(s, caller);
+procedure set_Vbool_coupler(s, caller)
    if \s.locked then fail;
    s.value := 1;
    call_clients_Vcoupler(s, caller, 1);
    return s.value;
 end
 
-procedure unset_Vbool_coupler(s, caller);
+procedure unset_Vbool_coupler(s, caller)
    s.value := &null;
    call_clients_Vcoupler(s, caller, &null);
    return s.value;
 end
 
-procedure toggle_Vbool_coupler(s, caller);
+procedure toggle_Vbool_coupler(s, caller)
    local newstate;
 
    newstate := (/s.value, 1);
@@ -247,7 +247,7 @@ end
 # Vtable_coupler
 ############################################################################
 
-procedure Vtable_coupler(params[]);
+procedure Vtable_coupler(params[])
    local self;
    static procs;
 
@@ -263,12 +263,12 @@ procedure Vtable_coupler(params[]);
    return self;
 end
 
-procedure set_Vtable_coupler(s, id, key, val);
+procedure set_Vtable_coupler(s, id, key, val)
    s.value[key] := val;
    call_clients_Vcoupler(s, id, val);
 end
 
-procedure init_Vtable_coupler(s); 
+procedure init_Vtable_coupler(s) 
   s.value := table();
   init_Vcoupler(s);
 end
@@ -277,7 +277,7 @@ end
 # Vmenu_coupler
 ############################################################################
 
-procedure Vmenu_coupler(params[]);
+procedure Vmenu_coupler(params[])
    local self;
    static procs;
 
@@ -294,7 +294,7 @@ procedure Vmenu_coupler(params[]);
 end
 
 
-procedure set_Vmenu_coupler(s, id, val);
+procedure set_Vmenu_coupler(s, id, val)
    if \s.locked then fail;
    s.old_id := s.curr_id;
    s.curr_id := id;
@@ -313,7 +313,7 @@ end
 #  adds them to the client list of the coupler variable, checking if it
 #  is a list or not.
 #
-procedure add_clients_Vinit(cv, callbacks, vid);
+procedure add_clients_Vinit(cv, callbacks, vid)
    local cb;
    static type;
 

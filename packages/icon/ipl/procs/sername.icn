@@ -34,7 +34,7 @@
 #
 ############################################################################
 
-procedure sername(p, s, n, i);
+procedure sername(p, s, n, i)
    static prefix, suffix, cols, serial, name, first;
 
    initial {

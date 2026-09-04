@@ -108,7 +108,7 @@ link lindgen
 link makelsys
 link options
 
-procedure main(args);
+procedure main(args)
    local line, gener, axiom, opts, i, s, c, symbol, rewrite;
    local low, lsys, lst;
 

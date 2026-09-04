@@ -31,7 +31,7 @@ invocable all
 
 link ivalue
 
-procedure feval(s);
+procedure feval(s)
    local fnc, argl;
 
    s ? {

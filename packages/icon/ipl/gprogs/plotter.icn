@@ -43,7 +43,7 @@ global size
 global v_off
 global vidgets
 
-procedure main();
+procedure main()
 
    vidgets := ui();
    root := vidgets["root"];
@@ -68,7 +68,7 @@ procedure main();
 
 end
 
-procedure offset_cb();
+procedure offset_cb()
 
    repeat {
       if TextDialog("Set offset:", ["horizontal", "vertical"],
@@ -85,7 +85,7 @@ procedure offset_cb();
 
 end
 
-procedure scale_cb();
+procedure scale_cb()
 
    repeat {
       if TextDialog("Set scale:", , scale, 5) == "Cancel" then fail;
@@ -100,7 +100,7 @@ procedure scale_cb();
 
 end
 
-procedure file_cb(vidgets, value);
+procedure file_cb(vidgets, value)
 
    case value[1] of {
       "clear @C":     clear_cb();
@@ -113,7 +113,7 @@ procedure file_cb(vidgets, value);
 
 end
 
-procedure coord_cb(vidget, value);
+procedure coord_cb(vidget, value)
    local input;
 
    input := open(value) | {
@@ -131,7 +131,7 @@ procedure coord_cb(vidget, value);
 
 end
 
-procedure plot_cb();
+procedure plot_cb()
    local p;
 
    every p := !coords do {
@@ -144,7 +144,7 @@ procedure plot_cb();
 
 end
 
-procedure plane_cb(vidget, value);
+procedure plane_cb(vidget, value)
 
    plane := value;
 
@@ -152,7 +152,7 @@ procedure plane_cb(vidget, value);
 
 end
 
-procedure clear_cb();
+procedure clear_cb()
 
    EraseArea(pane, -half, -half, size, size);
 
@@ -160,7 +160,7 @@ procedure clear_cb();
 
 end
 
-procedure shortcuts(e);
+procedure shortcuts(e)
 
    if &meta then case map(e) of {			# fold case
          "c":   clear_cb();
@@ -174,11 +174,11 @@ procedure shortcuts(e);
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=633,459", "bg=gray-white"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,633,459:",],
    ["clear:Button:regular::82,101,50,20:clear",clear_cb],

@@ -50,7 +50,7 @@ link patxform
 link win
 link xcompat
 
-procedure main(args);
+procedure main(args)
    local pixmap, wix, hix, c, x, y, event, opts, base, magnif, cols, rows;
    local arglist, state, x0, x1, y0, y1, pattern;
 

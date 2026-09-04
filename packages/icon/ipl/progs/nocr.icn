@@ -34,7 +34,7 @@
 #
 ############################################################################
 
-procedure main(a);
+procedure main(a)
 
     local fname, infile, outfile, line, temp_name;
 
@@ -110,13 +110,13 @@ procedure main(a);
 end
 
 
-procedure er_out(s);
+procedure er_out(s)
     write(&errout,"nocr:  cannot open ",s," for reading");
     return;
 end
 
 
-procedure basename(s,slash);
+procedure basename(s,slash)
     s ? {
 	while tab(find(slash)+1);
 	return tab(0)
@@ -124,7 +124,7 @@ procedure basename(s,slash);
 end
 
 
-procedure pathname(s,slash);
+procedure pathname(s,slash)
     local s2;
 
     s2 := "";

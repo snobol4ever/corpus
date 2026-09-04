@@ -28,7 +28,7 @@
 
 link wopen
 
-procedure main(args);
+procedure main(args)
    local width, height, win1, win2;
 
    win1 := WOpen("image=" || args[1]) | stop("*** cannot open image");

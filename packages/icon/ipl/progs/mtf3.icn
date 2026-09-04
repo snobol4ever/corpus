@@ -78,7 +78,7 @@ record hblock(name,junk,size,mtime,chksum,     # tar header struct;
               linkflag,linkname,therest)       # see readtarhdr(s)
 
 
-procedure main(a);
+procedure main(a)
     local usage, intext, i, current_list;
 
     usage := "usage:  mtf inputfile [-r reportfile] " ||
@@ -127,7 +127,7 @@ end
 
 
 
-procedure open_input_file(s);
+procedure open_input_file(s)
     local intext;
 
     intext := open("" ~== s,"r") |
@@ -141,7 +141,7 @@ end
 
 
 
-procedure readin_old_map_report(s);
+procedure readin_old_map_report(s)
     local mapfile, line, chunk, lchunk;
 
     initial {
@@ -168,7 +168,7 @@ end
 
 
 
-procedure make_table_of_filenames(intext);
+procedure make_table_of_filenames(intext)
 
     local header; # chunkset is global
 
@@ -187,7 +187,7 @@ end
 
 
 
-procedure output_mapped_headers_and_texts(intext);
+procedure output_mapped_headers_and_texts(intext)
 
     # Remember that filenametbl, chunkset, and short_chunkset
     # (which are used by various procedures below) are global.
@@ -236,7 +236,7 @@ end
 
 
 
-procedure trim_str(s);
+procedure trim_str(s)
 
     # Knock out spaces, nulls from those crazy tar header
     # block fields (some of which end in a space and a null,
@@ -251,7 +251,7 @@ end
 
 
 
-procedure tab_nxt_hdr(f,size_str,firstpass);
+procedure tab_nxt_hdr(f,size_str,firstpass)
 
     # Tab upto the next header block.  Return the bypassed text
     # as a string if not the first pass.
@@ -280,7 +280,7 @@ end
 
 
 
-procedure fixpath(s);
+procedure fixpath(s)
     local s2, piece;
 
     # Fixpath is a misnomer of sorts, since it is used on
@@ -302,7 +302,7 @@ end
 
 
 
-procedure mappiece(s);
+procedure mappiece(s)
     local chunk, i, lchunk;
 
     # Check s (the name of a file or dir as recorded in the tar header
@@ -384,7 +384,7 @@ end
 
 
 
-procedure readtarhdr(s);
+procedure readtarhdr(s)
     local this_block;
 
     # Read the silly tar header into a record.  Note that, as was
@@ -412,7 +412,7 @@ end
 
 
 
-procedure map_filenams(s);
+procedure map_filenams(s)
     local el, ch;
 
     # Chunkset is global, and contains all the overlong filenames
@@ -463,7 +463,7 @@ end
 #  exbase10(i,j) convert base-10 integer i to base j
 #  The maximum base allowed is 36.
 
-procedure exbase10(i,j);
+procedure exbase10(i,j)
 
    static digits;
    local s, d, sign;
@@ -488,7 +488,7 @@ end
 # end IPL material
 
 
-procedure get_checksum(r);
+procedure get_checksum(r)
     local sum, field;
  
     # Calculates the new value of the checksum field for the
@@ -506,7 +506,7 @@ end
 
 
 
-procedure write_report();
+procedure write_report()
 
     # This procedure writes out a list of filenames which were
     # remapped (because they exceeded the SysV 14-char limit),

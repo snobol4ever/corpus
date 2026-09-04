@@ -61,7 +61,7 @@
 
 link usage
 
-procedure main(a);
+procedure main(a)
    local fylist, ranges;
    if any(&digits,a[1]) then
       ranges := fldecode(a[1])
@@ -80,7 +80,7 @@ end
 
 # delamr - do actual division of input file
 #
-procedure delamr(ranges,fylist);
+procedure delamr(ranges,fylist)
    local i, j, k, line;
    while line := read() do
       {
@@ -98,7 +98,7 @@ end
 
 # doutfyls - process the output file arguments; return list
 #
-procedure doutfyls(a,i);
+procedure doutfyls(a,i)
    local lst, x;
    lst := [];
    while \a[i] do
@@ -121,7 +121,7 @@ end
 
 # fldecode - decode the fieldlist argument
 #
-procedure fldecode(fldlst);
+procedure fldecode(fldlst)
    local fld, flst, poslst, m, n, x;
    poslst := [];
    flst := str2lst(fldlst,':,');
@@ -153,7 +153,7 @@ end
 
 # llu - lookup file name in output file list
 #
-procedure llu(str,lst);
+procedure llu(str,lst)
    local i;
    i := 1;
    while \lst[i] do
@@ -166,7 +166,7 @@ end
 
 # str2lst - create a list from a delimited string
 #
-procedure str2lst(str,delim);
+procedure str2lst(str,delim)
    local lst, f;
    lst := [];
    str ? {

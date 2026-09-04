@@ -222,7 +222,7 @@ procedure xencode(x,file,writeProc);	#: write structure to file
       x);
 end
 
-procedure xencode_1(data,x);
+procedure xencode_1(data,x)
    local tp,wr,f,im;
    wr := data.ioProc;
    f := data.file;
@@ -341,7 +341,7 @@ end
 
 #  This procedure fails if it encounters bad data
 
-procedure xdecode_1(data);
+procedure xdecode_1(data)
    local x,tp,sz, i;
    data.ioProc(data.file) ? {
       if any(&digits) then {
@@ -398,7 +398,7 @@ procedure xdecode_1(data);
 
 end
 
-procedure xencoden(x, name, opt);
+procedure xencoden(x, name, opt)
    local output;
 
    /opt := "w";
@@ -411,14 +411,14 @@ procedure xencoden(x, name, opt);
 
 end
 
-procedure xencodet(x, file, typ);
+procedure xencodet(x, file, typ)
 
    if type(x) === typ then return xencode(x, file)
    else fail;
 
 end
 
-procedure xdecodet(file, typ);
+procedure xdecodet(file, typ)
    local x;
 
    x := xdecode(file);
@@ -428,7 +428,7 @@ procedure xdecodet(file, typ);
 
 end
 
-procedure xdecoden(name);
+procedure xdecoden(name)
    local input, x;
 
    input := open(name) | stop("*** xdecoden(): cannot open ", name);

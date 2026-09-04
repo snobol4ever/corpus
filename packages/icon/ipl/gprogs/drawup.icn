@@ -38,7 +38,7 @@ link patxform
 link weavutil
 link xcode
 
-procedure main(args);
+procedure main(args)
    local threading, treadling, rows, pattern, i;
    local symbols, symbol, drawdown, draft, opts;
 

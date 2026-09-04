@@ -106,7 +106,7 @@ global distortion			# distortion factor (0.0 = undistorted)
 
 #  main program
 
-procedure main();
+procedure main()
    local l, r, y;
 
    # Open the window, extract layout information, initialize dialogs.
@@ -155,7 +155,7 @@ end
 
 #  caricature() -- draw sketch distorted by current distortion factor
 
-procedure caricature();
+procedure caricature()
    local base, face, win;
 
    if /sketch | /sketch[1, 1] | /sketch[2, 1] then
@@ -183,7 +183,7 @@ end
 #
 # check_save fails if cancelled.
 
-procedure check_save();
+procedure check_save()
 
    if \touched then
       case SaveDialog("Save coordinates first?", pointfile) of {
@@ -202,7 +202,7 @@ end
 
 #  distort(f, b, m) -- return distortion of face f from face b by factor m
 
-procedure distort(f, b, m);
+procedure distort(f, b, m)
    local r, t, i, j, curve, base;
 
    r := [];
@@ -224,7 +224,7 @@ end
 
 #  drawface(win, f, proc) -- draw face from curve list using proc
 
-procedure drawface(win, f, proc);
+procedure drawface(win, f, proc)
    local curve;
 
    every curve := copy(!f) do {
@@ -245,7 +245,7 @@ end
 
 #  init_geometry() -- extract layout information from vidgets
 
-procedure init_geometry();
+procedure init_geometry()
 
    guide_xoff := vidgets["guide"].ax;
    guide_yoff := vidgets["guide"].ay;
@@ -274,7 +274,7 @@ end
 
 #  init_stdface() -- initialize standard face and description list
 
-procedure init_stdface();
+procedure init_stdface()
    local spec;
 
    descriptions := [];
@@ -336,7 +336,7 @@ end
 
 #  load() -- load coordinate data
 
-procedure load();
+procedure load()
    local input, face;
 
    check_save() | fail;
@@ -371,7 +371,7 @@ end
 
 #  menu_cb() -- handle menu selections
 
-procedure menu_cb(vidget, menu);
+procedure menu_cb(vidget, menu)
 
    case menu[1] of {
 
@@ -402,7 +402,7 @@ end
 
 #  new() -- load new image
 
-procedure new();
+procedure new()
    local input, f;
 
    check_save() | fail;
@@ -427,7 +427,7 @@ end
 
 #  point_cb() -- handle event in display region
 
-procedure point_cb(vidget, e);
+procedure point_cb(vidget, e)
 
    if /tcurve then			# if no points are left unset
       return;
@@ -459,7 +459,7 @@ end
 
 #  quit() -- terminate session
 
-procedure quit();
+procedure quit()
 
    check_save() | fail;
    exit();
@@ -469,7 +469,7 @@ end
 
 #  rdface(f) -- read face coordinates from file f
 
-procedure rdface(f);
+procedure rdface(f)
    local face, line, curve, i, n;
 
    face := [];
@@ -504,7 +504,7 @@ end
 
 #  rdimage(filename) -- load image from file, failing if unsuccessful
 
-procedure rdimage(filename);
+procedure rdimage(filename)
    local curve;
 
    image_win := WOpen("image=" || filename, "canvas=hidden") | fail;
@@ -539,7 +539,7 @@ end
 
 #  redisplay() -- display image and/or drawing, depending on mode
 
-procedure redisplay();
+procedure redisplay()
 
    if mode ~= DrawMode then
       CopyArea(image_win, display_win, , , , , image_xoff, image_yoff);
@@ -553,7 +553,7 @@ end
 
 #  save() -- save coordinate data
 
-procedure save();
+procedure save()
    local output;
 
    if /pointfile then
@@ -574,7 +574,7 @@ end
 
 #  save_as() -- save coordinate data in alternate file
 
-procedure save_as();
+procedure save_as()
    local output;
 
    repeat {
@@ -599,7 +599,7 @@ end
 
 #  scaleface(f, g) -- return copy of face f scaled to overlay face g
 
-procedure scaleface(f, g);
+procedure scaleface(f, g)
    local fl, fr, gl, gr, fx, fy, gx, gy, m, r, t, curve;
 
    fl := f[1] | fail;			# left iris
@@ -631,7 +631,7 @@ end
 
 #  setdist(val) -- set and display distortion value, in percent
 
-procedure setdist(val);
+procedure setdist(val)
 
    distortion := val / 100.0;
    GotoXY(dmeter_xoff, dmeter_yoff + dmeter_height);
@@ -644,7 +644,7 @@ end
 
 #  shortcuts() -- check event for keyboard shortcut
 
-procedure shortcuts(e);
+procedure shortcuts(e)
 
    if &meta then case map(e) of {
       "l": load();
@@ -672,7 +672,7 @@ end
 
 #  slider_cb() -- handle adjustments of distortion slider
 
-procedure slider_cb(vidget, val);
+procedure slider_cb(vidget, val)
 
    setdist(val);				# update and display value
    if mode = ImageMode then		# ensure that mode includes drawing
@@ -686,7 +686,7 @@ end
 
 #  target(curve, point) -- display next point to be placed
 
-procedure target(curve, point);
+procedure target(curve, point)
    local s, n, x, y;
    static tx, ty;
 
@@ -747,7 +747,7 @@ end
 
 #  wtface(f, face) -- write face data to file f
 
-procedure wtface(f, face);
+procedure wtface(f, face)
    local curve, i;
 
    every curve := !face do {
@@ -765,11 +765,11 @@ end
 
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=640,480", "bg=pale gray", "label=Caricaturist"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,640,480:Caricaturist",],
    ["distort:Slider:h:1:10,436,230,22:-300,300,0",slider_cb],

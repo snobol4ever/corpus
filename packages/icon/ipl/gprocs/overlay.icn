@@ -28,7 +28,7 @@
 
 link xcompat
 
-procedure overlay(window, name);
+procedure overlay(window, name)
    local pixmap, width, height, x;
 
    pixmap := XBind(, , "image=" || name) |

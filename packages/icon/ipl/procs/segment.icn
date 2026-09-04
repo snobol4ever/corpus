@@ -38,7 +38,7 @@
 #
 ############################################################################
 
-procedure segment(line,dlms);
+procedure segment(line,dlms)
    local ndlms;
 
    dlms := (any(dlms,line[1]) & ~dlms);
@@ -50,7 +50,7 @@ procedure segment(line,dlms);
       };
 end
 
-procedure seglist(s,c);
+procedure seglist(s,c)
    local L;
 
    L := [];

@@ -102,7 +102,7 @@ $define MARGIN 10
 
 record Slider_Rec(win, proc, arg, x, y, w, h, lb, ub, n)
 
-procedure slider(win, proc, arg, x, y, w, h, lb, iv, ub);
+procedure slider(win, proc, arg, x, y, w, h, lb, iv, ub)
    local r;
 
    r := Slider_Rec(win, proc, arg, x, y, w, h, lb, ub);
@@ -114,7 +114,7 @@ procedure slider(win, proc, arg, x, y, w, h, lb, iv, ub);
    return r;
 end
 
-procedure slidervalue(r, v);
+procedure slidervalue(r, v)
    local n;
 
    Erase_Slider_Bar(r);  # erase old handle
@@ -132,7 +132,7 @@ procedure slidervalue(r, v);
    return;
 end
 
-procedure Set_Slider_Posn(r, n);
+procedure Set_Slider_Posn(r, n)
    local c;
 
    r.n := n;
@@ -151,7 +151,7 @@ procedure Set_Slider_Posn(r, n);
    return;
 end
 
-procedure Erase_Slider_Bar(r);
+procedure Erase_Slider_Bar(r)
    if r.h > r.w then
       EraseArea(r.win, r.x, \r.n - 3, r.w, 6)	# horizontal bar on vert. track
    else
@@ -159,7 +159,7 @@ procedure Erase_Slider_Bar(r);
    return;
 end
 
-procedure Exec_Vert_Slider(win, r, x, y);
+procedure Exec_Vert_Slider(win, r, x, y)
    local e, h, u, args, a, v;
 
    e := &lpress;
@@ -184,7 +184,7 @@ procedure Exec_Vert_Slider(win, r, x, y);
    return;
 end
 
-procedure Exec_Horiz_Slider(win, r, x, y);
+procedure Exec_Horiz_Slider(win, r, x, y)
    local e, h, u, args, a, v;
 
    e := &lpress;

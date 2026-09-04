@@ -148,7 +148,7 @@ end
 #
 #  (There may be other fields present for internal use.)
 
-procedure ddfdda(handle);
+procedure ddfdda(handle)
    return handle.dlist;
 end
 
@@ -207,7 +207,7 @@ end
 
 #  ddf_rhdr(f) -- read DDF header record
 
-procedure ddf_rhdr(f);
+procedure ddf_rhdr(f)
    local s, t, tlen, hcode, off, nl, np, nx, nt, ddata;
 
    s := reads(f, 24)				| fail;
@@ -234,7 +234,7 @@ end
 
 #  ddf_rdata(f, h) -- read data, returning code/value pairs in list
 
-procedure ddf_rdata(f, h);
+procedure ddf_rdata(f, h)
    local tag, len, posn, data, a, d;
 
    d := reads(f, h.dlen)			| fail;
@@ -255,7 +255,7 @@ end
 
 #  dda_list(pairs) -- build DDA list from tag/data pairs
 
-procedure dda_list(p);
+procedure dda_list(p)
    local l, labels, tag, spec, control, name, format, d, rep;
 
    l := list();
@@ -289,7 +289,7 @@ end
 #
 #  keeps a cache to remember & share decoder lists for common formats
 
-procedure ddf_dtree(format);
+procedure ddf_dtree(format)
    static dcache;
    initial {
       dcache := table();
@@ -304,7 +304,7 @@ end
 
 #  ddf_fcrack(s) -- crack format string
 
-procedure ddf_fcrack(s);
+procedure ddf_fcrack(s)
    local dlist, n, d;
 
    dlist := list();
@@ -335,7 +335,7 @@ end
 
 #  ddf_oneof(tabproc, moveproc, quantum) -- select one of two procs
 
-procedure ddf_oneof(tabproc, moveproc, quantum);
+procedure ddf_oneof(tabproc, moveproc, quantum)
    local d, n;
 
    if not ="(" then

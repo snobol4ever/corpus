@@ -39,7 +39,7 @@
 link options
 link wopen
 
-procedure main(args);
+procedure main(args)
    local opts, prefix, x, y, w, h, win;
 
    opts := options(args, "x+y+w+h+p:");

@@ -32,7 +32,7 @@
 link graphics
 link random
 
-procedure main(args);
+procedure main(args)
    local w, h, n, m, d;
 
    Window("size=800,500", args);

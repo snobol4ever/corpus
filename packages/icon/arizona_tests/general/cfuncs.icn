@@ -2,7 +2,7 @@
 
 link cfunc
 
-procedure main();
+procedure main()
    local i;
 
    every i := 500 to 513 do
@@ -15,7 +15,7 @@ procedure main();
    gen(pack, 1684234849);
 end
 
-procedure gen(p, a);
+procedure gen(p, a)
    write(image(p), "(", image(a), ") = ", p(a) | "[failed]");
    return;
 end

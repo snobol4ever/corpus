@@ -57,14 +57,14 @@
 
 link bincvt
 
-procedure main();
+procedure main()
    local s;
 
    while s := writes(read()) do write(" ", imagetyp(s));
 
 end
 
-procedure imagetyp(s);
+procedure imagetyp(s)
    local input, header, type;
 
    input := open(s, "u") | fail;  # must be untranslated

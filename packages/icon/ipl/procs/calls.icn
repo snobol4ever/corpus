@@ -33,7 +33,7 @@ record call(proc, args)
 #
 #  Invoke a procedure with a argument list from a call record.
 
-procedure invoke(call);
+procedure invoke(call)
 
    suspend call.proc ! call.args;
 
@@ -43,7 +43,7 @@ end
 #
 #  Produce a string images of a call
 
-procedure call_image(call);
+procedure call_image(call)
    local args;
 
    args := "";
@@ -58,7 +58,7 @@ end
 #  Make a call record from a string that looks like an invocation.
 #  What the arguments can be is limited to the capabilities of ivalue.
 
-procedure make_call(s);
+procedure make_call(s)
    local arg, args, result;
 
    s ? {
@@ -73,7 +73,7 @@ end
 
 #  Make an argument list from a comma-separated string
 
-procedure make_args(s);
+procedure make_args(s)
    local args, arg;
 
    args := [];
@@ -91,7 +91,7 @@ end
 
 #  Produce a string of Icon code to construct a call record.
 
-procedure call_code(s);
+procedure call_code(s)
    local code, arg, result;
 
    s ? {
@@ -115,7 +115,7 @@ end
 #  procedure, and arg1, arg2, arg3, ... argn are the arguments.
 #  Note the trailing comma.
 
-procedure write_calltable(T, p, f);
+procedure write_calltable(T, p, f)
    local name;
 
    every name := key(T) do {
@@ -132,7 +132,7 @@ end
    
 #  read a call table file into a table
 
-procedure read_calltable(f);
+procedure read_calltable(f)
    local T, line, p, args;
 
    T := table();

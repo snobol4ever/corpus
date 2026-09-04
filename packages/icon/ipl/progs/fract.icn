@@ -49,7 +49,7 @@ link options
 
 $define Epsilon 1.e-16	# maximum precision (more risks overflow)
 
-procedure main(args);
+procedure main(args)
    local v, t, x, y, a, d, i, j, ops, opts, limit;
 
    opts := options(args, "n.l+");

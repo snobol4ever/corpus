@@ -66,7 +66,7 @@
 link options
 link xio
 
-procedure main(args);
+procedure main(args)
    local x, y, opts, number, w, h, prefix, curr, alt, restrict, xc, yc, grid;
    local xd, yd, nonrestrict, palt, pattern, pcurr, x1, y1, x2, y2, delta;
 
@@ -224,7 +224,7 @@ procedure main(args);
       };
 end
 
-procedure drawgrid(w, h, grid);
+procedure drawgrid(w, h, grid)
 
    Fg(grid);
    DrawLine(0, 0, w, h);
@@ -237,7 +237,7 @@ procedure drawgrid(w, h, grid);
 
 end
 
-procedure shade(w, h, pattern);
+procedure shade(w, h, pattern)
 
    Fg(pattern);
    WAttrib("fillstyle=textured");

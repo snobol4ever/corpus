@@ -22,7 +22,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local factor, line, i;
 
    factor := \args[1] | 10;

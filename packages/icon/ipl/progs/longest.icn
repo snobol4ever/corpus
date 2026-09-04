@@ -20,7 +20,7 @@
 #
 ############################################################################
 
-procedure main(argl);
+procedure main(argl)
    local longest, max, count, countl, number, line;
 
    if argl[1] == "-#" then number := 1;

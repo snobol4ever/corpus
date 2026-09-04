@@ -58,7 +58,7 @@ link scan
 link stripunb
 link readtbl
 
-procedure main(a);
+procedure main(a)
 
     local usage, _arg, L, R, map_file, t, readtbl, line, stripunb, last_k;
 

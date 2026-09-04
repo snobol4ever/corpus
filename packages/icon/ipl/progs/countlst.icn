@@ -31,7 +31,7 @@
 
 link adlutils, options
 
-procedure main(args);
+procedure main(args)
    local line_count, counter, lines, opts, sort_method, line, total, count;
 
    line_count := table(0);  # counts for each line

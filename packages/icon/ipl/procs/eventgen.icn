@@ -39,7 +39,7 @@ link strings
 #  main() calls tp(), which is produced by the meta-variant
 #  translation.
 
-procedure main();
+procedure main()
 
    write("$define MAssign 1");
    write("$define MValue 2");
@@ -62,7 +62,7 @@ procedure Apply(e1, e2);		# e1 ! e2
 
 end
 
-procedure Arg(e);
+procedure Arg(e)
 
    return e;
 
@@ -386,7 +386,7 @@ procedure Return(e);			# return e
 
 end
 
-procedure Rlit(e);
+procedure Rlit(e)
 
    return e;
 

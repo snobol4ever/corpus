@@ -47,13 +47,13 @@ record yiq(y, i, q)
 record hsv(h, s, v)
 record hls(h, l, s)
 
-procedure rgb2cmy(color);
+procedure rgb2cmy(color)
 
    return cmy(1.0 - color.r, 1.0 - color.g, 1.0 - color.b);
 
 end
 
-procedure cmy2rgb(color);
+procedure cmy2rgb(color)
 
    return rgb(1.0 - color.c, 1.0 - color.m, 1.0 - color.y);
 
@@ -63,7 +63,7 @@ end
 #  undercolor removal, but for pragmatic reasons, it does not
 #  produce acceptable results in process printing.
 
-procedure cmy2cmyk(color);
+procedure cmy2cmyk(color)
    local k;
 
    k := min(color.c, color.m, color.y);
@@ -72,7 +72,7 @@ procedure cmy2cmyk(color);
 
 end
 
-procedure cmyk2cmy(color);
+procedure cmyk2cmy(color)
    local kdelta;
 
    kdelta := color.k / 3;
@@ -85,7 +85,7 @@ end
 #  Note: The RGB specification is assumed to be based on the standard
 #  NTSC phosphors.  See the reference cited above.
 
-procedure rgb2yiq(color);
+procedure rgb2yiq(color)
    static M, R, Y;
 
    initial {
@@ -112,7 +112,7 @@ procedure rgb2yiq(color);
 
 end
 
-procedure yiq2rgb(color);
+procedure yiq2rgb(color)
    static M, R, Y;
 
    initial {
@@ -139,7 +139,7 @@ procedure yiq2rgb(color);
 
 end
 
-procedure rgb2hsv(color);
+procedure rgb2hsv(color)
    local maximum, minimum, delta, h, s, v;
 
    maximum := max(color.r, color.g, color.b);
@@ -170,7 +170,7 @@ procedure rgb2hsv(color);
 
 end
 
-procedure hsv2rgb(color);
+procedure hsv2rgb(color)
 
    local h, i, f, p, q, t, s, v;
 
@@ -204,7 +204,7 @@ procedure hsv2rgb(color);
 
 end
 
-procedure rgb2hls(color);
+procedure rgb2hls(color)
    local maximum, minimum, delta, sum, h, s, l;
 
    maximum := max(color.r, color.b, color.g);
@@ -237,7 +237,7 @@ procedure rgb2hls(color);
 
 end
 
-procedure hls2rgb(color);
+procedure hls2rgb(color)
    local h, l, s, m1, m2;
 
    h := color.h;
@@ -261,7 +261,7 @@ procedure hls2rgb(color);
 
 end
 
-procedure color_value(m1, m2, h);
+procedure color_value(m1, m2, h)
 
    if h > 360.0 then h -:= 360.0
    else if h < 0.0 then h +:= 360.0;

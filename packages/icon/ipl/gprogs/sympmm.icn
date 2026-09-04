@@ -37,7 +37,7 @@ link basename
 link xformimg
 link wopen
 
-procedure main(args);
+procedure main(args)
    local name, base, win1, win2, win3, win4, win5;
 
    every name := !args do {

@@ -40,7 +40,7 @@ link vstyle
 record Vbutton_rec (win, s, callback, id, style, aw, ah, data,
    ax, ay, uid, P, D, V)
 
-procedure Vbutton(params[]);
+procedure Vbutton(params[])
    local self, frame, x, y, ins;
    static procs, type;
 
@@ -71,18 +71,18 @@ procedure Vbutton(params[]);
    return self;
 end
 
-procedure draw_Vbutton(self);
+procedure draw_Vbutton(self)
    self.D.draw_off(self);
 end
 
-procedure couplerset_Vbutton(self);
+procedure couplerset_Vbutton(self)
    self.V.draw(self);
 end
 
 #
 #  Dragging mouse over edge toggles mouse "on" or "off".
 #
-procedure event_Vbutton(self, e);
+procedure event_Vbutton(self, e)
    local out;
 
    if \self.callback.locked then fail;
@@ -115,7 +115,7 @@ procedure event_Vbutton(self, e);
       };
 end
 
-procedure init_Vbutton (self);
+procedure init_Vbutton (self)
    local p;
 
    p := \self.callback;
@@ -124,7 +124,7 @@ procedure init_Vbutton (self);
    self.D.init(self);
 end
 
-procedure resize_Vbutton(s, x, y, w, h);
+procedure resize_Vbutton(s, x, y, w, h)
    
    resize_Vidget(s, x, y, w, h);
    Vset_style(s, s.style);
@@ -136,7 +136,7 @@ end
 # Vtoggle
 ############################################################################
 
-procedure Vtoggle(params[]);
+procedure Vtoggle(params[])
    local frame, x, y, ins, self;
    static procs, type;
 
@@ -169,7 +169,7 @@ procedure Vtoggle(params[]);
    return self;
 end
 
-procedure draw_Vtoggle(self);
+procedure draw_Vtoggle(self)
    if \self.callback.value then
       self.D.draw_on(self)
    else
@@ -181,7 +181,7 @@ end
 #  Basically same functionality as for Vbutton with the exception
 #  of maintaining the state of the toggle between events.
 #
-procedure event_Vtoggle(self, e);
+procedure event_Vtoggle(self, e)
    local out, new, original;
 
    if \self.callback.locked then fail;
@@ -222,7 +222,7 @@ procedure event_Vtoggle(self, e);
    };
 end
 
-procedure set_value_Vtoggle(self, value);
+procedure set_value_Vtoggle(self, value)
 
    if \value then
       self.callback.V.set(self.callback)
@@ -240,7 +240,7 @@ end
 record Vcheckbox_rec (win, callback, id, size, aw, ah, data,
    ax, ay, cw, uid, P, V, D)
 
-procedure Vcheckbox(params[]);
+procedure Vcheckbox(params[])
    local frame, x, y, ins, self, p;
    static procs;
 
@@ -277,7 +277,7 @@ procedure Vcheckbox(params[]);
    return self;
 end
 
-procedure draw_on_Vcheckbox(self);
+procedure draw_on_Vcheckbox(self)
    local x, y, sz;
 
    x := self.ax;
@@ -291,7 +291,7 @@ procedure draw_on_Vcheckbox(self);
    self.V.outline(self);
 end
 
-procedure draw_off_Vcheckbox(self);
+procedure draw_off_Vcheckbox(self)
    local x, y, sz;
 
    x := self.ax;
@@ -309,7 +309,7 @@ end
 # Vmessage
 ############################################################################
 
-procedure Vmessage(params[]);
+procedure Vmessage(params[])
    static procs, type;
    local frame, x, y, ins, self;
 
@@ -336,14 +336,14 @@ procedure Vmessage(params[]);
    return self;
 end
 
-procedure draw_Vmessage(self);
+procedure draw_Vmessage(self)
 
    GotoXY(self.win, self.ax+self.D.basex, self.ay+self.D.basey);
    writes(self.win, self.s);
 #   self.V.outline(self)
 end
 
-procedure init_Vmessage(self);
+procedure init_Vmessage(self)
    local TW, FH, ascent, descent;
 
    /self.s := "";
@@ -363,7 +363,7 @@ end
 ############################################################################
 record Vline_rec (win, ax1, ay1, ax2, ay2, aw, ah, id, uid, P, V)
 
-procedure Vline(params[]);
+procedure Vline(params[])
    local self;
    static procs;
 
@@ -387,7 +387,7 @@ procedure Vline(params[]);
    return self;
 end
 
-procedure resize_Vline(frame, self);
+procedure resize_Vline(frame, self)
    local x, y, w, h, x1, y1, x2, y2;
 
    x := frame.ax;
@@ -409,10 +409,10 @@ procedure resize_Vline(frame, self);
       (-1 < y2 < 0, h + y2*h) | (0 < y2 < 1, h*y2) | y2 );
 end
 
-procedure draw_Vline(self);
+procedure draw_Vline(self)
    DrawGroove(self.win, self.ax1, self.ay1, self.ax2, self.ay2);
 end
 
-procedure erase_Vline(self);
+procedure erase_Vline(self)
    DrawGroove(self.win, self.ax1, self.ay1, self.ax2, self.ay2, 0);
 end

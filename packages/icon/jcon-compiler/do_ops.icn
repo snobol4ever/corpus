@@ -120,7 +120,7 @@ global lex_ENDGLOB
 global lex_NEWSECT
 global lex_beginner_set
 global lex_ender_set
-procedure initialize();
+procedure initialize()
 	lex_IDENT:= lex_TOK("IDENT","identifier");
 	lex_INTLIT:= lex_TOK("INTLIT","integer-literal");
 	lex_REALLIT:= lex_TOK("REALLIT","real-literal");
@@ -315,7 +315,7 @@ procedure initialize();
 	insert(lex_ender_set, lex_NEWSECT);
 end # end initialize
 
-procedure do_reserveds(str);
+procedure do_reserveds(str)
 	static reserved_sym_tbl;
 	initial {
 		reserved_sym_tbl := table(&null);
@@ -352,7 +352,7 @@ procedure do_reserveds(str);
 	 return \reserved_sym_tbl[str];
 	fail;
 end
-procedure do_ops();
+procedure do_ops()
 	if ="@" then { # @
 	  if =":=" then { # @:=
 	    { return lex_AUGAT }

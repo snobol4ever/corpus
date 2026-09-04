@@ -38,7 +38,7 @@ link interact
 link options
 link wopen
 
-procedure main(args);
+procedure main(args)
    local i, j, k, angle, incr, xpoint, ypoint, size, radius, opts;
    local extent, max, limit, run;
 
@@ -75,7 +75,7 @@ procedure main(args);
    
 end
 
-procedure spokes(x, y, r, i, angle);
+procedure spokes(x, y, r, i, angle)
    local incr, j;
 
    incr := 2 * &pi / i;

@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure _Initialize(limit);
+procedure _Initialize(limit)
    local itime, t1, t3;
    
    itime := &time;

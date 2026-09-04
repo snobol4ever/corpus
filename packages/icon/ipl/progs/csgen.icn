@@ -98,7 +98,7 @@ link random
 
 global xlist
 
-procedure main(args);
+procedure main(args)
    local line, goal, count, s, opts;
 
    opts := options(args, "g+");
@@ -132,13 +132,13 @@ end
 
 #  replace left hand side by right hand side
 #
-procedure subst(a);
+procedure subst(a)
    suspend tab(find(a[1])) || (move(*a[1]),a[2]) || tab(0);
 end
 
 #  enter rewriting rule
 #
-procedure xpairs(s);
+procedure xpairs(s)
    local i, a;
    initial xlist := [];
    if s ? {

@@ -33,7 +33,7 @@
 #   - Use of <HTML>, <HEAD, <BODY> tags.
 #
 
-procedure Usage(s);
+procedure Usage(s)
   write(&errout,\s);
   stop(
        "Usage: ChkHTML -options file..._
@@ -45,7 +45,7 @@ end
 
 global SupressUnrefNames,SupressOpenQuot,SupressOpenGT,HTMLLevel
 
-procedure Init(arg);
+procedure Init(arg)
   local opt,f;
   ListTypes := ["UL","OL","MENU","DIR"];
 
@@ -63,13 +63,13 @@ link options
 global FileName,LineNbr,TagStack,HRefList,NameSet,NameRefSet,ErrorCount,
     SeenSet,PlainText,Tagless,Msg,ListTypes
 
-procedure main(arg);
+procedure main(arg)
   SetMsg();
   Init(arg);
   every CheckHTML(!arg);
 end
 
-procedure CheckHTML(fn);
+procedure CheckHTML(fn)
   local f,line,c;
   static badChars,scanChars;
   initial {
@@ -118,7 +118,7 @@ procedure CheckHTML(fn);
   return;
 end
 
-procedure CheckHRefs();
+procedure CheckHRefs()
   local x;
   every x := !HRefList do {
     if not member(NameSet,x.value) then {
@@ -136,14 +136,14 @@ procedure CheckHRefs();
   return;
 end
 
-procedure CheckStack();
+procedure CheckStack()
 local tag;
   every tag := pop(TagStack) do
       Error(pop(TagStack),"Unterminated tag: <",tag,">");
   return;
 end
 
-procedure ProcessTag(f);
+procedure ProcessTag(f)
   local tag,subLine,upTag,endFlag,popCount,tagLines,listType;
   #
   # Scan to the end of the tag (which might be multiple lines).
@@ -340,7 +340,7 @@ end
 
 record HRefRec(fileName,lineNbr,value)
 
-procedure ProcessATag();
+procedure ProcessATag()
   local attrTable,value,ok;
   if attrTable := CheckTag("A","HREF+NAME+REL+REV+URN+TITLE+METHODS") then {
     if value := \attrTable["HREF"] then {
@@ -368,7 +368,7 @@ procedure ProcessATag();
   return;
 end
 
-procedure CheckTag(tag,template,noCloser);
+procedure CheckTag(tag,template,noCloser)
   #
   # separators:
   #   + optional, with value
@@ -447,7 +447,7 @@ procedure CheckTag(tag,template,noCloser);
   return if /error then origAttrs;
 end
 
-procedure ScanAttrs();
+procedure ScanAttrs()
   local attr,value,attrTable;
   attrTable := table();
   until pos(0) do {
@@ -465,7 +465,7 @@ procedure ScanAttrs();
   return attrTable;
 end
 
-procedure CheckContext(context,tag,notInContext);
+procedure CheckContext(context,tag,notInContext)
   local tags,inContext,sep;
   static canned;
   initial {
@@ -492,7 +492,7 @@ procedure CheckContext(context,tag,notInContext);
   };
 end
 
-procedure ProcessEscape();
+procedure ProcessEscape()
   local escape;
   static escSet,escChars;
   initial {
@@ -577,7 +577,7 @@ procedure ProcessEscape();
   return;
 end
 
-procedure GiveAdvice();
+procedure GiveAdvice()
   if not member(SeenSet,"HTML") then
       Msg("Advice: File should be bracketed with <HTML>...</HTML> tags");
   if not (member(SeenSet,"HEAD"),member(SeenSet,"BODY")) then {
@@ -593,11 +593,11 @@ end
 
 link shquote
 
-procedure SetMsg();
+procedure SetMsg()
   return Msg := (if &host == "Macintosh MPW" then MPWMsg else UnixMsg);
 end
 
-procedure UnixMsg(s[]);
+procedure UnixMsg(s[])
   local lineNbr;
   lineNbr := if type(s[1]) == "integer" then get(s) else LineNbr;
   writes(&errout,"\"",FileName,"\"",":" || \lineNbr | "",": ");
@@ -606,7 +606,7 @@ procedure UnixMsg(s[]);
   return;
 end
 
-procedure MPWMsg(s[]);
+procedure MPWMsg(s[])
   local lineNbr;
   lineNbr := if type(s[1]) == "integer" then get(s) else LineNbr;
   writes(&errout,"File ",mpwquote(FileName),"; Line ",\lineNbr | "�"," # ");
@@ -615,16 +615,16 @@ procedure MPWMsg(s[]);
   return;
 end
 
-procedure Error(s[]);
+procedure Error(s[])
   ErrorCount +:= 1;
   return Msg!s;
 end
 
-procedure Space();
+procedure Space()
   suspend tab(many(' \t'));
 end
 
-procedure Up(s);
+procedure Up(s)
   static lcase,ucase;
   initial {
     lcase := string(&lcase);

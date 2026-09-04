@@ -61,7 +61,7 @@ global did_list, did_label
 #
 #  wlist is a list of vidget specs as constructed by vib (or uix).
 
-procedure dsetup(win, wlist[]);
+procedure dsetup(win, wlist[])
    local r, dialog, obj, num, wspec, alist;
 
    if type(win) ~== "window" then
@@ -97,7 +97,7 @@ procedure dsetup(win, wlist[]);
 
 end
 
-procedure dpopup(win, dftbl, dstate);
+procedure dpopup(win, dftbl, dstate)
    local did_list, init_list, i;
 
    if type(win) ~== "window" then {
@@ -127,7 +127,7 @@ end
 #
 #  cbk is a default callback to use if the spec doesn't supply one.
 
-procedure DL_crack(wspec, cbk);
+procedure DL_crack(wspec, cbk)
    local r, f;
 
    r := DL_rec();
@@ -151,7 +151,7 @@ end
 
 ## DL_obj(win, dialog, r) -- create vidget depending on type
 
-procedure DL_obj(win, dialog, r);
+procedure DL_obj(win, dialog, r)
    local obj, gc, style, lo, hi, iv, args;
 
    case r.typ of {
@@ -252,7 +252,7 @@ end
 
 ## DL_submenu(win, lst, cbk) -- create submenu vidget
 
-procedure DL_submenu(win, lst, cbk);
+procedure DL_submenu(win, lst, cbk)
    local a, c, lbl;
 
    a := [win];
@@ -272,7 +272,7 @@ end
 #
 #  n.b. "font" is now ignored, although it was once significant.
 
-procedure dproto(proc, font, w, h);
+procedure dproto(proc, font, w, h)
    local win, s, l;
 
    w <:= 150;

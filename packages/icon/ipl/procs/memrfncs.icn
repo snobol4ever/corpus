@@ -27,7 +27,7 @@
 #
 ############################################################################
 
-procedure acker(i, j);
+procedure acker(i, j)
    static memory;
 
    initial {
@@ -44,7 +44,7 @@ procedure acker(i, j);
 
 end
 
-procedure fib(i);
+procedure fib(i)
    static memory;
 
    initial {
@@ -57,7 +57,7 @@ procedure fib(i);
 
 end
 
-procedure q(i);
+procedure q(i)
    static memory;
 
    initial {

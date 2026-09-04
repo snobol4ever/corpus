@@ -1,7 +1,7 @@
 # floating overflow test
 # assumes 64-bit IEEE values
 
-procedure main();
+procedure main()
    local v;
 
    &error := -1;
@@ -32,10 +32,10 @@ procedure main();
    convert(string(11 ^ 317));
 end
 
-procedure binary(opr, x, y);
+procedure binary(opr, x, y)
    write(x, " ", opr, " ", y, " : ", opr(x, y) | ("error " || &errornumber));
 end
 
-procedure convert(v);
+procedure convert(v)
    write(image(v), " : ", image(real(v)) | ("error " || &errornumber));
 end

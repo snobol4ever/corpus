@@ -80,7 +80,7 @@
 #
 ############################################################################
 
-procedure wrap(s,i);
+procedure wrap(s,i)
    local t;
    static line;
    initial line := "";
@@ -90,7 +90,7 @@ procedure wrap(s,i);
    line := t;
 end
 
-procedure wraps(s,i);
+procedure wraps(s,i)
    local t;
    static size;
    initial size := 0;

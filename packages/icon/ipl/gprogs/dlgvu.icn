@@ -440,7 +440,7 @@ global logfile				# feature log file, if any
 
 #  main program
 
-procedure main(args);
+procedure main(args)
    local a, c, e, g, i, r, s, t, v;
 
    # use large region sizes for better efficiency
@@ -596,7 +596,7 @@ end
 
 #  rdtext(arg) -- read a text file of paths and features
 
-procedure rdtext(arg);
+procedure rdtext(arg)
    local f, i, n, r, s, t, w, line;
    local lat, lon, alt, segs, points, nsegs, npts, nfeat;
    local xmn, xmx, ymn, ymx;
@@ -691,7 +691,7 @@ end
 
 #  ddpopen(r, p) -- generate open DDF files from layer r matching pattern p
 
-procedure ddpopen(r, p);
+procedure ddpopen(r, p)
    local a, f, d, s, fname;
 
    a := r.arg;
@@ -714,7 +714,7 @@ end
 
 #  inventory(a) -- inventory arg entry a
 
-procedure inventory(a);
+procedure inventory(a)
    local b, c, f, fname, m, flist, trcount;
 
    # load filenames into list, because we need to scan it twice
@@ -759,7 +759,7 @@ end
 
 #  lcodes(basename, trcount) -- deduce layer code(s) from file basename
 
-procedure lcodes(basename, trcount);
+procedure lcodes(basename, trcount)
    local n, s, tr;
 
    map(basename) ? {
@@ -808,7 +808,7 @@ end
 
 #  getdata(r, p, l) -- get data vector l of layer r using file pattern p
 
-procedure getdata(r, p, l);
+procedure getdata(r, p, l)
    local ddfile, d, e, zone;
 
    ddfile := ddpopen(r, p) |
@@ -825,7 +825,7 @@ end
 
 #  loadref(r) -- load XREF and IREF files for layer r of arg a
 
-procedure loadref(r);
+procedure loadref(r)
    local e;
 
    e := getdata(r, "*iref.ddf", "IREF");
@@ -857,7 +857,7 @@ end
 #
 #  (SPDM files are used with 250K DLG layers)
 
-procedure loadbounds(r);
+procedure loadbounds(r)
    local e, xmn, xmx, ymn, ymx;
 
    e := getdata(r, "*spdm.ddf", "DMSA");
@@ -877,7 +877,7 @@ end
 #
 #  (NPnn files are used with 24K and 100K DLG layers)
 
-procedure loadcorners(r);
+procedure loadcorners(r)
    local ddfile, d, e, i, x, y, L, C66, G80;
 
    every ddfile := ddpopen(r, "*np??.ddf") do {
@@ -923,7 +923,7 @@ end
 #  Assumes that the corner order is [SW, NW, NE, SE]
 #  and takes the more extreme value for each coordinate.
 
-procedure cmerge(A, B);
+procedure cmerge(A, B)
    local C;
 
    if /A | /B then return \A | \B;
@@ -956,7 +956,7 @@ end
 
 #  quadfit(L) -- proximity of coordinate in L to multiple of 1/8
 
-procedure quadfit(L);
+procedure quadfit(L)
    local i, mn, mx, a, b;
 
    mn := 1.0;
@@ -973,7 +973,7 @@ end
 
 #  lstats(a) -- report statistics for the layers of arg a
 
-procedure lstats(a);
+procedure lstats(a)
    local c, d, g, k, l, n, r, v, z;
 
    if \opts["q"] then
@@ -1003,7 +1003,7 @@ end
 
 #  lsumm(r) -- return one-line layer info summary
 
-procedure lsumm(r);
+procedure lsumm(r)
    return r.datum[1] || r.datum[-2:0] || " " ||
       (if r.zone < 0 then "LL" else right(r.zone, 2)) || " " ||
       r.ellipsoid[1] || r.ellipsoid[-2:0] || " " ||
@@ -1016,7 +1016,7 @@ end
 
 #  degc(d) -- code degree measurement as nnnx where x is a-h for 0/8 to 7/8
 
-procedure degc(d);
+procedure degc(d)
    local n, x;
 
    d := abs(d / DEGSCALE) + 0.0625;		# 1/16 for rounding
@@ -1029,7 +1029,7 @@ end
 
 #  field(constr, key) -- given record constructor, find index of named field
 
-procedure field(constr, key);
+procedure field(constr, key)
    local i, r;
    image(constr) ? ="record constructor" | fail;
    r := constr();
@@ -1042,7 +1042,7 @@ end
 
 #  traversed(r) -- check whether layer r is traversed by a path
 
-procedure traversed(r);
+procedure traversed(r)
    local k, i, segs, pts, xmin, xmax, ymin, ymax;
 
    xmin := xmax := r.ocorners[1];
@@ -1066,7 +1066,7 @@ end
 
 #  loadlayer(r) -- load one layer of files
 
-procedure loadlayer(r);
+procedure loadlayer(r)
    local p, attid, ddfile;
 
    setdraw(attrib[r.lcode]);
@@ -1090,7 +1090,7 @@ end
 
 #  loadatts(ddfile, r, attid) -- load attribute ID table
 
-procedure loadatts(ddfile, r, attid);
+procedure loadatts(ddfile, r, attid)
    local d, e, i, k, n, s, v;
 
    n := -1;
@@ -1121,7 +1121,7 @@ end
 
 #  loadpts(ddfile, r, attid) -- load coordinate file into memory
 
-procedure loadpts(ddfile, r, attid);
+procedure loadpts(ddfile, r, attid)
    local a, d, e, i, k, m, n, p, s, v, vv, x, y;
    local lcode, zone, coords, arec;
 
@@ -1216,7 +1216,7 @@ end
 
 #  logfeat() -- record current location to log file
 
-procedure logfeat(e);
+procedure logfeat(e)
    local ll, lat, lon, locn, label;
 
    until Event() === (&lrelease | &rrelease);		# wait for button up
@@ -1252,7 +1252,7 @@ $define BOXW 265		# popup box width
 $define BOXH 90			# popup box height
 $define SMAX (BOXW - 40)	# maximum scalebar length
 
-procedure locate();
+procedure locate()
 
    setdraw(attrib["DIALOG"]);	# set colors and font for drawing
    Font("mono,bold,14");
@@ -1269,7 +1269,7 @@ end
 
 #  locate(wproj) -- calculate scale and location using caller's projection
 
-procedure locproc(wproj);
+procedure locproc(wproj)
    local d, e, m, s, u, cx, dx, dy, ll, lat, lon, winv;
 
    winv := invp(wproj);			# get projection from screen to lat/lon
@@ -1311,7 +1311,7 @@ procedure locproc(wproj);
    return;
 end
 
-procedure dms(n, s1, s2);
+procedure dms(n, s1, s2)
    local deg, min, sec;
 
    if n < 0 then
@@ -1332,7 +1332,7 @@ end
 
 #  draw(win, pjn) -- draw all selected map layers, without erasing first
 
-procedure draw(win, pjn);
+procedure draw(win, pjn)
    local a, d, v, arec;
 
    every (arec := !slist) & any(chosen, arec.lcode) do {
@@ -1366,7 +1366,7 @@ end
 
 #  winit() -- initialize window configuration
 
-procedure winit();
+procedure winit()
    local a;
 
    xmin := ymin := +180 * DEGSCALE;
@@ -1388,7 +1388,7 @@ end
 #
 #  p is Pending procedure, if to check and quit early
 
-procedure allfeats(pjn, p);
+procedure allfeats(pjn, p)
    local f, x, y, xy, xy2;
 
    xy := [];
@@ -1425,7 +1425,7 @@ end
 #
 #  p is Pending procedure, if to check and quit early
 
-procedure alllabels(p);
+procedure alllabels(p)
    local a, r;
 
    setdraw(attrib["n"]);
@@ -1449,7 +1449,7 @@ end
 #
 #  sets r.px, r.py to progress bar position and r.wd to layer width
 
-procedure drawlabel(r);
+procedure drawlabel(r)
    local x, y, w, h, n, d, u, s, tw, tmax, v, wproj;
    static lc, uc;
    initial {
@@ -1514,7 +1514,7 @@ end
 
 #  progress(r) -- draw progress square for layer r
 
-procedure progress(r);
+procedure progress(r)
    local a, x;
 
    a := r.arg;
@@ -1530,7 +1530,7 @@ end
 
 #  drawcoverage(a) -- draw coverage indicators for arg entry a
 
-procedure drawcoverage(a);
+procedure drawcoverage(a)
    local c, r, x, y, w;
 
    r := \!a.ltable | return;
@@ -1554,7 +1554,7 @@ end
 
 #  print() -- print visible portion to file
 
-procedure print();
+procedure print()
    local psname, psfile;
 
    Bg("pale weak brown");
@@ -1588,12 +1588,12 @@ procedure print();
    return;
 end
 
-procedure popwrite(psargs);
+procedure popwrite(psargs)
    CenterString(150, 25, "Writing PostScript...");
    return writeps ! psargs;
 end
 
-procedure writeps(psfile, projn, wwidth, wheight);
+procedure writeps(psfile, projn, wwidth, wheight)
    local arec, color, style, width, ptoff, xmax, ymax, xmul, ymul;
    local a, b, f, m, w, h, pj, d, s, u, v, x, y, dx, dy, fx, fy, ll;
 
@@ -1704,7 +1704,7 @@ end
 #
 #  IMPORTANT: Map entities are drawn in the order of the def() calls below.
 
-procedure initattrib();
+procedure initattrib()
    local i, s;
 
 $define ROUTE "magenta-red"		# path foreground color
@@ -1855,7 +1855,7 @@ end
 
 global layercode, layercolor
 
-procedure deflayer(lcode, color);
+procedure deflayer(lcode, color)
    layercode:= lcode;
    layercolor := color;
    return;
@@ -1874,7 +1874,7 @@ end
 #
 #  a width of -1 means "don't draw"
 
-procedure def(key, width, color, style);
+procedure def(key, width, color, style)
    static seq;
    initial seq := 0;
 
@@ -1891,7 +1891,7 @@ end
 #
 #  fails if width is negative, meaning that drawing is to be suppressed
 
-procedure setdraw(arec);
+procedure setdraw(arec)
    if arec.width < 0 then
       fail;
    WAttrib("fg=" || arec.color,

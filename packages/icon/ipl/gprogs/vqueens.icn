@@ -38,7 +38,7 @@ $define Size	44
 
 global queens
 
-procedure main(args);
+procedure main(args)
    local i, opts, wsize, bqueen, wqueen;
 
    opts := options(args,"n+");
@@ -156,7 +156,7 @@ end
 
 # q(c) - place a queen in column c.
 #
-procedure q(c);
+procedure q(c)
    local r;
    static up, down, rows;
    initial {
@@ -174,7 +174,7 @@ end
 
 # show the solution on a chess board.
 #
-procedure show();
+procedure show()
    local i, j, queen;
 
    every i := 1 to *solution do {
@@ -204,7 +204,7 @@ procedure show();
 
 end
 
-procedure DrawBoard();
+procedure DrawBoard()
    local i, j;
 
    every i := 0 to queens - 1 do

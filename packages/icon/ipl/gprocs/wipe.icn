@@ -38,7 +38,7 @@
 #
 ############################################################################
 
-procedure wipe(window, color, direction, x1, y1, w, h);
+procedure wipe(window, color, direction, x1, y1, w, h)
    local x, y, x2, y2, fg;
 
    /color := Bg(window);			# establish defaults

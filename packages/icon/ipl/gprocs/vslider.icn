@@ -43,7 +43,7 @@ record Vslider_rec (win, callback, id, aw, ah, discont,
 # Vvslider
 ############################################################################
 
-procedure procs_Vvslider();
+procedure procs_Vvslider()
    static procs;
    initial procs := Vstd(event_Vvslider, draw_Vvslider, outline_Vslider,
                         resize_Vvslider, inrange_Vpane, init_Vvslider,
@@ -51,7 +51,7 @@ procedure procs_Vvslider();
    return procs;
 end
 
-procedure Vvslider(params[]);
+procedure Vvslider(params[])
    local self;
 
    self := Vslider_rec ! params[1:7|0];
@@ -69,7 +69,7 @@ procedure Vvslider(params[]);
    return self;
 end
 
-procedure draw_Vvslider(s);
+procedure draw_Vvslider(s)
 local val;
 
    s.drawn := 1;
@@ -83,7 +83,7 @@ local val;
    draw_Vvslider_bar(s);
 end
 
-procedure event_Vvslider(s, e);
+procedure event_Vvslider(s, e)
 local value;
 
    if \s.callback.locked then fail;
@@ -106,7 +106,7 @@ local value;
    return s.callback.value;
 end
 
-procedure update_Vvslider(s, active);
+procedure update_Vvslider(s, active)
 local val;
 
    val := (s.callback.value - s.callback.min) * s.ws / s.cv_range;
@@ -119,7 +119,7 @@ local val;
    return s.callback.value;
 end
 
-procedure draw_Vvslider_bar(s, active);
+procedure draw_Vvslider_bar(s, active)
 local ww, d;
 
    ww := s.aw - 4;
@@ -135,12 +135,12 @@ local ww, d;
    BevelRectangle(s.win, s.ax + 3, s.ay + s.pos, ww - 2, ww - 1, d);
 end
 
-procedure set_value_Vvslider(s, value);
+procedure set_value_Vvslider(s, value)
    couplerset_Vvslider(s, , value);
    return;
 end
 
-procedure couplerset_Vvslider(s, caller, value);
+procedure couplerset_Vvslider(s, caller, value)
 
    value := numeric(value) | s.callback.min;
    if s.callback.value === value then fail;
@@ -150,7 +150,7 @@ procedure couplerset_Vvslider(s, caller, value);
       update_Vvslider(s);
 end
 
-procedure init_Vvslider(s);
+procedure init_Vvslider(s)
    static type;
 
    initial type := proc("type", 0);	# protect attractive name
@@ -167,7 +167,7 @@ procedure init_Vvslider(s);
    init_Vpane(s);
 end
 
-procedure resize_Vvslider(s, x, y, w, h);
+procedure resize_Vvslider(s, x, y, w, h)
 
    resize_Vidget(s, x, y, w, h);
    if s.aw > s.ah then {
@@ -184,7 +184,7 @@ end
 # Vhslider 
 ############################################################################
 
-procedure procs_Vhslider();
+procedure procs_Vhslider()
    static procs;
 
    initial procs := Vstd(event_Vhslider, draw_Vhslider, outline_Vslider,
@@ -193,7 +193,7 @@ procedure procs_Vhslider();
    return procs;
 end
 
-procedure Vhslider(params[]);
+procedure Vhslider(params[])
    local self;
 
    self := Vslider_rec ! params[1:7|0];
@@ -212,7 +212,7 @@ procedure Vhslider(params[]);
    return self;
 end
 
-procedure draw_Vhslider(s);
+procedure draw_Vhslider(s)
 local val;
 
    s.drawn := 1;
@@ -226,7 +226,7 @@ local val;
    draw_Vhslider_bar(s);
 end
 
-procedure event_Vhslider(s, e);
+procedure event_Vhslider(s, e)
 local value;
 
    if \s.callback.locked then fail;
@@ -249,7 +249,7 @@ local value;
    return s.callback.value;
 end
 
-procedure update_Vhslider(s, active);
+procedure update_Vhslider(s, active)
 local val;
 
    val := (s.callback.value - s.callback.min) * s.ws / s.cv_range;
@@ -262,7 +262,7 @@ local val;
    return s.callback.value;
 end
 
-procedure draw_Vhslider_bar(s, active);
+procedure draw_Vhslider_bar(s, active)
 local hh, d;
 
    hh := s.ah - 4;
@@ -278,12 +278,12 @@ local hh, d;
    BevelRectangle(s.win, s.ax + s.pos, s.ay + 3, hh - 1, hh - 2, d);
 end
 
-procedure set_value_Vhslider(s, value);
+procedure set_value_Vhslider(s, value)
    couplerset_Vhslider(s, , value);
    return;
 end
 
-procedure couplerset_Vhslider(s, caller, value);
+procedure couplerset_Vhslider(s, caller, value)
 
 ## break a cycle in callbacks by checking value.
    value := numeric(value) | s.callback.min;
@@ -294,7 +294,7 @@ procedure couplerset_Vhslider(s, caller, value);
       update_Vhslider(s);
 end
 
-procedure init_Vhslider(s);
+procedure init_Vhslider(s)
    static type;
 
    initial type := proc("type", 0);	# protect attractive name
@@ -311,7 +311,7 @@ procedure init_Vhslider(s);
    init_Vpane(s);
 end
 
-procedure resize_Vhslider(s, x, y, w, h);
+procedure resize_Vhslider(s, x, y, w, h)
 
    resize_Vidget(s, x, y, w, h);
    if s.aw < s.ah then {
@@ -327,7 +327,7 @@ end
 # Utilities - slider wrapper procedures.
 ############################################################################
 
-procedure outline_Vslider(s);
+procedure outline_Vslider(s)
    BevelRectangle(s.win, s.ax, s.ay, s.aw, s.ah, -2);	# draw trough
 end
 
@@ -355,7 +355,7 @@ end
 # Vvert_slider(w, callback, id, width, length, lower_bound, upper_bound,
 #              initial_value) 
 ############################################################################
-procedure Vvert_slider(params[]);
+procedure Vvert_slider(params[])
 local frame, x, y, ins, t, self;
 
    if ins := Vinsert_check(params) then {
@@ -373,7 +373,7 @@ end
 # Vhoriz_slider(w, callback, id, width, length, left_bound, right_bound,
 #              initial_value) 
 ############################################################################
-procedure Vhoriz_slider(params[]);
+procedure Vhoriz_slider(params[])
 local frame, x, y, ins, self;
 
    if ins := Vinsert_check(params) then {

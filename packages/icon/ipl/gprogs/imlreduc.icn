@@ -30,7 +30,7 @@
 link imxform
 link imscanon
 
-procedure main();
+procedure main()
    local ims, imx, sorter1, sorter2;
 
    sorter1 := set();

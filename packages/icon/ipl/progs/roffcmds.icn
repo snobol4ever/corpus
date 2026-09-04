@@ -31,7 +31,7 @@
 #  
 ############################################################################
 
-procedure main();
+procedure main()
    local line, con, mac, y, nonpuncs, i, inname, infile, outname, outfile;
 
    nonpuncs := ~'. \t\\';

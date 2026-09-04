@@ -29,7 +29,7 @@ $define BLKSIZE 65536			# output block size
 
 link random
 
-procedure main();
+procedure main()
    local buf, cs;
 
    collect(2, 2 * BUFSIZE);  # ensure large memory region

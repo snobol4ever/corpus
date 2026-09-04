@@ -32,7 +32,7 @@
 #
 ############################################################################
 
-procedure varsub(s,varProc);
+procedure varsub(s,varProc)
    local var,p,user,pw,i,c,line;
    static nameChar;
    initial nameChar := &letters ++ &digits ++ "_";

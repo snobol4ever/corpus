@@ -38,7 +38,7 @@ link options
 link wopen
 link xcode
 
-procedure main(args);
+procedure main(args)
    local draft, win, opts;
 
    opts := options(args, "n:");

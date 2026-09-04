@@ -52,7 +52,7 @@
 #
 #############################################################################
 
-procedure lastc( c, s, i1, i2 );
+procedure lastc( c, s, i1, i2 )
 
 if /s  := &subject then /i1 := &pos;
 /i1 := 1;
@@ -61,7 +61,7 @@ if /s  := &subject then /i1 := &pos;
 suspend ( ( i1 = 1 )  |  any( c, s, 0 < ( i1 - 1 ), i2 ) );
 end
 
-procedure findp( c, s1, s2, i1, i2 );
+procedure findp( c, s1, s2, i1, i2 )
 
 if /s2 := &subject then /i1 := &pos; 
 /i1 := 1;
@@ -70,7 +70,7 @@ if /s2 := &subject then /i1 := &pos;
 suspend lastc( c, s2, find( s1, s2, i1, i2 ), i2 );
 end
 
-procedure findw( c1, s1, c2, s2, i1, i2 );
+procedure findw( c1, s1, c2, s2, i1, i2 )
 
 local csr,csr2;
 

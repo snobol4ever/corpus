@@ -283,7 +283,7 @@ end
 #
 #  p is palette name; s is character string; w,h are available dimensions
 
-procedure PAL_Columns(p, s, w, h);
+procedure PAL_Columns(p, s, w, h)
    local nw, nh;
 
    return case p of {
@@ -311,7 +311,7 @@ end
 #  back to black.  Returns unmodified list of characters for c1 and
 #  grayscale palettes.
 
-procedure PAL_Order(p);
+procedure PAL_Order(p)
    local palchars, s, t, n, n3, i, l;
 
    palchars := PaletteChars(p) | fail;

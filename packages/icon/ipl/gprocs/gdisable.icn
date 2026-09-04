@@ -24,7 +24,7 @@
 #
 ############################################################################
 
-procedure gdisable();
+procedure gdisable()
 
    every (
       Active |

@@ -33,7 +33,7 @@
 
 link adlutils, options
 
-procedure main(args);
+procedure main(args)
    local selectors, add, opts;
 
    opts := options(args,"xs:");

@@ -53,7 +53,7 @@
 #
 ############################################################################
 
-procedure str2toks(c, s, i, j);
+procedure str2toks(c, s, i, j)
 
     local token, default_val;
 

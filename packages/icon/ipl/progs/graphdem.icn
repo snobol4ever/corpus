@@ -24,7 +24,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
     local option;
 
     write("graph: simple bar graphics package for icon");
@@ -37,7 +37,7 @@ default : write("erroneous option")
     };
 end
 #
-procedure countdemo();
+procedure countdemo()
     local numlist, line, a, ms, b;
 
     numlist := list(0);
@@ -60,7 +60,7 @@ procedure countdemo();
     };
 end
 #
-procedure frequ_count(lin,item_number);
+procedure frequ_count(lin,item_number)
     local result, n, byte_frequency_1, byte_frequency_2, byte, entry;
 
     result := "";
@@ -83,7 +83,7 @@ end
 # graph. therefore when using ms/dr dos the config.sys file should
 # contain: device=ansi.sys. using other operating systems, the line
 # containing the esc-code should be deleted.
-procedure fibodemo();
+procedure fibodemo()
     local a, l, b, fb;
 
     while every a := fibo(0,1) & a < 10000 do {
@@ -96,7 +96,7 @@ procedure fibodemo();
     };
 end
 #
-procedure fibo(m,n);
+procedure fibo(m,n)
     local fb;
 
     while n < 30000 do {
@@ -114,7 +114,7 @@ end
 # shows the 1000s, the following the 100s etc. Therefore the values
 # have to be <10000. When the diagram has been displayed argument
 # comment will be written to the screen.
-procedure graph(numbers,comment);
+procedure graph(numbers,comment)
     local item, itm, value, bar, graph_line, l, m, n, nn;
 
 # item2 is a list which contains lists of each 4 strings. these strings

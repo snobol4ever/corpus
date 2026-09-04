@@ -21,7 +21,7 @@
 #
 ############################################################################
 
-procedure morse(s);
+procedure morse(s)
    local i, c, t, x;
    static code, key1, key2;
 

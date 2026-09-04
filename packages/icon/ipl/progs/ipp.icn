@@ -334,7 +334,7 @@ global Chars, Defs, Depth, Ifile, Ifile_name, Init_name_char,
   Line_no, Name_char, Non_name_char, Ofile, Options, Path_list, 
   Src_stack, Std_include_paths, White_space, TRUE, DIR_SEP
 
-procedure main(arg_list);
+procedure main(arg_list)
   local line, source;
 
   init(arg_list);
@@ -354,7 +354,7 @@ procedure main(arg_list);
   };
 end
 
-procedure conditional(expr);
+procedure conditional(expr)
 
   return if eval(expr) then
       true_cond()
@@ -368,7 +368,7 @@ end
 # 'aliases'.  Also, all white space is removed.
 #
 
-procedure const_expr(expr);
+procedure const_expr(expr)
   local new;
 
   static White_space_plus;
@@ -398,7 +398,7 @@ procedure const_expr(expr);
 
 end
 
-procedure decoded(op);
+procedure decoded(op)
   return case op of {
     "\x01": 	">=";
     "\x02": 	"<=";
@@ -408,7 +408,7 @@ procedure decoded(op);
     };
 end
 
-procedure def_opt(s);
+procedure def_opt(s)
   local name, text;
 
   s ? {
@@ -424,7 +424,7 @@ procedure def_opt(s);
   insert(Defs, name, Defs_rec(, text));
 end
 
-procedure define();
+procedure define()
   local args, name, text;
 
   get_opt_ws();
@@ -444,18 +444,18 @@ procedure define();
     error("Illegal or missing name in define");
 end
 
-procedure dump();
+procedure dump()
   if not pos(0) then
     warning("Extraneous characters after dump command");
   every write(&errout, (!sort(Defs))[1]);
 end
 
-procedure error(s1, s2);
+procedure error(s1, s2)
   s1 ||:= \s2;
   stop(Ifile_name, ":  ", Line_no, ":  ", "Error  ", s1);
 end
 
-procedure eval(node);
+procedure eval(node)
   suspend case type(node) of {
     "Expr_node": {
       case node.op of {
@@ -475,7 +475,7 @@ procedure eval(node);
     };       
 end
 
-procedure false_cond();
+procedure false_cond()
   local cmd, line;
 
   # Skip to next $else / $elif branch, or $endif
@@ -501,7 +501,7 @@ procedure false_cond();
     };
 end
 	
-procedure find_file(fname, path_list);
+procedure find_file(fname, path_list)
   local ifile, ifname, path; 
 
   every path := !path_list do {
@@ -529,7 +529,7 @@ procedure find_file(fname, path_list);
   error("Can not open include file ", fname);
 end
 
-procedure func(expr);
+procedure func(expr)
   local op, arg;
 
   expr ? {
@@ -543,7 +543,7 @@ procedure func(expr);
     };
 end
 
-procedure get_args(arg_list, simple_opts, arg_opts);
+procedure get_args(arg_list, simple_opts, arg_opts)
   local arg, ch, get_ofile, i, opts, queue;
   opts := Opt_rec('', []);
   queue := [];
@@ -577,7 +577,7 @@ procedure get_args(arg_list, simple_opts, arg_opts);
   return opts;
 end
 
-procedure get_cmd();
+procedure get_cmd()
   local cmd;
   static  no_arg_cmds;
   initial no_arg_cmds := set(["dump", "else", "endif"]);
@@ -596,7 +596,7 @@ procedure get_cmd();
   return cmd;
 end
 
-procedure get_formals();
+procedure get_formals()
   local formal, arglist, ch;
 
   arglist := [];
@@ -616,19 +616,19 @@ procedure get_formals();
   return arglist;
 end
 
-procedure get_line(Ifile);
+procedure get_line(Ifile)
   return 1(read(Ifile), Line_no +:= 1);
 end
 
-procedure get_name();
+procedure get_name()
   return tab(any(Init_name_char)) || (tab(many(Name_char)) | "");
 end
 
-procedure get_opt_ws();
+procedure get_opt_ws()
   return (tab(many(White_space)) | "") || (="#" || tab(0) | "");
 end
 
-procedure get_text(is_macro);
+procedure get_text(is_macro)
   local text;
 
   if \is_macro then
@@ -653,14 +653,14 @@ end
 # upto an $elif, $else, or, $endif.  If $else is encountered, lines are
 # processed until the $endif matching the $else is encountered.
 
-procedure if_cond(cmd);
+procedure if_cond(cmd)
   if pos(0) then
     error("Constant expression argument to '" || cmd || "' missing")
   else
     return conditional(const_expr(tab(0)));
 end
 
-procedure ifdef();
+procedure ifdef()
   local name;
 
   if name := get_name() then
@@ -674,7 +674,7 @@ procedure ifdef();
     error("Argument to 'ifdef' is not a valid name");
 end
   
-procedure ifndef();
+procedure ifndef()
   local name;
 
   if name := get_name() then {
@@ -687,7 +687,7 @@ procedure ifndef();
     error("Argument to 'ifndef' is not a valid name");
 end
 
-procedure in_text(name, text);
+procedure in_text(name, text)
   return text ? 
     tab(find(name)) &
     (if move(-1) then tab(any(Non_name_char)) else "") &
@@ -695,7 +695,7 @@ procedure in_text(name, text);
     (tab(any(Non_name_char)) | pos(0));
 end
 
-procedure include();
+procedure include()
   local ch, fname; 
   static fname_chars, stopper;
 
@@ -723,7 +723,7 @@ procedure include();
     error("Missing or invalid include file name");
 end
 
-procedure init(arg_list);
+procedure init(arg_list)
   local s;
 
   TRUE := 1;
@@ -758,7 +758,7 @@ procedure init(arg_list);
   process_options(arg_list);
 end
 
-procedure lassoc(expr, op);
+procedure lassoc(expr, op)
   local j, arg1, arg2;
 
   expr ? {
@@ -777,7 +777,7 @@ end
 # message will include the file/line no of the current line directive,
 # instead of the file/line of the text that follows the directive.
 #
-procedure line();
+procedure line()
   local new_line, new_file;
 
   new_line := tab(many(&digits)) | error("No line number in line directive");
@@ -801,7 +801,7 @@ procedure line();
   return;
 end
 
-procedure macro_call(entry, args);
+procedure macro_call(entry, args)
   local i, value, result, token;
 
   value := table();
@@ -818,11 +818,11 @@ procedure macro_call(entry, args);
   return result;
 end
 
-procedure no_endif_error();
+procedure no_endif_error()
   error("'endif' not encountered before end of file");
 end
 
-procedure parse(expr);
+procedure parse(expr)
   # strip surrounding parens.
   while expr ?:= 2(="(", tab(bal (')')), pos(-1));
 
@@ -835,7 +835,7 @@ procedure parse(expr);
     error(expr, " :  Integer expected");
 end
 
-procedure process_cmd(cmd);
+procedure process_cmd(cmd)
   static last_cmd;
   initial last_cmd := "";
 
@@ -864,7 +864,7 @@ procedure process_cmd(cmd);
   return;
 end
 
-procedure process_macro(name, entry, s);
+procedure process_macro(name, entry, s)
   local arg, args, new_entry, news, token;
 
   s ? {
@@ -906,7 +906,7 @@ procedure process_macro(name, entry, s);
     };
 end
 
-procedure process_options(arg_list);
+procedure process_options(arg_list)
   local args, arg_opts, pair, simple_opts, tmp_list, value;
 
   simple_opts := 'C';
@@ -942,7 +942,7 @@ procedure process_options(arg_list);
   Path_list := tmp_list ||| Path_list;
 end
 
-procedure process_text(line);
+procedure process_text(line)
   local add, entry, new, position, s, token;
   static in_string, in_cset;
 
@@ -1033,7 +1033,7 @@ procedure process_text(line);
   return new;
 end
 
-procedure put_linedir(Ofile, Line_no, Ifile_name);
+procedure put_linedir(Ofile, Line_no, Ifile_name)
   static last_filename;
   initial last_filename := "";
 
@@ -1048,7 +1048,7 @@ procedure put_linedir(Ofile, Line_no, Ifile_name);
   return;
 end
 
-procedure rassoc(expr, op);
+procedure rassoc(expr, op)
   local arg1, arg2;
 
 
@@ -1080,7 +1080,7 @@ end
 #
 # if_sect would be ["else", "elif", "ifdef"].
 #
-procedure skip_to(targets[]);
+procedure skip_to(targets[])
   local cmd, if_sects, line, argpos;
 
   if_sects := [];
@@ -1130,7 +1130,7 @@ procedure skip_to(targets[]);
 
 end
 
-procedure true_cond();
+procedure true_cond()
   local cmd, line;
 
   while line := get_line(Ifile) | no_endif_error () do
@@ -1145,7 +1145,7 @@ procedure true_cond();
      
 end
 
-procedure unary(expr, op);
+procedure unary(expr, op)
   local arg1;
 
 
@@ -1157,7 +1157,7 @@ procedure unary(expr, op);
       };
 end
 
-procedure undefine();
+procedure undefine()
   local name;
 
   if name := get_name() then {
@@ -1172,7 +1172,7 @@ procedure undefine();
     error("Name missing in undefine");
 end
 
-procedure warning(s1, s2);
+procedure warning(s1, s2)
   s1 ||:= \s2;
   write(&errout, Ifile_name, ":  ", Line_no, ":  ", "Warning  " || s1);
 end

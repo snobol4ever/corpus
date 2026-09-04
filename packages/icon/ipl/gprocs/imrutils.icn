@@ -134,7 +134,7 @@ procedure imrcatv(imr1, imr2);		#: vertically concatenate image records
 
 end
 
-procedure imrcopy(imr);
+procedure imrcopy(imr)
 
    return copy(imr);
 

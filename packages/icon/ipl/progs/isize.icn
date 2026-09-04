@@ -35,7 +35,7 @@ link options
 
 $define Col 15
 
-procedure main(args);
+procedure main(args)
    local chaff, code, line, cbytes, nbytes, input, tokens, opts, format;
 
    opts := options(args, "t");

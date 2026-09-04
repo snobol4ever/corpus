@@ -47,7 +47,7 @@ link vsetup
 global W, H, X, Y, xc, yc, restrict, nonrestrict, gcurr, pcurr, galt, palt
 global number, xd, yd, pattern, x1, y1, x2, y2, delta, x, y, lines, Pane
 
-procedure main(args);
+procedure main(args)
    local pane, vidgets, obg;
 
    number := -1;
@@ -101,7 +101,7 @@ procedure main(args);
 
 end
 
-procedure file_cb(vidget, value);
+procedure file_cb(vidget, value)
 
    case value[1] of {
       "save  @S":  save();
@@ -227,7 +227,7 @@ procedure help();			# help (someday)
 
 end
 
-procedure shortcuts(event);
+procedure shortcuts(event)
 
    if &meta & event := string(event) then
       case map(event) of {			# fold case
@@ -318,11 +318,11 @@ procedure shade_cb();			# toggle shading of generating region
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=523,461", "bg=pale-gray", "label=symdraw"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    ["symdraw:Sizer:::0,0,523,461:symdraw",],
    ["clear:Button:regular::20,45,64,20:clear",clear_cb],

@@ -66,7 +66,7 @@ global extns
 
 
 
-procedure main(args);
+procedure main(args)
    local opts, root, zipopts, zipname;
    local pwd, pipe, fname, errmsg;
    local nmproc;
@@ -162,7 +162,7 @@ end
 
 #  popen(cmd, mode) -- open pipe, and abort on error
 
-procedure popen(cmd, mode);
+procedure popen(cmd, mode)
    local f;
 
    mode := "p" || (\mode | "r");
@@ -176,7 +176,7 @@ end
 #
 #  If lim is given, counting can stop early.
 
-procedure census(s, c, lim);
+procedure census(s, c, lim)
    local n;
 
    /lim := *s;
@@ -193,7 +193,7 @@ end
 
 #  msname(fname) -- check filename for MS-DOS legality
 
-procedure msname(fname);
+procedure msname(fname)
    local dir, base, ext; 
    static forbid;
    initial forbid := &cset -- &letters -- &digits -- '/._^$~!#%&-{}()@\'`';
@@ -222,7 +222,7 @@ end
 #
 #  (disallows explicit version numbers)
 
-procedure isoname(fname);
+procedure isoname(fname)
    static legal;
    initial legal := &lcase ++ &ucase ++ &digits ++ '_.';
 
@@ -240,7 +240,7 @@ end
 
 #  inspect(fname) -- inspect one file and update lists
 
-procedure inspect(fname);
+procedure inspect(fname)
    local c;
 
    fname ? {
@@ -269,7 +269,7 @@ end
 
 #  ftype(fname) -- return file type character
 
-procedure ftype(fname);
+procedure ftype(fname)
    local f, s, lim;
    static bset;
    initial bset :=		# allows \a\b\t\n\v\f\r\^Z
@@ -291,7 +291,7 @@ end
 
 #   count(fname, typechar) -- count file extension
 
-procedure count(fname, tchar);
+procedure count(fname, tchar)
    local extn;
 
    fname ? {
@@ -311,7 +311,7 @@ end
 
 #  report(fname, errmsg) -- report error
 
-procedure report(fname, errmsg);
+procedure report(fname, errmsg)
    write(&errout, "\t", errmsg, ": ", fname);
    errorcount +:= 1;
    return;
@@ -321,7 +321,7 @@ end
 
 #  summary() -- generate summary of extension counts
 
-procedure summary();
+procedure summary()
    local tlist, ext, s, b, c, e, n, x, tb, tc, te, tn, tx;
 
    write();
@@ -349,7 +349,7 @@ end
 
 #  r5(n) -- show integer in 5-char field, if nonzero
 
-procedure r5(n);
+procedure r5(n)
    local s;
 
    if n = 0 then return "     ";

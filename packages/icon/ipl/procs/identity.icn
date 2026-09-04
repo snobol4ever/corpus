@@ -18,7 +18,7 @@
 #
 ############################################################################
 
-procedure identity(x);
+procedure identity(x)
 
    return case x of {
       "null":  &null;

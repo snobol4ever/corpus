@@ -42,7 +42,7 @@ global vidgets
 
 #  main procedure
 
-procedure main(args);
+procedure main(args)
    Window ! put(ui_atts(), args);
    vidgets := ui();
    setfont(, args[1] | Font());  # display named or default font
@@ -52,7 +52,7 @@ end
 
 #  setfont(vidget, value) -- display the font named "value"
 
-procedure setfont(vidget, value);
+procedure setfont(vidget, value)
    local ttl, sub, rgn, fontname, x, y, w, h, win;
 
    # ignore return if no name has been entered
@@ -90,7 +90,7 @@ end
 
 #  dumpfont(win, x, y, w, h) -- display the characters of a font
 
-procedure dumpfont(win, x, y, w, h);
+procedure dumpfont(win, x, y, w, h)
    local dx, dy, x1, x2, y1, y2, i, j;
 
    # calculate size of cells
@@ -122,7 +122,7 @@ end
 
 #  revent(v, e, x, y) -- pass region event to font name vidget
 
-procedure revent(v, e, x, y);
+procedure revent(v, e, x, y)
    return VEvent(vidgets["fontname"], e, x, y);
 end
 
@@ -131,7 +131,7 @@ end
 #
 #  Also handles meta-Q event rejected by other vidgets.
 
-procedure other(e);
+procedure other(e)
    if &meta & map(e) == "q" then
       exit();
    return VEvent(vidgets["fontname"], e, &x, &y);
@@ -140,17 +140,17 @@ end
 
 #  quit() -- process QUIT button
 
-procedure quit();
+procedure quit()
    exit();
 end
 
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=512,640", "bg=pale gray"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,512,640:",],
    ["fontname:Text::51:5,616,444,19:font name: \\=",setfont],

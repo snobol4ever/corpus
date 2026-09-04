@@ -36,7 +36,7 @@
 
 link adlutils, options
 
-procedure main(args);
+procedure main(args)
    local opts, choice, item, badchar, print, states, i, line, dim, add;
 
    states := set(["AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC",

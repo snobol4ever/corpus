@@ -32,7 +32,7 @@ global size
 #  length is the length of line segments and delta is the amount of
 #  direction change.
 
-procedure lindterp(x, y, lsys, gener, length, color, fnc);
+procedure lindterp(x, y, lsys, gener, length, color, fnc)
    local rewrite, delta, axiom, symbols, c;
 
    /size := 500;

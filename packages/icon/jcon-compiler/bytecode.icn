@@ -251,7 +251,7 @@ record j_monitorenter()
 record j_monitorexit()
 record j_match_offset_pairs(Match, offset)
 
-procedure j_writer_j_ClassFile(writer, p);
+procedure j_writer_j_ClassFile(writer, p)
     local i;
 
     j_writer_u4(writer, 16rCAFEBABE);
@@ -282,7 +282,7 @@ procedure j_writer_j_ClassFile(writer, p);
     };
 end
 
-procedure j_writer_cp_info(writer, p);
+procedure j_writer_cp_info(writer, p)
     local i, s;
 
     case (type(p)) of {
@@ -351,7 +351,7 @@ procedure j_writer_cp_info(writer, p);
     };
 end
 
-procedure j_utf8_repr(s);
+procedure j_utf8_repr(s)
     local t, c;
     static hard;
     initial hard := '\x00' ++ &cset[129:0];
@@ -376,7 +376,7 @@ procedure j_utf8_repr(s);
     return t;
 end
 
-procedure j_writer_j_field_info(writer, p);
+procedure j_writer_j_field_info(writer, p)
     local i;
 
     j_writer_u2(writer, p.access_flags);
@@ -388,7 +388,7 @@ procedure j_writer_j_field_info(writer, p);
     };
 end
 
-procedure j_writer_attribute_info(writer, p);
+procedure j_writer_attribute_info(writer, p)
     local i, locations, code_length, attribute_length;
 
     case (type(p)) of {
@@ -474,7 +474,7 @@ procedure j_writer_attribute_info(writer, p);
     };
 end
 
-procedure j_writer_j_method_info(writer, p);
+procedure j_writer_j_method_info(writer, p)
     local i;
 
     j_writer_u2(writer, p.access_flags);
@@ -486,7 +486,7 @@ procedure j_writer_j_method_info(writer, p);
     };
 end
 
-procedure j_writer_j_exception_table_info(writer, p);
+procedure j_writer_j_exception_table_info(writer, p)
     #%#%#%# the following two lines are because the JVM is brain-damaged
     p.start_pc >:= 65534;
     p.end_pc >:= 65534;
@@ -497,12 +497,12 @@ procedure j_writer_j_exception_table_info(writer, p);
     j_writer_u2(writer, p.catch_type);
 end
 
-procedure j_writer_j_line_number_table_info(writer, p);
+procedure j_writer_j_line_number_table_info(writer, p)
     j_writer_u2(writer, p.start_pc);
     j_writer_u2(writer, p.line_number);
 end
 
-procedure j_writer_j_local_variable_table_info(writer, p);
+procedure j_writer_j_local_variable_table_info(writer, p)
     j_writer_u2(writer, p.start_pc);
     j_writer_u2(writer, p.length);
     j_writer_u2(writer, p.name_index);
@@ -510,7 +510,7 @@ procedure j_writer_j_local_variable_table_info(writer, p);
     j_writer_u2(writer, p.slot);
 end
 
-procedure j_writer_opcodes(writer, p);
+procedure j_writer_opcodes(writer, p)
     local i, high, low, npairs, t, o;
     static opcode_table, opcode_leaf;
     initial {
@@ -1040,13 +1040,13 @@ procedure j_writer_opcodes(writer, p);
     };
 end
 
-procedure j_writer_j_match_offset_pairs(writer, p);
+procedure j_writer_j_match_offset_pairs(writer, p)
     j_writer_s4(writer, p.Match);
     j_writer_s4(writer, p.offset);
 end
 
 
-procedure j_offset_opcodes(p, offset, locations);
+procedure j_offset_opcodes(p, offset, locations)
     local i, high, low, npairs;
     static offset_table;
     initial {
@@ -1299,12 +1299,12 @@ procedure j_offset_opcodes(p, offset, locations);
     return offset;
 end
 
-procedure j_offset_j_match_offset_pairs(offset, p);
+procedure j_offset_j_match_offset_pairs(offset, p)
     offset +:= 8;
     return offset;
 end
 
-procedure j_cp_Class(c, name_index);
+procedure j_cp_Class(c, name_index)
     local s;
 
     s := "j_CONSTANT_Class" || "," || name_index;
@@ -1315,7 +1315,7 @@ procedure j_cp_Class(c, name_index);
     return c.constant_table[s].pool_index;
 end
 
-procedure j_cp_a_Fieldref(c, class_index, name_and_type_index);
+procedure j_cp_a_Fieldref(c, class_index, name_and_type_index)
     local s;
 
     s:= "j_CONSTANT_a_Fieldref," || class_index || "," || name_and_type_index;
@@ -1326,7 +1326,7 @@ procedure j_cp_a_Fieldref(c, class_index, name_and_type_index);
     return c.constant_table[s].pool_index;
 end
 
-procedure j_cp_Methodref(c, class_index, name_and_type_index);
+procedure j_cp_Methodref(c, class_index, name_and_type_index)
     local s;
 
     s:= "j_CONSTANT_Methodref," || class_index || "," || name_and_type_index;
@@ -1337,7 +1337,7 @@ procedure j_cp_Methodref(c, class_index, name_and_type_index);
     return c.constant_table[s].pool_index;
 end
 
-procedure j_cp_InterfaceMethodref(c, class_index, name_and_type_index);
+procedure j_cp_InterfaceMethodref(c, class_index, name_and_type_index)
     local s;
 
     s := "j_CONSTANT_InterfaceMethodref" ||
@@ -1350,7 +1350,7 @@ procedure j_cp_InterfaceMethodref(c, class_index, name_and_type_index);
     return c.constant_table[s].pool_index;
 end
 
-procedure j_cp_String(c, string_index);
+procedure j_cp_String(c, string_index)
     local s;
 
     s := "j_CONSTANT_String" || "," || string_index;
@@ -1361,7 +1361,7 @@ procedure j_cp_String(c, string_index);
     return c.constant_table[s].pool_index;
 end
 
-procedure j_cp_Integer(c, value);
+procedure j_cp_Integer(c, value)
     local s;
 
     s := "j_CONSTANT_Integer" || "," || value;
@@ -1372,7 +1372,7 @@ procedure j_cp_Integer(c, value);
     return c.constant_table[s].pool_index;
 end
 
-procedure j_cp_Float(c, value);
+procedure j_cp_Float(c, value)
     local s;
 
     s := "j_CONSTANT_Float" || "," || value;
@@ -1383,7 +1383,7 @@ procedure j_cp_Float(c, value);
     return c.constant_table[s].pool_index;
 end
 
-procedure j_cp_Long(c, value);
+procedure j_cp_Long(c, value)
     local s;
 
     s := "j_CONSTANT_Long" || "," || value;
@@ -1395,7 +1395,7 @@ procedure j_cp_Long(c, value);
     return c.constant_table[s].pool_index;
 end
 
-procedure j_cp_Double(c, value);
+procedure j_cp_Double(c, value)
     local s;
 
     s := "j_CONSTANT_Double" || "," || value;
@@ -1407,7 +1407,7 @@ procedure j_cp_Double(c, value);
     return c.constant_table[s].pool_index;
 end
 
-procedure j_cp_NameAndType(c, name_index, signature_index);
+procedure j_cp_NameAndType(c, name_index, signature_index)
     local s;
 
     s := "j_CONSTANT_NameAndType" || "," || name_index || "," || signature_index;
@@ -1418,7 +1418,7 @@ procedure j_cp_NameAndType(c, name_index, signature_index);
     return c.constant_table[s].pool_index;
 end
 
-procedure j_cp_Utf8(c, value);
+procedure j_cp_Utf8(c, value)
     local s, t;
 
     s := "j_CONSTANT_Utf8" || "," || value;
@@ -1429,7 +1429,7 @@ procedure j_cp_Utf8(c, value);
     return t.pool_index;
 end
 
-procedure j_cp_Unicode(c, value);
+procedure j_cp_Unicode(c, value)
     local s;
 
     s := "j_CONSTANT_Unicode" || "," || value;
@@ -1441,7 +1441,7 @@ procedure j_cp_Unicode(c, value);
 end
 
 
-procedure j_offset_attribute_info(offset);
+procedure j_offset_attribute_info(offset)
     local code_length, i, p;
 
     offset +:= 6;
@@ -1501,20 +1501,20 @@ procedure j_offset_attribute_info(offset);
     return offset;
 end
 
-procedure j_offset_j_exception_table_info(offset, p);
+procedure j_offset_j_exception_table_info(offset, p)
     offset +:= 8;
     return offset;
 end
-procedure j_offset_j_line_number_table_info(offset, p);
+procedure j_offset_j_line_number_table_info(offset, p)
     offset +:= 4;
     return offset;
 end
-procedure j_offset_j_local_variable_table_info(offset, p);
+procedure j_offset_j_local_variable_table_info(offset, p)
     offset +:= 10;
     return offset;
 end
 
-procedure j_relocate_exceptions(eList, locations);
+procedure j_relocate_exceptions(eList, locations)
     local e;
 
     every e := !eList do {
@@ -1524,7 +1524,7 @@ procedure j_relocate_exceptions(eList, locations);
     };
 end
 
-procedure j_relocate(insn, locations);
+procedure j_relocate(insn, locations)
     local i;
     static branching;
     initial {
@@ -1567,7 +1567,7 @@ procedure j_relocate(insn, locations);
     };
 end
 
-procedure j_create_fieldref(classfile, name, Type, class);
+procedure j_create_fieldref(classfile, name, Type, class)
     local name_index, type_index, class_index, nat_index, field_index;
 
     type(classfile) == "j_ClassFile" | runerr(500, classfile);
@@ -1583,7 +1583,7 @@ procedure j_create_fieldref(classfile, name, Type, class);
     return field_index;
 end
 
-procedure j_create_field(classfile, access, name, Type);
+procedure j_create_field(classfile, access, name, Type)
     local name_index, type_index, field;
 
     type(classfile) == "j_ClassFile" | runerr(500, classfile);
@@ -1598,7 +1598,7 @@ procedure j_create_field(classfile, access, name, Type);
     return field;
 end
 
-procedure j_create_methodref(classfile, name, Type, class);
+procedure j_create_methodref(classfile, name, Type, class)
     local name_index, type_index, class_index, nat_index, method_index;
 
     type(classfile) == "j_ClassFile" | runerr(500, classfile);
@@ -1614,7 +1614,7 @@ procedure j_create_methodref(classfile, name, Type, class);
     return method_index;
 end
 
-procedure j_create_method(classfile, access, name, Type);
+procedure j_create_method(classfile, access, name, Type)
     local name_index, type_index, method;
 
     type(classfile) == "j_ClassFile" | runerr(500, classfile);
@@ -1629,7 +1629,7 @@ procedure j_create_method(classfile, access, name, Type);
     return method;
 end
 
-procedure j_create_code(classfile, stacksize, localsize);
+procedure j_create_code(classfile, stacksize, localsize)
     local code, cp_index;
 
     type(classfile) == "j_ClassFile" | runerr(500, classfile);
@@ -1641,24 +1641,24 @@ procedure j_create_code(classfile, stacksize, localsize);
     return code;
 end
 
-procedure j_writer_align4(writer, pad);
+procedure j_writer_align4(writer, pad)
     every 1 to pad do {
         writes(writer, char(0))
     };
 end
 
-procedure j_writer_u1(writer, u1);
+procedure j_writer_u1(writer, u1)
     (0 <= u1 < 256) | runerr(500, u1);
     writes(writer, char(iand(u1, 255)));
 end
 
-procedure j_writer_u2(writer, u2);
+procedure j_writer_u2(writer, u2)
     (0 <= u2 < 65536) | runerr(500, u2);
     writes(writer, char(iand(ishift(u2, - 8), 255)),
                    char(iand(u2, 255)));
 end
 
-procedure j_writer_u4(writer, u4);
+procedure j_writer_u4(writer, u4)
     (0 <= u4 < 4294967296) | runerr(500, u4);
     writes(writer, char(iand(ishift(u4, -24), 255)),
                    char(iand(ishift(u4, -16), 255)),
@@ -1666,18 +1666,18 @@ procedure j_writer_u4(writer, u4);
                    char(iand(u4, 255)));
 end
 
-procedure j_writer_s1(writer, s1);
+procedure j_writer_s1(writer, s1)
     (-128 <= s1 <= 127) | runerr(500, s1);
     writes(writer, char(iand(s1, 255)));
 end
 
-procedure j_writer_s2(writer, s2);
+procedure j_writer_s2(writer, s2)
     (-32768 <= s2 <= 32767) | runerr(500, s2);
     writes(writer, char(iand(ishift(s2, - 8), 255)),
                    char(iand(s2, 255)));
 end
 
-procedure j_writer_s4(writer, s4);
+procedure j_writer_s4(writer, s4)
     (-2147483648 <= s4 < 2147483648) | runerr(500, s4);
     writes(writer, char(iand(ishift(s4, -24), 255)),
                    char(iand(ishift(s4, -16), 255)),
@@ -1685,14 +1685,14 @@ procedure j_writer_s4(writer, s4);
                    char(iand(s4, 255)));
 end
 
-procedure j_offset_align4(offset, x);
+procedure j_offset_align4(offset, x)
     local k;
 
     k := (4 - offset % 4) % 4;
     return offset + k;
 end
 
-procedure j_ipush(x, classptr);
+procedure j_ipush(x, classptr)
     case x of {
     -1 :    return j_iconst_m1();
     0 : return j_iconst_0();
@@ -1710,7 +1710,7 @@ procedure j_ipush(x, classptr);
     runerr(500, x);
 end
 
-procedure j_Iload(x);
+procedure j_Iload(x)
     case x of {
     0 : return j_iload_0();
     1 : return j_iload_1();
@@ -1725,7 +1725,7 @@ procedure j_Iload(x);
     };
     runerr(500, x);
 end
-procedure j_Istore(x);
+procedure j_Istore(x)
     case x of {
     0 : return j_istore_0();
     1 : return j_istore_1();
@@ -1740,7 +1740,7 @@ procedure j_Istore(x);
     };
     runerr(500, x);
 end
-procedure j_Aload(x);
+procedure j_Aload(x)
     case x of {
     0 : return j_aload_0();
     1 : return j_aload_1();
@@ -1755,7 +1755,7 @@ procedure j_Aload(x);
     };
     runerr(500, x);
 end
-procedure j_Astore(x);
+procedure j_Astore(x)
     case x of {
     0 : return j_astore_0();
     1 : return j_astore_1();

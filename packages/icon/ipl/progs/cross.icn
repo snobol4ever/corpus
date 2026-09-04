@@ -51,7 +51,7 @@
 
 global fast, place, array, csave, fsave, number
 
-procedure main();
+procedure main()
    local words, nonletter, line;
    nonletter := ~&letters;
    words := [];
@@ -64,7 +64,7 @@ procedure main();
 
 end
 
-procedure kross(words);
+procedure kross(words)
    local one, tst, t;
    array := [get(words)];
    t := 0;
@@ -83,7 +83,7 @@ procedure kross(words);
    else write(&errout,"cannot construct puzzle");
 end
 
-procedure fit(word,matrix,where);
+procedure fit(word,matrix,where)
    local i, j, k, l, one, test, t, s;
    s := *matrix;
    t := *matrix[1];
@@ -115,7 +115,7 @@ procedure fit(word,matrix,where);
                };
 end
 
-procedure tstv(matrix,i,j,l,s,t);
+procedure tstv(matrix,i,j,l,s,t)
    return ((matrix[(l ~= i) & (s >= l) & (0 < l)][0 < j-1] ~== " ") |
       (matrix[(l ~= i) & (s >= l) & (0 < l)][t >= j + 1] ~== " ") |
       (matrix[(i ~= l-1) & (s >= l-1) & (0 < l-1)][j] ~== " ") |
@@ -123,7 +123,7 @@ procedure tstv(matrix,i,j,l,s,t);
       (matrix[(l ~= i) & (s >= l) & (0 < l)][j] ~== " "));
 end
 
-procedure tsth(matrix,i,j,l,s,t);
+procedure tsth(matrix,i,j,l,s,t)
    return ((matrix[0 < i-1][(l ~= j) & (t >= l) & (0 < l)] ~== " ") |
       (matrix[s >= i + 1][(l ~= j) & (t >= l) & (0 < l)] ~== " ") |
       (matrix[i][(j ~= l-1) & (t >= l-1) & (0 < l-1)] ~== " ") |
@@ -131,7 +131,7 @@ procedure tsth(matrix,i,j,l,s,t);
       (matrix[i][(l ~= j) & (t >= l) & (0 < l)] ~== " "));
 end
 
-procedure gen(i);
+procedure gen(i)
    local tmp, up, down;
    tmp := i / 2;
    if (i % 2) = 1 then
@@ -147,7 +147,7 @@ end
 
 # put `word' in vertically at pos(i,j)
 
-procedure putvert(matrix,word,i,j,k);
+procedure putvert(matrix,word,i,j,k)
    local hdim, vdim, up, down, l, m, n;
    vdim := *matrix;
    hdim := *matrix[1];
@@ -167,7 +167,7 @@ end
 
 # put `word' in horizontally at position i,j in matrix
 
-procedure puthoriz(matrix,word,i,j,k);
+procedure puthoriz(matrix,word,i,j,k)
    local hdim, vdim, left, right, l, m, n;
    vdim := *matrix;
    hdim := *matrix[1];
@@ -187,7 +187,7 @@ procedure puthoriz(matrix,word,i,j,k);
    return matrix;
 end
 
-procedure Print(matrix);
+procedure Print(matrix)
    local i;
    write("+",repl("-",*matrix[1]),"+");
    every i := 1 to *matrix do

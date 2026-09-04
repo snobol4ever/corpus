@@ -75,7 +75,7 @@
 #
 ############################################################################
 
-procedure sentence (infile);
+procedure sentence (infile)
    local
       line,                     # Line read from input, beginning could be sent.
       sentence,                 # A possible sentence

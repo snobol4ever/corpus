@@ -48,7 +48,7 @@ record huffcode(c,i,len)
 global count_of_all_chars
 
 
-procedure main(a);
+procedure main(a)
 
     local direction, usage, size, char_tbl, heap, tree, h_tbl, intext;
     usage := "huffcode -i|o filename1";
@@ -81,7 +81,7 @@ procedure main(a);
 end
 
 
-procedure count_chars_in_s(s, char_tbl);
+procedure count_chars_in_s(s, char_tbl)
 
     #
     # Count chars in s, placing stats in char_tbl (keys = chars in
@@ -119,7 +119,7 @@ procedure count_chars_in_s(s, char_tbl);
 end
 
 
-procedure initialize_heap(char_tbl);
+procedure initialize_heap(char_tbl)
 
     #
     # Create heap data structure out of the table filled out by
@@ -136,7 +136,7 @@ procedure initialize_heap(char_tbl);
 end
 
 
-procedure reshuffle_heap(h, k);
+procedure reshuffle_heap(h, k)
 
     #
     # Based loosely on Sedgewick (2nd. ed., 1988), p. 160.  Take k-th
@@ -182,7 +182,7 @@ procedure reshuffle_heap(h, k);
 end
 
 
-procedure heap_2_tree(h);
+procedure heap_2_tree(h)
 
     #
     # Construct the Huffman tree out of heap h.  Find the smallest
@@ -223,7 +223,7 @@ procedure heap_2_tree(h);
 end
 
 
-procedure hash_codes(tr);
+procedure hash_codes(tr)
     local huff_tbl;
 
     #
@@ -243,7 +243,7 @@ procedure hash_codes(tr);
 end
     
 
-procedure collect_bits(tr, i, len);
+procedure collect_bits(tr, i, len)
 
     #
     # Decompose Huffman tree tr into huffcode() records which contain
@@ -265,7 +265,7 @@ procedure collect_bits(tr, i, len);
 end
 
 
-procedure put_tree(f, tr);
+procedure put_tree(f, tr)
 
     #
     # Writes Huffman tree tr to file f.  Uses first two bits to store
@@ -287,7 +287,7 @@ procedure put_tree(f, tr);
 end
 
 
-procedure get_tree(f);
+procedure get_tree(f)
 
     #
     # Reads in Huffman tree from file f, sets pointer to the first
@@ -307,7 +307,7 @@ procedure get_tree(f);
 end
 
 
-procedure encode_string(s, huffman_table);
+procedure encode_string(s, huffman_table)
 
     #
     # Encode string s using the codes in huffman_table (created by
@@ -346,7 +346,7 @@ procedure encode_string(s, huffman_table);
 end
 
 
-procedure decode_rest_of_file(f, size, huffman_tree);
+procedure decode_rest_of_file(f, size, huffman_tree)
 
     local s2, line, E, chr, bit;
     static chars_decoded;
@@ -377,7 +377,7 @@ procedure decode_rest_of_file(f, size, huffman_tree);
 end
 
 
-procedure quitprog(p, m, c);
+procedure quitprog(p, m, c)
 
     /m := "program error";
     write(&errout, p, ":  ", m);

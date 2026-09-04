@@ -44,7 +44,7 @@ record ob(t, c, v, x, y, w, h, l, s, n, i, j, k, etc)
 
 #  main program
 
-procedure main(args);
+procedure main(args)
    local f, line, data, objs, recs, curr, o, fmt, r, c, v, i;
 
    # open file, skip to data
@@ -114,7 +114,7 @@ end
 
 #  adjust(r) -- clean up record fields including type-dependent cases
 
-procedure adjust(r);
+procedure adjust(r)
    /r.v := "";				# default varname to "" not &null
    \r.y -:= YOFF;  # subtract xib header from y value
    r.t := r.t[1:-5];  # chop "_Obj" off name
@@ -145,7 +145,7 @@ end
 
 #  prologue() -- write boilerplate prologue to acual spec
 
-procedure prologue();
+procedure prologue()
 every write(![
    "#  User interface specification translated to vib format by uix",
    "#  (Load and save this file once in vib to correct size information.)",
@@ -174,7 +174,7 @@ end
 
 #  output(r) -- output one record in vib format
 
-procedure output(r);
+procedure output(r)
    if /r.t then
       fail;
    writes("   [\"");
@@ -195,7 +195,7 @@ end
 
 #  outmenu(lst) -- output a list of menu entries
 
-procedure outmenu(lst);
+procedure outmenu(lst)
    local msize;
 
    msize := get(lst);
@@ -214,7 +214,7 @@ end
 
 #  outentry(lst) -- output menu entry
 
-procedure outentry(lst);
+procedure outentry(lst)
    writes(image(get(lst)));  # output label
    get(lst);  # skip unused data
    get(lst);

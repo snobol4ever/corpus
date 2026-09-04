@@ -79,7 +79,7 @@ link printf
 
 # transpose_matrix(M)  - produces a new matrix R that is the transpose of M:
 #                          R[j][i] = M[i][j]
-procedure transpose_matrix(M);
+procedure transpose_matrix(M)
   local R, row, rowcnt, colcnt, i, j;
   # sanity checks
   type(M) == "list"      | fail;
@@ -102,7 +102,7 @@ end
 #                        function; if numeric fails for any element, 
 #                        numeric_matrix fails:
 #                          R[i][j] = numeric(M[i][j])
-procedure numeric_matrix(M);
+procedure numeric_matrix(M)
   local R, row, rowcnt, colcnt, i, j;
   # sanity checks
   type(M) == "list"      | fail;
@@ -124,7 +124,7 @@ end
 #                        mult times larger than its peer in M:
 #                          R[i][j] := mult * M[i][j]
 # scale_matrix(mult,M) - is a synonym for scale_matrix(M,mult).
-procedure scale_matrix(mult,M);
+procedure scale_matrix(mult,M)
   local R, i, j;
   # handle synonymous invocation
   if numeric(M) & type(mult) == "list" then M :=: mult;
@@ -143,7 +143,7 @@ end
 # floor_matrix(M,min)  - produces a new matrix R that is a copy of M except 
 #                        each element is increased to min if necessary:
 #                          R[i][j] := min <= M[i][j] | min
-procedure floor_matrix(min,M);
+procedure floor_matrix(min,M)
   local R, i, j, r;
   # handle synonymous invocation
   if numeric(M) & type(min) == "list" then M :=: min;
@@ -165,7 +165,7 @@ end
 # ceil_matrix(M,max)  - produces a new matrix R that is a copy of M except 
 #                        each element is increased to max if necessary:
 #                          R[i][j] := max <= M[i][j] | max
-procedure ceil_matrix(max,M);
+procedure ceil_matrix(max,M)
   local R, i, j, r;
   # handle synonymous invocation
   if numeric(M) & type(max) == "list" then M :=: max;
@@ -187,7 +187,7 @@ end
 # sumsquares_matrix(M) - produces the sum of the squares
 #   of all terms in a matrix
 #       sum( for every i,j ) (M[i][j])^2
-procedure sumsquares_matrix(M);
+procedure sumsquares_matrix(M)
   local r, r1, i, j;
   # sanity checks
   type(M)    == "list"  | fail;
@@ -206,7 +206,7 @@ end
 # sumsquaresdiff_matrix(M1,M2) - produces the sum of the squares
 #   of all terms in the difference between two matrices
 #       sum( for every i,j ) (M1[i][j] - M2[i][j])^2
-procedure sumsquaresdiff_matrix(M1,M2);
+procedure sumsquaresdiff_matrix(M1,M2)
   local r, r1, r2, i, j, scratch;
   # sanity checks
   type(M1)    == type(M2)    == "list"  | fail;
@@ -230,7 +230,7 @@ end
 #                            t is a required minimum magnitude
 #                            for row sums to avoid divide-by-zero errors
 # normalize_rows(t,M) : L  - synonym for normalize_rows(M,t) 
-procedure normalize_rows(M,threshold);
+procedure normalize_rows(M,threshold)
   local R, rowsum, rowcnt, colcnt, i, j;
   # handle synonymous invocation
   if numeric(M) & type(threshold) == "list" then M :=: threshold;
@@ -259,7 +259,7 @@ end
 #                              t is a required minimum magnitude for
 #                              column sums to avoid divide-by-zero errors
 # normalize_columns(t,M) : L - synonym for normalize_columns(M,T) 
-procedure normalize_columns(M,threshold);
+procedure normalize_columns(M,threshold)
   local R, colsum, rowcnt, colcnt, i, j;
   # handle synonymous invocation
   if numeric(M) & type(threshold) == "list" then M :=: threshold;
@@ -282,7 +282,7 @@ end
 
 # sprintf_matrix(format,M) - produces a matrix R of strings formatted
 #                            by sprintf
-procedure sprintf_matrix( fmt, M );
+procedure sprintf_matrix( fmt, M )
   local R, row, rowcnt, colcnt, i, j;
   # sanity checks
   type(M) == "list"      | fail;

@@ -20,7 +20,7 @@
 #
 ############################################################################
 
-procedure main(arg);
+procedure main(arg)
   local linkSet,doneSet,fn,f,line,linkName,libSet,a;
   libSet := set();
   linkSet := set();
@@ -54,7 +54,7 @@ procedure main(arg);
   every write(!sort(doneSet));
 end
 
-procedure PathDirs(s);
+procedure PathDirs(s)
 #
 # Generate the directory names in a "path" string.
 #

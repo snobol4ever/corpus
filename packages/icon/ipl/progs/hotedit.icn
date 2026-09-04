@@ -52,7 +52,7 @@ $define HOTOLD ".mosaic-hotlist-backup"
 $define HOTNEW ".mosaic-hotlist-revised"
 $define HOTFORMAT "ncsa-xmosaic-hotlist-format-1"
 
-procedure main();
+procedure main()
    local home, f, t, line, n, editor, command, urllist;
 
    home := getenv("HOME")	| stop("no $HOME value");

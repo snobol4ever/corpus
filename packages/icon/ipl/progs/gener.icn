@@ -29,7 +29,7 @@
 
 link exprfile
 
-procedure main(args);
+procedure main(args)
    local input;
 
    input := exprfile(args[1], "seqfncs");

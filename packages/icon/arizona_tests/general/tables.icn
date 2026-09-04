@@ -133,7 +133,7 @@ procedure keylist(tbl);			#: list of keys in table
 
 end
 
-procedure kvallist(T);
+procedure kvallist(T)
    local result;
 
    result := [];

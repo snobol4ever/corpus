@@ -18,7 +18,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local in1, in2, one, two;
 
    in1 := open(args[1]) | stop("*** cannot open file 1");

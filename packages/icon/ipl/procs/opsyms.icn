@@ -20,7 +20,7 @@
 #
 ############################################################################
 
-procedure opsyms();
+procedure opsyms()
    local opmap;
 
    initial {

@@ -47,7 +47,7 @@ link graphics
 
 global hsiz, vsiz, hsep, vsep, tsep, bsep, lsep, rsep
 
-procedure main(args);
+procedure main(args)
    local win, col, card, c, s, opts;
 
    opts := options(args, winoptions());
@@ -102,7 +102,7 @@ procedure main(args);
 end
 
 
-procedure keyevent(win);
+procedure keyevent(win)
    local e;
    repeat {
       e := Event(win);
@@ -116,7 +116,7 @@ procedure keyevent(win);
 end
 
 
-procedure initcard(win);
+procedure initcard(win)
    local i, c;
 
    EraseArea(win);
@@ -128,14 +128,14 @@ procedure initcard(win);
 end
 
 
-procedure key(win, col, ch);
+procedure key(win, col, ch)
    Fg(win, "black");
    every punch(win, col, holes(ch));
    punch(win, col, 0, ch);
 end
 
 
-procedure punch(win, col, row, ch);
+procedure punch(win, col, row, ch)
    local x, y, w, h;
    x := lsep + (col - 1) * (hsiz + hsep);
    if row = 0 then
@@ -151,7 +151,7 @@ end
 
 # Hole codes from CDC SCOPE 3.4 SPRM, Rev. A, 10-15-71, page A-4 (026 encoding).
 
-procedure holes(c);
+procedure holes(c)
    static s0, s1, s2, s3, n;
    initial {
       s0 := " 0123456789+ABCDEFGHI-JKLMNOPQR/STUVWXYZ:=@%'[.)^;]$*@?>!,(_#&\"\\";

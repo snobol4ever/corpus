@@ -1,4 +1,4 @@
-procedure main();
+procedure main()
   x := 1;
   y := x | 99;
 end

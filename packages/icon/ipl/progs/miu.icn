@@ -26,7 +26,7 @@
 #
 ############################################################################
 
-procedure main(arg);
+procedure main(arg)
    local count, gen, limit;
 
    limit := integer(arg[1]) | 7;
@@ -41,7 +41,7 @@ end
 
 # show - show a generation of strings
 
-procedure show(count,gen);
+procedure show(count,gen)
 
    write("Generation #",count,", ",*gen," strings");
    every write("   ",image(!sort(gen)));
@@ -51,7 +51,7 @@ end
 
 # nextgen - given a generation of strings, compute the next generation
 
-procedure nextgen(gen);
+procedure nextgen(gen)
    local new;
 
    new := set();
@@ -62,7 +62,7 @@ end
 
 # apply - produce all strings derivable from s in a single rule application
 
-procedure apply(s);
+procedure apply(s)
 
 # Here's a case where referring to the subject by name inside scanning
 # is justified.

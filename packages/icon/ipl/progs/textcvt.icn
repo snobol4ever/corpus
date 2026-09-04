@@ -36,7 +36,7 @@
 link io
 link options
 
-procedure Usage(s);
+procedure Usage(s)
   write(&errout,\s);
   stop("Usage: textcvt [-options] -<output format> textfile..._
        \n  options:_
@@ -49,7 +49,7 @@ procedure Usage(s);
        \n    m: Macintosh");
 end
 
-procedure Options(arg);
+procedure Options(arg)
   local opt;
   opt := options(arg,"udmo:f:c",Usage);
   OutEnder :=
@@ -71,7 +71,7 @@ end
 
 global OutEnder,OutDir,OutFile
 
-procedure main(arg);
+procedure main(arg)
   local oldName,old,newName,tmp,notInPlace,tmpName;
   Options(arg);
   notInPlace := \(OutFile | OutDir);
@@ -114,7 +114,7 @@ procedure main(arg);
   };
 end
 
-procedure ConvertText(old,new);
+procedure ConvertText(old,new)
   local buf,c,trail;
   while buf := reads(old,2000) do {
     if buf[-1] == "\x0d" then buf ||:= reads(old);

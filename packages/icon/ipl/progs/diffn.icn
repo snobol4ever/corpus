@@ -36,7 +36,7 @@ record dfile(file,linenbr)
 
 invocable all
 
-procedure main(arg);
+procedure main(arg)
   local f, i, files, drec, status;
   #
   #  Analyze command line arguments, open the files, and output
@@ -74,7 +74,7 @@ end
 #  listrange() -- List a range of differing lines, each preceded by its
 #  line number.
 #
-procedure listrange(dlist,linenbr);
+procedure listrange(dlist,linenbr)
   local x;
   every x := !dlist do {
     write(x); linenbr +:= 1
@@ -86,7 +86,7 @@ end
 #
 #  myread() -- Line-reading procedure to pass to dif().
 #
-procedure myread(x);
+procedure myread(x)
   return x.linenbr <- x.linenbr + 1 & read(x.file);
 end
 

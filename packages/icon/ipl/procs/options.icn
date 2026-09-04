@@ -103,7 +103,7 @@
 #  
 ############################################################################
 
-procedure options(arg,optstring,errproc);
+procedure options(arg,optstring,errproc)
    local f,fList,fileArg,fn,ignore,optname,opttable,opttype,p,x,option,optcs;
    #
    #  Initialize.

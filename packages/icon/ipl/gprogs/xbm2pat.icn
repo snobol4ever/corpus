@@ -24,7 +24,7 @@
 
 link patutils
 
-procedure main(args);
+procedure main(args)
    local input, rlist;
 
    input := open(args[1]) | stop("*** cannot open image file");

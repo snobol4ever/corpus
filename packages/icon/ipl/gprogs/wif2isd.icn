@@ -59,7 +59,7 @@ global data_entries
 global sections
 global wif
 
-procedure main(args);
+procedure main(args)
    local opts, title, palette;
 
    opts := options(args, "n:");

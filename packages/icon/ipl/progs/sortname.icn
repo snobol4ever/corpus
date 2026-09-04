@@ -20,7 +20,7 @@
 
 link namepfx, lastname
 
-procedure main();
+procedure main()
    local names, line, last, first;
 
    names := table();

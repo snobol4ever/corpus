@@ -34,7 +34,7 @@
 
 link adlutils, options, namepfx
 
-procedure main(args);
+procedure main(args)
    local item, item_lists, opts, sort_method, get_item, add, names, prefixes;
    local prefix;
 

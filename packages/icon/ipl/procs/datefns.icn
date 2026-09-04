@@ -42,7 +42,7 @@ global cum_days   # Cum. day counts for month end, leap & non-leap yrs.
 # See "The C Programming Language," by Kernighan and Richie (Wylie,
 # 1978)
 
-procedure initdate();
+procedure initdate()
    monthlist :=
       ["January", "February", "March", "April",
        "May", "June", "July", "August",
@@ -73,7 +73,7 @@ procedure initdate();
 end
 
 # today - obtain computationally-useful values for today's date
-procedure today();
+procedure today()
    local junk, datestruct;
    
    datestruct := date_rec();
@@ -111,7 +111,7 @@ end
 # doesn't do this, explicit type conversions are required.
 
 # julian - convert a date_rec to a Julian day number
-procedure julian(date);
+procedure julian(date)
    
    local jul;
    local ja, jy, jm, z1, z2;
@@ -140,7 +140,7 @@ procedure julian(date);
 end
 
 # unjulian - produce a date from the Julian day number
-procedure unjulian(julianday);
+procedure unjulian(julianday)
 
    local ja, jalpha, jb, jc, jd, je;  # integers all
    local datestruct;
@@ -176,7 +176,7 @@ end
 
 # doy - return day-of-year from (year, month, day)
 # Adapted from K&R
-procedure doy(year, month, day);
+procedure doy(year, month, day)
    local leap, y, m, d;
    y := integer(year);
    m := integer(month);
@@ -190,7 +190,7 @@ procedure doy(year, month, day);
 end
 
 # wrdate - write out a basic date string with a leadin string
-procedure wrdate(leadin, date);
+procedure wrdate(leadin, date)
    write(leadin, " ", date.year, " ", date.monthname, " ", date.day);
 end
 

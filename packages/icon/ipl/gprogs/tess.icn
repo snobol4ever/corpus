@@ -74,7 +74,7 @@ global vs, vt,  ne,  pi, twopi, vs2, vs3,   # view parameters
 #
 # this is the main drawing loop
 #
-procedure main(stuff);
+procedure main(stuff)
   setup(stuff);
   getview();
   repeat
@@ -88,7 +88,7 @@ procedure main(stuff);
 #
 # this sets up some main x variables and constants
 #
-procedure setup(settings);
+procedure setup(settings)
   local i;
   vs := real(settings[1] | 1024.0);
   vs2:= vs * 5.0;
@@ -133,7 +133,7 @@ procedure setup(settings);
 #
 # set up other important windowing variables and constants
 #
-procedure getview();
+procedure getview()
   ox      := vs / 2.0;
   oy      := vs / 2.0;
   lines   := integer(vs / 14.22 + 0.5);
@@ -176,7 +176,7 @@ procedure getview();
 #
 # calculate points in 4 dimensions
 #
-procedure calcview();
+procedure calcview()
   sh := sin(h)    ; ch := cos(h);
   sp := sin(p)    ; cp := cos(p);
   sb := sin(b)    ; cb := cos(b);
@@ -189,7 +189,7 @@ procedure calcview();
 #
 # run a display pass
 #
-procedure genview();
+procedure genview()
   calcview();
   project();
   connect();
@@ -198,7 +198,7 @@ procedure genview();
 #
 # project 4 dimensions to fewer dimensions
 #
-procedure project();
+procedure project()
   local i, q, xa, ya, za, tx, ty, tz;
   projtessarect := table(0);
   every i := 1 to vt do
@@ -231,7 +231,7 @@ procedure project();
 #
 # perform motion
 #
-procedure changeview();
+procedure changeview()
   if (h +:= dh) > twopi  then h  -:= twopi;
   if (p -:= dp) < -twopi then p  +:= twopi;
   if (a +:= da) > twopi  then a  -:= twopi;
@@ -264,7 +264,7 @@ procedure changeview();
 #
 # draw it
 #
-procedure connect();
+procedure connect()
   local i, pt, b1, b2, a1, a2, oldxb, oldyb;
   every i := 1 to ne do
     {
@@ -308,7 +308,7 @@ procedure connect();
 #
 # sense the outside world
 #
-procedure testkey(window);
+procedure testkey(window)
   local things, request;
   static    uparrow,  downarrow, leftarrow,   rightarrow,
             xrotate,  yrotate,   zrotate,     arotate,

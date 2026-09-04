@@ -1,6 +1,6 @@
 record node(tag, sub)
 
-procedure findsub(r, f[]);
+procedure findsub(r, f[])
    local tag, x;
    tag := get(f) | fail;
    every x := !r.sub do {
@@ -12,7 +12,7 @@ procedure findsub(r, f[]);
    };
 end
 
-procedure build(depth);
+procedure build(depth)
    local kids;
    kids := [];
    if depth > 0 then {
@@ -23,7 +23,7 @@ procedure build(depth);
    return node("T" || depth, kids);
 end
 
-procedure main();
+procedure main()
    local root, x, count, i;
    root := build(3);
    count := 0;

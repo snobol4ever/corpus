@@ -1,6 +1,6 @@
-procedure foo();
+procedure foo()
   x := 1;
 end
-procedure bar();
+procedure bar()
   x := 2;
 end

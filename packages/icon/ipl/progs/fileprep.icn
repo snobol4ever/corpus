@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
    local files, file, input, line;
 
    files := open("ls [a-z]*.icn", "p");

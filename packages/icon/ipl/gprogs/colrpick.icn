@@ -35,7 +35,7 @@
 link graphics
 link vsetup
 
-procedure main(args);
+procedure main(args)
    local dflt;
 
    Window ! put(ui_atts(), "canvas=hidden", args);
@@ -58,11 +58,11 @@ end
 
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=340,320", "bg=pale gray"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,340,320:",],
    );

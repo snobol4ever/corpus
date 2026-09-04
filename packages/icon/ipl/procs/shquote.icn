@@ -40,11 +40,11 @@
 #
 ############################################################################
 
-procedure shquote(s[]);
+procedure shquote(s[])
    return shquote_words(s);
 end
 
-procedure cshquote(s[]);
+procedure cshquote(s[])
    s := shquote_words(s,'\t\n $"#&\'()*;<>?[\\`|~');
    #
    #  But backslashes before any bangs (!).
@@ -59,7 +59,7 @@ procedure cshquote(s[]);
    return s;
 end
 
-procedure mpwquote(s[]);
+procedure mpwquote(s[])
    #
    #  The following are Macintosh Option- characters that have special
    #  meaning to the MPW Shell.  They are represented here as Icon
@@ -94,7 +94,7 @@ procedure mpwquote(s[]);
    return result;
 end
 
-procedure shquote_words(wordList,quotedChars,escapeString,sepString);
+procedure shquote_words(wordList,quotedChars,escapeString,sepString)
    local s, result, sep;
    /quotedChars := '\t\n\r $"#&\'()*;<>?[\\^`|';
    /escapeString := "\\";
@@ -114,7 +114,7 @@ procedure shquote_words(wordList,quotedChars,escapeString,sepString);
    return result; 
 end
 
-procedure dequote(s,escapeString,escapeProc);
+procedure dequote(s,escapeString,escapeProc)
    local quoteChars,c,d;
    /escapeString := "\\";
    /escapeProc := 1;
@@ -133,11 +133,11 @@ escapeProc(move(1)))
       };
 end
 
-procedure mpwdequote(s);
+procedure mpwdequote(s)
    return dequote(s,"\xb6",mpw_escape_proc);
 end
 
-procedure mpw_escape_proc(ch);
+procedure mpw_escape_proc(ch)
    return case ch of {
       "n": "\n";
       "t": "\t";

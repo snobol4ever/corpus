@@ -142,7 +142,7 @@ end
 
 #  vhttp_contact(host, port, path) -- internal procedure for contacting server
 
-procedure vhttp_contact(host, port, path);
+procedure vhttp_contact(host, port, path)
    local f, line, hostport;
    static deadhosts;
    initial deadhosts := set();
@@ -190,7 +190,7 @@ end
 
 #  vhttp_waitclock(host) -- internal throttling procedure
 
-procedure vhttp_waitclock(host);
+procedure vhttp_waitclock(host)
    static hclock, curclock;
    initial {
       hclock := table();
@@ -215,7 +215,7 @@ end
 
 global vhttp_htable, vhttp_hfile
 
-procedure vhttp_inithist();
+procedure vhttp_inithist()
    local fname, line, key, val;
 
    vhttp_htable := table();
@@ -237,11 +237,11 @@ procedure vhttp_inithist();
    return;
 end
 
-procedure vhttp_histval(key);
+procedure vhttp_histval(key)
    return \vhttp_htable[key];
 end
 
-procedure vhttp_addhist(key, val);
+procedure vhttp_addhist(key, val)
    vhttp_htable[key] := val;
    write(vhttp_hfile, key, " ", val);
    return val;

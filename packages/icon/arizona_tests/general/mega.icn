@@ -16,7 +16,7 @@ global base	# basic string of 63 characters
 global mega	# growing mega-string
 
 
-procedure main(args);
+procedure main(args)
    local nbits;
    arglen := *args;
    nbits := integer(args[1]) | 20;	# number of length bits to try

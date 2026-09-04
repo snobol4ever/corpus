@@ -50,7 +50,7 @@ $include "vdefns.icn"
 record Varrow_rec(win, callback, aw, ah, rev, dir, incop, id, ax, ay, r,
    uid, P, V)
 
-procedure Varrow(params[]);
+procedure Varrow(params[])
 local frame, x, y, ins, self, init_proc;
 
    init_proc := init_Varrow;
@@ -69,7 +69,7 @@ local frame, x, y, ins, self, init_proc;
    return self;
 end
 
-procedure event_Varrow(s,e);
+procedure event_Varrow(s,e)
 local c, prev, new;
 static delay;
 
@@ -93,12 +93,12 @@ static delay;
       };
 end
 
-procedure draw_Varrow(s);
+procedure draw_Varrow(s)
    EraseArea(s.win, s.ax, s.ay, s.aw, s.ah);
    BevelTriangle(s.win, s.ax + s.r, s.ay + s.r, s.r, s.dir);
 end
 
-procedure press_Varrow(s);
+procedure press_Varrow(s)
    local v;
    v := s.incop(s.callback.value, s.callback.inc);
    if abs(v) < abs(s.callback.inc) / 1000000.0 then	# if close to zero
@@ -106,7 +106,7 @@ procedure press_Varrow(s);
    return v;
 end
 
-procedure init_Varrow(s);
+procedure init_Varrow(s)
    if /s.aw then _Vbomb("must specify a size for a Varrow");
    if (/s.rev & s.dir == !"se") | (\s.rev & s.dir == !"nw") then
       s.incop := proc("+", 2)
@@ -123,7 +123,7 @@ record Vthumb_rec (win, callback, id, aw, ah, win_sz, tot_sz, discont,
    sp, sw, tw, th, ws, cv_range, pos, rev, frame, drawn, type,
    ax, ay, uid, P, V)
 
-procedure procs_Vvthumb();
+procedure procs_Vvthumb()
    static procs;
    initial procs := Vstd(event_Vvthumb, draw_Vvthumb, 1,
                         resize_Vidget, inrange_Vpane, init_Vvthumb,
@@ -131,7 +131,7 @@ procedure procs_Vvthumb();
    return procs;
 end
 
-procedure Vvthumb(params[]);
+procedure Vvthumb(params[])
 local frame, x, y, ins, self;
 
    if ins := Vinsert_check(params) then {
@@ -153,7 +153,7 @@ end
 # write("draw: val ", val, " cv value ", s.callback.value, " cv min ",
 # s.callback.min, "  ws ", s.ws, "  cv range ", s.cv_range)
 #
-procedure draw_Vvthumb(s);
+procedure draw_Vvthumb(s)
    local val;
 
    s.drawn := 1;
@@ -164,7 +164,7 @@ procedure draw_Vvthumb(s);
    BevelRectangle(s.win, s.ax, s.ay + val, s.tw, s.th);
 end
 
-procedure event_Vvthumb(s, e);
+procedure event_Vvthumb(s, e)
 local value, offset;
 
    if \s.callback.locked then fail;
@@ -187,7 +187,7 @@ local value, offset;
       };
 end
 
-procedure update_Vvthumb(s, active);
+procedure update_Vvthumb(s, active)
 local val, op, tw, th, sw, sp;
 
    val := integer((s.callback.value - s.callback.min) * s.ws / s.cv_range + 0.5);
@@ -206,11 +206,11 @@ local val, op, tw, th, sw, sp;
    s.pos := val;
 end
 
-procedure set_value_Vvthumb(s, value);
+procedure set_value_Vvthumb(s, value)
    couplerset_Vvthumb(s, , value);
 end
 
-procedure couplerset_Vvthumb(s, caller, value);
+procedure couplerset_Vvthumb(s, caller, value)
    value := numeric(value) | s.callback.min;
    if (\caller).id === V_ARROW then caller := s
    else if value === s.callback.value then fail;
@@ -219,7 +219,7 @@ procedure couplerset_Vvthumb(s, caller, value);
       update_Vvthumb(s);
 end
 
-procedure init_Vvthumb(s);
+procedure init_Vvthumb(s)
    static type;
 
    initial type := proc("type", 0);	# protect attractive name
@@ -245,7 +245,7 @@ end
 # Vhthumb
 ############################################################################
 
-procedure procs_Vhthumb();
+procedure procs_Vhthumb()
    static procs;
    initial procs := Vstd(event_Vhthumb, draw_Vhthumb, 1,
                         resize_Vidget, inrange_Vpane, init_Vhthumb,
@@ -253,7 +253,7 @@ procedure procs_Vhthumb();
    return procs;
 end
 
-procedure Vhthumb(params[]);
+procedure Vhthumb(params[])
 local frame, x, y, ins, self;
 
    if ins := Vinsert_check(params) then {
@@ -268,7 +268,7 @@ local frame, x, y, ins, self;
    return self;
 end
 
-procedure draw_Vhthumb(s);
+procedure draw_Vhthumb(s)
    local val;
 
    s.drawn := 1;
@@ -279,7 +279,7 @@ procedure draw_Vhthumb(s);
    BevelRectangle(s.win, s.ax + val, s.ay, s.tw, s.th);
 end
 
-procedure event_Vhthumb(s, e);
+procedure event_Vhthumb(s, e)
 local value, offset;
 
    if \s.callback.locked then fail;
@@ -302,7 +302,7 @@ local value, offset;
       };
 end
 
-procedure update_Vhthumb(s, active);
+procedure update_Vhthumb(s, active)
    local val, op, tw, th, sw, sp;
 
    val := integer((s.callback.value - s.callback.min) * s.ws / s.cv_range + 0.5);
@@ -321,11 +321,11 @@ procedure update_Vhthumb(s, active);
    s.pos := val;
 end
 
-procedure set_value_Vhthumb(s, value);
+procedure set_value_Vhthumb(s, value)
    couplerset_Vhthumb(s, s, value);
 end
 
-procedure couplerset_Vhthumb(s, caller, value);
+procedure couplerset_Vhthumb(s, caller, value)
 
    value := numeric(value) | s.callback.min;
    if (\caller).id === V_ARROW then caller := s
@@ -335,7 +335,7 @@ procedure couplerset_Vhthumb(s, caller, value);
       update_Vhthumb(s);
 end
 
-procedure init_Vhthumb(s);
+procedure init_Vhthumb(s)
    static type;
 
    initial type := proc("type", 0);	# protect attractive name
@@ -363,7 +363,7 @@ end
 record Vscrollbar_frame_rec(win, callback, id, aw, ah, lookup, draw, uid,
    data, thumb, ax, ay, P, V)
 
-procedure Vscrollbar_frame(params[]);
+procedure Vscrollbar_frame(params[])
 local self, procs;
 
    procs := Vstd(event_Vframe, draw_Vframe, outline_Vscrollbar,
@@ -378,11 +378,11 @@ local self, procs;
    return self;
 end
 
-procedure outline_Vscrollbar(self);
+procedure outline_Vscrollbar(self)
    BevelRectangle(self.win, self.ax, self.ay, self.aw, self.ah, -2);
 end
 
-procedure resize_Vscrollbar(self, x, y, w, h);
+procedure resize_Vscrollbar(self, x, y, w, h)
 
    resize_Vframe(self, x, y, w, h);
 
@@ -406,20 +406,20 @@ end
 #  These are the middle-man procedures between the scrollbar frame 
 #  and the thumb.
 
-procedure couplerset_Vhscrollbar(s, caller, value);
+procedure couplerset_Vhscrollbar(s, caller, value)
    couplerset_Vhthumb(s.thumb, caller, value);
 end
 
-procedure set_value_Vhscrollbar(s, value);
+procedure set_value_Vhscrollbar(s, value)
    set_value_Vhthumb(s.thumb, value);
    return;
 end
 
-procedure couplerset_Vvscrollbar(s, caller, value);
+procedure couplerset_Vvscrollbar(s, caller, value)
    couplerset_Vvthumb(s.thumb, caller, value);
 end
 
-procedure set_value_Vvscrollbar(s, value);
+procedure set_value_Vvscrollbar(s, value)
    set_value_Vvthumb(s.thumb, value);
    return;
 end
@@ -427,7 +427,7 @@ end
 ############################################################################
 # Vertical scrollbar 
 ############################################################################
-procedure Vvert_scrollbar(params[]);
+procedure Vvert_scrollbar(params[])
 local frame, x, y, ins, t, self;
 
    if ins := Vinsert_check(params) then {
@@ -499,7 +499,7 @@ end
 ############################################################################
 # Horizontal scrollbar 
 ############################################################################
-procedure Vhoriz_scrollbar(params[]);
+procedure Vhoriz_scrollbar(params[])
 local frame, x, y, ins, t, self;
 
    if ins := Vinsert_check(params) then {
@@ -570,7 +570,7 @@ end
 ############################################################################
 # reformatting procedures.  Will just reformat width and length.
 ############################################################################
-procedure reformat_Vvthumb(s, length, width);
+procedure reformat_Vvthumb(s, length, width)
 
    s.P.w := s.aw := \width;
    s.P.h := s.ah := \length;
@@ -583,7 +583,7 @@ procedure reformat_Vvthumb(s, length, width);
    s.ws := 0 < real(s.ah - s.th - 2) | 0;
 end
 
-procedure reformat_Vhthumb(s, length, width);
+procedure reformat_Vhthumb(s, length, width)
 
    s.P.w := s.aw := length;
    s.P.h := s.ah := width;
@@ -596,7 +596,7 @@ procedure reformat_Vhthumb(s, length, width);
    s.ws := 0 < real(s.aw - s.tw - 2) | 0;
 end
 
-procedure Vreformat_vscrollbar(self, length, width);
+procedure Vreformat_vscrollbar(self, length, width)
    local up, down, thumb;
 
    /width := self.aw;
@@ -625,7 +625,7 @@ procedure Vreformat_vscrollbar(self, length, width);
 
 end
 
-procedure Vreformat_hscrollbar(self, length, width);
+procedure Vreformat_hscrollbar(self, length, width)
    local left, right, thumb;
 
    /width := self.ah;
@@ -656,7 +656,7 @@ end
 ############################################################################
 #  interface procedure for Vreformat
 ############################################################################
-procedure VReformat(scrollbar, length, width);
+procedure VReformat(scrollbar, length, width)
    static type;
 
    initial type := proc("type", 0);	# protect attractive name

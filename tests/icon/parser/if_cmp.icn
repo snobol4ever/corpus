@@ -1,4 +1,4 @@
-procedure main();
+procedure main()
   x := 2;
   if x >= 2 then write("ge") else write("lt");
 end

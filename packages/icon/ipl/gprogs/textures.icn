@@ -31,7 +31,7 @@ link graphics
 
 global win
 
-procedure main(args);
+procedure main(args)
    local cols, rows, xsiz, ysiz, gutter, w, h, pats, i, x, y, s;
 
    pats := [
@@ -76,7 +76,7 @@ procedure main(args);
    WDone(win);
 end
 
-procedure rect(x, y, w, h, s);
+procedure rect(x, y, w, h, s)
    Pattern(win, "1,1");
    DrawLine(win, x + w, y - 1, x + w, y + h, x - 1, y + h);
    Pattern(win, "1,0");

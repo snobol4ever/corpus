@@ -29,7 +29,7 @@
 #
 ############################################################################
 
-procedure rng(a, c, m, x);
+procedure rng(a, c, m, x)
 
    /a := 1103515245;			# multiplicative constant
    /c := 453816694;			# additive constant

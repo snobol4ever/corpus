@@ -43,7 +43,7 @@
 
 link options
 
-procedure main(arg);
+procedure main(arg)
    local usage, opts, tabs, comment, format, just1, space, nspace, wchar, Entab;
    local line, pre, empty, outline, spaces, word, len, width, xspace, Detab;
    local outpre;
@@ -138,7 +138,7 @@ end
 #  are  required  to  be   wider  than  others,  the  extra  spaces  are
 #  distributed randomly to minimize "rivering" in justified paragraphs.
 #
-procedure justify(s,width);
+procedure justify(s,width)
    local wlist,wset,t,r;
    static space,nspace;
    initial {

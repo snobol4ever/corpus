@@ -24,7 +24,7 @@
 
 $define BUFSIZE 65536
 
-procedure main(args);
+procedure main(args)
    local f, fname, len, i, nseg, buf, leftover, lines;
 
    if *args = 0 then

@@ -38,7 +38,7 @@
 
 link options
 
-procedure main(args);
+procedure main(args)
    local start, output, input, i, opts, limit, name, max, count;
 
    opts := options(args, "t+s+m+f:F:");

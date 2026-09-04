@@ -27,7 +27,7 @@
 
 link weighted
 
-procedure main();
+procedure main()
 local before, after, num, pct, yn, seed;
   write (center("Weighted Shuffle Demonstration", 80));
   repeat {
@@ -62,7 +62,7 @@ local before, after, num, pct, yn, seed;
   };
 end
 
-procedure DisplayList (L);  
+procedure DisplayList (L)  
   every writes (right(!L, 4));
 end  
 

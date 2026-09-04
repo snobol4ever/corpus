@@ -35,7 +35,7 @@
 #
 ############################################################################
 
-procedure lcseval(a, c, m);
+procedure lcseval(a, c, m)
    local b, s;
 
    write("a=", a, " (should not have a regular pattern of digits)");

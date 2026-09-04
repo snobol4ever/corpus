@@ -533,7 +533,7 @@ procedure GconjPDCO(L);		#: PDCO for generalized conjunction
 
 end
 
-procedure Gconj_(L,i,v);
+procedure Gconj_(L,i,v)
 
    local e;
    if e := L[i] then {

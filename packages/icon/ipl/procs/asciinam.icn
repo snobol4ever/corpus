@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure asciiname(s);
+procedure asciiname(s)
    local o;
    static names;
    initial {

@@ -35,7 +35,7 @@ link weavegif
 link weavutil
 link xcode
 
-procedure main(args);
+procedure main(args)
    local draft, width, spacing, bg, opts;
 
    isd;  # Hands off, linker.

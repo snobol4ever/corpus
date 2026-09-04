@@ -176,7 +176,7 @@ record short_edge(LHS, RHS)
 #
 # For debugging only.
 #
-procedure main(a);
+procedure main(a)
 
     local res, filename, line;
     # &trace := -1
@@ -205,7 +205,7 @@ end
 #     where filename is the name of a grammar file containing BNFs
 #     where Es are edge records containing possible parses of s
 #
-procedure parse_sentence(s, filename, start_symbol);
+procedure parse_sentence(s, filename, start_symbol)
 
     local file, e, i, elist, ltbl, tset, ch, tokens, st, 
         memb, new_e, token_set, none_found, active_modified;
@@ -329,7 +329,7 @@ end
 #            tabs, and other punctuation as separators (we'll need to
 #            change this a bit later on to cover apostrophed words)
 #
-procedure tokenize(s);
+procedure tokenize(s)
 
     local l, word;
 
@@ -356,7 +356,7 @@ end
 #    fails if, for some reason, the conversion can't be made (e.g. the
 #    edge structure has been screwed around with in some way)
 #
-procedure edge2tree(e);
+procedure edge2tree(e)
 
     local memb, t;
 
@@ -373,7 +373,7 @@ end
 #
 # bnf_file_2_edges: concatenate backslash-final lines & parse
 #
-procedure bnf_file_2_edges(f);
+procedure bnf_file_2_edges(f)
 
     local getline, line, macro_list, old, new, i;
 
@@ -411,7 +411,7 @@ end
 #    where s is a CFPSG rule in BNF form
 #    where Es are edges
 #
-procedure bnf_2_edges(s);
+procedure bnf_2_edges(s)
     
     local tmp, RHS, LHS;
     #
@@ -445,7 +445,7 @@ end
 #    to 1, while for terminals the RHS is null (and remains that way
 #    throughout the parse)
 #
-procedure string_2_list(s);
+procedure string_2_list(s)
 
     local tmp, RHS_list, LHS;
 
@@ -477,7 +477,7 @@ end
 #
 # fullcopy:  make full recursive copy of object
 #
-procedure fullcopy(obj);
+procedure fullcopy(obj)
 
     local retval, i, k;
 
@@ -525,7 +525,7 @@ end
 # do_slash:  string -> string(s)
 #     Given a|b suspend a then b.  Used in conjunction with do_parends().
 #
-procedure do_slash(s);
+procedure do_slash(s)
 
     local chunk;
     s ? {
@@ -544,7 +544,7 @@ end
 #    Given a(b)c suspend abc; given a(b|c)d suspend abd and acd, etc.
 #    Used in conjuction with do_slash().
 #
-procedure do_parends(s);
+procedure do_parends(s)
 
     local chunk, i, j;
     s ? {
@@ -566,7 +566,7 @@ end
 #
 # p_err:  print error message to stderr & abort
 #
-procedure p_err(s, n);
+procedure p_err(s, n)
 
     local i, msg;
     static errlist;
@@ -595,7 +595,7 @@ end
 #
 # Remove non-backslashed spaces and tabs.
 #
-procedure stripspaces(s);
+procedure stripspaces(s)
 
     local s2;
 

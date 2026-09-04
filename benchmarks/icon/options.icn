@@ -41,7 +41,7 @@
 #  
 ############################################################################
 
-procedure options(arg,optstring);
+procedure options(arg,optstring)
    local x,i,c,otab,flist,o,p
    /optstring := string(&letters);
    otab := table();

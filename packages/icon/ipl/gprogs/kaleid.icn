@@ -79,7 +79,7 @@ global draw_circle
 
 global du_v, de_v, rs_v, sk_v
 
-procedure main (args);
+procedure main (args)
 
    draw_circle := DrawCircle;
 
@@ -99,7 +99,7 @@ procedure main (args);
 
 end
 
-procedure init_globs();
+procedure init_globs()
 
    duration := 500;  # set default characteristics
    density := 30;
@@ -118,7 +118,7 @@ procedure init_globs();
 
 end
 
-procedure process_args(args);
+procedure process_args(args)
    local arg;
 
    # really only needed if you don't use the dialog box
@@ -150,7 +150,7 @@ end
 
 global putcircle, clrcircle
 
-procedure kaleidoscope(r);
+procedure kaleidoscope(r)
    local colors;
 
    # What colors to use?  This can be changed to whatever!
@@ -230,7 +230,7 @@ end
 #	you should have to play with it!
 #
 ############################################################################
-procedure ui (win);
+procedure ui (win)
    local cv1, cv2, cv3, cv4;
    local 
          radio_button2, 
@@ -321,19 +321,19 @@ procedure ui (win);
    return root;
 end
 
-procedure get_skew (wit, value);
+procedure get_skew (wit, value)
    skew := value;
 end
 
-procedure get_duration (wit, value);
+procedure get_duration (wit, value)
    duration := value;
 end
 
-procedure do_quit (wit, value);
+procedure do_quit (wit, value)
    stop();
 end
 
-procedure do_display (wit, value);
+procedure do_display (wit, value)
    r_seed   := numeric(rs_v.data);
    duration := integer(du_v.data);
    density  := integer(de_v.data);
@@ -343,40 +343,40 @@ procedure do_display (wit, value);
    VDraw(check1);
 end
 
-procedure get_clear (wit, value);
+procedure get_clear (wit, value)
    Clear := value;
 end
 
-procedure get_fill (wit, value);
+procedure get_fill (wit, value)
    fill := value;
    if fill == "Off" then draw_circle := DrawCircle
    else draw_circle := FillCircle;
 end
 
-procedure get_max_offset (wit, value);
+procedure get_max_offset (wit, value)
    maxoff := value;
 end
 
-procedure get_min_offset (wit, value);
+procedure get_min_offset (wit, value)
    minoff := value;
 end
 
-procedure get_max_radius (wit, value);
+procedure get_max_radius (wit, value)
    maxradius := value;
 end
 
-procedure get_min_radius (wit, value);
+procedure get_min_radius (wit, value)
    minradius := value;
 end
 
-procedure get_random (wit, value);
+procedure get_random (wit, value)
    r_seed := integer(value);
 end
 
-procedure get_density (wit, value);
+procedure get_density (wit, value)
    density := integer(value);
 end
 
-procedure quit(e);
+procedure quit(e)
    if e === "q" then stop ("Exiting Kaleidoscope");
 end

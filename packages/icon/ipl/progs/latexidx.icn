@@ -131,7 +131,7 @@ end
 # reform - modify the item to enforce sort order appropriately
 # This could do much more. For example it could strip leading braces,
 # control sequences, quotation marks, etc.  It doesn't.  Maybe later.
-procedure reform(item);
+procedure reform(item)
    item := map(item);  # map to lowercase
 # drop leading article if present
    if match("a ",   item) then return item[3:0];

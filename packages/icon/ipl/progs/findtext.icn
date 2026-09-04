@@ -46,7 +46,7 @@
 
 link gettext
 
-procedure main(args);
+procedure main(args)
 
    local count, file, out_line, s;
   

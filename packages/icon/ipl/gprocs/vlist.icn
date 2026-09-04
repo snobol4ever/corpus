@@ -145,7 +145,7 @@ $define V_MULTISELECT	"a"
 # BUGS
 #    The are no defaults for the win, id, dl, x, and y parameters.
 
-procedure Vlist(params[]);
+procedure Vlist(params[])
 
 ## ins       - This flag is set if the vidget is to implicitly inserted
 ##             into a frame (that was also passed as a parameter).
@@ -279,7 +279,7 @@ end
 #    This procedure requires that the vidget ID be a string, 
 #    an additional restriction not usually imposed.
 
-procedure storage_Vlist(id, op, var, val);
+procedure storage_Vlist(id, op, var, val)
 local k;
 static var_table;
 
@@ -310,7 +310,7 @@ end
 #    self - the vidget record
 #    slist - list of strings
 
-procedure set_items_Vlist(self, slist);
+procedure set_items_Vlist(self, slist)
    local dl, tl, lv, sb, cv, c, s, window_sz;
 
    # build new datalist
@@ -358,7 +358,7 @@ end
 # OUTPUT
 #    items - list of strings
 
-procedure get_items_Vlist(self);
+procedure get_items_Vlist(self)
    local lv, dl, items;
 
    lv := self.lookup[1];
@@ -383,7 +383,7 @@ end
 #	the first integer gives the index of the first viewable line
 #	any addition integers are indices of selected lines
 
-procedure set_value_Vlist(self, state);
+procedure set_value_Vlist(self, state)
    local c, i, lv, sb, dl, tl, mode, window_sz, iset, val;
 
 ## lv        - the Vpane vidget of the vlist frame vidget
@@ -460,7 +460,7 @@ end
 #	the first integer gives the index of the first viewable line
 #	any addition integers are indices of selected lines
 
-procedure get_value_Vlist(self);
+procedure get_value_Vlist(self)
    local i, lv, dl, tl, state;
 
 ## lv        - the Vpane vidget of the vlist frame vidget
@@ -496,7 +496,7 @@ end
 #    self - the pane vidget which displays the list
 #    val  - the new value for topline
 
-procedure coupler_Vlist(self, val);
+procedure coupler_Vlist(self, val)
 local tl, dl, sl, dh, fh, fw;
 
    tl := storage_Vlist(self.id, "read", "top_line");
@@ -529,7 +529,7 @@ end
 #    dl   - the list of strings
 #    tl   - the first line in the list to be drawn
 
-procedure drawlist_Vlist(pane, dl, tl);
+procedure drawlist_Vlist(pane, dl, tl)
 local win, x, y, w, h;
 local fh, fw, ds, z, col, rev, non, mode, margin;
 
@@ -625,7 +625,7 @@ end
 # OUTPUT
 #    A frame vidget
 
-procedure Vframe_Vlist(params[]);
+procedure Vframe_Vlist(params[])
 local self, procs, spec_procs, frame, x, y, ins;
  
    procs := Vstd(event_Vframe, draw_Vframe, outline_listframe,
@@ -663,7 +663,7 @@ end
 #    This is a dummy function to prevent the list frame from drawing
 #    any kind of a border around the vidget.
 
-procedure outline_listframe();
+procedure outline_listframe()
 end
 
 
@@ -674,7 +674,7 @@ end
 # DESCRIPTION
 #    Handle resizing of a Vlist.
 
-procedure resize_listframe(s, x, y, w, h);
+procedure resize_listframe(s, x, y, w, h)
    /x := s.ax;
    /y := s.ay;
    /w := s.aw;
@@ -713,7 +713,7 @@ end
 # OUTPUT
 #    pane  - the Vpane vidget (record)
 
-procedure Vpane_Vlist(params[]);
+procedure Vpane_Vlist(params[])
 local self, frame, x, y, ins;
 static procs;
 
@@ -763,7 +763,7 @@ end
 # INPUTS
 #    self - the Vpane vidget (record)
 
-procedure draw_Vpane_Vlist(self);
+procedure draw_Vpane_Vlist(self)
 local dl, tl;
 
    self.V.outline(self);
@@ -802,7 +802,7 @@ end
 #    area of the list itself, the last line can still be selected
 #    by clicking anywhere in the empty space beneath the last line.
 
-procedure event_Vlist(self, e, x, y);
+procedure event_Vlist(self, e, x, y)
    local cb, dl, tl, sl, selectmode, selected, cb_data, cb_items, i, mode;
 
    if e ~=== &lpress then
@@ -927,7 +927,7 @@ end
 # OUTPUT
 #    the index of the selected line
 
-procedure vlist_selection(self, y);
+procedure vlist_selection(self, y)
    local fh, tl, dl, window_sz, selected;
 
    fh := WAttrib(self.win, "fheight");
@@ -955,7 +955,7 @@ end
 # INPUTS
 #    self - the Vpane vidget record
 
-procedure outline_listpane(self);
+procedure outline_listpane(self)
 
    BevelRectangle(self.win, self.ax, self.ay, self.aw, self.ah, -2);
 

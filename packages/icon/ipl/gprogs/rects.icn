@@ -39,7 +39,7 @@ $define Bias 20		# bias setting -- affects size choices
 
 
 
-procedure main(args);
+procedure main(args)
    local w, h;
 
    Window("bg=white", "width=600", "height=400", args);
@@ -63,7 +63,7 @@ end
 
 #  rect(x,y,w,h) -- draw rectangle, possibly subdivided, at (x,y)
 
-procedure rect(x, y, w, h);
+procedure rect(x, y, w, h)
    local d;
    static darkness, hue;
    initial {
@@ -96,7 +96,7 @@ end
 #  either end.  Fail if the length is too small to subdivide;
 #  also fail randomly, depending partially on the Bias setting.
 
-procedure divide(n);
+procedure divide(n)
 
    if (n > 2 * MinSide) & (?n > Bias) then
       return MinSide + ?(n - 2 * MinSide)

@@ -34,7 +34,7 @@ link xcode
 
 global PDB_
 
-procedure main(args);
+procedure main(args)
    local file, name, output, colors, win;
 
    every file := !args do {

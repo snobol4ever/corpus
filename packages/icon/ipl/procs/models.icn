@@ -21,13 +21,13 @@
 #
 ############################################################################
 
-procedure tab(i);
+procedure tab(i)
 
    suspend .&subject[.&pos : &pos <- i];
 
 end
 
-procedure upto(c, s, i, j);
+procedure upto(c, s, i, j)
    local k;
 
    if /s := &subject then {			# handle defaults
@@ -59,7 +59,7 @@ procedure upto(c, s, i, j);
 
 end
 
-procedure map(s1, s2, s3);
+procedure map(s1, s2, s3)
    local i, result;
    static last_s2, last_s3, map_array;
 
@@ -98,7 +98,7 @@ end
 
 #  Produce the positive equivalent of i with respect to s.
 
-procedure cvpos(i, s);
+procedure cvpos(i, s)
 
    if i <= 0 then i +:= *s + 1;
    if i <= i <= *s + 1 then return i
@@ -108,7 +108,7 @@ end
 
 #  Default the null value to a specified string.
 
-procedure def_str(s1, s2);
+procedure def_str(s1, s2)
 
    if /s1 then return s2
    else return string(s1);		# may fail

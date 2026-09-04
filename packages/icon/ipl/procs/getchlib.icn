@@ -197,7 +197,7 @@ link itlib
 global c_cc, current_mode		# what mode are we in, raw or cooked?
 record termio_struct(vintr,vquit,verase,vkill)
 
-procedure getse(s);
+procedure getse(s)
 
     # getse() - like getche, only for strings instead of single chars
     #
@@ -245,14 +245,14 @@ end
 
 
 
-procedure setup_tty();
+procedure setup_tty()
     change_tty_mode("setup");
     return;
 end
 
 
 
-procedure reset_tty();
+procedure reset_tty()
 
     # Reset (global) mode switch to &null to show we're in cooked mode.
     current_mode := &null;
@@ -263,7 +263,7 @@ end
 
 
 
-procedure getch();
+procedure getch()
 
     local chr;
 
@@ -283,7 +283,7 @@ end
 
 
 
-procedure getche();
+procedure getche()
 
     local chr;
 
@@ -303,7 +303,7 @@ end
 
 
 
-procedure change_tty_mode(switch);
+procedure change_tty_mode(switch)
 
     # global c_cc   (global record containing values for kill, etc. chars)
     local get_term_params, i;

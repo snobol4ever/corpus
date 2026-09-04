@@ -176,7 +176,7 @@ record message_record(
 )
 
 # getmail SEQ
-procedure getmail(folder_name);
+procedure getmail(folder_name)
 
     local folder, line, message, ws, item_tag, first_item_value, tag_field;
     local time, message_text, unfolded_line;
@@ -278,7 +278,7 @@ end
 #                   procedure is_From_line
 #############################################################################
 
-procedure is_From_line(line);
+procedure is_From_line(line)
 
     return line ? ="From ";
 
@@ -288,7 +288,7 @@ end
 #                   procedure match_time
 #############################################################################
 
-procedure match_time();
+procedure match_time()
 
     suspend tab(any(&digits)) || tab(any(&digits)) || =":" ||
             tab(any(&digits)) || tab(any(&digits)) || =":" ||
@@ -300,7 +300,7 @@ end
 #                   procedure match_year
 #############################################################################
 
-procedure match_year();
+procedure match_year()
 
     suspend tab(any(&digits)) || tab(any(&digits)) ||
             tab(any(&digits)) || tab(any(&digits));
@@ -311,7 +311,7 @@ end
 #                   procedure mfield_to_rfield_name
 #############################################################################
 
-procedure mfield_to_rfield_name(mfield_name);
+procedure mfield_to_rfield_name(mfield_name)
 
     static mapfrom, mapto;
     
@@ -328,7 +328,7 @@ end
 #                   procedure process_header_field
 #############################################################################
 
-procedure process_header_field(message, field);
+procedure process_header_field(message, field)
 
     local record_field_name, header_field_name, field_body;
     static field_chars, ws;

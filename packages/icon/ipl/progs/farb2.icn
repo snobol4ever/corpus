@@ -41,7 +41,7 @@
 
 link random
 
-procedure main(argv);
+procedure main(argv)
    local f, ix, n;
 
    f := open("farber.sen", "r") | stop("*** cannot open \"farber.sen\"");

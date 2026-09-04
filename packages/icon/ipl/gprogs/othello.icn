@@ -71,7 +71,7 @@ global savename			# filename of saved game
 
 #########################  OVERALL CONTROL   #########################
 
-procedure main(args);
+procedure main(args)
    local c, n, e, f, newg, dlogwin;
 
    # initialize globals
@@ -157,7 +157,7 @@ end
 
 #  demo(game) -- run in demo mode (full automatic) until interrupted
 
-procedure demo(game);
+procedure demo(game)
    local oldh;
 
    oldh := hints;
@@ -180,7 +180,7 @@ end
 
 #  automove(game) -- find the best move, and make it
 
-procedure automove(game);
+procedure automove(game)
    local newg, t1, t2;
 
    if gameover(game) then
@@ -203,7 +203,7 @@ end
 
 #  selectmove(game, n) -- accept or reject move at cell n
 
-procedure selectmove(game, n);
+procedure selectmove(game, n)
    local newg, move;
 
    if canmove(game, n) then		# if clicked on a legal move
@@ -225,7 +225,7 @@ end
 
 #  getfile(win, prompt, mode) -- get filename using dialog, and open file
 
-procedure getfile(win, prompt, mode);
+procedure getfile(win, prompt, mode)
    local f;
    repeat {
       case OpenDialog(win, prompt, savename) of {
@@ -261,7 +261,7 @@ global tc	# text context
 
 #  layout() -- configure display based on current window size
 
-procedure layout();
+procedure layout()
    local w, h, a;
 
    # reshape window to closest rectangle with proper aspect ratio
@@ -294,7 +294,7 @@ end
 
 #  whichcell(x, y) -- translate mouse click to cell number
 
-procedure whichcell(x, y);
+procedure whichcell(x, y)
    local i, j;
    i := integer(x / cw) + 1;
    j := integer(y / cw) + 1;
@@ -304,7 +304,7 @@ end
 
 #  showevals(gs, depth) -- show evaluation scores of all legal moves
 
-procedure showevals(gs, depth);
+procedure showevals(gs, depth)
    local rs, x, y;
 
    Fg(if gs.nextup == "b" then BLACKHINT else WHITEHINT);
@@ -319,7 +319,7 @@ end
 
 #  showmove(gs, n) -- show animation of transitions caused by move at cell n
 
-procedure showmove(gs, n);
+procedure showmove(gs, n)
    local v, f, d, c, x, y;
 
    if gameover(gs) then			# don't show anything for "pass" at end
@@ -364,7 +364,7 @@ end
 
 #  redisplay(gs) -- redraw the entire game display
 
-procedure redisplay(gs);
+procedure redisplay(gs)
 
    Bg(SIDECOLOR);
    EraseArea(-sw, 0, sw, 8 * cw);
@@ -380,7 +380,7 @@ end
 
 #  drawhelp() -- draw textual help column
 
-procedure drawhelp();
+procedure drawhelp()
    static helptext;
    initial helptext := ["",
       "Ithello 1.0",
@@ -416,7 +416,7 @@ end
 
 #  drawscores(gs) -- draw the scoreboard showing piece counts and next to play
 
-procedure drawscores(gs);
+procedure drawscores(gs)
    local x, y;
 
    # show counts
@@ -441,7 +441,7 @@ end
 
 #  showthink(gs) -- replace "who's up" with search depth while computing move
 
-procedure showthink(gs);
+procedure showthink(gs)
    drawlabel(0, if gs.nextup == "b" then 7 else 8, SIDECOLOR,
       "[" || depth || "]", ACTCOLOR);
 end
@@ -449,7 +449,7 @@ end
 
 #  drawboard(gs) -- draw the game board proper, with pieces and hints
 
-procedure drawboard(gs);
+procedure drawboard(gs)
    local c, i, j, n;
 
    WAttrib("fg=black", "linewidth=2");
@@ -479,7 +479,7 @@ end
 
 #  drawcounter(i, j, color, label, labelcolor) -- draw one piece at (i,j)
 
-procedure drawcounter(i, j, color, label, lcolor);
+procedure drawcounter(i, j, color, label, lcolor)
    local x, y;
 
    Fg(color);
@@ -492,7 +492,7 @@ end
 
 #  drawlabel(i, j, bgcolor, label, fgcolor) -- draw label at (i,j)
 
-procedure drawlabel(i, j, bgcolor, label, fgcolor);
+procedure drawlabel(i, j, bgcolor, label, fgcolor)
    local x, y;
 
    x := i * cw - c2;
@@ -559,7 +559,7 @@ end
 
 #  trymove(gs, n) -- return result of move at cell n, if legal
 
-procedure trymove(gs, n);
+procedure trymove(gs, n)
    if canmove(gs, n) then
       return domove(gs, n)
    else
@@ -569,7 +569,7 @@ end
 
 #  domove(gs, n) -- return result of move in cell n, or of pass move if n null
 
-procedure domove(gs, n);
+procedure domove(gs, n)
    local new;
 
    new := copy(gs);
@@ -583,7 +583,7 @@ end
 
 #  doboard(gs, n) -- perform a flip move in cell n
 
-procedure doboard(gs, n);
+procedure doboard(gs, n)
    local o, f, i, t;
 
    setcell(gs, n, gs.nextup);
@@ -609,7 +609,7 @@ end
 
 #  allmoves(gs) -- generate legal moves, including pass, from gs
 
-procedure allmoves(gs);
+procedure allmoves(gs)
    local new;
 
    suspend new := flipmoves(gs);
@@ -622,7 +622,7 @@ end
 
 #  flipmoves(gs) -- generate moves that flip pieces
 
-procedure flipmoves(gs);
+procedure flipmoves(gs)
    static seq;		# for alpha-beta pruning, try most important first
    initial seq := [
       11, 18, 88, 81, 22, 27, 77, 72, 12, 17, 28, 78, 87, 82, 71, 21,
@@ -636,7 +636,7 @@ end
 
 #  canmove(gs, n) -- succeed if can move at square n (n not null)
 
-procedure canmove(gs, n);
+procedure canmove(gs, n)
    if getcell(gs, n) ~== " " then
       fail;
    return canflip(gs, n, ALLNEIGHBORS);
@@ -645,7 +645,7 @@ end
 
 #  canflip(gs, n, o) -- return flip count from square n along offset o, or fail
 
-procedure canflip(gs, n, o);
+procedure canflip(gs, n, o)
    local f, opp;
 
    opp := opposite(gs.nextup);
@@ -660,7 +660,7 @@ end
 
 #  gameover(game) -- succeed if neither side can move
 
-procedure gameover(gs);
+procedure gameover(gs)
    if gs.bcount = 0 | gs.wcount = 0 then
       return;				# one side is wiped out: game over
    if gs.bcount + gs.wcount = 64 then
@@ -677,7 +677,7 @@ end
 
 #  save(f, gs) -- write game (with history) to file
 
-procedure save(f, gs);
+procedure save(f, gs)
    write(f, HEADER);
    rsave(f, gs);
    write(f);
@@ -693,7 +693,7 @@ end
 
 #  load(f) -- read game from file
 
-procedure load(f);
+procedure load(f)
    local g, s, n;
 
    g := newgame();
@@ -723,7 +723,7 @@ $define INFSCORE 1000000	# infinite score
 #
 #  Selects randomly from equally good choices.
 
-procedure bestmove(gs, n);
+procedure bestmove(gs, n)
    local a, g, best, nbest;
 
    a := evaluate(gs, n);
@@ -743,7 +743,7 @@ end
 
 #  evaluate(gs, n) -- return list of evaluated states from all legal moves
 
-procedure evaluate(gs, n);
+procedure evaluate(gs, n)
    local a, g;
 
    a := [];
@@ -757,7 +757,7 @@ end
 
 #  alphabeta(gs, n, alpha, beta) -- return score from minmax search with pruning
 
-procedure alphabeta(gs, n, alpha, beta);
+procedure alphabeta(gs, n, alpha, beta)
    local g;
 
    if n <= 0 then
@@ -776,7 +776,7 @@ end
 
 #  calcscore(gs) -- evaluate state of board from viewpoint of nextup player
 
-procedure calcscore(gs);
+procedure calcscore(gs)
    local score, bonus, c;
 
    # calculate from standpoint of black

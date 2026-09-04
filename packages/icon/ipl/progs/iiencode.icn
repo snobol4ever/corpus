@@ -67,7 +67,7 @@
 
 link options
 
-procedure main ( a );
+procedure main ( a )
 
     local in_filename, out_filename, in, out, is_xx, remotename, opt;
 
@@ -123,7 +123,7 @@ end
 # exit with errcode.
 #
 ###########################################################################
-procedure Usage ( msg, Show, errcode );
+procedure Usage ( msg, Show, errcode )
     static usage;
     initial usage := "usage:  iiencode [infile] [-x] _
 	remote-filename [-o output-filename]";
@@ -140,7 +140,7 @@ end
 # "uu" encoding is used unless \is_xx, in which case "xx" encoding is used.
 #
 ###########################################################################
-procedure encode ( out, in, is_xx );
+procedure encode ( out, in, is_xx )
 
     # Copy from in to out, encoding as you go along.
 
@@ -192,7 +192,7 @@ end
 # to make up the last group.
 #
 ###########################################################################
-procedure unpack ( s );
+procedure unpack ( s )
 
     local n, grp;
 

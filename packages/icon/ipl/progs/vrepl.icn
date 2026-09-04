@@ -20,7 +20,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local i, line;
 
    i := integer(args[1]) | 1;

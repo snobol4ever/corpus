@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure lastname(s);
+procedure lastname(s)
    local line, i;
 
    line := trim(s);

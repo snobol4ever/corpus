@@ -89,12 +89,12 @@ $define XOff		  0	# offset for text vidgets
 $define XOffButton	 85	# initial x offset for buttons
 $define XOffIncr	 15	# space between buttons
 
-procedure Dialog(win, captions, labels, defaults, widths, buttons, index);
+procedure Dialog(win, captions, labels, defaults, widths, buttons, index)
    Dialog := TextDialog;
    return Dialog(win, captions, labels, defaults, widths, buttons, index);
 end
 
-procedure AskDialog(win, caption);
+procedure AskDialog(win, caption)
 
    return TextDialog(win, caption, , , , , ["Okay", "No"]);
 
@@ -438,7 +438,7 @@ procedure OpenDialog(win, caption, filename, len);	#: open dialog
 
 end
 
-procedure dialog_cb(vidget, s);
+procedure dialog_cb(vidget, s)
 
    dialog_button := vidget.s;
 

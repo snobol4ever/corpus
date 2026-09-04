@@ -87,7 +87,7 @@ record  const(value)
 global  sym_tab
 
 
-procedure main();
+procedure main()
    local line, sline;
 
    sym_tab := table();
@@ -108,7 +108,7 @@ end
 #	This can be made considerably more sophisticated,
 #       but handles the more common cases.
 #
-procedure getbs();
+procedure getbs()
 static tmp;
    initial tmp := (("" ~== |read()) || " ") | fail;
 
@@ -125,7 +125,7 @@ end
 ## checkbal(s) - quick check to see if s is
 #       balanced w.r.t. braces or parens
 #
-procedure checkbal(s,l,r);
+procedure checkbal(s,l,r)
    return (s ? 1(tab(bal(&cset,l,r)),pos(-1)));
 end
 
@@ -133,7 +133,7 @@ end
 #       s has more characters in c1 than
 #       characters in c2, fails otherwise
 #
-procedure more(c1,c2,s);
+procedure more(c1,c2,s)
 local cnt;
    cnt := 0;
    s ? while (cnt <= 0) & not pos(0) do {
@@ -198,63 +198,63 @@ procedure parse(s);		# must match entire line
    write("Syntax error.");
 end
 
-procedure Statement();
+procedure Statement()
    suspend If() | While() | Compound() | Expr();
 end
 
-procedure Compound();
+procedure Compound()
    suspend unary("{",2(litmat("{"),Statement_list(),litmat("}")));
 end
 
-procedure Statement_list();
+procedure Statement_list()
    local t;
    t := scan();
    suspend binary(save(Statement,t), litmat(";"), Statement_list()) | restore(t);
 end
 
-procedure If();
+procedure If()
    suspend trinary(keymat("if"),Expr(),2(keymat("then"),Statement()),
                                        2(keymat("else"),Statement())|&null);
 end
 
-procedure While();
+procedure While()
    suspend binary(2(keymat("while"),Expr()),"while",2(keymat("do"),Statement()));
 end
 
-procedure Expr();
+procedure Expr()
    suspend binary(Id(),litmat(":="),Expr()) | R();
 end
 
-procedure R();
+procedure R()
    local t;
    t := scan();
    suspend binary(save(X,t),litmat(!["=","!=","<=",">=","<",">"]),X()) |
            restore(t);
 end
    
-procedure X();
+procedure X()
    local t;
    t := scan();
    suspend binary(save(T,t),litmat(!"+-"),X()) | restore(t);
 end
 
-procedure T();
+procedure T()
    local t;
    t := scan();
    suspend binary(save(F,t),litmat(!"*/%"),T()) | restore(t);
 end
 
-procedure F();
+procedure F()
    local t;
    t := scan();
    suspend binary(save(E,t),litmat("^"),F()) | restore(t);
 end
 
-procedure E();
+procedure E()
    suspend unary(litmat(!"+-"),L()) | L();
 end
 
-procedure L();
+procedure L()
    # keep track of fact expression was parenthesized,
    #   so we don't accidently override the parens when
    #   handling left-associativity
@@ -263,17 +263,17 @@ procedure L();
            String();
 end
 
-procedure Func();
+procedure Func()
    suspend binary(Id(),litmat("("),1(Arglist(),litmat(")")));
 end
 
-procedure Arglist();
+procedure Arglist()
    local a;
    a := [];
    suspend (a <- ([Expr()] | [Expr()] ||| 2(litmat(","),Arglist()))) | a;
 end
 
-procedure Id();
+procedure Id()
    static first, rest;
 
    initial {
@@ -284,7 +284,7 @@ procedure Id();
    suspend 2(ws(),id(tab(any(first))||tab(many(rest)) | tab(any(first))));
 end
 
-procedure Const();
+procedure Const()
    local t;
 
    t := scan();
@@ -293,31 +293,31 @@ procedure Const();
 
 end
 
-procedure digitseq();
+procedure digitseq()
    suspend tab(many(&digits));
 end
 
-procedure String();
+procedure String()
 	# can be MUCH smarter, see calc.icn (by Ralph Griswold) for
 	#   example of how to do so...
     suspend 2(litmat("\""),tab(upto('"')),move(1));
 end
 
-procedure litmat(s);
+procedure litmat(s)
    suspend 2(ws(),=s);
 end
 
-procedure keymat(key);
+procedure keymat(key)
    suspend 2(ws(),key==tab(many(&letters)));
 end
 
-procedure ws();
+procedure ws()
    static wsp;
    initial wsp := ' \t';
    suspend ""|tab(many(wsp));
 end
 
-procedure binary(l,o,r);
+procedure binary(l,o,r)
    local lm;
 
    # if operator is left-associative, then alter tree to
@@ -346,7 +346,7 @@ procedure binary(l,o,r);
    return binop(o,l,r);
 end
 
-procedure samelop(o1,o2);
+procedure samelop(o1,o2)
    # both operators are left associative at the same precedence level
    return (any('+-',o1) & any('+-',o2)) |
           (any('*/%',o1) & any('*/%',o2));
@@ -377,7 +377,7 @@ record scan(val,pos)	# used to avoid repeating a successful scan
 # save the current scanning position and result of parsing procedure P
 #   and then prevent backtracking into P
 #
-procedure save(P,t);
+procedure save(P,t)
    return (t.pos <- &pos, t.val := P());
 end
 
@@ -386,7 +386,7 @@ end
 #   suspend it.  if backtracked into reset position back to
 #   start of original call to that parsing procedure.
 #
-procedure restore(t);
+procedure restore(t)
    suspend \t.val;
    &pos := \t.pos;
 end
@@ -405,7 +405,7 @@ end
 	# catch runtime errors.  It would be better to catch them
 	# here.
 
-procedure process(t);
+procedure process(t)
    local a, val;
 
    return case type(t) of {

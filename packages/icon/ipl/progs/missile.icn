@@ -48,7 +48,7 @@ global bonus,             # bonus missile threshhold
        abmy,              # y position of defensive missile
        abmix              # x increment of defensive missle
 
-procedure main();
+procedure main()
   infrastructure();  # set up defaults, globals, and munitions
   banner();  # output initial banner
   repeat
@@ -69,7 +69,7 @@ procedure main();
 #
 # set up all the initial defaults
 #
-procedure infrastructure();
+procedure infrastructure()
   bonus    := 22;
   missilef := 0;
   missilex := 0;
@@ -86,7 +86,7 @@ procedure infrastructure();
 #
 # draw the initial environment
 #
-procedure draw_base();
+procedure draw_base()
   write("\e[?25l\e>\e[?5l\e[0;1;33;44m\e[2J\e[H                 S.D.I. OUTPOST        [TACTICAL SITUATION DISPLAY]");
   writes(at(23,1),repl("#",79));
   writes(at(24,1),repl("=",79));
@@ -98,7 +98,7 @@ procedure draw_base();
 #
 # check and occasionally launch a missile
 #
-procedure enemy_launch();
+procedure enemy_launch()
   (?50 = 33) | fail;
   if missilef = 1 then fail;
   missilex := 1;
@@ -110,7 +110,7 @@ procedure enemy_launch();
 #
 # coordinate launch of defensive missiles
 #
-procedure friendly_fire();
+procedure friendly_fire()
   local ambf, press;
 
   kbhit() | fail;
@@ -151,7 +151,7 @@ procedure friendly_fire();
 #
 # fly the missiles
 #
-procedure animate();
+procedure animate()
   local old_missilez;
 
   static  old_abmx,
@@ -206,7 +206,7 @@ procedure animate();
 #
 # sense for hits and handle explosions
 #
-procedure sense_status();
+procedure sense_status()
   local j;
   static  junk;
   initial junk := ["=%!*@",
@@ -256,7 +256,7 @@ procedure sense_status();
 #
 # output initial banner for this game
 #             
-procedure banner();
+procedure banner()
   write("\e[0;1;33;44m\e[2J\e[H                                                                 ");
   write("                                                                 ");
   write("###############################################################################");
@@ -281,14 +281,14 @@ procedure banner();
 #
 # move cursor to specified screen position
 #
-procedure at(row,column);
+procedure at(row,column)
   return "\e[" || row || ";" || column || "f";
   end
 
 #
 # procedure to wait n seconds
 #
-procedure wait(n);
+procedure wait(n)
   delay(n * 10000);
   return;
 ##  secs := &clock[-2:0] + n
@@ -310,7 +310,7 @@ procedure wait(n);
 # one wishes to extract.                                         #
 #                                                                #
 ############################################################################
-procedure parse(line,delims);
+procedure parse(line,delims)
   local tokens;
   static chars;
   chars  := &cset -- delims;
@@ -325,7 +325,7 @@ procedure parse(line,delims);
 # an input string                                                #
 #                                                                #
 ############################################################################
-procedure input(prompt);
+procedure input(prompt)
   writes(prompt);
   return read();
   end

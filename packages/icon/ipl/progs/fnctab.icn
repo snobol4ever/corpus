@@ -22,7 +22,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
    local fncset, fnctab, line, count, name, total;
 
    fncset := set();  # set for the names of all functions

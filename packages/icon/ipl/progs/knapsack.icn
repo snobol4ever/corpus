@@ -50,7 +50,7 @@
  
 global vols,chosen,capacity
  
-procedure main(args);
+procedure main(args)
     capacity := integer(args[1]) | stop("usage: knapsack capacity");
     vols := []; every put(vols,0 < integer(!&input));
     chosen := list(*vols,0);
@@ -62,7 +62,7 @@ procedure main(args);
 #   trynext - recursively try to insert vols[n], incrementing n each
 #   time, while the knapsack is not full and the reference is within
 #   bounds
-procedure trynext(totvol,n);
+procedure trynext(totvol,n)
     (capacity <= totvol) & return totvol;    # prune the tree for efficiency
     suspend trynext(totvol + (chosen[n] := (vols[n] | 0)), n+1);
     end

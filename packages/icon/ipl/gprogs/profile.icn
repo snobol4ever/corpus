@@ -51,7 +51,7 @@ global width			# width of scrolling area
 global vidgets
 global root
 
-procedure main();
+procedure main()
    local value, n, color;
 
    init();
@@ -91,7 +91,7 @@ procedure main();
 
 end
 
-procedure init();
+procedure init()
 
    vidgets := ui();
 
@@ -117,7 +117,7 @@ procedure init();
 
 end
 
-procedure animation_cb(vidget, value);
+procedure animation_cb(vidget, value)
 
    case value[1] of {
       "prefix"  :  set_prefix();
@@ -126,19 +126,19 @@ procedure animation_cb(vidget, value);
 
 end
 
-procedure set_prefix();
+procedure set_prefix()
 
    return;
 
 end
 
-procedure set_frame_rate();
+procedure set_frame_rate()
 
    return;
 
 end
 
-procedure animate_cb(vidget, value);
+procedure animate_cb(vidget, value)
 
    animate := value;
 
@@ -146,7 +146,7 @@ procedure animate_cb(vidget, value);
 
 end
 
-procedure parameters_cb(vidget, value);
+procedure parameters_cb(vidget, value)
 
    case value[1] of {
       "scale  @V"  :  set_scale();
@@ -158,7 +158,7 @@ procedure parameters_cb(vidget, value);
 
 end
 
-procedure file_cb(vidget, value);
+procedure file_cb(vidget, value)
 
    case value[1] of {
       "snapshot @S"  :  return snapshot(strip, 0, 0, width, height);
@@ -167,7 +167,7 @@ procedure file_cb(vidget, value);
    
 end
 
-procedure pause_cb(vidget, value);
+procedure pause_cb(vidget, value)
 
    state := value;
 
@@ -175,7 +175,7 @@ procedure pause_cb(vidget, value);
 
 end
 
-procedure clear_cb();
+procedure clear_cb()
 
    EraseArea(strip);
 
@@ -183,7 +183,7 @@ procedure clear_cb();
 
 end
 
-procedure set_rate();
+procedure set_rate()
 
    repeat {
       if TextDialog(, "sample rate", rate, 10) == "Okay" then {
@@ -199,7 +199,7 @@ procedure set_rate();
 
 end
 
-procedure set_offset();
+procedure set_offset()
 
    repeat {
       if TextDialog(, "vertical offset", offset, 10) == "Okay" then {
@@ -215,7 +215,7 @@ procedure set_offset();
 
 end
 
-procedure set_scale();
+procedure set_scale()
 
    repeat {
       if TextDialog(, "vertical scale", scale, 10) == "Okay" then {
@@ -231,7 +231,7 @@ procedure set_scale();
 
 end
 
-procedure shortcuts(e);
+procedure shortcuts(e)
 
    if &meta then
       case map(e) of {
@@ -249,11 +249,11 @@ procedure shortcuts(e);
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=651,305", "bg=pale gray", "label=Scrolling Histogram"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,651,305:Scrolling Histogram",],
    ["animate:Button:regular:1:21,189,56,20:movie",animate_cb],

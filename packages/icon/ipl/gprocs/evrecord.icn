@@ -34,7 +34,7 @@
 
 link enqueue
 
-procedure evrecord(event);
+procedure evrecord(event)
    local modkeys;
 
    modkeys := "";

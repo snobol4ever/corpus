@@ -30,7 +30,7 @@ link vidgets
 link vbuttons
 link vtext
 
-procedure Vchoice(str, buttons[]);
+procedure Vchoice(str, buttons[])
 local win, root, t, u, w, b, i, x, y, rv;
 local button_pos, def_button, old, event;
 static wpad, hwpad;
@@ -99,7 +99,7 @@ initial {
 end
 record xywh_rec(x, y, w, h)
 
-procedure Vinput(str, def_value);
+procedure Vinput(str, def_value)
 local win, root, t, u, w, b, i, x, y, rv;
 local buttons, v, input_vidget, ok, cancel;
 local button_pos, def_button, old, lrv, event;
@@ -179,10 +179,10 @@ initial {
 
 end
 
-procedure vquery_maximum(l[]);
+procedure vquery_maximum(l[])
     return sort(l)[-1];
 end
-procedure vquery_open_window(title, x, y, w, h);
+procedure vquery_open_window(title, x, y, w, h)
 local win;
 
     /x := 50; /y := 50; /w := 400; /h := 400;

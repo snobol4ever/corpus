@@ -37,7 +37,7 @@
 
 link io
 
-procedure nextseqfilename(dir,pre,ext);
+procedure nextseqfilename(dir,pre,ext)
 
 local s,f,n,wn;
 

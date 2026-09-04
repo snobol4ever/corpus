@@ -33,7 +33,7 @@ link gobject
 link joinpair
 link wopen
 
-procedure main(argl);
+procedure main(argl)
    local i, j, k, d, extent, points, x, y;
 
    i := integer(argl[1]) | 10;

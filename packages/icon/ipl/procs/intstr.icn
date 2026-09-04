@@ -26,7 +26,7 @@
 #  right shift operation.
 #
 
-procedure intstr(i,size);
+procedure intstr(i,size)
    local s;
    s := "";
    every 1 to size do {

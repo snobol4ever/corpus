@@ -35,7 +35,7 @@
 
 link options, colmize, wildcard
 
-procedure Usage(s);
+procedure Usage(s)
    /s := "";
    stop("\nUsage:_
 \n      Compress: press -c <archive file> [<options>] [<file to compress>...]_
@@ -69,7 +69,7 @@ procedure Usage(s);
       ,s);
 end
 
-procedure MoreHelp();
+procedure MoreHelp()
    return "\n _
   The archive (-a) option means to add the file without compression._
 \n_
@@ -127,7 +127,7 @@ global inchars,outchars,tinchars,toutchars,lzw_recycles,
 #
 #  Main procedure.
 #
-procedure main(arg);
+procedure main(arg)
    local arcfile;
    #
    #  Initialize.
@@ -158,7 +158,7 @@ global extract,compr,archive,lister,deleter
 #
 #  Options() -- Handle command line options.
 #
-procedure Options(arg);
+procedure Options(arg)
    local opt,n,x;
    opt := options(arg,"hc:a:x:p:l:d:qtTS+n");
    if \opt["h"] then Usage(MoreHelp());
@@ -185,7 +185,7 @@ end
 #
 #  Archive() -- Do archiving.
 #
-procedure Archive(arcfile,arg);
+procedure Archive(arcfile,arg)
    local fn,addr,realLen,maxT,length,addr2,deleteFiles,new_data_start;
    #
    #  Confirm options and open the archive file.
@@ -280,7 +280,7 @@ end
 #
 #  Extract() -- Extract a file from the archive.
 #
-procedure Extract(arcfile,arg);
+procedure Extract(arcfile,arg)
    local fileSet,wfn,realLen,cmprLen,maxT,version,theArg;
    if \maxTableSpecified then Usage();
    rf := OpenReadArchive(arcfile);
@@ -350,7 +350,7 @@ end
 #  List() -- Skip through the archive, extracting info about files,
 #  then list in columns.
 #
-procedure List(arcfile,arg);
+procedure List(arcfile,arg)
    local fileSet,flist,wfn,realLen,cmprLen,version,theArg;
    if \maxTableSpecified then Usage();
    rf := OpenReadArchive(arcfile);
@@ -386,7 +386,7 @@ end
 #
 #  Delete() -- Delete a file from the archive.
 #
-procedure Delete(arcfile,arg,new_data_start);
+procedure Delete(arcfile,arg,new_data_start)
    local workfn,workf,fileSet,wfn,realLen,cmprLen,bakfn,deletedFiles,
          head,version,hdrLen,theArg;
    if *arg = 0 | (\deleter & \maxTableSpecified) then Usage();
@@ -447,7 +447,7 @@ end
 #
 #  OpenReadArchive() -- Open an archive for reading.
 #
-procedure OpenReadArchive(arcfile);
+procedure OpenReadArchive(arcfile)
    local rf;
    rf := if ("" | "-") ~== arcfile then
          open(arcfile,"ru") | stop("Can't open archive file ",arcfile)
@@ -464,7 +464,7 @@ end
 #
 #  FilesNotFound() -- List the files remaining in "fileSet".
 #
-procedure FilesNotFound(fileSet);
+procedure FilesNotFound(fileSet)
    return if *\fileSet > 0 then {
       write(&errout,"\nFiles not found:");
       every write(&errout," ",colmize(sort(fileSet),78));
@@ -476,7 +476,7 @@ end
 #
 #  Stats() -- Print stats after a file.
 #
-procedure Stats(maxTableSize);
+procedure Stats(maxTableSize)
    #
    #  Write statistics
    #
@@ -493,7 +493,7 @@ end
 #
 #  FinalStats() -- Print final stats.
 #
-procedure FinalStats();
+procedure FinalStats()
    #
    #  Write final statistics
    #
@@ -509,7 +509,7 @@ end
 #
 #  WriteInteger() -- Write a 4-byte binary integer to "f".
 #
-procedure WriteInteger(f,i);
+procedure WriteInteger(f,i)
    local s;
    s := "";
    every 1 to 4 do {
@@ -523,7 +523,7 @@ end
 #
 #  ReadInteger() -- Read a 4-byte binary integer from "f".
 #
-procedure ReadInteger(f);
+procedure ReadInteger(f)
    local s,v;
    s := reads(f,4) | fail;
    if *s < 4 then
@@ -537,7 +537,7 @@ end
 #
 #  WriteString() -- Write a string preceded by a length byte to "f".
 #
-procedure WriteString(f,s);
+procedure WriteString(f,s)
    return writes(f,char(*s),s);
 end
 
@@ -545,7 +545,7 @@ end
 #
 #  ReadString() -- Read a string preceded by a length byte from "f".
 #
-procedure ReadString(f);
+procedure ReadString(f)
    local len,s;
    len := ord(reads(f)) | fail;
    s := reads(f,len);
@@ -558,7 +558,7 @@ end
 #
 #  CopyFile() -- Copy a file.
 #
-procedure CopyFile(rf,wf,len);
+procedure CopyFile(rf,wf,len)
    local s;
    if /len then {
       while writes(wf,s := reads(rf,1000))
@@ -574,7 +574,7 @@ end
 #
 #  Percent() -- Format a rational number "n"/"d" as a percentage.
 #
-procedure Percent(n,d);
+procedure Percent(n,d)
    local sign,whole,fraction;
    n / (0.0 ~= d) ? {
       sign := ="-" | "";
@@ -591,7 +591,7 @@ end
 #
 #  R() -- Read-a-character procedure.
 #
-procedure R();
+procedure R()
    local c;
 
    c := reads(rf) | fail;
@@ -604,7 +604,7 @@ end
 #
 #  W() -- Write-characters procedure.
 #
-procedure W(s);
+procedure W(s)
    local i;
 
    every i := find(\wline,s) do s[i] := "\n";
@@ -617,7 +617,7 @@ end
 #  Tail() -- Return the file name portion (minus the path) of a
 #  qualified file name.
 #
-procedure Tail(fn);
+procedure Tail(fn)
    local i;
    i := 0;
    every i := upto('/\\:',fn);
@@ -628,7 +628,7 @@ end
 #
 #  Root() -- Return the root portion (minus the suffix) of a file name.
 #
-procedure Root(fn);
+procedure Root(fn)
    local i;
    i := 0;
    every i := find(".",fn);
@@ -636,7 +636,7 @@ procedure Root(fn);
 end
 
 
-procedure DefaultSuffix(fn,suf);
+procedure DefaultSuffix(fn,suf)
    local i;
    return fn || "." || suf;
 end
@@ -661,7 +661,7 @@ end
 #               no new entries are added.
 #
 
-procedure Compress(inproc,outproc,maxTableSize);
+procedure Compress(inproc,outproc,maxTableSize)
    local EOF,c,charTable,junk1,junk2,outcode,s,t,tossTable,x;
    #
    #  Initialize.
@@ -720,7 +720,7 @@ procedure Compress(inproc,outproc,maxTableSize);
 end
 
 
-procedure Compress_output(outproc,code,stringTableSize);
+procedure Compress_output(outproc,code,stringTableSize)
    local outcode;
    static max,bits,buffer,bufferbits,lastSize;
    #
@@ -784,7 +784,7 @@ end
 #               argument) to the output stream.
 #
 
-procedure Decompress(inproc,outproc,maxTableSize);
+procedure Decompress(inproc,outproc,maxTableSize)
    local EOF,c,charSize,code,i,new_code,old_strg,
          strg,tossTable;
    #
@@ -837,7 +837,7 @@ procedure Decompress(inproc,outproc,maxTableSize);
 end
 
 
-procedure Decompress_read_code(inproc,stringTableSize,EOF);
+procedure Decompress_read_code(inproc,stringTableSize,EOF)
    local code;
    static max,bits,buffer,bufferbits,lastSize;
 
@@ -885,12 +885,12 @@ procedure Decompress_read_code(inproc,stringTableSize,EOF);
 end
 
 
-procedure whole_wild_match(p,s);
+procedure whole_wild_match(p,s)
    return wild_match(p,s) > *s;
 end
 
 
-procedure not_wild_match(p,s);
+procedure not_wild_match(p,s)
    return not (wild_match(p,s) > *s);
 end
 

@@ -28,14 +28,14 @@ link gobject
 
 #  Generate n random points within a rectangular area.
 
-procedure rand(x, y, extentx, extenty, n);
+procedure rand(x, y, extentx, extenty, n)
 
    every 1 to n do 
       suspend Point(x + ?extentx + 1, y + ?extenty + 1);
 
 end
 
-procedure symrand(x, y, extentx, extenty, size, n);
+procedure symrand(x, y, extentx, extenty, size, n)
    local xp, yp;
 
    every 1 to n do {

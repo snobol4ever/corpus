@@ -28,7 +28,7 @@
 #
 ############################################################################
 
-procedure hostname();
+procedure hostname()
     local fname, get_name;
 
     static h_name;

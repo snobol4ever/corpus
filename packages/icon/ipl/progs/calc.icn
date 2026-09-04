@@ -58,7 +58,7 @@ link ivalue, usage
 
 global stack
 
-procedure main();
+procedure main()
    local line;
 
    stack := [];
@@ -69,7 +69,7 @@ procedure main();
 
 end
 
-procedure command(line);
+procedure command(line)
 
    case line of {
       "clear":	stack := [];
@@ -82,7 +82,7 @@ procedure command(line);
 
 end
 
-procedure operation(line);
+procedure operation(line)
    local p, n, arglist;
 
    if p := proc(line, 2 | 1 | 3) then {	# function or operation?
@@ -108,7 +108,7 @@ procedure operation(line);
 
 end
 
-procedure value(line);
+procedure value(line)
 
    put(stack,ivalue(line)) | fail;
 

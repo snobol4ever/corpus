@@ -24,7 +24,7 @@
 
 link wopen
 
-procedure colrspec(s);
+procedure colrspec(s)
    local color;
    static max, win;
 

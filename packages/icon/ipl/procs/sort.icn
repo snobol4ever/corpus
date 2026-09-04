@@ -58,7 +58,7 @@
 #
 ############################################################################
 
-procedure isort(x,keyproc,y);
+procedure isort(x,keyproc,y)
    local items,item,key,result;
    if y := integer(keyproc) then
 	 keyproc := proc("[]",2)
@@ -90,7 +90,7 @@ procedure sortff(L, fields[]);		#: sort on multiple fields
     return sortff_1(L, fields, 1, []);
 end
 
-procedure sortff_1(L, fields, k, uniqueObject);
+procedure sortff_1(L, fields, k, uniqueObject)
 
     local sortField, cachedKeyValue, i, startOfRun, thisKey;
 

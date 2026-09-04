@@ -45,7 +45,7 @@ link options
 link repetit
 link wopen
 
-procedure main(args);
+procedure main(args)
    local width, height, x, y, row, col, rows, cols, w, h, suffix, file;
    local basename, opts;
 

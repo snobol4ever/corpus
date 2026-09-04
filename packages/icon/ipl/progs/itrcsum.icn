@@ -27,7 +27,7 @@ link numbers
 
 $define CountWidth 10
 
-procedure main();
+procedure main()
    local line, file_tbl, call_tbl, return_tbl, fail_tbl, suspend_tbl;
    local resume_tbl, max, ave, count, file, bars, depth, keys, width;
 

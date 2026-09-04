@@ -43,7 +43,7 @@ global line, loc, exceptions, key_width,  program_width, tag
 
 record pair(name, line)
 
-procedure main(args);
+procedure main(args)
    local exceptfile, opts;
 
    opts := options(args, "k+p+");
@@ -73,7 +73,7 @@ procedure main(args);
 
 end
 
-procedure indexer(file);
+procedure indexer(file)
    local index, word;
 
 #  Each word, in lowercase form, is a key in the table "index".
@@ -98,7 +98,7 @@ procedure indexer(file);
 
 end
 
-procedure lcword(file);
+procedure lcword(file)
    local name, word;
    static chars;
 
@@ -123,7 +123,7 @@ procedure lcword(file);
       };
 end
 
-procedure filter(result);
+procedure filter(result)
 
    return left(result.name, key_width) ||
       left(tag[result.line], program_width) || result.line;

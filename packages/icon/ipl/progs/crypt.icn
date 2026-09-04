@@ -24,7 +24,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local i, k, ky, l, con;
    local fin, fout, infile, outfile;
 

@@ -33,7 +33,7 @@ link random
 $define BevelWidth 2
 $define WindowMargin 10
 
-procedure main(args);
+procedure main(args)
    local win, gc, w, h, m, a, da, n, ov, i, t;
 
    win := Window("size=400,400", args);

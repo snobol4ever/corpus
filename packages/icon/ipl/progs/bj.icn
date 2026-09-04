@@ -37,7 +37,7 @@ global deck, message, lookup,
        user_money,  host_money,
        user_hand,   host_hand
 
-procedure main(param);
+procedure main(param)
   local bonus, user_points, host_points;
   user_money := integer(param[1]) | 3 ; host_money := user_money;
   write(screen("cls"));
@@ -110,7 +110,7 @@ procedure main(param);
 #
 # THIS PROCEDURE ALLOWS THE USER TO PLAY AND TAKE HITS
 #
-procedure first(host_card);
+procedure first(host_card)
   local points;
 
   display_user();
@@ -134,7 +134,7 @@ procedure first(host_card);
 #
 # THIS SECOND PROCEDURE IS THE HOST PLAYING AGAINST THE USER
 #
-procedure second(ceiling);
+procedure second(ceiling)
   local stop_at, points;
 
   static limits;
@@ -158,7 +158,7 @@ procedure second(ceiling);
 #
 # THIS ROUTINE DISPLAYS THE CURRENT SCORE
 #
-procedure display_score();
+procedure display_score()
   writes(screen("nocursor"));
   writes(screen("dim"),at(1,7),"Credits",screen("norm"));
   writes(screen("high"),at(1,8),right(user_money,7),screen("norm"));
@@ -169,7 +169,7 @@ procedure display_score();
 # THIS PROCEDURE EVALUATES THE POINTS OF A HAND. IT TRIES TO MAKE THEM
 # AS HIGH AS POSSIBLE WITHOUT GOING OVER 21.
 #
-procedure value(sample);
+procedure value(sample)
   local hand, possible, sum, card, i, best_score, gone_over_score, score;
 
   hand     := copy(sample);
@@ -200,7 +200,7 @@ procedure value(sample);
 #
 # THIS ROUTINE DISPLAYS THE USER HAND AND STATUS
 #
-procedure display_user();
+procedure display_user()
   local x, y, card;
 
   writes(screen("nocursor"),at(1,6),screen("hinv"),"USER",screen("norm"));
@@ -215,7 +215,7 @@ procedure display_user();
 #
 # THIS ROUTINE DISPLAYS THE HOST HAND AND STATUS
 #
-procedure display_host(flag);
+procedure display_host(flag)
   local x, y, card;
 
   writes(screen("nocursor"),at(1,16),screen("hinv"),
@@ -232,7 +232,7 @@ procedure display_host(flag);
 #
 # THIS ROUTINE DISPLAYS A GIVEN CARD AT A GIVEN X,Y SCREEN LOCATION
 #
-procedure display(card,x,y);
+procedure display(card,x,y)
     local all, j, shape;
 
     all := [] ; j := y;
@@ -261,7 +261,7 @@ procedure display(card,x,y);
 #
 # THIS ROUTINE SHUFFLES THE CARD DECK
 #
-procedure xshuffle();
+procedure xshuffle()
   static faces, suits;
   local cards, i;
   initial {
@@ -286,7 +286,7 @@ procedure xshuffle();
 #
 # THIS ROUTINE PARSES A STRING WITH RESPECT TO SOME DELIMITER
 #
-procedure parse(line,delims);
+procedure parse(line,delims)
   local tokens;
 
   static chars;
@@ -299,7 +299,7 @@ procedure parse(line,delims);
 #
 # THIS ROUTINE PROMPTS FOR INPUT AND RETURNS A STRING
 #
-procedure input(prompt);
+procedure input(prompt)
   writes(screen("cursor"),prompt);
   return read();
   end
@@ -309,7 +309,7 @@ procedure input(prompt);
 # THIS ROUTINE SETS THE VIDEO OUTPUT ATTRIBUTES FOR VT102 OR LATER
 # COMPATIBLE TERMINALS.
 #
-procedure screen(attr);
+procedure screen(attr)
   initial if getval("ug"|"mg"|"sg") > 0 then
     er("screen","oops, magic cookie terminal!",34);
   return {
@@ -356,7 +356,7 @@ procedure screen(attr);
 #
 # THIS ROUTINE SETS THE CURSOR TO A GIVEN X (COL) Y(ROW) SCREEN LOCATION
 #
-procedure at(x,y);
+procedure at(x,y)
 #  return "\e[" || y || ";" || x || "f"
   return igoto(getval("cm"),x,y);
   end

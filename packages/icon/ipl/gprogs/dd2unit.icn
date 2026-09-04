@@ -31,7 +31,7 @@ link seqops
 
 global switch
 
-procedure main(args);
+procedure main(args)
    local rows, opts;
 
    opts := options(args, "p");
@@ -55,7 +55,7 @@ procedure rot90(rows);		# rotate pattern 90 degrees clockwise
 
 end
 
-procedure unit(grid);
+procedure unit(grid)
 
    grid := grepeat(grid);
 

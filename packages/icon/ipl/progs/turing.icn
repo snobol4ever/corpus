@@ -74,7 +74,7 @@ record action(wrt, mov, nxs)
 global machine, lns, lno, errs
 global cycle, tape, posn, state, video
 
-procedure main(args);
+procedure main(args)
    local opts;
 
    opts := options(args, "v");
@@ -97,7 +97,7 @@ end
 
 #  dumptape - display current tape contents on screen
 
-procedure dumptape();
+procedure dumptape()
    if cycle < 10 then writes(" ");
    writes(cycle, ". [", right(state, lns), "] ", tape[1:posn]);
    if \video then write("\e[7m", tape[posn], "\e[m", tape[posn + 1:0])
@@ -110,7 +110,7 @@ end
 
 #  transit (act) - transit to the next state performing the given action
 
-procedure transit(act);
+procedure transit(act)
    tape[posn] := act.wrt;
    if act.mov == "R" then {
       posn +:= 1;
@@ -126,7 +126,7 @@ end
 
 #  rdmach (f) - read machine description from the given file
 
-procedure rdmach(f);
+procedure rdmach(f)
    local nstates, line, a0, a1, n;
 
    machine := list();
@@ -156,7 +156,7 @@ end
 
 #  mkact (a) - construct the action record specified by the given string
 
-procedure mkact(a);
+procedure mkact(a)
    local w, m, n;
 
    w := a[1] | "9";
@@ -168,7 +168,7 @@ end
 
 #  warn (msg) - report an error in the machine description
 
-procedure warn(msg);
+procedure warn(msg)
    write(&errout, "line ", lno, ": ", msg);
    errs +:= 1;
    return;

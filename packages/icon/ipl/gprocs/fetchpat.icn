@@ -30,7 +30,7 @@
 link io
 link patutils
 
-procedure fetchpat(file, n);
+procedure fetchpat(file, n)
    local input, pattern;
 
    input := dopen(file) | fail;

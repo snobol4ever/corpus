@@ -5,7 +5,7 @@
 global parse_tok        # This is the co_expression that represents the scanner
 global parse_tok_rec    # This is the current token record
 
-procedure parse(lex);
+procedure parse(lex)
     local d;
 
     parse_tok := lex;
@@ -14,7 +14,7 @@ procedure parse(lex);
 end
 
 #  CASE  expr  OF  LBRACE  cclause {  SEMICOL  cclause }  RBRACE
-procedure parse_do_case();
+procedure parse_do_case()
     local e, body, element, dflt, coord, bodyList;
 
     coord := parse_tok_rec.coord;
@@ -44,7 +44,7 @@ procedure parse_do_case();
     return a_Case(e, body, dflt, coord);
 end
 
-procedure parse_cclause();
+procedure parse_cclause()
 # case-clause
     local e, body, coord;
     static cclause_set;
@@ -79,7 +79,7 @@ procedure parse_cclause();
     return a_Cclause(e, body, coord);
 end
 
-procedure parse_compound();
+procedure parse_compound()
 #  nexpr {  SEMICOL  nexpr } 
     local l, e;
         
@@ -92,7 +92,7 @@ procedure parse_compound();
     return l;
 end
 
-procedure parse_decl();
+procedure parse_decl()
     case parse_tok_rec of {
     lex_RECORD    : return parse_do_record();
     lex_PROCEDURE : return parse_do_proc();
@@ -103,7 +103,7 @@ procedure parse_decl();
     };
 end
 
-procedure parse_do_every();
+procedure parse_do_every()
 #  EVERY  expr [  DO  expr ] 
     local e, body, coord;
     coord := parse_tok_rec.coord;
@@ -118,7 +118,7 @@ procedure parse_do_every();
     return a_Every(e, body, coord);
 end
 
-procedure parse_expr();
+procedure parse_expr()
 #  expr1a {  AND  expr1 } 
     local ret, op, right;
 
@@ -131,7 +131,7 @@ procedure parse_expr();
     return ret;
 end
 
-procedure parse_expr1();
+procedure parse_expr1()
     local ret, op, right, coord;
     static expr1_set;
 
@@ -161,7 +161,7 @@ procedure parse_expr1();
     return ret;
 end
 
-procedure parse_expr10();
+procedure parse_expr10()
     local op, operand, tmp_tok, coord;
     static expr10_set1, expr10_set2, expr10_set3;
 
@@ -210,7 +210,7 @@ procedure parse_expr10();
     };
 end
 
-procedure parse_expr11();
+procedure parse_expr11()
     local e, id, coord;
     case parse_tok_rec of {
     lex_CSETLIT |
@@ -307,7 +307,7 @@ procedure parse_expr11();
     };
 end
 
-procedure parse_expr11a();
+procedure parse_expr11a()
     local left, right, op, oprec;
     static expr11_set;
 
@@ -322,7 +322,7 @@ procedure parse_expr11a();
     return left;
 end
 
-procedure parse_expr11suffix(lhs);
+procedure parse_expr11suffix(lhs)
     local left, right, l, op, id, coord, x, idcoord;
     static expr11suffix_set1, expr11suffix_set2;
 
@@ -399,7 +399,7 @@ procedure parse_expr11suffix(lhs);
     };
 end
 
-procedure parse_expr1a();
+procedure parse_expr1a()
 #  expr1 {  QMARK  expr1a } 
     local left, right, coord;
 
@@ -413,7 +413,7 @@ procedure parse_expr1a();
     return left;
 end
 
-procedure parse_expr2();
+procedure parse_expr2()
 #  expr3 {  TO  expr2 [  BY  expr3 ] } 
     local e1, e2, e3, ret, coord;
 
@@ -435,7 +435,7 @@ procedure parse_expr2();
     return ret;
 end
 
-procedure parse_expr3();
+procedure parse_expr3()
 #  expr4 {  BAR  expr3 } 
     local ret, a;
 
@@ -449,7 +449,7 @@ procedure parse_expr3();
     return ret;
 end
 
-procedure parse_expr4();
+procedure parse_expr4()
     local ret, op, right, coord;
     static expr4_set;
 
@@ -471,7 +471,7 @@ procedure parse_expr4();
     return ret;
 end
 
-procedure parse_expr5();
+procedure parse_expr5()
 #  expr6 {  expr5op  expr5 } 
     local ret, right, op, coord;
 
@@ -486,7 +486,7 @@ procedure parse_expr5();
 end
 
 
-procedure parse_expr6();
+procedure parse_expr6()
 #  expr7 {  expr6op  expr6 } 
     local ret, op, right, coord;
     static expr6_set;
@@ -505,7 +505,7 @@ procedure parse_expr6();
     return ret;
 end
 
-procedure parse_expr7();
+procedure parse_expr7()
 #  expr8 {  expr7op  expr7 } 
     local ret, op, right, coord;
     static expr7_set;
@@ -525,7 +525,7 @@ procedure parse_expr7();
     return ret;
 end
 
-procedure parse_expr8();
+procedure parse_expr8()
 #  expr9 {  CARET  expr8 }  (Right Associative)
     local ret, op, right, coord;
 
@@ -539,7 +539,7 @@ procedure parse_expr8();
     return ret;
 end
 
-procedure parse_expr9();
+procedure parse_expr9()
 #  expr10 {  expr9op  expr9 } 
     local ret, op, right, coord;
 
@@ -557,7 +557,7 @@ procedure parse_expr9();
     return ret;
 end
 
-procedure parse_exprlist();
+procedure parse_exprlist()
     local l, e;
     #  nexpr {  COMMA  nexpr } 
     e := parse_nexpr();
@@ -575,7 +575,7 @@ procedure parse_exprlist();
 end
 
 #  GLOBAL  idlist, coord
-procedure parse_do_global();
+procedure parse_do_global()
     local coord;
 
     coord := parse_tok_rec.coord;
@@ -583,7 +583,7 @@ procedure parse_do_global();
     return a_Global(parse_idlist(), coord);
 end
 
-procedure parse_idlist();
+procedure parse_idlist()
 #  IDENT {  COMMA  IDENT } 
     local l, id, coord;
 
@@ -599,7 +599,7 @@ procedure parse_idlist();
     return l;
 end
 
-procedure parse_do_if();
+procedure parse_do_if()
 #  IF  expr  THEN  expr [  ELSE  expr ] 
     local ex, theparse_nexpr, elseparse_expr, coord;
 
@@ -616,7 +616,7 @@ procedure parse_do_if();
     return a_If(ex, theparse_nexpr, elseparse_expr, coord);
 end
 
-procedure parse_do_initial();
+procedure parse_do_initial()
 # [  INITIAL  expr  SEMICOL ] 
     local e, coord;
 
@@ -629,7 +629,7 @@ procedure parse_do_initial();
     return a_Initial(e, parse_tok_rec.coord);
 end
 
-procedure parse_do_invocable();
+procedure parse_do_invocable()
 #  INVOCABLE  invocop {  COMMA  invocop } 
     local l, op, coord;
 
@@ -644,7 +644,7 @@ procedure parse_do_invocable();
     return a_Invocable(l, coord);
 end
 
-procedure parse_invocop();
+procedure parse_invocop()
     local ret, t, coord;
     coord := parse_tok_rec.coord;
     case parse_tok_rec of {
@@ -663,7 +663,7 @@ procedure parse_invocop();
     };
 end
 
-procedure parse_do_link();
+procedure parse_do_link()
 #  LINK  lnkfile {  COMMA  lnkfile } 
     local l, lnkf, coord;
 
@@ -678,7 +678,7 @@ procedure parse_do_link();
     return a_Link(l, coord);
 end
 
-procedure parse_literal();
+procedure parse_literal()
     local coord;
     coord := parse_tok_rec.coord;
     case parse_tok_rec of {
@@ -695,7 +695,7 @@ procedure parse_literal();
     };
 end
 
-procedure parse_lnkfile();
+procedure parse_lnkfile()
     case parse_tok_rec of {
     lex_IDENT   :   # IDENT 
         return parse_eat_token();
@@ -706,7 +706,7 @@ procedure parse_lnkfile();
     };
 end
 
-procedure parse_locals();
+procedure parse_locals()
 # {  retention  idlist  SEMICOL } 
     local ret, l, vars, coord;
 
@@ -731,7 +731,7 @@ procedure parse_locals();
     return l;
 end
 
-procedure parse_nexpr();
+procedure parse_nexpr()
 # [  expr ] 
     static nexpr_set;
 
@@ -753,7 +753,7 @@ procedure parse_nexpr();
     return &null;
 end
 
-procedure parse_pdcolist();
+procedure parse_pdcolist()
 #  nexpr {  COMMA  nexpr } 
     local l, e;
 
@@ -766,7 +766,7 @@ procedure parse_pdcolist();
     return l;
 end
 
-procedure parse_do_proc();
+procedure parse_do_proc()
     local ident, paramList, accumulate, loc, init, nexprList, e, coord, idcoord;
     local endcoord;
     static do_proc_set;
@@ -815,7 +815,7 @@ procedure parse_do_proc();
                       endcoord);
 end
 
-procedure parse_program();
+procedure parse_program()
 # {  decl } 
     static program_set;
     local d;
@@ -834,7 +834,7 @@ procedure parse_program();
     };
 end
 
-procedure parse_do_record();
+procedure parse_do_record()
 #  RECORD  IDENT  LPAREN [  idlist ]  RPAREN 
     local id, l, coord, idcoord;
     coord := parse_tok_rec.coord;
@@ -850,7 +850,7 @@ procedure parse_do_record();
     return a_Record(id, l, coord);
 end
 
-procedure parse_do_repeat();
+procedure parse_do_repeat()
     local e, coord;
     #  REPEAT  expr 
     coord := parse_tok_rec.coord;
@@ -859,7 +859,7 @@ procedure parse_do_repeat();
     return a_Repeat(e, coord);
 end
 
-procedure parse_do_return();
+procedure parse_do_return()
     local e, coord, doparse_expr;
 
     coord := parse_tok_rec.coord;
@@ -892,7 +892,7 @@ procedure parse_do_return();
 end
 
 #  UNTIL  expr [  DO  expr ] 
-procedure parse_do_until();
+procedure parse_do_until()
     local e, dparse_expr, coord;
 
     coord := parse_tok_rec.coord;
@@ -907,7 +907,7 @@ procedure parse_do_until();
 end
 
 #  WHILE  expr [  DO  expr ] 
-procedure parse_do_while();
+procedure parse_do_while()
     local e, dparse_expr, coord;
 
     coord := parse_tok_rec.coord;
@@ -921,7 +921,7 @@ procedure parse_do_while();
     return a_While(e, dparse_expr, coord);
 end
 
-procedure parse_match_token(which_token);
+procedure parse_match_token(which_token)
     local saved;
     saved := parse_tok_rec.str;
     if parse_tok_rec === which_token then {
@@ -936,7 +936,7 @@ procedure parse_match_token(which_token);
     };
 end
 
-procedure parse_eat_token();
+procedure parse_eat_token()
     local saved;
     saved := parse_tok_rec.str;
     parse_tok_rec := @parse_tok;
@@ -944,7 +944,7 @@ procedure parse_eat_token();
 end
 
 
-procedure parse_error(msg);
+procedure parse_error(msg)
     stop("File ", parse_tok_rec.coord.file,
          "; Line ", parse_tok_rec.coord.line, " # ", msg);
 end

@@ -42,7 +42,7 @@
 #
 ############################################################################
 
-procedure longstr(l,s,i,j);
+procedure longstr(l,s,i,j)
 
     local elem, tmp_table;
     static l_table;

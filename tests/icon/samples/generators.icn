@@ -3,21 +3,21 @@
 # Shows: user-defined generators, every, alternation, filtering
 
 # Generate integers from lo to hi (inclusive)
-procedure range(lo, hi);
+procedure range(lo, hi)
     local i;
     every i := lo to hi do
         suspend i;
 end
 
 # Generate all divisors of n
-procedure divisors(n);
+procedure divisors(n)
     local i;
     every i := 1 to n do
         if n % i = 0 then suspend i;
 end
 
 # Generate Fibonacci numbers up to limit
-procedure fibs(limit);
+procedure fibs(limit)
     local a, b, tmp;
     a := 0; b := 1;
     while a <= limit do {
@@ -27,7 +27,7 @@ procedure fibs(limit);
 end
 
 # Compose: generate only perfect numbers (n = sum of proper divisors)
-procedure perfect(limit);
+procedure perfect(limit)
     local n, s;
     every n := range(2, limit) do {
         s := 0;
@@ -37,7 +37,7 @@ procedure perfect(limit);
     };
 end
 
-procedure main();
+procedure main()
     local out;
 
     write("Fibs to 100:");

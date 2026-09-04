@@ -25,7 +25,7 @@
 
 link numbers
 
-procedure main();
+procedure main()
    local numbers, colors, line, i, largest;
 
    numbers := [];

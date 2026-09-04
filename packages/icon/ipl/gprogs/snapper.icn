@@ -36,7 +36,7 @@
 
 link wopen
 
-procedure main(av);
+procedure main(av)
    local name, window, winput;
 
    if *av > 0 then {

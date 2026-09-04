@@ -130,7 +130,7 @@ procedure copyl(xargs[]);		#: copy list of lists
 
 end
 
-procedure eval_tree(n);
+procedure eval_tree(n)
    local i;
 
    n := integer(n);
@@ -144,7 +144,7 @@ procedure eval_tree(n);
 
 end
 
-procedure expression_tree(n);
+procedure expression_tree(n)
    local result;
 
    n := integer(n);
@@ -162,7 +162,7 @@ procedure expression_tree(n);
 
 end
 
-procedure fragment(s, i, p, arg);
+procedure fragment(s, i, p, arg)
    local results, j, k;
 
    if *s <= i then return s;
@@ -191,7 +191,7 @@ end
 
 $define MinLength 5	# minimum length for attempting analysis
 
-procedure get_analysis(seq);
+procedure get_analysis(seq)
    local expression;
 
    if *seq < MinLength then return simageb(seq);
@@ -280,7 +280,7 @@ procedure get_srepeat(seq);		#: find repeat in sequence
 
 end
 
-procedure get_srun(seq);
+procedure get_srun(seq)
    local i, j, new_seq, dir;
 
    seq := copy(seq);
@@ -319,7 +319,7 @@ procedure get_srun(seq);
 
 end
 
-procedure get_sruns(seq);
+procedure get_sruns(seq)
    local i, j, seq1, seq2, dir;
 
    seq1 := [];
@@ -390,7 +390,7 @@ procedure remod(seq, p);			#: handle modulus
 
 end
 
-procedure sanalout();
+procedure sanalout()
    local expression, var;
 
    write("link seqops");
@@ -411,7 +411,7 @@ procedure sanalout();
 
 end
 
-procedure sanalysis(x);
+procedure sanalysis(x)
 
 #  sanalyze(x)
 
@@ -624,7 +624,7 @@ procedure sdirection(x);			#: sequence delta "direction"
 
 end
 
-procedure sdistrib(x);
+procedure sdistrib(x)
    local lseq, i;
 
    x := copy(spromote(x));
@@ -1097,7 +1097,7 @@ procedure sreflecth(xargs[]);		#: reflect sequence horizontally
 end
 
 
-procedure sreflectr(xargs[]);
+procedure sreflectr(xargs[])
    local lseq, i, bound, x;
 
    if \node_gen then return node("sreflectr", xargs);
@@ -1427,7 +1427,7 @@ procedure sunop(op, xargs[]);		#: unary operation on terms
 
 end
 
-procedure walk_tree(n, tree_list, tree_ptrs, depth);
+procedure walk_tree(n, tree_list, tree_ptrs, depth)
    local indent;
 
    /tree_list := [];
@@ -1569,7 +1569,7 @@ procedure sredelta(x);		# reconstruct sequence from delta sequence
 
 end
 
-procedure sreplp(x1, x2);
+procedure sreplp(x1, x2)
    local lseq, i;
 
    x1 := spromote(x1);

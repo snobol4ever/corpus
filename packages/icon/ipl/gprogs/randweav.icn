@@ -78,7 +78,7 @@ $define PALETTE "c1"				# color palette
 $define PREFCOLORS "06NBCDFsHIJM?!"		# preferred colors
 
 
-procedure main(args);
+procedure main(args)
 
    randomize();
    allcolors := PREFCOLORS || (PaletteChars(PALETTE) -- PREFCOLORS);
@@ -103,7 +103,7 @@ end
 
 #  all(a, x, y) -- process all events, checking for keyboard shortcuts
 
-procedure all(a, x, y);
+procedure all(a, x, y)
    if a === !" \n\r" then render()	# draw new pattern for SPACE, CR, LF
    else if &meta then case a of {
       !"qQ":  exit();			# exit for @Q
@@ -115,7 +115,7 @@ end
 
 #  render() -- draw a new pattern according to current parameters
 
-procedure render();
+procedure render()
    local ncolors, bias;
    local s, x, y, w, h, z, k;
    static prevsize;
@@ -143,7 +143,7 @@ end
 
 #  genpatt(size, colors, bias) -- generate a new pattern as DrawImage() string
 
-procedure genpatt(size, colors, bias);
+procedure genpatt(size, colors, bias)
    local warp, weft, perfect, s, x, y, w;
 
    #  choose thread colors
@@ -173,7 +173,7 @@ end
 
 #  genthreads(n, colors, cyclic) -- generate a set of warp or weft threads
 
-procedure genthreads(n, colors, cyclic);
+procedure genthreads(n, colors, cyclic)
    local s;
 
    if \cyclic then
@@ -188,7 +188,7 @@ end
 
 #  txtval(s, min, max) -- get numeric value from named vidget and clamp to range
 
-procedure txtval(s, min, max);
+procedure txtval(s, min, max)
    local v, n;
 
    v := vidgets[s];			# find the vidget
@@ -203,7 +203,7 @@ end
 
 #  save() -- present dialog box and save pattern as image file
 
-procedure save();
+procedure save()
    local g;
 
    g := WAttrib("gamma");	# save old gamma value
@@ -225,17 +225,17 @@ procedure save();
 end
 
 
-procedure quit();
+procedure quit()
    exit();
 end
 
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=380,492", "bg=pale gray", "label=weaver"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,380,492:weaver",],
    ["bias:Text::3:285,37,87,19:Bias:   \\=60",],

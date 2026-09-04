@@ -53,7 +53,7 @@
 #  (c) Copyright 1990, David Lemke and Network Computing Devices Inc.
 #  Copyright 1990 Heather Rose and Sun Microsystems, Inc.
 
-procedure cardbits();
+procedure cardbits()
 return \
 "160,#_
 0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF_

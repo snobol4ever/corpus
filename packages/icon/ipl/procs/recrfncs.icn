@@ -33,7 +33,7 @@
 ############################################################################
 
 link numbers
-procedure acker(i, j);
+procedure acker(i, j)
 
    if i = 0 then return j + 1;
    if j = 0 then  return acker(i - 1, 1)
@@ -41,7 +41,7 @@ procedure acker(i, j);
 
 end
 
-procedure fib(i);
+procedure fib(i)
 
    if i = (1 | 2) then return 1
 
@@ -49,7 +49,7 @@ procedure fib(i);
 
 end
 
-procedure g(k, n);
+procedure g(k, n)
    local value;
    static psi;
 
@@ -65,7 +65,7 @@ procedure g(k, n);
 
 end 
 
-procedure q(i);
+procedure q(i)
 
    if i = (1 | 2) then return 1
    else return q(i - q(i - 1)) + q(i - q(i - 2));

@@ -23,7 +23,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
    local name;
 
    while name := read() do

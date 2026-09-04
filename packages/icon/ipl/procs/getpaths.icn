@@ -34,7 +34,7 @@
 #
 ############################################################################
 
-procedure getpaths(base_paths[]);
+procedure getpaths(base_paths[])
 
     local paths, p;
     static sep, trailer, trimmer;

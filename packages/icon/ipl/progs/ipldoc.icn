@@ -34,7 +34,7 @@ link sort
 
 record ref(proc, file)
 
-procedure main(args);
+procedure main(args)
    local procedures, file, program, line, dir, input, max;
    local reference, opts, writep, way1, way2;
 

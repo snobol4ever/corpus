@@ -71,7 +71,7 @@ global shelf2		# packed bins
 
 #########################  main program  #########################
 
-procedure main(args);
+procedure main(args)
    local v, r, c, gc;
 
    randomize();  # set irreproducible mode
@@ -107,7 +107,7 @@ end
 
 #  prepare(v) -- prepare shelf v for placing pieces
 
-procedure prepare(v);
+procedure prepare(v)
    xll := v.ux;
    yll := v.uy + v.uh;
    bin := list(*pieces, 0);
@@ -119,7 +119,7 @@ end
 
 #  place(p, b) -- add a piece of size p to bin b
 
-procedure place(p, b);
+procedure place(p, b)
    local o, t, x, y0, y1;
    static m;
    initial m := shelf1.uh / real(FULL);
@@ -140,7 +140,7 @@ end
 
 #  status(s) -- write string s and shelf population at end of output shelf
 
-procedure status(s);
+procedure status(s)
    local x;
 
    x := xll + nfilled * BinWidth + 4;
@@ -159,7 +159,7 @@ end
 
 #  reload() -- reload first shelf with random-sized pieces.
 
-procedure reload();
+procedure reload()
    local i, j, z, p;
 
    pieces := list(shelf1.uw / BinWidth);
@@ -173,7 +173,7 @@ end
 
 #  mix() -- randomly reorder the first shelf.
 
-procedure mix();
+procedure mix()
    local i;
 
    every i := *pieces to 2 by -1 do
@@ -189,7 +189,7 @@ end
 
 #  regular() -- place equally-spaced using golden ratio
 
-procedure regular();
+procedure regular()
    local i, n, p;
 
    n := integer(*pieces / &phi + 1);
@@ -211,7 +211,7 @@ end
 
 #  ascending() -- sort the first shelf in ascending order
 
-procedure ascending();
+procedure ascending()
    local i;
 
    pieces := sort(pieces);
@@ -225,7 +225,7 @@ end
 
 #  descending() -- sort the first shelf in descending order
 
-procedure descending();
+procedure descending()
    local i;
 
    pieces := sort(pieces);
@@ -245,7 +245,7 @@ end
 
 #  nextfit(l) -- pack using next-fit algorithm
 
-procedure nextfit(l);
+procedure nextfit(l)
    local p;
 
    every p := !l do
@@ -257,7 +257,7 @@ end
 
 #  firstfit(l) -- pack using first-fit algorithm
 
-procedure firstfit(l);
+procedure firstfit(l)
    local p;
 
    every p := !l do
@@ -268,7 +268,7 @@ end
 
 #  lastfit(l) -- pack using last-fit algorithm
 
-procedure lastfit(l);
+procedure lastfit(l)
    local p;
 
    every p := !l do
@@ -279,7 +279,7 @@ end
 
 #  bestfit(l) -- pack using best-fit algorithm
 
-procedure bestfit(l);
+procedure bestfit(l)
    local p, b, i, max, found;
 
    every p := !l do {
@@ -297,7 +297,7 @@ end
 
 #  worstfit(l, n) -- pack using worst-fit algorithm
 
-procedure worstfit(l, n);
+procedure worstfit(l, n)
    local p, b, i, found;
 
    every p := !l do {
@@ -314,7 +314,7 @@ end
 
 #  nearworst(l, n) -- pack using almost-worst-fit algorithm
 
-procedure nearworst(l, n);
+procedure nearworst(l, n)
    local p, a, b, i, found;
 
    every p := !l do {
@@ -338,7 +338,7 @@ end
 
 #  menu_cb(v, a) -- File and Reorder menu callback
 
-procedure menu_cb(v, a);
+procedure menu_cb(v, a)
    case a[1] of {
       "About":		about();
       "New":		reload();
@@ -354,7 +354,7 @@ end
 
 #  pack_cb(v, a) -- Pack menu callback
 
-procedure pack_cb(v, a);
+procedure pack_cb(v, a)
    local s, p;
 
    a[1] ? {
@@ -380,7 +380,7 @@ end
 
 #  about() -- handle "about" menu entry
 
-procedure about(x, v);
+procedure about(x, v)
    static text;
    initial text := ["",
          Version,
@@ -413,11 +413,11 @@ end
 
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=600,400", "bg=pale gray", "label=Bin Packer"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,600,400:Bin Packer",],
    ["file:Menu:pull::0,0,36,21:File",menu_cb,

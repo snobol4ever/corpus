@@ -102,7 +102,7 @@ $define BORDER 2	# border width
 
 record Button_Rec(win, label, proc, arg, x, y, w, h)
 
-procedure button(win, label, proc, arg, x, y, w, h);
+procedure button(win, label, proc, arg, x, y, w, h)
    local r;
 
    r := Button_Rec(win, label, proc, arg, x, y, w, h);
@@ -114,7 +114,7 @@ procedure button(win, label, proc, arg, x, y, w, h);
    return r;
 end
 
-procedure buttonrow(win, x, y, w, h, dx, dy, args[]);
+procedure buttonrow(win, x, y, w, h, dx, dy, args[])
    local hlist, label, proc, arg;
 
    if dx < 0 then x -:= w;
@@ -137,7 +137,7 @@ procedure buttonrow(win, x, y, w, h, dx, dy, args[]);
    return hlist;
 end
 
-procedure buttonlabel(r, s);
+procedure buttonlabel(r, s)
    r.label := s;
    if /r.proc then
       EraseArea(r.win, r.x, r.y, r.w, r.h)	# borderless button
@@ -147,7 +147,7 @@ procedure buttonlabel(r, s);
    return;
 end
 
-procedure Exec_Button(win, r, x, y);
+procedure Exec_Button(win, r, x, y)
    local e, b, t;
 
    WAttrib(win, "drawop=reverse");

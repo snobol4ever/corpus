@@ -62,7 +62,7 @@ global idset			# identifier characters
 
 #  main procedure
 
-procedure main(args);
+procedure main(args)
    local line, t;
 
    idset := &letters ++ &digits ++ '.-_:';
@@ -100,7 +100,7 @@ end
 
 #  braces(line) -- process items identified by braces ('{}')
 
-procedure braces(line);
+procedure braces(line)
    local c, s, t;
 
    line ? {
@@ -128,7 +128,7 @@ end
 
 #  newtag() -- process text following left brace ('{')
 
-procedure newtag();
+procedure newtag()
    local label, s, c;
 
    if ="}" then
@@ -164,7 +164,7 @@ end
 
 #  attrib() -- match and return attribute
 
-procedure attrib();
+procedure attrib()
    return tab(many(WSPACE)) || tab(many(idset)) || ="=" || attval();
 end
 
@@ -172,7 +172,7 @@ end
 
 #  attval() -- match and return attribute value
 
-procedure attval();
+procedure attval()
    static valset;
    initial valset := &cset[34+:94] -- '\'\\"{}';
    return (="\"" || tab(upto('"')) || move(1)) |
@@ -184,7 +184,7 @@ end
 
 #  aquote(s) -- quote attribute value, but only if needed
 
-procedure aquote(s);
+procedure aquote(s)
    if many(idset, s) = *s + 1 then
       return s
    else
@@ -195,7 +195,7 @@ end
 
 #  docommand(label) -- process a tag recognized as a command
 
-procedure docommand(label);
+procedure docommand(label)
    local p, atts, words, id, s;
 
    p := cmdtable[label];
@@ -225,7 +225,7 @@ end
 #  backslash is retained.  If it's not an ASCII character (that is, if the
 #  eighth bit is already set) the backslash is simply discarded.
 
-procedure in();
+procedure in()
    local s;
 
    trim(read(infile), WSPACE) ? {
@@ -250,7 +250,7 @@ end
 # If an error is seen, a message is issued and subsequent output is
 # simply discarded.
 
-procedure divert(atts, words);
+procedure divert(atts, words)
    local fname, f;
 
    close(\outfile);			# always close current file
@@ -288,7 +288,7 @@ end
 #  When a backslash is seen, the backslash is discarded and the eighth
 #  bit of the following character is cleared.
 
-procedure out(s);
+procedure out(s)
    local c;
 
    if /outfile := (\stdout | fail) then
@@ -308,7 +308,7 @@ end
 
 #  lwarn(s, ...) -- issue warning with line number  
 
-procedure lwarn(a[]);
+procedure lwarn(a[])
    push(a, "line " || lineno || ": ");
    warn ! a;
    return;
@@ -318,7 +318,7 @@ end
 
 # warn(s,...) -- issue warning message
 
-procedure warn(a[]);
+procedure warn(a[])
    push(a, "  ");
    push(a, &errout);
    write ! a;

@@ -24,7 +24,7 @@
 #
 ############################################################################
 
-procedure hex(s);
+procedure hex(s)
    local a,c;
    a := 0;
    every c := !map(s) do
@@ -32,7 +32,7 @@ procedure hex(s);
    return a;
 end
 
-procedure hexstring(i,n,lowercase);
+procedure hexstring(i,n,lowercase)
    local s,hexchars,sign;
    i := integer(i) | runerr(101,i);
    sign := "";

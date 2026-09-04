@@ -29,7 +29,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local ifile, ofile, iname, basename, oname, pageno, line, n;
 
    iname := args[1]			| stop("usage: ", &progname, " file");

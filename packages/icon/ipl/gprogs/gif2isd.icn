@@ -30,7 +30,7 @@ link graphics
 link weavutil
 link xcode
 
-procedure main(args);
+procedure main(args)
    local rows, cols, treadling, threading, count, tieup, y, width, height;
    local shafts, treadles, i, tie_line, row, treadle, draft, p;
 
@@ -89,7 +89,7 @@ procedure main(args);
 
 end
 
-procedure tromp(treadle);
+procedure tromp(treadle)
    local result;
 
    result := "";
@@ -102,7 +102,7 @@ procedure tromp(treadle);
 
 end
 
-procedure examine(array);
+procedure examine(array)
    local count, lines, line;
 
    lines := table();  # table to be keyed by line patterns
@@ -115,7 +115,7 @@ procedure examine(array);
 
 end
 
-procedure rot(rows);
+procedure rot(rows)
    local cols, row, grid, i;
 
    cols := list(*rows[1], "");

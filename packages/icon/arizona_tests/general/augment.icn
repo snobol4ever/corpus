@@ -1,6 +1,6 @@
 record array(a,b,c,d,e,f,g)
 
-procedure p1();
+procedure p1()
    write("i := 10 ----> ",image(i := 10) | "none");
    write("i =:= 9 ----> ",image(i =:= 9) | "none");
    write("i ----> ",image(i) | "none");
@@ -14,7 +14,7 @@ procedure p1();
    write("i >=:= 9 ----> ",image(i >=:= 9) | "none");
 end
 
-procedure p2();
+procedure p2()
    write("i ----> ",image(i) | "none");
    write("i := 10 ----> ",image(i := 10) | "none");
    write("i >=:= 10 ----> ",image(i >=:= 10) | "none");
@@ -28,7 +28,7 @@ procedure p2();
    write("i := 10 ----> ",image(i := 10) | "none");
 end
 
-procedure p3();
+procedure p3()
    write("i >:= 10 ----> ",image(i >:= 10) | "none");
    write("i ----> ",image(i) | "none");
    write("i := 10 ----> ",image(i := 10) | "none");
@@ -42,7 +42,7 @@ procedure p3();
    write("i ----> ",image(i) | "none");
 end
 
-procedure p4();
+procedure p4()
    write("i := 10 ----> ",image(i := 10) | "none");
    write("i <=:= 11 ----> ",image(i <=:= 11) | "none");
    write("i ----> ",image(i) | "none");
@@ -56,7 +56,7 @@ procedure p4();
    write("i <:= 11 ----> ",image(i <:= 11) | "none");
 end
 
-procedure p5();
+procedure p5()
    write("i ----> ",image(i) | "none");
    write("i := 10 ----> ",image(i := 10) | "none");
    write("i ~=:= 9 ----> ",image(i ~=:= 9) | "none");
@@ -70,7 +70,7 @@ procedure p5();
    write("i := 10 ----> ",image(i := 10) | "none");
 end
 
-procedure p6();
+procedure p6()
    write("i +:= 9 ----> ",image(i +:= 9) | "none");
    write("i ----> ",image(i) | "none");
    write("i := 10 ----> ",image(i := 10) | "none");
@@ -84,7 +84,7 @@ procedure p6();
    write("i ----> ",image(i) | "none");
 end
 
-procedure p7();
+procedure p7()
    write("i := 10 ----> ",image(i := 10) | "none");
    write("i -:= 10 ----> ",image(i -:= 10) | "none");
    write("i ----> ",image(i) | "none");
@@ -98,7 +98,7 @@ procedure p7();
    write("i *:= 10 ----> ",image(i *:= 10) | "none");
 end
 
-procedure p8();
+procedure p8()
    write("i ----> ",image(i) | "none");
    write("i := 10 ----> ",image(i := 10) | "none");
    write("i *:= 11 ----> ",image(i *:= 11) | "none");
@@ -112,7 +112,7 @@ procedure p8();
    write("i := 10 ----> ",image(i := 10) | "none");
 end
 
-procedure p9();
+procedure p9()
    write("i /:= 11 ----> ",image(i /:= 11) | "none");
    write("i ----> ",image(i) | "none");
    write("i := 10 ----> ",image(i := 10) | "none");
@@ -126,7 +126,7 @@ procedure p9();
    write("i ----> ",image(i) | "none");
 end
 
-procedure p10();
+procedure p10()
    write("i := 10 ----> ",image(i := 10) | "none");
    write("i ^:= 9 ----> ",image(i ^:= 9) | "none");
    write("i ----> ",image(i) | "none");
@@ -135,7 +135,7 @@ procedure p10();
    write("s <<:= \"x\" ----> ",image(s <<:= "x") | "none");
 end
 
-procedure p11();
+procedure p11()
    write("s ----> ",image(s) | "none");
    write("s := \"x\" ----> ",image(s := "x") | "none");
    write("s <<:= \"xx\" ----> ",image(s <<:= "xx") | "none");
@@ -149,7 +149,7 @@ procedure p11();
    write("s := \"x\" ----> ",image(s := "x") | "none");
 end
 
-procedure p12();
+procedure p12()
    write("s ~==:= \"x\" ----> ",image(s ~==:= "x") | "none");
    write("s ----> ",image(s) | "none");
    write("s := \"x\" ----> ",image(s := "x") | "none");
@@ -163,7 +163,7 @@ procedure p12();
    write("s ----> ",image(s) | "none");
 end
 
-procedure main();
+procedure main()
    p1();
    p2();
    p3();

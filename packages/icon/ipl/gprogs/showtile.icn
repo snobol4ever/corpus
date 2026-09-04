@@ -47,7 +47,7 @@ link xutils
 link graphics
 link xcompat
 
-procedure main(args);
+procedure main(args)
    local x, y, w, h, pattern, count, page, opts, images, auto, unseen, foot;
    local rows, cols, prefix, bfont, nfont, dims, areaw, areah, signal, poff;
    local date, HGap, VGap, patterns;
@@ -176,7 +176,7 @@ end
 
 #  Draw a grid for the tile mode
 
-procedure grid(w, h, c, r);
+procedure grid(w, h, c, r)
    local wc, hr, x, y;
 
    wc := w * c;

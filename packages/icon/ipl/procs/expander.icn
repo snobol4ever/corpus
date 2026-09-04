@@ -137,7 +137,7 @@ procedure pfl2pwl(pattern);		#: pattern form to Painter expression
 
 end
 
-procedure error(expr1, expr2);
+procedure error(expr1, expr2)
 
    write(&errout, "*** error ", expr1, " ", expr2);
 
@@ -212,19 +212,19 @@ procedure pfl2gxp(pattern, arg);		#: pattern form to generating expression
 
 end
 
-procedure lit(s);
+procedure lit(s)
 
    return "!" || image(s);
 
 end
 
-procedure str(s);
+procedure str(s)
 
    return lit(s) || " | ";
 
 end
 
-procedure galt(s);
+procedure galt(s)
 
    return "Galt{" || collate(s, repl(",", *s - 1)) || "}";
 
@@ -307,7 +307,7 @@ procedure prepare(wexpr);		# preprocess pwl
 
 end
 
-procedure pwlcvt(wexpr);
+procedure pwlcvt(wexpr)
    local result, inter;
 
    wexpr ?:= {
@@ -352,19 +352,19 @@ procedure pwlcvt(wexpr);
 
 end
 
-procedure form1(wexpr, op);
+procedure form1(wexpr, op)
 
    return "[" || wexpr || op || "]";
 
 end
 
-procedure form2(wexpr1, op, wexpr2);
+procedure form2(wexpr1, op, wexpr2)
 
    return "[" || wexpr1 || op || wexpr2 || "]";
 
 end
 
-procedure spray(inter);
+procedure spray(inter)
    local count, s1, s2, s3, colors;
 
    s1 := s2 := s3 := "";

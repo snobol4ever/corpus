@@ -429,7 +429,7 @@ procedure Re_pat1(level); # L
 end
 
 
-procedure Re_prevTok(plist);
+procedure Re_prevTok(plist)
 #
 #  Pull previous token from the pattern list.  This procedure must take
 #  into account the fact that successive character tokens have been
@@ -451,7 +451,7 @@ procedure Re_prevTok(plist);
 end
 
 
-procedure Re_Default();
+procedure Re_Default()
 #
 #  Assign default values to regular expression translation globals, but
 #  only to variables whose values are null.
@@ -465,7 +465,7 @@ procedure Re_Default();
 end
 
 
-procedure Re_cset();
+procedure Re_cset()
 #
 #  Matches a [...] construct and returns a cset.
 #
@@ -498,7 +498,7 @@ procedure Re_cset();
 end
 
 
-procedure Re_string(level);
+procedure Re_string(level)
 #
 #  Matches a string of non-special characters, returning a string.
 #
@@ -574,7 +574,7 @@ procedure ReFind(plist,s,i1,i2); #: position where regular expression matched
 end
 
 
-procedure Re_tok_match(tok,plist,i);
+procedure Re_tok_match(tok,plist,i)
 #
 #  Match a single token.  Can be recursively called by the token
 #  procedure.
@@ -637,7 +637,7 @@ procedure Re_skip(plist,i); # s1,s2,...,sN
 end
 
 
-procedure Re_result_merge(L);
+procedure Re_result_merge(L)
 #
 #  Programmer-defined control operation to merge the result sequences of
 #  two integer-producing generators.  Both generators must produce their
@@ -658,7 +658,7 @@ procedure Re_result_merge(L);
 end
 
 
-procedure untab(origPos);
+procedure untab(origPos)
 #
 #  Converts a string scanning expression that moves the cursor to one
 #  that produces a cursor position and doesn't move the cursor (converts
@@ -678,7 +678,7 @@ end
 #######################  Matching Procedures #######################
 
 
-procedure Re_Arb(plist,i);
+procedure Re_Arb(plist,i)
 #
 #  Match arbitrary characters (.*)
 #
@@ -686,7 +686,7 @@ procedure Re_Arb(plist,i);
 end
 
 
-procedure Re_TabAny(C);
+procedure Re_TabAny(C)
 #
 #  Match a character of a character set ([...],\w,\W,\s,\S,\d,\D)
 #
@@ -694,7 +694,7 @@ procedure Re_TabAny(C);
 end
 
 
-procedure Re_MatchReg(tokList,groupNbr);
+procedure Re_MatchReg(tokList,groupNbr)
 #
 #  Match parenthesized group and assign matched string to list Re_ParenGroup
 #
@@ -711,7 +711,7 @@ procedure Re_MatchReg(tokList,groupNbr);
 end
 
 
-procedure Re_WordBoundary(wd,nonwd);
+procedure Re_WordBoundary(wd,nonwd)
 #
 #  Match word-boundary (\b)
 #
@@ -720,7 +720,7 @@ procedure Re_WordBoundary(wd,nonwd);
 end
 
 
-procedure Re_NonWordBoundary(wd,nonwd);
+procedure Re_NonWordBoundary(wd,nonwd)
 #
 #  Match non-word-boundary (\B)
 #
@@ -729,7 +729,7 @@ procedure Re_NonWordBoundary(wd,nonwd);
 end
 
 
-procedure Re_MatchParenGroup(n);
+procedure Re_MatchParenGroup(n)
 #
 #  Match same string matched by previous parenthesized group (\N)
 #
@@ -741,7 +741,7 @@ end
 ###################  Control Operation Procedures  ###################
 
 
-procedure Re_ArbNo(tok);
+procedure Re_ArbNo(tok)
 #
 #  Match any number of times (*)
 #
@@ -749,7 +749,7 @@ procedure Re_ArbNo(tok);
 end
 
 
-procedure Re_OneOrMore(tok);
+procedure Re_OneOrMore(tok)
 #
 #  Match one or more times (+)
 #
@@ -757,7 +757,7 @@ procedure Re_OneOrMore(tok);
 end
 
 
-procedure Re_NToMTimes(tok,n,m);
+procedure Re_NToMTimes(tok,n,m)
 #
 #  Match n to m times ({n,m}
 #
@@ -765,7 +765,7 @@ procedure Re_NToMTimes(tok,n,m);
 end
 
 
-procedure Re_NOrMoreTimes(tok,n);
+procedure Re_NOrMoreTimes(tok,n)
 #
 #  Match n or more times ({n,})
 #
@@ -773,7 +773,7 @@ procedure Re_NOrMoreTimes(tok,n);
 end
 
 
-procedure Re_NTimes(tok,n);
+procedure Re_NTimes(tok,n)
 #
 #  Match exactly n times ({n})
 #
@@ -783,7 +783,7 @@ procedure Re_NTimes(tok,n);
 end
 
 
-procedure Re_ZeroOrOneTimes(tok);
+procedure Re_ZeroOrOneTimes(tok)
 #
 #  Match zero or one times (?)
 #
@@ -791,7 +791,7 @@ procedure Re_ZeroOrOneTimes(tok);
 end
 
 
-procedure Re_Alt(tokList1,tokList2);
+procedure Re_Alt(tokList1,tokList2)
 #
 #  Alternation (|)
 #
@@ -806,7 +806,7 @@ link noncase
 
 global Re__find,Re__match,Re__any,Re__many,Re__upto,Re__tabmatch
 
-procedure ReCaseIndependent();
+procedure ReCaseIndependent()
   Re__find := c_find;
   Re__match := c_match;
   Re__any := c_any;
@@ -816,7 +816,7 @@ procedure ReCaseIndependent();
   return;
 end
 
-procedure ReCaseDependent();
+procedure ReCaseDependent()
   Re__find := find;
   Re__match := match;
   Re__any := any;
@@ -826,6 +826,6 @@ procedure ReCaseDependent();
   return;
 end
 
-procedure Re_c_tabmatch(s);
+procedure Re_c_tabmatch(s)
   suspend tab(c_match(s));
 end

@@ -49,7 +49,7 @@ global DO_CLIPPING
 
 #  Set the state of clipping: "on" or "off"
 #
-procedure set_clip(state);
+procedure set_clip(state)
    if map(state) == "on" then
       DO_CLIPPING := "yes"
    else
@@ -58,7 +58,7 @@ end
 
 # Either clip a line or leave it alone
 #
-procedure Clip_Line(line,box);
+procedure Clip_Line(line,box)
    if \DO_CLIPPING then
       return LB_line_clip(line, box);
    return line;
@@ -72,7 +72,7 @@ end
 #
 # LB_line_clip -- takes a 2-D line (two points) and returns it clipped to
 #    a box (normally the viewport).
-procedure LB_line_clip(line, box);
+procedure LB_line_clip(line, box)
    local nline, u, dx, dy;
 
 			# initialize important parametric values
@@ -104,7 +104,7 @@ procedure LB_line_clip(line, box);
    fail;
 end
    
-procedure clipcheck(p,q,u);
+procedure clipcheck(p,q,u)
    local r;
 
    if p < 0.0 then {
@@ -124,7 +124,7 @@ end
 #
 # Clip a line to a convex polygon (2-D)
 # 
-procedure Convex_clip(poly, line[]);
+procedure Convex_clip(poly, line[])
 	# Cyrus-Beck line clipping against a convex polygon
 	#   (assumes poly is a convex polygon!)
    local D, nc, E, cline;
@@ -182,7 +182,7 @@ end
 #
 # Draw a fractal snowflake between two points
 #
-procedure fract_flake(win,A,C,n,lr,cp);
+procedure fract_flake(win,A,C,n,lr,cp)
    local direction, t;
 
    /lr := 1;
@@ -192,7 +192,7 @@ procedure fract_flake(win,A,C,n,lr,cp);
    return;
 end
 
-procedure f_flake(t, len, n, lr, cp);
+procedure f_flake(t, len, n, lr, cp)
    local angle, p, nextcolor;
 
    if n > 0 then {
@@ -242,7 +242,7 @@ end
 #
 # Draw a koch curve from A to B
 #
-procedure koch_line(win,A,B,n);
+procedure koch_line(win,A,B,n)
    local t, direction;
 
    direction := Rel_angle(A,B);
@@ -253,7 +253,7 @@ end
 #
 # turtle graphics version
 #
-procedure koch(t, dir, len, n);
+procedure koch(t, dir, len, n)
 
    if n > 0 then {
       koch(t, dir, len/3.0, n-1);
@@ -279,7 +279,7 @@ end
 #  The parameter 'H' is a 'roughness' factor.  At H=0.5,
 #     you get roughly brownian motion.
 #
-procedure fract_line(win,A,B,H,min_len,std_dev);
+procedure fract_line(win,A,B,H,min_len,std_dev)
    local len_sq, direction, t, N, f, r, pt, len;
 
    /H := 0.5;
@@ -437,7 +437,7 @@ procedure set_window(win, ll, ur, vp);	# construct new graphics window
    return window(ll, ur, vp, xfrm);
 end   
 
-procedure change_viewport(window, ul, lr);
+procedure change_viewport(window, ul, lr)
    local x_scale, y_scale, x_trans, y_trans, xfrm;
 
    # determine scale and translate factors ...
@@ -464,13 +464,13 @@ end
 
 # para -- parametric equation for coordinate between two others
 #
-procedure para(a,b,t);
+procedure para(a,b,t)
    return (1.0-t)*a + t*b;
 end
 
 # vpara -- produce a vector that is parametrically between two others
 #
-procedure vpara(v1,v2,t);
+procedure vpara(v1,v2,t)
    local v, i;
 
    v := copy(v1);
@@ -482,14 +482,14 @@ end
 
 # sleep -- 'sleep' of n seconds (n may be fractional)
 #
-procedure sleep(n);
+procedure sleep(n)
    local start;
 
    start := &time;
    while &time <= start+n*1000;
 end
 
-procedure round(n,g);
+procedure round(n,g)
    return integer((n + g/2.0)/g) * g;
 end
 
@@ -500,7 +500,7 @@ end
 #   of the Gaussian distribution (larger values flatten
 #   the curve...)
 
-procedure Gauss_random(x,f);
+procedure Gauss_random(x,f)
    # if 'f' not passed in, default to 1.0
    /f := 1.0;
    return gauss()*f+x;
@@ -510,7 +510,7 @@ end
 #   about 0.0.  (Sum 12 random numbers between 0 and 1,
 #   (expected mean is 6.0) and subtract 6 to center on 0.0
 
-procedure gauss();
+procedure gauss()
    local v;
 
    v := 0.0;
@@ -531,25 +531,25 @@ end
 
 record turtle(win,pos,direction,color)
 
-procedure moveto(t,p);
+procedure moveto(t,p)
    return t.pos := p;
 end
 
-procedure lineto(t,p);
+procedure lineto(t,p)
    Fg(t.win.vp.screen, \@\(t.color));
    DrwLine(t.win, t.pos, p);
    return t.pos := p;
 end
 
-procedure moverel(t, displacement);
+procedure moverel(t, displacement)
    return moveto(t, add_vectors(t.pos, displacement));
 end
 
-procedure drawrel(t, displacement);
+procedure drawrel(t, displacement)
    return lineto(t, add_vectors(t.pos, displacement));
 end
 
-procedure Line_Forward(t, dist);
+procedure Line_Forward(t, dist)
    local angle, p;
 
    angle := dtor(t.direction);
@@ -557,7 +557,7 @@ procedure Line_Forward(t, dist);
    return lineto(t, p);
 end
 
-procedure Move_Forward(t, dist);
+procedure Move_Forward(t, dist)
    local angle, p;
 
    angle := dtor(t.direction);
@@ -565,11 +565,11 @@ procedure Move_Forward(t, dist);
    return moveto(t, p);
 end
 
-procedure Right(t, angle);
+procedure Right(t, angle)
    return t.direction -:= angle;
 end
 
-procedure Left(t, angle);
+procedure Left(t, angle)
    return t.direction +:= angle;
 end
 
@@ -578,7 +578,7 @@ end
 # Some vector operations
 ############################################################################
 
-procedure add_vectors(v1,v2);
+procedure add_vectors(v1,v2)
    local v3, i;
 
    if *v1 ~= *v2 then stop("cannot add vectors of differing sizes");
@@ -590,7 +590,7 @@ procedure add_vectors(v1,v2);
    return v3;
 end
 
-procedure sub_vectors(v1,v2);
+procedure sub_vectors(v1,v2)
    local v3, i;
 
    if *v1 ~= *v2 then stop("cannot subtract vectors of differing sizes");
@@ -602,7 +602,7 @@ procedure sub_vectors(v1,v2);
    return v3;
 end
 
-procedure scale_vector(s,a);
+procedure scale_vector(s,a)
    local v, i;
 
    v := copy(a);
@@ -612,7 +612,7 @@ procedure scale_vector(s,a);
    return v;
 end
 
-procedure len_vector(v);
+procedure len_vector(v)
    local sum_sq;
 
    sum_sq := 0;
@@ -620,11 +620,11 @@ procedure len_vector(v);
    return sqrt(sum_sq);
 end
 
-procedure unit_vector(v);
+procedure unit_vector(v)
    return scale_vector(1.0/len_vector(v), v);
 end
 
-procedure dot(v1,v2);
+procedure dot(v1,v2)
    local sum, i;
 
    if *v1 ~= *v2 then stop("dot product: vectors of differing sizes");
@@ -634,11 +634,11 @@ procedure dot(v1,v2);
    return sum;
 end
 
-procedure angle_vectors(v1,v2);
+procedure angle_vectors(v1,v2)
    return rtod(acos(dot(unit_vector(v1),unit_vector(v2))));
 end
 
-procedure normal_vector(v);
+procedure normal_vector(v)
    local n;
 
    n := copy(v);
@@ -651,15 +651,15 @@ end
 # The following are special cases for points...
 #
 
-procedure make_vector(p1,p2);
+procedure make_vector(p1,p2)
    return sub_vectors(p2,p1);
 end
 
-procedure distance(p1,p2);
+procedure distance(p1,p2)
    return len_vector(sub_vectors(p2,p1));
 end
 
-procedure Rel_angle(A,B);
+procedure Rel_angle(A,B)
    # get angle of line through points A and B (2D only!)
    local rise, run;
 
@@ -669,12 +669,12 @@ procedure Rel_angle(A,B);
    return rtod(atan(rise, run));
 end
 
-procedure normal_line(p1,p2);
+procedure normal_line(p1,p2)
 	# return a normal to a line
    return normal_vector(make_vector(p1,p2));
 end
 
-procedure inside_line(P,L,n);
+procedure inside_line(P,L,n)
 	# is P inside line passing through L with normal n?
    return 0 <= dot(sub_vectors(P,L),n);
 end
@@ -684,7 +684,7 @@ end
 # Transformation operations
 ############################################################################
 
-procedure transform(p,M);
+procedure transform(p,M)
    local pl, i;
 
 	# convert p to a matrix for matrix multiply...
@@ -701,7 +701,7 @@ procedure transform(p,M);
    return p;
 end
 
-procedure transform_points(pl,M);
+procedure transform_points(pl,M)
    local xformed;
 
    every put(xformed := [], !transform(!pl,M));
@@ -770,7 +770,7 @@ end
 #
 # Generalized parametric curve drawing routine, using turtle t
 #
-procedure draw_curve(t,x,xa,y,ya,t1,t2,N);
+procedure draw_curve(t,x,xa,y,ya,t1,t2,N)
    local incr, t0;
 
    /t1 := 0.0;

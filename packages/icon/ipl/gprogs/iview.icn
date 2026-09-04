@@ -35,7 +35,7 @@
 
 link wopen
 
-procedure main(args);
+procedure main(args)
    local name, posx, posy;
 
    posx := posy := 20;

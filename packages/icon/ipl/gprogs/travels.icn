@@ -159,7 +159,7 @@ global ax, ay, aw, ah		# corners and size of arena
 
 
 
-procedure main(args);
+procedure main(args)
    local base, pt, sg, hl;
 
    # get options and open a window
@@ -258,7 +258,7 @@ end
 
 #  setdly(win, arg, value) -- set delay time
 
-procedure setdly(win, arg, value);
+procedure setdly(win, arg, value)
    local s, l;
 
    value := integer(10001 ^ value + 0.5) - 1;
@@ -274,7 +274,7 @@ end
 
 #  pause() -- delay according to the current setting
 
-procedure pause();
+procedure pause()
    if delaytime > 0 then
       WDelay(win, delaytime);
    return;
@@ -288,7 +288,7 @@ end
 
 #  initpath() -- connect in initial placement order
 
-procedure initpath();
+procedure initpath()
    local i;
 
    bgnpath(0, "placement order...") | fail;
@@ -310,7 +310,7 @@ end
 
 #  randpath() -- make random connections
 
-procedure randpath();
+procedure randpath()
    local l, i, p, q;
 
    bgnpath(0, "connecting randomly...") | fail;
@@ -339,7 +339,7 @@ end
 
 #  strippath() -- construct using strips
 
-procedure strippath();
+procedure strippath()
    local i, l, n, p, q, r;
 
    if *ptlist < 3 then
@@ -385,7 +385,7 @@ end
 
 #  nearnbr() -- nearest neighbor
 
-procedure nearnbr();
+procedure nearnbr()
    local f, p, q, s, d;
 
    bgnpath(1, "nearest neighbor...") | fail;
@@ -423,7 +423,7 @@ end
 
 #  nearins() -- make path using nearest-insertion algorithm
 
-procedure nearins();
+procedure nearins()
    local d, p, q, t, todo, mind;
 
    bgnpath(0, "nearest insertion...") | fail;
@@ -470,7 +470,7 @@ end
 
 #  farins() -- make path using farthest-insertion algorithm
 
-procedure farins();
+procedure farins()
    local d, p, q, t, todo, maxd;
 
    bgnpath(0, "farthest insertion...") | fail;
@@ -517,7 +517,7 @@ end
 
 #  joinpath(p, q) -- add q at best place in path beginning at p
 
-procedure joinpath(p, q);
+procedure joinpath(p, q)
    local start, best, d;
 
    d := dist(p, q) + dist(q, p.nxt) - dist(p, p.nxt);
@@ -534,7 +534,7 @@ end
 
 #  greedypath() -- make path using greedy algorithm
 
-procedure greedypath();
+procedure greedypath()
    local p, q, d, g, need;
 
    bgnpath(1, "greedy algorithm...") | fail;
@@ -610,7 +610,7 @@ end
 #  i > 0 if *sorted* distance table will be needed
 #  msg is status message
 
-procedure bgnpath(i, msg);
+procedure bgnpath(i, msg)
    if *ptlist < 2 then
       fail;
    prepdist(i);
@@ -630,7 +630,7 @@ end
 
 #  twoadj() -- swap pairs of adjacent points
 
-procedure twoadj();
+procedure twoadj()
    local lastchg, nflips, p, q;
 
    if /havepath then
@@ -664,7 +664,7 @@ procedure twoadj();
    return;
 end
 
-procedure adjtest(p, q);
+procedure adjtest(p, q)
    return ((p.nxt.nxt === q) | (q.nxt.nxt === p)) & pairtest(p, q);
 end
 
@@ -672,14 +672,14 @@ end
 
 #  twoopt() -- swap segments if total path shortens
 
-procedure twoopt();
+procedure twoopt()
    pairdriver("2-opt", pairtest);
    return;
 end
 
 #  pairtest(p, q) -- succeed if swapping out-segments from p and q shortens path
 
-procedure pairtest(p, q);
+procedure pairtest(p, q)
    return (dist(p,q) + dist(p.nxt,q.nxt)) < (dist(p,p.nxt) + dist(q,q.nxt)) &
             (not (p === (q.prv | q | q.nxt)));
 end
@@ -688,7 +688,7 @@ end
 
 #  uncross() -- swap intersecting segments
 
-procedure uncross();
+procedure uncross()
    pairdriver("uncross", intersect);
    return;
 end
@@ -697,7 +697,7 @@ end
 #
 #  from comp.graphics.algorithms FAQ, by O'Rourke
 
-procedure intersect(p, q);
+procedure intersect(p, q)
    local a, b, c, d;
    local xac, xdc, xba, yac, ydc, yba;
    local n1, n2, d12, r, s;
@@ -736,7 +736,7 @@ end
 
 #  pairdriver(label, tproc) -- driver for "uncross" and "2-opt"
 
-procedure pairdriver(label, tproc);
+procedure pairdriver(label, tproc)
    local slist, todo, nflips, a, p, q;
 
    if /havepath then
@@ -806,7 +806,7 @@ end
 
 #  clrpts() -- remove all points
 
-procedure clrpts();
+procedure clrpts()
    ptlist := [];
    distlist := [];
    distsrt := [];
@@ -821,7 +821,7 @@ end
 
 #  reseed() -- add random points to the list
 
-procedure reseed(win, dummy, x, y, event);
+procedure reseed(win, dummy, x, y, event)
    local p, v, n;
 
    n := integer(\event)^2 | nseed;
@@ -834,7 +834,7 @@ end
 
 #  addpt(win, dummy, x, y) -- add one point to the list
 
-procedure addpt(win, dummy, x, y);
+procedure addpt(win, dummy, x, y)
    local n, p, q;
 
    if \havepath then {
@@ -859,7 +859,7 @@ end
 #  copy the distance list, if not already done, so it can be indexed quickly.
 #  also create the sorted list if i > 0.
 
-procedure prepdist(i);
+procedure prepdist(i)
    static c, n;
 
    if c ~=== distlist | n ~= *distlist then {
@@ -880,7 +880,7 @@ end
 
 #  dist(p, q) -- return distance between p and q assuming p ~=== q
 
-procedure dist(p, q);
+procedure dist(p, q)
    local m, n;
    m := p.id;
    n := q.id;
@@ -893,7 +893,7 @@ end
 
 #  path() -- generate current path, even if it changes during generation
 
-procedure path();
+procedure path()
    local l, p, q;
    p := q := ptlist[1] | fail;
    l := [p];
@@ -905,7 +905,7 @@ end
 
 #  follow(p, q) -- insert q to follow p (erases old path from p, draws new)
 
-procedure follow(p, q);
+procedure follow(p, q)
    DrawLine(bgwin, p.x, p.y, (p.prv~===\p.nxt).x, p.nxt.y);
    every drawpt(p | \p.nxt);
    q.nxt := p.nxt;
@@ -921,7 +921,7 @@ end
 
 #  flip(p, q) -- link p to q, and their successors to each other
 
-procedure flip(p, q);
+procedure flip(p, q)
    local a, b;
 
    DrawLine(bgwin, p.x, p.y, p.nxt.x, p.nxt.y);
@@ -948,7 +948,7 @@ end
 
 #  linkpath(p, q, ...) -- link points p, q, ... in order
 
-procedure linkpath(l[]);
+procedure linkpath(l[])
    local i, p, q, v;
    i := p := get(l);
    v := [fgwin, p.x, p.y];
@@ -972,7 +972,7 @@ end
 
 #  refresh() -- redraw screen to repair segments and points
 
-procedure refresh();
+procedure refresh()
    fillrect(bgwin);  # erase segs
    redraw();
    return;
@@ -982,7 +982,7 @@ end
 
 #  redraw() -- redraw path without erasing
 
-procedure redraw();
+procedure redraw()
    local p;
 
    every drawpt(!ptlist);
@@ -995,7 +995,7 @@ end
 
 #  erasepath() -- erase path, redraw points if necessary
 
-procedure erasepath();
+procedure erasepath()
    local l, p, v;
 
    v := [bgwin];
@@ -1012,7 +1012,7 @@ end
 #
 #  (of course, depending on the foreground color, this can hide a path, too.)
 
-procedure drawpath(win, p, q);
+procedure drawpath(win, p, q)
    local v;
 
    v := [win, p.x, p.y];
@@ -1029,7 +1029,7 @@ end
 
 #  drawpt(p) -- draw the single point p
 
-procedure drawpt(p);
+procedure drawpt(p)
    FillRectangle(fgwin, p.x - 2, p.y - 2, 5, 5);
    return;
 end
@@ -1038,7 +1038,7 @@ end
 
 #  fillrect(win) -- fill the working area
 
-procedure fillrect(win);
+procedure fillrect(win)
    FillRectangle(win, ax - m + 1, ay - m + 1, aw + 2 * m - 1, ah + 2 * m - 1);
    return;
 end
@@ -1051,7 +1051,7 @@ end
 
 #  listpath() -- list the coordinates of each point on standard output
 
-procedure listpath();
+procedure listpath()
    local p;
 
    if \havepath then {
@@ -1067,7 +1067,7 @@ end
 
 #  listpt(p) - list one point
 
-procedure listpt(p);
+procedure listpt(p)
    write(right(p.id, 3), ".", right(p.x, 5), right(p.y, 5),
          right((\p.prv).id | "", 6), right((\p.nxt).id | "", 6));
    return;
@@ -1082,7 +1082,7 @@ end
 #  Output to stdout is suppressed if the "-q" option was given.
 #  Output to stdout is double spaced if the set of points has changed.
 
-procedure report(text);
+procedure report(text)
    local p, n, d, s, dt;
 
    dt := ((((&time - lastclk) / 1000.0) || "000") ? (tab(upto(".")) || move(3)));
@@ -1113,7 +1113,7 @@ end
 
 #  status(s) -- write s as a status message
 
-procedure status(s);
+procedure status(s)
    EraseArea(win, m + bw + m, m + h - fh);
    GotoXY(win, m + bw + m, m + h - (fh / 4));
    writes(win, s);

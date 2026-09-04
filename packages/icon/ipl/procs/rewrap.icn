@@ -81,7 +81,7 @@
 ############################################################################
 
 
-procedure rewrap(s,i);
+procedure rewrap(s,i)
 
     local extra_bit, line;
     static old_line;
@@ -147,7 +147,7 @@ end
 
 
 
-procedure EndToFront(i);
+procedure EndToFront(i)
     # Goes with rewrap(s,i)
     *&subject+1 - &pos >= i | fail;
     suspend &subject[.&pos:&pos <- &pos+i to &pos by -1];

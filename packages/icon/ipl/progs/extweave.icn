@@ -45,7 +45,7 @@
 
 $define Offset 401			# offset to the first expression
 
-procedure main(args);
+procedure main(args)
    local hex, tieup, i, binary, expr, name, namechars, tartans_list;
 
    namechars := &letters ++ &digits ++ ' -&';
@@ -123,7 +123,7 @@ procedure main(args);
 
 end
 
-procedure decol(s);
+procedure decol(s)
    local parts, j, form;
 
    parts := list(8, "");

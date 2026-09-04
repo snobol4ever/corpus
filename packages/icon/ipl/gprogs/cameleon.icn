@@ -59,7 +59,7 @@ global y_pos
 $define ColorRows	 8	# number of palette rows
 $define ColorCols	16	# number of palette columns
 
-procedure main();
+procedure main()
    local atts, vidgets;
 
    atts := ui_atts();
@@ -87,7 +87,7 @@ end
 
 #  Set up empty palette grid
 
-procedure clear_palette();
+procedure clear_palette()
    local x, y;
 
    Fg(panel, "black");
@@ -109,7 +109,7 @@ end
 
 # Handle File menu
 
-procedure file_cb(vidget, value);
+procedure file_cb(vidget, value)
 
    case value[1] of {
       "open   @O"  :  image_open();
@@ -124,7 +124,7 @@ end
 
 # Open new image
 
-procedure image_open();
+procedure image_open()
    local i, x, y;
 
    WClose(\image_window);
@@ -160,7 +160,7 @@ end
 
 #  Save current image
 
-procedure image_save();
+procedure image_save()
 
    snapshot(\mutant);
 
@@ -170,7 +170,7 @@ end
 
 #  Restore original image colors
 
-procedure image_revert();
+procedure image_revert()
    local old, color;
 
    every old := key(orig_colors) do {
@@ -184,7 +184,7 @@ end
 
 # Get mutable colors and window from image
 
-procedure mutate();
+procedure mutate()
    local c, width, height, n, x, y;
 
    WClose(\mutant);
@@ -226,7 +226,7 @@ end
 
 # Handle callbacks on palette
 
-procedure palette_cb(vidget, e, x, y);
+procedure palette_cb(vidget, e, x, y)
    local color, new;
 
    if e === (&lpress | &mpress | &rpress) then {
@@ -250,7 +250,7 @@ end
 
 #  Quit the application
 
-procedure quit();
+procedure quit()
 
    snapshot(\mutant);
 
@@ -260,7 +260,7 @@ end
 
 #  Handle keyboard shortcuts
 
-procedure shortcuts(e);
+procedure shortcuts(e)
 
    if &meta then case(map(e)) of {
       "o"  :  image_open();
@@ -275,7 +275,7 @@ end
 
 #  Track the color in the color dialog
 
-procedure track(color, s);
+procedure track(color, s)
 
    Color(panel, color, s);
 
@@ -284,11 +284,11 @@ procedure track(color, s);
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=355,225", "bg=pale gray", "label=chameleon"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,355,225:chameleon",],
    ["file:Menu:pull::1,0,36,21:File",file_cb,

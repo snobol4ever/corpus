@@ -54,7 +54,7 @@ link graphics
 link options
 link strings
 
-procedure main(args);
+procedure main(args)
    local file, opts, name, output, literal, length, seg, palette, str;
    local suffix;
 
@@ -100,7 +100,7 @@ procedure main(args);
 
 end
 
-procedure esc(s);
+procedure esc(s)
 
    s := image(s);
    s := replace(s, "$", "\\x24");

@@ -49,7 +49,7 @@ record Question(question,yes,no)
 #
 #  Main procedure.
 #
-procedure main();
+procedure main()
    GameObject := "animal";
    Tree := Question("Does it live in water","goldfish","canary");
    Get();  # Recall prior knowledge
@@ -60,7 +60,7 @@ end
 #
 #  Game() -- Conducts a game.
 #
-procedure Game();
+procedure Game()
    while Confirm("Are you thinking of ",Article(GameObject)," ",GameObject) do
 	 Ask(Tree);
    write("Thanks for a great game.");
@@ -72,7 +72,7 @@ end
 #
 #  Confirm() -- Handles yes/no questions and answers.
 #
-procedure Confirm(q[]);
+procedure Confirm(q[])
    local answer,s;
    static ok;
    initial {
@@ -104,7 +104,7 @@ end
 #  Ask() -- Navigates through the barrage of questions leading to a
 #  guess.
 #
-procedure Ask(node);
+procedure Ask(node)
    local guess,question;
    case type(node) of {
       "string": {
@@ -134,7 +134,7 @@ end
 #
 #  Article() -- Come up with the appropriate indefinite article.
 #
-procedure Article(word);
+procedure Article(word)
    return if any('aeiouAEIOU',word) then "an" else "a";
 end
 
@@ -142,7 +142,7 @@ end
 #  Save() -- Store our acquired knowledge in a disk file name
 #  based on the GameObject.
 #
-procedure Save();
+procedure Save()
    local f;
    f := open(GameObject || "s","w");
    Output(Tree,f);
@@ -153,7 +153,7 @@ end
 #
 #  Output() -- Recursive procedure used to output the knowledge tree.
 #
-procedure Output(node,f,sense);
+procedure Output(node,f,sense)
    static indent;
    initial indent := 0;
    /f := &output;
@@ -174,7 +174,7 @@ end
 #
 #  Get() -- Read in a knowledge base from a disk file.
 #
-procedure Get();
+procedure Get()
    local f;
    f := open(GameObject || "s","r") | fail;
    Tree := Input(f);
@@ -185,7 +185,7 @@ end
 #
 #  Input() -- Recursive procedure used to input the knowledge tree.
 #
-procedure Input(f);
+procedure Input(f)
    local nodetype,s;
    read(f) ? (tab(upto(~' \t')) & =("y" | "n" | "") &
 	 nodetype := move(1) & move(2) & s := tab(0));
@@ -195,7 +195,7 @@ end
 #
 #  List() -- Lists the objects in the knowledge base.
 #
-procedure List();
+procedure List()
    local lst,line,item;
    lst := Show(Tree,[]);
    line := "";
@@ -213,7 +213,7 @@ end
 #
 #  Show() -- Recursive procedure used to navigate the knowledge tree.
 #
-procedure Show(node,lst);
+procedure Show(node,lst)
    if type(node) == "Question" then {
       lst := Show(node.yes,lst);
       lst := Show(node.no,lst)

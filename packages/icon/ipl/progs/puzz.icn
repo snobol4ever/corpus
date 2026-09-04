@@ -23,7 +23,7 @@ global matrix,      # the actual puzzle board
        height,      # height of the puzzle
        completed    # number of completed word placements
 
-procedure main(param);
+procedure main(param)
   local i, j, line, pass, tokens, word, words;
 
 #
@@ -85,7 +85,7 @@ procedure main(param);
 # if successful the updated copy is moved into the original
 # if not, the problem word is skipped after 20 tries
 #
-procedure place(str);
+procedure place(str)
   local byte, construct, direction, item, pass, x, xinc, y, yinc;
   static xstep,ystep;
 
@@ -136,7 +136,7 @@ procedure place(str);
 #
 # parse a string into a list with respect to a delimiter (cset)
 #
-procedure parse(line,delims);  
+procedure parse(line,delims)  
   local tokens;
   static chars;
 

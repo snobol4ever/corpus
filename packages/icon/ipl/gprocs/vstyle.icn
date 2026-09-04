@@ -21,7 +21,7 @@
 
 link imscolor
 
-procedure Vset_style (vid, style);
+procedure Vset_style (vid, style)
 
    style := integer(style) | case style of {
       &null:		V_RECT;
@@ -83,11 +83,11 @@ procedure Vset_style (vid, style);
 end
 
 
-procedure init_xbox(s);
+procedure init_xbox(s)
    # nothing to do
 end
 
-procedure draw_off_xbox(s);
+procedure draw_off_xbox(s)
    if /s.D.outline then {
       EraseArea(s.win, s.ax + 2, s.ay + 2, s.aw - 4, s.ah - 4);
       BevelRectangle(s.win, s.ax, s.ay, s.aw, s.ah, 2)
@@ -96,7 +96,7 @@ procedure draw_off_xbox(s);
       EraseArea(s.win, s.ax, s.ay, s.aw, s.ah);
 end
 
-procedure draw_on_xbox(s);
+procedure draw_on_xbox(s)
    WAttrib(s.win, "linewidth=2");
    DrawSegment(s.win, s.ax + 4, s.ay + 4, s.ax + s.aw - 4, s.ay + s.ah - 4, 
       s.ax + s.aw - 4, s.ay + 4, s.ax + 4, s.ay + s.ah - 4);
@@ -106,7 +106,7 @@ procedure draw_on_xbox(s);
 end
 
 
-procedure init_rect(s);
+procedure init_rect(s)
    local TW, FH, ascent, descent;
 
    /s.s := "";
@@ -124,7 +124,7 @@ procedure init_rect(s);
    s.D.basey := (s.ah - FH) / 2 + ascent;
 end
 
-procedure draw_off_rect(s);
+procedure draw_off_rect(s)
    EraseArea(s.win, s.ax, s.ay, s.aw, s.ah);
    GotoXY(s.win, s.ax+s.D.basex, s.ay+s.D.basey);
    writes(s.win, s.s);
@@ -132,7 +132,7 @@ procedure draw_off_rect(s);
       BevelRectangle(s.win, s.ax, s.ay, s.aw, s.ah, 2);
 end
 
-procedure draw_on_rect(s);
+procedure draw_on_rect(s)
    FillRectangle(s.win, s.ax, s.ay, s.aw, s.ah);
    WAttrib(s.win, "reverse=on");
    GotoXY(s.win, s.ax+s.D.basex, s.ay+s.D.basey);
@@ -143,7 +143,7 @@ procedure draw_on_rect(s);
 end
 
 
-procedure init_check(s);
+procedure init_check(s)
    local FH, ascent, descent;
 
    /s.s := "";
@@ -164,7 +164,7 @@ procedure init_check(s);
    s.D.CP := (s.ah-s.D.CS)/2;
 end
 
-procedure draw_off_check(s);
+procedure draw_off_check(s)
    local sp, cp, cs, ax, ay;
 
    sp := s.D.space; cp := s.D.CP; cs := s.D.CS;
@@ -178,7 +178,7 @@ procedure draw_off_check(s);
       GrooveRectangle(s.win, s.ax, s.ay, s.aw, s.ah);
 end
 
-procedure draw_on_check(s);
+procedure draw_on_check(s)
    local sp, cs, cp, ax, ay;
 
    sp := s.D.space; cp := s.D.CP; cs := s.D.CS;
@@ -193,7 +193,7 @@ procedure draw_on_check(s);
 end
 
 
-procedure init_circle(s);
+procedure init_circle(s)
    local FH, ascent, descent;
 
    /s.s := "";
@@ -214,7 +214,7 @@ procedure init_circle(s);
    s.D.CP := (s.ah-s.D.CS)/2;
 end
 
-procedure draw_off_circle(s);
+procedure draw_off_circle(s)
    local da, ax, ay, r;
 
    da := s.D;
@@ -231,7 +231,7 @@ procedure draw_off_circle(s);
       GrooveRectangle(s.win, s.ax, s.ay, s.aw, s.ah);
 end
 
-procedure draw_on_circle(s);
+procedure draw_on_circle(s)
    local da, ax, ay, r;
 
    da := s.D;
@@ -250,7 +250,7 @@ procedure draw_on_circle(s);
 end
 
 
-procedure init_diamond(s);
+procedure init_diamond(s)
    local FH, ascent, descent;
 
    /s.s := "";
@@ -271,7 +271,7 @@ procedure init_diamond(s);
    s.D.CP := (s.ah-s.D.CS)/2;
 end
 
-procedure draw_off_diamond(s);
+procedure draw_off_diamond(s)
    local sp, cp, cs, ax, ay, r;
 
    sp := s.D.space; cp := s.D.CP; cs := s.D.CS;
@@ -286,7 +286,7 @@ procedure draw_off_diamond(s);
       GrooveRectangle(s.win, s.ax, s.ay, s.aw, s.ah);
 end
 
-procedure draw_on_diamond(s);
+procedure draw_on_diamond(s)
    local sp, cs, cp, ax, ay, r;
 
    sp := s.D.space; cp := s.D.CP; cs := s.D.CS;
@@ -309,7 +309,7 @@ end
 #  If not, it's the name of a GIF file in the current directory.
 #  Size is determined by the GIF or DrawImage image.
 
-procedure init_image(s);
+procedure init_image(s)
    local imagefile;
  
    imagefile := s.s;
@@ -333,15 +333,15 @@ procedure init_image(s);
       };
 end
 
-procedure draw_on_image(s);  
+procedure draw_on_image(s)  
    draw_image_helper(s, -2, FillRectangle);
 end
 
-procedure draw_off_image(s);
+procedure draw_off_image(s)
    draw_image_helper(s, 2, EraseArea);
 end
 
-procedure draw_image_helper(s, bevel, bgproc);
+procedure draw_image_helper(s, bevel, bgproc)
    local b;
    static type;
 

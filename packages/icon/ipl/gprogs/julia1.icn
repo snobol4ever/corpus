@@ -41,7 +41,7 @@
 
 link wopen
 
-procedure main(argl);
+procedure main(argl)
    local c1, c2, extent, half, quarter, m, n, x0, y0, x, y;
    local x1, y1, i, z;
 

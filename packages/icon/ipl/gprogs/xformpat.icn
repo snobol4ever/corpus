@@ -38,7 +38,7 @@ invocable all
 
 link patxform
 
-procedure main(args);
+procedure main(args)
    local xform, rows;
 
    xform := proc("p" || args[1]) | stop("** invalid transformation");

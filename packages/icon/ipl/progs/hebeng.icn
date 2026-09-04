@@ -43,7 +43,7 @@ $ifdef _PROICON
 global outfilename, outvar, outwin,hebrew_string_flag, hebrew_text_flag,
 	screenwidth,screenheight,markers
 
-procedure main();
+procedure main()
 #message() creates a standard Mac message box
 	if message("Do you wish to create a new text or print an old one?","New",
 		"Old") then newtext() else
@@ -54,7 +54,7 @@ procedure main();
 end
 
 
-procedure newtext();
+procedure newtext()
 	set_markers();
 	get_info();
 	get_screensize();
@@ -62,7 +62,7 @@ procedure newtext();
 	go();
 end
 
-procedure oldtext();
+procedure oldtext()
 #getfile() allows selection of a file already available
 	outfilename := getfile("Please select file.",,);
 #attempt to open a window with the name of the file
@@ -82,13 +82,13 @@ procedure oldtext();
 			wprint(outwin,1,1);
 end
 
-procedure set_markers();
+procedure set_markers()
 #five letters preceding these characters take a special final shape
 	markers := ' ,.;:-\324\"?)]}';
 end
 
 
-procedure get_info();
+procedure get_info()
 local dimlist;
 	outfilename := gettext("What is the name of your output file?",,"Cancel");
 	if /outfilename then stop();
@@ -105,7 +105,7 @@ local dimlist;
 		stop();
 end
 
-procedure get_screensize();
+procedure get_screensize()
 local dimlist;
 #&screen is a list. Work with the old standard mac screen
 	dimlist := &screen;
@@ -115,7 +115,7 @@ local dimlist;
 end
 
 
-procedure create_file();
+procedure create_file()
 #arrange the various fonts and sizes
 	outwin := wopen(outfilename,"n");
 	outvar := open(outfilename,"w");
@@ -131,7 +131,7 @@ procedure create_file();
 	wset(outwin,1); #show the output window
 end
 	
-procedure process(l);
+procedure process(l)
 local cursor,substring,newline;
 if *l = 0 then return " ";
 	cursor := 1;
@@ -152,7 +152,7 @@ if *l = 0 then return " ";
 return newline;
 end
 
-procedure justify(l);
+procedure justify(l)
 #doesn't give perfect right justification, but its good enough
 local stringlength,counter,n,increment,newline;
 	stringlength := wtextwidth(outwin,l);
@@ -169,7 +169,7 @@ local stringlength,counter,n,increment,newline;
 return newline;
 end
 
-procedure go();
+procedure go()
 #the appearance of the Hebrew/English window lags one line behind the
 #input window
 local line,line2,counter,mess;
@@ -201,7 +201,7 @@ local line,line2,counter,mess;
 	wclose(outwin,"");
 end
 
-procedure hebraize(l);
+procedure hebraize(l)
 static s2,s3;
 #' is used for aleph. For the abbreviation sign use either alt-] which gives
 #an appropriate sign, or alt-' which is easier to remember but gives a funny
@@ -219,7 +219,7 @@ static s2,s3;
 return l;
 end
 
-procedure aleph(l);
+procedure aleph(l)
 #inserts an aleph in words beginning with vowels only
 #this alters the duplicate line; compare procedure devowel which rebuilds
 #the line from scratch
@@ -237,7 +237,7 @@ local newl,offset;
 return newl;
 end
 
-procedure xa(s);
+procedure xa(s)
 #takes care of the special case of final xa
 local substr,newstr;
 	newstr := "";
@@ -250,7 +250,7 @@ return newstr;
 end
 
 
-procedure finals(l);
+procedure finals(l)
 #arranges the final letters
 static finals,corresp;
 local newline;
@@ -270,7 +270,7 @@ initial {finals := 'xmncf';
 return newline;
 end
 
-procedure rt(l);
+procedure rt(l)
 #for right justification; chars are of different size
 local stringlength,newline;
 	stringlength := wtextwidth(outwin,l);
@@ -280,7 +280,7 @@ local stringlength,newline;
 return newline;
 end
 
-procedure devowel(l);
+procedure devowel(l)
 local newline,substring;
 	newline := "";
 	l ? {while substring := tab(upto('aeio')) do {
@@ -291,7 +291,7 @@ return newline;
 end
 
 $else   # not ProIcon
-procedure main();
+procedure main()
    stop("sorry, ", &progname, " only runs under Macintosh ProIcon");
 end
 $endif

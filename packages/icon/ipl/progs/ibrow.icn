@@ -36,7 +36,7 @@
 
 link colmize
 
-procedure main(arg);
+procedure main(arg)
    local p, proctab, doneNames, fn, f, foundNonEmptyLine, block, lineNbr;
    local line, keywd, startLine, proclist, w, i, x, proclines, cmd, b;
 
@@ -170,7 +170,7 @@ procedure main(arg);
      };
 end
 
-procedure help();
+procedure help()
    write(
 "\nEnter:_
 \n    q                     Quit_

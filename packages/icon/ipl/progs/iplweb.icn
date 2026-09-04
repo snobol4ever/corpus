@@ -30,7 +30,7 @@
 
 link options
 
-procedure main(arglist);
+procedure main(arglist)
    local opts, source, dest;
 
    if opts := options(arglist, "-ipl:", errorproc) then {
@@ -50,12 +50,12 @@ procedure main(arglist);
    Build_HTML_Files(source, dest);
 end
 
-procedure errorproc();
+procedure errorproc()
    stop("Set IPL environment variable or use\n",
 	"iplweb [-ipl source] [destination]");
 end
 
-procedure Build_HTML_Files(source_dir, dest);
+procedure Build_HTML_Files(source_dir, dest)
    local directory, dir_index_file, dir, dirlist, file_index_file,
        prev_dir, full_path, file, file_info_file, source_file;
 
@@ -117,37 +117,37 @@ procedure Build_HTML_Files(source_dir, dest);
    close(dir_index_file);
 end
 
-procedure Init_Dir_Index(file);
+procedure Init_Dir_Index(file)
    write(file, "<TITLE>IPL: The Icon Program Library Comment Documentaion</TITLE>");
    write(file, "<H1>The Icon Program Library</H1><P>");
    write(file, "<H2>Source Directorys</H2><P>");
    write(file, "<UL>");
 end
 
-procedure Index_Dir(file, dir);
+procedure Index_Dir(file, dir)
    write(file, "<LI><A HREF=\"" || dir[2:0] || "/fileindex.html\">" || dir[2:0] || "</A></LI>");
 end
 
-procedure Close_Dir_Index(file);
+procedure Close_Dir_Index(file)
    write(file, "</UL>");
 end
 
-procedure Init_File_Index(file, dir);
+procedure Init_File_Index(file, dir)
    write(file, "<TITLE>IPL: The Icon Program Library Comment Documentation</TITLE>");
    write(file, "<H1>The Icon Program Library</H1><P>");
    write(file, "<H2>The " || dir[2:0] || " directory listing</H2><P>");
    write(file, "<UL>");
 end
 
-procedure Index_File(index, file);
+procedure Index_File(index, file)
    write(index, "<LI><A HREF=\"" || file[2:0] || ".html\">" || file[2:0] || ".icn</A></LI>");
 end
 
-procedure Close_File_Index(file);
+procedure Close_File_Index(file)
    write(file, "</UL>");
 end
 
-procedure ProcessFileInfo(file, source);
+procedure ProcessFileInfo(file, source)
    local line, keywd, text;
 
    write(file, "<TITLE>IPL: The Icon Program Library Comment Domumentaion</TITLE>");
@@ -175,7 +175,7 @@ procedure ProcessFileInfo(file, source);
       };
 end
 
-procedure strip_file(path);
+procedure strip_file(path)
    local local_dir;
 
    path ? {

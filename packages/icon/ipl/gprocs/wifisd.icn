@@ -56,7 +56,7 @@ global data_entries
 global sections
 global wif
 
-procedure wif2isd(file, title);
+procedure wif2isd(file, title)
    local section, line, i, colors, information_sections, data_sections;
    local color_range, information, data, tieup;
    local lst, x, k, r, g, b, color, opts, j, tie, lift;
@@ -262,13 +262,13 @@ procedure wif2isd(file, title);
 
 end
 
-procedure abort(i);
+procedure abort(i)
 
    stop("*** insufficient information to produce specifications: ", i);
 
 end
 
-procedure info(name);
+procedure info(name)
    local i, tbl, keyname, keyvalue, line;
    
    tbl := table();
@@ -290,7 +290,7 @@ procedure info(name);
 
 end
 
-procedure decode_data(name);
+procedure decode_data(name)
    local i, lst, keyname, keyvalue, line, size, value;
    
    i := \sections[name] | fail;

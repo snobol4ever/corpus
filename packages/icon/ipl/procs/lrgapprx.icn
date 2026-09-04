@@ -21,7 +21,7 @@
 #
 ############################################################################
 
-procedure lrgapprx(i);
+procedure lrgapprx(i)
    local head, carry;
 
    i ? {

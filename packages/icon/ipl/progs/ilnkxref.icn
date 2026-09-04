@@ -36,7 +36,7 @@
 
 link wrap, options, sort
 
-procedure main(arg);
+procedure main(arg)
 local comma, f, fill, fn, head, heads, i, libname, line, linesize, maxfile,
    maxlib, opt, p, popularity, proctable, root, sep, spaces, verbose, x;
    #
@@ -103,6 +103,6 @@ local comma, f, fill, fn, head, heads, i, libname, line, linesize, maxfile,
       };
 end
 
-procedure popproc(x);
+procedure popproc(x)
   return -*x[2];
 end

@@ -51,7 +51,7 @@ link options
 
 global mode, sysname, domain, tz, tmpfile, opts, console, newslib, org
 
-procedure main(arg);
+procedure main(arg)
   local usage, smarthost, editor, default_distribution, generic_from;
   local tmpdir, logname, fullname, sigfile, article, inf, edstr, outf, tmp2;
 
@@ -207,7 +207,7 @@ end
 	# they take precedence.  By usenet convention, we query
 	# the user if Followup-To on the original is `poster'.
 
-procedure reply_headers(infile, art);
+procedure reply_headers(infile, art)
   local fullname, address, quoter, date, id, subject, distribution;
   local group, refs;
 
@@ -258,7 +258,7 @@ end
 	# others, we leave the local timezone.  The first inews site
 	# will correct it.
 
-procedure req_headers();
+procedure req_headers()
   local uniq, date, month, day, time, zone, year;
 
   uniq := "<";
@@ -292,7 +292,7 @@ end
 
 	# Richard Goerwitz's generator.
 
-procedure tempname(dir);
+procedure tempname(dir)
   local temp_name;
 
   every temp_name := dir || "article." || right(1 to 999,3,"0") do {
@@ -304,7 +304,7 @@ end
 	# On systems with pipes, pipe() will read from the first
 	# successful command of the list given as arguments.
 
-procedure pipe(cmd[]);
+procedure pipe(cmd[])
   local inf, got;
 
   initial find("pipes" | "compiled", &features) | stop("No pipes.");
@@ -320,7 +320,7 @@ end
 
 	# The dirty work of reading from a file.
 
-procedure lookup(what);
+procedure lookup(what)
   local inf;
 
   inf := open(what, "r") | fail;
@@ -332,7 +332,7 @@ end
 	# redirects input.  The optional parameter is a default
 	# response if the user answers with <return>.
 
-procedure query(prompt, def);
+procedure query(prompt, def)
   local ans;
   static stdin;
 
@@ -347,7 +347,7 @@ end
 	# to the next item.  The procedure assumes the file is also
 	# sorted.
 
-procedure validate(what, where);
+procedure validate(what, where)
   local valid, stuff, sf, a;
 
   mode ~== "local" & return what;

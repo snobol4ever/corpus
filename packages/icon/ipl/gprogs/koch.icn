@@ -41,7 +41,7 @@ link wopen
 global win, mono, h, w
 global Window, XMAX, YMAX
 
-procedure main (args);
+procedure main (args)
     local arg, nextarg;
 
     XMAX := YMAX := 700;  # physical screen size
@@ -81,7 +81,7 @@ procedure main (args);
     close(win);
 end
 
-procedure helpmsg();
+procedure helpmsg()
    write("Usage: Koch");
    return;
 end

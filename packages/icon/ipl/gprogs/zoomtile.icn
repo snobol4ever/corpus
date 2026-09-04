@@ -39,7 +39,7 @@ link options
 link patutils
 link win
 
-procedure main(args);
+procedure main(args)
    local i, x, y, opts, magnif, pattern, dims, row, pixel, width, height, glist;
    local name, input;
 

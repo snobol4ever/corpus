@@ -89,7 +89,7 @@ global glossary		# list of explanations
 
 #########################  main program  #########################
 
-procedure main(args);
+procedure main(args)
    local v, r, c, gc;
 
    randomize();  # set irreproducible mode
@@ -147,7 +147,7 @@ end
 
 #  addbutton -- add a button (and a D variant) on every shelf
 
-procedure addbutton(r, label, proc, name, defn);
+procedure addbutton(r, label, proc, name, defn)
    local v, n, y;
    static yoff;
    initial yoff := 0;
@@ -171,7 +171,7 @@ end
 
 #  setk(v, n) -- set value of constant `k', based on 1 - 100 slider scale
 
-procedure setk(v, n);
+procedure setk(v, n)
    if n >= 0 then				# if slider call
       n := integer(MAXK ^ ((n / 100.0) ^ 0.70))	# convert nonlinearly
    else
@@ -185,7 +185,7 @@ end
 
 #  setmax(v, n) -- set maxsize, based on 1 - 20 slider scale.
 
-procedure setmax(v, n);
+procedure setmax(v, n)
    local fract;
 
    fract := n / 20.0;
@@ -198,7 +198,7 @@ end
 
 #  setbins(v, n) -- set number of bins, based on 1 - 100 slider scale
 
-procedure setbins(v, n);
+procedure setbins(v, n)
    local s, max;
 
    max := WAttrib("width") - 40 - X0;  # max that will fit on screen
@@ -222,7 +222,7 @@ end
 
 #  roundoff(n) -- truncate n to a nice number divisible by m (at least)
 
-procedure roundoff(n, m);
+procedure roundoff(n, m)
    local d;
 
    if n > 1000 then {
@@ -250,7 +250,7 @@ end
 
 #  empty(n) -- empty shelf n
 
-procedure empty(n);
+procedure empty(n)
    bin := list(*pieces, 0);
    nfilled := 0;
    xll := X0;
@@ -263,7 +263,7 @@ end
 
 #  place(p, b) -- add a piece of size p to bin b
 
-procedure place(p, b);
+procedure place(p, b)
    local o, t, x, y0, y1;
    static invfull;
    initial invfull := 1.0 / FULL;
@@ -284,7 +284,7 @@ end
 
 #  status(s) -- write string s and shelf population at end of output shelf
 
-procedure status(s);
+procedure status(s)
    local x;
 
    x := xll + nfilled * dx + 4;
@@ -303,7 +303,7 @@ end
 
 #  reload() -- reload first shelf with random-sized pieces.
 
-procedure reload();
+procedure reload()
    local i, j, z, p;
 
    pieces := list(nreload);
@@ -324,7 +324,7 @@ end
 #
 #  if shifted, place equally-spaced using golden ratio
 
-procedure mix();
+procedure mix()
    local i, n, p;
 
    if &shift then {
@@ -353,7 +353,7 @@ end
 #
 #  if shifted, sort ascending
 
-procedure order();
+procedure order()
    local i;
 
    pieces := sort(pieces);
@@ -375,7 +375,7 @@ end
 
 #  pack(x, v) -- execute packing algorithm connected with button x
 
-procedure pack(x, v);
+procedure pack(x, v)
    local l, n, s, i;
 
    if x.ax = BX2 then {
@@ -397,7 +397,7 @@ end
 
 #  nextfit(l) -- pack using next-fit algorithm
 
-procedure nextfit(l);
+procedure nextfit(l)
    local p;
 
    every p := !l do
@@ -408,7 +408,7 @@ end
 
 #  nextk(l) -- pack using next-k-fit algorithm
 
-procedure nextk(l);
+procedure nextk(l)
    local p;
 
    every p := !l do
@@ -422,7 +422,7 @@ end
 
 #  firstfit(l) -- pack using first-fit algorithm
 
-procedure firstfit(l);
+procedure firstfit(l)
    local p;
 
    every p := !l do
@@ -433,7 +433,7 @@ end
 
 #  lastfit(l) -- pack using last-fit algorithm
 
-procedure lastfit(l);
+procedure lastfit(l)
    local p;
 
    every p := !l do
@@ -444,7 +444,7 @@ end
 
 #  bestfit(l) -- pack using best-fit algorithm
 
-procedure bestfit(l);
+procedure bestfit(l)
    local p, b, i, max, found;
 
    every p := !l do {
@@ -462,7 +462,7 @@ end
 
 #  worstfit(l, n) -- pack using worst-fit algorithm
 
-procedure worstfit(l, n);
+procedure worstfit(l, n)
    local p, b, i, found;
 
    every p := !l do {
@@ -479,7 +479,7 @@ end
 
 #  nearworst(l, n) -- pack using almost-worst-fit algorithm
 
-procedure nearworst(l, n);
+procedure nearworst(l, n)
    local p, a, b, i, found;
 
    every p := !l do {
@@ -498,7 +498,7 @@ end
 
 #  harmonic(l, n) -- pack using (unmodified) harmonic algorithm
 
-procedure harmonic(l, n);
+procedure harmonic(l, n)
    local curr, maxv, i, p, b;
 
    curr := list(kvalue);  # current bin for each class
@@ -520,7 +520,7 @@ end
 
 #  gxfit(l, n) -- pack using group-x(k)-fit algorithm
 
-procedure gxfit(l, n);
+procedure gxfit(l, n)
    local stk, maxv, i, s, p, b, d;
 
    stk := [];  # stacks of bins, one for each group
@@ -552,7 +552,7 @@ end
 
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:lucidasanstypewriter-bold-12::0,0,860,675:Bin Packing",],
    ["bins:Slider:h::10,48,100,15:0,100,40",setbins],
@@ -573,7 +573,7 @@ end
 #
 #  Exits when certain keys are pressed and ignores other events.
 
-procedure leftover(e);
+procedure leftover(e)
    case e of {
       QuitEvents():	exit();
       &meta & !"nN":	reload();
@@ -587,14 +587,14 @@ end
 
 #  quit() -- handle "quit" button press
 
-procedure quit(x, v);
+procedure quit(x, v)
    exit();
 end
 
 
 #  info() -- handle "info" button press
 
-procedure info(x, v);
+procedure info(x, v)
    static text;
    initial {
       text := ["",

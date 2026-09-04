@@ -23,7 +23,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local fset, u1, u2, line, name, base, flag, proc, files, file;
 
    fset := set();

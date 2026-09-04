@@ -25,7 +25,7 @@
 
 link options
 
-procedure main(args);
+procedure main(args)
    local opts, i;
 
    opts := options(args, "n+");

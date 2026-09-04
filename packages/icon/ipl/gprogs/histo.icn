@@ -46,7 +46,7 @@ link numbers
 link options
 link wopen
 
-procedure main(args);
+procedure main(args)
    local height, window_height, y, window_width, numbers, opts, scale;
    local number, gap, bar, name;
 

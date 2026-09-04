@@ -153,7 +153,7 @@
 
 global __buf
 
-procedure bufopen(fname);
+procedure bufopen(fname)
 
     local file;
     
@@ -174,7 +174,7 @@ procedure bufopen(fname);
         
 end
 
-procedure bufclose(file);
+procedure bufclose(file)
 
     if /__buf then
         __buf := table(&null);
@@ -191,7 +191,7 @@ procedure bufclose(file);
 
 end
 
-procedure bufread(file);
+procedure bufread(file)
 
     local buf;
 
@@ -207,7 +207,7 @@ procedure bufread(file);
 
 end
 
-procedure bufnext(file, n);
+procedure bufnext(file, n)
 
     local buf;
 

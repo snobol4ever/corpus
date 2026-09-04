@@ -40,7 +40,7 @@ link imrutils
 link options
 link strings
 
-procedure main(args);
+procedure main(args)
    local file, opts, name, imr, input, literal;
 
    opts := options(args, "l");

@@ -20,7 +20,7 @@
 #
 ############################################################################
 
-procedure jumpque(queue, y);
+procedure jumpque(queue, y)
    local x;
 
    queue := copy(queue);

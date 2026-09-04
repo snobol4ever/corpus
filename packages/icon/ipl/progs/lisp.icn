@@ -57,7 +57,7 @@ record prop(v,f)  # abbreviated propery list
 
 ### main interpretive loop
 #
-procedure main(f); 
+procedure main(f) 
 local sexpr, source;
    initialize();
    if f[1] == ("-C" | "/C") then pop(f)  # run-command-then-terminate mode
@@ -76,7 +76,7 @@ end
 
 ## (EVAL e) - the actual LISP interpreter
 #
-procedure EVAL(l);
+procedure EVAL(l)
 local fn, arglist, arg;
    l := l[1];
    if T === ATOM([l]) then {                 # it's an atom
@@ -103,7 +103,7 @@ end
 
 ## apply(fn,args) - evaluate the function
 
-procedure apply(l);
+procedure apply(l)
 local fn, arglist, arg, value, fcn;
    fn := l[1];
    if member(trace_set, string(fn)) then {
@@ -146,7 +146,7 @@ end
 
 ## evlis(l) - evaluate everything in a list
 #
-procedure evlis(l);
+procedure evlis(l)
 local arglist, arg;
    arglist := [];
    every arg := !l do
@@ -159,7 +159,7 @@ end
 
 ## initialize() - set up global values
 #
-procedure initialize();
+procedure initialize()
    words := table();
    trace_set := set();
    T     := "T";
@@ -170,25 +170,25 @@ end
 
 ## (CAR l)
 #
-procedure CAR(l);
+procedure CAR(l)
    return glist(l[1])[1] | NIL;
 end
 
 ## (CDR l)
 #
-procedure CDR(l);
+procedure CDR(l)
    return glist(l[1])[2:0] | NIL;
 end
 
 ## (CONS l)
 #
-procedure CONS(l);
+procedure CONS(l)
    return ([l[1]]|||glist(l[2])) | NIL;
 end
 
 ## (SET a l)
 #
-procedure SET(l);
+procedure SET(l)
    (T === ATOM([l[1]])& l[2]) | return NIL;
    /words[l[1]] := prop();
    if type(l[2]) == "prop" then
@@ -199,7 +199,7 @@ end
 
 ## (ATOM a)
 #
-procedure ATOM(l);
+procedure ATOM(l)
    if type(l[1]) == "list" then
       return (*l[1] = 0 & T) | NIL;
    return T;
@@ -207,13 +207,13 @@ end
 
 ## (NULL l)
 #
-procedure NULL(l);
+procedure NULL(l)
    return EQ([NIL,l[1]]);
 end
 
 ## (EQ a1 a2)
 #
-procedure EQ(l);
+procedure EQ(l)
    if type(l[1]) == type(l[2]) == "list" then
       return (0 = *l[1] = *l[2] & T) | NIL;
    return (l[1] === l[2] & T) | NIL;
@@ -221,7 +221,7 @@ end
 
 ## (PRINT l)
 #
-procedure PRINT(l);
+procedure PRINT(l)
    if type(l[1]) == "prop" then
       return PRINT([l[1].v]);
    return write(strip(ltos(l)));
@@ -229,7 +229,7 @@ end
 
 ## COND(l) - support routine to eval
 #                 (for COND)
-procedure COND(l);
+procedure COND(l)
 local pair;
    every pair := !l do {
       if type(pair) ~== "list" |
@@ -245,7 +245,7 @@ end
 
 ## (TRACE l)
 #
-procedure TRACE(l);
+procedure TRACE(l)
    local fn;
 
    every fn := !l do {
@@ -256,7 +256,7 @@ end
 
 ## (UNTRACE l)
 #
-procedure UNTRACE(l);
+procedure UNTRACE(l)
    local fn;
 
    every fn := !l do {
@@ -267,7 +267,7 @@ end
 
 ## glist(l) - verify that l is a list
 #
-procedure glist(l);
+procedure glist(l)
    if type(l) == "list" then return l;
 end
 
@@ -275,7 +275,7 @@ end
 #
 # This has been considerable rewritten (and made more difficult to use!)
 #  in order to match EV-LISP syntax.
-procedure DEFINE(l);
+procedure DEFINE(l)
    local fn_def, fn_list;
 
    fn_list := [];
@@ -288,7 +288,7 @@ end
 
 ## Define a single function (called by 'DEFINE')
 #
-procedure define_fn(fn_def);
+procedure define_fn(fn_def)
    /words[fn_def[1]] := prop(NIL);
    words[fn_def[1]].f := fn_def[2];
    return fn_def[1];
@@ -296,7 +296,7 @@ end
 
 ## lambda(actuals,formals,def)
 #
-procedure lambda(actuals, formals, def);
+procedure lambda(actuals, formals, def)
 local save, act, form, pair, result, arg, i;
    save := table();
    every arg := !formals do
@@ -311,7 +311,7 @@ end
 
 #  Date: June 10, 1988
 #
-procedure getbs();
+procedure getbs()
 static tmp;
    initial tmp := ("" ~== |Map(read(infile))) || " ";
 
@@ -328,7 +328,7 @@ end
 ## checkbal(s) - quick check to see if s is
 #       balanced w.r.t. parentheses
 #
-procedure checkbal(s);
+procedure checkbal(s)
    return (s ? 1(tab(bal()),pos(-1)));
 end
 
@@ -336,7 +336,7 @@ end
 #       s has more characters in c1 than
 #       characters in c2, fails otherwise
 #
-procedure more(c1,c2,s);
+procedure more(c1,c2,s)
 local cnt;
    cnt := 0;
    s ? while (cnt <= 0) & not pos(0) do {
@@ -354,7 +354,7 @@ end
 #          fails when next substring cannot be balanced
 #
 #
-procedure balstr(s);
+procedure balstr(s)
 static blanks;
    initial blanks := ' \t';
    (s||" ") ? repeat {
@@ -370,7 +370,7 @@ end
 ## bstol(s) - convert a balanced string into equivalent
 #       list representation.
 #
-procedure bstol(s);
+procedure bstol(s)
 static blanks;
 local l;
    initial blanks := ' \t';
@@ -385,7 +385,7 @@ end
 ## ltos(l) - convert a list back into a string
 #
 #
-procedure ltos(l);
+procedure ltos(l)
    local tmp;
 
    if type(l) ~== "list" then return l;
@@ -396,16 +396,16 @@ procedure ltos(l);
    return tmp;
 end
 
-procedure strip(s);
+procedure strip(s)
    s ?:= 2(="(", tab(bal()), =")", pos(0));
    return s;
 end
 
-procedure Map(s);
+procedure Map(s)
    return map(s, &lcase, &ucase);
 end
 
-procedure HELP();
+procedure HELP()
    write("\n",
 	 "Syntax:\n",
 	 "  (quote (a b c))           ==> (A B C)\n",

@@ -72,7 +72,7 @@ link gobject
 link math
 link step
 
-procedure bullet_nose(x, y, a, b, steps, lo, hi);
+procedure bullet_nose(x, y, a, b, steps, lo, hi)
    local incr, theta;
 
    /steps := 300;
@@ -89,7 +89,7 @@ procedure bullet_nose(x, y, a, b, steps, lo, hi);
 
 end
 
-procedure cardioid(x, y, a, steps, lo, hi);
+procedure cardioid(x, y, a, steps, lo, hi)
    local incr, theta, fact;
 
    /steps := 300;
@@ -108,7 +108,7 @@ procedure cardioid(x, y, a, steps, lo, hi);
 
 end
 
-procedure cissoid_diocles(x, y, a, steps, lo, hi);
+procedure cissoid_diocles(x, y, a, steps, lo, hi)
    local incr, theta, radius;
 
    /steps := 300;
@@ -127,7 +127,7 @@ procedure cissoid_diocles(x, y, a, steps, lo, hi);
 
 end
 
-procedure cross_curve(x, y, a, b, steps, lo, hi);
+procedure cross_curve(x, y, a, b, steps, lo, hi)
    local incr, theta;
 
    /steps := 300;
@@ -144,7 +144,7 @@ procedure cross_curve(x, y, a, b, steps, lo, hi);
 
 end
 
-procedure cycloid(x, y, a, b, steps, lo, hi);
+procedure cycloid(x, y, a, b, steps, lo, hi)
    local incr, theta;
 
    /steps := 100;
@@ -161,7 +161,7 @@ procedure cycloid(x, y, a, b, steps, lo, hi);
 
 end
 
-procedure deltoid(x, y, a, steps, lo, hi);
+procedure deltoid(x, y, a, steps, lo, hi)
    local incr, theta;
 
    /steps := 300;
@@ -178,7 +178,7 @@ procedure deltoid(x, y, a, steps, lo, hi);
 
 end
 
-procedure ellipse(x, y, a, b, steps, lo, hi);
+procedure ellipse(x, y, a, b, steps, lo, hi)
    local incr, theta;
 
    /steps := 300;
@@ -195,7 +195,7 @@ procedure ellipse(x, y, a, b, steps, lo, hi);
 
 end
 
-procedure ellipse_evolute(x, y, a, b, steps, lo, hi);
+procedure ellipse_evolute(x, y, a, b, steps, lo, hi)
    local incr, theta;
 
    /steps := 300;
@@ -212,7 +212,7 @@ procedure ellipse_evolute(x, y, a, b, steps, lo, hi);
 
 end
 
-procedure epitrochoid(x, y, a, b, h, steps, lo, hi);
+procedure epitrochoid(x, y, a, b, h, steps, lo, hi)
    local incr, theta, sum, fact;
 
    /steps := 300;
@@ -232,7 +232,7 @@ procedure epitrochoid(x, y, a, b, h, steps, lo, hi);
 
 end
 
-procedure folium(x, y, a, b, steps, lo, hi);
+procedure folium(x, y, a, b, steps, lo, hi)
    local incr, theta, radius;
 
    /steps := 300;
@@ -252,7 +252,7 @@ procedure folium(x, y, a, b, steps, lo, hi);
 
 end
 
-procedure hippopede(x, y, a, b, steps, lo, hi);
+procedure hippopede(x, y, a, b, steps, lo, hi)
    local incr, theta, mul;
 
    /steps := 300;
@@ -273,7 +273,7 @@ procedure hippopede(x, y, a, b, steps, lo, hi);
 
 end
 
-procedure kampyle_exodus(x, y, a, b, steps, lo, hi);
+procedure kampyle_exodus(x, y, a, b, steps, lo, hi)
    local incr, theta, fact;
 
    /steps := 300;
@@ -292,7 +292,7 @@ procedure kampyle_exodus(x, y, a, b, steps, lo, hi);
 
 end
 
-procedure kappa(x, y, a, b, steps, lo, hi);
+procedure kappa(x, y, a, b, steps, lo, hi)
    local incr, theta, fact;
 
    /steps := 300;
@@ -311,7 +311,7 @@ procedure kappa(x, y, a, b, steps, lo, hi);
 
 end
 
-procedure lemniscate_bernoulli(x, y, a, steps, lo, hi);
+procedure lemniscate_bernoulli(x, y, a, steps, lo, hi)
    local incr, theta, fact;
 
    /steps := 300;
@@ -330,7 +330,7 @@ procedure lemniscate_bernoulli(x, y, a, steps, lo, hi);
 
 end
 
-procedure lemniscate_gerono(x, y, a, b, steps, lo, hi);
+procedure lemniscate_gerono(x, y, a, b, steps, lo, hi)
    local incr, theta, fact;
 
    /steps := 300;
@@ -349,7 +349,7 @@ procedure lemniscate_gerono(x, y, a, b, steps, lo, hi);
 
 end
 
-procedure limacon_pascal(x, y, a, b, steps, lo, hi);
+procedure limacon_pascal(x, y, a, b, steps, lo, hi)
    local incr, theta, fact;
 
    /steps := 300;
@@ -368,7 +368,7 @@ procedure limacon_pascal(x, y, a, b, steps, lo, hi);
 
 end
 
-procedure line(x, y, x1, y1, steps);
+procedure line(x, y, x1, y1, steps)
    local xincr, yincr;
 
    /steps := 100;
@@ -384,7 +384,7 @@ procedure line(x, y, x1, y1, steps);
 
 end
 
-procedure lissajous(x, y, a, b, r, delta, steps, lo, hi);
+procedure lissajous(x, y, a, b, r, delta, steps, lo, hi)
    local incr, theta;
 
    /steps := 300;
@@ -403,7 +403,7 @@ procedure lissajous(x, y, a, b, r, delta, steps, lo, hi);
 
 end
 
-procedure nephroid(x, y, a, steps, lo, hi);
+procedure nephroid(x, y, a, steps, lo, hi)
    local incr, theta;
 
    /steps := 300;
@@ -422,7 +422,7 @@ end
 
 #  Needs to be checked out
 
-procedure parabola(x, y, a, steps, lo, hi);
+procedure parabola(x, y, a, steps, lo, hi)
    local incr, theta, denom, radius;
 
    /steps := 300;
@@ -443,7 +443,7 @@ procedure parabola(x, y, a, steps, lo, hi);
 
 end
 
-procedure piriform(x, y, a, b, steps, lo, hi);
+procedure piriform(x, y, a, b, steps, lo, hi)
    local incr, theta, fact;
 
    /steps := 300;
@@ -462,7 +462,7 @@ procedure piriform(x, y, a, b, steps, lo, hi);
 
 end
 
-procedure trisectrix_catalan(x, y, a, steps, lo, hi);
+procedure trisectrix_catalan(x, y, a, steps, lo, hi)
    local incr, theta, radius;
 
    /steps := 300;
@@ -481,7 +481,7 @@ procedure trisectrix_catalan(x, y, a, steps, lo, hi);
 
 end
 
-procedure trisectrix_maclaurin(x, y, a, b, steps, lo, hi);
+procedure trisectrix_maclaurin(x, y, a, b, steps, lo, hi)
    local incr, theta, fact;
 
    /steps := 300;
@@ -500,7 +500,7 @@ procedure trisectrix_maclaurin(x, y, a, b, steps, lo, hi);
 
 end
 
-procedure witch_agnesi(x, y, a, steps, lo, hi);
+procedure witch_agnesi(x, y, a, steps, lo, hi)
    local incr, theta, fact;
 
    /steps := 300;

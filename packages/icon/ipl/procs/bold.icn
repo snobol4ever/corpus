@@ -24,7 +24,7 @@
 #  
 ############################################################################
 
-procedure bold(s);
+procedure bold(s)
    local c;
    static labels, trans, max;
    initial {
@@ -41,7 +41,7 @@ procedure bold(s);
       map(trans,labels,right(s,max));
 end
 
-procedure uscore(s);
+procedure uscore(s)
    static labels, trans, max;
    initial {
       labels := "1";

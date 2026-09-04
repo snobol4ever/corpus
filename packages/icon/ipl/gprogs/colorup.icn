@@ -43,7 +43,7 @@ link weavutil
 link xcode
 link ximage
 
-procedure main(args);
+procedure main(args)
    local warp, weft, pattern, rows, i, j, count, opts;
    local threading, treadling, color_list, colors, choice;
    local symbols, symbol, drawdown, draft, warp_colors, weft_colors, pixels;

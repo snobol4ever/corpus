@@ -24,7 +24,7 @@
 #
 ############################################################################
 
-procedure phoname(number);
+procedure phoname(number)
 
     local buttons, nondigits, pstr, t, x;
 
@@ -43,7 +43,7 @@ procedure phoname(number);
 
 end
 
-procedure stripstr(str,delchs);
+procedure stripstr(str,delchs)
 
     local i;
 

@@ -22,15 +22,15 @@
 #
 ############################################################################
 
-procedure bk_int(i);
+procedure bk_int(i)
    return char(i % 256) || char(i / 256);
 end
 
-procedure bk_read_int(f);
+procedure bk_read_int(f)
    return ord(reads(f)) + 256 * ord(reads(f));
 end
 
-procedure bk_format_lines(s,width);
+procedure bk_format_lines(s,width)
    local lines,lines2,line,c,lineSeg;
    /width := 39;
    lines := [];

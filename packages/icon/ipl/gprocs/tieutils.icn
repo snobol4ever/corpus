@@ -141,7 +141,7 @@ procedure showpat(pat, cellsize, fg, bg);	#: image of bi-level pattern
  
 end
 
-procedure str2matrix(shafts, treadles, tieup);
+procedure str2matrix(shafts, treadles, tieup)
    local matrix;
 
    matrix := [];
@@ -232,7 +232,7 @@ procedure tie2coltier(tieup);		#: create color tie-up record
 
 end
 
-procedure tcolors(s);
+procedure tcolors(s)
    local i, result;
 
    result := [];
@@ -273,7 +273,7 @@ procedure twill(pattern, shift, shafts, treadles);	#: twill tie-up
 
 end
 
-procedure overunder(pattern, treadles);
+procedure overunder(pattern, treadles)
    local row, count, i;
 
    row := "";

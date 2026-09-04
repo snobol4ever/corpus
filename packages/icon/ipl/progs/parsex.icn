@@ -66,7 +66,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
    local line;
 
    writes("->");
@@ -76,11 +76,11 @@ procedure main();
        };
 end
 
-procedure parse(exp);
+procedure parse(exp)
    return exp ? expr();
 end
 
-procedure expr(exp);
+procedure expr(exp)
    local lvalue;
 
    lvalue := term();
@@ -93,7 +93,7 @@ procedure expr(exp);
    return lvalue;
 end
 
-procedure term();
+procedure term()
    local lvalue;
 
    lvalue := fact();
@@ -110,7 +110,7 @@ procedure term();
    return lvalue;
 end
 
-procedure fact();
+procedure fact()
    local lvalue;
 
    lvalue := part();
@@ -123,7 +123,7 @@ procedure fact();
    return lvalue;
 end
 
-procedure part();
+procedure part()
    local lvalue;
 
    lvalue := const();
@@ -137,7 +137,7 @@ procedure part();
    return lvalue;
 end
 
-procedure const();
+procedure const()
    local sign, logical, rval, s1, s2;
 
    tab(many(' \t'));

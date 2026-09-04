@@ -25,7 +25,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
    local name, file, icode, okay;
 
    while name := read() do {

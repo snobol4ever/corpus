@@ -30,7 +30,7 @@
 
 ##############################################################################
 
-procedure main();
+procedure main()
 
 local tasto;
 
@@ -86,7 +86,7 @@ end
                                         
 
 ##############################################################################
-procedure dainome();
+procedure dainome()
 
 local quale;
 
@@ -100,7 +100,7 @@ end
 
 
 ##############################################################################
-procedure lpag();
+procedure lpag()
 
 local valore;
 
@@ -115,7 +115,7 @@ end
 
 
 ##############################################################################
-procedure margs();
+procedure margs()
 
 local margine;
 
@@ -130,7 +130,7 @@ end
 
 
 ##############################################################################
-procedure numriga();
+procedure numriga()
 
 local risp;                                    # risposta
 
@@ -146,7 +146,7 @@ end
 
 
 ##############################################################################
-procedure compresso();
+procedure compresso()
 
 local risp;                                    # risposta
 
@@ -223,7 +223,7 @@ end
 
 
 ##############################################################################
-procedure cambiadir();
+procedure cambiadir()
 
 local nomedir;
 
@@ -236,7 +236,7 @@ end
 
 
 ##############################################################################
-procedure copiafile(switch);
+procedure copiafile(switch)
 
 local origine,dest,nome1,nome2,dati,dati2,car,x,vecchio,nuovo,quantispazi,acc;
 
@@ -350,7 +350,7 @@ end
 
 
 ##############################################################################
-procedure dimmelo();
+procedure dimmelo()
 
 local quale;
 

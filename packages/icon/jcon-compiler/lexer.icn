@@ -6,7 +6,7 @@ global lex_newline, lex_lineno, lex_coord_pos, lex_filename
 record lex_coordinate(file, line, column)
 record lex_TOK(sym, str, coord)
 
-procedure yylex(getline);
+procedure yylex(getline)
     local last_pos, t, ptok;
     static last_token;
 
@@ -45,7 +45,7 @@ procedure yylex(getline);
 end
 
 
-procedure lex_yylex0(getline);
+procedure lex_yylex0(getline)
     local sym, str, op, ptok;
     static let_und, let_und_dig, let_dig;
 
@@ -171,7 +171,7 @@ procedure lex_yylex0(getline);
     };
 end
 
-procedure lex_error(msg);
+procedure lex_error(msg)
     if \parse_tok_rec then {
         stop("File ", lex_filename, ": ", "Line ", lex_lineno, " # ", msg)
     } else {
@@ -179,7 +179,7 @@ procedure lex_error(msg);
     };
 end
 
-procedure lex_nextline(getline);
+procedure lex_nextline(getline)
     local s;
 
     s := @getline | fail;
@@ -187,7 +187,7 @@ procedure lex_nextline(getline);
     return s;
 end
 
-procedure lex_quoted(delim, getline); 
+procedure lex_quoted(delim, getline) 
     local str, dset, hex, h, ch, octal, o;
     static lookup;
     initial {

@@ -36,7 +36,7 @@
 link basename
 link wopen
 
-procedure main(args);
+procedure main(args)
    local name, base, width, height, half_width, half_height, win1, win2;
 
    every name := !args do {

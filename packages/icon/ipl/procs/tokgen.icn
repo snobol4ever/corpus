@@ -40,7 +40,7 @@ global summary, globals, locals, statics, declarations, fields, files, parms
 global fldref
 global all			# kludge -- invocable is not handled properly
 
-procedure main();
+procedure main()
    local names, tables, i, total, count;
 
    total := 0;  # total number of tokens
@@ -86,7 +86,7 @@ procedure Apply(e1, e2);		# e1 ! e2
    return;
 end
 
-procedure Arg(s);
+procedure Arg(s)
    return s;
 end
 
@@ -105,7 +105,7 @@ procedure Bamper(e1, e2);		# e1 & e2
    return;
 end
 
-procedure Binop(s);
+procedure Binop(s)
    binops["e1 " || s || " e2"] +:= 1;
    return;
 end
@@ -133,7 +133,7 @@ procedure Clist(e1, e2);		# e1 ; e2 in case list
    return;
 end
 
-procedure Clit(s);
+procedure Clit(s)
    clits[image(s)] +:= 1;
    return;
 end
@@ -194,7 +194,7 @@ procedure IfElse(e1, e2, e3);		# if e1 then e2 else e3
    return;
 end
 
-procedure Ilit(s);
+procedure Ilit(s)
    ilits[s] +:= 1;
    return;
 end
@@ -214,7 +214,7 @@ procedure Invoke(e0, es[]);		# e0(e1, e2, ...)
    return;
 end
 
-procedure Key(s);
+procedure Key(s)
    keys["&" || s] +:= 1;
    return;
 end
@@ -289,7 +289,7 @@ procedure Return(e);			# return e
    return;
 end
 
-procedure Rlit(s);
+procedure Rlit(s)
    rlits[s] +:= 1;
    return;
 end
@@ -304,7 +304,7 @@ procedure Section(op, e1, e2, e3);	# e1[e2 op  e3]
    return;
 end
 
-procedure Slit(s);
+procedure Slit(s)
    slits[image(s)] +:= 1;
    return;
 end
@@ -360,7 +360,7 @@ procedure UntilDo(e1, e2);		# until e1 do e2
    return;
 end
 
-procedure Var(s);
+procedure Var(s)
    vars[s] +:= 1;
    return;
 end

@@ -2,7 +2,7 @@
 
 link numbers
 
-procedure main();
+procedure main()
    local L, n;
    L := [];
    every put(L, -2 to 31);

@@ -73,7 +73,7 @@ link options, io
 
 global lsize, repet, llength, ldepth, opts, selectors
 
-procedure main(args);
+procedure main(args)
    local y, i, line;
 
    selectors := '#';
@@ -106,7 +106,7 @@ end
 
 #  Obtain next label
 #
-procedure nextlbl();
+procedure nextlbl()
    local label, max, line;
    label := [Read()];
    max := 0;
@@ -132,7 +132,7 @@ end
 
 #  Format a label
 #
-procedure format(label,width);
+procedure format(label,width)
    local j, indent;
    indent := repl(" ",(llength - width) / 2);
    j := lsize - *label;
@@ -143,7 +143,7 @@ end
 
 #  Issue label for an error
 #
-procedure error(name,type);
+procedure error(name,type)
    static badform;
    initial badform := list(lsize);
    case type of {
@@ -154,7 +154,7 @@ procedure error(name,type);
    every write(&errout,!badform);
 end
 
-procedure nonneg(s);
+procedure nonneg(s)
    s := \opts[s] | fail;
    return 0 < integer(s) | stop("-",s," needs postive numeric parameter");
 end

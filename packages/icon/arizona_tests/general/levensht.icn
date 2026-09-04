@@ -35,7 +35,7 @@
 
 link numbers
 
-procedure levenshtein(s, t);
+procedure levenshtein(s, t)
    local d, n, m, i, j, cost;
    
    n := *s + 1;

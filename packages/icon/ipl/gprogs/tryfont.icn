@@ -47,7 +47,7 @@ link xbfont
 link graphics
 
 
-procedure main(args);
+procedure main(args)
    if *args > 0 & args[1][1] ~== "-" then
       filemode(args)
    else
@@ -55,7 +55,7 @@ procedure main(args);
 end
 
 
-procedure filemode(args);
+procedure filemode(args)
    local fname, limit, f, fontlist, request, a;
 
    fname := args[1];
@@ -74,7 +74,7 @@ procedure filemode(args);
 end
 
 
-procedure windowmode(args);
+procedure windowmode(args)
    local opts, win, fwin, request, a, h, y;
 
    opts := options(args, winoptions());

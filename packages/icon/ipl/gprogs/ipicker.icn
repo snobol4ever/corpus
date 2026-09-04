@@ -31,7 +31,7 @@
 
 link wopen
 
-procedure main(args);
+procedure main(args)
    local name;
 
    every name := !args do {

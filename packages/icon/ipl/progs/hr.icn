@@ -31,7 +31,7 @@ global horse1, horse2, horse3,                 # horses are global
        pos1,    pos2,  pos3,                   # more horse parameters
        oops1,   oops2, oops3                   # accident flags
  
-procedure main();
+procedure main()
    local winner;
  
 banner();
@@ -65,7 +65,7 @@ end
 #
 # ask if ready to play the game, return yes or no
 #
-procedure ready();
+procedure ready()
   local answer;
   static  pass,sh;
   initial {
@@ -98,7 +98,7 @@ procedure ready();
 #
 # get the names of the players
 #
-procedure get_players();
+procedure get_players()
   local counter, people, who;
   people  := [];
   counter := 1;
@@ -118,7 +118,7 @@ procedure get_players();
 #
 # build a horse list structure
 #
-procedure get_horse();
+procedure get_horse()
   local odds, pic, tmp;
   static  stable,photos;
   initial {
@@ -159,7 +159,7 @@ procedure get_horse();
 #
 # obtain bets from the players
 #
-procedure get_bet();
+procedure get_bet()
   local items, person, summation, wager;
   (&features == "MS-DOS") | writes("\e[?25h");
   bets := table(0);
@@ -208,7 +208,7 @@ procedure get_bet();
 # determine the victor and pay out winnings. if there is a tie
 # then nothing gets payed out (bets are refunded)
 #
-procedure pay(victor);
+procedure pay(victor)
   local check, i, msg, nag, odds, pair, player, prize, test;
   local wager, winner, winnings, y;
 
@@ -309,7 +309,7 @@ procedure pay(victor);
 #
 # run the race and return the winning horse # (1, 2, or 3)
 #
-procedure race();
+procedure race()
   local diamx, diamy, finish, inc1, inc2, inc3, platform, result;
 
   vectors := draw_track();
@@ -436,7 +436,7 @@ procedure race();
 #
 # display the horses at different legs of the race
 #
-procedure display();
+procedure display()
   static  oldy1,oldy2,oldy3,blanks;
   initial {
           oldy1 := 5;
@@ -492,7 +492,7 @@ procedure display();
 #
 # simulate rare freakish accidents
 #
-procedure accident();
+procedure accident()
   if (?2000 = 111) & (leg1 ~= 2) then
     {
     oops1 := 0;
@@ -522,7 +522,7 @@ procedure accident();
 #
 # return a list of track x positions
 #
-procedure draw_track();
+procedure draw_track()
   local i, offset;
   static  pavement;
   initial pavement := copy(mktrack());
@@ -540,7 +540,7 @@ procedure draw_track();
 #
 # generate racing track
 #
-procedure mktrack();
+procedure mktrack()
   local track;
   track := [];
   put(track,"                 WELCOME TO ICON PARK CYBER STEED RACE TRACK");
@@ -573,7 +573,7 @@ procedure mktrack();
 #
 # final wrapup procedure, summarize winnings
 #
-procedure done();
+procedure done()
   local msg, player, winnings;
   write("\e[2J\e[HICON PARK CYBER RACE TRACK BIDS YOU ADIEU\n");
   write("    We all started with $100. And now for the results...\n");
@@ -592,7 +592,7 @@ procedure done();
 #
 # generate horse 1 portraite
 #
-procedure pick1();
+procedure pick1()
   local pferd;
 
   pferd := [];
@@ -616,7 +616,7 @@ procedure pick1();
 #
 # generate horse 2 portraite
 #
-procedure pick2();
+procedure pick2()
   local pferd;
 
   pferd := [];
@@ -641,7 +641,7 @@ procedure pick2();
 #
 # generate horse 3 portraite
 #
-procedure pick3();
+procedure pick3()
   local pferd;
 
   pferd := [];
@@ -666,7 +666,7 @@ procedure pick3();
 #
 # generate horse 4 portraite
 #
-procedure pick4();
+procedure pick4()
   local pferd;
 
   pferd := [];
@@ -690,7 +690,7 @@ procedure pick4();
 #
 # generate horse 5 portraite
 #
-procedure pick5();
+procedure pick5()
   local pferd;
 
   pferd := [];
@@ -714,7 +714,7 @@ procedure pick5();
 #
 # generate horse 6 portraite
 #
-procedure pick6();
+procedure pick6()
   local pferd;
 
   pferd := [];
@@ -735,7 +735,7 @@ procedure pick6();
   return pferd;
   end
 
-procedure banner();
+procedure banner()
   write("\e[0;1;33;44m\e[2J\e[H");
   write("###############################################################################");
   write("                                                                               ");
@@ -761,14 +761,14 @@ procedure banner();
 #
 # move cursor to specified screen position
 #
-procedure at(row,column);
+procedure at(row,column)
   return "\e[" || row || ";" || column || "f";
   end
  
 #
 # procedure to wait n seconds
 #
-procedure wait(n);
+procedure wait(n)
   local now, secs;
 
   secs := &clock[-2:0] + n;
@@ -784,7 +784,7 @@ procedure wait(n);
 #
 # this procedure prompts for an input string
 #
-procedure input(prompt);
+procedure input(prompt)
   writes(prompt);
   return read();
   end
@@ -792,7 +792,7 @@ procedure input(prompt);
 #
 # parse a string into a list with respect to a delimiter
 #
-procedure parse(line,delims);
+procedure parse(line,delims)
   local tokens;
   static chars;
   chars  := &cset -- delims;

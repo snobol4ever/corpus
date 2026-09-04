@@ -29,7 +29,7 @@ link pattread
 link patutils
 link patxform
 
-procedure main();
+procedure main()
    local rows, row;
 
    rows := pattread();

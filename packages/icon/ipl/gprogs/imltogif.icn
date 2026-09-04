@@ -44,7 +44,7 @@ link numbers
 link options
 link wopen
 
-procedure main(args);
+procedure main(args)
    local count, ims, image, w, h, s, opts, pattern, prefix;
 
    count := 0;

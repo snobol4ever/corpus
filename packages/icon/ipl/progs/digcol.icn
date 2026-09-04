@@ -18,7 +18,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local n, line, s;
 
    n := (0 < integer(args[1])) | stop("*** invalid specification");

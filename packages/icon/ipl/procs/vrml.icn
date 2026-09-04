@@ -150,7 +150,7 @@ procedure render(x, f);		# render VRML object
 
 end
 
-procedure vrml_color(s);
+procedure vrml_color(s)
    local result;
    static factor;
 

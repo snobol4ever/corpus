@@ -25,7 +25,7 @@
 #  
 ############################################################################
 
-procedure main(param);
+procedure main(param)
 
    if &features == ("MS-DOS" | "MS-DOS/386" | "NT") then system("cls")
    else if &features == "UNIX" then system("clear");
@@ -66,7 +66,7 @@ procedure main(param);
 #     ?     !!    :::   ...  //
 #
 #
-  procedure banner(str);
+  procedure banner(str)
    local bline, byte, raster, i;
   static  alphabet;
   initial {

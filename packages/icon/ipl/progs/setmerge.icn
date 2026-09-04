@@ -44,7 +44,7 @@
 ############################################################################
 
 
-procedure main(args);
+procedure main(args)
    local items, a, op, f, s;
 
    items := set();

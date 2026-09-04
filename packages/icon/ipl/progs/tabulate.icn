@@ -25,7 +25,7 @@
 
 link options
 
-procedure main(args);
+procedure main(args)
    local opts, tabulation;
 
    tabulation := table(0);

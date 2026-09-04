@@ -47,7 +47,7 @@ link wopen
 global win, mono, h, w
 global Window, XMAX, YMAX
 
-procedure main (args);
+procedure main (args)
     local a, b, k, t1, t2, N, arg, use_epi, t, alist;
 
     XMAX := YMAX := 700;  # physical screen size
@@ -97,7 +97,7 @@ procedure main (args);
     close(win);
 end
 
-procedure epi_x(t,a[]);
+procedure epi_x(t,a[])
    static twopi;
    local ab;
    initial twopi := 2*&pi;
@@ -106,7 +106,7 @@ procedure epi_x(t,a[]);
    return (ab)*cos(twopi*t) - a[3]*cos(twopi*((ab)*t)/a[2]);
 end
 
-procedure epi_y(t,a[]);
+procedure epi_y(t,a[])
    static twopi;
    local ab;
    initial twopi := 2*&pi;
@@ -115,7 +115,7 @@ procedure epi_y(t,a[]);
    return (ab)*sin(twopi*t) - a[3]*sin(twopi*((ab)*t)/a[2]);
 end
 
-procedure hypo_x(t,a[]);
+procedure hypo_x(t,a[])
    static twopi;
    local ab;
    initial twopi := 2*&pi;
@@ -124,7 +124,7 @@ procedure hypo_x(t,a[]);
     return (ab)*cos(twopi*t) + a[3]*cos(twopi*((ab)*t)/a[2]);
 end
 
-procedure hypo_y(t,a[]);
+procedure hypo_y(t,a[])
    static twopi;
    local ab;
    initial twopi := 2*&pi;
@@ -133,7 +133,7 @@ procedure hypo_y(t,a[]);
     return (ab)*sin(twopi*t) - a[3]*sin(twopi*((ab)*t)/a[2]);
 end
 
-procedure helpmsg();
+procedure helpmsg()
    write("Usage: Spiro [-a r] [-b r] [-k r] [-t1 r] [-t2 r] [-N n] [-epi]");
    write();
    write("where:");

@@ -30,7 +30,7 @@ link imrutils
 link imsutils
 link wopen
 
-procedure main();
+procedure main()
    local imr;
 
    imr := imstoimr(read());

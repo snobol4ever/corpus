@@ -62,7 +62,7 @@ global VACANT, DOWN, UP			# status flag values
 
 #  main program.
 
-procedure main(args);
+procedure main(args)
    local i, j, e;
 
    initialize(args);
@@ -80,7 +80,7 @@ end
 
 #  initialize(args) -- process options, initialize globals, open window
 
-procedure initialize(args);
+procedure initialize(args)
    local opts, ncards;
 
    cardw := 80;
@@ -126,7 +126,7 @@ end
 
 #  newgame() -- lay out cards, face down, for a new game
 
-procedure newgame();
+procedure newgame()
    local i, j, s;
 
    nleft := *deck;
@@ -146,7 +146,7 @@ end
 
 #  click(i, j) -- process a click on the card in row i, column j
 
-procedure click(i, j);
+procedure click(i, j)
    local c;
 
    case nup of {	# action depends on the number of cards already face up
@@ -218,7 +218,7 @@ end
 
 #  setcard(i, j, c) -- redraw card c at location (i,j), or background if /c
 
-procedure setcard(i, j, c);
+procedure setcard(i, j, c)
    local x, y;
    x := margin + j * (cardw + gap);
    y := margin + i * (cardh + gap);
@@ -230,13 +230,13 @@ end
 
 #  cardno(i, j) -- return index (1 to 52) if location is valid
 
-procedure cardno(i, j);
+procedure cardno(i, j)
    return (0 <= i) & (0 <= j < ncols) & *deck >= (ncols * i + j + 1);
 end
 
 #  crank(label) -- return rank (1 to 13) of card with given label
 
-procedure crank(label);
+procedure crank(label)
    static fulldeck;
    initial fulldeck := string(&letters);
    return fulldeck ? find(label) % 13;

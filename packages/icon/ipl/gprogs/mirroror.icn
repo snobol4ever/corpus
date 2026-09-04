@@ -31,7 +31,7 @@ link interact
 link mirror
 link wopen
 
-procedure main(args);
+procedure main(args)
    local name, win;
 
    every name := !args do {

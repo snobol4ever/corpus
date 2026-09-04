@@ -37,21 +37,21 @@
 #
 ############################################################################
 
-procedure unsigned(s);
+procedure unsigned(s)
    local i;
    i := 0;
    every i := ord(!s) + i * 256;
    return i;
 end
 
-procedure raw(s);
+procedure raw(s)
    local i;
    i := 0;
    every i := ior(ord(!s),ishift(i,8));
    return i;
 end
 
-procedure rawstring(i,size);
+procedure rawstring(i,size)
    local s;
    s := "";
    every 1 to size do {

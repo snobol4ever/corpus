@@ -35,7 +35,7 @@ link strings
 #
 #  Reduces a image matrix to the smallest equivalent one.
 
-procedure imxreduce(rows);
+procedure imxreduce(rows)
 
    rows := imxcollap(rows);
    rows := imxrotate(rows, 90);
@@ -46,7 +46,7 @@ procedure imxreduce(rows);
 
 end
 
-procedure imxcollap(rows);
+procedure imxcollap(rows)
    local size, fact;
 
    size := *rows;
@@ -61,7 +61,7 @@ procedure imxcollap(rows);
 
 end
 
-procedure rowdupl(rows, n);
+procedure rowdupl(rows, n)
    local span, i, j;
 
    if *rows % n ~= 0 then fail;
@@ -79,7 +79,7 @@ end
 #
 #  Produces the inclusive "or" of two image matrices.
 
-procedure imxor(rows1, rows2);
+procedure imxor(rows1, rows2)
    local i, j;
 
    if (*rows1 ~= *rows2) | (**rows1 ~= **rows2) then fail;
@@ -97,7 +97,7 @@ end
 #
 #  Produces the "and" of two image matrices.
 
-procedure imxand(rows1, rows2);
+procedure imxand(rows1, rows2)
    local i, j;
 
    if (*rows1 ~= *rows2) | (**rows1 ~= **rows2) then fail;
@@ -115,7 +115,7 @@ end
 #
 #  Produces the exclusive "or" of two image matrices.
 
-procedure imxxor(rows1, rows2);
+procedure imxxor(rows1, rows2)
    local i, j;
 
    if (*rows1 ~= *rows2) | (**rows1 ~= **rows2) then fail;
@@ -135,7 +135,7 @@ end
 #  are scrambled; if "v", the the rows are scrambled.  If "b", bits are
 #  scrambled throughout the image matrix.
 
-procedure imxscramb(rows, dir);
+procedure imxscramb(rows, dir)
    local i, all;
 
    case dir of {
@@ -166,7 +166,7 @@ end
 #  Positive shift is to the right for horizontal shifts, downward for vertical
 #  shifts.  The default shift is 0 and the default direction is horizontal.
 
-procedure imxshift(rows, shift, dir);
+procedure imxshift(rows, shift, dir)
    local i;
 
    /shift := 0;
@@ -198,7 +198,7 @@ end
 #  to add at the left, right, top, and bottom, respectively.  c specifies
 #  the color of the border, "0" for white, "1" for black.
 
-procedure imxborder(rows, l, r, t, b, c);
+procedure imxborder(rows, l, r, t, b, c)
    local i, row, left, right;
 
    /l := 1;
@@ -230,7 +230,7 @@ end
 #  Crop a image matrix.  l, r, t, and b specify the number of bits
 #  to crop at the left, right, top, and bottom, respectively.
 
-procedure imxcrop(rows, l, r, t, b);
+procedure imxcrop(rows, l, r, t, b)
    local i;
 
    /l := 0;
@@ -262,7 +262,7 @@ end
 #  If choice is "o" or null, odd-numbered rows or columns are kept;
 #  if "e", the even-numbered ones.
 
-procedure imxhalve(rows, dir, choice);
+procedure imxhalve(rows, dir, choice)
    local newrows, i;
 
    choice := if choice === ("o" | &null) then 1 else 0;
@@ -287,7 +287,7 @@ end
 #  done both horizontally and vertically.  If dir is "v", it's only done
 #  vertically, while if dir is "h", it's done only horizontally.
 
-procedure imxdouble(rows, dir);
+procedure imxdouble(rows, dir)
    local row, newrows;
 
    newrows := [];
@@ -315,7 +315,7 @@ end
 #  right corner; the right diagonal from the upper right to the lower
 #  left.
 
-procedure imxflip(rows, dir);
+procedure imxflip(rows, dir)
    local newrows, x, y, i;
 
    case dir of {
@@ -352,7 +352,7 @@ end
 #
 #  Invert white and black bits in image matrix specification
 
-procedure imxinvert(rows);
+procedure imxinvert(rows)
    local i;
 
    every i := 1 to *rows do
@@ -368,7 +368,7 @@ end
 #  for operating on and/or producing image matrices that are not square.
 
 
-procedure imxminim(rows);
+procedure imxminim(rows)
    local halfw, halfh, i;
 
    if (*rows ~= *rows[1]) | (*rows % 2 ~= 0) then return rows;
@@ -400,7 +400,7 @@ end
 #  90 degrees clockwise; if "ccw" or "-90", 90 degrees counter-clockwise.
 #  If dir is "180", rotation is 180 degrees.  The default is "cw".
 
-procedure imxrotate(rows, dir);
+procedure imxrotate(rows, dir)
    local newrows, i, row, pix;
 
    /dir := "cw";
@@ -436,7 +436,7 @@ end
 #
 #  Trim border whitespace from image matrix
 
-procedure imxtrim(rows);
+procedure imxtrim(rows)
 
    while (*rows > 4) & not(upto('1', rows[1])) do
       get(rows);
@@ -459,7 +459,7 @@ end
 #
 #  Centers non-white portion of image matrix
 
-procedure imxcenter(rows, w, h);
+procedure imxcenter(rows, w, h)
    local rw, rh, vert, horz, t, l;
 
    rows := imxtrim(rows);
@@ -481,7 +481,7 @@ end
 
 #  Create a blank i-by-j image matrix
 
-procedure imxcreate(i, j);
+procedure imxcreate(i, j)
 
    return list(i, repl("0", j));
 

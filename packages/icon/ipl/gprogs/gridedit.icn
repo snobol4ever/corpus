@@ -30,7 +30,7 @@
 
 link tieedit
 
-procedure main(args);
+procedure main(args)
 
    grid_init();
 
@@ -41,7 +41,7 @@ procedure main(args);
 
 end
 
-procedure ready();
+procedure ready()
 
    grid_state := &null;
 

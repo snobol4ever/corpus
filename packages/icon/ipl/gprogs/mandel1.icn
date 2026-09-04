@@ -34,7 +34,7 @@
 
 link wopen
 
-procedure main();
+procedure main()
    local size, real_size, i, j, c1, c2, x, y, n, x1, y1, limit, extent;
 
    size := 300;

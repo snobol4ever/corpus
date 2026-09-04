@@ -37,7 +37,7 @@ global target
 global vidgets
 global width
 
-procedure main();
+procedure main()
 
    vidgets := ui();
 
@@ -48,7 +48,7 @@ procedure main();
 
 end
 
-procedure file_cb(vidget, value);
+procedure file_cb(vidget, value)
 
    case value[1] of {
       "open  @O"  :  open_image();
@@ -60,7 +60,7 @@ procedure file_cb(vidget, value);
 
 end
 
-procedure parameter_cb(vidget, value);
+procedure parameter_cb(vidget, value)
 
    case value[1] of {
       "direction  @D"  :  set_direction();
@@ -71,7 +71,7 @@ procedure parameter_cb(vidget, value);
 
 end
 
-procedure tile_cb();
+procedure tile_cb()
    local incr, i, j, offset;
 
    if /subject then {
@@ -116,7 +116,7 @@ procedure tile_cb();
 
 end
 
-procedure set_direction();
+procedure set_direction()
 
    repeat {
       if SelectDialog("Direction", ["vertical", "horizontal"], direction) ==
@@ -128,7 +128,7 @@ procedure set_direction();
 
 end
 
-procedure set_factor();
+procedure set_factor()
 
    repeat {
       if TextDialog("Offset factor", , factor) == "Cancel" then fail;
@@ -142,7 +142,7 @@ procedure set_factor();
 
 end
 
-procedure check_parameters();
+procedure check_parameters()
 
    case direction of {
       "vertical"    :  {
@@ -171,7 +171,7 @@ procedure check_parameters();
 
 end
 
-procedure shortcuts(e);
+procedure shortcuts(e)
 
    if &meta then case map(e) of {
       "d"  :  set_direction();
@@ -186,7 +186,7 @@ procedure shortcuts(e);
 
 end
 
-procedure open_image();
+procedure open_image()
 
    repeat {
       if OpenDialog("Open image:") == "Cancel" then fail;
@@ -204,7 +204,7 @@ procedure open_image();
 
 end
 
-procedure save_tile();
+procedure save_tile()
    local file;
 
    repeat {
@@ -223,11 +223,11 @@ procedure save_tile();
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=200,165", "bg=pale gray"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,200,165:",],
    ["file:Menu:pull::0,0,36,21:File",file_cb,

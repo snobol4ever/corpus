@@ -51,7 +51,7 @@
 #
 ############################################################################
 
-procedure NumberOfDays(sMonth, iDay, iYear);
+procedure NumberOfDays(sMonth, iDay, iYear)
 
 	static	LMonths;
 	static	LDays;
@@ -147,7 +147,7 @@ end
 #
 ############################################################################
 
-procedure CaselessMatch(s1, s2, i1, i2);
+procedure CaselessMatch(s1, s2, i1, i2)
 
 	s1 := map(string(s1));
 	/i1 := (/s2 & &pos);
@@ -172,7 +172,7 @@ end
 #
 ############################################################################
 
-procedure Usage(fErrout, iStatus);
+procedure Usage(fErrout, iStatus)
 
 	/fErrout := &errout;
 	iStatus := (integer(iStatus) | 1);
@@ -197,7 +197,7 @@ end
 #
 ############################################################################
 
-procedure main(LArguments);
+procedure main(LArguments)
 
 	local	sArgument;
 	local	sMonth;

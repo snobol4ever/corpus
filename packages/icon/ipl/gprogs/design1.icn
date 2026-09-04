@@ -29,7 +29,7 @@
 
 link wopen
 
-procedure main(argl);
+procedure main(argl)
    local i, j, k, angle, incr, xpoint, ypoint, size, radius, xc, yc;
 
    i := integer(argl[1]) | 20;
@@ -54,7 +54,7 @@ procedure main(argl);
 
 end
 
-procedure spokes(x, y, r, i, angle);
+procedure spokes(x, y, r, i, angle)
    local incr, j;
 
    incr := 2 * &pi / i;

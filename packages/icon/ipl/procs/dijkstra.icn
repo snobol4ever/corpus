@@ -121,7 +121,7 @@
 # Produces a set of the indices of all the guard expressions in exp.
 #
 ############################################################################
-procedure __Dijkstra_guard_index_set(exp);
+procedure __Dijkstra_guard_index_set(exp)
    local result;
 
    result := set();
@@ -167,7 +167,7 @@ $ifdef TEST
 # Dijkstra version of the familiar Euclidean algorithm for gcd.
 #
 ############################################################################
-procedure gcd(x, y);
+procedure gcd(x, y)
 
    # Use static variables so that co-expressions can share them
    static lx, ly;
@@ -187,7 +187,7 @@ procedure gcd(x, y);
 
 end     # gcd
 
-procedure main(arg);
+procedure main(arg)
 
    local a, b;
 

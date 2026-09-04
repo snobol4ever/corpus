@@ -30,7 +30,7 @@ link patxform
 
 record analysis(rows, sequence, patterns)
 
-procedure main();
+procedure main()
    local threading, treadling, rows, columns,  pattern, i;
    local symbols, symbol, tieup, line;
 
@@ -88,7 +88,7 @@ procedure main();
 
 end
 
-procedure analyze(drawdown);
+procedure analyze(drawdown)
    local sequence, rows, row, count, patterns;
 
    sequence := [];

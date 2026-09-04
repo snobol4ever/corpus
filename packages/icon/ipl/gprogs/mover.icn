@@ -33,7 +33,7 @@ global names
 global root
 global vidgets
 
-procedure main();
+procedure main()
 
    init();
 
@@ -41,7 +41,7 @@ procedure main();
 
 end
 
-procedure init();
+procedure init()
 
    vidgets := ui();
 
@@ -53,7 +53,7 @@ procedure init();
 end
 
 
-procedure file_cb(vidget, value);
+procedure file_cb(vidget, value)
 
    case value[1] of {
       "quit  @Q":  exit()
@@ -61,7 +61,7 @@ procedure file_cb(vidget, value);
 
 end
 
-procedure names_cb(vidget, value, x); 
+procedure names_cb(vidget, value, x) 
 
    if /value then return;		# ignore unselect
 
@@ -77,16 +77,16 @@ procedure names_cb(vidget, value, x);
 
 end
 
-procedure shortcuts();
+procedure shortcuts()
 
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=600,400", "bg=gray-white"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,600,400:",],
    ["file:Menu:pull::0,1,36,21:File",file_cb,

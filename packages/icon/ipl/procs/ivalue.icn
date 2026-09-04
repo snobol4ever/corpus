@@ -96,7 +96,7 @@ procedure ivalue(___s___);			#: convert string to Icon value
 
 end
 
-procedure struct___(s);
+procedure struct___(s)
    local type_, size, name, x;
 
    s ? {

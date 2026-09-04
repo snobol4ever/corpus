@@ -2,7 +2,7 @@
 #     Original: Gregg Townsend & Todd Proebsting, Arizona. See COPYRIGHT in this dir.
 #  interfacegen.icn -- utility to create bytecode emitter routines
 
-procedure main();
+procedure main()
     write("#  AUTOMATICALLY GENERATED FILE -- DO NOT EDIT!");
     keywords();
     operators();
@@ -11,7 +11,7 @@ procedure main();
     fieldrefs();
 end
 
-procedure keywords();
+procedure keywords()
     local keys, t, i;
 
     keys := [
@@ -87,7 +87,7 @@ procedure keywords();
     write("end");
 end
 
-procedure operators();
+procedure operators()
     local o, ops, signature;
 
     ops := [
@@ -164,7 +164,7 @@ procedure operators();
 		       "jcon/iTrampoline", "trampoline");
 end
 
-procedure op_methodrefs(ops, fn, prefix, ty, trampoline);
+procedure op_methodrefs(ops, fn, prefix, ty, trampoline)
     local o;
 
     write("procedure bc_", fn, "(c, name, arity, rval)");
@@ -179,7 +179,7 @@ procedure op_methodrefs(ops, fn, prefix, ty, trampoline);
     write("end");
 end
 
-procedure op_select(o, prefix, ty);
+procedure op_select(o, prefix, ty)
     local signature;
 
 	writes("\tif ",
@@ -215,7 +215,7 @@ procedure op_select(o, prefix, ty);
 	write();
 end
 
-procedure methodrefs();
+procedure methodrefs()
     local m, def, i, args;
 
     m := [
@@ -332,7 +332,7 @@ procedure methodrefs();
     write("end");
 end
 
-procedure methods();
+procedure methods()
     local i;
 
     write("procedure bc_CallN_method(c, N)");
@@ -360,7 +360,7 @@ procedure methods();
     write("end");
 end
 
-procedure fieldrefs();
+procedure fieldrefs()
     local f, def;
 
     f := [
@@ -377,7 +377,7 @@ procedure fieldrefs();
     every gen_procedure(!f, def, "fieldref");
 end
 
-procedure gen_procedure(i, def, suffix);
+procedure gen_procedure(i, def, suffix)
     writes("procedure bc_", i[4] | i[1], "_", suffix, "(c");
     if /i[2] then writes(", ", def[2]);
     if /i[3] then writes(", ", def[3]);

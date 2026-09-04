@@ -52,12 +52,12 @@ link bkutil
 
 record pbk_id(releaseNum,fileType)
 
-procedure pbk_write_id(f);
+procedure pbk_write_id(f)
    writes(f,"\xfe\xff\x01\x00\x03");
    return;
 end
 
-procedure pbk_read_id(f);
+procedure pbk_read_id(f)
    bk_read_int(f) = 16rfffe | fail;
    return pbk_id(bk_read_int(f),ord(reads(f)));
 end
@@ -86,7 +86,7 @@ end
 # 
 record pbk_data(name,number,address)
 
-procedure pbk_write_data(f,data);
+procedure pbk_write_data(f,data)
    local name,number,address;
    name := \data.name | "";
    number := \data.number | "";
@@ -96,7 +96,7 @@ procedure pbk_write_data(f,data);
    return data;
 end
 
-procedure pbk_read_data(f,id);
+procedure pbk_read_data(f,id)
    local next_rec,name_len,number_len,address_len,data;
    (reads(f) == "\x01" | (seek(f,where(f) - 1),&fail) &
    next_rec := bk_read_int(f) + where(f) &
@@ -117,12 +117,12 @@ end
 # 0                RecordType     char      2 (02h)
 # 1                RecordLength   int       0 (00h, 00h)
 # 
-procedure pbk_write_end(f);
+procedure pbk_write_end(f)
    writes(f,"\x02\x00\x00");
    return;
 end
 
-procedure pbk_read_end(f,id);
+procedure pbk_read_end(f,id)
    (reads(f) == "\x02" & reads(f,2)) | fail;
    return;
 end

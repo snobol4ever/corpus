@@ -100,7 +100,7 @@ global EvMux_Windows
 
 ## sensor(win, ev, proc, arg, x, y, w, h) -- register an event responder.
 
-procedure sensor(win, ev, proc, arg, x, y, w, h);
+procedure sensor(win, ev, proc, arg, x, y, w, h)
    local evlist, r, e;
 
    /EvMux_Windows := table();
@@ -128,7 +128,7 @@ end
 
 ## delsensor(win, x) -- delete sensor x, or all sensors, from window.
 
-procedure delsensor(win, x);
+procedure delsensor(win, x)
    local t;
 
    t := \EvMux_Windows[win] | fail;
@@ -162,7 +162,7 @@ end
 #  Internally, *all* events are single-character strings, and mouse & resizing
 #  events are mapped into characters that are never returned as keypress events.
 
-procedure evchar(s);
+procedure evchar(s)
    return case s of {
       &lpress:    "\237";	# mouse button 1 down
       &mpress:    "\236";	# mouse button 2 down
@@ -183,12 +183,12 @@ end
 ## evhandle(win) -- wait for the next event, and handle it.
 #		    produce result of the handler proc; fail if nobody handles.
 
-procedure evmux(win);
+procedure evmux(win)
    repeat
       evhandle(win);
 end
 
-procedure evhandle(win);
+procedure evhandle(win)
    local x, y, ev, e, r, t;
 
    t := (\EvMux_Windows)[win] | stop("no events registered for window");
@@ -215,14 +215,14 @@ end
 #
 #  checks that (x, y) are within the bounds of (r.x, r.y, r.w, r.h).
 
-procedure ontarget(r, x, y);
+procedure ontarget(r, x, y)
    return (x -:= r.x) >= 0 & x < r.w & (y -:= r.y) >= 0 & y < r.h;
 end
 
 
 ## quitsensor(win, wait) -- standardized "quit" sensor
 
-procedure quitsensor(win, wait);
+procedure quitsensor(win, wait)
    sensor(win, 'qQ', argless, exit);
    if \wait then evmux(win);
    return;
@@ -231,6 +231,6 @@ end
 
 ## argless(win, proc) -- call proc with no arguments.
 
-procedure argless(win, proc);
+procedure argless(win, proc)
    return proc();
 end

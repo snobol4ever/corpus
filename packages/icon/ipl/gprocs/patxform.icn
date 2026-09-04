@@ -110,7 +110,7 @@ end
 #
 #  Concatenate patterns pattern style
 
-procedure pcatenp(rows1, rows2, dir);
+procedure pcatenp(rows1, rows2, dir)
    local rows, i;
 
    if (*rows1 ~= *rows2) | (*rows1[1] ~= *rows2[1]) then

@@ -144,7 +144,7 @@ end
 
 #  PS_swap() -- swap local functions for the real versions
 
-procedure PS_swap();
+procedure PS_swap()
    PS_attrib :=: WAttrib;
    PS_bg :=: Bg;
    PS_clip :=: Clip;
@@ -170,12 +170,12 @@ end
 
 #  PS_init(w, f) -- initialize recording system
 
-procedure PS_init(a[]);
+procedure PS_init(a[])
    if /PS_active then PSStart ! a;
    return;
 end
 
-procedure PSStart(a[]);
+procedure PSStart(a[])
 local fname, scale, psw, psh, llx, lly;
 
    if \PS_active then PSDone();
@@ -271,7 +271,7 @@ end
 
 #  PS_out(s, s, ...) -- output strings to PS file, with spaces between
 
-procedure PS_out(a[]);
+procedure PS_out(a[])
    if /a[1] then
       return;
    writes(PS_f, get(a));
@@ -282,7 +282,7 @@ end
 
 #  PS_path(a, s) -- output path from a[2..*] followed by command s
 
-procedure PS_path(a, s);
+procedure PS_path(a, s)
    local i;
 
    PS_out(a[2], a[3], "m");
@@ -294,7 +294,7 @@ end
 
 #  PS_afix(a) -- fix arg list to ensure that first arg is a window
 
-procedure PS_afix(a);
+procedure PS_afix(a)
    if not (type(a[1]) == "window") then
       push(a, &window);
    return a;

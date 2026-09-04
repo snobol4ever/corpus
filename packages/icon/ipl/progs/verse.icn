@@ -35,7 +35,7 @@ global nouns,nounp,adjt,advb,more,most,ivpre,ivpas,tvpre,tvpas,prep
 global being,art,ques,cond,nompro,punc,noun1,noun2,tv,iv,adjv,prpo
 global be,pun,pron,con,ar,tnnum,tadjno,ttvnum,tprnum,cls,name,watch
 
-procedure main(param);
+procedure main(param)
   local in, part, line, tmp, reply, Out, In, t;
 
   randomize();
@@ -195,7 +195,7 @@ while map(reply) ~== "q" do
 
 ############################################################################
 
-procedure aoran(word);
+procedure aoran(word)
   local vowels;
 
   vowels := 'AEIOU';
@@ -205,13 +205,13 @@ end
 
 ############################################################################
 
-procedure clrvdu();
+procedure clrvdu()
   writes(cls);
 end
 
 ############################################################################
 
-procedure gerund(word);
+procedure gerund(word)
   static vowel;
   initial vowel := 'AEIOU';
   if word[-1] == "E" then word[-1] := "";
@@ -220,7 +220,7 @@ end
 
 ############################################################################
 
-procedure title(a);
+procedure title(a)
 
     local text;
 
@@ -239,7 +239,7 @@ end
 
 ############################################################################
 
-procedure form1();
+procedure form1()
   local text, n, prefix;
   n := 1;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -248,7 +248,7 @@ procedure form1();
   return(text);
 end
 
-procedure form2();
+procedure form2()
   local text, n, prefix;
   n := 2;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -257,7 +257,7 @@ procedure form2();
   return(text);
 end
 
-procedure form3();
+procedure form3()
   local text, n, prefix;
   n := 3;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -266,7 +266,7 @@ procedure form3();
   return(text);
 end  
 
-procedure form4();
+procedure form4()
   local text, n, prefix;
   n := 4;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -275,7 +275,7 @@ procedure form4();
   return(text);
 end
 
-procedure form5();
+procedure form5()
   local text, n, prefix;
   n := 5;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -284,7 +284,7 @@ procedure form5();
   return(text);
 end
 
-procedure form6();
+procedure form6()
   local text, n, prefix;
   n := 6;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -293,7 +293,7 @@ procedure form6();
   return(text);
 end
 
-procedure form7();
+procedure form7()
   local text, n, prefix;
   n := 7;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -303,7 +303,7 @@ procedure form7();
   return(text);
 end
 
-procedure form8();
+procedure form8()
   local text, n, prefix;
   n := 8;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -313,7 +313,7 @@ procedure form8();
   return(text);
 end
 
-procedure form9();
+procedure form9()
   local text, n, prefix;
   n := 9;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -323,7 +323,7 @@ procedure form9();
   return(text);
 end
 
-procedure form10();
+procedure form10()
   local text, n, prefix;
   n := 10;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -332,7 +332,7 @@ procedure form10();
   return(text);
 end
 
-procedure form11();
+procedure form11()
   local text, n, prefix;
   n := 11;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -341,7 +341,7 @@ procedure form11();
   return(text);
 end
 
-procedure form12();
+procedure form12()
   local text, n, prefix;
   n := 12;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -350,7 +350,7 @@ procedure form12();
   return(text);
 end
 
-procedure form13();
+procedure form13()
   local text, n, prefix;
   n := 13;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -360,7 +360,7 @@ procedure form13();
   return(text);
 end
 
-procedure form14();
+procedure form14()
   local text, n, prefix;
   n := 14;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -369,7 +369,7 @@ procedure form14();
   return(text);
 end
 
-procedure form15();
+procedure form15()
   local text, n, prefix;
   n := 15;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -378,7 +378,7 @@ procedure form15();
   return(text);
 end
 
-procedure form16();
+procedure form16()
   local text, n, prefix;
   n := 16;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -386,7 +386,7 @@ procedure form16();
   return(text);
 end
 
-procedure form17();
+procedure form17()
   local text, n, prefix;
   n := 17;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -395,7 +395,7 @@ procedure form17();
   return(text);
 end
 
-procedure form18();
+procedure form18()
   local text, n, prefix;
   n := 18;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -404,7 +404,7 @@ procedure form18();
   return(text);
 end
 
-procedure form19();
+procedure form19()
   local text, n, prefix;
   n := 19;
   if watch=="true" then prefix := "(" || n || ") " else prefix := "";
@@ -415,7 +415,7 @@ end
 
 ############################################################################
        
-procedure parse(line,delims);  
+procedure parse(line,delims)  
   static chars;
   local tokens;
 
@@ -425,7 +425,7 @@ procedure parse(line,delims);
   return tokens;
   end
 
-procedure loadrest();
+procedure loadrest()
   art   := ["ITS" , "THIS" , "SOME", "ANY" , "ONE" , "THAT" ,
             "ITS" , "MY" , "YOUR" , "OUR"];
 

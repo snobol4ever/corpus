@@ -53,7 +53,7 @@ link options
 
 global decls
 
-procedure main(args);
+procedure main(args)
    local line, opts, limit, delcomp;
 
    opts := options(args, "d+l+");
@@ -84,7 +84,7 @@ end
 
 #  Save a declaration line.
 
-procedure declare(line);
+procedure declare(line)
 
    put(decls, line);
 
@@ -94,7 +94,7 @@ end
 
 #  Produce code to just evaluate an expression.
 
-procedure evaluate(expr);
+procedure evaluate(expr)
 
    write("   ", expr);
 
@@ -104,7 +104,7 @@ end
 
 #  Produce code to evaluate an expression in a loop and time it.
 
-procedure timeloop(expr);
+procedure timeloop(expr)
 
    write("   write(", image(expr), ")");
    write("   _Itime := &time");

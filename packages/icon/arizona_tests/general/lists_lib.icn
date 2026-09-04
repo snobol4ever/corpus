@@ -780,7 +780,7 @@ procedure l_upto(l1,l2,i,j);		#: upto() for list scanning
     
 end
 
-procedure lblock(L1, L2);
+procedure lblock(L1, L2)
    local L3, i, j;
 
    if *L1 < *L2 then L1 := lextend(L1, *L2) | fail

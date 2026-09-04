@@ -39,7 +39,7 @@ record hvcrec(h, v, c)
 global settings, colr, sl, win
 global w, h, m
 
-procedure main(args);
+procedure main(args)
    local opts, cwin, ww, hh;
 
    win := Window("size=300,250", "font=Helvetica,bold,14", args);

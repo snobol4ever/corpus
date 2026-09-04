@@ -27,7 +27,7 @@
 
 link numbers
 
-procedure main();
+procedure main()
    local total, chaff, code, line;
 
    total := chaff := 0;

@@ -71,7 +71,7 @@ link random
 
 global r, k, lp, rp
 
-procedure main(args);
+procedure main(args)
    local string, i, s, bound, limit, varying, opts;
 
    randomize();
@@ -100,18 +100,18 @@ procedure main(args);
       };
 end
 
-procedure Open();
+procedure Open()
    r +:= 1;
    k -:= 1;
    return lp;
 end
 
-procedure Close();
+procedure Close()
    r -:= 1;
    k -:= 1;
    return rp;
 end
 
-procedure probClose();
+procedure probClose()
    return ((r * (r + k + 2)) / (2.0 * k * (r + 1)));
 end

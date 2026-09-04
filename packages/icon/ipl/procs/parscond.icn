@@ -26,7 +26,7 @@
 #
 ############################################################################
 
-procedure parscond(R);
+procedure parscond(R)
    local result, x;
 
    result := "";

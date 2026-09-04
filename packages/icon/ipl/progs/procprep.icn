@@ -20,7 +20,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
    local files, file, input, line, prefix;
 
    files := open("ls [a-z]*.icn", "p");

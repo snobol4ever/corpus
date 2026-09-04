@@ -77,13 +77,13 @@ link bkutil, pbkform
 # 2                ReleaseNum      int      1 (01h, 00h)
 # 4                FileType        char     1 (01h) 
 # 
-procedure abk_write_id(f);
+procedure abk_write_id(f)
    return writes(f,"\xff\xff\x01\x00\x01");
 end
 
 record abk_id(releaseNum,filetype)
 
-procedure abk_read_id(f);
+procedure abk_read_id(f)
    bk_read_int(f) = 16rffff | fail;
    return pbk_id(bk_read_int(f),ord(reads(f)));
 end
@@ -104,12 +104,12 @@ end
 #
 record abk_settings(startTime,granularity,alarmEnable,leadTime,carryForward)
 
-procedure abk_write_settings(f,data);
+procedure abk_write_settings(f,data)
    return writes(f,bk_int(data.startTime),bk_int(data.granularity),
       char(data.alarmEnable), char(data.leadTime),char(data.carryForward));
 end
 
-procedure abk_read_settings(f);
+procedure abk_read_settings(f)
    return abk_settings(bk_read_int(f),bk_read_int(f),ord(reads(f)),
 	 ord(reads(f)),ord(reads(f)));
 end
@@ -141,7 +141,7 @@ end
 record abk_daily(alarmEnable,year,month,day,startTime,endTime,leadTime,
       apptText,noteText)
 
-procedure abk_write_daily(f,data);
+procedure abk_write_daily(f,data)
       writes(char((\data.alarmEnable,1) | 0),
 	    char(data.year),char(data.month),char(data.day),
 	    bk_int(data.startTime),bk_int(data.endTime),bk_int(data.leadTime),
@@ -149,7 +149,7 @@ procedure abk_write_daily(f,data);
       return data;
 end
 
-procedure abk_read_daily(f);
+procedure abk_read_daily(f)
    local alarmEnable,year,month,day,startTime,endTime,leadTime,
 	 apptText,noteText,apptLength,noteLength,next_rec;
    (reads(f) == "\x01" | (seek(f,where(f) - 1),&fail) &
@@ -199,7 +199,7 @@ end
 record abk_weekly(alarmEnable,dayOfWeek,startTime,startYear,startMonth,startDay,
       endTime,endYear,endMonth,endDay,leadTime,apptText,noteText)
 
-procedure abk_write_weekly(f,data);
+procedure abk_write_weekly(f,data)
       writes(char((\data.alarmEnable,1) | 0),
 	    char(data.dayOfWeek),
 	    bk_int(data.startTime),char(data.startYear),
@@ -211,7 +211,7 @@ procedure abk_write_weekly(f,data);
       return data;
 end
 
-procedure abk_read_weekly(f);
+procedure abk_read_weekly(f)
    local alarmEnable,dayOfWeek,startTime,startYear,startMonth,startDay,
 	 endTime,endYear,endMonth,endDay,leadTime,apptLength,noteLength,
 	 apptText,noteText,next_rec;
@@ -267,7 +267,7 @@ end
 record abk_monthly(alarmEnable,dayOfMonth,startTime,startYear,startMonth,
       startDay,endTime,endYear,endMonth,endDay,leadTime,apptText,noteText)
 
-procedure abk_write_monthly(f,data);
+procedure abk_write_monthly(f,data)
       writes(char((\data.alarmEnable,1) | 0),
 	    char(data.dayOfMonth),
 	    bk_int(data.startTime),char(data.startYear),
@@ -279,7 +279,7 @@ procedure abk_write_monthly(f,data);
       return data;
 end
 
-procedure abk_read_monthly(f);
+procedure abk_read_monthly(f)
    local alarmEnable,dayOfMonth,startTime,startYear,startMonth,startDay,
 	 endTime,endYear,endMonth,endDay,leadTime,apptLength,noteLength,
 	 apptText,noteText,next_rec;
@@ -336,7 +336,7 @@ record abk_monthly_pos(alarmEnable,weekOfMonth,dayOfWeek,startTime,startYear,
       startMonth,startDay,endTime,endYear,endMonth,endDay,leadTime,
       apptText,noteText)
 
-procedure abk_write_monthly_pos(f,data);
+procedure abk_write_monthly_pos(f,data)
       writes(char((\data.alarmEnable,1) | 0),
 	    char(data.weekOfMonth),
 	    char(data.dayOfWeek),
@@ -349,7 +349,7 @@ procedure abk_write_monthly_pos(f,data);
       return data;
 end
 
-procedure abk_read_monthly_pos(f);
+procedure abk_read_monthly_pos(f)
    local alarmEnable,weekOfMonth,dayOfWeek,startTime,startYear,startMonth,
 	 startDay,endTime,endYear,endMonth,endDay,leadTime,apptLength,noteLength,
 	 apptText,noteText,next_rec;
@@ -408,7 +408,7 @@ record abk_yearly(alarmEnable,monthOfYear,dayOfMonth,startTime,startYear,
       startMonth,startDay,endTime,endYear,endMonth,endDay,leadTime,
       apptText,noteText)
 
-procedure abk_write_yearly(f,data);
+procedure abk_write_yearly(f,data)
       writes(char((\data.alarmEnable,1) | 0),
 	    char(data.monthOfYear),
 	    char(data.dayOfMonth),
@@ -421,7 +421,7 @@ procedure abk_write_yearly(f,data);
       return data;
 end
 
-procedure abk_read_yearly(f);
+procedure abk_read_yearly(f)
    local alarmEnable,monthOfYear,dayOfMonth,startTime,startYear,startMonth,
 	 startDay,endTime,endYear,endMonth,endDay,leadTime,apptLength,noteLength,
 	 apptText,noteText,next_rec;
@@ -478,7 +478,7 @@ end
 record abk_todo(carryForward,checkOff,priority,startYear,startMonth,
       startDay,CheckOffYear,CheckOffMonth,CheckOffDay,toDoText,toDoNote)
 
-procedure abk_write_todo(f,data);
+procedure abk_write_todo(f,data)
       writes(char(ior((\data.carryForward,1) | 0,(\data.checkOff,2) | 0)),
 	    char(data.priority),
 	    char(data.startYear),
@@ -489,7 +489,7 @@ procedure abk_write_todo(f,data);
       return data;
 end
 
-procedure abk_read_todo(f);
+procedure abk_read_todo(f)
    local carryForward,checkOff,priority,startYear,startMonth,
 	 startDay,CheckOffYear,CheckOffMonth,CheckOffDay,toDoLength,noteLength,
 	 toDoText,toDoNote,toDoState,next_rec;
@@ -521,12 +521,12 @@ end
 # 0                RecordType      char     50 (32h)
 # 1                RecordLength    int      0 (00h, 00h)
 #
-procedure abk_write_end(f);
+procedure abk_write_end(f)
    writes(f,"\x32\x00\x00");
    return;
 end
 
-procedure abk_read_end(f,id);
+procedure abk_read_end(f,id)
    (reads(f) == "\x32" & reads(f,2)) | fail;
    return;
 end

@@ -1,5 +1,5 @@
 global s
-procedure main();
+procedure main()
    &trace := -1;
    s := "abcdef";
    &subject := "123456";
@@ -12,7 +12,7 @@ procedure main();
    write(&level);
 end
 
-procedure tracer(a);
+procedure tracer(a)
    local i;
    static j;
    i := 2;
@@ -25,6 +25,6 @@ procedure tracer(a);
       s[3] | s[3:5] | &random[1] | &trace[1] | &subject[2:5][1]);
 end
 
-procedure foo(s);
+procedure foo(s)
    return s;
 end

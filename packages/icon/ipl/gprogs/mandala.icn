@@ -40,7 +40,7 @@ link joinpair
 link options
 link wopen
 
-procedure main(args);
+procedure main(args)
    local i, j, k, angle, incr, xpoint, ypoint, size, radius, opts;
    local extent, max, limit, run, points;
 

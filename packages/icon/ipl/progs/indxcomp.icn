@@ -59,7 +59,7 @@
 #
 ############################################################################
 
-procedure main();
+procedure main()
    local index, page, line, lines, temp1, temp2, x, xcase;
    local lline;
 

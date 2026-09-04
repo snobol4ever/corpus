@@ -20,7 +20,7 @@
 #
 ############################################################################
 
-procedure patword(s);
+procedure patword(s)
     local numbering, orderS, orderset, patlbls;
     static labels, revnum;
 

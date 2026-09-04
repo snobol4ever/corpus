@@ -41,7 +41,7 @@ procedure stypes(X, ref);		#: types of structure elements
 
 end
 
-procedure homogeneous(X, ref);
+procedure homogeneous(X, ref)
 
    if *stypes(X, ref) = 1 then return else fail;
 

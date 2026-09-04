@@ -20,7 +20,7 @@
 #  with default value &null.
 #
 
-procedure inserts(tabl,key,value);
+procedure inserts(tabl,key,value)
    (/tabl[key] := [value]) | put(tabl[key],value);
    return tabl;
 end

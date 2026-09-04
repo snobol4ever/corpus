@@ -30,7 +30,7 @@
 
 link basename
 
-procedure main(args);
+procedure main(args)
    local ID, line, terminator, key, f, fin, here;
 
    ID := "@(#)what.icn (1.0) - plt - 2 May, 96";

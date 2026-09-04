@@ -82,7 +82,7 @@ global nchars			# characters allowed in a nonterminal name
 global procend			# name suffix and parens
 global sym			# current nonterminal symbol
 
-procedure main(args);
+procedure main(args)
    local line;			# a line of input
 
    declend := "__";
@@ -114,7 +114,7 @@ end
 #  Transform a production.
 #
 
-procedure transprod();
+procedure transprod()
 
    {
       sym := tab(many(nchars)) &	# get the nonterminal name
@@ -136,7 +136,7 @@ end
 #
 #  Transform a sequence of alternatives.
 #
-procedure transalts();
+procedure transalts()
    local alt;				# an alternative
 
    while alt := tab(bal('|') | 0) do {	# process alternatives
@@ -155,7 +155,7 @@ end
 #
 #  Transform a sequence of symbols.
 #
-procedure transseq();
+procedure transseq()
 
    repeat {
       transsym();  # process a symbols
@@ -170,7 +170,7 @@ end
 #
 #  Transform a symbol.
 #
-procedure transsym();
+procedure transsym()
    local group;
 
    if ="<" then {			# if it's a nonterminal
@@ -197,7 +197,7 @@ end
 #
 #  Issue error message and terminate execution.
 #
-procedure error();
+procedure error()
 
    stop("*** malformed definition: ",tab(0));
 

@@ -118,7 +118,7 @@ global nav_state
 global nav_vidgets
 global nav_window
 
-procedure nav_init();
+procedure nav_init()
    local window_save, atts;
 
    window_save := &window;		# save current subject window
@@ -141,7 +141,7 @@ procedure nav_init();
 
 end
 
-procedure nav_files_cb(vidget, value);
+procedure nav_files_cb(vidget, value)
    static last_file, last_time;
 
    initial {
@@ -175,7 +175,7 @@ procedure nav_files_cb(vidget, value);
 
 end
 
-procedure nav_refresh();
+procedure nav_refresh()
    local ls, input;
    static x, y;
 
@@ -208,7 +208,7 @@ procedure nav_refresh();
 
 end
 
-procedure nav_okay_cb();
+procedure nav_okay_cb()
 
    if /nav_file then {
       Notice("No file selected.");
@@ -221,7 +221,7 @@ procedure nav_okay_cb();
 
 end
 
-procedure nav_keyboard(e);
+procedure nav_keyboard(e)
 
    case e of {
       "\r"      :  nav_okay_cb();
@@ -234,7 +234,7 @@ procedure nav_keyboard(e);
 
 end
 
-procedure nav_locate(e);
+procedure nav_locate(e)
    local i;
    static pos;
 
@@ -252,7 +252,7 @@ procedure nav_locate(e);
 
 end
 
-procedure nav_cancel_cb();
+procedure nav_cancel_cb()
 
    nav_state := "Cancel";
 
@@ -261,11 +261,11 @@ procedure nav_cancel_cb();
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure navig_atts();
+procedure navig_atts()
    return ["size=294,412", "bg=pale gray", "label=Navitrix"];
 end
 
-procedure navig(win, cbk);
+procedure navig(win, cbk)
 return vsetup(win, cbk,
    ["navig:Sizer:::0,0,294,412:Navitrix",],
    ["cancel:Button:regular::86,378,49,20:Cancel",nav_cancel_cb],

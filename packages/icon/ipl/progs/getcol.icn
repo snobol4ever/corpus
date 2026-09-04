@@ -29,7 +29,7 @@
 
 link options
 
-procedure main(args);
+procedure main(args)
    local i, chars, col, line, opts;
 
    opts := options(args, "n+c:");

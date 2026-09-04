@@ -43,7 +43,7 @@ global vidgets			# table of vidgets
 
 
 
-procedure main();
+procedure main()
 
    vidgets := ui();
 
@@ -60,7 +60,7 @@ procedure main();
 
 end
 
-procedure continuous_cb(vidget, value);
+procedure continuous_cb(vidget, value)
 
    if \value then VSetFilter(gamma_vidget, &null) else
       VSetFilter(gamma_vidget, "1");
@@ -69,7 +69,7 @@ procedure continuous_cb(vidget, value);
 
 end
 
-procedure file_cb(vidget, value);
+procedure file_cb(vidget, value)
 
    case value[1] of {
       "load @L" :  load_image();
@@ -81,7 +81,7 @@ procedure file_cb(vidget, value);
 
 end
 
-procedure gamma_cb(vidget, value);
+procedure gamma_cb(vidget, value)
 
    set_gamma(10.0 ^ value);
 
@@ -89,7 +89,7 @@ procedure gamma_cb(vidget, value);
 
 end
 
-procedure load_image();
+procedure load_image()
 
    WClose(\pane);
 
@@ -107,13 +107,13 @@ procedure load_image();
 
 end
 
-procedure reset_cb();
+procedure reset_cb()
 
    set_gamma(default_gamma);
 
 end
 
-procedure save_image();
+procedure save_image()
 
    WAttrib(\pane, "gamma=" || default_gamma) | {
       Notice("No image loaded.");
@@ -126,7 +126,7 @@ procedure save_image();
 
 end
 
-procedure set_cb();
+procedure set_cb()
 
    repeat {
       if OpenDialog("Set gamma value:", gamma, 10) == "Cancel" then fail;
@@ -142,7 +142,7 @@ procedure set_cb();
 
 end
 
-procedure set_gamma(value);
+procedure set_gamma(value)
 
    gamma := value;
 
@@ -156,7 +156,7 @@ procedure set_gamma(value);
 
 end
 
-procedure shortcuts(value);
+procedure shortcuts(value)
 
    if &meta then case map(value) of {
       "l" :  load_image();
@@ -169,7 +169,7 @@ procedure shortcuts(value);
 
 end
 
-procedure show_gamma();
+procedure show_gamma()
    static old_gamma, x, y;
 
    initial {
@@ -190,11 +190,11 @@ procedure show_gamma();
 end
 
 #===<<vib:begin>>===	modify using vib; do not remove this marker line
-procedure ui_atts();
+procedure ui_atts()
    return ["size=337,210", "bg=pale gray"];
 end
 
-procedure ui(win, cbk);
+procedure ui(win, cbk)
 return vsetup(win, cbk,
    [":Sizer:::0,0,337,210:",],
    ["10:Label:::109,97,21,13:1.0",],

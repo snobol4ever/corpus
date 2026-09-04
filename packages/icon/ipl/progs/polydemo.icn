@@ -44,7 +44,7 @@ link polystuf
 
 global filled, undefined, poly_table
 
-procedure main();
+procedure main()
 local option;
   poly_table := table();  # Set up a table that will hold
                                            # all of the polynomials (which
@@ -73,7 +73,7 @@ local option;
   };
 end
 
-procedure SetUpDisplay();
+procedure SetUpDisplay()
   write (center ("Icon v8.10 Polynomial Demo", 80));
   write();
   ShowHelp();
@@ -81,14 +81,14 @@ procedure SetUpDisplay();
   return;
 end
 
-procedure ShowHelp();
+procedure ShowHelp()
   write (repl(" ", 10), "(R)ead      (W)rite     (A)dd       (S)ubtract");
   write (repl(" ", 10), "(M)ultiply  (E)valuate  (C)lear     _
     (H)elp      (Q)uit");
   return;
 end
 
-procedure ShowInUse();
+procedure ShowInUse()
 local keylist;
   keylist := list();
   writes ("In Use:");
@@ -101,19 +101,19 @@ local keylist;
   return;
 end
 
-procedure is_lower(c);
+procedure is_lower(c)
   if /c then fail;
   if c == "" then fail;
   return (c >>= "a") & (c <<= "z");         # Succeeds only if c is a lower-
 end                                        # case letter.
 
-procedure choice(s);
+procedure choice(s)
   return map(s[1], &ucase, &lcase);         # Returns the first character of
                                            # the given string converted to
                                            # lower-case.
 end
 
-procedure PRead();
+procedure PRead()
 local slot, terms, c, e;
   repeat {
     writes ("Which slot to read into? ");
@@ -152,7 +152,7 @@ local slot, terms, c, e;
   return;
 end
 
-procedure PWrite ();
+procedure PWrite ()
 local slot;
   repeat {
     writes ("Which polynomial to display? ");
@@ -169,7 +169,7 @@ local slot;
   };
 end
 
-procedure PCalc (op);
+procedure PCalc (op)
 local slot1, slot2, slot_ans, res;
   writes ("Which two polynomials to ");
   case op of {
@@ -230,7 +230,7 @@ local slot1, slot2, slot_ans, res;
   return;
 end
 
-procedure PEval ();
+procedure PEval ()
 local slot, x, answer;
   repeat {
     writes ("Which polynomial to evaluate? ");
@@ -253,7 +253,7 @@ local slot, x, answer;
   };
 end
 
-procedure PClear ();
+procedure PClear ()
 local slot;
   repeat {
     writes ("Which polynomial to clear? ");

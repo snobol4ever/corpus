@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-procedure main(args);
+procedure main(args)
    local limit, line;
 
    limit := integer(args[1]) | 80;

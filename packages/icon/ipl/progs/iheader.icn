@@ -22,7 +22,7 @@
 
 global input
 
-procedure main(args);
+procedure main(args)
    local file, line, bar;
 
    bar := repl("#", 76);

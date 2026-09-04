@@ -44,7 +44,7 @@ link options
 link tile
 link wopen
 
-procedure main(args);
+procedure main(args)
    local opts, prefix, h_rep, v_rep, win1, win2, name, width, height;
    local auto, wdim, hdim, limit;
 

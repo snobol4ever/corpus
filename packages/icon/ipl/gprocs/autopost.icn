@@ -41,7 +41,7 @@ link psrecord
 
 invocable "open", "stop", "exit"
 
-procedure open(args[]);
+procedure open(args[])
    local f;
    static realfunc;
    initial realfunc := proc("open", 0);
@@ -52,7 +52,7 @@ procedure open(args[]);
    return f;
 end
 
-procedure stop(args[]);
+procedure stop(args[])
    local f;
    static realfunc;
    initial realfunc := proc("stop", 0);
@@ -61,7 +61,7 @@ procedure stop(args[]);
    return realfunc ! args;
 end
 
-procedure exit(args[]);
+procedure exit(args[])
    local f;
    static realfunc;
    initial realfunc := proc("exit", 0);
