@@ -3490,3 +3490,35 @@ if 1|2|3 == 2 {
 } else {
     say "no";
 }
+#------------------------------------------------- 903 ladder__rung12_exceptions
+try {
+    die "boom";
+    CATCH {
+        default { say "caught"; }
+    }
+}
+#------------------------------------- 904 ladder__rung12_exceptions_die_message
+try {
+    die "custom message";
+    CATCH {
+        default { say .message; }
+    }
+}
+#----------------------------------- 905 ladder__rung12_exceptions_specific_type
+try {
+    die X::AdHoc.new(payload => "typed");
+    CATCH {
+        when X::AdHoc { say "adhoc: " ~ .payload; }
+    }
+}
+#---------------------------------------- 906 ladder__rung12_exceptions_no_catch
+try {
+    die "swallowed";
+}
+say "after";
+#-------------------------------------------- 907 ladder__rung12_exceptions_fail
+sub f {
+    fail "oops";
+}
+my $r = f();
+say $r.defined;

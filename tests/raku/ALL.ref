@@ -2289,3 +2289,13 @@ yes
 yes
 #----------------------------------------- 902 ladder__rung11_junctions_operator
 yes
+#------------------------------------------------- 903 ladder__rung12_exceptions
+caught
+#------------------------------------- 904 ladder__rung12_exceptions_die_message
+custom message
+#----------------------------------- 905 ladder__rung12_exceptions_specific_type
+adhoc: typed
+#---------------------------------------- 906 ladder__rung12_exceptions_no_catch
+after
+#-------------------------------------------- 907 ladder__rung12_exceptions_fail
+False
