@@ -174,81 +174,83 @@ le
 c
 #-------------------------------------------------------- 84 procedure_write_181
 256
-#--------------------------------------------------------- 85 procedure_write_22
-5.0
-#--------------------------------------------------------- 86 procedure_write_23
-7.0
-#--------------------------------------------------------- 87 procedure_write_27
-le
-#--------------------------------------------------------- 88 procedure_write_29
-1024
-#--------------------------------------------------------- 89 procedure_write_30
-1.4142135623730951
-#--------------------------------------------------------- 90 procedure_write_41
-256
-#--------------------------------------------------------- 91 procedure_write_62
+#-------------------------------------------------------- 85 procedure_write_199
 no
-#--------------------------------------------------------- 92 procedure_write_73
+#--------------------------------------------------------- 86 procedure_write_22
+5.0
+#--------------------------------------------------------- 87 procedure_write_23
+7.0
+#--------------------------------------------------------- 88 procedure_write_27
+le
+#--------------------------------------------------------- 89 procedure_write_29
+1024
+#--------------------------------------------------------- 90 procedure_write_30
+1.4142135623730951
+#--------------------------------------------------------- 91 procedure_write_41
+256
+#--------------------------------------------------------- 92 procedure_write_62
+no
+#--------------------------------------------------------- 93 procedure_write_73
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_CONJ (TT_FNC (TT_VAR write) (TT_ILIT 1)) (TT_FNC (TT_VAR write) (TT_ILIT 2))))))
-#--------------------------------------------------------- 93 procedure_write_84
+#--------------------------------------------------------- 94 procedure_write_84
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_ADD (TT_VAR x) (TT_ILIT 1))))))
-#--------------------------------------------------------- 94 procedure_write_89
+#--------------------------------------------------------- 95 procedure_write_89
 (STMT :subj (TT_PROC_DECL f (TT_VAR f) (TT_VLIST (TT_VAR x)) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_VAR x)))))
-#--------------------------------------------------------- 95 procedure_write_91
+#--------------------------------------------------------- 96 procedure_write_91
 (STMT :subj (TT_PROC_DECL greet (TT_VAR greet) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_QLIT "hi")))))
-#--------------------------------------------------------- 96 procedure_write_92
+#--------------------------------------------------------- 97 procedure_write_92
 (STMT :subj (TT_PROC_DECL add (TT_VAR add) (TT_VLIST (TT_VAR a) (TT_VAR b)) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_ADD (TT_VAR a) (TT_VAR b))))))
-#--------------------------------------------------------- 97 procedure_write_93
+#--------------------------------------------------------- 98 procedure_write_93
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST (TT_VAR args)) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_IDX (TT_VAR args) (TT_ILIT 1))))))
-#--------------------------------------------------------- 98 procedure_write_97
+#--------------------------------------------------------- 99 procedure_write_97
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_IF (TT_IDENTICAL (TT_VAR x) (TT_VAR y)) (TT_FNC (TT_VAR write) (TT_QLIT "eq"))))
 ))
-#--------------------------------------------------------- 99 procedure_write_98
+#-------------------------------------------------------- 100 procedure_write_98
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_IF (TT_NIDENTICAL (TT_VAR x) (TT_VAR y)) (TT_FNC (TT_VAR write) (TT_QLIT "ne"))))
 ))
-#-------------------------------------------------------- 100 procedure_write_99
+#-------------------------------------------------------- 101 procedure_write_99
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_IF (TT_LGT (TT_QLIT "b") (TT_QLIT "a")) (TT_FNC (TT_VAR write) (TT_QLIT "yes"))))
 ))
-#------------------------------------------------ 101 procedure_write_replace_10
+#------------------------------------------------ 102 procedure_write_replace_10
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_IF (TT_LNE (TT_QLIT "a") (TT_QLIT "b")) (TT_FNC (TT_VAR write) (TT_QLIT "yes"))))
 ))
-#------------------------------------------------- 102 procedure_write_replace_6
+#------------------------------------------------- 103 procedure_write_replace_6
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_IF (TT_EQ (TT_CAT (TT_QLIT "a") (TT_QLIT "b")) (TT_QLIT "ab")) (TT_FNC (TT_VAR write) (TT_QLIT "yes"))))
 ))
-#------------------------------------------------- 103 procedure_write_replace_7
+#------------------------------------------------- 104 procedure_write_replace_7
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_IF (TT_LEQ (TT_QLIT "a") (TT_QLIT "a")) (TT_FNC (TT_VAR write) (TT_QLIT "yes"))))
 ))
-#------------------------------------------------- 104 procedure_write_replace_8
+#------------------------------------------------- 105 procedure_write_replace_8
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_IF (TT_LGE (TT_QLIT "b") (TT_QLIT "a")) (TT_FNC (TT_VAR write) (TT_QLIT "yes"))))
 ))
-#------------------------------------------------- 105 procedure_write_replace_9
+#------------------------------------------------- 106 procedure_write_replace_9
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_IF (TT_LLE (TT_QLIT "a") (TT_QLIT "b")) (TT_FNC (TT_VAR write) (TT_QLIT "yes"))))
 ))
-#-------------------------------------------------------------- 106 procedure_43
+#-------------------------------------------------------------- 107 procedure_43
 (STMT :subj (TT_PROC_DECL fact
   (TT_VAR fact)
   (TT_VLIST (TT_VAR n))
@@ -257,137 +259,157 @@ no
     (TT_RETURN (TT_MUL (TT_VAR n) (TT_FNC (TT_VAR fact) (TT_SUB (TT_VAR n) (TT_ILIT 1)))))
   )
 ))
-#--------------------------------------------------------------- 107 procedure_5
+#--------------------------------------------------------------- 108 procedure_5
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR a) (TT_ILIT 1)) (TT_ASSIGN (TT_VAR b) (TT_ILIT 2)))))
-#------------------------------------------------------- 108 procedure_write_138
+#------------------------------------------------------- 109 procedure_write_138
 n1
 n2
-#------------------------------------------------------- 109 procedure_write_144
+#------------------------------------------------------- 110 procedure_write_144
 Hello, World!
-#------------------------------------------------------- 110 procedure_write_146
+#------------------------------------------------------- 111 procedure_write_146
 foobar
-#------------------------------------------------------- 111 procedure_write_149
+#------------------------------------------------------- 112 procedure_write_149
 hello
-#------------------------------------------------------- 112 procedure_write_152
+#------------------------------------------------------- 113 procedure_write_152
 1
-#------------------------------------------------------- 113 procedure_write_166
+#------------------------------------------------------- 114 procedure_write_166
 42
 3.14
-#------------------------------------------------------- 114 procedure_write_180
+#------------------------------------------------------- 115 procedure_write_180
 1024
 27
-#------------------------------------------------------- 115 procedure_write_183
+#------------------------------------------------------- 116 procedure_write_183
 1
 0
-#------------------------------------------------------- 116 procedure_write_184
+#------------------------------------------------------- 117 procedure_write_184
 2.0
 256.0
-#-------------------------------------------------------- 117 procedure_write_24
+#-------------------------------------------------------- 118 procedure_write_24
 42
 3.14
-#--------------------------------------------------------- 118 procedure_write_3
+#--------------------------------------------------------- 119 procedure_write_3
 foobar
-#-------------------------------------------------------- 119 procedure_write_40
+#-------------------------------------------------------- 120 procedure_write_40
 1024
 27
-#-------------------------------------------------------- 120 procedure_write_43
+#-------------------------------------------------------- 121 procedure_write_43
 1
 0
-#-------------------------------------------------------- 121 procedure_write_44
+#-------------------------------------------------------- 122 procedure_write_44
 2.0
 256.0
-#--------------------------------------------------------- 122 procedure_write_6
+#--------------------------------------------------------- 123 procedure_write_6
 hello
-#-------------------------------------------------------- 123 procedure_write_81
+#-------------------------------------------------------- 124 procedure_write_81
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_INITIAL (TT_FNC (TT_VAR write) (TT_QLIT "init"))) (TT_FNC (TT_VAR write) (TT_QLIT "body")))
 ))
-#--------------------------------------------------------- 124 procedure_write_9
+#--------------------------------------------------------- 125 procedure_write_9
 1
-#--------------------------------------------------------------- 125 procedure_4
+#--------------------------------------------------------------- 126 procedure_4
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 7)) (TT_ASSIGN (TT_VAR y) (TT_QLIT "hi")) (TT_ASSIGN (TT_VAR z) (TT_VAR w)))
 ))
-#--------------------------------------------------------- 126 procedure_write_1
+#--------------------------------------------------------- 127 procedure_write_1
 Hello, World!
-#------------------------------------------------------- 127 procedure_write_106
+#------------------------------------------------------- 128 procedure_write_106
 Hello, World!
-#-------------------------------------------------------- 128 procedure_write_12
+#-------------------------------------------------------- 129 procedure_write_12
 less
 done
-#------------------------------------------------------- 129 procedure_write_155
+#------------------------------------------------------- 130 procedure_write_155
 less
 done
-#-------------------------------------------------------- 130 procedure_write_46
+#------------------------------------------------------- 131 procedure_write_185
 A
 65
 z
-#-------------------------------------------------------- 131 procedure_write_47
+#------------------------------------------------------- 132 procedure_write_186
 hi   
    hi
   hi  
-#-------------------------------------------------------- 132 procedure_write_48
+#------------------------------------------------------- 133 procedure_write_187
 olleh
 
 a
-#-------------------------------------------------------- 133 procedure_write_52
+#------------------------------------------------------- 134 procedure_write_191
 42
 100
 no
-#-------------------------------------------------------- 134 procedure_write_54
+#------------------------------------------------------- 135 procedure_write_193
 5
 3
 0
-#-------------------------------------------------------- 135 procedure_write_55
+#-------------------------------------------------------- 136 procedure_write_46
+A
+65
+z
+#-------------------------------------------------------- 137 procedure_write_47
+hi   
+   hi
+  hi  
+#-------------------------------------------------------- 138 procedure_write_48
+olleh
+
+a
+#-------------------------------------------------------- 139 procedure_write_52
+42
+100
+no
+#-------------------------------------------------------- 140 procedure_write_54
+5
+3
+0
+#-------------------------------------------------------- 141 procedure_write_55
 7
 3
 5
-#-------------------------------------------------------- 136 procedure_write_56
+#-------------------------------------------------------- 142 procedure_write_56
 3.5
 5
 2
-#-------------------------------------------------------- 137 procedure_write_57
+#-------------------------------------------------------- 143 procedure_write_57
 2.0
 3.0
 1.4142135623730951
-#------------------------------------------------- 138 procedure_write_replace_1
+#------------------------------------------------- 144 procedure_write_replace_1
 1
-#------------------------------------------------ 139 procedure_write_replace_12
+#------------------------------------------------ 145 procedure_write_replace_12
 1
-#------------------------------------------------ 140 procedure_write_replace_13
+#------------------------------------------------ 146 procedure_write_replace_13
 equal
 done
-#------------------------------------------------ 141 procedure_write_replace_14
+#------------------------------------------------ 147 procedure_write_replace_14
 ge
 done
-#------------------------------------------------ 142 procedure_write_replace_15
+#------------------------------------------------ 148 procedure_write_replace_15
 differ
 done
-#------------------------------------------------- 143 procedure_write_replace_2
+#------------------------------------------------- 149 procedure_write_replace_2
 equal
 done
-#------------------------------------------------- 144 procedure_write_replace_3
+#------------------------------------------------- 150 procedure_write_replace_3
 ge
 done
-#------------------------------------------------- 145 procedure_write_replace_4
+#------------------------------------------------- 151 procedure_write_replace_4
 differ
 done
-#-------------------------------------------------------------- 146 procedure_36
+#-------------------------------------------------------------- 152 procedure_36
 (STMT :subj (TT_PROC_DECL foo (TT_VAR foo) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)))))
 (STMT :subj (TT_PROC_DECL bar (TT_VAR bar) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 2)))))
-#------------------------------------------------------- 147 procedure_write_148
+#------------------------------------------------------- 153 procedure_write_148
 one
 two
 three
-#--------------------------------------------------------- 148 procedure_write_5
+#--------------------------------------------------------- 154 procedure_write_5
 one
 two
 three
-#-------------------------------------------------------- 149 procedure_write_77
+#-------------------------------------------------------- 155 procedure_write_77
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
@@ -395,16 +417,16 @@ three
     (TT_IF (TT_GT (TT_VAR x) (TT_ILIT 0)) (TT_SEQ_EXPR (TT_FNC (TT_VAR write) (TT_QLIT "a")) (TT_FNC (TT_VAR write) (TT_QLIT "b"))))
   )
 ))
-#-------------------------------------------------------- 150 procedure_write_86
+#-------------------------------------------------------- 156 procedure_write_86
 (STMT :subj (TT_PROC_DECL greet (TT_VAR greet) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_QLIT "hi")))))
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR greet)))))
-#-------------------------------------------------------- 151 procedure_write_87
+#-------------------------------------------------------- 157 procedure_write_87
 (STMT :subj (TT_PROC_DECL show (TT_VAR show) (TT_VLIST (TT_VAR x)) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_VAR x)))))
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR show) (TT_ILIT 42)))))
-#-------------------------------------------------------- 152 procedure_write_88
+#-------------------------------------------------------- 158 procedure_write_88
 (STMT :subj (TT_PROC_DECL add (TT_VAR add) (TT_VLIST (TT_VAR a) (TT_VAR b)) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_ADD (TT_VAR a) (TT_VAR b))))))
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR add) (TT_ILIT 1) (TT_ILIT 2)))))
-#-------------------------------------------------------- 153 procedure_write_76
+#-------------------------------------------------------- 159 procedure_write_76
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
@@ -416,14 +438,14 @@ three
     )
   )
 ))
-#------------------------------------------------- 154 procedure_write_replace_5
+#------------------------------------------------- 160 procedure_write_replace_5
 a<<b
 b>>a
 a==a
 a~==b
 a<<=a
 b>>=b
-#-------------------------------------------------------- 155 procedure_write_69
+#-------------------------------------------------------- 161 procedure_write_69
 2.0
 0.0
 1.0
@@ -434,7 +456,7 @@ b>>=b
 6
 8
 -1
-#-------------------------------------------------------- 156 procedure_write_66
+#-------------------------------------------------------- 162 procedure_write_66
 234
  1 
 2
@@ -453,73 +475,75 @@ b>>=b
 <><12><>
 <><123><>
 <><12<><>
-#----------------------------------------------------- 157 procedure_alt_write_3
+#----------------------------------------------------- 163 procedure_alt_write_3
 no
-#----------------------------------------------------- 158 procedure_alt_write_4
+#----------------------------------------------------- 164 procedure_alt_write_4
 1
-#--------------------------------------------------- 159 procedure_scan_write_14
+#--------------------------------------------------- 165 procedure_scan_write_14
 m
-#------------------------------------------------------- 160 procedure_write_111
+#------------------------------------------------------- 166 procedure_write_111
 7
-#------------------------------------------------------- 161 procedure_write_120
+#------------------------------------------------------- 167 procedure_write_120
 4
-#------------------------------------------------------- 162 procedure_write_121
+#------------------------------------------------------- 168 procedure_write_121
 1
-#------------------------------------------------------- 163 procedure_write_132
+#------------------------------------------------------- 169 procedure_write_132
 20
 3
-#------------------------------------------------------- 164 procedure_write_133
+#------------------------------------------------------- 170 procedure_write_133
 3
 3
-#------------------------------------------------------- 165 procedure_write_134
+#------------------------------------------------------- 171 procedure_write_134
 5
-#------------------------------------------------------- 166 procedure_write_135
+#------------------------------------------------------- 172 procedure_write_135
 y
-#------------------------------------------------- 167 procedure_write_keyword_3
+#------------------------------------------------- 173 procedure_write_keyword_3
 1
-#------------------------------------------------------- 168 procedure_write_130
+#------------------------------------------------------- 174 procedure_write_130
 120
-#----------------------------------------------------------- 169 procedure_alt_1
+#----------------------------------------------------------- 175 procedure_alt_1
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ALTERNATE (TT_ADD (TT_ILIT 1) (TT_ILIT 2)) (TT_ADD (TT_ILIT 3) (TT_ILIT 4)))))
 ))
-#----------------------------------------------------------- 170 procedure_alt_2
+#----------------------------------------------------------- 176 procedure_alt_2
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ALTERNATE (TT_QLIT "a") (TT_QLIT "b"))))))
-#----------------------------------------------------------- 171 procedure_alt_3
+#----------------------------------------------------------- 177 procedure_alt_3
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ALTERNATE (TT_ILIT 1) (TT_ILIT 2) (TT_ILIT 3))))))
-#----------------------------------------------------------- 172 procedure_alt_4
+#----------------------------------------------------------- 178 procedure_alt_4
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ALTERNATE (TT_ILIT 1) (TT_ILIT 2))))))
-#----------------------------------------------------------- 173 procedure_alt_6
+#----------------------------------------------------------- 179 procedure_alt_6
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_ASSIGN (TT_VAR s) (TT_ALTERNATE (TT_CAT (TT_QLIT "a") (TT_QLIT "b")) (TT_CAT (TT_QLIT "c") (TT_QLIT "d")))))
 ))
-#----------------------------------------------------- 174 procedure_alt_write_2
+#----------------------------------------------------- 180 procedure_alt_write_2
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_ALTERNATE (TT_ILIT 1) (TT_ILIT 2))))))
-#----------------------------------------------------- 175 procedure_augassign_1
+#----------------------------------------------------- 181 procedure_augassign_1
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_ADD (TT_VAR x) (TT_ILIT 1)))))
-#----------------------------------------------------- 176 procedure_augassign_2
+#----------------------------------------------------- 182 procedure_augassign_2
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_CAT (TT_VAR x) (TT_QLIT "y")))))
-#----------------------------------------------------- 177 procedure_augassign_3
+#----------------------------------------------------- 183 procedure_augassign_3
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_CSET_DIFF (TT_VAR x) (TT_QLIT "y")))))
-#----------------------------------------------------- 178 procedure_augassign_4
+#----------------------------------------------------- 184 procedure_augassign_4
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_CSET_UNION (TT_VAR x) (TT_QLIT "y")))))
-#----------------------------------------------------- 179 procedure_augassign_5
+#----------------------------------------------------- 185 procedure_augassign_5
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_SUB (TT_VAR x) (TT_ILIT 1)))))
-#--------------------------------------------- 180 procedure_augassign_replace_1
+#--------------------------------------------- 186 procedure_augassign_replace_1
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_CSET_INTER (TT_VAR x) (TT_QLIT "y")))))
-#---------------------------------------------------- 181 procedure_case_write_6
+#--------------------------------------------------- 187 procedure_case_write_17
 2
-#---------------------------------------------------- 182 procedure_case_write_8
+#---------------------------------------------------- 188 procedure_case_write_6
+2
+#---------------------------------------------------- 189 procedure_case_write_8
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_CASE (TT_VAR x) (TT_ILIT 1) (TT_FNC (TT_VAR write) (TT_QLIT "one")) (TT_ILIT 2) (TT_FNC (TT_VAR write) (TT_QLIT "two"))))
 ))
-#---------------------------------------------------- 183 procedure_case_write_9
+#---------------------------------------------------- 190 procedure_case_write_9
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
@@ -534,78 +558,83 @@ y
     )
   )
 ))
-#------------------------------------------------------- 184 procedure_elemgen_1
+#------------------------------------------------------- 191 procedure_elemgen_1
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_BANG_BINARY (TT_VAR f) (TT_VAR args))))))
-#------------------------------------------------------- 185 procedure_elemgen_3
+#------------------------------------------------------- 192 procedure_elemgen_3
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ITERATE (TT_VAR y))))))
-#--------------------------------------------------- 186 procedure_every_write_4
+#--------------------------------------------------- 193 procedure_every_write_4
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_EVERY (TT_VAR i) (TT_FNC (TT_VAR write) (TT_VAR i))))))
-#--------------------------------------------------- 187 procedure_every_write_5
+#--------------------------------------------------- 194 procedure_every_write_5
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_EVERY (TT_VAR i) (TT_SEQ_EXPR (TT_FNC (TT_VAR write) (TT_VAR i)) (TT_FNC (TT_VAR write) (TT_VAR i)))))
 ))
-#---------------------------------------------------------- 188 procedure_fail_1
+#---------------------------------------------------------- 195 procedure_fail_1
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_PROC_FAIL)))))
-#------------------------------------------------------- 189 procedure_keyword_1
+#------------------------------------------------------- 196 procedure_keyword_1
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_VAR &pos)))))
-#------------------------------------------------------- 190 procedure_keyword_2
+#------------------------------------------------------- 197 procedure_keyword_2
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_VAR &null)))))
-#--------------------------------------------------------- 191 procedure_limit_1
+#--------------------------------------------------------- 198 procedure_limit_1
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_NONNULL (TT_VAR y))))))
-#--------------------------------------------------- 192 procedure_limit_write_1
+#--------------------------------------------------- 199 procedure_limit_write_1
 no
-#-------------------------------------------------- 193 procedure_repeat_write_1
+#--------------------------------------------------- 200 procedure_limit_write_8
+no
+#-------------------------------------------------- 201 procedure_repeat_write_1
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_REPEAT (TT_FNC (TT_VAR write) (TT_QLIT "x"))))))
-#---------------------------------------------------------- 194 procedure_scan_2
+#---------------------------------------------------------- 202 procedure_scan_2
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_SCAN (TT_QLIT "hello") (TT_ASSIGN (TT_VAR r) (TT_QLIT "ok"))))))
-#---------------------------------------------------------- 195 procedure_scan_3
+#---------------------------------------------------------- 203 procedure_scan_3
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_RANDOM (TT_VAR y))))))
-#--------------------------------------------------- 196 procedure_scan_write_12
+#--------------------------------------------------- 204 procedure_scan_write_12
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_SCAN (TT_QLIT "hello") (TT_FNC (TT_VAR write) (TT_QLIT "found"))))))
-#--------------------------------------------------- 197 procedure_scan_write_13
+#--------------------------------------------------- 205 procedure_scan_write_13
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_SCAN (TT_FNC (TT_VAR write) (TT_QLIT "test")) (TT_FNC (TT_VAR write) (TT_QLIT "found"))))
 ))
-#---------------------------------------------------------- 198 procedure_swap_1
+#---------------------------------------------------------- 206 procedure_swap_1
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_SWAP (TT_VAR x) (TT_VAR y)))))
-#--------------------------------------------------- 199 procedure_until_write_1
+#--------------------------------------------------- 207 procedure_until_write_1
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_UNTIL (TT_GT (TT_VAR x) (TT_ILIT 5)) (TT_FNC (TT_VAR write) (TT_VAR x))))))
-#-------------------------------------------------------- 200 procedure_write_85
+#-------------------------------------------------------- 208 procedure_write_85
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)) (TT_VAR x))))
 ))
-#-------------------------------------------------------- 201 procedure_write_94
+#-------------------------------------------------------- 209 procedure_write_94
 (STMT :subj (TT_PROC_DECL try
   (TT_VAR try)
   (TT_VLIST (TT_VAR c) (TT_VAR n))
   (TT_PROGRAM (TT_IF (TT_GT (TT_VAR c) (TT_VAR n)) (TT_SEQ_EXPR (TT_FNC (TT_VAR write) (TT_QLIT "done")) (TT_RETURN))))
 ))
-#-------------------------------------------------------- 202 procedure_write_96
+#-------------------------------------------------------- 210 procedure_write_96
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_CONJ (TT_FNC (TT_VAR write) (TT_QLIT "a")) (TT_FNC (TT_VAR write) (TT_QLIT "b")))))
 ))
-#-------------------------------------------------------------- 203 procedure_34
+#-------------------------------------------------------------- 211 procedure_34
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_LOCAL (TT_VAR a) (TT_VAR b)) (TT_ASSIGN (TT_VAR a) (TT_ILIT 1)))))
-#----------------------------------------------------------- 204 procedure_alt_5
+#----------------------------------------------------------- 212 procedure_alt_5
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)) (TT_ASSIGN (TT_VAR y) (TT_ALTERNATE (TT_VAR x) (TT_ILIT 99))))
 ))
-#---------------------------------------------------- 205 procedure_case_write_4
+#--------------------------------------------------- 213 procedure_case_write_15
 two
 other
-#-------------------------------------------------------- 206 procedure_static_1
+#---------------------------------------------------- 214 procedure_case_write_4
+two
+other
+#-------------------------------------------------------- 215 procedure_static_1
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_STATIC_DECL (TT_VAR s1)) (TT_ASSIGN (TT_VAR s1) (TT_ILIT 42)))))
-#--------------------------------------------------------- 207 procedure_while_1
+#--------------------------------------------------------- 216 procedure_while_1
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
@@ -614,79 +643,81 @@ other
     (TT_WHILE (TT_GT (TT_VAR i) (TT_ILIT 0)) (TT_ASSIGN (TT_VAR i) (TT_SUB (TT_VAR i) (TT_ILIT 1))))
   )
 ))
-#------------------------------------------------------- 208 procedure_write_101
+#------------------------------------------------------- 217 procedure_write_101
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_IDX (TT_VAR a) (TT_ILIT 1))) (TT_FNC (TT_VAR write) (TT_VAR x)))
 ))
-#-------------------------------------------------------- 209 procedure_write_11
+#-------------------------------------------------------- 218 procedure_write_11
 5
-#-------------------------------------------------------- 210 procedure_write_13
+#-------------------------------------------------------- 219 procedure_write_13
 hello world
-#-------------------------------------------------------- 211 procedure_write_15
+#-------------------------------------------------------- 220 procedure_write_15
 2.5
-#------------------------------------------------------- 212 procedure_write_154
+#------------------------------------------------------- 221 procedure_write_154
 5
-#------------------------------------------------------- 213 procedure_write_157
+#------------------------------------------------------- 222 procedure_write_157
 2.5
-#------------------------------------------------------- 214 procedure_write_159
+#------------------------------------------------------- 223 procedure_write_159
 no
-#------------------------------------------------------- 215 procedure_write_162
+#------------------------------------------------------- 224 procedure_write_162
 3
 42
-#------------------------------------------------------- 216 procedure_write_167
+#------------------------------------------------------- 225 procedure_write_167
 yes
-#------------------------------------------------------- 217 procedure_write_168
+#------------------------------------------------------- 226 procedure_write_168
 equal
-#-------------------------------------------------------- 218 procedure_write_17
+#-------------------------------------------------------- 227 procedure_write_17
 no
-#------------------------------------------------------- 219 procedure_write_173
+#------------------------------------------------------- 228 procedure_write_173
 9.0
-#------------------------------------------------------- 220 procedure_write_174
+#------------------------------------------------------- 229 procedure_write_174
 hel
-#------------------------------------------------------- 221 procedure_write_175
+#------------------------------------------------------- 230 procedure_write_175
 hello
-#------------------------------------------------------- 222 procedure_write_178
+#------------------------------------------------------- 231 procedure_write_178
 3
-#-------------------------------------------------------- 223 procedure_write_20
+#-------------------------------------------------------- 232 procedure_write_20
 3
 42
-#-------------------------------------------------------- 224 procedure_write_25
-yes
-#-------------------------------------------------------- 225 procedure_write_26
-equal
-#-------------------------------------------------------- 226 procedure_write_31
-9.0
-#-------------------------------------------------------- 227 procedure_write_32
-hel
-#-------------------------------------------------------- 228 procedure_write_33
-hello
-#-------------------------------------------------------- 229 procedure_write_35
-3
-#-------------------------------------------------------- 230 procedure_write_38
-3
-#-------------------------------------------------------- 231 procedure_write_63
+#------------------------------------------------------- 233 procedure_write_200
 ok
-#-------------------------------------------------------- 232 procedure_write_70
+#-------------------------------------------------------- 234 procedure_write_25
+yes
+#-------------------------------------------------------- 235 procedure_write_26
+equal
+#-------------------------------------------------------- 236 procedure_write_31
+9.0
+#-------------------------------------------------------- 237 procedure_write_32
+hel
+#-------------------------------------------------------- 238 procedure_write_33
+hello
+#-------------------------------------------------------- 239 procedure_write_35
+3
+#-------------------------------------------------------- 240 procedure_write_38
+3
+#-------------------------------------------------------- 241 procedure_write_63
+ok
+#-------------------------------------------------------- 242 procedure_write_70
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 5)) (TT_IF (TT_EQ (TT_VAR x) (TT_ILIT 5)) (TT_FNC (TT_VAR write) (TT_QLIT "eq"))))
 ))
-#-------------------------------------------------------- 233 procedure_write_71
+#-------------------------------------------------------- 243 procedure_write_71
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 3)) (TT_IF (TT_LT (TT_VAR x) (TT_ILIT 5)) (TT_FNC (TT_VAR write) (TT_QLIT "lt"))))
 ))
-#-------------------------------------------------------- 234 procedure_write_74
+#-------------------------------------------------------- 244 procedure_write_74
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_FIELD (TT_VAR r) (TT_VAR f))) (TT_FNC (TT_VAR write) (TT_VAR x)))
 ))
-#-------------------------------------------------------- 235 procedure_write_75
+#-------------------------------------------------------- 245 procedure_write_75
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
@@ -695,7 +726,7 @@ ok
     (TT_IF (TT_GE (TT_VAR x) (TT_ILIT 2)) (TT_FNC (TT_VAR write) (TT_QLIT "ge")) (TT_FNC (TT_VAR write) (TT_QLIT "lt")))
   )
 ))
-#-------------------------------------------------------- 236 procedure_write_78
+#-------------------------------------------------------- 246 procedure_write_78
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
@@ -704,118 +735,136 @@ ok
     (TT_IF (TT_GT (TT_VAR x) (TT_ILIT 0)) (TT_FNC (TT_VAR write) (TT_QLIT "pos")) (TT_FNC (TT_VAR write) (TT_QLIT "neg")))
   )
 ))
-#-------------------------------------------------------- 237 procedure_write_80
+#-------------------------------------------------------- 247 procedure_write_80
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)) (TT_IF (TT_GT (TT_VAR x) (TT_ILIT 0)) (TT_FNC (TT_VAR write) (TT_QLIT "pos"))))
 ))
-#-------------------------------------------------------- 238 procedure_write_82
+#-------------------------------------------------------- 248 procedure_write_82
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_MAKELIST (TT_ILIT 1) (TT_ILIT 2) (TT_ILIT 3))) (TT_FNC (TT_VAR write) (TT_VAR x)))
 ))
-#-------------------------------------------------------- 239 procedure_write_83
+#-------------------------------------------------------- 249 procedure_write_83
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_MOD (TT_ILIT 7) (TT_ILIT 3))) (TT_FNC (TT_VAR write) (TT_VAR x)))
 ))
-#-------------------------------------------------------- 240 procedure_write_95
+#-------------------------------------------------------- 250 procedure_write_95
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_SECTION (TT_VAR a) (TT_ILIT 1) (TT_ILIT 3))) (TT_FNC (TT_VAR write) (TT_VAR x)))
 ))
-#---------------------------------------------------- 241 procedure_case_write_2
+#--------------------------------------------------- 251 procedure_case_write_13
 10
 40
 700
-#---------------------------------------------------- 242 procedure_find_write_1
+#---------------------------------------------------- 252 procedure_case_write_2
+10
+40
+700
+#---------------------------------------------------- 253 procedure_find_write_1
 2
 4
-#---------------------------------------------------- 243 procedure_find_write_2
+#---------------------------------------------------- 254 procedure_find_write_2
 2
 4
-#------------------------------------------------ 244 procedure_record_replace_2
+#------------------------------------------------ 255 procedure_record_replace_2
 (STMT :subj (TT_RECORD Point (TT_VAR x) (TT_VAR y)))
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR p) (TT_FNC (TT_VAR Point) (TT_ILIT 1) (TT_ILIT 2))))))
-#---------------------------------------------------- 245 procedure_repl_write_1
+#---------------------------------------------------- 256 procedure_repl_write_1
 ababab
 
 ----
-#------------------------------------------------------- 246 procedure_suspend_1
+#---------------------------------------------------- 257 procedure_repl_write_2
+ababab
+
+----
+#------------------------------------------------------- 258 procedure_suspend_1
 (STMT :subj (TT_PROC_DECL gen
   (TT_VAR gen)
   (TT_VLIST (TT_VAR n))
   (TT_PROGRAM (TT_SUSPEND (TT_VAR n)) (TT_SUSPEND (TT_ADD (TT_VAR n) (TT_ILIT 1))) (TT_RETURN))
 ))
-#------------------------------------------------------- 247 procedure_write_161
+#------------------------------------------------------- 259 procedure_write_161
 o
 l
-#------------------------------------------------------- 248 procedure_write_163
+#------------------------------------------------------- 260 procedure_write_163
 4.0
-#------------------------------------------------------- 249 procedure_write_170
+#------------------------------------------------------- 261 procedure_write_170
 yes
-#-------------------------------------------------------- 250 procedure_write_19
-o
-l
-#-------------------------------------------------------- 251 procedure_write_21
-4.0
-#-------------------------------------------------------- 252 procedure_write_28
-yes
-#-------------------------------------------------------- 253 procedure_write_36
-2
-#-------------------------------------------------------- 254 procedure_write_50
+#------------------------------------------------------- 262 procedure_write_189
 42
 "hello"
 3.14
-#-------------------------------------------------------- 255 procedure_write_53
+#-------------------------------------------------------- 263 procedure_write_19
+o
+l
+#------------------------------------------------------- 264 procedure_write_192
 integer
 string
 real
-#-------------------------------------------------------- 256 procedure_write_79
+#-------------------------------------------------------- 265 procedure_write_21
+4.0
+#-------------------------------------------------------- 266 procedure_write_28
+yes
+#-------------------------------------------------------- 267 procedure_write_36
+2
+#-------------------------------------------------------- 268 procedure_write_50
+42
+"hello"
+3.14
+#-------------------------------------------------------- 269 procedure_write_53
+integer
+string
+real
+#-------------------------------------------------------- 270 procedure_write_79
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 5)) (TT_IF (TT_GT (TT_VAR x) (TT_ILIT 3)) (TT_FNC (TT_VAR write) (TT_QLIT "big"))))
 ))
-#------------------------------------------------- 257 procedure_write_global_10
+#------------------------------------------------- 271 procedure_write_global_10
 (STMT :subj (TT_GLOBAL (TT_VAR g1) (TT_VAR g2)))
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_VAR g1)))))
-#------------------------------------------------ 258 procedure_record_replace_1
+#------------------------------------------------ 272 procedure_record_replace_1
 (STMT :subj (TT_RECORD Point (TT_VAR x) (TT_VAR y)))
 (STMT :subj (TT_RECORD Color (TT_VAR r) (TT_VAR g) (TT_VAR b)))
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR p) (TT_FNC (TT_VAR Point) (TT_ILIT 1) (TT_ILIT 2))))))
-#------------------------------------------------------- 259 procedure_write_139
+#------------------------------------------------------- 273 procedure_write_139
 99
 1
-#------------------------------------------------------- 260 procedure_write_140
+#------------------------------------------------------- 274 procedure_write_140
 3
 55
-#------------------------------------------------------- 261 procedure_write_158
+#------------------------------------------------------- 275 procedure_write_158
 h
 l
 o
-#-------------------------------------------------------- 262 procedure_write_16
+#-------------------------------------------------------- 276 procedure_write_16
 h
 l
 o
-#------------------------------------------------------- 263 procedure_write_176
+#------------------------------------------------------- 277 procedure_write_176
 bcd
-#-------------------------------------------------------- 264 procedure_write_34
-bcd
-#-------------------------------------------------------- 265 procedure_write_58
+#------------------------------------------------------- 278 procedure_write_195
 hello world
-#-------------------------------------------------------- 266 procedure_write_90
+#-------------------------------------------------------- 279 procedure_write_34
+bcd
+#-------------------------------------------------------- 280 procedure_write_58
+hello world
+#-------------------------------------------------------- 281 procedure_write_90
 (STMT :subj (TT_PROC_DECL double (TT_VAR double) (TT_VLIST (TT_VAR x)) (TT_PROGRAM (TT_RETURN (TT_ADD (TT_VAR x) (TT_VAR x))))))
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_FNC (TT_VAR double) (TT_ILIT 5))))))
-#---------------------------------------------------- 267 procedure_write_read_1
+#---------------------------------------------------- 282 procedure_write_read_1
 eof
-#---------------------------------------------------- 268 procedure_write_read_3
+#---------------------------------------------------- 283 procedure_write_read_3
 eof
-#---------------------------------------------------- 269 procedure_case_write_7
+#---------------------------------------------------- 284 procedure_case_write_7
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
@@ -830,29 +879,35 @@ eof
     )
   )
 ))
-#---------------------------------------------------- 270 procedure_fail_write_1
+#---------------------------------------------------- 285 procedure_fail_write_1
 (STMT :subj (TT_PROC_DECL tryit (TT_VAR tryit) (TT_VLIST) (TT_PROGRAM (TT_PROC_FAIL))))
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_QLIT "x")))))
-#-------------------------------------------------------- 271 procedure_global_1
+#-------------------------------------------------------- 286 procedure_global_1
 (STMT :subj (TT_GLOBAL (TT_VAR x) (TT_VAR y) (TT_VAR z)))
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)) (TT_ASSIGN (TT_VAR y) (TT_ILIT 2)) (TT_ASSIGN (TT_VAR z) (TT_ADD (TT_VAR x) (TT_VAR y))))
 ))
-#------------------------------------------------- 272 procedure_suspend_write_1
+#------------------------------------------------- 287 procedure_suspend_write_1
 (STMT :subj (TT_PROC_DECL gen (TT_VAR gen) (TT_VLIST) (TT_PROGRAM (TT_SUSPEND (TT_ILIT 1) (TT_FNC (TT_VAR write) (TT_QLIT "done"))))))
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_QLIT "x")))))
-#------------------------------------------------- 273 procedure_suspend_write_2
+#------------------------------------------------- 288 procedure_suspend_write_2
 (STMT :subj (TT_PROC_DECL gen (TT_VAR gen) (TT_VLIST) (TT_PROGRAM (TT_SUSPEND (TT_ILIT 1)))))
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_QLIT "x")))))
-#-------------------------------------------------------- 274 procedure_write_61
+#------------------------------------------------------- 289 procedure_write_198
 foo-bar
 hello-world
-#-------------------------------------------------------- 275 procedure_write_64
+#------------------------------------------------------- 290 procedure_write_201
 big
 5
-#-------------------------------------------------------- 276 procedure_write_72
+#-------------------------------------------------------- 291 procedure_write_61
+foo-bar
+hello-world
+#-------------------------------------------------------- 292 procedure_write_64
+big
+5
+#-------------------------------------------------------- 293 procedure_write_72
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
@@ -861,30 +916,35 @@ big
     (TT_SEQ_EXPR (TT_FNC (TT_VAR write) (TT_VAR x)) (TT_FNC (TT_VAR write) (TT_ADD (TT_VAR x) (TT_ILIT 1))))
   )
 ))
-#--------------------------------------------------- 277 procedure_limit_write_3
+#--------------------------------------------------- 294 procedure_limit_write_3
         abc
 	x
   hi  
 hi....
 ....hi
-#--------------------------------------------------- 278 procedure_limit_write_4
+#--------------------------------------------------- 295 procedure_limit_write_4
   hi  
 hi....
 ....hi
         abc
 	x
-#------------------------------------------------------- 279 procedure_write_145
+#------------------------------------------------------- 296 procedure_write_145
 1
 3
-#--------------------------------------------------------- 280 procedure_write_2
+#--------------------------------------------------------- 297 procedure_write_2
 1
 3
-#-------------------------------------------------------- 281 procedure_write_65
+#------------------------------------------------------- 298 procedure_write_202
 small
 2
-#-------------------------------------------------------- 282 procedure_write_59
+#-------------------------------------------------------- 299 procedure_write_65
+small
+2
+#------------------------------------------------------- 300 procedure_write_196
 pre:mid:suf
-#------------------------------------------------------- 283 procedure_write_142
+#-------------------------------------------------------- 301 procedure_write_59
+pre:mid:suf
+#------------------------------------------------------- 302 procedure_write_142
 Hello
 HeLLlo
 HeLLl!
@@ -893,7 +953,7 @@ E
 HELLl!
 a7c
 3
-#------------------------------------------------- 284 procedure_write_keyword_1
+#------------------------------------------------- 303 procedure_write_keyword_1
 a
 d
 g
@@ -918,7 +978,7 @@ mno
 237>
 stu<>
 vwx><>
-#------------------------------------------------- 285 procedure_write_keyword_2
+#------------------------------------------------- 304 procedure_write_keyword_2
 c
 f
 i
@@ -943,124 +1003,126 @@ mno
 <237
 <>stu
 <><vwx
-#--------------------------------------------------- 286 procedure_case_write_10
+#--------------------------------------------------- 305 procedure_case_write_10
 two
-#--------------------------------------------------- 287 procedure_case_write_11
+#--------------------------------------------------- 306 procedure_case_write_11
 d
-#----------------------------------------------------- 288 procedure_every_to_25
+#----------------------------------------------------- 307 procedure_every_to_25
 1
 2
 3
-#----------------------------------------------------- 289 procedure_every_to_28
+#----------------------------------------------------- 308 procedure_every_to_28
 1
 3
 5
 7
-#--------------------------------------------------- 290 procedure_limit_write_6
+#--------------------------------------------------- 309 procedure_limit_write_6
 nn
-#----------------------------------------------------- 291 procedure_scan_move_3
+#----------------------------------------------------- 310 procedure_scan_move_3
 he
-#---------------------------------------------------- 292 procedure_swap_write_3
+#---------------------------------------------------- 311 procedure_swap_write_3
 2
 1
-#----------------------------------------------- 293 procedure_write_augassign_8
+#----------------------------------------------- 312 procedure_write_augassign_8
 5
-#------------------------------------------------- 294 procedure_write_keyword_4
+#------------------------------------------------- 313 procedure_write_keyword_4
 n
-#------------------------------------------------------ 295 procedure_alt_fail_2
+#------------------------------------------------------ 314 procedure_alt_fail_2
 failed
-#-------------------------------------------------- 296 procedure_record_write_5
+#-------------------------------------------------- 315 procedure_record_write_5
 1
 2
-#------------------------------------------------- 297 procedure_write_global_11
+#------------------------------------------------- 316 procedure_write_global_11
 2
 hello
-#------------------------------------------------- 298 procedure_write_global_12
+#------------------------------------------------- 317 procedure_write_global_12
 5
-#----------------------------------------------------- 299 procedure_every_to_17
+#----------------------------------------------------- 318 procedure_every_to_17
 3.0
 2.0
 1.0
-#----------------------------------------------------- 300 procedure_every_to_18
+#----------------------------------------------------- 319 procedure_every_to_18
 1.0
 1.5
 2.0
-#----------------------------------------------------- 301 procedure_every_to_31
+#----------------------------------------------------- 320 procedure_every_to_31
 10
 11
 10
 11
-#--------------------------------------------------- 302 procedure_every_write_3
+#--------------------------------------------------- 321 procedure_every_write_3
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_EVERY (TT_SEQ_EXPR (TT_IF (TT_GT (TT_VAR x) (TT_ILIT 5)) (TT_LOOP_BREAK)) (TT_FNC (TT_VAR write) (TT_VAR x)))))
 ))
-#--------------------------------------------------- 303 procedure_every_write_6
+#--------------------------------------------------- 322 procedure_every_write_6
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_EVERY (TT_SEQ_EXPR (TT_IF (TT_LT (TT_VAR x) (TT_ILIT 0)) (TT_LOOP_NEXT)) (TT_FNC (TT_VAR write) (TT_VAR x)))))
 ))
-#-------------------------------------------------- 304 procedure_fail_keyword_1
+#-------------------------------------------------- 323 procedure_fail_keyword_1
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_VAR &fail)))))
-#----------------------------------------------------- 305 procedure_scan_move_2
+#----------------------------------------------------- 324 procedure_scan_move_2
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_SCAN (TT_VAR s) (TT_ASSIGN (TT_VAR r) (TT_FNC (TT_VAR move) (TT_ILIT 1)))))))
-#---------------------------------------------------- 306 procedure_case_write_5
+#--------------------------------------------------- 325 procedure_case_write_16
 30
-#---------------------------------------------------- 307 procedure_every_find_1
+#---------------------------------------------------- 326 procedure_case_write_5
+30
+#---------------------------------------------------- 327 procedure_every_find_1
 2
 4
 6
-#---------------------------------------------------- 308 procedure_every_find_2
+#---------------------------------------------------- 328 procedure_every_find_2
 2
 4
 6
-#------------------------------------------------------ 309 procedure_every_to_1
+#------------------------------------------------------ 329 procedure_every_to_1
 4
 6
-#----------------------------------------------------- 310 procedure_every_to_10
+#----------------------------------------------------- 330 procedure_every_to_10
 3
 4
-#----------------------------------------------------- 311 procedure_every_to_11
+#----------------------------------------------------- 331 procedure_every_to_11
 1
 2
 3
 4
 5
-#----------------------------------------------------- 312 procedure_every_to_12
+#----------------------------------------------------- 332 procedure_every_to_12
 3
 3
 3
-#----------------------------------------------------- 313 procedure_every_to_14
+#----------------------------------------------------- 333 procedure_every_to_14
 1
 4
 7
 10
-#------------------------------------------------------ 314 procedure_every_to_2
+#------------------------------------------------------ 334 procedure_every_to_2
 3
 4
-#------------------------------------------------------ 315 procedure_every_to_3
+#------------------------------------------------------ 335 procedure_every_to_3
 1
 2
 2
 4
 3
 6
-#----------------------------------------------------- 316 procedure_every_to_32
+#----------------------------------------------------- 336 procedure_every_to_32
 4
 6
-#----------------------------------------------------- 317 procedure_every_to_33
+#----------------------------------------------------- 337 procedure_every_to_33
 3
 4
-#----------------------------------------------------- 318 procedure_every_to_34
+#----------------------------------------------------- 338 procedure_every_to_34
 1
 2
 2
 4
 3
 6
-#----------------------------------------------------- 319 procedure_every_to_35
+#----------------------------------------------------- 339 procedure_every_to_35
 1
 2
 1
@@ -1069,13 +1131,13 @@ hello
 2
 2
 3
-#----------------------------------------------------- 320 procedure_every_to_37
+#----------------------------------------------------- 340 procedure_every_to_37
 1
 2
 3
 4
 5
-#----------------------------------------------------- 321 procedure_every_to_39
+#----------------------------------------------------- 341 procedure_every_to_39
 2
 3
 4
@@ -1085,7 +1147,7 @@ hello
 4
 5
 6
-#------------------------------------------------------ 322 procedure_every_to_4
+#------------------------------------------------------ 342 procedure_every_to_4
 1
 2
 1
@@ -1094,31 +1156,31 @@ hello
 2
 2
 3
-#----------------------------------------------------- 323 procedure_every_to_41
+#----------------------------------------------------- 343 procedure_every_to_41
 3
 4
-#----------------------------------------------------- 324 procedure_every_to_42
+#----------------------------------------------------- 344 procedure_every_to_42
 1
 2
 3
 4
 5
-#----------------------------------------------------- 325 procedure_every_to_43
+#----------------------------------------------------- 345 procedure_every_to_43
 3
 3
 3
-#----------------------------------------------------- 326 procedure_every_to_45
+#----------------------------------------------------- 346 procedure_every_to_45
 1
 4
 7
 10
-#------------------------------------------------------ 327 procedure_every_to_6
+#------------------------------------------------------ 347 procedure_every_to_6
 1
 2
 3
 4
 5
-#------------------------------------------------------ 328 procedure_every_to_8
+#------------------------------------------------------ 348 procedure_every_to_8
 2
 3
 4
@@ -1128,75 +1190,83 @@ hello
 4
 5
 6
-#--------------------------------------------------- 329 procedure_limit_write_2
+#--------------------------------------------------- 349 procedure_limit_write_2
 3
-#--------------------------------------------------- 330 procedure_limit_write_5
+#--------------------------------------------------- 350 procedure_limit_write_5
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_LIMIT (TT_VAR gen) (TT_ILIT 5))) (TT_FNC (TT_VAR write) (TT_VAR x)))
 ))
-#----------------------------------------------------- 331 procedure_map_write_1
+#--------------------------------------------------- 351 procedure_limit_write_9
+3
+#----------------------------------------------------- 352 procedure_map_write_1
   hello
 hELLO wORLD
-#----------------------------------------------------- 332 procedure_scan_many_2
+#----------------------------------------------------- 353 procedure_map_write_2
+  hello
+hELLO wORLD
+#----------------------------------------------------- 354 procedure_scan_many_2
 6
-#----------------------------------------------------- 333 procedure_scan_many_3
+#----------------------------------------------------- 355 procedure_scan_many_3
 6
-#----------------------------------------------------- 334 procedure_scan_move_1
+#----------------------------------------------------- 356 procedure_scan_move_1
 abc
-#----------------------------------------------------- 335 procedure_scan_move_5
+#----------------------------------------------------- 357 procedure_scan_move_5
 abc
-#--------------------------------------------------- 336 procedure_scan_write_15
+#--------------------------------------------------- 358 procedure_scan_write_15
 foobar
-#--------------------------------------------------- 337 procedure_scan_write_18
+#--------------------------------------------------- 359 procedure_scan_write_18
 hello
-#---------------------------------------------------- 338 procedure_scan_write_4
+#---------------------------------------------------- 360 procedure_scan_write_4
 foobar
-#---------------------------------------------------- 339 procedure_scan_write_7
+#---------------------------------------------------- 361 procedure_scan_write_7
 hello
-#----------------------------------------------------- 340 procedure_every_to_40
+#----------------------------------------------------- 362 procedure_every_to_40
 4
 4
 4
-#------------------------------------------------------ 341 procedure_every_to_9
+#------------------------------------------------------ 363 procedure_every_to_9
 4
 4
 4
-#------------------------------------------------------- 342 procedure_write_177
+#------------------------------------------------------- 364 procedure_write_177
 5
 6
-#------------------------------------------------------- 343 procedure_write_182
+#------------------------------------------------------- 365 procedure_write_182
 9
-#-------------------------------------------------------- 344 procedure_write_37
-5
-6
-#-------------------------------------------------------- 345 procedure_write_42
-9
-#-------------------------------------------------------- 346 procedure_write_49
+#------------------------------------------------------- 366 procedure_write_188
 hello
 string
-#---------------------------------------------- 347 procedure_write_augassign_12
+#-------------------------------------------------------- 367 procedure_write_37
+5
+6
+#-------------------------------------------------------- 368 procedure_write_42
+9
+#-------------------------------------------------------- 369 procedure_write_49
+hello
+string
+#---------------------------------------------- 370 procedure_write_augassign_12
 hello world
-#----------------------------------------------- 348 procedure_write_augassign_4
+#----------------------------------------------- 371 procedure_write_augassign_4
 hello world
-#----------------------------------------------- 349 procedure_write_augassign_7
+#----------------------------------------------- 372 procedure_write_augassign_7
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")) (TT_AUGOP TT_CAT (TT_VAR s) (TT_QLIT " world")) (TT_FNC (TT_VAR write) (TT_VAR s)))
 ))
-#--------------------------------------- 350 procedure_write_augassign_replace_1
+#--------------------------------------- 373 procedure_write_augassign_replace_1
 12
-#--------------------------------------- 351 procedure_write_augassign_replace_3
+#--------------------------------------- 374 procedure_write_augassign_replace_3
 12
-#------------------------------------------ 352 procedure_write_global_replace_1
+#------------------------------------------ 375 procedure_write_global_replace_1
 99
-#----------------------------------------------------- 353 procedure_alt_write_5
+#----------------------------------------------------- 376 procedure_alt_write_5
 20
 30
 oob-fails
-#----------------------------------------------------- 354 procedure_every_to_38
+#----------------------------------------------------- 377 procedure_every_to_38
 1
 4
 7
@@ -1206,7 +1276,7 @@ oob-fails
 4
 1
 2
-#------------------------------------------------------ 355 procedure_every_to_7
+#------------------------------------------------------ 378 procedure_every_to_7
 1
 4
 7
@@ -1216,20 +1286,20 @@ oob-fails
 4
 1
 2
-#-------------------------------------------------- 356 procedure_record_write_1
+#-------------------------------------------------- 379 procedure_record_write_1
 3
 4
-#-------------------------------------------------- 357 procedure_record_write_4
+#-------------------------------------------------- 380 procedure_record_write_4
 11
-#-------------------------------------------------- 358 procedure_record_write_6
+#-------------------------------------------------- 381 procedure_record_write_6
 3
 4
-#-------------------------------------------------- 359 procedure_record_write_9
+#-------------------------------------------------- 382 procedure_record_write_9
 11
-#--------------------------------------------------- 360 procedure_table_write_9
+#--------------------------------------------------- 383 procedure_table_write_9
 7
 1
-#--------------------------------------------------- 361 procedure_while_write_4
+#--------------------------------------------------- 384 procedure_while_write_4
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
@@ -1240,31 +1310,31 @@ oob-fails
     )
   )
 ))
-#-------------------------------------------------------- 362 procedure_write_10
+#-------------------------------------------------------- 385 procedure_write_10
 7
-#------------------------------------------------------- 363 procedure_write_150
+#------------------------------------------------------- 386 procedure_write_150
 hello world
-#------------------------------------------------------- 364 procedure_write_151
+#------------------------------------------------------- 387 procedure_write_151
 -5
-#------------------------------------------------------- 365 procedure_write_153
+#------------------------------------------------------- 388 procedure_write_153
 7
-#------------------------------------------------------- 366 procedure_write_179
+#------------------------------------------------------- 389 procedure_write_179
 2
-#-------------------------------------------------------- 367 procedure_write_39
+#-------------------------------------------------------- 390 procedure_write_39
 2
-#--------------------------------------------------------- 368 procedure_write_7
+#--------------------------------------------------------- 391 procedure_write_7
 hello world
-#--------------------------------------------------------- 369 procedure_write_8
+#--------------------------------------------------------- 392 procedure_write_8
 -5
-#----------------------------------------------- 370 procedure_write_augassign_1
+#----------------------------------------------- 393 procedure_write_augassign_1
 8
-#---------------------------------------------- 371 procedure_write_augassign_10
+#---------------------------------------------- 394 procedure_write_augassign_10
 8
-#---------------------------------------------- 372 procedure_write_augassign_14
+#---------------------------------------------- 395 procedure_write_augassign_14
 hello
-#----------------------------------------------- 373 procedure_write_augassign_6
+#----------------------------------------------- 396 procedure_write_augassign_6
 hello
-#-------------------------------------------------------------- 374 procedure_40
+#-------------------------------------------------------------- 397 procedure_40
 (STMT :subj (TT_PROC_DECL swap
   (TT_VAR swap)
   (TT_VLIST (TT_VAR a) (TT_VAR b))
@@ -1276,152 +1346,159 @@ hello
     (TT_RETURN (TT_VAR tmp))
   )
 ))
-#----------------------------------------------------- 375 procedure_every_to_36
+#----------------------------------------------------- 398 procedure_every_to_36
 3
 4
 done
-#------------------------------------------------------ 376 procedure_every_to_5
+#------------------------------------------------------ 399 procedure_every_to_5
 3
 4
 done
-#-------------------------------------------------- 377 procedure_record_write_2
+#-------------------------------------------------- 400 procedure_record_write_2
 99
 20
-#-------------------------------------------------- 378 procedure_record_write_7
+#-------------------------------------------------- 401 procedure_record_write_7
 99
 20
-#---------------------------------------------------- 379 procedure_swap_write_1
+#---------------------------------------------------- 402 procedure_swap_write_1
 2
 1
-#---------------------------------------------------- 380 procedure_swap_write_2
+#---------------------------------------------------- 403 procedure_swap_write_2
 world
 hello
-#---------------------------------------------------- 381 procedure_swap_write_4
+#---------------------------------------------------- 404 procedure_swap_write_4
 2
 1
-#---------------------------------------------------- 382 procedure_swap_write_5
+#---------------------------------------------------- 405 procedure_swap_write_5
 world
 hello
-#------------------------------------------------------- 383 procedure_write_137
+#------------------------------------------------------- 406 procedure_write_137
 2
 4
 16
-#---------------------------------------------- 384 procedure_write_augassign_11
+#---------------------------------------------- 407 procedure_write_augassign_11
 15
 1
-#---------------------------------------------- 385 procedure_write_augassign_13
+#---------------------------------------------- 408 procedure_write_augassign_13
 foo-bar
-#----------------------------------------------- 386 procedure_write_augassign_2
+#----------------------------------------------- 409 procedure_write_augassign_2
 15
 1
-#----------------------------------------------- 387 procedure_write_augassign_5
+#----------------------------------------------- 410 procedure_write_augassign_5
 foo-bar
-#--------------------------------------------------- 388 procedure_every_write_1
+#--------------------------------------------------- 411 procedure_every_write_1
 7
-#--------------------------------------------------- 389 procedure_every_write_7
+#--------------------------------------------------- 412 procedure_every_write_7
 7
-#---------------------------------------------------- 390 procedure_scan_match_1
+#---------------------------------------------------- 413 procedure_scan_match_1
 A4C
-#--------------------------------------------------- 391 procedure_table_write_1
+#--------------------------------------------------- 414 procedure_table_write_1
 7
 8
 2
-#-------------------------------------------------- 392 procedure_table_write_12
+#-------------------------------------------------- 415 procedure_table_write_12
 7
 8
 2
-#--------------------------------------------------- 393 procedure_table_write_8
+#--------------------------------------------------- 416 procedure_table_write_8
 5
 30
-#------------------------------------------------------- 394 procedure_write_147
+#------------------------------------------------------- 417 procedure_write_147
 hello!
-#--------------------------------------------------------- 395 procedure_write_4
-hello!
-#-------------------------------------------------------- 396 procedure_write_60
+#------------------------------------------------------- 418 procedure_write_197
 hi!
 bye!
-#--------------------------------------------------- 397 procedure_every_write_2
+#--------------------------------------------------------- 419 procedure_write_4
+hello!
+#-------------------------------------------------------- 420 procedure_write_60
+hi!
+bye!
+#--------------------------------------------------- 421 procedure_every_write_2
 120
-#--------------------------------------------------- 398 procedure_every_write_8
+#--------------------------------------------------- 422 procedure_every_write_8
 120
-#------------------------------------------------------- 399 procedure_write_141
+#------------------------------------------------------- 423 procedure_write_141
 y1
 y2
 3
 y4
 y5
-#-------------------------------------------------------- 400 procedure_write_68
+#-------------------------------------------------------- 424 procedure_write_68
 8
 1000000000
-#------------------------------------------------- 401 procedure_write_global_15
+#------------------------------------------------- 425 procedure_write_global_15
 hello
-#-------------------------------------------------- 402 procedure_write_global_3
+#-------------------------------------------------- 426 procedure_write_global_3
 hello
-#-------------------------------------------------- 403 procedure_write_global_7
+#-------------------------------------------------- 427 procedure_write_global_7
 hello
-#------------------------------------------------- 404 procedure_write_global_16
+#------------------------------------------------- 428 procedure_write_global_16
 10
-#-------------------------------------------------- 405 procedure_write_global_4
+#-------------------------------------------------- 429 procedure_write_global_4
 10
-#-------------------------------------------------- 406 procedure_write_global_9
+#-------------------------------------------------- 430 procedure_write_global_9
 10
-#-------------------------------------------------- 407 procedure_write_static_3
+#-------------------------------------------------- 431 procedure_write_static_3
 1
 2
-#---------------------------------------------------- 408 procedure_case_write_1
+#---------------------------------------------------- 432 procedure_case_write_1
 side
 b
 a
 c
-#--------------------------------------------------- 409 procedure_case_write_12
+#--------------------------------------------------- 433 procedure_case_write_12
 side
 b
 a
 c
-#---------------------------------------------------- 410 procedure_case_write_3
+#--------------------------------------------------- 434 procedure_case_write_14
 one
 two
 many
-#------------------------------------------- 411 procedure_table_write_replace_4
+#---------------------------------------------------- 435 procedure_case_write_3
+one
+two
+many
+#------------------------------------------- 436 procedure_table_write_replace_4
 aXc
 Zd
 aQQ
 3
-#-------------------------------------------------- 412 procedure_write_static_1
+#-------------------------------------------------- 437 procedure_write_static_1
 11
 12
 13
-#-------------------------------------------------- 413 procedure_write_static_2
+#-------------------------------------------------- 438 procedure_write_static_2
 11
 12
 13
-#-------------------------------------------------- 414 procedure_write_static_4
+#-------------------------------------------------- 439 procedure_write_static_4
 11
 12
 13
-#----------------------------------------------------- 415 procedure_alt_write_1
+#----------------------------------------------------- 440 procedure_alt_write_1
 120
 t
 pos
 npos
-#----------------------------------------------------- 416 procedure_alt_write_6
+#----------------------------------------------------- 441 procedure_alt_write_6
 120
 t
 pos
 npos
-#-------------------------------------------------- 417 procedure_write_global_1
+#-------------------------------------------------- 442 procedure_write_global_1
 3
-#------------------------------------------------- 418 procedure_write_global_13
+#------------------------------------------------- 443 procedure_write_global_13
 3
-#------------------------------------------------- 419 procedure_write_global_14
+#------------------------------------------------- 444 procedure_write_global_14
 10
-#-------------------------------------------------- 420 procedure_write_global_2
+#-------------------------------------------------- 445 procedure_write_global_2
 10
-#-------------------------------------------------- 421 procedure_write_global_5
+#-------------------------------------------------- 446 procedure_write_global_5
 3
-#-------------------------------------------------- 422 procedure_write_global_6
+#-------------------------------------------------- 447 procedure_write_global_6
 10
-#-------------------------------------------------- 423 procedure_activate_map_1
+#-------------------------------------------------- 448 procedure_activate_map_1
 abcdef
 abcdef
 aBcDeF
@@ -1432,13 +1509,13 @@ a2c4e6
 A@C$E^
 
 cbcdef
-#------------------------------------------------------ 424 procedure_alt_fail_1
+#------------------------------------------------------ 449 procedure_alt_fail_1
 3
 -3
 5
 e
 abcd
-#-------------------------------------------------------- 425 procedure_write_67
+#-------------------------------------------------------- 450 procedure_write_67
 "abc"
 "abc"
 "abc  "
@@ -1449,119 +1526,127 @@ abcd
 ""
 ""
 ""
-#-------------------------------------------------- 426 procedure_write_global_8
+#-------------------------------------------------- 451 procedure_write_global_8
 5
-#---------------------------------------------------- 427 procedure_every_alt_25
+#---------------------------------------------------- 452 procedure_every_alt_25
 1
 2
 3
-#--------------------------------------------------- 428 procedure_every_limit_6
+#--------------------------------------------------- 453 procedure_every_limit_6
 1
 2
-#----------------------------------------------------- 429 procedure_every_to_26
+#----------------------------------------------------- 454 procedure_every_to_26
 3
 4
 5
-#----------------------------------------------------- 430 procedure_every_to_27
+#----------------------------------------------------- 455 procedure_every_to_27
 2
 4
 6
-#----------------------------------------------------- 431 procedure_every_to_29
+#----------------------------------------------------- 456 procedure_every_to_29
 7
 8
 9
-#----------------------------------------------------- 432 procedure_every_to_30
+#----------------------------------------------------- 457 procedure_every_to_30
 3
-#----------------------------------------------------- 433 procedure_scan_move_4
+#----------------------------------------------------- 458 procedure_scan_move_4
 2
-#--------------------------------------------------- 434 procedure_until_write_2
+#--------------------------------------------------- 459 procedure_until_write_2
 3
-#--------------------------------------------------- 435 procedure_while_write_5
+#--------------------------------------------------- 460 procedure_while_write_5
 1
 2
 3
-#------------------------------------------------- 436 procedure_every_suspend_6
+#------------------------------------------------- 461 procedure_every_suspend_6
 1
 2
-#------------------------------------------------------- 437 procedure_write_129
+#------------------------------------------------------- 462 procedure_write_129
 5
-#---------------------------------------------------- 438 procedure_every_alt_16
+#---------------------------------------------------- 463 procedure_every_alt_16
 3.5
 4.5
-#----------------------------------------------------- 439 procedure_every_alt_2
+#----------------------------------------------------- 464 procedure_every_alt_2
 1:3
 1:4
 2:3
 2:4
-#---------------------------------------------------- 440 procedure_every_alt_21
+#---------------------------------------------------- 465 procedure_every_alt_21
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_EVERY (TT_FNC (TT_VAR write) (TT_ALTERNATE (TT_VAR x) (TT_VAR y)))))))
-#---------------------------------------------------- 441 procedure_every_alt_23
+#---------------------------------------------------- 466 procedure_every_alt_23
 (STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_EVERY (TT_FNC (TT_VAR write) (TT_ALTERNATE (TT_ILIT 1) (TT_ILIT 2)))))))
-#---------------------------------------------------- 442 procedure_every_alt_24
+#---------------------------------------------------- 467 procedure_every_alt_24
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_EVERY (TT_FNC (TT_VAR write) (TT_ALTERNATE (TT_ILIT 1) (TT_ILIT 2) (TT_ILIT 3)))))
 ))
-#---------------------------------------------------- 443 procedure_every_alt_28
+#---------------------------------------------------- 468 procedure_every_alt_28
 1:3
 1:4
 2:3
 2:4
-#---------------------------------------------------- 444 procedure_every_alt_30
+#---------------------------------------------------- 469 procedure_every_alt_30
 a
 b
 c
-#---------------------------------------------------- 445 procedure_every_alt_31
+#---------------------------------------------------- 470 procedure_every_alt_31
 1
 2
 3
-#---------------------------------------------------- 446 procedure_every_alt_32
+#---------------------------------------------------- 471 procedure_every_alt_32
 ax
 ay
 bx
 by
-#----------------------------------------------------- 447 procedure_every_alt_4
+#----------------------------------------------------- 472 procedure_every_alt_4
 a
 b
 c
-#---------------------------------------------------- 448 procedure_every_alt_42
+#---------------------------------------------------- 473 procedure_every_alt_42
 3.5
 4.5
-#----------------------------------------------------- 449 procedure_every_alt_5
+#----------------------------------------------------- 474 procedure_every_alt_5
 1
 2
 3
-#----------------------------------------------------- 450 procedure_every_alt_6
+#----------------------------------------------------- 475 procedure_every_alt_6
 ax
 ay
 bx
 by
-#--------------------------------------------------- 451 procedure_every_limit_1
+#--------------------------------------------------- 476 procedure_every_limit_1
 1
 2
 3
-#--------------------------------------------------- 452 procedure_every_limit_2
+#-------------------------------------------------- 477 procedure_every_limit_11
 1
 2
 3
-#--------------------------------------------------- 453 procedure_every_limit_4
+#-------------------------------------------------- 478 procedure_every_limit_12
 1
 2
 3
-#--------------------------------------------------- 454 procedure_every_limit_5
+#--------------------------------------------------- 479 procedure_every_limit_2
 1
 2
 3
-#--------------------------------------------------- 455 procedure_every_limit_8
+#--------------------------------------------------- 480 procedure_every_limit_4
 1
 2
 3
-#--------------------------------------------------- 456 procedure_every_limit_9
+#--------------------------------------------------- 481 procedure_every_limit_5
 1
 2
 3
-#----------------------------------------------------- 457 procedure_every_to_22
+#--------------------------------------------------- 482 procedure_every_limit_8
+1
+2
+3
+#--------------------------------------------------- 483 procedure_every_limit_9
+1
+2
+3
+#----------------------------------------------------- 484 procedure_every_to_22
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
@@ -1572,169 +1657,188 @@ by
     )
   )
 ))
-#----------------------------------------------------- 458 procedure_every_to_23
+#----------------------------------------------------- 485 procedure_every_to_23
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_EVERY (TT_ASSIGN (TT_VAR i) (TT_TO (TT_ILIT 1) (TT_ILIT 10))) (TT_FNC (TT_VAR write) (TT_VAR i))))
 ))
-#----------------------------------------------------- 459 procedure_every_to_24
+#----------------------------------------------------- 486 procedure_every_to_24
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_EVERY (TT_ASSIGN (TT_VAR i) (TT_TO_BY (TT_ILIT 1) (TT_ILIT 10) (TT_ILIT 2))) (TT_FNC (TT_VAR write) (TT_VAR i))))
 ))
-#------------------------------------------------ 460 procedure_every_elemgen_11
+#------------------------------------------------ 487 procedure_every_elemgen_11
 a
 b
 c
-#------------------------------------------------ 461 procedure_every_elemgen_12
+#------------------------------------------------ 488 procedure_every_elemgen_12
 x
 y
 z
-#------------------------------------------------ 462 procedure_every_elemgen_14
+#------------------------------------------------ 489 procedure_every_elemgen_14
 1
 2
 3
-#------------------------------------------------- 463 procedure_every_elemgen_2
+#------------------------------------------------- 490 procedure_every_elemgen_2
 a
 b
 c
-#------------------------------------------------- 464 procedure_every_elemgen_3
+#------------------------------------------------- 491 procedure_every_elemgen_3
 x
 y
 z
-#------------------------------------------------- 465 procedure_every_elemgen_4
+#------------------------------------------------- 492 procedure_every_elemgen_4
 1
 2
 3
-#-------------------------------------------------- 466 procedure_every_limit_10
+#-------------------------------------------------- 493 procedure_every_limit_10
 done
-#--------------------------------------------------- 467 procedure_every_limit_3
+#--------------------------------------------------- 494 procedure_every_limit_3
 done
-#----------------------------------------------------- 468 procedure_every_to_16
+#----------------------------------------------------- 495 procedure_every_to_16
 a
 b
 c
-#----------------------------------------------------- 469 procedure_every_to_47
+#----------------------------------------------------- 496 procedure_every_to_47
 a
 b
 c
-#------------------------------------------------------ 470 procedure_scan_tab_5
+#------------------------------------------------------ 497 procedure_scan_tab_5
 abc
-#------------------------------------------------------ 471 procedure_scan_tab_9
+#------------------------------------------------------ 498 procedure_scan_tab_9
 abc
-#--------------------------------------------------- 472 procedure_scan_write_20
+#--------------------------------------------------- 499 procedure_scan_write_20
 2
-#---------------------------------------------------- 473 procedure_scan_write_9
+#---------------------------------------------------- 500 procedure_scan_write_9
 2
-#------------------------------------------------------ 474 procedure_scan_alt_1
+#------------------------------------------------------ 501 procedure_scan_alt_1
 4
 0
-#------------------------------------------------------ 475 procedure_scan_alt_2
+#------------------------------------------------------ 502 procedure_scan_alt_2
 4
 0
-#-------------------------------------------------------- 476 procedure_write_45
+#-------------------------------------------------------- 503 procedure_write_45
 hello
-#---------------------------------------------------- 477 procedure_write_read_2
+#---------------------------------------------------- 504 procedure_write_read_2
 hello world
-#---------------------------------------------------- 478 procedure_write_read_4
+#---------------------------------------------------- 505 procedure_write_read_4
 hello world
-#----------------------------------------------------- 479 procedure_every_to_19
+#----------------------------------------------------- 506 procedure_every_to_19
 2
 4
 6
-#---------------------------------------------------- 480 procedure_scan_write_3
+#----------------------------------------------------- 507 procedure_every_to_50
+2
+4
+6
+#---------------------------------------------------- 508 procedure_scan_write_3
 N
 done
-#-------------------------------------------------- 481 procedure_table_write_13
+#-------------------------------------------------- 509 procedure_table_write_13
 42
-#--------------------------------------------------- 482 procedure_table_write_2
+#--------------------------------------------------- 510 procedure_table_write_2
 42
-#-------------------------------------------------------- 483 procedure_write_51
+#------------------------------------------------------- 511 procedure_write_190
 integer
 100
 8
-#-------------------------------------------------- 484 procedure_table_write_14
+#-------------------------------------------------------- 512 procedure_write_51
+integer
+100
+8
+#-------------------------------------------------- 513 procedure_table_write_14
 7
 99
-#--------------------------------------------------- 485 procedure_table_write_3
-7
-99
-#--------------------------------------------------- 486 procedure_table_write_6
+#-------------------------------------------------- 514 procedure_table_write_17
 yes
 none
-#------------------------------------------- 487 procedure_until_write_replace_1
+#--------------------------------------------------- 515 procedure_table_write_3
+7
+99
+#--------------------------------------------------- 516 procedure_table_write_6
+yes
+none
+#------------------------------------------- 517 procedure_until_write_replace_1
 1
 2
 3
-#------------------------------------------- 488 procedure_until_write_replace_3
-1
-2
-3
-4
-5
-#------------------------------------------- 489 procedure_until_write_replace_4
-1
-2
-3
-#------------------------------------------- 490 procedure_until_write_replace_6
+#------------------------------------------- 518 procedure_until_write_replace_3
 1
 2
 3
 4
 5
-#--------------------------------------------------- 491 procedure_while_write_3
+#------------------------------------------- 519 procedure_until_write_replace_4
 1
 2
 3
-#----------------------------------------------- 492 procedure_write_augassign_3
+#------------------------------------------- 520 procedure_until_write_replace_6
+1
+2
+3
+4
+5
+#--------------------------------------------------- 521 procedure_while_write_3
+1
+2
+3
+#--------------------------------------------------- 522 procedure_while_write_9
+1
+2
+3
+#----------------------------------------------- 523 procedure_write_augassign_3
 25
-#----------------------------------------------- 493 procedure_write_augassign_9
+#----------------------------------------------- 524 procedure_write_augassign_9
 25
-#-------------------------------------------------- 494 procedure_record_write_3
+#-------------------------------------------------- 525 procedure_record_write_3
 15
-#-------------------------------------------------- 495 procedure_record_write_8
+#-------------------------------------------------- 526 procedure_record_write_8
 15
-#---------------------------------------------- 496 procedure_scan_tab_replace_1
+#---------------------------------------------- 527 procedure_scan_tab_replace_1
 ABC112D
 A1B12
-#-------------------------------------------------- 497 procedure_table_write_10
+#-------------------------------------------------- 528 procedure_table_write_10
 99
 0
 1
-#------------------------------------------- 498 procedure_table_write_replace_1
+#------------------------------------------- 529 procedure_table_write_replace_1
 10
 20
 2
-#------------------------------------------- 499 procedure_table_write_replace_5
+#------------------------------------------- 530 procedure_table_write_replace_5
 10
 20
 2
-#------------------------------------------------------ 500 procedure_scan_tab_1
+#------------------------------------------------------ 531 procedure_scan_tab_1
 A112C
-#--------------------------------------------------- 501 procedure_table_write_7
+#-------------------------------------------------- 532 procedure_table_write_18
 1
 1
 0
-#------------------------------------------- 502 procedure_until_write_replace_2
+#--------------------------------------------------- 533 procedure_table_write_7
+1
+1
+0
+#------------------------------------------- 534 procedure_until_write_replace_2
 2
 1
 0
-#------------------------------------------- 503 procedure_until_write_replace_5
+#------------------------------------------- 535 procedure_until_write_replace_5
 2
 1
 0
-#-------------------------------------------------- 504 procedure_table_write_11
+#-------------------------------------------------- 536 procedure_table_write_11
 3
 99
 8
-#------------------------------------------------ 505 procedure_write_replace_11
+#------------------------------------------------ 537 procedure_write_replace_11
 17
 1 16 17
 34
 34
-#------------------------------------------- 506 procedure_every_table_replace_1
+#------------------------------------------- 538 procedure_every_table_replace_1
 9
 2
 5
@@ -1746,7 +1850,7 @@ A112C
 3
 0
 1
-#---------------------------------------------- 507 procedure_to_write_replace_1
+#---------------------------------------------- 539 procedure_to_write_replace_1
 a<<b
 b>>a
 a<<=a
@@ -1761,169 +1865,199 @@ ac<<='ca'
 empty<<=empty
 empty<<a
 a>>empty
-#----------------------------------------------------- 508 procedure_coexpr_to_1
+#----------------------------------------------------- 540 procedure_coexpr_to_1
 1
 2
-#-------------------------------------------------- 509 procedure_repeat_write_2
+#-------------------------------------------------- 541 procedure_repeat_write_2
 3
-#------------------------------------------------------ 510 procedure_scan_tab_7
+#------------------------------------------------------ 542 procedure_scan_tab_7
 aaa
-#------------------------------------------------------ 511 procedure_scan_tab_8
+#------------------------------------------------------ 543 procedure_scan_tab_8
 aabb
-#--------------------------------------------------- 512 procedure_while_write_6
+#--------------------------------------------------- 544 procedure_while_write_6
 1
 3
 4
-#---------------------------------------------------- 513 procedure_every_alt_10
+#---------------------------------------------------- 545 procedure_every_alt_10
 hi
 hi
-#---------------------------------------------------- 514 procedure_every_alt_14
+#---------------------------------------------------- 546 procedure_every_alt_14
 1
 2
-#---------------------------------------------------- 515 procedure_every_alt_15
+#---------------------------------------------------- 547 procedure_every_alt_15
 a
 b
-#---------------------------------------------------- 516 procedure_every_alt_22
+#---------------------------------------------------- 548 procedure_every_alt_22
 (STMT :subj (TT_PROC_DECL main
   (TT_VAR main)
   (TT_VLIST)
   (TT_PROGRAM (TT_EVERY (TT_ASSIGN (TT_VAR i) (TT_ALTERNATE (TT_ILIT 1) (TT_ILIT 2) (TT_ILIT 3))) (TT_FNC (TT_VAR write) (TT_VAR i))))
 ))
-#---------------------------------------------------- 517 procedure_every_alt_35
+#---------------------------------------------------- 549 procedure_every_alt_35
 1
 1
 1
-#---------------------------------------------------- 518 procedure_every_alt_36
+#---------------------------------------------------- 550 procedure_every_alt_36
 hi
 hi
-#---------------------------------------------------- 519 procedure_every_alt_40
+#---------------------------------------------------- 551 procedure_every_alt_40
 1
 2
-#---------------------------------------------------- 520 procedure_every_alt_41
+#---------------------------------------------------- 552 procedure_every_alt_41
 a
 b
-#----------------------------------------------------- 521 procedure_every_alt_9
+#----------------------------------------------------- 553 procedure_every_alt_9
 1
 1
 1
-#-------------------------------------------- 522 procedure_every_alt_replace_10
+#-------------------------------------------- 554 procedure_every_alt_replace_10
 3
 4
 5
-#--------------------------------------------- 523 procedure_every_alt_replace_2
+#--------------------------------------------- 555 procedure_every_alt_replace_2
 3
 4
 5
-#------------------------------------------------- 524 procedure_every_elemgen_6
+#------------------------------------------------ 556 procedure_every_elemgen_16
 1
 2
 3
 4
 5
-#------------------------------------------------- 525 procedure_every_elemgen_8
+#------------------------------------------------ 557 procedure_every_elemgen_18
 1
 2
 3
 4
 5
-#---------------------------------------------------- 526 procedure_every_scan_1
+#------------------------------------------------- 558 procedure_every_elemgen_6
+1
+2
+3
+4
+5
+#------------------------------------------------- 559 procedure_every_elemgen_8
+1
+2
+3
+4
+5
+#---------------------------------------------------- 560 procedure_every_scan_1
 6
-#---------------------------------------------------- 527 procedure_every_scan_3
+#---------------------------------------------------- 561 procedure_every_scan_3
 6
-#------------------------------------------------ 528 procedure_every_elemgen_13
+#------------------------------------------------ 562 procedure_every_elemgen_13
 1
 2
 3
 4
-#------------------------------------------------- 529 procedure_every_elemgen_7
+#------------------------------------------------ 563 procedure_every_elemgen_17
 1
 2
 3
-#--------------------------------------------------- 530 procedure_while_write_2
+#------------------------------------------------- 564 procedure_every_elemgen_7
+1
+2
+3
+#--------------------------------------------------- 565 procedure_while_write_2
 alpha
 beta
 gamma
-#--------------------------------------------------- 531 procedure_while_write_8
+#--------------------------------------------------- 566 procedure_while_write_8
 alpha
 beta
 gamma
-#------------------------------------------------- 532 procedure_write_keyword_5
+#------------------------------------------------- 567 procedure_write_keyword_5
 hello
-#---------------------------------------------------- 533 procedure_every_alt_17
+#---------------------------------------------------- 568 procedure_every_alt_17
 [a]
 [b]
 [c]
-#--------------------------------------------- 534 procedure_every_alt_replace_3
+#---------------------------------------------------- 569 procedure_every_alt_43
+[a]
+[b]
+[c]
+#--------------------------------------------- 570 procedure_every_alt_replace_3
 10
-#------------------------------------------------- 535 procedure_every_elemgen_1
+#------------------------------------------------- 571 procedure_every_elemgen_1
 xy
-#------------------------------------------------ 536 procedure_every_elemgen_10
+#------------------------------------------------ 572 procedure_every_elemgen_10
 xy
-#----------------------------------------- 537 procedure_every_elemgen_replace_7
+#----------------------------------------- 573 procedure_every_elemgen_replace_7
 x0
 x1
 y0
 y1
-#----------------------------------------------------- 538 procedure_every_to_21
+#----------------------------------------------------- 574 procedure_every_to_21
 1
 2
 3
 done
-#-------------------------------------------------- 539 procedure_record_every_1
+#-------------------------------------------------- 575 procedure_record_every_1
 1
 2
 3
-#-------------------------------------------------- 540 procedure_record_every_2
+#-------------------------------------------------- 576 procedure_record_every_2
 1
 2
 3
-#-------------------------------------------------- 541 procedure_record_every_3
+#-------------------------------------------------- 577 procedure_record_every_3
 3
 2
 1
-#-------------------------------------------------- 542 procedure_record_every_4
+#-------------------------------------------------- 578 procedure_record_every_4
 1
 2
 3
-#---------------------------------------------------- 543 procedure_scan_write_1
+#-------------------------------------------------- 579 procedure_record_every_5
+1
+2
+3
+#-------------------------------------------------- 580 procedure_record_every_6
+3
+2
+1
+#---------------------------------------------------- 581 procedure_scan_write_1
 blk1 matched
 blk2 *subj=4 subj=[-n10]
-#--------------------------------------------------- 544 procedure_scan_write_11
+#--------------------------------------------------- 582 procedure_scan_write_11
 2
-#--------------------------------------------------- 545 procedure_scan_write_19
+#--------------------------------------------------- 583 procedure_scan_write_19
 world
-#--------------------------------------------------- 546 procedure_scan_write_22
+#--------------------------------------------------- 584 procedure_scan_write_22
 2
-#---------------------------------------------------- 547 procedure_scan_write_8
+#---------------------------------------------------- 585 procedure_scan_write_8
 world
-#---------------------------------------------------- 548 procedure_every_alt_29
+#---------------------------------------------------- 586 procedure_every_alt_29
 [eval]
 1X3
 1X4
 [eval]
 2X3
 2X4
-#----------------------------------------------------- 549 procedure_every_alt_3
+#----------------------------------------------------- 587 procedure_every_alt_3
 [eval]
 1X3
 1X4
 [eval]
 2X3
 2X4
-#--------------------------------------------- 550 procedure_every_alt_replace_7
+#--------------------------------------------- 588 procedure_every_alt_replace_7
 y
 none
-#------------------------------------------------ 551 procedure_every_elemgen_15
+#------------------------------------------------ 589 procedure_every_elemgen_15
 4
 5
 6
-#------------------------------------------------- 552 procedure_every_elemgen_5
+#------------------------------------------------- 590 procedure_every_elemgen_5
 4
 5
 6
-#----------------------------------------------------- 553 procedure_every_to_20
+#----------------------------------------------------- 591 procedure_every_to_20
 6
-#---------------------------------------------- 554 procedure_every_to_replace_6
+#----------------------------------------------------- 592 procedure_every_to_51
+6
+#---------------------------------------------- 593 procedure_every_to_replace_6
 (STMT :subj (TT_PROC_DECL show
   (TT_VAR show)
   (TT_VLIST (TT_VAR n))
@@ -1935,56 +2069,56 @@ none
     )
   )
 ))
-#--------------------------------------------------- 555 procedure_scan_write_10
+#--------------------------------------------------- 594 procedure_scan_write_10
 0
-#--------------------------------------------------- 556 procedure_scan_write_17
+#--------------------------------------------------- 595 procedure_scan_write_17
 outer
 outer
-#--------------------------------------------------- 557 procedure_scan_write_21
+#--------------------------------------------------- 596 procedure_scan_write_21
 0
-#---------------------------------------------------- 558 procedure_scan_write_6
+#---------------------------------------------------- 597 procedure_scan_write_6
 outer
 outer
-#------------------------------------------- 559 procedure_table_write_replace_3
+#------------------------------------------- 598 procedure_table_write_replace_3
 found
 absent
 42
-#--------------------------------------------------- 560 procedure_while_write_1
+#--------------------------------------------------- 599 procedure_while_write_1
 5
-#--------------------------------------------------- 561 procedure_while_write_7
+#--------------------------------------------------- 600 procedure_while_write_7
 5
-#------------------------------------------------- 562 procedure_every_suspend_4
+#------------------------------------------------- 601 procedure_every_suspend_4
 1
 2
 done
-#--------------------------------------------------- 563 procedure_limit_write_7
+#--------------------------------------------------- 602 procedure_limit_write_7
 b
 d
 e
-#-------------------------------------------------- 564 procedure_table_write_16
+#-------------------------------------------------- 603 procedure_table_write_16
 1
 3
-#--------------------------------------------------- 565 procedure_table_write_5
+#--------------------------------------------------- 604 procedure_table_write_5
 1
 3
-#--------------------------------------------------- 566 procedure_scan_write_16
+#--------------------------------------------------- 605 procedure_scan_write_16
 second
 
-#---------------------------------------------------- 567 procedure_scan_write_5
+#---------------------------------------------------- 606 procedure_scan_write_5
 second
-#--------------------------------------------------- 568 procedure_while_until_1
+#--------------------------------------------------- 607 procedure_while_until_1
 1
 2
 3
-#--------------------------------------------------- 569 procedure_while_until_2
+#--------------------------------------------------- 608 procedure_while_until_2
 1
 2
 3
-#---------------------------------------------- 570 procedure_to_until_replace_1
+#---------------------------------------------- 609 procedure_to_until_replace_1
 -1
-#---------------------------------------------- 571 procedure_to_until_replace_2
+#---------------------------------------------- 610 procedure_to_until_replace_2
 -1
-#--------------------------------------------- 572 procedure_every_alt_replace_9
+#--------------------------------------------- 611 procedure_every_alt_replace_9
 aXYc
 abc
 aZc
@@ -1993,12 +2127,12 @@ oob-failed
 pqr
 zero-failed
 pqr
-#--------------------------------------- 573 procedure_write_augassign_replace_2
+#--------------------------------------- 612 procedure_write_augassign_replace_2
 &null
 1
 1
 2
-#------------------------------------------ 574 procedure_record_limit_replace_1
+#------------------------------------------ 613 procedure_record_limit_replace_1
 abc,def,ghi,xx,yy: 123 456 987 1 2
 prepro.dat here
 xyzzy: 47
@@ -2006,33 +2140,19 @@ abc,def,ghi,xx,yy: 321 456 987 1 2
 found feature: ASCII
 no feature:    EBCDIC
 done
-#----------------------------------------------------- 575 procedure_coexpr_to_2
+#----------------------------------------------------- 614 procedure_coexpr_to_2
 1
 2
 done
-#------------------------------------------------------ 576 procedure_scan_tab_6
+#------------------------------------------------------ 615 procedure_scan_tab_6
 c
-#---------------------------------------------------- 577 procedure_every_alt_11
+#---------------------------------------------------- 616 procedure_every_alt_11
 1
 2
 1
 2
 1
-#---------------------------------------------------- 578 procedure_every_alt_12
-1
-2
-3
-1
-2
-3
-1
-#---------------------------------------------------- 579 procedure_every_alt_37
-1
-2
-1
-2
-1
-#---------------------------------------------------- 580 procedure_every_alt_38
+#---------------------------------------------------- 617 procedure_every_alt_12
 1
 2
 3
@@ -2040,89 +2160,103 @@ c
 2
 3
 1
-#---------------------------------------------------- 581 procedure_every_alt_13
+#---------------------------------------------------- 618 procedure_every_alt_37
+1
+2
+1
+2
+1
+#---------------------------------------------------- 619 procedure_every_alt_38
+1
+2
+3
+1
+2
+3
+1
+#---------------------------------------------------- 620 procedure_every_alt_13
 5
 5
 5
-#---------------------------------------------------- 582 procedure_every_alt_34
+#---------------------------------------------------- 621 procedure_every_alt_34
 done
-#---------------------------------------------------- 583 procedure_every_alt_39
+#---------------------------------------------------- 622 procedure_every_alt_39
 5
 5
 5
-#----------------------------------------------------- 584 procedure_every_alt_8
+#----------------------------------------------------- 623 procedure_every_alt_8
 done
-#----------------------------------------------------- 585 procedure_every_alt_1
+#----------------------------------------------------- 624 procedure_every_alt_1
 abc
-#---------------------------------------------------- 586 procedure_every_alt_27
+#---------------------------------------------------- 625 procedure_every_alt_27
 abc
-#----------------------------------------- 587 procedure_every_elemgen_replace_1
+#----------------------------------------- 626 procedure_every_elemgen_replace_1
 99
-#----------------------------------------- 588 procedure_every_elemgen_replace_8
+#----------------------------------------- 627 procedure_every_elemgen_replace_8
 99
-#--------------------------------------------------- 589 procedure_every_limit_7
+#--------------------------------------------------- 628 procedure_every_limit_7
 1
 2
-#------------------------------------------------- 590 procedure_every_suspend_5
+#------------------------------------------------- 629 procedure_every_suspend_5
 (STMT :subj (TT_PROC_DECL range
   (TT_VAR range)
   (TT_VLIST (TT_VAR lo) (TT_VAR hi))
   (TT_PROGRAM (TT_LOCAL (TT_VAR i)) (TT_EVERY (TT_ASSIGN (TT_VAR i) (TT_TO (TT_VAR lo) (TT_VAR hi))) (TT_SUSPEND (TT_VAR i))))
 ))
-#----------------------------------------------------- 591 procedure_scan_many_1
+#----------------------------------------------------- 630 procedure_scan_many_1
 N
-#------------------------------------------------------ 592 procedure_scan_tab_2
+#------------------------------------------------------ 631 procedure_scan_tab_2
 s=[-n10] *s=4
-#---------------------------------------------------- 593 procedure_scan_write_2
+#---------------------------------------------------- 632 procedure_scan_write_2
 A match
 B &pos=1 pos(1)=Y pos(0)=N pos(5)=N
-#---------------------------------------------------- 594 procedure_every_alt_18
+#---------------------------------------------------- 633 procedure_every_alt_18
 y
 z
 none
-#----------------------------------------------------- 595 procedure_every_to_15
+#----------------------------------------------------- 634 procedure_every_to_15
 15
-#----------------------------------------------------- 596 procedure_every_to_46
+#----------------------------------------------------- 635 procedure_every_to_46
 15
-#---------------------------------------------------- 597 procedure_every_alt_33
+#---------------------------------------------------- 636 procedure_every_alt_33
 5
 7
 1
 2
 8
 9
-#----------------------------------------------------- 598 procedure_every_alt_7
+#----------------------------------------------------- 637 procedure_every_alt_7
 5
 7
 1
 2
 8
 9
-#------------------------------------------- 599 procedure_table_write_replace_2
+#------------------------------------------- 638 procedure_table_write_replace_2
 1
 deleted
 2
-#------------------------------------------- 600 procedure_table_write_replace_6
+#------------------------------------------- 639 procedure_table_write_replace_6
 1
 deleted
 2
-#--------------------------------------------------- 601 procedure_every_table_1
+#--------------------------------------------------- 640 procedure_every_table_1
 60
-#--------------------------------------------------- 602 procedure_every_table_2
+#--------------------------------------------------- 641 procedure_every_table_2
 60
-#-------------------------------------------------- 603 procedure_table_write_15
+#-------------------------------------------------- 642 procedure_table_write_15
 10
 20
 0
-#--------------------------------------------------- 604 procedure_table_write_4
+#--------------------------------------------------- 643 procedure_table_write_4
 10
 20
 0
-#----------------------------------------------------- 605 procedure_every_to_13
+#----------------------------------------------------- 644 procedure_every_to_13
 15
-#----------------------------------------------------- 606 procedure_every_to_44
+#----------------------------------------------------- 645 procedure_every_to_44
 15
-#---------------------------------------------- 607 procedure_every_to_replace_3
+#---------------------------------------------- 646 procedure_every_to_replace_3
 2
 3
 5
@@ -2148,14 +2282,14 @@ deleted
 83
 89
 97
-#----------------------------------------- 608 procedure_every_elemgen_replace_6
+#----------------------------------------- 647 procedure_every_elemgen_replace_6
 function write
 noexist fails
 p0
 p1
 p0
 p11
-#------------------------------------------------- 609 procedure_every_elemgen_9
+#------------------------------------------------ 648 procedure_every_elemgen_19
 110
 120
 130
@@ -2164,7 +2298,16 @@ break
 next
 10
 30
-#------------------------------------------ 610 procedure_record_every_replace_8
+#------------------------------------------------- 649 procedure_every_elemgen_9
+110
+120
+130
+break
+10
+next
+10
+30
+#------------------------------------------ 650 procedure_record_every_replace_8
 9
 9
 9
@@ -2172,24 +2315,24 @@ next
 4
 4
 XXX
-#---------------------------------------------- 611 procedure_every_to_replace_5
+#---------------------------------------------- 651 procedure_every_to_replace_5
 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47
-#---------------------------------------------- 612 procedure_every_to_replace_8
+#---------------------------------------------- 652 procedure_every_to_replace_8
 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47
-#------------------------------------------ 613 procedure_record_table_replace_1
+#------------------------------------------ 653 procedure_record_table_replace_1
 11 6
 105 5
 abcXde
 7
-#--------------------------------------------- 614 procedure_while_map_replace_1
+#--------------------------------------------- 654 procedure_while_map_replace_1
 yes
 no
 yes
-#--------------------------------------------- 615 procedure_while_map_replace_2
+#--------------------------------------------- 655 procedure_while_map_replace_2
 yes
 no
 yes
-#------------------------------------------------------- 616 procedure_write_143
+#------------------------------------------------------- 656 procedure_write_143
 procedure
 procedure
 procedure main
@@ -2202,7 +2345,7 @@ function push
 20
 30
 cba
-#-------------------------------------------- 617 procedure_record_alt_replace_2
+#-------------------------------------------- 657 procedure_record_alt_replace_2
 integer(2) ----> 2
 integer("2") ----> 2
 integer(" 2") ----> 2
@@ -2314,38 +2457,38 @@ abs(0) ----> 0
 -1 ~= -0 ----> 0
 36 ^ -9 ----> 0
 -36 ^ -9 ----> 0
-#---------------------------------------------------- 618 procedure_every_alt_26
+#---------------------------------------------------- 658 procedure_every_alt_26
 3
-#---------------------------------------------------- 619 procedure_every_alt_19
+#---------------------------------------------------- 659 procedure_every_alt_19
 done
-#------------------------------------------------------ 620 procedure_scan_tab_3
+#------------------------------------------------------ 660 procedure_scan_tab_3
 s=[-n10] *s=4
-#------------------------------------------------- 621 procedure_every_suspend_3
+#------------------------------------------------- 661 procedure_every_suspend_3
 4
 3
 2
 1
-#------------------------------------------ 622 procedure_record_every_replace_9
+#------------------------------------------ 662 procedure_record_every_replace_9
 11
 12
 13
 15
 8
 9
-#--------------------------------------------- 623 procedure_alt_limit_replace_1
+#--------------------------------------------- 663 procedure_alt_limit_replace_1
 1 1
 5
 7
 10 2
-#---------------------------------------------- 624 procedure_every_to_replace_1
+#---------------------------------------------- 664 procedure_every_to_replace_1
 MDCCLXXVI
 XLII
 IX
-#---------------------------------------------- 625 procedure_every_to_replace_7
+#---------------------------------------------- 665 procedure_every_to_replace_7
 MDCCLXXVI
 XLII
 IX
-#------------------------------------------- 626 procedure_every_scan_replace_11
+#------------------------------------------- 666 procedure_every_scan_replace_11
 kw_lhs swap: &pos=4 x=3
 kw_lhs oob: blocked
 kw_lhs oob state: &pos=3 x=9
@@ -2354,7 +2497,7 @@ kw_rhs oob: &pos=3 x=3
 after rev &pos<->x: &pos=3 x=9
 subj_mut &pos<->x: &pos=1 x=3
 subj_mut x<->&pos: &pos=1 x=2
-#-------------------------------------------- 627 procedure_record_alt_replace_1
+#-------------------------------------------- 667 procedure_record_alt_replace_1
 i := 10 ----> 10
 i =:= 9 ----> none
 i ----> 10
@@ -2482,28 +2625,28 @@ s ----> "X"
 s := "x" ----> "x"
 s ~==:= "abc" ----> "abc"
 s ----> "abc"
-#--------------------------------------------- 628 procedure_alt_while_replace_1
+#--------------------------------------------- 668 procedure_alt_while_replace_1
 1
 1
 2
 2
 3
 3
-#------------------------------------------------- 629 procedure_every_suspend_1
+#------------------------------------------------- 669 procedure_every_suspend_1
 1
 2
 3
 4
-#------------------------------------------------- 630 procedure_every_suspend_2
+#------------------------------------------------- 670 procedure_every_suspend_2
 1
 2
 3
 1
 2
-#----------------------------------------------- 631 procedure_scan_to_replace_1
+#----------------------------------------------- 671 procedure_scan_to_replace_1
 entry:       p="-n10" q="AA" r="BB" s="CC"
 after match: p="-n10" q="AA" r="BB" s="CC"
-#----------------------------------------- 632 procedure_every_suspend_replace_1
+#----------------------------------------- 672 procedure_every_suspend_replace_1
 a2
 a2
 a4
@@ -2513,7 +2656,7 @@ l=a2
 l=a4
 l=a3
 l=a1
-#---------------------------------------------- 633 procedure_every_to_replace_2
+#---------------------------------------------- 673 procedure_every_to_replace_2
 
 
 p
@@ -2673,7 +2816,7 @@ gaggle
      e
      s
 gaggle
-#----------------------------------------- 634 procedure_every_elemgen_replace_5
+#----------------------------------------- 674 procedure_every_elemgen_replace_5
 cset
 cset
 cset
@@ -2686,13 +2829,13 @@ cset
 a
 b
 4
-#---------------------------------------------- 635 procedure_every_to_replace_4
+#---------------------------------------------- 675 procedure_every_to_replace_4
 fh-write-ok
 fh-writes-ok
 file-content
 42
 done
-#---------------------------------------------- 636 procedure_alt_fail_replace_1
+#---------------------------------------------- 676 procedure_alt_fail_replace_1
 cset
 cset
 cset
@@ -2727,21 +2870,21 @@ integer
 0
 0
 1
-#---------------------------------------------- 637 procedure_scan_tab_replace_2
+#---------------------------------------------- 677 procedure_scan_tab_replace_2
 pos=1
-#------------------------------------------------------ 638 procedure_scan_tab_4
+#------------------------------------------------------ 678 procedure_scan_tab_4
 A pos=1
 B pos=1
 C pos=1
-#------------------------------------------------------ 639 procedure_alt_case_1
+#------------------------------------------------------ 679 procedure_alt_case_1
 int=1
 int=2
 iters=3 (expect 3)
-#------------------------------------------- 640 procedure_record_scan_replace_1
+#------------------------------------------- 680 procedure_record_scan_replace_1
 f:A/112/C
 A 112 C
 A112C
-#----------------------------------------- 641 procedure_record_every_replace_10
+#----------------------------------------- 681 procedure_record_every_replace_10
 22
 42
 10
@@ -2758,7 +2901,7 @@ abXde
 40
 50
 i
-#----------------------------------------- 642 procedure_every_elemgen_replace_4
+#----------------------------------------- 682 procedure_every_elemgen_replace_4
 A. a
 B. a
 B. b
@@ -3127,18 +3270,18 @@ P a3de
 Q f4ij
 Q k5mno
 Q k6mno
-#-------------------------------------------- 643 procedure_scan_while_replace_2
+#-------------------------------------------- 683 procedure_scan_while_replace_2
 9
-#-------------------------------------------- 644 procedure_scan_while_replace_3
+#-------------------------------------------- 684 procedure_scan_while_replace_3
 9
-#----------------------------------------- 645 procedure_record_every_replace_11
+#----------------------------------------- 685 procedure_record_every_replace_11
 5 17
 42
 17 42
 103 4 105 60
 7
 aXcd!
-#--------------------------------------------- 646 procedure_every_alt_replace_6
+#--------------------------------------------- 686 procedure_every_alt_replace_6
 function sqrt(0.0) = 0.0
 function sqrt(0.25) = 0.5
 function sqrt(1.0) = 1.0
@@ -3218,7 +3361,7 @@ function atan(0.0, 1.0) = 0.0
 function atan(1.0, -1.0) = 2.356
 function atan(1.0, 0.0) = 1.571
 function atan(1.0, 1.0) = 0.785
-#---------------------------------------------------- 647 procedure_every_alt_20
+#---------------------------------------------------- 687 procedure_every_alt_20
 simple_mutual:
 1,4
 1,5
@@ -3254,7 +3397,7 @@ static_mutual:
 queens_4:
 sol:2413
 sol:3142
-#---------------------------------------------------- 648 procedure_every_scan_2
+#---------------------------------------------------- 688 procedure_every_scan_2
 19683
 1
 -2
@@ -3266,7 +3409,7 @@ sol:3142
 2
 3
 xy
-#--------------------------------------------- 649 procedure_every_alt_replace_5
+#--------------------------------------------- 689 procedure_every_alt_replace_5
     s1    s2    <<   <<=    ==   ~==   >>=    >>
     ""    ""   ---    ""    ""   ---    ""   ---
     ""   "a"   "a"   "a"   ---   "a"   ---   ---
@@ -3303,11 +3446,11 @@ xy
     ''   "c"   "c"   "c"   ---   "c"   ---   ---
     ''   'x'   "x"   "x"   ---   "x"   ---   ---
     ''   '2'   "2"   "2"   ---   "2"   ---   ---
-#------------------------------------------ 650 procedure_suspend_scan_replace_1
+#------------------------------------------ 690 procedure_suspend_scan_replace_1
 
-#-------------------------------------------- 651 procedure_every_scan_replace_1
+#-------------------------------------------- 691 procedure_every_scan_replace_1
 c="n" optstring="n+" find=1
-#------------------------------------------- 652 procedure_every_scan_replace_12
+#------------------------------------------- 692 procedure_every_scan_replace_12
 a
 c
 e
@@ -3319,7 +3462,7 @@ i
 3
 
 abcde
-#------------------------------------------ 653 procedure_record_every_replace_6
+#------------------------------------------ 693 procedure_record_every_replace_6
 1 2
 3 4
 5 6
@@ -3335,7 +3478,7 @@ abcde
 3
 7
  11 22 73 74 
-#-------------------------------------------- 654 procedure_every_scan_replace_7
+#-------------------------------------------- 694 procedure_every_scan_replace_7
 type string
 *s  5
 s:  abcde
@@ -3373,7 +3516,7 @@ c3: "b"
 c4: "cdef"
 c5: "3.14159"
 c6: "abcdef"
-#-------------------------------------------- 655 procedure_every_scan_replace_8
+#-------------------------------------------- 695 procedure_every_scan_replace_8
   &pos=1   &subject=""
 
 s :=      "cat"         &pos=1   &subject="cat"
@@ -3436,9 +3579,9 @@ p :=          4 FAILED  &pos=2   &subject="x"
 &pos=3 x=3
 &pos=1 x=3
 &pos=1 x=2
-#----------------------------------------- 656 procedure_every_elemgen_replace_3
+#----------------------------------------- 696 procedure_every_elemgen_replace_3
 There are 168 primes in the first 1000 integers.
-#--------------------------------------------- 657 procedure_every_alt_replace_1
+#--------------------------------------------- 697 procedure_every_alt_replace_1
 6-Queens:
 solution 1:
   -------------------------
@@ -3497,7 +3640,7 @@ solution 4:
   |   | Q |   |   |   |   |
   -------------------------
 4 solutions total.
-#--------------------------------------------- 658 procedure_every_alt_replace_8
+#--------------------------------------------- 698 procedure_every_alt_replace_8
 6-Queens:
 solution 1:
   -------------------------
@@ -3556,7 +3699,7 @@ solution 4:
   |   | Q |   |   |   |   |
   -------------------------
 4 solutions total.
-#------------------------------------------ 659 procedure_record_every_replace_5
+#------------------------------------------ 699 procedure_record_every_replace_5
 
          0  i  2114
  453816694  i  4124
@@ -3622,7 +3765,7 @@ solution 4:
 1380138031  L  20
  425567097  R  2
  407906811  R  2
-#-------------------------------------------- 660 procedure_every_scan_replace_2
+#-------------------------------------------- 700 procedure_every_scan_replace_2
 +x          1     2     3     9
 -x         -1    -2    -3    -9
 *x          1     1     1     1
@@ -3677,7 +3820,7 @@ x ** y      2     1     2     2           2     1           x     2     2     x
 
   12578  .13459  ainorz  
   12345  678.9  cnost  
-#-------------------------------------------- 661 procedure_every_scan_replace_3
+#-------------------------------------------- 701 procedure_every_scan_replace_3
 The
 There
 are
@@ -3704,7 +3847,7 @@ sort
 the
 to
 write
-#--------------------------------------------- 662 procedure_every_alt_replace_4
+#--------------------------------------------- 702 procedure_every_alt_replace_4
   &allocated: 0
   &allocated: 0
   &allocated: 0
@@ -3781,7 +3924,7 @@ write
      &window: &null
           &x: 0
           &y: 0
-#----------------------------------------- 663 procedure_every_elemgen_replace_2
+#----------------------------------------- 703 procedure_every_elemgen_replace_2
 XIII
 IV
 VI
@@ -3790,11 +3933,11 @@ cannot convert
 XXXIX
 MMMCMXCIX
 cannot convert
-#-------------------------------------------- 664 procedure_scan_while_replace_1
+#-------------------------------------------- 704 procedure_scan_while_replace_1
 accbcabbaa
 14434241332312211
 AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABABAAAA
-#------------------------------------------- 665 procedure_every_scan_replace_10
+#------------------------------------------- 705 procedure_every_scan_replace_10
 A                   2
 B                   1
 D                   1
@@ -3848,7 +3991,7 @@ write               1
 writes              1
 x                   3
 y                   4
-#---------------------------------------------- 666 procedure_to_while_replace_1
+#---------------------------------------------- 706 procedure_to_while_replace_1
      1  Order, Coleoptera, (Beetles). Many beetles are colored so as
      2  to resemble the surfaces which they habitually frequent, and they thus
      3  escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
@@ -3977,7 +4120,7 @@ well             : 13
 which            : 2, 4, 13, 14
 with             : 4, 9
 worm             : 8
-#------------------------------------------ 667 procedure_record_every_replace_4
+#------------------------------------------ 707 procedure_record_every_replace_4
 6-Queens:
 solution: 1
   -------------------------
@@ -4038,7 +4181,7 @@ solution: 4
   -------------------------
   |   | Q |   |   |   |   |
   -------------------------
-#------------------------------------------ 668 procedure_record_every_replace_2
+#------------------------------------------ 708 procedure_record_every_replace_2
  ----> &null
 f := open("foo.baz","w") ----> file(foo.baz)
 write(f,"hello world") ----> "hello world"
@@ -4213,7 +4356,7 @@ close(f) ----> file(fncs1.dat)
 5.75              1.398 1.089 0.861 -0.50 -0.59 2.397 314.1 1.749 1.592 
 6.0               1.405 1.107 0.960 -0.27 -0.29 2.449 403.4 1.791 1.630 
 6.25              1.412 1.123 0.999 -0.03 -0.03 2.5   518.0 1.832 1.668 
-#-------------------------------------------- 669 procedure_every_scan_replace_9
+#-------------------------------------------- 709 procedure_every_scan_replace_9
    initial : 0 :
  >> 
  >> 3 3 
@@ -4232,7 +4375,7 @@ k 3
 v 7
        30s : 5 : [0]30 [1]31 [2]32 [3]33 [4]34
        50s : 5 : [0]50 [1]51 [2]52 [3]53 [4]54
-#------------------------------------------ 670 procedure_record_every_replace_7
+#------------------------------------------ 710 procedure_record_every_replace_7
  ----> &null
 s := "abcd" ----> "abcd"
 s := "x" ----> "x"
@@ -4464,9 +4607,9 @@ bal('+','[','[',"[[2*x[+3[+[5*y[") ----> none
 bal('+','([','])',"([2*x)+3]+(5*y]") ----> 10
 bal(,,,"()+()") ----> 1
 bal(&cset,,,"()+()") ----> 1
-#------------------------------------------ 671 procedure_record_every_replace_1
+#------------------------------------------ 711 procedure_record_every_replace_1
 he runs.
-#-------------------------------------------- 672 procedure_every_scan_replace_5
+#-------------------------------------------- 712 procedure_every_scan_replace_5
 -2
 -2
 a. [0]
@@ -4519,7 +4662,7 @@ z. [18] 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29
 x. [9] 21 22 23 24 25 26 27 28 29
 y. [9] 41 42 43 44 45 46 47 48 49
 z. [18] 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78 79
-#------------------------------------------ 673 procedure_record_every_replace_3
+#------------------------------------------ 713 procedure_record_every_replace_3
 Enter states (1 character names): Enter input alphabet: Enter Final states (subset of states): What is the start state? enter delta(a,0) = enter delta(a,1) = enter delta(b,0) = enter delta(b,1) = enter delta(c,0) = enter delta(c,1) = enter delta(d,0) = enter delta(d,1) = enter delta(e,0) = enter delta(e,1) = enter delta(f,0) = enter delta(f,1) = enter delta(g,0) = enter delta(g,1) = enter delta(h,0) = enter delta(h,1) = 
 
 
@@ -4920,7 +5063,7 @@ where:
 	d(bf,0) = ag	d(bf,1) = ce
 	d(ce,0) = d	d(ce,1) = bf
 	d(d,0) = d	d(d,1) = ag
-#-------------------------------------------- 674 procedure_every_scan_replace_6
+#-------------------------------------------- 714 procedure_every_scan_replace_6
 1 metafile 1250 1000 0 0 0 init
 581 950 (A) text
 751 880 (B) text
@@ -4990,7 +5133,7 @@ where:
 125 249 line stroke 874 249 begin 58 587 line stroke
 255 255 255 color
 0 0 (16 players, 5 rounds, 20 matches) text
-#-------------------------------------------- 675 procedure_every_scan_replace_4
+#-------------------------------------------- 715 procedure_every_scan_replace_4
 testing entab/detab(s)
 testing entab/detab(s,5)
 testing entab/detab(s,8,12)
@@ -5002,7 +5145,7 @@ testing entab/detab(s,3)
 testing entab/detab(s,3,4)
 testing entab/detab(s,5)
 testing entab/detab(s,5,7,10)
-#------------------------------------------- 676 procedure_record_scan_replace_2
+#------------------------------------------- 716 procedure_record_scan_replace_2
 <!-- Created by HTPREP -->
 <html><head>
 <title>Off the Beaten Path</title>
@@ -5077,20 +5220,24 @@ Barbecuing with Liquid Oxygen</a>
 <hr>
 <address><a href="http://www.cs.arizona.edu/~gmt">Gregg Townsend</a></address>
 </body></html>
-#------------------------------------------------- 677 procedure_write_172 XFAIL
+#------------------------------------------------- 717 procedure_write_172 XFAIL
 1.414213562
-#----------------------------------------------- 678 procedure_every_to_48 XFAIL
+#------------------------------------------------- 718 procedure_write_194 XFAIL
+2.0
+3.0
+1.414213562
+#----------------------------------------------- 719 procedure_every_to_48 XFAIL
 3
 2
 1
-#----------------------------------------------- 679 procedure_every_to_49 XFAIL
+#----------------------------------------------- 720 procedure_every_to_49 XFAIL
 1
 2
 3
-#------------------------------------- 680 procedure_table_write_replace_7 XFAIL
+#------------------------------------- 721 procedure_table_write_replace_7 XFAIL
 found
 absent
 a
-#---------------------------------------------- 681 procedure_scan_while_1 XFAIL
+#---------------------------------------------- 722 procedure_scan_while_1 XFAIL
 dash
 flist size=0
