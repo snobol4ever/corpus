@@ -3561,3 +3561,56 @@ program rung02arithmixed;
 begin
   writeln((3 + 2.5):0:1)
 end.
+{--------------------------------------- 179 ladder__rung03_if_while_if_no_else}
+program rung03ifwhileifnoelse;
+var
+  n: integer;
+begin
+  n := 5;
+  if n > 3 then
+    writeln('taken');
+  n := 1;
+  if n > 3 then
+    writeln('not taken');
+  writeln('done')
+end.
+{--------------------------------------- 180 ladder__rung03_if_while_while_zero}
+program rung03ifwhilewhilezero;
+var
+  n: integer;
+begin
+  n := 0;
+  while n > 0 do begin
+    writeln('should not print');
+    n := n - 1
+  end;
+  writeln('after')
+end.
+{------------------------------------ 181 ladder__rung03_if_while_dangling_else}
+program rung03ifwhiledangling;
+var
+  a, b: boolean;
+begin
+  a := true;
+  b := false;
+  if a then
+    if b then
+      writeln('inner-true')
+    else
+      writeln('inner-false');
+  writeln('done')
+end.
+{-------------------------------------- 182 ladder__rung03_if_while_if_compound}
+program rung03ifwhileifcompound;
+var
+  n: integer;
+begin
+  n := 7;
+  if n > 3 then begin
+    writeln('big');
+    writeln(n)
+  end else begin
+    writeln('small');
+    writeln(n)
+  end
+end.

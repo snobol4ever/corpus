@@ -642,3 +642,14 @@ abc
           5
 {------------------------------------- 178 ladder__rung02_arithmetic_mixed_type}
 5.5
+{--------------------------------------- 179 ladder__rung03_if_while_if_no_else}
+taken
+done
+{--------------------------------------- 180 ladder__rung03_if_while_while_zero}
+after
+{------------------------------------ 181 ladder__rung03_if_while_dangling_else}
+inner-false
+done
+{-------------------------------------- 182 ladder__rung03_if_while_if_compound}
+big
+          7

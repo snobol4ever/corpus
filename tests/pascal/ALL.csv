@@ -177,3 +177,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,program,procedure,function,var
 176,ladder__rung02_arithmetic_mod_neg,ladder__rung02_arithmetic_mod_neg,ladder,block,0,7,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 177,ladder__rung02_arithmetic_unary,ladder__rung02_arithmetic_unary,ladder,block,0,8,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 178,ladder__rung02_arithmetic_mixed_type,ladder__rung02_arithmetic_mixed_type,ladder,block,0,4,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+179,ladder__rung03_if_while_if_no_else,ladder__rung03_if_while_if_no_else,ladder,block,0,12,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+180,ladder__rung03_if_while_while_zero,ladder__rung03_if_while_while_zero,ladder,block,0,11,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+181,ladder__rung03_if_while_dangling_else,ladder__rung03_if_while_dangling_else,ladder,block,0,13,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+182,ladder__rung03_if_while_if_compound,ladder__rung03_if_while_if_compound,ladder,block,0,13,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
