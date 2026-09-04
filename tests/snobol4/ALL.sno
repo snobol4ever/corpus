@@ -13154,12 +13154,6 @@ END
 -INCLUDE "class1_dup_label_shared.sno"
         OUTPUT = X()
 END
-*-------------------------------------------------- 1671 simple_output_186 XFAIL
-*  RTX-FUNC-11 witness — runtime-created variables via indirect ($) assignment
-*  arriving through -INCLUDE.  Oracle: clean.  SCRIP m3/m4: SIGSEGV.
--INCLUDE 'rtx11_dynvar.inc'
-	OUTPUT = 'done'
-END
 *--------------------------------------------------- 1672 simple_program_1 XFAIL
 * -INCLUDE names a file that exists nowhere in the corpus repo.  BOTH scrip and sbl -bf refuse
 * it identically (ERROR 285 upstream) -- a missing corpus fixture, not a SCRIP defect.  Mirrors
@@ -13394,7 +13388,7 @@ END
 	b = *a
 	OUTPUT = EVAL(b)
 END
-*--------------------------------------------- 1693 opsyn_replace_branch_1 XFAIL
+*--------------------------------------------- 1693 opsyn_replace_branch_1
 *  OPSYN'd operator whose target is a BUILT-IN (manual p.116 worked example: OPSYN('#','DIFFER',2)).
         OPSYN('#', 'DIFFER', 2)
         OUTPUT         =   IDENT(1 # 2, '') 'DIFFER-SUCCEEDS'
@@ -13921,7 +13915,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------ 1736 arbno_span_len_replace_branch_1 XFAIL
+*------------------------------------ 1736 arbno_span_len_replace_branch_1
 *  gim_fortput_m4_only_segv - AN m4-ONLY SIGSEGV, THREE LINES, **CURED BY THE
 *  SPAN-FRAME FLIP** -- kept as a regression guard and as an independent
 *  witness FOR that flip, from a seat that did not know it was landing.
@@ -13959,7 +13953,7 @@ END
 *  the assembled module, which is why it survived minimization attempts.
 *
 *  ORACLE: "hi" padded to column 73 with its serial number.
--INCLUDE "/home/claude4/corpus/programs/gimpel/FORTPUT.sno"
+-INCLUDE 'FORTPUT.sno'
         FORTPUT('hi')
 END
 *--------------------------- 1737 user_function_eval_span_replace_branch_1 XFAIL

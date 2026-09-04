@@ -1,7 +1,5 @@
 *--------------------------------------------------- 1670 simple_output_93 XFAIL
 gimpel_triage class1: -INCLUDE "class1_dup_label_shared.sno" is a stale path from the tests/snobol4 flatten (real file renamed gimpel_triage_class1_dup_label_shared.sno), so this copy never reaches the documented mechanism (no include-guard, diamond -INCLUDE duplicates labels -- FINDING-2026-08-27-seat10 rank1). Corpus-hygiene gap, not a fresh SCRIP defect.
-*-------------------------------------------------- 1671 simple_output_186 XFAIL
--INCLUDE 'rtx11_dynvar.inc' names a file absent from the entire corpus tree; cannot reproduce the SIGSEGV the comment describes because the include never resolves at all. Missing corpus fixture.
 *--------------------------------------------------- 1672 simple_program_1 XFAIL
 Deliberate: -INCLUDE 'nonexistent_target.sno' names a file that exists nowhere in the corpus by design (mirrors the lon_cherryholmes 24-file include gap, RULES.md ABSOLUTE RULES); scrip and sbl -bf both refuse identically, ERROR 285. Missing fixture, not a SCRIP defect.
 *--------------------------------------------------- 1673 simple_output_63 XFAIL
@@ -44,8 +42,6 @@ Same defect as span_replace_1 (gimpel_triage class3, non-include witness): X=SPA
 An indirect store through the NAME OF A DATA FIELD (P=.R(X) then $P=...) is a silent no-op; the same idiom over a plain variable works. Root cause of LINEARIZE/READL gimpel bugs. Real defect; filed to hq_P as class row indirect-store-through-field-name.
 *------------------------------------------------------- 1692 eval_defer_3 XFAIL
 Chained deferred-expression evaluation (a=*(1+2); b=*a; EVAL(b)) does not reach the EXPRESSION-datatype answer the oracle gives (oracle prints the literal string 'EXPRESSION', scrip prints nothing). Narrow EVAL/defer datatype corner case, not further root-caused this session; filed to hq_P.
-*--------------------------------------------- 1693 opsyn_replace_branch_1 XFAIL
-Genuine parse error (not the GZ#5 gate): OPSYN('#','DIFFER',2) redefines '#' as a binary operator per the manual's own p.116 worked example, but scrip's parser does not have '#' in its recognized operator-character set, so '1 # 2' fails to parse at all ('missing END statement' cascade). Real, narrow lexer/grammar gap; filed to hq_P.
 *--------------------------------------------- 1694 array_replace_branch_2 XFAIL
 gimpel_triage class8: -INCLUDE "class8_sig6_perm_module.sno" (itself including class8_sig6_perm_swap.sno) is a stale two-level path (real files renamed gimpel_triage_class8_sig6_perm_*); never reaches the documented workspace-heap-exhaustion bug (FINDING-2026-08-27-seat10 rank8, same self-DEFINE-recursion root as class4). Corpus-hygiene gap.
 *------------------------------------------- 1695 keyword_replace_branch_9 XFAIL
@@ -130,7 +126,5 @@ Tracked probe/fuzz crash corpus (fz_segv_02); see FINDING-2026-08-20-s188 (eleve
 Tracked probe/fuzz crash corpus (fz_segv_03); named elsewhere as a live control witness (an unrelated lower_snobol4.c indirect-pattern-operand fix's own regression sweep measured this exact witness's SIG4-vs-SIG11 signal varying run-to-run on one unpatched binary -- read any single run as one draw). See FINDING-2026-08-20-s188. Known, still open.
 *---------------------------------- 1735 arbno_fence_span_replace_branch_2 XFAIL
 Tracked probe/fuzz crash corpus (fz_min_nested_alt_red); see FINDING-2026-08-20-s189 (fuzz-diff-batch class with a named corpus witness that SIGSEGVs). Known, still open.
-*------------------------------------ 1736 arbno_span_len_replace_branch_1 XFAIL
-Regression guard for an ALREADY-FIXED m4-only SIGSEGV (SPAN-FRAME fix, s188 seat7 d3251f23 -- confirmed by its own header's SCRIP_SPAN_FRAME/SCRIP_ARBNO_ALTSIB killswitch A/B) -- but the witness itself currently fails for an unrelated, purely mechanical reason: its -INCLUDE hardcodes a seat-specific absolute path (/home/claude4/corpus/programs/gimpel/FORTPUT.sno) that cannot resolve on any other seat (D-17 PORTABLE-HOME violation; the real file lives at corpus/packages/snobol4/gimpel/FORTPUT.sno on every seat). Portability bug in the fixture, not a live SCRIP defect -- the guard cannot currently fire either way.
 *--------------------------- 1737 user_function_eval_span_replace_branch_1 XFAIL
 Known, already-filed performance-characterization witness (FINDING-2026-08-22-m3-run-only-is-alpha-cell-scan-pollution.md, row m3-executes-three-times-m4-on-beauty); ALSO appears to be missing its required multi-line stdin in the master's ALL.in (same fixture-gap class as tab_trim_size_replace_1/_2, cured this session) -- but its source (crosscheck/control/expr_eval.sno) no longer exists at the cited path so the exact original input isn't recoverable from this witness alone. Flagged, not guessed; a fixture gap for whoever owns this witness.
