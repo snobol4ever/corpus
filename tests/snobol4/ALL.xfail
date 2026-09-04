@@ -26,12 +26,8 @@ INPUT() on a file it cannot open never signals failure in scrip -- the S(loop) b
 DEFINE-based function redefinition is resolved as if declarative/hoisted rather than as an ordered runtime statement: the SECOND DEFINE('F()','G') retroactively changes what the FIRST (already-executed) F() call printed. Real defect, one mechanism with user_function_replace_7; filed to hq_P as class row define-redefinition-ordering.
 *-------------------------------------------- 1685 user_function_replace_7 XFAIL
 Same mechanism as user_function_replace_4: a later DEFINE('F(x)','F2') retroactively repoints the FIRST call site's already-executed dispatch, so both calls print via the second body. Filed to hq_P as class row define-redefinition-ordering.
-*-------------------------------------------------- 1686 keyword_replace_3 XFAIL
-SETEXIT FACE 9 (handler's &LASTNO view): RED BY DESIGN beyond the trap rung -- g_core_err_stmt never advances in this tree, so every runtime error reports statement 0 (already named, seat8 s194, not fixed). This row is what will notice when that is cured.
 *-------------------------------------------- 1687 user_function_replace_6 XFAIL
 An omitted LEADING call argument, F(, 'y'), shifts the remaining arguments left in SCRIP ('y' lands in the first parameter instead of the second); a trailing omission is handled correctly. Real defect distilled from INSERT.sno's contract case; filed to hq_P as class row omitted-leading-arg-shift.
-*-------------------------------------------------- 1688 keyword_replace_2 XFAIL
-Same mechanism as keyword_replace_1: the armed SETEXIT handler is never entered when &ERRLIMIT survives the division-by-zero error; execution falls through to 'AFTER' instead of the handler. Filed to hq_P as class row setexit-not-invoked-under-errlimit-survival.
 *----------------------------------------------------- 1689 span_replace_1 XFAIL
 X=SPAN(X) self-rebind (a variable rebound to a pattern built over its own former value) is an inert pattern in SCRIP: the replacement removes nothing. Root of the s183 BLANKS silent wrong answer. Known, root-caused, still-open defect -- FINDING-2026-08-20-s186 section1.
 *----------------------------------------------------- 1690 span_replace_2 XFAIL

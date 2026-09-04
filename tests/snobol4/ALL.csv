@@ -1683,9 +1683,9 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1683,user_function_replace_4,probe_ab__ab_redefine,probe_ab,block,1,8,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1684,keyword_replace_1,probe_setexit2__se_reset_null,probe_setexit2,block,0,10,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 1685,user_function_replace_7,probe_redef2__redef_lastwins,probe_redef2,block,1,10,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-1686,keyword_replace_3,probe_setexit2__se_trap_lastno,probe_setexit2,block,1,12,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+1686,keyword_replace_3,probe_setexit2__se_trap_lastno,probe_setexit2,block,0,12,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 1687,user_function_replace_6,probe_gimpel__gim_omitted_arg_shift,probe_gimpel,block,1,12,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-1688,keyword_replace_2,probe_setexit2__se_trap_fires,probe_setexit2,block,1,13,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+1688,keyword_replace_2,probe_setexit2__se_trap_fires,probe_setexit2,block,0,13,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 1689,span_replace_1,probe_gimpel__gim_span_self_rebind_wrong,probe_gimpel,block,1,14,UNKNOWN,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1690,span_replace_2,gimpel_triage_class3_diff_span_self_rebind__class3_diff_span_self_rebind,gimpel_triage_class3_diff_span_self_rebind,block,1,14,UNKNOWN,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1691,indirect_replace_1,probe_gimpel__gim_name_of_field_store,probe_gimpel,block,1,18,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
