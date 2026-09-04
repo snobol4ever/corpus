@@ -13272,7 +13272,7 @@ E1	OUTPUT = F()
 G	F = 'second-via-alt-entry'	:(RETURN)
 E2	OUTPUT = F()
 END
-*-------------------------------------------------- 1684 keyword_replace_1 XFAIL
+*-------------------------------------------------- 1684 keyword_replace_1
 * SETEXIT FACE 6 -- FIRING RESETS THE STORED ARGUMENT TO NULL, so a handler asking
 * SETEXIT what was armed is answered with the null string, not with its own label.
 	SETEXIT(.H)
@@ -13407,7 +13407,7 @@ LOOP    N  =  N + 1
         PERM(A)                                  :S(LOOP)
         OUTPUT  =  N ' permutations'
 END
-*------------------------------------------- 1695 keyword_replace_branch_9 XFAIL
+*------------------------------------------- 1695 keyword_replace_branch_9
 * SETEXIT FACE 8 -- THE &ERRLIMIT HALF, WITH NO TRAP ANYWHERE IN THE PROGRAM.
 * &ERRLIMIT non-zero makes a raised error SURVIVABLE: the statement takes its own failure
 * exit and execution continues.  Nothing here mentions SETEXIT, which is the point --

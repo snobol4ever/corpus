@@ -24,8 +24,6 @@ DEFINE(PROTO) with a non-literal (variable-held) prototype string is outside the
 INPUT() on a file it cannot open never signals failure in scrip -- the S(loop) branch keeps succeeding forever (infinite loop, both modes); oracle fails fast (ERROR 116). Root cause of two real suite timeouts (openi/openo2). Real defect; filed to hq_P as class row input-open-failure-not-signaled.
 *-------------------------------------------- 1683 user_function_replace_4 XFAIL
 DEFINE-based function redefinition is resolved as if declarative/hoisted rather than as an ordered runtime statement: the SECOND DEFINE('F()','G') retroactively changes what the FIRST (already-executed) F() call printed. Real defect, one mechanism with user_function_replace_7; filed to hq_P as class row define-redefinition-ordering.
-*-------------------------------------------------- 1684 keyword_replace_1 XFAIL
-SETEXIT+&ERRLIMIT composition: an armed SETEXIT handler is never invoked when &ERRLIMIT survives an arithmetic runtime error (division by zero) -- execution silently falls through past the failing statement instead of routing to the handler. One mechanism with keyword_replace_2/_branch_10/_branch_11; filed to hq_P as class row setexit-not-invoked-under-errlimit-survival.
 *-------------------------------------------- 1685 user_function_replace_7 XFAIL
 Same mechanism as user_function_replace_4: a later DEFINE('F(x)','F2') retroactively repoints the FIRST call site's already-executed dispatch, so both calls print via the second body. Filed to hq_P as class row define-redefinition-ordering.
 *-------------------------------------------------- 1686 keyword_replace_3 XFAIL
@@ -44,8 +42,6 @@ An indirect store through the NAME OF A DATA FIELD (P=.R(X) then $P=...) is a si
 Chained deferred-expression evaluation (a=*(1+2); b=*a; EVAL(b)) does not reach the EXPRESSION-datatype answer the oracle gives (oracle prints the literal string 'EXPRESSION', scrip prints nothing). Narrow EVAL/defer datatype corner case, not further root-caused this session; filed to hq_P.
 *--------------------------------------------- 1694 array_replace_branch_2 XFAIL
 gimpel_triage class8: -INCLUDE "class8_sig6_perm_module.sno" (itself including class8_sig6_perm_swap.sno) is a stale two-level path (real files renamed gimpel_triage_class8_sig6_perm_*); never reaches the documented workspace-heap-exhaustion bug (FINDING-2026-08-27-seat10 rank8, same self-DEFINE-recursion root as class4). Corpus-hygiene gap.
-*------------------------------------------- 1695 keyword_replace_branch_9 XFAIL
-&ERRLIMIT alone (no SETEXIT) over an 'undefined function called' error: the oracle takes the statement's own :F(NX) failure branch (survivable), scrip aborts the whole program instead. Distinct, smaller defect from the SETEXIT/&ERRLIMIT composition class (keyword_replace_1) -- a different error class not made survivable at all. Filed to hq_P.
 *------------------------------------------ 1696 keyword_replace_branch_10 XFAIL
 Same SETEXIT/&ERRLIMIT composition defect as keyword_replace_1: the FIRST division-by-zero's armed handler never fires (no 'HANDLER S4' line), though execution correctly continues to MID/AFTER. m3 completes with a partial-wrong answer; m4 refuses to compile this shape at all (mode divergence noted). Filed to hq_P as class row setexit-not-invoked-under-errlimit-survival.
 *------------------------------------------ 1697 keyword_replace_branch_11 XFAIL
