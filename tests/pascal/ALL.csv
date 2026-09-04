@@ -185,3 +185,6 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,program,procedure,function,var
 184,ladder__rung04_for_repeat_for_zero,ladder__rung04_for_repeat_for_zero,ladder,block,0,8,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 185,ladder__rung04_for_repeat_repeat_once,ladder__rung04_for_repeat_repeat_once,ladder,block,0,9,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 186,ladder__rung04_for_repeat_for_compound,ladder__rung04_for_repeat_for_compound,ladder,block,0,11,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+187,ladder__rung05_proc_func_forward,ladder__rung05_proc_func_forward,ladder,block,0,12,"m3,m4",1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+188,ladder__rung05_proc_func_no_params,ladder__rung05_proc_func_no_params,ladder,block,0,16,"m3,m4",1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+189,ladder__rung05_proc_func_multi_param,ladder__rung05_proc_func_multi_param,ladder,block,0,11,"m3,m4",1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

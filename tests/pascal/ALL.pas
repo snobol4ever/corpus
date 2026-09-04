@@ -3653,3 +3653,45 @@ begin
     writeln(sum)
   end
 end.
+{----------------------------------------- 187 ladder__rung05_proc_func_forward}
+program rung05procfuncforward;
+
+procedure announce(n: integer); forward;
+
+procedure announce;
+begin
+  writeln('n=', n)
+end;
+
+begin
+  announce(42)
+end.
+{--------------------------------------- 188 ladder__rung05_proc_func_no_params}
+program rung05procfuncnoparams;
+
+procedure hello;
+begin
+  writeln('hello')
+end;
+
+function fortytwo: integer;
+begin
+  fortytwo := 42
+end;
+
+begin
+  hello;
+  writeln(fortytwo)
+end.
+{------------------------------------- 189 ladder__rung05_proc_func_multi_param}
+program rung05procfuncmultiparam;
+
+procedure combo(a, b: integer; c: real);
+begin
+  writeln(a + b);
+  writeln(c:0:1)
+end;
+
+begin
+  combo(3, 4, 2.5)
+end.
