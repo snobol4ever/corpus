@@ -1,0 +1,9 @@
+procedure main()
+    local y, z
+    y := 101559956668416.0;
+    y ? write(tab(0));
+    z := -101559956668416.0;
+    z ? write(tab(0));
+    write(y);
+    write(z);
+end
