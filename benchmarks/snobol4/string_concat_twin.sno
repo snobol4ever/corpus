@@ -1,0 +1,10 @@
+*	string_concat_twin.sno -- fixed-count string concatenation via juxtaposition.
+*	Twin: snocone/string_concat.sc (its && is SNOBOL4's adjacency, spelled explicitly).
+*	bottleneck: string allocation + concat runtime path.
+	S = ''
+	I = 1
+LOOP	S = S 'x'
+	I = I + 1
+	LE(I, 4000)					:S(LOOP)
+	OUTPUT = SIZE(S)
+END

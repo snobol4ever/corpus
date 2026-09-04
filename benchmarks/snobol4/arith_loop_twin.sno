@@ -1,0 +1,12 @@
+*	arith_loop_twin.sno -- fixed-count accumulator loop. Twin: snocone/arith_loop.sc.
+*	Named _twin: arith_loop.sno already exists as a different, load-bearing kernel
+*	(consumed by the fixed-iteration harness via its own *BENCH directive) -- this is
+*	a separate, unrelated file for the Snocone triangulator only.
+*	bottleneck: loop dispatch + scalar arithmetic.
+	N = 0
+	I = 1
+LOOP	N = N + I
+	I = I + 1
+	LE(I, 300000)					:S(LOOP)
+	OUTPUT = N
+END
