@@ -2337,26 +2337,26 @@ main :-
     ( integer(42)   -> write(yes) ; write(no) ), nl,
     ( atom(42)      -> write(yes) ; write(no) ), nl,
     ( integer(hello)-> write(yes) ; write(no) ), nl.
-%----------------------------------------------------- 393 dcg_directive_2 XFAIL
+%----------------------------------------------------------- 393 dcg_directive_2
 :- initialization(main).
 greeting --> [hello], [world].
 main :- phrase(greeting, [hello, world]), write(ok), nl.
-%----------------------------------------------------- 394 cut_directive_2 XFAIL
+%----------------------------------------------------------- 394 cut_directive_2
 :- initialization(main).
 count(0) :- !.
 count(N) :- N > 0, write(N), nl, N1 is N - 1, count(N1).
 main :- count(3).
-%----------------------------------------------------- 395 cut_directive_3 XFAIL
+%----------------------------------------------------------- 395 cut_directive_3
 :- initialization(main).
 f(a) :- !.
 f(b).
 main :- ( f(X), write(X), nl, fail ) ; true.
-%------------------------------------------------ 396 lastcall_directive_1 XFAIL
+%------------------------------------------------------ 396 lastcall_directive_1
 :- initialization(main).
 count(N, N) :- !.
 count(I, N) :- I < N, J is I + 1, count(J, N).
 main :- count(0, 100000), write(done), nl.
-%----------------------------------------------------- 397 cut_directive_4 XFAIL
+%----------------------------------------------------------- 397 cut_directive_4
 :- initialization(main).
 t(1).
 t(2).
@@ -2369,7 +2369,7 @@ main :- G = write(hi), call(G), nl, call(write, there), nl.
 %------------------------------------------------------- 399 findall_directive_5
 :- initialization(main).
 main :- findall(X, between(1, 4, X), L), write(L), nl.
-%------------------------------------------------- 400 cut_ite_directive_1 XFAIL
+%------------------------------------------------------- 400 cut_ite_directive_1
 :- initialization(main).
 t(1).
 t(2).
