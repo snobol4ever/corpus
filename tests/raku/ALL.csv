@@ -891,3 +891,8 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,sub,multi,my,our,say,print,giv
 890,ladder__rung09_string_methods_split_method,ladder__rung09_string_methods_split_method,ladder,block,0,1,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 891,ladder__rung09_string_methods_substr_method,ladder__rung09_string_methods_substr_method,ladder,block,0,1,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 892,ladder__rung09_string_methods_trim_method,ladder__rung09_string_methods_trim_method,ladder,block,0,1,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+893,ladder__rung10_given_when_basic_match,ladder__rung10_given_when_basic_match,ladder,block,0,3,"m3,m4",0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+894,ladder__rung10_given_when_default_case,ladder__rung10_given_when_default_case,ladder,block,0,4,"m3,m4",0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+895,ladder__rung10_given_when_multiple_when,ladder__rung10_given_when_multiple_when,ladder,block,0,5,"m3,m4",0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+896,ladder__rung10_given_when_when_with_range,ladder__rung10_given_when_when_with_range,ladder,block,0,5,"m3,m4",0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+897,ladder__rung10_given_when_no_match_falls_through,ladder__rung10_given_when_no_match_falls_through,ladder,block,0,4,"m3,m4",0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

@@ -2269,3 +2269,13 @@ raku
 ell
 #--------------------------------- 892 ladder__rung09_string_methods_trim_method
 hi
+#------------------------------------- 893 ladder__rung10_given_when_basic_match
+matched
+#------------------------------------ 894 ladder__rung10_given_when_default_case
+other
+#----------------------------------- 895 ladder__rung10_given_when_multiple_when
+two
+#--------------------------------- 896 ladder__rung10_given_when_when_with_range
+mid
+#-------------------------- 897 ladder__rung10_given_when_no_match_falls_through
+after

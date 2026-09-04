@@ -3434,3 +3434,29 @@ say "a,b,c".split(",");
 say "Hello".substr(1,3);
 #--------------------------------- 892 ladder__rung09_string_methods_trim_method
 say "  hi  ".trim;
+#------------------------------------- 893 ladder__rung10_given_when_basic_match
+given 5 {
+    when 5 { say "matched"; }
+}
+#------------------------------------ 894 ladder__rung10_given_when_default_case
+given 99 {
+    when 1 { say "one"; }
+    default { say "other"; }
+}
+#----------------------------------- 895 ladder__rung10_given_when_multiple_when
+given 2 {
+    when 1 { say "one"; }
+    when 2 { say "two"; }
+    when 3 { say "three"; }
+}
+#--------------------------------- 896 ladder__rung10_given_when_when_with_range
+given 5 {
+    when 1..3 { say "low"; }
+    when 4..6 { say "mid"; }
+    default { say "high"; }
+}
+#-------------------------- 897 ladder__rung10_given_when_no_match_falls_through
+given 99 {
+    when 1 { say "one"; }
+}
+say "after";
