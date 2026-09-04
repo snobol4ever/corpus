@@ -2801,3 +2801,69 @@ main :- format(atom(A), "~w", [hi]), write(A), nl.
 %---------------------------------------- 523 write_family_format_3_codes_sink_1
 :- initialization(main).
 main :- format(codes(C), "~w", [hi]), write(C), nl.
+%------------------------------------------------------ 524 streams_open_write_1
+:- initialization(main).
+main :- open('/tmp/scrip_rung06_sw_open_write.txt', write, S), write(S, 'ok.'), close(S), open('/tmp/scrip_rung06_sw_open_write.txt', read, R2), read(R2, T), close(R2), write(T), nl.
+%------------------------------------------------------- 525 streams_open_read_1
+:- initialization(main).
+main :- open('/tmp/scrip_rung06_sw_open_read.txt', write, S0), write(S0, 'data(42).'), close(S0), open('/tmp/scrip_rung06_sw_open_read.txt', read, R), read(R, T), close(R), write(T), nl.
+%----------------------------------------------------------- 526 streams_close_1
+:- initialization(main).
+main :- open('/tmp/scrip_rung06_sw_close_a.txt', write, A), open('/tmp/scrip_rung06_sw_close_b.txt', write, B), write(A, first), close(A), write(B, second), close(B), write(closed), nl.
+%-------------------------------------------------- 527 streams_current_output_1
+:- initialization(main).
+main :- current_output(S), write(S, probe), nl(S), write(ok), nl.
+%--------------------------------------------------- 528 streams_current_input_1
+:- initialization(main).
+main :- current_input(S0), open('/tmp/scrip_rung06_sw_current_input.txt', write, W), write(W, 'val(7).'), close(W), open('/tmp/scrip_rung06_sw_current_input.txt', read, R), set_input(R), current_input(S1), (S1 == R -> write(matched) ; write(nomatch)), nl, read(T), close(R), set_input(S0), write(T), nl.
+%------------------------------------------------------ 529 streams_set_output_1
+:- initialization(main).
+main :- open('/tmp/scrip_rung06_sw_set_output.txt', write, S), set_output(S), write('redirected.'), nl, set_output(user_output), write(back), nl, close(S), open('/tmp/scrip_rung06_sw_set_output.txt', read, R), read(R, T), close(R), write(T), nl.
+%------------------------------------------------------- 530 streams_set_input_1
+:- initialization(main).
+main :- open('/tmp/scrip_rung06_sw_set_input.txt', write, W), write(W, 'sentinel(9).'), close(W), open('/tmp/scrip_rung06_sw_set_input.txt', read, R), set_input(R), read(T), close(R), set_input(user_input), write(T), nl.
+%---------------------------------------------------- 531 streams_stream_alias_1
+:- initialization(main).
+main :- write(user_output, visible), nl(user_output), write(user_error, hidden), nl(user_error), write(done), nl.
+%----------------------------------------------------- 532 streams_stream_term_1
+:- initialization(main).
+main :- open('/tmp/scrip_rung06_sw_stream_term.txt', write, S), Terms = [S], [S2] = Terms, write(S2, 'passed.'), close(S2), open('/tmp/scrip_rung06_sw_stream_term.txt', read, R), read(R, T), close(R), write(T), nl.
+%----------------------------------------- 533 streams_read_term_empty_options_1
+:- initialization(main).
+main :- open('/tmp/scrip_rung06_sw_read_term_opts.txt', write, W), write(W, 'opts(a,b).'), close(W), open('/tmp/scrip_rung06_sw_read_term_opts.txt', read, R), read_term(R, T, []), close(R), write(T), nl.
+%-------------------------------------------------------- 534 streams_get_char_1
+:- initialization(main).
+main :- open('/tmp/scrip_rung06_sw_get_char.txt', write, W), write(W, ab), close(W), open('/tmp/scrip_rung06_sw_get_char.txt', read, R), get_char(R, C1), get_char(R, C2), get_char(R, C3), close(R), write(C1), write(C2), write(C3), nl.
+%------------------------------------------------------- 535 streams_peek_char_1
+:- initialization(main).
+main :- open('/tmp/scrip_rung06_sw_peek_char.txt', write, W), write(W, xy), close(W), open('/tmp/scrip_rung06_sw_peek_char.txt', read, R), peek_char(R, P1), peek_char(R, P2), get_char(R, C1), close(R), write(P1), write(P2), write(C1), nl.
+%---------------------------------------------------- 536 declarations_dynamic_1
+:- dynamic(foo/1).
+:- initialization(main).
+main :- (foo(x) -> write(yes) ; write(no)), nl.
+%---------------------------------------------- 537 declarations_discontiguous_1
+:- discontiguous(bar/1).
+bar(1).
+other(x).
+bar(2).
+:- initialization(main).
+main :- bar(1), bar(2), write(ok), nl.
+%-------------------------------------------------- 538 declarations_multifile_1
+:- multifile(baz/1).
+baz(1).
+baz(2).
+:- initialization(main).
+main :- findall(N, baz(N), L), write(L), nl.
+%------------------------------------------------------- 539 declarations_op_3_1
+:- op(700, xfx, ===>).
+implies(X ===> Y) :- write(X), write(then), write(Y), nl.
+:- initialization(main).
+main :- implies(rain ===> wet).
+%---------------------------------------------- 540 declarations_ensure_loaded_1
+:- ensure_loaded(library(lists)).
+:- initialization(main).
+main :- write(loaded), nl.
+%------------------------------------------------- 541 declarations_use_module_1
+:- use_module(library(lists)).
+:- initialization(main).
+main :- write(loaded), nl.
