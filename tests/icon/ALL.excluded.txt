@@ -1,5 +1,6 @@
 coexpr_gc_stack_witness	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 hello	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+meander	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 palindrome	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 queens	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 roman	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
@@ -38,7 +39,6 @@ rung36_jcon_recent	KEEPER, declared in KEEP.md -- never absorbed (deferral contr
 rung36_jcon_recogn	DEFERRED (row icn-recogn-genqueen-suspend-shape: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
 rung36_jcon_sorting	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_struct	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung36_jcon_toby	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_var	DEFERRED (row icon-assign-nameless-emit-guard-var: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
 rung37_proc_lookup	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung37_subscript_genproc	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
@@ -201,3 +201,5 @@ parser_write_arith	KEEPER, declared in parser/KEEP.md -- never absorbed (deferra
 parser_write_int	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
 parser_write_str	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
 parser_write_var	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+samples_meander	KEEPER, declared in samples/KEEP.md -- never absorbed (deferral contract)
+probe_witness	already in the master (11 of 11 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry

@@ -1,37 +1,37 @@
-#---------------------------------------------------- 282 procedure_write_read_1
-#-------------------------------------------------------- 503 procedure_write_45
+#---------------------------------------------------- 291 procedure_write_read_1
+#-------------------------------------------------------- 527 procedure_write_45
 hello world
-#---------------------------------------------------- 504 procedure_write_read_2
+#---------------------------------------------------- 528 procedure_write_read_2
 hello world
-#---------------------------------------------------- 505 procedure_write_read_4
+#---------------------------------------------------- 529 procedure_write_read_4
 hello world
-#--------------------------------------------------- 565 procedure_while_write_2
+#--------------------------------------------------- 589 procedure_while_write_2
 alpha
 beta
 gamma
-#--------------------------------------------------- 566 procedure_while_write_8
+#--------------------------------------------------- 590 procedure_while_write_8
 alpha
 beta
 gamma
-#------------------------------------------------- 567 procedure_write_keyword_5
+#------------------------------------------------- 591 procedure_write_keyword_5
 hello world
-#--------------------------------------------------- 599 procedure_while_write_1
+#--------------------------------------------------- 624 procedure_while_write_1
 a
 b
 c
 d
 e
-#--------------------------------------------------- 600 procedure_while_write_7
+#--------------------------------------------------- 625 procedure_while_write_7
 a
 b
 c
 d
 e
-#---------------------------------------------- 673 procedure_every_to_replace_2
+#---------------------------------------------- 709 procedure_every_to_replace_2
 elephants:peanuts
 encroachment:roaches
 gaggle:geese
-#-------------------------------------------- 701 procedure_every_scan_replace_3
+#-------------------------------------------- 739 procedure_every_scan_replace_3
 procedure main()
    local limit, s, i
    limit := 100
@@ -44,7 +44,7 @@ procedure main()
    write("The primes are:")
    every write(right(!primes,*limit + 1))
 end
-#----------------------------------------- 703 procedure_every_elemgen_replace_2
+#----------------------------------------- 741 procedure_every_elemgen_replace_2
 13
 4
 6
@@ -53,11 +53,11 @@ end
 39
 3999
 4000
-#-------------------------------------------- 704 procedure_scan_while_replace_1
+#-------------------------------------------- 742 procedure_scan_while_replace_1
 abc:2
 1234:2
 ABC:4
-#------------------------------------------- 705 procedure_every_scan_replace_10
+#------------------------------------------- 743 procedure_every_scan_replace_10
 #
 #	W O R D   T A B U L A T I O N
 #
@@ -81,7 +81,7 @@ procedure wordcount(n)
    x := sort(t)
    every y := !x do write(left(y[1],n),y[2])
 end
-#---------------------------------------------- 706 procedure_to_while_replace_1
+#---------------------------------------------- 744 procedure_to_while_replace_1
 Order, Coleoptera, (Beetles). Many beetles are colored so as
 to resemble the surfaces which they habitually frequent, and they thus
 escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
@@ -99,7 +99,7 @@ sexual characters. Blind beetles, which cannot, of course, behold each
 other's beauty, never, as I hear from Mr. Waterhouse, Jr., exhibit bright
 colors, though they often have polished coats; but the explanation of their
 obscurity may be that they generally inhabit caves and other obscure stations.
-#------------------------------------------ 713 procedure_record_every_replace_3
+#------------------------------------------ 751 procedure_record_every_replace_3
 abcdefgh
 01
 d
@@ -120,14 +120,14 @@ f
 g
 g
 d
-#-------------------------------------------- 714 procedure_every_scan_replace_6
+#-------------------------------------------- 752 procedure_every_scan_replace_6
 [ constructed by hand ]
 ABCD EFGH IJKL MNOP
 AEIM BFJN CGKO DHLP
 AHKN BGLM CFIP DEJO
 AFLO BEKP CHJM DGIN
 AGJP BHIO CELN DFKM
-#-------------------------------------------- 715 procedure_every_scan_replace_4
+#-------------------------------------------- 753 procedure_every_scan_replace_4
 ##  test data for entab/detab tester; see driver program's comments for details
 #
 #   Remember that the characters --> "!.$" <-- are metacharacters, and cannot
@@ -386,7 +386,7 @@ abc\b!.de\b!..fghij\b!...k
 !...!.!..\n!...!.!..\r!...!.!..\n\r!...!.!..\r\n!...!.!..
 !...\a!.\a!..\a!..
 !...\b\b\b\b!...\b\a\b\a!.!.!..\n\n\n  \t!.!..\n
-#------------------------------------------- 716 procedure_record_scan_replace_2
+#------------------------------------------- 754 procedure_record_scan_replace_2
 {html{head
     {title Off the Beaten Path}
 }{body bgcolor="#EEEEEE"

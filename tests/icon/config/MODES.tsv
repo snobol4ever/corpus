@@ -322,3 +322,12 @@ scrip_test_icon_sieve	m3,m4	# runtime-graded: .ref written by capture-oracle-ref
 scrip_test_icon_wordcount	m3,m4	# runtime-graded: .ref written by capture-oracle-refs, m3+m4 both agreed with a live icont/iconx run (seat03, icon-scrip-test-icn-absorption)
 scrip_test_icon_zk5_global_cells_zero	m3,m4	# runtime-graded: .ref written by capture-oracle-refs, m3+m4 both agreed with a live icont/iconx run (seat03, icon-scrip-test-icn-absorption)
 ladder	m3,m4	# SCRIP/scripts/test_icon_ladder.sh runs each ladder__rungNN_* entry ALONE in m3 (scrip --run) and m4 (scrip --compile + as + gcc + run), stdout vs .ref; refs cut directly from the real Icon oracle /home/resources/icon-master/bin/icon (icont invoked under its one-step-driver name), independently re-verified byte-for-byte before absorption (row icon-construct-ladder-from-rung-0, seat01)
+# ⭐ DECLARED ON REF CONTENT, NOT ON THE FAMILY NAME (hq_B 2026-09-04, row icon-every-non-package-source-...).
+# The builder reported these as MODE UNKNOWN (22 entries, "UNPROVEN, not passes") and the board printed them as
+# `unknown_defaulted_to_run=22` -- a default that happened to be right and proved nothing. Evidence: each .ref holds
+# PROGRAM STDOUT and zero TT_* AST lines (probe_witness.ref `ABC112D`, repro.ref `int=1`, rung38_all.ref `3`), so the
+# grading path is run, not the harness ast mode -- the same ref-content test the parser_* block above was declared on.
+probe_witness	m3,m4	# .ref content is program stdout (0 TT_* lines); graded by running, both modes
+repro	m3,m4	# .ref content is program stdout (0 TT_* lines); graded by running, both modes
+rung38_all	m3,m4	# .ref content is program stdout (0 TT_* lines); graded by running, both modes
+unresolved_global_test	m3,m4	# .ref content is program stdout (0 TT_* lines), cut from the real Icon oracle; graded by running, both modes
