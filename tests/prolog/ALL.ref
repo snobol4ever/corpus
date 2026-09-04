@@ -1491,3 +1491,13 @@ fails
 [cheese,wine]
 %-------------------------------------- 564 bagof_setof_free_variable_grouping_1
 [john-[beer],mary-[wine,cheese]]
+%----------------------------- 565 catch_throw_catcher_does_not_unify_rethrows_1
+outer
+%------------------------------------ 566 catch_throw_catch_of_succeeding_goal_1
+normal
+%------------------------------------------------ 567 catch_throw_nested_catch_1
+caught_inner
+%-------------------------------------------- 568 catch_throw_ball_is_compound_1
+bad_input42
+%------------------------------------- 569 catch_throw_error_term_from_builtin_1
+caught

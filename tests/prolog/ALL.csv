@@ -563,3 +563,8 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,findall,bagof,setof,forall,ass
 562,bagof_setof_setof_sorts_dedups_1,ladder__rung08_bagof_setof_setof_sorts_dedups,ladder,block,0,5,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 563,bagof_setof_caret_existential_1,ladder__rung08_bagof_setof_caret_existential,ladder,block,0,5,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 564,bagof_setof_free_variable_grouping_1,ladder__rung08_bagof_setof_free_variable_grouping,ladder,block,0,5,"m3,m4",1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+565,catch_throw_catcher_does_not_unify_rethrows_1,ladder__rung09_catch_throw_catcher_does_not_unify_rethrows,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0
+566,catch_throw_catch_of_succeeding_goal_1,ladder__rung09_catch_throw_catch_of_succeeding_goal,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+567,catch_throw_nested_catch_1,ladder__rung09_catch_throw_nested_catch,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0
+568,catch_throw_ball_is_compound_1,ladder__rung09_catch_throw_ball_is_compound,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0
+569,catch_throw_error_term_from_builtin_1,ladder__rung09_catch_throw_error_term_from_builtin,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0

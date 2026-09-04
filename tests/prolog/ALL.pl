@@ -2952,3 +2952,18 @@ likes(mary,cheese).
 likes(john,beer).
 :- initialization(main).
 main :- findall(Y-L, bagof(X,likes(Y,X),L), Groups), write(Groups), nl.
+%----------------------------- 565 catch_throw_catcher_does_not_unify_rethrows_1
+:- initialization(main).
+main :- catch(catch(throw(foo), bar, write(inner)), foo, write(outer)), nl.
+%------------------------------------ 566 catch_throw_catch_of_succeeding_goal_1
+:- initialization(main).
+main :- catch(write(normal), _, write(recovery)), nl.
+%------------------------------------------------ 567 catch_throw_nested_catch_1
+:- initialization(main).
+main :- catch(catch(throw(x), x, write(caught_inner)), x, write(caught_outer)), nl.
+%-------------------------------------------- 568 catch_throw_ball_is_compound_1
+:- initialization(main).
+main :- catch(throw(err(bad_input, 42)), err(Reason,Code), (write(Reason), write(Code))), nl.
+%------------------------------------- 569 catch_throw_error_term_from_builtin_1
+:- initialization(main).
+main :- catch(( X is 1/0, write(X) ), error(evaluation_error(zero_divisor),_), write(caught)), nl.
