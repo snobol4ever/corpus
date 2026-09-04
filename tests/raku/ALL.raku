@@ -3571,3 +3571,51 @@ say $p.x;
 say $p.y;
 $p.x = 10;
 say $p.x;
+#------------------------------------------------------ 913 ladder__rung14_roles
+role Greeter {
+    method greet {
+        return "hi from role";
+    }
+}
+class Widget does Greeter { }
+my $w = Widget.new;
+say $w.greet;
+#------------------------------------------- 914 ladder__rung14_roles_attributes
+role Counter {
+    has $.count is rw = 0;
+    method inc { $!count++ }
+}
+class Thing does Counter { }
+my $t = Thing.new;
+$t.inc;
+$t.inc;
+$t.inc;
+say $t.count;
+#------------------------------------------ 915 ladder__rung14_roles_composition
+role Flyer {
+    method fly { return "flying" }
+}
+role Swimmer {
+    method swim { return "swimming" }
+}
+class Duck does Flyer does Swimmer { }
+my $d = Duck.new;
+say $d.fly;
+say $d.swim;
+#--------------------------------------------- 916 ladder__rung14_roles_override
+role Greeter {
+    method greet { return "role hello" }
+}
+class Special does Greeter {
+    method greet { return "class hello" }
+}
+my $s = Special.new;
+say $s.greet;
+#------------------------------------------- 917 ladder__rung14_roles_smartmatch
+role Flyer { }
+class Bird does Flyer { }
+class Fish { }
+my $b = Bird.new;
+my $f = Fish.new;
+say $b ~~ Flyer;
+say $f ~~ Flyer;

@@ -911,3 +911,8 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,sub,multi,my,our,say,print,giv
 910,ladder__rung13_classes_named_arg_constructor,ladder__rung13_classes_named_arg_constructor,ladder,block,0,7,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 911,ladder__rung13_classes_private_attribute,ladder__rung13_classes_private_attribute,ladder,block,0,11,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 912,ladder__rung13_classes_public_attribute,ladder__rung13_classes_public_attribute,ladder,block,0,9,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+913,ladder__rung14_roles,ladder__rung14_roles,ladder,block,0,8,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+914,ladder__rung14_roles_attributes,ladder__rung14_roles_attributes,ladder,block,0,10,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+915,ladder__rung14_roles_composition,ladder__rung14_roles_composition,ladder,block,0,10,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+916,ladder__rung14_roles_override,ladder__rung14_roles_override,ladder,block,0,8,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+917,ladder__rung14_roles_smartmatch,ladder__rung14_roles_smartmatch,ladder,block,0,7,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0

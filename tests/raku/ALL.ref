@@ -2312,3 +2312,15 @@ I say Woof
 3
 4
 10
+#------------------------------------------------------ 913 ladder__rung14_roles
+hi from role
+#------------------------------------------- 914 ladder__rung14_roles_attributes
+3
+#------------------------------------------ 915 ladder__rung14_roles_composition
+flying
+swimming
+#--------------------------------------------- 916 ladder__rung14_roles_override
+class hello
+#------------------------------------------- 917 ladder__rung14_roles_smartmatch
+True
+False
