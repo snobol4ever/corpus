@@ -2493,3 +2493,30 @@ main :- X = Y, Y = val, write(X), nl.
 %---------------------------------------------------------------------- 431 unify_occurs_check_1
 :- initialization(main).
 main :- (unify_with_occurs_check(X, f(X)) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 432 clause_choice_three_clauses_enumerate_1
+:- initialization(main).
+q(1).
+q(2).
+q(3).
+main :- q(X), write(X), fail.
+main :- nl.
+%---------------------------------------------------------------------- 433 clause_choice_first_solution_only_1
+:- initialization(main).
+r(1).
+r(2).
+r(3).
+main :- r(X), write(X), nl.
+%---------------------------------------------------------------------- 434 clause_choice_no_clause_fails_1
+:- initialization(main).
+s(1).
+s(2).
+main :- (s(99) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 435 clause_choice_redo_after_fail_1
+:- initialization(main).
+main :- between(1, 3, X), write(X), fail.
+main :- nl.
+%---------------------------------------------------------------------- 436 clause_choice_two_clauses_distinct_heads_1
+:- initialization(main).
+sound(dog, woof).
+sound(cat, meow).
+main :- sound(cat, S), write(S), nl.

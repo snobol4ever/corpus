@@ -430,3 +430,8 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,findall,bagof,setof,forall,ass
 429,unify_compound_arity_differ_1,ladder__rung01_unification_compound_arity_differ,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 430,unify_two_vars_alias_1,ladder__rung01_unification_two_vars_alias,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 431,unify_occurs_check_1,ladder__rung01_unification_occurs_check,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
+432,clause_choice_three_clauses_enumerate_1,ladder__rung02_clause_choice_three_clauses_enumerate,ladder,block,0,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+433,clause_choice_first_solution_only_1,ladder__rung02_clause_choice_first_solution_only,ladder,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+434,clause_choice_no_clause_fails_1,ladder__rung02_clause_choice_no_clause_fails,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+435,clause_choice_redo_after_fail_1,ladder__rung02_clause_choice_redo_after_fail,ladder,block,0,3,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+436,clause_choice_two_clauses_distinct_heads_1,ladder__rung02_clause_choice_two_clauses_distinct_heads,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
