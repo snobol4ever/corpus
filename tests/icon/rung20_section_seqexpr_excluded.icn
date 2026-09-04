@@ -1,0 +1,17 @@
+# EXCLUDED from the construct ladder (icon-construct-ladder-from-rung-0, seat01, 2026-09-03): both
+# entries below use `;` to sequence expressions inside parens, which is not valid Icon -- the real
+# oracle (/home/resources/icon-master/bin/icon) refuses both with `"; ": missing right parenthesis`.
+# Same class as rung16_seqexpr_gen_basic.icn (see its comment for the same reasoning). No `.ref` on
+# purpose -- a pairless witness is "not a board member," never a guessed pass. section_basic/full/var
+# (the other three entries originally in this file) were fine and are absorbed normally as rung20.
+#---------------------------------------------------- 1 rung20_section_seqexpr_seqexpr_basic
+procedure main()
+  x := (1; 2; 3);
+  write(x);
+end
+#----------------------------------------------------- 2 rung20_section_seqexpr_seqexpr_side
+procedure main()
+  x := 0;
+  y := (x := x + 1; x := x + 1; x);
+  write(y);
+end
