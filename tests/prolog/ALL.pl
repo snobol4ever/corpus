@@ -2423,3 +2423,73 @@ main :- write(a), nl, write(b), nl.
 :- initialization(main).
 main(x) :- write(wrong), nl.
 main :- write(right), nl.
+%---------------------------------------------------------------------- 413 fact_zero_arity_1
+:- initialization(main).
+ready.
+main :- ready, write(yes), nl.
+%---------------------------------------------------------------------- 414 fact_one_arg_atom_1
+:- initialization(main).
+color(red).
+main :- color(X), write(X), nl.
+%---------------------------------------------------------------------- 415 fact_two_args_1
+:- initialization(main).
+edge(a, b).
+main :- edge(X, Y), write(X-Y), nl.
+%---------------------------------------------------------------------- 416 fact_anonymous_var_arg_1
+:- initialization(main).
+point(1, 2, 3).
+main :- point(_, Y, _), write(Y), nl.
+%---------------------------------------------------------------------- 417 fact_nested_functor_arg_1
+:- initialization(main).
+wrap(point(1, 2)).
+main :- wrap(point(X, Y)), write(X+Y), nl.
+%---------------------------------------------------------------------- 418 fact_integer_arg_1
+:- initialization(main).
+count(42).
+main :- count(N), write(N), nl.
+%---------------------------------------------------------------------- 419 fact_string_arg_1
+:- initialization(main).
+label("hello").
+main :- label(S), write(S), nl.
+%---------------------------------------------------------------------- 420 rule_single_goal_body_1
+:- initialization(main).
+greet :- write(hi).
+main :- greet, nl.
+%---------------------------------------------------------------------- 421 rule_head_var_passthrough_1
+:- initialization(main).
+show(X) :- write(X).
+main :- show(passed), nl.
+%---------------------------------------------------------------------- 422 rule_body_two_goals_1
+:- initialization(main).
+both :- write(a), write(b).
+main :- both, nl.
+%---------------------------------------------------------------------- 423 rule_head_var_repeated_1
+:- initialization(main).
+same(X, X) :- write(matched).
+main :- same(a, a), nl.
+%---------------------------------------------------------------------- 424 rule_body_calls_fact_1
+:- initialization(main).
+color(red).
+likes_color :- color(X), write(X).
+main :- likes_color, nl.
+%---------------------------------------------------------------------- 425 unify_var_binds_atom_1
+:- initialization(main).
+main :- X = bound, write(X), nl.
+%---------------------------------------------------------------------- 426 unify_var_binds_compound_1
+:- initialization(main).
+main :- X = pair(a, b), write(X), nl.
+%---------------------------------------------------------------------- 427 unify_atom_atom_same_1
+:- initialization(main).
+main :- (a = a -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 428 unify_atom_atom_differ_1
+:- initialization(main).
+main :- (a = b -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 429 unify_compound_arity_differ_1
+:- initialization(main).
+main :- (f(a) = f(a, b) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 430 unify_two_vars_alias_1
+:- initialization(main).
+main :- X = Y, Y = val, write(X), nl.
+%---------------------------------------------------------------------- 431 unify_occurs_check_1
+:- initialization(main).
+main :- (unify_with_occurs_check(X, f(X)) -> write(yes) ; write(no)), nl.
