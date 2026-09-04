@@ -2410,3 +2410,16 @@ main :- assertz(likes(wine)), assertz(likes(beer)), findall(H, clause(likes(H), 
 :- dynamic(h/1).
 :- initialization(main).
 main :- assertz(h(1)), assertz(h(2)), assertz(h(3)), (retract(h(_)), fail ; true), findall(X, h(X), L), write(L), nl.
+%---------------------------------------------------------------------- 409 init_directive_1
+:- initialization(main).
+main :- write(initialized), nl.
+%----------------------------------------------------------------------- 410 write_atom_1
+:- initialization(main).
+main :- write(some_atom), nl.
+%---------------------------------------------------------------------------------- 411 nl_1
+:- initialization(main).
+main :- write(a), nl, write(b), nl.
+%--------------------------------------------------------------- 412 zero_arity_dispatch_1
+:- initialization(main).
+main(x) :- write(wrong), nl.
+main :- write(right), nl.

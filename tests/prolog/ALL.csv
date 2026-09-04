@@ -407,3 +407,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,findall,bagof,setof,forall,ass
 406,asserta_order_1,ladder__rung10_asserta_order,ladder,block,0,3,"m3,m4",1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 407,clause_reflect_1,ladder__rung10_clause_reflect,ladder,block,0,3,"m3,m4",1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0
 408,retract_backtrack_1,ladder__rung10_retract_backtrack,ladder,block,0,3,"m3,m4",1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+409,init_directive_1,ladder__rung00_program_skeleton_initialization_directive,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+410,write_atom_1,ladder__rung00_program_skeleton_write_atom,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+411,nl_1,ladder__rung00_program_skeleton_nl,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+412,zero_arity_dispatch_1,ladder__rung00_program_skeleton_main_zero_arity,ladder,block,0,3,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
