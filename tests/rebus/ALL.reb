@@ -237,7 +237,15 @@ p := point(3, 4)
 OUTPUT := x(p)
 OUTPUT := y(p)
 end
-#------------------------------------------------------------ 49 simple_output_3
+#----------------------------------------------------------- 49 simple_output_27
+function main()
+x := 1
+x := 2
+x := 3
+OUTPUT := x
+OUTPUT := 99
+end
+#------------------------------------------------------------ 50 simple_output_3
 function fib(n)
 if n <= 1 then return n
 return fib(n - 1) + fib(n - 2)
@@ -246,7 +254,7 @@ end
 function main()
 OUTPUT := fib(7)
 end
-#------------------------------------------------------------ 50 simple_output_6
+#------------------------------------------------------------ 51 simple_output_6
 function check(n)
 if n = 0 then return n
 n
@@ -255,7 +263,7 @@ end
 function main()
 OUTPUT := check(5)
 end
-#----------------------------------------------------------- 51 simple_output_22
+#----------------------------------------------------------- 52 simple_output_22
 function try(n)
 if n > 0 then return n
 fail
@@ -265,7 +273,7 @@ function main()
 if try(5) then OUTPUT := "yes" else OUTPUT := "no"
 if try(-1) then OUTPUT := "yes" else OUTPUT := "no"
 end
-#----------------------------------------------------------- 52 simple_output_17
+#----------------------------------------------------------- 53 simple_output_17
 function main()
 local n, count
 n := 10
@@ -276,7 +284,7 @@ count := count + 1
 }
 OUTPUT := count
 end
-#----------------------------------------------------------- 53 simple_output_18
+#----------------------------------------------------------- 54 simple_output_18
 function main()
 local i, sum
 i := 1
@@ -287,7 +295,7 @@ i := i + 1
 }
 OUTPUT := sum
 end
-#----------------------------------------------------------- 54 simple_output_21
+#----------------------------------------------------------- 55 simple_output_21
 function greet(silent)
 if silent = 1 then return
 OUTPUT := "hello"
@@ -298,7 +306,7 @@ function main()
 greet(1)
 greet(0)
 end
-#----------------------------------------------------------- 55 simple_output_24
+#----------------------------------------------------------- 56 simple_output_24
 record point(x, y)
 
 function main()
@@ -309,7 +317,18 @@ OUTPUT := x(q)
 OUTPUT := y(p)
 OUTPUT := y(q)
 end
-#------------------------------------------------------------ 56 simple_output_9
+#----------------------------------------------------------- 57 simple_output_26
+function try(n)
+if n > 0 then return n
+fail
+end
+
+function main()
+OUTPUT := "start"
+OUTPUT := try(-1)
+OUTPUT := "end"
+end
+#------------------------------------------------------------ 58 simple_output_9
 record Point(x, y)
 
 function dist(p)
@@ -320,7 +339,7 @@ function main()
 q := Point(3, 4)
 OUTPUT := dist(q)
 end
-#------------------------------------------------------------ 57 simple_output_8
+#------------------------------------------------------------ 59 simple_output_8
 function abs(n)
 if n < 0 then return 0 - n
 return n
@@ -336,32 +355,32 @@ x := abs(-5)
 y := max(x, 3)
 OUTPUT := y
 end
-#------------------------------------------------------------------ 58 capture_1
+#------------------------------------------------------------------ 60 capture_1
 function main()
     x ? "hello" . y
 end
-#-------------------------------------------------------------- 59 imm_capture_1
+#-------------------------------------------------------------- 61 imm_capture_1
 function main()
     x ? "world" $ z
 end
-#----------------------------------------------------------------- 60 indirect_1
+#----------------------------------------------------------------- 62 indirect_1
 function main()
   x := $y
   z := $"name"
 end
-#------------------------------------------------------------------ 61 keyword_1
+#------------------------------------------------------------------ 63 keyword_1
 function main()
     &FULLSCAN := 1
     &ANCHOR := 0
 end
-#---------------------------------------------------------------------- 62 alt_1
+#---------------------------------------------------------------------- 64 alt_1
 function main()
   x +:= 1
   y -:= 2
   z ||:= "hi"
   a :=: b
 end
-#------------------------------------------------------------ 63 array_replace_1
+#------------------------------------------------------------ 65 array_replace_1
 record Stack(top, data)
 
 function push(s, v)
@@ -381,7 +400,7 @@ push(s, 42)
 push(s, 99)
 OUTPUT := pop(s)
 end
-#----------------------------------------------------- 64 simple_output_25 XFAIL
+#----------------------------------------------------- 66 simple_output_25 XFAIL
 record point(x, y)
 
 function main()
