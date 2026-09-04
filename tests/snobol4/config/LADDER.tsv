@@ -1,0 +1,18 @@
+RUNG	CONSTRUCT	WITNESS_ORIGIN	STATUS	NOTE
+rung00	program structure / OUTPUT	ladder__rung00_hello	BUILT	seat12/hq_T
+rung01	variables, assignment	ladder__rung01_variables	BUILT	seat12/hq_T
+rung02	arithmetic operators	ladder__rung02_arithmetic	BUILT	seat12/hq_T
+rung03	string concatenation	ladder__rung03_concatenation	BUILT	seat12/hq_T
+rung04	pattern match + replace (X PAT = REPL)	ladder__rung04_pattern_replace	BUILT	seat12/hq_T
+rung05	:S()/:F()/:() goto, labels	ladder__rung05_conditional_goto	BUILT	seat12/hq_T
+rung06	ARRAY	ladder__rung06_array	BUILT	seat12/hq_T
+rung07	TABLE	ladder__rung07_table	BUILT	seat12/hq_T
+rung08	DEFINE (programmer-defined function)	ladder__rung08_define_function	BUILT	seat12/hq_T
+rung09	pattern capture (. and $)	ladder__rung09_pattern_capture	BUILT	seat12/hq_T
+rung10	pattern alternation (P1 | P2)	ladder__rung10_pattern_alternation	BUILT	seat03 -- oracle-cut from SPITBOL -bf
+rung11	ARBNO (pattern repetition primitive)		PENDING
+rung12	FENCE / pattern backtracking control		PENDING
+rung13	indirect referencing ($ prefix)		PENDING
+rung14	keywords (&-prefixed system variables: &ANCHOR &TRIM &ALPHABET etc.)		PENDING
+rung15	DATA (programmer-defined structured data type + field accessors)		PENDING
+rung16	CODE (compile and execute a dynamically-built statement)		PENDING	TOP -- most advanced canonical feature; climbing here closes the ladder

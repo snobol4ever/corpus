@@ -1,47 +1,47 @@
-*----------------------------------------- 1265 arb_capture_alt_replace_branch_1
+*----------------------------------------- 1266 arb_capture_alt_replace_branch_1
 She saw the cat of the hat sitting near the dog a bone.
 Nothing interesting on this line.
 I know the house of cards and the tower a bridge.
-*--------------------------------------- 1268 trim_size_keyword_replace_branch_1
+*--------------------------------------- 1269 trim_size_keyword_replace_branch_1
 hello world
 foo bar baz
-*------------------------------------------ 1353 trim_dupl_size_replace_branch_1
+*-------------------------------------------------- 1302 tab_trim_size_replace_2
+hello   
+world	
+*-------------------------------------------------- 1303 tab_trim_size_replace_1
+hello   
+world	
+*------------------------------------------ 1356 trim_dupl_size_replace_branch_1
 alpha
 beta
 gamma
 delta
 epsilon
 epsilon
-*----------------------------------------- 1362 span_break_trim_replace_branch_1
+*----------------------------------------- 1365 span_break_trim_replace_branch_1
 it's a well-known fact that the quick brown fox
 jumped over the lazy dog
-*------------------------------------------ 1502 arb_span_break_replace_branch_2
+*------------------------------------------ 1505 arb_span_break_replace_branch_2
 1769  Watt : Steam Engine
 1876  Bell : Telephone
 1903  Wright : Airplane
 1928  Fleming : Penicillin
-*--------------------------------------------- 1507 arb_tab_pos_replace_branch_1
+*--------------------------------------------- 1510 arb_tab_pos_replace_branch_1
 1769  Watt             : Steam Engine
 1876  Bell             : Telephone
 1903  Wright           : Airplane
 1928  Fleming          : Penicillin
-*------------------------------------------ 1566 arb_span_break_replace_branch_1
+*------------------------------------------ 1569 arb_span_break_replace_branch_1
 1769  Watt : Steam Engine
 1876  Bell : Telephone
 1903  Wright : Airplane
 1928  Fleming : Penicillin
-*--------------------------------------------- 1612 any_pos_len_replace_branch_1
+*--------------------------------------------- 1615 any_pos_len_replace_branch_1
 SNOBOL
 OBJECT
-*--------------------------------- 1658 user_function_eval_span_replace_branch_2
+*--------------------------------- 1661 user_function_eval_span_replace_branch_2
 1+2*3
 (1+2)*3
 2.5e1+0.5
 -3+10
 4*5+6
-*-------------------------------------------------- 1702 tab_trim_size_replace_2
-hello   
-world	
-*-------------------------------------------------- 1703 tab_trim_size_replace_1
-hello   
-world	
