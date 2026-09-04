@@ -35,8 +35,3 @@ to-by generator: `every write(1.0 to 3.0 by 1.0)`), oracle prints `1`/`2`/`3`, S
 `3.0` both modes. See that entry and
 FINDING-2026-09-03-seat01-icon-real-toby-generator-prints-trailing-decimal-oracle-does-not.md for full
 detail -- not duplicated here.
-#------------------------------------- 721 procedure_table_write_replace_7 XFAIL
-member(table, key) must return the KEY on success (verified against the built Icon oracle: found/absent/a),
-but SCRIP's member/2 for tables returns the associated VALUE instead (found/absent/42) -- looks like
-table-lookup semantics substituted for table-membership semantics. Real, undiagnosed-further-than-this
-defect; not yet filed to a class row.
