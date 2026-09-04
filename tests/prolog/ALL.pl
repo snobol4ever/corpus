@@ -2612,3 +2612,42 @@ main :- (ignore(fail) -> write(yes) ; write(no)), nl.
 :- write(immediate), nl.
 :- initialization(main).
 main :- write(deferred), nl.
+%---------------------------------------------------------------------- 461 arith_eval_add_1
+:- initialization(main).
+main :- X is 2 + 3, write(X), nl.
+%---------------------------------------------------------------------- 462 arith_eval_sub_1
+:- initialization(main).
+main :- X is 5 - 3, write(X), nl.
+%---------------------------------------------------------------------- 463 arith_eval_mul_1
+:- initialization(main).
+main :- X is 4 * 3, write(X), nl.
+%---------------------------------------------------------------------- 464 arith_eval_int_div_1
+:- initialization(main).
+main :- X is 7 // 2, write(X), nl.
+%---------------------------------------------------------------------- 465 arith_eval_float_div_1
+:- initialization(main).
+main :- X is 7 / 2, write(X), nl.
+%---------------------------------------------------------------------- 466 arith_eval_mod_1
+:- initialization(main).
+main :- X is -7 mod 3, write(X), nl.
+%---------------------------------------------------------------------- 467 arith_eval_rem_1
+:- initialization(main).
+main :- X is -7 rem 3, write(X), nl.
+%---------------------------------------------------------------------- 468 arith_eval_negation_1
+:- initialization(main).
+main :- N = 5, X is -N, write(X), nl.
+%---------------------------------------------------------------------- 469 arith_eval_abs_1
+:- initialization(main).
+main :- X is abs(-5), write(X), nl.
+%---------------------------------------------------------------------- 470 arith_eval_min_max_1
+:- initialization(main).
+main :- X is min(3, 7), Y is max(3, 7), write(X-Y), nl.
+%---------------------------------------------------------------------- 471 arith_eval_power_1
+:- initialization(main).
+main :- X is 2 ** 10, write(X), nl.
+%---------------------------------------------------------------------- 472 arith_eval_nested_expression_1
+:- initialization(main).
+main :- X is (2 + 3) * (4 - 1), write(X), nl.
+%---------------------------------------------------------------------- 473 arith_eval_zero_divisor_error_1
+:- initialization(main).
+main :- catch(( _ is 1 / 0, write(nocaught) ), error(evaluation_error(zero_divisor), _), write(caught)), nl.
