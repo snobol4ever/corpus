@@ -34,6 +34,19 @@ PASS. None of the 66 files' `.ref` exists yet (all 66 are still in the 135 UNGRA
 graded population) -- generating `.ref` via real swipl is separate work, coordinated through hq_T's
 container-shape row, not done here.
 
+⭐ CURED 2026-09-04 (seat06, SCRIP `93b5ebb7f`): the two remaining CLASSES OF PURE LEXER GAP --
+underscore-grouped integers (7 files) and radix `N'digits` literals (2 files) -- 9 files total.
+Decimal digit-accumulation in `prolog_lex.c` now tolerates `_` the same way the existing
+`0x`/`0b`/`0o` path already did; a new general `Radix'Digits` form (radix 2-36) added alongside the
+existing `0'c` char-code literal and `0x`/`0b`/`0o` prefixes, both left untouched and re-verified
+(`0'A` still 65, `0x1A+0b101+0o17` still 46). Re-verified against the real vendored files: 9/9 now
+parse clean. Same blocked-on-nb_setval caveat as the operator-table cure above applies -- none of
+these 9 pass the suite yet either. 42 of 66 parse-error files now cured (33 + 9); 24 remain, all in
+classes with real semantic-design questions attached (rational-number representation, SWI dict
+syntax, SSU rules, CLP(FD) constraint semantics, quasi-quotation, module-export-list op/3
+registration) rather than a single unambiguous lexer/parser gap -- left for a scoped decision
+rather than started here. See the task baton's LEDGER for the full per-class breakdown.
+
 Denominator check: 13+11+2+1+6+1+7+6+2+4+4+3+2+1+1+1+1 = 66.
 
 ## Class: `table/1` not declared as a prefix operator (13 files)
