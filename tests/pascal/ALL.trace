@@ -1,0 +1,2776 @@
+%---- ladder__rung00_hello m3 total=10 prefix=10
+(1) Call: lit_string Hello, world!
+(1) Exit: lit_string Hello, world! -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> call_α
+(3) Call: call __pas_writeln
+(3) Exit: call __pas_writeln -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> return_α
+(5) Call: return
+(5) Exit: return -> pat_flat_γ
+%---- ladder__rung00_hello m4 total=10 prefix=10
+(1) Call: lit_string Hello, world!
+(1) Exit: lit_string Hello, world! -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> call_α
+(3) Call: call __pas_writeln
+(3) Exit: call __pas_writeln -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> return_α
+(5) Call: return
+(5) Exit: return -> flat_γ
+%---- ladder__rung01_var_assign m3 total=14 prefix=14
+(1) Call: lit_integer
+(1) Exit: lit_integer -> assign_α
+(2) Call: assign x
+(2) Exit: assign x -> var_α
+(3) Call: var x
+(3) Exit: var x -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> call_α
+(5) Call: call __pas_writeln
+(5) Exit: call __pas_writeln -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> return_α
+(7) Call: return
+(7) Exit: return -> pat_flat_γ
+%---- ladder__rung01_var_assign m4 total=14 prefix=14
+(1) Call: lit_integer
+(1) Exit: lit_integer -> assign_α
+(2) Call: assign x
+(2) Exit: assign x -> var_α
+(3) Call: var x
+(3) Exit: var x -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> call_α
+(5) Call: call __pas_writeln
+(5) Exit: call __pas_writeln -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> return_α
+(7) Call: return
+(7) Exit: return -> flat_γ
+%---- ladder__rung02_arithmetic m3 total=62 prefix=62
+(1) Call: lit_integer
+(1) Exit: lit_integer -> assign_α
+(2) Call: assign a
+(2) Exit: assign a -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> assign_α
+(4) Call: assign b
+(4) Exit: assign b -> var_α
+(5) Call: var a
+(5) Exit: var a -> var_α
+(6) Call: var b
+(6) Exit: var b -> binop_α
+(7) Call: binop
+(7) Exit: binop -> lit_integer_α
+(8) Call: lit_integer
+(8) Exit: lit_integer -> call_α
+(9) Call: call __pas_writeln
+(9) Exit: call __pas_writeln -> var_α
+(10) Call: var a
+(10) Exit: var a -> var_α
+(11) Call: var b
+(11) Exit: var b -> binop_α
+(12) Call: binop
+(12) Exit: binop -> lit_integer_α
+(13) Call: lit_integer
+(13) Exit: lit_integer -> call_α
+(14) Call: call __pas_writeln
+(14) Exit: call __pas_writeln -> var_α
+(15) Call: var a
+(15) Exit: var a -> var_α
+(16) Call: var b
+(16) Exit: var b -> binop_α
+(17) Call: binop
+(17) Exit: binop -> lit_integer_α
+(18) Call: lit_integer
+(18) Exit: lit_integer -> call_α
+(19) Call: call __pas_writeln
+(19) Exit: call __pas_writeln -> var_α
+(20) Call: var a
+(20) Exit: var a -> var_α
+(21) Call: var b
+(21) Exit: var b -> binop_α
+(22) Call: binop
+(22) Exit: binop -> lit_integer_α
+(23) Call: lit_integer
+(23) Exit: lit_integer -> call_α
+(24) Call: call __pas_writeln
+(24) Exit: call __pas_writeln -> var_α
+(25) Call: var a
+(25) Exit: var a -> var_α
+(26) Call: var b
+(26) Exit: var b -> binop_α
+(27) Call: binop
+(27) Exit: binop -> lit_integer_α
+(28) Call: lit_integer
+(28) Exit: lit_integer -> call_α
+(29) Call: call __pas_writeln
+(29) Exit: call __pas_writeln -> lit_integer_α
+(30) Call: lit_integer
+(30) Exit: lit_integer -> return_α
+(31) Call: return
+(31) Exit: return -> pat_flat_γ
+%---- ladder__rung02_arithmetic m4 total=62 prefix=62
+(1) Call: lit_integer
+(1) Exit: lit_integer -> assign_α
+(2) Call: assign a
+(2) Exit: assign a -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> assign_α
+(4) Call: assign b
+(4) Exit: assign b -> var_α
+(5) Call: var a
+(5) Exit: var a -> var_α
+(6) Call: var b
+(6) Exit: var b -> binop_α
+(7) Call: binop
+(7) Exit: binop -> lit_integer_α
+(8) Call: lit_integer
+(8) Exit: lit_integer -> call_α
+(9) Call: call __pas_writeln
+(9) Exit: call __pas_writeln -> var_α
+(10) Call: var a
+(10) Exit: var a -> var_α
+(11) Call: var b
+(11) Exit: var b -> binop_α
+(12) Call: binop
+(12) Exit: binop -> lit_integer_α
+(13) Call: lit_integer
+(13) Exit: lit_integer -> call_α
+(14) Call: call __pas_writeln
+(14) Exit: call __pas_writeln -> var_α
+(15) Call: var a
+(15) Exit: var a -> var_α
+(16) Call: var b
+(16) Exit: var b -> binop_α
+(17) Call: binop
+(17) Exit: binop -> lit_integer_α
+(18) Call: lit_integer
+(18) Exit: lit_integer -> call_α
+(19) Call: call __pas_writeln
+(19) Exit: call __pas_writeln -> var_α
+(20) Call: var a
+(20) Exit: var a -> var_α
+(21) Call: var b
+(21) Exit: var b -> binop_α
+(22) Call: binop
+(22) Exit: binop -> lit_integer_α
+(23) Call: lit_integer
+(23) Exit: lit_integer -> call_α
+(24) Call: call __pas_writeln
+(24) Exit: call __pas_writeln -> var_α
+(25) Call: var a
+(25) Exit: var a -> var_α
+(26) Call: var b
+(26) Exit: var b -> binop_α
+(27) Call: binop
+(27) Exit: binop -> lit_integer_α
+(28) Call: lit_integer
+(28) Exit: lit_integer -> call_α
+(29) Call: call __pas_writeln
+(29) Exit: call __pas_writeln -> lit_integer_α
+(30) Call: lit_integer
+(30) Exit: lit_integer -> return_α
+(31) Call: return
+(31) Exit: return -> flat_γ
+%---- ladder__rung03_if_while m3 total=126 prefix=126
+(1) Call: lit_integer
+(1) Exit: lit_integer -> assign_α
+(2) Call: assign n
+(2) Exit: assign n -> var_α
+(3) Call: var n
+(3) Exit: var n -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> binop_test_α
+(5) Call: binop_test
+(5) Exit: binop_test -> lit_string_α
+(6) Call: lit_string big
+(6) Exit: lit_string big -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> call_α
+(8) Call: call __pas_writeln
+(8) Exit: call __pas_writeln -> var_α
+(9) Call: var n
+(9) Exit: var n -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> binop_test_α
+(11) Call: binop_test
+(11) Exit: binop_test -> var_α
+(12) Call: var n
+(12) Exit: var n -> lit_integer_α
+(13) Call: lit_integer
+(13) Exit: lit_integer -> call_α
+(14) Call: call __pas_writeln
+(14) Exit: call __pas_writeln -> var_α
+(15) Call: var n
+(15) Exit: var n -> lit_integer_α
+(16) Call: lit_integer
+(16) Exit: lit_integer -> binop_α
+(17) Call: binop
+(17) Exit: binop -> assign_α
+(18) Call: assign n
+(18) Exit: assign n -> var_α
+(19) Call: var n
+(19) Exit: var n -> lit_integer_α
+(20) Call: lit_integer
+(20) Exit: lit_integer -> binop_test_α
+(21) Call: binop_test
+(21) Exit: binop_test -> var_α
+(22) Call: var n
+(22) Exit: var n -> lit_integer_α
+(23) Call: lit_integer
+(23) Exit: lit_integer -> call_α
+(24) Call: call __pas_writeln
+(24) Exit: call __pas_writeln -> var_α
+(25) Call: var n
+(25) Exit: var n -> lit_integer_α
+(26) Call: lit_integer
+(26) Exit: lit_integer -> binop_α
+(27) Call: binop
+(27) Exit: binop -> assign_α
+(28) Call: assign n
+(28) Exit: assign n -> var_α
+(29) Call: var n
+(29) Exit: var n -> lit_integer_α
+(30) Call: lit_integer
+(30) Exit: lit_integer -> binop_test_α
+(31) Call: binop_test
+(31) Exit: binop_test -> var_α
+(32) Call: var n
+(32) Exit: var n -> lit_integer_α
+(33) Call: lit_integer
+(33) Exit: lit_integer -> call_α
+(34) Call: call __pas_writeln
+(34) Exit: call __pas_writeln -> var_α
+(35) Call: var n
+(35) Exit: var n -> lit_integer_α
+(36) Call: lit_integer
+(36) Exit: lit_integer -> binop_α
+(37) Call: binop
+(37) Exit: binop -> assign_α
+(38) Call: assign n
+(38) Exit: assign n -> var_α
+(39) Call: var n
+(39) Exit: var n -> lit_integer_α
+(40) Call: lit_integer
+(40) Exit: lit_integer -> binop_test_α
+(41) Call: binop_test
+(41) Exit: binop_test -> var_α
+(42) Call: var n
+(42) Exit: var n -> lit_integer_α
+(43) Call: lit_integer
+(43) Exit: lit_integer -> call_α
+(44) Call: call __pas_writeln
+(44) Exit: call __pas_writeln -> var_α
+(45) Call: var n
+(45) Exit: var n -> lit_integer_α
+(46) Call: lit_integer
+(46) Exit: lit_integer -> binop_α
+(47) Call: binop
+(47) Exit: binop -> assign_α
+(48) Call: assign n
+(48) Exit: assign n -> var_α
+(49) Call: var n
+(49) Exit: var n -> lit_integer_α
+(50) Call: lit_integer
+(50) Exit: lit_integer -> binop_test_α
+(51) Call: binop_test
+(51) Exit: binop_test -> var_α
+(52) Call: var n
+(52) Exit: var n -> lit_integer_α
+(53) Call: lit_integer
+(53) Exit: lit_integer -> call_α
+(54) Call: call __pas_writeln
+(54) Exit: call __pas_writeln -> var_α
+(55) Call: var n
+(55) Exit: var n -> lit_integer_α
+(56) Call: lit_integer
+(56) Exit: lit_integer -> binop_α
+(57) Call: binop
+(57) Exit: binop -> assign_α
+(58) Call: assign n
+(58) Exit: assign n -> var_α
+(59) Call: var n
+(59) Exit: var n -> lit_integer_α
+(60) Call: lit_integer
+(60) Exit: lit_integer -> binop_test_α
+(61) Call: binop_test
+(61) Fail: binop_test -> lit_integer_α
+(62) Call: lit_integer
+(62) Exit: lit_integer -> return_α
+(63) Call: return
+(63) Exit: return -> pat_flat_γ
+%---- ladder__rung03_if_while m4 total=126 prefix=126
+(1) Call: lit_integer
+(1) Exit: lit_integer -> assign_α
+(2) Call: assign n
+(2) Exit: assign n -> var_α
+(3) Call: var n
+(3) Exit: var n -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> binop_test_α
+(5) Call: binop_test
+(5) Exit: binop_test -> lit_string_α
+(6) Call: lit_string big
+(6) Exit: lit_string big -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> call_α
+(8) Call: call __pas_writeln
+(8) Exit: call __pas_writeln -> var_α
+(9) Call: var n
+(9) Exit: var n -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> binop_test_α
+(11) Call: binop_test
+(11) Exit: binop_test -> var_α
+(12) Call: var n
+(12) Exit: var n -> lit_integer_α
+(13) Call: lit_integer
+(13) Exit: lit_integer -> call_α
+(14) Call: call __pas_writeln
+(14) Exit: call __pas_writeln -> var_α
+(15) Call: var n
+(15) Exit: var n -> lit_integer_α
+(16) Call: lit_integer
+(16) Exit: lit_integer -> binop_α
+(17) Call: binop
+(17) Exit: binop -> assign_α
+(18) Call: assign n
+(18) Exit: assign n -> var_α
+(19) Call: var n
+(19) Exit: var n -> lit_integer_α
+(20) Call: lit_integer
+(20) Exit: lit_integer -> binop_test_α
+(21) Call: binop_test
+(21) Exit: binop_test -> var_α
+(22) Call: var n
+(22) Exit: var n -> lit_integer_α
+(23) Call: lit_integer
+(23) Exit: lit_integer -> call_α
+(24) Call: call __pas_writeln
+(24) Exit: call __pas_writeln -> var_α
+(25) Call: var n
+(25) Exit: var n -> lit_integer_α
+(26) Call: lit_integer
+(26) Exit: lit_integer -> binop_α
+(27) Call: binop
+(27) Exit: binop -> assign_α
+(28) Call: assign n
+(28) Exit: assign n -> var_α
+(29) Call: var n
+(29) Exit: var n -> lit_integer_α
+(30) Call: lit_integer
+(30) Exit: lit_integer -> binop_test_α
+(31) Call: binop_test
+(31) Exit: binop_test -> var_α
+(32) Call: var n
+(32) Exit: var n -> lit_integer_α
+(33) Call: lit_integer
+(33) Exit: lit_integer -> call_α
+(34) Call: call __pas_writeln
+(34) Exit: call __pas_writeln -> var_α
+(35) Call: var n
+(35) Exit: var n -> lit_integer_α
+(36) Call: lit_integer
+(36) Exit: lit_integer -> binop_α
+(37) Call: binop
+(37) Exit: binop -> assign_α
+(38) Call: assign n
+(38) Exit: assign n -> var_α
+(39) Call: var n
+(39) Exit: var n -> lit_integer_α
+(40) Call: lit_integer
+(40) Exit: lit_integer -> binop_test_α
+(41) Call: binop_test
+(41) Exit: binop_test -> var_α
+(42) Call: var n
+(42) Exit: var n -> lit_integer_α
+(43) Call: lit_integer
+(43) Exit: lit_integer -> call_α
+(44) Call: call __pas_writeln
+(44) Exit: call __pas_writeln -> var_α
+(45) Call: var n
+(45) Exit: var n -> lit_integer_α
+(46) Call: lit_integer
+(46) Exit: lit_integer -> binop_α
+(47) Call: binop
+(47) Exit: binop -> assign_α
+(48) Call: assign n
+(48) Exit: assign n -> var_α
+(49) Call: var n
+(49) Exit: var n -> lit_integer_α
+(50) Call: lit_integer
+(50) Exit: lit_integer -> binop_test_α
+(51) Call: binop_test
+(51) Exit: binop_test -> var_α
+(52) Call: var n
+(52) Exit: var n -> lit_integer_α
+(53) Call: lit_integer
+(53) Exit: lit_integer -> call_α
+(54) Call: call __pas_writeln
+(54) Exit: call __pas_writeln -> var_α
+(55) Call: var n
+(55) Exit: var n -> lit_integer_α
+(56) Call: lit_integer
+(56) Exit: lit_integer -> binop_α
+(57) Call: binop
+(57) Exit: binop -> assign_α
+(58) Call: assign n
+(58) Exit: assign n -> var_α
+(59) Call: var n
+(59) Exit: var n -> lit_integer_α
+(60) Call: lit_integer
+(60) Exit: lit_integer -> binop_test_α
+(61) Call: binop_test
+(61) Fail: binop_test -> lit_integer_α
+(62) Call: lit_integer
+(62) Exit: lit_integer -> return_α
+(63) Call: return
+(63) Exit: return -> flat_γ
+%---- ladder__rung04_for_repeat m3 total=138 prefix=138
+(1) Call: lit_integer
+(1) Exit: lit_integer -> assign_α
+(2) Call: assign i
+(2) Exit: assign i -> var_α
+(3) Call: var i
+(3) Exit: var i -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> binop_test_α
+(5) Call: binop_test
+(5) Exit: binop_test -> var_α
+(6) Call: var i
+(6) Exit: var i -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> call_α
+(8) Call: call __pas_writeln
+(8) Exit: call __pas_writeln -> var_α
+(9) Call: var i
+(9) Exit: var i -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> binop_α
+(11) Call: binop
+(11) Exit: binop -> assign_α
+(12) Call: assign i
+(12) Exit: assign i -> var_α
+(13) Call: var i
+(13) Exit: var i -> lit_integer_α
+(14) Call: lit_integer
+(14) Exit: lit_integer -> binop_test_α
+(15) Call: binop_test
+(15) Exit: binop_test -> var_α
+(16) Call: var i
+(16) Exit: var i -> lit_integer_α
+(17) Call: lit_integer
+(17) Exit: lit_integer -> call_α
+(18) Call: call __pas_writeln
+(18) Exit: call __pas_writeln -> var_α
+(19) Call: var i
+(19) Exit: var i -> lit_integer_α
+(20) Call: lit_integer
+(20) Exit: lit_integer -> binop_α
+(21) Call: binop
+(21) Exit: binop -> assign_α
+(22) Call: assign i
+(22) Exit: assign i -> var_α
+(23) Call: var i
+(23) Exit: var i -> lit_integer_α
+(24) Call: lit_integer
+(24) Exit: lit_integer -> binop_test_α
+(25) Call: binop_test
+(25) Exit: binop_test -> var_α
+(26) Call: var i
+(26) Exit: var i -> lit_integer_α
+(27) Call: lit_integer
+(27) Exit: lit_integer -> call_α
+(28) Call: call __pas_writeln
+(28) Exit: call __pas_writeln -> var_α
+(29) Call: var i
+(29) Exit: var i -> lit_integer_α
+(30) Call: lit_integer
+(30) Exit: lit_integer -> binop_α
+(31) Call: binop
+(31) Exit: binop -> assign_α
+(32) Call: assign i
+(32) Exit: assign i -> var_α
+(33) Call: var i
+(33) Exit: var i -> lit_integer_α
+(34) Call: lit_integer
+(34) Exit: lit_integer -> binop_test_α
+(35) Call: binop_test
+(35) Fail: binop_test -> lit_integer_α
+(36) Call: lit_integer
+(36) Exit: lit_integer -> assign_α
+(37) Call: assign i
+(37) Exit: assign i -> var_α
+(38) Call: var i
+(38) Exit: var i -> lit_integer_α
+(39) Call: lit_integer
+(39) Exit: lit_integer -> call_α
+(40) Call: call __pas_writeln
+(40) Exit: call __pas_writeln -> var_α
+(41) Call: var i
+(41) Exit: var i -> lit_integer_α
+(42) Call: lit_integer
+(42) Exit: lit_integer -> binop_α
+(43) Call: binop
+(43) Exit: binop -> assign_α
+(44) Call: assign i
+(44) Exit: assign i -> var_α
+(45) Call: var i
+(45) Exit: var i -> lit_integer_α
+(46) Call: lit_integer
+(46) Exit: lit_integer -> binop_test_α
+(47) Call: binop_test
+(47) Fail: binop_test -> var_α
+(48) Call: var i
+(48) Exit: var i -> lit_integer_α
+(49) Call: lit_integer
+(49) Exit: lit_integer -> call_α
+(50) Call: call __pas_writeln
+(50) Exit: call __pas_writeln -> var_α
+(51) Call: var i
+(51) Exit: var i -> lit_integer_α
+(52) Call: lit_integer
+(52) Exit: lit_integer -> binop_α
+(53) Call: binop
+(53) Exit: binop -> assign_α
+(54) Call: assign i
+(54) Exit: assign i -> var_α
+(55) Call: var i
+(55) Exit: var i -> lit_integer_α
+(56) Call: lit_integer
+(56) Exit: lit_integer -> binop_test_α
+(57) Call: binop_test
+(57) Fail: binop_test -> var_α
+(58) Call: var i
+(58) Exit: var i -> lit_integer_α
+(59) Call: lit_integer
+(59) Exit: lit_integer -> call_α
+(60) Call: call __pas_writeln
+(60) Exit: call __pas_writeln -> var_α
+(61) Call: var i
+(61) Exit: var i -> lit_integer_α
+(62) Call: lit_integer
+(62) Exit: lit_integer -> binop_α
+(63) Call: binop
+(63) Exit: binop -> assign_α
+(64) Call: assign i
+(64) Exit: assign i -> var_α
+(65) Call: var i
+(65) Exit: var i -> lit_integer_α
+(66) Call: lit_integer
+(66) Exit: lit_integer -> binop_test_α
+(67) Call: binop_test
+(67) Exit: binop_test -> lit_integer_α
+(68) Call: lit_integer
+(68) Exit: lit_integer -> return_α
+(69) Call: return
+(69) Exit: return -> pat_flat_γ
+%---- ladder__rung04_for_repeat m4 total=138 prefix=138
+(1) Call: lit_integer
+(1) Exit: lit_integer -> assign_α
+(2) Call: assign i
+(2) Exit: assign i -> var_α
+(3) Call: var i
+(3) Exit: var i -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> binop_test_α
+(5) Call: binop_test
+(5) Exit: binop_test -> var_α
+(6) Call: var i
+(6) Exit: var i -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> call_α
+(8) Call: call __pas_writeln
+(8) Exit: call __pas_writeln -> var_α
+(9) Call: var i
+(9) Exit: var i -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> binop_α
+(11) Call: binop
+(11) Exit: binop -> assign_α
+(12) Call: assign i
+(12) Exit: assign i -> var_α
+(13) Call: var i
+(13) Exit: var i -> lit_integer_α
+(14) Call: lit_integer
+(14) Exit: lit_integer -> binop_test_α
+(15) Call: binop_test
+(15) Exit: binop_test -> var_α
+(16) Call: var i
+(16) Exit: var i -> lit_integer_α
+(17) Call: lit_integer
+(17) Exit: lit_integer -> call_α
+(18) Call: call __pas_writeln
+(18) Exit: call __pas_writeln -> var_α
+(19) Call: var i
+(19) Exit: var i -> lit_integer_α
+(20) Call: lit_integer
+(20) Exit: lit_integer -> binop_α
+(21) Call: binop
+(21) Exit: binop -> assign_α
+(22) Call: assign i
+(22) Exit: assign i -> var_α
+(23) Call: var i
+(23) Exit: var i -> lit_integer_α
+(24) Call: lit_integer
+(24) Exit: lit_integer -> binop_test_α
+(25) Call: binop_test
+(25) Exit: binop_test -> var_α
+(26) Call: var i
+(26) Exit: var i -> lit_integer_α
+(27) Call: lit_integer
+(27) Exit: lit_integer -> call_α
+(28) Call: call __pas_writeln
+(28) Exit: call __pas_writeln -> var_α
+(29) Call: var i
+(29) Exit: var i -> lit_integer_α
+(30) Call: lit_integer
+(30) Exit: lit_integer -> binop_α
+(31) Call: binop
+(31) Exit: binop -> assign_α
+(32) Call: assign i
+(32) Exit: assign i -> var_α
+(33) Call: var i
+(33) Exit: var i -> lit_integer_α
+(34) Call: lit_integer
+(34) Exit: lit_integer -> binop_test_α
+(35) Call: binop_test
+(35) Fail: binop_test -> lit_integer_α
+(36) Call: lit_integer
+(36) Exit: lit_integer -> assign_α
+(37) Call: assign i
+(37) Exit: assign i -> var_α
+(38) Call: var i
+(38) Exit: var i -> lit_integer_α
+(39) Call: lit_integer
+(39) Exit: lit_integer -> call_α
+(40) Call: call __pas_writeln
+(40) Exit: call __pas_writeln -> var_α
+(41) Call: var i
+(41) Exit: var i -> lit_integer_α
+(42) Call: lit_integer
+(42) Exit: lit_integer -> binop_α
+(43) Call: binop
+(43) Exit: binop -> assign_α
+(44) Call: assign i
+(44) Exit: assign i -> var_α
+(45) Call: var i
+(45) Exit: var i -> lit_integer_α
+(46) Call: lit_integer
+(46) Exit: lit_integer -> binop_test_α
+(47) Call: binop_test
+(47) Fail: binop_test -> var_α
+(48) Call: var i
+(48) Exit: var i -> lit_integer_α
+(49) Call: lit_integer
+(49) Exit: lit_integer -> call_α
+(50) Call: call __pas_writeln
+(50) Exit: call __pas_writeln -> var_α
+(51) Call: var i
+(51) Exit: var i -> lit_integer_α
+(52) Call: lit_integer
+(52) Exit: lit_integer -> binop_α
+(53) Call: binop
+(53) Exit: binop -> assign_α
+(54) Call: assign i
+(54) Exit: assign i -> var_α
+(55) Call: var i
+(55) Exit: var i -> lit_integer_α
+(56) Call: lit_integer
+(56) Exit: lit_integer -> binop_test_α
+(57) Call: binop_test
+(57) Fail: binop_test -> var_α
+(58) Call: var i
+(58) Exit: var i -> lit_integer_α
+(59) Call: lit_integer
+(59) Exit: lit_integer -> call_α
+(60) Call: call __pas_writeln
+(60) Exit: call __pas_writeln -> var_α
+(61) Call: var i
+(61) Exit: var i -> lit_integer_α
+(62) Call: lit_integer
+(62) Exit: lit_integer -> binop_α
+(63) Call: binop
+(63) Exit: binop -> assign_α
+(64) Call: assign i
+(64) Exit: assign i -> var_α
+(65) Call: var i
+(65) Exit: var i -> lit_integer_α
+(66) Call: lit_integer
+(66) Exit: lit_integer -> binop_test_α
+(67) Call: binop_test
+(67) Exit: binop_test -> lit_integer_α
+(68) Call: lit_integer
+(68) Exit: lit_integer -> return_α
+(69) Call: return
+(69) Exit: return -> flat_γ
+%---- ladder__rung05_proc_func m3 total=46 prefix=46
+(1) Call: lit_integer
+(1) Exit: lit_integer -> call_α
+(2) Call: call greet
+(3) Call: lit_string n=
+(3) Exit: lit_string n= -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> var_α
+(5) Call: var name
+(5) Exit: var name -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> call_α
+(7) Call: call __pas_writeln
+(7) Exit: call __pas_writeln -> lit_integer_α
+(8) Call: lit_integer
+(8) Exit: lit_integer -> return_α
+(9) Call: return
+(9) Exit: return -> greet_γ
+(2) Exit: call greet -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> call_α
+(11) Call: call square
+(12) Call: var x
+(12) Exit: var x -> var_α
+(13) Call: var x
+(13) Exit: var x -> binop_α
+(14) Call: binop
+(14) Exit: binop -> assign_α
+(15) Call: assign square
+(15) Exit: assign square -> var_α
+(16) Call: var square
+(16) Exit: var square -> return_α
+(17) Call: return
+(17) Exit: return -> square_γ
+(11) Exit: call square -> assign_α
+(18) Call: assign r
+(18) Exit: assign r -> var_α
+(19) Call: var r
+(19) Exit: var r -> lit_integer_α
+(20) Call: lit_integer
+(20) Exit: lit_integer -> call_α
+(21) Call: call __pas_writeln
+(21) Exit: call __pas_writeln -> lit_integer_α
+(22) Call: lit_integer
+(22) Exit: lit_integer -> return_α
+(23) Call: return
+(23) Exit: return -> pat_flat_γ
+%---- ladder__rung05_proc_func m4 total=46 prefix=46
+(1) Call: lit_integer
+(1) Exit: lit_integer -> call_α
+(2) Call: call greet
+(3) Call: lit_string n=
+(3) Exit: lit_string n= -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> var_α
+(5) Call: var name
+(5) Exit: var name -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> call_α
+(7) Call: call __pas_writeln
+(7) Exit: call __pas_writeln -> lit_integer_α
+(8) Call: lit_integer
+(8) Exit: lit_integer -> return_α
+(9) Call: return
+(9) Exit: return -> greet_γ
+(2) Exit: call greet -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> call_α
+(11) Call: call square
+(12) Call: var x
+(12) Exit: var x -> var_α
+(13) Call: var x
+(13) Exit: var x -> binop_α
+(14) Call: binop
+(14) Exit: binop -> assign_α
+(15) Call: assign square
+(15) Exit: assign square -> var_α
+(16) Call: var square
+(16) Exit: var square -> return_α
+(17) Call: return
+(17) Exit: return -> square_γ
+(11) Exit: call square -> assign_α
+(18) Call: assign r
+(18) Exit: assign r -> var_α
+(19) Call: var r
+(19) Exit: var r -> lit_integer_α
+(20) Call: lit_integer
+(20) Exit: lit_integer -> call_α
+(21) Call: call __pas_writeln
+(21) Exit: call __pas_writeln -> lit_integer_α
+(22) Call: lit_integer
+(22) Exit: lit_integer -> return_α
+(23) Call: return
+(23) Exit: return -> flat_γ
+%---- ladder__rung06_arrays m3 total=310 prefix=310
+(1) Call: lit_integer
+(1) Exit: lit_integer -> call_α
+(2) Call: call arr_make
+(2) Exit: call arr_make -> assign_α
+(3) Call: assign a
+(3) Exit: assign a -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> assign_α
+(5) Call: assign i
+(5) Exit: assign i -> var_α
+(6) Call: var i
+(6) Exit: var i -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> binop_test_α
+(8) Call: binop_test
+(8) Exit: binop_test -> var_α
+(9) Call: var a
+(9) Exit: var a -> var_α
+(10) Call: var i
+(10) Exit: var i -> var_α
+(11) Call: var i
+(11) Exit: var i -> var_α
+(12) Call: var i
+(12) Exit: var i -> binop_α
+(13) Call: binop
+(13) Exit: binop -> call_α
+(14) Call: call arr_set_pure
+(14) Exit: call arr_set_pure -> assign_α
+(15) Call: assign a
+(15) Exit: assign a -> var_α
+(16) Call: var i
+(16) Exit: var i -> lit_integer_α
+(17) Call: lit_integer
+(17) Exit: lit_integer -> binop_α
+(18) Call: binop
+(18) Exit: binop -> assign_α
+(19) Call: assign i
+(19) Exit: assign i -> var_α
+(20) Call: var i
+(20) Exit: var i -> lit_integer_α
+(21) Call: lit_integer
+(21) Exit: lit_integer -> binop_test_α
+(22) Call: binop_test
+(22) Exit: binop_test -> var_α
+(23) Call: var a
+(23) Exit: var a -> var_α
+(24) Call: var i
+(24) Exit: var i -> var_α
+(25) Call: var i
+(25) Exit: var i -> var_α
+(26) Call: var i
+(26) Exit: var i -> binop_α
+(27) Call: binop
+(27) Exit: binop -> call_α
+(28) Call: call arr_set_pure
+(28) Exit: call arr_set_pure -> assign_α
+(29) Call: assign a
+(29) Exit: assign a -> var_α
+(30) Call: var i
+(30) Exit: var i -> lit_integer_α
+(31) Call: lit_integer
+(31) Exit: lit_integer -> binop_α
+(32) Call: binop
+(32) Exit: binop -> assign_α
+(33) Call: assign i
+(33) Exit: assign i -> var_α
+(34) Call: var i
+(34) Exit: var i -> lit_integer_α
+(35) Call: lit_integer
+(35) Exit: lit_integer -> binop_test_α
+(36) Call: binop_test
+(36) Exit: binop_test -> var_α
+(37) Call: var a
+(37) Exit: var a -> var_α
+(38) Call: var i
+(38) Exit: var i -> var_α
+(39) Call: var i
+(39) Exit: var i -> var_α
+(40) Call: var i
+(40) Exit: var i -> binop_α
+(41) Call: binop
+(41) Exit: binop -> call_α
+(42) Call: call arr_set_pure
+(42) Exit: call arr_set_pure -> assign_α
+(43) Call: assign a
+(43) Exit: assign a -> var_α
+(44) Call: var i
+(44) Exit: var i -> lit_integer_α
+(45) Call: lit_integer
+(45) Exit: lit_integer -> binop_α
+(46) Call: binop
+(46) Exit: binop -> assign_α
+(47) Call: assign i
+(47) Exit: assign i -> var_α
+(48) Call: var i
+(48) Exit: var i -> lit_integer_α
+(49) Call: lit_integer
+(49) Exit: lit_integer -> binop_test_α
+(50) Call: binop_test
+(50) Exit: binop_test -> var_α
+(51) Call: var a
+(51) Exit: var a -> var_α
+(52) Call: var i
+(52) Exit: var i -> var_α
+(53) Call: var i
+(53) Exit: var i -> var_α
+(54) Call: var i
+(54) Exit: var i -> binop_α
+(55) Call: binop
+(55) Exit: binop -> call_α
+(56) Call: call arr_set_pure
+(56) Exit: call arr_set_pure -> assign_α
+(57) Call: assign a
+(57) Exit: assign a -> var_α
+(58) Call: var i
+(58) Exit: var i -> lit_integer_α
+(59) Call: lit_integer
+(59) Exit: lit_integer -> binop_α
+(60) Call: binop
+(60) Exit: binop -> assign_α
+(61) Call: assign i
+(61) Exit: assign i -> var_α
+(62) Call: var i
+(62) Exit: var i -> lit_integer_α
+(63) Call: lit_integer
+(63) Exit: lit_integer -> binop_test_α
+(64) Call: binop_test
+(64) Exit: binop_test -> var_α
+(65) Call: var a
+(65) Exit: var a -> var_α
+(66) Call: var i
+(66) Exit: var i -> var_α
+(67) Call: var i
+(67) Exit: var i -> var_α
+(68) Call: var i
+(68) Exit: var i -> binop_α
+(69) Call: binop
+(69) Exit: binop -> call_α
+(70) Call: call arr_set_pure
+(70) Exit: call arr_set_pure -> assign_α
+(71) Call: assign a
+(71) Exit: assign a -> var_α
+(72) Call: var i
+(72) Exit: var i -> lit_integer_α
+(73) Call: lit_integer
+(73) Exit: lit_integer -> binop_α
+(74) Call: binop
+(74) Exit: binop -> assign_α
+(75) Call: assign i
+(75) Exit: assign i -> var_α
+(76) Call: var i
+(76) Exit: var i -> lit_integer_α
+(77) Call: lit_integer
+(77) Exit: lit_integer -> binop_test_α
+(78) Call: binop_test
+(78) Fail: binop_test -> lit_integer_α
+(79) Call: lit_integer
+(79) Exit: lit_integer -> assign_α
+(80) Call: assign s
+(80) Exit: assign s -> lit_integer_α
+(81) Call: lit_integer
+(81) Exit: lit_integer -> assign_α
+(82) Call: assign i
+(82) Exit: assign i -> var_α
+(83) Call: var i
+(83) Exit: var i -> lit_integer_α
+(84) Call: lit_integer
+(84) Exit: lit_integer -> binop_test_α
+(85) Call: binop_test
+(85) Exit: binop_test -> var_α
+(86) Call: var s
+(86) Exit: var s -> var_α
+(87) Call: var a
+(87) Exit: var a -> var_α
+(88) Call: var i
+(88) Exit: var i -> call_α
+(89) Call: call arr_get
+(89) Exit: call arr_get -> binop_α
+(90) Call: binop
+(90) Exit: binop -> assign_α
+(91) Call: assign s
+(91) Exit: assign s -> var_α
+(92) Call: var i
+(92) Exit: var i -> lit_integer_α
+(93) Call: lit_integer
+(93) Exit: lit_integer -> binop_α
+(94) Call: binop
+(94) Exit: binop -> assign_α
+(95) Call: assign i
+(95) Exit: assign i -> var_α
+(96) Call: var i
+(96) Exit: var i -> lit_integer_α
+(97) Call: lit_integer
+(97) Exit: lit_integer -> binop_test_α
+(98) Call: binop_test
+(98) Exit: binop_test -> var_α
+(99) Call: var s
+(99) Exit: var s -> var_α
+(100) Call: var a
+(100) Exit: var a -> var_α
+(101) Call: var i
+(101) Exit: var i -> call_α
+(102) Call: call arr_get
+(102) Exit: call arr_get -> binop_α
+(103) Call: binop
+(103) Exit: binop -> assign_α
+(104) Call: assign s
+(104) Exit: assign s -> var_α
+(105) Call: var i
+(105) Exit: var i -> lit_integer_α
+(106) Call: lit_integer
+(106) Exit: lit_integer -> binop_α
+(107) Call: binop
+(107) Exit: binop -> assign_α
+(108) Call: assign i
+(108) Exit: assign i -> var_α
+(109) Call: var i
+(109) Exit: var i -> lit_integer_α
+(110) Call: lit_integer
+(110) Exit: lit_integer -> binop_test_α
+(111) Call: binop_test
+(111) Exit: binop_test -> var_α
+(112) Call: var s
+(112) Exit: var s -> var_α
+(113) Call: var a
+(113) Exit: var a -> var_α
+(114) Call: var i
+(114) Exit: var i -> call_α
+(115) Call: call arr_get
+(115) Exit: call arr_get -> binop_α
+(116) Call: binop
+(116) Exit: binop -> assign_α
+(117) Call: assign s
+(117) Exit: assign s -> var_α
+(118) Call: var i
+(118) Exit: var i -> lit_integer_α
+(119) Call: lit_integer
+(119) Exit: lit_integer -> binop_α
+(120) Call: binop
+(120) Exit: binop -> assign_α
+(121) Call: assign i
+(121) Exit: assign i -> var_α
+(122) Call: var i
+(122) Exit: var i -> lit_integer_α
+(123) Call: lit_integer
+(123) Exit: lit_integer -> binop_test_α
+(124) Call: binop_test
+(124) Exit: binop_test -> var_α
+(125) Call: var s
+(125) Exit: var s -> var_α
+(126) Call: var a
+(126) Exit: var a -> var_α
+(127) Call: var i
+(127) Exit: var i -> call_α
+(128) Call: call arr_get
+(128) Exit: call arr_get -> binop_α
+(129) Call: binop
+(129) Exit: binop -> assign_α
+(130) Call: assign s
+(130) Exit: assign s -> var_α
+(131) Call: var i
+(131) Exit: var i -> lit_integer_α
+(132) Call: lit_integer
+(132) Exit: lit_integer -> binop_α
+(133) Call: binop
+(133) Exit: binop -> assign_α
+(134) Call: assign i
+(134) Exit: assign i -> var_α
+(135) Call: var i
+(135) Exit: var i -> lit_integer_α
+(136) Call: lit_integer
+(136) Exit: lit_integer -> binop_test_α
+(137) Call: binop_test
+(137) Exit: binop_test -> var_α
+(138) Call: var s
+(138) Exit: var s -> var_α
+(139) Call: var a
+(139) Exit: var a -> var_α
+(140) Call: var i
+(140) Exit: var i -> call_α
+(141) Call: call arr_get
+(141) Exit: call arr_get -> binop_α
+(142) Call: binop
+(142) Exit: binop -> assign_α
+(143) Call: assign s
+(143) Exit: assign s -> var_α
+(144) Call: var i
+(144) Exit: var i -> lit_integer_α
+(145) Call: lit_integer
+(145) Exit: lit_integer -> binop_α
+(146) Call: binop
+(146) Exit: binop -> assign_α
+(147) Call: assign i
+(147) Exit: assign i -> var_α
+(148) Call: var i
+(148) Exit: var i -> lit_integer_α
+(149) Call: lit_integer
+(149) Exit: lit_integer -> binop_test_α
+(150) Call: binop_test
+(150) Fail: binop_test -> var_α
+(151) Call: var s
+(151) Exit: var s -> lit_integer_α
+(152) Call: lit_integer
+(152) Exit: lit_integer -> call_α
+(153) Call: call __pas_writeln
+(153) Exit: call __pas_writeln -> lit_integer_α
+(154) Call: lit_integer
+(154) Exit: lit_integer -> return_α
+(155) Call: return
+(155) Exit: return -> pat_flat_γ
+%---- ladder__rung06_arrays m4 total=310 prefix=310
+(1) Call: lit_integer
+(1) Exit: lit_integer -> call_α
+(2) Call: call arr_make
+(2) Exit: call arr_make -> assign_α
+(3) Call: assign a
+(3) Exit: assign a -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> assign_α
+(5) Call: assign i
+(5) Exit: assign i -> var_α
+(6) Call: var i
+(6) Exit: var i -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> binop_test_α
+(8) Call: binop_test
+(8) Exit: binop_test -> var_α
+(9) Call: var a
+(9) Exit: var a -> var_α
+(10) Call: var i
+(10) Exit: var i -> var_α
+(11) Call: var i
+(11) Exit: var i -> var_α
+(12) Call: var i
+(12) Exit: var i -> binop_α
+(13) Call: binop
+(13) Exit: binop -> call_α
+(14) Call: call arr_set_pure
+(14) Exit: call arr_set_pure -> assign_α
+(15) Call: assign a
+(15) Exit: assign a -> var_α
+(16) Call: var i
+(16) Exit: var i -> lit_integer_α
+(17) Call: lit_integer
+(17) Exit: lit_integer -> binop_α
+(18) Call: binop
+(18) Exit: binop -> assign_α
+(19) Call: assign i
+(19) Exit: assign i -> var_α
+(20) Call: var i
+(20) Exit: var i -> lit_integer_α
+(21) Call: lit_integer
+(21) Exit: lit_integer -> binop_test_α
+(22) Call: binop_test
+(22) Exit: binop_test -> var_α
+(23) Call: var a
+(23) Exit: var a -> var_α
+(24) Call: var i
+(24) Exit: var i -> var_α
+(25) Call: var i
+(25) Exit: var i -> var_α
+(26) Call: var i
+(26) Exit: var i -> binop_α
+(27) Call: binop
+(27) Exit: binop -> call_α
+(28) Call: call arr_set_pure
+(28) Exit: call arr_set_pure -> assign_α
+(29) Call: assign a
+(29) Exit: assign a -> var_α
+(30) Call: var i
+(30) Exit: var i -> lit_integer_α
+(31) Call: lit_integer
+(31) Exit: lit_integer -> binop_α
+(32) Call: binop
+(32) Exit: binop -> assign_α
+(33) Call: assign i
+(33) Exit: assign i -> var_α
+(34) Call: var i
+(34) Exit: var i -> lit_integer_α
+(35) Call: lit_integer
+(35) Exit: lit_integer -> binop_test_α
+(36) Call: binop_test
+(36) Exit: binop_test -> var_α
+(37) Call: var a
+(37) Exit: var a -> var_α
+(38) Call: var i
+(38) Exit: var i -> var_α
+(39) Call: var i
+(39) Exit: var i -> var_α
+(40) Call: var i
+(40) Exit: var i -> binop_α
+(41) Call: binop
+(41) Exit: binop -> call_α
+(42) Call: call arr_set_pure
+(42) Exit: call arr_set_pure -> assign_α
+(43) Call: assign a
+(43) Exit: assign a -> var_α
+(44) Call: var i
+(44) Exit: var i -> lit_integer_α
+(45) Call: lit_integer
+(45) Exit: lit_integer -> binop_α
+(46) Call: binop
+(46) Exit: binop -> assign_α
+(47) Call: assign i
+(47) Exit: assign i -> var_α
+(48) Call: var i
+(48) Exit: var i -> lit_integer_α
+(49) Call: lit_integer
+(49) Exit: lit_integer -> binop_test_α
+(50) Call: binop_test
+(50) Exit: binop_test -> var_α
+(51) Call: var a
+(51) Exit: var a -> var_α
+(52) Call: var i
+(52) Exit: var i -> var_α
+(53) Call: var i
+(53) Exit: var i -> var_α
+(54) Call: var i
+(54) Exit: var i -> binop_α
+(55) Call: binop
+(55) Exit: binop -> call_α
+(56) Call: call arr_set_pure
+(56) Exit: call arr_set_pure -> assign_α
+(57) Call: assign a
+(57) Exit: assign a -> var_α
+(58) Call: var i
+(58) Exit: var i -> lit_integer_α
+(59) Call: lit_integer
+(59) Exit: lit_integer -> binop_α
+(60) Call: binop
+(60) Exit: binop -> assign_α
+(61) Call: assign i
+(61) Exit: assign i -> var_α
+(62) Call: var i
+(62) Exit: var i -> lit_integer_α
+(63) Call: lit_integer
+(63) Exit: lit_integer -> binop_test_α
+(64) Call: binop_test
+(64) Exit: binop_test -> var_α
+(65) Call: var a
+(65) Exit: var a -> var_α
+(66) Call: var i
+(66) Exit: var i -> var_α
+(67) Call: var i
+(67) Exit: var i -> var_α
+(68) Call: var i
+(68) Exit: var i -> binop_α
+(69) Call: binop
+(69) Exit: binop -> call_α
+(70) Call: call arr_set_pure
+(70) Exit: call arr_set_pure -> assign_α
+(71) Call: assign a
+(71) Exit: assign a -> var_α
+(72) Call: var i
+(72) Exit: var i -> lit_integer_α
+(73) Call: lit_integer
+(73) Exit: lit_integer -> binop_α
+(74) Call: binop
+(74) Exit: binop -> assign_α
+(75) Call: assign i
+(75) Exit: assign i -> var_α
+(76) Call: var i
+(76) Exit: var i -> lit_integer_α
+(77) Call: lit_integer
+(77) Exit: lit_integer -> binop_test_α
+(78) Call: binop_test
+(78) Fail: binop_test -> lit_integer_α
+(79) Call: lit_integer
+(79) Exit: lit_integer -> assign_α
+(80) Call: assign s
+(80) Exit: assign s -> lit_integer_α
+(81) Call: lit_integer
+(81) Exit: lit_integer -> assign_α
+(82) Call: assign i
+(82) Exit: assign i -> var_α
+(83) Call: var i
+(83) Exit: var i -> lit_integer_α
+(84) Call: lit_integer
+(84) Exit: lit_integer -> binop_test_α
+(85) Call: binop_test
+(85) Exit: binop_test -> var_α
+(86) Call: var s
+(86) Exit: var s -> var_α
+(87) Call: var a
+(87) Exit: var a -> var_α
+(88) Call: var i
+(88) Exit: var i -> call_α
+(89) Call: call arr_get
+(89) Exit: call arr_get -> binop_α
+(90) Call: binop
+(90) Exit: binop -> assign_α
+(91) Call: assign s
+(91) Exit: assign s -> var_α
+(92) Call: var i
+(92) Exit: var i -> lit_integer_α
+(93) Call: lit_integer
+(93) Exit: lit_integer -> binop_α
+(94) Call: binop
+(94) Exit: binop -> assign_α
+(95) Call: assign i
+(95) Exit: assign i -> var_α
+(96) Call: var i
+(96) Exit: var i -> lit_integer_α
+(97) Call: lit_integer
+(97) Exit: lit_integer -> binop_test_α
+(98) Call: binop_test
+(98) Exit: binop_test -> var_α
+(99) Call: var s
+(99) Exit: var s -> var_α
+(100) Call: var a
+(100) Exit: var a -> var_α
+(101) Call: var i
+(101) Exit: var i -> call_α
+(102) Call: call arr_get
+(102) Exit: call arr_get -> binop_α
+(103) Call: binop
+(103) Exit: binop -> assign_α
+(104) Call: assign s
+(104) Exit: assign s -> var_α
+(105) Call: var i
+(105) Exit: var i -> lit_integer_α
+(106) Call: lit_integer
+(106) Exit: lit_integer -> binop_α
+(107) Call: binop
+(107) Exit: binop -> assign_α
+(108) Call: assign i
+(108) Exit: assign i -> var_α
+(109) Call: var i
+(109) Exit: var i -> lit_integer_α
+(110) Call: lit_integer
+(110) Exit: lit_integer -> binop_test_α
+(111) Call: binop_test
+(111) Exit: binop_test -> var_α
+(112) Call: var s
+(112) Exit: var s -> var_α
+(113) Call: var a
+(113) Exit: var a -> var_α
+(114) Call: var i
+(114) Exit: var i -> call_α
+(115) Call: call arr_get
+(115) Exit: call arr_get -> binop_α
+(116) Call: binop
+(116) Exit: binop -> assign_α
+(117) Call: assign s
+(117) Exit: assign s -> var_α
+(118) Call: var i
+(118) Exit: var i -> lit_integer_α
+(119) Call: lit_integer
+(119) Exit: lit_integer -> binop_α
+(120) Call: binop
+(120) Exit: binop -> assign_α
+(121) Call: assign i
+(121) Exit: assign i -> var_α
+(122) Call: var i
+(122) Exit: var i -> lit_integer_α
+(123) Call: lit_integer
+(123) Exit: lit_integer -> binop_test_α
+(124) Call: binop_test
+(124) Exit: binop_test -> var_α
+(125) Call: var s
+(125) Exit: var s -> var_α
+(126) Call: var a
+(126) Exit: var a -> var_α
+(127) Call: var i
+(127) Exit: var i -> call_α
+(128) Call: call arr_get
+(128) Exit: call arr_get -> binop_α
+(129) Call: binop
+(129) Exit: binop -> assign_α
+(130) Call: assign s
+(130) Exit: assign s -> var_α
+(131) Call: var i
+(131) Exit: var i -> lit_integer_α
+(132) Call: lit_integer
+(132) Exit: lit_integer -> binop_α
+(133) Call: binop
+(133) Exit: binop -> assign_α
+(134) Call: assign i
+(134) Exit: assign i -> var_α
+(135) Call: var i
+(135) Exit: var i -> lit_integer_α
+(136) Call: lit_integer
+(136) Exit: lit_integer -> binop_test_α
+(137) Call: binop_test
+(137) Exit: binop_test -> var_α
+(138) Call: var s
+(138) Exit: var s -> var_α
+(139) Call: var a
+(139) Exit: var a -> var_α
+(140) Call: var i
+(140) Exit: var i -> call_α
+(141) Call: call arr_get
+(141) Exit: call arr_get -> binop_α
+(142) Call: binop
+(142) Exit: binop -> assign_α
+(143) Call: assign s
+(143) Exit: assign s -> var_α
+(144) Call: var i
+(144) Exit: var i -> lit_integer_α
+(145) Call: lit_integer
+(145) Exit: lit_integer -> binop_α
+(146) Call: binop
+(146) Exit: binop -> assign_α
+(147) Call: assign i
+(147) Exit: assign i -> var_α
+(148) Call: var i
+(148) Exit: var i -> lit_integer_α
+(149) Call: lit_integer
+(149) Exit: lit_integer -> binop_test_α
+(150) Call: binop_test
+(150) Fail: binop_test -> var_α
+(151) Call: var s
+(151) Exit: var s -> lit_integer_α
+(152) Call: lit_integer
+(152) Exit: lit_integer -> call_α
+(153) Call: call __pas_writeln
+(153) Exit: call __pas_writeln -> lit_integer_α
+(154) Call: lit_integer
+(154) Exit: lit_integer -> return_α
+(155) Call: return
+(155) Exit: return -> flat_γ
+%---- ladder__rung07_records m3 total=46 prefix=46
+(1) Call: lit_string 00
+(1) Exit: lit_string 00 -> assign_α
+(2) Call: assign p
+(2) Exit: assign p -> var_α
+(3) Call: var p
+(3) Exit: var p -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> lit_integer_α
+(5) Call: lit_integer
+(5) Exit: lit_integer -> call_α
+(6) Call: call arr_set_pure
+(6) Exit: call arr_set_pure -> assign_α
+(7) Call: assign p
+(7) Exit: assign p -> var_α
+(8) Call: var p
+(8) Exit: var p -> lit_integer_α
+(9) Call: lit_integer
+(9) Exit: lit_integer -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> call_α
+(11) Call: call arr_set_pure
+(11) Exit: call arr_set_pure -> assign_α
+(12) Call: assign p
+(12) Exit: assign p -> var_α
+(13) Call: var p
+(13) Exit: var p -> lit_integer_α
+(14) Call: lit_integer
+(14) Exit: lit_integer -> call_α
+(15) Call: call arr_get
+(15) Exit: call arr_get -> var_α
+(16) Call: var p
+(16) Exit: var p -> lit_integer_α
+(17) Call: lit_integer
+(17) Exit: lit_integer -> call_α
+(18) Call: call arr_get
+(18) Exit: call arr_get -> binop_α
+(19) Call: binop
+(19) Exit: binop -> lit_integer_α
+(20) Call: lit_integer
+(20) Exit: lit_integer -> call_α
+(21) Call: call __pas_writeln
+(21) Exit: call __pas_writeln -> lit_integer_α
+(22) Call: lit_integer
+(22) Exit: lit_integer -> return_α
+(23) Call: return
+(23) Exit: return -> pat_flat_γ
+%---- ladder__rung07_records m4 total=46 prefix=46
+(1) Call: lit_string 00
+(1) Exit: lit_string 00 -> assign_α
+(2) Call: assign p
+(2) Exit: assign p -> var_α
+(3) Call: var p
+(3) Exit: var p -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> lit_integer_α
+(5) Call: lit_integer
+(5) Exit: lit_integer -> call_α
+(6) Call: call arr_set_pure
+(6) Exit: call arr_set_pure -> assign_α
+(7) Call: assign p
+(7) Exit: assign p -> var_α
+(8) Call: var p
+(8) Exit: var p -> lit_integer_α
+(9) Call: lit_integer
+(9) Exit: lit_integer -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> call_α
+(11) Call: call arr_set_pure
+(11) Exit: call arr_set_pure -> assign_α
+(12) Call: assign p
+(12) Exit: assign p -> var_α
+(13) Call: var p
+(13) Exit: var p -> lit_integer_α
+(14) Call: lit_integer
+(14) Exit: lit_integer -> call_α
+(15) Call: call arr_get
+(15) Exit: call arr_get -> var_α
+(16) Call: var p
+(16) Exit: var p -> lit_integer_α
+(17) Call: lit_integer
+(17) Exit: lit_integer -> call_α
+(18) Call: call arr_get
+(18) Exit: call arr_get -> binop_α
+(19) Call: binop
+(19) Exit: binop -> lit_integer_α
+(20) Call: lit_integer
+(20) Exit: lit_integer -> call_α
+(21) Call: call __pas_writeln
+(21) Exit: call __pas_writeln -> lit_integer_α
+(22) Call: lit_integer
+(22) Exit: lit_integer -> return_α
+(23) Call: return
+(23) Exit: return -> flat_γ
+%---- ladder__rung08_sets m3 total=48 prefix=48
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> call_α
+(5) Call: call __pas_set
+(5) Exit: call __pas_set -> assign_α
+(6) Call: assign s
+(6) Exit: assign s -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> var_α
+(8) Call: var s
+(8) Exit: var s -> call_α
+(9) Call: call __pas_in
+(9) Exit: call __pas_in -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> binop_test_α
+(11) Call: binop_test
+(11) Exit: binop_test -> lit_string_α
+(12) Call: lit_string yes
+(12) Exit: lit_string yes -> lit_integer_α
+(13) Call: lit_integer
+(13) Exit: lit_integer -> call_α
+(14) Call: call __pas_writeln
+(14) Exit: call __pas_writeln -> lit_integer_α
+(15) Call: lit_integer
+(15) Exit: lit_integer -> var_α
+(16) Call: var s
+(16) Exit: var s -> call_α
+(17) Call: call __pas_in
+(17) Exit: call __pas_in -> lit_integer_α
+(18) Call: lit_integer
+(18) Exit: lit_integer -> binop_test_α
+(19) Call: binop_test
+(19) Fail: binop_test -> lit_string_α
+(20) Call: lit_string no
+(20) Exit: lit_string no -> lit_integer_α
+(21) Call: lit_integer
+(21) Exit: lit_integer -> call_α
+(22) Call: call __pas_writeln
+(22) Exit: call __pas_writeln -> lit_integer_α
+(23) Call: lit_integer
+(23) Exit: lit_integer -> return_α
+(24) Call: return
+(24) Exit: return -> pat_flat_γ
+%---- ladder__rung08_sets m4 total=48 prefix=48
+(1) Call: lit_integer
+(1) Exit: lit_integer -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> lit_integer_α
+(3) Call: lit_integer
+(3) Exit: lit_integer -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> call_α
+(5) Call: call __pas_set
+(5) Exit: call __pas_set -> assign_α
+(6) Call: assign s
+(6) Exit: assign s -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> var_α
+(8) Call: var s
+(8) Exit: var s -> call_α
+(9) Call: call __pas_in
+(9) Exit: call __pas_in -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> binop_test_α
+(11) Call: binop_test
+(11) Exit: binop_test -> lit_string_α
+(12) Call: lit_string yes
+(12) Exit: lit_string yes -> lit_integer_α
+(13) Call: lit_integer
+(13) Exit: lit_integer -> call_α
+(14) Call: call __pas_writeln
+(14) Exit: call __pas_writeln -> lit_integer_α
+(15) Call: lit_integer
+(15) Exit: lit_integer -> var_α
+(16) Call: var s
+(16) Exit: var s -> call_α
+(17) Call: call __pas_in
+(17) Exit: call __pas_in -> lit_integer_α
+(18) Call: lit_integer
+(18) Exit: lit_integer -> binop_test_α
+(19) Call: binop_test
+(19) Fail: binop_test -> lit_string_α
+(20) Call: lit_string no
+(20) Exit: lit_string no -> lit_integer_α
+(21) Call: lit_integer
+(21) Exit: lit_integer -> call_α
+(22) Call: call __pas_writeln
+(22) Exit: call __pas_writeln -> lit_integer_α
+(23) Call: lit_integer
+(23) Exit: lit_integer -> return_α
+(24) Call: return
+(24) Exit: return -> flat_γ
+%---- ladder__rung09_strings m3 total=42 prefix=42
+(1) Call: lit_string 0000
+(1) Exit: lit_string 0000 -> assign_α
+(2) Call: assign a
+(2) Exit: assign a -> lit_string_α
+(3) Call: lit_string 0102111111
+(3) Exit: lit_string 0102111111 -> assign_α
+(4) Call: assign a
+(4) Exit: assign a -> var_α
+(5) Call: var a
+(5) Exit: var a -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> call_α
+(7) Call: call __pas_alpha_str
+(7) Exit: call __pas_alpha_str -> lit_string_α
+(8) Call: lit_string foo
+(8) Exit: lit_string foo -> call_α
+(9) Call: call __pas_strcmp
+(9) Exit: call __pas_strcmp -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> binop_test_α
+(11) Call: binop_test
+(11) Exit: binop_test -> lit_string_α
+(12) Call: lit_string eq
+(12) Exit: lit_string eq -> lit_integer_α
+(13) Call: lit_integer
+(13) Exit: lit_integer -> call_α
+(14) Call: call __pas_writeln
+(14) Exit: call __pas_writeln -> var_α
+(15) Call: var a
+(15) Exit: var a -> lit_integer_α
+(16) Call: lit_integer
+(16) Exit: lit_integer -> call_α
+(17) Call: call __pas_alpha_str
+(17) Exit: call __pas_alpha_str -> lit_integer_α
+(18) Call: lit_integer
+(18) Exit: lit_integer -> call_α
+(19) Call: call __pas_writeln
+(19) Exit: call __pas_writeln -> lit_integer_α
+(20) Call: lit_integer
+(20) Exit: lit_integer -> return_α
+(21) Call: return
+(21) Exit: return -> pat_flat_γ
+%---- ladder__rung09_strings m4 total=42 prefix=42
+(1) Call: lit_string 0000
+(1) Exit: lit_string 0000 -> assign_α
+(2) Call: assign a
+(2) Exit: assign a -> lit_string_α
+(3) Call: lit_string 0102111111
+(3) Exit: lit_string 0102111111 -> assign_α
+(4) Call: assign a
+(4) Exit: assign a -> var_α
+(5) Call: var a
+(5) Exit: var a -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> call_α
+(7) Call: call __pas_alpha_str
+(7) Exit: call __pas_alpha_str -> lit_string_α
+(8) Call: lit_string foo
+(8) Exit: lit_string foo -> call_α
+(9) Call: call __pas_strcmp
+(9) Exit: call __pas_strcmp -> lit_integer_α
+(10) Call: lit_integer
+(10) Exit: lit_integer -> binop_test_α
+(11) Call: binop_test
+(11) Exit: binop_test -> lit_string_α
+(12) Call: lit_string eq
+(12) Exit: lit_string eq -> lit_integer_α
+(13) Call: lit_integer
+(13) Exit: lit_integer -> call_α
+(14) Call: call __pas_writeln
+(14) Exit: call __pas_writeln -> var_α
+(15) Call: var a
+(15) Exit: var a -> lit_integer_α
+(16) Call: lit_integer
+(16) Exit: lit_integer -> call_α
+(17) Call: call __pas_alpha_str
+(17) Exit: call __pas_alpha_str -> lit_integer_α
+(18) Call: lit_integer
+(18) Exit: lit_integer -> call_α
+(19) Call: call __pas_writeln
+(19) Exit: call __pas_writeln -> lit_integer_α
+(20) Call: lit_integer
+(20) Exit: lit_integer -> return_α
+(21) Call: return
+(21) Exit: return -> flat_γ
+%---- ladder__rung10_pointers m3 total=134 prefix=134
+(1) Call: lit_integer
+(1) Exit: lit_integer -> call_α
+(2) Call: call __pas_alloc_rec
+(2) Exit: call __pas_alloc_rec -> assign_α
+(3) Call: assign a
+(3) Exit: assign a -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> call_α
+(5) Call: call __pas_alloc_rec
+(5) Exit: call __pas_alloc_rec -> assign_α
+(6) Call: assign b
+(6) Exit: assign b -> var_α
+(7) Call: var a
+(7) Exit: var a -> lit_integer_α
+(8) Call: lit_integer
+(8) Exit: lit_integer -> lit_integer_α
+(9) Call: lit_integer
+(9) Exit: lit_integer -> call_α
+(10) Call: call __pas_field_set
+(10) Exit: call __pas_field_set -> var_α
+(11) Call: var b
+(11) Exit: var b -> lit_integer_α
+(12) Call: lit_integer
+(12) Exit: lit_integer -> lit_integer_α
+(13) Call: lit_integer
+(13) Exit: lit_integer -> call_α
+(14) Call: call __pas_field_set
+(14) Exit: call __pas_field_set -> var_α
+(15) Call: var a
+(15) Exit: var a -> lit_integer_α
+(16) Call: lit_integer
+(16) Exit: lit_integer -> var_α
+(17) Call: var b
+(17) Exit: var b -> call_α
+(18) Call: call __pas_field_set
+(18) Exit: call __pas_field_set -> var_α
+(19) Call: var b
+(19) Exit: var b -> lit_integer_α
+(20) Call: lit_integer
+(20) Exit: lit_integer -> lit_integer_α
+(21) Call: lit_integer
+(21) Exit: lit_integer -> call_α
+(22) Call: call __pas_field_set
+(22) Exit: call __pas_field_set -> var_α
+(23) Call: var a
+(23) Exit: var a -> call_α
+(24) Call: call __pas_deref
+(24) Exit: call __pas_deref -> lit_integer_α
+(25) Call: lit_integer
+(25) Exit: lit_integer -> call_α
+(26) Call: call arr_get
+(26) Exit: call arr_get -> lit_integer_α
+(27) Call: lit_integer
+(27) Exit: lit_integer -> call_α
+(28) Call: call __pas_writeln
+(28) Exit: call __pas_writeln -> var_α
+(29) Call: var a
+(29) Exit: var a -> call_α
+(30) Call: call __pas_deref
+(30) Exit: call __pas_deref -> lit_integer_α
+(31) Call: lit_integer
+(31) Exit: lit_integer -> call_α
+(32) Call: call arr_get
+(32) Exit: call arr_get -> call_α
+(33) Call: call __pas_deref
+(33) Exit: call __pas_deref -> lit_integer_α
+(34) Call: lit_integer
+(34) Exit: lit_integer -> call_α
+(35) Call: call arr_get
+(35) Exit: call arr_get -> lit_integer_α
+(36) Call: lit_integer
+(36) Exit: lit_integer -> call_α
+(37) Call: call __pas_writeln
+(37) Exit: call __pas_writeln -> var_α
+(38) Call: var a
+(38) Exit: var a -> call_α
+(39) Call: call __pas_deref
+(39) Exit: call __pas_deref -> lit_integer_α
+(40) Call: lit_integer
+(40) Exit: lit_integer -> call_α
+(41) Call: call arr_get
+(41) Exit: call arr_get -> var_α
+(42) Call: var b
+(42) Exit: var b -> binop_test_α
+(43) Call: binop_test
+(43) Exit: binop_test -> lit_string_α
+(44) Call: lit_string linked
+(44) Exit: lit_string linked -> lit_integer_α
+(45) Call: lit_integer
+(45) Exit: lit_integer -> call_α
+(46) Call: call __pas_writeln
+(46) Exit: call __pas_writeln -> var_α
+(47) Call: var a
+(47) Exit: var a -> var_α
+(48) Call: var b
+(48) Exit: var b -> binop_test_α
+(49) Call: binop_test
+(49) Fail: binop_test -> lit_string_α
+(50) Call: lit_string distinct
+(50) Exit: lit_string distinct -> lit_integer_α
+(51) Call: lit_integer
+(51) Exit: lit_integer -> call_α
+(52) Call: call __pas_writeln
+(52) Exit: call __pas_writeln -> var_α
+(53) Call: var b
+(53) Exit: var b -> call_α
+(54) Call: call __pas_deref
+(54) Exit: call __pas_deref -> lit_integer_α
+(55) Call: lit_integer
+(55) Exit: lit_integer -> call_α
+(56) Call: call arr_get
+(56) Exit: call arr_get -> lit_integer_α
+(57) Call: lit_integer
+(57) Exit: lit_integer -> binop_test_α
+(58) Call: binop_test
+(58) Exit: binop_test -> lit_string_α
+(59) Call: lit_string terminated
+(59) Exit: lit_string terminated -> lit_integer_α
+(60) Call: lit_integer
+(60) Exit: lit_integer -> call_α
+(61) Call: call __pas_writeln
+(61) Exit: call __pas_writeln -> var_α
+(62) Call: var b
+(62) Exit: var b -> call_α
+(63) Call: call __pas_dispose
+(63) Exit: call __pas_dispose -> var_α
+(64) Call: var a
+(64) Exit: var a -> call_α
+(65) Call: call __pas_dispose
+(65) Exit: call __pas_dispose -> lit_integer_α
+(66) Call: lit_integer
+(66) Exit: lit_integer -> return_α
+(67) Call: return
+(67) Exit: return -> pat_flat_γ
+%---- ladder__rung10_pointers m4 total=134 prefix=134
+(1) Call: lit_integer
+(1) Exit: lit_integer -> call_α
+(2) Call: call __pas_alloc_rec
+(2) Exit: call __pas_alloc_rec -> assign_α
+(3) Call: assign a
+(3) Exit: assign a -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> call_α
+(5) Call: call __pas_alloc_rec
+(5) Exit: call __pas_alloc_rec -> assign_α
+(6) Call: assign b
+(6) Exit: assign b -> var_α
+(7) Call: var a
+(7) Exit: var a -> lit_integer_α
+(8) Call: lit_integer
+(8) Exit: lit_integer -> lit_integer_α
+(9) Call: lit_integer
+(9) Exit: lit_integer -> call_α
+(10) Call: call __pas_field_set
+(10) Exit: call __pas_field_set -> var_α
+(11) Call: var b
+(11) Exit: var b -> lit_integer_α
+(12) Call: lit_integer
+(12) Exit: lit_integer -> lit_integer_α
+(13) Call: lit_integer
+(13) Exit: lit_integer -> call_α
+(14) Call: call __pas_field_set
+(14) Exit: call __pas_field_set -> var_α
+(15) Call: var a
+(15) Exit: var a -> lit_integer_α
+(16) Call: lit_integer
+(16) Exit: lit_integer -> var_α
+(17) Call: var b
+(17) Exit: var b -> call_α
+(18) Call: call __pas_field_set
+(18) Exit: call __pas_field_set -> var_α
+(19) Call: var b
+(19) Exit: var b -> lit_integer_α
+(20) Call: lit_integer
+(20) Exit: lit_integer -> lit_integer_α
+(21) Call: lit_integer
+(21) Exit: lit_integer -> call_α
+(22) Call: call __pas_field_set
+(22) Exit: call __pas_field_set -> var_α
+(23) Call: var a
+(23) Exit: var a -> call_α
+(24) Call: call __pas_deref
+(24) Exit: call __pas_deref -> lit_integer_α
+(25) Call: lit_integer
+(25) Exit: lit_integer -> call_α
+(26) Call: call arr_get
+(26) Exit: call arr_get -> lit_integer_α
+(27) Call: lit_integer
+(27) Exit: lit_integer -> call_α
+(28) Call: call __pas_writeln
+(28) Exit: call __pas_writeln -> var_α
+(29) Call: var a
+(29) Exit: var a -> call_α
+(30) Call: call __pas_deref
+(30) Exit: call __pas_deref -> lit_integer_α
+(31) Call: lit_integer
+(31) Exit: lit_integer -> call_α
+(32) Call: call arr_get
+(32) Exit: call arr_get -> call_α
+(33) Call: call __pas_deref
+(33) Exit: call __pas_deref -> lit_integer_α
+(34) Call: lit_integer
+(34) Exit: lit_integer -> call_α
+(35) Call: call arr_get
+(35) Exit: call arr_get -> lit_integer_α
+(36) Call: lit_integer
+(36) Exit: lit_integer -> call_α
+(37) Call: call __pas_writeln
+(37) Exit: call __pas_writeln -> var_α
+(38) Call: var a
+(38) Exit: var a -> call_α
+(39) Call: call __pas_deref
+(39) Exit: call __pas_deref -> lit_integer_α
+(40) Call: lit_integer
+(40) Exit: lit_integer -> call_α
+(41) Call: call arr_get
+(41) Exit: call arr_get -> var_α
+(42) Call: var b
+(42) Exit: var b -> binop_test_α
+(43) Call: binop_test
+(43) Exit: binop_test -> lit_string_α
+(44) Call: lit_string linked
+(44) Exit: lit_string linked -> lit_integer_α
+(45) Call: lit_integer
+(45) Exit: lit_integer -> call_α
+(46) Call: call __pas_writeln
+(46) Exit: call __pas_writeln -> var_α
+(47) Call: var a
+(47) Exit: var a -> var_α
+(48) Call: var b
+(48) Exit: var b -> binop_test_α
+(49) Call: binop_test
+(49) Fail: binop_test -> lit_string_α
+(50) Call: lit_string distinct
+(50) Exit: lit_string distinct -> lit_integer_α
+(51) Call: lit_integer
+(51) Exit: lit_integer -> call_α
+(52) Call: call __pas_writeln
+(52) Exit: call __pas_writeln -> var_α
+(53) Call: var b
+(53) Exit: var b -> call_α
+(54) Call: call __pas_deref
+(54) Exit: call __pas_deref -> lit_integer_α
+(55) Call: lit_integer
+(55) Exit: lit_integer -> call_α
+(56) Call: call arr_get
+(56) Exit: call arr_get -> lit_integer_α
+(57) Call: lit_integer
+(57) Exit: lit_integer -> binop_test_α
+(58) Call: binop_test
+(58) Exit: binop_test -> lit_string_α
+(59) Call: lit_string terminated
+(59) Exit: lit_string terminated -> lit_integer_α
+(60) Call: lit_integer
+(60) Exit: lit_integer -> call_α
+(61) Call: call __pas_writeln
+(61) Exit: call __pas_writeln -> var_α
+(62) Call: var b
+(62) Exit: var b -> call_α
+(63) Call: call __pas_dispose
+(63) Exit: call __pas_dispose -> var_α
+(64) Call: var a
+(64) Exit: var a -> call_α
+(65) Call: call __pas_dispose
+(65) Exit: call __pas_dispose -> lit_integer_α
+(66) Call: lit_integer
+(66) Exit: lit_integer -> return_α
+(67) Call: return
+(67) Exit: return -> flat_γ
+%---- ladder__rung11_case m3 total=576 prefix=400
+(1) Call: lit_integer
+(1) Exit: lit_integer -> assign_α
+(2) Call: assign i
+(2) Exit: assign i -> var_α
+(3) Call: var i
+(3) Exit: var i -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> binop_test_α
+(5) Call: binop_test
+(5) Exit: binop_test -> var_α
+(6) Call: var i
+(6) Exit: var i -> call_α
+(7) Call: call classify
+(8) Call: var n
+(8) Exit: var n -> assign_α
+(9) Call: assign __pct0
+(9) Exit: assign __pct0 -> var_α
+(10) Call: var __pct0
+(10) Exit: var __pct0 -> lit_integer_α
+(11) Call: lit_integer
+(11) Exit: lit_integer -> binop_test_α
+(12) Call: binop_test
+(12) Exit: binop_test -> lit_integer_α
+(13) Call: lit_integer
+(13) Exit: lit_integer -> assign_α
+(14) Call: assign __pbt2
+(14) Exit: assign __pbt2 -> var_α
+(15) Call: var __pbt2
+(15) Exit: var __pbt2 -> var_α
+(16) Call: var __pct0
+(16) Exit: var __pct0 -> lit_integer_α
+(17) Call: lit_integer
+(17) Exit: lit_integer -> binop_test_α
+(18) Call: binop_test
+(18) Fail: binop_test -> lit_integer_α
+(19) Call: lit_integer
+(19) Exit: lit_integer -> assign_α
+(20) Call: assign __pbt3
+(20) Exit: assign __pbt3 -> var_α
+(21) Call: var __pbt3
+(21) Exit: var __pbt3 -> binop_α
+(22) Call: binop
+(22) Exit: binop -> var_α
+(23) Call: var __pct0
+(23) Exit: var __pct0 -> lit_integer_α
+(24) Call: lit_integer
+(24) Exit: lit_integer -> binop_test_α
+(25) Call: binop_test
+(25) Fail: binop_test -> lit_integer_α
+(26) Call: lit_integer
+(26) Exit: lit_integer -> assign_α
+(27) Call: assign __pbt4
+(27) Exit: assign __pbt4 -> var_α
+(28) Call: var __pbt4
+(28) Exit: var __pbt4 -> binop_α
+(29) Call: binop
+(29) Exit: binop -> lit_integer_α
+(30) Call: lit_integer
+(30) Exit: lit_integer -> binop_test_α
+(31) Call: binop_test
+(31) Exit: binop_test -> lit_string_α
+(32) Call: lit_string low
+(32) Exit: lit_string low -> lit_integer_α
+(33) Call: lit_integer
+(33) Exit: lit_integer -> call_α
+(34) Call: call __pas_writeln
+(34) Exit: call __pas_writeln -> lit_integer_α
+(35) Call: lit_integer
+(35) Exit: lit_integer -> return_α
+(36) Call: return
+(36) Exit: return -> classify_γ
+(7) Exit: call classify -> var_α
+(37) Call: var i
+(37) Exit: var i -> lit_integer_α
+(38) Call: lit_integer
+(38) Exit: lit_integer -> binop_α
+(39) Call: binop
+(39) Exit: binop -> assign_α
+(40) Call: assign i
+(40) Exit: assign i -> var_α
+(41) Call: var i
+(41) Exit: var i -> lit_integer_α
+(42) Call: lit_integer
+(42) Exit: lit_integer -> binop_test_α
+(43) Call: binop_test
+(43) Exit: binop_test -> var_α
+(44) Call: var i
+(44) Exit: var i -> call_α
+(45) Call: call classify
+(46) Call: var n
+(46) Exit: var n -> assign_α
+(47) Call: assign __pct0
+(47) Exit: assign __pct0 -> var_α
+(48) Call: var __pct0
+(48) Exit: var __pct0 -> lit_integer_α
+(49) Call: lit_integer
+(49) Exit: lit_integer -> binop_test_α
+(50) Call: binop_test
+(50) Fail: binop_test -> lit_integer_α
+(51) Call: lit_integer
+(51) Exit: lit_integer -> assign_α
+(52) Call: assign __pbt2
+(52) Exit: assign __pbt2 -> var_α
+(53) Call: var __pbt2
+(53) Exit: var __pbt2 -> var_α
+(54) Call: var __pct0
+(54) Exit: var __pct0 -> lit_integer_α
+(55) Call: lit_integer
+(55) Exit: lit_integer -> binop_test_α
+(56) Call: binop_test
+(56) Exit: binop_test -> lit_integer_α
+(57) Call: lit_integer
+(57) Exit: lit_integer -> assign_α
+(58) Call: assign __pbt3
+(58) Exit: assign __pbt3 -> var_α
+(59) Call: var __pbt3
+(59) Exit: var __pbt3 -> binop_α
+(60) Call: binop
+(60) Exit: binop -> var_α
+(61) Call: var __pct0
+(61) Exit: var __pct0 -> lit_integer_α
+(62) Call: lit_integer
+(62) Exit: lit_integer -> binop_test_α
+(63) Call: binop_test
+(63) Fail: binop_test -> lit_integer_α
+(64) Call: lit_integer
+(64) Exit: lit_integer -> assign_α
+(65) Call: assign __pbt4
+(65) Exit: assign __pbt4 -> var_α
+(66) Call: var __pbt4
+(66) Exit: var __pbt4 -> binop_α
+(67) Call: binop
+(67) Exit: binop -> lit_integer_α
+(68) Call: lit_integer
+(68) Exit: lit_integer -> binop_test_α
+(69) Call: binop_test
+(69) Exit: binop_test -> lit_string_α
+(70) Call: lit_string low
+(70) Exit: lit_string low -> lit_integer_α
+(71) Call: lit_integer
+(71) Exit: lit_integer -> call_α
+(72) Call: call __pas_writeln
+(72) Exit: call __pas_writeln -> lit_integer_α
+(73) Call: lit_integer
+(73) Exit: lit_integer -> return_α
+(74) Call: return
+(74) Exit: return -> classify_γ
+(45) Exit: call classify -> var_α
+(75) Call: var i
+(75) Exit: var i -> lit_integer_α
+(76) Call: lit_integer
+(76) Exit: lit_integer -> binop_α
+(77) Call: binop
+(77) Exit: binop -> assign_α
+(78) Call: assign i
+(78) Exit: assign i -> var_α
+(79) Call: var i
+(79) Exit: var i -> lit_integer_α
+(80) Call: lit_integer
+(80) Exit: lit_integer -> binop_test_α
+(81) Call: binop_test
+(81) Exit: binop_test -> var_α
+(82) Call: var i
+(82) Exit: var i -> call_α
+(83) Call: call classify
+(84) Call: var n
+(84) Exit: var n -> assign_α
+(85) Call: assign __pct0
+(85) Exit: assign __pct0 -> var_α
+(86) Call: var __pct0
+(86) Exit: var __pct0 -> lit_integer_α
+(87) Call: lit_integer
+(87) Exit: lit_integer -> binop_test_α
+(88) Call: binop_test
+(88) Fail: binop_test -> lit_integer_α
+(89) Call: lit_integer
+(89) Exit: lit_integer -> assign_α
+(90) Call: assign __pbt2
+(90) Exit: assign __pbt2 -> var_α
+(91) Call: var __pbt2
+(91) Exit: var __pbt2 -> var_α
+(92) Call: var __pct0
+(92) Exit: var __pct0 -> lit_integer_α
+(93) Call: lit_integer
+(93) Exit: lit_integer -> binop_test_α
+(94) Call: binop_test
+(94) Fail: binop_test -> lit_integer_α
+(95) Call: lit_integer
+(95) Exit: lit_integer -> assign_α
+(96) Call: assign __pbt3
+(96) Exit: assign __pbt3 -> var_α
+(97) Call: var __pbt3
+(97) Exit: var __pbt3 -> binop_α
+(98) Call: binop
+(98) Exit: binop -> var_α
+(99) Call: var __pct0
+(99) Exit: var __pct0 -> lit_integer_α
+(100) Call: lit_integer
+(100) Exit: lit_integer -> binop_test_α
+(101) Call: binop_test
+(101) Exit: binop_test -> lit_integer_α
+(102) Call: lit_integer
+(102) Exit: lit_integer -> assign_α
+(103) Call: assign __pbt4
+(103) Exit: assign __pbt4 -> var_α
+(104) Call: var __pbt4
+(104) Exit: var __pbt4 -> binop_α
+(105) Call: binop
+(105) Exit: binop -> lit_integer_α
+(106) Call: lit_integer
+(106) Exit: lit_integer -> binop_test_α
+(107) Call: binop_test
+(107) Exit: binop_test -> lit_string_α
+(108) Call: lit_string low
+(108) Exit: lit_string low -> lit_integer_α
+(109) Call: lit_integer
+(109) Exit: lit_integer -> call_α
+(110) Call: call __pas_writeln
+(110) Exit: call __pas_writeln -> lit_integer_α
+(111) Call: lit_integer
+(111) Exit: lit_integer -> return_α
+(112) Call: return
+(112) Exit: return -> classify_γ
+(83) Exit: call classify -> var_α
+(113) Call: var i
+(113) Exit: var i -> lit_integer_α
+(114) Call: lit_integer
+(114) Exit: lit_integer -> binop_α
+(115) Call: binop
+(115) Exit: binop -> assign_α
+(116) Call: assign i
+(116) Exit: assign i -> var_α
+(117) Call: var i
+(117) Exit: var i -> lit_integer_α
+(118) Call: lit_integer
+(118) Exit: lit_integer -> binop_test_α
+(119) Call: binop_test
+(119) Exit: binop_test -> var_α
+(120) Call: var i
+(120) Exit: var i -> call_α
+(121) Call: call classify
+(122) Call: var n
+(122) Exit: var n -> assign_α
+(123) Call: assign __pct0
+(123) Exit: assign __pct0 -> var_α
+(124) Call: var __pct0
+(124) Exit: var __pct0 -> lit_integer_α
+(125) Call: lit_integer
+(125) Exit: lit_integer -> binop_test_α
+(126) Call: binop_test
+(126) Fail: binop_test -> lit_integer_α
+(127) Call: lit_integer
+(127) Exit: lit_integer -> assign_α
+(128) Call: assign __pbt2
+(128) Exit: assign __pbt2 -> var_α
+(129) Call: var __pbt2
+(129) Exit: var __pbt2 -> var_α
+(130) Call: var __pct0
+(130) Exit: var __pct0 -> lit_integer_α
+(131) Call: lit_integer
+(131) Exit: lit_integer -> binop_test_α
+(132) Call: binop_test
+(132) Fail: binop_test -> lit_integer_α
+(133) Call: lit_integer
+(133) Exit: lit_integer -> assign_α
+(134) Call: assign __pbt3
+(134) Exit: assign __pbt3 -> var_α
+(135) Call: var __pbt3
+(135) Exit: var __pbt3 -> binop_α
+(136) Call: binop
+(136) Exit: binop -> var_α
+(137) Call: var __pct0
+(137) Exit: var __pct0 -> lit_integer_α
+(138) Call: lit_integer
+(138) Exit: lit_integer -> binop_test_α
+(139) Call: binop_test
+(139) Fail: binop_test -> lit_integer_α
+(140) Call: lit_integer
+(140) Exit: lit_integer -> assign_α
+(141) Call: assign __pbt4
+(141) Exit: assign __pbt4 -> var_α
+(142) Call: var __pbt4
+(142) Exit: var __pbt4 -> binop_α
+(143) Call: binop
+(143) Exit: binop -> lit_integer_α
+(144) Call: lit_integer
+(144) Exit: lit_integer -> binop_test_α
+(145) Call: binop_test
+(145) Fail: binop_test -> var_α
+(146) Call: var __pct0
+(146) Exit: var __pct0 -> lit_integer_α
+(147) Call: lit_integer
+(147) Exit: lit_integer -> binop_test_α
+(148) Call: binop_test
+(148) Exit: binop_test -> lit_string_α
+(149) Call: lit_string mid
+(149) Exit: lit_string mid -> lit_integer_α
+(150) Call: lit_integer
+(150) Exit: lit_integer -> call_α
+(151) Call: call __pas_writeln
+(151) Exit: call __pas_writeln -> lit_integer_α
+(152) Call: lit_integer
+(152) Exit: lit_integer -> return_α
+(153) Call: return
+(153) Exit: return -> classify_γ
+(121) Exit: call classify -> var_α
+(154) Call: var i
+(154) Exit: var i -> lit_integer_α
+(155) Call: lit_integer
+(155) Exit: lit_integer -> binop_α
+(156) Call: binop
+(156) Exit: binop -> assign_α
+(157) Call: assign i
+(157) Exit: assign i -> var_α
+(158) Call: var i
+(158) Exit: var i -> lit_integer_α
+(159) Call: lit_integer
+(159) Exit: lit_integer -> binop_test_α
+(160) Call: binop_test
+(160) Exit: binop_test -> var_α
+(161) Call: var i
+(161) Exit: var i -> call_α
+(162) Call: call classify
+(163) Call: var n
+(163) Exit: var n -> assign_α
+(164) Call: assign __pct0
+(164) Exit: assign __pct0 -> var_α
+(165) Call: var __pct0
+(165) Exit: var __pct0 -> lit_integer_α
+(166) Call: lit_integer
+(166) Exit: lit_integer -> binop_test_α
+(167) Call: binop_test
+(167) Fail: binop_test -> lit_integer_α
+(168) Call: lit_integer
+(168) Exit: lit_integer -> assign_α
+(169) Call: assign __pbt2
+(169) Exit: assign __pbt2 -> var_α
+(170) Call: var __pbt2
+(170) Exit: var __pbt2 -> var_α
+(171) Call: var __pct0
+(171) Exit: var __pct0 -> lit_integer_α
+(172) Call: lit_integer
+(172) Exit: lit_integer -> binop_test_α
+(173) Call: binop_test
+(173) Fail: binop_test -> lit_integer_α
+(174) Call: lit_integer
+(174) Exit: lit_integer -> assign_α
+(175) Call: assign __pbt3
+(175) Exit: assign __pbt3 -> var_α
+(176) Call: var __pbt3
+(176) Exit: var __pbt3 -> binop_α
+(177) Call: binop
+(177) Exit: binop -> var_α
+(178) Call: var __pct0
+(178) Exit: var __pct0 -> lit_integer_α
+(179) Call: lit_integer
+(179) Exit: lit_integer -> binop_test_α
+(180) Call: binop_test
+(180) Fail: binop_test -> lit_integer_α
+(181) Call: lit_integer
+(181) Exit: lit_integer -> assign_α
+(182) Call: assign __pbt4
+(182) Exit: assign __pbt4 -> var_α
+(183) Call: var __pbt4
+(183) Exit: var __pbt4 -> binop_α
+(184) Call: binop
+(184) Exit: binop -> lit_integer_α
+(185) Call: lit_integer
+(185) Exit: lit_integer -> binop_test_α
+(186) Call: binop_test
+(186) Fail: binop_test -> var_α
+(187) Call: var __pct0
+(187) Exit: var __pct0 -> lit_integer_α
+(188) Call: lit_integer
+(188) Exit: lit_integer -> binop_test_α
+(189) Call: binop_test
+(189) Fail: binop_test -> var_α
+(190) Call: var __pct0
+(190) Exit: var __pct0 -> lit_integer_α
+(191) Call: lit_integer
+(191) Exit: lit_integer -> binop_test_α
+(192) Call: binop_test
+(192) Exit: binop_test -> lit_integer_α
+(193) Call: lit_integer
+(193) Exit: lit_integer -> assign_α
+(194) Call: assign __pbt0
+(194) Exit: assign __pbt0 -> var_α
+(195) Call: var __pbt0
+(195) Exit: var __pbt0 -> var_α
+(196) Call: var __pct0
+(196) Exit: var __pct0 -> lit_integer_α
+(197) Call: lit_integer
+(197) Exit: lit_integer -> binop_test_α
+(198) Call: binop_test
+(198) Fail: binop_test -> lit_integer_α
+(199) Call: lit_integer
+(199) Exit: lit_integer -> assign_α
+(200) Call: assign __pbt1
+(200) Exit: assign __pbt1 -> var_α
+(201) Call: var __pbt1
+%---- ladder__rung11_case m4 total=576 prefix=400
+(1) Call: lit_integer
+(1) Exit: lit_integer -> assign_α
+(2) Call: assign i
+(2) Exit: assign i -> var_α
+(3) Call: var i
+(3) Exit: var i -> lit_integer_α
+(4) Call: lit_integer
+(4) Exit: lit_integer -> binop_test_α
+(5) Call: binop_test
+(5) Exit: binop_test -> var_α
+(6) Call: var i
+(6) Exit: var i -> call_α
+(7) Call: call classify
+(8) Call: var n
+(8) Exit: var n -> assign_α
+(9) Call: assign __pct0
+(9) Exit: assign __pct0 -> var_α
+(10) Call: var __pct0
+(10) Exit: var __pct0 -> lit_integer_α
+(11) Call: lit_integer
+(11) Exit: lit_integer -> binop_test_α
+(12) Call: binop_test
+(12) Exit: binop_test -> lit_integer_α
+(13) Call: lit_integer
+(13) Exit: lit_integer -> assign_α
+(14) Call: assign __pbt2
+(14) Exit: assign __pbt2 -> var_α
+(15) Call: var __pbt2
+(15) Exit: var __pbt2 -> var_α
+(16) Call: var __pct0
+(16) Exit: var __pct0 -> lit_integer_α
+(17) Call: lit_integer
+(17) Exit: lit_integer -> binop_test_α
+(18) Call: binop_test
+(18) Fail: binop_test -> lit_integer_α
+(19) Call: lit_integer
+(19) Exit: lit_integer -> assign_α
+(20) Call: assign __pbt3
+(20) Exit: assign __pbt3 -> var_α
+(21) Call: var __pbt3
+(21) Exit: var __pbt3 -> binop_α
+(22) Call: binop
+(22) Exit: binop -> var_α
+(23) Call: var __pct0
+(23) Exit: var __pct0 -> lit_integer_α
+(24) Call: lit_integer
+(24) Exit: lit_integer -> binop_test_α
+(25) Call: binop_test
+(25) Fail: binop_test -> lit_integer_α
+(26) Call: lit_integer
+(26) Exit: lit_integer -> assign_α
+(27) Call: assign __pbt4
+(27) Exit: assign __pbt4 -> var_α
+(28) Call: var __pbt4
+(28) Exit: var __pbt4 -> binop_α
+(29) Call: binop
+(29) Exit: binop -> lit_integer_α
+(30) Call: lit_integer
+(30) Exit: lit_integer -> binop_test_α
+(31) Call: binop_test
+(31) Exit: binop_test -> lit_string_α
+(32) Call: lit_string low
+(32) Exit: lit_string low -> lit_integer_α
+(33) Call: lit_integer
+(33) Exit: lit_integer -> call_α
+(34) Call: call __pas_writeln
+(34) Exit: call __pas_writeln -> lit_integer_α
+(35) Call: lit_integer
+(35) Exit: lit_integer -> return_α
+(36) Call: return
+(36) Exit: return -> classify_γ
+(7) Exit: call classify -> var_α
+(37) Call: var i
+(37) Exit: var i -> lit_integer_α
+(38) Call: lit_integer
+(38) Exit: lit_integer -> binop_α
+(39) Call: binop
+(39) Exit: binop -> assign_α
+(40) Call: assign i
+(40) Exit: assign i -> var_α
+(41) Call: var i
+(41) Exit: var i -> lit_integer_α
+(42) Call: lit_integer
+(42) Exit: lit_integer -> binop_test_α
+(43) Call: binop_test
+(43) Exit: binop_test -> var_α
+(44) Call: var i
+(44) Exit: var i -> call_α
+(45) Call: call classify
+(46) Call: var n
+(46) Exit: var n -> assign_α
+(47) Call: assign __pct0
+(47) Exit: assign __pct0 -> var_α
+(48) Call: var __pct0
+(48) Exit: var __pct0 -> lit_integer_α
+(49) Call: lit_integer
+(49) Exit: lit_integer -> binop_test_α
+(50) Call: binop_test
+(50) Fail: binop_test -> lit_integer_α
+(51) Call: lit_integer
+(51) Exit: lit_integer -> assign_α
+(52) Call: assign __pbt2
+(52) Exit: assign __pbt2 -> var_α
+(53) Call: var __pbt2
+(53) Exit: var __pbt2 -> var_α
+(54) Call: var __pct0
+(54) Exit: var __pct0 -> lit_integer_α
+(55) Call: lit_integer
+(55) Exit: lit_integer -> binop_test_α
+(56) Call: binop_test
+(56) Exit: binop_test -> lit_integer_α
+(57) Call: lit_integer
+(57) Exit: lit_integer -> assign_α
+(58) Call: assign __pbt3
+(58) Exit: assign __pbt3 -> var_α
+(59) Call: var __pbt3
+(59) Exit: var __pbt3 -> binop_α
+(60) Call: binop
+(60) Exit: binop -> var_α
+(61) Call: var __pct0
+(61) Exit: var __pct0 -> lit_integer_α
+(62) Call: lit_integer
+(62) Exit: lit_integer -> binop_test_α
+(63) Call: binop_test
+(63) Fail: binop_test -> lit_integer_α
+(64) Call: lit_integer
+(64) Exit: lit_integer -> assign_α
+(65) Call: assign __pbt4
+(65) Exit: assign __pbt4 -> var_α
+(66) Call: var __pbt4
+(66) Exit: var __pbt4 -> binop_α
+(67) Call: binop
+(67) Exit: binop -> lit_integer_α
+(68) Call: lit_integer
+(68) Exit: lit_integer -> binop_test_α
+(69) Call: binop_test
+(69) Exit: binop_test -> lit_string_α
+(70) Call: lit_string low
+(70) Exit: lit_string low -> lit_integer_α
+(71) Call: lit_integer
+(71) Exit: lit_integer -> call_α
+(72) Call: call __pas_writeln
+(72) Exit: call __pas_writeln -> lit_integer_α
+(73) Call: lit_integer
+(73) Exit: lit_integer -> return_α
+(74) Call: return
+(74) Exit: return -> classify_γ
+(45) Exit: call classify -> var_α
+(75) Call: var i
+(75) Exit: var i -> lit_integer_α
+(76) Call: lit_integer
+(76) Exit: lit_integer -> binop_α
+(77) Call: binop
+(77) Exit: binop -> assign_α
+(78) Call: assign i
+(78) Exit: assign i -> var_α
+(79) Call: var i
+(79) Exit: var i -> lit_integer_α
+(80) Call: lit_integer
+(80) Exit: lit_integer -> binop_test_α
+(81) Call: binop_test
+(81) Exit: binop_test -> var_α
+(82) Call: var i
+(82) Exit: var i -> call_α
+(83) Call: call classify
+(84) Call: var n
+(84) Exit: var n -> assign_α
+(85) Call: assign __pct0
+(85) Exit: assign __pct0 -> var_α
+(86) Call: var __pct0
+(86) Exit: var __pct0 -> lit_integer_α
+(87) Call: lit_integer
+(87) Exit: lit_integer -> binop_test_α
+(88) Call: binop_test
+(88) Fail: binop_test -> lit_integer_α
+(89) Call: lit_integer
+(89) Exit: lit_integer -> assign_α
+(90) Call: assign __pbt2
+(90) Exit: assign __pbt2 -> var_α
+(91) Call: var __pbt2
+(91) Exit: var __pbt2 -> var_α
+(92) Call: var __pct0
+(92) Exit: var __pct0 -> lit_integer_α
+(93) Call: lit_integer
+(93) Exit: lit_integer -> binop_test_α
+(94) Call: binop_test
+(94) Fail: binop_test -> lit_integer_α
+(95) Call: lit_integer
+(95) Exit: lit_integer -> assign_α
+(96) Call: assign __pbt3
+(96) Exit: assign __pbt3 -> var_α
+(97) Call: var __pbt3
+(97) Exit: var __pbt3 -> binop_α
+(98) Call: binop
+(98) Exit: binop -> var_α
+(99) Call: var __pct0
+(99) Exit: var __pct0 -> lit_integer_α
+(100) Call: lit_integer
+(100) Exit: lit_integer -> binop_test_α
+(101) Call: binop_test
+(101) Exit: binop_test -> lit_integer_α
+(102) Call: lit_integer
+(102) Exit: lit_integer -> assign_α
+(103) Call: assign __pbt4
+(103) Exit: assign __pbt4 -> var_α
+(104) Call: var __pbt4
+(104) Exit: var __pbt4 -> binop_α
+(105) Call: binop
+(105) Exit: binop -> lit_integer_α
+(106) Call: lit_integer
+(106) Exit: lit_integer -> binop_test_α
+(107) Call: binop_test
+(107) Exit: binop_test -> lit_string_α
+(108) Call: lit_string low
+(108) Exit: lit_string low -> lit_integer_α
+(109) Call: lit_integer
+(109) Exit: lit_integer -> call_α
+(110) Call: call __pas_writeln
+(110) Exit: call __pas_writeln -> lit_integer_α
+(111) Call: lit_integer
+(111) Exit: lit_integer -> return_α
+(112) Call: return
+(112) Exit: return -> classify_γ
+(83) Exit: call classify -> var_α
+(113) Call: var i
+(113) Exit: var i -> lit_integer_α
+(114) Call: lit_integer
+(114) Exit: lit_integer -> binop_α
+(115) Call: binop
+(115) Exit: binop -> assign_α
+(116) Call: assign i
+(116) Exit: assign i -> var_α
+(117) Call: var i
+(117) Exit: var i -> lit_integer_α
+(118) Call: lit_integer
+(118) Exit: lit_integer -> binop_test_α
+(119) Call: binop_test
+(119) Exit: binop_test -> var_α
+(120) Call: var i
+(120) Exit: var i -> call_α
+(121) Call: call classify
+(122) Call: var n
+(122) Exit: var n -> assign_α
+(123) Call: assign __pct0
+(123) Exit: assign __pct0 -> var_α
+(124) Call: var __pct0
+(124) Exit: var __pct0 -> lit_integer_α
+(125) Call: lit_integer
+(125) Exit: lit_integer -> binop_test_α
+(126) Call: binop_test
+(126) Fail: binop_test -> lit_integer_α
+(127) Call: lit_integer
+(127) Exit: lit_integer -> assign_α
+(128) Call: assign __pbt2
+(128) Exit: assign __pbt2 -> var_α
+(129) Call: var __pbt2
+(129) Exit: var __pbt2 -> var_α
+(130) Call: var __pct0
+(130) Exit: var __pct0 -> lit_integer_α
+(131) Call: lit_integer
+(131) Exit: lit_integer -> binop_test_α
+(132) Call: binop_test
+(132) Fail: binop_test -> lit_integer_α
+(133) Call: lit_integer
+(133) Exit: lit_integer -> assign_α
+(134) Call: assign __pbt3
+(134) Exit: assign __pbt3 -> var_α
+(135) Call: var __pbt3
+(135) Exit: var __pbt3 -> binop_α
+(136) Call: binop
+(136) Exit: binop -> var_α
+(137) Call: var __pct0
+(137) Exit: var __pct0 -> lit_integer_α
+(138) Call: lit_integer
+(138) Exit: lit_integer -> binop_test_α
+(139) Call: binop_test
+(139) Fail: binop_test -> lit_integer_α
+(140) Call: lit_integer
+(140) Exit: lit_integer -> assign_α
+(141) Call: assign __pbt4
+(141) Exit: assign __pbt4 -> var_α
+(142) Call: var __pbt4
+(142) Exit: var __pbt4 -> binop_α
+(143) Call: binop
+(143) Exit: binop -> lit_integer_α
+(144) Call: lit_integer
+(144) Exit: lit_integer -> binop_test_α
+(145) Call: binop_test
+(145) Fail: binop_test -> var_α
+(146) Call: var __pct0
+(146) Exit: var __pct0 -> lit_integer_α
+(147) Call: lit_integer
+(147) Exit: lit_integer -> binop_test_α
+(148) Call: binop_test
+(148) Exit: binop_test -> lit_string_α
+(149) Call: lit_string mid
+(149) Exit: lit_string mid -> lit_integer_α
+(150) Call: lit_integer
+(150) Exit: lit_integer -> call_α
+(151) Call: call __pas_writeln
+(151) Exit: call __pas_writeln -> lit_integer_α
+(152) Call: lit_integer
+(152) Exit: lit_integer -> return_α
+(153) Call: return
+(153) Exit: return -> classify_γ
+(121) Exit: call classify -> var_α
+(154) Call: var i
+(154) Exit: var i -> lit_integer_α
+(155) Call: lit_integer
+(155) Exit: lit_integer -> binop_α
+(156) Call: binop
+(156) Exit: binop -> assign_α
+(157) Call: assign i
+(157) Exit: assign i -> var_α
+(158) Call: var i
+(158) Exit: var i -> lit_integer_α
+(159) Call: lit_integer
+(159) Exit: lit_integer -> binop_test_α
+(160) Call: binop_test
+(160) Exit: binop_test -> var_α
+(161) Call: var i
+(161) Exit: var i -> call_α
+(162) Call: call classify
+(163) Call: var n
+(163) Exit: var n -> assign_α
+(164) Call: assign __pct0
+(164) Exit: assign __pct0 -> var_α
+(165) Call: var __pct0
+(165) Exit: var __pct0 -> lit_integer_α
+(166) Call: lit_integer
+(166) Exit: lit_integer -> binop_test_α
+(167) Call: binop_test
+(167) Fail: binop_test -> lit_integer_α
+(168) Call: lit_integer
+(168) Exit: lit_integer -> assign_α
+(169) Call: assign __pbt2
+(169) Exit: assign __pbt2 -> var_α
+(170) Call: var __pbt2
+(170) Exit: var __pbt2 -> var_α
+(171) Call: var __pct0
+(171) Exit: var __pct0 -> lit_integer_α
+(172) Call: lit_integer
+(172) Exit: lit_integer -> binop_test_α
+(173) Call: binop_test
+(173) Fail: binop_test -> lit_integer_α
+(174) Call: lit_integer
+(174) Exit: lit_integer -> assign_α
+(175) Call: assign __pbt3
+(175) Exit: assign __pbt3 -> var_α
+(176) Call: var __pbt3
+(176) Exit: var __pbt3 -> binop_α
+(177) Call: binop
+(177) Exit: binop -> var_α
+(178) Call: var __pct0
+(178) Exit: var __pct0 -> lit_integer_α
+(179) Call: lit_integer
+(179) Exit: lit_integer -> binop_test_α
+(180) Call: binop_test
+(180) Fail: binop_test -> lit_integer_α
+(181) Call: lit_integer
+(181) Exit: lit_integer -> assign_α
+(182) Call: assign __pbt4
+(182) Exit: assign __pbt4 -> var_α
+(183) Call: var __pbt4
+(183) Exit: var __pbt4 -> binop_α
+(184) Call: binop
+(184) Exit: binop -> lit_integer_α
+(185) Call: lit_integer
+(185) Exit: lit_integer -> binop_test_α
+(186) Call: binop_test
+(186) Fail: binop_test -> var_α
+(187) Call: var __pct0
+(187) Exit: var __pct0 -> lit_integer_α
+(188) Call: lit_integer
+(188) Exit: lit_integer -> binop_test_α
+(189) Call: binop_test
+(189) Fail: binop_test -> var_α
+(190) Call: var __pct0
+(190) Exit: var __pct0 -> lit_integer_α
+(191) Call: lit_integer
+(191) Exit: lit_integer -> binop_test_α
+(192) Call: binop_test
+(192) Exit: binop_test -> lit_integer_α
+(193) Call: lit_integer
+(193) Exit: lit_integer -> assign_α
+(194) Call: assign __pbt0
+(194) Exit: assign __pbt0 -> var_α
+(195) Call: var __pbt0
+(195) Exit: var __pbt0 -> var_α
+(196) Call: var __pct0
+(196) Exit: var __pct0 -> lit_integer_α
+(197) Call: lit_integer
+(197) Exit: lit_integer -> binop_test_α
+(198) Call: binop_test
+(198) Fail: binop_test -> lit_integer_α
+(199) Call: lit_integer
+(199) Exit: lit_integer -> assign_α
+(200) Call: assign __pbt1
+(200) Exit: assign __pbt1 -> var_α
+(201) Call: var __pbt1
