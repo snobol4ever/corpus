@@ -1,18 +1,18 @@
 #------------------------------------------------------------ 1 simple_program_1
 (STMT :subj (TT_DIE (TT_QLIT "fatal error")))
 #--------------------------------------------------------------------- 2 array_6
-(STMT :subj (TT_FNC push (TT_VAR push) (TT_VAR a) (TT_ILIT 1)))
+(STMT :subj (TT_FNC push (TT_VAR push) (TT_VAR @a) (TT_ILIT 1)))
 #---------------------------------------------------------------------- 3 hash_1
-(STMT :subj (TT_HASH_DELETE (TT_VAR h) (TT_QLIT "foo")))
+(STMT :subj (TT_HASH_DELETE (TT_VAR %h) (TT_QLIT "foo")))
 #--------------------------------------------------------------------- 4 token_1
 foo bar
 #-------------------------------------------------------------------- 5 array_10 XFAIL
 (STMT :subj (TT_SUB_DECL (TT_VAR __gather_0) (TT_SUSPEND (TT_ILIT 1))))
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_FNC __gather_0 (TT_VAR __gather_0))))
 #--------------------------------------------------------------------- 6 array_4
-(STMT :subj (TT_SAY (TT_MAP (TT_ADD (TT_VAR _) (TT_ILIT 1)) (TT_VAR arr))))
+(STMT :subj (TT_SAY (TT_MAP (TT_ADD (TT_VAR _) (TT_ILIT 1)) (TT_VAR @arr))))
 #--------------------------------------------------------------------- 7 array_7
-(STMT :subj (TT_ASSIGN (TT_VAR b) (TT_SORT (TT_VAR a))))
+(STMT :subj (TT_ASSIGN (TT_VAR @b) (TT_SORT (TT_VAR @a))))
 #--------------------------------------------------------------------- 8 array_9 XFAIL
 (STMT :subj (TT_SUB_DECL (TT_VAR __gather_0) (TT_SUSPEND (TT_ILIT 1)) (TT_SUSPEND (TT_ILIT 2)) (TT_SUSPEND (TT_ILIT 3))))
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_FNC __gather_0 (TT_VAR __gather_0))))
@@ -58,13 +58,13 @@ foo bar
 (STMT :subj (TT_ASSIGN (TT_VAR q) (TT_DIV (TT_VAR x) (TT_VAR y))))
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_MOD (TT_VAR x) (TT_VAR y))))
 #------------------------------------------------------------ 25 array_replace_1
-(STMT :subj (TT_DECL (TT_VAR Array) (TT_VAR a)))
-(STMT :subj (TT_ARR_SET (TT_VAR a) (TT_ILIT 0) (TT_ILIT 99)))
-(STMT :subj (TT_SAY (TT_ARR_GET (TT_VAR a) (TT_ILIT 0))))
+(STMT :subj (TT_DECL (TT_VAR Array) (TT_VAR @a)))
+(STMT :subj (TT_ARR_SET (TT_VAR @a) (TT_ILIT 0) (TT_ILIT 99)))
+(STMT :subj (TT_SAY (TT_ARR_GET (TT_VAR @a) (TT_ILIT 0))))
 #------------------------------------------------------------- 26 hash_replace_1
-(STMT :subj (TT_DECL (TT_VAR Hash) (TT_VAR h)))
-(STMT :subj (TT_HASH_SET (TT_VAR h) (TT_QLIT "foo") (TT_QLIT "bar")))
-(STMT :subj (TT_SAY (TT_HASH_GET (TT_VAR h) (TT_QLIT "foo"))))
+(STMT :subj (TT_DECL (TT_VAR Hash) (TT_VAR %h)))
+(STMT :subj (TT_HASH_SET (TT_VAR %h) (TT_QLIT "foo") (TT_QLIT "bar")))
+(STMT :subj (TT_SAY (TT_HASH_GET (TT_VAR %h) (TT_QLIT "foo"))))
 #----------------------------------------------------------- 27 simple_assign_19
 (STMT :subj (TT_DECL (TT_VAR Int) (TT_VAR x) (TT_ILIT 5)))
 (STMT :subj (TT_DECL (TT_VAR Str) (TT_VAR s)))
@@ -90,17 +90,17 @@ foo bar
 foobar
 foo   bar
 #-------------------------------------------------------------------- 33 array_1
-(STMT :subj (TT_ASSIGN (TT_VAR b) (TT_GREP (TT_GT (TT_VAR _) (TT_ILIT 0)) (TT_VAR a))))
+(STMT :subj (TT_ASSIGN (TT_VAR @b) (TT_GREP (TT_GT (TT_VAR _) (TT_ILIT 0)) (TT_VAR @a))))
 #-------------------------------------------------------------------- 34 array_2
-(STMT :subj (TT_ASSIGN (TT_VAR r) (TT_GREP (TT_LEQ (TT_VAR _) (TT_QLIT "x")) (TT_VAR words))))
+(STMT :subj (TT_ASSIGN (TT_VAR @r) (TT_GREP (TT_LEQ (TT_VAR _) (TT_QLIT "x")) (TT_VAR @words))))
 #-------------------------------------------------------------------- 35 array_3
-(STMT :subj (TT_ASSIGN (TT_VAR b) (TT_MAP (TT_MUL (TT_VAR _) (TT_ILIT 2)) (TT_VAR a))))
+(STMT :subj (TT_ASSIGN (TT_VAR @b) (TT_MAP (TT_MUL (TT_VAR _) (TT_ILIT 2)) (TT_VAR @a))))
 #-------------------------------------------------------------------- 36 array_5
-(STMT :subj (TT_ASSIGN (TT_VAR v) (TT_FNC pop (TT_VAR pop) (TT_VAR a))))
+(STMT :subj (TT_ASSIGN (TT_VAR v) (TT_FNC pop (TT_VAR pop) (TT_VAR @a))))
 #----------------------------------------------------------------- 37 hash_say_1
-(STMT :subj (TT_IF (TT_HASH_EXISTS (TT_VAR h) (TT_QLIT "x")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "yes")))))
+(STMT :subj (TT_IF (TT_HASH_EXISTS (TT_VAR %h) (TT_QLIT "x")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "yes")))))
 #----------------------------------------------------------------- 38 hash_say_2
-(STMT :subj (TT_IF (TT_HASH_EXISTS (TT_VAR h) (TT_QLIT "x")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "yes")))))
+(STMT :subj (TT_IF (TT_HASH_EXISTS (TT_VAR %h) (TT_QLIT "x")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "yes")))))
 #-------------------------------------------------------------------- 39 range_1
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_TO (TT_ILIT 1) (TT_ILIT 5))))
 #---------------------------------------------------------------------- 40 say_1
@@ -136,17 +136,17 @@ foo   bar
 (STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 5)))
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_FNC __gather_0 (TT_VAR __gather_0))))
 #---------------------------------------------------------------- 55 array_say_2
-(STMT :subj (TT_DECL (TT_VAR Int) (TT_VAR nums)))
-(STMT :subj (TT_SAY (TT_VAR nums)))
+(STMT :subj (TT_DECL (TT_VAR Int) (TT_VAR @nums)))
+(STMT :subj (TT_SAY (TT_VAR @nums)))
 #-------------------------------------------------------- 56 array_say_replace_1
-(STMT :subj (TT_DECL (TT_VAR Int) (TT_VAR nums) (TT_SORT (TT_VAR data))))
-(STMT :subj (TT_SAY (TT_VAR nums)))
+(STMT :subj (TT_DECL (TT_VAR Int) (TT_VAR @nums) (TT_SORT (TT_VAR @data))))
+(STMT :subj (TT_SAY (TT_VAR @nums)))
 #--------------------------------------------------------------------- 57 hash_2
 (STMT :subj (TT_ASSIGN (TT_VAR k) (TT_QLIT "bar")))
-(STMT :subj (TT_HASH_DELETE (TT_VAR h) (TT_VAR k)))
+(STMT :subj (TT_HASH_DELETE (TT_VAR %h) (TT_VAR k)))
 #--------------------------------------------------------- 58 hash_say_replace_1
-(STMT :subj (TT_DECL (TT_VAR Str) (TT_VAR h) (TT_FNC raku_new_hash (TT_VAR raku_new_hash))))
-(STMT :subj (TT_SAY (TT_VAR h)))
+(STMT :subj (TT_DECL (TT_VAR Str) (TT_VAR %h) (TT_FNC raku_new_hash (TT_VAR raku_new_hash))))
+(STMT :subj (TT_SAY (TT_VAR %h)))
 #--------------------------------------------------------------------- 59 say_10
 (STMT :subj (TT_IF (TT_LEQ (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR a)))))
 (STMT :subj (TT_IF (TT_LNE (TT_VAR a) (TT_VAR b)) (TT_SEQ_EXPR (TT_SAY (TT_VAR b)))))
@@ -176,10 +176,10 @@ foo   bar
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_FNC __gather_0 (TT_VAR __gather_0))))
 (STMT :subj (TT_SAY (TT_VAR r)))
 #------------------------------------------------------------- 65 hash_replace_2
-(STMT :subj (TT_DECL (TT_VAR Hash) (TT_VAR h)))
+(STMT :subj (TT_DECL (TT_VAR Hash) (TT_VAR %h)))
 (STMT :subj (TT_ASSIGN (TT_VAR k) (TT_QLIT "foo")))
-(STMT :subj (TT_HASH_SET (TT_VAR h) (TT_VAR k) (TT_QLIT "baz")))
-(STMT :subj (TT_SAY (TT_HASH_GET (TT_VAR h) (TT_VAR k))))
+(STMT :subj (TT_HASH_SET (TT_VAR %h) (TT_VAR k) (TT_QLIT "baz")))
+(STMT :subj (TT_SAY (TT_HASH_GET (TT_VAR %h) (TT_VAR k))))
 #------------------------------------------------------------------ 66 sub_say_2
 (STMT :subj (TT_SUB_DECL (TT_VAR greet) (TT_VAR first) (TT_VAR last) (TT_SAY (TT_VAR first)) (TT_SAY (TT_VAR last))))
 #----------------------------------------------------------- 67 simple_assign_24
@@ -208,16 +208,16 @@ x:hello
 ))
 (STMT :subj (TT_ASSIGN (TT_VAR r) (TT_FNC __gather_0 (TT_VAR __gather_0))))
 #---------------------------------------------------------------- 70 array_say_1
-(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ARR_GET (TT_VAR a) (TT_ILIT 0))))
+(STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ARR_GET (TT_VAR @a) (TT_ILIT 0))))
 (STMT :subj (TT_SAY (TT_VAR x)))
 #---------------------------------------------------------------- 71 for_array_1
-(STMT :subj (TT_DECL (TT_VAR Array) (TT_VAR a)))
-(STMT :subj (TT_EVERY (TT_ITERATE (TT_VAR a)) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "x")))))
+(STMT :subj (TT_DECL (TT_VAR Array) (TT_VAR @a)))
+(STMT :subj (TT_EVERY (TT_ITERATE (TT_VAR @a)) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "x")))))
 #----------------------------------------------------------------- 72 hash_say_3
-(STMT :subj (TT_ASSIGN (TT_VAR v) (TT_HASH_GET (TT_VAR h) (TT_QLIT "x"))))
+(STMT :subj (TT_ASSIGN (TT_VAR v) (TT_HASH_GET (TT_VAR %h) (TT_QLIT "x"))))
 (STMT :subj (TT_SAY (TT_VAR v)))
 #----------------------------------------------------------------- 73 hash_say_4
-(STMT :subj (TT_ASSIGN (TT_VAR v) (TT_HASH_GET (TT_VAR h) (TT_QLIT "x"))))
+(STMT :subj (TT_ASSIGN (TT_VAR v) (TT_HASH_GET (TT_VAR %h) (TT_QLIT "x"))))
 (STMT :subj (TT_SAY (TT_VAR v)))
 #----------------------------------------------------------- 74 simple_assign_22 XFAIL
 (STMT :subj (TT_ASSIGN (TT_VAR x) (TT_ILIT 2)))
@@ -270,9 +270,9 @@ Raku
 6
 Raku
 #------------------------------------------------------------ 84 for_array_say_1
-(STMT :subj (TT_EVERY (TT_ITERATE x (TT_VAR a)) (TT_SEQ_EXPR (TT_SAY (TT_VAR x)))))
+(STMT :subj (TT_EVERY (TT_ITERATE x (TT_VAR @a)) (TT_SEQ_EXPR (TT_SAY (TT_VAR x)))))
 #------------------------------------------------------------ 85 for_array_say_2
-(STMT :subj (TT_EVERY (TT_ITERATE item (TT_VAR items)) (TT_SEQ_EXPR (TT_SAY (TT_VAR item)))))
+(STMT :subj (TT_EVERY (TT_ITERATE item (TT_VAR @items)) (TT_SEQ_EXPR (TT_SAY (TT_VAR item)))))
 #------------------------------------------------------------ 86 for_range_say_1
 (STMT :subj (TT_FOR_RANGE (TT_VAR i) (TT_ILIT 1) (TT_ILIT 5) (TT_SEQ_EXPR (TT_SAY (TT_VAR i))) (TT_ILIT 0)))
 #------------------------------------------------------------ 87 for_range_say_2 XFAIL
@@ -356,8 +356,8 @@ world
 (STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "ell") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "match")))))
 #---------------------------------------------------- 106 smartmatch_array_say_1
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "aaa")))
-(STMT :subj (TT_ASSIGN (TT_VAR m) (TT_SMATCH (TT_VAR s) (TT_QLIT "a") (TT_QLIT "match_global"))))
-(STMT :subj (TT_SAY (TT_VAR m)))
+(STMT :subj (TT_ASSIGN (TT_VAR @m) (TT_SMATCH (TT_VAR s) (TT_QLIT "a") (TT_QLIT "match_global"))))
+(STMT :subj (TT_SAY (TT_VAR @m)))
 #-------------------------------------------------- 107 smartmatch_say_replace_8
 (STMT :subj (TT_ASSIGN (TT_VAR s) (TT_QLIT "abc123")))
 (STMT :subj (TT_IF (TT_SMATCH (TT_VAR s) (TT_QLIT "\\d+") (TT_QLIT "match")) (TT_SEQ_EXPR (TT_SAY (TT_QLIT "digit")))))
