@@ -110,6 +110,7 @@
 (STMT :go rb_1)
 (STMT :lbl MAIN)
 (STMT :lbl rb_2)
+(STMT :eq :subj (TT_VAR Y) :repl (TT_ADD (TT_VAR Y) (TT_ILIT 1)))
 (STMT :go rb_2)
 (STMT :lbl rb_3)
 (STMT :go RETURN)
@@ -263,6 +264,7 @@ hello world
   (TT_VAR I)
   (TT_ILIT 5)
 ) :goS rb_3)
+(STMT :eq :subj (TT_VAR OUTPUT) :repl (TT_VAR I))
 (STMT :subj (TT_ASSIGN
   (TT_VAR I)
   (TT_ADD
@@ -288,6 +290,7 @@ hello world
   (TT_VAR I)
   (TT_ILIT 10)
 ) :goS rb_3)
+(STMT :eq :subj (TT_VAR OUTPUT) :repl (TT_VAR I))
 (STMT :subj (TT_ASSIGN
   (TT_VAR I)
   (TT_ADD
