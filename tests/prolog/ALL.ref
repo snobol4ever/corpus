@@ -1541,3 +1541,49 @@ yes
 1
 %--------------------------------------------- 588 determinism_nondet_reported_1
 123
+%----------------------------------------------------- 589 assert_assertz_fact_1
+hello
+%----------------------------------------------------- 590 assert_assertz_rule_1
+yes
+%------------------------------------------------- 591 assert_assert_then_call_1
+hi
+%------------------------------------------ 592 assert_assert_unbound_arg_call_1
+yes
+%----------------------------------------------- 593 retract_erase_first_match_1
+[2]
+%----------------------------------- 594 retract_resatisfiable_on_backtracking_1
+[]
+%---------------------------------------- 595 retract_retract_clause_with_body_1
+no
+%----------------------------------------------- 596 retract_fails_on_no_match_1
+no
+%-------------------------------------------- 597 retract_retract_then_findall_1
+[1,3]
+%----------------------------------------- 598 abolish_abolish_removes_clauses_1
+gone
+%----------------------- 599 abolish_call_after_abolish_raises_existence_error_1
+existence_error
+%------------------------------------ 600 abolish_abolish_of_unknown_predicate_1
+done
+%------------------------------------------- 601 abolish_retractall_vs_abolish_1
+[]
+%----------------------------------- 602 clause_reflect_reflect_fact_body_true_1
+true
+%---------------------------------------- 603 clause_reflect_reflect_rule_body_1
+write(matched)
+%------------------------ 604 clause_reflect_enumerate_clauses_on_backtracking_1
+[1,2,3]
+%---------------------------------------- 605 clause_reflect_fails_on_no_match_1
+no
+%-------------------------------------------- 606 global_vars_nb_setval_getval_1
+5
+%--------------------------------------------- 607 global_vars_b_setval_getval_1
+on
+%-------------------------------- 608 global_vars_b_setval_trails_on_backtrack_1
+1
+%-------------------------------------------- 609 global_vars_prolog_flag_read_1
+initial
+%--------------------------------------------- 610 global_vars_prolog_flag_set_1
+changed
+%------------------------------------------- 611 if_then_else_condition_throws_1
+propagated

@@ -3055,3 +3055,90 @@ main :- (even(4) -> write(yes) ; write(no)), nl, findall(x, even(4), L), length(
 small(1). small(2). small(3).
 :- initialization(main).
 main :- (small(X), write(X), fail ; true), nl.
+%----------------------------------------------------- 589 assert_assertz_fact_1
+:- dynamic(p10a/1).
+:- initialization(main).
+main :- assertz(p10a(hello)), p10a(X), write(X), nl.
+%----------------------------------------------------- 590 assert_assertz_rule_1
+:- dynamic(q10a/1).
+:- initialization(main).
+main :- assertz((q10a(X) :- X > 0)), (q10a(5) -> write(yes) ; write(no)), nl.
+%------------------------------------------------- 591 assert_assert_then_call_1
+:- dynamic(greet10a/0).
+:- initialization(main).
+main :- assertz((greet10a :- write(hi))), call(greet10a), nl.
+%------------------------------------------ 592 assert_assert_unbound_arg_call_1
+:- dynamic(r10a/1).
+:- initialization(main).
+main :- assertz(r10a(_)), (r10a(anything) -> write(yes) ; write(no)), nl.
+%----------------------------------------------- 593 retract_erase_first_match_1
+:- dynamic(s10a/1).
+:- initialization(main).
+main :- assertz(s10a(1)), assertz(s10a(2)), retract(s10a(1)), findall(X,s10a(X),L), write(L), nl.
+%----------------------------------- 594 retract_resatisfiable_on_backtracking_1
+:- dynamic(t10a/1).
+:- initialization(main).
+main :- assertz(t10a(1)), assertz(t10a(2)), assertz(t10a(3)), (retract(t10a(_)), fail ; true), findall(X,t10a(X),L), write(L), nl.
+%---------------------------------------- 595 retract_retract_clause_with_body_1
+:- dynamic(u10a/1).
+:- initialization(main).
+main :- assertz((u10a(X) :- X > 100)), retract((u10a(_) :- _ > 100)), (catch(u10a(200),_,fail) -> write(yes) ; write(no)), nl.
+%----------------------------------------------- 596 retract_fails_on_no_match_1
+:- dynamic(v10a/1).
+:- initialization(main).
+main :- assertz(v10a(1)), (retract(v10a(2)) -> write(yes) ; write(no)), nl.
+%-------------------------------------------- 597 retract_retract_then_findall_1
+:- dynamic(w10a/1).
+:- initialization(main).
+main :- assertz(w10a(1)), assertz(w10a(2)), assertz(w10a(3)), retract(w10a(2)), findall(X,w10a(X),L), write(L), nl.
+%----------------------------------------- 598 abolish_abolish_removes_clauses_1
+:- dynamic(aa10a/1).
+:- initialization(main).
+main :- assertz(aa10a(1)), assertz(aa10a(2)), abolish(aa10a/1), catch((findall(X,aa10a(X),L), write(L)), _, write(gone)), nl.
+%----------------------- 599 abolish_call_after_abolish_raises_existence_error_1
+:- dynamic(bb10a/1).
+:- initialization(main).
+main :- assertz(bb10a(1)), abolish(bb10a/1), catch((bb10a(X), write(X)), error(existence_error(procedure,_),_), write(existence_error)), nl.
+%------------------------------------ 600 abolish_abolish_of_unknown_predicate_1
+:- initialization(main).
+main :- catch(abolish(nonexistent_pred10a/2), _, true), write(done), nl.
+%------------------------------------------- 601 abolish_retractall_vs_abolish_1
+:- dynamic(cc10a/1).
+:- initialization(main).
+main :- assertz(cc10a(1)), assertz(cc10a(2)), retractall(cc10a(_)), catch((findall(X,cc10a(X),L),write(L)),_,write(crashed)), nl.
+%----------------------------------- 602 clause_reflect_reflect_fact_body_true_1
+:- dynamic(dd10a/1).
+:- initialization(main).
+main :- assertz(dd10a(5)), clause(dd10a(5), Body), write(Body), nl.
+%---------------------------------------- 603 clause_reflect_reflect_rule_body_1
+:- dynamic(ee10a/1).
+:- initialization(main).
+main :- assertz((ee10a(1) :- write(matched))), clause(ee10a(1), Body), write(Body), nl.
+%------------------------ 604 clause_reflect_enumerate_clauses_on_backtracking_1
+:- dynamic(ff10a/1).
+:- initialization(main).
+main :- assertz(ff10a(1)), assertz(ff10a(2)), assertz(ff10a(3)), findall(X, clause(ff10a(X), true), L), write(L), nl.
+%---------------------------------------- 605 clause_reflect_fails_on_no_match_1
+:- dynamic(gg10a/1).
+:- initialization(main).
+main :- assertz(gg10a(1)), (clause(gg10a(2), _) -> write(yes) ; write(no)), nl.
+%-------------------------------------------- 606 global_vars_nb_setval_getval_1
+:- initialization(main).
+main :- nb_setval(counter10a, 5), nb_getval(counter10a, V), write(V), nl.
+%--------------------------------------------- 607 global_vars_b_setval_getval_1
+:- initialization(main).
+main :- b_setval(flag10a, on), b_getval(flag10a, V), write(V), nl.
+%-------------------------------- 608 global_vars_b_setval_trails_on_backtrack_1
+:- initialization(main).
+main :- b_setval(x10a, 1), (b_setval(x10a, 2), fail ; true), b_getval(x10a, V), write(V), nl.
+%-------------------------------------------- 609 global_vars_prolog_flag_read_1
+:- set_prolog_flag(demo_flag10a, initial).
+:- initialization(main).
+main :- current_prolog_flag(demo_flag10a, V), write(V), nl.
+%--------------------------------------------- 610 global_vars_prolog_flag_set_1
+:- set_prolog_flag(demo_flag10b, initial).
+:- initialization(main).
+main :- set_prolog_flag(demo_flag10b, changed), current_prolog_flag(demo_flag10b, V), write(V), nl.
+%------------------------------------------- 611 if_then_else_condition_throws_1
+:- initialization(main).
+main :- catch(( throw(oops) -> write(yes) ; write(no) ), oops, write(propagated)), nl.
