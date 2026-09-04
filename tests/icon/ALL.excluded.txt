@@ -1,308 +1,203 @@
-hello	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-palindrome	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-probe_witness	already in the master (11 of 11 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-queens	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-repro	already in the master (6 of 6 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-roman	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung01_paper	already in the master (7 of 7 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung02_all	already in the master (9 of 9 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung03_suspend_fail	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung03_suspend_gen	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung03_suspend_gen_compose	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung03_suspend_gen_filter	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung03_suspend_return	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung04_string	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung05_scan	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung06_cset	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung07_control	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung08_strbuiltins	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung09_loops	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung10_augop	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung11_bang_augconcat	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung12_strrelop_size	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung13_alt	already in the master (8 of 8 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung13_repalt	already in the master (6 of 6 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung13_table	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung14_limit	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung14_singletons	already in the master (3 of 3 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung15_real_swap	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung16_subscript	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung17_real_arith	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung18_real_relop	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung19_pow_toby	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung20_section_seqexpr	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung21_global_initial	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung22_lists	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung23_table	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung24_records	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung25_global	already in the master (7 of 7 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung26_pow	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung27_read	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung28_builtins_str	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung29_builtins_type	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung30_builtins_misc	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung31_sort	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung32_strretval	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung33_case	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung34_null_test	already in the master (5 of 5 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung35_block_body	already in the master (6 of 6 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung35_table_str	already in the master (2 of 2 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung36_all	already in the master (36 of 36 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung36_jcon_recogn	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung37_all	already in the master (17 of 17 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung37_proc_lookup	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-rung37_subscript_genproc	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-sieve	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-wordcount	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icn_global_nv_probe	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_hello	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_palindrome	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_queens	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_roman	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_sieve	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_wordcount	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_zk5_global_cells_zero	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_01_intlit	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_02_reallit	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_03_stringlit	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_04_csetlit	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_05_ident	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_06_key_line	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_07_global	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_08_initial	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_09_invocable	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_10_binop_arith	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_11_binop_divmod	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_12_binop_relop	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_13_binop_relop_fail	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_14_binop_concat	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_15_unop_neg	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_16_unop_size	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_17_unop_nonnull	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_18_unop_null	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_19_assign_local	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_20_augop	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_21_swap	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_22_revassign	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_23_if_stmt	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_24_if_value_then	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_25_if_value_else	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_26_while	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_27_until	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_28_repeat_break	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_29_next_while	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_30_compound	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_31_every_postfix	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_32_every_assign	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_33_every_assign_body	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_34_toby_postfix	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_35_toby_assign	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_36_alt_bounded	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_37_alt_unbounded	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_38_repalt	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_39_limit	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_40_not	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_41_case	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_42_case_default	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_43_call_builtin	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_44_arglist	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_45_proc_params	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_46_proc_fail	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_47_proc_suspend	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_48_proc_recurse	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_49_mutual	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_50_list_ctor	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_51_lconcat	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_52_record_field	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_55_scan_move	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_56_scan_tab_upto	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_57_scan_many	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_58_scan_match	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_59_create_activate	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_60_coexpr_exhaust	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_61_seq_expr	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_62_keyword_pos	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_63_string_subscript	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_64_if_stmt_else	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_65_scan_many_cset	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_66_every_noassign_after	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_67_unop_test_else	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_68_loop_genkind_body	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_69_conj_value	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_70_conj_backtrack	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_71_conj_fail	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_72_idx_list_rval	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_73_idx_list_assign	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_74_idx_table_assign	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_75_idx_table_default	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_76_idx_nested	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_77_limit_runtime_count	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_78_idx_table_strong_fork	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_79_idx_comma	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_80_revassign_subscript	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_81_cset_compl	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_82_tvsubs	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_83_tvsubs_chain	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_84_tvsubs_revassign	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_85_bang_assign	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_86_bang_augop	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_87_random_lv	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_89_proc_value	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_90_augop_lvalue	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_91_nulltest_lvalue	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_92_conj_crossprod_assign	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_93_arg_slots_unbounded	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-scrip_test_icon_jcon_audit_94_lvalue_total	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_alt_arith	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_alt_in_call	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_alt_str	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_alt_three	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_alt_two	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_alt_var	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_arith_add	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_arith_sub	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_assign_int	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_assign_mixed	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_assign_seq	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_assign_str	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_assign_var	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_atom_id	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_atom_int	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_atom_str	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_add	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_concat	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_cset_diff	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_cset_inter	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_cset_union	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_ge	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_gt	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_le	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_lt	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_mod	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_ne	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_numeq	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_pow	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_scan	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_sge	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_sgt	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_sle	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_slt	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_sne	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_str_concat	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_streq	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_augop_sub	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_bang_binary	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_bang_invoke	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_break_op	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_case_multi_clause	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_case_nodefault	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_case_simple	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_cmp_eq	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_cmp_lt	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_compound_every_multi	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_compound_multi	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_compound_one	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_compound_two	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_concat_alt	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_concat_cmp	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_concat_three	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_concat_two	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_conj_assign	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_conj_scan	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_conj_stmts	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_conj_three	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_conj_two	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_cset_compl_expr	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_cset_lit	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_every_alt	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_every_do	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_every_novar	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_every_simple	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_fail_expr	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_fail_stmt	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_field_access	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_global_decl	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_global_multi	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_if_cmp	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_if_compound_else	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_if_compound_then	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_if_else	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_if_multiline	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_if_then	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_initial_block	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_kw_expr	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_kw_fail	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_kw_null	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_lconcat_two	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_limit_op	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_list_ctor	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_local_decl	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_match_expr	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_mod_op	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_multi_proc	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_multi_record	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_next_op	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_not_expr	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_null_expr	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_paren_expr	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_paren_seq	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_pow_expr	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_proc_call_noargs	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_proc_call_onearg	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_proc_call_twoargs	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_proc_local_swap	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_proc_oneparam	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_proc_return	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_proc_simple	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_proc_twoparam	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_proc_varargs	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_range_paren	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_range_to	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_range_to_by	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_real_exp	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_real_lit	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_record_decl	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_repeat_op	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_return_in_compound	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_return_suspended	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_return_with_value	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_scan_assign	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_scan_paren	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_scan_simple	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_scan_var	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_section_mcolon	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_section_op	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_section_pcolon	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_seq_in_expr	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_special_identical	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_special_notident	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_special_revassign	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_special_revswap	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_special_swap	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_static_decl	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_str_eq_op	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_str_ge_op	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_str_gt_op	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_str_le_op	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_str_lt_op	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_str_ne_op	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_subscript_field	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_subscript_op	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_suspend_do	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_suspend_every	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_suspend_simple	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_unary_cset_compl	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_unary_iterate	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_unary_minus	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_unary_nonnull	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_unary_plus	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_unary_random	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_unary_size	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_unary_stacked	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_until_op	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_while_compound	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_while_do	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_write_arith	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_write_int	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_write_str	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
-parser_write_var	already in the master (1 of 1 origins present) -- the same entry rebuilt, not a new one; source pair left in place for inspection, NOT re-absorbed and NOT deleted
+coexpr_gc_stack_witness	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+hello	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+palindrome	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+queens	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+roman	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung03_suspend_gen	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung03_suspend_gen_compose	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung03_suspend_gen_filter	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung03_suspend_return	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_all	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_arith	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_btrees	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_case	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_checkfpx	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_ck	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_collate	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_cxprimes	DEFERRED (row icon-coexpression-support-design: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
+rung36_jcon_errkwds	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_errors	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_evalx	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_fncs	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_geddump	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_gener	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_genqueen	DEFERRED (row icn-recogn-genqueen-suspend-shape: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
+rung36_jcon_image	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_io	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_iobig	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_large	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_lgint	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_misc	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_nargs	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_others	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_prefix	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_profsum	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_proto	DEFERRED (row icon-v9gen-augmented-assign-and-unary-refresh-plus-two-emitter-gaps: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
+rung36_jcon_radix	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_recent	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_recogn	DEFERRED (row icn-recogn-genqueen-suspend-shape: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
+rung36_jcon_sorting	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_struct	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_toby	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung36_jcon_var	DEFERRED (row icon-assign-nameless-emit-guard-var: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
+rung37_proc_lookup	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung37_subscript_genproc	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+sieve	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+wordcount	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+repro_table_key_order	KEEPER, declared in repro/KEEP.md -- never absorbed (deferral contract)
+unresolved_jcon_audit_53_section	KEEPER, declared in unresolved/KEEP.md -- never absorbed (deferral contract)
+unresolved_jcon_audit_54_section_plus	KEEPER, declared in unresolved/KEEP.md -- never absorbed (deferral contract)
+unresolved_jcon_audit_88_swap_lv	KEEPER, declared in unresolved/KEEP.md -- never absorbed (deferral contract)
+parser_alt_arith	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_alt_in_call	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_alt_str	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_alt_three	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_alt_two	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_alt_var	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_arith_add	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_arith_sub	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_assign_int	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_assign_mixed	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_assign_seq	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_assign_str	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_assign_var	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_atom_id	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_atom_int	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_atom_str	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_add	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_concat	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_cset_diff	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_cset_inter	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_cset_union	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_ge	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_gt	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_le	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_lt	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_mod	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_ne	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_numeq	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_pow	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_scan	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_sge	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_sgt	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_sle	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_slt	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_sne	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_str_concat	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_streq	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_augop_sub	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_bang_binary	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_bang_invoke	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_break_op	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_case_multi_clause	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_case_nodefault	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_case_simple	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_cmp_eq	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_cmp_lt	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_compound_every_multi	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_compound_multi	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_compound_one	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_compound_two	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_concat_alt	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_concat_cmp	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_concat_three	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_concat_two	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_conj_assign	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_conj_scan	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_conj_stmts	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_conj_three	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_conj_two	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_cset_compl_expr	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_cset_lit	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_every_alt	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_every_do	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_every_novar	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_every_simple	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_fail_expr	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_fail_stmt	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_field_access	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_global_decl	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_global_multi	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_if_cmp	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_if_compound_else	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_if_compound_then	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_if_else	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_if_multiline	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_if_then	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_initial_block	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_kw_expr	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_kw_fail	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_kw_null	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_lconcat_two	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_limit_op	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_list_ctor	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_local_decl	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_match_expr	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_mod_op	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_multi_proc	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_multi_record	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_next_op	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_not_expr	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_null_expr	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_paren_expr	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_paren_seq	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_pow_expr	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_proc_call_noargs	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_proc_call_onearg	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_proc_call_twoargs	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_proc_local_swap	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_proc_oneparam	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_proc_return	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_proc_simple	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_proc_twoparam	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_proc_varargs	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_range_paren	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_range_to	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_range_to_by	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_real_exp	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_real_lit	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_record_decl	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_repeat_op	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_return_in_compound	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_return_suspended	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_return_with_value	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_scan_assign	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_scan_paren	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_scan_simple	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_scan_var	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_section_mcolon	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_section_op	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_section_pcolon	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_seq_in_expr	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_special_identical	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_special_notident	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_special_revassign	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_special_revswap	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_special_swap	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_static_decl	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_str_eq_op	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_str_ge_op	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_str_gt_op	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_str_le_op	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_str_lt_op	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_str_ne_op	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_subscript_field	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_subscript_op	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_suspend_do	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_suspend_every	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_suspend_simple	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_unary_cset_compl	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_unary_iterate	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_unary_minus	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_unary_nonnull	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_unary_plus	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_unary_random	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_unary_size	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_unary_stacked	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_until_op	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_while_compound	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_while_do	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_write_arith	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_write_int	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_write_str	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
+parser_write_var	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
