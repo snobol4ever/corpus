@@ -1,5 +1,26 @@
 # PARSE-ERROR-CLASSES.md
 
+## ⭐⭐ THE SWI-ONLY CLASSES ARE NOT EXCLUDED — THEY GO BEHIND A PER-DIALECT COMPATIBILITY SWITCH (Lon 2026-09-04 17:03 CDT)
+
+Lon, verbatim, routed by ceo: **"We'll want a compatability switch, one for SWI and one for GNU."** Four minutes
+earlier the same day he had said **"ISO plus the GNU/SWI-shared core only."** (16:59, ceo CEO-235, answering hq_C's
+`ask-swi-dialect-scope-dicts-ssu-quasiquote`). Both stand, and together they say: the BASELINE dialect is ISO plus
+the GNU/SWI-shared core, and SWI-only / GNU-only surface is reached through a per-dialect switch — not excluded.
+
+⛔ **So do not exclude these files and do not retire the `prolog-swi-class-*` rows.** They hang behind
+`prolog-dialect-compat-switch-swi-and-gnu` (hq_C). An EXCLUDED.md pass on the 21 was landed at 17:05 on the first
+ruling and REVERTED at 17:08 on the second (corpus 623de6ccc, reverted by 024a37af9) — the files keep their
+capability-blocked reasons, which is right, because capability is exactly what the switch supplies.
+
+⚠ **ONE MEASUREMENT FROM THAT PASS SURVIVES BOTH RULINGS, because it is a census and not a consequence: the
+SWI-only population is 21 files, not the 24 that circulated in dispatch mail.** 24 was the whole remaining
+parse-error residue (12 classes). Three of those classes are NOT SWI-only surface and are ordinary parser bugs
+against ISO-reachable syntax, so they are open work whatever the switch does: the DCG `...` ellipsis nonterminal
+head, `->!` mis-tokenizing when unspaced, and a `.` immediately followed by `%` desyncing the tokenizer.
+Per class, the 21: module export-list op/3 1 · rational literals 6 · SSU `=>` 4 · dict literals 4 · dict
+dot-access 3 · CLP(FD) 2 · quasi-quotation 1 — each file verified to exist on disk, each with exactly one
+existing EXCLUDED.md entry. Counted from the per-class lists below, which are the authority.
+
 Classification by CAUSE (not filename) of the 66 `corpus/packages/prolog/swi_tests` files that
 EXCLUDED.md marks `parse error` (rung-10 nb_setval incompleteness accounts for the other 161).
 The four surface error strings (`expected . after directive` 33, `expected . at end of clause` 21,
