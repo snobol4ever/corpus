@@ -1,5 +1,5 @@
 rank,entry,origin,family,kind,xfail,n_lines,modes,sub,multi,my,our,say,print,given,when,if,elsif,unless,for,while,loop,return,class,has,method,regex,token,grep,map,sort,join,split,sprintf,die,try,sigil_scalar,sigil_array,sigil_hash,junction,range_op,feed_op,smartmatch,string_concat,sub_with_return,for_with_say,regex_with_smartmatch
-1,ladder__rung00_hello,ladder__rung00_hello,ladder,block,0,1,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1,ladder__rung00_hello,ladder__rung00_hello,ladder,block,0,1,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 2,simple_program_1,parser__die_basic,parser,block,0,1,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 3,simple_program_27,smoke__ord_fn__smoke__ord_fn,smoke,block,0,1,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 4,simple_program_28,smoke__ord_method__smoke__ord_method,smoke,block,0,1,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -226,8 +226,8 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,sub,multi,my,our,say,print,giv
 225,array_33,smoke__oob_star_end_relative_unaffected__smoke__oob_star_end_relative_unaffected,smoke,block,0,3,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
 226,array_replace_1,parser__arr_set,parser,block,0,3,ast,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
 227,hash_replace_1,parser__hash_set_angle,parser,block,0,3,ast,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
-228,ladder__rung05_hashes,ladder__rung05_hashes,ladder,block,0,3,UNKNOWN,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
-229,ladder__rung09_string_methods,ladder__rung09_string_methods,ladder,block,0,3,UNKNOWN,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+228,ladder__rung05_hashes,ladder__rung05_hashes,ladder,block,0,3,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+229,ladder__rung09_string_methods,ladder__rung09_string_methods,ladder,block,0,3,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 230,simple_assign_103,smoke__prefix_dec__smoke__prefix_dec,smoke,block,0,3,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 231,simple_assign_104,smoke__prefix_inc__smoke__prefix_inc,smoke,block,0,3,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 232,simple_assign_19,parser__typed_decl,parser,block,0,3,ast,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
@@ -246,8 +246,8 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,sub,multi,my,our,say,print,giv
 245,sub_say_3,parser__sub_noparams,parser,block,0,3,ast,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 246,array_32,smoke__oob_inrange_still_correct__smoke__oob_inrange_still_correct,smoke,block,0,4,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
 247,junction_say_6,smoke__say_jct__smoke__say_jct,smoke,block,0,4,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
-248,ladder__rung01_variables,ladder__rung01_variables,ladder,block,0,4,UNKNOWN,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-249,ladder__rung04_arrays,ladder__rung04_arrays,ladder,block,0,4,UNKNOWN,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
+248,ladder__rung01_variables,ladder__rung01_variables,ladder,block,0,4,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+249,ladder__rung04_arrays,ladder__rung04_arrays,ladder,block,0,4,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
 250,simple_assign_109,smoke__repeat_until_runs_once__smoke__repeat_until_runs_once,smoke,block,0,4,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 251,simple_assign_50,smoke__defined_or_chain__smoke__defined_or_chain,smoke,block,0,4,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 252,simple_assign_59,smoke__div_var_operands__smoke__div_var_operands,smoke,block,0,4,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
@@ -257,7 +257,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,sub,multi,my,our,say,print,giv
 256,simple_assign_108,smoke__repeat_until__smoke__repeat_until,smoke,block,0,5,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 257,simple_assign_90,smoke__postfix_dec__smoke__postfix_dec,smoke,block,0,5,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 258,simple_assign_94,smoke__postfix_inc__smoke__postfix_inc,smoke,block,0,5,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-259,ladder__rung02_arithmetic,ladder__rung02_arithmetic,ladder,block,0,6,UNKNOWN,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+259,ladder__rung02_arithmetic,ladder__rung02_arithmetic,ladder,block,0,6,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 260,sub_say_4,scrip_test_rk_arith__rk_arith,scrip_test_rk_arith,block,0,10,"m3,m4",1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 261,token_regex_1,scrip_test_rk_grammar_rule_sigspace__rk_grammar_rule_sigspace,scrip_test_rk_grammar_rule_sigspace,block,0,12,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 262,array_1,parser__grep_basic,parser,block,0,1,ast,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0
@@ -410,7 +410,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,sub,multi,my,our,say,print,giv
 409,while_5,smoke__postfix_while__smoke__postfix_while,smoke,block,0,3,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 410,array_say_6,smoke__list_construct_read__smoke__list_construct_read,smoke,block,0,4,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
 411,hash_replace_2,parser__hash_set_brace,parser,block,0,4,ast,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0
-412,ladder__rung03_strings,ladder__rung03_strings,ladder,block,0,4,UNKNOWN,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
+412,ladder__rung03_strings,ladder__rung03_strings,ladder,block,0,4,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 413,sub_say_2,parser__sub_multi_params,parser,block,0,4,ast,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 414,while_9,smoke__repeat_while_runs_once__smoke__repeat_while_runs_once,smoke,block,0,4,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 415,while_8,smoke__repeat_while__smoke__repeat_while,smoke,block,0,5,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
@@ -431,7 +431,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,sub,multi,my,our,say,print,giv
 430,for_say_7,smoke__for_parenlist_topic__smoke__for_parenlist_topic,smoke,block,0,1,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0
 431,for_say_8,smoke__for_wordlist_pointy__smoke__for_wordlist_pointy,smoke,block,0,1,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0
 432,join_array_say_1,smoke__list_join_sep__smoke__list_join_sep,smoke,block,0,1,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
-433,ladder__rung08_for_loop,ladder__rung08_for_loop,ladder,block,0,1,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,1,0
+433,ladder__rung08_for_loop,ladder__rung08_for_loop,ladder,block,0,1,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,1,0
 434,loop_replace_3,smoke__loop_cstyle_last__smoke__loop_cstyle_last,smoke,block,0,1,"m3,m4",0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 435,loop_replace_4,smoke__loop_cstyle_next_runs_incr__smoke__loop_cstyle_next_runs_incr,smoke,block,0,1,"m3,m4",0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 436,smartmatch_say_2,smoke__smatch anchored => nomatch__smoke__smatch anchored => nomatch,smoke,block,0,1,"m3,m4",0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0
@@ -454,7 +454,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,sub,multi,my,our,say,print,giv
 453,join_range_array_7,smoke__slice_range_head__smoke__slice_range_head,smoke,block,0,2,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0
 454,join_range_array_8,smoke__slice_range_mid__smoke__slice_range_mid,smoke,block,0,2,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0
 455,join_range_array_9,smoke__slice_range_single__smoke__slice_range_single,smoke,block,0,2,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0
-456,ladder__rung07_subs,ladder__rung07_subs,ladder,block,0,2,UNKNOWN,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0
+456,ladder__rung07_subs,ladder__rung07_subs,ladder,block,0,2,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0
 457,loop_2,smoke__loop_ctl_bare_loop_last__smoke__loop_ctl_bare_loop_last,smoke,block,0,2,"m3,m4",0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 458,loop_3,smoke__loop_ctl_last_if_trailing__smoke__loop_ctl_last_if_trailing,smoke,block,0,2,"m3,m4",0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 459,say_89,smoke__string_concat__smoke__string_concat,smoke,block,0,2,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
@@ -517,7 +517,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,sub,multi,my,our,say,print,giv
 516,sub_array_4,smoke__slurpy_flattens_two_arrays__smoke__slurpy_flattens_two_arrays,smoke,block,0,3,"m3,m4",1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0
 517,for_say_9,smoke__gather_take__smoke__gather_take,smoke,block,0,4,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0
 518,given_when_4,parser__given_single,parser,block,0,4,ast,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-519,ladder__rung06_control,ladder__rung06_control,ladder,block,0,4,UNKNOWN,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+519,ladder__rung06_control,ladder__rung06_control,ladder,block,0,4,"m3,m4",0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 520,range_array_10,smoke__range_arr_var_bounds__smoke__range_arr_var_bounds,smoke,block,0,4,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0
 521,say_53,smoke__jct_nested__smoke__jct_nested,smoke,block,0,4,"m3,m4",0,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 522,sub_18,smoke__param_default_plain_unaffected__smoke__param_default_plain_unaffected,smoke,block,0,4,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0
