@@ -1,0 +1,7 @@
+%---------------------------------------------------- 398 call_directive_1 XFAIL
+Prolog construct ladder rung 10 (call/N + DB, ARCH-PROLOG-BYRD-BOX-TRANSLATION.md sec E) is not yet built:
+call(G) with G bound to a compound goal (here write(hi)) raises existence_error(procedure, write/1) instead
+of resolving the meta-call to the builtin, and call(write, there) (call/2, same rung) is equally unbuilt.
+Verified live (m3 rc=1, that exact exception); expected hi/there per ALL.ref. Declared ladder-rung gap, not
+a fresh defect -- see RULES.md THE PROLOG REBUILD GATE and ARCH-FLEET-CEO.md's MODE history (rung 10
+follows rung 9/catch, owned hq_C as of 2026-09-03).

@@ -9,6 +9,17 @@ place per hq_B's ruling (row icon-master-six-run-graded-reds-cured, 2026-09-03):
 a known compiler bug, and naming a bug that does not exist is a false marker. Adding an argv sidecar is
 shared seven-language harness/instrument work (hq_T's lane), not a fleet seat's fixture-level fix -- this
 entry stays correctly XFAIL until that lands, but for the reason above, not for a scan/while defect.
+#------------------------------------------------- 717 procedure_write_172 XFAIL
+SCRIP's real-to-string conversion prints full IEEE-754 double precision (2.0^0.5 -> 1.4142135623730951)
+where real Icon rounds to its canonical ~10 significant digits (1.414213562) -- verified live against the
+built oracle at /home/resources/icon-master/bin/icon. Narrow real-formatting defect (the runtime's
+real->string routine, not the ^ operator itself -- sqrt(2.0) in the sibling witness procedure_write_194
+shows the identical truncation gap). Real, undiagnosed-further-than-this defect; not yet filed to a class row.
+#------------------------------------------------- 718 procedure_write_194 XFAIL
+Same real-to-string precision defect as procedure_write_172 (SCRIP prints full double precision, Icon
+rounds to ~10 significant digits): sqrt(4.0)/sqrt(9.0) are unaffected here only because their exact values
+are short to print (2.0/3.0), but sqrt(2.0) shows the identical 1.4142135623730951-vs-1.414213562 gap,
+verified against the built Icon oracle.
 #----------------------------------------------- 719 procedure_every_to_48 XFAIL
 Real compiler defect, oracle-confirmed, not a bad ref. `every write(3.0 to 1.0 by -1.0)` -- a real-valued
 to-by generator whose results are mathematically whole numbers. icont/iconx v9.5.25a (run fresh this
@@ -24,3 +35,8 @@ to-by generator: `every write(1.0 to 3.0 by 1.0)`), oracle prints `1`/`2`/`3`, S
 `3.0` both modes. See that entry and
 FINDING-2026-09-03-seat01-icon-real-toby-generator-prints-trailing-decimal-oracle-does-not.md for full
 detail -- not duplicated here.
+#------------------------------------- 721 procedure_table_write_replace_7 XFAIL
+member(table, key) must return the KEY on success (verified against the built Icon oracle: found/absent/a),
+but SCRIP's member/2 for tables returns the associated VALUE instead (found/absent/42) -- looks like
+table-lookup semantics substituted for table-membership semantics. Real, undiagnosed-further-than-this
+defect; not yet filed to a class row.
