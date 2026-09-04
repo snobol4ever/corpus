@@ -1,0 +1,15 @@
+# EXCLUDED from the construct ladder (icon-construct-ladder-from-rung-0, seat01, 2026-09-03): this is
+# not valid Icon -- the real oracle (/home/resources/icon-master/bin/icon) refuses it with
+# `"; ": missing right parenthesis` at the `every (x := x + 10; "a" | "b" | "c");` line. A semicolon
+# does not sequence expressions inside parens the way this was apparently intended to; there is no
+# .ref beside this file on purpose (a pairless witness is "not a board member," never a guessed pass).
+# Left here rather than deleted: the construct this was reaching for ("a generator with a per-iteration
+# side effect") is real and worth a rung, but needs a human call on the actual intended Icon idiom
+# (e.g. `every (x +:= 10) & write(x | ...)`-style, or splitting side effect and alternation into two
+# statements) rather than a guess invented to make a test pass.
+#---------------------------------------------------- 1 rung16_seqexpr_gen_basic
+procedure main()
+  x := 0;
+  every (x := x + 10; "a" | "b" | "c");
+  write(x);
+end
