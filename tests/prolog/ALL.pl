@@ -2967,3 +2967,54 @@ main :- catch(throw(err(bad_input, 42)), err(Reason,Code), (write(Reason), write
 %------------------------------------- 569 catch_throw_error_term_from_builtin_1
 :- initialization(main).
 main :- catch(( X is 1/0, write(X) ), error(evaluation_error(zero_divisor),_), write(caught)), nl.
+%------------------------------------------------------ 570 call_n_call_1_atom_1
+foo1 :- write(called).
+:- initialization(main).
+main :- call(foo1), nl.
+%-------------------------------------------------- 571 call_n_call_1_compound_1
+bar1(X) :- Y is X*2, write(Y).
+:- initialization(main).
+main :- call(bar1(5)), nl.
+%------------------------------------------------- 572 call_n_call_2_extra_arg_1
+baz1(X,Y) :- Z is X+Y, write(Z).
+:- initialization(main).
+main :- call(baz1(3), 4), nl.
+%----------------------------------------------------------- 573 call_n_call_3_1
+qux1(X,Y,Z) :- W is X+Y+Z, write(W).
+:- initialization(main).
+main :- call(qux1(1),2,3), nl.
+%-------------------------------------------- 574 call_n_call_of_variable_goal_1
+foo2 :- write(viacall).
+:- initialization(main).
+main :- G = foo2, call(G), nl.
+%---------------------------------------------- 575 call_n_call_of_conjunction_1
+:- initialization(main).
+main :- G = (write(a), write(b)), call(G), nl.
+%--------------------------------------------- 576 call_n_call_of_cut_is_local_1
+p1(1). p1(2). p1(3).
+q1 :- call((p1(X), !)), write(X), fail.
+q1 :- write(done).
+:- initialization(main).
+main :- q1, nl.
+%------------------------------------------------------------ 577 dcg_phrase_2_1
+greeting --> [hello], [world].
+:- initialization(main).
+main :- phrase(greeting, [hello,world]), write(matched), nl.
+%------------------------------------------------------- 578 dcg_phrase_3_rest_1
+greeting2 --> [hi].
+:- initialization(main).
+main :- phrase(greeting2, [hi,there], Rest), write(Rest), nl.
+%------------------------------------------------------- 579 dcg_terminal_list_1
+nums --> [1,2,3].
+:- initialization(main).
+main :- phrase(nums, [1,2,3]), write(ok), nl.
+%------------------------------------------------ 580 dcg_nonterminal_sequence_1
+article --> [the].
+noun --> [cat].
+np --> article, noun.
+:- initialization(main).
+main :- phrase(np, [the,cat]), write(ok), nl.
+%------------------------------------------------------------ 581 dcg_pushback_1
+tag, [pushed] --> [x].
+:- initialization(main).
+main :- phrase(tag, [x], Rest), write(Rest), nl.
