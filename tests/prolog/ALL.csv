@@ -540,3 +540,16 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,findall,bagof,setof,forall,ass
 539,declarations_op_3_1,ladder__rung06_declarations_op_3,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0
 540,declarations_ensure_loaded_1,ladder__rung06_declarations_ensure_loaded,ladder,block,0,3,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 541,declarations_use_module_1,ladder__rung06_declarations_use_module,ladder,block,0,3,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+542,between_enumerates_range_1,ladder__rung07_between_enumerates_range,ladder,block,0,2,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+543,between_single_value_range_1,ladder__rung07_between_single_value_range,ladder,block,0,2,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+544,between_empty_range_fails_1,ladder__rung07_between_empty_range_fails,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
+545,between_bound_third_arg_checks_1,ladder__rung07_between_bound_third_arg_checks,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
+546,between_backtrack_all_values_1,ladder__rung07_between_backtrack_all_values,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+547,sub_atom_fixed_before_length_1,ladder__rung07_sub_atom_fixed_before_length,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+548,sub_atom_enumerate_all_1,ladder__rung07_sub_atom_enumerate_all,ladder,block,0,2,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+549,sub_atom_find_substring_1,ladder__rung07_sub_atom_find_substring,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
+550,sub_atom_prefix_1,ladder__rung07_sub_atom_prefix,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+551,sub_atom_suffix_1,ladder__rung07_sub_atom_suffix,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+552,sub_atom_empty_substring_1,ladder__rung07_sub_atom_empty_substring,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
+553,repeat_repeat_with_cut_1,ladder__rung07_repeat_repeat_with_cut,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0
+554,repeat_repeat_bounded_by_counter_1,ladder__rung07_repeat_repeat_bounded_by_counter,ladder,block,0,3,"m3,m4",1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0

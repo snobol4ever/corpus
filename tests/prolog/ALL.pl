@@ -2867,3 +2867,43 @@ main :- write(loaded), nl.
 :- use_module(library(lists)).
 :- initialization(main).
 main :- write(loaded), nl.
+%------------------------------------------------ 542 between_enumerates_range_1
+:- initialization(main).
+main :- findall(X, between(1,5,X), L), write(L), nl.
+%---------------------------------------------- 543 between_single_value_range_1
+:- initialization(main).
+main :- findall(X, between(3,3,X), L), write(L), nl.
+%----------------------------------------------- 544 between_empty_range_fails_1
+:- initialization(main).
+main :- (between(5,3,_) -> write(yes) ; write(no)), nl.
+%------------------------------------------ 545 between_bound_third_arg_checks_1
+:- initialization(main).
+main :- (between(1,10,7) -> write(yes) ; write(no)), nl.
+%-------------------------------------------- 546 between_backtrack_all_values_1
+:- initialization(main).
+main :- (between(1,4,X), write(X), fail ; true), nl.
+%-------------------------------------------- 547 sub_atom_fixed_before_length_1
+:- initialization(main).
+main :- sub_atom(hello, 0, 3, _, S), write(S), nl.
+%-------------------------------------------------- 548 sub_atom_enumerate_all_1
+:- initialization(main).
+main :- findall(S, sub_atom(ab, _, _, _, S), L), write(L), nl.
+%------------------------------------------------- 549 sub_atom_find_substring_1
+:- initialization(main).
+main :- (sub_atom(hello, B, _, 0, lo) -> write(B) ; write(notfound)), nl.
+%--------------------------------------------------------- 550 sub_atom_prefix_1
+:- initialization(main).
+main :- sub_atom(hello, 0, 2, _, P), write(P), nl.
+%--------------------------------------------------------- 551 sub_atom_suffix_1
+:- initialization(main).
+main :- sub_atom(hello, _, 2, 0, S), write(S), nl.
+%------------------------------------------------ 552 sub_atom_empty_substring_1
+:- initialization(main).
+main :- sub_atom(hello, 2, 0, _, S), (S == '' -> write(empty) ; write(S)), nl.
+%-------------------------------------------------- 553 repeat_repeat_with_cut_1
+:- initialization(main).
+main :- repeat, write(x), !, nl.
+%---------------------------------------- 554 repeat_repeat_bounded_by_counter_1
+:- dynamic(seen/1).
+:- initialization(main).
+main :- repeat, findall(X, seen(X), L), length(L, N), (N >= 3 -> ! ; (assertz(seen(N)), fail)), write(N), nl.
