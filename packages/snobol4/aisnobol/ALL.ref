@@ -1,0 +1,80 @@
+*---------------------------------------------------------------------- 1 ENDING
+BASH
+BASE
+BATHE
+LEAN
+LEAN
+LEAVE
+DENT
+DANCE
+DOG
+KISS
+CURVE
+CURL
+ROT
+ROLL
+PLAY
+PLY
+REAL
+PALE
+KNIFE
+PRETTY
+NOBLE
+PATROL
+*------------------------------------------------------------------------ 2 WANG
+
+FORMULA:  IMP(NOT(OR(P,Q)),NOT(P))
+
+ >>>  IMP(NOT(OR(P,Q)),NOT(P))
+ NOT(OR(P,Q)) >>>  NOT(P)
+ >>>  NOT(P) OR(P,Q)
+ P >>>  OR(P,Q)
+ P >>>  P Q
+VALID
+
+FORMULA:  NOT(IMP(NOT(OR(P,Q)),NOT(P)))
+
+ >>>  NOT(IMP(NOT(OR(P,Q)),NOT(P)))
+ IMP(NOT(OR(P,Q)),NOT(P)) >>> 
+ NOT(P) >>> 
+ >>>  P
+INVALID
+
+FORMULA:  IMP(AND(NOT(P),NOT(Q)),EQU(P,Q))
+
+ >>>  IMP(AND(NOT(P),NOT(Q)),EQU(P,Q))
+ AND(NOT(P),NOT(Q)) >>>  EQU(P,Q)
+ NOT(P) NOT(Q) >>>  EQU(P,Q)
+ NOT(Q) >>>  EQU(P,Q) P
+ >>>  EQU(P,Q) P Q
+ P >>>  P Q Q
+ Q >>>  P Q P
+VALID
+
+FORMULA:  IMP(IMP(OR(P,Q),OR(P,R)),OR(P,IMP(Q,R)))
+
+ >>>  IMP(IMP(OR(P,Q),OR(P,R)),OR(P,IMP(Q,R)))
+ IMP(OR(P,Q),OR(P,R)) >>>  OR(P,IMP(Q,R))
+ OR(P,R) >>>  OR(P,IMP(Q,R))
+ P >>>  OR(P,IMP(Q,R))
+ P >>>  P IMP(Q,R)
+ P Q >>>  P R
+ R >>>  OR(P,IMP(Q,R))
+ R >>>  P IMP(Q,R)
+ R Q >>>  P R
+ >>>  OR(P,IMP(Q,R)) OR(P,Q)
+ >>>  OR(P,Q) P IMP(Q,R)
+ >>>  P IMP(Q,R) P Q
+ Q >>>  P P Q R
+VALID
+
+FORMULA:  IMP(IMP(OR(P,Q),OR(P,R)),AND(P,IMP(Q,R)))
+
+ >>>  IMP(IMP(OR(P,Q),OR(P,R)),AND(P,IMP(Q,R)))
+ IMP(OR(P,Q),OR(P,R)) >>>  AND(P,IMP(Q,R))
+ OR(P,R) >>>  AND(P,IMP(Q,R))
+ P >>>  AND(P,IMP(Q,R))
+ P >>>  P
+ P >>>  IMP(Q,R)
+ P Q >>>  R
+INVALID

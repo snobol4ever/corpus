@@ -1,0 +1,6 @@
+ATN: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+BUILDLIB: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+HSORT: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+KALAH: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+SIR: missing corpus dependency: -INCLUDE 'SNOCORE.sno' not vendored anywhere in corpus
+TEST: missing corpus dependency: -INCLUDE 'SNOCORE.sno' not vendored anywhere in corpus

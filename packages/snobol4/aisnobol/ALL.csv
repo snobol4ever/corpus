@@ -1,0 +1,3 @@
+rank,entry,origin,package,n_lines,stdin,want_rc,FENCE,ARB,ARBNO,POS,RPOS,TAB,RTAB,LEN,SPAN,BREAK,ANY,NOTANY,BAL,REM,ABORT,DEFINE,OPSYN,TABLE,ARRAY,EVAL,CODE,APPLY,CONVERT,DATATYPE,TRIM,DUPL,REPLACE,SIZE,cond_assign,imm_assign,deferred_eval,indirect_ref,alternation,keyword_ref,goto_fail,goto_success,capture_plus_defer,arbno_with_alt,fence_guarded_fail
+1,ENDING,aisnobol__ENDING,aisnobol,112,1,0,0,0,0,1,1,0,0,1,0,1,1,0,0,1,0,1,0,1,0,0,0,0,0,0,1,0,1,0,1,1,1,0,1,1,1,1,1,0,0
+2,WANG,aisnobol__WANG,aisnobol,87,1,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,1,1,1,1,0,0,0
