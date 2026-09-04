@@ -32,9 +32,9 @@ rung7	record-types	6.4.3.3 Record-types	ladder__rung07_records	PASS
 rung8	set-types, set operators	6.4.3.4 Set-types; 6.7.2.4 Set operators	ladder__rung08_sets	PASS
 rung9	packed array of char, lexical relational operators	6.1.7 Character-strings; 6.4.3.2 Array-types; 6.7.2.5 Relational operators (lexical case)	ladder__rung09_strings	PASS
 rung10	pointer-types, dynamic allocation (new/dispose), pointer equality incl. nil	6.4.4 Pointer-types; 6.6.5.3 Dynamic allocation procedures	ladder__rung10_pointers	PASS
+rung11	case-statement, multi-constant case-list-elements, non-integer ordinal case-index	6.8.3.5 Case-statements	ladder__rung11_case	PASS
 #
 # PLANNED (not yet minted -- next per hq_P's "mint and walk alternate"; ISO 7185 sec 6 order is the order):
-# PLAN-rung11	case-statement	6.8.3.5 Case-statements
 # PLAN-rung12	with-statement	6.8.3.10 With-statements
 # PLAN-rung13	labels, goto-statement	6.1.6 Labels; 6.8.2.4 Goto-statements
 # PLAN-rung14	enumerated-types, subrange-types as declared TYPEs	6.4.2.3 Enumerated-types; 6.4.2.4 Subrange-types

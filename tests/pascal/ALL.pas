@@ -3449,3 +3449,26 @@ begin
   dispose(b);
   dispose(a)
 end.
+{------------------------------------------------------ 166 ladder__rung11_case}
+program rung11case;
+var
+  i: integer;
+  c: char;
+procedure classify(n: integer);
+begin
+  case n of
+    1, 2, 3: writeln('low');
+    4:       writeln('mid');
+    5, 6:    writeln('high')
+  end
+end;
+begin
+  for i := 1 to 6 do
+    classify(i);
+  c := 'b';
+  case c of
+    'a': writeln('alpha');
+    'b': writeln('bravo');
+    'c': writeln('charlie')
+  end
+end.
