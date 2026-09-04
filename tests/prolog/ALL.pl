@@ -2363,7 +2363,7 @@ t(2).
 t(3).
 f(X) :- t(X), X > 1, !.
 main :- f(X), write(X), nl.
-%---------------------------------------------------- 398 call_directive_1 XFAIL
+%---------------------------------------------------- 398 call_directive_1
 :- initialization(main).
 main :- G = write(hi), call(G), nl, call(write, there), nl.
 %------------------------------------------------------- 399 findall_directive_5
