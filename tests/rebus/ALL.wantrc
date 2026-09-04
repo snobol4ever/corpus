@@ -17,3 +17,8 @@ simple_output_25	1
 # numeric" on stderr, rc=1 both modes (m4: the COMPILE step exits 0 as expected -- this is a RUNTIME
 # error -- the emitted BINARY exits rc=1 when run, confirmed). stdout unaffected at "before\n".
 alt_replace_3	1
+#
+# len_capture_1 (origin ladder__rung10_refuse_len_wrong_type): LEN() takes an integer length, not a
+# string -- LEN("abc") is "Error 120: len argument is not integer or expression" on stderr, rc=1 both
+# modes (m4: compile succeeds, the emitted binary exits 1 when run). stdout unaffected at "before\n".
+len_capture_1	1

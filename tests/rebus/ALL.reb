@@ -410,15 +410,39 @@ push(s, 42)
 push(s, 99)
 OUTPUT := pop(s)
 end
-#----------------------------------------------------- 68 simple_output_25 XFAIL
+#-------------------------------------------------------------- 68 len_capture_2
+function main()
+"hello world" ? (LEN(5) . w)
+OUTPUT := w
+end
+#-------------------------------------------------------- 69 break_rem_capture_1
+function main()
+"key=value" ? (BREAK("=") . k & "=" & REM . v)
+OUTPUT := k
+OUTPUT := v
+end
+#------------------------------------------------------------ 70 arb_break_rem_1
+function main()
+"foo(bar)baz" ? (BREAK("(") . pre & "(" & ARB . inner & ")" & REM . post)
+OUTPUT := pre
+OUTPUT := inner
+OUTPUT := post
+end
+#----------------------------------------------------- 71 simple_output_25 XFAIL
 record point(x, y)
 
 function main()
 OUTPUT := "before"
 OUTPUT := x(5)
 end
-#-------------------------------------------------------- 69 alt_replace_3 XFAIL
+#-------------------------------------------------------- 72 alt_replace_3 XFAIL
 function main()
 OUTPUT := "before"
 if (1 | 2 | 3) = 2 then OUTPUT := "matched"
+end
+#-------------------------------------------------------- 73 len_capture_1 XFAIL
+function main()
+OUTPUT := "before"
+"hello" ? (LEN("abc") . w)
+OUTPUT := w
 end

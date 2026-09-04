@@ -66,5 +66,9 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 65,keyword_1,parser__keyword_assign,parser,block,0,4,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 66,alt_1,parser_augmented_assign__parser_augmented_assign,parser_augmented_assign,block,0,6,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
 67,array_replace_1,parser_comprehensive__parser_comprehensive,parser_comprehensive,block,0,19,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-68,simple_output_25,ladder__rung07_refuse_field_of_nonrecord__ladder__rung07_refuse_field_of_nonrecord,ladder,block,1,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-69,alt_replace_3,ladder__rung09_refuse_alt_as_number__ladder__rung09_refuse_alt_as_number,ladder,block,1,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+68,len_capture_2,ladder__rung10_scan_len_capture__ladder__rung10_scan_len_capture,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+69,break_rem_capture_1,ladder__rung10_scan_break_rem__ladder__rung10_scan_break_rem,ladder,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+70,arb_break_rem_1,ladder__rung10_scan_arb_balanced__ladder__rung10_scan_arb_balanced,ladder,block,0,6,"m3,m4",0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+71,simple_output_25,ladder__rung07_refuse_field_of_nonrecord__ladder__rung07_refuse_field_of_nonrecord,ladder,block,1,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+72,alt_replace_3,ladder__rung09_refuse_alt_as_number__ladder__rung09_refuse_alt_as_number,ladder,block,1,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+73,len_capture_1,ladder__rung10_refuse_len_wrong_type__ladder__rung10_refuse_len_wrong_type,ladder,block,1,5,"m3,m4",0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0

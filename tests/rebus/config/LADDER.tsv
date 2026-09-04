@@ -24,5 +24,5 @@ rung06	exit	return expr / fail — the two function exits	BUILT
 rung07	record	record R(f1,f2), construction, field access	BUILT
 rung08	output	OUTPUT := expr as the output idiom, vs plain assignment	BUILT
 rung09	alt	alternation generator a | b | c (BB_PUMP)	BUILT
-rung10	scan	pattern match expr ? pat (BB_SCAN)	OWED
+rung10	scan	pattern match expr ? pat (BB_SCAN)	BUILT
 rung11	replace	pattern replace expr ? pat <- repl	OWED
