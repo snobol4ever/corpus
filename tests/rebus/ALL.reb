@@ -511,3 +511,28 @@ end
 function main()
 OUTPUT := (2 + 3) * 4
 end
+#------------------------------------------------------------- 88 assign_aug_add
+function main()
+x := 5
+x +:= 3
+OUTPUT := x
+end
+#------------------------------------------------------------- 89 assign_aug_sub
+function main()
+x := 5
+x -:= 3
+OUTPUT := x
+end
+#---------------------------------------------------------- 90 assign_aug_concat
+function main()
+x := "ab"
+x ||:= "cd"
+OUTPUT := x
+end
+#-------------------------------------------------- 91 assign_exchange_undefined
+function main()
+OUTPUT := "before"
+x := 1
+y := 2
+x :=: y
+end

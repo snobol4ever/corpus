@@ -25,7 +25,7 @@
 RUNG	CONSTRUCT	REFERENCE	FORMS	PAIRS	WITNESS_ORIGIN	STATUS	NOTE
 rung00	hello	TR 84-9 pp.13-15 grammar appendix (literals)	hello|integer|real|squote		-	BUILT	
 rung01	arith	TR 84-9 pp.13-15 grammar appendix (arithmetic operators)	add|precedence|subtract|multiply|divide|remainder|exponent|unary_minus|paren_grouping		-	BUILT	
-rung02	assign	TR 84-9 (section owed) — x := expr, reassignment			-	BUILT	FORMS owed: enumerate from TR 84-9 and mint one witness per form
+rung02	assign	TR 84-9 pp.2-3 (assignment expr productions)	assign|reassign|augmented_add|augmented_subtract|augmented_concat|exchange		-	BUILT	exchange (:=:) is RED: parser lowers to EXCHG(x,y) (rebus_lower.c:97 TT_SWAP) but no runtime builtin registers that name anywhere (grep -rl EXCHG src/ == rebus_lower.c only) -- class row rebus-rung02-exchange-operator-exchg-builtin-not-implemented, hq_T's lane to cure
 rung03	cond	TR 84-9 (section owed) — if cond then stmt			-	BUILT	FORMS owed: enumerate from TR 84-9 and mint one witness per form
 rung04	loop	TR 84-9 (section owed) — while cond do stmt			-	BUILT	FORMS owed: enumerate from TR 84-9 and mint one witness per form
 rung05	func	TR 84-9 (section owed) — function f(args) ... end, call with arguments			-	BUILT	FORMS owed: enumerate from TR 84-9 and mint one witness per form
