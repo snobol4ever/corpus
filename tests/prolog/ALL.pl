@@ -2520,3 +2520,20 @@ main :- nl.
 sound(dog, woof).
 sound(cat, meow).
 main :- sound(cat, S), write(S), nl.
+%---------------------------------------------------------------------- 437 disjunction_both_branches_1
+:- initialization(main).
+main :- (write(left) ; write(right)), fail.
+main :- nl.
+%---------------------------------------------------------------------- 438 disjunction_left_only_1
+:- initialization(main).
+main :- (write(left) ; write(right)), nl.
+%---------------------------------------------------------------------- 439 disjunction_right_only_1
+:- initialization(main).
+main :- (fail ; write(right)), nl.
+%---------------------------------------------------------------------- 440 disjunction_nested_disjunction_1
+:- initialization(main).
+main :- (fail ; (fail ; write(inner))), nl.
+%---------------------------------------------------------------------- 441 disjunction_in_rule_body_1
+:- initialization(main).
+classify(X) :- write(before), (X > 0 ; X < 0), write(after).
+main :- classify(5), nl.
