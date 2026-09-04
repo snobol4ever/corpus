@@ -20,18 +20,38 @@ refs cut LIVE from `sbl -bf` fed `testpgms.in` on every run. ⛔ There are NO st
 this directory ON PURPOSE: a stored ref proves only "unchanged since someone cut it", and cannot tell
 a cured compiler from a ref that was cut while the compiler was broken.
 
-**⛔ The oracle crashes on three of the four, measured 2026-09-04 (hq_T, shared oracle
-`/home/resources/x64/bin/sbl`, `-bf`, fed `testpgms.in`):**
+**⛔ CORRECTED 2026-09-04 18:4x — MOST OF WHAT LOOKED LIKE AN ORACLE CRASH WAS OUR OWN SPLIT DAMAGE.** The first
+version of this file said the oracle SIGSEGVs on tests 2-4. Re-measured after the 18:19 oracle swap, against
+BOTH binaries, and then against a repaired split:
 
-| program | oracle rc | oracle output |
-|---|---|---|
-| test1 | 0 | 120 lines |
-| test2 | 139 (SIGSEGV) | 8 lines, truncated |
-| test3 | 139 (SIGSEGV) | 5 lines, truncated |
-| test4 | 139 (SIGSEGV) | 5 lines, truncated |
+| program | OLD oracle (pre-swap) | NEW oracle | after stripping the stray first line |
+|---|---|---|---|
+| test1 | rc=0, 120 lines | rc=0, 120 lines (**byte-identical**) | rc=0, 120 lines |
+| test2 | rc=231, 8 lines | rc=231, 8 lines | **rc=231** — genuine, see below |
+| test3 | rc=139 (SIGSEGV), 5 lines | rc=231, 5 lines | **rc=0, 46 lines** |
+| test4 | rc=139 (SIGSEGV), 5 lines | rc=231, 5 lines | **rc=0, 16 lines** |
 
-Those three are UNSCORED and named as such on every board line — never counted as passes, never
-counted as failures, and never given a ref. A truncated oracle run is not ground truth, and pinning
-one would grade SCRIP forever against the point where the oracle happened to die. The oracle defect
-itself is hq_P's row `snobol4-oracle-sbl-bf-sigsegv-on-error-212-recovery-cuts-refs-silently`; when it
-lands, these three become scored with no change to the runner.
+⛔ **The stray first line was `./*`, and it is the separator that FOLLOWS `END` in the concatenated upstream
+file.** Whoever split `testpgms.spt` into `testpgms-test<N>.spt` put each program's trailing separator at the
+HEAD of the next file. A `.` in column 1 is SPITBOL's continuation marker, so every affected program died at
+line 1 with `ERROR 214 -- bad label or misplaced continuation line` — before executing a single statement.
+⭐ **That is why the run status is not enough on its own to say whose fault a failure is.** Three programs
+looked like an oracle defect for as long as nobody read the first line of the file. The oracle swap was real
+and did fix the SIGSEGVs, but it converted them into a graceful error exit on OUR broken input, not into a
+pass — so the swap alone would have left this suite reading 1 of 4 forever.
+
+**test2 is genuinely rejected, and it is not split damage.** The oracle stops at `test2.spt(238)`:
+
+```
+D75      TEST NOTANY(*'ABCDEFGHJKLMPQRSTUWXYZ') $ VARA :S(D77) ;
+.                                                          ERROR()
+```
+
+A `;`-separated statement followed by a `.` continuation line. That region is **byte-identical** to the
+upstream concatenation (`testpgms.spt` lines 659-662, checked), so nothing we did produced it: this build of
+SPITBOL rejects the construct under `-bf`. Named and UNSCORED, never counted as a SCRIP failure.
+
+⚠ **The upstream file holds at least SIX programs, not four** (`-TITLE SPITBOL TEST PROGRAM #5` and `#6` are
+in `corpus/benchmarks/snobol4/testpgms.spt` at lines 863 and 965). Lon's order named 1-4 and that is what is
+vendored here; 5 and 6 are available for a later row and are not lost.
+
