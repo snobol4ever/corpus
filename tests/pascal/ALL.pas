@@ -3614,3 +3614,42 @@ begin
     writeln(n)
   end
 end.
+{------------------------------------- 183 ladder__rung04_for_repeat_for_downto}
+program rung04forrepeatfordownto;
+var
+  i: integer;
+begin
+  for i := 3 downto 1 do
+    writeln(i)
+end.
+{--------------------------------------- 184 ladder__rung04_for_repeat_for_zero}
+program rung04forrepeatforzero;
+var
+  i: integer;
+begin
+  for i := 5 to 1 do
+    writeln(i);
+  writeln('done')
+end.
+{------------------------------------ 185 ladder__rung04_for_repeat_repeat_once}
+program rung04forrepeatrepeatonce;
+var
+  i: integer;
+begin
+  i := 5;
+  repeat
+    writeln(i)
+  until i = 5
+end.
+{----------------------------------- 186 ladder__rung04_for_repeat_for_compound}
+program rung04forrepeatforcompound;
+var
+  i, sum: integer;
+begin
+  sum := 0;
+  for i := 1 to 3 do
+  begin
+    sum := sum + i;
+    writeln(sum)
+  end
+end.
