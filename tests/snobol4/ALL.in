@@ -1,45 +1,45 @@
-*----------------------------------------- 1281 arb_capture_alt_replace_branch_1
+*----------------------------------------- 1284 arb_capture_alt_replace_branch_1
 She saw the cat of the hat sitting near the dog a bone.
 Nothing interesting on this line.
 I know the house of cards and the tower a bridge.
-*--------------------------------------- 1284 trim_size_keyword_replace_branch_1
+*--------------------------------------- 1287 trim_size_keyword_replace_branch_1
 hello world
 foo bar baz
-*-------------------------------------------------- 1317 tab_trim_size_replace_2
+*-------------------------------------------------- 1320 tab_trim_size_replace_2
 hello   
 world	
-*-------------------------------------------------- 1318 tab_trim_size_replace_1
+*-------------------------------------------------- 1321 tab_trim_size_replace_1
 hello   
 world	
-*------------------------------------------ 1371 trim_dupl_size_replace_branch_1
+*------------------------------------------ 1374 trim_dupl_size_replace_branch_1
 alpha
 beta
 gamma
 delta
 epsilon
 epsilon
-*----------------------------------------- 1380 span_break_trim_replace_branch_1
+*----------------------------------------- 1383 span_break_trim_replace_branch_1
 it's a well-known fact that the quick brown fox
 jumped over the lazy dog
-*------------------------------------------ 1520 arb_span_break_replace_branch_2
+*------------------------------------------ 1523 arb_span_break_replace_branch_2
 1769  Watt : Steam Engine
 1876  Bell : Telephone
 1903  Wright : Airplane
 1928  Fleming : Penicillin
-*--------------------------------------------- 1525 arb_tab_pos_replace_branch_1
+*--------------------------------------------- 1528 arb_tab_pos_replace_branch_1
 1769  Watt             : Steam Engine
 1876  Bell             : Telephone
 1903  Wright           : Airplane
 1928  Fleming          : Penicillin
-*------------------------------------------ 1584 arb_span_break_replace_branch_1
+*------------------------------------------ 1587 arb_span_break_replace_branch_1
 1769  Watt : Steam Engine
 1876  Bell : Telephone
 1903  Wright : Airplane
 1928  Fleming : Penicillin
-*--------------------------------------------- 1630 any_pos_len_replace_branch_1
+*--------------------------------------------- 1633 any_pos_len_replace_branch_1
 SNOBOL
 OBJECT
-*--------------------------------- 1677 user_function_eval_span_replace_branch_2
+*--------------------------------- 1680 user_function_eval_span_replace_branch_2
 1+2*3
 (1+2)*3
 2.5e1+0.5
