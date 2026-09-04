@@ -2744,3 +2744,27 @@ main :- T =.. [foo, 1, 2], write(T), nl.
 %---------------------------------------------------------------------- 504 term_construction_copy_term_1
 :- initialization(main).
 main :- copy_term(foo(X, X), foo(A, B)), (A == B -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 505 atom_ops_atom_length_1
+:- initialization(main).
+main :- atom_length(hello, L), write(L), nl.
+%---------------------------------------------------------------------- 506 atom_ops_atom_concat_1
+:- initialization(main).
+main :- atom_concat(foo, bar, X), write(X), nl.
+%---------------------------------------------------------------------- 507 atom_ops_atom_chars_1
+:- initialization(main).
+main :- atom_chars(abc, L), write(L), nl.
+%---------------------------------------------------------------------- 508 atom_ops_atom_codes_1
+:- initialization(main).
+main :- atom_codes(abc, L), write(L), nl.
+%---------------------------------------------------------------------- 509 atom_ops_char_code_1
+:- initialization(main).
+main :- char_code(a, C), write(C), nl.
+%---------------------------------------------------------------------- 510 atom_ops_number_codes_1
+:- initialization(main).
+main :- number_codes(42, L), write(L), nl.
+%---------------------------------------------------------------------- 511 atom_ops_atom_number_1
+:- initialization(main).
+main :- atom_number('42', N), write(N), nl.
+%---------------------------------------------------------------------- 512 atom_ops_atom_string_1
+:- initialization(main).
+main :- atom_string(foo, S), write(S), nl.

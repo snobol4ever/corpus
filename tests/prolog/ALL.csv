@@ -503,3 +503,11 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,findall,bagof,setof,forall,ass
 502,term_construction_univ_decompose_1,ladder__rung06_term_construction_univ_decompose,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,0,0,0
 503,term_construction_univ_construct_1,ladder__rung06_term_construction_univ_construct,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,0,0,0
 504,term_construction_copy_term_1,ladder__rung06_term_construction_copy_term,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
+505,atom_ops_atom_length_1,ladder__rung06_atom_ops_atom_length,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+506,atom_ops_atom_concat_1,ladder__rung06_atom_ops_atom_concat,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+507,atom_ops_atom_chars_1,ladder__rung06_atom_ops_atom_chars,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+508,atom_ops_atom_codes_1,ladder__rung06_atom_ops_atom_codes,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+509,atom_ops_char_code_1,ladder__rung06_atom_ops_char_code,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+510,atom_ops_number_codes_1,ladder__rung06_atom_ops_number_codes,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+511,atom_ops_atom_number_1,ladder__rung06_atom_ops_atom_number,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+512,atom_ops_atom_string_1,ladder__rung06_atom_ops_atom_string,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
