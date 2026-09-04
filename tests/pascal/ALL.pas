@@ -3495,3 +3495,34 @@ begin
   writeln('ab':5);
   writeln('abcdef':3)
 end.
+{------------------------------------ 171 ladder__rung01_var_assign_multi_ident}
+program rung01varmultiident;
+var
+  x, y, z: integer;
+begin
+  x := 1;
+  y := 2;
+  z := 3;
+  writeln(x);
+  writeln(y);
+  writeln(z)
+end.
+{------------------------------------ 172 ladder__rung01_var_assign_multi_group}
+program rung01varmultigroup;
+var
+  a: integer;
+  b: Boolean;
+begin
+  a := 42;
+  b := true;
+  writeln(a);
+  writeln(b)
+end.
+{------------------------------------------ 173 ladder__rung01_var_assign_widen}
+program rung01varwiden;
+var
+  r: real;
+begin
+  r := 5;
+  writeln(r:0:1)
+end.

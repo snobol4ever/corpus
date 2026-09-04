@@ -169,3 +169,6 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,program,procedure,function,var
 168,ladder__rung00_hello_blank,ladder__rung00_hello_blank,ladder,block,0,6,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 169,ladder__rung00_hello_multi,ladder__rung00_hello_multi,ladder,block,0,4,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 170,ladder__rung00_hello_width,ladder__rung00_hello_width,ladder,block,0,5,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+171,ladder__rung01_var_assign_multi_ident,ladder__rung01_var_assign_multi_ident,ladder,block,0,11,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+172,ladder__rung01_var_assign_multi_group,ladder__rung01_var_assign_multi_group,ladder,block,0,10,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+173,ladder__rung01_var_assign_widen,ladder__rung01_var_assign_widen,ladder,block,0,7,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

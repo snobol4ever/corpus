@@ -622,3 +622,12 @@ Hello, world!
 {----------------------------------------------- 170 ladder__rung00_hello_width}
    ab
 abc
+{------------------------------------ 171 ladder__rung01_var_assign_multi_ident}
+          1
+          2
+          3
+{------------------------------------ 172 ladder__rung01_var_assign_multi_group}
+         42
+ true
+{------------------------------------------ 173 ladder__rung01_var_assign_widen}
+5.0
