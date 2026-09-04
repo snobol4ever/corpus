@@ -65,12 +65,12 @@ rung32	procedures returning/chaining strings; multi string-valued parameters	lad
 rung33	case-of control structure (dedicated): arithmetic/int/str selectors, no-default	ladder__rung33_case_* (5)	BUILT
 rung34	unary null-value test (/x) and non-null test (\x)	ladder__rung34_null_test_* (5)	BUILT
 rung35	compound {...} bodies (if/while/every); string-keyed table w/ default + read	ladder__rung35_{block_body,table_str}_* (8)	BUILT	MIXED rung: 2 sub-families under one number, same organic-growth note as rung13
+rung36	sets: Icon's 4th structure type -- construction/insert/member, delete+member-absent (fail), set-algebra (++ union, ** intersect, -- diff), one REFUSAL (insert() on a non-set/table: real Icon Run-time error 122 "set or table expected")	ladder__rung36_sets_* (5)	BUILT-RED	first from-scratch ladder walk (rungs 00-35 were reconciled from pre-existing witnesses); oracle-cut fresh 2026-09-03 against icont/iconx v9.5.25a (icont -s file.icn -x). 4 of 5 witnesses PASS both modes; ladder_rung36_sets_refusal FAILs both modes -- SCRIP's insert() is missing argument-type validation (oracle aborts rc=1, SCRIP continues rc=0), oracle-confirmed real defect, not a bad ref. xfail=1 + reasoned in ALL.xfail; filed as FINDING-2026-09-03-seat01-icon-insert-missing-set-table-type-check.md (owner hq_B, walker scope ends at filing)
 #
 # PLANNED (not yet minted -- deliberately NOT matching ^rung[0-9]+ so DONE-WHEN's top computation stays at
 # the real frontier above, per the same Pascal-ladder ruling cited in FORMAT). Not claimed exhaustive --
-# the three most conspicuous gaps against the book's structure-type and scanning-primitive coverage, plus
+# rung36 (sets) landed this session; two gaps remain against the book's scanning-primitive coverage and
 # the one construct that is Icon's own most advanced and distinctive (co-expressions), reserved as the true
 # top: "climbing here closes the ladder."
-# PLAN-rung36	sets: Icon's fourth structure type (list/table/set/record) -- construction, insert/delete/member, set-algebra operators (++ ** --) -- entirely absent from rungs 00-35 (checked: zero `set(` witnesses)
 # PLAN-rung37	bal(): balanced-delimiter scanning primitive, named explicitly alongside any/many/upto/tab/move/find in the book's scanning chapter -- absent from rung05/rung08's scan coverage
 # PLAN-rung38	co-expressions (create, @, explicit activation/^) -- TOP: Icon's signature advanced feature (first-class, resumable generator control distinct from suspend/every); no witness anywhere in corpus/tests/icon/ALL.csv under this ladder's naming

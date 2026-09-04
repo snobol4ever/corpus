@@ -5241,3 +5241,22 @@ a
 #---------------------------------------------- 722 procedure_scan_while_1 XFAIL
 dash
 flist size=0
+#---------------------------------------------- 723 ladder_rung36_sets_construct
+3
+yes
+#------------------------------------------ 724 ladder_rung36_sets_delete_member
+2
+absent
+1
+3
+#-------------------------------------------------- 725 ladder_rung36_sets_union
+1
+2
+3
+4
+#---------------------------------------------- 726 ladder_rung36_sets_interdiff
+2
+3
+1
+#------------------------------------------ 727 ladder_rung36_sets_refusal XFAIL
+before

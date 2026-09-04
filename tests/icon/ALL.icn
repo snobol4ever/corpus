@@ -7450,3 +7450,44 @@ procedure opt2(arg);
          };
    return flist;
 end
+#---------------------------------------------- 723 ladder_rung36_sets_construct
+procedure main()
+  local s;
+  s := set();
+  insert(s, 1);
+  insert(s, 2);
+  insert(s, 3);
+  insert(s, 2);
+  write(*s);
+  if member(s, 2) then write("yes");
+end
+#------------------------------------------ 724 ladder_rung36_sets_delete_member
+procedure main()
+  local s;
+  s := set([1, 2, 3]);
+  delete(s, 2);
+  write(*s);
+  if member(s, 2) then write("bad") else write("absent");
+  every write(!sort(s));
+end
+#-------------------------------------------------- 725 ladder_rung36_sets_union
+procedure main()
+  local a, b;
+  a := set([1, 2, 3]);
+  b := set([2, 3, 4]);
+  every write(!sort(a ++ b));
+end
+#---------------------------------------------- 726 ladder_rung36_sets_interdiff
+procedure main()
+  local a, b;
+  a := set([1, 2, 3]);
+  b := set([2, 3, 4]);
+  every write(!sort(a ** b));
+  every write(!sort(a -- b));
+end
+#------------------------------------------ 727 ladder_rung36_sets_refusal XFAIL
+procedure main()
+  write("before");
+  insert(3, 1);
+  write("after");
+end

@@ -35,3 +35,13 @@ to-by generator: `every write(1.0 to 3.0 by 1.0)`), oracle prints `1`/`2`/`3`, S
 `3.0` both modes. See that entry and
 FINDING-2026-09-03-seat01-icon-real-toby-generator-prints-trailing-decimal-oracle-does-not.md for full
 detail -- not duplicated here.
+#------------------------------------------ 727 ladder_rung36_sets_refusal XFAIL
+Real compiler defect, oracle-confirmed, not a bad ref. `insert(3, 1)` (first arg not a set/table) --
+icont/iconx v9.5.25a (run fresh this session) raises Run-time error 122 "set or table expected" and
+aborts after printing only `before` (rc=1); SCRIP prints `before`/`after` and exits rc=0 -- `insert()`
+is missing argument-type validation. Isolated to `insert()` specifically: the other 4 rung36 witnesses
+(construction, delete+member, union, intersection+difference) all PASS both modes. Not confirmed whether
+`delete()`/`member()`/the set-algebra operators share the same gap when given a non-set/table --
+untested. See FINDING-2026-09-03-seat01-icon-insert-missing-set-table-type-check.md; owner hq_B (walker
+scope ends at filing per MASTER-PLAN.md WHO FIXES WHAT -- did not touch src/).
+
