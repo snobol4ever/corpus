@@ -2556,3 +2556,59 @@ main :- write(done), nl.
 q :- !, write(first).
 q :- write(second).
 main :- q, nl.
+%---------------------------------------------------------------------- 445 ite_condition_fails_1
+:- initialization(main).
+main :- (fail -> write(then) ; write(else)), nl.
+%---------------------------------------------------------------------- 446 ite_bare_if_then_no_else_1
+:- initialization(main).
+main :- (1 =:= 1 -> write(yes)), nl.
+%---------------------------------------------------------------------- 447 ite_nested_ite_1
+:- initialization(main).
+main :- (1 =:= 1 -> (2 =:= 3 -> write(a) ; write(b)) ; write(c)), nl.
+%---------------------------------------------------------------------- 448 neg_succeeds_on_failing_goal_1
+:- initialization(main).
+main :- (\+ fail -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 449 neg_fails_on_succeeding_goal_1
+:- initialization(main).
+main :- (\+ true -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 450 neg_negation_of_unification_1
+:- initialization(main).
+main :- (\+ (a = b) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 451 neg_double_negation_1
+:- initialization(main).
+main :- (\+ \+ (X = 1) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 452 ofi_once_first_solution_1
+:- initialization(main).
+p(1).
+p(2).
+main :- once(p(X)), write(X), nl.
+%---------------------------------------------------------------------- 453 ofi_once_of_failing_goal_1
+:- initialization(main).
+main :- (once(fail) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 454 ofi_forall_all_hold_1
+:- initialization(main).
+q(1).
+q(2).
+q(3).
+main :- (forall(q(X), X > 0) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 455 ofi_forall_counterexample_1
+:- initialization(main).
+r(1).
+r(2).
+r(-1).
+main :- (forall(r(X), X > 0) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 456 ofi_ignore_succeeds_1
+:- initialization(main).
+main :- ignore(X = bound), write(X), nl.
+%---------------------------------------------------------------------- 457 ofi_ignore_of_failing_goal_1
+:- initialization(main).
+main :- (ignore(fail) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 458 dg_plain_directive_runs_1
+:- write(ran), nl.
+%---------------------------------------------------------------------- 459 dg_failing_directive_warns_1
+:- fail.
+:- write(after), nl.
+%---------------------------------------------------------------------- 460 dg_directive_before_initialization_1
+:- write(immediate), nl.
+:- initialization(main).
+main :- write(deferred), nl.
