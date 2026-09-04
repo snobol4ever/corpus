@@ -402,8 +402,8 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,findall,bagof,setof,forall,ass
 401,setof_bagof_directive_1,ladder__rung08_setof_bagof,ladder,block,0,6,"m3,m4",0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 402,catch_throw_directive_5,ladder__rung09_catch_recovers,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0
 403,catch_throw_directive_6,ladder__rung09_throw_across_clause,ladder,block,0,3,"m3,m4",0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0
-404,assertz_retract_directive_2,ladder__rung10_assert_retract_dynamic,ladder,block,1,3,"m3,m4",1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1
-405,abolish_pred_1,ladder__rung10_abolish_pred,ladder,block,1,3,"m3,m4",0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-406,asserta_order_1,ladder__rung10_asserta_order,ladder,block,1,3,"m3,m4",1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-407,clause_reflect_1,ladder__rung10_clause_reflect,ladder,block,1,3,"m3,m4",1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0
-408,retract_backtrack_1,ladder__rung10_retract_backtrack,ladder,block,1,3,"m3,m4",1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+404,assertz_retract_directive_2,ladder__rung10_assert_retract_dynamic,ladder,block,0,3,"m3,m4",1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1
+405,abolish_pred_1,ladder__rung10_abolish_pred,ladder,block,0,3,"m3,m4",0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+406,asserta_order_1,ladder__rung10_asserta_order,ladder,block,0,3,"m3,m4",1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+407,clause_reflect_1,ladder__rung10_clause_reflect,ladder,block,0,3,"m3,m4",1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0
+408,retract_backtrack_1,ladder__rung10_retract_backtrack,ladder,block,0,3,"m3,m4",1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
