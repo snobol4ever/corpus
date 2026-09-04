@@ -7,13 +7,36 @@
 # CONSTRUCT/FORMS split (below) is a re-reading of that same witness population, not a re-walk.
 #
 # CITATION: *The Icon Programming Language*, 3rd ed. (Griswold & Griswold, 1996) is the SCORE.md-cited
-# authority; oracle is Icon v9.5.25a (`icont`/`iconx`, /home/resources/icon-master/bin/). ⛔ UNLIKE Pascal's
-# LADDER.tsv (a real vendored ISO text) or Prolog's (ISO 13211-1 + an ARCH doc), NO vendored copy of the
-# Icon book exists under refs/ or /home/resources/icon-master (re-checked 2026-09-04: only man pages,
-# icont.txt/icon.txt -- CLI driver docs, not language semantics -- and the IPL source tree; no book text).
-# REFERENCE below is therefore uniformly "oracle-observed" (icont/iconx v9.5.25a behavior + this session's/
-# prior sessions' cross-checked Icon-language knowledge), never a fabricated page/section number. If a real
-# vendored copy turns up, upgrade REFERENCE citations then, not before.
+# authority; oracle is Icon v9.5.25a (`icont`/`iconx`, /home/resources/icon-master/bin/).
+#
+# ⭐ 2026-09-04 (seat01, ceo STEP 0 ruling on Lon: "Is Icon really at 90%? I do not believe it." -- the
+# prior REFERENCE column was uniformly "oracle-observed", i.e. enumerated from the implementation, so
+# 199/199 forms was by construction): THE BOOK IS NOW VENDORED AND REFERENCE IS REAL. It turns out the
+# 2026-09-03 finding below ("no vendored copy exists") was checking the wrong place, not a dead end --
+# the book is public domain (rights reverted to the authors) and hosted by its own maintainers, the
+# University of Arizona Icon project: https://www2.cs.arizona.edu/icon/ftp/doc/lb1up.pdf (410pp, fetched
+# and verified 2026-09-04). Vendored at SCRIP/refs/icon-book/{lb1up.pdf,lb1up.txt,SOURCE.txt} (refs/ is
+# gitignored per the canonical-sources law -- re-fetch with the curl command in SOURCE.txt if missing).
+# Every REFERENCE cell below citing a page number was checked against lb1up.txt (`pdftotext -layout`),
+# most against the book's own formal Appendix D "Language Reference Manual" (functions/operators/keywords
+# each with a numbered entry) or its own Index (App. after I) -- "verified:" in a cell means the quoted
+# book text was read directly, not inferred from a chapter title. One row (string_return_procs, rung32)
+# is flagged HONEST GAP rather than force-fit: it is a combination test with no single dedicated book
+# section, and the citation says so instead of naming one anyway.
+#
+# ⛔ STILL OWED (real, substantial, not this session's work): the ceo ruling's deeper point -- FORMS
+# should come FROM the book's list of forms, not just be labelled with a page after the fact. This
+# session cited every row; it did NOT re-audit every row's FORMS column against the book the way rung12's
+# sle/sgt gap was found in the prior session. That per-rung audit is next (see task ## NEXT) and is much
+# faster now: App.D's per-construct entries (Functions p.275, Prefix p.295, Infix p.298, Other p.303,
+# Keywords p.306, Control Structures p.311, Generators p.314) are grep-able in lb1up.txt for a title-page
+# pattern like `grep -n '^abs(' refs/icon-book/lb1up.txt` to enumerate a construct's real form list.
+#
+# superseded finding, 2026-09-03 (seat01): UNLIKE Pascal's LADDER.tsv (a real vendored ISO text) or
+# Prolog's (ISO 13211-1 + an ARCH doc), NO vendored copy of the Icon book exists under refs/ or
+# /home/resources/icon-master (re-checked 2026-09-04: only man pages, icont.txt/icon.txt -- CLI driver
+# docs, not language semantics -- and the IPL source tree; no book text). REFERENCE below is therefore
+# uniformly "oracle-observed"... [FALSE, see above -- did not check the book's own project site]
 #
 # SCHEMA is hq_T's shared eight-column one (row ladder-forms-column-and-forms-check-every-declared-form-and-
 # pair-has-a-witness): RUNG CONSTRUCT REFERENCE FORMS PAIRS WITNESS_ORIGIN STATUS NOTE. FORMS is |-separated,
@@ -55,52 +78,52 @@
 # rung25 is a genuine numbering gap: no `ladder__rung25_*` origin exists in ALL.csv (unchanged from the
 # pre-migration file; not chased this session either).
 RUNG	CONSTRUCT	REFERENCE	FORMS	PAIRS	WITNESS_ORIGIN	STATUS	NOTE
-rung00	program_skeleton	oracle-observed: procedure main()+write() is the minimal complete program	hello		ladder__rung00_hello (1)	BUILT	KNOWN CHECKER MISS (util_ladder_forms_check.py --phase isolation reports icon/rung00 form hello as unwitnessed even though the witness exists and passes): witness_for()'s regex needs origin shape ladder__rungNN_<construct>_<form> (TWO underscore-separated segments after rungNN), but this origin is the single flat segment ladder__rung00_hello with no construct part, so no split satisfies it. Not renamed this session -- entry "procedure_write_144" in ALL.csv did not resolve to a line in ALL.icn under a quick grep, and I did not trace test_icon_ladder.sh's full origin-to-execution path far enough to be confident a rename would not silently drop this witness from grading. Next actor: trace that resolution first, then either rename to ladder__rung00_program_skeleton_hello (consistent with every other rung) or teach the checker a single-segment fallback -- whichever is verified safe.
-rung01	generator_relop_composition	oracle-observed: "paper §2" tutorial examples -- to-generator, relational-op-as-filter, cross-product via *, nested to	compound|lt|mult|nested_to|paper_expr|to5|to_by	program_skeleton	ladder__rung01_paper_* (7)	BUILT
-rung02	arith_generator	oracle-observed: arithmetic generators over to-ranges, filtered/nested composition	nested_add|nested_filter|paper_mul|range|relfilter	generator_relop_composition	ladder__rung02_arith_gen_* (5)	BUILT
-rung02	if_return	oracle-observed: if as a value-returning expression	arm	procedure	ladder__rung02_if_return_* (1)	BUILT
-rung02	procedure	oracle-observed: procedure definition, locals, recursion	add_proc|fact|locals	program_skeleton	ladder__rung02_proc_* (3)	BUILT
-rung03	suspend	oracle-observed: suspend + generator-failure interaction	fail	procedure	ladder__rung03_suspend_fail (1)	BUILT
-rung04	string_literal_var_concat	oracle-observed: string literals, variables, || concatenation (incl. chained)	concat|concat_chain|multi_str|str_lit|str_var	program_skeleton	ladder__rung04_string_* (5)	BUILT
-rung05	string_scan	oracle-observed: ?, &subject/&pos, nested scan, scan restores position on failure	concat_subject|nested|restores|subject|var	string_literal_var_concat	ladder__rung05_scan_scan_* (5)	BUILT
-rung06	cset	oracle-observed: any(), many(), upto(), cset variables	any_basic|any_fail|cset_var|many_basic|upto_basic	string_scan	ladder__rung06_cset_* (5)	BUILT
-rung07	control	oracle-observed: not/negation, repeat+break, sequence (;), to-by in control	neg|not|repeat_break|seq|to_by	procedure	ladder__rung07_control_* (5)	BUILT
-rung08	string_scan_builtins	oracle-observed: find(), match(), move(), tab() incl. find() as generator	find|find_gen|match|move|tab	string_scan	ladder__rung08_strbuiltins_* (5)	BUILT
-rung09	loops	oracle-observed: while/until, repeat+break, generator-driven loop conditions	repeat_break|repeat_counter|until|until_gen|until_while	control	ladder__rung09_loops_* (5)	BUILT
-rung10	aug_assign	oracle-observed: +:= -:= *:= /:= inside every	augadd_every|augdiv|augplus|augstar|augsub_mod	arith_generator	ladder__rung10_augop_* (5)	BUILT
-rung11	bang_aug_concat	oracle-observed: ! (bang, apply over structure) with ||:= augmented concatenation	augconcat|augconcat_chain|augconcat_loop|bang_concat|bang_str	string_literal_var_concat	ladder__rung11_bang_augconcat_* (5)	BUILT
-rung12	string_relop_size	oracle-observed: string relational operators (<< <<= == ~== >> >>=) and size (*)	seq|sge|sgt|size|sle|slt|sne	string_literal_var_concat	ladder__rung12_strrelop_size_* (7)	BUILT	all 6/6 string relops + size now witnessed -- sgt (>>) and sle (<<=) minted 2026-09-04 (oracle-cut, corrupted-ref-proven, PASS both modes)
-rung13	alternation	oracle-observed: | (alternation), argument cross-product, filter/side-effect interaction	augconcat|cross_arg|cross_arg_sideeffect|every_write|filter|int|nested	generator_relop_composition	ladder__rung13_alt_alt_* (7)	BUILT
-rung13	alternation_return	oracle-observed: alternation as a value-returning expression	arm	alternation	ladder__rung13_alt_return_arm (1)	BUILT
-rung13	repeated_alternation	oracle-observed: repeated alternation combined with to-by ranges	empty|int|str|to|to3|var	alternation	ladder__rung13_repalt_* (6)	BUILT
-rung13	table_basics	oracle-observed: table() construction, subscript-assign, member, delete, iterate	basic|delete|iterate|member|subscript_assign	procedure	ladder__rung13_table_* (5)	BUILT	MIXED rung: 4 constructs share rung13 (organic growth, not renumbered)
-rung14	case_return_arm	oracle-observed: case-statement as a value-returning expression	arm	procedure	ladder__rung14_case_return_arm (1)	BUILT
-rung14	limitation	oracle-observed: binary \ (limit a generator's result count)	alt|large|str|to|zero	arith_generator	ladder__rung14_limit_limit_* (5)	BUILT	MIXED rung: 2 constructs share rung14
-rung15	string_iteration	oracle-observed: iterating over a string's characters	string	string_scan	ladder__rung15_iterate_string (1)	BUILT
-rung15	reversible_swap	oracle-observed: :=: reversible swap, left-concatenation	lconcat|real_literal|real_var|swap_basic|swap_str	string_literal_var_concat	ladder__rung15_real_swap_* (5)	BUILT	MIXED rung: 2 constructs share rung15
-rung16	subscript	oracle-observed: [i] subscript/indexing: basic, generator, fail, literal, negative index	basic|every|fail|literal|neg	string_literal_var_concat	ladder__rung16_subscript_sub_* (5)	BUILT
-rung17	real_arithmetic	oracle-observed: real-number arithmetic, int/real coercion, string-to-real conversion	integer|real_add|real_conv|real_mul|string_conv	arith_generator	ladder__rung17_real_arith_* (5)	BUILT
-rung18	real_relop	oracle-observed: real-number relational operators, mixed int/real comparison	mixed_relop|real_eq|real_gt|real_lt|real_relop_goal	real_arithmetic	ladder__rung18_real_relop_* (5)	BUILT
-rung19	power_operator	oracle-observed: ^ power operator over int/real/variable operands	int|real|var	real_arithmetic	ladder__rung19_pow_toby_pow_* (3)	BUILT
-rung19	real_toby	oracle-observed: real-valued to-by loops	neg|pos	power_operator	ladder__rung19_pow_toby_real_toby_* (2)	BUILT	MIXED rung: 2 constructs share rung19; was BUILT-RED (trailing-decimal defect, FINDING-2026-09-03-seat01-icon-real-toby-generator-prints-trailing-decimal-oracle-does-not.md), re-verified CLEAN this session after hq_B's cure -- see file header
-rung20	section_seqexpr	oracle-observed: s[i:j] section operator; sequential/compound expressions	basic|full|var	subscript	ladder__rung20_section_seqexpr_section_* (3)	BUILT
-rung21	global_initial	oracle-observed: global declarations; the initial clause	global_basic|global_initial|global_str|initial_once|multi_global	program_skeleton	ladder__rung21_global_initial_* (5)	BUILT
-rung22	lists	oracle-observed: push/put/pop(pull)/get, ! (bang) over a list	bang_list|get|pull|push_put_size|put_bang	procedure	ladder__rung22_lists_* (5)	BUILT
-rung23	tables	oracle-observed: dedicated table forms -- default value, insert/delete, key, member	basic|default|insert_delete|key|member	table_basics	ladder__rung23_table_table_* (5)	BUILT
-rung24	records	oracle-observed: record type declaration, field access/assign, procedure args, loop over records	basic|field_assign|proc_arg|record_loop|two_types	procedure	ladder__rung24_records_* (5)	BUILT
-rung26	power_operator_deep	oracle-observed: ^ deeper -- associativity, int/real, zero exponent	int_pow|pow_assoc|pow_expr|pow_zero|real_pow	power_operator	ladder__rung26_pow_* (5)	BUILT	numbering continues past the rung25 gap (see file header)
-rung27	read_reads	oracle-observed: read()/reads() -- line read, count, EOF failure, byte reads, loop	read_count|read_eof_fail|read_line|read_loop|reads_bytes	loops	ladder__rung27_read_* (5)	BUILT
-rung28	string_builtins	oracle-observed: char/ord conversion, pad, repl, reverse, trim/map	char_ord|pad|repl|reverse|trim_map	string_literal_var_concat	ladder__rung28_builtins_str_* (5)	BUILT
-rung29	type_introspection	oracle-observed: copy(), image(), type(), mixed/numeric handling	copy|image|mixed|numeric|type	records	ladder__rung29_builtins_type_* (5)	BUILT
-rung30	misc_builtins	oracle-observed: abs(), sqrt(), seq()	abs|seq|sqrt	real_arithmetic	ladder__rung30_builtins_misc_* (3)	BUILT
-rung31	sort	oracle-observed: sort()/sortf() on lists	sort_already_sorted|sort_basic|sort_every|sortf_field1|sortf_field2	lists	ladder__rung31_sort_* (5)	BUILT
-rung32	string_return_procs	oracle-observed: procedures returning/chaining strings; multi string-valued parameters	basic_strret|chain|strret_assign|strret_every|two_str_params	procedure	ladder__rung32_strretval_* (5)	BUILT
-rung33	case_of	oracle-observed: case-of control structure -- arithmetic/int/str selectors, no-default	arith|in_proc|int|no_default|str	case_return_arm	ladder__rung33_case_case_* (5)	BUILT
-rung34	null_nonnull_test	oracle-observed: unary null-value test (/x) and non-null test (\x)	nonnull_fails|nonnull_in_every|nonnull_succeeds|null_fails|null_succeeds	control	ladder__rung34_null_test_* (5)	BUILT
-rung35	compound_block_bodies	oracle-observed: {...} compound bodies for if/while/every	every_do_block|every_gen_block|if_block|if_else_block|nested_block|while_do_block	control	ladder__rung35_block_body_* (6)	BUILT
-rung35	string_keyed_table	oracle-observed: string-keyed table with default value + read() interaction	str_default_int_key|str_table_read	tables	ladder__rung35_table_str_* (2)	BUILT	MIXED rung: 2 constructs share rung35
-rung36	sets	oracle-observed: Icon's 4th structure type -- construction/insert/member, delete+member-absent (fail), set-algebra (++ union, ** intersect, -- diff), one REFUSAL (insert() on non-set/table: Run-time error 122)	construct|delete_member|interdiff|refusal|union	tables	ladder__rung36_sets_* (5)	BUILT	first from-scratch ladder walk (rungs 00-35 reconciled from pre-existing witnesses); oracle-cut fresh 2026-09-03 against icont/iconx v9.5.25a. Was BUILT-RED (insert() missing set/table type-check, FINDING-2026-09-03-seat01-icon-insert-missing-set-table-type-check.md), re-verified CLEAN this session after hq_B's cure -- see file header
-rung37	bal	oracle-observed: bal() balanced-delimiter scanning -- default open/close-paren incl. generator FAIL when no top-level match, custom delimiters, bal()-vs-upto() contrast, one REFUSAL (non-cset-convertible first arg: Run-time error 104)	custom_delims|default|refusal|vs_upto	string_scan_builtins	ladder__rung37_bal_* (4)	BUILT	oracle-cut fresh 2026-09-04 against icont/iconx v9.5.25a. Was BUILT-RED (bal() missing cset type-check, same class as rung36, FINDING-2026-09-04-seat01-icon-bal-missing-cset-type-check.md), re-verified CLEAN this session after hq_B's cure -- see file header. bal() zero-argument (position-generator) form explored against the oracle but excluded: didn't reduce to a canonical book-clear assertion in the time available, not filed as a gap
+rung00	program_skeleton	book: Ch.1 Program Structure p.1 (procedure main()+write())	hello		ladder__rung00_hello (1)	BUILT	KNOWN CHECKER MISS (util_ladder_forms_check.py --phase isolation reports icon/rung00 form hello as unwitnessed even though the witness exists and passes): witness_for()'s regex needs origin shape ladder__rungNN_<construct>_<form> (TWO underscore-separated segments after rungNN), but this origin is the single flat segment ladder__rung00_hello with no construct part, so no split satisfies it. Not renamed this session -- entry "procedure_write_144" in ALL.csv did not resolve to a line in ALL.icn under a quick grep, and I did not trace test_icon_ladder.sh's full origin-to-execution path far enough to be confident a rename would not silently drop this witness from grading. Next actor: trace that resolution first, then either rename to ladder__rung00_program_skeleton_hello (consistent with every other rung) or teach the checker a single-segment fallback -- whichever is verified safe.
+rung01	generator_relop_composition	book: Ch.2 Integer Sequences p.20, Comparison Operations p.28; App.D Other Operations p.303 (i1 to i2 by i3)	compound|lt|mult|nested_to|paper_expr|to5|to_by	program_skeleton	ladder__rung01_paper_* (7)	BUILT
+rung02	arith_generator	book: Ch.2 Integer Sequences p.20; Ch.5 Arithmetic p.64	nested_add|nested_filter|paper_mul|range|relfilter	generator_relop_composition	ladder__rung02_arith_gen_* (5)	BUILT
+rung02	if_return	book: Ch.2 Selection Expressions p.25-26 (if as value-returning expression)	arm	procedure	ladder__rung02_if_return_* (1)	BUILT
+rung02	procedure	book: Ch.1 Procedures p.7; Ch.8 Procedure Declarations p.97	add_proc|fact|locals	program_skeleton	ladder__rung02_proc_* (3)	BUILT
+rung03	suspend	book: Ch.7 Backtracking p.89; App.D Control Structures p.313 (verified: "suspend expr1 do expr2")	fail	procedure	ladder__rung03_suspend_fail (1)	BUILT
+rung04	string_literal_var_concat	book: Ch.4 String Construction p.51; App.D Infix Operations p.300 (verified: s1 || s2)	concat|concat_chain|multi_str|str_lit|str_var	program_skeleton	ladder__rung04_string_* (5)	BUILT
+rung05	string_scan	book: Ch.3 String Scanning p.37 (chapter); Scanning Keywords p.44 (verified: &subject/&pos)	concat_subject|nested|restores|subject|var	string_literal_var_concat	ladder__rung05_scan_scan_* (5)	BUILT
+rung06	cset	book: Ch.3 Csets p.40; Ch.4 Csets p.60; App.D Functions any() p.276, many() p.284, upto() p.294 (all page-verified)	any_basic|any_fail|cset_var|many_basic|upto_basic	string_scan	ladder__rung06_cset_* (5)	BUILT
+rung07	control	book: Ch.2 Selection Expressions p.26 (verified: "the not expression"); Ch.1 Control Structures p.6; App.D Control Structures p.311-313	neg|not|repeat_break|seq|to_by	procedure	ladder__rung07_control_* (5)	BUILT
+rung08	string_scan_builtins	book: App.D Functions find() p.280, match() p.285, move() p.285, tab() p.293 (all page-verified)	find|find_gen|match|move|tab	string_scan	ladder__rung08_strbuiltins_* (5)	BUILT
+rung09	loops	book: Ch.2 Loops p.23; App.D Control Structures p.311 (while/until/repeat family)	repeat_break|repeat_counter|until|until_gen|until_while	control	ladder__rung09_loops_* (5)	BUILT
+rung10	aug_assign	book: Ch.2 Assignment p.29 (verified subheading "Augmented Assignment"); App.D Infix Operations p.302 (verified: v op:= x)	augadd_every|augdiv|augplus|augstar|augsub_mod	arith_generator	ladder__rung10_augop_* (5)	BUILT
+rung11	bang_aug_concat	book: App.D Prefix Operations p.297 (verified: !x1 generate values); Ch.4 String-Valued Functions p.52 (augmented ||:= concatenation)	augconcat|augconcat_chain|augconcat_loop|bang_concat|bang_str	string_literal_var_concat	ladder__rung11_bang_augconcat_* (5)	BUILT
+rung12	string_relop_size	book: App.D Infix Operations p.301 (verified: s1<<s2, <<=, ==, ~==, >>, >>=); Prefix Operations p.296 (verified: *x compute size); Ch.4 Lexical Comparison p.50	seq|sge|sgt|size|sle|slt|sne	string_literal_var_concat	ladder__rung12_strrelop_size_* (7)	BUILT	all 6/6 string relops + size now witnessed -- sgt (>>) and sle (<<=) minted 2026-09-04 (oracle-cut, corrupted-ref-proven, PASS both modes)
+rung13	alternation	book: Ch.2 Alternation p.21	augconcat|cross_arg|cross_arg_sideeffect|every_write|filter|int|nested	generator_relop_composition	ladder__rung13_alt_alt_* (7)	BUILT
+rung13	alternation_return	book: Ch.2 Alternation p.21, Selection Expressions p.25 (value-returning usage)	arm	alternation	ladder__rung13_alt_return_arm (1)	BUILT
+rung13	repeated_alternation	book: Ch.7 Repeated Alternation p.94 (exact section title)	empty|int|str|to|to3|var	alternation	ladder__rung13_repalt_* (6)	BUILT
+rung13	table_basics	book: Ch.6 Tables p.81	basic|delete|iterate|member|subscript_assign	procedure	ladder__rung13_table_* (5)	BUILT	MIXED rung: 4 constructs share rung13 (organic growth, not renumbered)
+rung14	case_return_arm	book: Ch.2 Selection Expressions p.26 (verified: case clause); App.D Control Structures p.311 (verified: "case expr of {...}")	arm	procedure	ladder__rung14_case_return_arm (1)	BUILT
+rung14	limitation	book: Ch.7 Limiting Generation p.93-94 (exact section title)	alt|large|str|to|zero	arith_generator	ladder__rung14_limit_limit_* (5)	BUILT	MIXED rung: 2 constructs share rung14
+rung15	string_iteration	book: App.D Prefix Operations p.297 (verified: !x1 over a string generates one-character substrings); Ch.4 Substrings p.56	string	string_scan	ladder__rung15_iterate_string (1)	BUILT
+rung15	reversible_swap	book: App.D Infix Operations p.302 (verified: v1 :=: v2 exchange values)	lconcat|real_literal|real_var|swap_basic|swap_str	string_literal_var_concat	ladder__rung15_real_swap_* (5)	BUILT	MIXED rung: 2 constructs share rung15
+rung16	subscript	book: Ch.4 Subscripting Strings p.56 (exact section title); App.D Other Operations p.303 (verified: x1[x2])	basic|every|fail|literal|neg	string_literal_var_concat	ladder__rung16_subscript_sub_* (5)	BUILT
+rung17	real_arithmetic	book: Ch.5 Numeric Literals p.63, Arithmetic p.64; Ch.10 Type Conversion p.124	integer|real_add|real_conv|real_mul|string_conv	arith_generator	ladder__rung17_real_arith_* (5)	BUILT
+rung18	real_relop	book: Ch.5 Numerical Comparison p.65; App.D Infix Operations p.301 (verified numeric comparison block)	mixed_relop|real_eq|real_gt|real_lt|real_relop_goal	real_arithmetic	ladder__rung18_real_relop_* (5)	BUILT
+rung19	power_operator	book: App.D Infix Operations p.299 (verified: N1^N2 compute exponential)	int|real|var	real_arithmetic	ladder__rung19_pow_toby_pow_* (3)	BUILT
+rung19	real_toby	book: Ch.2 Integer Sequences p.20; App.D Other Operations p.303 (verified: i1 to i2 by i3)	neg|pos	power_operator	ladder__rung19_pow_toby_real_toby_* (2)	BUILT	MIXED rung: 2 constructs share rung19; was BUILT-RED (trailing-decimal defect, FINDING-2026-09-03-seat01-icon-real-toby-generator-prints-trailing-decimal-oracle-does-not.md), re-verified CLEAN this session after hq_B's cure -- see file header
+rung20	section_seqexpr	book: Ch.4 Subscripting Strings p.56 (s[i:j]); Ch.2 Sequential Evaluation p.17	basic|full|var	subscript	ladder__rung20_section_seqexpr_section_* (3)	BUILT
+rung21	global_initial	book: Ch.8 Scope p.99 (global); Procedure Declarations p.97-98 (initial clause -- page range per the book's own Index, p.380: "initial clause, 97-98, 107-108")	global_basic|global_initial|global_str|initial_once|multi_global	program_skeleton	ladder__rung21_global_initial_* (5)	BUILT
+rung22	lists	book: Ch.6 Lists p.72; App.D Functions get() p.281, pop() p.287 (page-verified)	bang_list|get|pull|push_put_size|put_bang	procedure	ladder__rung22_lists_* (5)	BUILT
+rung23	tables	book: Ch.6 Tables p.81	basic|default|insert_delete|key|member	table_basics	ladder__rung23_table_table_* (5)	BUILT
+rung24	records	book: Ch.6 Records p.71	basic|field_assign|proc_arg|record_loop|two_types	procedure	ladder__rung24_records_* (5)	BUILT
+rung26	power_operator_deep	book: App.D Infix Operations p.299 (verified: N1^N2 compute exponential)	int_pow|pow_assoc|pow_expr|pow_zero|real_pow	power_operator	ladder__rung26_pow_* (5)	BUILT	numbering continues past the rung25 gap (see file header)
+rung27	read_reads	book: Ch.11 Input p.135; App.D Functions read() p.288, reads() p.289 (page-verified)	read_count|read_eof_fail|read_line|read_loop|reads_bytes	loops	ladder__rung27_read_* (5)	BUILT
+rung28	string_builtins	book: Ch.4 String-Valued Functions p.52; App.D Functions char() p.277, ord() p.287, repl() p.289, reverse() p.290, trim() p.293, map() p.285 (all page-verified)	char_ord|pad|repl|reverse|trim_map	string_literal_var_concat	ladder__rung28_builtins_str_* (5)	BUILT
+rung29	type_introspection	book: Ch.10 Type Determination p.123, Copying Values p.130; App.D Functions copy() p.278, type() p.294, image() p.282 (page-verified)	copy|image|mixed|numeric|type	records	ladder__rung29_builtins_type_* (5)	BUILT
+rung30	misc_builtins	book: Ch.5 Mathematical Computations p.65; App.D Functions sqrt() p.292, seq() p.291 (page-verified), abs() p.275 (per book's own Index, p.375: "abs(), 64, 275")	abs|seq|sqrt	real_arithmetic	ladder__rung30_builtins_misc_* (3)	BUILT
+rung31	sort	book: Ch.13 Sorting Structures p.161; App.D Functions sort() p.291, sortf() p.292 (page-verified)	sort_already_sorted|sort_basic|sort_every|sortf_field1|sortf_field2	lists	ladder__rung31_sort_* (5)	BUILT
+rung32	string_return_procs	book: Ch.8 Procedure Invocation p.101; Ch.1 Procedures p.7 -- HONEST GAP: this is a combination test (procedures + string ops), not a dedicated book topic; no single book section names it	basic_strret|chain|strret_assign|strret_every|two_str_params	procedure	ladder__rung32_strretval_* (5)	BUILT
+rung33	case_of	book: Ch.2 Selection Expressions p.26 (verified: case clause); App.D Control Structures p.311 (verified: "case expr of {...}")	arith|in_proc|int|no_default|str	case_return_arm	ladder__rung33_case_case_* (5)	BUILT
+rung34	null_nonnull_test	book: App.D Prefix Operations p.297 (verified: /x check for null value), p.298 (verified: \x check for non-null value); Ch.10 The Null Value p.127	nonnull_fails|nonnull_in_every|nonnull_succeeds|null_fails|null_succeeds	control	ladder__rung34_null_test_* (5)	BUILT
+rung35	compound_block_bodies	book: Ch.1 p.7 (verified: "the braces...enclose a compound expression"); App.A Program Layout p.255	every_do_block|every_gen_block|if_block|if_else_block|nested_block|while_do_block	control	ladder__rung35_block_body_* (6)	BUILT
+rung35	string_keyed_table	book: Ch.6 Tables p.81	str_default_int_key|str_table_read	tables	ladder__rung35_table_str_* (2)	BUILT	MIXED rung: 2 constructs share rung35
+rung36	sets	book: Ch.6 Sets p.79; App.D Infix Operations p.299-300 (verified: ++ union p.299, -- diff & ** intersect p.300); Functions insert() p.282, delete() p.279, member() p.285	construct|delete_member|interdiff|refusal|union	tables	ladder__rung36_sets_* (5)	BUILT	first from-scratch ladder walk (rungs 00-35 reconciled from pre-existing witnesses); oracle-cut fresh 2026-09-03 against icont/iconx v9.5.25a. Was BUILT-RED (insert() missing set/table type-check, FINDING-2026-09-03-seat01-icon-insert-missing-set-table-type-check.md), re-verified CLEAN this session after hq_B's cure -- see file header
+rung37	bal	book: App.D Functions bal() p.276 (verified: "locate balanced characters")	custom_delims|default|refusal|vs_upto	string_scan_builtins	ladder__rung37_bal_* (4)	BUILT	oracle-cut fresh 2026-09-04 against icont/iconx v9.5.25a. Was BUILT-RED (bal() missing cset type-check, same class as rung36, FINDING-2026-09-04-seat01-icon-bal-missing-cset-type-check.md), re-verified CLEAN this session after hq_B's cure -- see file header. bal() zero-argument (position-generator) form explored against the oracle but excluded: didn't reduce to a canonical book-clear assertion in the time available, not filed as a gap
 #
 # PLANNED (not yet minted -- deliberately NOT matching ^rung[0-9]+ so DONE-WHEN's top computation stays at
 # the real frontier above, per the same Pascal-ladder ruling cited in FORMAT). Not claimed exhaustive --
