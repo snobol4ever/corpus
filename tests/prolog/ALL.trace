@@ -6172,7 +6172,7 @@
 (92) Call: call $nl
 (92) Exit: call $nl -> main/0_γ
 (1) Exit: call_proc_staged main/0 -> main_γ
-%---- ladder__rung06_declaration_directives m3 total=78 prefix=78
+%---- ladder__rung06_declaration_directives m3 total=58 prefix=58
 (1) Call: lit_integer
 (1) Exit: lit_integer -> lit_string_α
 (2) Call: lit_string xfx
@@ -6221,37 +6221,17 @@
 (24) Call: call $write
 (24) Exit: call $write -> call_α
 (25) Call: call $nl
-(25) Exit: call $nl -> lit_string_α
-(26) Call: lit_string counter
-(26) Exit: lit_string counter -> var_ref_α
-(27) Call: var_ref G2
-(27) Exit: var_ref G2 -> call_α
-(28) Call: call $mkc
-(28) Exit: call $mkc -> lit_integer_α
-(29) Call: lit_integer
-(29) Exit: lit_integer -> lit_string_α
-(30) Call: lit_string counter/1
-(30) Exit: lit_string counter/1 -> call_α
-(31) Call: call $db_alive
-(31) Exit: call $db_alive -> lit_integer_α
-(32) Call: lit_integer
-(32) Exit: lit_integer -> lit_integer_α
-(33) Call: lit_integer
-(33) Exit: lit_integer -> call_α
-(34) Call: call $db_n
-(34) Exit: call $db_n -> to_α
-(35) Call: to
-(35) Fail: to -> call_proc_staged_β
+(25) Exit: call $nl -> call_proc_staged_β
 (16) Redo: call_proc_staged foo/1
 (16) Fail: call_proc_staged foo/1 -> main/0_step
-(36) Call: lit_string second
-(36) Exit: lit_string second -> call_α
-(37) Call: call $write
-(37) Exit: call $write -> call_α
-(38) Call: call $nl
-(38) Exit: call $nl -> main/0_γ
+(26) Call: lit_string second
+(26) Exit: lit_string second -> call_α
+(27) Call: call $write
+(27) Exit: call $write -> call_α
+(28) Call: call $nl
+(28) Exit: call $nl -> main/0_γ
 (5) Exit: call_proc_staged main/0 -> pat_flat_γ
-%---- ladder__rung06_declaration_directives m4 total=78 prefix=78
+%---- ladder__rung06_declaration_directives m4 total=58 prefix=58
 (1) Call: lit_integer
 (1) Exit: lit_integer -> lit_string_α
 (2) Call: lit_string xfx
@@ -6300,35 +6280,15 @@
 (24) Call: call $write
 (24) Exit: call $write -> call_α
 (25) Call: call $nl
-(25) Exit: call $nl -> lit_string_α
-(26) Call: lit_string counter
-(26) Exit: lit_string counter -> var_ref_α
-(27) Call: var_ref G2
-(27) Exit: var_ref G2 -> call_α
-(28) Call: call $mkc
-(28) Exit: call $mkc -> lit_integer_α
-(29) Call: lit_integer
-(29) Exit: lit_integer -> lit_string_α
-(30) Call: lit_string counter/1
-(30) Exit: lit_string counter/1 -> call_α
-(31) Call: call $db_alive
-(31) Exit: call $db_alive -> lit_integer_α
-(32) Call: lit_integer
-(32) Exit: lit_integer -> lit_integer_α
-(33) Call: lit_integer
-(33) Exit: lit_integer -> call_α
-(34) Call: call $db_n
-(34) Exit: call $db_n -> to_α
-(35) Call: to
-(35) Fail: to -> call_proc_staged_β
+(25) Exit: call $nl -> call_proc_staged_β
 (16) Redo: call_proc_staged foo/1
 (16) Fail: call_proc_staged foo/1 -> main/0_step
-(36) Call: lit_string second
-(36) Exit: lit_string second -> call_α
-(37) Call: call $write
-(37) Exit: call $write -> call_α
-(38) Call: call $nl
-(38) Exit: call $nl -> main/0_γ
+(26) Call: lit_string second
+(26) Exit: lit_string second -> call_α
+(27) Call: call $write
+(27) Exit: call $write -> call_α
+(28) Call: call $nl
+(28) Exit: call $nl -> main/0_γ
 (5) Exit: call_proc_staged main/0 -> main_γ
 %---- ladder__rung06_write_family_format m3 total=76 prefix=76
 (1) Call: call_proc_staged main/0
