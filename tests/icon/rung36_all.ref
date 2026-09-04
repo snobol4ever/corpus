@@ -1319,7 +1319,7 @@ gaggle
    &dateline: ' ,:admy'  [size 7]
      &digits: &digits  [size 10]
        &dump: 0
-          &e: 2.718281828459045
+          &e: 2.718281828
       &error: 747
 &errornumber: [failed]
   &errortext: [failed]
@@ -1351,8 +1351,8 @@ gaggle
    &mrelease: -5
        &null: &null
      &output: &output
-        &phi: 1.618033988749895
-         &pi: 3.141592653589793
+        &phi: 1.618033989
+         &pi: 3.141592654
         &pos: 1
    &progname: rung36_jcon_kwds
      &random: 0
