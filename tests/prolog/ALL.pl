@@ -2768,3 +2768,36 @@ main :- atom_number('42', N), write(N), nl.
 %---------------------------------------------------------------------- 512 atom_ops_atom_string_1
 :- initialization(main).
 main :- atom_string(foo, S), write(S), nl.
+%------------------------------------------------------ 513 write_family_write_1
+:- initialization(main).
+main :- write(hello), nl.
+%----------------------------------------------------- 514 write_family_writeq_1
+:- initialization(main).
+main :- writeq('needs quotes'), nl.
+%------------------------------------------------------ 515 write_family_print_1
+:- initialization(main).
+main :- print('needs quotes'), nl.
+%-------------------------------------------- 516 write_family_write_canonical_1
+:- initialization(main).
+main :- write_canonical(1+2), nl.
+%---------------------------------------------------- 517 write_family_writeln_1
+:- initialization(main).
+main :- writeln(hello).
+%--------------------------------------------------------- 518 write_family_nl_1
+:- initialization(main).
+main :- write(a), nl, write(b), nl.
+%-------------------------------------------------------- 519 write_family_tab_1
+:- initialization(main).
+main :- write(a), tab(3), write(b), nl.
+%--------------------------------------------------- 520 write_family_put_char_1
+:- initialization(main).
+main :- put_char(x), nl.
+%--------------------------------------------------- 521 write_family_format_2_1
+:- initialization(main).
+main :- format("~w-~w~n", [a,b]).
+%----------------------------------------- 522 write_family_format_3_atom_sink_1
+:- initialization(main).
+main :- format(atom(A), "~w", [hi]), write(A), nl.
+%---------------------------------------- 523 write_family_format_3_codes_sink_1
+:- initialization(main).
+main :- format(codes(C), "~w", [hi]), write(C), nl.
