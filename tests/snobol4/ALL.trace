@@ -1,0 +1,848 @@
+%---- ladder__rung00_hello m3 total=8 prefix=8
+(1) Call: statement_begin
+(1) Exit: statement_begin -> lit_string_α
+(2) Call: lit_string hello, world
+(2) Exit: lit_string hello, world -> assign_α
+(3) Call: assign OUTPUT
+(3) Exit: assign OUTPUT -> statement_end_α
+(4) Call: statement_end
+(4) Exit: statement_end -> pat_flat_γ
+%---- ladder__rung00_hello m4 total=8 prefix=8
+(1) Call: statement_begin
+(1) Exit: statement_begin -> lit_string_α
+(2) Call: lit_string hello, world
+(2) Exit: lit_string hello, world -> assign_α
+(3) Call: assign OUTPUT
+(3) Exit: assign OUTPUT -> statement_end_α
+(4) Call: statement_end
+(4) Exit: statement_end -> main_γ
+%---- ladder__rung01_variables m3 total=16 prefix=16
+(1) Call: statement_begin
+(1) Exit: statement_begin -> lit_string_α
+(2) Call: lit_string alpha
+(2) Exit: lit_string alpha -> assign_α
+(3) Call: assign X
+(3) Exit: assign X -> statement_end_α
+(4) Call: statement_end
+(4) Exit: statement_end -> statement_begin_α
+(5) Call: statement_begin
+(5) Exit: statement_begin -> var_α
+(6) Call: var X
+(6) Exit: var X -> assign_α
+(7) Call: assign OUTPUT
+(7) Exit: assign OUTPUT -> statement_end_α
+(8) Call: statement_end
+(8) Exit: statement_end -> pat_flat_γ
+%---- ladder__rung01_variables m4 total=16 prefix=16
+(1) Call: statement_begin
+(1) Exit: statement_begin -> lit_string_α
+(2) Call: lit_string alpha
+(2) Exit: lit_string alpha -> assign_α
+(3) Call: assign X
+(3) Exit: assign X -> statement_end_α
+(4) Call: statement_end
+(4) Exit: statement_end -> statement_begin_α
+(5) Call: statement_begin
+(5) Exit: statement_begin -> var_α
+(6) Call: var X
+(6) Exit: var X -> assign_α
+(7) Call: assign OUTPUT
+(7) Exit: assign OUTPUT -> statement_end_α
+(8) Call: statement_end
+(8) Exit: statement_end -> main_γ
+%---- ladder__rung02_arithmetic m3 total=16 prefix=16
+(1) Call: statement_begin
+(1) Exit: statement_begin -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> assign_α
+(3) Call: assign OUTPUT
+(3) Exit: assign OUTPUT -> statement_end_α
+(4) Call: statement_end
+(4) Exit: statement_end -> statement_begin_α
+(5) Call: statement_begin
+(5) Exit: statement_begin -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> assign_α
+(7) Call: assign OUTPUT
+(7) Exit: assign OUTPUT -> statement_end_α
+(8) Call: statement_end
+(8) Exit: statement_end -> pat_flat_γ
+%---- ladder__rung02_arithmetic m4 total=16 prefix=16
+(1) Call: statement_begin
+(1) Exit: statement_begin -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> assign_α
+(3) Call: assign OUTPUT
+(3) Exit: assign OUTPUT -> statement_end_α
+(4) Call: statement_end
+(4) Exit: statement_end -> statement_begin_α
+(5) Call: statement_begin
+(5) Exit: statement_begin -> lit_integer_α
+(6) Call: lit_integer
+(6) Exit: lit_integer -> assign_α
+(7) Call: assign OUTPUT
+(7) Exit: assign OUTPUT -> statement_end_α
+(8) Call: statement_end
+(8) Exit: statement_end -> main_γ
+%---- ladder__rung03_concatenation m3 total=28 prefix=28
+(1) Call: statement_begin
+(1) Exit: statement_begin -> lit_string_α
+(2) Call: lit_string foo
+(2) Exit: lit_string foo -> assign_α
+(3) Call: assign A
+(3) Exit: assign A -> statement_end_α
+(4) Call: statement_end
+(4) Exit: statement_end -> statement_begin_α
+(5) Call: statement_begin
+(5) Exit: statement_begin -> lit_string_α
+(6) Call: lit_string bar
+(6) Exit: lit_string bar -> assign_α
+(7) Call: assign B
+(7) Exit: assign B -> statement_end_α
+(8) Call: statement_end
+(8) Exit: statement_end -> statement_begin_α
+(9) Call: statement_begin
+(9) Exit: statement_begin -> var_α
+(10) Call: var A
+(10) Exit: var A -> var_α
+(11) Call: var B
+(11) Exit: var B -> binop_α
+(12) Call: binop
+(12) Exit: binop -> assign_α
+(13) Call: assign OUTPUT
+(13) Exit: assign OUTPUT -> statement_end_α
+(14) Call: statement_end
+(14) Exit: statement_end -> pat_flat_γ
+%---- ladder__rung03_concatenation m4 total=28 prefix=28
+(1) Call: statement_begin
+(1) Exit: statement_begin -> lit_string_α
+(2) Call: lit_string foo
+(2) Exit: lit_string foo -> assign_α
+(3) Call: assign A
+(3) Exit: assign A -> statement_end_α
+(4) Call: statement_end
+(4) Exit: statement_end -> statement_begin_α
+(5) Call: statement_begin
+(5) Exit: statement_begin -> lit_string_α
+(6) Call: lit_string bar
+(6) Exit: lit_string bar -> assign_α
+(7) Call: assign B
+(7) Exit: assign B -> statement_end_α
+(8) Call: statement_end
+(8) Exit: statement_end -> statement_begin_α
+(9) Call: statement_begin
+(9) Exit: statement_begin -> var_α
+(10) Call: var A
+(10) Exit: var A -> var_α
+(11) Call: var B
+(11) Exit: var B -> binop_α
+(12) Call: binop
+(12) Exit: binop -> assign_α
+(13) Call: assign OUTPUT
+(13) Exit: assign OUTPUT -> statement_end_α
+(14) Call: statement_end
+(14) Exit: statement_end -> main_γ
+%---- ladder__rung04_pattern_replace m3 total=56 prefix=56
+(1) Call: statement_begin
+(1) Exit: statement_begin -> lit_string_α
+(2) Call: lit_string hello world
+(2) Exit: lit_string hello world -> assign_α
+(3) Call: assign X
+(3) Exit: assign X -> statement_end_α
+(4) Call: statement_end
+(4) Exit: statement_end -> statement_begin_α
+(5) Call: statement_begin
+(5) Exit: statement_begin -> var_α
+(6) Call: var X
+(6) Exit: var X -> match_begin_α
+(7) Call: match_begin
+(7) Exit: match_begin -> match_lit_α
+(8) Call: match_lit world
+(8) Fail: match_lit world -> match_begin_β
+(7) Redo: match_begin
+(7) Exit: match_begin -> match_lit_α
+(9) Call: match_lit world
+(9) Fail: match_lit world -> match_begin_β
+(7) Redo: match_begin
+(7) Exit: match_begin -> match_lit_α
+(10) Call: match_lit world
+(10) Fail: match_lit world -> match_begin_β
+(7) Redo: match_begin
+(7) Exit: match_begin -> match_lit_α
+(11) Call: match_lit world
+(11) Fail: match_lit world -> match_begin_β
+(7) Redo: match_begin
+(7) Exit: match_begin -> match_lit_α
+(12) Call: match_lit world
+(12) Fail: match_lit world -> match_begin_β
+(7) Redo: match_begin
+(7) Exit: match_begin -> match_lit_α
+(13) Call: match_lit world
+(13) Fail: match_lit world -> match_begin_β
+(7) Redo: match_begin
+(7) Exit: match_begin -> match_lit_α
+(14) Call: match_lit world
+(14) Exit: match_lit world -> match_end_α
+(15) Call: match_end
+(15) Exit: match_end -> lit_string_α
+(16) Call: lit_string there
+(16) Exit: lit_string there -> match_replace_α
+(17) Call: match_replace X
+(17) Exit: match_replace X -> statement_end_α
+(18) Call: statement_end
+(18) Exit: statement_end -> statement_begin_α
+(19) Call: statement_begin
+(19) Exit: statement_begin -> var_α
+(20) Call: var X
+(20) Exit: var X -> assign_α
+(21) Call: assign OUTPUT
+(21) Exit: assign OUTPUT -> statement_end_α
+(22) Call: statement_end
+(22) Exit: statement_end -> pat_flat_γ
+%---- ladder__rung04_pattern_replace m4 total=56 prefix=56
+(1) Call: statement_begin
+(1) Exit: statement_begin -> lit_string_α
+(2) Call: lit_string hello world
+(2) Exit: lit_string hello world -> assign_α
+(3) Call: assign X
+(3) Exit: assign X -> statement_end_α
+(4) Call: statement_end
+(4) Exit: statement_end -> statement_begin_α
+(5) Call: statement_begin
+(5) Exit: statement_begin -> var_α
+(6) Call: var X
+(6) Exit: var X -> match_begin_α
+(7) Call: match_begin
+(7) Exit: match_begin -> match_lit_α
+(8) Call: match_lit world
+(8) Fail: match_lit world -> match_begin_β
+(7) Redo: match_begin
+(7) Exit: match_begin -> match_lit_α
+(9) Call: match_lit world
+(9) Fail: match_lit world -> match_begin_β
+(7) Redo: match_begin
+(7) Exit: match_begin -> match_lit_α
+(10) Call: match_lit world
+(10) Fail: match_lit world -> match_begin_β
+(7) Redo: match_begin
+(7) Exit: match_begin -> match_lit_α
+(11) Call: match_lit world
+(11) Fail: match_lit world -> match_begin_β
+(7) Redo: match_begin
+(7) Exit: match_begin -> match_lit_α
+(12) Call: match_lit world
+(12) Fail: match_lit world -> match_begin_β
+(7) Redo: match_begin
+(7) Exit: match_begin -> match_lit_α
+(13) Call: match_lit world
+(13) Fail: match_lit world -> match_begin_β
+(7) Redo: match_begin
+(7) Exit: match_begin -> match_lit_α
+(14) Call: match_lit world
+(14) Exit: match_lit world -> match_end_α
+(15) Call: match_end
+(15) Exit: match_end -> lit_string_α
+(16) Call: lit_string there
+(16) Exit: lit_string there -> match_replace_α
+(17) Call: match_replace X
+(17) Exit: match_replace X -> statement_end_α
+(18) Call: statement_end
+(18) Exit: statement_end -> statement_begin_α
+(19) Call: statement_begin
+(19) Exit: statement_begin -> var_α
+(20) Call: var X
+(20) Exit: var X -> assign_α
+(21) Call: assign OUTPUT
+(21) Exit: assign OUTPUT -> statement_end_α
+(22) Call: statement_end
+(22) Exit: statement_end -> main_γ
+%---- ladder__rung07_table m3 total=34 prefix=34
+(1) Call: statement_begin
+(1) Exit: statement_begin -> call_α
+(2) Call: call TABLE
+(2) Exit: call TABLE -> assign_α
+(3) Call: assign T
+(3) Exit: assign T -> statement_end_α
+(4) Call: statement_end
+(4) Exit: statement_end -> statement_begin_α
+(5) Call: statement_begin
+(5) Exit: statement_begin -> var_α
+(6) Call: var T
+(6) Exit: var T -> lit_string_α
+(7) Call: lit_string k
+(7) Exit: lit_string k -> lit_string_α
+(8) Call: lit_string v
+(8) Exit: lit_string v -> assign_var_α
+(9) Call: assign_var
+(9) Exit: assign_var -> statement_end_α
+(10) Call: statement_end
+(10) Exit: statement_end -> statement_begin_α
+(11) Call: statement_begin
+(11) Exit: statement_begin -> var_α
+(12) Call: var T
+(12) Exit: var T -> lit_string_α
+(13) Call: lit_string k
+(13) Exit: lit_string k -> subscript_α
+(14) Call: subscript container-only
+(14) Exit: subscript container-only -> deref_α
+(15) Call: deref
+(15) Exit: deref -> assign_α
+(16) Call: assign OUTPUT
+(16) Exit: assign OUTPUT -> statement_end_α
+(17) Call: statement_end
+(17) Exit: statement_end -> pat_flat_γ
+%---- ladder__rung07_table m4 total=34 prefix=34
+(1) Call: statement_begin
+(1) Exit: statement_begin -> call_α
+(2) Call: call TABLE
+(2) Exit: call TABLE -> assign_α
+(3) Call: assign T
+(3) Exit: assign T -> statement_end_α
+(4) Call: statement_end
+(4) Exit: statement_end -> statement_begin_α
+(5) Call: statement_begin
+(5) Exit: statement_begin -> var_α
+(6) Call: var T
+(6) Exit: var T -> lit_string_α
+(7) Call: lit_string k
+(7) Exit: lit_string k -> lit_string_α
+(8) Call: lit_string v
+(8) Exit: lit_string v -> assign_var_α
+(9) Call: assign_var
+(9) Exit: assign_var -> statement_end_α
+(10) Call: statement_end
+(10) Exit: statement_end -> statement_begin_α
+(11) Call: statement_begin
+(11) Exit: statement_begin -> var_α
+(12) Call: var T
+(12) Exit: var T -> lit_string_α
+(13) Call: lit_string k
+(13) Exit: lit_string k -> subscript_α
+(14) Call: subscript container-only
+(14) Exit: subscript container-only -> deref_α
+(15) Call: deref
+(15) Exit: deref -> assign_α
+(16) Call: assign OUTPUT
+(16) Exit: assign OUTPUT -> statement_end_α
+(17) Call: statement_end
+(17) Exit: statement_end -> main_γ
+%---- ladder__rung06_array m3 total=58 prefix=58
+(1) Call: statement_begin
+(1) Exit: statement_begin -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> call_α
+(3) Call: call ARRAY
+(3) Exit: call ARRAY -> assign_α
+(4) Call: assign A
+(4) Exit: assign A -> statement_end_α
+(5) Call: statement_end
+(5) Exit: statement_end -> statement_begin_α
+(6) Call: statement_begin
+(6) Exit: statement_begin -> var_α
+(7) Call: var A
+(7) Exit: var A -> lit_integer_α
+(8) Call: lit_integer
+(8) Exit: lit_integer -> lit_string_α
+(9) Call: lit_string one
+(9) Exit: lit_string one -> assign_var_α
+(10) Call: assign_var
+(10) Exit: assign_var -> statement_end_α
+(11) Call: statement_end
+(11) Exit: statement_end -> statement_begin_α
+(12) Call: statement_begin
+(12) Exit: statement_begin -> var_α
+(13) Call: var A
+(13) Exit: var A -> lit_integer_α
+(14) Call: lit_integer
+(14) Exit: lit_integer -> lit_string_α
+(15) Call: lit_string two
+(15) Exit: lit_string two -> assign_var_α
+(16) Call: assign_var
+(16) Exit: assign_var -> statement_end_α
+(17) Call: statement_end
+(17) Exit: statement_end -> statement_begin_α
+(18) Call: statement_begin
+(18) Exit: statement_begin -> var_α
+(19) Call: var A
+(19) Exit: var A -> lit_integer_α
+(20) Call: lit_integer
+(20) Exit: lit_integer -> subscript_α
+(21) Call: subscript container-only
+(21) Exit: subscript container-only -> deref_α
+(22) Call: deref
+(22) Exit: deref -> var_α
+(23) Call: var A
+(23) Exit: var A -> lit_integer_α
+(24) Call: lit_integer
+(24) Exit: lit_integer -> subscript_α
+(25) Call: subscript container-only
+(25) Exit: subscript container-only -> deref_α
+(26) Call: deref
+(26) Exit: deref -> binop_α
+(27) Call: binop
+(27) Exit: binop -> assign_α
+(28) Call: assign OUTPUT
+(28) Exit: assign OUTPUT -> statement_end_α
+(29) Call: statement_end
+(29) Exit: statement_end -> pat_flat_γ
+%---- ladder__rung06_array m4 total=58 prefix=58
+(1) Call: statement_begin
+(1) Exit: statement_begin -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> call_α
+(3) Call: call ARRAY
+(3) Exit: call ARRAY -> assign_α
+(4) Call: assign A
+(4) Exit: assign A -> statement_end_α
+(5) Call: statement_end
+(5) Exit: statement_end -> statement_begin_α
+(6) Call: statement_begin
+(6) Exit: statement_begin -> var_α
+(7) Call: var A
+(7) Exit: var A -> lit_integer_α
+(8) Call: lit_integer
+(8) Exit: lit_integer -> lit_string_α
+(9) Call: lit_string one
+(9) Exit: lit_string one -> assign_var_α
+(10) Call: assign_var
+(10) Exit: assign_var -> statement_end_α
+(11) Call: statement_end
+(11) Exit: statement_end -> statement_begin_α
+(12) Call: statement_begin
+(12) Exit: statement_begin -> var_α
+(13) Call: var A
+(13) Exit: var A -> lit_integer_α
+(14) Call: lit_integer
+(14) Exit: lit_integer -> lit_string_α
+(15) Call: lit_string two
+(15) Exit: lit_string two -> assign_var_α
+(16) Call: assign_var
+(16) Exit: assign_var -> statement_end_α
+(17) Call: statement_end
+(17) Exit: statement_end -> statement_begin_α
+(18) Call: statement_begin
+(18) Exit: statement_begin -> var_α
+(19) Call: var A
+(19) Exit: var A -> lit_integer_α
+(20) Call: lit_integer
+(20) Exit: lit_integer -> subscript_α
+(21) Call: subscript container-only
+(21) Exit: subscript container-only -> deref_α
+(22) Call: deref
+(22) Exit: deref -> var_α
+(23) Call: var A
+(23) Exit: var A -> lit_integer_α
+(24) Call: lit_integer
+(24) Exit: lit_integer -> subscript_α
+(25) Call: subscript container-only
+(25) Exit: subscript container-only -> deref_α
+(26) Call: deref
+(26) Exit: deref -> binop_α
+(27) Call: binop
+(27) Exit: binop -> assign_α
+(28) Call: assign OUTPUT
+(28) Exit: assign OUTPUT -> statement_end_α
+(29) Call: statement_end
+(29) Exit: statement_end -> main_γ
+%---- ladder__rung05_conditional_goto m3 total=122 prefix=122
+(1) Call: statement_begin
+(1) Exit: statement_begin -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> assign_α
+(3) Call: assign N
+(3) Exit: assign N -> statement_end_α
+(4) Call: statement_end
+(4) Exit: statement_end -> statement_begin_α
+(5) Call: statement_begin
+(5) Exit: statement_begin -> var_α
+(6) Call: var N
+(6) Exit: var N -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> coerce_numeric_α
+(8) Call: coerce_numeric
+(8) Exit: coerce_numeric -> coerce_numeric_α
+(9) Call: coerce_numeric
+(9) Exit: coerce_numeric -> cmp_test_α
+(10) Call: cmp_test
+(10) Exit: cmp_test -> var_α
+(11) Call: var N
+(11) Exit: var N -> lit_integer_α
+(12) Call: lit_integer
+(12) Exit: lit_integer -> binop_α
+(13) Call: binop
+(13) Exit: binop -> assign_α
+(14) Call: assign N
+(14) Exit: assign N -> statement_end_α
+(15) Call: statement_end
+(15) Exit: statement_end -> statement_begin_α
+(16) Call: statement_begin
+(16) Exit: statement_begin -> var_α
+(17) Call: var N
+(17) Exit: var N -> assign_α
+(18) Call: assign OUTPUT
+(18) Exit: assign OUTPUT -> statement_end_α
+(19) Call: statement_end
+(19) Exit: statement_end -> statement_begin_α
+(20) Call: statement_begin
+(20) Exit: statement_begin -> var_α
+(21) Call: var N
+(21) Exit: var N -> lit_integer_α
+(22) Call: lit_integer
+(22) Exit: lit_integer -> coerce_numeric_α
+(23) Call: coerce_numeric
+(23) Exit: coerce_numeric -> coerce_numeric_α
+(24) Call: coerce_numeric
+(24) Exit: coerce_numeric -> cmp_test_α
+(25) Call: cmp_test
+(25) Exit: cmp_test -> var_α
+(26) Call: var N
+(26) Exit: var N -> lit_integer_α
+(27) Call: lit_integer
+(27) Exit: lit_integer -> binop_α
+(28) Call: binop
+(28) Exit: binop -> assign_α
+(29) Call: assign N
+(29) Exit: assign N -> statement_end_α
+(30) Call: statement_end
+(30) Exit: statement_end -> statement_begin_α
+(31) Call: statement_begin
+(31) Exit: statement_begin -> var_α
+(32) Call: var N
+(32) Exit: var N -> assign_α
+(33) Call: assign OUTPUT
+(33) Exit: assign OUTPUT -> statement_end_α
+(34) Call: statement_end
+(34) Exit: statement_end -> statement_begin_α
+(35) Call: statement_begin
+(35) Exit: statement_begin -> var_α
+(36) Call: var N
+(36) Exit: var N -> lit_integer_α
+(37) Call: lit_integer
+(37) Exit: lit_integer -> coerce_numeric_α
+(38) Call: coerce_numeric
+(38) Exit: coerce_numeric -> coerce_numeric_α
+(39) Call: coerce_numeric
+(39) Exit: coerce_numeric -> cmp_test_α
+(40) Call: cmp_test
+(40) Exit: cmp_test -> var_α
+(41) Call: var N
+(41) Exit: var N -> lit_integer_α
+(42) Call: lit_integer
+(42) Exit: lit_integer -> binop_α
+(43) Call: binop
+(43) Exit: binop -> assign_α
+(44) Call: assign N
+(44) Exit: assign N -> statement_end_α
+(45) Call: statement_end
+(45) Exit: statement_end -> statement_begin_α
+(46) Call: statement_begin
+(46) Exit: statement_begin -> var_α
+(47) Call: var N
+(47) Exit: var N -> assign_α
+(48) Call: assign OUTPUT
+(48) Exit: assign OUTPUT -> statement_end_α
+(49) Call: statement_end
+(49) Exit: statement_end -> statement_begin_α
+(50) Call: statement_begin
+(50) Exit: statement_begin -> var_α
+(51) Call: var N
+(51) Exit: var N -> lit_integer_α
+(52) Call: lit_integer
+(52) Exit: lit_integer -> coerce_numeric_α
+(53) Call: coerce_numeric
+(53) Exit: coerce_numeric -> coerce_numeric_α
+(54) Call: coerce_numeric
+(54) Exit: coerce_numeric -> cmp_test_α
+(55) Call: cmp_test
+(55) Fail: cmp_test -> coerce_numeric_β
+(54) Redo: coerce_numeric
+(54) Fail: coerce_numeric -> coerce_numeric_β
+(53) Redo: coerce_numeric
+(53) Fail: coerce_numeric -> lit_integer_β
+(52) Redo: lit_integer
+(52) Fail: lit_integer -> statement_begin_β
+(50) Redo: statement_begin
+(50) Fail: statement_begin -> statement_begin_α
+(56) Call: statement_begin
+(56) Exit: statement_begin -> statement_end_α
+(57) Call: statement_end
+(57) Exit: statement_end -> pat_flat_γ
+%---- ladder__rung05_conditional_goto m4 total=122 prefix=122
+(1) Call: statement_begin
+(1) Exit: statement_begin -> lit_integer_α
+(2) Call: lit_integer
+(2) Exit: lit_integer -> assign_α
+(3) Call: assign N
+(3) Exit: assign N -> statement_end_α
+(4) Call: statement_end
+(4) Exit: statement_end -> statement_begin_α
+(5) Call: statement_begin
+(5) Exit: statement_begin -> var_α
+(6) Call: var N
+(6) Exit: var N -> lit_integer_α
+(7) Call: lit_integer
+(7) Exit: lit_integer -> coerce_numeric_α
+(8) Call: coerce_numeric
+(8) Exit: coerce_numeric -> coerce_numeric_α
+(9) Call: coerce_numeric
+(9) Exit: coerce_numeric -> cmp_test_α
+(10) Call: cmp_test
+(10) Exit: cmp_test -> var_α
+(11) Call: var N
+(11) Exit: var N -> lit_integer_α
+(12) Call: lit_integer
+(12) Exit: lit_integer -> binop_α
+(13) Call: binop
+(13) Exit: binop -> assign_α
+(14) Call: assign N
+(14) Exit: assign N -> statement_end_α
+(15) Call: statement_end
+(15) Exit: statement_end -> statement_begin_α
+(16) Call: statement_begin
+(16) Exit: statement_begin -> var_α
+(17) Call: var N
+(17) Exit: var N -> assign_α
+(18) Call: assign OUTPUT
+(18) Exit: assign OUTPUT -> statement_end_α
+(19) Call: statement_end
+(19) Exit: statement_end -> statement_begin_α
+(20) Call: statement_begin
+(20) Exit: statement_begin -> var_α
+(21) Call: var N
+(21) Exit: var N -> lit_integer_α
+(22) Call: lit_integer
+(22) Exit: lit_integer -> coerce_numeric_α
+(23) Call: coerce_numeric
+(23) Exit: coerce_numeric -> coerce_numeric_α
+(24) Call: coerce_numeric
+(24) Exit: coerce_numeric -> cmp_test_α
+(25) Call: cmp_test
+(25) Exit: cmp_test -> var_α
+(26) Call: var N
+(26) Exit: var N -> lit_integer_α
+(27) Call: lit_integer
+(27) Exit: lit_integer -> binop_α
+(28) Call: binop
+(28) Exit: binop -> assign_α
+(29) Call: assign N
+(29) Exit: assign N -> statement_end_α
+(30) Call: statement_end
+(30) Exit: statement_end -> statement_begin_α
+(31) Call: statement_begin
+(31) Exit: statement_begin -> var_α
+(32) Call: var N
+(32) Exit: var N -> assign_α
+(33) Call: assign OUTPUT
+(33) Exit: assign OUTPUT -> statement_end_α
+(34) Call: statement_end
+(34) Exit: statement_end -> statement_begin_α
+(35) Call: statement_begin
+(35) Exit: statement_begin -> var_α
+(36) Call: var N
+(36) Exit: var N -> lit_integer_α
+(37) Call: lit_integer
+(37) Exit: lit_integer -> coerce_numeric_α
+(38) Call: coerce_numeric
+(38) Exit: coerce_numeric -> coerce_numeric_α
+(39) Call: coerce_numeric
+(39) Exit: coerce_numeric -> cmp_test_α
+(40) Call: cmp_test
+(40) Exit: cmp_test -> var_α
+(41) Call: var N
+(41) Exit: var N -> lit_integer_α
+(42) Call: lit_integer
+(42) Exit: lit_integer -> binop_α
+(43) Call: binop
+(43) Exit: binop -> assign_α
+(44) Call: assign N
+(44) Exit: assign N -> statement_end_α
+(45) Call: statement_end
+(45) Exit: statement_end -> statement_begin_α
+(46) Call: statement_begin
+(46) Exit: statement_begin -> var_α
+(47) Call: var N
+(47) Exit: var N -> assign_α
+(48) Call: assign OUTPUT
+(48) Exit: assign OUTPUT -> statement_end_α
+(49) Call: statement_end
+(49) Exit: statement_end -> statement_begin_α
+(50) Call: statement_begin
+(50) Exit: statement_begin -> var_α
+(51) Call: var N
+(51) Exit: var N -> lit_integer_α
+(52) Call: lit_integer
+(52) Exit: lit_integer -> coerce_numeric_α
+(53) Call: coerce_numeric
+(53) Exit: coerce_numeric -> coerce_numeric_α
+(54) Call: coerce_numeric
+(54) Exit: coerce_numeric -> cmp_test_α
+(55) Call: cmp_test
+(55) Fail: cmp_test -> coerce_numeric_β
+(54) Redo: coerce_numeric
+(54) Fail: coerce_numeric -> coerce_numeric_β
+(53) Redo: coerce_numeric
+(53) Fail: coerce_numeric -> lit_integer_β
+(52) Redo: lit_integer
+(52) Fail: lit_integer -> statement_begin_β
+(50) Redo: statement_begin
+(50) Fail: statement_begin -> statement_begin_α
+(56) Call: statement_begin
+(56) Exit: statement_begin -> statement_end_α
+(57) Call: statement_end
+(57) Exit: statement_end -> main_γ
+%---- ladder__rung08_define_function m3 total=32 prefix=32
+(1) Call: statement_begin
+(1) Exit: statement_begin -> define_α
+(2) Call: define DBL
+(3) Call: statement_end
+(3) Exit: statement_end -> statement_begin_α
+(4) Call: statement_begin
+(4) Exit: statement_begin -> lit_integer_α
+(5) Call: lit_integer
+(5) Exit: lit_integer -> call_α
+(6) Call: call DBL
+(7) Call: LBL__DBL
+(7) Exit: LBL__DBL -> var_α
+(8) Call: var N
+(8) Exit: var N -> var_α
+(9) Call: var N
+(9) Exit: var N -> binop_α
+(10) Call: binop
+(10) Exit: binop -> assign_α
+(11) Call: assign DBL
+(11) Exit: assign DBL -> statement_end_α
+(12) Call: statement_end
+(12) Exit: statement_end -> RETURN
+(13) Call: RETURN
+(6) Exit: call DBL -> assign_α
+(14) Call: assign OUTPUT
+(14) Exit: assign OUTPUT -> statement_end_α
+(15) Call: statement_end
+(15) Exit: statement_end -> statement_begin_α
+(16) Call: statement_begin
+(16) Exit: statement_begin -> statement_end_α
+(17) Call: statement_end
+(17) Exit: statement_end -> pat_flat_γ
+%---- ladder__rung08_define_function m4 total=32 prefix=32
+(1) Call: statement_begin
+(1) Exit: statement_begin -> define_α
+(2) Call: define DBL
+(3) Call: statement_end
+(3) Exit: statement_end -> statement_begin_α
+(4) Call: statement_begin
+(4) Exit: statement_begin -> lit_integer_α
+(5) Call: lit_integer
+(5) Exit: lit_integer -> call_α
+(6) Call: call DBL
+(7) Call: statement_begin
+(7) Exit: statement_begin -> var_α
+(8) Call: var N
+(8) Exit: var N -> var_α
+(9) Call: var N
+(9) Exit: var N -> binop_α
+(10) Call: binop
+(10) Exit: binop -> assign_α
+(11) Call: assign DBL
+(11) Exit: assign DBL -> statement_end_α
+(12) Call: statement_end
+(12) Exit: statement_end -> RETURN
+(13) Call: RETURN
+(6) Exit: call DBL -> assign_α
+(14) Call: assign OUTPUT
+(14) Exit: assign OUTPUT -> statement_end_α
+(15) Call: statement_end
+(15) Exit: statement_end -> statement_begin_α
+(16) Call: statement_begin
+(16) Exit: statement_begin -> statement_end_α
+(17) Call: statement_end
+(17) Exit: statement_end -> main_γ
+%---- ladder__rung09_pattern_capture m3 total=44 prefix=44
+(1) Call: statement_begin
+(1) Exit: statement_begin -> lit_string_α
+(2) Call: lit_string abcdef
+(2) Exit: lit_string abcdef -> assign_α
+(3) Call: assign X
+(3) Exit: assign X -> statement_end_α
+(4) Call: statement_end
+(4) Exit: statement_end -> statement_begin_α
+(5) Call: statement_begin
+(5) Exit: statement_begin -> var_α
+(6) Call: var X
+(6) Exit: var X -> match_begin_α
+(7) Call: match_begin
+(7) Exit: match_begin -> match_assign_save_α
+(8) Call: match_assign_save P
+(8) Exit: match_assign_save P -> match_len_α
+(9) Call: match_len
+(9) Exit: match_len -> match_assign_cond_α
+(10) Call: match_assign_cond P
+(10) Exit: match_assign_cond P -> match_end_α
+(11) Call: match_end
+(11) Exit: match_end -> lit_string_α
+(12) Call: lit_string
+(12) Exit: lit_string -> match_replace_α
+(13) Call: match_replace X
+(13) Exit: match_replace X -> statement_end_α
+(14) Call: statement_end
+(14) Exit: statement_end -> statement_begin_α
+(15) Call: statement_begin
+(15) Exit: statement_begin -> var_α
+(16) Call: var P
+(16) Exit: var P -> assign_α
+(17) Call: assign OUTPUT
+(17) Exit: assign OUTPUT -> statement_end_α
+(18) Call: statement_end
+(18) Exit: statement_end -> statement_begin_α
+(19) Call: statement_begin
+(19) Exit: statement_begin -> var_α
+(20) Call: var X
+(20) Exit: var X -> assign_α
+(21) Call: assign OUTPUT
+(21) Exit: assign OUTPUT -> statement_end_α
+(22) Call: statement_end
+(22) Exit: statement_end -> pat_flat_γ
+%---- ladder__rung09_pattern_capture m4 total=44 prefix=44
+(1) Call: statement_begin
+(1) Exit: statement_begin -> lit_string_α
+(2) Call: lit_string abcdef
+(2) Exit: lit_string abcdef -> assign_α
+(3) Call: assign X
+(3) Exit: assign X -> statement_end_α
+(4) Call: statement_end
+(4) Exit: statement_end -> statement_begin_α
+(5) Call: statement_begin
+(5) Exit: statement_begin -> var_α
+(6) Call: var X
+(6) Exit: var X -> match_begin_α
+(7) Call: match_begin
+(7) Exit: match_begin -> match_assign_save_α
+(8) Call: match_assign_save P
+(8) Exit: match_assign_save P -> match_len_α
+(9) Call: match_len
+(9) Exit: match_len -> match_assign_cond_α
+(10) Call: match_assign_cond P
+(10) Exit: match_assign_cond P -> match_end_α
+(11) Call: match_end
+(11) Exit: match_end -> lit_string_α
+(12) Call: lit_string
+(12) Exit: lit_string -> match_replace_α
+(13) Call: match_replace X
+(13) Exit: match_replace X -> statement_end_α
+(14) Call: statement_end
+(14) Exit: statement_end -> statement_begin_α
+(15) Call: statement_begin
+(15) Exit: statement_begin -> var_α
+(16) Call: var P
+(16) Exit: var P -> assign_α
+(17) Call: assign OUTPUT
+(17) Exit: assign OUTPUT -> statement_end_α
+(18) Call: statement_end
+(18) Exit: statement_end -> statement_begin_α
+(19) Call: statement_begin
+(19) Exit: statement_begin -> var_α
+(20) Call: var X
+(20) Exit: var X -> assign_α
+(21) Call: assign OUTPUT
+(21) Exit: assign OUTPUT -> statement_end_α
+(22) Call: statement_end
+(22) Exit: statement_end -> main_γ
