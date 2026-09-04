@@ -2693,3 +2693,36 @@ main :- msort([3, 1, 2, 1], L), write(L), nl.
 %---------------------------------------------------------------------- 487 term_compare_keysort_2_1
 :- initialization(main).
 main :- keysort([b-2, a-1, a-3], L), write(L), nl.
+%---------------------------------------------------------------------- 488 type_test_var_1
+:- initialization(main).
+main :- (var(_) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 489 type_test_nonvar_1
+:- initialization(main).
+main :- (nonvar(bound) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 490 type_test_atom_1
+:- initialization(main).
+main :- (atom(foo) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 491 type_test_number_1
+:- initialization(main).
+main :- (number(42) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 492 type_test_integer_1
+:- initialization(main).
+main :- (integer(42) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 493 type_test_float_1
+:- initialization(main).
+main :- (float(3.14) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 494 type_test_atomic_1
+:- initialization(main).
+main :- (atomic(foo) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 495 type_test_compound_1
+:- initialization(main).
+main :- (compound(foo(1, 2)) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 496 type_test_callable_1
+:- initialization(main).
+main :- (callable(foo) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 497 type_test_is_list_1
+:- initialization(main).
+main :- (is_list([1, 2, 3]) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 498 type_test_ground_1
+:- initialization(main).
+main :- (ground(foo(1, bar(2))) -> write(yes) ; write(no)), nl.
