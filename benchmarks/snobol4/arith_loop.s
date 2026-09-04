@@ -15,6 +15,11 @@ main:
                         lea              rdi, [rip + __gva_names]
                         mov              edx, 4
                         call             gva_register@PLT
+                        mov              rdi, qword ptr [rsp]
+                        add              rdi, 8
+                        mov              esi, dword ptr [rsp + 8]
+                        sub              esi, 1
+                        call             rt_main_args_stage@PLT
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
