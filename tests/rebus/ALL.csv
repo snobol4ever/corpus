@@ -60,8 +60,11 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 59,simple_output_8,parser_multi_func__parser_multi_func,parser_multi_func,block,0,15,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 60,capture_1,parser_capture_cond__parser_capture_cond,parser_capture_cond,block,0,3,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 61,imm_capture_1,parser_capture_imm__parser_capture_imm,parser_capture_imm,block,0,3,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
-62,indirect_1,parser__deref_basic,parser,block,0,4,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
-63,keyword_1,parser__keyword_assign,parser,block,0,4,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
-64,alt_1,parser_augmented_assign__parser_augmented_assign,parser_augmented_assign,block,0,6,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
-65,array_replace_1,parser_comprehensive__parser_comprehensive,parser_comprehensive,block,0,19,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-66,simple_output_25,ladder__rung07_refuse_field_of_nonrecord__ladder__rung07_refuse_field_of_nonrecord,ladder,block,1,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+62,alt_replace_1,ladder__rung09_alt_prefix_variety__ladder__rung09_alt_prefix_variety,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+63,alt_replace_2,ladder__rung09_alt_scan_match__ladder__rung09_alt_scan_match,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+64,indirect_1,parser__deref_basic,parser,block,0,4,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+65,keyword_1,parser__keyword_assign,parser,block,0,4,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+66,alt_1,parser_augmented_assign__parser_augmented_assign,parser_augmented_assign,block,0,6,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+67,array_replace_1,parser_comprehensive__parser_comprehensive,parser_comprehensive,block,0,19,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+68,simple_output_25,ladder__rung07_refuse_field_of_nonrecord__ladder__rung07_refuse_field_of_nonrecord,ladder,block,1,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+69,alt_replace_3,ladder__rung09_refuse_alt_as_number__ladder__rung09_refuse_alt_as_number,ladder,block,1,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0

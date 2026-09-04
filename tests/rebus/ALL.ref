@@ -727,7 +727,13 @@ end
 (STMT :go RETURN)
 (STMT :lbl rb_1)
 (STMT :subj (TT_FNC MAIN))
-#----------------------------------------------------------------- 62 indirect_1
+#-------------------------------------------------------------- 62 alt_replace_1
+matched
+matched
+#-------------------------------------------------------------- 63 alt_replace_2
+matched
+no match
+#----------------------------------------------------------------- 64 indirect_1
 (STMT :subj (TT_FNC DEFINE (TT_QLIT "MAIN()")))
 (STMT :go rb_1)
 (STMT :lbl MAIN)
@@ -736,7 +742,7 @@ end
 (STMT :go RETURN)
 (STMT :lbl rb_1)
 (STMT :subj (TT_FNC MAIN))
-#------------------------------------------------------------------ 63 keyword_1
+#------------------------------------------------------------------ 65 keyword_1
 (STMT :subj (TT_FNC DEFINE (TT_QLIT "MAIN()")))
 (STMT :go rb_1)
 (STMT :lbl MAIN)
@@ -745,7 +751,7 @@ end
 (STMT :go RETURN)
 (STMT :lbl rb_1)
 (STMT :subj (TT_FNC MAIN))
-#---------------------------------------------------------------------- 64 alt_1
+#---------------------------------------------------------------------- 66 alt_1
 (STMT :subj (TT_FNC DEFINE (TT_QLIT "MAIN()")))
 (STMT :go rb_1)
 (STMT :lbl MAIN)
@@ -768,7 +774,7 @@ end
 (STMT :go RETURN)
 (STMT :lbl rb_1)
 (STMT :subj (TT_FNC MAIN))
-#------------------------------------------------------------ 65 array_replace_1
+#------------------------------------------------------------ 67 array_replace_1
 (STMT :subj (TT_FNC DATA (TT_QLIT "STACK(TOP,DATA)")))
 (STMT :subj (TT_FNC DEFINE (TT_QLIT "PUSH(S,V)")))
 (STMT :go rb_1)
@@ -825,5 +831,7 @@ end
 (STMT :go RETURN)
 (STMT :lbl rb_3)
 (STMT :subj (TT_FNC MAIN))
-#----------------------------------------------------- 66 simple_output_25 XFAIL
+#----------------------------------------------------- 68 simple_output_25 XFAIL
+before
+#-------------------------------------------------------- 69 alt_replace_3 XFAIL
 before

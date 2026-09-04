@@ -9,3 +9,11 @@
 # and m4 exit rc=1 with stdout byte-identical (7 bytes, "before\n"). This is the rung07 REFUSE witness; see
 # task LEDGER for rung06's zero-byte-output trap this design deliberately avoids.
 simple_output_25	1
+#
+# alt_replace_3 (origin ladder__rung09_refuse_alt_as_number): `1 | 2 | 3` outside a scan/pattern context
+# is a genuine SNOBOL4 PATTERN value (TT_ALT lowers to the native pattern-alternation operator, not an
+# Icon-style generator -- confirmed empirically: `x := 1|2|3; OUTPUT := x` prints "PATTERN", the datatype
+# name), so comparing it numerically (`= 2`) is a type error: "Error 101: eq first argument is not
+# numeric" on stderr, rc=1 both modes (m4: the COMPILE step exits 0 as expected -- this is a RUNTIME
+# error -- the emitted BINARY exits rc=1 when run, confirmed). stdout unaffected at "before\n".
+alt_replace_3	1

@@ -363,24 +363,34 @@ end
 function main()
     x ? "world" $ z
 end
-#----------------------------------------------------------------- 62 indirect_1
+#-------------------------------------------------------------- 62 alt_replace_1
+function main()
+if "cat" ? ("cat" | "category") then OUTPUT := "matched" else OUTPUT := "no match"
+if "category" ? ("cat" | "category") then OUTPUT := "matched" else OUTPUT := "no match"
+end
+#-------------------------------------------------------------- 63 alt_replace_2
+function main()
+if "banana" ? ("apple" | "banana" | "cherry") then OUTPUT := "matched" else OUTPUT := "no match"
+if "kiwi" ? ("apple" | "banana" | "cherry") then OUTPUT := "matched" else OUTPUT := "no match"
+end
+#----------------------------------------------------------------- 64 indirect_1
 function main()
   x := $y
   z := $"name"
 end
-#------------------------------------------------------------------ 63 keyword_1
+#------------------------------------------------------------------ 65 keyword_1
 function main()
     &FULLSCAN := 1
     &ANCHOR := 0
 end
-#---------------------------------------------------------------------- 64 alt_1
+#---------------------------------------------------------------------- 66 alt_1
 function main()
   x +:= 1
   y -:= 2
   z ||:= "hi"
   a :=: b
 end
-#------------------------------------------------------------ 65 array_replace_1
+#------------------------------------------------------------ 67 array_replace_1
 record Stack(top, data)
 
 function push(s, v)
@@ -400,10 +410,15 @@ push(s, 42)
 push(s, 99)
 OUTPUT := pop(s)
 end
-#----------------------------------------------------- 66 simple_output_25 XFAIL
+#----------------------------------------------------- 68 simple_output_25 XFAIL
 record point(x, y)
 
 function main()
 OUTPUT := "before"
 OUTPUT := x(5)
+end
+#-------------------------------------------------------- 69 alt_replace_3 XFAIL
+function main()
+OUTPUT := "before"
+if (1 | 2 | 3) = 2 then OUTPUT := "matched"
 end
