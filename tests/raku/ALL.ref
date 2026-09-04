@@ -2188,3 +2188,9 @@ A-
 #---------------------------------------- 857 class_method_range_replace_3 XFAIL
 #------------------------------------------- 858 class_multi_sub_replace_5 XFAIL
 #------------------------------------------- 859 class_multi_sub_replace_6 XFAIL
+#-------------------------------------- 860 ladder__rung00_hello_numeric_literal
+42
+#---------------------------------------- 861 ladder__rung00_hello_multiple_args
+abc
+#------------------------------------- 862 ladder__rung00_hello_print_no_newline
+no newlineend

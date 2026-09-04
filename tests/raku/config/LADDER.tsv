@@ -1,0 +1,39 @@
+# Raku construct ladder -- rung/construct/form declarations.
+# Row raku-ladder-every-feature-in-isolation-with-variations (ceo mint 2026-09-04, on Lon's order:
+#   "Make tasks to ensure a complete test ladder covering every feature in isolation with variations and
+#    then combinations of features.")
+# SCHEMA is hq_T's shared eight-column one (row ladder-forms-column-and-forms-check-every-declared-form-and-
+# pair-has-a-witness): RUNG CONSTRUCT REFERENCE FORMS PAIRS WITNESS_ORIGIN STATUS NOTE. FORMS is |-separated,
+# one entry per form the reference lists; PAIRS is |-separated lower-rung CONSTRUCT slugs this construct must
+# be combined with in the combinations phase (sibling row raku-ladder-feature-combinations-after-isolation,
+# opens once this row's rungs are green -- not started here).
+# Expected origins: isolation ladder__<rung>_<construct-ish>_<form> · combinations ladder__<rung>_<construct-ish>_with_<lower>.
+#
+# REFERENCE cites roast (the official Raku spec-test suite, vendored at /home/resources/roast-master) by its
+# Synopsis-numbered directory/file, per the task's "roast S-numbers" instruction -- NOT what SCRIP happens to
+# implement, so a census that only named the implementation could never show a gap. Oracle is Rakudo 2026.05
+# (rakudo_bin() in lib_oracle_flags.sh, prefers /home/resources/rakudo-local/bin/raku).
+#
+# RUNGS 00-09 were built pre-census (row raku-construct-ladder-from-rung-0, seat11 2026-09-03: one coarse
+# witness per rung, verified against Rakudo). This file is their FIRST declared census (task step 1), written
+# by re-reading each witness's actual source rather than assumed from its name. rung00 was walked further
+# this session (3 new per-form witnesses minted, oracle-cut, each proven to FAIL once against a deliberately
+# corrupted .ref before being restored -- see this row's LEDGER) and is the first rung fully BUILT under the
+# amended schema. Rungs 01-09 are PARTIAL, same shape as the prolog census this schema was proven on: the
+# pre-existing witness bundles several forms into one origin (named to satisfy exactly the ONE form matching
+# its own suffix, matching that census's own "hello" convention) and the remaining forms the reference lists
+# are declared, not yet witnessed -- naming the gap honestly is this file's job, not hiding it.
+#
+# STATUS: BUILT = every declared form witnessed · PARTIAL = some · DECLARED = none · RED = witnessed and failing.
+# Combinations phase (PAIRS) is out of scope for this row -- left blank throughout; the sibling row fills it.
+RUNG	CONSTRUCT	REFERENCE	FORMS	PAIRS	WITNESS_ORIGIN	STATUS	NOTE
+rung00	say_print	roast S16-io/say.t · S16-io/print.t	hello|numeric_literal|multiple_args|print_no_newline		ladder__rung00_hello|ladder__rung00_hello_numeric_literal|ladder__rung00_hello_multiple_args|ladder__rung00_hello_print_no_newline	BUILT	all 4 forms witnessed, oracle-cut against Rakudo 2026.05, verified PASS both modes 2026-09-04 (seat12); multiple_args form incidentally documents that `say a,b,c` concatenates with NO separator (abc, not a b c) -- a real, slightly surprising Raku behavior worth having pinned
+rung01	scalar_variable	roast S04-declarations/my-6e.t	variables|no_initializer|multiple_declaration|type_constrained		ladder__rung01_variables	PARTIAL	existing witness covers string-init AND integer-init combined under one origin (satisfies form "variables"); no_initializer (`my $x;` then later assignment), multiple_declaration (`my ($a,$b) = ...`), type_constrained (`my Int $x = 5`) not yet isolated
+rung02	arith_ops	roast S03-operators/arith.t	arithmetic|division_float|integer_div|negative_operands		ladder__rung02_arithmetic	PARTIAL	existing witness covers + - * % on positive int operands; float division (/), explicit `div`, and negative-operand behavior not yet isolated
+rung03	string_ops	roast S02-literals/quoting.t · S03-operators (infix ~)	strings|repeat_operator|multi_concat		ladder__rung03_strings	PARTIAL	existing witness covers concatenation (~) and interpolation; the repeat operator (x) and a chained multi-value concat not yet isolated
+rung04	array_basics	roast S02-lists/indexing.t	arrays|negative_index|slice|push_pop|out_of_bounds		ladder__rung04_arrays	PARTIAL	existing witness covers literal construction, positive index, .elems; negative index, slice, push/pop, and out-of-bounds read (Any/undefined, not an error) not yet isolated
+rung05	hash_basics	roast S09-hashes	hashes|missing_key|keys_values|exists_delete		ladder__rung05_hashes	PARTIAL	existing witness covers literal construction and key lookup; missing-key (Nil) return, .keys/.values, and exists/delete not yet isolated
+rung06	control_flow	roast S04-statements/if.t · S04-statements/while.t	control|unless|until|elsif_chain|ternary		ladder__rung06_control	PARTIAL	existing witness covers if/else and while; unless, until, an elsif chain, and the ternary (??!!) not yet isolated
+rung07	subroutines	roast S06-signature · S06-routine-modifiers	subs|implicit_return|named_params|optional_params|multi_dispatch		ladder__rung07_subs	PARTIAL	existing witness covers positional params with an explicit return; implicit last-expression return, named params, optional/default params, and multi dispatch not yet isolated
+rung08	for_loop	roast S04-statements/for.t · S02-lists (Range)	for_loop|for_over_array|for_with_index|nested_for		ladder__rung08_for_loop	PARTIAL	existing witness covers a Range-based `for 1..3 -> $i`; iterating an @array directly, indexed iteration (.kv), and a nested loop not yet isolated
+rung09	string_methods	roast S32-str/uc.t · S32-str/lc.t	string_methods|lc_method|substr_method|split_method|trim_method		ladder__rung09_string_methods	PARTIAL	existing witness covers .uc and .chars; .lc, .substr, .split, .trim not yet isolated

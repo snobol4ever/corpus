@@ -3335,3 +3335,10 @@ class Animal { has $.size; }
 class Dog is Animal { }
 multi sub infix:<<>(Animal $a, Animal $b) { return $a.size + $b.size; }
  my $d1 = Dog.new(size => 10); my $d2 = Dog.new(size => 20); say($d1 < $d2); 
+#-------------------------------------- 860 ladder__rung00_hello_numeric_literal
+say 42;
+#---------------------------------------- 861 ladder__rung00_hello_multiple_args
+say "a", "b", "c";
+#------------------------------------- 862 ladder__rung00_hello_print_no_newline
+print "no newline";
+say "end";
