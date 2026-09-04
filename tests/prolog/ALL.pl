@@ -2907,3 +2907,48 @@ main :- repeat, write(x), !, nl.
 :- dynamic(seen/1).
 :- initialization(main).
 main :- repeat, findall(X, seen(X), L), length(L, N), (N >= 3 -> ! ; (assertz(seen(N)), fail)), write(N), nl.
+%----------------------------------------------------- 555 findall_collect_all_1
+color(red).
+color(green).
+color(blue).
+:- initialization(main).
+main :- findall(C, color(C), L), write(L), nl.
+%---------------------------------------------------- 556 findall_empty_result_1
+:- initialization(main).
+main :- findall(X, fail, L), write(L), nl.
+%-------------------------------------------- 557 findall_template_is_compound_1
+:- initialization(main).
+main :- findall(f(X,X), between(1,3,X), L), write(L), nl.
+%-------------------------------------------------- 558 findall_nested_findall_1
+:- initialization(main).
+main :- findall(L1, (between(1,2,X), findall(Y,between(1,X,Y),L1)), LL), write(LL), nl.
+%---------------------------------------- 559 findall_findall_over_disjunction_1
+:- initialization(main).
+main :- findall(X, (X=1 ; X=2 ; X=3), L), write(L), nl.
+%------------------------------------------------- 560 bagof_setof_bagof_basic_1
+likes(mary,wine).
+likes(mary,cheese).
+:- initialization(main).
+main :- bagof(X, likes(mary,X), L), write(L), nl.
+%---------------------------------------- 561 bagof_setof_bagof_fails_on_empty_1
+likes(mary,wine).
+:- initialization(main).
+main :- (bagof(X, likes(nobody,X), L) -> write(L) ; write(fails)), nl.
+%------------------------------------------ 562 bagof_setof_setof_sorts_dedups_1
+item(banana).
+item(apple).
+item(banana).
+:- initialization(main).
+main :- setof(X, item(X), L), write(L), nl.
+%------------------------------------------- 563 bagof_setof_caret_existential_1
+likes(mary,wine).
+likes(john,wine).
+likes(mary,cheese).
+:- initialization(main).
+main :- setof(X, Y^likes(Y,X), L), write(L), nl.
+%-------------------------------------- 564 bagof_setof_free_variable_grouping_1
+likes(mary,wine).
+likes(mary,cheese).
+likes(john,beer).
+:- initialization(main).
+main :- findall(Y-L, bagof(X,likes(Y,X),L), Groups), write(Groups), nl.

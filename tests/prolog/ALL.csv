@@ -553,3 +553,13 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,findall,bagof,setof,forall,ass
 552,sub_atom_empty_substring_1,ladder__rung07_sub_atom_empty_substring,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
 553,repeat_repeat_with_cut_1,ladder__rung07_repeat_repeat_with_cut,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 554,repeat_repeat_bounded_by_counter_1,ladder__rung07_repeat_repeat_bounded_by_counter,ladder,block,0,3,"m3,m4",1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
+555,findall_collect_all_1,ladder__rung08_findall_collect_all,ladder,block,0,5,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+556,findall_empty_result_1,ladder__rung08_findall_empty_result,ladder,block,0,2,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+557,findall_template_is_compound_1,ladder__rung08_findall_template_is_compound,ladder,block,0,2,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0
+558,findall_nested_findall_1,ladder__rung08_findall_nested_findall,ladder,block,0,2,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+559,findall_findall_over_disjunction_1,ladder__rung08_findall_findall_over_disjunction,ladder,block,0,2,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
+560,bagof_setof_bagof_basic_1,ladder__rung08_bagof_setof_bagof_basic,ladder,block,0,4,"m3,m4",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+561,bagof_setof_bagof_fails_on_empty_1,ladder__rung08_bagof_setof_bagof_fails_on_empty,ladder,block,0,3,"m3,m4",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
+562,bagof_setof_setof_sorts_dedups_1,ladder__rung08_bagof_setof_setof_sorts_dedups,ladder,block,0,5,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+563,bagof_setof_caret_existential_1,ladder__rung08_bagof_setof_caret_existential,ladder,block,0,5,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+564,bagof_setof_free_variable_grouping_1,ladder__rung08_bagof_setof_free_variable_grouping,ladder,block,0,5,"m3,m4",1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0

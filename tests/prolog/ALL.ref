@@ -1471,3 +1471,23 @@ empty
 x
 %---------------------------------------- 554 repeat_repeat_bounded_by_counter_1
 3
+%----------------------------------------------------- 555 findall_collect_all_1
+[red,green,blue]
+%---------------------------------------------------- 556 findall_empty_result_1
+[]
+%-------------------------------------------- 557 findall_template_is_compound_1
+[f(1,1),f(2,2),f(3,3)]
+%-------------------------------------------------- 558 findall_nested_findall_1
+[[1],[1,2]]
+%---------------------------------------- 559 findall_findall_over_disjunction_1
+[1,2,3]
+%------------------------------------------------- 560 bagof_setof_bagof_basic_1
+[wine,cheese]
+%---------------------------------------- 561 bagof_setof_bagof_fails_on_empty_1
+fails
+%------------------------------------------ 562 bagof_setof_setof_sorts_dedups_1
+[apple,banana]
+%------------------------------------------- 563 bagof_setof_caret_existential_1
+[cheese,wine]
+%-------------------------------------- 564 bagof_setof_free_variable_grouping_1
+[john-[beer],mary-[wine,cheese]]
