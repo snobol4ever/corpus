@@ -1700,14 +1700,14 @@ main :-
 %---------------------------------------------------- 338 ite_writeq_directive_2
 :- initialization(main).
 main :-
-    number_atom(123, A1), writeq(A1), nl,
-    number_atom(-42, A2), writeq(A2), nl,
-    number_atom(0, A3), writeq(A3), nl,
-    number_atom(N1, '456'), ( integer(N1) -> writeq(N1-int) ; writeq(N1-other) ), nl,
-    number_atom(N2, '-7'), writeq(N2), nl,
-    number_atom(N3, '2.5'), ( float(N3) -> writeq(N3-flt) ; writeq(N3-other) ), nl,
-    number_atom(2.5, A4), writeq(A4), nl,
-    ( number_atom(789, '789') -> writeq(roundtrip_ok) ; writeq(roundtrip_fail) ), nl,
+    atom_number(A1, 123), writeq(A1), nl,
+    atom_number(A2, -42), writeq(A2), nl,
+    atom_number(A3, 0), writeq(A3), nl,
+    atom_number('456', N1), ( integer(N1) -> writeq(N1-int) ; writeq(N1-other) ), nl,
+    atom_number('-7', N2), writeq(N2), nl,
+    atom_number('2.5', N3), ( float(N3) -> writeq(N3-flt) ; writeq(N3-other) ), nl,
+    atom_number(A4, 2.5), writeq(A4), nl,
+    ( atom_number('789', 789) -> writeq(roundtrip_ok) ; writeq(roundtrip_fail) ), nl,
     write(done), nl,
     halt.
 %----------------------------------------------------- 339 catch_ite_directive_3
