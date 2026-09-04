@@ -1,0 +1,23 @@
+# raku_dies smoke absorption (row raku-smoke-724-inline-probes-absorbed-into-the-master-with-rakudo-refs):
+# these entries CORRECTLY exit rc=1 under both real Rakudo (verified against rakudo-local 2026.05) and
+# SCRIP -- declared per read_wantrc_sidecar()'s name<TAB>rc format so grading does not score a
+# matching-stdout die as FAIL. They absorbed as XFAIL (want_rc=0 default at absorption time, before
+# this sidecar existed) and now grade XPASS, not a clean PASS -- correct and harmless (never counts
+# as FAIL), left for a future --resort/--reindex pass to fold cleanly rather than hand-edited here.
+class_method_range_replace_6	1
+class_method_say_replace_37	1
+class_method_say_replace_38	1
+class_method_say_replace_39	1
+class_method_say_replace_40	1
+class_method_say_replace_45	1
+class_method_say_replace_49	1
+class_method_say_replace_6	1
+class_say_replace_18	1
+class_say_replace_6	1
+say_die_1	1
+say_try_die_3	1
+simple_program_10	1
+sub_say_12	1
+sub_say_6	1
+sub_say_8	1
+sub_say_9	1

@@ -45,3 +45,4 @@ scrip_test_rk_try_catch25	m3,m4
 scrip_test_rk_typed_vars	m3,m4
 scrip_test_rk_unless_until	m3,m4
 scrip_test_rk_vars	m3,m4
+smoke	m3,m4
