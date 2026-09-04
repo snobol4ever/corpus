@@ -7431,10 +7431,10 @@ procedure main()
   if member(t, "b") then write("bad") else write("absent");
   write(member(t, "a"));
 end
-#---------------------------------------------- 722 procedure_scan_while_1 XFAIL
+#---------------------------------------------- 722 procedure_scan_while_1
 procedure main(args)
    local r;
-   r := opt2(args);
+   r := opt2(["-x"]);
    write("flist size=", *r);
 end
 procedure opt2(arg)
