@@ -47,6 +47,40 @@ syntax, SSU rules, CLP(FD) constraint semantics, quasi-quotation, module-export-
 registration) rather than a single unambiguous lexer/parser gap -- left for a scoped decision
 rather than started here. See the task baton's LEDGER for the full per-class breakdown.
 
+⭐ CURED 2026-09-04 (seat06, SCRIP `a6090833`): THREE more classes, none of which carry a
+semantic-design question despite the previous note above -- re-examined and each turned out to be
+a plain mechanical lexer/parser gap same as the two batches before it:
+- module-export-list `op/3` registration (1 file) -- `register_op_directive` now recurses into a
+  `module/2` goal's export list the same way it already does for comma-conjoined `op/3` directives,
+  so `op(P,T,N)` terms embedded there register as real operators. `--dump-ast` on the file's own
+  flagged line now shows the custom `?` operator correctly applied; the file's parse blocker moves
+  from line 70 to line 206, where an UNRELATED, already-catalogued class (SWI dict literal
+  `_{module:M}`, see below) takes over -- test_transactions.pl was a double-blocked file like
+  tabling/test_tabling.pl, just not visible until this fix landed.
+- `->!` mis-tokenize (1 file, class above) -- `!` dropped from `is_graphic`: it already had its own
+  dedicated case in `lexer_next` and never needed to be graphic; the only effect of removal is that
+  `scan_graphic`'s continuation loop now stops at a `!` instead of folding it into whatever graphic
+  run preceded it. thread/test_libthread.pl:62 confirmed clean.
+- `.` immediately before `%` (1 file, class above) -- the end-of-clause-dot check now treats `%` the
+  same as EOF/whitespace, so a comment with no separating space no longer desyncs the tokenizer into
+  reading the dot as a graphic atom. xsb/table_tests/xsb_test_tables.pl:101 confirmed clean.
+
+Method note: found by re-testing the "24 remain" list item by item against `--dump-ast` rather than
+trusting the previous note's grouping at face value -- two of the "real semantic-design question"
+files were actually misfiled; they were members of the already-catalogued `->!` and `.%` one-file
+classes further down this document (which this session had not yet cross-checked against the
+"24 remaining" tally when that note was written). Re-verified against the real vendored files (3/3
+clean at their flagged line) and control-verified with a full corpus-wide `--dump-ast` sweep of all
+249 swi_tests files, diffed with vs. without this commit's `prolog_lex.c` hunk alone: exactly these
+two files change status, nothing else. Also control-verified zero regression on `test_prolog_ladder.sh
+--to 11` (280 gradings, byte-identical 268/12 with and without via git-stash A/B) and
+`test_prolog_rung_suite.sh` (byte-identical 9/6 both modes). Same nb_setval-blocked caveat as every
+cure above: none of these 3 pass the suite yet. 45 of 66 parse-error files now cured (33+9+3); 21
+remain, in five HQ-C-ruled groups with real scope questions -- rows minted rank 1 in this lane:
+`prolog-swi-class-module-export-op3-registration` (misnomer now it's cured above; kept as hq_C named
+it), `prolog-swi-class-rational-number-literals`, `prolog-swi-class-ssu-arrow-rules`,
+`prolog-swi-class-clpfd-infix-operators`, `prolog-swi-class-dicts-dotaccess-quasiquote`.
+
 Denominator check: 13+11+2+1+6+1+7+6+2+4+4+3+2+1+1+1+1 = 66.
 
 ## Class: `table/1` not declared as a prefix operator (13 files)
