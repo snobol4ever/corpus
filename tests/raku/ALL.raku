@@ -3522,3 +3522,52 @@ sub f {
 }
 my $r = f();
 say $r.defined;
+#---------------------------------------------------- 908 ladder__rung13_classes
+class Greeter {
+    method greet {
+        return "hello";
+    }
+}
+my $g = Greeter.new;
+say $g.greet;
+#---------------------------------------- 909 ladder__rung13_classes_inheritance
+class Animal {
+    method speak { return "..." }
+    method describe { return "I say " ~ self.speak }
+}
+class Dog is Animal {
+    method speak { return "Woof" }
+}
+my $d = Dog.new;
+say $d.speak;
+say $d.describe;
+#------------------------------ 910 ladder__rung13_classes_named_arg_constructor
+class Sum {
+    has $.a;
+    has $.b;
+    method total { $!a + $!b }
+}
+my $s = Sum.new(:a(39), :b(3));
+say $s.total;
+#---------------------------------- 911 ladder__rung13_classes_private_attribute
+class Counter {
+    has $!count;
+    method init { $!count = 0 }
+    method inc { $!count++ }
+    method get { $!count }
+}
+my $c = Counter.new;
+$c.init;
+$c.inc;
+$c.inc;
+say $c.get;
+#----------------------------------- 912 ladder__rung13_classes_public_attribute
+class Point {
+    has $.x is rw;
+    has $.y is rw;
+}
+my $p = Point.new(x => 3, y => 4);
+say $p.x;
+say $p.y;
+$p.x = 10;
+say $p.x;

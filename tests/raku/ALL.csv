@@ -906,3 +906,8 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,sub,multi,my,our,say,print,giv
 905,ladder__rung12_exceptions_specific_type,ladder__rung12_exceptions_specific_type,ladder,block,0,6,"m3,m4",0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,0
 906,ladder__rung12_exceptions_no_catch,ladder__rung12_exceptions_no_catch,ladder,block,0,4,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0
 907,ladder__rung12_exceptions_fail,ladder__rung12_exceptions_fail,ladder,block,0,5,"m3,m4",1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+908,ladder__rung13_classes,ladder__rung13_classes,ladder,block,0,7,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+909,ladder__rung13_classes_inheritance,ladder__rung13_classes_inheritance,ladder,block,0,10,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0
+910,ladder__rung13_classes_named_arg_constructor,ladder__rung13_classes_named_arg_constructor,ladder,block,0,7,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+911,ladder__rung13_classes_private_attribute,ladder__rung13_classes_private_attribute,ladder,block,0,11,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+912,ladder__rung13_classes_public_attribute,ladder__rung13_classes_public_attribute,ladder,block,0,9,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0

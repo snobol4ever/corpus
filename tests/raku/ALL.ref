@@ -2299,3 +2299,16 @@ adhoc: typed
 after
 #-------------------------------------------- 907 ladder__rung12_exceptions_fail
 False
+#---------------------------------------------------- 908 ladder__rung13_classes
+hello
+#---------------------------------------- 909 ladder__rung13_classes_inheritance
+Woof
+I say Woof
+#------------------------------ 910 ladder__rung13_classes_named_arg_constructor
+42
+#---------------------------------- 911 ladder__rung13_classes_private_attribute
+2
+#----------------------------------- 912 ladder__rung13_classes_public_attribute
+3
+4
+10
