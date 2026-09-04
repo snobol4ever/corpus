@@ -1,0 +1,34 @@
+# triangulation TSV -- 20260904T034433Z -- TOL_PCT=10 (flat, UNBAKED) -- never hand-edit, regenerate via bench_triangulate_prolog.sh
+kernel	engine	angle1_rate	angle2_rate	ratio	verdict	disk_inblock	disk_oublock
+cal	gnu	NA	475098		UNPROVEN	0	0
+cal	swi	NA	151093		UNPROVEN	0	0
+cal	m3	NA	NA		UNPROVEN	0	0
+cal	m4	NA	NA		UNPROVEN	0	0
+crypt	gnu	NA	1649.52		UNPROVEN	0	0
+crypt	swi	NA	692.559		UNPROVEN	0	0
+crypt	m3	NA	NA		UNPROVEN	0	0
+crypt	m4	NA	NA		UNPROVEN	0	0
+deriv	gnu	NA	223802		UNPROVEN	0	0
+deriv	swi	NA	82030.5		UNPROVEN	0	0
+deriv	m3	NA	NA		UNPROVEN	0	0
+deriv	m4	NA	NA		UNPROVEN	0	0
+derive	gnu	NA	196519		UNPROVEN	0	0
+derive	swi	NA	107775		UNPROVEN	0	0
+derive	m3	NA	NA		UNPROVEN	0	0
+derive	m4	NA	NA		UNPROVEN	0	0
+divide10	gnu	NA	299601		UNPROVEN	0	0
+divide10	swi	NA	127846		UNPROVEN	0	0
+divide10	m3	NA	NA		UNPROVEN	0	0
+divide10	m4	NA	NA		UNPROVEN	0	0
+fib	gnu	NA	384.615		UNPROVEN	0	0
+fib	swi	NA	350.802		UNPROVEN	0	0
+fib	m3	NA	NA		UNPROVEN	0	0
+fib	m4	NA	NA		UNPROVEN	0	0
+ham	gnu	NA	NA		UNPROVEN	0	0
+ham	swi	NA	NA		UNPROVEN	0	0
+ham	m3	NA	NA		UNPROVEN	0	0
+ham	m4	NA	NA		UNPROVEN	0	0
+log10	gnu	NA	438087		UNPROVEN	0	0
+log10	swi	NA	151959		UNPROVEN	0	0
+log10	m3	NA	NA		UNPROVEN	0	0
+log10	m4	NA	NA		UNPROVEN	0	0
