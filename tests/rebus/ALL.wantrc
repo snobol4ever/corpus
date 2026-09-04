@@ -1,0 +1,11 @@
+# ALL.wantrc — DECLARED exit codes for entries whose CORRECT run exits nonzero.
+# Format: name<TAB>rc   ·   blank lines and # comments ignored   ·   rc=0 is the default and is REFUSED here.
+# See tests/prolog/ALL.wantrc for the convention this file follows.
+#
+# simple_output_25 (origin ladder__rung07_refuse_field_of_nonrecord): calling a DATA()-generated field
+# accessor (x(...)) on a value that is not a `point` record is a runtime "Error 5: Undefined function or
+# operation" (SNOBOL4-shared runtime dispatch) -- SCRIP prints "before" to stdout (confirmed the accessor
+# call itself, not the preceding statement, is what fails) then the diagnostic to STDERR only, and both m3
+# and m4 exit rc=1 with stdout byte-identical (7 bytes, "before\n"). This is the rung07 REFUSE witness; see
+# task LEDGER for rung06's zero-byte-output trap this design deliberately avoids.
+simple_output_25	1
