@@ -58,6 +58,18 @@ which is actually byte-correct in native modulo these blanks.
 Scope: BACKEND (tree_to_sno.c label emission). Cosmetic for the oracle, but it does mean the
 transpiled SNOBOL4 is not clean.
 
+D5 UPDATE (seat12, 2026-09-04, construct-ladder minting session): the SAME spurious-blank-label
+defect also fires at a `function ... return;` DEFINE's return-target label (`add_end OUTPUT =`),
+not just if/loop-end labels. Minimal: `function add(a,b){add=a+b;return;} OUTPUT=add(3,4);` --
+oracle-cut via `--transpile | sbl -bf` = [blank, "7"]; native `--run`/`--compile` = ["7"], correct,
+matching D5's existing "native is correct, only the oracle path is wrong" finding exactly. Not a
+new defect, an extension of this one to a label site the original probe set never exercised
+(no ladder probe used DEFINE with a function-scoped return before now). Consequence for anyone
+oracle-cutting a construct-ladder witness: a rung using bare `function...return` cannot get a
+clean byte-exact ref from `--transpile | sbl` without hitting this; routed around it (used
+`struct` instead for the ladder's rung08) rather than hand-editing a ref to strip the blank --
+see corpus commit `d842efd14`, task `snocone-construct-ladder-and-parser-fixtures` LEDGER.
+
 ### D6 — `goto`/label NOT in native lowerer subset (tree kind 127)
 `goto_basic` native: FATAL lower_snobol4 "expression form not in the landed subset: tree kind
 127". Oracle runs correctly (0/1/2/done). goto+label is a parsed, transpilable construct that the
