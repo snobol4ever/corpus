@@ -1833,7 +1833,7 @@ function swap(a, b)(tmp) {
     return;
 }
 swap('hello', 'world');
-/*----------------------------------------------- 266 simple_output_149 XFAIL */
+/*----------------------------------------------------- 266 simple_output_149 */
 // nested_while_in_function_multi_inner.sc -- regression witness, snocone-nested-while-in-function-segv.
 // Same shape as nested_while_in_function.sc but the inner while runs 3 iterations per outer pass
 // instead of 1, exercising the inner loop's own back-edge repeatedly before the outer-tail transition.
@@ -1846,7 +1846,7 @@ function S5(n, x, i, j, acc) {
     S5 = acc; return;
 }
 OUTPUT = S5(4);
-/*----------------------------------------------- 267 simple_output_150 XFAIL */
+/*----------------------------------------------------- 267 simple_output_150 */
 // nested_while_in_function_multistmt_tail.sc -- regression witness, snocone-nested-while-in-function-segv.
 // Two statements (not one) follow the inner while inside the outer body, checking that only the
 // first trailing statement needs its own fresh depth-planning head -- the second must chain from it.
@@ -1860,7 +1860,7 @@ function S5(n, x, i, j, y) {
     S5 = x + y; return;
 }
 OUTPUT = S5(3);
-/*----------------------------------------------- 268 simple_output_146 XFAIL */
+/*----------------------------------------------------- 268 simple_output_146 */
 // nested_while_in_function.sc -- PROBE, minimal repro.
 // A `while` loop nested inside another `while` loop, both inside a Snocone
 // FUNCTION body, SIGSEGVs on the function's own return/gamma-exit path in
@@ -1877,7 +1877,7 @@ function S5(n, x, i, j) {
     S5 = x; return;
 }
 OUTPUT = S5(3);
-/*----------------------------------------------- 269 simple_output_148 XFAIL */
+/*----------------------------------------------------- 269 simple_output_148 */
 // nested_while_in_function_3deep.sc -- KNOWN-OPEN witness, three levels of while nesting in a function.
 // SIGSEGVs as of 2026-08-27 (task snocone-triple-nested-while-baseline-drift): the fix for the 2-level
 // case (snocone-nested-while-in-function-segv) does not generalize -- a freshly-planned "trailing
@@ -1896,7 +1896,7 @@ function S5(n, x, i, j, k, acc) {
     S5 = acc; return;
 }
 OUTPUT = S5(3);
-/*----------------------------------------------- 270 simple_output_147 XFAIL */
+/*----------------------------------------------------- 270 simple_output_147 */
 // nested_while_in_function_1deep_control.sc -- CONTROL sibling for the SEGV probe
 // in this same directory (nested_while_in_function.sc). Same function shape (S5(n,x,i,j),
 // same body statements: j=0; x=j; j=j+1; i=i+1), but the inner `while(LT(j,1)) {...}` wrapper
@@ -2023,7 +2023,7 @@ while (LE(i, 5)) {
     OUTPUT = arr<i>;
     i = i + 1;
 }
-/*---------------------------------------------- 280 indirect_replace_1 XFAIL */
+/*---------------------------------------------------- 280 indirect_replace_1 */
 // nreturn_after_indirect_assign.sc -- PROBE, minimal repro.
 // A function that sets its own return-slot to .dummy, then performs an
 // INDIRECT assignment ($name = expression), then nreturns -- the caller

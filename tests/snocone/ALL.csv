@@ -264,11 +264,11 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 263,simple_output_96,crosscheck_rungB06__B06_query_empty,crosscheck_rungB06,block,1,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 264,simple_output_97,crosscheck_rungB06__B06_query_nonempty,crosscheck_rungB06,block,1,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 265,simple_output_51,crosscheck_rungA13__A13_define_locals,crosscheck_rungA13,block,1,9,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-266,simple_output_149,probe_nested_while__nested_while_in_function_multi_inner,probe_nested_while,block,1,12,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-267,simple_output_150,probe_nested_while__nested_while_in_function_multistmt_tail,probe_nested_while,block,1,13,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-268,simple_output_146,probe_nested_while__nested_while_in_function,probe_nested_while,block,1,16,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-269,simple_output_148,probe_nested_while__nested_while_in_function_3deep,probe_nested_while,block,1,18,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-270,simple_output_147,probe_nested_while__nested_while_in_function_1deep_control,probe_nested_while,block,1,20,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+266,simple_output_149,probe_nested_while__nested_while_in_function_multi_inner,probe_nested_while,block,0,12,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+267,simple_output_150,probe_nested_while__nested_while_in_function_multistmt_tail,probe_nested_while,block,0,13,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+268,simple_output_146,probe_nested_while__nested_while_in_function,probe_nested_while,block,0,16,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+269,simple_output_148,probe_nested_while__nested_while_in_function_3deep,probe_nested_while,block,0,18,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+270,simple_output_147,probe_nested_while__nested_while_in_function_1deep_control,probe_nested_while,block,0,20,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 271,simple_output_144,crosscheck_toplevel_xfail__hello_literals,crosscheck_toplevel_xfail,block,1,26,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 272,simple_output_69,crosscheck_rungA16__A16_hello_literals,crosscheck_rungA16,block,1,26,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 273,capture_replace_1,crosscheck_rungB05__B05_alt_assign,crosscheck_rungB05,block,1,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
@@ -278,7 +278,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 277,datatype_replace_1,crosscheck_rungB08__B08_struct_datatype,crosscheck_rungB08,block,1,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 278,array_replace_1,crosscheck_rungA05__A05_array_create,crosscheck_rungA05,block,1,8,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 279,array_replace_2,crosscheck_rungA05__A05_array_loop,crosscheck_rungA05,block,1,12,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-280,indirect_replace_1,probe_nreturn_indirect__nreturn_after_indirect_assign,probe_nreturn_indirect,block,1,14,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+280,indirect_replace_1,probe_nreturn_indirect__nreturn_after_indirect_assign,probe_nreturn_indirect,block,0,14,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
 281,trim_keyword_replace_1,crosscheck_rungA15__A15_lib_math,crosscheck_rungA15,block,1,45,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 282,break_len_rem_replace_2,crosscheck_rungA15__A15_lib_stack,crosscheck_rungA15,block,1,81,"m3,m4",0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0
 283,break_any_pos_replace_1,crosscheck_rungA15__A15_lib_string,crosscheck_rungA15,block,1,89,"m3,m4",0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,0,0,1,0,0,0,0,0
