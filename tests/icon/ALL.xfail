@@ -9,3 +9,18 @@ place per hq_B's ruling (row icon-master-six-run-graded-reds-cured, 2026-09-03):
 a known compiler bug, and naming a bug that does not exist is a false marker. Adding an argv sidecar is
 shared seven-language harness/instrument work (hq_T's lane), not a fleet seat's fixture-level fix -- this
 entry stays correctly XFAIL until that lands, but for the reason above, not for a scan/while defect.
+#----------------------------------------------- 719 procedure_every_to_48 XFAIL
+Real compiler defect, oracle-confirmed, not a bad ref. `every write(3.0 to 1.0 by -1.0)` -- a real-valued
+to-by generator whose results are mathematically whole numbers. icont/iconx v9.5.25a (run fresh this
+session) print `3` / `2` / `1`, matching this suite's own `.ref` exactly; SCRIP prints `3.0` / `2.0` /
+`1.0` in both modes. Isolated to the to-by generator path specifically: plain `write(3.0)` (no to-by)
+already agrees with the oracle in both compilers, so this is not the general real-to-string formatter.
+Full detail, isolation, and routing:
+FINDING-2026-09-03-seat01-icon-real-toby-generator-prints-trailing-decimal-oracle-does-not.md. Class filed
+to hq_B (Icon lane owner); walker scope ends at filing, not a fleet seat's fixture-level fix.
+#----------------------------------------------- 720 procedure_every_to_49 XFAIL
+Same defect as `procedure_every_to_48` immediately above (ascending direction of the same real-valued
+to-by generator: `every write(1.0 to 3.0 by 1.0)`), oracle prints `1`/`2`/`3`, SCRIP prints `1.0`/`2.0`/
+`3.0` both modes. See that entry and
+FINDING-2026-09-03-seat01-icon-real-toby-generator-prints-trailing-decimal-oracle-does-not.md for full
+detail -- not duplicated here.

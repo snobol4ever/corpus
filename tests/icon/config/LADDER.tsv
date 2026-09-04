@@ -1,0 +1,76 @@
+# Icon construct ladder -- rung declarations (row icon-ladder-top-rung-census-from-the-icon-book, seat01,
+# 2026-09-03). GOAL was the census (LADDER RECIPE step 1); walking (step 2) had ALREADY built 188 witnesses
+# across 35 rungs before this row started (earlier seat01/hq_B sessions, organically, per recipe point 3:
+# "suite reds feed the ladder ... a construct no rung covers becomes the NEXT rung") -- this file is that
+# work's first DECLARED census, not a from-scratch plan. Re-measured for real this session, not assumed
+# from SCORE.md (which read "ZERO ladder__rung* origins" as of ~17:5x CDT hq_T -- stale by the time this
+# row ran; ALL.csv already carried 188).
+#
+# CITATION: *The Icon Programming Language*, 3rd ed. (Griswold & Griswold, 1996) is the SCORE.md-cited
+# authority; oracle is Icon v9.5.25a (`icont`/`iconx`, /home/resources/icon-master/bin/). ⛔ UNLIKE Pascal's
+# LADDER.tsv, no vendored copy of the Icon book exists under refs/ or /home/resources/icon-master (checked:
+# only man pages, icont.txt/icon.txt reference summaries, and the IPL source tree -- no book text) --
+# CONSTRUCT names below are cross-checked against those references and against icont/iconx's own observed
+# behavior, not against a page/section number I can point to. Do not add a fabricated section citation to
+# this file; if a real vendored copy turns up, add real citations then.
+#
+# FORMAT: RUNG (matched by test_icon_ladder.sh's DONE-WHEN as ^rung[0-9]+ -- only ACTUALLY BUILT rungs may
+# use this prefix, per hq_P's Pascal-ladder ruling this same session: "this file's declared top tracks the
+# real frontier, not a speculative plan") / CONSTRUCT / WITNESS_ORIGIN (the shared corpus/tests/icon/ALL.csv
+# origin prefix; most rungs are a small family, count given) / STATUS / NOTE.
+# ⛔ STATUS "BUILT" means test_icon_ladder.sh graded it PASS in both modes THIS session (tree SCRIP
+# `380cc416` corpus `88da45782`, 2026-09-03) -- not carried forward from any older reading.
+# ⭐ rung19 is BUILT but RED, deliberately listed honestly rather than retreating the declared top to
+# rung18 to dodge it (that would be the DONE-WHEN-decorated-noop-evasion shape this project has already
+# named and warned against elsewhere) -- see NOTE and FINDING-2026-09-03-seat01-icon-real-toby-generator-
+# prints-trailing-decimal-oracle-does-not.md. Because of this, `test_icon_ladder.sh --to 35` -- and
+# therefore this row's own DONE-WHEN -- currently EXITS RED. That is the true, current state, not a
+# measurement error; see this row's LEDGER for the exact printed line and the fix owner (hq_B).
+# rung25 is a genuine numbering gap: no `ladder__rung25_*` origin exists in ALL.csv. Not chased this
+# session (would cost a suite re-run to explain a gap that costs nothing to just state) -- flagged for
+# whoever next walks past rung24.
+RUNG	CONSTRUCT	WITNESS_ORIGIN	STATUS	NOTE
+rung00	program skeleton, procedure main(), write()	ladder__rung00_hello (1)	BUILT
+rung01	basic expressions: arithmetic, comparison, to-by, nested/compound exprs	ladder__rung01_paper_* (7)	BUILT
+rung02	generators (arithmetic ranges/filters), procedure definition+locals+recursion, if-return	ladder__rung02_{arith_gen,if_return,proc}_* (9)	BUILT
+rung03	suspend + generator failure	ladder__rung03_suspend_fail (1)	BUILT
+rung04	string literals, variables, concatenation	ladder__rung04_string_* (5)	BUILT
+rung05	string scanning: ?, &subject/&pos, nested scan, scan restores position on failure	ladder__rung05_scan_* (5)	BUILT
+rung06	csets: any(), many(), upto(), cset variables	ladder__rung06_cset_* (5)	BUILT
+rung07	control: not/negation, repeat+break, sequence (;), to-by in control	ladder__rung07_control_* (5)	BUILT
+rung08	string-scan builtins: find(), match(), move(), tab() (incl. find() as generator)	ladder__rung08_strbuiltins_* (5)	BUILT
+rung09	while/until loops, repeat+break, generator-driven loop conditions	ladder__rung09_loops_* (5)	BUILT
+rung10	augmented assignment: +:= -:= *:= /:=, inside every	ladder__rung10_augop_* (5)	BUILT
+rung11	bang operator (!, apply over structure) with augmented concatenation (||:=)	ladder__rung11_bang_augconcat_* (5)	BUILT
+rung12	string relational operators (<< <<= == ~== >> >>=) and size (*)	ladder__rung12_strrelop_size_* (5)	BUILT
+rung13	alternation (|), repeated-alternation with to-by ranges, table basics	ladder__rung13_{alt,repalt,table}_* (19)	BUILT	MIXED rung: 3 sub-families under one number (organic growth, not re-split this session)
+rung14	case-statement return-arm; binary \ (limitation of a generator's result count)	ladder__rung14_{case_return,limit}_* (6)	BUILT
+rung15	reversible swap (:=:), left-concatenation, string iteration	ladder__rung15_{real_swap,iterate}_* (6)	BUILT
+rung16	subscript/indexing operator [i]: basic, generator, fail, literal, negative	ladder__rung16_subscript_* (5)	BUILT
+rung17	real-number arithmetic, int/real coercion	ladder__rung17_real_arith_* (5)	BUILT
+rung18	real-number relational operators, mixed int/real comparison	ladder__rung18_real_relop_* (5)	BUILT
+rung19	power operator (^); real-valued to-by loops	ladder__rung19_pow_toby_* (5)	BUILT-RED	2 of 5 witnesses (real_toby_neg, real_toby_pos) FAIL both modes: SCRIP prints trailing .0 on a to-by-generated real that iconx prints as a plain integer -- oracle-confirmed real defect, not a bad ref. Class filed FINDING-2026-09-03-seat01-icon-real-toby-generator-prints-trailing-decimal-oracle-does-not.md; owner hq_B (walker scope ends at filing, per MASTER-PLAN.md WHO FIXES WHAT)
+rung20	section operator s[i:j]; sequential/compound expressions	ladder__rung20_section_seqexpr_* (3)	BUILT
+rung21	global declarations; the initial clause	ladder__rung21_global_initial_* (5)	BUILT
+rung22	lists: push/put/pop/get, ! (bang) over a list	ladder__rung22_lists_* (5)	BUILT
+rung23	tables (dedicated): default value, insert/delete, key, member	ladder__rung23_table_* (5)	BUILT
+rung24	records: type declaration, field access/assign, procedure args, loop over records	ladder__rung24_records_* (5)	BUILT
+rung26	power operator (deeper: associativity, int/real, zero exponent)	ladder__rung26_pow_* (5)	BUILT	numbering continues past the rung25 gap noted above
+rung27	read()/reads(): line read, count, EOF failure, byte reads, loop	ladder__rung27_read_* (5)	BUILT
+rung28	string builtins: char/ord conversion, pad, repl, reverse, trim/map	ladder__rung28_builtins_str_* (5)	BUILT
+rung29	type introspection: copy(), image(), type(), mixed/numeric handling	ladder__rung29_builtins_type_* (5)	BUILT
+rung30	misc builtins: abs(), sqrt(), seq()	ladder__rung30_builtins_misc_* (3)	BUILT
+rung31	sort()/sortf() on lists	ladder__rung31_sort_* (5)	BUILT
+rung32	procedures returning/chaining strings; multi string-valued parameters	ladder__rung32_strretval_* (5)	BUILT
+rung33	case-of control structure (dedicated): arithmetic/int/str selectors, no-default	ladder__rung33_case_* (5)	BUILT
+rung34	unary null-value test (/x) and non-null test (\x)	ladder__rung34_null_test_* (5)	BUILT
+rung35	compound {...} bodies (if/while/every); string-keyed table w/ default + read	ladder__rung35_{block_body,table_str}_* (8)	BUILT	MIXED rung: 2 sub-families under one number, same organic-growth note as rung13
+#
+# PLANNED (not yet minted -- deliberately NOT matching ^rung[0-9]+ so DONE-WHEN's top computation stays at
+# the real frontier above, per the same Pascal-ladder ruling cited in FORMAT). Not claimed exhaustive --
+# the three most conspicuous gaps against the book's structure-type and scanning-primitive coverage, plus
+# the one construct that is Icon's own most advanced and distinctive (co-expressions), reserved as the true
+# top: "climbing here closes the ladder."
+# PLAN-rung36	sets: Icon's fourth structure type (list/table/set/record) -- construction, insert/delete/member, set-algebra operators (++ ** --) -- entirely absent from rungs 00-35 (checked: zero `set(` witnesses)
+# PLAN-rung37	bal(): balanced-delimiter scanning primitive, named explicitly alongside any/many/upto/tab/move/find in the book's scanning chapter -- absent from rung05/rung08's scan coverage
+# PLAN-rung38	co-expressions (create, @, explicit activation/^) -- TOP: Icon's signature advanced feature (first-class, resumable generator control distinct from suspend/every); no witness anywhere in corpus/tests/icon/ALL.csv under this ladder's naming
