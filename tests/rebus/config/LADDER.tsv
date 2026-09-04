@@ -14,15 +14,24 @@
 # REFUSES rc=2 naming any declared rung with no witness.
 #
 # columns: rung  slug  construct (TR 84-9)  state
-rung00	hello	program + OUTPUT of a literal	BUILT
-rung01	arith	integer arithmetic and operator precedence	BUILT
-rung02	assign	x := expr, reassignment	BUILT
-rung03	cond	if cond then stmt	BUILT
-rung04	loop	while cond do stmt	BUILT
-rung05	func	function f(args) ... end, call with arguments	BUILT
-rung06	exit	return expr / fail — the two function exits	BUILT
-rung07	record	record R(f1,f2), construction, field access	BUILT
-rung08	output	OUTPUT := expr as the output idiom, vs plain assignment	BUILT
-rung09	alt	alternation generator a | b | c (BB_PUMP)	BUILT
-rung10	scan	pattern match expr ? pat (BB_SCAN)	BUILT
-rung11	replace	pattern replace expr ? pat <- repl	BUILT
+# ⛔ CONVERTED to the shared eight-column schema 2026-09-04 (hq_T), the ONE census shape for all seven
+#    languages (ceo ruling: corpus/tests/<lang>/config/LADDER.tsv). It previously had NO HEADER LINE at
+#    all, so util_ladder_forms_check.py REFUSED rc=2 on it and seat14's rebus ladder row parked on that.
+# ⛔ FORMS ARE ENUMERATED FROM THE REFERENCE, NEVER FROM THE WITNESSES THAT HAPPEN TO EXIST. Back-filling
+#    this column from ALL.csv would make the checker green by construction and prove nothing -- it is the
+#    vacuous-green the checker was built to prevent. So only rungs 00 and 01 carry FORMS: seat14 read
+#    TR 84-9 pp.13-15 for those two and minted a witness per form. Rungs 02-11 have an EMPTY FORMS cell
+#    and the checker NAMES each one as owed -- that is the honest state, not a passing one.
+RUNG	CONSTRUCT	REFERENCE	FORMS	PAIRS	WITNESS_ORIGIN	STATUS	NOTE
+rung00	hello	TR 84-9 pp.13-15 grammar appendix (literals)	hello|integer|real|squote		-	BUILT	
+rung01	arith	TR 84-9 pp.13-15 grammar appendix (arithmetic operators)	add|precedence|subtract|multiply|divide|remainder|exponent|unary_minus|paren_grouping		-	BUILT	
+rung02	assign	TR 84-9 (section owed) — x := expr, reassignment			-	BUILT	FORMS owed: enumerate from TR 84-9 and mint one witness per form
+rung03	cond	TR 84-9 (section owed) — if cond then stmt			-	BUILT	FORMS owed: enumerate from TR 84-9 and mint one witness per form
+rung04	loop	TR 84-9 (section owed) — while cond do stmt			-	BUILT	FORMS owed: enumerate from TR 84-9 and mint one witness per form
+rung05	func	TR 84-9 (section owed) — function f(args) ... end, call with arguments			-	BUILT	FORMS owed: enumerate from TR 84-9 and mint one witness per form
+rung06	exit	TR 84-9 (section owed) — return expr / fail — the two function exits			-	BUILT	FORMS owed: enumerate from TR 84-9 and mint one witness per form
+rung07	record	TR 84-9 (section owed) — record R(f1,f2), construction, field access			-	BUILT	FORMS owed: enumerate from TR 84-9 and mint one witness per form
+rung08	output	TR 84-9 (section owed) — OUTPUT := expr as the output idiom, vs plain assignment			-	BUILT	FORMS owed: enumerate from TR 84-9 and mint one witness per form
+rung09	alt	TR 84-9 (section owed) — alternation generator a | b | c (BB_PUMP)			-	BUILT	FORMS owed: enumerate from TR 84-9 and mint one witness per form
+rung10	scan	TR 84-9 (section owed) — pattern match expr ? pat (BB_SCAN)			-	BUILT	FORMS owed: enumerate from TR 84-9 and mint one witness per form
+rung11	replace	TR 84-9 (section owed) — pattern replace expr ? pat <- repl			-	BUILT	FORMS owed: enumerate from TR 84-9 and mint one witness per form
