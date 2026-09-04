@@ -2726,3 +2726,21 @@ main :- (is_list([1, 2, 3]) -> write(yes) ; write(no)), nl.
 %---------------------------------------------------------------------- 498 type_test_ground_1
 :- initialization(main).
 main :- (ground(foo(1, bar(2))) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 499 term_construction_functor_decompose_1
+:- initialization(main).
+main :- functor(foo(1, 2, 3), Name, Arity), write(Name/Arity), nl.
+%---------------------------------------------------------------------- 500 term_construction_functor_construct_1
+:- initialization(main).
+main :- functor(T, foo, 2), T = foo(a, b), write(T), nl.
+%---------------------------------------------------------------------- 501 term_construction_arg_nth_1
+:- initialization(main).
+main :- arg(2, foo(a, b, c), X), write(X), nl.
+%---------------------------------------------------------------------- 502 term_construction_univ_decompose_1
+:- initialization(main).
+main :- foo(1, 2) =.. L, write(L), nl.
+%---------------------------------------------------------------------- 503 term_construction_univ_construct_1
+:- initialization(main).
+main :- T =.. [foo, 1, 2], write(T), nl.
+%---------------------------------------------------------------------- 504 term_construction_copy_term_1
+:- initialization(main).
+main :- copy_term(foo(X, X), foo(A, B)), (A == B -> write(yes) ; write(no)), nl.
