@@ -1,0 +1,6 @@
+PROVENANCE — ISO/IEC 13211-1 conformance suites, fetched by the ceo 2026-09-03 22:09:03 CDT from the box (network confirmed: pauillac.inria.fr answers; hq_T's 'no network' reading was its own sandbox)
+inriasuite.tar.gz  <- http://pauillac.inria.fr/~deransar/prolog/inriasuite.tar.gz  (Deransart / Ed-Dbali / Cervoni, INRIA: 'a test suite based on the formal specification'; index page https://www.deransart.fr/prolog/suites.html)
+prologsuite.tar.gz <- http://pauillac.inria.fr/~deransar/prolog/prologsuite.tar.gz (the documentation-examples suite from the same page)
+0023421aa90dc88b61dc07d8299e524e480216548eb7cff23491f68ee86b7d3d  inriasuite.tar.gz
+2457907dce395f0fe341c9cf5788571a5bec3dfa7a4ccb47571c8f6f9cd3ae5e  prologsuite.tar.gz
+Licence: none stated on the index page -- vendor with this provenance and the authors' names; do not strip headers.
