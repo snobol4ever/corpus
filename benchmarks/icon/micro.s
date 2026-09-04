@@ -23648,7 +23648,18 @@ n01052_scan_match_α:     mov              r11, 1120
 n01054_scan_tab_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n01054_scan_tab_α:       mov              r11, 1121
-                        mov              rax, qword ptr [rsp + 248]
+                        mov              rdi, qword ptr [rsp + 240]
+                        mov              rsi, qword ptr [rsp + 248]
+                        sub              rsp, 8
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_to_int_check@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        add              rsp, 8
                         cmp              rax, 1;                              jge   .Lscan_tab_α_2902_0
                         add              rax, r15
                         add              rax, 1
