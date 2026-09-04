@@ -2651,3 +2651,24 @@ main :- X is (2 + 3) * (4 - 1), write(X), nl.
 %---------------------------------------------------------------------- 473 arith_eval_zero_divisor_error_1
 :- initialization(main).
 main :- catch(( _ is 1 / 0, write(nocaught) ), error(evaluation_error(zero_divisor), _), write(caught)), nl.
+%---------------------------------------------------------------------- 474 arith_compare_lt_1
+:- initialization(main).
+main :- (2 < 3 -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 475 arith_compare_gt_1
+:- initialization(main).
+main :- (3 > 2 -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 476 arith_compare_le_1
+:- initialization(main).
+main :- (2 =< 2 -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 477 arith_compare_ge_1
+:- initialization(main).
+main :- (2 >= 2 -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 478 arith_compare_eq_arith_1
+:- initialization(main).
+main :- (2 + 1 =:= 3 -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 479 arith_compare_ne_arith_1
+:- initialization(main).
+main :- (2 =\= 3 -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 480 arith_compare_mixed_int_float_1
+:- initialization(main).
+main :- (2 =:= 2.0 -> write(yes) ; write(no)), nl.
