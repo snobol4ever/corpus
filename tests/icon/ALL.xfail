@@ -1,0 +1,11 @@
+#---------------------------------------------- 1 procedure_scan_while_1 XFAIL
+Not a compiler defect -- UNGRADABLE under this harness, not KNOWN-RED. main(args) needs real command-line
+argv (the classic Icon options/dash-branch idiom); scrip's OWN driver already supports argv passthrough
+(`./scrip file.icn -- args...` correctly populates args, verified live). corpus_suite_harness.py's suite
+format carries a stdin sidecar (.in) and a want-rc sidecar (.wantrc) but NO argv sidecar at all, and
+run_suite_entry() never threads one through even if the driver could accept it -- confirmed by reading
+run_suite_entry/run_all_modes end to end (no argv parameter anywhere in the call chain). Re-reasoned in
+place per hq_B's ruling (row icon-master-six-run-graded-reds-cured, 2026-09-03): an .xfail marker asserts
+a known compiler bug, and naming a bug that does not exist is a false marker. Adding an argv sidecar is
+shared seven-language harness/instrument work (hq_T's lane), not a fleet seat's fixture-level fix -- this
+entry stays correctly XFAIL until that lands, but for the reason above, not for a scan/while defect.
