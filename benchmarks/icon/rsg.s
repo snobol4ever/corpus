@@ -849,7 +849,7 @@ n83_scan_match_bx:
 n83_scan_match_α:       mov              r11, 35
                         mov              rax, r15
                         sub              rax, r14
-                        cmp              rax, 1;                              jl    n85_lit_string_α
+                        cmp              rax, 1;                              jl    n99_scan_α
                         mov              rdi, qword ptr [rip + .Lscan_match_α_108_0]
                         mov              rsi, r13
                         add              rsi, r14
@@ -864,7 +864,7 @@ n83_scan_match_α:       mov              r11, 35
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              r12
-                        test             eax, eax;                            jne   n85_lit_string_α
+                        test             eax, eax;                            jne   n99_scan_α
                         mov              qword ptr [rsp + 272], 3
                         mov              rax, r14
                         add              rax, 2
@@ -891,10 +891,10 @@ n84_scan_tab_α:         mov              r11, 36
                         cmp              rax, 1;                              jge   .Lscan_tab_α_110_0
                         add              rax, r15
                         add              rax, 1
-.Lscan_tab_α_110_0:     cmp              rax, 1;                              jl    n85_lit_string_α
+.Lscan_tab_α_110_0:     cmp              rax, 1;                              jl    n99_scan_α
                         mov              rcx, r15
                         add              rcx, 1
-                        cmp              rax, rcx;                            jg    n85_lit_string_α
+                        cmp              rax, rcx;                            jg    n99_scan_α
                         mov              qword ptr [rsp + 256], r14
                         mov              rdi, r13
                         mov              rsi, r14
@@ -914,7 +914,7 @@ n84_scan_tab_α:         mov              r11, 36
                         mov              qword ptr [rsp + 240], rax
                         mov              qword ptr [rsp + 248], rdx;          jmp   n85_lit_string_α
 n84_scan_tab_β:         mov              r11, 36
-                        mov              r14, qword ptr [rsp + 256];          jmp   n85_lit_string_α
+                        mov              r14, qword ptr [rsp + 256];          jmp   n99_scan_α
                         .size            n84_scan_tab_bx, .-n84_scan_tab_bx
                         .type            n85_lit_string_bx, @function
 n85_lit_string_bx:
@@ -935,7 +935,7 @@ n86_scan_find_α:        mov              r11, 38
 .Lscan_find_α_113_0:    mov              rax, qword ptr [rsp + 192]
                         mov              rcx, r15
                         sub              rcx, 4
-                        cmp              rax, rcx;                            jg    n99_scan_α
+                        cmp              rax, rcx;                            jg    n84_scan_tab_β
                         mov              rcx, rax
                         movzx            esi, byte ptr [r13+rcx]
                         cmp              rsi, 62;                             jne   .Lscan_find_α_113_1
@@ -1048,10 +1048,10 @@ n91_scan_move_α:        mov              r11, 43
                         mov              rax, 4
                         add              rax, r14
                         add              rax, 1
-                        cmp              rax, 1;                              jl    n92_lit_integer_α
+                        cmp              rax, 1;                              jl    n87_scan_tab_β
                         mov              rcx, r15
                         add              rcx, 1
-                        cmp              rax, rcx;                            jg    n92_lit_integer_α
+                        cmp              rax, rcx;                            jg    n87_scan_tab_β
                         mov              qword ptr [rsp + 496], r14
                         mov              rdi, r13
                         mov              rsi, r14
@@ -1071,7 +1071,7 @@ n91_scan_move_α:        mov              r11, 43
                         mov              qword ptr [rsp + 480], rax
                         mov              qword ptr [rsp + 488], rdx;          jmp   n92_lit_integer_α
 n91_scan_move_β:        mov              r11, 43
-                        mov              r14, qword ptr [rsp + 496];          jmp   n92_lit_integer_α
+                        mov              r14, qword ptr [rsp + 496];          jmp   n87_scan_tab_β
                         .size            n91_scan_move_bx, .-n91_scan_move_bx
                         .type            n92_lit_integer_bx, @function
 n92_lit_integer_bx:
@@ -1090,10 +1090,10 @@ n93_scan_tab_α:         mov              r11, 45
                         cmp              rax, 1;                              jge   .Lscan_tab_α_123_0
                         add              rax, r15
                         add              rax, 1
-.Lscan_tab_α_123_0:     cmp              rax, 1;                              jl    n87_scan_tab_β
+.Lscan_tab_α_123_0:     cmp              rax, 1;                              jl    n91_scan_move_β
                         mov              rcx, r15
                         add              rcx, 1
-                        cmp              rax, rcx;                            jg    n87_scan_tab_β
+                        cmp              rax, rcx;                            jg    n91_scan_move_β
                         mov              qword ptr [rsp + 448], r14
                         mov              rdi, r13
                         mov              rsi, r14
@@ -1113,7 +1113,7 @@ n93_scan_tab_α:         mov              r11, 45
                         mov              qword ptr [rsp + 432], rax
                         mov              qword ptr [rsp + 440], rdx;          jmp   n94_call_proc_staged_α
 n93_scan_tab_β:         mov              r11, 45
-                        mov              r14, qword ptr [rsp + 448];          jmp   n87_scan_tab_β
+                        mov              r14, qword ptr [rsp + 448];          jmp   n91_scan_move_β
                         .size            n93_scan_tab_bx, .-n93_scan_tab_bx
                         .type            n94_call_proc_staged_bx, @function
 n94_call_proc_staged_bx:
