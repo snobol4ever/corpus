@@ -34,3 +34,4 @@ parser_unary_dot	ast
 parser_unless_id	ast
 parser_until_id	ast
 parser_while_if	ast
+ladder	m3,m4	# seat16 2026-09-03: test_rebus_ladder.sh runs each ladder__rungNN_* entry ALONE in m3 and m4, stdout vs .ref, rc vs ALL.wantrc
