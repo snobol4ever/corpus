@@ -1,0 +1,15 @@
+# raku work-time TSV -- 20260904T041730Z -- angle 3 detail (work/overhead/spread), angle1/angle2/crossproof columns filled from the live cross-proof -- never hand-edit, regenerate via bench_triangulate_raku.sh
+# arms: m3 · m4 · rakudo 2026.05; REPS=3 best-of by work_us; overhead_us = elapsed_us - work_us of the best rep; spread_pct = (max-min)/min of work_us over verified reps; floor_us = clock floor of the arm
+kernel	engine	reps_ok	work_us	work_ms	elapsed_us	overhead_us	spread_pct	verified	floor_us	angle1	angle2	crossproof
+point_class_add1	m3	3/3	10189762	10190	10276150	86388	11.2	VERIFIED	1	0.0874	0.0885	AGREE
+point_class_add1	m4	3/3	8932126	8933	9024019	91893	8.2	VERIFIED	1	0.1057	0.1064	AGREE
+point_class_add1	rakudo	3/3	5696935	5697	6038695	341760	4.9	VERIFIED	1	0.1631	0.1666	AGREE
+point_class_add	m3	3/3	9574101	9574	9664109	90008	13.4	VERIFIED	1	0.0916	0.0882	AGREE
+point_class_add	m4	3/3	8072560	8072	8156166	83606	13.4	VERIFIED	1	0.1024	0.1045	AGREE
+point_class_add	rakudo	3/3	1192389	1192	1479713	287324	9.5	VERIFIED	1	0.7943	0.4345	DISAGREE
+send-more-money-loops	m3	3/3	175439	175	190680	15241	9.9	VERIFIED	1	3.9364	4.369	DISAGREE
+send-more-money-loops	m4	3/3	185499	186	189081	3582	1.5	VERIFIED	1	4.7258	4.5646	AGREE
+send-more-money-loops	rakudo	1/3	-	-	-	-	-	VOID-UNITS(work_us=1380033 work_ms=1379)	1	0.6218	0.6924	DISAGREE
+string-escape	m3	3/3	65	0	6697	6632	6.2	VERIFIED	1	21031.9	20297.2	AGREE
+string-escape	m4	3/3	71	0	3467	3396	7.0	VERIFIED	1	21975.1	20609.5	AGREE
+string-escape	rakudo	3/3	1820	2	287939	286119	11.2	VERIFIED	1	4806.1	5359.53	DISAGREE

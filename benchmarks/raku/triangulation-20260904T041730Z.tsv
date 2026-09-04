@@ -1,0 +1,14 @@
+# triangulation TSV -- 20260904T041730Z -- TOL_PCT=10 (flat, UNBAKED) -- schema matches bench_triangulate_prolog.sh so test_gate_bench_rivals_coverage.sh reads it uniformly -- never hand-edit, regenerate via bench_triangulate_raku.sh
+kernel	engine	angle1_rate	angle2_rate	ratio	verdict	disk_inblock	disk_oublock
+point_class_add1	m3	0.0874	0.0885	1.0126	AGREE	0	0
+point_class_add1	m4	0.1057	0.1064	1.0066	AGREE	0	0
+point_class_add1	rakudo	0.1631	0.1666	1.0215	AGREE	0	0
+point_class_add	m3	0.0916	0.0882	0.9629	AGREE	0	0
+point_class_add	m4	0.1024	0.1045	1.0205	AGREE	0	0
+point_class_add	rakudo	0.7943	0.4345	0.5470	DISAGREE	0	0
+send-more-money-loops	m3	3.9364	4.369	1.1099	DISAGREE	0	0
+send-more-money-loops	m4	4.7258	4.5646	0.9659	AGREE	0	0
+send-more-money-loops	rakudo	0.6218	0.6924	1.1135	DISAGREE	0	0
+string-escape	m3	21031.9	20297.2	0.9651	AGREE	0	0
+string-escape	m4	21975.1	20609.5	0.9379	AGREE	0	0
+string-escape	rakudo	4806.1	5359.53	1.1152	DISAGREE	0	0
