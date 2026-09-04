@@ -3018,3 +3018,40 @@ main :- phrase(np, [the,cat]), write(ok), nl.
 tag, [pushed] --> [x].
 :- initialization(main).
 main :- phrase(tag, [x], Rest), write(Rest), nl.
+%------------------------------------------ 582 last_call_tail_recursive_count_1
+count_to(N, N) :- !, write(N).
+count_to(I, N) :- I < N, J is I + 1, count_to(J, N).
+:- initialization(main).
+main :- count_to(0, 50000), nl.
+%------------------------------------------------ 583 last_call_nreverse_large_1
+myapp([], L, L).
+myapp([H|T], L, [H|R]) :- myapp(T, L, R).
+nrev([], []).
+nrev([H|T], R) :- nrev(T, RT), myapp(RT, [H], R).
+:- initialization(main).
+main :- findall(X, between(1,30,X), L), nrev(L, R), write(R), nl.
+%---------------------------------------------- 584 last_call_accumulator_loop_1
+sum_acc(N, Acc, Acc) :- N =< 0, !.
+sum_acc(N, Acc, Sum) :- N > 0, Acc1 is Acc + N, N1 is N - 1, sum_acc(N1, Acc1, Sum).
+:- initialization(main).
+main :- sum_acc(1000, 0, Sum), write(Sum), nl.
+%----------------------------------- 585 indexing_distinct_constant_first_args_1
+color_code(red, 1).
+color_code(green, 2).
+color_code(blue, 3).
+:- initialization(main).
+main :- color_code(green, X), write(X), nl.
+%--------------------------------------- 586 indexing_indexed_vs_var_first_arg_1
+item_price(apple, 1).
+item_price(banana, 2).
+item_price(cherry, 3).
+:- initialization(main).
+main :- item_price(banana, P), write(P), nl, findall(N-Pr, item_price(N,Pr), All), write(All), nl.
+%----------------------------------------------------- 587 determinism_semidet_1
+even(X) :- 0 is X mod 2.
+:- initialization(main).
+main :- (even(4) -> write(yes) ; write(no)), nl, findall(x, even(4), L), length(L,N), write(N), nl.
+%--------------------------------------------- 588 determinism_nondet_reported_1
+small(1). small(2). small(3).
+:- initialization(main).
+main :- (small(X), write(X), fail ; true), nl.
