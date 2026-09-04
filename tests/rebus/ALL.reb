@@ -471,3 +471,43 @@ OUTPUT := "before"
 "hello" ? (LEN("abc") . w)
 OUTPUT := w
 end
+#-------------------------------------------------------------- 78 hello_integer
+function main()
+OUTPUT := 42
+end
+#----------------------------------------------------------------- 79 hello_real
+function main()
+OUTPUT := 3.5
+end
+#--------------------------------------------------------------- 80 hello_squote
+function main()
+OUTPUT := 'hello world'
+end
+#------------------------------------------------------------- 81 arith_subtract
+function main()
+OUTPUT := 5 - 2
+end
+#------------------------------------------------------------- 82 arith_multiply
+function main()
+OUTPUT := 4 * 5
+end
+#--------------------------------------------------------------- 83 arith_divide
+function main()
+OUTPUT := 10 / 3
+end
+#------------------------------------------------------------ 84 arith_remainder
+function main()
+OUTPUT := 10 % 3
+end
+#------------------------------------------------------------- 85 arith_exponent
+function main()
+OUTPUT := 2 ^ 3
+end
+#---------------------------------------------------------- 86 arith_unary_minus
+function main()
+OUTPUT := -5
+end
+#------------------------------------------------------- 87 arith_paren_grouping
+function main()
+OUTPUT := (2 + 3) * 4
+end
