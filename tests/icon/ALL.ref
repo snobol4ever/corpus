@@ -2082,7 +2082,7 @@ outer
 #------------------------------------------- 598 procedure_table_write_replace_3
 found
 absent
-42
+a
 #--------------------------------------------------- 599 procedure_while_write_1
 5
 #--------------------------------------------------- 600 procedure_while_write_7
@@ -5234,7 +5234,7 @@ Barbecuing with Liquid Oxygen</a>
 1
 2
 3
-#------------------------------------- 721 procedure_table_write_replace_7 XFAIL
+#------------------------------------------- 721 procedure_table_write_replace_7
 found
 absent
 a
