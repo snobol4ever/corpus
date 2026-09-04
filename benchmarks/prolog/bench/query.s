@@ -6897,6 +6897,11 @@ main:
                         push             rsi
                         call             core_lib_init@PLT
                         call             module_init
+                        mov              rdi, qword ptr [rsp]
+                        add              rdi, 8
+                        mov              esi, dword ptr [rsp + 8]
+                        sub              esi, 1
+                        call             rt_main_args_stage@PLT
                         call             rt_gcheap_warmup@PLT
                         call             rtcc_load_all@PLT
                         xor              esi, esi
