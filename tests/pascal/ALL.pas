@@ -3526,3 +3526,38 @@ begin
   r := 5;
   writeln(r:0:1)
 end.
+{--------------------------------------- 174 ladder__rung02_arithmetic_real_div}
+program rung02arithrealdiv;
+begin
+  writeln((7 / 2):0:2)
+end.
+{---------------------------------------- 175 ladder__rung02_arithmetic_div_neg}
+program rung02arithdivneg;
+var
+  i: integer;
+begin
+  i := -7;
+  writeln(i div 2)
+end.
+{---------------------------------------- 176 ladder__rung02_arithmetic_mod_neg}
+program rung02arithmodneg;
+var
+  i: integer;
+begin
+  i := -7;
+  writeln(i mod 2)
+end.
+{------------------------------------------ 177 ladder__rung02_arithmetic_unary}
+program rung02arithunary;
+var
+  a: integer;
+begin
+  a := 5;
+  writeln(-a);
+  writeln(+a)
+end.
+{------------------------------------- 178 ladder__rung02_arithmetic_mixed_type}
+program rung02arithmixed;
+begin
+  writeln((3 + 2.5):0:1)
+end.

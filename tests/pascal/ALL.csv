@@ -172,3 +172,8 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,program,procedure,function,var
 171,ladder__rung01_var_assign_multi_ident,ladder__rung01_var_assign_multi_ident,ladder,block,0,11,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 172,ladder__rung01_var_assign_multi_group,ladder__rung01_var_assign_multi_group,ladder,block,0,10,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 173,ladder__rung01_var_assign_widen,ladder__rung01_var_assign_widen,ladder,block,0,7,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+174,ladder__rung02_arithmetic_real_div,ladder__rung02_arithmetic_real_div,ladder,block,0,4,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+175,ladder__rung02_arithmetic_div_neg,ladder__rung02_arithmetic_div_neg,ladder,block,0,7,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+176,ladder__rung02_arithmetic_mod_neg,ladder__rung02_arithmetic_mod_neg,ladder,block,0,7,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+177,ladder__rung02_arithmetic_unary,ladder__rung02_arithmetic_unary,ladder,block,0,8,"m3,m4",1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+178,ladder__rung02_arithmetic_mixed_type,ladder__rung02_arithmetic_mixed_type,ladder,block,0,4,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

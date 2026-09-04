@@ -631,3 +631,14 @@ abc
  true
 {------------------------------------------ 173 ladder__rung01_var_assign_widen}
 5.0
+{--------------------------------------- 174 ladder__rung02_arithmetic_real_div}
+3.50
+{---------------------------------------- 175 ladder__rung02_arithmetic_div_neg}
+         -3
+{---------------------------------------- 176 ladder__rung02_arithmetic_mod_neg}
+          1
+{------------------------------------------ 177 ladder__rung02_arithmetic_unary}
+         -5
+          5
+{------------------------------------- 178 ladder__rung02_arithmetic_mixed_type}
+5.5
