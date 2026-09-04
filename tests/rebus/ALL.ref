@@ -602,11 +602,16 @@ done
 (STMT :go RETURN)
 (STMT :lbl rb_5)
 (STMT :subj (TT_FNC MAIN))
-#----------------------------------------------------------- 50 simple_output_17
+#----------------------------------------------------------- 50 simple_output_22
+yes
+no
+#----------------------------------------------------------- 51 simple_output_17
 5
-#----------------------------------------------------------- 51 simple_output_18
+#----------------------------------------------------------- 52 simple_output_18
 15
-#------------------------------------------------------------ 52 simple_output_9
+#----------------------------------------------------------- 53 simple_output_21
+hello
+#------------------------------------------------------------ 54 simple_output_9
 (STMT :subj (TT_FNC DATA (TT_QLIT "POINT(X,Y)")))
 (STMT :subj (TT_FNC DEFINE (TT_QLIT "DIST(P)")))
 (STMT :go rb_1)
@@ -634,7 +639,7 @@ done
 (STMT :go RETURN)
 (STMT :lbl rb_2)
 (STMT :subj (TT_FNC MAIN))
-#------------------------------------------------------------ 53 simple_output_8
+#------------------------------------------------------------ 55 simple_output_8
 (STMT :subj (TT_FNC DEFINE (TT_QLIT "ABS(N)")))
 (STMT :go rb_1)
 (STMT :lbl ABS)
@@ -686,7 +691,7 @@ done
 (STMT :go RETURN)
 (STMT :lbl rb_9)
 (STMT :subj (TT_FNC MAIN))
-#------------------------------------------------------------------ 54 capture_1
+#------------------------------------------------------------------ 56 capture_1
 (STMT :subj (TT_FNC DEFINE (TT_QLIT "MAIN()")))
 (STMT :go rb_1)
 (STMT :lbl MAIN)
@@ -697,7 +702,7 @@ done
 (STMT :go RETURN)
 (STMT :lbl rb_1)
 (STMT :subj (TT_FNC MAIN))
-#-------------------------------------------------------------- 55 imm_capture_1
+#-------------------------------------------------------------- 57 imm_capture_1
 (STMT :subj (TT_FNC DEFINE (TT_QLIT "MAIN()")))
 (STMT :go rb_1)
 (STMT :lbl MAIN)
@@ -708,7 +713,7 @@ done
 (STMT :go RETURN)
 (STMT :lbl rb_1)
 (STMT :subj (TT_FNC MAIN))
-#----------------------------------------------------------------- 56 indirect_1
+#----------------------------------------------------------------- 58 indirect_1
 (STMT :subj (TT_FNC DEFINE (TT_QLIT "MAIN()")))
 (STMT :go rb_1)
 (STMT :lbl MAIN)
@@ -717,7 +722,7 @@ done
 (STMT :go RETURN)
 (STMT :lbl rb_1)
 (STMT :subj (TT_FNC MAIN))
-#------------------------------------------------------------------ 57 keyword_1
+#------------------------------------------------------------------ 59 keyword_1
 (STMT :subj (TT_FNC DEFINE (TT_QLIT "MAIN()")))
 (STMT :go rb_1)
 (STMT :lbl MAIN)
@@ -726,7 +731,7 @@ done
 (STMT :go RETURN)
 (STMT :lbl rb_1)
 (STMT :subj (TT_FNC MAIN))
-#---------------------------------------------------------------------- 58 alt_1
+#---------------------------------------------------------------------- 60 alt_1
 (STMT :subj (TT_FNC DEFINE (TT_QLIT "MAIN()")))
 (STMT :go rb_1)
 (STMT :lbl MAIN)
@@ -749,7 +754,7 @@ done
 (STMT :go RETURN)
 (STMT :lbl rb_1)
 (STMT :subj (TT_FNC MAIN))
-#------------------------------------------------------------ 59 array_replace_1
+#------------------------------------------------------------ 61 array_replace_1
 (STMT :subj (TT_FNC DATA (TT_QLIT "STACK(TOP,DATA)")))
 (STMT :subj (TT_FNC DEFINE (TT_QLIT "PUSH(S,V)")))
 (STMT :go rb_1)

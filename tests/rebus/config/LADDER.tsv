@@ -20,7 +20,7 @@ rung02	assign	x := expr, reassignment	BUILT
 rung03	cond	if cond then stmt	BUILT
 rung04	loop	while cond do stmt	BUILT
 rung05	func	function f(args) ... end, call with arguments	BUILT
-rung06	exit	return expr / fail — the two function exits	OWED
+rung06	exit	return expr / fail — the two function exits	BUILT
 rung07	record	record R(f1,f2), construction, field access	OWED
 rung08	output	OUTPUT := expr as the output idiom, vs plain assignment	OWED
 rung09	alt	alternation generator a | b | c (BB_PUMP)	OWED

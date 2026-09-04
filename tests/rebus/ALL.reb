@@ -247,7 +247,17 @@ end
 function main()
 OUTPUT := check(5)
 end
-#----------------------------------------------------------- 50 simple_output_17
+#----------------------------------------------------------- 50 simple_output_22
+function try(n)
+if n > 0 then return n
+fail
+end
+
+function main()
+if try(5) then OUTPUT := "yes" else OUTPUT := "no"
+if try(-1) then OUTPUT := "yes" else OUTPUT := "no"
+end
+#----------------------------------------------------------- 51 simple_output_17
 function main()
 local n, count
 n := 10
@@ -258,7 +268,7 @@ count := count + 1
 }
 OUTPUT := count
 end
-#----------------------------------------------------------- 51 simple_output_18
+#----------------------------------------------------------- 52 simple_output_18
 function main()
 local i, sum
 i := 1
@@ -269,7 +279,18 @@ i := i + 1
 }
 OUTPUT := sum
 end
-#------------------------------------------------------------ 52 simple_output_9
+#----------------------------------------------------------- 53 simple_output_21
+function greet(silent)
+if silent = 1 then return
+OUTPUT := "hello"
+return
+end
+
+function main()
+greet(1)
+greet(0)
+end
+#------------------------------------------------------------ 54 simple_output_9
 record Point(x, y)
 
 function dist(p)
@@ -280,7 +301,7 @@ function main()
 q := Point(3, 4)
 OUTPUT := dist(q)
 end
-#------------------------------------------------------------ 53 simple_output_8
+#------------------------------------------------------------ 55 simple_output_8
 function abs(n)
 if n < 0 then return 0 - n
 return n
@@ -296,32 +317,32 @@ x := abs(-5)
 y := max(x, 3)
 OUTPUT := y
 end
-#------------------------------------------------------------------ 54 capture_1
+#------------------------------------------------------------------ 56 capture_1
 function main()
     x ? "hello" . y
 end
-#-------------------------------------------------------------- 55 imm_capture_1
+#-------------------------------------------------------------- 57 imm_capture_1
 function main()
     x ? "world" $ z
 end
-#----------------------------------------------------------------- 56 indirect_1
+#----------------------------------------------------------------- 58 indirect_1
 function main()
   x := $y
   z := $"name"
 end
-#------------------------------------------------------------------ 57 keyword_1
+#------------------------------------------------------------------ 59 keyword_1
 function main()
     &FULLSCAN := 1
     &ANCHOR := 0
 end
-#---------------------------------------------------------------------- 58 alt_1
+#---------------------------------------------------------------------- 60 alt_1
 function main()
   x +:= 1
   y -:= 2
   z ||:= "hi"
   a :=: b
 end
-#------------------------------------------------------------ 59 array_replace_1
+#------------------------------------------------------------ 61 array_replace_1
 record Stack(top, data)
 
 function push(s, v)
