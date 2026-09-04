@@ -3472,3 +3472,26 @@ begin
     'c': writeln('charlie')
   end
 end.
+{------------------------------------------- 167 ladder__rung00_hello_paramlist}
+program rung00helloparamlist(input, output);
+begin
+  writeln('Hello, world!')
+end.
+{----------------------------------------------- 168 ladder__rung00_hello_blank}
+program rung00helloblank;
+begin
+  writeln('before');
+  writeln;
+  writeln('after')
+end.
+{----------------------------------------------- 169 ladder__rung00_hello_multi}
+program rung00hellomulti;
+begin
+  writeln('Hello, ', 'world!')
+end.
+{----------------------------------------------- 170 ladder__rung00_hello_width}
+program rung00hellowidth;
+begin
+  writeln('ab':5);
+  writeln('abcdef':3)
+end.

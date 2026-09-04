@@ -12,27 +12,35 @@
 #   Section 6 "Requirements" table of contents read directly from that file's own <h2>Table of contents</h2>
 #   (lines 74-222 of that file, sec 6.1 Lexical tokens .. 6.10 Programs), 2026-09-03.
 #
-# FORMAT: RUNG (matched by test_pascal_ladder.sh's owning task as ^rung[0-9]+) / CONSTRUCT / ISO_7185_SECTION
-# (the standard's own numbering, cited so the denominator is checkable against the source above, not invented)
-# / WITNESS (the corpus/tests/pascal/ALL.csv origin) / STATUS.
+# SCHEMA amended 2026-09-04 (seat09, row pascal-ladder-every-feature-in-isolation-with-variations) to the
+# ceo-ratified cross-language shape read by scripts/util_ladder_forms_check.py -- BOUND BY COLUMN NAME, NEVER
+# POSITION: RUNG / CONSTRUCT / REFERENCE (the ISO 7185 section(s); same content the old ISO_7185_SECTION
+# column held, renamed only) / FORMS (pipe-separated slugs -- every operator spelling, argument shape,
+# boundary and failure case the reference names for this rung, IN ISOLATION; a form's witness is any
+# corpus/tests/pascal/ALL.csv origin matching ladder__rungNN_*_<form>, checked by regex, never by reading this
+# column) / PAIRS (same shape, for the sibling combinations row `pascal-ladder-feature-combinations-after-
+# isolation`, which opens only once a rung's isolation forms are green; empty until then) / WITNESS_ORIGIN
+# (documentary listing of what exists for the rung -- the checker never reads this field, it greps ALL.csv)
+# / STATUS / NOTE. No data lost in the amendment: old WITNESS folds into WITNESS_ORIGIN, old ISO_7185_SECTION
+# folds into REFERENCE, no rung renumbered.
 # ⛔ Only rungs that are ACTUALLY BUILT AND GREEN (test_pascal_ladder.sh --to N passing) are listed as
 # `rungN` rows below -- per hq_P's ruling this same session ("do not let the census block the climb ...
 # mint and walk alternate, back and forth"), this file's declared top tracks the real frontier, not a
 # speculative plan. The PLANNED continuation (not yet minted, no witness, deliberately NOT matching
 # ^rung[0-9]+ so DONE-WHEN's top computation ignores it) is listed below the built rungs.
-RUNG	CONSTRUCT	ISO_7185_SECTION	WITNESS	STATUS
-rung0	program skeleton, writeln string literal	6.10 Programs; 6.9.4 The procedure writeln	ladder__rung00_hello	PASS
-rung1	variable declaration, assignment	6.5.1 Variable-declarations; 6.8.2.2 Assignment-statements	ladder__rung01_var_assign	PASS
-rung2	arithmetic operators	6.7.2.2 Arithmetic operators	ladder__rung02_arithmetic	PASS
-rung3	if-statement, while-statement	6.8.3.4 If-statements; 6.8.3.8 While-statements	ladder__rung03_if_while	PASS
-rung4	for-statement, repeat-statement	6.8.3.9 For-statements; 6.8.3.7 Repeat-statements	ladder__rung04_for_repeat	PASS
-rung5	procedure/function declarations	6.6.1 Procedure-declarations; 6.6.2 Function-declarations	ladder__rung05_proc_func	PASS
-rung6	array-types	6.4.3.2 Array-types	ladder__rung06_arrays	PASS
-rung7	record-types	6.4.3.3 Record-types	ladder__rung07_records	PASS
-rung8	set-types, set operators	6.4.3.4 Set-types; 6.7.2.4 Set operators	ladder__rung08_sets	PASS
-rung9	packed array of char, lexical relational operators	6.1.7 Character-strings; 6.4.3.2 Array-types; 6.7.2.5 Relational operators (lexical case)	ladder__rung09_strings	PASS
-rung10	pointer-types, dynamic allocation (new/dispose), pointer equality incl. nil	6.4.4 Pointer-types; 6.6.5.3 Dynamic allocation procedures	ladder__rung10_pointers	PASS
-rung11	case-statement, multi-constant case-list-elements, non-integer ordinal case-index	6.8.3.5 Case-statements	ladder__rung11_case	PASS
+RUNG	CONSTRUCT	REFERENCE	FORMS	PAIRS	WITNESS_ORIGIN	STATUS	NOTE
+rung0	program skeleton, writeln string literal	6.10 Programs; 6.9.4 The procedure writeln	paramlist|blank|multi|width		ladder__rung00_hello|ladder__rung00_hello_paramlist|ladder__rung00_hello_blank|ladder__rung00_hello_multi|ladder__rung00_hello_width	RED	4 forms minted 2026-09-04 (seat09), refs cut from the real `fpc -Miso` oracle, never assumed: paramlist = program-heading WITH a program-parameter-list (input, output) per 6.10's `['(' program-parameter-list ')']` being optional -- the pre-existing rung00_hello covers the no-list form, this covers the with-list form; blank = bare `writeln;` with the parameter list wholly omitted (6.9.4: "If ... the writeln-parameter-list is omitted, the procedure shall be applied to the required textfile output") -- oracle confirms a blank output line; multi = two string-literal write-parameters in one call (`writeln('Hello, ', 'world!')`), oracle confirms they concatenate onto one line with no implicit separator; width = a write-parameter field-width applied to a string literal, BOTH directions the standard names in 6.9.3 -- truncation when width < length (`'abcdef':3` -> `abc`) and left-padding when width > length (`'ab':5` -> `   ab`) -- oracle-verified both ways, not just the direction that happens to already work. Pre-existing ladder__rung00_hello (no parameter list, one bare string literal) stays the baseline witness, left undeclared in FORMS since it predates this column and renaming an established origin is unnecessary churn, not a correctness need.
+rung1	variable declaration, assignment	6.5.1 Variable-declarations; 6.8.2.2 Assignment-statements			ladder__rung01_var_assign	PASS
+rung2	arithmetic operators	6.7.2.2 Arithmetic operators			ladder__rung02_arithmetic	PASS
+rung3	if-statement, while-statement	6.8.3.4 If-statements; 6.8.3.8 While-statements			ladder__rung03_if_while	PASS
+rung4	for-statement, repeat-statement	6.8.3.9 For-statements; 6.8.3.7 Repeat-statements			ladder__rung04_for_repeat	PASS
+rung5	procedure/function declarations	6.6.1 Procedure-declarations; 6.6.2 Function-declarations			ladder__rung05_proc_func	PASS
+rung6	array-types	6.4.3.2 Array-types			ladder__rung06_arrays	PASS
+rung7	record-types	6.4.3.3 Record-types			ladder__rung07_records	PASS
+rung8	set-types, set operators	6.4.3.4 Set-types; 6.7.2.4 Set operators			ladder__rung08_sets	PASS
+rung9	packed array of char, lexical relational operators	6.1.7 Character-strings; 6.4.3.2 Array-types; 6.7.2.5 Relational operators (lexical case)			ladder__rung09_strings	PASS
+rung10	pointer-types, dynamic allocation (new/dispose), pointer equality incl. nil	6.4.4 Pointer-types; 6.6.5.3 Dynamic allocation procedures			ladder__rung10_pointers	PASS
+rung11	case-statement, multi-constant case-list-elements, non-integer ordinal case-index	6.8.3.5 Case-statements			ladder__rung11_case	PASS
 #
 # PLANNED (not yet minted -- next per hq_P's "mint and walk alternate"; ISO 7185 sec 6 order is the order):
 # PLAN-rung12	with-statement	6.8.3.10 With-statements
@@ -46,3 +54,6 @@ rung11	case-statement, multi-constant case-list-elements, non-integer ordinal ca
 # OUT OF SCOPE BY RULING, NOT OMISSION: 6.6.3.7/6.6.3.8 Conformant array parameters are ISO 7185 LEVEL 1
 # (marked in red in the vendored standard text itself, sec "6.6.3.7 Conformant array parameters" heading) --
 # an OPTIONAL extension beyond the base (Level 0) language this ladder targets. Revisit only on Lon's word.
+# REMAINING FOR THIS ROW (pascal-ladder-every-feature-in-isolation-with-variations): rungs 1-11 above still
+# need their FORMS column filled from ISO 7185 the same way rung0 just was, rung by rung, before this row's
+# isolation phase is complete -- see the task file's LEDGER for where the walk stopped.
