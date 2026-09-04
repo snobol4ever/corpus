@@ -3342,3 +3342,95 @@ say "a", "b", "c";
 #------------------------------------- 862 ladder__rung00_hello_print_no_newline
 print "no newline";
 say "end";
+#----------------------------------- 863 ladder__rung01_variables_no_initializer
+my $x;
+$x = 5;
+say $x;
+#----------------------------- 864 ladder__rung01_variables_multiple_declaration
+my ($a, $b) = (1, 2);
+say $a;
+say $b;
+#--------------------------------- 865 ladder__rung01_variables_type_constrained
+my Int $x = 5;
+say $x;
+#---------------------------------- 866 ladder__rung02_arithmetic_division_float
+say 7 / 2;
+#------------------------------------- 867 ladder__rung02_arithmetic_integer_div
+say 7 div 2;
+#------------------------------- 868 ladder__rung02_arithmetic_negative_operands
+say -7 % 2;
+say -7 div 2;
+#--------------------------------------- 869 ladder__rung03_strings_multi_concat
+say "a" ~ "b" ~ "c";
+#------------------------------------ 870 ladder__rung03_strings_repeat_operator
+say "ab" x 3;
+#-------------------------------------- 871 ladder__rung04_arrays_negative_index
+my @a = (1, 2, 3);
+say @a[*-1];
+#--------------------------------------- 872 ladder__rung04_arrays_out_of_bounds
+my @a = (1, 2, 3);
+say @a[10].raku;
+#-------------------------------------------- 873 ladder__rung04_arrays_push_pop
+my @a = (1, 2);
+@a.push(3);
+say @a;
+@a.pop;
+say @a;
+#----------------------------------------------- 874 ladder__rung04_arrays_slice
+my @a = (1, 2, 3, 4, 5);
+say @a[1..3];
+#--------------------------------------- 875 ladder__rung05_hashes_exists_delete
+my %h = (a => 1);
+say %h{'a'}:exists;
+%h{'a'}:delete;
+say %h{'a'}:exists;
+#----------------------------------------- 876 ladder__rung05_hashes_keys_values
+my %h = (a => 1, b => 2);
+say %h.keys.sort;
+say %h.values.sort;
+#----------------------------------------- 877 ladder__rung05_hashes_missing_key
+my %h = (a => 1);
+say %h{'z'}.raku;
+#---------------------------------------- 878 ladder__rung06_control_elsif_chain
+my $x = 2;
+if ($x == 1) { say "one"; } elsif ($x == 2) { say "two"; } else { say "other"; }
+#-------------------------------------------- 879 ladder__rung06_control_ternary
+my $x = 5;
+say $x > 3 ?? "big" !! "small";
+#--------------------------------------------- 880 ladder__rung06_control_unless
+my $x = 5;
+unless ($x > 10) { say "small"; }
+#---------------------------------------------- 881 ladder__rung06_control_until
+my $i = 0;
+until ($i >= 3) { say $i; $i = $i + 1; }
+#--------------------------------------- 882 ladder__rung07_subs_implicit_return
+sub double($x) { $x * 2 }
+say double(5);
+#---------------------------------------- 883 ladder__rung07_subs_multi_dispatch
+multi sub area($side) { return $side * $side; }
+multi sub area($w, $h) { return $w * $h; }
+say area(4);
+say area(3, 5);
+#------------------------------------------ 884 ladder__rung07_subs_named_params
+sub greet(:$name) { return "hi " ~ $name; }
+say greet(name => "Bob");
+#--------------------------------------- 885 ladder__rung07_subs_optional_params
+sub inc($x, $by = 1) { return $x + $by; }
+say inc(5);
+say inc(5, 2);
+#------------------------------------ 886 ladder__rung08_for_loop_for_over_array
+my @a = (10, 20, 30);
+for @a -> $x { say $x; }
+#------------------------------------ 887 ladder__rung08_for_loop_for_with_index
+my @a = ("a", "b");
+for @a.kv -> $i, $v { say "$i:$v"; }
+#---------------------------------------- 888 ladder__rung08_for_loop_nested_for
+for 1..2 -> $i { for 1..2 -> $j { say "$i,$j"; } }
+#----------------------------------- 889 ladder__rung09_string_methods_lc_method
+say "RAKU".lc;
+#-------------------------------- 890 ladder__rung09_string_methods_split_method
+say "a,b,c".split(",");
+#------------------------------- 891 ladder__rung09_string_methods_substr_method
+say "Hello".substr(1,3);
+#--------------------------------- 892 ladder__rung09_string_methods_trim_method
+say "  hi  ".trim;
