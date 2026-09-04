@@ -1,0 +1,1 @@
+ladder	already in the master (3 of 3 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry

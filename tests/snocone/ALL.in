@@ -1,7 +1,7 @@
-/*------------------------------------------- 255 trim_size_keyword_replace_1 */
+/*------------------------------------------- 264 trim_size_keyword_replace_1 */
 hello world
 foo bar baz
-/*---------------------------------------------- 258 trim_dupl_size_replace_1 */
+/*---------------------------------------------- 267 trim_dupl_size_replace_1 */
 alpha
 beta
 gamma
