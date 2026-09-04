@@ -1,26 +1,5 @@
 # PARSE-ERROR-CLASSES.md
 
-## ⛔⭐⭐ RULED OUT OF SCOPE BY LON, 2026-09-04 16:59 CDT — FIVE OF THESE CLASSES ARE NO LONGER WORK
-
-Lon, routed by ceo (CEO-235) in answer to hq_C's `ask-swi-dialect-scope-dicts-ssu-quasiquote`, verbatim:
-**"ISO plus the GNU/SWI-shared core only."** SWI-only surface — dicts + dot-access, SSU `=>`, quasi-quotation,
-CLP(FD), rational literals, module export-list `op/3` — is OUT OF SCOPE for SCRIP's Prolog.
-
-**21 files across seven class sections below are therefore EXCLUDED, per file, in `EXCLUDED.md`**, each with the
-reason `SWI-only syntax: <feature>, out of scope by Lon 2026-09-04`: module export-list op/3 (1) · rational
-literals (6) · SSU `=>` (4) · dict literals (4) · dict dot-access (3) · CLP(FD) (2) · quasi-quotation (1).
-The five `prolog-swi-class-*` rows minted for them are RETIRED. The `V/SWI` cell grades the in-scope denominator
-with a named line beside it — never a silent exclusion.
-
-⚠ **The count is 21, not the 24 that circulated in dispatch mail** — 24 was the whole remaining parse-error
-residue (12 classes); three classes in it are NOT SWI-only surface and stay open work: the DCG `...` ellipsis
-nonterminal head, `->!` mis-tokenizing with no space, and a `.` immediately followed by `%` desyncing the
-tokenizer. Those are ordinary parser bugs against ISO-reachable syntax. Do not fold them into the ruling.
-
-⭐ The class sections below are KEPT AS WRITTEN, not deleted: they are the evidence that the exclusion is a
-scope decision about a named, measured population, and the line/witness citations are what makes the
-`EXCLUDED.md` reasons checkable by anyone who doubts them.
-
 Classification by CAUSE (not filename) of the 66 `corpus/packages/prolog/swi_tests` files that
 EXCLUDED.md marks `parse error` (rung-10 nb_setval incompleteness accounts for the other 161).
 The four surface error strings (`expected . after directive` 33, `expected . at end of clause` 21,
