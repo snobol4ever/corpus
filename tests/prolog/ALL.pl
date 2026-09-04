@@ -2537,3 +2537,22 @@ main :- (fail ; (fail ; write(inner))), nl.
 :- initialization(main).
 classify(X) :- write(before), (X > 0 ; X < 0), write(after).
 main :- classify(5), nl.
+%---------------------------------------------------------------------- 442 cut_in_disjunction_1
+:- initialization(main).
+p(1).
+p(2).
+q(X) :- p(X), (X =:= 1, ! ; true), write(X).
+main :- q(_), nl, fail.
+main :- write(done), nl.
+%---------------------------------------------------------------------- 443 cut_last_goal_1
+:- initialization(main).
+p(1).
+p(2).
+q(X) :- p(X), write(X), !.
+main :- q(_), nl, fail.
+main :- write(done), nl.
+%---------------------------------------------------------------------- 444 cut_first_goal_1
+:- initialization(main).
+q :- !, write(first).
+q :- write(second).
+main :- q, nl.
