@@ -7528,3 +7528,15 @@ procedure main()
   write(bal([1,2,3]));
   write("after");
 end
+#------------------------------------------- 732 ladder_rung12_strrelop_size_sle
+procedure main();
+  if ("abc" <<= "abc") then write("le");
+  if ("bcd" <<= "abc") then write("nope");
+  write("done");
+end
+#------------------------------------------- 733 ladder_rung12_strrelop_size_sgt
+procedure main();
+  if ("bcd" >> "abc") then write("gt");
+  if ("abc" >> "abc") then write("nope");
+  write("done");
+end

@@ -5269,3 +5269,9 @@ a(b
 a(b,c)
 #------------------------------------------- 731 ladder_rung37_bal_refusal
 before
+#------------------------------------------- 732 ladder_rung12_strrelop_size_sle
+le
+done
+#------------------------------------------- 733 ladder_rung12_strrelop_size_sgt
+gt
+done
