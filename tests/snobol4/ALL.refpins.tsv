@@ -1,0 +1,7 @@
+# SCRIP-RULED REF PINS for this master. ⛔ An entry listed here has a ref that DISAGREES WITH THE
+# ORACLE ON PURPOSE, on a stated ruling -- capture-oracle-refs REFUSES to touch these, because
+# restoring the oracle's answer would silently undo a decision nobody remembers making.
+# ⛔ A pin is evidence only while its sha matches: if the ref has been edited since, the pin no
+# longer describes the file and the entry must be re-ruled, not re-blessed.
+# entry	sha256-16	measurer	date	ruling
+user_function_len_defer_branch_6	f38fecd0ab55e021	hq_T	2026-09-04T23:21Z	Lon's lambda-deferred-target sugar (s264), landed by seat08 in SCRIP 04d1b9cd2 on row lambda-deferred-target-lowering. p = LEN(1) . *(n = n + 1) is a construct SPITBOL FAILS and always will, so no oracle capture can ever produce this entry's correct answer -- the old ref pinned SPITBOL's guaranteed-failure semantics for a feature SCRIP was ruled to have. hq_C found the stale ref blocking the SNOBOL4 master control arm 2026-09-04.
