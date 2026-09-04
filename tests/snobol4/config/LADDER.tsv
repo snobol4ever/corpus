@@ -1,18 +1,41 @@
-RUNG	CONSTRUCT	WITNESS_ORIGIN	STATUS	NOTE
-rung00	program structure / OUTPUT	ladder__rung00_hello	BUILT	seat12/hq_T
-rung01	variables, assignment	ladder__rung01_variables	BUILT	seat12/hq_T
-rung02	arithmetic operators	ladder__rung02_arithmetic	BUILT	seat12/hq_T
-rung03	string concatenation	ladder__rung03_concatenation	BUILT	seat12/hq_T
-rung04	pattern match + replace (X PAT = REPL)	ladder__rung04_pattern_replace	BUILT	seat12/hq_T
-rung05	:S()/:F()/:() goto, labels	ladder__rung05_conditional_goto	BUILT	seat12/hq_T
-rung06	ARRAY	ladder__rung06_array	BUILT	seat12/hq_T
-rung07	TABLE	ladder__rung07_table	BUILT	seat12/hq_T
-rung08	DEFINE (programmer-defined function)	ladder__rung08_define_function	BUILT	seat12/hq_T
-rung09	pattern capture (. and $)	ladder__rung09_pattern_capture	BUILT	seat12/hq_T
-rung10	pattern alternation (P1 | P2)	ladder__rung10_pattern_alternation	BUILT	seat03 -- oracle-cut from SPITBOL -bf
-rung11	ARBNO (pattern repetition primitive)		PENDING
-rung12	FENCE / pattern backtracking control		PENDING
-rung13	indirect referencing ($ prefix)		PENDING
-rung14	keywords (&-prefixed system variables: &ANCHOR &TRIM &ALPHABET etc.)		PENDING
-rung15	DATA (programmer-defined structured data type + field accessors)		PENDING
-rung16	CODE (compile and execute a dynamically-built statement)		PENDING	TOP -- most advanced canonical feature; climbing here closes the ladder
+# LADDER.tsv -- THE SNOBOL4 CONSTRUCT CENSUS. DECLARED, NEVER DERIVED; the LAST rung line is the TOP.
+# THE INDUSTRY STANDARD is the green book (Griswold, Poage, Polonsky, "The SNOBOL4 Programming Language")
+# per MASTER-PLAN.md's own table; that book is NOT present as a local file on this box (searched
+# /home/resources in full, 2026-09-04: no PDF/text of it anywhere). REFERENCE below cites the SPITBOL
+# Tutorial and Program Reference Manual v3.7 (Emmer/Quillen/Dewar, /home/resources/spitbol-manual-v3.7.pdf,
+# 368 pp) instead -- the SAME table names SPITBOL/CSNOBOL4 as the paired reference implementation, and this
+# project's own oracle IS SPITBOL (`sbl -bf`, lib_oracle_flags.sh), so a page cite here is a REAL, checkable
+# citation, never an invention or an "oracle-observed" guess (util_ladder_forms_check.py penalizes those).
+# Page numbers are PDF page = printed page + 10 (verified against the manual's own Table of Contents,
+# which sits at PDF pp.5-8; cross-checked against lib_oracle_flags.sh's own pre-existing citations p.23/p.28/
+# p.192, all of which land on the right topic under this same +10 offset).
+#
+# ⛔ CONVERTED to the shared eight-column schema 2026-09-04 (seat07, row
+#    snobol4-ladder-every-feature-in-isolation-with-variations): it previously had NO REFERENCE/FORMS/PAIRS
+#    columns at all (RUNG CONSTRUCT WITNESS_ORIGIN STATUS NOTE only), so util_ladder_forms_check.py reported
+#    it NOT-IN-SCHEMA. FORMS ARE ENUMERATED FROM THE REFERENCE, NEVER FROM THE WITNESSES THAT HAPPEN TO
+#    EXIST -- back-filling from ALL.csv would make the checker green by construction and prove nothing (the
+#    exact vacuous-green the checker exists to prevent, hq_T 2026-09-04). So only rung00 carries FORMS this
+#    session: read manual Ch2 pp.9-11, Ch5 pp.39-44, Ch14 pp.171-179 for it and minted a witness per form.
+#    Rungs 01-16 carry a REFERENCE citation (real, checkable) but an EMPTY FORMS cell, and the checker NAMES
+#    each one as owed -- that is the honest state, not a passing one. SCOPE: isolation only (PAIRS column
+#    stays empty here by design -- combinations are the sibling row
+#    snobol4-ladder-feature-combinations-after-isolation, opens when this row's rungs are green).
+RUNG	CONSTRUCT	REFERENCE	FORMS	PAIRS	WITNESS_ORIGIN	STATUS	NOTE
+rung00	program structure / OUTPUT	SPITBOL manual Ch2 "First Program" pp.9-11 (OUTPUT assignment, quote styles) + Ch14 "Comment Statements" p.171 + "The END Statement" p.179	hello|output_squote|comment_ignored|end_labeled		-	BUILT	seat12/hq_T minted `hello`; seat07 2026-09-04 minted output_squote/comment_ignored/end_labeled (oracle-cut from SPITBOL -bf, verified both modes) -- rung00 FORMS complete per this session's reading of the cited pages
+rung01	variables, assignment	SPITBOL manual Ch3 "Variables" p.23 + "Simple Operators" (assignment `=`) p.18			ladder__rung01_variables	BUILT	seat12/hq_T; FORMS owed: enumerate from Ch3 pp.18-25 and mint one witness per form
+rung02	arithmetic operators	SPITBOL manual Ch3 "Simple Operators" p.18 + Ch15 "Binary Operators" p.182 (+ - * / ** mod REMDR etc.)			ladder__rung02_arithmetic	BUILT	seat12/hq_T; FORMS owed: enumerate from Ch3 p.18 / Ch15 p.182 and mint one witness per form
+rung03	string concatenation	SPITBOL manual Ch3 "Simple Operators" p.18 (blank/juxtaposition operator)			ladder__rung03_concatenation	BUILT	seat12/hq_T; FORMS owed: enumerate from Ch3 p.18 and mint one witness per form
+rung04	pattern match + replace (X PAT = REPL)	SPITBOL manual Ch6 "Pattern Matching with Replacement" pp.72-74 + Ch14 "Program Statements" (pattern-match-with-replacement form) p.175			ladder__rung04_pattern_replace	BUILT	seat12/hq_T; FORMS owed: enumerate from Ch6 pp.72-79 and mint one witness per form
+rung05	:S()/:F()/:() goto, labels	SPITBOL manual Ch14 "Program Statements" -- "Label field" p.176, "Goto field" pp.177-178 (unconditional/conditional/direct goto)			ladder__rung05_conditional_goto	BUILT	seat12/hq_T; FORMS owed: enumerate from Ch14 pp.176-178 and mint one witness per form
+rung06	ARRAY	SPITBOL manual Ch7 "Arrays" pp.88-91			ladder__rung06_array	BUILT	seat12/hq_T; FORMS owed: enumerate from Ch7 pp.88-91 and mint one witness per form
+rung07	TABLE	SPITBOL manual Ch7 "Tables" pp.91-96			ladder__rung07_table	BUILT	seat12/hq_T; FORMS owed: enumerate from Ch7 pp.91-96 and mint one witness per form
+rung08	DEFINE (programmer-defined function)	SPITBOL manual Ch8 "Program-Defined Functions" pp.102-111			ladder__rung08_define_function	BUILT	seat12/hq_T; FORMS owed: enumerate from Ch8 pp.102-111 and mint one witness per form
+rung09	pattern capture (. and $)	SPITBOL manual Ch6 "Capturing Match Results" pp.62-72			ladder__rung09_pattern_capture	BUILT	seat12/hq_T; FORMS owed: enumerate from Ch6 pp.62-72 and mint one witness per form
+rung10	pattern alternation (P1 | P2)	SPITBOL manual Ch6 "Pattern Subsequents and Alternates" pp.57-60			ladder__rung10_pattern_alternation	BUILT	seat03 -- oracle-cut from SPITBOL -bf; FORMS owed: enumerate from Ch6 pp.57-60 and mint one witness per form
+rung11	ARBNO (pattern repetition primitive)	SPITBOL manual Ch9 "The ARBNO Function" pp.121-122			-	PENDING	FORMS owed: no witness yet either -- mint the base construct AND enumerate forms from Ch9 pp.121-122
+rung12	FENCE / pattern backtracking control	SPITBOL manual Ch9 "Other Primitive Patterns" p.124 (FENCE, ABORT and related backtracking-control primitives) + Ch18 "Primitive Patterns" p.203			-	PENDING	FORMS owed: no witness yet either -- mint the base construct AND enumerate forms from Ch9 p.124 / Ch18 p.203
+rung13	indirect referencing ($ prefix)	SPITBOL manual Ch7 "Indirect Reference" pp.81-85			-	PENDING	FORMS owed: no witness yet either -- mint the base construct AND enumerate forms from Ch7 pp.81-85
+rung14	keywords (&-prefixed system variables: &ANCHOR &TRIM &ALPHABET etc.)	SPITBOL manual Ch5 "Keywords" pp.47-49 + Ch16 "Keywords" pp.187-194 (Protected/Unprotected/Special Names)			-	PENDING	FORMS owed: no witness yet either -- mint the base construct AND enumerate forms from Ch16 pp.187-194
+rung15	DATA (programmer-defined structured data type + field accessors)	SPITBOL manual Ch8 "Program-Defined Data Types" pp.111-115			-	PENDING	FORMS owed: no witness yet either -- mint the base construct AND enumerate forms from Ch8 pp.111-115
+rung16	CODE (compile and execute a dynamically-built statement)	SPITBOL manual Ch9 "Run-Time Compilation" pp.130-133 + Ch14 "Goto field" p.177 (the direct-Goto `<VAR>` form CODE() enables)			-	PENDING	TOP -- most advanced canonical feature; climbing here closes the ladder. FORMS owed: no witness yet either -- mint the base construct AND enumerate forms from Ch9 pp.130-133
