@@ -33,6 +33,7 @@ crosscheck_rungB11	m3,m4
 crosscheck_rungB12	m3,m4
 crosscheck_toplevel	m3,m4
 crosscheck_toplevel_xfail	m3,m4
+ladder	m3,m4
 parser	ast
 probe_nested_while	m3,m4
 probe_nreturn_indirect	m3,m4
