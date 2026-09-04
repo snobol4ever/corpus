@@ -2672,3 +2672,24 @@ main :- (2 =\= 3 -> write(yes) ; write(no)), nl.
 %---------------------------------------------------------------------- 480 arith_compare_mixed_int_float_1
 :- initialization(main).
 main :- (2 =:= 2.0 -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 481 term_compare_standard_order_lt_1
+:- initialization(main).
+main :- (1 @< a -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 482 term_compare_compare_3_1
+:- initialization(main).
+main :- compare(Order, 1, 2), write(Order), nl.
+%---------------------------------------------------------------------- 483 term_compare_term_eq_1
+:- initialization(main).
+main :- (foo(1, 2) == foo(1, 2) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 484 term_compare_term_ne_1
+:- initialization(main).
+main :- (foo(1, 2) \== foo(1, 3) -> write(yes) ; write(no)), nl.
+%---------------------------------------------------------------------- 485 term_compare_sort_2_1
+:- initialization(main).
+main :- sort([3, 1, 2, 1], L), write(L), nl.
+%---------------------------------------------------------------------- 486 term_compare_msort_2_1
+:- initialization(main).
+main :- msort([3, 1, 2, 1], L), write(L), nl.
+%---------------------------------------------------------------------- 487 term_compare_keysort_2_1
+:- initialization(main).
+main :- keysort([b-2, a-1, a-3], L), write(L), nl.
