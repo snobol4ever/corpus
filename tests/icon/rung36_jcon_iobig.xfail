@@ -1,6 +1,6 @@
 rc=139 SEGV (core dumped) — NOT an output mismatch and NOT rc=1.
 SIGNATURE: rc=139 SEGV, no diagnostic. ABLATED 2026-09-03 to an 8-line witness with NO file I/O and NO large
-           data:  inside a CO-EXPRESSION. Each ingredient is clean alone (cset-keyword
+           data: `suspend !&digits` inside a CO-EXPRESSION. Each ingredient is clean alone (cset-keyword
            generation without a co-expression: rc=0; a co-expression over a string literal: rc=0); only the
            INTERSECTION faults. icont runs it and prints 0..9. ⛔ The name "iobig" is misleading: reducing
            textgen's repl from 65536 to 16 leaves the SEGV unchanged, so neither size nor I/O is involved.
