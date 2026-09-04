@@ -1,0 +1,48 @@
+# Pascal construct ladder -- rung declarations, denominator citable per ISO 7185 sec 6's own structure
+# (row pascal-ladder-top-rung-census-and-rungs-10-to-top, seat10, 2026-09-03).
+#
+# CITATION: hq_P's preference was standardpascal.org first (crosscheck_PROVENANCE.md already cites it).
+# Tried: standardpascal.org -> standards.html -> pascal-central.com/iso7185.html -- that last link is DEAD:
+# it 301-redirects to jeremysaid.com/iso7185.html, which 302-redirects again to an unrelated, unaffiliated
+# third-party domain with no ISO 7185 content at all. Not followed past that second redirect. Fell back to
+# this environment's OWN already-vendored copy instead, exactly as hq_P authorized ("if it does not carry
+# the section list usably, fetch elsewhere and say where"):
+#   SOURCE: /home/resources/Pascal-P5/doc/iso7185.html -- "ISO 7185:1990" "(C)ISO/IEC 1991", vendored
+#   locally alongside the Pascal-P5 compiler distribution (not fetched today; already present on disk).
+#   Section 6 "Requirements" table of contents read directly from that file's own <h2>Table of contents</h2>
+#   (lines 74-222 of that file, sec 6.1 Lexical tokens .. 6.10 Programs), 2026-09-03.
+#
+# FORMAT: RUNG (matched by test_pascal_ladder.sh's owning task as ^rung[0-9]+) / CONSTRUCT / ISO_7185_SECTION
+# (the standard's own numbering, cited so the denominator is checkable against the source above, not invented)
+# / WITNESS (the corpus/tests/pascal/ALL.csv origin) / STATUS.
+# ⛔ Only rungs that are ACTUALLY BUILT AND GREEN (test_pascal_ladder.sh --to N passing) are listed as
+# `rungN` rows below -- per hq_P's ruling this same session ("do not let the census block the climb ...
+# mint and walk alternate, back and forth"), this file's declared top tracks the real frontier, not a
+# speculative plan. The PLANNED continuation (not yet minted, no witness, deliberately NOT matching
+# ^rung[0-9]+ so DONE-WHEN's top computation ignores it) is listed below the built rungs.
+RUNG	CONSTRUCT	ISO_7185_SECTION	WITNESS	STATUS
+rung0	program skeleton, writeln string literal	6.10 Programs; 6.9.4 The procedure writeln	ladder__rung00_hello	PASS
+rung1	variable declaration, assignment	6.5.1 Variable-declarations; 6.8.2.2 Assignment-statements	ladder__rung01_var_assign	PASS
+rung2	arithmetic operators	6.7.2.2 Arithmetic operators	ladder__rung02_arithmetic	PASS
+rung3	if-statement, while-statement	6.8.3.4 If-statements; 6.8.3.8 While-statements	ladder__rung03_if_while	PASS
+rung4	for-statement, repeat-statement	6.8.3.9 For-statements; 6.8.3.7 Repeat-statements	ladder__rung04_for_repeat	PASS
+rung5	procedure/function declarations	6.6.1 Procedure-declarations; 6.6.2 Function-declarations	ladder__rung05_proc_func	PASS
+rung6	array-types	6.4.3.2 Array-types	ladder__rung06_arrays	PASS
+rung7	record-types	6.4.3.3 Record-types	ladder__rung07_records	PASS
+rung8	set-types, set operators	6.4.3.4 Set-types; 6.7.2.4 Set operators	ladder__rung08_sets	PASS
+rung9	packed array of char, lexical relational operators	6.1.7 Character-strings; 6.4.3.2 Array-types; 6.7.2.5 Relational operators (lexical case)	ladder__rung09_strings	PASS
+rung10	pointer-types, dynamic allocation (new/dispose), pointer equality incl. nil	6.4.4 Pointer-types; 6.6.5.3 Dynamic allocation procedures	ladder__rung10_pointers	PASS
+#
+# PLANNED (not yet minted -- next per hq_P's "mint and walk alternate"; ISO 7185 sec 6 order is the order):
+# PLAN-rung11	case-statement	6.8.3.5 Case-statements
+# PLAN-rung12	with-statement	6.8.3.10 With-statements
+# PLAN-rung13	labels, goto-statement	6.1.6 Labels; 6.8.2.4 Goto-statements
+# PLAN-rung14	enumerated-types, subrange-types as declared TYPEs	6.4.2.3 Enumerated-types; 6.4.2.4 Subrange-types
+# PLAN-rung15	variable (var) parameters, call-by-reference correctness	6.6.3.3 Variable parameters
+# PLAN-rung16	procedural and functional parameters	6.6.3.4 Procedural parameters; 6.6.3.5 Functional parameters
+# PLAN-rung17	file-types beyond predefined input/output	6.4.3.5 File-types; 6.6.5.2 File handling procedures
+# PLAN-rung18	read/readln parsing (numeric and char input)	6.9.1 The procedure read; 6.9.2 The procedure readln
+# PLAN-rung19	scopes and activations (recursion, nested-scope visibility)	6.2.2 Scopes; 6.2.3 Activations
+# OUT OF SCOPE BY RULING, NOT OMISSION: 6.6.3.7/6.6.3.8 Conformant array parameters are ISO 7185 LEVEL 1
+# (marked in red in the vendored standard text itself, sec "6.6.3.7 Conformant array parameters" heading) --
+# an OPTIONAL extension beyond the base (Level 0) language this ladder targets. Revisit only on Lon's word.

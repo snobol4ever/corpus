@@ -3415,3 +3415,37 @@ var a: array[1..5] of integer;
 begin
   a[3] := 7
 end.
+{-------------------------------------------------- 165 ladder__rung10_pointers}
+program rung10pointers;
+type
+  node = ^cell;
+  cell = record
+    val: integer;
+    next: node
+  end;
+var
+  a, b: node;
+begin
+  new(a);
+  new(b);
+  a^.val := 1;
+  b^.val := 2;
+  a^.next := b;
+  b^.next := nil;
+  writeln(a^.val);
+  writeln(a^.next^.val);
+  if a^.next = b then
+    writeln('linked')
+  else
+    writeln('broken');
+  if a = b then
+    writeln('same')
+  else
+    writeln('distinct');
+  if b^.next = nil then
+    writeln('terminated')
+  else
+    writeln('dangling');
+  dispose(b);
+  dispose(a)
+end.
