@@ -2394,3 +2394,19 @@ main :- catch(p, E, (write(E), nl)), write(after), nl.
 :- dynamic(f/1).
 :- initialization(main).
 main :- assertz(f(1)), assertz(f(2)), retract(f(1)), findall(X, f(X), L), write(L), nl.
+%--------------------------------------------------- 405 abolish_pred_1 XFAIL
+:- dynamic(k/1).
+:- initialization(main).
+main :- assertz(k(1)), abolish(k/1), catch((k(_), write(found)), error(existence_error(procedure,_),_), write(gone)), nl.
+%-------------------------------------------------- 406 asserta_order_1 XFAIL
+:- dynamic(g/1).
+:- initialization(main).
+main :- assertz(g(1)), assertz(g(2)), asserta(g(0)), findall(X, g(X), L), write(L), nl.
+%------------------------------------------------- 407 clause_reflect_1 XFAIL
+:- dynamic(likes/1).
+:- initialization(main).
+main :- assertz(likes(wine)), assertz(likes(beer)), findall(H, clause(likes(H), true), L), write(L), nl.
+%---------------------------------------------- 408 retract_backtrack_1 XFAIL
+:- dynamic(h/1).
+:- initialization(main).
+main :- assertz(h(1)), assertz(h(2)), assertz(h(3)), (retract(h(_)), fail ; true), findall(X, h(X), L), write(L), nl.
