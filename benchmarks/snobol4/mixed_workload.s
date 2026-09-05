@@ -634,7 +634,7 @@ RSUM_α:                 sub              rsp, 64
                         lea              rax, [rip + RSUM_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n250_lit_integer_α];     jmp   rax
+                        lea              rax, [rip + LBL__RSUM];              jmp   rax
 RSUM_γ:                 mov              rdi, qword ptr [r9 + 0]              # RSUM
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
@@ -1496,7 +1496,7 @@ MIXED_WORKLOAD_α:       sub              rsp, 64
                         lea              rax, [rip + MIXED_WORKLOAD_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n255_lit_integer_α];     jmp   rax
+                        lea              rax, [rip + LBL__MIXED_WORKLOAD];    jmp   rax
 MIXED_WORKLOAD_γ:       mov              rdi, qword ptr [r9 + 32]             # MIXED_WORKLOAD
                         mov              rsi, qword ptr [r9 + 40]
                         mov              rcx, qword ptr [rsp + 32]
@@ -5303,7 +5303,7 @@ n248_statement_end_α:   mov              r11, 241
                         .type            n249_goto_bx, @function
 n249_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n249_goto_α:            mov              r11, 242;                            jmp   n250_lit_integer_α
+n249_goto_α:            mov              r11, 242;                            jmp   LBL__RSUM
 n249_goto_β:            mov              r11, 242;                            jmp   main_ω
                         .size            n249_goto_bx, .-n249_goto_bx
                         .type            n250_lit_integer_bx, @function
@@ -5312,12 +5312,12 @@ n250_lit_integer_bx:
 # RSUM    RSUM = EQ(N, 0) 0                               :S(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 11 0
-n250_lit_integer_α:     sub              rsp, 16
+LBL__RSUM:              sub              rsp, 16
                         mov              r11, 243
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_607_0]
+                        mov              rax, qword ptr [rip + .LLBL__RSUM_α_607_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n251_lit_integer_α
-.Llit_integer_α_607_0:  .quad            5
+.LLBL__RSUM_α_607_0:    .quad            5
                         .size            n250_lit_integer_bx, .-n250_lit_integer_bx
                         .type            n251_lit_integer_bx, @function
 n251_lit_integer_bx:
@@ -5378,7 +5378,7 @@ n253_goto_β:            mov              r11, 246;                            j
                         .type            n254_goto_bx, @function
 n254_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n254_goto_α:            mov              r11, 247;                            jmp   n255_lit_integer_α
+n254_goto_α:            mov              r11, 247;                            jmp   LBL__MIXED_WORKLOAD
 n254_goto_β:            mov              r11, 247;                            jmp   main_ω
                         .size            n254_goto_bx, .-n254_goto_bx
                         .type            n255_lit_integer_bx, @function
@@ -5387,12 +5387,13 @@ n255_lit_integer_bx:
 # MIXED_WORKLOAD  ZI = 1
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 16 0
-n255_lit_integer_α:     sub              rsp, 16
+LBL__MIXED_WORKLOAD:    sub              rsp, 16
                         mov              r11, 248
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_613_0]
+                        mov              rax, qword ptr [rip + .LLBL__MIXED_WORKLOAD_α_613_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n256_lit_integer_α
-.Llit_integer_α_613_0:  .quad            10
+.LLBL__MIXED_WORKLOAD_α_613_0:
+                        .quad            10
                         .size            n255_lit_integer_bx, .-n255_lit_integer_bx
                         .type            n256_lit_integer_bx, @function
 n256_lit_integer_bx:
@@ -5512,6 +5513,44 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__RSUM"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__RSUM
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            4208
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname1:       .string          "LBL__MIXED_WORKLOAD"
+                        .align           8
+.Lstartup_prec1:
+                        .quad            .Lstartup_pname1
+                        .quad            LBL__MIXED_WORKLOAD
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            4208
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec1]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala2:               .string          "RSUM"
                         .section         .text

@@ -510,7 +510,7 @@ STRING_CONCAT_α:        sub              rsp, 64
                         lea              rax, [rip + STRING_CONCAT_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n94_lit_integer_α];      jmp   rax
+                        lea              rax, [rip + LBL__STRING_CONCAT];     jmp   rax
 STRING_CONCAT_γ:        mov              rdi, qword ptr [r9 + 0]              # STRING_CONCAT
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
@@ -1943,7 +1943,7 @@ n92_statement_end_α:    mov              r11, 93
                         .type            n93_goto_bx, @function
 n93_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n93_goto_α:             mov              r11, 94;                             jmp   n94_lit_integer_α
+n93_goto_α:             mov              r11, 94;                             jmp   LBL__STRING_CONCAT
 n93_goto_β:             mov              r11, 94;                             jmp   main_ω
                         .size            n93_goto_bx, .-n93_goto_bx
                         .type            n94_lit_integer_bx, @function
@@ -1952,12 +1952,13 @@ n94_lit_integer_bx:
 # STRING_CONCAT  S = ''
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 10 0
-n94_lit_integer_α:      sub              rsp, 16
+LBL__STRING_CONCAT:     sub              rsp, 16
                         mov              r11, 95
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_236_0]
+                        mov              rax, qword ptr [rip + .LLBL__STRING_CONCAT_α_236_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n95_lit_integer_α
-.Llit_integer_α_236_0:  .quad            5
+.LLBL__STRING_CONCAT_α_236_0:
+                        .quad            5
                         .size            n94_lit_integer_bx, .-n94_lit_integer_bx
                         .type            n95_lit_integer_bx, @function
 n95_lit_integer_bx:
@@ -2051,6 +2052,25 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__STRING_CONCAT"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__STRING_CONCAT
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            1696
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala1:               .string          "STRING_CONCAT"
                         .section         .text

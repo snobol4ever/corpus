@@ -510,7 +510,7 @@ OP_DISPATCH_α:          sub              rsp, 64
                         lea              rax, [rip + OP_DISPATCH_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n125_lit_integer_α];     jmp   rax
+                        lea              rax, [rip + LBL__OP_DISPATCH];       jmp   rax
 OP_DISPATCH_γ:          mov              rdi, qword ptr [r9 + 0]              # OP_DISPATCH
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2593,7 +2593,7 @@ n123_statement_end_α:   mov              r11, 124
                         .type            n124_goto_bx, @function
 n124_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n124_goto_α:            mov              r11, 125;                            jmp   n125_lit_integer_α
+n124_goto_α:            mov              r11, 125;                            jmp   LBL__OP_DISPATCH
 n124_goto_β:            mov              r11, 125;                            jmp   main_ω
                         .size            n124_goto_bx, .-n124_goto_bx
                         .type            n125_lit_integer_bx, @function
@@ -2602,12 +2602,13 @@ n125_lit_integer_bx:
 # OP_DISPATCH  M = 1
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 8 0
-n125_lit_integer_α:     sub              rsp, 16
+LBL__OP_DISPATCH:       sub              rsp, 16
                         mov              r11, 126
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_309_0]
+                        mov              rax, qword ptr [rip + .LLBL__OP_DISPATCH_α_309_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n126_lit_integer_α
-.Llit_integer_α_309_0:  .quad            5
+.LLBL__OP_DISPATCH_α_309_0:
+                        .quad            5
                         .size            n125_lit_integer_bx, .-n125_lit_integer_bx
                         .type            n126_lit_integer_bx, @function
 n126_lit_integer_bx:
@@ -2701,6 +2702,25 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__OP_DISPATCH"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__OP_DISPATCH
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            2144
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala1:               .string          "OP_DISPATCH"
                         .section         .text

@@ -127,7 +127,7 @@ FIB_α:                  sub              rsp, 64
                         lea              rax, [rip + FIB_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n3_statement_begin_α];   jmp   rax
+                        lea              rax, [rip + LBL__FIB];               jmp   rax
 FIB_γ:                  mov              rdi, qword ptr [r9 + 0]              # FIB
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
@@ -192,7 +192,7 @@ n3_statement_begin_bx:
 # FIB	FIB = LT(N, 2) N				:S(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 4 0
-n3_statement_begin_α:   mov              r11, 4
+LBL__FIB:               mov              r11, 4
                         mov              r10, 2;                              jmp   n4_var_α
 n3_statement_begin_β:   mov              r11, 4;                              jmp   n12_statement_begin_α
                         .size            n3_statement_begin_bx, .-n3_statement_begin_bx
@@ -837,7 +837,7 @@ n30_statement_end_α:    mov              r11, 31
                         .type            n31_goto_bx, @function
 n31_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n31_goto_α:             mov              r11, 32;                             jmp   n3_statement_begin_α
+n31_goto_α:             mov              r11, 32;                             jmp   LBL__FIB
 n31_goto_β:             mov              r11, 32;                             jmp   main_ω
                         .size            n31_goto_bx, .-n31_goto_bx
                         .type            n32_goto_bx, @function
@@ -876,6 +876,25 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__FIB"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__FIB
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            400
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala1:               .string          "FIB"
                         .section         .text

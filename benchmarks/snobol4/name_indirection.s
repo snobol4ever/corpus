@@ -512,7 +512,7 @@ name_indirection_α:     sub              rsp, 64
                         lea              rax, [rip + name_indirection_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n96_lit_integer_α];      jmp   rax
+                        lea              rax, [rip + LBL__name_indirection];  jmp   rax
 name_indirection_γ:     mov              rdi, qword ptr [r9 + 0]              # name_indirection
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
@@ -1985,7 +1985,7 @@ n94_statement_end_α:    mov              r11, 95
                         .type            n95_goto_bx, @function
 n95_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n95_goto_α:             mov              r11, 96;                             jmp   n96_lit_integer_α
+n95_goto_α:             mov              r11, 96;                             jmp   LBL__name_indirection
 n95_goto_β:             mov              r11, 96;                             jmp   main_ω
                         .size            n95_goto_bx, .-n95_goto_bx
                         .type            n96_lit_integer_bx, @function
@@ -1994,12 +1994,13 @@ n96_lit_integer_bx:
 # name_indirection    target = 0
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 10 0
-n96_lit_integer_α:      sub              rsp, 16
+LBL__name_indirection:  sub              rsp, 16
                         mov              r11, 97
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_241_0]
+                        mov              rax, qword ptr [rip + .LLBL__name_indirection_α_241_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n97_lit_integer_α
-.Llit_integer_α_241_0:  .quad            5
+.LLBL__name_indirection_α_241_0:
+                        .quad            5
                         .size            n96_lit_integer_bx, .-n96_lit_integer_bx
                         .type            n97_lit_integer_bx, @function
 n97_lit_integer_bx:
@@ -2093,6 +2094,25 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__name_indirection"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__name_indirection
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            1776
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala1:               .string          "name_indirection"
                         .section         .text

@@ -512,7 +512,7 @@ STRING_MANIP_α:         sub              rsp, 64
                         lea              rax, [rip + STRING_MANIP_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n101_lit_integer_α];     jmp   rax
+                        lea              rax, [rip + LBL__STRING_MANIP];      jmp   rax
 STRING_MANIP_γ:         mov              rdi, qword ptr [r9 + 0]              # STRING_MANIP
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2079,7 +2079,7 @@ n99_statement_end_α:    mov              r11, 100
                         .type            n100_goto_bx, @function
 n100_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n100_goto_α:            mov              r11, 101;                            jmp   n101_lit_integer_α
+n100_goto_α:            mov              r11, 101;                            jmp   LBL__STRING_MANIP
 n100_goto_β:            mov              r11, 101;                            jmp   main_ω
                         .size            n100_goto_bx, .-n100_goto_bx
                         .type            n101_lit_integer_bx, @function
@@ -2088,12 +2088,13 @@ n101_lit_integer_bx:
 # STRING_MANIP  ZI = 1
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 8 0
-n101_lit_integer_α:     sub              rsp, 16
+LBL__STRING_MANIP:      sub              rsp, 16
                         mov              r11, 102
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_253_0]
+                        mov              rax, qword ptr [rip + .LLBL__STRING_MANIP_α_253_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n102_lit_integer_α
-.Llit_integer_α_253_0:  .quad            5
+.LLBL__STRING_MANIP_α_253_0:
+                        .quad            5
                         .size            n101_lit_integer_bx, .-n101_lit_integer_bx
                         .type            n102_lit_integer_bx, @function
 n102_lit_integer_bx:
@@ -2187,6 +2188,25 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__STRING_MANIP"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__STRING_MANIP
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            1840
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala1:               .string          "STRING_MANIP"
                         .section         .text

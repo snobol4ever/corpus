@@ -518,7 +518,7 @@ VAR_ACCESS_α:           sub              rsp, 64
                         lea              rax, [rip + VAR_ACCESS_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n178_lit_integer_α];     jmp   rax
+                        lea              rax, [rip + LBL__VAR_ACCESS];        jmp   rax
 VAR_ACCESS_γ:           mov              rdi, qword ptr [r9 + 0]              # VAR_ACCESS
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
@@ -3642,7 +3642,7 @@ n176_statement_end_α:   mov              r11, 177
                         .type            n177_goto_bx, @function
 n177_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n177_goto_α:            mov              r11, 178;                            jmp   n178_lit_integer_α
+n177_goto_α:            mov              r11, 178;                            jmp   LBL__VAR_ACCESS
 n177_goto_β:            mov              r11, 178;                            jmp   main_ω
                         .size            n177_goto_bx, .-n177_goto_bx
                         .type            n178_lit_integer_bx, @function
@@ -3651,12 +3651,13 @@ n178_lit_integer_bx:
 # VAR_ACCESS  A = 1
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 8 0
-n178_lit_integer_α:     sub              rsp, 16
+LBL__VAR_ACCESS:        sub              rsp, 16
                         mov              r11, 179
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_430_0]
+                        mov              rax, qword ptr [rip + .LLBL__VAR_ACCESS_α_430_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n179_lit_integer_α
-.Llit_integer_α_430_0:  .quad            5
+.LLBL__VAR_ACCESS_α_430_0:
+                        .quad            5
                         .size            n178_lit_integer_bx, .-n178_lit_integer_bx
                         .type            n179_lit_integer_bx, @function
 n179_lit_integer_bx:
@@ -3750,6 +3751,25 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__VAR_ACCESS"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__VAR_ACCESS
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            3008
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala1:               .string          "VAR_ACCESS"
                         .section         .text

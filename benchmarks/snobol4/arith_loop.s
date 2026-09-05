@@ -510,7 +510,7 @@ ARITH_LOOP_α:           sub              rsp, 64
                         lea              rax, [rip + ARITH_LOOP_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n93_lit_integer_α];      jmp   rax
+                        lea              rax, [rip + LBL__ARITH_LOOP];        jmp   rax
 ARITH_LOOP_γ:           mov              rdi, qword ptr [r9 + 0]              # ARITH_LOOP
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
@@ -1925,7 +1925,7 @@ n91_statement_end_α:    mov              r11, 92
                         .type            n92_goto_bx, @function
 n92_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n92_goto_α:             mov              r11, 93;                             jmp   n93_lit_integer_α
+n92_goto_α:             mov              r11, 93;                             jmp   LBL__ARITH_LOOP
 n92_goto_β:             mov              r11, 93;                             jmp   main_ω
                         .size            n92_goto_bx, .-n92_goto_bx
                         .type            n93_lit_integer_bx, @function
@@ -1934,12 +1934,13 @@ n93_lit_integer_bx:
 # ARITH_LOOP  A = 0
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 8 0
-n93_lit_integer_α:      sub              rsp, 16
+LBL__ARITH_LOOP:        sub              rsp, 16
                         mov              r11, 94
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_233_0]
+                        mov              rax, qword ptr [rip + .LLBL__ARITH_LOOP_α_233_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n94_lit_integer_α
-.Llit_integer_α_233_0:  .quad            5
+.LLBL__ARITH_LOOP_α_233_0:
+                        .quad            5
                         .size            n93_lit_integer_bx, .-n93_lit_integer_bx
                         .type            n94_lit_integer_bx, @function
 n94_lit_integer_bx:
@@ -2033,6 +2034,25 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__ARITH_LOOP"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__ARITH_LOOP
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            1648
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala1:               .string          "ARITH_LOOP"
                         .section         .text

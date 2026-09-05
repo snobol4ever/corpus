@@ -518,7 +518,7 @@ ARRAY_SUM_α:            sub              rsp, 64
                         lea              rax, [rip + ARRAY_SUM_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n157_lit_integer_α];     jmp   rax
+                        lea              rax, [rip + LBL__ARRAY_SUM];         jmp   rax
 ARRAY_SUM_γ:            mov              rdi, qword ptr [r9 + 0]              # ARRAY_SUM
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
@@ -3271,7 +3271,7 @@ n155_statement_end_α:   mov              r11, 156
                         .type            n156_goto_bx, @function
 n156_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n156_goto_α:            mov              r11, 157;                            jmp   n157_lit_integer_α
+n156_goto_α:            mov              r11, 157;                            jmp   LBL__ARRAY_SUM
 n156_goto_β:            mov              r11, 157;                            jmp   main_ω
                         .size            n156_goto_bx, .-n156_goto_bx
                         .type            n157_lit_integer_bx, @function
@@ -3280,12 +3280,13 @@ n157_lit_integer_bx:
 # ARRAY_SUM  ZI = 1
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 8 0
-n157_lit_integer_α:     sub              rsp, 16
+LBL__ARRAY_SUM:         sub              rsp, 16
                         mov              r11, 158
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_389_0]
+                        mov              rax, qword ptr [rip + .LLBL__ARRAY_SUM_α_389_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n158_lit_integer_α
-.Llit_integer_α_389_0:  .quad            5
+.LLBL__ARRAY_SUM_α_389_0:
+                        .quad            5
                         .size            n157_lit_integer_bx, .-n157_lit_integer_bx
                         .type            n158_lit_integer_bx, @function
 n158_lit_integer_bx:
@@ -3391,6 +3392,25 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__ARRAY_SUM"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__ARRAY_SUM
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            2688
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala1:               .string          "ARRAY_SUM"
                         .section         .text

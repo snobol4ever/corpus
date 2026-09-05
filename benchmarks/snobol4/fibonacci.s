@@ -520,7 +520,7 @@ FIB_α:                  sub              rsp, 64
                         lea              rax, [rip + FIB_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n132_lit_integer_α];     jmp   rax
+                        lea              rax, [rip + LBL__FIB];               jmp   rax
 FIB_γ:                  mov              rdi, qword ptr [r9 + 0]              # FIB
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
@@ -1302,7 +1302,7 @@ FIBONACCI_α:            sub              rsp, 64
                         lea              rax, [rip + FIBONACCI_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n137_lit_integer_α];     jmp   rax
+                        lea              rax, [rip + LBL__FIBONACCI];         jmp   rax
 FIBONACCI_γ:            mov              rdi, qword ptr [r9 + 32]             # FIBONACCI
                         mov              rsi, qword ptr [r9 + 40]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2859,7 +2859,7 @@ n130_statement_end_α:   mov              r11, 131
                         .type            n131_goto_bx, @function
 n131_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n131_goto_α:            mov              r11, 132;                            jmp   n132_lit_integer_α
+n131_goto_α:            mov              r11, 132;                            jmp   LBL__FIB
 n131_goto_β:            mov              r11, 132;                            jmp   main_ω
                         .size            n131_goto_bx, .-n131_goto_bx
                         .type            n132_lit_integer_bx, @function
@@ -2868,12 +2868,12 @@ n132_lit_integer_bx:
 # FIB     FIB = LT(N, 2) N                                :S(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 8 0
-n132_lit_integer_α:     sub              rsp, 16
+LBL__FIB:               sub              rsp, 16
                         mov              r11, 133
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_337_0]
+                        mov              rax, qword ptr [rip + .LLBL__FIB_α_337_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n133_lit_integer_α
-.Llit_integer_α_337_0:  .quad            5
+.LLBL__FIB_α_337_0:     .quad            5
                         .size            n132_lit_integer_bx, .-n132_lit_integer_bx
                         .type            n133_lit_integer_bx, @function
 n133_lit_integer_bx:
@@ -2934,7 +2934,7 @@ n135_goto_β:            mov              r11, 136;                            j
                         .type            n136_goto_bx, @function
 n136_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n136_goto_α:            mov              r11, 137;                            jmp   n137_lit_integer_α
+n136_goto_α:            mov              r11, 137;                            jmp   LBL__FIBONACCI
 n136_goto_β:            mov              r11, 137;                            jmp   main_ω
                         .size            n136_goto_bx, .-n136_goto_bx
                         .type            n137_lit_integer_bx, @function
@@ -2943,12 +2943,13 @@ n137_lit_integer_bx:
 # FIBONACCI  ZI = 1
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 12 0
-n137_lit_integer_α:     sub              rsp, 16
+LBL__FIBONACCI:         sub              rsp, 16
                         mov              r11, 138
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_343_0]
+                        mov              rax, qword ptr [rip + .LLBL__FIBONACCI_α_343_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n138_lit_integer_α
-.Llit_integer_α_343_0:  .quad            9
+.LLBL__FIBONACCI_α_343_0:
+                        .quad            9
                         .size            n137_lit_integer_bx, .-n137_lit_integer_bx
                         .type            n138_lit_integer_bx, @function
 n138_lit_integer_bx:
@@ -3048,6 +3049,44 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__FIB"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__FIB
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            2336
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname1:       .string          "LBL__FIBONACCI"
+                        .align           8
+.Lstartup_prec1:
+                        .quad            .Lstartup_pname1
+                        .quad            LBL__FIBONACCI
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            2336
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec1]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala2:               .string          "FIB"
                         .section         .text

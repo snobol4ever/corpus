@@ -1035,7 +1035,7 @@ PATTERN_BT_α:           sub              rsp, 64
                         lea              rax, [rip + PATTERN_BT_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n126_lit_integer_α];     jmp   rax
+                        lea              rax, [rip + LBL__PATTERN_BT];        jmp   rax
 PATTERN_BT_γ:           mov              rdi, qword ptr [r9 + 0]              # PATTERN_BT
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2423,7 +2423,7 @@ n124_statement_end_α:   mov              r11, 109
                         .type            n125_goto_bx, @function
 n125_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n125_goto_α:            mov              r11, 110;                            jmp   n126_lit_integer_α
+n125_goto_α:            mov              r11, 110;                            jmp   LBL__PATTERN_BT
 n125_goto_β:            mov              r11, 110;                            jmp   main_ω
                         .size            n125_goto_bx, .-n125_goto_bx
                         .type            n126_lit_integer_bx, @function
@@ -2432,12 +2432,13 @@ n126_lit_integer_bx:
 # PATTERN_BT  ZI = 1
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 10 0
-n126_lit_integer_α:     sub              rsp, 16
+LBL__PATTERN_BT:        sub              rsp, 16
                         mov              r11, 111
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_280_0]
+                        mov              rax, qword ptr [rip + .LLBL__PATTERN_BT_α_280_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n127_lit_integer_α
-.Llit_integer_α_280_0:  .quad            7
+.LLBL__PATTERN_BT_α_280_0:
+                        .quad            7
                         .size            n126_lit_integer_bx, .-n126_lit_integer_bx
                         .type            n127_lit_integer_bx, @function
 n127_lit_integer_bx:
@@ -2533,6 +2534,25 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__PATTERN_BT"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__PATTERN_BT
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            1856
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala1:               .string          "PATTERN_BT"
                         .section         .text

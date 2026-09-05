@@ -516,7 +516,7 @@ INC_α:                  sub              rsp, 64
                         lea              rax, [rip + INC_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n106_lit_integer_α];     jmp   rax
+                        lea              rax, [rip + LBL__INC];               jmp   rax
 INC_γ:                  mov              rdi, qword ptr [r9 + 0]              # INC
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
@@ -857,7 +857,7 @@ FUNC_CALL_α:            sub              rsp, 64
                         lea              rax, [rip + FUNC_CALL_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n111_lit_integer_α];     jmp   rax
+                        lea              rax, [rip + LBL__FUNC_CALL];         jmp   rax
 FUNC_CALL_γ:            mov              rdi, qword ptr [r9 + 32]             # FUNC_CALL
                         mov              rsi, qword ptr [r9 + 40]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2256,7 +2256,7 @@ n104_statement_end_α:   mov              r11, 105
                         .type            n105_goto_bx, @function
 n105_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n105_goto_α:            mov              r11, 106;                            jmp   n106_lit_integer_α
+n105_goto_α:            mov              r11, 106;                            jmp   LBL__INC
 n105_goto_β:            mov              r11, 106;                            jmp   main_ω
                         .size            n105_goto_bx, .-n105_goto_bx
                         .type            n106_lit_integer_bx, @function
@@ -2265,12 +2265,12 @@ n106_lit_integer_bx:
 # INC     INC = N + 1                                     :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 8 0
-n106_lit_integer_α:     sub              rsp, 16
+LBL__INC:               sub              rsp, 16
                         mov              r11, 107
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_274_0]
+                        mov              rax, qword ptr [rip + .LLBL__INC_α_274_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n107_lit_integer_α
-.Llit_integer_α_274_0:  .quad            5
+.LLBL__INC_α_274_0:     .quad            5
                         .size            n106_lit_integer_bx, .-n106_lit_integer_bx
                         .type            n107_lit_integer_bx, @function
 n107_lit_integer_bx:
@@ -2331,7 +2331,7 @@ n109_goto_β:            mov              r11, 110;                            j
                         .type            n110_goto_bx, @function
 n110_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n110_goto_α:            mov              r11, 111;                            jmp   n111_lit_integer_α
+n110_goto_α:            mov              r11, 111;                            jmp   LBL__FUNC_CALL
 n110_goto_β:            mov              r11, 111;                            jmp   main_ω
                         .size            n110_goto_bx, .-n110_goto_bx
                         .type            n111_lit_integer_bx, @function
@@ -2340,12 +2340,13 @@ n111_lit_integer_bx:
 # FUNC_CALL  R = 0
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 11 0
-n111_lit_integer_α:     sub              rsp, 16
+LBL__FUNC_CALL:         sub              rsp, 16
                         mov              r11, 112
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_280_0]
+                        mov              rax, qword ptr [rip + .LLBL__FUNC_CALL_α_280_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n112_lit_integer_α
-.Llit_integer_α_280_0:  .quad            8
+.LLBL__FUNC_CALL_α_280_0:
+                        .quad            8
                         .size            n111_lit_integer_bx, .-n111_lit_integer_bx
                         .type            n112_lit_integer_bx, @function
 n112_lit_integer_bx:
@@ -2439,6 +2440,44 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__INC"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__INC
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            1920
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname1:       .string          "LBL__FUNC_CALL"
+                        .align           8
+.Lstartup_prec1:
+                        .quad            .Lstartup_pname1
+                        .quad            LBL__FUNC_CALL
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            1920
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec1]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala2:               .string          "INC"
                         .section         .text

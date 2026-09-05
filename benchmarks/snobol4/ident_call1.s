@@ -510,7 +510,7 @@ IDENT_CALL1_α:          sub              rsp, 64
                         lea              rax, [rip + IDENT_CALL1_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n91_lit_integer_α];      jmp   rax
+                        lea              rax, [rip + LBL__IDENT_CALL1];       jmp   rax
 IDENT_CALL1_γ:          mov              rdi, qword ptr [r9 + 0]              # IDENT_CALL1
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
@@ -1832,7 +1832,7 @@ n89_statement_end_α:    mov              r11, 90
                         .type            n90_goto_bx, @function
 n90_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n90_goto_α:             mov              r11, 91;                             jmp   n91_lit_integer_α
+n90_goto_α:             mov              r11, 91;                             jmp   LBL__IDENT_CALL1
 n90_goto_β:             mov              r11, 91;                             jmp   main_ω
                         .size            n90_goto_bx, .-n90_goto_bx
                         .type            n91_lit_integer_bx, @function
@@ -1841,12 +1841,13 @@ n91_lit_integer_bx:
 # IDENT_CALL1  A = 0
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 8 0
-n91_lit_integer_α:      sub              rsp, 16
+LBL__IDENT_CALL1:       sub              rsp, 16
                         mov              r11, 92
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_229_0]
+                        mov              rax, qword ptr [rip + .LLBL__IDENT_CALL1_α_229_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n92_lit_integer_α
-.Llit_integer_α_229_0:  .quad            5
+.LLBL__IDENT_CALL1_α_229_0:
+                        .quad            5
                         .size            n91_lit_integer_bx, .-n91_lit_integer_bx
                         .type            n92_lit_integer_bx, @function
 n92_lit_integer_bx:
@@ -1940,6 +1941,25 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__IDENT_CALL1"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__IDENT_CALL1
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            1600
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala1:               .string          "IDENT_CALL1"
                         .section         .text

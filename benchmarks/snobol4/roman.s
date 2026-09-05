@@ -529,7 +529,7 @@ ROMAN_α:                sub              rsp, 80
                         lea              rax, [rip + ROMAN_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n216_lit_integer_α];     jmp   rax
+                        lea              rax, [rip + LBL__ROMAN];             jmp   rax
 ROMAN_γ:                mov              rdi, qword ptr [r9 + 0]              # ROMAN
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 48]
@@ -1647,7 +1647,7 @@ ROMAN_RUN_α:            sub              rsp, 64
                         lea              rax, [rip + ROMAN_RUN_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n221_lit_integer_α];     jmp   rax
+                        lea              rax, [rip + LBL__ROMAN_RUN];         jmp   rax
 ROMAN_RUN_γ:            mov              rdi, qword ptr [r9 + 48]             # ROMAN_RUN
                         mov              rsi, qword ptr [r9 + 56]
                         mov              rcx, qword ptr [rsp + 32]
@@ -4755,7 +4755,7 @@ n214_statement_end_α:   mov              r11, 215
                         .type            n215_goto_bx, @function
 n215_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n215_goto_α:            mov              r11, 216;                            jmp   n216_lit_integer_α
+n215_goto_α:            mov              r11, 216;                            jmp   LBL__ROMAN
 n215_goto_β:            mov              r11, 216;                            jmp   main_ω
                         .size            n215_goto_bx, .-n215_goto_bx
                         .type            n216_lit_integer_bx, @function
@@ -4764,12 +4764,12 @@ n216_lit_integer_bx:
 # ROMAN   N ? RPOS(1) LEN(1) . T =                        :F(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 13 0
-n216_lit_integer_α:     sub              rsp, 16
+LBL__ROMAN:             sub              rsp, 16
                         mov              r11, 217
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_544_0]
+                        mov              rax, qword ptr [rip + .LLBL__ROMAN_α_544_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n217_lit_integer_α
-.Llit_integer_α_544_0:  .quad            5
+.LLBL__ROMAN_α_544_0:   .quad            5
                         .size            n216_lit_integer_bx, .-n216_lit_integer_bx
                         .type            n217_lit_integer_bx, @function
 n217_lit_integer_bx:
@@ -4830,7 +4830,7 @@ n219_goto_β:            mov              r11, 220;                            j
                         .type            n220_goto_bx, @function
 n220_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n220_goto_α:            mov              r11, 221;                            jmp   n221_lit_integer_α
+n220_goto_α:            mov              r11, 221;                            jmp   LBL__ROMAN_RUN
 n220_goto_β:            mov              r11, 221;                            jmp   main_ω
                         .size            n220_goto_bx, .-n220_goto_bx
                         .type            n221_lit_integer_bx, @function
@@ -4839,12 +4839,13 @@ n221_lit_integer_bx:
 # ROMAN_RUN  ZI = 1
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 18 0
-n221_lit_integer_α:     sub              rsp, 16
+LBL__ROMAN_RUN:         sub              rsp, 16
                         mov              r11, 222
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_550_0]
+                        mov              rax, qword ptr [rip + .LLBL__ROMAN_RUN_α_550_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n222_lit_integer_α
-.Llit_integer_α_550_0:  .quad            10
+.LLBL__ROMAN_RUN_α_550_0:
+                        .quad            10
                         .size            n221_lit_integer_bx, .-n221_lit_integer_bx
                         .type            n222_lit_integer_bx, @function
 n222_lit_integer_bx:
@@ -4962,6 +4963,44 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__ROMAN"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__ROMAN
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            4096
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname1:       .string          "LBL__ROMAN_RUN"
+                        .align           8
+.Lstartup_prec1:
+                        .quad            .Lstartup_pname1
+                        .quad            LBL__ROMAN_RUN
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            4096
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec1]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala2:               .string          "ROMAN"
                         .section         .text

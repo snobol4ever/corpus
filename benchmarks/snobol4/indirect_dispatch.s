@@ -520,7 +520,7 @@ ADD1_α:                 sub              rsp, 64
                         lea              rax, [rip + ADD1_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n126_lit_integer_α];     jmp   rax
+                        lea              rax, [rip + LBL__ADD1];              jmp   rax
 ADD1_γ:                 mov              rdi, qword ptr [r9 + 0]              # ADD1
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
@@ -999,7 +999,7 @@ INDIRECT_DISPATCH_α:    sub              rsp, 64
                         lea              rax, [rip + INDIRECT_DISPATCH_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n131_lit_integer_α];     jmp   rax
+                        lea              rax, [rip + LBL__INDIRECT_DISPATCH]; jmp   rax
 INDIRECT_DISPATCH_γ:    mov              rdi, qword ptr [r9 + 32]             # INDIRECT_DISPATCH
                         mov              rsi, qword ptr [r9 + 40]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2659,7 +2659,7 @@ n124_statement_end_α:   mov              r11, 125
                         .type            n125_goto_bx, @function
 n125_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n125_goto_α:            mov              r11, 126;                            jmp   n126_lit_integer_α
+n125_goto_α:            mov              r11, 126;                            jmp   LBL__ADD1
 n125_goto_β:            mov              r11, 126;                            jmp   main_ω
                         .size            n125_goto_bx, .-n125_goto_bx
                         .type            n126_lit_integer_bx, @function
@@ -2668,12 +2668,12 @@ n126_lit_integer_bx:
 # ADD1    ADD1 = V + 1                                    :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 15 0
-n126_lit_integer_α:     sub              rsp, 16
+LBL__ADD1:              sub              rsp, 16
                         mov              r11, 127
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_320_0]
+                        mov              rax, qword ptr [rip + .LLBL__ADD1_α_320_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n127_lit_integer_α
-.Llit_integer_α_320_0:  .quad            5
+.LLBL__ADD1_α_320_0:    .quad            5
                         .size            n126_lit_integer_bx, .-n126_lit_integer_bx
                         .type            n127_lit_integer_bx, @function
 n127_lit_integer_bx:
@@ -2734,7 +2734,7 @@ n129_goto_β:            mov              r11, 130;                            j
                         .type            n130_goto_bx, @function
 n130_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n130_goto_α:            mov              r11, 131;                            jmp   n131_lit_integer_α
+n130_goto_α:            mov              r11, 131;                            jmp   LBL__INDIRECT_DISPATCH
 n130_goto_β:            mov              r11, 131;                            jmp   main_ω
                         .size            n130_goto_bx, .-n130_goto_bx
                         .type            n131_lit_integer_bx, @function
@@ -2743,12 +2743,13 @@ n131_lit_integer_bx:
 # INDIRECT_DISPATCH  ZI = 1
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 19 0
-n131_lit_integer_α:     sub              rsp, 16
+LBL__INDIRECT_DISPATCH: sub              rsp, 16
                         mov              r11, 132
                         mov              qword ptr [rsp + 0], 3               # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_326_0]
+                        mov              rax, qword ptr [rip + .LLBL__INDIRECT_DISPATCH_α_326_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n132_lit_integer_α
-.Llit_integer_α_326_0:  .quad            9
+.LLBL__INDIRECT_DISPATCH_α_326_0:
+                        .quad            9
                         .size            n131_lit_integer_bx, .-n131_lit_integer_bx
                         .type            n132_lit_integer_bx, @function
 n132_lit_integer_bx:
@@ -2842,6 +2843,44 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__ADD1"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__ADD1
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            2272
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname1:       .string          "LBL__INDIRECT_DISPATCH"
+                        .align           8
+.Lstartup_prec1:
+                        .quad            .Lstartup_pname1
+                        .quad            LBL__INDIRECT_DISPATCH
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            2272
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec1]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala2:               .string          "ADD1"
                         .section         .text
