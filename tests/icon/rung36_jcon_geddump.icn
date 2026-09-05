@@ -124,7 +124,7 @@ record gedcom(
    tree, 	# tree of data records
    id,		# table of labeled nodes, indexed by @ID@
    fam,		# list of FAMI nodes
-   ind;		# list of INDI nodes
+   ind		# list of INDI nodes
 );
 
 record gednode(
@@ -135,7 +135,7 @@ record gednode(
    lnum,	# line number
    parent,	# parent node in tree
    ref,		# referenced node, if any
-   sub;		# sub-entry list
+   sub		# sub-entry list
 );
 
 $define WHITESPACE ' \t\n\r';

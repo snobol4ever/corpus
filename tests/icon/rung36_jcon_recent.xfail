@@ -1,1 +1,10 @@
-exits rc=1 (stdout does not match .expected). Not further diagnosed.
+was "exits rc=1, stdout does not match .expected. Not further diagnosed" -- the rc=1 was ALSO true
+before a parse error (the semicolon-conversion split a 'while EXPR do STMT' by wrongly terminating
+EXPR with ';' before 'do', corpus/tests/icon/rung36_jcon_recent.icn line 215), fixed seat03 2026-09-05
+(corpus, this push). NOW parses+runs further, rc=1, TWO separate real issues found: (1) a list-element
+ORDERING difference (a "list ... 1 2 3 4 5 95 96 97 98 99 100" line appears at a different position) --
+possibly the existing icon-arizona-class-table-iteration-order-not-insertion DO-NOT-TOUCH class, not
+independently confirmed this session; (2) hits the SAME "(0) : ERROR 022 -- Undefined function called"
+SCRIP runtime error as icon-jcon-sorting-randval-undefined-function-error, here via forward-referenced
+procedures dump()/same() (not zero-arg, not case-of -- broadens that row's scope, added as a second
+witness there rather than re-minted here).

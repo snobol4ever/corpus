@@ -5,8 +5,8 @@ procedure spell(n)
    local m;
    n := integer(n) | stop(image(n)," is not an integer");
    if n <= 12 then return {
-      "0zero,1one,2two,3three,4four,5five,6six,7seven,8eight,_;
-         9nine,10ten,11eleven,12twelve," ? {;
+      "0zero,1one,2two,3three,4four,5five,6six,7seven,8eight,_
+         9nine,10ten,11eleven,12twelve," ? {
             tab(find(n));
             move(*n);
             tab(upto(","));

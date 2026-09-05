@@ -1,1 +1,9 @@
-exits rc=1 (stdout does not match .expected). Not further diagnosed.
+was "exits rc=1, stdout does not match .expected. Not further diagnosed" -- STALE, actually a parse
+error (the semicolon-conversion wrongly inserted ';' inside a still-open multi-line string-literal
+continuation and right after an opening '{', corpus/tests/icon/rung36_jcon_others.icn lines 8-9),
+fixed seat03 2026-09-05 (corpus, this push). NOW: rc=0 (parses+runs), output still diverges from
+.expected -- likely the SAME defect(s) already censused for Arizona's general/others.icn under
+icon-arizona-segv-int-subscript-snprintf-tracer-others / icon-arizona-segv-find-uncoerced-integer-arg-
+others (same upstream program, not independently re-verified this session that it's the identical
+crash/mismatch -- this run did NOT crash, so confirm before assuming which of those two it is, or
+whether it's a third thing).

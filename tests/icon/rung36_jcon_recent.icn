@@ -212,7 +212,7 @@ procedure show(t)
    write("   member(t, \"xyz\") --> ", image(member(t, "xyz")) | "failure");
    x := sort(t, 3);
    write("   contents of t:");
-   while writes("\t", image(get(x)), " : ");
+   while writes("\t", image(get(x)), " : ")
       do write(image(get(x)));
    write("");
 end
