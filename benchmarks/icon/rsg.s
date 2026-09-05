@@ -2914,10 +2914,19 @@ n00075_binop_test_α:      mov              r11, 123
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Ldisjunction_ω_240_af
-                        mov              rax, qword ptr [rsp + 544]
-                        mov              qword ptr [rsp + 496], rax
-                        mov              rax, qword ptr [rsp + 552]
-                        mov              qword ptr [rsp + 504], rax;          jmp   n00076_kw_icon_α
+                        mov              rdi, qword ptr [rsp + 512]
+                        mov              rsi, qword ptr [rsp + 520]
+                        mov              rdx, qword ptr [rsp + 544]
+                        mov              rcx, qword ptr [rsp + 552]
+                        lea              r8, [rsp + 496]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_relop_val_coerce@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00076_kw_icon_α
                         .size            n00075_binop_test_bx, .-n00075_binop_test_bx
                         .type            n00076_kw_icon_bx, @function
 n00076_kw_icon_bx:
@@ -5029,10 +5038,19 @@ n00182_binop_test_α:      mov              r11, 226
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Ldisjunction_ω_534_af
-                        mov              rax, qword ptr [rsp + 224]
-                        mov              qword ptr [rsp + 176], rax
-                        mov              rax, qword ptr [rsp + 232]
-                        mov              qword ptr [rsp + 184], rax;          jmp   n00183_var_α
+                        mov              rdi, qword ptr [rsp + 192]
+                        mov              rsi, qword ptr [rsp + 200]
+                        mov              rdx, qword ptr [rsp + 224]
+                        mov              rcx, qword ptr [rsp + 232]
+                        lea              r8, [rsp + 176]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_relop_val_coerce@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00183_var_α
                         .size            n00182_binop_test_bx, .-n00182_binop_test_bx
                         .type            n00183_var_bx, @function
 n00183_var_bx:
@@ -5381,10 +5399,19 @@ n00199_binop_test_α:      mov              r11, 247
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Ldisjunction_ω_530_af
-                        mov              rax, qword ptr [rsp + 416]
-                        mov              qword ptr [rsp + 368], rax
-                        mov              rax, qword ptr [rsp + 424]
-                        mov              qword ptr [rsp + 376], rax;          jmp   .Ldisjunction_γ_530_as
+                        mov              rdi, qword ptr [rsp + 384]
+                        mov              rsi, qword ptr [rsp + 392]
+                        mov              rdx, qword ptr [rsp + 416]
+                        mov              rcx, qword ptr [rsp + 424]
+                        lea              r8, [rsp + 368]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_relop_val_coerce@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Ldisjunction_γ_530_as
 n00199_binop_test_β:      mov              r11, 247;                            jmp   .Ldisjunction_ω_530_af
                         .size            n00199_binop_test_bx, .-n00199_binop_test_bx
                         .type            n00167_disjunction_bx, @function
@@ -5640,10 +5667,19 @@ n00210_binop_test_α:      mov              r11, 260
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Ldisjunction_ω_526_af
-                        mov              rax, qword ptr [rsp + 896]
-                        mov              qword ptr [rsp + 848], rax
-                        mov              rax, qword ptr [rsp + 904]
-                        mov              qword ptr [rsp + 856], rax;          jmp   n00211_kw_icon_α
+                        mov              rdi, qword ptr [rsp + 864]
+                        mov              rsi, qword ptr [rsp + 872]
+                        mov              rdx, qword ptr [rsp + 896]
+                        mov              rcx, qword ptr [rsp + 904]
+                        lea              r8, [rsp + 848]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_relop_val_coerce@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00211_kw_icon_α
                         .size            n00210_binop_test_bx, .-n00210_binop_test_bx
                         .type            n00211_kw_icon_bx, @function
 n00211_kw_icon_bx:
@@ -6797,10 +6833,19 @@ n00265_binop_test_α:      mov              r11, 314
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Ldisjunction_ω_735_af
-                        mov              rax, qword ptr [rsp + 864]
-                        mov              qword ptr [rsp + 816], rax
-                        mov              rax, qword ptr [rsp + 872]
-                        mov              qword ptr [rsp + 824], rax;          jmp   n00266_var_α
+                        mov              rdi, qword ptr [rsp + 832]
+                        mov              rsi, qword ptr [rsp + 840]
+                        mov              rdx, qword ptr [rsp + 864]
+                        mov              rcx, qword ptr [rsp + 872]
+                        lea              r8, [rsp + 816]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_relop_val_coerce@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00266_var_α
                         .size            n00265_binop_test_bx, .-n00265_binop_test_bx
                         .type            n00266_var_bx, @function
 n00266_var_bx:
@@ -17918,10 +17963,19 @@ n00772_binop_test_α:     mov              r11, 819
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    .Ldisjunction_ω_1898_af
-                        mov              rax, qword ptr [rsp + 976]
-                        mov              qword ptr [rsp + 928], rax
-                        mov              rax, qword ptr [rsp + 984]
-                        mov              qword ptr [rsp + 936], rax;          jmp   n00773_var_α
+                        mov              rdi, qword ptr [rsp + 944]
+                        mov              rsi, qword ptr [rsp + 952]
+                        mov              rdx, qword ptr [rsp + 976]
+                        mov              rcx, qword ptr [rsp + 984]
+                        lea              r8, [rsp + 928]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_relop_val_coerce@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00773_var_α
                         .size            n00772_binop_test_bx, .-n00772_binop_test_bx
                         .type            n00773_var_bx, @function
 n00773_var_bx:
