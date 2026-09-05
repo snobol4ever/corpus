@@ -1,0 +1,13 @@
+igrep -- emulates UNIX egrep
+Usage: igrep -Options [expression] filename...
+  Options:
+  c   print count of matching lines rather than actual lines
+  h   don't display file names
+  i   ignore case of letters
+  l   list only the names of files containing matching lines
+  n   precede lines with line numbers
+  s   work silently -- display nothing
+  v   invert search to display only lines that don't match
+  e expr  useful if expressions starts with -
+  E expr  expresson containing Icon escape sequences
+  f file  take list of alternated expressions from "file"

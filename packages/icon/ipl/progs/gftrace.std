@@ -1,0 +1,123 @@
+############################################################################
+#
+#	File:     ftrace.icn
+#
+#	Subject:  Procedures for tracing calls to built-in functions
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     September 5, 2026
+#
+############################################################################
+#  
+#     These procedures, when linked with an Icon program, cause calls of
+#  built-in functions to be traced (along with calls of user procedures)
+#  when &trace is nonzero.  This is accomplished by interposing a level of
+#  Icon procedures between the user program and the built-in functions.
+#  
+#     In the trace output, function arguments are shown as a list.  The
+#  very first function call produces two extra trace lines showing a call
+#  to "_func".  Calls to "proc" are reported as calls to "_proc".
+#  
+#     If the user program overloads any built-in function, linking fails
+#  due to an "inconsistent redeclaration".
+#  
+############################################################################
+#
+#  Generated under:  Icon Version 9.5.25a, September 7, 2025
+#
+############################################################################
+
+procedure _func(a[]); _func:=proc("proc",0); proc:=_proc; return _func!a; end
+procedure _proc(a[]); static p; initial p:=_func("proc",0); suspend p!a; end
+
+procedure abs(a[]); static p; initial p:=_func("abs",0); suspend p!a; end
+procedure acos(a[]); static p; initial p:=_func("acos",0); suspend p!a; end
+procedure any(a[]); static p; initial p:=_func("any",0); suspend p!a; end
+procedure args(a[]); static p; initial p:=_func("args",0); suspend p!a; end
+procedure asin(a[]); static p; initial p:=_func("asin",0); suspend p!a; end
+procedure atan(a[]); static p; initial p:=_func("atan",0); suspend p!a; end
+procedure bal(a[]); static p; initial p:=_func("bal",0); suspend p!a; end
+procedure center(a[]); static p; initial p:=_func("center",0); suspend p!a; end
+procedure char(a[]); static p; initial p:=_func("char",0); suspend p!a; end
+procedure chdir(a[]); static p; initial p:=_func("chdir",0); suspend p!a; end
+procedure close(a[]); static p; initial p:=_func("close",0); suspend p!a; end
+procedure collect(a[]); static p; initial p:=_func("collect",0); suspend p!a; end
+procedure copy(a[]); static p; initial p:=_func("copy",0); suspend p!a; end
+procedure cos(a[]); static p; initial p:=_func("cos",0); suspend p!a; end
+procedure cset(a[]); static p; initial p:=_func("cset",0); suspend p!a; end
+procedure delay(a[]); static p; initial p:=_func("delay",0); suspend p!a; end
+procedure delete(a[]); static p; initial p:=_func("delete",0); suspend p!a; end
+procedure detab(a[]); static p; initial p:=_func("detab",0); suspend p!a; end
+procedure display(a[]); static p; initial p:=_func("display",0); suspend p!a; end
+procedure dtor(a[]); static p; initial p:=_func("dtor",0); suspend p!a; end
+procedure entab(a[]); static p; initial p:=_func("entab",0); suspend p!a; end
+procedure errorclear(a[]); static p; initial p:=_func("errorclear",0); suspend p!a; end
+procedure exit(a[]); static p; initial p:=_func("exit",0); suspend p!a; end
+procedure exp(a[]); static p; initial p:=_func("exp",0); suspend p!a; end
+procedure find(a[]); static p; initial p:=_func("find",0); suspend p!a; end
+procedure flush(a[]); static p; initial p:=_func("flush",0); suspend p!a; end
+procedure function(a[]); static p; initial p:=_func("function",0); suspend p!a; end
+procedure get(a[]); static p; initial p:=_func("get",0); suspend p!a; end
+procedure getch(a[]); static p; initial p:=_func("getch",0); suspend p!a; end
+procedure getche(a[]); static p; initial p:=_func("getche",0); suspend p!a; end
+procedure getenv(a[]); static p; initial p:=_func("getenv",0); suspend p!a; end
+procedure iand(a[]); static p; initial p:=_func("iand",0); suspend p!a; end
+procedure icom(a[]); static p; initial p:=_func("icom",0); suspend p!a; end
+procedure image(a[]); static p; initial p:=_func("image",0); suspend p!a; end
+procedure insert(a[]); static p; initial p:=_func("insert",0); suspend p!a; end
+procedure integer(a[]); static p; initial p:=_func("integer",0); suspend p!a; end
+procedure ior(a[]); static p; initial p:=_func("ior",0); suspend p!a; end
+procedure ishift(a[]); static p; initial p:=_func("ishift",0); suspend p!a; end
+procedure ixor(a[]); static p; initial p:=_func("ixor",0); suspend p!a; end
+procedure kbhit(a[]); static p; initial p:=_func("kbhit",0); suspend p!a; end
+procedure key(a[]); static p; initial p:=_func("key",0); suspend p!a; end
+procedure left(a[]); static p; initial p:=_func("left",0); suspend p!a; end
+procedure list(a[]); static p; initial p:=_func("list",0); suspend p!a; end
+procedure loadfunc(a[]); static p; initial p:=_func("loadfunc",0); suspend p!a; end
+procedure log(a[]); static p; initial p:=_func("log",0); suspend p!a; end
+procedure many(a[]); static p; initial p:=_func("many",0); suspend p!a; end
+procedure map(a[]); static p; initial p:=_func("map",0); suspend p!a; end
+procedure match(a[]); static p; initial p:=_func("match",0); suspend p!a; end
+procedure member(a[]); static p; initial p:=_func("member",0); suspend p!a; end
+procedure move(a[]); static p; initial p:=_func("move",0); suspend p!a; end
+procedure name(a[]); static p; initial p:=_func("name",0); suspend p!a; end
+procedure numeric(a[]); static p; initial p:=_func("numeric",0); suspend p!a; end
+procedure open(a[]); static p; initial p:=_func("open",0); suspend p!a; end
+procedure ord(a[]); static p; initial p:=_func("ord",0); suspend p!a; end
+procedure pop(a[]); static p; initial p:=_func("pop",0); suspend p!a; end
+procedure pos(a[]); static p; initial p:=_func("pos",0); suspend p!a; end
+procedure pull(a[]); static p; initial p:=_func("pull",0); suspend p!a; end
+procedure push(a[]); static p; initial p:=_func("push",0); suspend p!a; end
+procedure put(a[]); static p; initial p:=_func("put",0); suspend p!a; end
+procedure read(a[]); static p; initial p:=_func("read",0); suspend p!a; end
+procedure reads(a[]); static p; initial p:=_func("reads",0); suspend p!a; end
+procedure real(a[]); static p; initial p:=_func("real",0); suspend p!a; end
+procedure remove(a[]); static p; initial p:=_func("remove",0); suspend p!a; end
+procedure rename(a[]); static p; initial p:=_func("rename",0); suspend p!a; end
+procedure repl(a[]); static p; initial p:=_func("repl",0); suspend p!a; end
+procedure reverse(a[]); static p; initial p:=_func("reverse",0); suspend p!a; end
+procedure right(a[]); static p; initial p:=_func("right",0); suspend p!a; end
+procedure rtod(a[]); static p; initial p:=_func("rtod",0); suspend p!a; end
+procedure runerr(a[]); static p; initial p:=_func("runerr",0); suspend p!a; end
+procedure seek(a[]); static p; initial p:=_func("seek",0); suspend p!a; end
+procedure seq(a[]); static p; initial p:=_func("seq",0); suspend p!a; end
+procedure serial(a[]); static p; initial p:=_func("serial",0); suspend p!a; end
+procedure set(a[]); static p; initial p:=_func("set",0); suspend p!a; end
+procedure sin(a[]); static p; initial p:=_func("sin",0); suspend p!a; end
+procedure sort(a[]); static p; initial p:=_func("sort",0); suspend p!a; end
+procedure sortf(a[]); static p; initial p:=_func("sortf",0); suspend p!a; end
+procedure sqrt(a[]); static p; initial p:=_func("sqrt",0); suspend p!a; end
+procedure stop(a[]); static p; initial p:=_func("stop",0); suspend p!a; end
+procedure string(a[]); static p; initial p:=_func("string",0); suspend p!a; end
+procedure system(a[]); static p; initial p:=_func("system",0); suspend p!a; end
+procedure tab(a[]); static p; initial p:=_func("tab",0); suspend p!a; end
+procedure table(a[]); static p; initial p:=_func("table",0); suspend p!a; end
+procedure tan(a[]); static p; initial p:=_func("tan",0); suspend p!a; end
+procedure trim(a[]); static p; initial p:=_func("trim",0); suspend p!a; end
+procedure type(a[]); static p; initial p:=_func("type",0); suspend p!a; end
+procedure upto(a[]); static p; initial p:=_func("upto",0); suspend p!a; end
+procedure variable(a[]); static p; initial p:=_func("variable",0); suspend p!a; end
+procedure where(a[]); static p; initial p:=_func("where",0); suspend p!a; end
+procedure write(a[]); static p; initial p:=_func("write",0); suspend p!a; end
+procedure writes(a[]); static p; initial p:=_func("writes",0); suspend p!a; end

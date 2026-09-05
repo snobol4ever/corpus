@@ -1,0 +1,8 @@
+link recog
+link matchlib
+global goal
+
+procedure init()
+   goal := _
+   return
+end

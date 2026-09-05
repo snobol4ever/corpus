@@ -1,0 +1,688 @@
+Icon Browser -- scanning files:
+  adlcheck.icn
+  adlcount.icn
+  adlfiltr.icn
+  adlfirst.icn
+  adllist.icn
+  adlsort.icn
+  animal.icn
+  applyfnc.icn
+  banner.icn
+  based.icn
+  bfd.icn
+  bj.icn
+  blnk2tab.icn
+  c2icn.icn
+  calc.icn
+  catlines.icn
+  chars.icn
+  chkhtml.icn
+  choose.icn
+  chop.icn
+  colm.icn
+  comfiles.icn
+  compare.icn
+  comply83.icn
+  concord.icn
+  conman.icn
+  countlst.icn
+  cross.icn
+  crypt.icn
+  csgen.icn
+  cstrings.icn
+  cwd.icn
+  datmerge.icn
+  daystil.icn
+  ddfdump.icn
+  deal.icn
+  declchck.icn
+  delamc.icn
+  delam.icn
+  dellines.icn
+  delta.icn
+  diffn.icn
+  diffsort.icn
+  diffsum.icn
+  diffu.icn
+  diffword.icn
+  digcol.icn
+  diskpack.icn
+  duplfile.icn
+  duplproc.icn
+  edscript.icn
+  empg.icn
+  envelope.icn
+  evaluate.icn
+  extweave.icn
+  farb2.icn
+  farb.icn
+  filecnvt.icn
+  filehtml.icn
+  fileprep.icn
+  fileprnt.icn
+  filerepl.icn
+  filesect.icn
+  filexref.icn
+  filtskel.icn
+  findstr.icn
+  findtext.icn
+  fixhqx.icn
+  fixpath.icn
+  fnctab.icn
+  fnctmpl.icn
+  format.icn
+  former.icn
+  fract.icn
+  fset.icn
+  fuzz.icn
+  gcomp.icn
+  geddump.icn
+  gediff.icn
+  gener.icn
+  genfile.icn
+  genqueen.icn
+  getcol.icn
+  getlines.icn
+  gftrace.icn
+  graphdem.icn
+  grpsort.icn
+  hcal4unx.icn
+  headicon.icn
+  hebcalen.icn
+  hebeng.icn
+  hotedit.icn
+  hr.icn
+  htget.icn
+  htprep.icn
+  huffstuf.icn
+  hufftab.icn
+  ibar.icn
+  ibrow.icn
+  icalc.icn
+  icalls.icn
+  icn2c.icn
+  icontent.icn
+  icvt.icn
+  idepth.icn
+  idxtext.icn
+  ifilter.icn
+  ifncsgen.icn
+  igrep.icn
+  iheader.icn
+  ihelp.icn
+  iidecode.icn
+  iiencode.icn
+  ilnkxref.icn
+  ilump.icn
+  imagetyp.icn
+  indxcomp.icn
+  ineeds.icn
+  inter.icn
+  interpe.icn
+  interpp.icn
+  ipatch.icn
+  ipldoc.icn
+  iplindex.icn
+  iplkwic.icn
+  iplweb.icn
+  ipower.icn
+  ipp.icn
+  iprint.icn
+  iprofile.icn
+  iprofl.icn
+  ipsort.icn
+  ipsplit.icn
+  ipxref.icn
+  irsort.icn
+  irunerr.icn
+  iseq.icn
+  isize.icn
+  isrcline.icn
+  istrip.icn
+  itab.icn
+  itags.icn
+  itrbksum.icn
+  itrcfltr.icn
+  itrcsum.icn
+  iundecl.icn
+  iversion.icn
+  iwriter.icn
+  knapsack.icn
+  krieg.icn
+  kross.icn
+  kwic.icn
+  kwicprep.icn
+  labels.icn
+  la.icn
+  lam.icn
+  latexidx.icn
+  lcfile.icn
+  lc.icn
+  lcn.icn
+  limitf.icn
+  lindcode.icn
+  lindsys.icn
+  lineseq.icn
+  link2url.icn
+  lisp.icn
+  lister.icn
+  listhtml.icn
+  listviz.icn
+  literat.icn
+  ll.icn
+  loadmap.icn
+  longest.icn
+  lower.icn
+  lssum.icn
+  lsysmap.icn
+  maccvt.icn
+  makepuzz.icn
+  mapcolrs.icn
+  midisig.icn
+  missile.icn
+  miu.icn
+  mkpasswd.icn
+  monkeys.icn
+  morse.icn
+  mr.icn
+  mszip.icn
+  mtf3.icn
+  newicon.icn
+  newsrc.icn
+  nim.icn
+  nocr.icn
+  noise.icn
+  normalize.icn
+  oldicon.icn
+  pack.icn
+  paginate.icn
+  papply.icn
+  parens.icn
+  pargen.icn
+  parse.icn
+  parsex.icn
+  patchu.icn
+  pbkdump.icn
+  pdecomp.icn
+  polydemo.icn
+  post.icn
+  press.icn
+  pretrim.icn
+  procprep.icn
+  procwrap.icn
+  proto.icn
+  psrsplit.icn
+  pt.icn
+  puzz.icn
+  qei.icn
+  qt.icn
+  queens.icn
+  ranstars.icn
+  rcat.icn
+  recgen.icn
+  repeats.icn
+  reply.icn
+  repro.icn
+  revfile.icn
+  revsort.icn
+  roffcmds.icn
+  rsg.icn
+  ruler.icn
+  sample.icn
+  scale.icn
+  scramble.icn
+  setmerge.icn
+  shar.icn
+  shortest.icn
+  shuffile.icn
+  shuffle.icn
+  sing.icn
+  slice.icn
+  snake.icn
+  solit.icn
+  sortname.icn
+  splitlit.icn
+  spread.icn
+  streamer.icn
+  strimlen.icn
+  strpsgml.icn
+  tabexten.icn
+  tablc.icn
+  tablw.icn
+  tabulate.icn
+  textcnt.icn
+  textcvt.icn
+  toktab.icn
+  trim.icn
+  ttt.icn
+  turing.icn
+  unclog.icn
+  unique.icn
+  unpack.icn
+  upper.icn
+  url2link.icn
+  utrim.icn
+  verse.icn
+  versum.icn
+  vnq.icn
+  vrepl.icn
+  weblinks.icn
+  what.icn
+  when.icn
+  wshfdemo.icn
+  xtable.icn
+  yahtz.icn
+  yescr.icn
+  zipsort.icn
+
+  1. ASCII()                   409. getlibpaths()
+  2. ASCIICtrl()               410. getline()
+  3. ATOM()                    411. getrhs()
+  4. Archive()                 412. getsuite()
+  5. Arglist()                 413. getvalue()
+  6. Article()                 414. getword()
+  7. Ask()                     415. glist()
+  8. Build_HTML_Files()        416. go()
+  9. CAR()                     417. goodbye()
+ 10. CDR()                     418. gotos()
+ 11. COND()                    419. graf()
+ 12. CONS()                    420. grammar()
+ 13. CaselessMatch()           421. graph()
+ 14. CheckContext()            422. hash_codes()
+ 15. CheckHRefs()              423. hblock.
+ 16. CheckHTML()               424. header()
+ 17. CheckStack()              425. headers()
+ 18. CheckTag()                426. heap_2_tree()
+ 19. Close()                   427. hebraize()
+ 20. Close_Dir_Index()         428. help()
+ 21. Close_File_Index()        429. helpmesg()
+ 22. Compound()                430. helpprog()
+ 23. Compress()                431. hhmm()
+ 24. Compress_output()         432. high()
+ 25. Confirm()                 433. home()
+ 26. Const()                   434. how_many_can_fit()
+ 27. ConvertText()             435. huffcode.
+ 28. CopyFile()                436. id.
+ 29. DEFINE()                  437. if_cond()
+ 30. Decompress()              438. ifdef()
+ 31. Decompress_read_code()    439. ifndef()
+ 32. DefaultSuffix()           440. imagetyp()
+ 33. Defs_rec.                 441. img()
+ 34. Delete()                  442. in()
+ 35. DisplayList()             443. in_itemm()
+ 36. E()                       444. in_text()
+ 37. EBCDIC()                  445. inc()
+ 38. EQ()                      446. include()
+ 39. EVAL()                    447. index()
+ 40. Edit()                    448. indexer()
+ 41. Error()                   449. infrastructure()
+ 42. Exp()                     450. init()
+ 43. Expr()                    451. initialize()
+ 44. Expr_node.                452. initialize_heap()
+ 45. Extract()                 453. initialize_list()
+ 46. F()                       454. initialize_variables()
+ 47. Factor()                  455. input()
+ 48. FilesNotFound()           456. inquote()
+ 49. FinalStats()              457. insert()
+ 50. Func()                    458. insert_word()
+ 51. Game()                    459. inspect()
+ 52. Get()                     460. instructions()
+ 53. GetPattern()              461. inverse()
+ 54. GiveAdvice()              462. is_31()
+ 55. HELP()                    463. is_lower()
+ 56. HRefRec.                  464. isare()
+ 57. Help()                    465. isin1()
+ 58. Id()                      466. isin2()
+ 59. If()                      467. isin3()
+ 60. Index()                   468. isin4()
+ 61. Index_Dir()               469. isin5()
+ 62. Index_File()              470. isin6()
+ 63. Init()                    471. isleap()
+ 64. Init_Dir_Index()          472. isoname()
+ 65. Init_File_Index()         473. istring()
+ 66. Input()                   474. istring_radix()
+ 67. Kludge()                  475. itab()
+ 68. L()                       476. item()
+ 69. List()                    477. item.
+ 70. MPWMsg()                  478. item_num()
+ 71. Map()                     479. j_augment()
+ 72. MoreHelp()                480. justify()
+ 73. NULL()                    481. jyr_augment()
+ 74. Name()                    482. keymat()
+ 75. Non()                     483. kross()
+ 76. Null()                    484. kstop()
+ 77. NumberOfDays()            485. kwic()
+ 78. Op()                      486. lambda()
+ 79. Open()                    487. lamr()
+ 80. OpenReadArchive()         488. lassoc()
+ 81. Opt_rec.                  489. last()
+ 82. Options()                 490. lcl.
+ 83. Out()                     491. lcword()
+ 84. Output()                  492. leaF.
+ 85. PCalc()                   493. learn()
+ 86. PClear()                  494. lhalf()
+ 87. PEval()                   495. line()
+ 88. PRINT()                   496. listfile()
+ 89. PRead()                   497. listimage()
+ 90. PWrite()                  498. listprog()
+ 91. PathDirs()                499. listrange()
+ 92. Percent()                 500. litmat()
+ 93. Print()                   501. llu()
+ 94. ProcessATag()             502. lmany()
+ 95. ProcessEscape()           503. load()
+ 96. ProcessFileInfo()         504. loadrest()
+ 97. ProcessTag()              505. locate()
+ 98. Question.                 506. logboard()
+ 99. R()                       507. lookup()
+100. ReadInteger()             508. lpag()
+101. ReadString()              509. ltos()
+102. Root()                    510. lwarn()
+103. SET()                     511. m_adress()
+104. Save()                    512. macro_call()
+105. ScanAttrs()               513. main()
+106. ScanFiles()               514. make_a_line()
+107. SetMsg()                  515. make_table_of_filenames()
+108. SetUpDisplay()            516. makenew()
+109. Show()                    517. map_filenams()
+110. ShowHelp()                518. mappiece()
+111. ShowInUse()               519. margs()
+112. Space()                   520. maximum()
+113. Src_desc.                 521. mean()
+114. Statement()               522. median()
+115. Statement_list()          523. menue()
+116. Stats()                   524. merge()
+117. String()                  525. minimum()
+118. Strip()                   526. mkact()
+119. T()                       527. mkfset()
+120. TRACE()                   528. mktrack()
+121. Tag.                      529. molad.
+122. Tags()                    530. more()
+123. Tail()                    531. morse()
+124. Term()                    532. movecard()
+125. UNTRACE()                 533. movecursor()
+126. UnixMsg()                 534. moved_item()
+127. Up()                      535. movexy()
+128. Usage()                   536. movgen()
+129. VGrind()                  537. movlegal()
+130. W()                       538. movmake()
+131. While()                   539. movtry()
+132. WriteInteger()            540. msdos_get_dir()
+133. WriteString()             541. msname()
+134. WriteWR()                 542. mth_table()
+135. X()                       543. myany()
+136. _ND.                      544. myboard()
+137. accident()                545. myend()
+138. action.                   546. myhelp()
+139. addnode()                 547. mymessage()
+140. addref()                  548. myread()
+141. address()                 549. myremind()
+142. addword()                 550. mytry()
+143. aleph()                   551. myturn()
+144. algorpick()               552. new()
+145. all_firsts()              553. new_item()
+146. alpha()                   554. newfile()
+147. alts()                    555. newkey()
+148. always_29()               556. newmail()
+149. animate()                 557. newtag()
+150. aoran()                   558. newtext()
+151. apply()                   559. nextgen()
+152. aquote()                  560. nextlbl()
+153. arc.                      561. no_endif_error()
+154. area()                    562. no_lunar_yr()
+155. arglist()                 563. nodE.
+156. arrange()                 564. nofile()
+157. ask()                     565. nograf()
+158. assign_players()          566. nonneg()
+159. at()                      567. nonterm.
+160. atos()                    568. norm()
+161. attrib()                  569. normal()
+162. attval()                  570. not_wild_match()
+163. augment()                 571. nsubset()
+164. automov()                 572. numriga()
+165. autopilot()               573. obj.
+166. balstr()                  574. obtain()
+167. banner()                  575. octstring()
+168. barcode()                 576. oldtext()
+169. basename()                577. one.
+170. basread()                 578. only()
+171. baswrite()                579. open_input_file()
+172. beep()                    580. operation()
+173. before()                  581. out()
+174. bestfit()                 582. outline()
+175. binary()                  583. output_mapped_headers_and_texts()
+176. binop.                    584. outstate()
+177. bit()                     585. p2c()
+178. bldfset()                 586. p_table()
+179. blind_luck_insert()       587. pad()
+180. blink()                   588. paint()
+181. board.                    589. pair.
+182. boldface()                590. parse()
+183. border()                  591. part()
+184. braces()                  592. pathname()
+185. brightwrite()             593. pay()
+186. brute_force_insert()      594. pc2p()
+187. bstol()                   595. person.
+188. bucket.                   596. pick1()
+189. build()                   597. pick2()
+190. buildgraph()              598. pick3()
+191. butfirst()                599. pick4()
+192. calc_today()              600. pick5()
+193. cambiadir()               601. pick6()
+194. cardsleft()               602. pipe()
+195. census()                  603. pipeto()
+196. cerca()                   604. place()
+197. charset.                  605. placequeen()
+198. check()                   606. play()
+199. checkbal()                607. plural()
+200. checkstr()                608. popen()
+201. chk2run()                 609. popproc()
+202. chksqrs()                 610. position()
+203. choice()                  611. prc.
+204. chop()                    612. print()
+205. chosen.                   613. printhead()
+206. clean()                   614. printord()
+207. cleanup()                 615. printrecs()
+208. clear()                   616. probClose()
+209. clear_line()              617. proc_list()
+210. clearline()               618. procedure_stats.
+211. clearscreen()             619. process()
+212. clip()                    620. process_cmd()
+213. closed_loop()             621. process_macro()
+214. closure()                 622. process_options()
+215. clrvdu()                  623. process_text()
+216. cls()                     624. procrec.
+217. collect_bits()            625. prod.
+218. command()                 626. prod_equal()
+219. comment()                 627. prog()
+220. comp()                    628. prompt()
+221. compile()                 629. prompter()
+222. compresso()               630. prop.
+223. conditional()             631. put_linedir()
+224. conman()                  632. put_tree()
+225. const()                   633. puthoriz()
+226. const.                    634. putvert()
+227. const_expr()              635. pwrite()
+228. convert()                 636. q()
+229. copiafile()               637. query()
+230. count()                   638. quit()
+231. count_chars_in_s()        639. quitprog()
+232. countdemo()               640. r5()
+233. create_file()             641. race()
+234. cyr_augment()             642. rank()
+235. d_augment()               643. rassoc()
+236. dainome()                 644. rdmach()
+237. date.                     645. readin()
+238. deck2ace()                646. readin_old_map_report()
+239. deck2run()                647. readprog()
+240. declare()                 648. readtarhdr()
+241. decode()                  649. readx()
+242. decode_rest_of_file()     650. ready()
+243. decoded()                 651. ref.
+244. decol()                   652. reform()
+245. def_opt()                 653. refto()
+246. define()                  654. register()
+247. define_fn()               655. remword()
+248. defnon()                  656. renum()
+249. del()                     657. repack()
+250. delamr()                  658. replace()
+251. delamrc()                 659. reply()
+252. delprog()                 660. reply_headers()
+253. dependencies()            661. report()
+254. depict()                  662. req_headers()
+255. detab()                   663. resave()
+256. devowel()                 664. reshuffle_heap()
+257. dfile.                    665. restore()
+258. diff_rec.                 666. righe()
+259. different()               667. rt()
+260. digitseq()                668. run()
+261. dim()                     669. run2ace()
+262. dimmelo()                 670. run2run()
+263. dir()                     671. s2f()
+264. directory()               672. s2r()
+265. disphand()                673. s2sn()
+266. disphelp()                674. same()
+267. dispile()                 675. samelop()
+268. display()                 676. save()
+269. display_host()            677. saycheck()
+270. display_score()           678. scan.
+271. display_startup_screen()  679. scan1()
+272. display_stats()           680. sceglinumero()
+273. display_user()            681. score()
+274. disprules()               682. screen()
+275. divert()                  683. sdiff()
+276. docommand()               684. search()
+277. dofile()                  685. second()
+278. done()                    686. send()
+279. done_yet()                687. sense_status()
+280. doutfyls()                688. seqprog()
+281. draw_base()               689. set_equal()
+282. draw_track()              690. set_getdir_by_os()
+283. dump()                    691. set_markers()
+284. dumpgroup()               692. setbounds()
+285. dumptape()                693. setfrom()
+286. edit_field()              694. sethome()
+287. edit_item()               695. setops()
+288. encode()                  696. setprune()
+289. encode_string()           697. setroot()
+290. endgroup()                698. setup_screen()
+291. enemy_launch()            699. shell()
+292. enter()                   700. show()
+293. entry()                   701. show_age()
+294. entry.                    702. show_field()
+295. eoln()                    703. showart()
+296. eorec()                   704. showline()
+297. er_out()                  705. shuffle()
+298. err()                     706. shut_down()
+299. error()                   707. since()
+300. errorproc()               708. sing()
+301. establish_jyr()           709. singular()
+302. eval()                    710. sinter()
+303. evaluate()                711. skip_to()
+304. event()                   712. sn2s()
+305. evlis()                   713. solvequeen()
+306. exbase10()                714. sort_table()
+307. exec()                    715. sort_words()
+308. exec2()                   716. sortkey()
+309. execprog()                717. source()
+310. exists_I_Set()            718. split()
+311. expand()                  719. sqratks()
+312. expr()                    720. sqrcap()
+313. expr1()                   721. stack()
+314. expr2()                   722. stampa()
+315. expr3()                   723. standard()
+316. expr4()                   724. stat_line()
+317. expr5()                   725. state.
+318. face()                    726. state0()
+319. fact()                    727. state_closure()
+320. factor()                  728. status_line()
+321. faivedere()               729. stmt()
+322. false_cond()              730. stop_profile()
+323. fibo()                    731. str2lst()
+324. fibodemo()                732. str2set()
+325. fill_firsts()             733. strip()
+326. filter()                  734. strip_file()
+327. filter1()                 735. subst()
+328. filter2()                 736. summarize()
+329. finals()                  737. summary()
+330. find_file()               738. sunion()
+331. findlist()                739. symimage()
+332. findnext()                740. syms()
+333. finish()                  741. tab_nxt_hdr()
+334. finish_firsts()           742. tabulate()
+335. first()                   743. tag.
+336. fit()                     744. take_out_comments()
+337. fix()                     745. tally()
+338. fixpath()                 746. tempname()
+339. fixup_path()              747. term()
+340. fldecode()                748. the_same()
+341. form1()                   749. theirturn()
+342. form10()                  750. thinkpick()
+343. form11()                  751. three.
+344. form12()                  752. thumb()
+345. form13()                  753. timeloop()
+346. form14()                  754. title()
+347. form15()                  755. token.
+348. form16()                  756. tokens()
+349. form17()                  757. transalts()
+350. form18()                  758. transit()
+351. form19()                  759. transprod()
+352. form2()                   760. transseq()
+353. form3()                   761. transsym()
+354. form4()                   762. trasforma()
+355. form5()                   763. trim_str()
+356. form6()                   764. trinary.
+357. form7()                   765. true_cond()
+358. form8()                   766. try()
+359. form9()                   767. trynext()
+360. format()                  768. tsth()
+361. forward()                 769. tstv()
+362. fr2s()                    770. turn_over()
+363. frequ_count()             771. uhalf()
+364. friendly_fire()           772. unary()
+365. ftype()                   773. unary.
+366. func()                    774. undefine()
+367. fuzz_match_1()            775. under()
+368. fuzz_match_2()            776. unix_get_dir()
+369. fuzz_match_3()            777. unmorse()
+370. fuzz_self_3()             778. unpack()
+371. fuzz_value_1()            779. validate()
+372. fuzz_value_2()            780. value()
+373. fuzz_value_3()            781. wait()
+374. gamend()                  782. warn()
+375. gen()                     783. warning()
+376. gener()                   784. wheader()
+377. generate()                785. whole_wild_match()
+378. genpasswd()               786. wholething.
+379. gerund()                  787. whoops()
+380. get_args()                788. windup()
+381. get_bet()                 789. words()
+382. get_checksum()            790. write_NTs()
+383. get_cmd()                 791. write_Ts()
+384. get_current_year()        792. write_a_month()
+385. get_diff()                793. write_firsts()
+386. get_dos_tempname()        794. write_index()
+387. get_edit()                795. write_item()
+388. get_firsts()              796. write_list()
+389. get_formals()             797. write_needs()
+390. get_horse()               798. write_prods()
+391. get_icn_filenames()       799. write_report()
+392. get_info()                800. write_state()
+393. get_line()                801. write_tbl_list()
+394. get_name()                802. writeboard()
+395. get_opt_ws()              803. writeprog()
+396. get_paths()               804. ws()
+397. get_players()             805. xa()
+398. get_procedures()          806. xform()
+399. get_productions()         807. xpairs()
+400. get_rh()                  808. xprint()
+401. get_screensize()          809. xshuffle()
+402. get_text()                810. yrany()
+403. get_time()                811. yrend()
+404. get_tok()                 812. yrmessage()
+405. get_tree()                813. yrtry()
+406. get_your_move()           814. zero.
+407. getbs()                   815. zlist()
+408. getcolor()                816. zot()
+
+
+q,nn,nn[fmev],<return> (? for help): 

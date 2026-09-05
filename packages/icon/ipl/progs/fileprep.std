@@ -1,0 +1,275 @@
+adlcheck: check for bad address list data
+adlcount: count address list entries
+adlfiltr: filter address list entries
+adlfirst: write first line of addresses
+adllist: list address list fields
+adlsort: sort address list entries
+animal: play "animal" guessing game
+applyfnc: apply function to lines of a file
+banner: display banner
+based: do BASIC-style editing
+bfd: compute best-fit-descending bin packing
+bj: play blackjack game
+blnk2tab: convert strings of 2 or more blanks to tabs
+c2icn: assist C-to-Icon porting
+calc: simulate desk calculator
+catlines: concatenate lines of a file
+chars: list the different characters in a file
+chkhtml: check HTML files
+choose: pick lines from a file
+chop: restrict numerical values
+colm: arrange data into columns
+comfiles: list common files in two directories
+compare: look for duplicates in a collection of files
+comply83: check compliance with MS-DOS name restrictions
+concord: produce concordance
+conman: convert units
+countlst: count items in a list
+cross: display intersection of words
+crypt: encrypt file
+csgen: generate context-sensitive sentences
+cstrings: print strings in C files
+cwd: write current working directory
+datmerge: merge data files
+daystil: calculate the number of days until a given date
+ddfdump: print the contents of an ISO 8211 DDF file
+deal: deal bridge hands
+declchck: detect possible declaration errors
+delamc: delaminate file using tab characters
+delam: delaminate file
+dellines: delete lines from a file
+delta: list differences between successive numbers
+diffn: show differences among files
+diffsort: reorder "diff" output
+diffsum: count lines affected by a diff
+diffu: show differences in files
+diffword: list different words
+digcol: produce nth column of digit data
+diskpack: produce packing list for diskettes
+duplfile: find directories with same files
+duplproc: find duplicate declarations
+edscript: produce script for ed(1)
+empg: make expression-evaluation programs
+envelope: address envelopes
+evaluate: evaluate Icon expressions
+extweave: extract weaving specifications from weave file
+farb2: generate Farberisms
+farb: generate Farberisms
+filecnvt: convert line terminators
+filehtml: create Web page with links to files
+fileprep: prepare file information for IPL indexes
+fileprnt: display characters in file
+filerepl: replicate file
+filesect: produce section of a file
+filexref: cross-reference files by components
+filtskel: skeleton for generic filter
+findstr: find embedded character strings
+findtext: retrieve data from files indexed by idxtext
+fixhqx: strip headers from BinHex files
+fixpath: replace path in a binary file
+fnctab: list function usage
+fnctmpl: produce function templates
+format: word wrap a range of text
+former: format long string in fixed-length lines
+fract: approximate real number as a fraction
+fset: do set operations on file specifications
+fuzz: perform fuzzy pattern matching
+gcomp: produce complement of file specification
+geddump: dump contents of GEDCOM file
+gediff: "diff" for use with ged
+gener: generate sequence from Icon expression
+genfile: generate sequence from Icon expression in file
+genqueen: solve arbitrary-size n-queens problem
+getcol: extract column from data
+getlines: extract lines from a file
+gftrace: generating function tracing procedures
+graphdem: demonstrate simple bar graphics
+grpsort: sort groups of lines
+hcal4unx: Jewish/Civil calendar in UNIX
+headicon: add header to Icon program
+hebcalen: combination Jewish/Civil calendar
+hebeng: print mixed Hebrew/English text
+hotedit: edit a Mosaic hotlist
+hr: play horse-race game
+htget: get Web file using HTTP protocol
+htprep: prepare HTML files
+huffstuf: huffman coding
+hufftab: compute Huffman state transitions 
+ibar: equalize comment bars in Icon programs
+ibrow: browse Icon files for declarations
+icalc: simulate infix desk calculator
+icalls: tabulate Icon calls
+icn2c: assist Icon-to-C porting
+icontent: list Icon procedures
+icvt: ASCII/EBCDIC program conversion
+idepth: report maximum recursion depth
+idxtext: creating indexed text-base
+ifilter: filter lines of file
+ifncsgen: generate procedure wrappers for functions
+igrep: string search similar to egrep
+iheader: list Icon program library headers
+ihelp: give on-line help for Icon
+iidecode: decode text in style of uudecode
+iiencode: encode text in the style of uuencode
+ilnkxref: produce Icon link cross reference
+ilump: lump linked Icon source files
+imagetyp: show types of image files
+indxcomp: assist in index compilation
+ineeds: print modules required by an Icon program
+inter: find common values in two lists
+interpe: interpret Icon expressions
+interpp: interpret Icon programs
+ipatch: patch iconx path in executable
+ipldoc: collect library documentation
+iplindex: produce indexed listing of the program library
+iplkwic: produce keywords in context for IPL
+iplweb: generate web pages from IPL header comments
+ipower: write sequence of powers
+ipp: preprocess Icon programs
+iprint: print Icon program
+iprofile: profile Icon procedure usage
+iprofl: annotate source code with execution profile
+ipsort: sort Icon procedures
+ipsplit: split Icon program into files
+ipxref: cross reference Icon program
+irsort: sort Icon record declaration
+irunerr: print Icon runtime errors
+iseq: write sequence of integers
+isize: measure size of an Icon program
+isrcline: count code lines in Icon program
+istrip: strip comments from Icon program
+itab: entab an Icon program
+itags: create tags file for Icon programs
+itrbksum: give summary of traceback
+itrcfltr: filter trace output
+itrcsum: give summary of trace output
+iundecl: find undeclared Icon identifiers
+iversion: show icode version
+iwriter: write Icon code to write input
+knapsack: fill a container
+krieg: play kriegspiel
+kross: show intersections of strings
+kwic: produce keywords in context
+kwicprep: prepare information for IPL KWIC listings
+labels: format mailing labels
+la: give exponent approximation for large numbers
+lam: laminate files
+latexidx: process LaTeX idx file
+lcfile: convert file names to lowercase
+lc: count lines in file
+lcn: convert file names to all lowercase
+limitf: limit throughput
+lindcode: produce Icon code from L-system specifications
+lindsys: generate sentences in 0L-systems
+lineseq: write a sequence of values on a line
+link2url: convert links to URLs
+lisp: interpret LISP programs
+lister: list filess
+listhtml: create Web page with links to listed files
+listviz: visualize lists
+literat: manage literature information
+ll: list shortest and longest lines in a file
+loadmap: show load map of UNIX object file
+longest: write longest line in a file
+lower: map file names to lowercase
+lssum: sum the file sizes in an ls -l listing
+lsysmap: map L-system symbols
+maccvt: convert Macintosh special characters to ASCII
+makepuzz: make find-the-word puzzle
+mapcolrs: map colors in lists
+midisig: show signature of a MIDI file
+missile: play missile command game
+miu: generate strings from MIU system
+mkpasswd: make passwords
+monkeys: generate random text
+morse: convert string to Morse code
+mr: read mail
+mszip: ZIP a directory for MS-DOS use
+mtf3: map tar file
+newicon: produce new Icon program file
+newsrc: organize UNIX .newsrc file
+nim: play the game of nim
+nocr: convert MS-DOS text files to UNIX
+noise: generate random noise
+normalize: normalize numeric channel
+oldicon: update the date in an Icon program header
+pack: package multiple files
+paginate: insert formfeeds
+papply: apply procedure to lines of file
+parens: produce random balanced strings
+pargen: generate context-free parser
+parse: parse simple statements
+parsex: parse arithmetic expressions
+patchu: implement UNIX-like patch
+pbkdump: dump HP95 phone book file
+pdecomp: list primes factors of an integer
+polydemo: demonstrate polynomial library
+post: post news
+press: archive files
+pretrim: filter out first terms in an input stream
+procprep: produce input to index for procedure comments
+procwrap: produce Icon procedure wrappers
+proto: show Icon syntactic forms
+psrsplit: separate psrecord.icn output pages
+pt: produce parse table generator
+puzz: create word search puzzle
+qei: evaluate Icon expressions interactively
+qt: announce time in English
+queens: generate solutions to the n-queens problem
+ranstars: display star field
+rcat: output a file from back to front
+recgen: generate context-free recognizer
+repeats: repeat stream
+reply: reply to news-articles or mail
+repro: self-reproduce
+revfile: reverse the order of lines in a file
+revsort: sort strings backwards
+roffcmds: list roff commands and macros
+rsg: generate randomly selected sentences
+ruler: write a character ruler
+sample: "sample" input stream
+scale: scale numeric values in visualization stream
+scramble: scramble a document
+setmerge: combine sets of text items
+shar: create UNIX shell archive
+shortest: write shortest line in a file
+shuffile: shuffle lines in a file
+shuffle: randomly reorder the lines of a file
+sing: sing The Twelve Days of Christmas
+slice: write long line as multiple short lines
+snake: play the snake game
+solit: play solitaire
+sortname: order by last name
+splitlit: create string literal
+spread: format tab-separated data columns
+streamer: append lines of file into one long line
+strimlen: produce lengths of string images
+strpsgml: strip/translate SGML tags
+tabexten: tabulate file extensions
+tablc: tabulate characters in a file
+tablw: tabulate words in a file
+tabulate: tabulate lines in a file
+textcnt: tabulate properties of text file
+textcvt: convert text file formats
+toktab: summarize Icon token counts
+trim: trim lines in a file
+ttt: play tic-tac-toe
+turing: simulate a Turing machine
+unclog: reformat CVS log output
+unique: delete identical adjacent lines
+unpack: unpackage files
+upper: map file names to uppercase
+url2link: convert bookmarked URLs to link references
+utrim: remove unneeded procs from ucode
+verse: generate bizarre verses
+versum: produce versum sequence 
+vnq: display solutions to n-queens problem
+vrepl: replicate input lines
+weblinks: check links in HTML files
+what: identify source-code information
+when: show file age
+wshfdemo: demonstrate weighted shuffle procedure
+xtable: show character code translations
+yahtz: play yahtzee
+yescr: convert UNIX files to DOS format
+zipsort: sort mailing labels by ZIP code

@@ -1,0 +1,8 @@
+link empgsup
+link options
+procedure main(args)
+   local opts
+   opts := options(args, "d+l+")
+   _Limit :=  \opts["l"] | 100000
+   _Delta :=  \opts["d"] | _Initialize(_Limit)
+end

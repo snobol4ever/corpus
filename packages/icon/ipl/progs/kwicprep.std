@@ -1,0 +1,275 @@
+adlcheck.icn: check for bad address list data
+adlcount.icn: count address list entries
+adlfiltr.icn: filter address list entries
+adlfirst.icn: write first line of addresses
+adllist.icn: list address list fields
+adlsort.icn: sort address list entries
+animal.icn: play "animal" guessing game
+applyfnc.icn: apply function to lines of a file
+banner.icn: display banner
+based.icn: do BASIC-style editing
+bfd.icn: compute best-fit-descending bin packing
+bj.icn: play blackjack game
+blnk2tab.icn: convert strings of 2 or more blanks to tabs
+c2icn.icn: assist C-to-Icon porting
+calc.icn: simulate desk calculator
+catlines.icn: concatenate lines of a file
+chars.icn: list the different characters in a file
+chkhtml.icn: check HTML files
+choose.icn: pick lines from a file
+chop.icn: restrict numerical values
+colm.icn: arrange data into columns
+comfiles.icn: list common files in two directories
+compare.icn: look for duplicates in a collection of files
+comply83.icn: check compliance with MS-DOS name restrictions
+concord.icn: produce concordance
+conman.icn: convert units
+countlst.icn: count items in a list
+cross.icn: display intersection of words
+crypt.icn: encrypt file
+csgen.icn: generate context-sensitive sentences
+cstrings.icn: print strings in C files
+cwd.icn: write current working directory
+datmerge.icn: merge data files
+daystil.icn: calculate the number of days until a given date
+ddfdump.icn: print the contents of an ISO 8211 DDF file
+deal.icn: deal bridge hands
+declchck.icn: detect possible declaration errors
+delamc.icn: delaminate file using tab characters
+delam.icn: delaminate file
+dellines.icn: delete lines from a file
+delta.icn: list differences between successive numbers
+diffn.icn: show differences among files
+diffsort.icn: reorder "diff" output
+diffsum.icn: count lines affected by a diff
+diffu.icn: show differences in files
+diffword.icn: list different words
+digcol.icn: produce nth column of digit data
+diskpack.icn: produce packing list for diskettes
+duplfile.icn: find directories with same files
+duplproc.icn: find duplicate declarations
+edscript.icn: produce script for ed(1)
+empg.icn: make expression-evaluation programs
+envelope.icn: address envelopes
+evaluate.icn: evaluate Icon expressions
+extweave.icn: extract weaving specifications from weave file
+farb2.icn: generate Farberisms
+farb.icn: generate Farberisms
+filecnvt.icn: convert line terminators
+filehtml.icn: create Web page with links to files
+fileprep.icn: prepare file information for IPL indexes
+fileprnt.icn: display characters in file
+filerepl.icn: replicate file
+filesect.icn: produce section of a file
+filexref.icn: cross-reference files by components
+filtskel.icn: skeleton for generic filter
+findstr.icn: find embedded character strings
+findtext.icn: retrieve data from files indexed by idxtext
+fixhqx.icn: strip headers from BinHex files
+fixpath.icn: replace path in a binary file
+fnctab.icn: list function usage
+fnctmpl.icn: produce function templates
+format.icn: word wrap a range of text
+former.icn: format long string in fixed-length lines
+fract.icn: approximate real number as a fraction
+fset.icn: do set operations on file specifications
+fuzz.icn: perform fuzzy pattern matching
+gcomp.icn: produce complement of file specification
+geddump.icn: dump contents of GEDCOM file
+gediff.icn: "diff" for use with ged
+gener.icn: generate sequence from Icon expression
+genfile.icn: generate sequence from Icon expression in file
+genqueen.icn: solve arbitrary-size n-queens problem
+getcol.icn: extract column from data
+getlines.icn: extract lines from a file
+gftrace.icn: generating function tracing procedures
+graphdem.icn: demonstrate simple bar graphics
+grpsort.icn: sort groups of lines
+hcal4unx.icn: Jewish/Civil calendar in UNIX
+headicon.icn: add header to Icon program
+hebcalen.icn: combination Jewish/Civil calendar
+hebeng.icn: print mixed Hebrew/English text
+hotedit.icn: edit a Mosaic hotlist
+hr.icn: play horse-race game
+htget.icn: get Web file using HTTP protocol
+htprep.icn: prepare HTML files
+huffstuf.icn: huffman coding
+hufftab.icn: compute Huffman state transitions 
+ibar.icn: equalize comment bars in Icon programs
+ibrow.icn: browse Icon files for declarations
+icalc.icn: simulate infix desk calculator
+icalls.icn: tabulate Icon calls
+icn2c.icn: assist Icon-to-C porting
+icontent.icn: list Icon procedures
+icvt.icn: ASCII/EBCDIC program conversion
+idepth.icn: report maximum recursion depth
+idxtext.icn: creating indexed text-base
+ifilter.icn: filter lines of file
+ifncsgen.icn: generate procedure wrappers for functions
+igrep.icn: string search similar to egrep
+iheader.icn: list Icon program library headers
+ihelp.icn: give on-line help for Icon
+iidecode.icn: decode text in style of uudecode
+iiencode.icn: encode text in the style of uuencode
+ilnkxref.icn: produce Icon link cross reference
+ilump.icn: lump linked Icon source files
+imagetyp.icn: show types of image files
+indxcomp.icn: assist in index compilation
+ineeds.icn: print modules required by an Icon program
+inter.icn: find common values in two lists
+interpe.icn: interpret Icon expressions
+interpp.icn: interpret Icon programs
+ipatch.icn: patch iconx path in executable
+ipldoc.icn: collect library documentation
+iplindex.icn: produce indexed listing of the program library
+iplkwic.icn: produce keywords in context for IPL
+iplweb.icn: generate web pages from IPL header comments
+ipower.icn: write sequence of powers
+ipp.icn: preprocess Icon programs
+iprint.icn: print Icon program
+iprofile.icn: profile Icon procedure usage
+iprofl.icn: annotate source code with execution profile
+ipsort.icn: sort Icon procedures
+ipsplit.icn: split Icon program into files
+ipxref.icn: cross reference Icon program
+irsort.icn: sort Icon record declaration
+irunerr.icn: print Icon runtime errors
+iseq.icn: write sequence of integers
+isize.icn: measure size of an Icon program
+isrcline.icn: count code lines in Icon program
+istrip.icn: strip comments from Icon program
+itab.icn: entab an Icon program
+itags.icn: create tags file for Icon programs
+itrbksum.icn: give summary of traceback
+itrcfltr.icn: filter trace output
+itrcsum.icn: give summary of trace output
+iundecl.icn: find undeclared Icon identifiers
+iversion.icn: show icode version
+iwriter.icn: write Icon code to write input
+knapsack.icn: fill a container
+krieg.icn: play kriegspiel
+kross.icn: show intersections of strings
+kwic.icn: produce keywords in context
+kwicprep.icn: prepare information for IPL KWIC listings
+labels.icn: format mailing labels
+la.icn: give exponent approximation for large numbers
+lam.icn: laminate files
+latexidx.icn: process LaTeX idx file
+lcfile.icn: convert file names to lowercase
+lc.icn: count lines in file
+lcn.icn: convert file names to all lowercase
+limitf.icn: limit throughput
+lindcode.icn: produce Icon code from L-system specifications
+lindsys.icn: generate sentences in 0L-systems
+lineseq.icn: write a sequence of values on a line
+link2url.icn: convert links to URLs
+lisp.icn: interpret LISP programs
+lister.icn: list filess
+listhtml.icn: create Web page with links to listed files
+listviz.icn: visualize lists
+literat.icn: manage literature information
+ll.icn: list shortest and longest lines in a file
+loadmap.icn: show load map of UNIX object file
+longest.icn: write longest line in a file
+lower.icn: map file names to lowercase
+lssum.icn: sum the file sizes in an ls -l listing
+lsysmap.icn: map L-system symbols
+maccvt.icn: convert Macintosh special characters to ASCII
+makepuzz.icn: make find-the-word puzzle
+mapcolrs.icn: map colors in lists
+midisig.icn: show signature of a MIDI file
+missile.icn: play missile command game
+miu.icn: generate strings from MIU system
+mkpasswd.icn: make passwords
+monkeys.icn: generate random text
+morse.icn: convert string to Morse code
+mr.icn: read mail
+mszip.icn: ZIP a directory for MS-DOS use
+mtf3.icn: map tar file
+newicon.icn: produce new Icon program file
+newsrc.icn: organize UNIX .newsrc file
+nim.icn: play the game of nim
+nocr.icn: convert MS-DOS text files to UNIX
+noise.icn: generate random noise
+normalize.icn: normalize numeric channel
+oldicon.icn: update the date in an Icon program header
+pack.icn: package multiple files
+paginate.icn: insert formfeeds
+papply.icn: apply procedure to lines of file
+parens.icn: produce random balanced strings
+pargen.icn: generate context-free parser
+parse.icn: parse simple statements
+parsex.icn: parse arithmetic expressions
+patchu.icn: implement UNIX-like patch
+pbkdump.icn: dump HP95 phone book file
+pdecomp.icn: list primes factors of an integer
+polydemo.icn: demonstrate polynomial library
+post.icn: post news
+press.icn: archive files
+pretrim.icn: filter out first terms in an input stream
+procprep.icn: produce input to index for procedure comments
+procwrap.icn: produce Icon procedure wrappers
+proto.icn: show Icon syntactic forms
+psrsplit.icn: separate psrecord.icn output pages
+pt.icn: produce parse table generator
+puzz.icn: create word search puzzle
+qei.icn: evaluate Icon expressions interactively
+qt.icn: announce time in English
+queens.icn: generate solutions to the n-queens problem
+ranstars.icn: display star field
+rcat.icn: output a file from back to front
+recgen.icn: generate context-free recognizer
+repeats.icn: repeat stream
+reply.icn: reply to news-articles or mail
+repro.icn: self-reproduce
+revfile.icn: reverse the order of lines in a file
+revsort.icn: sort strings backwards
+roffcmds.icn: list roff commands and macros
+rsg.icn: generate randomly selected sentences
+ruler.icn: write a character ruler
+sample.icn: "sample" input stream
+scale.icn: scale numeric values in visualization stream
+scramble.icn: scramble a document
+setmerge.icn: combine sets of text items
+shar.icn: create UNIX shell archive
+shortest.icn: write shortest line in a file
+shuffile.icn: shuffle lines in a file
+shuffle.icn: randomly reorder the lines of a file
+sing.icn: sing The Twelve Days of Christmas
+slice.icn: write long line as multiple short lines
+snake.icn: play the snake game
+solit.icn: play solitaire
+sortname.icn: order by last name
+splitlit.icn: create string literal
+spread.icn: format tab-separated data columns
+streamer.icn: append lines of file into one long line
+strimlen.icn: produce lengths of string images
+strpsgml.icn: strip/translate SGML tags
+tabexten.icn: tabulate file extensions
+tablc.icn: tabulate characters in a file
+tablw.icn: tabulate words in a file
+tabulate.icn: tabulate lines in a file
+textcnt.icn: tabulate properties of text file
+textcvt.icn: convert text file formats
+toktab.icn: summarize Icon token counts
+trim.icn: trim lines in a file
+ttt.icn: play tic-tac-toe
+turing.icn: simulate a Turing machine
+unclog.icn: reformat CVS log output
+unique.icn: delete identical adjacent lines
+unpack.icn: unpackage files
+upper.icn: map file names to uppercase
+url2link.icn: convert bookmarked URLs to link references
+utrim.icn: remove unneeded procs from ucode
+verse.icn: generate bizarre verses
+versum.icn: produce versum sequence 
+vnq.icn: display solutions to n-queens problem
+vrepl.icn: replicate input lines
+weblinks.icn: check links in HTML files
+what.icn: identify source-code information
+when.icn: show file age
+wshfdemo.icn: demonstrate weighted shuffle procedure
+xtable.icn: show character code translations
+yahtz.icn: play yahtzee
+yescr.icn: convert UNIX files to DOS format
+zipsort.icn: sort mailing labels by ZIP code

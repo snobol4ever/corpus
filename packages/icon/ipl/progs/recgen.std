@@ -1,0 +1,8 @@
+procedure main()
+   while line := read() do {
+      writes(image(line))
+      if line ? (_() & pos(0)) then 
+         write(": accepted")
+      else write(": rejected")
+      }
+end
