@@ -17444,3 +17444,19 @@ END
 	OUTPUT = 1.0e3
 	OUTPUT = 2.5E-2
 END
+*------------------------------------- 1858 kw_integer_string_coercion_preserved
+        &ANCHOR = "3.7"
+        OUTPUT = "coerce_real=" &ANCHOR
+        &ANCHOR = "+3"
+        OUTPUT = "coerce_plus=" &ANCHOR
+        &ANCHOR = "010"
+        OUTPUT = "coerce_lead0=" &ANCHOR
+        &ANCHOR = ".5"
+        OUTPUT = "coerce_dot5=" &ANCHOR
+        &ANCHOR = "1.5e3"
+        OUTPUT = "coerce_exp=" &ANCHOR
+        &ANCHOR = "3."
+        OUTPUT = "coerce_trail=" &ANCHOR
+        &ANCHOR = "1e7"
+        OUTPUT = "coerce_e7=" &ANCHOR
+END

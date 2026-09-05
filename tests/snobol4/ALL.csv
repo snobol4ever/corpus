@@ -1856,3 +1856,4 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1855,scrip_test_treebank-prepend,scrip_test_snobol4_treebank-prepend__treebank-prepend,scrip_test_snobol4_treebank-prepend,block,0,165,"m3,m4",0,0,1,1,1,0,0,1,1,1,0,1,0,0,0,1,0,0,0,0,0,0,0,1,1,1,0,0,1,0,1,1,1,1,1,0,1,1,0
 1856,snocone_ladder_datatype.oracle_ref,snocone_ladder_snobol4_datatype.oracle_ref__datatype.oracle_ref,snocone_ladder_snobol4_datatype.oracle_ref,block,0,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 1857,snocone_ladder_lit_real.oracle_ref,snocone_ladder_snobol4_lit_real.oracle_ref__lit_real.oracle_ref,snocone_ladder_snobol4_lit_real.oracle_ref,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+1858,kw_integer_string_coercion_preserved,hq_P__kw_integer_hex_cure,probe_keyword,block,0,15,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
