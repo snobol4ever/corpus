@@ -16284,7 +16284,7 @@ LOOP    N  =  N + 1
         PERM(A)                                  :S(LOOP)
         OUTPUT  =  N ' permutations'
 END
-*------------------------------------------ 1785 keyword_replace_branch_10 XFAIL
+*------------------------------------------ 1785 keyword_replace_branch_10
 * SETEXIT FACE 4 -- THE TRAP IS ONE-SHOT.  Firing DISARMS it, so the SECOND error takes
 * the ordinary failure exit and the handler is NOT re-entered.
 	SETEXIT(.H)
@@ -16298,7 +16298,7 @@ S7	OUTPUT = "AFTER"
 H	OUTPUT = "HANDLER S" &LASTNO
 	:(CONTINUE)
 END
-*------------------------------------------ 1786 keyword_replace_branch_11 XFAIL
+*------------------------------------------ 1786 keyword_replace_branch_11
 * SETEXIT FACE 5 -- A HANDLER THAT RE-ARMS ITSELF CATCHES THE NEXT ERROR TOO.
 * The companion to se_oneshot: same program, one added SETEXIT inside the handler.
 	SETEXIT(.H)
