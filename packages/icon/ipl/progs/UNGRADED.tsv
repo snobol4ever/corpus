@@ -1,0 +1,215 @@
+adlcheck.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+adlfiltr.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+adlfirst.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+adllist.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+adlsort.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+animal.icn	ORACLE_FAIL	needs interactive input this driver's /dev/null stdin cannot supply -- 'Are you thinking of an animal?'
+applyfnc.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** no function specified'
+based.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'Basic Line Editor V1.3 by Tenaglia 910104.1700'
+bfd.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: bfd.icn binsize'
+bj.icn	ORACLE_FAIL	needs a real terminal (termcap/tty), cannot run headless -- "/bin/stty: 'standard input': Inappropriate ioctl for device"
+blnk2tab.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+c2icn.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+calc.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+chars.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+chkhtml.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'Usage: ChkHTML -options file...'
+choose.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+chop.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+comfiles.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** no directories specified'
+compare.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+comply83.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+concord.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+countlst.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+cross.icn	ORACLE_FAIL	rc!=0 with no/minimal diagnostic ('') -- needs individual follow-up
+crypt.icn	ORACLE_FAIL	needs interactive input this driver's /dev/null stdin cannot supply -- 'Enter password:    Enter input file:  Enter output file:'
+csgen.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'no goal specification'
+cstrings.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'Usage: cstrings file...'
+datmerge.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: datmerge.icn [-operator] filename...'
+daystil.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'Usage: DaysTil sMonth iDay'
+ddfdump.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'standard input is not a DDF file'
+delam.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'Usage: delam fieldlist {outputfile | -} ...'
+delamc.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'Usage: delamc [-tc] {outputfile | -} ...'
+dellines.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** no lines specified'
+delta.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+diffn.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: diffn file file ...'
+diffsort.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+diffsum.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+diffu.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'diff: usage: diffu f1 f2'
+diffword.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+digcol.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** invalid specification'
+duplfile.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+duplproc.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+evaluate.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+extweave.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'delta move error'
+farb.icn	NONDETERMINISTIC	DETERMINISM: calls randomize() (clock-seeded) by design -- program purpose is "a randomly selected farberism", not a bug
+farb2.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- '*** cannot open "farber.sen"'
+filecnvt.icn	ORACLE_FAIL	rc!=0 with no/minimal diagnostic ('') -- needs individual follow-up
+fileprnt.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- '*** cannot open input file'
+filerepl.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+filesect.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** starting value missing'
+filexref.icn	LIVE	DETERMINISM: embeds &dateline (current date/time) verbatim in output -- confirmed by source (line 131); a same-session repeated-run check cannot catch this, it breaks the next day it is graded (seat03 2026-09-05, confirmed again by seat01 2026-09-05)
+filtskel.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+findstr.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'Usage: findstr -options file...'
+findtext.icn	TIMEOUT	interactive query loop over an idxtext-built index file (source: read() loop) -- needs a specific pre-built index this driver does not supply, plus interactive queries
+fixhqx.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+fixpath.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: fixpath filename oldpath newpath'
+fnctab.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- "*** didn't find variable references"
+fnctmpl.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+format.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+former.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** no input line'
+fset.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+fuzz.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'The 15 best matches for the first word in each line will be written.'
+gcomp.icn	LIVE	DETERMINISM: reads the LIVE progs/ directory listing via open("echo * .*","rp") and prints it (source: entire program body) -- output is literally "whatever files are in progs/ right now", which THIS VERY TASK mutates by minting .std files; structurally unmintable regardless of same-session repeat-run agreement. seat01 2026-09-05: classifier read 4/4 and a manual 8/8 confirm as agreeing (false accept, unperturbed template each time) until a real mint attempt into the live corpus tree produced a THIRD, different byte count -- do not re-attempt without extending the classifier to detect self-referential directory reads
+geddump.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+gediff.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- "diff: missing operand after 'diff'"
+gener.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+genfile.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- '*** cannot open file'
+getcol.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+getlines.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** no lines specified'
+grpsort.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+hcal4unx.icn	ORACLE_FAIL	needs a real terminal (termcap/tty), cannot run headless -- "getentry:  I can't access your termcap file.  Read iolib.icn."
+headicon.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- '*** cannot open skeleton file'
+hebcalen.icn	ORACLE_FAIL	paints raw ANSI/terminal control sequences -- needs a real terminal, cannot run headless -- '\x1b[2J'
+hebeng.icn	ORACLE_FAIL	platform-specific (Macintosh/ProIcon), not portable here -- 'sorry, hebeng.icn only runs under Macintosh ProIcon'
+hotedit.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- "can't open .mosaic-hotlist-default"
+hr.icn	ORACLE_FAIL	paints raw ANSI/terminal control sequences -- needs a real terminal, cannot run headless -- '\x1b[0;1;33;44m\x1b[2J\x1b[H'
+htget.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: htget.icn [-h] url'
+htprep.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+huffstuf.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'huffcode -i|o filename1'
+ibar.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+icalc.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+icalls.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+icn2c.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+icvt.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'Usage: icvt -a | -e'
+idxtext.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: idxtext [-a] file1 [file2 [...]]'
+ifilter.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** invalid or missing operation'
+iheader.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+ihelp.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- 'Can\'t open help file "ihelp.dat"'
+iidecode.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'No begin line.'
+iiencode.icn	ORACLE_FAIL	rc!=0 with no/minimal diagnostic ('') -- needs individual follow-up
+ilump.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+imagetyp.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+indxcomp.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+ineeds.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+inter.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- '*** cannot open file 1'
+interpe.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+ipatch.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: ipatch.icn file iconx'
+iplkwic.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+iplweb.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'Set IPL environment variable or use'
+ipower.icn	TIMEOUT	unbounded by default: stop defaults to 2^64 with no -e/-l option supplied (source: procedure main) -- needs explicit -l/-e argv to terminate in bounded time, not a hang
+ipp.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+iprint.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: iprint -options file ...'
+iprofile.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage:  profile filename (filename = Icon program compiled with -t option)'
+iprofl.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+ipsort.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+ipsplit.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+irsort.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+iseq.icn	TIMEOUT	unbounded by default: stop defaults to 2^64 with no -e/-l option supplied (source: procedure main), same shape as ipower.icn
+isize.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- '*** cannot open file'
+istrip.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+itab.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+itags.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: itags [-aBFtvwx] [-f tagsfile] file...'
+itrcfltr.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+iundecl.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+iversion.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+iwriter.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+knapsack.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: knapsack capacity'
+krieg.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- "Your name (up to 8 letters & digits; default = user name)? Kriegspiel stop: can't read user name"
+kross.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+kwic.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+la.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+labels.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+lam.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'Usage: lam file [file | -string]...'
+latexidx.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+lcfile.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+lcn.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+limitf.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+lindsys.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** no axiom'
+link2url.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+lisp.icn	ORACLE_FAIL	rc!=0 with no/minimal diagnostic ('>') -- needs individual follow-up
+lister.icn	ORACLE_FAIL	rc!=0 with no/minimal diagnostic ('') -- needs individual follow-up
+listviz.icn	ORACLE_FAIL	rc!=0 with no/minimal diagnostic ('') -- needs individual follow-up
+literat.icn	ORACLE_FAIL	paints raw ANSI/terminal control sequences -- needs a real terminal, cannot run headless -- '\x1b[0;77;1p\x1b[0;75;2p\x1b[0;72;14p\x1b[0;80;21p\x1b[0;116;8p\x1b[0;115;9p\x1b[0;71;4p\x1b[0;79;5p\x1b[0;83;6p\x1b[2J\x1b[1;10HLITERAT:    EASY DATABASE SYSTEM'
+loadmap.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: loadmap [-t -d -b -u -a -c -l] file'
+lower.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+lsysmap.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+maccvt.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+mapcolrs.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** no input list specified'
+midisig.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+missile.icn	TIMEOUT	interactive game (missile command) -- repeat-loop reads player input indefinitely, needs a real input transcript, not empty stdin
+monkeys.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+mr.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- "Can't read /usr/spool/mail/satirical"
+mszip.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: mszip.icn [-n] [-v] [-i] root-directory zip-file'
+mtf3.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage:  mtf inputfile [-r reportfile] [-e .extensions] [-x exceptions]'
+newicon.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- '*** cannot open skeleton file'
+newsrc.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- 'Unable to open .newsrc'
+nim.icn	TIMEOUT	interactive game (Nim) -- read()-driven move loop with y/n prompts, needs a real input transcript
+nocr.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage:  nocr file1 [file2...]'
+noise.icn	TIMEOUT	DETERMINISM + unbounded: "generate random noise" -- repeat-loop writes random transliterations indefinitely with no natural stop; also random by design (matches seat03's original 8.7GB-RSS incident finding)
+normalize.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+pack.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+paginate.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+papply.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** invalid or missing procedure'
+parens.icn	NONDETERMINISTIC	DETERMINISM: calls randomize() (clock-seeded) by design, same shape as farb.icn
+parse.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- '** error **  id expected'
+patchu.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'patchu: usage: patchu source diffs'
+pbkdump.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+pdecomp.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+polydemo.icn	TIMEOUT	interactive menu (polynomial library demo) -- option := choice(read()) loop, needs a real menu-choice transcript
+post.icn	ORACLE_FAIL	needs interactive input this driver's /dev/null stdin cannot supply -- 'Newsgroups:'
+press.icn	ORACLE_FAIL	rc!=0 with no/minimal diagnostic ('') -- needs individual follow-up
+pretrim.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+procwrap.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+proto.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+psrsplit.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: psrsplit.icn file'
+pt.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+puzz.icn	NONDETERMINISTIC	DETERMINISM: seeds &random from &clock (source line 50) -- genuinely random by design
+qei.icn	ORACLE_FAIL	ORACLE-SIDE rejection of the vendored source itself (source line 185, "$else;" -- the trailing ; reads as an extraneous directive argument to the REAL Icon compiler), independent of SCRIP -- 'File qei.icn; Line 185 # ";": extraneous arguments on $else/$endif'
+qt.icn	LIVE	DETERMINISM: announces the CURRENT SYSTEM CLOCK time in English (linked datetime library) when given no argument (source: procedure main, "It's <time-in-words>.") -- by design wall-clock-dependent absent an explicit time argument. seat01 2026-09-05: 8 same-session runs coincidentally agreed (narrow time window), a later run minutes apart produced different text -- classic same-invocation false accept
+ranstars.icn	ORACLE_FAIL	needs a real terminal (termcap/tty), cannot run headless -- "getentry:  I can't access your termcap file.  Read iolib.icn."
+rcat.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: rcat.icn file...'
+repeats.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+reply.icn	ORACLE_FAIL	needs a real terminal (termcap/tty), cannot run headless -- 'sh: 1: cannot open /dev/tty: No such device or address'
+revfile.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+revsort.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+rsg.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+sample.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+scale.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+setmerge.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+shar.icn	LIVE	DETERMINISM: embeds &dateline (current date/time) verbatim in output -- confirmed by source (line 34); same day-boundary hazard as filexref.icn
+shortest.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+shuffile.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+shuffle.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+slice.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+snake.icn	ORACLE_FAIL	needs a real terminal (termcap/tty), cannot run headless -- "/bin/stty: 'standard input': Inappropriate ioctl for device"
+solit.icn	NONDETERMINISTIC	DETERMINISM: seeds &random from &clock (source lines 768-773) -- genuinely random by design
+sortname.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+splitlit.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+spread.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+strimlen.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+strpsgml.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+tabexten.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+tablc.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+tablw.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+tabulate.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+textcvt.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'Usage: textcvt [-options] -<output format> textfile...'
+trim.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+ttt.icn	TIMEOUT	interactive game (tic-tac-toe) -- repeat-loop calls read() for each move, needs a real input transcript
+turing.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'line <EOF>: no machine!'
+unclog.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+unique.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+unpack.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+upper.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+url2link.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+utrim.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: utrim.icn [-s | -v] file.u1 ...'
+verse.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- "Can't open vocabulary file (verse.dat)"
+versum.icn	TIMEOUT	looks for a "<start>.vsq" data file (default start=196, so "196.vsq") not present in the vendored tree; open() fails so the visible read-loop is skipped -- exact hang mechanism beyond that point not yet traced, needs individual follow-up
+vrepl.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
+weblinks.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: weblinks.icn [options] file ...'
+what.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'Usage: what.icn file1 [file2 [file3]]'
+when.icn	ORACLE_FAIL	rc!=0 with no/minimal diagnostic ('') -- needs individual follow-up
+wshfdemo.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'Weighted Shuffle Demonstration'
+xtable.icn	SUSPECT_USAGE	usage banner on clean exit (rc=0) -- "Usage: xtable -<option>" -- needs a specific -<option> argv
+yahtz.icn	ORACLE_FAIL	needs a real terminal (termcap/tty), cannot run headless -- "getentry:  I can't access your termcap file.  Read iolib.icn."
+yescr.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage:  yescr file1 [file2...]'
+zipsort.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
