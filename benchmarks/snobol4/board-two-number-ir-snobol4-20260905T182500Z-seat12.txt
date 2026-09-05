@@ -1,0 +1,27 @@
+TWO_NUMBER_IR lang=snobol4 tree=SCRIP 674319235 corpus 4e11cb9ee RT_OPT=-O0 instrument=callgrind-Ir date=2026-09-05
+  basis: WORK = total Ir - OVERHEAD; OVERHEAD = empty-program subtraction (the marked interim of
+         RULES.md § THE TWO-NUMBER BENCHMARK BASIS). Multiple = rival WORK / SCRIP WORK (FASTER axis).
+  OVERHEAD (empty program, Ir): m3=4536565  m4=2815595  rival=208671  [SPITBOL]
+kernel                       m3_total       m4_total        m4_WORK    rival_total     rival_WORK      basis x vs SPITBOL
+arith_loop                   22153698        4536138        1720543         467173         258502      TOTAL 0.103x
+array_sum                    69141669       39205068       36389473        5614880        5406209       WORK 0.149x
+eval_fixed                   26152071        8026321        5210726        1481709        1273038       WORK 0.244x
+fibonacci                    41093610       14161377       11345782        2844240        2635569       WORK 0.232x
+fib_recur                    79441001       70241952       67426357       47216421       47007750       WORK 0.697x
+func_call                    26717803        5475856        2660261         656517         447846      TOTAL 0.120x
+ident_call1                  22254323        5219699        2404104         518303         309632      TOTAL 0.099x
+ident_call2                  22279163        5250695        2435100         514679         306008      TOTAL 0.098x
+indirect_dispatch            29710134        4776899        1961304         567160         358489      TOTAL 0.119x
+mixed_workload               56158015        5838701        3023106         638837         430166       WORK 0.142x
+name_indirection             91796233       73359953       70544358        9260143        9051472       WORK 0.128x
+op_dispatch                  30226761        6762576        3946981         709694         501023       WORK 0.127x
+pattern_bt                   29469677        7302420        4486825        1929850        1721179       WORK 0.384x
+roman                        53852771        8886039        6070444        1554927        1346256       WORK 0.222x
+string_concat                23116613        5391969        2576374         980616         771945      TOTAL 0.182x
+string_manip                 26270836        7353221        4537626         831757         623086       WORK 0.137x
+string_pattern               31816796        6479421        3663826        1006944         798273       WORK 0.218x
+table_access                 70100920       40168555       37352960        7672648        7463977       WORK 0.200x
+table_variety               122028176       21965882       19150287        4814146        4605475       WORK 0.240x
+test_icon                    47165597        2912888          97293         462663         253992      TOTAL 0.159x
+var_access                   40964651        7660547        4844952         795953         587282       WORK 0.121x
+TWO_NUMBER_BOARD lang=snobol4 kernels=21
