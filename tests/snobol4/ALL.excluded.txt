@@ -97,7 +97,7 @@ probe_loose_conformance_f21_output[tests]	non-deterministic or diverges from the
 probe_loose_conformance_f25_collect[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 probe_loose_conformance_f26_dump[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 probe_loose_conformance_f52_dupl[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
-probe_loose_conformance_f65_exit[tests]	over budget (oracle exceeded 3.0s)
+probe_loose_conformance_f65_exit[tests]	oracle itself CRASH
 probe_loose_conformance_f65b_exit_savefile[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 probe_loose_conformance_f68_stoptr[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 probe_loose_conformance_f69_trace[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
