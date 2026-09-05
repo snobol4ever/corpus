@@ -14,7 +14,6 @@
 # now REPORTS every key that matches no family, which is why this can be seen at all.
 #
 # family	modes	(evidence)
-<<<<<<< HEAD
 benchmark_prolog_crypt	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `benchmark_prolog_crypt__crypt`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
 benchmark_prolog_ham	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `benchmark_prolog_ham__ham`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
 benchmark_prolog_meta_qsort	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `benchmark_prolog_meta_qsort__meta_qsort`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
@@ -82,44 +81,3 @@ test_prolog_rung10_programs_puzzle_16	m3,m4	# re-keyed 2026-09-05 from the inert
 test_prolog_rung10_programs_puzzle_17	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_17__rung10_programs_puzzle_17`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
 test_prolog_rung10_programs_puzzle_18	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_18__rung10_programs_puzzle_18`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
 test_prolog_rung10_programs_puzzle_20	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_20__rung10_programs_puzzle_20`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
-=======
-benchmark_prolog_crypt__crypt	m3,m4
-benchmark_prolog_ham__ham	m3,m4
-benchmark_prolog_meta_qsort__meta_qsort	m3,m4
-benchmark_prolog_mu__mu	m3,m4
-benchmark_prolog_nrev__nrev	m3,m4
-benchmark_prolog_nreverse__nreverse	m3,m4
-benchmark_prolog_qsort__qsort	m3,m4
-benchmark_prolog_queens_8__queens_8	m3,m4
-benchmark_prolog_queens__queens	m3,m4
-benchmark_prolog_queensn__queensn	m3,m4
-benchmark_prolog_query__query	m3,m4
-benchmark_prolog_witness_depth_nrev8__witness_depth_nrev8	m3,m4
-benchmark_prolog_zebra__zebra	m3,m4
-ladder	m3,m4	# SCRIP/scripts/test_prolog_ladder.sh runs each ladder__rungNN_* entry ALONE in m3 (scrip --run) and m4 (scrip --compile + as + gcc + run), stdout vs .ref and rc vs ALL.wantrc; the trace arm is test_gate_pl_port_trace.sh
-parser	m3,m4	# re-pinned 2026-09-05 (ast-dump-refs-are-self-pins-not-oracles): .ref already re-captured as real swipl/scrip-run output by corpus 6a9f01fe4 (all 134 are clause-only, verified genuinely-silent or matching swipl stdout) -- modes=ast was left stale, grading a real-output ref via --dump-ast and FAILing all 134 by construction. test_prolog_parser_fixtures.sh now grades via extract-family + real execution, not a self-pinned AST dump.
-scrip_test_prolog_coverage_net_gaps__coverage_net_gaps	m3,m4
-scrip_test_prolog_coverage_pl_nodes__coverage_pl_nodes	m3,m4
-scrip_test_prolog_hello__hello	m3,m4
-scrip_test_prolog_palindrome__palindrome	m3,m4
-scrip_test_prolog_roman__roman	m3,m4
-scrip_test_prolog_wordcount__wordcount	m3,m4
-test_prolog_coverage_net_gaps__coverage_net_gaps	m3,m4
-test_prolog_coverage_pl_nodes__coverage_pl_nodes	m3,m4
-test_prolog_rung10_programs_puzzle_02__rung10_programs_puzzle_02	m3,m4
-test_prolog_rung10_programs_puzzle_03__rung10_programs_puzzle_03	m3,m4
-test_prolog_rung10_programs_puzzle_04__rung10_programs_puzzle_04	m3,m4
-test_prolog_rung10_programs_puzzle_06__rung10_programs_puzzle_06	m3,m4
-test_prolog_rung10_programs_puzzle_07__rung10_programs_puzzle_07	m3,m4
-test_prolog_rung10_programs_puzzle_08__rung10_programs_puzzle_08	m3,m4
-test_prolog_rung10_programs_puzzle_10__rung10_programs_puzzle_10	m3,m4
-test_prolog_rung10_programs_puzzle_11__rung10_programs_puzzle_11	m3,m4
-test_prolog_rung10_programs_puzzle_12__rung10_programs_puzzle_12	m3,m4
-test_prolog_rung10_programs_puzzle_13__rung10_programs_puzzle_13	m3,m4
-test_prolog_rung10_programs_puzzle_14__rung10_programs_puzzle_14	m3,m4
-test_prolog_rung10_programs_puzzle_15__rung10_programs_puzzle_15	m3,m4
-test_prolog_rung10_programs_puzzle_16__rung10_programs_puzzle_16	m3,m4
-test_prolog_rung10_programs_puzzle_17__rung10_programs_puzzle_17	m3,m4
-test_prolog_rung10_programs_puzzle_18__rung10_programs_puzzle_18	m3,m4
-test_prolog_rung10_programs_puzzle_20__rung10_programs_puzzle_20	m3,m4
->>>>>>> 42c1136df (tests/prolog: parser family was ast-graded against a real-output ref, FAILing 0/134)
