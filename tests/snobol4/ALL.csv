@@ -1768,12 +1768,12 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1767,simple_program_1,probe_csnobol4_triage__missing_include_target,probe_csnobol4_triage,block,1,5,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1768,simple_output_63,probe_csnobol4_triage__lowercase_keyword,probe_csnobol4_triage,block,1,6,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1769,simple_output_67,probe_gimpel__gim_blanks_min_wrong,probe_gimpel,block,1,6,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-1770,simple_output_61,probe_csnobol4_triage__content_after_end,probe_csnobol4_triage,block,1,8,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1770,simple_output_61,probe_csnobol4_triage__content_after_end,probe_csnobol4_triage,block,0,8,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1771,simple_output_64,probe_csnobol4_triage__ord_unimplemented,probe_csnobol4_triage,block,1,8,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1772,simple_output_68,probe_gimpel__gim_double_include_hang,probe_gimpel,block,1,16,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1773,simple_output_70,probe_gimpel__gim_or_single_alternative_crash,probe_gimpel,block,1,26,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1774,array_replace_2,gimpel_triage_class5_sig11_seq_driver__class5_sig11_seq_driver,gimpel_triage_class5_sig11_seq_driver,block,0,5,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-1775,user_function_6,probe_define__dyn_define_1,probe_define,block,0,5,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1775,user_function_6,probe_define__dyn_define_1,probe_define,block,1,5,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1776,keyword_19,probe_csnobol4_triage__dump_unimplemented,probe_csnobol4_triage,block,1,6,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 1777,simple_output_62,probe_csnobol4_triage__input_eof_hang,probe_csnobol4_triage,block,1,7,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 1778,user_function_replace_4,probe_ab__ab_redefine,probe_ab,block,1,8,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -1783,8 +1783,8 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1782,span_replace_2,gimpel_triage_class3_diff_span_self_rebind__class3_diff_span_self_rebind,gimpel_triage_class3_diff_span_self_rebind,block,1,14,UNKNOWN,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1783,indirect_replace_1,probe_gimpel__gim_name_of_field_store,probe_gimpel,block,1,18,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
 1784,array_replace_branch_2,gimpel_triage_class8_sig6_perm_driver__class8_sig6_perm_driver,gimpel_triage_class8_sig6_perm_driver,block,1,9,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-1785,keyword_replace_branch_10,probe_setexit2__se_oneshot,probe_setexit2,block,1,13,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0
-1786,keyword_replace_branch_11,probe_setexit2__se_rearm,probe_setexit2,block,1,14,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0
+1785,keyword_replace_branch_10,probe_setexit2__se_oneshot,probe_setexit2,block,0,13,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0
+1786,keyword_replace_branch_11,probe_setexit2__se_rearm,probe_setexit2,block,0,14,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0
 1787,user_function_indirect_replace_1,probe_gimpel__gim_goto_function_call_parse,probe_gimpel,block,1,28,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
 1788,user_function_len_capture_1,probe_m1__m1_nret_cap,probe_m1,block,1,5,UNKNOWN,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 1789,user_function_len_capture_replace_1,probe_ab__ab_nret_lvalue,probe_ab,block,1,9,UNKNOWN,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
@@ -1812,12 +1812,12 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1811,fence_arb_span_replace_branch_1,probe_fuzz__fz_red_m2b_fence_cap_nullalt,probe_fuzz,block,1,7,UNKNOWN,1,1,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0
 1812,fence_arb_tab_replace_branch_1,probe_fuzz__fz_red_m2c_cap_around_defer,probe_fuzz,block,1,8,UNKNOWN,1,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,1,0,0
 1813,fence_arb_tab_replace_branch_2,probe_fuzz__fz_segv_18,probe_fuzz,block,1,9,UNKNOWN,1,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,1,0,0
-1814,user_function_code_eval_bal_branch_1,gimpel_triage_class2_rc1_compile_fail_dexp__class2_rc1_compile_fail_dexp,gimpel_triage_class2_rc1_compile_fail_dexp,block,0,9,UNKNOWN,0,0,0,1,0,0,0,0,1,1,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
+1814,user_function_code_eval_bal_branch_1,gimpel_triage_class2_rc1_compile_fail_dexp__class2_rc1_compile_fail_dexp,gimpel_triage_class2_rc1_compile_fail_dexp,block,1,9,UNKNOWN,0,0,0,1,0,0,0,0,1,1,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 1815,arbno_fence_pos_replace_branch_4,probe_passthru__ptw_min_rseal_unsealed_ctl,probe_passthru,block,1,10,UNKNOWN,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
 1816,arbno_fence_pos_replace_branch_3,probe_passthru__ptw_min_rseal_arbno,probe_passthru,block,1,11,UNKNOWN,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
 1817,arbno_fence_pos_branch_22,probe_passthru__ptw_min_arbno_alt_fence_L1,probe_passthru,block,1,5,UNKNOWN,1,0,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
 1818,arbno_fence_bal_replace_branch_3,probe_fuzz__fzr_13_alt_of_arbno,probe_fuzz,block,1,7,UNKNOWN,1,0,1,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
-1819,arbno_fence_span_replace_branch_1,probe_fuzz__fz_abort_05,probe_fuzz,block,1,7,UNKNOWN,1,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,1,1,0,0
+1819,arbno_fence_span_replace_branch_1,probe_fuzz__fz_abort_05,probe_fuzz,block,0,7,UNKNOWN,1,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,1,1,0,0
 1820,arbno_fence_bal_replace_branch_1,probe_fuzz__fz_diff_13,probe_fuzz,block,1,8,UNKNOWN,1,0,1,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
 1821,arbno_span_break_replace_branch_1,probe_fuzz__fz_hang_11,probe_fuzz,block,1,7,UNKNOWN,0,0,1,1,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,1,0,1,0
 1822,arbno_span_tab_replace_branch_1,probe_fuzz__fz_segv_02,probe_fuzz,block,1,7,UNKNOWN,0,0,1,1,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
@@ -1856,4 +1856,5 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1855,scrip_test_treebank-prepend,scrip_test_snobol4_treebank-prepend__treebank-prepend,scrip_test_snobol4_treebank-prepend,block,0,165,"m3,m4",0,0,1,1,1,0,0,1,1,1,0,1,0,0,0,1,0,0,0,0,0,0,0,1,1,1,0,0,1,0,1,1,1,1,1,0,1,1,0
 1856,snocone_ladder_datatype.oracle_ref,snocone_ladder_snobol4_datatype.oracle_ref__datatype.oracle_ref,snocone_ladder_snobol4_datatype.oracle_ref,block,0,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 1857,snocone_ladder_lit_real.oracle_ref,snocone_ladder_snobol4_lit_real.oracle_ref__lit_real.oracle_ref,snocone_ladder_snobol4_lit_real.oracle_ref,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
-1858,kw_integer_string_coercion_preserved,hq_P__kw_integer_hex_cure,probe_keyword,block,0,15,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+1858,kw_integer_string_coercion_preserved,hq_P__kw_integer_hex_cure,hq_P,block,0,15,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+1859,test_regress_deferred_nonname_capture_target_fails,test_snobol4_regress_deferred_nonname_capture_target_fails__regress_deferred_nonname_capture_target_fails,test_snobol4_regress_deferred_nonname_capture_target_fails,block,0,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,1,0,0

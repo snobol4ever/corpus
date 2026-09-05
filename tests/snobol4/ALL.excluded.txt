@@ -137,12 +137,13 @@ probe_loose_table_nested_claws5_l2	scratch-escaping relative reference (../) -- 
 probe_loose_table_nested_ident_guard_d1	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
 probe_loose_table_nested_value_type_tbl	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
 probe_loose_unload_un_self_exec[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+regress_deferred_nonname_capture_target_fails[tests]	already in the master (origin test_snobol4_regress_deferred_nonname_capture_target_fails__regress_deferred_nonname_capture_target_fails) -- not re-appended
 roman[benchmarks]	already in the master (origin benchmark_snobol4_roman__roman) -- not re-appended
 roman[demos]	already in the master (origin demo_snobol4_roman__roman) -- not re-appended
 rtx_func_11_inc[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 smoke_beauty_compiled[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 smoke_empty_string[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=231
-smoke_expr_parser[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=0
+smoke_expr_parser[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 smoke_hello[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=231
 smoke_multi[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=231
 string_concat[benchmarks]	already in the master (origin benchmark_snobol4_string_concat__string_concat) -- not re-appended

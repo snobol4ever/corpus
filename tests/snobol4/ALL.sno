@@ -16103,7 +16103,7 @@ end
 -INCLUDE "BLANKS.sno"
         OUTPUT  =  BLANKS('X = A')
 END
-*--------------------------------------------------- 1770 simple_output_61
+*--------------------------------------------------------- 1770 simple_output_61
 * SCRIP keeps label-scanning text physically AFTER a valid END statement; SPITBOL stops at END.
 * Two identical trailing lines here trigger a spurious "duplicate label" parse error in scrip.
 * Root cause behind csnobol4_suite/sudoku.sno, where the puzzle-grid text after END repeats a
@@ -16284,7 +16284,7 @@ LOOP    N  =  N + 1
         PERM(A)                                  :S(LOOP)
         OUTPUT  =  N ' permutations'
 END
-*------------------------------------------ 1785 keyword_replace_branch_10
+*------------------------------------------------ 1785 keyword_replace_branch_10
 * SETEXIT FACE 4 -- THE TRAP IS ONE-SHOT.  Firing DISARMS it, so the SECOND error takes
 * the ordinary failure exit and the handler is NOT re-entered.
 	SETEXIT(.H)
@@ -16298,7 +16298,7 @@ S7	OUTPUT = "AFTER"
 H	OUTPUT = "HANDLER S" &LASTNO
 	:(CONTINUE)
 END
-*------------------------------------------ 1786 keyword_replace_branch_11
+*------------------------------------------------ 1786 keyword_replace_branch_11
 * SETEXIT FACE 5 -- A HANDLER THAT RE-ARMS ITSELF CATCHES THE NEXT ERROR TOO.
 * The companion to se_oneshot: same program, one added SETEXIT inside the handler.
 	SETEXIT(.H)
@@ -17459,4 +17459,11 @@ END
         OUTPUT = "coerce_trail=" &ANCHOR
         &ANCHOR = "1e7"
         OUTPUT = "coerce_e7=" &ANCHOR
+END
+*----------------------- 1859 test_regress_deferred_nonname_capture_target_fails
+	OUTPUT = "start"
+	subj = "abc"
+	subj "b" . tx . *(OUTPUT = tx)	:S(OK)F(NO)
+OK	OUTPUT = "matched"	:(END)
+NO	OUTPUT = "nomatch"
 END
