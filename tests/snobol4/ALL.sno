@@ -16793,7 +16793,7 @@ END
 -INCLUDE "gim_double_include_hang_A.sno"
         OUTPUT  =  DI_COUNT('aaa','a')
 END
-*--------------------------------------------------- 1838 simple_output_70 XFAIL
+*--------------------------------------------------------- 1838 simple_output_70
 *  gim_or_single_alternative_crash - distilled from gimpel batch E, where it
 *  takes OR_driver, ORSORT_driver and ORVISUAL_driver together.
 *  ONE call to OR(LIST) with a SINGLE one-character alternative crashes

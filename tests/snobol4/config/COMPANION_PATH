@@ -1,0 +1,23 @@
+# COMPANION SEARCH PATH for the snobol4 master suite -- corpus-relative dirs, IN ORDER, one per line.
+# Read by SCRIP/scripts/lib_companion_closure.py at BUILD time only. The grader never reads this file: an entry is
+# graded in an isolated temp dir and sees exactly the files copied in beside it, which is what makes a board reproducible.
+#
+# ⛔ THIS LISTS ONLY DIRS THE GRADER CANNOT REACH BY ITSELF. It does NOT list `include/`: the harness sets
+# SNO_LIB=<corpus>/include on every m3 run and every m4 compile, so everything in that tree already resolves and copying
+# it here would be churn. Declaring a reachable dir would turn 20 no-ops into 20 duplicated files.
+#
+# ⛔ AND IT IS A DECLARATION, NEVER A CORPUS-WIDE BASENAME SCAN, because a scan is a silent wrong answer:
+# `VBGinTASA.dat` names three different files in this corpus and benchmarks/snocone/demo/VBGinTASA.dat is a DIFFERENT
+# file (md5 48c78061) from the two identical snobol4 ones (98e80802). A basename index would have picked one by walk
+# order and graded a snobol4 entry against another language's data with nothing in any output saying so.
+packages/snobol4/gimpel    # OR.sno + the BALREV/REVERSE closure under it -- the gimpel probe witnesses' own sources,
+                           # named by entries absorbed from that package and left behind by the absorption.
+#
+# ⛔ DELIBERATELY ABSENT -- demos/snobol4/claws5 and demos/snobol4/treebank. Their two .dat companions ARE unreachable,
+# and materializing them makes things WORSE, not better: measured 2026-09-05, the refs of the two entries that name them
+# (user_function_arbno_span_replace_branch_3, scrip_test_treebank-prepend) are the strings "Could not read
+# CLAWS5inTASA.dat" and "Could not read VBGinTASA.dat" -- each entry is pinned GREEN to its own missing-dependency error
+# message. Supplying the data turns both RED (and treebank-prepend then emits 133 MB, which is no kind of suite entry).
+# That is a faulty-test question for whoever owns the ref, not a search-path one; recorded in
+# FINDING-2026-09-05-hq_T-two-master-entries-are-pinned-green-to-their-own-missing-file-message.md so the debt is named
+# rather than hidden behind a copy that reds the board.

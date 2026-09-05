@@ -1836,7 +1836,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1835,simple_output_63,probe_csnobol4_triage__lowercase_keyword,probe_csnobol4_triage,block,1,6,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1836,simple_output_64,probe_csnobol4_triage__ord_unimplemented,probe_csnobol4_triage,block,1,8,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1837,simple_output_68,probe_gimpel__gim_double_include_hang,probe_gimpel,block,1,16,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-1838,simple_output_70,probe_gimpel__gim_or_single_alternative_crash,probe_gimpel,block,1,26,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1838,simple_output_70,probe_gimpel__gim_or_single_alternative_crash,probe_gimpel,block,0,26,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1839,keyword_19,probe_csnobol4_triage__dump_unimplemented,probe_csnobol4_triage,block,1,6,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 1840,simple_output_62,probe_csnobol4_triage__input_eof_hang,probe_csnobol4_triage,block,1,7,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 1841,user_function_replace_4,probe_ab__ab_redefine,probe_ab,block,1,8,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
