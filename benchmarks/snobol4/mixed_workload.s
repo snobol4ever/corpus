@@ -2511,9 +2511,7 @@ n119_match_defer_α:     mov              r11, 112
                         push             rcx
                         lea              rcx, [rip + .Lmatch_defer_α_424_4]
                         push             rcx;                                 jmp   rax
-.Lmatch_defer_α_424_4:  lea              rcx, [rip + g_scan_hit_start]
-                        mov              rax, qword ptr [rcx]
-                        mov              dword ptr [rsp + 592], eax;          jmp   n120_match_end_α
+.Lmatch_defer_α_424_4:                                                        jmp   n120_match_end_α
 .Lmatch_defer_α_424_5:                                                        jmp   n118_match_begin_β
 .Lmatch_defer_α_424_0:  mov              eax, edx
                         test             eax, eax;                            js    n118_match_begin_β
@@ -2541,7 +2539,7 @@ n120_match_end_α:       mov              r11, 113
                         mov              rax, qword ptr [rbp + -48]
                         mov              qword ptr [rcx + 248], rax
                         mov              eax, dword ptr [rbp + -40]           # repl_start
-                        mov              dword ptr [rbp + -48], eax
+                        mov              dword ptr [rbp + -36], eax
                         mov              qword ptr [rbp + -56], r14           # repl_end
                         push             r14
                         push             r15
@@ -2578,7 +2576,7 @@ n120_match_end_α:       mov              r11, 113
                         mov              r13, qword ptr [rbp + -16]           # outer_Σ
                         mov              r14, qword ptr [rbp + -24]           # outer_δ
                         mov              r15, qword ptr [rbp + -32]           # outer_Δ
-                        mov              eax, dword ptr [rbp + -48]           # repl_start
+                        mov              eax, dword ptr [rbp + -36]           # repl_start
                         mov              dword ptr [r12 + 0], eax
                         mov              rax, qword ptr [rbp + -56]           # repl_end
                         mov              qword ptr [r12 + 8], rax
