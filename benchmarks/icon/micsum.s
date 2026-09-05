@@ -2801,6 +2801,7 @@ main:
                         mov              esi, dword ptr [rsp + 8]
                         sub              esi, 1
                         call             rt_main_args_stage@PLT
+                        call             rt_main_args_bind@PLT
                         mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
