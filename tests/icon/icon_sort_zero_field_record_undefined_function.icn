@@ -1,0 +1,7 @@
+record r0()
+procedure main()
+    local x;
+    x := r0();
+    write(image(x) | "none");
+    write(image(sort(x)) | "none");
+end
