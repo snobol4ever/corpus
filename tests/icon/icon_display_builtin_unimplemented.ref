@@ -1,0 +1,8 @@
+co-expression_1(1)
+
+main local identifiers:
+   x = 42
+
+global identifiers:
+   display = function display
+   main = procedure main
