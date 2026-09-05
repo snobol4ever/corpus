@@ -4,8 +4,12 @@
 # ⛔ Do NOT populate this by pattern-matching family names. The mode is a property of THE RUNNER;
 # record what a runner actually does, with the runner named, or leave the family out.
 #
-# EVIDENCE (hq_P 2026-08-29): both Pascal gates read CORPUS=corpus/tests/pascal with
-# SUITES="$CORPUS/crosscheck" and iterate the pairs, diffing against each entry's own .ref:
+# EVIDENCE (hq_P 2026-08-29; RE-MEASURED hq_P 2026-09-05 -- the 08-29 text below cited
+# SUITES="$CORPUS/crosscheck", a directory that NO LONGER EXISTS: the loose pairs were absorbed
+# into the ONE flat master and the gates were repointed at it. Both gates now read
+# MASTER_SRC=$CORPUS/ALL.pas + MASTER_REF=$CORPUS/ALL.ref through corpus_suite_harness.py, so they
+# still grade EVERY family in the master in both modes -- the conclusion is unchanged, the reason
+# is not. A stale evidence string is worse than none: it reads as verified and cannot be checked.):
 #   SCRIP/scripts/test_gate_pascal_m3.sh:28  out=$(timeout 8s "$SCRIP" --run "$pas" < "$inp")
 #   SCRIP/scripts/test_gate_pascal_m4.sh:30  timeout 8s "$SCRIP" --compile "$pas" -> as -> link -> exec
 # Both modes grade every crosscheck family, so every family below is m3,m4 on runner evidence.
@@ -66,13 +70,13 @@ pb31	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$COR
 pb32	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 pb33	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 pb34	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
-pb35	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
+pb35	m3,m4	# ⛔ NOT AN ORPHAN -- DO NOT DELETE. Absent from ALL.csv BY DESIGN: it reads real stdin (.in sidecar) and the suite format has no stdin concept, so it stays a LOOSE .pas/.ref/.in pair named in ALL.excluded.txt and in STDIN_FAMILIES in BOTH test_gate_pascal_m3.sh and test_gate_pascal_m4.sh, which grade it --run and --compile->link->run. Deleting this key strips the declaration from an entry that IS graded.
 pb37	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 pb40	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
-read1	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
-read2	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
-read3	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
-read4	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
+read1	m3,m4	# ⛔ NOT AN ORPHAN -- DO NOT DELETE. Absent from ALL.csv BY DESIGN: it reads real stdin (.in sidecar) and the suite format has no stdin concept, so it stays a LOOSE .pas/.ref/.in pair named in ALL.excluded.txt and in STDIN_FAMILIES in BOTH test_gate_pascal_m3.sh and test_gate_pascal_m4.sh, which grade it --run and --compile->link->run. Deleting this key strips the declaration from an entry that IS graded.
+read2	m3,m4	# ⛔ NOT AN ORPHAN -- DO NOT DELETE. Absent from ALL.csv BY DESIGN: it reads real stdin (.in sidecar) and the suite format has no stdin concept, so it stays a LOOSE .pas/.ref/.in pair named in ALL.excluded.txt and in STDIN_FAMILIES in BOTH test_gate_pascal_m3.sh and test_gate_pascal_m4.sh, which grade it --run and --compile->link->run. Deleting this key strips the declaration from an entry that IS graded.
+read3	m3,m4	# ⛔ NOT AN ORPHAN -- DO NOT DELETE. Absent from ALL.csv BY DESIGN: it reads real stdin (.in sidecar) and the suite format has no stdin concept, so it stays a LOOSE .pas/.ref/.in pair named in ALL.excluded.txt and in STDIN_FAMILIES in BOTH test_gate_pascal_m3.sh and test_gate_pascal_m4.sh, which grade it --run and --compile->link->run. Deleting this key strips the declaration from an entry that IS graded.
+read4	m3,m4	# ⛔ NOT AN ORPHAN -- DO NOT DELETE. Absent from ALL.csv BY DESIGN: it reads real stdin (.in sidecar) and the suite format has no stdin concept, so it stays a LOOSE .pas/.ref/.in pair named in ALL.excluded.txt and in STDIN_FAMILIES in BOTH test_gate_pascal_m3.sh and test_gate_pascal_m4.sh, which grade it --run and --compile->link->run. Deleting this key strips the declaration from an entry that IS graded.
 rec_local_collision	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 recursion	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 sieve	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
@@ -86,3 +90,5 @@ vparam_field_write	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas
 vparr	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 vpfld	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 withfwd1	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
+ladder	m3,m4	# test_pascal_ladder.sh:12 -- "EACH WITNESS RUNS ALONE IN BOTH MODES: m3 = scrip --run . m4 = scrip --compile -o x.s + as --64 + gcc -no-pie + run" (35 entries, ladder__rungNN_*)
+parser	ast	# ⛔ AST, NOT m3,m4 -- these are graded by --dump-ast diff and NEVER EXECUTED. Evidence is the DATA, not just a comment: every parser__* ref in ALL.ref is an AST dump ("(STMT :subj (TT_PROC_DECL main ...") while a ladder__* ref beside it is program output ("7"). test_gate_pascal_m3.sh:63 says the same and passes --by-modes-column precisely so a plain --modes m3 cannot execute them. Declaring these m3,m4 runs a program whose ref is an AST dump -- it can never agree, and in the other direction (RUN entries declared ast) it is the false green the prolog master is carrying right now. (5 entries, parser__*)
