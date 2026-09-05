@@ -1,0 +1,3525 @@
+#------------------------------------------------------------- 1 gprogs/lindcomp
+link turtle
+
+$define Generations 4
+$define Angle 90.0
+$define Length 5
+
+procedure main()
+#----------------------------------------------------------------- 2 gprogs/tess
+Can't open window. Press <RETURN>
+#------------------------------------------------------------- 3 gprogs/webimage
+<html><head><title>untitled</title></head><body>
+</body></html>
+#-------------------------------------------------------------- 4 procs/eventgen
+$define MAssign 1
+$define MValue 2
+procedure noop()
+end
+#--------------------------------------------------------------- 5 procs/sandgen
+link prepost
+#-------------------------------------------------------------- 6 progs/adlcount
+0
+#---------------------------------------------------------------- 7 progs/animal
+Are you thinking of an animal?
+#---------------------------------------------------------------- 8 progs/banner
+[H[2J[3J
+#----------------------------------------------------------------- 9 progs/based
+Basic Line Editor V1.3 by Tenaglia 910104.1700
+socrates Saturday, September 5, 2026  2:32 pm
+
+>QUIT! Are you sure? Y/N :
+#---------------------------------------------------------------- 10 progs/crypt
+Enter password:    Enter input file:  Enter output file: 
+#------------------------------------------------------------------ 11 progs/cwd
+pkgsuite_oracle_oydglz0f
+#----------------------------------------------------------------- 12 progs/deal
+
+          S: 3
+          H: T7
+          D: AKQ762
+          C: QJ94
+
+S: KQ987            S: A652
+H: 52               H: AKQ4
+D: T94              D: 3
+C: T82              C: A653
+
+          S: JT4
+          H: J9863
+          D: J85
+          C: K7
+
+---------------------------------
+#------------------------------------------------------------- 13 progs/declchck
+declchck
+   locals
+cannot open .u1 file for "declchck.icn"
+#------------------------------------------------------------- 14 progs/edscript
+w
+q
+#----------------------------------------------------------------- 15 progs/empg
+link empgsup
+link options
+procedure main(args)
+   local opts
+   opts := options(args, "d+l+")
+   _Limit :=  \opts["l"] | 100000
+   _Delta :=  \opts["d"] | _Initialize(_Limit)
+end
+#----------------------------------------------------------------- 16 progs/farb
+Today I was singing 'Snowflakes roasting on an open file'.
+#------------------------------------------------------------- 17 progs/filehtml
+<HTML><HEAD>
+<TITLE>File Links</TITLE></HEAD>
+<BODY>
+</BODY></HTML>
+#------------------------------------------------------------- 18 progs/fileprep
+fileprep: prepare file information for IPL indexes
+#------------------------------------------------------------- 19 progs/filexref
+File Inventory Cross-Reference Report -- Saturday, September 5, 2026  2:32 pm
+
+Directories Searched (cross-reference number and path):
+
+Total files in inventory is  0
+#---------------------------------------------------------------- 20 progs/fract
+0 / 1 	0.0
+1 / 1 	1.0
+1 / 2 	0.5
+2 / 3 	0.6666666667
+3 / 5 	0.6
+5 / 8 	0.625
+8 / 13 	0.6153846154
+13 / 21 	0.619047619
+21 / 34 	0.6176470588
+34 / 55 	0.6181818182
+55 / 89 	0.6179775281
+89 / 144 	0.6180555556
+144 / 233 	0.6180257511
+233 / 377 	0.6180371353
+377 / 610 	0.6180327869
+610 / 987 	0.6180344478
+987 / 1597 	0.6180338134
+1597 / 2584 	0.6180340557
+2584 / 4181 	0.6180339632
+4181 / 6765 	0.6180339985
+6765 / 10946 	0.618033985
+10946 / 17711 	0.6180339902
+17711 / 28657 	0.6180339882
+28657 / 46368 	0.618033989
+46368 / 75025 	0.6180339887
+75025 / 121393 	0.6180339888
+121393 / 196418 	0.6180339887
+196418 / 317811 	0.6180339888
+317811 / 514229 	0.6180339887
+514229 / 832040 	0.6180339888
+832040 / 1346269 	0.6180339887
+1346269 / 2178309 	0.6180339887
+2178309 / 3524578 	0.6180339887
+3524578 / 5702887 	0.6180339887
+5702887 / 9227465 	0.6180339887
+9227465 / 14930352 	0.6180339887
+14930352 / 24157817 	0.6180339887
+24157817 / 39088169 	0.6180339887
+63245986 / 102334155 	0.6180339887
+#----------------------------------------------------------------- 21 progs/fuzz
+The 15 best matches for the first word in each line will be written.
+
+Name of input file: 
+#---------------------------------------------------------------- 22 progs/gcomp
+gcomp.icn
+#------------------------------------------------------------- 23 progs/genqueen
+-------------
+| | | |Q| | |
+-------------
+|Q| | | | | |
+-------------
+| | | | |Q| |
+-------------
+| |Q| | | | |
+-------------
+| | | | | |Q|
+-------------
+| | |Q| | | |
+-------------
+
+-------------
+| | | | |Q| |
+-------------
+| | |Q| | | |
+-------------
+|Q| | | | | |
+-------------
+| | | | | |Q|
+-------------
+| | | |Q| | |
+-------------
+| |Q| | | | |
+-------------
+
+-------------
+| |Q| | | | |
+-------------
+| | | |Q| | |
+-------------
+| | | | | |Q|
+-------------
+|Q| | | | | |
+-------------
+| | |Q| | | |
+-------------
+| | | | |Q| |
+-------------
+
+-------------
+| | |Q| | | |
+-------------
+| | | | | |Q|
+-------------
+| |Q| | | | |
+-------------
+| | | | |Q| |
+-------------
+|Q| | | | | |
+-------------
+| | | |Q| | |
+-------------
+#-------------------------------------------------------------- 24 progs/gftrace
+############################################################################
+#
+#	File:     ftrace.icn
+#
+#	Subject:  Procedures for tracing calls to built-in functions
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     September 5, 2026
+#
+############################################################################
+#  
+#     These procedures, when linked with an Icon program, cause calls of
+#  built-in functions to be traced (along with calls of user procedures)
+#  when &trace is nonzero.  This is accomplished by interposing a level of
+#  Icon procedures between the user program and the built-in functions.
+#  
+#     In the trace output, function arguments are shown as a list.  The
+#  very first function call produces two extra trace lines showing a call
+#  to "_func".  Calls to "proc" are reported as calls to "_proc".
+#  
+#     If the user program overloads any built-in function, linking fails
+#  due to an "inconsistent redeclaration".
+#  
+############################################################################
+#
+#  Generated under:  Icon Version 9.5.25a, September 7, 2025
+#
+############################################################################
+
+procedure _func(a[]); _func:=proc("proc",0); proc:=_proc; return _func!a; end
+procedure _proc(a[]); static p; initial p:=_func("proc",0); suspend p!a; end
+
+procedure abs(a[]); static p; initial p:=_func("abs",0); suspend p!a; end
+procedure acos(a[]); static p; initial p:=_func("acos",0); suspend p!a; end
+procedure any(a[]); static p; initial p:=_func("any",0); suspend p!a; end
+procedure args(a[]); static p; initial p:=_func("args",0); suspend p!a; end
+procedure asin(a[]); static p; initial p:=_func("asin",0); suspend p!a; end
+procedure atan(a[]); static p; initial p:=_func("atan",0); suspend p!a; end
+procedure bal(a[]); static p; initial p:=_func("bal",0); suspend p!a; end
+procedure center(a[]); static p; initial p:=_func("center",0); suspend p!a; end
+procedure char(a[]); static p; initial p:=_func("char",0); suspend p!a; end
+procedure chdir(a[]); static p; initial p:=_func("chdir",0); suspend p!a; end
+procedure close(a[]); static p; initial p:=_func("close",0); suspend p!a; end
+procedure collect(a[]); static p; initial p:=_func("collect",0); suspend p!a; end
+procedure copy(a[]); static p; initial p:=_func("copy",0); suspend p!a; end
+procedure cos(a[]); static p; initial p:=_func("cos",0); suspend p!a; end
+procedure cset(a[]); static p; initial p:=_func("cset",0); suspend p!a; end
+procedure delay(a[]); static p; initial p:=_func("delay",0); suspend p!a; end
+procedure delete(a[]); static p; initial p:=_func("delete",0); suspend p!a; end
+procedure detab(a[]); static p; initial p:=_func("detab",0); suspend p!a; end
+procedure display(a[]); static p; initial p:=_func("display",0); suspend p!a; end
+procedure dtor(a[]); static p; initial p:=_func("dtor",0); suspend p!a; end
+procedure entab(a[]); static p; initial p:=_func("entab",0); suspend p!a; end
+procedure errorclear(a[]); static p; initial p:=_func("errorclear",0); suspend p!a; end
+procedure exit(a[]); static p; initial p:=_func("exit",0); suspend p!a; end
+procedure exp(a[]); static p; initial p:=_func("exp",0); suspend p!a; end
+procedure find(a[]); static p; initial p:=_func("find",0); suspend p!a; end
+procedure flush(a[]); static p; initial p:=_func("flush",0); suspend p!a; end
+procedure function(a[]); static p; initial p:=_func("function",0); suspend p!a; end
+procedure get(a[]); static p; initial p:=_func("get",0); suspend p!a; end
+procedure getch(a[]); static p; initial p:=_func("getch",0); suspend p!a; end
+procedure getche(a[]); static p; initial p:=_func("getche",0); suspend p!a; end
+procedure getenv(a[]); static p; initial p:=_func("getenv",0); suspend p!a; end
+procedure iand(a[]); static p; initial p:=_func("iand",0); suspend p!a; end
+procedure icom(a[]); static p; initial p:=_func("icom",0); suspend p!a; end
+procedure image(a[]); static p; initial p:=_func("image",0); suspend p!a; end
+procedure insert(a[]); static p; initial p:=_func("insert",0); suspend p!a; end
+procedure integer(a[]); static p; initial p:=_func("integer",0); suspend p!a; end
+procedure ior(a[]); static p; initial p:=_func("ior",0); suspend p!a; end
+procedure ishift(a[]); static p; initial p:=_func("ishift",0); suspend p!a; end
+procedure ixor(a[]); static p; initial p:=_func("ixor",0); suspend p!a; end
+procedure kbhit(a[]); static p; initial p:=_func("kbhit",0); suspend p!a; end
+procedure key(a[]); static p; initial p:=_func("key",0); suspend p!a; end
+procedure left(a[]); static p; initial p:=_func("left",0); suspend p!a; end
+procedure list(a[]); static p; initial p:=_func("list",0); suspend p!a; end
+procedure loadfunc(a[]); static p; initial p:=_func("loadfunc",0); suspend p!a; end
+procedure log(a[]); static p; initial p:=_func("log",0); suspend p!a; end
+procedure many(a[]); static p; initial p:=_func("many",0); suspend p!a; end
+procedure map(a[]); static p; initial p:=_func("map",0); suspend p!a; end
+procedure match(a[]); static p; initial p:=_func("match",0); suspend p!a; end
+procedure member(a[]); static p; initial p:=_func("member",0); suspend p!a; end
+procedure move(a[]); static p; initial p:=_func("move",0); suspend p!a; end
+procedure name(a[]); static p; initial p:=_func("name",0); suspend p!a; end
+procedure numeric(a[]); static p; initial p:=_func("numeric",0); suspend p!a; end
+procedure open(a[]); static p; initial p:=_func("open",0); suspend p!a; end
+procedure ord(a[]); static p; initial p:=_func("ord",0); suspend p!a; end
+procedure pop(a[]); static p; initial p:=_func("pop",0); suspend p!a; end
+procedure pos(a[]); static p; initial p:=_func("pos",0); suspend p!a; end
+procedure pull(a[]); static p; initial p:=_func("pull",0); suspend p!a; end
+procedure push(a[]); static p; initial p:=_func("push",0); suspend p!a; end
+procedure put(a[]); static p; initial p:=_func("put",0); suspend p!a; end
+procedure read(a[]); static p; initial p:=_func("read",0); suspend p!a; end
+procedure reads(a[]); static p; initial p:=_func("reads",0); suspend p!a; end
+procedure real(a[]); static p; initial p:=_func("real",0); suspend p!a; end
+procedure remove(a[]); static p; initial p:=_func("remove",0); suspend p!a; end
+procedure rename(a[]); static p; initial p:=_func("rename",0); suspend p!a; end
+procedure repl(a[]); static p; initial p:=_func("repl",0); suspend p!a; end
+procedure reverse(a[]); static p; initial p:=_func("reverse",0); suspend p!a; end
+procedure right(a[]); static p; initial p:=_func("right",0); suspend p!a; end
+procedure rtod(a[]); static p; initial p:=_func("rtod",0); suspend p!a; end
+procedure runerr(a[]); static p; initial p:=_func("runerr",0); suspend p!a; end
+procedure seek(a[]); static p; initial p:=_func("seek",0); suspend p!a; end
+procedure seq(a[]); static p; initial p:=_func("seq",0); suspend p!a; end
+procedure serial(a[]); static p; initial p:=_func("serial",0); suspend p!a; end
+procedure set(a[]); static p; initial p:=_func("set",0); suspend p!a; end
+procedure sin(a[]); static p; initial p:=_func("sin",0); suspend p!a; end
+procedure sort(a[]); static p; initial p:=_func("sort",0); suspend p!a; end
+procedure sortf(a[]); static p; initial p:=_func("sortf",0); suspend p!a; end
+procedure sqrt(a[]); static p; initial p:=_func("sqrt",0); suspend p!a; end
+procedure stop(a[]); static p; initial p:=_func("stop",0); suspend p!a; end
+procedure string(a[]); static p; initial p:=_func("string",0); suspend p!a; end
+procedure system(a[]); static p; initial p:=_func("system",0); suspend p!a; end
+procedure tab(a[]); static p; initial p:=_func("tab",0); suspend p!a; end
+procedure table(a[]); static p; initial p:=_func("table",0); suspend p!a; end
+procedure tan(a[]); static p; initial p:=_func("tan",0); suspend p!a; end
+procedure trim(a[]); static p; initial p:=_func("trim",0); suspend p!a; end
+procedure type(a[]); static p; initial p:=_func("type",0); suspend p!a; end
+procedure upto(a[]); static p; initial p:=_func("upto",0); suspend p!a; end
+procedure variable(a[]); static p; initial p:=_func("variable",0); suspend p!a; end
+procedure where(a[]); static p; initial p:=_func("where",0); suspend p!a; end
+procedure write(a[]); static p; initial p:=_func("write",0); suspend p!a; end
+procedure writes(a[]); static p; initial p:=_func("writes",0); suspend p!a; end
+#------------------------------------------------------------- 25 progs/graphdem
+graph: simple bar graphics package for icon
+(b)yte frequency count or (f)ibonacci's numbers?
+erroneous option
+#------------------------------------------------------------- 26 progs/hebcalen
+[2J
+
+
+������������������������������������������������������������������������������ͻ�                                                                              ��                       PERPETUAL JEWISH/CIVIL CALENDAR                        ��                                                                              ��                                                                              ��                                                                              ��                                      by                                      ��                                                                              ��                                                                              ��                                                                              ��                                ALAN D. CORRE                                 ��                                                                              �������������������������������������������������������������������������������ͼ
+#------------------------------------------------------------------- 27 progs/hr
+[0;1;33;44m[2J[H
+###############################################################################
+                                                                               
+      ****  *   *  ****   *****  ****         ****  *****  *****  *****  ****  
+    *       * *   *   *  *      *   *       *        *    *      *      *   *  
+   *        *    ****   ***    ****         ***     *    ***    ***    *   *   
+  *        *    *   *  *      * *             *    *    *      *      *   *    
+  ****    *    ****   *****  *  *        ****     *    *****  *****  ****      
+                                                                               
+                         ****     *     ****  ***  *   *   ****                
+                        *   *   * *   *       *   **  *  *                     
+                       ****   *****  *       *   * * *  *  ***                 
+                      * *    *   *  *       *   *  **  *   *                   
+                     *  *   *   *   ****  ***  *   *   ****                    
+                                                                               
+   [1;5m               by tenaglia[0;1;33;44m
+                                                                               
+###############################################################################
+[0;1;33;44m[2J[H +----------------------------------------------------------+
+ |          WELCOME TO ICON PARK VIRTUAL RACE TRACK         |[1;7m [0;1;33;44m
+ |                                                          |[1;7m [0;1;33;44m
+ |   The following game allow one or more players to bet on |[1;7m [0;1;33;44m
+ |   three Cyberspace steeds that will run on an ANSI VT100 |[1;7m [0;1;33;44m
+ |   dirt track. Of course the bets are Cyberspace dollars, |[1;7m [0;1;33;44m
+ |   which have no real world value. We use only the oldest |[1;7m [0;1;33;44m
+ |   escape sequences to condition the track surface, which |[1;7m [0;1;33;44m
+ |   may not appeal  to TEK crowds,  and I'm sure some fans |[1;7m [0;1;33;44m
+ |   will hurl curses. C'est la vie!                        |[1;7m [0;1;33;44m
+ |                                                          |[1;7m [0;1;33;44m
+ +----------------------------------------------------------+[1;7m [0;1;33;44m
+  [1;7m                                                            [0;1;33;44m
+
+    Are we ready to enter our names, and begin?
+Enter yes or no:
+#-------------------------------------------------------------- 28 progs/hufftab
+/* generated by machine -- do not edit! */
+
+/*  0 */     0,     0,
+#---------------------------------------------------------------- 29 progs/ibrow
+Icon Browser -- scanning files:
+  ibrow.icn
+
+1. help()  2. main()
+
+
+q,nn,nn[fmev],<return> (? for help): 
+#------------------------------------------------------------- 30 progs/icontent
+#  Procedures and Records:
+#--------------------------------------------------------------- 31 progs/idepth
+0
+#------------------------------------------------------------- 32 progs/ifncsgen
+procedure Abs(a1)
+   static __fnc_abs
+   initial __fnc_abs := proc("abs", 0)
+   suspend __fnc_abs(a1)
+end
+
+procedure Acos(a1)
+   static __fnc_acos
+   initial __fnc_acos := proc("acos", 0)
+   suspend __fnc_acos(a1)
+end
+
+procedure Any(a1, a2, a3, a4)
+   static __fnc_any
+   initial __fnc_any := proc("any", 0)
+   suspend __fnc_any(a1, a2, a3, a4)
+end
+
+procedure Args(a1)
+   static __fnc_args
+   initial __fnc_args := proc("args", 0)
+   suspend __fnc_args(a1)
+end
+
+procedure Asin(a1)
+   static __fnc_asin
+   initial __fnc_asin := proc("asin", 0)
+   suspend __fnc_asin(a1)
+end
+
+procedure Atan(a1, a2)
+   static __fnc_atan
+   initial __fnc_atan := proc("atan", 0)
+   suspend __fnc_atan(a1, a2)
+end
+
+procedure Bal(a1, a2, a3, a4, a5, a6)
+   static __fnc_bal
+   initial __fnc_bal := proc("bal", 0)
+   suspend __fnc_bal(a1, a2, a3, a4, a5, a6)
+end
+
+procedure Center(a1, a2, a3)
+   static __fnc_center
+   initial __fnc_center := proc("center", 0)
+   suspend __fnc_center(a1, a2, a3)
+end
+
+procedure Char(a1)
+   static __fnc_char
+   initial __fnc_char := proc("char", 0)
+   suspend __fnc_char(a1)
+end
+
+procedure Chdir(a1)
+   static __fnc_chdir
+   initial __fnc_chdir := proc("chdir", 0)
+   suspend __fnc_chdir(a1)
+end
+
+procedure Close(a1)
+   static __fnc_close
+   initial __fnc_close := proc("close", 0)
+   suspend __fnc_close(a1)
+end
+
+procedure Collect(a1, a2)
+   static __fnc_collect
+   initial __fnc_collect := proc("collect", 0)
+   suspend __fnc_collect(a1, a2)
+end
+
+procedure Copy(a1)
+   static __fnc_copy
+   initial __fnc_copy := proc("copy", 0)
+   suspend __fnc_copy(a1)
+end
+
+procedure Cos(a1)
+   static __fnc_cos
+   initial __fnc_cos := proc("cos", 0)
+   suspend __fnc_cos(a1)
+end
+
+procedure Cset(a1)
+   static __fnc_cset
+   initial __fnc_cset := proc("cset", 0)
+   suspend __fnc_cset(a1)
+end
+
+procedure Delay(a1)
+   static __fnc_delay
+   initial __fnc_delay := proc("delay", 0)
+   suspend __fnc_delay(a1)
+end
+
+procedure Delete(a1, a2)
+   static __fnc_delete
+   initial __fnc_delete := proc("delete", 0)
+   suspend __fnc_delete(a1, a2)
+end
+
+procedure Detab(a[])
+   static __fnc_detab
+   initial __fnc_detab := proc("detab", 0)
+   suspend __fnc_detab ! a
+end
+
+procedure Display(a1, a2)
+   static __fnc_display
+   initial __fnc_display := proc("display", 0)
+   suspend __fnc_display(a1, a2)
+end
+
+procedure Dtor(a1)
+   static __fnc_dtor
+   initial __fnc_dtor := proc("dtor", 0)
+   suspend __fnc_dtor(a1)
+end
+
+procedure Entab(a[])
+   static __fnc_entab
+   initial __fnc_entab := proc("entab", 0)
+   suspend __fnc_entab ! a
+end
+
+procedure Errorclear()
+   static __fnc_errorclear
+   initial __fnc_errorclear := proc("errorclear", 0)
+   suspend __fnc_errorclear()
+end
+
+procedure Exit(a1)
+   static __fnc_exit
+   initial __fnc_exit := proc("exit", 0)
+   suspend __fnc_exit(a1)
+end
+
+procedure Exp(a1)
+   static __fnc_exp
+   initial __fnc_exp := proc("exp", 0)
+   suspend __fnc_exp(a1)
+end
+
+procedure Find(a1, a2, a3, a4)
+   static __fnc_find
+   initial __fnc_find := proc("find", 0)
+   suspend __fnc_find(a1, a2, a3, a4)
+end
+
+procedure Flush(a1)
+   static __fnc_flush
+   initial __fnc_flush := proc("flush", 0)
+   suspend __fnc_flush(a1)
+end
+
+procedure Function()
+   static __fnc_function
+   initial __fnc_function := proc("function", 0)
+   suspend __fnc_function()
+end
+
+procedure Get(a1)
+   static __fnc_get
+   initial __fnc_get := proc("get", 0)
+   suspend __fnc_get(a1)
+end
+
+procedure Getch()
+   static __fnc_getch
+   initial __fnc_getch := proc("getch", 0)
+   suspend __fnc_getch()
+end
+
+procedure Getche()
+   static __fnc_getche
+   initial __fnc_getche := proc("getche", 0)
+   suspend __fnc_getche()
+end
+
+procedure Getenv(a1)
+   static __fnc_getenv
+   initial __fnc_getenv := proc("getenv", 0)
+   suspend __fnc_getenv(a1)
+end
+
+procedure Iand(a1, a2)
+   static __fnc_iand
+   initial __fnc_iand := proc("iand", 0)
+   suspend __fnc_iand(a1, a2)
+end
+
+procedure Icom(a1)
+   static __fnc_icom
+   initial __fnc_icom := proc("icom", 0)
+   suspend __fnc_icom(a1)
+end
+
+procedure Image(a1)
+   static __fnc_image
+   initial __fnc_image := proc("image", 0)
+   suspend __fnc_image(a1)
+end
+
+procedure Insert(a1, a2, a3)
+   static __fnc_insert
+   initial __fnc_insert := proc("insert", 0)
+   suspend __fnc_insert(a1, a2, a3)
+end
+
+procedure Integer(a1)
+   static __fnc_integer
+   initial __fnc_integer := proc("integer", 0)
+   suspend __fnc_integer(a1)
+end
+
+procedure Ior(a1, a2)
+   static __fnc_ior
+   initial __fnc_ior := proc("ior", 0)
+   suspend __fnc_ior(a1, a2)
+end
+
+procedure Ishift(a1, a2)
+   static __fnc_ishift
+   initial __fnc_ishift := proc("ishift", 0)
+   suspend __fnc_ishift(a1, a2)
+end
+
+procedure Ixor(a1, a2)
+   static __fnc_ixor
+   initial __fnc_ixor := proc("ixor", 0)
+   suspend __fnc_ixor(a1, a2)
+end
+
+procedure Kbhit()
+   static __fnc_kbhit
+   initial __fnc_kbhit := proc("kbhit", 0)
+   suspend __fnc_kbhit()
+end
+
+procedure Key(a1)
+   static __fnc_key
+   initial __fnc_key := proc("key", 0)
+   suspend __fnc_key(a1)
+end
+
+procedure Left(a1, a2, a3)
+   static __fnc_left
+   initial __fnc_left := proc("left", 0)
+   suspend __fnc_left(a1, a2, a3)
+end
+
+procedure List(a1, a2)
+   static __fnc_list
+   initial __fnc_list := proc("list", 0)
+   suspend __fnc_list(a1, a2)
+end
+
+procedure Loadfunc(a1, a2)
+   static __fnc_loadfunc
+   initial __fnc_loadfunc := proc("loadfunc", 0)
+   suspend __fnc_loadfunc(a1, a2)
+end
+
+procedure Log(a1, a2)
+   static __fnc_log
+   initial __fnc_log := proc("log", 0)
+   suspend __fnc_log(a1, a2)
+end
+
+procedure Many(a1, a2, a3, a4)
+   static __fnc_many
+   initial __fnc_many := proc("many", 0)
+   suspend __fnc_many(a1, a2, a3, a4)
+end
+
+procedure Map(a1, a2, a3)
+   static __fnc_map
+   initial __fnc_map := proc("map", 0)
+   suspend __fnc_map(a1, a2, a3)
+end
+
+procedure Match(a1, a2, a3, a4)
+   static __fnc_match
+   initial __fnc_match := proc("match", 0)
+   suspend __fnc_match(a1, a2, a3, a4)
+end
+
+procedure Member(a1, a2)
+   static __fnc_member
+   initial __fnc_member := proc("member", 0)
+   suspend __fnc_member(a1, a2)
+end
+
+procedure Move(a1)
+   static __fnc_move
+   initial __fnc_move := proc("move", 0)
+   suspend __fnc_move(a1)
+end
+
+procedure Name(a1)
+   static __fnc_name
+   initial __fnc_name := proc("name", 0)
+   suspend __fnc_name(a1)
+end
+
+procedure Numeric(a1)
+   static __fnc_numeric
+   initial __fnc_numeric := proc("numeric", 0)
+   suspend __fnc_numeric(a1)
+end
+
+procedure Open(a1, a2)
+   static __fnc_open
+   initial __fnc_open := proc("open", 0)
+   suspend __fnc_open(a1, a2)
+end
+
+procedure Ord(a1)
+   static __fnc_ord
+   initial __fnc_ord := proc("ord", 0)
+   suspend __fnc_ord(a1)
+end
+
+procedure Pop(a1)
+   static __fnc_pop
+   initial __fnc_pop := proc("pop", 0)
+   suspend __fnc_pop(a1)
+end
+
+procedure Pos(a1)
+   static __fnc_pos
+   initial __fnc_pos := proc("pos", 0)
+   suspend __fnc_pos(a1)
+end
+
+procedure Proc(a1, a2)
+   static __fnc_proc
+   initial __fnc_proc := proc("proc", 0)
+   suspend __fnc_proc(a1, a2)
+end
+
+procedure Pull(a1)
+   static __fnc_pull
+   initial __fnc_pull := proc("pull", 0)
+   suspend __fnc_pull(a1)
+end
+
+procedure Push(a[])
+   static __fnc_push
+   initial __fnc_push := proc("push", 0)
+   suspend __fnc_push ! a
+end
+
+procedure Put(a[])
+   static __fnc_put
+   initial __fnc_put := proc("put", 0)
+   suspend __fnc_put ! a
+end
+
+procedure Read(a1)
+   static __fnc_read
+   initial __fnc_read := proc("read", 0)
+   suspend __fnc_read(a1)
+end
+
+procedure Reads(a1, a2)
+   static __fnc_reads
+   initial __fnc_reads := proc("reads", 0)
+   suspend __fnc_reads(a1, a2)
+end
+
+procedure Real(a1)
+   static __fnc_real
+   initial __fnc_real := proc("real", 0)
+   suspend __fnc_real(a1)
+end
+
+procedure Remove(a1)
+   static __fnc_remove
+   initial __fnc_remove := proc("remove", 0)
+   suspend __fnc_remove(a1)
+end
+
+procedure Rename(a1, a2)
+   static __fnc_rename
+   initial __fnc_rename := proc("rename", 0)
+   suspend __fnc_rename(a1, a2)
+end
+
+procedure Repl(a1, a2)
+   static __fnc_repl
+   initial __fnc_repl := proc("repl", 0)
+   suspend __fnc_repl(a1, a2)
+end
+
+procedure Reverse(a1)
+   static __fnc_reverse
+   initial __fnc_reverse := proc("reverse", 0)
+   suspend __fnc_reverse(a1)
+end
+
+procedure Right(a1, a2, a3)
+   static __fnc_right
+   initial __fnc_right := proc("right", 0)
+   suspend __fnc_right(a1, a2, a3)
+end
+
+procedure Rtod(a1)
+   static __fnc_rtod
+   initial __fnc_rtod := proc("rtod", 0)
+   suspend __fnc_rtod(a1)
+end
+
+procedure Runerr(a[])
+   static __fnc_runerr
+   initial __fnc_runerr := proc("runerr", 0)
+   suspend __fnc_runerr ! a
+end
+
+procedure Seek(a1, a2)
+   static __fnc_seek
+   initial __fnc_seek := proc("seek", 0)
+   suspend __fnc_seek(a1, a2)
+end
+
+procedure Seq(a1, a2)
+   static __fnc_seq
+   initial __fnc_seq := proc("seq", 0)
+   suspend __fnc_seq(a1, a2)
+end
+
+procedure Serial(a1)
+   static __fnc_serial
+   initial __fnc_serial := proc("serial", 0)
+   suspend __fnc_serial(a1)
+end
+
+procedure Set(a1)
+   static __fnc_set
+   initial __fnc_set := proc("set", 0)
+   suspend __fnc_set(a1)
+end
+
+procedure Sin(a1)
+   static __fnc_sin
+   initial __fnc_sin := proc("sin", 0)
+   suspend __fnc_sin(a1)
+end
+
+procedure Sort(a1, a2)
+   static __fnc_sort
+   initial __fnc_sort := proc("sort", 0)
+   suspend __fnc_sort(a1, a2)
+end
+
+procedure Sortf(a1, a2)
+   static __fnc_sortf
+   initial __fnc_sortf := proc("sortf", 0)
+   suspend __fnc_sortf(a1, a2)
+end
+
+procedure Sqrt(a1)
+   static __fnc_sqrt
+   initial __fnc_sqrt := proc("sqrt", 0)
+   suspend __fnc_sqrt(a1)
+end
+
+procedure Stop(a[])
+   static __fnc_stop
+   initial __fnc_stop := proc("stop", 0)
+   suspend __fnc_stop ! a
+end
+
+procedure String(a1)
+   static __fnc_string
+   initial __fnc_string := proc("string", 0)
+   suspend __fnc_string(a1)
+end
+
+procedure System(a1)
+   static __fnc_system
+   initial __fnc_system := proc("system", 0)
+   suspend __fnc_system(a1)
+end
+
+procedure Tab(a1)
+   static __fnc_tab
+   initial __fnc_tab := proc("tab", 0)
+   suspend __fnc_tab(a1)
+end
+
+procedure Table(a1)
+   static __fnc_table
+   initial __fnc_table := proc("table", 0)
+   suspend __fnc_table(a1)
+end
+
+procedure Tan(a1)
+   static __fnc_tan
+   initial __fnc_tan := proc("tan", 0)
+   suspend __fnc_tan(a1)
+end
+
+procedure Trim(a1, a2)
+   static __fnc_trim
+   initial __fnc_trim := proc("trim", 0)
+   suspend __fnc_trim(a1, a2)
+end
+
+procedure Type(a1)
+   static __fnc_type
+   initial __fnc_type := proc("type", 0)
+   suspend __fnc_type(a1)
+end
+
+procedure Upto(a1, a2, a3, a4)
+   static __fnc_upto
+   initial __fnc_upto := proc("upto", 0)
+   suspend __fnc_upto(a1, a2, a3, a4)
+end
+
+procedure Variable(a1)
+   static __fnc_variable
+   initial __fnc_variable := proc("variable", 0)
+   suspend __fnc_variable(a1)
+end
+
+procedure Where(a1)
+   static __fnc_where
+   initial __fnc_where := proc("where", 0)
+   suspend __fnc_where(a1)
+end
+
+procedure Write(a[])
+   static __fnc_write
+   initial __fnc_write := proc("write", 0)
+   suspend __fnc_write ! a
+end
+
+procedure Writes(a[])
+   static __fnc_writes
+   initial __fnc_writes := proc("writes", 0)
+   suspend __fnc_writes ! a
+end
+#------------------------------------------------------------- 33 progs/ilnkxref
+
+options   ilnkxref  
+sort      ilnkxref  
+wrap      ilnkxref  
+#-------------------------------------------------------------- 34 progs/interpp
+Icon> 
+#--------------------------------------------------------------- 35 progs/ipldoc
+
+============================================================================
+
+Procedure List
+#------------------------------------------------------------- 36 progs/iplindex
+keyword         location    description
+#--------------------------------------------------------------- 37 progs/ipxref
+variable	procedure		line numbers
+
+
+
+procedures:	lines:
+#-------------------------------------------------------------- 38 progs/irunerr
+101  integer expected or out of range
+102  numeric expected
+103  string expected
+104  cset expected
+105  file expected
+106  procedure or integer expected
+107  record expected
+108  list expected
+109  string or file expected
+110  string or list expected
+111  variable expected
+112  invalid type to size operation
+113  invalid type to random operation
+114  invalid type to subscript operation
+115  structure expected
+116  invalid type to element generator
+117  missing main procedure
+118  co-expression expected
+119  set expected
+120  two csets or two sets expected
+121  function not supported
+122  set or table expected
+123  invalid type
+124  table expected
+125  list, record, or set expected
+126  list or record expected
+131  external expected
+132  incorrect external type
+133  invalid external value
+134  malformed external value
+201  division by zero
+202  remaindering by zero
+203  integer overflow
+204  real overflow, underflow, or division by zero
+205  invalid value
+206  negative first argument to real exponentiation
+207  invalid field name
+208  second and third arguments to map of unequal length
+209  invalid second argument to open
+210  non-ascending arguments to detab/entab
+211  by value equal to zero
+212  attempt to read file not open for reading
+213  attempt to write file not open for writing
+214  input/output error
+215  attempt to refresh &main
+216  external function not found
+300  interrupted
+301  evaluation stack overflow
+302  memory violation
+303  inadequate space for evaluation stack
+304  inadequate space in qualifier list
+305  inadequate space for static allocation
+306  inadequate space in string region
+307  inadequate space in block region
+308  system stack overflow in co-expression
+402  program not compiled with debugging option
+500  program malfunction
+#------------------------------------------------------------- 39 progs/isrcline
+total lines:          0
+code lines:           0
+non-code lines:       0
+#------------------------------------------------------------- 40 progs/itrbksum
+
+	.
+	.
+	.
+
+
+at level 0
+#-------------------------------------------------------------- 41 progs/itrcsum
+no trace output
+#---------------------------------------------------------------- 42 progs/krieg
+Your name (up to 8 letters & digits; default = user name)? 
+#------------------------------------------------------------- 43 progs/kwicprep
+kwicprep.icn: prepare information for IPL KWIC listings
+#------------------------------------------------------------------- 44 progs/lc
+0
+#------------------------------------------------------------- 45 progs/lindcode
+   linden := table()
+
+   linden[&null] := lsys_0l("", table(), 0, 90)
+#----------------------------------------------------------------- 46 progs/lisp
+> 
+#--------------------------------------------------------------- 47 progs/lister
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+���������������������������������������������������������������������������
+
+       LIST V 2.0 -- Visualizzazione/elaborazione file  -- 26.12.1993
+
+          di Beppe Pavoletti  Via Trieste 12  I-15011 ACQUI TERME AL 
+
+                  ���  Saturday, September 5, 2026  2:32 pm ������������
+
+
+            A - Visualizzazione file            
+            B - Stampa su file o stampante      
+            C - Elaborazione file               
+            D - Ricerca di stringhe             
+            E - Cambia la directory corrente    
+
+              X - Torna al DOS                  
+
+               SCELTA >> 
+#------------------------------------------------------------- 48 progs/listhtml
+<HTML><HEAD>
+<TITLE>File Links</TITLE></HEAD>
+<BODY>
+</BODY></HTML>
+#-------------------------------------------------------------- 49 progs/listviz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+���������������������������������������������������������������������������
+
+       LIST V 2.0 -- Visualizzazione/elaborazione file  -- 26.12.1993
+
+          di Beppe Pavoletti  Via Trieste 12  I-15011 ACQUI TERME AL 
+
+                  ���  Saturday, September 5, 2026  2:32 pm ������������
+
+
+            A - Visualizzazione file            
+            B - Stampa su file o stampante      
+            C - Elaborazione file               
+            D - Ricerca di stringhe             
+            E - Cambia la directory corrente    
+
+              X - Torna al DOS                  
+
+               SCELTA >> 
+#-------------------------------------------------------------- 50 progs/literat
+[0;77;1p[0;75;2p[0;72;14p[0;80;21p[0;116;8p[0;115;9p[0;71;4p[0;79;5p[0;83;6p[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m
+#------------------------------------------------------------------- 51 progs/ll
+2147483648
+0
+#---------------------------------------------------------------- 52 progs/lssum
+0
+#------------------------------------------------------------- 53 progs/makepuzz
+Original word list (sorted hardest-to-easiest): 
+
+
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+#------------------------------------------------------------------ 54 progs/miu
+Generation #1, 2 strings
+   "MII"
+   "MIU"
+
+Generation #2, 3 strings
+   "MIIII"
+   "MIIU"
+   "MIUIU"
+
+Generation #3, 6 strings
+   "MIIIIIIII"
+   "MIIIIU"
+   "MIIUIIU"
+   "MIU"
+   "MIUIUIUIU"
+   "MUI"
+
+Generation #4, 15 strings
+   "MIIIIIIIIIIIIIIII"
+   "MIIIIIIIIU"
+   "MIIIIIU"
+   "MIIIIUI"
+   "MIIIIUIIIIU"
+   "MIIIUII"
+   "MIIUIII"
+   "MIIUIIUIIUIIU"
+   "MIUIIII"
+   "MIUIU"
+   "MIUIUIUIUIUIUIUIU"
+   "MIUU"
+   "MUIIIII"
+   "MUIU"
+   "MUIUI"
+
+Generation #5, 48 strings
+   "MI"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIUI"
+   "MIIIIIIIIIIIUII"
+   "MIIIIIIIIIIUIII"
+   "MIIIIIIIIIUIIII"
+   "MIIIIIIIIUIIIII"
+   "MIIIIIIIIUIIIIIIIIU"
+   "MIIIIIIIUIIIIII"
+   "MIIIIIIUIIIIIII"
+   "MIIIIIUIIIIIIII"
+   "MIIIIIUIIIIIU"
+   "MIIIIIUU"
+   "MIIIIUIIIIIIIII"
+   "MIIIIUIIIIIUI"
+   "MIIIIUIIIIUIIIIUIIIIU"
+   "MIIIIUIU"
+   "MIIIIUIUU"
+   "MIIIIUUIU"
+   "MIIIUIIIIIIIIII"
+   "MIIIUIIIIIUII"
+   "MIIIUIIU"
+   "MIIUIIIIIIIIIII"
+   "MIIUIIIIIUIII"
+   "MIIUIIIU"
+   "MIIUIIUIIUIIUIIUIIUIIUIIU"
+   "MIIUU"
+   "MIUIIIIIIIIIIII"
+   "MIUIIIIIUIIII"
+   "MIUIIIIU"
+   "MIUIU"
+   "MIUIUIUIU"
+   "MIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIU"
+   "MIUUI"
+   "MIUUIIIIU"
+   "MIUUIUU"
+   "MUIIIIIIIIIIIII"
+   "MUIIIIIU"
+   "MUIIIIIUIIIII"
+   "MUIIU"
+   "MUIUI"
+   "MUIUIIIIU"
+   "MUIUIU"
+   "MUIUIUIUI"
+   "MUIUUIU"
+   "MUUII"
+
+Generation #6, 232 strings
+   "MII"
+   "MIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIUI"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIUII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIUIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIUIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIUIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIUIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIUIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIUIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIUIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIUIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIUIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIUIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIUIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIUIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIUIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIUIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIUIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIUU"
+   "MIIIIIIIIIIIIUIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIUIIIIIIIIIIIIIUI"
+   "MIIIIIIIIIIIIUIU"
+   "MIIIIIIIIIIIUIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIUIIIIIIIIIIIIIUII"
+   "MIIIIIIIIIIIUIIU"
+   "MIIIIIIIIIIUIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIUIIIIIIIIIIIIIUIII"
+   "MIIIIIIIIIIUIIIU"
+   "MIIIIIIIIIIUU"
+   "MIIIIIIIIIUIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIUIIIIIIIIIIIIIUIIII"
+   "MIIIIIIIIIUIIIIU"
+   "MIIIIIIIIIUIU"
+   "MIIIIIIIIIUUI"
+   "MIIIIIIIIUIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIUIIIIIIIIIIIIIUIIIII"
+   "MIIIIIIIIUIIIIIIIIUIIIIIIIIUIIIIIIIIU"
+   "MIIIIIIIIUIIIIIU"
+   "MIIIIIIIIUIIIIIUU"
+   "MIIIIIIIIUIIIIUIU"
+   "MIIIIIIIIUIIIUIIU"
+   "MIIIIIIIIUIIU"
+   "MIIIIIIIIUIIUIIIU"
+   "MIIIIIIIIUIUI"
+   "MIIIIIIIIUIUIIIIU"
+   "MIIIIIIIIUUII"
+   "MIIIIIIIIUUIIIIIU"
+   "MIIIIIIIUIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIUIIIIIIIIIIIIIUIIIIII"
+   "MIIIIIIIUIIIIIIU"
+   "MIIIIIIIUIIIU"
+   "MIIIIIIIUIIUI"
+   "MIIIIIIIUIUII"
+   "MIIIIIIIUUIII"
+   "MIIIIIIUIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIUIIIIIIIIIIIIIUIIIIIII"
+   "MIIIIIIUIIIIIIIU"
+   "MIIIIIIUIIIIU"
+   "MIIIIIIUIIIUI"
+   "MIIIIIIUIIUII"
+   "MIIIIIIUIUIII"
+   "MIIIIIIUUIIII"
+   "MIIIIIU"
+   "MIIIIIUIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIUIIIIIIIIIIIIIUIIIIIIII"
+   "MIIIIIUIIIIIIIIU"
+   "MIIIIIUIIIIIU"
+   "MIIIIIUIIIIIUIIIIIUIIIIIU"
+   "MIIIIIUIIIIUI"
+   "MIIIIIUIIIUII"
+   "MIIIIIUIIUIII"
+   "MIIIIIUIIUU"
+   "MIIIIIUIUIIII"
+   "MIIIIIUIUIU"
+   "MIIIIIUUIIIII"
+   "MIIIIIUUIIIIIIIIU"
+   "MIIIIIUUIIIIIUU"
+   "MIIIIIUUIIU"
+   "MIIIIUI"
+   "MIIIIUIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIUIIIIIIIIIIIIIUIIIIIIIII"
+   "MIIIIUIIIIIIIIIU"
+   "MIIIIUIIIIIIU"
+   "MIIIIUIIIIIUI"
+   "MIIIIUIIIIIUIIIIIUIIIIIUI"
+   "MIIIIUIIIIIUIU"
+   "MIIIIUIIIIUII"
+   "MIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIU"
+   "MIIIIUIIIIUIIIIUIUU"
+   "MIIIIUIIIIUIIIIUUIU"
+   "MIIIIUIIIIUIUUIIIIU"
+   "MIIIIUIIIIUUIUIIIIU"
+   "MIIIIUIIIUIII"
+   "MIIIIUIIUIIII"
+   "MIIIIUIIUUI"
+   "MIIIIUIUIIIII"
+   "MIIIIUIUIIIIIIIIU"
+   "MIIIIUIUIIIIUIU"
+   "MIIIIUIUIUI"
+   "MIIIIUIUUIIIIUIIIIU"
+   "MIIIIUIUUIIIIUIUU"
+   "MIIIIUUIIIIII"
+   "MIIIIUUIIUI"
+   "MIIIIUUIUIIIIUIIIIU"
+   "MIIIIUUIUIIIIUUIU"
+   "MIIIUIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIUIIIIIIIIIIIIIUIIIIIIIIII"
+   "MIIIUIIIIIIIIIIU"
+   "MIIIUIIIIIIIU"
+   "MIIIUIIIIIIUI"
+   "MIIIUIIIIIUII"
+   "MIIIUIIIIIUIIIIIUIIIIIUII"
+   "MIIIUIIIIIUIIU"
+   "MIIIUIIIIUIII"
+   "MIIIUIIIUIIII"
+   "MIIIUIIUIIIII"
+   "MIIIUIIUIIIIIIIIU"
+   "MIIIUIIUIIIUIIU"
+   "MIIIUIIUUII"
+   "MIIIUIUIIIIII"
+   "MIIIUIUIUII"
+   "MIIIUUIIIIIII"
+   "MIIIUUIIUII"
+   "MIIUIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIUIIIIIIIIIIIIIUIIIIIIIIIII"
+   "MIIUIIIIIIIIIIIU"
+   "MIIUIIIIIIIIU"
+   "MIIUIIIIIIIUI"
+   "MIIUIIIIIIUII"
+   "MIIUIIIIIUIII"
+   "MIIUIIIIIUIIIIIUIIIIIUIII"
+   "MIIUIIIIIUIIIU"
+   "MIIUIIIIIUU"
+   "MIIUIIIIUIIII"
+   "MIIUIIIUIIIII"
+   "MIIUIIIUIIIIIIIIU"
+   "MIIUIIIUIIUIIIU"
+   "MIIUIIUIIIIII"
+   "MIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIU"
+   "MIIUIIUUIII"
+   "MIIUIUIIIIIII"
+   "MIIUIUIUIII"
+   "MIIUU"
+   "MIIUUIIIIIIII"
+   "MIIUUIIIIIU"
+   "MIIUUIIUIII"
+   "MIIUUIIUU"
+   "MIIUUU"
+   "MIU"
+   "MIUIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIUIIIIIIIIIIIIIUIIIIIIIIIIII"
+   "MIUIIIIIIIIIIIIU"
+   "MIUIIIIIIIIIU"
+   "MIUIIIIIIIIUI"
+   "MIUIIIIIIIUII"
+   "MIUIIIIIIUIII"
+   "MIUIIIIIUIIII"
+   "MIUIIIIIUIIIIIUIIIIIUIIII"
+   "MIUIIIIIUIIIIU"
+   "MIUIIIIIUIU"
+   "MIUIIIIIUUI"
+   "MIUIIIIUIIIII"
+   "MIUIIIIUIIIIIIIIU"
+   "MIUIIIIUIUIIIIU"
+   "MIUIIIUIIIIII"
+   "MIUIIUIIIIIII"
+   "MIUIIUUIIII"
+   "MIUIUIIIIIIII"
+   "MIUIUIIIIIU"
+   "MIUIUIUIIII"
+   "MIUIUIUIU"
+   "MIUIUIUIUIUIUIUIU"
+   "MIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIU"
+   "MIUIUU"
+   "MIUUI"
+   "MIUUIIIIIIIII"
+   "MIUUIIIIIUI"
+   "MIUUIIIIUIIIIUIIIIU"
+   "MIUUIIIIUIUUIIIIU"
+   "MIUUIIUIIII"
+   "MIUUIIUUI"
+   "MIUUIU"
+   "MIUUIUU"
+   "MIUUIUUIUUIUU"
+   "MIUUUIU"
+   "MUIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MUIIIIIIIIIIIIIU"
+   "MUIIIIIIIIIIIIIUIIIIIIIIIIIII"
+   "MUIIIIIIIIIIU"
+   "MUIIIIIIIIIUI"
+   "MUIIIIIIIIUII"
+   "MUIIIIIIIUIII"
+   "MUIIIIIIUIIII"
+   "MUIIIIIUIIIII"
+   "MUIIIIIUIIIIIIIIU"
+   "MUIIIIIUIIIIIU"
+   "MUIIIIIUIIIIIUIIIIIUIIIII"
+   "MUIIIIIUIIU"
+   "MUIIIIIUIUI"
+   "MUIIIIIUUII"
+   "MUIIIIIUUIIIIIU"
+   "MUIIIIUIIIIII"
+   "MUIIIUIIIIIII"
+   "MUIIU"
+   "MUIIUIIIIIIII"
+   "MUIIUIIIIIU"
+   "MUIIUU"
+   "MUIIUUIIIII"
+   "MUIIUUIIU"
+   "MUIUIIIIIIIII"
+   "MUIUIIIIIUI"
+   "MUIUIIIIUIIIIUIIIIU"
+   "MUIUIIIIUUIUIIIIU"
+   "MUIUIU"
+   "MUIUIUIIIII"
+   "MUIUIUIUI"
+   "MUIUIUIUIU"
+   "MUIUIUIUIUIUIUIUI"
+   "MUIUIUU"
+   "MUIUIUUIUIU"
+   "MUIUUIU"
+   "MUIUUIUUIUUIU"
+   "MUUIIIIIIIIII"
+   "MUUIIIIIUII"
+   "MUUIIU"
+   "MUUIIUIIIII"
+   "MUUIIUUII"
+
+Generation #7, 1544 strings
+   "MII"
+   "MIIII"
+   "MIIIIIIIIII"
+   "MIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUI"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUU"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUI"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIU"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIU"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIU"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIIUU"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIU"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIUIU"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIIUUI"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIU"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIUIIU"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIUIUI"
+   "MIIIIIIIIIIIIIIIIIIIIIIIIUUII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIU"
+   "MIIIIIIIIIIIIIIIIIIIIIIIUIIIU"
+   "MIIIIIIIIIIIIIIIIIIIIIIIUIIUI"
+   "MIIIIIIIIIIIIIIIIIIIIIIIUIUII"
+   "MIIIIIIIIIIIIIIIIIIIIIIIUUIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIIIIIIIUIIIIU"
+   "MIIIIIIIIIIIIIIIIIIIIIIUIIIUI"
+   "MIIIIIIIIIIIIIIIIIIIIIIUIIUII"
+   "MIIIIIIIIIIIIIIIIIIIIIIUIUIII"
+   "MIIIIIIIIIIIIIIIIIIIIIIUUIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIIIIIIUIIIIIU"
+   "MIIIIIIIIIIIIIIIIIIIIIUIIIIUI"
+   "MIIIIIIIIIIIIIIIIIIIIIUIIIUII"
+   "MIIIIIIIIIIIIIIIIIIIIIUIIUIII"
+   "MIIIIIIIIIIIIIIIIIIIIIUIUIIII"
+   "MIIIIIIIIIIIIIIIIIIIIIUUIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIIIIIUIIIIIIU"
+   "MIIIIIIIIIIIIIIIIIIIIUIIIIIUI"
+   "MIIIIIIIIIIIIIIIIIIIIUIIIIUII"
+   "MIIIIIIIIIIIIIIIIIIIIUIIIUIII"
+   "MIIIIIIIIIIIIIIIIIIIIUIIUIIII"
+   "MIIIIIIIIIIIIIIIIIIIIUIUIIIII"
+   "MIIIIIIIIIIIIIIIIIIIIUUIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIIIIUIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIIIIUIIIIIIUI"
+   "MIIIIIIIIIIIIIIIIIIIUIIIIIUII"
+   "MIIIIIIIIIIIIIIIIIIIUIIIIUIII"
+   "MIIIIIIIIIIIIIIIIIIIUIIIUIIII"
+   "MIIIIIIIIIIIIIIIIIIIUIIUIIIII"
+   "MIIIIIIIIIIIIIIIIIIIUIUIIIIII"
+   "MIIIIIIIIIIIIIIIIIIIUUIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIIIUIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIIIUIIIIIIIUI"
+   "MIIIIIIIIIIIIIIIIIIUIIIIIIUII"
+   "MIIIIIIIIIIIIIIIIIIUIIIIIUIII"
+   "MIIIIIIIIIIIIIIIIIIUIIIIUIIII"
+   "MIIIIIIIIIIIIIIIIIIUIIIUIIIII"
+   "MIIIIIIIIIIIIIIIIIIUIIUIIIIII"
+   "MIIIIIIIIIIIIIIIIIIUIUIIIIIII"
+   "MIIIIIIIIIIIIIIIIIIUUIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIIUIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIIUIIIIIIIIUI"
+   "MIIIIIIIIIIIIIIIIIUIIIIIIIUII"
+   "MIIIIIIIIIIIIIIIIIUIIIIIIUIII"
+   "MIIIIIIIIIIIIIIIIIUIIIIIUIIII"
+   "MIIIIIIIIIIIIIIIIIUIIIIUIIIII"
+   "MIIIIIIIIIIIIIIIIIUIIIUIIIIII"
+   "MIIIIIIIIIIIIIIIIIUIIUIIIIIII"
+   "MIIIIIIIIIIIIIIIIIUIUIIIIIIII"
+   "MIIIIIIIIIIIIIIIIIUUIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIUU"
+   "MIIIIIIIIIIIIIIIIUIIIIIIIIIIIIUIU"
+   "MIIIIIIIIIIIIIIIIUIIIIIIIIIIIUIIU"
+   "MIIIIIIIIIIIIIIIIUIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIUIIIIIIIIIIUIIIU"
+   "MIIIIIIIIIIIIIIIIUIIIIIIIIIUI"
+   "MIIIIIIIIIIIIIIIIUIIIIIIIIIUIIIIU"
+   "MIIIIIIIIIIIIIIIIUIIIIIIIIUII"
+   "MIIIIIIIIIIIIIIIIUIIIIIIIIUIIIIIU"
+   "MIIIIIIIIIIIIIIIIUIIIIIIIUIII"
+   "MIIIIIIIIIIIIIIIIUIIIIIIIUIIIIIIU"
+   "MIIIIIIIIIIIIIIIIUIIIIIIUIIII"
+   "MIIIIIIIIIIIIIIIIUIIIIIIUIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIUIIIIIUIIIII"
+   "MIIIIIIIIIIIIIIIIUIIIIIUIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIUIIIIUIIIIII"
+   "MIIIIIIIIIIIIIIIIUIIIIUIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIUIIIUIIIIIII"
+   "MIIIIIIIIIIIIIIIIUIIIUIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIUIIUIIIIIIII"
+   "MIIIIIIIIIIIIIIIIUIIUIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIUIUIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIUIUIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIIUUIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIIUUIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIUIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIIUIIIIIIIIIIUI"
+   "MIIIIIIIIIIIIIIIUIIIIIIIIIUII"
+   "MIIIIIIIIIIIIIIIUIIIIIIIIUIII"
+   "MIIIIIIIIIIIIIIIUIIIIIIIUIIII"
+   "MIIIIIIIIIIIIIIIUIIIIIIUIIIII"
+   "MIIIIIIIIIIIIIIIUIIIIIUIIIIII"
+   "MIIIIIIIIIIIIIIIUIIIIUIIIIIII"
+   "MIIIIIIIIIIIIIIIUIIIUIIIIIIII"
+   "MIIIIIIIIIIIIIIIUIIUIIIIIIIII"
+   "MIIIIIIIIIIIIIIIUIUIIIIIIIIII"
+   "MIIIIIIIIIIIIIIIUUIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIUIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIIUIIIIIIIIIIIUI"
+   "MIIIIIIIIIIIIIIUIIIIIIIIIIUII"
+   "MIIIIIIIIIIIIIIUIIIIIIIIIUIII"
+   "MIIIIIIIIIIIIIIUIIIIIIIIUIIII"
+   "MIIIIIIIIIIIIIIUIIIIIIIUIIIII"
+   "MIIIIIIIIIIIIIIUIIIIIIUIIIIII"
+   "MIIIIIIIIIIIIIIUIIIIIUIIIIIII"
+   "MIIIIIIIIIIIIIIUIIIIUIIIIIIII"
+   "MIIIIIIIIIIIIIIUIIIUIIIIIIIII"
+   "MIIIIIIIIIIIIIIUIIUIIIIIIIIII"
+   "MIIIIIIIIIIIIIIUIUIIIIIIIIIII"
+   "MIIIIIIIIIIIIIIUUIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIUIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIUIIIIIIIIIIIIUI"
+   "MIIIIIIIIIIIIIUIIIIIIIIIIIUII"
+   "MIIIIIIIIIIIIIUIIIIIIIIIIUIII"
+   "MIIIIIIIIIIIIIUIIIIIIIIIIUU"
+   "MIIIIIIIIIIIIIUIIIIIIIIIUIIII"
+   "MIIIIIIIIIIIIIUIIIIIIIIIUIU"
+   "MIIIIIIIIIIIIIUIIIIIIIIUIIIII"
+   "MIIIIIIIIIIIIIUIIIIIIIIUIIU"
+   "MIIIIIIIIIIIIIUIIIIIIIUIIIIII"
+   "MIIIIIIIIIIIIIUIIIIIIIUIIIU"
+   "MIIIIIIIIIIIIIUIIIIIIUIIIIIII"
+   "MIIIIIIIIIIIIIUIIIIIIUIIIIU"
+   "MIIIIIIIIIIIIIUIIIIIUIIIIIIII"
+   "MIIIIIIIIIIIIIUIIIIIUIIIIIU"
+   "MIIIIIIIIIIIIIUIIIIUIIIIIIIII"
+   "MIIIIIIIIIIIIIUIIIIUIIIIIIU"
+   "MIIIIIIIIIIIIIUIIIUIIIIIIIIII"
+   "MIIIIIIIIIIIIIUIIIUIIIIIIIU"
+   "MIIIIIIIIIIIIIUIIUIIIIIIIIIII"
+   "MIIIIIIIIIIIIIUIIUIIIIIIIIU"
+   "MIIIIIIIIIIIIIUIUIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIUIUIIIIIIIIIU"
+   "MIIIIIIIIIIIIIUUIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIIUUIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIIUUIIIIIIIIIIIIIUU"
+   "MIIIIIIIIIIIIIUUIIIIIIIIIIU"
+   "MIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIUIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIUIIIIIIIIIIIIIUI"
+   "MIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUI"
+   "MIIIIIIIIIIIIUIIIIIIIIIIIIIUIU"
+   "MIIIIIIIIIIIIUIIIIIIIIIIIIUII"
+   "MIIIIIIIIIIIIUIIIIIIIIIIIUIII"
+   "MIIIIIIIIIIIIUIIIIIIIIIIUIIII"
+   "MIIIIIIIIIIIIUIIIIIIIIIIUUI"
+   "MIIIIIIIIIIIIUIIIIIIIIIUIIIII"
+   "MIIIIIIIIIIIIUIIIIIIIIIUIUI"
+   "MIIIIIIIIIIIIUIIIIIIIIUIIIIII"
+   "MIIIIIIIIIIIIUIIIIIIIIUIIUI"
+   "MIIIIIIIIIIIIUIIIIIIIUIIIIIII"
+   "MIIIIIIIIIIIIUIIIIIIIUIIIUI"
+   "MIIIIIIIIIIIIUIIIIIIUIIIIIIII"
+   "MIIIIIIIIIIIIUIIIIIIUIIIIUI"
+   "MIIIIIIIIIIIIUIIIIIUIIIIIIIII"
+   "MIIIIIIIIIIIIUIIIIIUIIIIIUI"
+   "MIIIIIIIIIIIIUIIIIUIIIIIIIIII"
+   "MIIIIIIIIIIIIUIIIIUIIIIIIUI"
+   "MIIIIIIIIIIIIUIIIUIIIIIIIIIII"
+   "MIIIIIIIIIIIIUIIIUIIIIIIIUI"
+   "MIIIIIIIIIIIIUIIUIIIIIIIIIIII"
+   "MIIIIIIIIIIIIUIIUIIIIIIIIUI"
+   "MIIIIIIIIIIIIUIUIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIUIUIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIIUIUIIIIIIIIIIIIUIU"
+   "MIIIIIIIIIIIIUIUIIIIIIIIIUI"
+   "MIIIIIIIIIIIIUUIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIIUUIIIIIIIIIIUI"
+   "MIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIUIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIUIIIIIIIIIIIIIIUI"
+   "MIIIIIIIIIIIUIIIIIIIIIIIIIUII"
+   "MIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUII"
+   "MIIIIIIIIIIIUIIIIIIIIIIIIIUIIU"
+   "MIIIIIIIIIIIUIIIIIIIIIIIIUIII"
+   "MIIIIIIIIIIIUIIIIIIIIIIIUIIII"
+   "MIIIIIIIIIIIUIIIIIIIIIIUIIIII"
+   "MIIIIIIIIIIIUIIIIIIIIIIUUII"
+   "MIIIIIIIIIIIUIIIIIIIIIUIIIIII"
+   "MIIIIIIIIIIIUIIIIIIIIIUIUII"
+   "MIIIIIIIIIIIUIIIIIIIIUIIIIIII"
+   "MIIIIIIIIIIIUIIIIIIIIUIIUII"
+   "MIIIIIIIIIIIUIIIIIIIUIIIIIIII"
+   "MIIIIIIIIIIIUIIIIIIIUIIIUII"
+   "MIIIIIIIIIIIUIIIIIIUIIIIIIIII"
+   "MIIIIIIIIIIIUIIIIIIUIIIIUII"
+   "MIIIIIIIIIIIUIIIIIUIIIIIIIIII"
+   "MIIIIIIIIIIIUIIIIIUIIIIIUII"
+   "MIIIIIIIIIIIUIIIIUIIIIIIIIIII"
+   "MIIIIIIIIIIIUIIIIUIIIIIIUII"
+   "MIIIIIIIIIIIUIIIUIIIIIIIIIIII"
+   "MIIIIIIIIIIIUIIIUIIIIIIIUII"
+   "MIIIIIIIIIIIUIIUIIIIIIIIIIIII"
+   "MIIIIIIIIIIIUIIUIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIIUIIUIIIIIIIIIIIUIIU"
+   "MIIIIIIIIIIIUIIUIIIIIIIIUII"
+   "MIIIIIIIIIIIUIUIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIUIUIIIIIIIIIUII"
+   "MIIIIIIIIIIIUUIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIIUUIIIIIIIIIIUII"
+   "MIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIUIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIUIIIIIIIIIIIIIIIUI"
+   "MIIIIIIIIIIUIIIIIIIIIIIIIIUII"
+   "MIIIIIIIIIIUIIIIIIIIIIIIIUIII"
+   "MIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIII"
+   "MIIIIIIIIIIUIIIIIIIIIIIIIUIIIU"
+   "MIIIIIIIIIIUIIIIIIIIIIIIIUU"
+   "MIIIIIIIIIIUIIIIIIIIIIIIUIIII"
+   "MIIIIIIIIIIUIIIIIIIIIIIUIIIII"
+   "MIIIIIIIIIIUIIIIIIIIIIUIIIIII"
+   "MIIIIIIIIIIUIIIIIIIIIIUUIII"
+   "MIIIIIIIIIIUIIIIIIIIIUIIIIIII"
+   "MIIIIIIIIIIUIIIIIIIIIUIUIII"
+   "MIIIIIIIIIIUIIIIIIIIUIIIIIIII"
+   "MIIIIIIIIIIUIIIIIIIIUIIUIII"
+   "MIIIIIIIIIIUIIIIIIIUIIIIIIIII"
+   "MIIIIIIIIIIUIIIIIIIUIIIUIII"
+   "MIIIIIIIIIIUIIIIIIUIIIIIIIIII"
+   "MIIIIIIIIIIUIIIIIIUIIIIUIII"
+   "MIIIIIIIIIIUIIIIIUIIIIIIIIIII"
+   "MIIIIIIIIIIUIIIIIUIIIIIUIII"
+   "MIIIIIIIIIIUIIIIUIIIIIIIIIIII"
+   "MIIIIIIIIIIUIIIIUIIIIIIUIII"
+   "MIIIIIIIIIIUIIIUIIIIIIIIIIIII"
+   "MIIIIIIIIIIUIIIUIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIUIIIUIIIIIIIIIIUIIIU"
+   "MIIIIIIIIIIUIIIUIIIIIIIUIII"
+   "MIIIIIIIIIIUIIUIIIIIIIIIIIIII"
+   "MIIIIIIIIIIUIIUIIIIIIIIUIII"
+   "MIIIIIIIIIIUIUIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIUIUIIIIIIIIIUIII"
+   "MIIIIIIIIIIUU"
+   "MIIIIIIIIIIUUIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIIUUIIIIIIIIIIIIIU"
+   "MIIIIIIIIIIUUIIIIIIIIIIUIII"
+   "MIIIIIIIIIIUUIIIIIIIIIIUU"
+   "MIIIIIIIIIIUUU"
+   "MIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIUIIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIUIIIIIIIIIIIIIIIIUI"
+   "MIIIIIIIIIUIIIIIIIIIIIIIIIUII"
+   "MIIIIIIIIIUIIIIIIIIIIIIIIUIII"
+   "MIIIIIIIIIUIIIIIIIIIIIIIUIIII"
+   "MIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIII"
+   "MIIIIIIIIIUIIIIIIIIIIIIIUIIIIU"
+   "MIIIIIIIIIUIIIIIIIIIIIIIUIU"
+   "MIIIIIIIIIUIIIIIIIIIIIIIUUI"
+   "MIIIIIIIIIUIIIIIIIIIIIIUIIIII"
+   "MIIIIIIIIIUIIIIIIIIIIIUIIIIII"
+   "MIIIIIIIIIUIIIIIIIIIIUIIIIIII"
+   "MIIIIIIIIIUIIIIIIIIIIUUIIII"
+   "MIIIIIIIIIUIIIIIIIIIUIIIIIIII"
+   "MIIIIIIIIIUIIIIIIIIIUIUIIII"
+   "MIIIIIIIIIUIIIIIIIIUIIIIIIIII"
+   "MIIIIIIIIIUIIIIIIIIUIIUIIII"
+   "MIIIIIIIIIUIIIIIIIUIIIIIIIIII"
+   "MIIIIIIIIIUIIIIIIIUIIIUIIII"
+   "MIIIIIIIIIUIIIIIIUIIIIIIIIIII"
+   "MIIIIIIIIIUIIIIIIUIIIIUIIII"
+   "MIIIIIIIIIUIIIIIUIIIIIIIIIIII"
+   "MIIIIIIIIIUIIIIIUIIIIIUIIII"
+   "MIIIIIIIIIUIIIIUIIIIIIIIIIIII"
+   "MIIIIIIIIIUIIIIUIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIIUIIIIUIIIIIIIIIUIIIIU"
+   "MIIIIIIIIIUIIIIUIIIIIIUIIII"
+   "MIIIIIIIIIUIIIUIIIIIIIIIIIIII"
+   "MIIIIIIIIIUIIIUIIIIIIIUIIII"
+   "MIIIIIIIIIUIIUIIIIIIIIIIIIIII"
+   "MIIIIIIIIIUIIUIIIIIIIIUIIII"
+   "MIIIIIIIIIUIUIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIUIUIIIIIIIIIIIIIU"
+   "MIIIIIIIIIUIUIIIIIIIIIUIIII"
+   "MIIIIIIIIIUIUIIIIIIIIIUIU"
+   "MIIIIIIIIIUIUU"
+   "MIIIIIIIIIUUIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIIUUIIIIIIIIIIIIIUI"
+   "MIIIIIIIIIUUIIIIIIIIIIUIIII"
+   "MIIIIIIIIIUUIIIIIIIIIIUUI"
+   "MIIIIIIIIIUUIU"
+   "MIIIIIIIIUIIIII"
+   "MIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIUIIIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIUIIIIIIIIIIIIIIIIIUI"
+   "MIIIIIIIIUIIIIIIIIIIIIIIIIUII"
+   "MIIIIIIIIUIIIIIIIIIIIIIIIUIII"
+   "MIIIIIIIIUIIIIIIIIIIIIIIUIIII"
+   "MIIIIIIIIUIIIIIIIIIIIIIUIIIII"
+   "MIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIII"
+   "MIIIIIIIIUIIIIIIIIIIIIIUIIIIIU"
+   "MIIIIIIIIUIIIIIIIIIIIIIUIIU"
+   "MIIIIIIIIUIIIIIIIIIIIIIUIUI"
+   "MIIIIIIIIUIIIIIIIIIIIIIUUII"
+   "MIIIIIIIIUIIIIIIIIIIIIUIIIIII"
+   "MIIIIIIIIUIIIIIIIIIIIUIIIIIII"
+   "MIIIIIIIIUIIIIIIIIIIUIIIIIIII"
+   "MIIIIIIIIUIIIIIIIIIIUUIIIII"
+   "MIIIIIIIIUIIIIIIIIIUIIIIIIIII"
+   "MIIIIIIIIUIIIIIIIIIUIUIIIII"
+   "MIIIIIIIIUIIIIIIIIUIIIIIIIIII"
+   "MIIIIIIIIUIIIIIIIIUIIIIIIIIUIIIIIIIIUIIIIIIIIUIIIIIIIIUIIIIIIIIUIIIIIIIIU"
+   "MIIIIIIIIUIIIIIIIIUIIIIIIIIUIIIIIUU"
+   "MIIIIIIIIUIIIIIIIIUIIIIIIIIUIIIIUIU"
+   "MIIIIIIIIUIIIIIIIIUIIIIIIIIUIIIUIIU"
+   "MIIIIIIIIUIIIIIIIIUIIIIIIIIUIIUIIIU"
+   "MIIIIIIIIUIIIIIIIIUIIIIIIIIUIUIIIIU"
+   "MIIIIIIIIUIIIIIIIIUIIIIIIIIUUIIIIIU"
+   "MIIIIIIIIUIIIIIIIIUIIIIIUUIIIIIIIIU"
+   "MIIIIIIIIUIIIIIIIIUIIIIUIUIIIIIIIIU"
+   "MIIIIIIIIUIIIIIIIIUIIIUIIUIIIIIIIIU"
+   "MIIIIIIIIUIIIIIIIIUIIUIIIII"
+   "MIIIIIIIIUIIIIIIIIUIIUIIIUIIIIIIIIU"
+   "MIIIIIIIIUIIIIIIIIUIUIIIIUIIIIIIIIU"
+   "MIIIIIIIIUIIIIIIIIUUIIIIIUIIIIIIIIU"
+   "MIIIIIIIIUIIIIIIIUIIIIIIIIIII"
+   "MIIIIIIIIUIIIIIIIUIIIUIIIII"
+   "MIIIIIIIIUIIIIIIUIIIIIIIIIIII"
+   "MIIIIIIIIUIIIIIIUIIIIUIIIII"
+   "MIIIIIIIIUIIIIIUIIIIIIIIIIIII"
+   "MIIIIIIIIUIIIIIUIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIIUIIIIIUIIIIIIIIUIIIIIU"
+   "MIIIIIIIIUIIIIIUIIIIIUIIIII"
+   "MIIIIIIIIUIIIIIUUIIIIIIIIUIIIIIIIIU"
+   "MIIIIIIIIUIIIIIUUIIIIIIIIUIIIIIUU"
+   "MIIIIIIIIUIIIIUIIIIIIIIIIIIII"
+   "MIIIIIIIIUIIIIUIIIIIIUIIIII"
+   "MIIIIIIIIUIIIIUIUIIIIIIIIUIIIIIIIIU"
+   "MIIIIIIIIUIIIIUIUIIIIIIIIUIIIIUIU"
+   "MIIIIIIIIUIIIUIIIIIIIIIIIIIII"
+   "MIIIIIIIIUIIIUIIIIIIIUIIIII"
+   "MIIIIIIIIUIIIUIIUIIIIIIIIUIIIIIIIIU"
+   "MIIIIIIIIUIIIUIIUIIIIIIIIUIIIUIIU"
+   "MIIIIIIIIUIIUIIIIIIIIIIIIIIII"
+   "MIIIIIIIIUIIUIIIIIIIIIIIIIU"
+   "MIIIIIIIIUIIUIIIIIIIIUIIIII"
+   "MIIIIIIIIUIIUIIIIIIIIUIIU"
+   "MIIIIIIIIUIIUIIIUIIIIIIIIUIIIIIIIIU"
+   "MIIIIIIIIUIIUIIIUIIIIIIIIUIIUIIIU"
+   "MIIIIIIIIUIIUU"
+   "MIIIIIIIIUIIUUU"
+   "MIIIIIIIIUIUIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIUIUIIIIIIIIIIIIIUI"
+   "MIIIIIIIIUIUIIIIIIIIIUIIIII"
+   "MIIIIIIIIUIUIIIIIIIIIUIUI"
+   "MIIIIIIIIUIUIIIIUIIIIIIIIUIIIIIIIIU"
+   "MIIIIIIIIUIUIIIIUIIIIIIIIUIUIIIIU"
+   "MIIIIIIIIUIUIU"
+   "MIIIIIIIIUIUIUU"
+   "MIIIIIIIIUIUUIU"
+   "MIIIIIIIIUUIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIIUUIIIIIIIIIIIIIUII"
+   "MIIIIIIIIUUIIIIIIIIIIUIIIII"
+   "MIIIIIIIIUUIIIIIIIIIIUUII"
+   "MIIIIIIIIUUIIIIIUIIIIIIIIUIIIIIIIIU"
+   "MIIIIIIIIUUIIIIIUIIIIIIIIUUIIIIIU"
+   "MIIIIIIIIUUIIU"
+   "MIIIIIIIIUUIIUU"
+   "MIIIIIIIIUUIUIU"
+   "MIIIIIIIIUUUIIU"
+   "MIIIIIIIU"
+   "MIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIUIIIIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIUIIIIIIIIIIIIIIIIIIUI"
+   "MIIIIIIIUIIIIIIIIIIIIIIIIIUII"
+   "MIIIIIIIUIIIIIIIIIIIIIIIIUIII"
+   "MIIIIIIIUIIIIIIIIIIIIIIIUIIII"
+   "MIIIIIIIUIIIIIIIIIIIIIIUIIIII"
+   "MIIIIIIIUIIIIIIIIIIIIIUIIIIII"
+   "MIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIII"
+   "MIIIIIIIUIIIIIIIIIIIIIUIIIIIIU"
+   "MIIIIIIIUIIIIIIIIIIIIIUIIIU"
+   "MIIIIIIIUIIIIIIIIIIIIIUIIUI"
+   "MIIIIIIIUIIIIIIIIIIIIIUIUII"
+   "MIIIIIIIUIIIIIIIIIIIIIUUIII"
+   "MIIIIIIIUIIIIIIIIIIIIUIIIIIII"
+   "MIIIIIIIUIIIIIIIIIIIUIIIIIIII"
+   "MIIIIIIIUIIIIIIIIIIUIIIIIIIII"
+   "MIIIIIIIUIIIIIIIIIIUUIIIIII"
+   "MIIIIIIIUIIIIIIIIIUIIIIIIIIII"
+   "MIIIIIIIUIIIIIIIIIUIUIIIIII"
+   "MIIIIIIIUIIIIIIIIUIIIIIIIIIII"
+   "MIIIIIIIUIIIIIIIIUIIUIIIIII"
+   "MIIIIIIIUIIIIIIIUIIIIIIIIIIII"
+   "MIIIIIIIUIIIIIIIUIIIUIIIIII"
+   "MIIIIIIIUIIIIIIUIIIIIIIIIIIII"
+   "MIIIIIIIUIIIIIIUIIIIIIIIIIIIIIIIU"
+   "MIIIIIIIUIIIIIIUIIIIIIIUIIIIIIU"
+   "MIIIIIIIUIIIIIIUIIIIUIIIIII"
+   "MIIIIIIIUIIIIIUIIIIIIIIIIIIII"
+   "MIIIIIIIUIIIIIUIIIIIUIIIIII"
+   "MIIIIIIIUIIIIUIIIIIIIIIIIIIII"
+   "MIIIIIIIUIIIIUIIIIIIUIIIIII"
+   "MIIIIIIIUIIIUIIIIIIIIIIIIIIII"
+   "MIIIIIIIUIIIUIIIIIIIIIIIIIU"
+   "MIIIIIIIUIIIUIIIIIIIUIIIIII"
+   "MIIIIIIIUIIIUIIIIIIIUIIIU"
+   "MIIIIIIIUIIIUU"
+   "MIIIIIIIUIIUIIIIIIIIIIIIIIIII"
+   "MIIIIIIIUIIUIIIIIIIIIIIIIUI"
+   "MIIIIIIIUIIUIIIIIIIIUIIIIII"
+   "MIIIIIIIUIIUIIIIIIIIUIIUI"
+   "MIIIIIIIUIIUIU"
+   "MIIIIIIIUIUIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIUIUIIIIIIIIIIIIIUII"
+   "MIIIIIIIUIUIIIIIIIIIUIIIIII"
+   "MIIIIIIIUIUIIIIIIIIIUIUII"
+   "MIIIIIIIUIUIIU"
+   "MIIIIIIIUUIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIIUUIIIIIIIIIIIIIUIII"
+   "MIIIIIIIUUIIIIIIIIIIUIIIIII"
+   "MIIIIIIIUUIIIIIIIIIIUUIII"
+   "MIIIIIIIUUIIIU"
+   "MIIIIIIIUUU"
+   "MIIIIIIUI"
+   "MIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIU"
+   "MIIIIIIUIIIIIIIIIIIIIIIIIIIIU"
+   "MIIIIIIUIIIIIIIIIIIIIIIIIIIUI"
+   "MIIIIIIUIIIIIIIIIIIIIIIIIIUII"
+   "MIIIIIIUIIIIIIIIIIIIIIIIIUIII"
+   "MIIIIIIUIIIIIIIIIIIIIIIIUIIII"
+   "MIIIIIIUIIIIIIIIIIIIIIIUIIIII"
+   "MIIIIIIUIIIIIIIIIIIIIIUIIIIII"
+   "MIIIIIIUIIIIIIIIIIIIIUIIIIIII"
+   "MIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIII"
+   "MIIIIIIUIIIIIIIIIIIIIUIIIIIIIU"
+   "MIIIIIIUIIIIIIIIIIIIIUIIIIU"
+   "MIIIIIIUIIIIIIIIIIIIIUIIIUI"
+   "MIIIIIIUIIIIIIIIIIIIIUIIUII"
+   "MIIIIIIUIIIIIIIIIIIIIUIUIII"
+   "MIIIIIIUIIIIIIIIIIIIIUUIIII"
+   "MIIIIIIUIIIIIIIIIIIIUIIIIIIII"
+   "MIIIIIIUIIIIIIIIIIIUIIIIIIIII"
+   "MIIIIIIUIIIIIIIIIIUIIIIIIIIII"
+   "MIIIIIIUIIIIIIIIIIUUIIIIIII"
+   "MIIIIIIUIIIIIIIIIUIIIIIIIIIII"
+   "MIIIIIIUIIIIIIIIIUIUIIIIIII"
+   "MIIIIIIUIIIIIIIIUIIIIIIIIIIII"
+   "MIIIIIIUIIIIIIIIUIIUIIIIIII"
+   "MIIIIIIUIIIIIIIUIIIIIIIIIIIII"
+   "MIIIIIIUIIIIIIIUIIIIIIIIIIIIIIIIU"
+   "MIIIIIIUIIIIIIIUIIIIIIUIIIIIIIU"
+   "MIIIIIIUIIIIIIIUIIIUIIIIIII"
+   "MIIIIIIUIIIIIIUIIIIIIIIIIIIII"
+   "MIIIIIIUIIIIIIUIIIIUIIIIIII"
+   "MIIIIIIUIIIIIUIIIIIIIIIIIIIII"
+   "MIIIIIIUIIIIIUIIIIIUIIIIIII"
+   "MIIIIIIUIIIIUIIIIIIIIIIIIIIII"
+   "MIIIIIIUIIIIUIIIIIIIIIIIIIU"
+   "MIIIIIIUIIIIUIIIIIIUIIIIIII"
+   "MIIIIIIUIIIIUIIIIIIUIIIIU"
+   "MIIIIIIUIIIIUU"
+   "MIIIIIIUIIIUIIIIIIIIIIIIIIIII"
+   "MIIIIIIUIIIUIIIIIIIIIIIIIUI"
+   "MIIIIIIUIIIUIIIIIIIUIIIIIII"
+   "MIIIIIIUIIIUIIIIIIIUIIIUI"
+   "MIIIIIIUIIIUIU"
+   "MIIIIIIUIIUIIIIIIIIIIIIIIIIII"
+   "MIIIIIIUIIUIIIIIIIIIIIIIUII"
+   "MIIIIIIUIIUIIIIIIIIUIIIIIII"
+   "MIIIIIIUIIUIIIIIIIIUIIUII"
+   "MIIIIIIUIIUIIU"
+   "MIIIIIIUIUIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIUIUIIIIIIIIIIIIIUIII"
+   "MIIIIIIUIUIIIIIIIIIUIIIIIII"
+   "MIIIIIIUIUIIIIIIIIIUIUIII"
+   "MIIIIIIUIUIIIU"
+   "MIIIIIIUIUU"
+   "MIIIIIIUUIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIIUUIIIIIIIIIIIIIUIIII"
+   "MIIIIIIUUIIIIIIIIIIUIIIIIII"
+   "MIIIIIIUUIIIIIIIIIIUUIIII"
+   "MIIIIIIUUIIIIU"
+   "MIIIIIIUUIU"
+   "MIIIIIIUUUI"
+   "MIIIIIU"
+   "MIIIIIUII"
+   "MIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIU"
+   "MIIIIIUIIIIIIIIIIIIIIIIIIIIIU"
+   "MIIIIIUIIIIIIIIIIIIIIIIIIIIUI"
+   "MIIIIIUIIIIIIIIIIIIIIIIIIIUII"
+   "MIIIIIUIIIIIIIIIIIIIIIIIIUIII"
+   "MIIIIIUIIIIIIIIIIIIIIIIIUIIII"
+   "MIIIIIUIIIIIIIIIIIIIIIIUIIIII"
+   "MIIIIIUIIIIIIIIIIIIIIIUIIIIII"
+   "MIIIIIUIIIIIIIIIIIIIIUIIIIIII"
+   "MIIIIIUIIIIIIIIIIIIIUIIIIIIII"
+   "MIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIII"
+   "MIIIIIUIIIIIIIIIIIIIUIIIIIIIIU"
+   "MIIIIIUIIIIIIIIIIIIIUIIIIIU"
+   "MIIIIIUIIIIIIIIIIIIIUIIIIUI"
+   "MIIIIIUIIIIIIIIIIIIIUIIIUII"
+   "MIIIIIUIIIIIIIIIIIIIUIIUIII"
+   "MIIIIIUIIIIIIIIIIIIIUIUIIII"
+   "MIIIIIUIIIIIIIIIIIIIUUIIIII"
+   "MIIIIIUIIIIIIIIIIIIUIIIIIIIII"
+   "MIIIIIUIIIIIIIIIIIUIIIIIIIIII"
+   "MIIIIIUIIIIIIIIIIUIIIIIIIIIII"
+   "MIIIIIUIIIIIIIIIIUUIIIIIIII"
+   "MIIIIIUIIIIIIIIIUIIIIIIIIIIII"
+   "MIIIIIUIIIIIIIIIUIUIIIIIIII"
+   "MIIIIIUIIIIIIIIUIIIIIIIIIIIII"
+   "MIIIIIUIIIIIIIIUIIIIIIIIIIIIIIIIU"
+   "MIIIIIUIIIIIIIIUIIIIIUIIIIIIIIU"
+   "MIIIIIUIIIIIIIIUIIUIIIIIIII"
+   "MIIIIIUIIIIIIIUIIIIIIIIIIIIII"
+   "MIIIIIUIIIIIIIUIIIUIIIIIIII"
+   "MIIIIIUIIIIIIUIIIIIIIIIIIIIII"
+   "MIIIIIUIIIIIIUIIIIUIIIIIIII"
+   "MIIIIIUIIIIIU"
+   "MIIIIIUIIIIIUIIIIIIIIIIIIIIII"
+   "MIIIIIUIIIIIUIIIIIIIIIIIIIU"
+   "MIIIIIUIIIIIUIIIIIUIIIIIIII"
+   "MIIIIIUIIIIIUIIIIIUIIIIIU"
+   "MIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIU"
+   "MIIIIIUIIIIIUIIIIIUIIUU"
+   "MIIIIIUIIIIIUIIIIIUIUIU"
+   "MIIIIIUIIIIIUIIIIIUUIIU"
+   "MIIIIIUIIIIIUIIUUIIIIIU"
+   "MIIIIIUIIIIIUIUIUIIIIIU"
+   "MIIIIIUIIIIIUU"
+   "MIIIIIUIIIIIUUIIUIIIIIU"
+   "MIIIIIUIIIIUIIIIIIIIIIIIIIIII"
+   "MIIIIIUIIIIUIIIIIIIIIIIIIUI"
+   "MIIIIIUIIIIUIIIIIIUIIIIIIII"
+   "MIIIIIUIIIIUIIIIIIUIIIIUI"
+   "MIIIIIUIIIIUIIIIU"
+   "MIIIIIUIIIIUIU"
+   "MIIIIIUIIIIUUIU"
+   "MIIIIIUIIIUIIIIIIIIIIIIIIIIII"
+   "MIIIIIUIIIUIIIIIIIIIIIIIUII"
+   "MIIIIIUIIIUIIIIIIIUIIIIIIII"
+   "MIIIIIUIIIUIIIIIIIUIIIUII"
+   "MIIIIIUIIIUIIU"
+   "MIIIIIUIIUIIIIIIIIIIIIIIIIIII"
+   "MIIIIIUIIUIIIIIIIIIIIIIUIII"
+   "MIIIIIUIIUIIIIIIIIUIIIIIIII"
+   "MIIIIIUIIUIIIIIIIIUIIUIII"
+   "MIIIIIUIIUIIIU"
+   "MIIIIIUIIUU"
+   "MIIIIIUIIUUIIIIIUIIIIIU"
+   "MIIIIIUIIUUIIIIIUIIUU"
+   "MIIIIIUIUIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIUIUIIIIIIIIIIIIIUIIII"
+   "MIIIIIUIUIIIIIIIIIUIIIIIIII"
+   "MIIIIIUIUIIIIIIIIIUIUIIII"
+   "MIIIIIUIUIIIIU"
+   "MIIIIIUIUIU"
+   "MIIIIIUIUIUIIIIIUIIIIIU"
+   "MIIIIIUIUIUIIIIIUIUIU"
+   "MIIIIIUIUUI"
+   "MIIIIIUIUUIIIIU"
+   "MIIIIIUUIIIII"
+   "MIIIIIUUIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIIUUIIIIIIIIIIIIIUIIIII"
+   "MIIIIIUUIIIIIIIIIIUIIIIIIII"
+   "MIIIIIUUIIIIIIIIIIUUIIIII"
+   "MIIIIIUUIIIIIIIIUIIIIIIIIUIIIIIIIIU"
+   "MIIIIIUUIIIIIIIIUIIIIIUUIIIIIIIIU"
+   "MIIIIIUUIIIIIU"
+   "MIIIIIUUIIIIIUU"
+   "MIIIIIUUIIIIIUUIIIIIUUIIIIIUU"
+   "MIIIIIUUIIIIUIU"
+   "MIIIIIUUIIIUIIU"
+   "MIIIIIUUIIU"
+   "MIIIIIUUIIUIIIIIUIIIIIU"
+   "MIIIIIUUIIUIIIIIUUIIU"
+   "MIIIIIUUIIUIIIU"
+   "MIIIIIUUIIUUU"
+   "MIIIIIUUIUI"
+   "MIIIIIUUIUIIIIU"
+   "MIIIIIUUIUIUU"
+   "MIIIIIUUUII"
+   "MIIIIIUUUIIIIIU"
+   "MIIIIIUUUIIUU"
+   "MIIIIUIII"
+   "MIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIU"
+   "MIIIIUIIIIIIIIIIIIIIIIIIIIIIU"
+   "MIIIIUIIIIIIIIIIIIIIIIIIIIIUI"
+   "MIIIIUIIIIIIIIIIIIIIIIIIIIUII"
+   "MIIIIUIIIIIIIIIIIIIIIIIIIUIII"
+   "MIIIIUIIIIIIIIIIIIIIIIIIUIIII"
+   "MIIIIUIIIIIIIIIIIIIIIIIUIIIII"
+   "MIIIIUIIIIIIIIIIIIIIIIUIIIIII"
+   "MIIIIUIIIIIIIIIIIIIIIUIIIIIII"
+   "MIIIIUIIIIIIIIIIIIIIUIIIIIIII"
+   "MIIIIUIIIIIIIIIIIIIUIIIIIIIII"
+   "MIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIII"
+   "MIIIIUIIIIIIIIIIIIIUIIIIIIIIIU"
+   "MIIIIUIIIIIIIIIIIIIUIIIIIIU"
+   "MIIIIUIIIIIIIIIIIIIUIIIIIUI"
+   "MIIIIUIIIIIIIIIIIIIUIIIIUII"
+   "MIIIIUIIIIIIIIIIIIIUIIIUIII"
+   "MIIIIUIIIIIIIIIIIIIUIIUIIII"
+   "MIIIIUIIIIIIIIIIIIIUIUIIIII"
+   "MIIIIUIIIIIIIIIIIIIUUIIIIII"
+   "MIIIIUIIIIIIIIIIIIUIIIIIIIIII"
+   "MIIIIUIIIIIIIIIIIUIIIIIIIIIII"
+   "MIIIIUIIIIIIIIIIUIIIIIIIIIIII"
+   "MIIIIUIIIIIIIIIIUUIIIIIIIII"
+   "MIIIIUIIIIIIIIIUIIIIIIIIIIIII"
+   "MIIIIUIIIIIIIIIUIIIIIIIIIIIIIIIIU"
+   "MIIIIUIIIIIIIIIUIIIIUIIIIIIIIIU"
+   "MIIIIUIIIIIIIIIUIUIIIIIIIII"
+   "MIIIIUIIIIIIIIUIIIIIIIIIIIIII"
+   "MIIIIUIIIIIIIIUIIUIIIIIIIII"
+   "MIIIIUIIIIIIIUIIIIIIIIIIIIIII"
+   "MIIIIUIIIIIIIUIIIUIIIIIIIII"
+   "MIIIIUIIIIIIUIIIIIIIIIIIIIIII"
+   "MIIIIUIIIIIIUIIIIIIIIIIIIIU"
+   "MIIIIUIIIIIIUIIIIUIIIIIIIII"
+   "MIIIIUIIIIIIUIIIIUIIIIIIU"
+   "MIIIIUIIIIIIUU"
+   "MIIIIUIIIIIUI"
+   "MIIIIUIIIIIUIIIIIIIIIIIIIIIII"
+   "MIIIIUIIIIIUIIIIIIIIIIIIIUI"
+   "MIIIIUIIIIIUIIIIIUIIIIIIIII"
+   "MIIIIUIIIIIUIIIIIUIIIIIUI"
+   "MIIIIUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUI"
+   "MIIIIUIIIIIUIIIIIUIIIIIUIU"
+   "MIIIIUIIIIIUIIIIIUIIUUI"
+   "MIIIIUIIIIIUIIIIIUIUIUI"
+   "MIIIIUIIIIIUIIIIIUUIIUI"
+   "MIIIIUIIIIIUIIIIU"
+   "MIIIIUIIIIIUIIUUIIIIIUI"
+   "MIIIIUIIIIIUIU"
+   "MIIIIUIIIIIUIUIIIIUIIIIIUIU"
+   "MIIIIUIIIIIUIUIUIIIIIUI"
+   "MIIIIUIIIIIUIUU"
+   "MIIIIUIIIIIUUIIUIIIIIUI"
+   "MIIIIUIIIIUIIIIIIIIIIIIIIIIII"
+   "MIIIIUIIIIUIIIIIIIIIIIIIUII"
+   "MIIIIUIIIIUIIIIIIUIIIIIIIII"
+   "MIIIIUIIIIUIIIIIIUIIIIUII"
+   "MIIIIUIIIIUIIIIIU"
+   "MIIIIUIIIIUIIIIUI"
+   "MIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIU"
+   "MIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIUU"
+   "MIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUUIU"
+   "MIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIUUIIIIU"
+   "MIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUUIUIIIIU"
+   "MIIIIUIIIIUIIIIUIIIIUIIIIUIUUIIIIUIIIIU"
+   "MIIIIUIIIIUIIIIUIIIIUIIIIUUIUIIIIUIIIIU"
+   "MIIIIUIIIIUIIIIUIIIIUIUUIIIIUIIIIUIIIIU"
+   "MIIIIUIIIIUIIIIUIIIIUUIUIIIIUIIIIUIIIIU"
+   "MIIIIUIIIIUIIIIUIUUIIIIUIIIIUIIIIUIIIIU"
+   "MIIIIUIIIIUIIIIUIUUIIIIUIIIIUIIIIUIUU"
+   "MIIIIUIIIIUIIIIUUIUIIIIUIIIIUIIIIUIIIIU"
+   "MIIIIUIIIIUIIIIUUIUIIIIUIIIIUIIIIUUIU"
+   "MIIIIUIIIIUIIU"
+   "MIIIIUIIIIUIUUIIIIUIIIIUIIIIUIIIIUIIIIU"
+   "MIIIIUIIIIUIUUIIIIUIIIIUIIIIUIUUIIIIU"
+   "MIIIIUIIIIUIUUIUU"
+   "MIIIIUIIIIUIUUUIU"
+   "MIIIIUIIIIUUIUIIIIUIIIIUIIIIUIIIIUIIIIU"
+   "MIIIIUIIIIUUIUIIIIUIIIIUIIIIUUIUIIIIU"
+   "MIIIIUIIIIUUIUIUU"
+   "MIIIIUIIIIUUIUUIU"
+   "MIIIIUIIIUIIIIIIIIIIIIIIIIIII"
+   "MIIIIUIIIUIIIIIIIIIIIIIUIII"
+   "MIIIIUIIIUIIIIIIIUIIIIIIIII"
+   "MIIIIUIIIUIIIIIIIUIIIUIII"
+   "MIIIIUIIIUIIIU"
+   "MIIIIUIIIUU"
+   "MIIIIUIIUIIIIIIIIIIIIIIIIIIII"
+   "MIIIIUIIUIIIIIIIIIIIIIUIIII"
+   "MIIIIUIIUIIIIIIIIUIIIIIIIII"
+   "MIIIIUIIUIIIIIIIIUIIUIIII"
+   "MIIIIUIIUIIIIU"
+   "MIIIIUIIUIU"
+   "MIIIIUIIUUI"
+   "MIIIIUIIUUIIIIIUIIIIIUI"
+   "MIIIIUIIUUIIIIIUIIUUI"
+   "MIIIIUIIUUIU"
+   "MIIIIUIU"
+   "MIIIIUIUIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIUIUIIIIIIIIIIIIIUIIIII"
+   "MIIIIUIUIIIIIIIIIUIIIIIIIII"
+   "MIIIIUIUIIIIIIIIIUIUIIIII"
+   "MIIIIUIUIIIIIIIIUIIIIIIIIUIIIIIIIIU"
+   "MIIIIUIUIIIIIIIIUIIIIUIUIIIIIIIIU"
+   "MIIIIUIUIIIIIU"
+   "MIIIIUIUIIIIIUU"
+   "MIIIIUIUIIIIUIU"
+   "MIIIIUIUIIIIUIUIIIIUIUIIIIUIU"
+   "MIIIIUIUIIIUIIU"
+   "MIIIIUIUIIU"
+   "MIIIIUIUIIUIIIU"
+   "MIIIIUIUIUI"
+   "MIIIIUIUIUIIIIIUIIIIIUI"
+   "MIIIIUIUIUIIIIIUIUIUI"
+   "MIIIIUIUIUIIIIU"
+   "MIIIIUIUIUIU"
+   "MIIIIUIUIUUIU"
+   "MIIIIUIUUII"
+   "MIIIIUIUUIIIIIU"
+   "MIIIIUIUUIIIIUI"
+   "MIIIIUIUUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIU"
+   "MIIIIUIUUIIIIUIIIIUIIIIUIUUIIIIUIIIIU"
+   "MIIIIUIUUIIIIUIUU"
+   "MIIIIUIUUIIIIUIUUIIIIUIUUIIIIUIUU"
+   "MIIIIUIUUIIIIUUIU"
+   "MIIIIUIUUIUIU"
+   "MIIIIUIUUIUUIIIIU"
+   "MIIIIUIUUIUUIUU"
+   "MIIIIUIUUUIUIIIIU"
+   "MIIIIUIUUUIUIUU"
+   "MIIIIUU"
+   "MIIIIUUIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIIUUIIIIIIIIIIIIIUIIIIII"
+   "MIIIIUUIIIIIIIIIIUIIIIIIIII"
+   "MIIIIUUIIIIIIIIIIUUIIIIII"
+   "MIIIIUUIIIIIIU"
+   "MIIIIUUIIIU"
+   "MIIIIUUIIUI"
+   "MIIIIUUIIUIIIIIUIIIIIUI"
+   "MIIIIUUIIUIIIIIUUIIUI"
+   "MIIIIUUIIUIU"
+   "MIIIIUUIUII"
+   "MIIIIUUIUIIIIIU"
+   "MIIIIUUIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIU"
+   "MIIIIUUIUIIIIUIIIIUIIIIUUIUIIIIUIIIIU"
+   "MIIIIUUIUIIIIUIUU"
+   "MIIIIUUIUIIIIUUIU"
+   "MIIIIUUIUIIIIUUIUIIIIUUIUIIIIUUIU"
+   "MIIIIUUIUIUUIIIIU"
+   "MIIIIUUIUIUUUIU"
+   "MIIIIUUIUUIUIIIIU"
+   "MIIIIUUIUUIUUIU"
+   "MIIIIUUUIII"
+   "MIIIUIIII"
+   "MIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIU"
+   "MIIIUIIIIIIIIIIIIIIIIIIIIIIIU"
+   "MIIIUIIIIIIIIIIIIIIIIIIIIIIUI"
+   "MIIIUIIIIIIIIIIIIIIIIIIIIIUII"
+   "MIIIUIIIIIIIIIIIIIIIIIIIIUIII"
+   "MIIIUIIIIIIIIIIIIIIIIIIIUIIII"
+   "MIIIUIIIIIIIIIIIIIIIIIIUIIIII"
+   "MIIIUIIIIIIIIIIIIIIIIIUIIIIII"
+   "MIIIUIIIIIIIIIIIIIIIIUIIIIIII"
+   "MIIIUIIIIIIIIIIIIIIIUIIIIIIII"
+   "MIIIUIIIIIIIIIIIIIIUIIIIIIIII"
+   "MIIIUIIIIIIIIIIIIIUIIIIIIIIII"
+   "MIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIII"
+   "MIIIUIIIIIIIIIIIIIUIIIIIIIIIIU"
+   "MIIIUIIIIIIIIIIIIIUIIIIIIIU"
+   "MIIIUIIIIIIIIIIIIIUIIIIIIUI"
+   "MIIIUIIIIIIIIIIIIIUIIIIIUII"
+   "MIIIUIIIIIIIIIIIIIUIIIIUIII"
+   "MIIIUIIIIIIIIIIIIIUIIIUIIII"
+   "MIIIUIIIIIIIIIIIIIUIIUIIIII"
+   "MIIIUIIIIIIIIIIIIIUIUIIIIII"
+   "MIIIUIIIIIIIIIIIIIUUIIIIIII"
+   "MIIIUIIIIIIIIIIIIUIIIIIIIIIII"
+   "MIIIUIIIIIIIIIIIUIIIIIIIIIIII"
+   "MIIIUIIIIIIIIIIUIIIIIIIIIIIII"
+   "MIIIUIIIIIIIIIIUIIIIIIIIIIIIIIIIU"
+   "MIIIUIIIIIIIIIIUIIIUIIIIIIIIIIU"
+   "MIIIUIIIIIIIIIIUUIIIIIIIIII"
+   "MIIIUIIIIIIIIIUIIIIIIIIIIIIII"
+   "MIIIUIIIIIIIIIUIUIIIIIIIIII"
+   "MIIIUIIIIIIIIUIIIIIIIIIIIIIII"
+   "MIIIUIIIIIIIIUIIUIIIIIIIIII"
+   "MIIIUIIIIIIIUIIIIIIIIIIIIIIII"
+   "MIIIUIIIIIIIUIIIIIIIIIIIIIU"
+   "MIIIUIIIIIIIUIIIUIIIIIIIIII"
+   "MIIIUIIIIIIIUIIIUIIIIIIIU"
+   "MIIIUIIIIIIIUU"
+   "MIIIUIIIIIIUIIIIIIIIIIIIIIIII"
+   "MIIIUIIIIIIUIIIIIIIIIIIIIUI"
+   "MIIIUIIIIIIUIIIIUIIIIIIIIII"
+   "MIIIUIIIIIIUIIIIUIIIIIIUI"
+   "MIIIUIIIIIIUIU"
+   "MIIIUIIIIIUIIIIIIIIIIIIIIIIII"
+   "MIIIUIIIIIUIIIIIIIIIIIIIUII"
+   "MIIIUIIIIIUIIIIIUIIIIIIIIII"
+   "MIIIUIIIIIUIIIIIUIIIIIUII"
+   "MIIIUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUII"
+   "MIIIUIIIIIUIIIIIUIIIIIUIIU"
+   "MIIIUIIIIIUIIIIIUIIUUII"
+   "MIIIUIIIIIUIIIIIUIUIUII"
+   "MIIIUIIIIIUIIIIIUUIIUII"
+   "MIIIUIIIIIUIIU"
+   "MIIIUIIIIIUIIUIIIUIIIIIUIIU"
+   "MIIIUIIIIIUIIUUIIIIIUII"
+   "MIIIUIIIIIUIUIUIIIIIUII"
+   "MIIIUIIIIIUUIIUIIIIIUII"
+   "MIIIUIIIIUIIIIIIIIIIIIIIIIIII"
+   "MIIIUIIIIUIIIIIIIIIIIIIUIII"
+   "MIIIUIIIIUIIIIIIUIIIIIIIIII"
+   "MIIIUIIIIUIIIIIIUIIIIUIII"
+   "MIIIUIIIIUIIIU"
+   "MIIIUIIIIUU"
+   "MIIIUIIIUIIIIIIIIIIIIIIIIIIII"
+   "MIIIUIIIUIIIIIIIIIIIIIUIIII"
+   "MIIIUIIIUIIIIIIIUIIIIIIIIII"
+   "MIIIUIIIUIIIIIIIUIIIUIIII"
+   "MIIIUIIIUIIIIU"
+   "MIIIUIIIUIU"
+   "MIIIUIIIUUI"
+   "MIIIUIIUIIIIIIIIIIIIIIIIIIIII"
+   "MIIIUIIUIIIIIIIIIIIIIUIIIII"
+   "MIIIUIIUIIIIIIIIUIIIIIIIIII"
+   "MIIIUIIUIIIIIIIIUIIIIIIIIUIIIIIIIIU"
+   "MIIIUIIUIIIIIIIIUIIIUIIUIIIIIIIIU"
+   "MIIIUIIUIIIIIIIIUIIUIIIII"
+   "MIIIUIIUIIIIIU"
+   "MIIIUIIUIIIIIUU"
+   "MIIIUIIUIIIIUIU"
+   "MIIIUIIUIIIUIIU"
+   "MIIIUIIUIIIUIIUIIIUIIUIIIUIIU"
+   "MIIIUIIUIIU"
+   "MIIIUIIUIIUIIIU"
+   "MIIIUIIUIUI"
+   "MIIIUIIUIUIIIIU"
+   "MIIIUIIUUII"
+   "MIIIUIIUUIIIIIU"
+   "MIIIUIIUUIIIIIUIIIIIUII"
+   "MIIIUIIUUIIIIIUIIUUII"
+   "MIIIUIIUUIIU"
+   "MIIIUIIUUUIIU"
+   "MIIIUIUIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIUIUIIIIIIIIIIIIIUIIIIII"
+   "MIIIUIUIIIIIIIIIUIIIIIIIIII"
+   "MIIIUIUIIIIIIIIIUIUIIIIII"
+   "MIIIUIUIIIIIIU"
+   "MIIIUIUIIIU"
+   "MIIIUIUIIUI"
+   "MIIIUIUIUII"
+   "MIIIUIUIUIIIIIUIIIIIUII"
+   "MIIIUIUIUIIIIIUIUIUII"
+   "MIIIUIUIUIIU"
+   "MIIIUIUUIII"
+   "MIIIUUI"
+   "MIIIUUIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIIUUIIIIIIIIIIIIIUIIIIIII"
+   "MIIIUUIIIIIIIIIIUIIIIIIIIII"
+   "MIIIUUIIIIIIIIIIUUIIIIIII"
+   "MIIIUUIIIIIIIU"
+   "MIIIUUIIIIU"
+   "MIIIUUIIIUI"
+   "MIIIUUIIUII"
+   "MIIIUUIIUIIIIIUIIIIIUII"
+   "MIIIUUIIUIIIIIUUIIUII"
+   "MIIIUUIIUIIU"
+   "MIIIUUIUIII"
+   "MIIIUUUIIII"
+   "MIIU"
+   "MIIUIIIII"
+   "MIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIU"
+   "MIIUIIIIIIIIIIIIIIIIIIIIIIIIU"
+   "MIIUIIIIIIIIIIIIIIIIIIIIIIIUI"
+   "MIIUIIIIIIIIIIIIIIIIIIIIIIUII"
+   "MIIUIIIIIIIIIIIIIIIIIIIIIUIII"
+   "MIIUIIIIIIIIIIIIIIIIIIIIUIIII"
+   "MIIUIIIIIIIIIIIIIIIIIIIUIIIII"
+   "MIIUIIIIIIIIIIIIIIIIIIUIIIIII"
+   "MIIUIIIIIIIIIIIIIIIIIUIIIIIII"
+   "MIIUIIIIIIIIIIIIIIIIUIIIIIIII"
+   "MIIUIIIIIIIIIIIIIIIUIIIIIIIII"
+   "MIIUIIIIIIIIIIIIIIUIIIIIIIIII"
+   "MIIUIIIIIIIIIIIIIUIIIIIIIIIII"
+   "MIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIII"
+   "MIIUIIIIIIIIIIIIIUIIIIIIIIIIIU"
+   "MIIUIIIIIIIIIIIIIUIIIIIIIIU"
+   "MIIUIIIIIIIIIIIIIUIIIIIIIUI"
+   "MIIUIIIIIIIIIIIIIUIIIIIIUII"
+   "MIIUIIIIIIIIIIIIIUIIIIIUIII"
+   "MIIUIIIIIIIIIIIIIUIIIIUIIII"
+   "MIIUIIIIIIIIIIIIIUIIIUIIIII"
+   "MIIUIIIIIIIIIIIIIUIIUIIIIII"
+   "MIIUIIIIIIIIIIIIIUIUIIIIIII"
+   "MIIUIIIIIIIIIIIIIUUIIIIIIII"
+   "MIIUIIIIIIIIIIIIUIIIIIIIIIIII"
+   "MIIUIIIIIIIIIIIUIIIIIIIIIIIII"
+   "MIIUIIIIIIIIIIIUIIIIIIIIIIIIIIIIU"
+   "MIIUIIIIIIIIIIIUIIUIIIIIIIIIIIU"
+   "MIIUIIIIIIIIIIUIIIIIIIIIIIIII"
+   "MIIUIIIIIIIIIIUUIIIIIIIIIII"
+   "MIIUIIIIIIIIIUIIIIIIIIIIIIIII"
+   "MIIUIIIIIIIIIUIUIIIIIIIIIII"
+   "MIIUIIIIIIIIUIIIIIIIIIIIIIIII"
+   "MIIUIIIIIIIIUIIIIIIIIIIIIIU"
+   "MIIUIIIIIIIIUIIUIIIIIIIIIII"
+   "MIIUIIIIIIIIUIIUIIIIIIIIU"
+   "MIIUIIIIIIIIUU"
+   "MIIUIIIIIIIUIIIIIIIIIIIIIIIII"
+   "MIIUIIIIIIIUIIIIIIIIIIIIIUI"
+   "MIIUIIIIIIIUIIIUIIIIIIIIIII"
+   "MIIUIIIIIIIUIIIUIIIIIIIUI"
+   "MIIUIIIIIIIUIU"
+   "MIIUIIIIIIUIIIIIIIIIIIIIIIIII"
+   "MIIUIIIIIIUIIIIIIIIIIIIIUII"
+   "MIIUIIIIIIUIIIIUIIIIIIIIIII"
+   "MIIUIIIIIIUIIIIUIIIIIIUII"
+   "MIIUIIIIIIUIIU"
+   "MIIUIIIIIUIIIIIIIIIIIIIIIIIII"
+   "MIIUIIIIIUIIIIIIIIIIIIIUIII"
+   "MIIUIIIIIUIIIIIUIIIIIIIIIII"
+   "MIIUIIIIIUIIIIIUIIIIIUIII"
+   "MIIUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUIII"
+   "MIIUIIIIIUIIIIIUIIIIIUIIIU"
+   "MIIUIIIIIUIIIIIUIIIIIUU"
+   "MIIUIIIIIUIIIIIUIIUUIII"
+   "MIIUIIIIIUIIIIIUIUIUIII"
+   "MIIUIIIIIUIIIIIUUIIUIII"
+   "MIIUIIIIIUIIIU"
+   "MIIUIIIIIUIIIUIIUIIIIIUIIIU"
+   "MIIUIIIIIUIIUUIIIIIUIII"
+   "MIIUIIIIIUIUIUIIIIIUIII"
+   "MIIUIIIIIUU"
+   "MIIUIIIIIUUIIUIIIIIUIII"
+   "MIIUIIIIIUUIIUIIIIIUU"
+   "MIIUIIIIIUUU"
+   "MIIUIIIIUIIIIIIIIIIIIIIIIIIII"
+   "MIIUIIIIUIIIIIIIIIIIIIUIIII"
+   "MIIUIIIIUIIIIIIUIIIIIIIIIII"
+   "MIIUIIIIUIIIIIIUIIIIUIIII"
+   "MIIUIIIIUIIIIU"
+   "MIIUIIIIUIU"
+   "MIIUIIIIUUI"
+   "MIIUIIIUIIIIIIIIIIIIIIIIIIIII"
+   "MIIUIIIUIIIIIIIIIIIIIUIIIII"
+   "MIIUIIIUIIIIIIIIUIIIIIIIIUIIIIIIIIU"
+   "MIIUIIIUIIIIIIIIUIIUIIIUIIIIIIIIU"
+   "MIIUIIIUIIIIIIIUIIIIIIIIIII"
+   "MIIUIIIUIIIIIIIUIIIUIIIII"
+   "MIIUIIIUIIIIIU"
+   "MIIUIIIUIIIIIUU"
+   "MIIUIIIUIIIIUIU"
+   "MIIUIIIUIIIUIIU"
+   "MIIUIIIUIIU"
+   "MIIUIIIUIIUIIIU"
+   "MIIUIIIUIIUIIIUIIUIIIUIIUIIIU"
+   "MIIUIIIUIIUUU"
+   "MIIUIIIUIUI"
+   "MIIUIIIUIUIIIIU"
+   "MIIUIIIUUII"
+   "MIIUIIIUUIIIIIU"
+   "MIIUIIUIIIIIIIIIIIIIIIIIIIIII"
+   "MIIUIIUIIIIIIIIIIIIIUIIIIII"
+   "MIIUIIUIIIIIIIIUIIIIIIIIIII"
+   "MIIUIIUIIIIIIIIUIIUIIIIII"
+   "MIIUIIUIIIIIIU"
+   "MIIUIIUIIIU"
+   "MIIUIIUIIUI"
+   "MIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIUIIU"
+   "MIIUIIUIUII"
+   "MIIUIIUUIII"
+   "MIIUIIUUIIIIIUIIIIIUIII"
+   "MIIUIIUUIIIIIUIIUUIII"
+   "MIIUIIUUIIIU"
+   "MIIUIIUUU"
+   "MIIUIUIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIUIUIIIIIIIIIIIIIUIIIIIII"
+   "MIIUIUIIIIIIIIIUIIIIIIIIIII"
+   "MIIUIUIIIIIIIIIUIUIIIIIII"
+   "MIIUIUIIIIIIIU"
+   "MIIUIUIIIIU"
+   "MIIUIUIIIUI"
+   "MIIUIUIIUII"
+   "MIIUIUIUIII"
+   "MIIUIUIUIIIIIUIIIIIUIII"
+   "MIIUIUIUIIIIIUIUIUIII"
+   "MIIUIUIUIIIU"
+   "MIIUIUIUU"
+   "MIIUIUUIIII"
+   "MIIUU"
+   "MIIUUII"
+   "MIIUUIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIIUUIIIIIIIIIIIIIUIIIIIIII"
+   "MIIUUIIIIIIIIIIUIIIIIIIIIII"
+   "MIIUUIIIIIIIIIIUUIIIIIIII"
+   "MIIUUIIIIIIIIU"
+   "MIIUUIIIIIU"
+   "MIIUUIIIIIUIIIIIUIIIIIU"
+   "MIIUUIIIIIUIIUUIIIIIU"
+   "MIIUUIIIIUI"
+   "MIIUUIIIUII"
+   "MIIUUIIUIII"
+   "MIIUUIIUIIIIIUIIIIIUIII"
+   "MIIUUIIUIIIIIUUIIUIII"
+   "MIIUUIIUIIIU"
+   "MIIUUIIUU"
+   "MIIUUIIUUIIUUIIUU"
+   "MIIUUIUIIII"
+   "MIIUUIUIU"
+   "MIIUUIUUIUU"
+   "MIIUUUIIIII"
+   "MIIUUUIIIIIIIIU"
+   "MIIUUUIIIIIUU"
+   "MIIUUUIIU"
+   "MIIUUUIIUIIIU"
+   "MIIUUUIIUUU"
+   "MIUI"
+   "MIUIIIIII"
+   "MIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIUIIIIIIIIIIIIIIIIIIIIIIIIIIIIU"
+   "MIUIIIIIIIIIIIIIIIIIIIIIIIIIU"
+   "MIUIIIIIIIIIIIIIIIIIIIIIIIIUI"
+   "MIUIIIIIIIIIIIIIIIIIIIIIIIUII"
+   "MIUIIIIIIIIIIIIIIIIIIIIIIUIII"
+   "MIUIIIIIIIIIIIIIIIIIIIIIUIIII"
+   "MIUIIIIIIIIIIIIIIIIIIIIUIIIII"
+   "MIUIIIIIIIIIIIIIIIIIIIUIIIIII"
+   "MIUIIIIIIIIIIIIIIIIIIUIIIIIII"
+   "MIUIIIIIIIIIIIIIIIIIUIIIIIIII"
+   "MIUIIIIIIIIIIIIIIIIUIIIIIIIII"
+   "MIUIIIIIIIIIIIIIIIUIIIIIIIIII"
+   "MIUIIIIIIIIIIIIIIUIIIIIIIIIII"
+   "MIUIIIIIIIIIIIIIUIIIIIIIIIIII"
+   "MIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIII"
+   "MIUIIIIIIIIIIIIIUIIIIIIIIIIIIU"
+   "MIUIIIIIIIIIIIIIUIIIIIIIIIU"
+   "MIUIIIIIIIIIIIIIUIIIIIIIIUI"
+   "MIUIIIIIIIIIIIIIUIIIIIIIUII"
+   "MIUIIIIIIIIIIIIIUIIIIIIUIII"
+   "MIUIIIIIIIIIIIIIUIIIIIUIIII"
+   "MIUIIIIIIIIIIIIIUIIIIUIIIII"
+   "MIUIIIIIIIIIIIIIUIIIUIIIIII"
+   "MIUIIIIIIIIIIIIIUIIUIIIIIII"
+   "MIUIIIIIIIIIIIIIUIUIIIIIIII"
+   "MIUIIIIIIIIIIIIIUUIIIIIIIII"
+   "MIUIIIIIIIIIIIIUIIIIIIIIIIIII"
+   "MIUIIIIIIIIIIIIUIIIIIIIIIIIIIIIIU"
+   "MIUIIIIIIIIIIIIUIUIIIIIIIIIIIIU"
+   "MIUIIIIIIIIIIIUIIIIIIIIIIIIII"
+   "MIUIIIIIIIIIIUIIIIIIIIIIIIIII"
+   "MIUIIIIIIIIIIUUIIIIIIIIIIII"
+   "MIUIIIIIIIIIUIIIIIIIIIIIIIIII"
+   "MIUIIIIIIIIIUIIIIIIIIIIIIIU"
+   "MIUIIIIIIIIIUIUIIIIIIIIIIII"
+   "MIUIIIIIIIIIUIUIIIIIIIIIU"
+   "MIUIIIIIIIIIUU"
+   "MIUIIIIIIIIUIIIIIIIIIIIIIIIII"
+   "MIUIIIIIIIIUIIIIIIIIIIIIIUI"
+   "MIUIIIIIIIIUIIUIIIIIIIIIIII"
+   "MIUIIIIIIIIUIIUIIIIIIIIUI"
+   "MIUIIIIIIIIUIU"
+   "MIUIIIIIIIUIIIIIIIIIIIIIIIIII"
+   "MIUIIIIIIIUIIIIIIIIIIIIIUII"
+   "MIUIIIIIIIUIIIUIIIIIIIIIIII"
+   "MIUIIIIIIIUIIIUIIIIIIIUII"
+   "MIUIIIIIIIUIIU"
+   "MIUIIIIIIUIIIIIIIIIIIIIIIIIII"
+   "MIUIIIIIIUIIIIIIIIIIIIIUIII"
+   "MIUIIIIIIUIIIIUIIIIIIIIIIII"
+   "MIUIIIIIIUIIIIUIIIIIIUIII"
+   "MIUIIIIIIUIIIU"
+   "MIUIIIIIIUU"
+   "MIUIIIIIUIIIIIIIIIIIIIIIIIIII"
+   "MIUIIIIIUIIIIIIIIIIIIIUIIII"
+   "MIUIIIIIUIIIIIUIIIIIIIIIIII"
+   "MIUIIIIIUIIIIIUIIIIIUIIII"
+   "MIUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUIIII"
+   "MIUIIIIIUIIIIIUIIIIIUIIIIU"
+   "MIUIIIIIUIIIIIUIIIIIUIU"
+   "MIUIIIIIUIIIIIUIIIIIUUI"
+   "MIUIIIIIUIIIIIUIIUUIIII"
+   "MIUIIIIIUIIIIIUIUIUIIII"
+   "MIUIIIIIUIIIIIUUIIUIIII"
+   "MIUIIIIIUIIIIU"
+   "MIUIIIIIUIIIIUIUIIIIIUIIIIU"
+   "MIUIIIIIUIIUUIIIIIUIIII"
+   "MIUIIIIIUIU"
+   "MIUIIIIIUIUIUIIIIIUIIII"
+   "MIUIIIIIUIUIUIIIIIUIU"
+   "MIUIIIIIUIUU"
+   "MIUIIIIIUUI"
+   "MIUIIIIIUUIIUIIIIIUIIII"
+   "MIUIIIIIUUIIUIIIIIUUI"
+   "MIUIIIIIUUIU"
+   "MIUIIIIUIIIIIIIIIIIIIIIIIIIII"
+   "MIUIIIIUIIIIIIIIIIIIIUIIIII"
+   "MIUIIIIUIIIIIIIIUIIIIIIIIUIIIIIIIIU"
+   "MIUIIIIUIIIIIIIIUIUIIIIUIIIIIIIIU"
+   "MIUIIIIUIIIIIIUIIIIIIIIIIII"
+   "MIUIIIIUIIIIIIUIIIIUIIIII"
+   "MIUIIIIUIIIIIU"
+   "MIUIIIIUIIIIIUU"
+   "MIUIIIIUIIIIUIU"
+   "MIUIIIIUIIIUIIU"
+   "MIUIIIIUIIU"
+   "MIUIIIIUIIUIIIU"
+   "MIUIIIIUIUI"
+   "MIUIIIIUIUIIIIU"
+   "MIUIIIIUIUIIIIUIUIIIIUIUIIIIU"
+   "MIUIIIIUIUIUU"
+   "MIUIIIIUIUUIU"
+   "MIUIIIIUUII"
+   "MIUIIIIUUIIIIIU"
+   "MIUIIIUIIIIIIIIIIIIIIIIIIIIII"
+   "MIUIIIUIIIIIIIIIIIIIUIIIIII"
+   "MIUIIIUIIIIIIIUIIIIIIIIIIII"
+   "MIUIIIUIIIIIIIUIIIUIIIIII"
+   "MIUIIIUIIIIIIU"
+   "MIUIIIUIIIU"
+   "MIUIIIUIIUI"
+   "MIUIIIUIUII"
+   "MIUIIIUUIII"
+   "MIUIIUIIIIIIIIIIIIIIIIIIIIIII"
+   "MIUIIUIIIIIIIIIIIIIUIIIIIII"
+   "MIUIIUIIIIIIIIUIIIIIIIIIIII"
+   "MIUIIUIIIIIIIIUIIUIIIIIII"
+   "MIUIIUIIIIIIIU"
+   "MIUIIUIIIIU"
+   "MIUIIUIIIUI"
+   "MIUIIUIIUII"
+   "MIUIIUIUIII"
+   "MIUIIUUIIII"
+   "MIUIIUUIIIIIUIIIIIUIIII"
+   "MIUIIUUIIIIIUIIUUIIII"
+   "MIUIIUUIIIIU"
+   "MIUIIUUIU"
+   "MIUIIUUUI"
+   "MIUIU"
+   "MIUIUIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIUIUIIIIIIIIIIIIIUIIIIIIII"
+   "MIUIUIIIIIIIIIUIIIIIIIIIIII"
+   "MIUIUIIIIIIIIIUIUIIIIIIII"
+   "MIUIUIIIIIIIIU"
+   "MIUIUIIIIIU"
+   "MIUIUIIIIIUIIIIIUIIIIIU"
+   "MIUIUIIIIIUIUIUIIIIIU"
+   "MIUIUIIIIUI"
+   "MIUIUIIIUII"
+   "MIUIUIIUIII"
+   "MIUIUIIUU"
+   "MIUIUIUIIII"
+   "MIUIUIUIIIIIUIIIIIUIIII"
+   "MIUIUIUIIIIIUIUIUIIII"
+   "MIUIUIUIIIIU"
+   "MIUIUIUIU"
+   "MIUIUIUIUIUIUIUIU"
+   "MIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIU"
+   "MIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIU"
+   "MIUIUIUUI"
+   "MIUIUUIIIII"
+   "MIUIUUIIIIIIIIU"
+   "MIUIUUIIIIIUU"
+   "MIUIUUIIU"
+   "MIUIUUIUIIIIU"
+   "MIUIUUIUIUU"
+   "MIUUI"
+   "MIUUIII"
+   "MIUUIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MIUUIIIIIIIIIIIIIUIIIIIIIII"
+   "MIUUIIIIIIIIIIUIIIIIIIIIIII"
+   "MIUUIIIIIIIIIIUUIIIIIIIII"
+   "MIUUIIIIIIIIIU"
+   "MIUUIIIIIIU"
+   "MIUUIIIIIUI"
+   "MIUUIIIIIUIIIIIUIIIIIUI"
+   "MIUUIIIIIUIIUUIIIIIUI"
+   "MIUUIIIIIUIU"
+   "MIUUIIIIUII"
+   "MIUUIIIIUIIIIIU"
+   "MIUUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIU"
+   "MIUUIIIIUIIIIUIIIIUIUUIIIIUIIIIUIIIIU"
+   "MIUUIIIIUIIIIUIUU"
+   "MIUUIIIIUIIIIUUIU"
+   "MIUUIIIIUIUUIIIIU"
+   "MIUUIIIIUIUUIIIIUIUUIIIIUIUUIIIIU"
+   "MIUUIIIIUIUUIUU"
+   "MIUUIIIIUIUUUIU"
+   "MIUUIIIIUUIUIIIIU"
+   "MIUUIIIUIII"
+   "MIUUIIUIIII"
+   "MIUUIIUIIIIIUIIIIIUIIII"
+   "MIUUIIUIIIIIUUIIUIIII"
+   "MIUUIIUIIIIU"
+   "MIUUIIUIU"
+   "MIUUIIUUI"
+   "MIUUIIUUIIUUIIUUI"
+   "MIUUIIUUIU"
+   "MIUUIIUUIUU"
+   "MIUUIU"
+   "MIUUIUIIIII"
+   "MIUUIUIIIIIIIIU"
+   "MIUUIUIIIIUIU"
+   "MIUUIUIUI"
+   "MIUUIUIUIIIIU"
+   "MIUUIUIUUIU"
+   "MIUUIUUIIIIUIIIIU"
+   "MIUUIUUIIIIUIUU"
+   "MIUUIUUIIUU"
+   "MIUUIUUIUUI"
+   "MIUUIUUIUUIIIIU"
+   "MIUUIUUIUUIUU"
+   "MIUUIUUIUUIUUIUUIUUIUUIUU"
+   "MIUUUIIIIII"
+   "MIUUUIIUI"
+   "MIUUUIUIIIIUIIIIU"
+   "MIUUUIUIIIIUUIU"
+   "MIUUUIUIUUIIIIU"
+   "MIUUUIUIUUUIU"
+   "MUII"
+   "MUIIIIIII"
+   "MUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIU"
+   "MUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MUIIIIIIIIIIIIIIIIIIIIIIIIIIU"
+   "MUIIIIIIIIIIIIIIIIIIIIIIIIIUI"
+   "MUIIIIIIIIIIIIIIIIIIIIIIIIUII"
+   "MUIIIIIIIIIIIIIIIIIIIIIIIUIII"
+   "MUIIIIIIIIIIIIIIIIIIIIIIUIIII"
+   "MUIIIIIIIIIIIIIIIIIIIIIUIIIII"
+   "MUIIIIIIIIIIIIIIIIIIIIUIIIIII"
+   "MUIIIIIIIIIIIIIIIIIIIUIIIIIII"
+   "MUIIIIIIIIIIIIIIIIIIUIIIIIIII"
+   "MUIIIIIIIIIIIIIIIIIUIIIIIIIII"
+   "MUIIIIIIIIIIIIIIIIUIIIIIIIIII"
+   "MUIIIIIIIIIIIIIIIUIIIIIIIIIII"
+   "MUIIIIIIIIIIIIIIUIIIIIIIIIIII"
+   "MUIIIIIIIIIIIIIUIIIIIIIIIIIII"
+   "MUIIIIIIIIIIIIIUIIIIIIIIIIIIIIIIU"
+   "MUIIIIIIIIIIIIIUIIIIIIIIIIIIIU"
+   "MUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIIIUIIIIIIIIIIIII"
+   "MUIIIIIIIIIIIIIUIIIIIIIIIIU"
+   "MUIIIIIIIIIIIIIUIIIIIIIIIUI"
+   "MUIIIIIIIIIIIIIUIIIIIIIIUII"
+   "MUIIIIIIIIIIIIIUIIIIIIIUIII"
+   "MUIIIIIIIIIIIIIUIIIIIIUIIII"
+   "MUIIIIIIIIIIIIIUIIIIIUIIIII"
+   "MUIIIIIIIIIIIIIUIIIIUIIIIII"
+   "MUIIIIIIIIIIIIIUIIIUIIIIIII"
+   "MUIIIIIIIIIIIIIUIIUIIIIIIII"
+   "MUIIIIIIIIIIIIIUIUIIIIIIIII"
+   "MUIIIIIIIIIIIIIUUIIIIIIIIII"
+   "MUIIIIIIIIIIIIIUUIIIIIIIIIIIIIU"
+   "MUIIIIIIIIIIIIUIIIIIIIIIIIIII"
+   "MUIIIIIIIIIIIUIIIIIIIIIIIIIII"
+   "MUIIIIIIIIIIU"
+   "MUIIIIIIIIIIUIIIIIIIIIIIIIIII"
+   "MUIIIIIIIIIIUIIIIIIIIIIIIIU"
+   "MUIIIIIIIIIIUU"
+   "MUIIIIIIIIIIUUIIIIIIIIIIIII"
+   "MUIIIIIIIIIIUUIIIIIIIIIIU"
+   "MUIIIIIIIIIUIIIIIIIIIIIIIIIII"
+   "MUIIIIIIIIIUIIIIIIIIIIIIIUI"
+   "MUIIIIIIIIIUIU"
+   "MUIIIIIIIIIUIUIIIIIIIIIIIII"
+   "MUIIIIIIIIIUIUIIIIIIIIIUI"
+   "MUIIIIIIIIUIIIIIIIIIIIIIIIIII"
+   "MUIIIIIIIIUIIIIIIIIIIIIIUII"
+   "MUIIIIIIIIUIIU"
+   "MUIIIIIIIIUIIUIIIIIIIIIIIII"
+   "MUIIIIIIIIUIIUIIIIIIIIUII"
+   "MUIIIIIIIUIIIIIIIIIIIIIIIIIII"
+   "MUIIIIIIIUIIIIIIIIIIIIIUIII"
+   "MUIIIIIIIUIIIU"
+   "MUIIIIIIIUIIIUIIIIIIIIIIIII"
+   "MUIIIIIIIUIIIUIIIIIIIUIII"
+   "MUIIIIIIIUU"
+   "MUIIIIIIUIIIIIIIIIIIIIIIIIIII"
+   "MUIIIIIIUIIIIIIIIIIIIIUIIII"
+   "MUIIIIIIUIIIIU"
+   "MUIIIIIIUIIIIUIIIIIIIIIIIII"
+   "MUIIIIIIUIIIIUIIIIIIUIIII"
+   "MUIIIIIIUIU"
+   "MUIIIIIIUUI"
+   "MUIIIIIUIIIIIIIIIIIIIIIIIIIII"
+   "MUIIIIIUIIIIIIIIIIIIIUIIIII"
+   "MUIIIIIUIIIIIIIIUIIIIIIIIUIIIIIIIIU"
+   "MUIIIIIUIIIIIIIIUUIIIIIUIIIIIIIIU"
+   "MUIIIIIUIIIIIU"
+   "MUIIIIIUIIIIIUIIIIIIIIIIIII"
+   "MUIIIIIUIIIIIUIIIIIUIIIII"
+   "MUIIIIIUIIIIIUIIIIIUIIIIIU"
+   "MUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUIIIIIUIIIII"
+   "MUIIIIIUIIIIIUIIIIIUIIU"
+   "MUIIIIIUIIIIIUIIIIIUIUI"
+   "MUIIIIIUIIIIIUIIIIIUUII"
+   "MUIIIIIUIIIIIUIIUUIIIII"
+   "MUIIIIIUIIIIIUIUIUIIIII"
+   "MUIIIIIUIIIIIUU"
+   "MUIIIIIUIIIIIUUIIIIIUIIIIIU"
+   "MUIIIIIUIIIIIUUIIUIIIII"
+   "MUIIIIIUIIIIUIU"
+   "MUIIIIIUIIIUIIU"
+   "MUIIIIIUIIU"
+   "MUIIIIIUIIUIIIU"
+   "MUIIIIIUIIUU"
+   "MUIIIIIUIIUUIIIIIUIIIII"
+   "MUIIIIIUIIUUIIIIIUIIU"
+   "MUIIIIIUIUI"
+   "MUIIIIIUIUIIIIU"
+   "MUIIIIIUIUIU"
+   "MUIIIIIUIUIUIIIIIUIIIII"
+   "MUIIIIIUIUIUIIIIIUIUI"
+   "MUIIIIIUUII"
+   "MUIIIIIUUIIIIIU"
+   "MUIIIIIUUIIIIIUUIIIIIUUIIIIIU"
+   "MUIIIIIUUIIU"
+   "MUIIIIIUUIIUIIIIIUIIIII"
+   "MUIIIIIUUIIUIIIIIUUII"
+   "MUIIIIIUUIIUU"
+   "MUIIIIIUUIUIU"
+   "MUIIIIIUUUIIU"
+   "MUIIIIU"
+   "MUIIIIUIIIIIIIIIIIIIIIIIIIIII"
+   "MUIIIIUIIIIIIIIIIIIIUIIIIII"
+   "MUIIIIUIIIIIIU"
+   "MUIIIIUIIIIIIUIIIIIIIIIIIII"
+   "MUIIIIUIIIIIIUIIIIUIIIIII"
+   "MUIIIIUIIIU"
+   "MUIIIIUIIUI"
+   "MUIIIIUIUII"
+   "MUIIIIUUIII"
+   "MUIIIUIIIIIIIIIIIIIIIIIIIIIII"
+   "MUIIIUIIIIIIIIIIIIIUIIIIIII"
+   "MUIIIUIIIIIIIU"
+   "MUIIIUIIIIIIIUIIIIIIIIIIIII"
+   "MUIIIUIIIIIIIUIIIUIIIIIII"
+   "MUIIIUIIIIU"
+   "MUIIIUIIIUI"
+   "MUIIIUIIUII"
+   "MUIIIUIUIII"
+   "MUIIIUUIIII"
+   "MUIIU"
+   "MUIIUIIIIIIIIIIIIIIIIIIIIIIII"
+   "MUIIUIIIIIIIIIIIIIUIIIIIIII"
+   "MUIIUIIIIIIIIU"
+   "MUIIUIIIIIIIIUIIIIIIIIIIIII"
+   "MUIIUIIIIIIIIUIIUIIIIIIII"
+   "MUIIUIIIIIU"
+   "MUIIUIIIIIUIIIIIUIIIIIU"
+   "MUIIUIIIIIUUIIUIIIIIU"
+   "MUIIUIIIIUI"
+   "MUIIUIIIUII"
+   "MUIIUIIUIII"
+   "MUIIUIIUU"
+   "MUIIUIUIIII"
+   "MUIIUIUIU"
+   "MUIIUUIIIII"
+   "MUIIUUIIIIIIIIU"
+   "MUIIUUIIIIIU"
+   "MUIIUUIIIIIUIIIIIUIIIII"
+   "MUIIUUIIIIIUIIUUIIIII"
+   "MUIIUUIIIIIUU"
+   "MUIIUUIIU"
+   "MUIIUUIIUUIIUUIIU"
+   "MUIIUUIUI"
+   "MUIIUUIUUIU"
+   "MUIIUUUII"
+   "MUIIUUUIIIIIU"
+   "MUIIUUUIIUU"
+   "MUIUI"
+   "MUIUIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MUIUIIIIIIIIIIIIIUIIIIIIIII"
+   "MUIUIIIIIIIIIU"
+   "MUIUIIIIIIIIIUIIIIIIIIIIIII"
+   "MUIUIIIIIIIIIUIUIIIIIIIII"
+   "MUIUIIIIIIU"
+   "MUIUIIIIIUI"
+   "MUIUIIIIIUIIIIIUIIIIIUI"
+   "MUIUIIIIIUIIIIU"
+   "MUIUIIIIIUIU"
+   "MUIUIIIIIUIUIUIIIIIUI"
+   "MUIUIIIIUII"
+   "MUIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIUIIIIU"
+   "MUIUIIIIUIIIIUIIIIUUIUIIIIUIIIIUIIIIU"
+   "MUIUIIIIUIIIIUIUU"
+   "MUIUIIIIUIIIIUUIU"
+   "MUIUIIIIUIUUIIIIU"
+   "MUIUIIIIUUIUIIIIU"
+   "MUIUIIIIUUIUIIIIUUIUIIIIUUIUIIIIU"
+   "MUIUIIIIUUIUIUU"
+   "MUIUIIIIUUIUUIU"
+   "MUIUIIIUIII"
+   "MUIUIIUIIII"
+   "MUIUIIUIU"
+   "MUIUIIUUI"
+   "MUIUIUIIIII"
+   "MUIUIUIIIIIIIIU"
+   "MUIUIUIIIIIU"
+   "MUIUIUIIIIIUIIIIIUIIIII"
+   "MUIUIUIIIIIUIUIUIIIII"
+   "MUIUIUIIIIUIU"
+   "MUIUIUIIU"
+   "MUIUIUIUI"
+   "MUIUIUIUIU"
+   "MUIUIUIUIUIUIUIUI"
+   "MUIUIUIUIUIUIUIUIU"
+   "MUIUIUIUIUIUIUIUIUIUIUIUIUIUIUIUI"
+   "MUIUIUIUIUUIUIUIUIU"
+   "MUIUIUUII"
+   "MUIUIUUIIIIIU"
+   "MUIUIUUIIIIUIIIIU"
+   "MUIUIUUIIIIUIUU"
+   "MUIUIUUIUIU"
+   "MUIUIUUIUIUUIUIUUIUIU"
+   "MUIUIUUUIUIIIIU"
+   "MUIUIUUUIUIUU"
+   "MUIUUIIIIII"
+   "MUIUUIIUI"
+   "MUIUUIIUUIU"
+   "MUIUUIUIIIIUIIIIU"
+   "MUIUUIUIIIIUUIU"
+   "MUIUUIUUIIU"
+   "MUIUUIUUIUIIIIU"
+   "MUIUUIUUIUUIU"
+   "MUIUUIUUIUUIUUIUUIUUIUUIU"
+   "MUUIIII"
+   "MUUIIIIIIIIIIIIIIIIIIIIIIIIII"
+   "MUUIIIIIIIIIIIIIUIIIIIIIIII"
+   "MUUIIIIIIIIIIU"
+   "MUUIIIIIIIIIIUIIIIIIIIIIIII"
+   "MUUIIIIIIIIIIUUIIIIIIIIII"
+   "MUUIIIIIIIU"
+   "MUUIIIIIIUI"
+   "MUUIIIIIUII"
+   "MUUIIIIIUIIIIIUIIIIIUII"
+   "MUUIIIIIUIIU"
+   "MUUIIIIIUIIUUIIIIIUII"
+   "MUUIIIIUIII"
+   "MUUIIIUIIII"
+   "MUUIIUIIIII"
+   "MUUIIUIIIIIIIIU"
+   "MUUIIUIIIIIU"
+   "MUUIIUIIIIIUIIIIIUIIIII"
+   "MUUIIUIIIIIUUIIUIIIII"
+   "MUUIIUIIIUIIU"
+   "MUUIIUIIU"
+   "MUUIIUIUI"
+   "MUUIIUUII"
+   "MUUIIUUIIIIIU"
+   "MUUIIUUIIU"
+   "MUUIIUUIIUUIIUUII"
+   "MUUIIUUUIIU"
+   "MUUIUIIIIII"
+   "MUUIUIUII"
+   "MUUUIIIIIII"
+   "MUUUIIUII"
+#------------------------------------------------------------- 55 progs/mkpasswd
+7EBIFB2Q
+#---------------------------------------------------------------- 56 progs/morse
+A .-     F ..-.   K -.-    P .--.   U ..-    Z --..   0 -----   5 .....
+B -...   G --.    L .-..   Q --.-   V ...-            1 .----   6 -....
+C -.-.   H ....   M --     R .-.    W .--             2 ..---   7 --...
+D -..    I ..     N -.     S ...    X -..-            3 ...--   8 ---..
+E .      J .---   O ---    T -      Y -.--            4 ....-   9 ----.
+#--------------------------------------------------------------- 57 progs/parens
+(((()(()))()))((()))
+()(()(()())())((()))
+((((((())))()))())()
+(()(()((())())))()()
+((((()))(((()())))))
+(((((()))(()))))(())
+()(()(()()())())(())
+()(()())(()()()()())
+(((())(()(())(()))))
+()()((()))(()(()))()
+#--------------------------------------------------------------- 58 progs/pargen
+link recog
+link matchlib
+global goal
+
+procedure init()
+   goal := _
+   return
+end
+#--------------------------------------------------------------- 59 progs/parsex
+->
+#----------------------------------------------------------------- 60 progs/post
+Newsgroups: 
+#----------------------------------------------------------------- 61 progs/puzz
+0 words inserted out of 0 words.
+
+
+Now for the puzzle you've been waiting for! (ANSWER)
+
+I C N K O A P C N D O Y X D O W E Q F E 
+T H X S X F X R N S H J H S I R X P E Q 
+D O X A V R B S M X Q O U M V E D N Z H 
+M F F W C K E I J S T M V D M R Z S A U 
+A F H M Z K Q T K N S M W C E L Z L B S 
+R J Z N M W F L A D A L X P J H L J P V 
+M Z B V V Q Q Z Y T H E J G S Q V G D Y 
+M O D E B T I K C I H W B D J A G O D K 
+V S P E V N F V J I V W R Z R L E X A G 
+T S Q J N X G U V G T U G I V D F X C D 
+L T A Z R B H W W U N I Z O V X D R Q V 
+D Q R G R E H P M T D S F S U B M A W A 
+L S G F D N K E Y J T B N F P X I I O F 
+M Y O S Q Y O A V P S Q C R Y P M R E V 
+V Q F I C A K A I N O Q V X W J N V B T 
+H D J L T B P C A U I R M M W Q X R H W 
+M Z K O X P V Z K F H G G O T G G X R N 
+P C H N J P X A R I U T P M S V Y R P X 
+T N P Q V H A Y E U T S U N V H U G V N 
+Z S U D C L F G B E O P S U R Y D H R N 
+Now for the puzzle you've been waiting for! (PUZZLE)
+
+I C N K O A P C N D O Y X D O W E Q F E 
+T H X S X F X R N S H J H S I R X P E Q 
+D O X A V R B S M X Q O U M V E D N Z H 
+M F F W C K E I J S T M V D M R Z S A U 
+A F H M Z K Q T K N S M W C E L Z L B S 
+R J Z N M W F L A D A L X P J H L J P V 
+M Z B V V Q Q Z Y T H E J G S Q V G D Y 
+M O D E B T I K C I H W B D J A G O D K 
+V S P E V N F V J I V W R Z R L E X A G 
+T S Q J N X G U V G T U G I V D F X C D 
+L T A Z R B H W W U N I Z O V X D R Q V 
+D Q R G R E H P M T D S F S U B M A W A 
+L S G F D N K E Y J T B N F P X I I O F 
+M Y O S Q Y O A V P S Q C R Y P M R E V 
+V Q F I C A K A I N O Q V X W J N V B T 
+H D J L T B P C A U I R M M W Q X R H W 
+M Z K O X P V Z K F H G G O T G G X R N 
+P C H N J P X A R I U T P M S V Y R P X 
+T N P Q V H A Y E U T S U N V H U G V N 
+Z S U D C L F G B E O P S U R Y D H R N 
+#------------------------------------------------------------------- 62 progs/qt
+It's almost twenty five to three.
+#--------------------------------------------------------------- 63 progs/queens
+6-Queens:
+solution: 1
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+
+solution: 2
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+
+solution: 3
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+
+solution: 4
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+#--------------------------------------------------------------- 64 progs/recgen
+procedure main()
+   while line := read() do {
+      writes(image(line))
+      if line ? (_() & pos(0)) then 
+         write(": accepted")
+      else write(": rejected")
+      }
+end
+#---------------------------------------------------------------- 65 progs/reply
+Send y/n? 
+#---------------------------------------------------------------- 66 progs/repro
+procedure main();x:="procedure main();x:= \nx[21]:=image(x);write(x);end"
+x[21]:=image(x);write(x);end
+#------------------------------------------------------------- 67 progs/roffcmds
+Commands:
+
+
+Controls:
+#---------------------------------------------------------------- 68 progs/ruler
+         1         2         3         4         5         6         7         8
+----+----|----+----|----+----|----+----|----+----|----+----|----+----|----+----|
+#------------------------------------------------------------- 69 progs/scramble
+.
+#----------------------------------------------------------------- 70 progs/shar
+#! /bin/sh
+# This is a shell archive, meaning:
+# 1. Remove everything above the #! /bin/sh line.
+# 2. Save the resulting text in a file.
+;;  # 3. Execute the file with /bin/sh (not csh) to create:
+# This archive created: Saturday, September 5, 2026  2:34 pm
+export PATH; PATH=/bin:/usr/bin:$PATH
+exit 0
+;#	End of shell archive
+#----------------------------------------------------------------- 71 progs/sing
+
+On the first day of Christmas,
+my true love gave to me,
+a partridge in a pear tree.
+
+On the second day of Christmas,
+my true love gave to me,
+two turtle doves,
+and a partridge in a pear tree.
+
+On the third day of Christmas,
+my true love gave to me,
+three french hens,
+two turtle doves,
+and a partridge in a pear tree.
+
+On the fourth day of Christmas,
+my true love gave to me,
+four colly birds,
+three french hens,
+two turtle doves,
+and a partridge in a pear tree.
+
+On the fifth day of Christmas,
+my true love gave to me,
+five golden rings,
+four colly birds,
+three french hens,
+two turtle doves,
+and a partridge in a pear tree.
+
+On the sixth day of Christmas,
+my true love gave to me,
+six geese a'laying,
+five golden rings,
+four colly birds,
+three french hens,
+two turtle doves,
+and a partridge in a pear tree.
+
+On the seventh day of Christmas,
+my true love gave to me,
+seven swans a'swimming,
+six geese a'laying,
+five golden rings,
+four colly birds,
+three french hens,
+two turtle doves,
+and a partridge in a pear tree.
+
+On the eighth day of Christmas,
+my true love gave to me,
+eight maids a'milking,
+seven swans a'swimming,
+six geese a'laying,
+five golden rings,
+four colly birds,
+three french hens,
+two turtle doves,
+and a partridge in a pear tree.
+
+On the ninth day of Christmas,
+my true love gave to me,
+nine drummers drumming,
+eight maids a'milking,
+seven swans a'swimming,
+six geese a'laying,
+five golden rings,
+four colly birds,
+three french hens,
+two turtle doves,
+and a partridge in a pear tree.
+
+On the tenth day of Christmas,
+my true love gave to me,
+ten pipers piping,
+nine drummers drumming,
+eight maids a'milking,
+seven swans a'swimming,
+six geese a'laying,
+five golden rings,
+four colly birds,
+three french hens,
+two turtle doves,
+and a partridge in a pear tree.
+
+On the eleventh day of Christmas,
+my true love gave to me,
+eleven ladies dancing,
+ten pipers piping,
+nine drummers drumming,
+eight maids a'milking,
+seven swans a'swimming,
+six geese a'laying,
+five golden rings,
+four colly birds,
+three french hens,
+two turtle doves,
+and a partridge in a pear tree.
+
+On the twelfth day of Christmas,
+my true love gave to me,
+twelve lords a'leaping,
+eleven ladies dancing,
+ten pipers piping,
+nine drummers drumming,
+eight maids a'milking,
+seven swans a'swimming,
+six geese a'laying,
+five golden rings,
+four colly birds,
+three french hens,
+two turtle doves,
+and a partridge in a pear tree.
+#---------------------------------------------------------------- 72 progs/solit
+[H[2J[1;7H1[1;12H2[1;17H3[1;22H4[1;27H5[1;32H6[1;37H7[1;56HACES[6;56HDECK[1;9H [1;14H1[1;19H2[1;24H3[1;29H4[1;34H5[1;39H6[3;49H---  ---  ---  ---  [8;54H #        [2;7H[0;31;47m 8H[0m[2;12H[0;31;47m10D[0m[2;17H[1;30;47m 3S[0m[2;22H[0;31;47m10H[0m[2;27H[0;31;47m 8D[0m[2;32H[0;31;47m JD[0m[2;37H[1;30;47m 4S[0m[15;0Hcmd:1> [0K
+#-------------------------------------------------------------- 73 progs/textcnt
+empty file
+#--------------------------------------------------------------- 74 progs/toktab
+
+Unary operators:
+
+
+       0   total
+
+Binary operators:
+
+
+       0   total
+
+Other operations:
+
+
+       0   total
+
+Control structures:
+
+
+       0   total
+
+Keywords:
+
+
+       0   total
+
+Cset literals:
+
+
+       0   total
+
+Integer literals:
+
+
+       0   total
+
+Real literals:
+
+
+       0   total
+
+String literals:
+
+
+       0   total
+
+Variable references:
+
+
+       0   total
+
+Field references:
+
+
+       0   total
+
+Declarations:
+
+
+       0   total
+
+Globals:
+
+
+       0   total
+
+Locals:
+
+
+       0   total
+
+Statics:
+
+
+       0   total
+
+Procedure parameters:
+
+
+       0   total
+
+Record fields:
+
+
+       0   total
+
+Included files:
+
+
+       0   total
+
+Total tokens: 0
+#------------------------------------------------------------------ 75 progs/vnq
+[2J[1;1H
+  ---------------------------------
+  |   |   |   |   |   |   |   |   |
+  ---------------------------------
+  |   |   |   |   |   |   |   |   |
+  ---------------------------------
+  |   |   |   |   |   |   |   |   |
+  ---------------------------------
+  |   |   |   |   |   |   |   |   |
+  ---------------------------------
+  |   |   |   |   |   |   |   |   |
+  ---------------------------------
+  |   |   |   |   |   |   |   |   |
+  ---------------------------------
+  |   |   |   |   |   |   |   |   |
+  ---------------------------------
+  |   |   |   |   |   |   |   |   |
+  ---------------------------------
+8-Queens:
+[1;1Hsolution:          1
+[3;5HQ[5;21HQ[7;33HQ[9;25HQ[11;13HQ[13;29HQ[15;9HQ[17;17HQ[3;5H [5;21H [7;33H [9;25H [11;13H [13;29H [15;9H [17;17H [1;1Hsolution:          2
+[3;5HQ[5;25HQ[7;33HQ[9;13HQ[11;29HQ[13;17HQ[15;9HQ[17;21HQ[3;5H [5;25H [7;33H [9;13H [11;29H [13;17H [15;9H [17;21H [1;1Hsolution:          3
+[3;5HQ[5;29HQ[7;17HQ[9;25HQ[11;33HQ[13;9HQ[15;21HQ[17;13HQ[3;5H [5;29H [7;17H [9;25H [11;33H [13;9H [15;21H [17;13H [1;1Hsolution:          4
+[3;5HQ[5;29HQ[7;21HQ[9;33HQ[11;9HQ[13;17HQ[15;25HQ[17;13HQ[3;5H [5;29H [7;21H [9;33H [11;9H [13;17H [15;25H [17;13H [1;1Hsolution:          5
+[3;9HQ[5;17HQ[7;25HQ[9;33HQ[11;13HQ[13;5HQ[15;29HQ[17;21HQ[3;9H [5;17H [7;25H [9;33H [11;13H [13;5H [15;29H [17;21H [1;1Hsolution:          6
+[3;9HQ[5;21HQ[7;29HQ[9;5HQ[11;13HQ[13;33HQ[15;25HQ[17;17HQ[3;9H [5;21H [7;29H [9;5H [11;13H [13;33H [15;25H [17;17H [1;1Hsolution:          7
+[3;9HQ[5;21HQ[7;29HQ[9;17HQ[11;5HQ[13;33HQ[15;25HQ[17;13HQ[3;9H [5;21H [7;29H [9;17H [11;5H [13;33H [15;25H [17;13H [1;1Hsolution:          8
+[3;9HQ[5;25HQ[7;5HQ[9;29HQ[11;17HQ[13;33HQ[15;13HQ[17;21HQ[3;9H [5;25H [7;5H [9;29H [11;17H [13;33H [15;13H [17;21H [1;1Hsolution:          9
+[3;9HQ[5;25HQ[7;33HQ[9;13HQ[11;5HQ[13;17HQ[15;29HQ[17;21HQ[3;9H [5;25H [7;33H [9;13H [11;5H [13;17H [15;29H [17;21H [1;1Hsolution:         10
+[3;9HQ[5;29HQ[7;13HQ[9;25HQ[11;33HQ[13;21HQ[15;5HQ[17;17HQ[3;9H [5;29H [7;13H [9;25H [11;33H [13;21H [15;5H [17;17H [1;1Hsolution:         11
+[3;9HQ[5;29HQ[7;21HQ[9;33HQ[11;5HQ[13;17HQ[15;25HQ[17;13HQ[3;9H [5;29H [7;21H [9;33H [11;5H [13;17H [15;25H [17;13H [1;1Hsolution:         12
+[3;9HQ[5;33HQ[7;25HQ[9;5HQ[11;13HQ[13;21HQ[15;29HQ[17;17HQ[3;9H [5;33H [7;25H [9;5H [11;13H [13;21H [15;29H [17;17H [1;1Hsolution:         13
+[3;13HQ[5;5HQ[7;29HQ[9;21HQ[11;33HQ[13;9HQ[15;17HQ[17;25HQ[3;13H [5;5H [7;29H [9;21H [11;33H [13;9H [15;17H [17;25H [1;1Hsolution:         14
+[3;13HQ[5;21HQ[7;9HQ[9;33HQ[11;5HQ[13;29HQ[15;17HQ[17;25HQ[3;13H [5;21H [7;9H [9;33H [11;5H [13;29H [15;17H [17;25H [1;1Hsolution:         15
+[3;13HQ[5;21HQ[7;9HQ[9;33HQ[11;25HQ[13;17HQ[15;29HQ[17;5HQ[3;13H [5;21H [7;9H [9;33H [11;25H [13;17H [15;29H [17;5H [1;1Hsolution:         16
+[3;13HQ[5;21HQ[7;29HQ[9;5HQ[11;17HQ[13;9HQ[15;33HQ[17;25HQ[3;13H [5;21H [7;29H [9;5H [11;17H [13;9H [15;33H [17;25H [1;1Hsolution:         17
+[3;13HQ[5;21HQ[7;33HQ[9;17HQ[11;5HQ[13;29HQ[15;9HQ[17;25HQ[3;13H [5;21H [7;33H [9;17H [11;5H [13;29H [15;9H [17;25H [1;1Hsolution:         18
+[3;13HQ[5;25HQ[7;9HQ[9;21HQ[11;33HQ[13;5HQ[15;29HQ[17;17HQ[3;13H [5;25H [7;9H [9;21H [11;33H [13;5H [15;29H [17;17H [1;1Hsolution:         19
+[3;13HQ[5;25HQ[7;9HQ[9;29HQ[11;5HQ[13;17HQ[15;33HQ[17;21HQ[3;13H [5;25H [7;9H [9;29H [11;5H [13;17H [15;33H [17;21H [1;1Hsolution:         20
+[3;13HQ[5;25HQ[7;9HQ[9;29HQ[11;21HQ[13;5HQ[15;33HQ[17;17HQ[3;13H [5;25H [7;9H [9;29H [11;21H [13;5H [15;33H [17;17H [1;1Hsolution:         21
+[3;13HQ[5;25HQ[7;17HQ[9;5HQ[11;33HQ[13;21HQ[15;29HQ[17;9HQ[3;13H [5;25H [7;17H [9;5H [11;33H [13;21H [15;29H [17;9H [1;1Hsolution:         22
+[3;13HQ[5;25HQ[7;17HQ[9;9HQ[11;33HQ[13;21HQ[15;29HQ[17;5HQ[3;13H [5;25H [7;17H [9;9H [11;33H [13;21H [15;29H [17;5H [1;1Hsolution:         23
+[3;13HQ[5;25HQ[7;33HQ[9;5HQ[11;17HQ[13;29HQ[15;21HQ[17;9HQ[3;13H [5;25H [7;33H [9;5H [11;17H [13;29H [15;21H [17;9H [1;1Hsolution:         24
+[3;13HQ[5;25HQ[7;33HQ[9;5HQ[11;21HQ[13;29HQ[15;9HQ[17;17HQ[3;13H [5;25H [7;33H [9;5H [11;21H [13;29H [15;9H [17;17H [1;1Hsolution:         25
+[3;13HQ[5;25HQ[7;33HQ[9;9HQ[11;17HQ[13;5HQ[15;29HQ[17;21HQ[3;13H [5;25H [7;33H [9;9H [11;17H [13;5H [15;29H [17;21H [1;1Hsolution:         26
+[3;13HQ[5;29HQ[7;9HQ[9;33HQ[11;21HQ[13;5HQ[15;17HQ[17;25HQ[3;13H [5;29H [7;9H [9;33H [11;21H [13;5H [15;17H [17;25H [1;1Hsolution:         27
+[3;13HQ[5;29HQ[7;9HQ[9;33HQ[11;25HQ[13;17HQ[15;5HQ[17;21HQ[3;13H [5;29H [7;9H [9;33H [11;25H [13;17H [15;5H [17;21H [1;1Hsolution:         28
+[3;13HQ[5;33HQ[7;17HQ[9;29HQ[11;5HQ[13;25HQ[15;9HQ[17;21HQ[3;13H [5;33H [7;17H [9;29H [11;5H [13;25H [15;9H [17;21H [1;1Hsolution:         29
+[3;17HQ[5;5HQ[7;21HQ[9;33HQ[11;9HQ[13;29HQ[15;13HQ[17;25HQ[3;17H [5;5H [7;21H [9;33H [11;9H [13;29H [15;13H [17;25H [1;1Hsolution:         30
+[3;17HQ[5;5HQ[7;21HQ[9;33HQ[11;25HQ[13;13HQ[15;29HQ[17;9HQ[3;17H [5;5H [7;21H [9;33H [11;25H [13;13H [15;29H [17;9H [1;1Hsolution:         31
+[3;17HQ[5;9HQ[7;21HQ[9;33HQ[11;25HQ[13;5HQ[15;13HQ[17;29HQ[3;17H [5;9H [7;21H [9;33H [11;25H [13;5H [15;13H [17;29H [1;1Hsolution:         32
+[3;17HQ[5;9HQ[7;29HQ[9;13HQ[11;25HQ[13;33HQ[15;5HQ[17;21HQ[3;17H [5;9H [7;29H [9;13H [11;25H [13;33H [15;5H [17;21H [1;1Hsolution:         33
+[3;17HQ[5;9HQ[7;29HQ[9;13HQ[11;25HQ[13;33HQ[15;21HQ[17;5HQ[3;17H [5;9H [7;29H [9;13H [11;25H [13;33H [15;21H [17;5H [1;1Hsolution:         34
+[3;17HQ[5;9HQ[7;29HQ[9;21HQ[11;5HQ[13;33HQ[15;25HQ[17;13HQ[3;17H [5;9H [7;29H [9;21H [11;5H [13;33H [15;25H [17;13H [1;1Hsolution:         35
+[3;17HQ[5;9HQ[7;33HQ[9;21HQ[11;29HQ[13;5HQ[15;13HQ[17;25HQ[3;17H [5;9H [7;33H [9;21H [11;29H [13;5H [15;13H [17;25H [1;1Hsolution:         36
+[3;17HQ[5;9HQ[7;33HQ[9;25HQ[11;5HQ[13;13HQ[15;21HQ[17;29HQ[3;17H [5;9H [7;33H [9;25H [11;5H [13;13H [15;21H [17;29H [1;1Hsolution:         37
+[3;17HQ[5;25HQ[7;5HQ[9;21HQ[11;9HQ[13;33HQ[15;13HQ[17;29HQ[3;17H [5;25H [7;5H [9;21H [11;9H [13;33H [15;13H [17;29H [1;1Hsolution:         38
+[3;17HQ[5;25HQ[7;33HQ[9;9HQ[11;29HQ[13;5HQ[15;13HQ[17;21HQ[3;17H [5;25H [7;33H [9;9H [11;29H [13;5H [15;13H [17;21H [1;1Hsolution:         39
+[3;17HQ[5;25HQ[7;33HQ[9;13HQ[11;5HQ[13;29HQ[15;21HQ[17;9HQ[3;17H [5;25H [7;33H [9;13H [11;5H [13;29H [15;21H [17;9H [1;1Hsolution:         40
+[3;17HQ[5;29HQ[7;5HQ[9;33HQ[11;21HQ[13;9HQ[15;25HQ[17;13HQ[3;17H [5;29H [7;5H [9;33H [11;21H [13;9H [15;25H [17;13H [1;1Hsolution:         41
+[3;17HQ[5;29HQ[7;13HQ[9;33HQ[11;9HQ[13;21HQ[15;5HQ[17;25HQ[3;17H [5;29H [7;13H [9;33H [11;9H [13;21H [15;5H [17;25H [1;1Hsolution:         42
+[3;17HQ[5;29HQ[7;21HQ[9;9HQ[11;25HQ[13;5HQ[15;13HQ[17;33HQ[3;17H [5;29H [7;21H [9;9H [11;25H [13;5H [15;13H [17;33H [1;1Hsolution:         43
+[3;17HQ[5;29HQ[7;21HQ[9;13HQ[11;5HQ[13;25HQ[15;33HQ[17;9HQ[3;17H [5;29H [7;21H [9;13H [11;5H [13;25H [15;33H [17;9H [1;1Hsolution:         44
+[3;17HQ[5;33HQ[7;5HQ[9;13HQ[11;25HQ[13;9HQ[15;29HQ[17;21HQ[3;17H [5;33H [7;5H [9;13H [11;25H [13;9H [15;29H [17;21H [1;1Hsolution:         45
+[3;17HQ[5;33HQ[7;5HQ[9;21HQ[11;29HQ[13;9HQ[15;25HQ[17;13HQ[3;17H [5;33H [7;5H [9;21H [11;29H [13;9H [15;25H [17;13H [1;1Hsolution:         46
+[3;17HQ[5;33HQ[7;21HQ[9;13HQ[11;5HQ[13;29HQ[15;9HQ[17;25HQ[3;17H [5;33H [7;21H [9;13H [11;5H [13;29H [15;9H [17;25H [1;1Hsolution:         47
+[3;21HQ[5;5HQ[7;17HQ[9;25HQ[11;33HQ[13;9HQ[15;29HQ[17;13HQ[3;21H [5;5H [7;17H [9;25H [11;33H [13;9H [15;29H [17;13H [1;1Hsolution:         48
+[3;21HQ[5;5HQ[7;33HQ[9;17HQ[11;9HQ[13;29HQ[15;13HQ[17;25HQ[3;21H [5;5H [7;33H [9;17H [11;9H [13;29H [15;13H [17;25H [1;1Hsolution:         49
+[3;21HQ[5;5HQ[7;33HQ[9;25HQ[11;13HQ[13;29HQ[15;9HQ[17;17HQ[3;21H [5;5H [7;33H [9;25H [11;13H [13;29H [15;9H [17;17H [1;1Hsolution:         50
+[3;21HQ[5;9HQ[7;17HQ[9;25HQ[11;33HQ[13;13HQ[15;5HQ[17;29HQ[3;21H [5;9H [7;17H [9;25H [11;33H [13;13H [15;5H [17;29H [1;1Hsolution:         51
+[3;21HQ[5;9HQ[7;17HQ[9;29HQ[11;13HQ[13;33HQ[15;25HQ[17;5HQ[3;21H [5;9H [7;17H [9;29H [11;13H [13;33H [15;25H [17;5H [1;1Hsolution:         52
+[3;21HQ[5;9HQ[7;25HQ[9;5HQ[11;29HQ[13;17HQ[15;33HQ[17;13HQ[3;21H [5;9H [7;25H [9;5H [11;29H [13;17H [15;33H [17;13H [1;1Hsolution:         53
+[3;21HQ[5;9HQ[7;33HQ[9;5HQ[11;17HQ[13;29HQ[15;13HQ[17;25HQ[3;21H [5;9H [7;33H [9;5H [11;17H [13;29H [15;13H [17;25H [1;1Hsolution:         54
+[3;21HQ[5;13HQ[7;5HQ[9;25HQ[11;33HQ[13;9HQ[15;17HQ[17;29HQ[3;21H [5;13H [7;5H [9;25H [11;33H [13;9H [15;17H [17;29H [1;1Hsolution:         55
+[3;21HQ[5;13HQ[7;5HQ[9;29HQ[11;9HQ[13;33HQ[15;25HQ[17;17HQ[3;21H [5;13H [7;5H [9;29H [11;9H [13;33H [15;25H [17;17H [1;1Hsolution:         56
+[3;21HQ[5;13HQ[7;33HQ[9;17HQ[11;29HQ[13;5HQ[15;25HQ[17;9HQ[3;21H [5;13H [7;33H [9;17H [11;29H [13;5H [15;25H [17;9H [1;1Hsolution:         57
+[3;21HQ[5;29HQ[7;5HQ[9;13HQ[11;33HQ[13;25HQ[15;17HQ[17;9HQ[3;21H [5;29H [7;5H [9;13H [11;33H [13;25H [15;17H [17;9H [1;1Hsolution:         58
+[3;21HQ[5;29HQ[7;5HQ[9;17HQ[11;9HQ[13;33HQ[15;25HQ[17;13HQ[3;21H [5;29H [7;5H [9;17H [11;9H [13;33H [15;25H [17;13H [1;1Hsolution:         59
+[3;21HQ[5;29HQ[7;9HQ[9;17HQ[11;33HQ[13;5HQ[15;13HQ[17;25HQ[3;21H [5;29H [7;9H [9;17H [11;33H [13;5H [15;13H [17;25H [1;1Hsolution:         60
+[3;21HQ[5;29HQ[7;9HQ[9;25HQ[11;13HQ[13;5HQ[15;17HQ[17;33HQ[3;21H [5;29H [7;9H [9;25H [11;13H [13;5H [15;17H [17;33H [1;1Hsolution:         61
+[3;21HQ[5;29HQ[7;9HQ[9;25HQ[11;13HQ[13;5HQ[15;33HQ[17;17HQ[3;21H [5;29H [7;9H [9;25H [11;13H [13;5H [15;33H [17;17H [1;1Hsolution:         62
+[3;21HQ[5;29HQ[7;17HQ[9;5HQ[11;13HQ[13;33HQ[15;25HQ[17;9HQ[3;21H [5;29H [7;17H [9;5H [11;13H [13;33H [15;25H [17;9H [1;1Hsolution:         63
+[3;21HQ[5;33HQ[7;17HQ[9;5HQ[11;13HQ[13;25HQ[15;9HQ[17;29HQ[3;21H [5;33H [7;17H [9;5H [11;13H [13;25H [15;9H [17;29H [1;1Hsolution:         64
+[3;21HQ[5;33HQ[7;17HQ[9;5HQ[11;29HQ[13;9HQ[15;25HQ[17;13HQ[3;21H [5;33H [7;17H [9;5H [11;29H [13;9H [15;25H [17;13H [1;1Hsolution:         65
+[3;25HQ[5;5HQ[7;21HQ[9;9HQ[11;33HQ[13;13HQ[15;29HQ[17;17HQ[3;25H [5;5H [7;21H [9;9H [11;33H [13;13H [15;29H [17;17H [1;1Hsolution:         66
+[3;25HQ[5;9HQ[7;29HQ[9;5HQ[11;13HQ[13;21HQ[15;33HQ[17;17HQ[3;25H [5;9H [7;29H [9;5H [11;13H [13;21H [15;33H [17;17H [1;1Hsolution:         67
+[3;25HQ[5;9HQ[7;29HQ[9;5HQ[11;17HQ[13;33HQ[15;21HQ[17;13HQ[3;25H [5;9H [7;29H [9;5H [11;17H [13;33H [15;21H [17;13H [1;1Hsolution:         68
+[3;25HQ[5;13HQ[7;5HQ[9;29HQ[11;21HQ[13;33HQ[15;9HQ[17;17HQ[3;25H [5;13H [7;5H [9;29H [11;21H [13;33H [15;9H [17;17H [1;1Hsolution:         69
+[3;25HQ[5;13HQ[7;5HQ[9;33HQ[11;17HQ[13;9HQ[15;29HQ[17;21HQ[3;25H [5;13H [7;5H [9;33H [11;17H [13;9H [15;29H [17;21H [1;1Hsolution:         70
+[3;25HQ[5;13HQ[7;5HQ[9;33HQ[11;21HQ[13;9HQ[15;17HQ[17;29HQ[3;25H [5;13H [7;5H [9;33H [11;21H [13;9H [15;17H [17;29H [1;1Hsolution:         71
+[3;25HQ[5;13HQ[7;21HQ[9;29HQ[11;5HQ[13;17HQ[15;9HQ[17;33HQ[3;25H [5;13H [7;21H [9;29H [11;5H [13;17H [15;9H [17;33H [1;1Hsolution:         72
+[3;25HQ[5;13HQ[7;21HQ[9;33HQ[11;5HQ[13;17HQ[15;9HQ[17;29HQ[3;25H [5;13H [7;21H [9;33H [11;5H [13;17H [15;9H [17;29H [1;1Hsolution:         73
+[3;25HQ[5;13HQ[7;29HQ[9;9HQ[11;17HQ[13;33HQ[15;5HQ[17;21HQ[3;25H [5;13H [7;29H [9;9H [11;17H [13;33H [15;5H [17;21H [1;1Hsolution:         74
+[3;25HQ[5;13HQ[7;29HQ[9;9HQ[11;33HQ[13;21HQ[15;5HQ[17;17HQ[3;25H [5;13H [7;29H [9;9H [11;33H [13;21H [15;5H [17;17H [1;1Hsolution:         75
+[3;25HQ[5;13HQ[7;29HQ[9;17HQ[11;5HQ[13;33HQ[15;9HQ[17;21HQ[3;25H [5;13H [7;29H [9;17H [11;5H [13;33H [15;9H [17;21H [1;1Hsolution:         76
+[3;25HQ[5;17HQ[7;5HQ[9;21HQ[11;33HQ[13;9HQ[15;29HQ[17;13HQ[3;25H [5;17H [7;5H [9;21H [11;33H [13;9H [15;29H [17;13H [1;1Hsolution:         77
+[3;25HQ[5;17HQ[7;9HQ[9;33HQ[11;21HQ[13;29HQ[15;5HQ[17;13HQ[3;25H [5;17H [7;9H [9;33H [11;21H [13;29H [15;5H [17;13H [1;1Hsolution:         78
+[3;25HQ[5;17HQ[7;29HQ[9;5HQ[11;13HQ[13;21HQ[15;9HQ[17;33HQ[3;25H [5;17H [7;29H [9;5H [11;13H [13;21H [15;9H [17;33H [1;1Hsolution:         79
+[3;25HQ[5;17HQ[7;29HQ[9;5HQ[11;33HQ[13;9HQ[15;21HQ[17;13HQ[3;25H [5;17H [7;29H [9;5H [11;33H [13;9H [15;21H [17;13H [1;1Hsolution:         80
+[3;25HQ[5;33HQ[7;9HQ[9;17HQ[11;5HQ[13;29HQ[15;21HQ[17;13HQ[3;25H [5;33H [7;9H [9;17H [11;5H [13;29H [15;21H [17;13H [1;1Hsolution:         81
+[3;29HQ[5;5HQ[7;13HQ[9;33HQ[11;25HQ[13;17HQ[15;9HQ[17;21HQ[3;29H [5;5H [7;13H [9;33H [11;25H [13;17H [15;9H [17;21H [1;1Hsolution:         82
+[3;29HQ[5;9HQ[7;17HQ[9;5HQ[11;33HQ[13;21HQ[15;13HQ[17;25HQ[3;29H [5;9H [7;17H [9;5H [11;33H [13;21H [15;13H [17;25H [1;1Hsolution:         83
+[3;29HQ[5;9HQ[7;25HQ[9;13HQ[11;5HQ[13;17HQ[15;33HQ[17;21HQ[3;29H [5;9H [7;25H [9;13H [11;5H [13;17H [15;33H [17;21H [1;1Hsolution:         84
+[3;29HQ[5;13HQ[7;5HQ[9;25HQ[11;33HQ[13;21HQ[15;9HQ[17;17HQ[3;29H [5;13H [7;5H [9;25H [11;33H [13;21H [15;9H [17;17H [1;1Hsolution:         85
+[3;29HQ[5;13HQ[7;33HQ[9;9HQ[11;21HQ[13;5HQ[15;25HQ[17;17HQ[3;29H [5;13H [7;33H [9;9H [11;21H [13;5H [15;25H [17;17H [1;1Hsolution:         86
+[3;29HQ[5;17HQ[7;9HQ[9;21HQ[11;33HQ[13;5HQ[15;13HQ[17;25HQ[3;29H [5;17H [7;9H [9;21H [11;33H [13;5H [15;13H [17;25H [1;1Hsolution:         87
+[3;29HQ[5;17HQ[7;9HQ[9;33HQ[11;25HQ[13;5HQ[15;13HQ[17;21HQ[3;29H [5;17H [7;9H [9;33H [11;25H [13;5H [15;13H [17;21H [1;1Hsolution:         88
+[3;29HQ[5;21HQ[7;13HQ[9;5HQ[11;25HQ[13;33HQ[15;9HQ[17;17HQ[3;29H [5;21H [7;13H [9;5H [11;25H [13;33H [15;9H [17;17H [1;1Hsolution:         89
+[3;33HQ[5;9HQ[7;17HQ[9;5HQ[11;29HQ[13;21HQ[15;13HQ[17;25HQ[3;33H [5;9H [7;17H [9;5H [11;29H [13;21H [15;13H [17;25H [1;1Hsolution:         90
+[3;33HQ[5;9HQ[7;21HQ[9;13HQ[11;5HQ[13;29HQ[15;17HQ[17;25HQ[3;33H [5;9H [7;21H [9;13H [11;5H [13;29H [15;17H [17;25H [1;1Hsolution:         91
+[3;33HQ[5;13HQ[7;5HQ[9;25HQ[11;9HQ[13;21HQ[15;29HQ[17;17HQ[3;33H [5;13H [7;5H [9;25H [11;9H [13;21H [15;29H [17;17H [1;1Hsolution:         92
+[3;33HQ[5;17HQ[7;5HQ[9;13HQ[11;25HQ[13;9HQ[15;29HQ[17;21HQ[21;1H
+#----------------------------------------------------------------- 76 progs/what
+Usage: what.icn file1 [file2 [file3]]
+#------------------------------------------------------------- 77 progs/wshfdemo
+                         Weighted Shuffle Demonstration                         
+Enter random number seed: 
+#--------------------------------------------------------------- 78 progs/xtable
+Usage: xtable -<option>
+Options:
+	a: ASCII table
+	c: ASCII control char table
+	e: EBCDIC table
+	d: decimal numbers
+	e: octal numbers
