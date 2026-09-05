@@ -13418,9 +13418,9 @@ ZBODY_END
 	ZSRC = '["s","s"]'
 	OUTPUT = 'two-element ' ZBODY(1)
 END
-*--------------------------------------------------- 1708 simple_output_93 XFAIL
--INCLUDE "class1_dup_label_shared.sno"
--INCLUDE "class1_dup_label_shared.sno"
+*--------------------------------------------------- 1708 simple_output_93
+-INCLUDE "gimpel_triage_class1_dup_label_shared.sno"
+-INCLUDE "gimpel_triage_class1_dup_label_shared.sno"
         OUTPUT = X()
 END
 *--------------------------------------------------- 1709 simple_program_1 XFAIL
@@ -13506,7 +13506,7 @@ END
         OUTPUT  =  'built'
 END
 *---------------------------------------------------- 1716 array_replace_2 XFAIL
--INCLUDE "class5_sig11_seq_module.sno"
+-INCLUDE "gimpel_triage_class5_sig11_seq_module.sno"
         A  =  ARRAY(2)
         A<1>  =  'a'
         SEQ(' OUTPUT = A<K> ', .K)
@@ -13620,7 +13620,7 @@ END
 	OUTPUT = EVAL(b)
 END
 *--------------------------------------------- 1727 array_replace_branch_2 XFAIL
--INCLUDE "class8_sig6_perm_module.sno"
+-INCLUDE "gimpel_triage_class8_sig6_perm_module.sno"
         A  =  ARRAY(2)
         A<1>  =  'x'
         A<2>  =  'y'
