@@ -1,0 +1,204 @@
+-TITLE SPITBOL TEST PROGRAM #7 -- SYMBOL TABLE GENERATOR
+*
+*        THIS PROGRAM DEMONSTRATES THE STORAGE OF SYMBOL TABLES
+*        USING A TECHIQUE IN WHICH NAMES ARE STORED AS LINKED LISTS
+*        OF CHARACTERS. THE DATA FUNCTION IS USED TO FORM THE
+*        REQUIRED NODES WHICH CONTAIN APPROPRIATE POINTERS TO BE
+*        USED ON FAILURE OR SUCCESS OF THE CHARACTER BY CHARACTER MATCH
+*
+-CODE
+         DATA('SYMB(CHAR,LINK,ALT,ASSOC,SUCC)')
+         INPUT(.INPUT,,72)
+         SPC = '     ::'
+         ALPH = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+CLEAR    HEAD =
+         SWITCH1 = .FIRST
+         X = 0
+READA    OUTPUT =
+READ     CARD = TRIM(INPUT)                      :F(END1)
+         OUTPUT = CARD
+         DIFFER(CARD)                            :F(BADCARD)
+         CARD POS(0) '$' =                       :S(CONTROL)
+         CARD NOTANY(ALPH)                       :F(INCX)
+BADCARD  OUTPUT = '  CARD ABOVE IS ILLEGAL'      :(READ)
+INCX     X = X + 1                               :($SWITCH1)
+FIRST    SWITCH1 = .SEARCH
+F1       CARD LEN(1) . CH =                      :F(ERR)
+         HEAD = SYMB(CH)
+         CURRENT = HEAD
+F2       CARD LEN(1) . CH =                      :F(INSERT)
+F3       SUCC(CURRENT) = SYMB(CH,CURRENT)
+         CURRENT = SUCC(CURRENT)                 :(F2)
+INSERT   ASSOC(CURRENT) = ASSOC(CURRENT) X ","   :(READ)
+SEARCH   CARD LEN(1) . CH =                      :F(ERR)
+         LGT(CHAR(HEAD), CH)                     :S(S7)
+         IDENT(CHAR(HEAD),CH)                    :S(S5)
+*
+*  FIRST CHARACTER OF HEAD IS < FIRST CHAR OF CHAR JUST READ
+*  IF ALT(HEAD) NULL THEN MUST EXTEND STRUCTURE
+*
+         IDENT(ALT(HEAD))                        :S(S3)
+         CURRENT = ALT(HEAD)
+S1       LGT(CHAR(CURRENT),CH)                   :S(S6)
+         IDENT(CHAR(CURRENT),CH)                 :S(S4)
+         IDENT(ALT(CURRENT))                     :S(S2)
+         CURRENT = ALT(CURRENT)                  :(S1)
+*
+*  NEW ALTERNATIVE MUST BE INSERTED AT END
+*
+S2       ALT(CURRENT) = SYMB(CH,CURRENT)
+*
+*  THEN REST OF WORD STRUNG OUT
+*
+         CURRENT = ALT(CURRENT)                  :(F2)
+*
+*  NEW ALTERNATIVE MUST BE INSERTED AT HEAD OF LIST
+*
+S3       ALT(HEAD) = SYMB(CH,HEAD)
+         CURRENT = ALT(HEAD)                     :(F2)
+-EJECT
+*
+*  CHARACTER HAS BEEN FOUND. NOW LOOK AT NEXT HCARACTER OF WORD
+*
+S4       CARD LEN(1) . CH  =                     :F(INSERT)
+*  IF NO SUCCESSORS, STRING OUT REST OF WORD
+*
+         IDENT(SUCC(CURRENT))                    :S(F3)
+*
+*  OTHERWISE CONTINUE EXAMINATION
+*
+         CURRENT = SUCC(CURRENT)                 :(S1)
+S5       CURRENT = HEAD                          :(S4)
+*
+*  CHAR IS SMALLER THAN CURRENT ALTERNATIVE
+*
+S6       Y = LINK(CURRENT)
+         ALT(Y) = IDENT(ALT(Y),CURRENT) SYMB(CH,Y)         :F(S6A)
+         Y = ALT(Y)                              :(S6B)
+S6A      SUCC(Y) = SYMB(CH,Y)
+         Y = SUCC(Y)
+S6B      ALT(Y) = CURRENT
+         LINK(CURRENT) = Y
+         CURRENT = Y                             :(F2)
+*
+*  NEW ALTERNATIVE MUST BE LINKED TO HEAD, AT TOP OF LIST
+*
+S7       Y = HEAD
+         HEAD = SYMB(CH)
+         LINK(Y) = HEAD
+         ALT(HEAD) = Y
+         CURRENT = HEAD                          :(F2)
+CONTROL  IDENT(CARD,"*")                         :F(C1)
+         OUTPUT =
+         OUTPUT = '  (STRUCTURE IS CLEARED)'
+         OUTPUT =                                :(CLEAR)
+C1       IDENT(CARD,'$')                         :F(C2)
+         OUTPUT =
+         OUTPUT = '  (PRINTOUT OF ENTIRE STRUCTURE FOLLOWS...)'
+         OUTPUT =
+         IDENT(HEAD)                             :S(C4)
+         HOLD =
+         START = HEAD                            :(LISTEM)
+C2       IDENT(CARD)                             :S(BADCARD)
+         CARD NOTANY(ALPH)                       :S(BADCARD)
+-EJECT
+*
+*  HERE TO PRINT WORDS STARTING WITH SPECIFIED HEAD
+*
+         OUTPUT =
+         OUTPUT = '  (PRINTOUT OF ALL WORDS BEGINNING WITH "'
++          CARD '"...)'
+         OUTPUT =
+         HOLD = CARD
+         CURRENT = HEAD
+         CARD LEN(1) . CH =
+C3       IDENT(CHAR(CURRENT),CH)                 :S(NEXT)
+         CURRENT = ALT(CURRENT)
+         IDENT(CURRENT)                          :F(C3)
+C4       OUTPUT = '  (NO WORDS)'                 :(READA)
+NEXT     CARD LEN(1) . CH =                      :F(SETUP)
+         CURRENT = SUCC(CURRENT)
+         IDENT(CURRENT)                          :S(C4)F(C3)
+SETUP    OUTPUT = DIFFER(ASSOC(CURRENT)) SPC HOLD '  ' ASSOC(CURRENT)
+         START = DIFFER(SUCC(CURRENT)) SUCC(CURRENT)  :F(C4)
+LISTEM   N = 0
+         CURRENT = START
+L1       HOLD = HOLD CHAR(CURRENT)
+L2       OUTPUT = DIFFER(ASSOC(CURRENT)) SPC HOLD '  ' ASSOC(CURRENT)
+         CURRENT = DIFFER(SUCC(CURRENT)) SUCC(CURRENT)  :S(L1)
+BACKUP   CURRENT = DIFFER(ALT(CURRENT)) ALT(CURRENT)  :F(B1)
+         N = N + 1
+         $('STACK' N) = LINK(CURRENT)
+         HOLD LEN(1) RPOS(0) = CHAR(CURRENT)     :(L2)
+B1       Y = LINK(CURRENT)
+         IDENT(Y)                                :S(READA)
+         IDENT(Y,START) IDENT(ALT(Y),CURRENT)    :S(READA)
+         IDENT(Y,START) IDENT(ALT(Y))            :S(READA)
+         CURRENT = Y
+         HOLD DIFFER($('STACK' N),Y)  LEN(1) RPOS(0) =  :S(BACKUP)
+         N = N - 1                               :(B1)
+END1     OUTPUT =
+         OUTPUT = '(ALL DATA PROCESSED)'
+END
+ABC
+ABCD
+ABCDE
+BCDEF
+$$
+$*
+ELASTIC
+HAPPILY
+BOX
+FOX
+CARS
+GAITERS
+ALL
+DUMP
+JUNE
+IN
+$$
+$*
+SISTER
+SUSIE
+SELLS
+SEA
+SHELLS
+BY
+THE
+SEA
+SHORE
+$$
+$S
+$SH
+SOME
+SEA
+SHELLS
+SEND
+SAILORS
+SWIMMING
+$$
+$S
+$SE
+$*
+$$
+CATTLE
+CARP
+CAT
+GORGE
+MONSTER
+MONEY
+CAR
+DOG
+METAL
+CAVE
+CAKE
+CAT
+$$
+$MON
+$M
+$C
+$CA
+$CAT
+$CATT
+$CAX
+$$
