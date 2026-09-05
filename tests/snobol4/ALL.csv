@@ -1842,14 +1842,14 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1841,simple_output_62,probe_csnobol4_triage__input_eof_hang,probe_csnobol4_triage,block,1,7,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 1842,user_function_replace_4,probe_ab__ab_redefine,probe_ab,block,1,8,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1843,user_function_replace_7,probe_redef2__redef_lastwins,probe_redef2,block,1,10,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-1844,span_replace_2,gimpel_triage_class3_diff_span_self_rebind__class3_diff_span_self_rebind,gimpel_triage_class3_diff_span_self_rebind,block,1,14,UNKNOWN,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1844,span_replace_2,gimpel_triage_class3_diff_span_self_rebind__class3_diff_span_self_rebind,gimpel_triage_class3_diff_span_self_rebind,block,0,14,UNKNOWN,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1845,indirect_replace_1,probe_gimpel__gim_name_of_field_store,probe_gimpel,block,1,18,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
 1846,array_replace_branch_2,gimpel_triage_class8_sig6_perm_driver__class8_sig6_perm_driver,gimpel_triage_class8_sig6_perm_driver,block,1,9,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 1847,user_function_indirect_replace_1,probe_gimpel__gim_goto_function_call_parse,probe_gimpel,block,1,28,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
-1848,user_function_len_capture_1,probe_m1__m1_nret_cap,probe_m1,block,1,5,UNKNOWN,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-1849,user_function_len_capture_replace_1,probe_ab__ab_nret_lvalue,probe_ab,block,1,9,UNKNOWN,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+1848,user_function_len_capture_1,probe_m1__m1_nret_cap,probe_m1,block,0,5,UNKNOWN,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+1849,user_function_len_capture_replace_1,probe_ab__ab_nret_lvalue,probe_ab,block,0,9,UNKNOWN,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 1850,user_function_array_replace_branch_1,probe_vlist2__vlist_expr_alternation,probe_vlist2,block,1,29,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-1851,user_function_len_capture_branch_2,probe_nret2__nret_cond_nondeferred,probe_nret2,block,1,7,UNKNOWN,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0
+1851,user_function_len_capture_branch_2,probe_nret2__nret_cond_nondeferred,probe_nret2,block,0,7,UNKNOWN,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0
 1852,fence_capture_imm_capture_replace_branch_1,probe_fuzz__fz_abort_fence1_stackcap,probe_fuzz,block,1,8,UNKNOWN,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,0
 1853,size_indirect_keyword_replace_branch_1,probe_indirect2__indirect_nul_prefix_name,probe_indirect2,block,1,27,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,1,0,0,0,0
 1854,trim_alt_keyword_replace_branch_1,probe_conformance2__k40_lambda_primitives,probe_conformance2,block,1,34,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,1,0,0,0
@@ -1858,7 +1858,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1857,user_function_arbno_rpos_1,probe_cn2__cn_defer_pushcounter_capture,probe_cn2,block,1,12,UNKNOWN,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0
 1858,user_function_table_datatype_branch_1,gimpel_triage_class4_rc1_rc1_copyl__class4_rc1_rc1_copyl,gimpel_triage_class4_rc1_rc1_copyl,block,1,12,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0
 1859,user_function_convert_indirect_branch_1,gimpel_triage_class6_rc1_sig11_once__class6_rc1_sig11_once,gimpel_triage_class6_rc1_sig11_once,block,1,13,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0
-1860,break_len_array_replace_1,probe_gimpel__gim_defer_cassign_array_elt,probe_gimpel,block,1,17,UNKNOWN,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0
+1860,break_len_array_replace_1,probe_gimpel__gim_defer_cassign_array_elt,probe_gimpel,block,0,17,UNKNOWN,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0
 1861,fence_span_rpos_replace_branch_1,probe_fuzz__fz_red_m2_breach_m3only,probe_fuzz,block,1,6,UNKNOWN,1,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 1862,arbno_fence_pos_replace_branch_2,probe_fuzz__fz_segv_14,probe_fuzz,block,1,8,UNKNOWN,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0
 1863,arbno_fence_tab_replace_branch_1,probe_loose_fuzz_fz_red_m1b_arbno_defer_blob__probe_loose_fuzz_fz_red_m1b_arbno_defer_blob,probe_loose_fuzz_fz_red_m1b_arbno_defer_blob,block,1,8,UNKNOWN,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0
@@ -1868,7 +1868,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1867,fence_arb_span_replace_branch_1,probe_fuzz__fz_red_m2b_fence_cap_nullalt,probe_fuzz,block,1,7,UNKNOWN,1,1,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0
 1868,fence_arb_tab_replace_branch_1,probe_fuzz__fz_red_m2c_cap_around_defer,probe_fuzz,block,1,8,UNKNOWN,1,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,1,0,0
 1869,fence_arb_tab_replace_branch_2,probe_fuzz__fz_segv_18,probe_fuzz,block,1,9,UNKNOWN,1,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,1,0,0
-1870,user_function_code_eval_bal_branch_1,gimpel_triage_class2_rc1_compile_fail_dexp__class2_rc1_compile_fail_dexp,gimpel_triage_class2_rc1_compile_fail_dexp,block,1,9,UNKNOWN,0,0,0,1,0,0,0,0,1,1,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
+1870,user_function_code_eval_bal_branch_1,gimpel_triage_class2_rc1_compile_fail_dexp__class2_rc1_compile_fail_dexp,gimpel_triage_class2_rc1_compile_fail_dexp,block,0,9,UNKNOWN,0,0,0,1,0,0,0,0,1,1,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 1871,arbno_fence_pos_replace_branch_4,probe_passthru__ptw_min_rseal_unsealed_ctl,probe_passthru,block,1,10,UNKNOWN,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
 1872,arbno_fence_pos_replace_branch_3,probe_passthru__ptw_min_rseal_arbno,probe_passthru,block,1,11,UNKNOWN,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
 1873,arbno_fence_pos_branch_22,probe_passthru__ptw_min_arbno_alt_fence_L1,probe_passthru,block,1,5,UNKNOWN,1,0,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
