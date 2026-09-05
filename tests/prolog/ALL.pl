@@ -4758,3 +4758,61 @@ define(qsort([],R,R),true).
 define(partition([X|L],Y,[X|L1],L2),(X=<Y,!,partition(L,Y,L1,L2))).
 define(partition([X|L],Y,L1,[X|L2]),(partition(L,Y,L1,L2))).
 define(partition([],_,[],[]),true).
+%------------------------------------------------------------ 657 evaluable_sign_1
+:- initialization(main).
+main :-
+    X is sign(-5), write(X), nl,
+    Y is sign(0), write(Y), nl,
+    Z is sign(7), write(Z), nl.
+%------------------------------------------------------------ 658 evaluable_float_integer_part_1
+:- initialization(main).
+main :-
+    X is float_integer_part(3.7), write(X), nl,
+    Y is float_integer_part(-3.7), write(Y), nl.
+%------------------------------------------------------------ 659 evaluable_float_fractional_part_1
+:- initialization(main).
+main :-
+    X is float_fractional_part(3.5), write(X), nl,
+    Y is float_fractional_part(-3.5), write(Y), nl.
+%------------------------------------------------------------ 660 evaluable_floor_truncate_round_ceiling_1
+:- initialization(main).
+main :-
+    X is floor(3.7), write(X), nl,
+    Y is truncate(3.7), write(Y), nl,
+    Z is round(3.5), write(Z), nl,
+    W is ceiling(3.2), write(W), nl.
+%------------------------------------------------------------ 661 evaluable_sin_cos_atan_1
+:- initialization(main).
+main :-
+    X is sin(0.0), write(X), nl,
+    Y is cos(0.0), write(Y), nl,
+    Z is atan(0.0), write(Z), nl.
+%------------------------------------------------------------ 662 evaluable_exp_log_sqrt_1
+:- initialization(main).
+main :-
+    X is exp(0.0), write(X), nl,
+    Y is log(1.0), write(Y), nl,
+    Z is sqrt(4.0), write(Z), nl.
+%------------------------------------------------------------ 663 evaluable_shift_left_right_1
+:- initialization(main).
+main :-
+    X is 1 << 4, write(X), nl,
+    Y is 256 >> 3, write(Y), nl.
+%------------------------------------------------------------ 664 evaluable_bitand_bitor_bitneg_xor_1
+:- initialization(main).
+main :-
+    X is 12 /\ 10, write(X), nl,
+    Y is 12 \/ 10, write(Y), nl,
+    Z is \ 12, write(Z), nl,
+    W is 12 xor 10, write(W), nl.
+%------------------------------------------------------------ 665 evaluable_pi_e_constants_1
+:- initialization(main).
+main :-
+    X is pi, write(X), nl,
+    Y is e, write(Y), nl.
+%------------------------------------------------------------ 666 evaluable_type_error_on_non_evaluable_1
+:- initialization(main).
+main :-
+    catch(( _ is foo(1), write(noerror) ),
+          error(type_error(evaluable, foo/1), _),
+          write(caught)), nl.

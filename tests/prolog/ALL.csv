@@ -655,3 +655,13 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,findall,bagof,setof,forall,ass
 654,termops_directive_1,ladder__rung06_term_construct_sort,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,1,1,0,1,0,0,0
 655,functor_ite_univ_1,rung09__rung09_builtins_builtins,rung09,block,0,18,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,1,0,1,1,0,1,0,0,0
 656,benchmark_meta_qsort,benchmark_prolog_meta_qsort__meta_qsort,benchmark_prolog_meta_qsort,block,0,30,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,0,1,0,0,0,1,0,1,1,1,0,1,1,0,0,0
+657,evaluable_sign_1,ladder__rung14_evaluable_sign,ladder,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+658,evaluable_float_integer_part_1,ladder__rung14_evaluable_float_integer_part,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+659,evaluable_float_fractional_part_1,ladder__rung14_evaluable_float_fractional_part,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+660,evaluable_floor_truncate_round_ceiling_1,ladder__rung14_evaluable_floor_truncate_round_ceiling,ladder,block,0,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+661,evaluable_sin_cos_atan_1,ladder__rung14_evaluable_sin_cos_atan,ladder,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+662,evaluable_exp_log_sqrt_1,ladder__rung14_evaluable_exp_log_sqrt,ladder,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+663,evaluable_shift_left_right_1,ladder__rung14_evaluable_shift_left_right,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+664,evaluable_bitand_bitor_bitneg_xor_1,ladder__rung14_evaluable_bitand_bitor_bitneg_xor,ladder,block,0,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+665,evaluable_pi_e_constants_1,ladder__rung14_evaluable_pi_e_constants,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+666,evaluable_type_error_on_non_evaluable_1,ladder__rung14_evaluable_type_error_on_non_evaluable,ladder,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
