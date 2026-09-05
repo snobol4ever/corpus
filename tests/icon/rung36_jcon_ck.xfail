@@ -1,4 +1,30 @@
-tab(span-1|0) — generative argument to tab not supported; Image() procedure requires generator-in-arg. Also: real scan subject coercion now fixed but ck has deeper issues. UPDATE 2026-08-30 (seat01): the cset(2.0)/cset(2.7) real-formatting mismatch is now CURED (SCRIP 4ac22024, icon_real_str vs real_str) -- do not re-diagnose that specific line if it resurfaces in a future diff, it is fixed. Still red for at least three more, unrelated, uninvestigated reasons found while re-checking: real() does not parse radix-prefixed strings ("16rff" etc, expects 255.0, gets failure); a mixed int/real comparison result loses its real-ness on display ("1. > -2" prints "-2" not "-2.0"); scientific-notation output includes a stray "+" on the exponent ("e+14" vs Icon's own "e14"). See FINDING-2026-08-30-seat01-icon-cset-real-formatting-cured-and-ck-icn-further-characterized.md for detail. None of these attempted. UPDATE 2026-08-30 (seat01): the "comparison loses its real-ness" item now has
-its own precise root-cause writeup (still not fixed) --
-FINDING-2026-08-30-seat01-icon-relop-success-value-never-numeric-promoted.md, cross-witnessed
-against rung36_jcon_arith.icn independently.
+UPDATE 2026-09-05 (seat03), re-measured every claim below against the real oracle before trusting it:
+⛔ ONE PRIOR CLAIM WAS BACKWARDS, CORRECTED THIS SESSION -- "scientific-notation output includes a stray
+'+' on the exponent (e+14 vs Icon's own e14)" (2026-08-30 seat01) was measured against the checked-in ref,
+not a fresh oracle run. Compiled+ran the upstream twin fresh against `/home/resources/icon-master/bin/
+{icont,iconx}` (Icon Version 9.5.25a) this session, twice independently: real Icon prints `1.015599e+14`
+WITH the `+`. SCRIP already matched the oracle; the STORED REF was wrong (missing `+`), not SCRIP. RE-CUT
+`rung36_jcon_ck.expected` from the fresh oracle output (corpus, this push) -- this line is RESOLVED and was
+never a SCRIP defect. Everything else below re-confirmed accurate and still open, now with fresh
+verification and DONE-WHEN-bearing rows:
+- `cset(2.0)`/`cset(2.7)` real-formatting: CURED (SCRIP `4ac22024`) -- unchanged from 2026-08-30, do not
+  re-diagnose.
+- `real()` does not parse radix-prefixed strings (`real("16rff")` -> should be `255.0`, SCRIP fails to
+  `none`; also `"7r4"`, `"36rcat"`, `"36Rcat"`, `"36rCAT"`). ⚠️ NOT the same as the CLOSED row
+  `icon-arizona-class-radix-notation-wrong-value` (that cure only touched `char()`/`chr()`/`integer()`,
+  verified by reading its task file, never `real()`). Minted separately this session:
+  `icon-real-builtin-does-not-recognize-radix-notation` (rank 2, hq_B), verified DONE-WHEN.
+- `real()` returns `inf` instead of failing on magnitude overflow (`real("3e500")` -> real Icon gives
+  `none`, SCRIP gives `inf`). NEWLY WITNESSED this session (not in the 2026-08-30 note). Minted
+  `icon-real-builtin-returns-inf-on-overflow-instead-of-failing` (rank 2, hq_B), verified DONE-WHEN.
+- A real LITERAL directly in a relop loses its real-ness on display (`1. > -2` prints `-2` not `-2.0`,
+  and five siblings). Root-cause writeup still open:
+  FINDING-2026-08-30-seat01-icon-relop-success-value-never-numeric-promoted.md, re-witnessed independently
+  today in FINDING-2026-09-05-seat01-icon-relop-value-not-coerced-to-real-and-iobig-coexpression-thread-
+  segv.md (named there as a separate, deliberately-unchased oddity from the variable-operand case that
+  FINDING fixed). NOT the same mechanism as this session's numeric-STRING relop finding
+  (`icon-relop-value-coercion-does-not-cover-numeric-strings`) -- both operands here are literals, not
+  strings; a plausible unconfirmed lead is compile-time const-folding bypassing the runtime coercion path
+  entirely for two literal operands, not yet tested.
+None of the four remaining mechanisms above are this xfail-row's to cure (seats witness/walk, HQ cures per
+today's MODE line) -- each now has a named row or FINDING rather than resting as "not further diagnosed".

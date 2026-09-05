@@ -1,1 +1,10 @@
-exits rc=1 (stdout does not match .expected). Not further diagnosed.
+UPDATE 2026-09-05 (seat03): CLASSIFIED, confirmed this session, not this xfail-row's to cure. `struct.icn`
+run under real icont/iconx differs from our stored `.expected` ONLY in allocator SERIAL NUMBERS embedded in
+Icon's own `image()`-style output (e.g. `list_8` vs `list_34`) -- these are non-reproducible-by-construction
+values (today's allocation count, not the program's own logic), so neither the SCRIP diff nor a ref re-cut
+means anything: re-cutting would just bake today's serials in as tomorrow's false oracle. Do NOT re-cut this
+ref off this diff alone and do NOT treat SCRIP's differing serials as a defect signal. Same class newly
+confirmed to also cover `fncs.icn` this session (`icon-arizona-class-...-serial` naming not yet minted as a
+row -- this is a description of a GRADING LIMITATION on these two files, not an actionable SCRIP defect, so
+minting a cure row would have no cure to point at). Genuinely still open as an xfail because the harness has
+no principled way to grade past a non-reproducible value, not because SCRIP is wrong.

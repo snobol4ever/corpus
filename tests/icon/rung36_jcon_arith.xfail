@@ -1,1 +1,17 @@
-runs to completion (rc=0) but stdout does not match .expected. Not further diagnosed. UPDATE 2026-08-30 (seat01): root mechanism now precisely characterized, not fixed -- a mixed int/real comparison's success value is never numeric-promoted (Icon: `6.2 ~= 4` returns `4.0`; SCRIP returns `4`). Same root cause as ck.icn's own "loses its real-ness" note. Confirmed via the emitted .s: the codegen copies operand b's pre-call descriptor verbatim on success, and rt_jct_relop only returns a boolean, carrying no promoted value at all -- the same bare-copy shape exists in by_name_dispatch.c's generic relop dispatch too (2 call sites found, possibly more not searched for). See FINDING-2026-08-30-seat01-icon-relop-success-value-never-numeric-promoted.md. Also noted there: an unrelated, unexplained oddity where a real LITERAL directly in a relop (not through a variable) fails outright instead of just returning the wrong type.
+UPDATE 2026-09-05 (seat03): the tagged-real relop-coercion bug this marker used to describe IS NOW FIXED
+(SCRIP `53138c1e5`, `rt_relop_val_coerce`, landed today by seat01 -- see
+FINDING-2026-09-05-seat01-icon-relop-value-not-coerced-to-real-and-iobig-coexpression-thread-segv.md).
+Re-verified this session: a FRESH real-oracle run (icont/iconx, not the stored ref) is BYTE-IDENTICAL to
+`rung36_jcon_arith.expected` -- the ref itself is confirmed NOT stale. SCRIP still does not fully match: two
+remaining, unrelated residual diffs. (1) `numtest(" 5 ", " 5 ")` (line 26 of the upstream twin) -- NEWLY
+ROOT-CAUSED this session: the landed fix only coerces when operand A carries the DT_R tag; it does not
+cover the sibling case where operands are numeric STRINGS (`" 5 "`), so a successful `a >= b | f` etc.
+returns the original string verbatim instead of the coerced integer `5`, producing a width/padding
+mismatch. Minted `icon-relop-value-coercion-does-not-cover-numeric-strings` (rank 2, hq_B) with a minimal
+repro and verified DONE-WHEN. (2) The `ishift()` large-magnitude columns -- unchanged, already-owned,
+explicitly do-not-touch `icon-arizona-class-bignum-not-implemented` (real Icon promotes to bignum past
+64-bit, SCRIP wraps at 64 bits by construction). Neither of these two is this xfail-row's to cure (seats
+witness/walk, HQ cures, per today's MODE line) -- recorded here so the next reader does not re-diagnose
+from zero. Prior history, still accurate as a historical record: originally "not further diagnosed";
+UPDATE 2026-08-30 (seat01) first characterized the (now-fixed) relop-coercion mechanism -- see
+FINDING-2026-08-30-seat01-icon-relop-success-value-never-numeric-promoted.md.

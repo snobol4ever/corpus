@@ -1,1 +1,8 @@
-runs to completion (rc=0) but stdout does not match .expected. Not further diagnosed.
+UPDATE 2026-09-05 (seat03): ablated (fresh oracle vs SCRIP, first divergence only, not fully root-caused).
+FIRST DIVERGENCE: a variable holding a co-expression displays as `c : ""` under SCRIP but
+`c : co-expression_2(0)` under real icont/iconx -- i.e. SCRIP's `image()`/display formatting of a
+co-expression VALUE does not produce Icon's `co-expression_N(state)` form. Not yet traced to a specific
+function; not yet checked whether this is `image()` itself, the co-expression's internal repr, or the
+`case`-statement/write path this file happens to exercise. Not yet checked for further divergences past
+this first one (per this row's own "one witness per class, don't batch-assume" method -- stop at the first
+line, classify, move on).

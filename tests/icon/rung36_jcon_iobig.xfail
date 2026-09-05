@@ -7,6 +7,14 @@ SIGNATURE: rc=139 SEGV, no diagnostic. ABLATED 2026-09-03 to an 8-line witness w
 ROUTING:   icon-cset-keyword-element-generation-inside-a-coexpression-segvs (the defect).
            Also icon-arizona-class-silent-segv-no-diagnostic — curing THAT would at least make this one speak.
 
+UPDATE 2026-09-05 (seat03): today's FINDING-2026-09-05-seat01-icon-relop-value-not-coerced-to-real-and-
+iobig-coexpression-thread-segv.md independently re-derived this SAME crash from this SAME file to a gdb
+backtrace and exact mechanism (kw_cset_prime's lazy one-shot init racing/faulting when first triggered from
+a coexpression's own pthread) -- but named a mint (icon-arizona-class-coexpression-thread-first-malloc-
+segv) that does not actually exist in QUEUE.tsv/QUEUE.done.tsv. Cross-referenced onto the row this marker
+already routes to (icon-cset-keyword-element-generation-inside-a-coexpression-segvs) so the deeper root
+cause isn't orphaned in the FINDING alone -- see that row's LEDGER for the full account.
+
 RE-CLASSED 2026-09-03 (hq_B, row icon-every-xfail-fixed-as-a-faulty-test-or-cured-as-a-defect).
 The previous text read: 'exits rc=1 (stdout does not match .expected). Not further diagnosed.'
 That was measured stale IN THE DANGEROUS DIRECTION: it described a CRASH as a mild output mismatch,

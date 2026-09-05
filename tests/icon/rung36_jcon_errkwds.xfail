@@ -1,1 +1,10 @@
-runs to completion (rc=0) but stdout does not match .expected. Not further diagnosed.
+UPDATE 2026-09-05 (seat03): ablated (fresh oracle vs SCRIP, first divergence only, not fully root-caused).
+FIRST DIVERGENCE at output line 7: SCRIP prints `1 / fail / fail / fail / 1` (5 lines) where real
+icont/iconx prints 9 lines starting `0 / ...` for the same span -- SCRIP produces FEWER lines than the
+oracle here, so this is not a simple value mismatch but a control-flow/count divergence (something the
+oracle iterates further on than SCRIP does, or SCRIP fails/short-circuits where the oracle keeps going).
+Program name suggests it exercises Icon's `&error`-family keywords (converting runtime errors to failure
+rather than aborting) -- consistent with a control-flow-shaped divergence rather than a value-formatting
+one, but NOT CONFIRMED this session; would need the source read side-by-side with both outputs to localize
+which specific `&error`-keyword construct diverges. Not yet checked for further divergences past this
+first one.

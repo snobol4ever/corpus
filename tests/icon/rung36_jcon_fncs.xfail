@@ -1,1 +1,7 @@
-exits rc=1 (stdout does not match .expected). Not further diagnosed.
+UPDATE 2026-09-05 (seat03): CLASSIFIED, confirmed this session, not this xfail-row's to cure. Same
+non-reproducible-allocator-serial-number class as `rung36_jcon_struct.icn` (see that marker for the full
+account) -- `fncs.icn` run under real icont/iconx differs from our stored `.expected` only in embedded
+allocation serial numbers (e.g. `list_3` vs `list_103`), which cannot be pinned by any ref because the
+count is not deterministic across runs/builds/time, only within a single run. Do NOT re-cut this ref off
+this diff alone. Genuinely still open as an xfail because the harness has no principled way to grade past a
+non-reproducible value, not because SCRIP is wrong.

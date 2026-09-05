@@ -1,1 +1,16 @@
-runs to completion (rc=0) but stdout does not match .expected. Not further diagnosed.
+UPDATE 2026-09-05 (seat03): ablated, first divergence isolated but NOT yet root-caused -- record this so
+the next session doesn't repeat the same too-simple repro. SCRIP exits rc=1 printing exactly one line,
+`no /etc/passwd` -- that string is `io.icn`'s OWN `stop("no /etc/passwd")` fallback (line 9), meaning
+`open("/etc/passwd")` FAILED inside the program. `/etc/passwd` is present and world-readable in this
+environment (verified: `-rw-r--r-- ... /etc/passwd`, real content). ⚠️ TRIED AND DID NOT REPRODUCE: a
+minimal standalone repro (`local m; m := open("/etc/passwd"); if /m then write("open FAILED") else
+write("open OK: ", image(m));`) succeeds under SCRIP, byte-identical to real icont (`open OK:
+file(/etc/passwd)`) -- so a bare `open()` call is NOT the defect. The real call site is more complex:
+`L := [&input, &output, &errout, m := open("/etc/passwd") | stop(...), n := open("/dev/null" |
+stop("no /dev/null"), "w")]` -- an assignment-expression with `|`-alternation, INSIDE a list-constructor
+literal, mixed with keyword values (`&input` etc.) as sibling elements. The failure is most likely in how
+SCRIP evaluates one of THOSE shapes (assignment-as-list-element, or alternation nested inside a list
+literal) rather than in `open()` itself -- but this is a hypothesis, not a finding: the actual minimal
+repro that reproduces the divergence has not been found yet. Next step for whoever picks this up: bisect
+the REAL list-literal expression (not a simplified rewrite of it) down to the smallest form that still
+fails, the same way `sorting`/`misc` were bisected.

@@ -1,1 +1,13 @@
-runs to completion (rc=0) but stdout does not match .expected. Not further diagnosed.
+UPDATE 2026-09-05 (seat03): ablated (fresh oracle vs SCRIP, first divergence only, not fully root-caused).
+FIRST DIVERGENCE, and it looks larger than most of this row's other residual markers: the test's own
+internal self-check (`test delete: N, K` followed by a `not generated: ...` report when the check fails)
+PASSES cleanly under real icont/iconx (`test delete: 41, 3	[ok]`, no failure report) but FAILS under SCRIP
+for the very first case, printing dozens of "not generated" values (e.g. `not generated: 36 39 40 41` for
+the first case alone, growing to ~90 missing values on the second case at line 5). The program name
+("gener") and the self-check's own wording ("not generated") both point at Icon GENERATOR semantics under
+structure mutation (deleting elements from a structure while a generator is actively iterating it, or a
+similar suspend/resume-across-mutation shape) -- this smells like a real, likely nontrivial generator-
+correctness gap rather than a narrow formatting bug, but NOT localized further this session (no source
+read, no bisection). Given the size of the divergence, this is a strong ablation-bisection candidate for
+whoever picks it up next -- likely deserves the same procedure-by-procedure narrowing `sorting` and `misc`
+already got, not a guess from the symptom alone.

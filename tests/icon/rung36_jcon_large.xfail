@@ -1,1 +1,8 @@
-runs to completion (rc=0) but stdout does not match .expected. Not further diagnosed.
+UPDATE 2026-09-05 (seat03): CLASSIFIED, confirmed, no new work needed. `large.icn` tests large-integer
+arithmetic; first divergence line: SCRIP gives `9223372036854775807 + 9223372036854775807 = -2` (correct
+64-bit two's-complement wraparound) where real icont/iconx gives `111111111111111111111 +
+111111111111111111111 = 222222222222222222222` (arbitrary-precision bignum result -- verified directly
+against the oracle this session). This is the already-owned, explicitly do-not-touch
+`icon-arizona-class-bignum-not-implemented` gap (real Icon promotes past 64-bit, SCRIP does not) -- same
+class as `radix.icn`'s and `arith.icn`'s residual bignum lines. Not this xfail-row's to cure; recorded so
+nobody re-diagnoses it as new.

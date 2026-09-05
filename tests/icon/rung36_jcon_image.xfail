@@ -1,1 +1,12 @@
-exits rc=1 (stdout does not match .expected). Not further diagnosed.
+UPDATE 2026-09-05 (seat03): marker text corrected AND likely-classified. Actual current behavior:
+SCRIP exits rc=1 with `(0) : ERROR 022 -- Undefined function called` (repeated twice, "in statement 0" both
+times) -- NOT a benign rc=1/output-mismatch as the old text implied; nothing else runs. ⚠️ LIKELY (not
+independently confirmed this session -- flagging by strong circumstantial match, not a traced repro) a
+THIRD witness of `icon-jcon-sorting-randval-undefined-function-error`'s class: the upstream twin
+(`corpus/packages/icon/jcon_tests/image.icn`) defines `procedure dump(x)` at line 62, the SAME procedure
+NAME already confirmed as one of `rung36_jcon_recent.icn`'s two forward-referenced ERROR-022 triggers
+(that row's own LEDGER: "via forward-referenced procedures dump()/same()"). If `image.icn`'s `main` (line
+8) calls `dump` before line 62 the same way `recent.icn`'s did, this is the same mechanism, not a new one --
+but the call site itself was not traced this session, so treat the match as a strong lead, not a proof.
+Whoever roots this out should check both `image.icn` and `recent.icn`'s `dump` call sites together; if
+confirmed, add `image` as a witness on the existing row rather than minting a new one.

@@ -1,1 +1,15 @@
-exits rc=1 (stdout does not match .expected). Not further diagnosed.
+UPDATE 2026-09-05 (seat03): ⛔ MARKER WAS STALE IN THE DANGEROUS DIRECTION, same pattern this row has hit
+repeatedly before (a crash described as a mild output mismatch). Actual current behavior: SCRIP SIGSEGVs,
+rc=139, reproduced twice, NOT rc=1. gdb backtrace (immediate, deterministic, no ignore-count needed):
+  0x00007ffff2a76b59 in scrip_coexpr_activate (target=0x100000002, x0=0, x1=0, out2=0x7fffffbf6bc0)
+      at src/runtime/rt/rt_coexpr.c:184 -- `if (target->dead) return 0;`
+`target` (`0x100000002`) is not a valid pointer -- looks like a wrong-slot argument-passing bug at some
+`scrip_coexpr_activate` call site, not a use-after-free. Minted
+`icon-jcon-misc-coexpr-activate-corrupted-target-pointer-segv` (rank 1, hq_B -- crashes rank ahead of
+output-mismatches per this row's own standing priority) with the full backtrace and a verified DONE-WHEN.
+Possibly (NOT confirmed) related to the coexpression subsystem seat01's `iobig` finding also touched today
+(FINDING-2026-09-05-seat01-icon-relop-value-not-coerced-to-real-and-iobig-coexpression-thread-segv.md) --
+different crash site and immediate mechanism, flagged as a shared-subsystem lead only, not a shared cause.
+The underlying output-mismatch content the old marker also described (`oob` vs `bob`, duplicated `message`
+lines) was NOT further characterized this session -- the crash is upstream of it and is the thing to fix
+first.

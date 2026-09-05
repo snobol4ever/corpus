@@ -1,9 +1,19 @@
 was "exits rc=1, stdout does not match .expected. Not further diagnosed" -- STALE, actually a parse
 error (the semicolon-conversion wrongly inserted ';' inside a still-open multi-line string-literal
 continuation and right after an opening '{', corpus/tests/icon/rung36_jcon_others.icn lines 8-9),
-fixed seat03 2026-09-05 (corpus, this push). NOW: rc=0 (parses+runs), output still diverges from
-.expected -- likely the SAME defect(s) already censused for Arizona's general/others.icn under
-icon-arizona-segv-int-subscript-snprintf-tracer-others / icon-arizona-segv-find-uncoerced-integer-arg-
-others (same upstream program, not independently re-verified this session that it's the identical
-crash/mismatch -- this run did NOT crash, so confirm before assuming which of those two it is, or
-whether it's a third thing).
+fixed seat03 2026-09-05 (corpus, this push). NOW: rc=0 (parses+runs).
+UPDATE 2026-09-05 (seat03, same session, correcting my own earlier speculation): the guess that this
+shares Arizona's `icon-arizona-segv-int-subscript-snprintf-tracer-others` /
+`icon-arizona-segv-find-uncoerced-integer-arg-others` classes was WRONG and is now disproven, not just
+unconfirmed -- `find` shows `corpus/packages/icon/arizona_tests/general/others.icn` and
+`corpus/packages/icon/jcon_tests/others.icn` are TWO DIFFERENT FILES that merely share a base name (Arizona
+general-suite vs JCON-suite, different upstream origins). Those two rows are both SEGV classes; THIS file
+runs to rc=0 with no crash at all, which rules both out directly rather than leaving it "unconfirmed" --
+same-name-different-program was the trap, not a matching defect.
+ACTUAL FIRST DIVERGENCE (not previously characterized): SCRIP produces far fewer output lines than the
+oracle (41 vs 103) on what looks like a word/frequency-count-style report (the file's tail output lists
+words with counts, e.g. `words 1`, `write 1`, `x 3`, `y 4`) -- SCRIP's leading numeric-index lines skip
+many values present in the oracle's run (1-12, 21-25, 33, 36 present; 13-20, 26-32 etc. absent), consistent
+with some filter, bucket, or grouping condition in the program silently excluding entries SCRIP should be
+including. Not traced further this session (no source read, no bisection) -- genuinely undiagnosed, not a
+known class.
