@@ -1305,9 +1305,9 @@ END
         OUTPUT = imag(X)
 END
 *---------------------------------------------------------- 938 simple_output_67
-*  MINIMAL WITNESS (s183): BLANKS('X = A') must remove blanks -> 'X=A'.
-*  SCRIP answers 'X = A' -- a SILENT WRONG ANSWER, oracle-differential, and
-*  INDEPENDENT of RTSEQ-RESUME (SCRIP_RTSEQ_RESUME=0 gives the same wrong answer).
+*  WITNESS (s183): BLANKS('X = A') must remove blanks -> 'X=A'.  CURED --
+*  SCRIP now answers 'X=A', byte-identical to sbl -bf (hq_P 2026-09-05).
+*  Companions BLANKS.sno + DIFF.sno live in tests/snobol4/config/.
 -INCLUDE "BLANKS.sno"
         OUTPUT  =  BLANKS('X = A')
 END
