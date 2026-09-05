@@ -1,0 +1,8 @@
+procedure main();
+    s := set([1,2,3]);
+    write(image(s));
+    t := table();
+    write(image(t));
+    s2 := set([]);
+    write(image(s2));
+end
