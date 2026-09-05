@@ -1,0 +1,83 @@
+arith_loop[benchmarks]	already in the master (origin benchmark_snobol4_arith_loop__arith_loop) -- not re-appended
+arith_loop_twin[benchmarks]	already in the master (origin benchmark_snobol4_arith_loop_twin__arith_loop_twin) -- not re-appended
+arithmetic[demos]	already in the master (origin demo_snobol4_arithmetic__arithmetic) -- not re-appended
+array_sum[benchmarks]	already in the master (origin benchmark_snobol4_array_sum__array_sum) -- not re-appended
+beauty[demos]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=1
+calculator-1-match-fence[benchmarks]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+calculator-1-match-fence[demos]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+calculator-1-match[benchmarks]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+calculator-1-match[demos]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+calculator-1[benchmarks]	already in the master (origin benchmark_snobol4_calculator-1__calculator-1) -- not re-appended
+calculator-1[demos]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
+calculator-2-match-fence[benchmarks]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+calculator-2-match-fence[demos]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+calculator-2-match[benchmarks]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+calculator-2-match[demos]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+calculator-2[benchmarks]	already in the master (origin benchmark_snobol4_calculator-2__calculator-2) -- not re-appended
+calculator-2[demos]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
+claws5-match-fence[benchmarks]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+claws5-match-fence[demos]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+claws5-match[benchmarks]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+claws5-match[demos]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+claws5[benchmarks]	already in the master (origin benchmark_snobol4_claws5__claws5) -- not re-appended
+claws5[demos]	already in the master (origin demo_snobol4_claws5__claws5) -- not re-appended
+config_probe_loose_fwctx_fwctx_suite_malformed	plain body carries suite-format markers (banner or ';* tag' line) -- a block would split on re-read; quarantined class, stays as files
+counter[demos]	already in the master (origin demo_snobol4_counter__counter) -- not re-appended
+demos/scrip/family_net/family_snobol4.sno	cross-language demo module -- IMPORTs family_prolog and EXPORTs parse_csv for family_icon.icn via Scrip ABI linkage; not a standalone runnable program, same polyglot family-tree demo as demos/scrip/family_snobol4.sno
+demos/scrip/family_snobol4.sno	cross-language demo module -- IMPORTs family_prolog via Scrip ABI linkage (ARCH-scrip-abi.md), reads shared family.csv; not a standalone runnable program, assembled with its Prolog/Icon counterparts elsewhere (see tests/scrip_test/polyglot_tri_main.sno)
+eval_fixed[benchmarks]	already in the master (origin benchmark_snobol4_eval_fixed__eval_fixed) -- not re-appended
+fib_recur[benchmarks]	already in the master (origin benchmark_snobol4_fib_recur__fib_recur) -- not re-appended
+fibonacci[benchmarks]	already in the master (origin benchmark_snobol4_fibonacci__fibonacci) -- not re-appended
+func_call[benchmarks]	already in the master (origin benchmark_snobol4_func_call__func_call) -- not re-appended
+hello[demos]	already in the master (origin demo_snobol4_hello__hello) -- not re-appended
+ident_call1[benchmarks]	already in the master (origin benchmark_snobol4_ident_call1__ident_call1) -- not re-appended
+ident_call2[benchmarks]	already in the master (origin benchmark_snobol4_ident_call2__ident_call2) -- not re-appended
+indirect_dispatch[benchmarks]	already in the master (origin benchmark_snobol4_indirect_dispatch__indirect_dispatch) -- not re-appended
+json-match-fence[benchmarks]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+json-match-fence[demos]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+json-match[benchmarks]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+json-match[demos]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+json[benchmarks]	already in the master (origin benchmark_snobol4_json__json) -- not re-appended
+json[demos]	already in the master (origin demo_snobol4_json__json) -- not re-appended
+mixed_workload[benchmarks]	already in the master (origin benchmark_snobol4_mixed_workload__mixed_workload) -- not re-appended
+name_indirection[benchmarks]	already in the master (origin benchmark_snobol4_name_indirection__name_indirection) -- not re-appended
+op_dispatch[benchmarks]	already in the master (origin benchmark_snobol4_op_dispatch__op_dispatch) -- not re-appended
+pattern_bt[benchmarks]	already in the master (origin benchmark_snobol4_pattern_bt__pattern_bt) -- not re-appended
+pattern_test[demos]	already in the master (origin demo_snobol4_pattern_test__pattern_test) -- not re-appended
+porter[benchmarks]	already in the master (origin benchmark_snobol4_porter__porter) -- not re-appended
+porter[demos]	already in the master (origin demo_snobol4_porter__porter) -- not re-appended
+probe_loose_callout_claws5_call	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_callout_claws5_cap	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_conformance_k09_file	source-identity-sensitive keyword (&FILE/&LASTFILE/...) -- output depends on the source FILENAME, which absorption renames; stays as files (measured: k09/k11/k30/k32 went red in the master while green loose)
+probe_loose_conformance_k11_lastfile_lastline_lastno	source-identity-sensitive keyword (&FILE/&LASTFILE/...) -- output depends on the source FILENAME, which absorption renames; stays as files (measured: k09/k11/k30/k32 went red in the master while green loose)
+probe_loose_conformance_k30_lastfile_only	source-identity-sensitive keyword (&FILE/&LASTFILE/...) -- output depends on the source FILENAME, which absorption renames; stays as files (measured: k09/k11/k30/k32 went red in the master while green loose)
+probe_loose_conformance_k32_file_keyword	source-identity-sensitive keyword (&FILE/&LASTFILE/...) -- output depends on the source FILENAME, which absorption renames; stays as files (measured: k09/k11/k30/k32 went red in the master while green loose)
+probe_loose_fuzz_fz_red_m4b_blob_defer_fence	fuzz nondeterministic-crash class -- a captured ref is one sample of a distribution; util_fuzz_witness_stability.sh owns these, stays as files
+probe_loose_fwctx_fwctx_standalone_ctl	plain body carries suite-format markers (banner or ';* tag' line) -- a block would split on re-read; quarantined class, stays as files
+probe_loose_table_nested_chain_incr_d1	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_chain_incr_d2	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_chain_incr_d3	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_chain_read_d1	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_chain_read_d2	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_chain_read_d3	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_claws5_l1	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_claws5_l2	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_ident_guard_d1	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_table_nested_value_type_tbl	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+roman[benchmarks]	already in the master (origin benchmark_snobol4_roman__roman) -- not re-appended
+roman[demos]	already in the master (origin demo_snobol4_roman__roman) -- not re-appended
+string_concat[benchmarks]	already in the master (origin benchmark_snobol4_string_concat__string_concat) -- not re-appended
+string_concat_twin[benchmarks]	already in the master (origin benchmark_snobol4_string_concat_twin__string_concat_twin) -- not re-appended
+string_manip[benchmarks]	already in the master (origin benchmark_snobol4_string_manip__string_manip) -- not re-appended
+string_pattern[benchmarks]	already in the master (origin benchmark_snobol4_string_pattern__string_pattern) -- not re-appended
+table_access[benchmarks]	already in the master (origin benchmark_snobol4_table_access__table_access) -- not re-appended
+table_variety[benchmarks]	already in the master (origin benchmark_snobol4_table_variety__table_variety) -- not re-appended
+test_icon[benchmarks]	already in the master (origin benchmark_snobol4_test_icon__test_icon) -- not re-appended
+treebank-alloc[demos]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+treebank-match-fence[benchmarks]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+treebank-match-fence[demos]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+treebank-match[benchmarks]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+treebank-match[demos]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
+treebank[demos]	already in the master (origin demo_snobol4_treebank__treebank) -- not re-appended
+var_access[benchmarks]	already in the master (origin benchmark_snobol4_var_access__var_access) -- not re-appended
+wordcount[demos]	already in the master (origin demo_snobol4_wordcount__wordcount) -- not re-appended
