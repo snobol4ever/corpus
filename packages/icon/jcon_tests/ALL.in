@@ -1,0 +1,526 @@
+#---------------------------------------------------------------------- 4 btrees
+a(b,c)
+1(2(3,4),5)
+a(2,8(a,c(d,e)))
+#-------------------------------------------------------------------- 11 concord
+Order, Coleoptera, (Beetles). Many beetles are colored so as
+to resemble the surfaces which they habitually frequent, and they thus
+escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
+with splendid colors, which are often arranged in stripes, spots, crosses,
+and other elegant patterns.  Such colors can hardly serve directly as a protection, except in the case
+of certain flower-feeding species; but they may serve as a warning or means of
+recognition, on the same principle as the
+phosphorescence of the glow-worm.
+As with beetles the colors of the two sexes are generally alike, we have
+no evidence that they have been gained through sexual selection; but this is
+at least possible, for they may have been developed in one sex and then
+transferred to the other; and this view is even in some degree probable
+in those groups which possess other well-marked secondary
+sexual characters. Blind beetles, which cannot, of course, behold each
+other's beauty, never, as I hear from Mr. Waterhouse, Jr., exhibit bright
+colors, though they often have polished coats; but the explanation of their
+obscurity may be that they generally inhabit caves and other obscure stations.
+#------------------------------------------------------------------- 14 diffwrds
+procedure main()
+   local limit, s, i
+   limit := 100
+   s := set([])
+   every insert(s,1 to limit)
+   every member(s,i := 2 to limit) do
+      every delete(s,i + i to limit by i)
+   primes := sort(s)
+   write("There are ",*primes," primes in the first ",limit," integers.")
+   write("The primes are:")
+   every write(right(!primes,*limit + 1))
+end
+#-------------------------------------------------------------------- 15 endetab
+##  test data for entab/detab tester; see driver program's comments for details
+#
+#   Remember that the characters --> "!.$" <-- are metacharacters, and cannot
+#   be used randomly for punctuation;  I got away with it that time by placing
+#   them carefully <stop>
+
+# first try with default parameters (9,17,25,33,etc)
+
+x
+ x
+  x
+   x
+    x
+     x
+      x
+       x
+!.......x
+!....... x
+!.......  x
+!.......   x
+!.......    x
+!.......     x
+!.......      x
+!.......       x
+!.......!.......x
+x!......!.......x
+ x!.....!.......x
+  x!....!.......x
+   x!...!.......x
+    x!..!.......x
+     x!.!.......x
+      x!!.......x	# tab replaces one char as part of longer run
+       x!.......x
+!.......x!......x
+!....... x!.....x
+!.......  x!....x
+!.......   x!...x
+!.......    x!..x
+!.......     x!.x
+!.......      x x	# tab does not replace one-char run
+!.......       xx
+!.......!.......x
+abcde!..x
+abcdef!.x
+abcdefg x
+abcdefg  x
+abcdefg   x
+abcdefg    x
+abcdefg     x
+abcdefg      x
+abcdefg       x
+abcdefg        x
+abcdefg!!.......x
+
+# test some lines with trailing spaces
+$
+ $
+  $
+   $
+    $
+     $
+      $
+       $
+!.......$
+!....... $
+!.......  $
+!.......   $
+!.......    $
+!.......     $
+!.......      $
+!.......       $
+!.......!.......$
+!.......!....... $
+!.......!.......  $
+
+!.......!.......!.......!.......!.......!.......!.......!.......       wxyz
+!.......!.......!.......!.......!.......!.......!.......!.......!.......xyz
+!.......!.......!.......!.......!.......!.......!.......!.......!....... yz
+!.......!.......!.......!.......!.......!.......!.......!.......!.......  z
+
+!.......ENTRY!..SUUO
+!.......ENTRY!..NUUO
+!.......CAI!....1,[BYTE (9)"s","u","u","o","/","n","u","u","o",0]
+SUUO:!..TRZA!...T1,1!...!.......; flag suuo call
+NUUO:!..TRO!....T1,1!...!.......; flag nuuo call
+!.......MOVE!...T0,1-OFF(P)!....; get UUO code
+!.......MOVEM!..T0,UUO!.!.......; save uuo
+!.......MOVE!...T0,2-OFF(P)!....; load register value
+!.......XCT!....UUO!....!.......; issue UUO
+!....... TRZE!..T1,1!...!.......; skip unless non-skip from nuuo call
+!....... TRZE!..T1,1!...!.......; skip unless skip-return from nuuo call
+!....... HRREI!.T0,ERR!.!.......; indicate UUO failure
+!.......MOVE!...T1,T0!..!.......; return result in r1
+!.......POPJ!...P,!.....!.......; return
+
+# now try tabs every 4 columns
+= entab(s,5)
+
+x
+xx
+ xx
+ x x
+  x x
+  x  x
+   x  x
+   x   x
+!...x!..x
+!...x!.. x
+!... x!.  x
+!... x!.   x
+!...  x!!...x
+!...  x!!... x
+!...!...!...!...!...!...!...!...!...!...!...!...!...!...!...!...!...!...!...xyz
+
+xxxx
+xxx x
+xxx  x
+xxx   x
+xxx    x
+xxx!!...x
+xxx!!... x
+
+xxx$
+xxx $
+xxx  $
+xxx   $
+xxx    $
+xxx!!...$
+xxx!!... $
+
+smatch(s1,s2)
+char *s1, *s2;
+{
+!...while (~((*s1 ^ *s2) & 0137))
+!...!...if (~*s1)
+!...!...!...return 0;
+!...!...else
+!...!...!...s1++, s2++;
+!...return ((*s1 & 0137) - (*s2 & 0137));
+}
+
+# try col 8, then every 4
+= entab(s,8,12)
+!......01!.student-record
+!......!...03!.name pic x(25)
+!......!...03!.home-address
+!......!...!...05!.city pic x(15)
+!......!...!...05!.state pic xx
+!......!...!...05!.big-zip
+!......!...!...!...07!.zip pic 9(5)
+!......!...!...!...07!.plus-4 pic 9(4)
+!......!...!...!...!...!...!...!...!...!...!...!...!...!...!...!...!...!...xyz
+
+# try irregular columns
+= entab(11,18,30,36)
+!.........entry!.sys=
+ sys2!....xj
+ sys3!....sa1!...a6
+!.........lx1!...59-40
+!.........mi   x1,sys3!......wait until done if RCL bit set
+ sys=!....subr!..=!..........entry / exit
+ sys1!....sa1!...1
+!.........nz   x1,sys1!......wait ra+1 clear
+!.........sa6!...1!..........store request
+!.........eq   sys2
+!.........!.......!..........!.....!.....!.....!.....!.....!.....!.....   xyz
+
+# and now for something completely different
+= entab(s,11,60) 
+# (11,60,61) would need less scratch space on detab but few will know/use this
+
+loop:!....line = input!....................................:f(end)
+!.........output = line!...................................:(loop)
+
+# end cases
+= entab(s,2)
+x
+ x
+!!x
+!!!x
+!!!!x
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!xyz
+
+= entab(s,2,4)
+x
+ x
+  x
+!!.x
+!!. x
+!!.!.x
+!!.!.!.!.!.!.!.!.!.!.xyz
+!!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.xyz
+
+= entab(s,3)
+x
+ x
+!.x
+!. x
+!.!.x
+!.!.!.!.!.!.!.!.!.!.xyz
+!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.xyz
+
+= entab(s,3,4)
+x
+ x
+!.x
+!.!x
+!.!!x
+!.!!!x
+!.!!!!x
+!.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!xyz
+
+# now go back to an interval of 4 and test special characters in input
+= entab(s,5)
+
+# first, just tabs in the input
+\t$
+\t $
+\t  $
+\t   $
+\t!...$
+ \t!...$
+  \t!...$
+   \t!...$
+!...\t!...$
+\tx
+\t x
+\t  x
+\t   x
+\t!...x
+ \t!...x
+  \t!...x
+   \t!...x
+!...\t!...x
+abc\tdef\tghi\tjkl
+
+
+smatch(s1,s2)
+char *s1, *s2;
+{
+\twhile (~((*s1 ^ *s2) & 0137))
+\t\tif (~*s1)
+!...!...!...return 0;
+   \t\telse
+!...!...!...s1++, s2++;
+  \treturn ((*s1 & 0137) - (*s2 & 0137));
+}
+
+# now some backspaces
+abc\b!.de\b!..fghij\b!...k
+
+# use irregular stops for testing wierder situations
+= entab(5,7,10)
+!...!.!..!..!..!..!..!..!..!..!..!..!..!..!..!..!..!..!..!..!..!..!..!..
+!...!.!..\b\b\b\b\b\b\b\b\b!...!.!..!..
+!...!.!..\n!...!.!..\r!...!.!..\n\r!...!.!..\r\n!...!.!..
+!...\a!.\a!..\a!..
+!...\b\b\b\b!...\b\a\b\a!.!.!..\n\n\n  \t!.!..\n
+#---------------------------------------------------------------------- 21 fncs1
+procedure main()
+   every 1 to 100 do {
+      write(&collections)
+      every 1 to 100 do
+         list(1000)
+      }
+   write("collecting ...")
+   collect()
+   every s := repl("x",1 to 1000) do {
+      cset(string(&lcase))
+      t := table()
+      set([s])
+      s[2 : 5]
+      }
+end
+#------------------------------------------------------------------------- 25 io
+aaa
+bbbb
+ccccc
+dddddd
+eeeeeee
+ffffffff
+ggggggggg
+hhhhhhhhhh
+iiiiiiiiiii
+jjjjjjjjjjjj
+kkkkkkkkkkkkk
+llllllllllllll
+mmmmmmmmmmmmmmm
+#---------------------------------------------------------------------- 27 kross
+elephants:peanuts
+encroachment:roaches
+gaggle:geese
+#-------------------------------------------------------------------- 36 meander
+abc:2
+1234:2
+ABC:4
+#--------------------------------------------------------------------- 37 mffsol
+[ constructed by hand ]
+ABCD EFGH IJKL MNOP
+AEIM BFJN CGKO DHLP
+AHKN BGLM CFIP DEJO
+AFLO BEKP CHJM DGIN
+AGJP BHIO CELN DFKM
+#--------------------------------------------------------------------- 38 mindfa
+abcdefgh
+01
+d
+a
+b
+a
+a
+c
+d
+b
+d
+a
+d
+f
+g
+e
+f
+g
+g
+d
+#--------------------------------------------------------------------- 42 others
+#
+#	W O R D   T A B U L A T I O N
+#
+
+#  This main procedure processes standard input and writes the results
+#  with the words in a column 20 characters wide.
+
+procedure main()
+   wordcount(20)
+end
+
+procedure wordcount(n)
+   local t, line, x, y
+   static letters
+   initial letters := &lcase ++ &ucase
+   t := table(,0)
+   every line := !&input do
+      scan line using
+         while tab(upto(letters)) do
+            t[tab(many(letters))] +:= 1
+   x := sort(t)
+   every y := !x do write(left(y[1],n),y[2])
+end
+#--------------------------------------------------------------------- 44 prefix
+x
+(((x)))
+x+1
+x-y-z
+3*delta+1
+((x+1))
+2^2^n
+(x^n)/(z+1)
+#-------------------------------------------------------------------- 46 profsum
+count callee caller time
+491 java/lang/String.<init>(II[C)V <unknown caller> 3
+396 java/lang/String.hashCode()I java/util/Hashtable.put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; 7
+376 java/util/Hashtable.put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; sun/io/CharacterEncoding.<clinit>()V 25
+70 java/lang/String.getChars(II[CI)V java/lang/String.toCharArray()[C 2
+43 java/lang/String.toCharArray()[C java/util/Locale.toUpperCase(Ljava/lang/String;)Ljava/lang/String; 3
+43 java/lang/String.<init>([C)V java/util/Locale.toUpperCase(Ljava/lang/String;)Ljava/lang/String; 2
+42 java/lang/String.<init>([C)V <unknown caller> 3
+42 java/util/Locale.toUpperCase(Ljava/lang/String;)Ljava/lang/String; java/util/Locale.<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V 6
+21 java/util/Locale.toLowerCase(Ljava/lang/String;)Ljava/lang/String; java/util/Locale.<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V 3
+21 java/util/Locale.<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V java/util/Locale.<clinit>()V 10
+14 java/lang/String.getChars(II[CI)V java/lang/StringBuffer.append(Ljava/lang/String;)Ljava/lang/StringBuffer; 12
+10 java/lang/String.hashCode()I java/util/Hashtable.get(Ljava/lang/Object;)Ljava/lang/Object; 1
+8 java/util/Hashtable.get(Ljava/lang/Object;)Ljava/lang/Object; java/util/Properties.getProperty(Ljava/lang/String;)Ljava/lang/String; 2
+6 java/lang/StringBuffer.append(Ljava/lang/String;)Ljava/lang/StringBuffer; java/lang/StringBuffer.<init>(Ljava/lang/String;)V 13
+5 java/lang/ThreadGroup.add(Ljava/lang/Thread;)V java/lang/Thread.init(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;)V 2
+5 java/lang/ThreadGroup.checkAccess()V java/lang/Thread.init(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;)V 1
+4 java/util/Properties.getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; java/lang/System.getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; 2
+4 java/lang/StringBuffer.<init>(Ljava/lang/String;)V java/lang/Thread.<init>()V 12
+4 java/lang/Integer.toString(II)Ljava/lang/String; java/lang/StringBuffer.append(I)Ljava/lang/StringBuffer; 37
+4 java/lang/String.<init>(Ljava/lang/StringBuffer;)V java/lang/Integer.toString(II)Ljava/lang/String; 2
+4 java/lang/Thread.<init>()V <unknown caller> 79
+4 java/lang/StringBuffer.append(I)Ljava/lang/StringBuffer; java/lang/Thread.<init>()V 52
+4 java/lang/Thread.init(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;)V java/lang/Thread.<init>()V 3
+4 java/util/Properties.getProperty(Ljava/lang/String;)Ljava/lang/String; java/util/Properties.getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; 2
+3 java/io/BufferedOutputStream.flushBuffer()V java/io/BufferedOutputStream.flush()V 1
+2 java/io/BufferedWriter.<init>(Ljava/io/Writer;I)V java/io/BufferedWriter.<init>(Ljava/io/Writer;)V 3
+2 java/lang/System.getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; sun/io/CharToByteConverter.getDefault()Lsun/io/CharToByteConverter; 1
+2 java/io/BufferedWriter.<init>(Ljava/io/Writer;)V java/io/PrintStream.<init>(Ljava/io/OutputStream;Z)V 3
+2 java/lang/System.getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; java/util/Locale.getDefault()Ljava/util/Locale; 1
+2 java/util/Locale.getDefault()Ljava/util/Locale; sun/io/CharacterEncoding.aliasName(Ljava/lang/String;)Ljava/lang/String; 1
+2 sun/io/CharToByteConverter.getDefault()Lsun/io/CharToByteConverter; java/io/OutputStreamWriter.<init>(Ljava/io/OutputStream;)V 127
+2 java/io/PrintStream.<init>(Ljava/io/OutputStream;Z)V java/lang/System.initializeSystemClass()V 160
+2 java/io/OutputStreamWriter.<init>(Ljava/io/OutputStream;Lsun/io/CharToByteConverter;)V java/io/OutputStreamWriter.<init>(Ljava/io/OutputStream;)V 2
+2 sun/io/CharToByteConverter.getConverter(Ljava/lang/String;)Lsun/io/CharToByteConverter; sun/io/CharToByteConverter.getDefault()Lsun/io/CharToByteConverter; 126
+2 java/lang/StringBuffer.<init>(Ljava/lang/String;)V sun/io/CharToByteConverter.getConverter(Ljava/lang/String;)Lsun/io/CharToByteConverter; 1
+2 java/io/BufferedOutputStream.flush()V java/io/PrintStream.write([BII)V 1
+2 java/io/PrintStream.write([BII)V java/io/OutputStreamWriter.flushBuffer()V 1
+2 java/io/OutputStreamWriter.<init>(Ljava/io/OutputStream;)V java/io/PrintStream.<init>(Ljava/io/OutputStream;Z)V 137
+2 java/lang/String.toLowerCase(Ljava/util/Locale;)Ljava/lang/String; sun/io/CharacterEncoding.aliasName(Ljava/lang/String;)Ljava/lang/String; 2
+2 sun/io/CharacterEncoding.aliasName(Ljava/lang/String;)Ljava/lang/String; sun/io/CharToByteConverter.getConverter(Ljava/lang/String;)Lsun/io/CharToByteConverter; 25
+2 java/lang/Class.forName(Ljava/lang/String;)Ljava/lang/Class; sun/io/CharToByteConverter.getConverter(Ljava/lang/String;)Lsun/io/CharToByteConverter; 8
+1 java/util/Locale.<clinit>()V <unknown caller> 11
+1 HelloWorldApp.main([Ljava/lang/String;)V <unknown caller> 3
+1 java/util/Properties.<init>(Ljava/util/Properties;)V java/util/Properties.<init>()V 5
+1 java/io/FileDescriptor.<clinit>()V <unknown caller> 1
+1 java/util/Hashtable.<init>()V java/util/Properties.<init>(Ljava/util/Properties;)V 5
+1 java/util/Hashtable.rehash()V java/util/Hashtable.put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; 3
+1 java/util/Hashtable.<init>(IF)V java/util/Hashtable.<init>()V 5
+1 java/io/PrintStream.print(Ljava/lang/String;)V java/io/PrintStream.println(Ljava/lang/String;)V 2
+1 java/lang/System.initProperties(Ljava/util/Properties;)Ljava/util/Properties; java/lang/System.initializeSystemClass()V 1536
+1 java/io/PrintStream.println(Ljava/lang/String;)V HelloWorldApp.main([Ljava/lang/String;)V 3
+1 java/io/PrintStream.write(Ljava/lang/String;)V java/io/PrintStream.print(Ljava/lang/String;)V 2
+1 java/io/BufferedWriter.flushBuffer()V java/io/PrintStream.write(Ljava/lang/String;)V 1
+1 java/lang/System.getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; <unknown caller> 6
+1 java/util/Properties.<clinit>()V <unknown caller> 1
+1 java/lang/System.initializeSystemClass()V <unknown caller> 1806
+1 java/util/Properties.<init>()V java/lang/System.initializeSystemClass()V 5
+1 java/io/OutputStreamWriter.flushBuffer()V java/io/PrintStream.write(Ljava/lang/String;)V 1
+1 sun/io/CharacterEncoding.<clinit>()V <unknown caller> 76
+1 sun/io/CharToByteConverter.<clinit>()V <unknown caller> 1
+1 java/lang/Compiler.<clinit>()V <unknown caller> 1
+1 java/lang/System.<clinit>()V <unknown caller> 3
+1 java/lang/System.nullInputStream()Ljava/io/InputStream; java/lang/System.<clinit>()V 3
+1 java/lang/Character.<clinit>()V <unknown caller> 8
+1 java/lang/ThreadGroup.<init>()V <unknown caller> 1
+1 java/lang/Integer.<clinit>()V <unknown caller> 1
+handles_used: 1259, handles_free: 26214, heap-used: 102976, heap-free: 735880
+sig  count  bytes  indx
+[C     403	20888     5
+[B       8	26498     8
+[I       1	    8    10
+#--------------------------------------------------------------------- 50 recent
+Order, Coleoptera, (Beetles). Many beetles are colored so as
+to resemble the surfaces which they habitually frequent, and they thus
+escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
+with splendid colors, which are often arranged in stripes, spots, crosses,
+and other elegant patterns.  Such colors can hardly serve directly as a protection, except in the case
+of certain flower-feeding species; but they may serve as a warning or means of
+recognition, on the same principle as the
+phosphorescence of the glow-worm.
+As with beetles the colors of the two sexes are generally alike, we have
+no evidence that they have been gained through sexual selection; but this is
+at least possible, for they may have been developed in one sex and then
+transferred to the other; and this view is even in some degree probable
+in those groups which possess other well-marked secondary
+sexual characters. Blind beetles, which cannot, of course, behold each
+other's beauty, never, as I hear from Mr. Waterhouse, Jr., exhibit bright
+colors, though they often have polished coats; but the explanation of their
+obscurity may be that they generally inhabit caves and other obscure stations.
+#--------------------------------------------------------------------- 51 recogn
+ac
+acx
+c
+eb
+aadcb
+abc
+cse
+f
+#---------------------------------------------------------------------- 54 roman
+13
+4
+6
+0
+-4
+39
+3999
+4000
+#-------------------------------------------------------------------- 70 wordcnt
+#
+#	W O R D   T A B U L A T I O N
+#
+
+#  This main procedure processes standard input and writes the results
+#  with the words in a column 20 characters wide.
+
+procedure main()
+   wordcount(20)
+end
+
+procedure wordcount(n)
+   local t, line, x, y
+   static letters
+   initial letters := &lcase ++ &ucase
+   t := table(,0)
+   every line := !&input do
+      scan line using
+         while tab(upto(letters)) do
+            t[tab(many(letters))] +:= 1
+   x := sort(t)
+   every y := !x do write(left(y[1],n),y[2])
+end

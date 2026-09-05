@@ -1,4 +1,4 @@
-#------------------------------------------------------------------------ 1 args
+#---------------------------------------------------------------- 1 general/args
 #SRC: JCON
 #
 #  test various numbers of args
@@ -95,7 +95,7 @@ procedure note(a[])
    write();
    return;
 end
-#----------------------------------------------------------------------- 2 arith
+#--------------------------------------------------------------- 2 general/arith
 #SRC: JCON
 
 # test arithmetic operators and numeric coercion
@@ -227,9 +227,7 @@ procedure pow(m, n)
    return;
 end
 
-#--------------------------------------------------------------------- 3 augment
-#SRC: V9GEN
-
+#------------------------------------------------------------- 3 general/augment
 record array(a,b,c,d,e,f,g)
 
 procedure p1()
@@ -411,9 +409,7 @@ procedure main()
 end
 
 global i, s, c, one, two, x
-#---------------------------------------------------------------------- 4 btrees
-#SRC: V9SAM
-
+#-------------------------------------------------------------- 4 general/btrees
 #
 #          B I N A R Y   T R E E S
 #
@@ -426,25 +422,25 @@ record node(data,ltree,rtree)
 
 procedure main()
    local line, tree;
-   while line := read() do $(
+   while line := read() do {
       tree := tform(line);
       write("tree walk");
       every write(walk(tree));
       write("leaves");
       every write(leaves(tree))
-      $);
+      };
 end
 
 procedure tform(s)
    local value,left,right;
    if /s then return;
-   s ? if value := tab(upto('(')) then $(
+   s ? if value := tab(upto('(')) then {
       move(1);
       left := tab(bal(','));
       move(1);
       right := tab(bal(')'));
       return node(value,tform(left),tform(right))
-      $)
+      }
       else return node(s);
 end
 
@@ -457,7 +453,7 @@ procedure leaves(t)
    if not(\t.ltree | \t.rtree) then return t.data;
    suspend leaves(\t.ltree | \t.rtree);
 end
-#------------------------------------------------------------------------ 5 case
+#---------------------------------------------------------------- 5 general/case
 #SRC: JCON
 
 record rec(a)
@@ -492,7 +488,7 @@ end
 
 procedure foo()
 end
-#---------------------------------------------------------------------- 6 center
+#-------------------------------------------------------------- 6 general/center
 #SRC: JCON
 
 procedure main()
@@ -515,9 +511,218 @@ procedure main()
     write(center("123",9,"<>"));
     write(center("12",9,"<>"));
 end
-#-------------------------------------------------------------------- 7 checkfpx
-#SRC: V9GEN
+#-------------------------------------------------------------- 7 general/cfuncs
+#  Test dynamic loading with a few standard cfuncs.
 
+link cfunc
+
+procedure main()
+   local i;
+
+   every i := 500 to 513 do
+      gen(bitcount, i);
+
+   write();
+   gen(vword, 314159);
+   gen(lgconv, 10 ^ 30);
+   gen(unpack, "abcd");
+   gen(pack, 1684234849);
+end
+
+procedure gen(p, a)
+   write(image(p), "(", image(a), ") = ", p(a) | "[failed]");
+   return;
+end
+#-------------------------------------------------------------- 8 general/checkc
+record array(a,b,c,d,e,f,g)
+
+procedure dummy(u,v,x,y,z)
+   suspend u | v;
+   return x;
+end
+
+procedure main()
+   p1();
+   p2();
+   p3();
+   p4();
+   p5();
+   p6();
+   p7();
+   p8();
+   p9();
+end
+
+procedure p1()
+   write("image(2) ----> ",image(image(2)) | "none");
+   write("image('cab') ----> ",image(image('cab')) | "none");
+   write("image(&lcase) ----> ",image(image(&lcase)) | "none");
+   write("image('abcdefghijklmnopqrstuvwxyz') ----> ",image(image('abcdefghijklmnopqrstuvwxyz')) | "none");
+   write("image(&input) ----> ",image(image(&input)) | "none");
+   write("image() ----> ",image(image()) | "none");
+   write("image(&null) ----> ",image(image(&null)) | "none");
+   write("image([1,2,3]) ----> ",image(image([1,2,3])) | "none");
+   write("image([]) ----> ",image(image([])) | "none");
+   write("image([,]) ----> ",image(image([,])) | "none");
+   write("image(table()) ----> ",image(image(table())) | "none");
+   write("image(table(3)) ----> ",image(image(table(3))) | "none");
+   write("image(list(0)) ----> ",image(image(list(0))) | "none");
+   write("image(repl) ----> ",image(image(repl)) | "none");
+   write("image(main) ----> ",image(image(main)) | "none");
+   write("image(repl(&lcase,10)) ----> ",image(image(repl(&lcase,10))) | "none");
+   write("image(array) ----> ",image(image(array)) | "none");
+   write("image(a) ----> ",image(image(a)) | "none");
+   write("image(array) ----> ",image(image(array)) | "none");
+   write("image(image) ----> ",image(image(image)) | "none");
+end
+
+procedure p2()
+   write("integer(2) ----> ",image(integer(2)) | "none");
+   write("integer(\"2\") ----> ",image(integer("2")) | "none");
+   write("integer(\" 2\") ----> ",image(integer(" 2")) | "none");
+   write("integer(\"2 \") ----> ",image(integer("2 ")) | "none");
+   write("integer(\"+2\") ----> ",image(integer("+2")) | "none");
+   write("integer(\"-2\") ----> ",image(integer("-2")) | "none");
+   write("integer(\"- 2\") ----> ",image(integer("- 2")) | "none");
+   write("integer(\" -    2 \") ----> ",image(integer(" -    2 ")) | "none");
+   write("integer(\"\") ----> ",image(integer("")) | "none");
+   write("integer(\"--2\") ----> ",image(integer("--2")) | "none");
+   write("integer(\" \") ----> ",image(integer(" ")) | "none");
+   write("integer(\"-\") ----> ",image(integer("-")) | "none");
+   write("integer(\"+\") ----> ",image(integer("+")) | "none");
+   write("integer(\"7r4\") ----> ",image(integer("7r4")) | "none");
+   write("integer(\"4r7\") ----> ",image(integer("4r7")) | "none");
+   write("integer(\"4r 7\") ----> ",image(integer("4r 7")) | "none");
+   write("integer(\"7r 4\") ----> ",image(integer("7r 4")) | "none");
+   write("integer(\"16rff\") ----> ",image(integer("16rff")) | "none");
+   write("integer(\"36rcat\") ----> ",image(integer("36rcat")) | "none");
+   write("integer(\"36Rcat\") ----> ",image(integer("36Rcat")) | "none");
+   write("integer(\"36rCAT\") ----> ",image(integer("36rCAT")) | "none");
+   write("integer(\"1r1\") ----> ",image(integer("1r1")) | "none");
+   write("integer(\"2r0\") ----> ",image(integer("2r0")) | "none");
+   write("integer(integer) ----> ",image(integer(integer)) | "none");
+   write("integer := abs ----> ",image(integer := abs) | "none");
+end
+
+procedure p3()
+   write("numeric(2) ----> ",image(numeric(2)) | "none");
+   write("numeric(\"2\") ----> ",image(numeric("2")) | "none");
+   write("numeric(\" 2\") ----> ",image(numeric(" 2")) | "none");
+   write("numeric(\"2 \") ----> ",image(numeric("2 ")) | "none");
+   write("numeric(\"+2\") ----> ",image(numeric("+2")) | "none");
+   write("numeric(\"-2\") ----> ",image(numeric("-2")) | "none");
+   write("numeric(\"- 2\") ----> ",image(numeric("- 2")) | "none");
+   write("numeric(\" -    2 \") ----> ",image(numeric(" -    2 ")) | "none");
+   write("numeric(\"\") ----> ",image(numeric("")) | "none");
+   write("numeric(\"--2\") ----> ",image(numeric("--2")) | "none");
+   write("numeric(\" \") ----> ",image(numeric(" ")) | "none");
+   write("numeric(\"-\") ----> ",image(numeric("-")) | "none");
+   write("numeric(\"+\") ----> ",image(numeric("+")) | "none");
+   write("numeric(\"7r4\") ----> ",image(numeric("7r4")) | "none");
+   write("numeric(\"4r7\") ----> ",image(numeric("4r7")) | "none");
+   write("numeric(\"4r 7\") ----> ",image(numeric("4r 7")) | "none");
+   write("numeric(\"7r 4\") ----> ",image(numeric("7r 4")) | "none");
+   write("numeric(\"16rff\") ----> ",image(numeric("16rff")) | "none");
+   write("numeric(\"36rcat\") ----> ",image(numeric("36rcat")) | "none");
+   write("numeric(\"36Rcat\") ----> ",image(numeric("36Rcat")) | "none");
+   write("numeric(\"36rCAT\") ----> ",image(numeric("36rCAT")) | "none");
+   write("numeric(\"1r1\") ----> ",image(numeric("1r1")) | "none");
+   write("numeric(\"2r0\") ----> ",image(numeric("2r0")) | "none");
+end
+
+procedure p4()
+end
+
+procedure p5()
+   write("numeric(2) ----> ",image(numeric(2)) | "none");
+   write("numeric(2) ----> ",image(numeric(2)) | "none");
+   write("numeric(+2) ----> ",image(numeric(+2)) | "none");
+   write("numeric(-2) ----> ",image(numeric(-2)) | "none");
+   write("numeric() ----> ",image(numeric()) | "none");
+   write("numeric(7r4) ----> ",image(numeric(7r4)) | "none");
+   write("numeric(16rff) ----> ",image(numeric(16rff)) | "none");
+   write("numeric(36rcat) ----> ",image(numeric(36rcat)) | "none");
+   write("numeric(36Rcat) ----> ",image(numeric(36Rcat)) | "none");
+   write("numeric(36rCAT) ----> ",image(numeric(36rCAT)) | "none");
+   write("numeric(2r0) ----> ",image(numeric(2r0)) | "none");
+   write("numeric(+-2) ----> ",image(numeric(+-2)) | "none");
+   write("numeric(++2) ----> ",image(numeric(++2)) | "none");
+   write("numeric(--2) ----> ",image(numeric(--2)) | "none");
+end
+
+procedure p6()
+   write("36 ^ -9 ----> ",image(36 ^ -9) | "none");
+   write("-36 ^ -9 ----> ",image(-36 ^ -9) | "none");
+end
+
+procedure p7()
+   write("f := open(\"foo.baz\",\"w\") ----> ",image(f := open("foo.baz","w")) | "none");
+   write("write(f,\"hello world\") ----> ",image(write(f,"hello world")) | "none");
+   write("close(f) ----> ",image(close(f)) | "none");
+end
+
+procedure p8()
+   write("\ncset sizes and images:");
+   L := [
+      '',
+      '<()>',
+      '\b\d\e\f\l\n\r\t\v',
+      &digits,
+      '0123456789',
+      '02468' ++ '13579',
+      ')!@#$%^&*(',
+      'the icon programming language',
+      &lcase,
+      'abcdefghijklmnopqrstuvwxyz',
+      &letters -- &ucase,
+      'aBcDeFgHiJkLmNoPqRsTuVwXyZ',
+      &ucase,
+      'ZYXWVUTSRQPONMLKJIHGFEDCBA',
+      &letters -- &lcase,
+      'AbcdEfghIjklmnOpqrstUvwxyz',
+      'The Quick Brown Fox Jumped Over The Lazy Gray Dog\'s Back',
+      &letters,
+      'abcdefghijklmnopqrstuvwxyzZYXWVUTSRQPONMLKJIHGFEDCBA',
+      &lcase ++ &ucase,
+      'abcdefghijk|mn.pqrstuvwxyz2YXWVUT5RQP0NMLKJ1HGFEDCBA',
+      &ascii,
+      &cset -- ~&ascii,
+      &cset,
+      &letters ++ ~&ucase,
+   &null];
+   pull(L);
+   every e := !L do {
+      s := image(e);	# do this first to make image() calc the cset size
+      s[76:0] := "";
+      write (right(*e,3), " ", s)
+      };
+   write();
+end
+
+procedure p9()
+   write(image(&ascii) | "failed");
+#   write(image(&clock) | "failed")
+   write(image(&cset) | "failed");
+#   write(image(&date) | "failed")
+#   write(image(&dateline) | "failed")
+   write(image(&e) | "failed");
+   write(image(&fail) | "failed");
+#   write(image(&host) | "failed")
+   write(image(&input) | "failed");
+   write(image(&lcase) | "failed");
+   write(image(&null) | "failed");
+   write(image(&output) | "failed");
+   write(image(&phi) | "failed");
+   write(image(&pi) | "failed");
+   write(image(&pos) | "failed");
+   write(image(&random) | "failed");
+   write(image(&subject) | "failed");
+#   write(image(&time) | "failed")
+   write(image(&ucase) | "failed");
+#   write(image(&version) | "failed")
+   exit(abs(3.0));
+end
+#------------------------------------------------------------ 9 general/checkfpc
 procedure main()
    write("This test of floating-point arithmetic is likely to show");
    write("differences from platform to platform because of differences");
@@ -645,9 +850,7 @@ procedure Image(x)
          }
       };
 end
-#-------------------------------------------------------------------------- 8 ck
-#SRC: V9GEN
-
+#----------------------------------------------------------------- 10 general/ck
 procedure main()
    write("This test of floating-point arithmetic is likely to show");
    write("differences from platform to platform because of differences");
@@ -838,7 +1041,7 @@ procedure Image(x)
          }
       };
 end
-#---------------------------------------------------------------------- 9 coerce
+#------------------------------------------------------------- 11 general/coerce
 #SRC: JCON
 
 #  check coercion of operator arguments
@@ -906,9 +1109,80 @@ procedure binop(o, i, r, c, s)
       right(o(s, c) | "---", 6));
    return;
 end
-#-------------------------------------------------------------------- 10 collate
-#SRC: V9GEN
+#------------------------------------------------------------- 12 general/coexpr
+record array(a,b,c,d,e,f,g)
 
+procedure dummy(u,v,x,y,z)
+   suspend u | v;
+   return x;
+end
+
+
+procedure f(x,y,z)
+end
+
+procedure main()
+   if not(&features == "co-expressions") then
+      stop("co-expressions not supported");
+   write(image(&main));
+   write(image(&source));
+   write(image(&current));
+   e := create foo;
+   write(image(foo));
+   f(&main,&source,e);
+   write(image(x := [array(),table(),write,input,1,"abc",'aa',&null,create 1]) | "failed");
+   write(image(x := sort(x)) | "failed");
+   write(image(every write(image(!x))) | "failed");
+   write(image(e := create 1 to 10) | "failed");
+   write(image(@e) | "failed");
+   write(image(@e) | "failed");
+   write(image(@e) | "failed");
+   write(image(e := ^e) | "failed");
+   write(image(@e) | "failed");
+   write(image(@e) | "failed");
+   write(image(@e) | "failed");
+   write(image(@e) | "failed");
+   write(image(@e) | "failed");
+   write(image(@e) | "failed");
+   write(image(@e) | "failed");
+   write(image(@e) | "failed");
+   write(image(@e) | "failed");
+   write(image(@e) | "failed");
+   write(image(@e) | "failed");
+   write(image(@e) | "failed");
+   write(image(@e) | "failed");
+   write(image(@e) | "failed");
+   write(image(*e) | "failed");
+   write(image(*e) | "failed");
+   write(image(image(e)) | "failed");
+   write(image(tab := create {write("entering tab"); 1 | 2 | 3}) | "failed");
+   write(image(trim := create {write("entering trim"); @tab | (main @:= tab)}) | "failed");
+   write(image(@trim) | "failed");
+   write(image(@trim) | "failed");
+   write(image(write(image(trim))) | "failed");
+   write(image(write(image(tab))) | "failed");
+   write(image(write(image(main))) | "failed");
+   &trace := -1;
+   dummy{1,2,3,4};
+   dummy{};
+   dummy(image{1,2,3,4});
+   dummy(put{1,2,3,4});
+   dummy("*"{1,2,3,4});
+   dummy(image("|||"([],[])));
+   dummy("+"(1,2));
+   dummy("+"(1));
+   dummy("image"(image(image)));
+   &trace := 0;
+   e := create writer(1 to 4);
+   while write("return value ", @e);
+end
+
+procedure writer(n)
+   return write("in cx write ", n);
+end
+
+invocable "*", "|||", "+", "image"
+#------------------------------------------------------------ 13 general/collate
 procedure main()
    s1 := collate(&cset,&cset);
    s2 := collate(reverse(&cset),reverse(&cset));
@@ -987,9 +1261,7 @@ procedure permute(s)
       suspend x || permute(t)
       };
 end
-#-------------------------------------------------------------------- 11 concord
-#SRC: V9GEN
-
+#------------------------------------------------------------ 14 general/concord
 procedure main()
    local letters, line, wordlist, word, words, maxword, lineno, i;
    local j, lines, numbers;
@@ -1021,7 +1293,7 @@ procedure main()
       write(left(word,maxword + 2),": ",lines[1:-2])
       };
 end
-#----------------------------------------------------------------------- 12 cset
+#--------------------------------------------------------------- 15 general/cset
 #SRC: JCON
 
 # test csets and character conversions
@@ -1107,15 +1379,14 @@ procedure kw(label, value)
    return;
 end
 
-#------------------------------------------------------------------- 13 cxprimes
-#SRC: JCON
-
+#----------------------------------------------------------- 16 general/cxprimes
 #  prime number generation using co-expressions
 
-procedure main()
-   local s, x;
+procedure main(args)
+   local s, n, x;
 
-   s := create (2 to 100);
+   n := integer(get(args)) | 100;
+   s := create (2 to n);
    while (x := @s) do {
       write(x);
       s := create sieve(x, s)
@@ -1129,9 +1400,7 @@ procedure sieve(x, s)
       if t % x ~= 0 then suspend t
    };
 end
-#------------------------------------------------------------------- 14 diffwrds
-#SRC: V9SAM
-
+#----------------------------------------------------------- 17 general/diffwrds
 #
 #          D I F F E R E N T   W O R D S
 #
@@ -1146,15 +1415,10 @@ procedure main()
          insert(words,tab(many(&letters)));
    every write(!sort(words));
 end
-#-------------------------------------------------------------------- 15 endetab
-#SRC: V9GEN
-#OPT: -fe
-
+#------------------------------------------------------------ 18 general/endetab
 # test type conversion and error handling in entab/detab
 
 procedure main ()
-   local s;
-
    s := "rutabaga";
    if entab('1987') ~== "1789" then write ("oops 1");
    if detab('1492') ~== "1249" then write ("oops 2");
@@ -1173,21 +1437,20 @@ procedure main ()
 
    endetab1();
 
-end
-
+   end
 
 
 # ferr(err,func,arglst) -- call func(args), verify that error "err" is produced
 
 procedure ferr (err, func, args)
-   local val, msg;
+   local val;
 
    val := "";
    every val ||:= image(!args) || ",";
    val := val[1:-1];
    msg := "oops -- " || image(func) || "(" || val || ") ";
    &error := 1;
-   if func ! args
+   if func!args
       then write (msg, "succeeded")
    else if &error ~= 0
       then write (msg, "failed but no error")
@@ -1195,9 +1458,7 @@ procedure ferr (err, func, args)
       then write (msg, "got error ",&errornumber," instead of ",err);
    &error := 0;
    return;
-end
-
-
+   end
 
 ## Test driver for entab and detab
 #
@@ -1220,8 +1481,6 @@ end
 #  to match the original entab argument (or its detab, if it had any tabs).
 
 procedure endetab1 ()
-   local params, line, s, t;
-
    params := setup ("=");		# start with default tabs (no args)
    while line := escape (read ()) do {	# read and preprocess line
       if line[1] == "=" then
@@ -1229,29 +1488,25 @@ procedure endetab1 ()
       else {
          s := map (line, "!.", "  ");	# turn "!." characters into spaces
          params[1] := s;
-         t := entab ! params;		# run entab
+         t := invoke (entab, params);	# run entab
          if t ~== interp (line) then {	# check results
-            write ("entab error: ", map(line,"\t\r\n\b\007","!RNBA"));
-            write ("   returned: ", map(t,   "\t\r\n\b\007","!RNBA"))
+            write ("entab failed for: ", map(line,"\t\r\n\b\007","!RNBA"));
+            write ("  returned value: ", map(t,   "\t\r\n\b\007","!RNBA"))
          } else {
             if upto ('\t', s) then	# detab input if it had a tab
-               s := detab ! params;
+               s := invoke (detab, params);
             params[1] := t;
-            t := detab ! params;		# detab the result of the entab
+            t := invoke (detab, params);	# detab the result of the entab
             if t ~== s then {		# compare results
-               write ("detab error: ", map(line,"\t\r\n\b\007","!RNBA"));
-               write ("   returned: ", map(t,   "\t\r\n\b\007","!RNBA"))
+               write ("detab failed for: ", map(line,"\t\r\n\b\007","!RNBA"));
+               write ("  returned value: ", map(t,   "\t\r\n\b\007","!RNBA"))
                }
             }
          }
    };
-end
-
-
+   end
 
 procedure escape (line);		# interpret escape sequences and trim one '$'
-   local s, c;
-
    if line[-1] == "$" then
       line := line[1:-1];
    s := "";
@@ -1268,13 +1523,9 @@ procedure escape (line);		# interpret escape sequences and trim one '$'
          })
       };
    return s;
-end
-
-
+   end
 
 procedure interp (pattern);	# interpret metacharacters '!.'
-   local s;
-
    s := "";
    pattern ? 
       while not pos (0) do {
@@ -1282,13 +1533,9 @@ procedure interp (pattern);	# interpret metacharacters '!.'
          s ||:= tab (upto ('.') | 0)
       };
    return map (s, "!", "\t");
-end
-
-
+   end
 
 procedure setup (line);		# interpret and report a column spec line
-   local p;
-
    p := [&null];
    line ? while tab (upto (&digits)) do
       put (p, integer (tab (many (&digits))));
@@ -1296,8 +1543,40 @@ procedure setup (line);		# interpret and report a column spec line
    every writes (",", \!p);
    write (")");
    return p;
+   end
+
+procedure invoke (func, a);	# invoke a function with a list of up to 10 args
+   return case *a of {
+      0:  func ();
+      1:  func (a[1]);
+      2:  func (a[1], a[2]);
+      3:  func (a[1], a[2], a[3]);
+      4:  func (a[1], a[2], a[3], a[4]);
+      5:  func (a[1], a[2], a[3], a[4], a[5]);
+      6:  func (a[1], a[2], a[3], a[4], a[5], a[6]);
+      7:  func (a[1], a[2], a[3], a[4], a[5], a[6], a[7]);
+      8:  func (a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8]);
+      9:  func (a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9]);
+      10: func (a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9], a[10]);
+      default: stop ("too many args for invoke")
+   };
+   end
+#---------------------------------------------------------------- 19 general/env
+procedure main()
+   write();
+   write("&host:      ", &host);
+   write("&dateline:  ", &dateline);
+   write("   &date:   ", &date);
+   write("   &clock:  ", &clock);
+   write("&version:   ", &version);
+   write("&features:");
+   every write("   ", &features);
+   write("getenv(\"HOME\"):  ", getenv("HOME") | "[failed]");
+   write("getenv(\"SHELL\"): ", getenv("SHELL") | "[failed]");
+   write("uname -a: ", read(open("uname -a", "p")) | "[failed]");
+   write();
 end
-#-------------------------------------------------------------------- 16 errkwds
+#------------------------------------------------------------ 20 general/errkwds
 #SRC: JCON
 #OPT: -fe
 
@@ -1323,11 +1602,9 @@ procedure main()
 	write(&errortext | "fail");
 	write(image(&errorvalue) | "fail");
 end
-#--------------------------------------------------------------------- 17 errors
-#SRC: V9GEN
-#OPT: -fe
-
+#------------------------------------------------------------- 21 general/errors
 record array(a,b,c,d,e,f,g)
+
 procedure p1()
    write("seq(\"a\") | monitor(&line) ----> ",
       image(seq("a") | monitor(&line)) | "none");
@@ -1379,8 +1656,8 @@ procedure p3()
       image(repl("b","a") | monitor(&line)) | "none");
    write("t(t) | monitor(&line) ----> ",
       image(t(t) | monitor(&line)) | "none");
-   write("sort(&lcase) | monitor(&line) ----> ",
-      image(sort(&lcase) | monitor(&line)) | "none");
+   write("sort(&cset) | monitor(&line) ----> ",
+      image(sort(&cset) | monitor(&line)) | "none");
    write("pull(&null) | monitor(&line) ----> ",
       image(pull(&null) | monitor(&line)) | "none");
    write("c[-4] | monitor(&line) ----> ",
@@ -1529,9 +1806,7 @@ procedure monitor(line)
    write("   &errorvalue = ", image(&errorvalue));
    return line;
 end
-#---------------------------------------------------------------------- 18 evalx
-#SRC: V9GEN
-
+#-------------------------------------------------------------- 22 general/evalx
 record array(a,b,c,d,e,f,g)
 
 procedure p1()
@@ -1765,7 +2040,7 @@ procedure main()
    p16();
 end
 
-#---------------------------------------------------------------------- 19 every
+#-------------------------------------------------------------- 23 general/every
 #SRC: JCON
 
 procedure main()
@@ -1800,9 +2075,125 @@ end
 procedure f(n)
    suspend n | -n;
 end
-#----------------------------------------------------------------------- 20 fncs
-#SRC: V9GEN
+#----------------------------------------------------------- 24 general/extlvals
+#  Test use of external values with dynamic loading, using demo cfunc.
 
+link cfunc
+
+record complex(r, i)
+
+procedure main()
+   local e, l, v1, v2, v3, v4;
+   local r1,r2,r3,r4, s1, s2, s3, s4;
+
+   # test simple creation, type(), copy()
+   xwrite("v1", v1 := extxmin());
+   xwrite("v2", v2 := extxmin());
+   xwrite("v3", v3 := v1);
+   xwrite("v4", v4 := copy(v1));
+
+   # test string-based external example
+   xwrite("s1", s1 := extxstr("bite"));
+   xwrite("s2", s2 := extxstr("the"));
+   xwrite("s3", s3 := extxstr("wax"));
+   xwrite("s4", s4 := extxstr("tadpole"));
+
+   # test real-based external example
+   xwrite("r1", r1 := extxreal(111.1));
+   xwrite("r2", r2 := extxreal(222.2));
+   xwrite("r3", r3 := extxreal(333.3));
+   xwrite("r4", r4 := copy(r1));
+
+   # test === and ~===
+   teqv(v1, v3, v2);
+   teqv(v1, v4, v2);
+   teqv(s2, copy(s2), s3);
+   teqv(r1, r1, copy(r1));
+   teqv(s1, s1, s3);
+   teqv(r2, r2, r4);
+   teqv(s3, s3, r3);
+
+   # test sorting
+   l := [ v1, s2, r3, v4, s1, r2, complex(8,9), v3, s4, r1, v2, s3, r4 ];
+   write();
+   every xwrite("before", !l);
+   write();
+   every xwrite("sorted", !sort(l));
+
+end
+
+
+#  write label, type(xval), image(xval)
+
+procedure xwrite(label, xval)
+   write(label, ": ", type(xval), ": ",image(xval));
+   return;
+end
+
+
+#  test equivalence of id1 and id2, and nonequivalence of diff
+
+procedure teqv(id1, id2, diff)
+   if id1 ~=== id2 then
+      write("nonequivalent: ", image(id1), " and ", image(id2));
+   if id2 ~=== id1 then
+      write("nonequivalent: ", image(id2), " and ", image(id1));
+   if not (id1 === id2) then
+      write("not equivalent: ", image(id1), " and ", image(id2));
+
+   if id1 === diff then
+      write("false equivalence: ", image(id1), " and ", image(diff));
+   if id2 === diff then
+      write("false equivalence: ", image(id2), " and ", image(diff));
+   return;
+end
+#----------------------------------------------------------- 25 general/features
+#   Check and report configuration options
+#   as reported by preprocessor symbols and &features
+#
+#   Compile WITHOUT using -u
+
+global error
+
+procedure main()
+   write("Features found:");
+   ckfeat(_UNIX, "UNIX");
+   ckfeat(_MACINTOSH, "Macintosh");
+   ckfeat(_HAIKU, "Haiku");
+   ckfeat(_CYGWIN, "Cygwin");
+   ckfeat(_MS_WINDOWS, "MS Windows");
+   ckfeat(_ASCII, "ASCII");
+   ckfeat(_CO_EXPRESSIONS, "co-expressions");
+   ckfeat(_DYNAMIC_LOADING, "dynamic loading");
+   ckfeat(_EXTERNAL_VALUES, "external values");
+   ckfeat(_KEYBOARD_FUNCTIONS, "keyboard functions");
+   ckfeat(_LARGE_INTEGERS, "large integers");
+   ckfeat(_PIPES, "pipes");
+   ckfeat(_SYSTEM_FUNCTION, "system function");
+   ckfeat(_GRAPHICS, "graphics");
+   ckfeat(_X_WINDOW_SYSTEM, "X Windows");
+
+   if \error then exit(1);
+end
+
+procedure ckfeat(ppval, fstring)
+   if ppval === 1 then
+      if &features == fstring then
+         write("   ", fstring)
+      else
+         error := write("   ", fstring, " (PREPROCESSOR SYMBOL ONLY)")
+   else if \ppval then
+      if &features == fstring then
+         error := write("   ", fstring, " (WITH BOGUS PREPROCESSOR SYMBOL: ",
+            image(ppval), ")")
+      else
+         error := write("   ", fstring, " (ONLY BOGUS PREPROCESSOR SYMBOL: ",
+            image(ppval), ")")
+   else if &features == fstring then
+      error := write("   ", fstring, " (WITHOUT PREPROCESSOR SYMBOL)");
+   return;
+end
+#--------------------------------------------------------------- 26 general/fncs
 record array(a,b,c,d,e,f,g)
 global F, f
 global w, t
@@ -1988,9 +2379,7 @@ end
 procedure wf (v)
     writes(left(v,5)," ");
     end
-#---------------------------------------------------------------------- 21 fncs1
-#SRC: V9GEN
-
+#-------------------------------------------------------------- 27 general/fncs1
 record array(a,b,c,d,e,f,g)
 global F, f
 global w, t
@@ -2008,28 +2397,27 @@ procedure q1()
    write("f := open(\"foo.baz\",\"w\") ----> ",image(f := open("foo.baz","w")) | "none");
    write("write(f,\"hello world\") ----> ",image(write(f,"hello world")) | "none");
    write("close(f) ----> ",image(close(f)) | "none");
-   remove("foo.baz");
-   write("F := open(\"fncs1.dat\") ----> ",image(F := open("fncs1.dat")) | "none");
+   write("F := open(\"gc1.icn\") ----> ",image(F := open("gc1.icn")) | "none");
    write("every write(reverse(!F)) ----> ",image(every write(reverse(!F))) | "none");
    write("close(F) ----> ",image(close(F)) | "none");
-   write("F := open(\"fncs1.dat\") ----> ",image(F := open("fncs1.dat")) | "none");
+   write("F := open(\"gc1.icn\") ----> ",image(F := open("gc1.icn")) | "none");
    write("every write(map(!F)) ----> ",image(every write(map(!F))) | "none");
    write("close(F) ----> ",image(close(F)) | "none");
-   write("F := open(\"fncs1.dat\") ----> ",image(F := open("fncs1.dat")) | "none");
+   write("F := open(\"gc1.icn\") ----> ",image(F := open("gc1.icn")) | "none");
 end
 
 procedure q2()
    write("every write(map(!F,&cset || \"aeiou\",&cset || \"-----\")) ----> ",image(every write(map(!F,&cset || "aeiou",&cset || "-----"))) | "none");
    write("close(F) ----> ",image(close(F)) | "none");
-   write("F := open(\"fncs1.dat\") ----> ",image(F := open("fncs1.dat")) | "none");
+   write("F := open(\"gc1.icn\") ----> ",image(F := open("gc1.icn")) | "none");
    write("every write(map(!F,&cset || \"     \",&cset || \"aeiou\")) ----> ",image(every write(map(!F,&cset || "     ",&cset || "aeiou"))) | "none");
    write("close(F) ----> ",image(close(F)) | "none");
-   write("f := open(\"fncs1.dat\") ----> ",image(f := open("fncs1.dat")) | "none");
+   write("f := open(\"gc1.icn\") ----> ",image(f := open("gc1.icn")) | "none");
    write("while writes(reads(f)) ----> ",image(while writes(reads(f))) | "none");
    write("close(f) ----> ",image(close(f)) | "none");
-   write("f := open(\"fncs1.dat\") ----> ",image(f := open("fncs1.dat")) | "none");
+   write("f := open(\"gc1.icn\") ----> ",image(f := open("gc1.icn")) | "none");
    write("while writes(reads(f,10)) ----> ",image(while writes(reads(f,10))) | "none");
-   write("f := open(\"fncs1.dat\") ----> ",image(f := open("fncs1.dat")) | "none");
+   write("f := open(\"gc1.icn\") ----> ",image(f := open("gc1.icn")) | "none");
 end
 
 procedure q3()
@@ -2064,7 +2452,249 @@ procedure q5()
 procedure wf (v)
     writes(left(v,5)," ");
     end
-#---------------------------------------------------------------------- 22 gener
+#---------------------------------------------------------------- 28 general/gc1
+procedure main()
+   write("filling ...");
+   every 1 to 100 do {
+      every 1 to 100 do
+         list(1000)
+      };
+   #write(&collections)
+   write("collecting ...");
+   collect();
+   write("filling ...");
+   every s := repl("x",1 to 1000) do {
+      cset(string(&lcase));
+      t := table();
+      set([s]);
+      s[2 : 5]
+      };
+   write("done");
+end
+#---------------------------------------------------------------- 29 general/gc2
+global defs, ifile, in, limit, tswitch, prompt
+
+record nonterm(name)
+record charset(chars)
+record query(name)
+
+procedure main(x)
+   local line, plist;
+   plist := [define,generate,grammar,source,comment,prompter,error];
+   defs := table();
+   defs["lb"] := [["<"]];
+   defs["rb"] := [[">"]];
+   defs["vb"] := [["|"]];
+   defs["nl"] := [["\n"]];
+   defs[""] := [[""]];
+   defs["&lcase"] := [[charset(&lcase)]];
+   defs["&ucase"] := [[charset(&ucase)]];
+   defs["&digit"] := [[charset('0123456789')]];
+   i := 0;
+   while i < *x do {
+      s := x[i +:= 1] | break;
+      case s of {
+         "-t":   tswitch := 1;
+         "-l":   limit := integer(x[i +:= 1]) | stop("usage: [-t] [-l n]");
+         default:   stop("usage: [-t] [-l n]")
+         }
+      };
+   ifile := [&input];
+   prompt := "";
+   test := ["<a>::=1|2|3","<a>10","->","<b>::=<a>|<a><a>|<b><b>","<b>5",
+      "<c>::=<b><b><b>","<c>100","<b>100"];
+   every line := !test do {
+      (!plist)(line);
+      collect();
+      every write(&collections);
+      write("----------")
+      };
+end
+
+procedure comment(line)
+   if line[1] == "#" then return;
+end
+
+procedure define(line)
+   return line ?
+      defs[(="<",tab(find(">::=")))] := (move(4),alts(tab(0)));
+end
+
+procedure defnon(sym)
+   if sym ? {
+      ="'" &
+      chars := cset(tab(-1)) &
+      ="'"
+      }
+   then return charset(chars)
+   else if sym ? {
+      ="?" &
+      name := tab(0)
+      }
+   then return query(name)
+   else return nonterm(sym);
+end
+
+procedure error(line)
+   write("*** erroneous line:  ",line);
+   return;
+end
+
+procedure gener(goal)
+   local pending, genstr, symbol;
+   repeat {
+      pending := [nonterm(goal)];
+      genstr := "";
+      while symbol := get(pending) do {
+         if \tswitch then write(genstr,symimage(symbol),listimage(pending));
+         case type(symbol) of {
+            "string":   genstr ||:= symbol;
+            "charset":  genstr ||:= ?symbol.chars;
+	    "query":    {
+               writes("*** supply string for ",symbol.name,"  ");
+               genstr ||:= read() | {
+                  write("*** no value for query to ",symbol.name);
+                  suspend genstr;
+                  break next
+                  }
+               };
+            "nonterm":  {
+               pending := ?\defs[symbol.name] ||| pending | {
+                  write("*** undefined nonterminal:  <",symbol.name,">");
+                  suspend genstr;
+                  break next
+                  };
+               if *pending > \limit then {
+                  write("*** excessive symbols remaining");
+                  suspend genstr;
+                  break next
+                  }
+               }
+            }
+         };
+      suspend genstr
+      };
+end
+
+procedure generate(line)
+   local goal, count;
+   if line ? {
+      ="<" &
+      goal := tab(upto('>')) \ 1 &
+      move(1) &
+      count := (pos(0) & 1) | integer(tab(0))
+      }
+   then {
+      every write(gener(goal)) \ count;
+      return
+      }
+   else fail;
+end
+
+procedure getrhs(a)
+   local rhs;
+   rhs := "";
+   every rhs ||:= sform(!a) || "|";
+   return rhs[1:-1];
+end
+
+procedure grammar(line)
+   local file, out;
+   if line ? {
+      name := tab(find("->")) &
+      move(2) &
+      file := tab(0) &
+      out := if *file = 0 then &output else {
+         open(file,"w") | {
+            write("*** cannot open ",file);
+            fail
+            }
+         }
+      }
+   then {
+      (*name = 0) | (name[1] == "<" & name[-1] == ">") | fail;
+      pwrite(name,out);
+      if *file ~= 0 then close(out);
+      return
+      }
+   else fail;
+end
+
+procedure listimage(a)
+   local s, x;
+   s := "";
+   every x := !a do
+      s ||:= symimage(x);
+   return s;
+end
+
+procedure alts(defn)
+   local alist;
+   alist := [];
+   defn ? while put(alist,syms(tab(many(~'|')))) do move(1);
+   return alist;
+end
+
+procedure prompter(line)
+   if line[1] == "=" then {
+      prompt := line[2:0];
+      return
+      };
+end
+
+procedure pwrite(name,ofile)
+   local nt, a;
+   static builtin;
+   initial builtin := ["lb","rb","vb","nl","","&lcase","&ucase","&digit"];
+   if *name = 0 then {
+      a := sort(defs);
+      every nt := !a do {
+         if nt[1] == !builtin then next;
+         write(ofile,"<",nt[1],">::=",getrhs(nt[2]))
+         }
+      }
+   else write(ofile,name,"::=",getrhs(\defs[name[2:-1]])) |
+      write("*** undefined nonterminal:  ",name);
+end
+
+procedure sform(alt)
+   local s, x;
+   s := "";
+   every x := !alt do
+      s ||:= case type(x) of {
+         "string":  x;
+         "nonterm": "<" || x.name || ">";
+         "charset": "<'" || x.chars || "'>"
+         };
+   return s;
+end
+
+procedure source(line)
+   return line ? (="@" & push(ifile,in) & {
+      in := open(file := tab(0)) | {
+         write("*** cannot open ",file);
+         fail
+         }
+      });
+end
+
+procedure symimage(x)
+   return case type(x) of {
+      "string":   x;
+      "nonterm":  "<" || x.name || ">";
+      "charset":  "<'" || x.chars || "'>"
+      };
+end
+
+procedure syms(alt)
+   local slist;
+   slist := [];
+   alt ? while put(slist,tab(many(~'<')) |
+      defnon(2(="<",tab(upto('>')),move(1))));
+   return slist;
+end
+
+#-------------------------------------------------------------- 30 general/gener
 #SRC: V9GEN
 
 ##    gener.icn -- test generation in parallel with inserts/deletes
@@ -2206,7 +2836,7 @@ procedure stale()
    write();
    return;
 end
-#------------------------------------------------------------------- 23 genqueen
+#----------------------------------------------------------- 31 general/genqueen
 #SRC: APP
 
 ############################################################################
@@ -2307,7 +2937,15 @@ procedure writeboard ()
    end # procedure writeboard
 
 
-#---------------------------------------------------------------------- 24 image
+#-------------------------------------------------------------- 32 general/hello
+#  hello.icn -- used in various ways by the Test-opts script
+
+procedure main(args)
+   write("\t\t\t\t\t\t\tHello, ", get(args) | "there", ".");
+   every 1 to 7 do
+      sqrt(42);
+end
+#-------------------------------------------------------------- 33 general/image
 #SRC: JCON
 
 #  test image(), serial(), *x, and explicit conversion functions
@@ -2391,17 +3029,16 @@ end
 procedure pad(x)
    return right(image(\x) | "---", 13);
 end
-#------------------------------------------------------------------------- 25 io
+#----------------------------------------------------------------- 34 general/io
 #SRC: JCON
 
 #  I/O test -- writes ./tmp1 and ./tmp2 as well as stdout
 
 procedure main()
-   local L, f, m, n, t1, t2;
+   local L, f, n, t1, t2;
 
    L := [&input, &output, &errout,
-   	m := open("/etc/passwd") | stop("no /etc/passwd"),
-	n := open("/dev/null" | stop("no /dev/null"), "w")];
+         n := open("/dev/null", "w") | stop("no /dev/null")];
    L := sort(L);
    every f := !L do
       write(type(f), ": ", image(f));
@@ -2413,12 +3050,6 @@ procedure main()
    write(!&input);
    every write(!&input \ 2);
    every write(!&input) \ 2;
-
-   write();
-   write("flush /etc/passwd: ", image(flush(m)) | "FAILED");
-   write("close /etc/passwd: ", image(close(m)) | "FAILED");
-   write("close /etc/passwd: ", image(close(m)) | "FAILED");
-   write("flush /etc/passwd: ", image(flush(m)) | "FAILED");
 
    write();
    write("flush /dev/null: ", image(flush(n)) | "FAILED");
@@ -2497,8 +3128,8 @@ procedure wfile(name, mode, s)
       writes(s);
       tab(many(' '));
       while not pos(0) do {
-	 write(f, tab(upto(' ') | 0));
-	 tab(many(' '))
+         write(f, tab(upto(' ') | 0));
+         tab(many(' '))
          };
       write(" : ", where(f));
       flush(f);
@@ -2543,14 +3174,14 @@ procedure rfile(name)
    while writes(" ", map(reads(f, 5), "\n", "."));
    write();
 
-   # nonsequential
-   writes("   nonseq:\t ");
-   every i := 30 to -30 by -1 do
-      if seek(f, i) then
-	 writes(map(reads(f), "\n", ".") | "?")
-      else
-	 writes("-");
-   write();
+#%#%   # nonsequential  (disabled because it's inconsistently buggy...)
+#%#%   writes("   nonseq:\t ")
+#%#%   every i := 30 to -30 by -1 do
+#%#%      if seek(f, i) then
+#%#%	 writes(map(reads(f), "\n", ".") | "?")
+#%#%      else
+#%#%	 writes("-")
+#%#%   write()
 
    close(f);
    return;
@@ -2569,7 +3200,7 @@ end
 #  tpipe() -- test pipes
 
 procedure tpipe()
-   local f, p;
+   local f, p, c;
 
    # very simple case
    write();
@@ -2580,7 +3211,7 @@ procedure tpipe()
 
    # check unclosed pipe
    write();
-   p := open("sed 's/^/=()= /' io.icn", "p") | stop("can't open od pipe");
+   p := open("sed 's/^/=()= /' io.icn", "p") | stop("can't open sed pipe");
    write(image(p));
    every 1 to 10 do write("> ", read(p));
    # p is deliberately left unclosed
@@ -2590,6 +3221,17 @@ procedure tpipe()
    p := open("ls io.i?n io.d?t io.s?d", "p") | stop("can't open ls pipe");
    write(image(p));
    every write("> ", !p);
+   close(p);
+
+   # check translated and untranslated pipes
+   write();
+   c := "printf 'ab\ncd\r\nef\rgh'";
+   write(image(c));
+   p := open(c, "pr") | stop("can't open printf pipe");
+   while write(image(read(p)));
+   close(p);
+   p := open(c, "up") | stop("can't open untranslated pipe");
+   while write(image(read(p)));
    close(p);
 
    # check output pipe
@@ -2606,7 +3248,7 @@ procedure tpipe()
 
    return;
 end
-#---------------------------------------------------------------------- 26 iobig
+#-------------------------------------------------------------- 35 general/iobig
 #  test text and binary I/O in many different lengths from tiny to huge
 
 procedure main()
@@ -2657,9 +3299,7 @@ procedure bingen();		#: generate tougher strings for binary file
    suspend repl("\^@", 1037);
    suspend h;
 end
-#---------------------------------------------------------------------- 27 kross
-#SRC: V9SAM
-
+#-------------------------------------------------------------- 36 general/kross
 #
 #          W O R D   I N T E R S E C T I O N S
 #
@@ -2690,19 +3330,21 @@ procedure xprint(s1,s2,j,k)
    write(s1);
    every write(right(s2$<k+1 to *s2$>,j));
 end
-#----------------------------------------------------------------------- 28 kwds
+#--------------------------------------------------------------- 37 general/kwds
 #SRC: JCON
 
 #  kwds.icn -- check keywords, as best can do reproducibly
 
 procedure main()
+   local f;
+
    &error := 747;
-   every kw("allocated", &allocated | "[failed]");
+   # every kw("allocated", &allocated | "[failed]")
    every kw("ascii", &ascii | "[failed]");
    every kw("clock", nmap(&clock) | "[failed]");
-   every kw("col", &col | "[failed]");
+   # every kw("col", &col | "[failed]")
    every kw("collections", &collections | "[failed]");
-   every kw("control", &control | "[failed]");
+   # every kw("control", &control | "[failed]")
    every kw("cset", &cset | "[failed]");
    every kw("current", &current | "[failed]");
    every kw("date", nmap(&date) | "[failed]");
@@ -2716,7 +3358,13 @@ procedure main()
    every kw("errorvalue", &errorvalue | "[failed]");
    every kw("errout", &errout | "[failed]");
    every kw("fail", &fail | "[failed]");
-   every kw("features", "Macintosh" ~== &features | "[failed]");
+
+   every insert(f := set(), &features);
+   every delete(f, "UNIX" | "Macintosh" | "MS Windows" | "Cygwin" | "Haiku"); # platform ID
+   every delete(f, "dynamic loading" | "external values");	# may be absent
+   every delete(f, "graphics" | "X Windows");			# may be absent
+   every kw("features", member(f, &features));
+
    every kw("input", &input | "[failed]");
    every kw("interval", &interval | "[failed]");
    every kw("lcase", &lcase | "[failed]");
@@ -2727,7 +3375,7 @@ procedure main()
    every kw("lrelease", &lrelease | "[failed]");
    every kw("main", &main | "[failed]");
    every kw("mdrag", &mdrag | "[failed]");
-   every kw("meta", &meta | "[failed]");
+   # every kw("meta", &meta | "[failed]")
    every kw("mpress", &mpress | "[failed]");
    every kw("mrelease", &mrelease | "[failed]");
    every kw("null", &null | "[failed]");
@@ -2740,20 +3388,20 @@ procedure main()
    every kw("rdrag", &rdrag | "[failed]");
    every kw("regions", &regions | "[failed]");
    every kw("resize", &resize | "[failed]");
-   every kw("row", &row | "[failed]");
+   # every kw("row", &row | "[failed]")
    every kw("rpress", &rpress | "[failed]");
    every kw("rrelease", &rrelease | "[failed]");
-   every kw("shift", &shift | "[failed]");
+   # every kw("shift", &shift | "[failed]")
    every kw("source", &source | "[failed]");
-   every kw("storage", &storage | "[failed]");
+   # every kw("storage", &storage | "[failed]")
    every kw("subject", &subject | "[failed]");
    every kw("time", nmap(right(&time,4,0)) | "[failed]");
    every kw("trace", &trace | "[failed]");
    every kw("ucase", &ucase | "[failed]");
-   every kw("version", left(&version,16) | "[failed]");
-   every kw("window", &window | "[failed]");
-   every kw("x", &x | "[failed]");
-   every kw("y", &y | "[failed]");
+   # every kw("version", left(&version,16) | "[failed]")
+   # every kw("window", &window | "[failed]")
+   # every kw("x", &x | "[failed]")
+   # every kw("y", &y | "[failed]")
 end
 
 procedure kw(label, value)
@@ -2775,12 +3423,11 @@ end
 procedure nmap(s)
    return map(s, "0123456789", "nnnnnnnnnn");
 end
-#---------------------------------------------------------------------- 29 large
-#SRC: V9GEN
+#-------------------------------------------------------------- 38 general/large
+invocable "+", "-", "*", "/", "%", "iand", "ior", "ixor", "<", "=" , "^"
+invocable "ishift"
 
 procedure main ()
-   local big, med1, med2, small, i;
-
    if not(&features == "large integers") then
       stop("large integers not supported");
 
@@ -2800,7 +3447,7 @@ procedure main ()
    every optest ("^", 2 | 3, 10 | 30 );
    every optest ("ishift", big |-big | med1 | -med1 | small, 1 | 8 | -1 | -39);
 
-   #&trace := -1
+   &trace := -1;
    every i := 10 | 30 | 70 | 100 do {
       write(2 ^ i);
       write(2 ^ i || ":" || image(2 ^ i));
@@ -2814,7 +3461,7 @@ end
 
 procedure foo(x)
 end
-#----------------------------------------------------------------------- 30 left
+#--------------------------------------------------------------- 39 general/left
 #SRC: JCON
 
 procedure main()
@@ -2846,7 +3493,7 @@ procedure main()
    write(left("stu", 5, "<>"));
    write(left("vwx", 6, "<>"));
 end
-#---------------------------------------------------------------------- 31 level
+#-------------------------------------------------------------- 40 general/level
 #SRC: JCON
 
 procedure main()
@@ -2868,7 +3515,7 @@ procedure bar(n)
 	suspend 1 to n do write(&level);
 	write(&level);
 end
-#--------------------------------------------------------------------- 32 lexcmp
+#------------------------------------------------------------- 41 general/lexcmp
 #SRC: JCON
 
 # lexical comparison test
@@ -2896,7 +3543,233 @@ procedure wr(s)
    writes(right(image(\s) | "---", 6));
    return;
 end
-#---------------------------------------------------------------------- 33 lists
+#-------------------------------------------------------------- 42 general/lgint
+#SRC: JCON
+#OPT: -fe
+
+# test large integer calculations
+
+procedure main()
+   local a, b, primes;
+   primes := [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37,
+      41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
+
+   write(); compiler();
+   write(); boundaries();
+   write(); every fact(1 to 55 by 11);
+   write(); every fib(35 to 341 by 34);
+   write(); every mersenne(61 | 89 | 107 | 127);
+   write(); every perfect(31 | 61 | 89 | 107);
+   write(); every power(11213, 2 to 16);
+   write(); every impower(3, 60 to 75);
+   write(); every minpower(!primes);
+   write(); every bigexp(3 | 6 | -7);
+   write(); every tmul(2 | 3 | 5 | 7 | 10 | 17 | 51 | -3 | -11 | -43);
+   write(); every tmul(3 ^ (2 to 50));
+   write(); every conv(787 ^ (1 to 24) | -5781 ^ (1 to 18));
+   write(); radix();
+   write(); over();
+
+   # test unary and binary operations, including mixed-mode operations
+   a := [37, 5.0, 2 ^ 63, 11 ^ 19, 5 ^ 28];
+   b := [73, 9.0, -7 ^ 23, -(3 ^ 40), 17 ^ 16];
+   write(); every unops(!a | !b);
+   write(); every binops(!a, !b);
+end
+
+procedure compiler();			# test compiler handling of lg constants
+   local a, b, c;
+   a :=  1618033988749894848204586834365638117720309;
+   b := -2718281828459045235360287471352662497757247;
+   c := +3141592653589793238462643383279502884197169;
+   write("    a =  ", a);
+   write("    b = ", b);
+   write("    c =  ", c);
+   write("a + b = ", a + b);
+   write("b + c =   ", b + c);
+   write("c + a =  ", c + a);
+   return;
+end
+
+procedure boundaries();			# test boundary cases
+   local minint, maxint;
+   write("minint = ", minint := -(2^64));
+   write("maxint = ", maxint := 2^64 - 1);
+   write("-minint = ", -minint);
+   write("abs(min) = ", abs(minint));
+   write("minint * -1 = ", minint * -1);
+   write("minint / -1 = ", minint / -1);
+   write("(2^32)^2 = ", (2 ^ 32) ^ 2);
+   return;
+end
+
+procedure fact(n);			# factorial
+   local f;
+   f := 1;
+   every f *:= 2 to n;
+   write(n, "! = ", f);
+   return;
+end
+
+procedure fib(n);			# fibonacci
+   local a, b, i, t;
+   a := b := t := 1;
+   every i := 3 to n do {
+      t := a + b;
+      a := b;
+      b := t
+      };
+   write("F(", n, ") = ", t);
+   return;
+end
+
+procedure power(b, n);			# simple power calculation
+   write(b, " ^ ", n, " = ", b ^ n);
+   return;
+end
+
+procedure impower(b, n);			# power calculation with image() test
+   write(b, " ^ ", n, " = ", image(b ^ n));
+   return;
+end
+
+procedure minpower(b);			# find minimum power that is a large int
+   local e;
+   2 ^ 63 <= b ^ (e := seq(1));
+   write(right(b,2), " ^", right(e, 3), " =", right(b ^ e, 22));
+end
+
+procedure bigexp(v)
+   local x;
+   &error := -1;
+   write("       v = ", v);
+   every x := (-2 to 2) | (-3 to 3) / 2.0 do 
+      write(right(x, 4), " ^ v = ", (x ^ v) | ("error " || &errornumber));
+   &error := 0;
+   return;
+end
+
+procedure mersenne(m);			# Mersenne numbers
+   write("M(", m, ") = ", 2 ^ m - 1);
+   return;
+end
+
+procedure perfect(m);			# Mersenne perfect numbers
+   write("P(", m, ") = ", (2 ^ m - 1) * (2 ^ (m - 1)));
+   return;
+end
+
+procedure tmul(x);			# test multiply, divide, real(I)
+   local n, p, q, d, e, err;
+
+   p := 1;
+   n := 0;
+   while p < 1e25 do {
+      n +:= 1;
+      q := p;
+      p *:= x;
+      d := p / q;
+      e := real(p) / real(q);
+      err := abs(e / x - 1);
+      if not (d = x & err < 1.0e-14) then	# 1e-15 for most, 1e-14 for IBM
+         write(x, " ^ ", n, " = ", p, "\td=", d, "\te=", e, "\terr=", err)
+   };
+   write(x, " ^ ", n, " = ", p);
+   return;
+end
+
+procedure conv(n);			# test conversion to/from real & string
+   local sn, rn, in, d, r, r2, err;
+
+   sn := string(n);
+   in := integer(sn);
+   if in ~= n then {
+      write("str conv err: n=", n, " sn=", sn, " in=", in);
+      return
+   };
+   rn := real(n);
+   in := integer(rn);
+   d := n - in;
+   r := d / rn;
+   if abs(r) > 1.0e-14 then	{	# 1e-15 works for most, need -14 for IBM
+      write("real conv err: n=", n, " rn=", rn, " in=", in, " d=", d, " r=", r);
+	  return
+   };
+   r2 := real(integer(sn || ".4321"));
+   err := abs((r2 - rn) / rn);
+   if err > 1.0e-14 then {
+      write("rconv: rn=", rn, " r2=", r2);
+	  return
+   };
+   write("conv ok: ", n);
+   return;
+end
+
+procedure unops(n);		# show results of unary ops and compares with 0
+   write("u:  ", n, "  ", -n, "  ", icom(n), compares(n, 0));
+   if abs(n) ~= (if n > 0 then n else -n) then write("  abs failure");
+   return;
+end
+
+procedure binops(m, n);		# show results of binary operations
+   write("b:  ", m, "  ", n, compares(m, n));
+   write("    +-   ", m + n, "  ", m - n);
+   write("    */%  ", m * n, "  ", m / n, "  ", m % n);
+   write("    &|!  ", iand(m, n), "  ", ior(m, n), "  ", ixor(m, n));
+   return;
+end
+
+procedure compares(m, n);	# return string indicating successful compares
+   local s;
+   # == n validates value of comparison expr
+   s := " ";
+   if (m < n)  == n then s ||:= " <";
+   if (m <= n) == n then s ||:= " <=";
+   if (m = n)  == n then s ||:= " =";
+   if (m ~= n) == n then s ||:= " ~=";
+   if (m > n)  == n then s ||:= " >";
+   if (m >= n) == n then s ||:= " >=";
+   return s;
+end
+
+procedure radix();		# radix conversions
+   local b, s, d, min, n;
+   min := 2 ^ 63;
+   d := &digits || &lcase;
+   every b := 2 to 35 do {
+      n := (min < integer(s := b || "R" || repl(d[b], 1 to 100)));
+      write(s, " = ", n)
+      };
+   every s := "36r" || repl("Z", 10 to 20) do
+      write(s, " = ", integer(s));
+   return;
+end
+
+procedure over();		# old "over.icn" test from Icon v9
+   local i;
+
+   if not(&features == "large integers") then
+      stop("large integers not supported");
+   i := 100000 + 10000;
+   write(i);
+   i +:= 2 ^ 30;
+   write(i);
+   i +:= i;
+   write(i);
+   i := 100000 * 10000;
+   write(i);
+   i +:= 2 ^ 30;
+   write(i);
+   i *:= i;
+   write(i);
+   i := -100000 - 10000;
+   write(i);
+   i +:= -(2 ^ 30);
+   write(i);
+   i -:= 2 ^ 30;
+   write(i);
+end
+#-------------------------------------------------------------- 43 general/lists
 #SRC: JCON
 
 procedure main()
@@ -2959,8 +3832,8 @@ procedure main()
    limage("r", x[2:5]);
    limage("s", x[-3:5]);
    limage("t", x[-5:-1]);
-   limage("u", x[-3+:6]) | write("u. wraparound failed");	# should fail
-   limage("v", x[3-:6]) | write("v. wraparound failed");		# should fail
+   limage("u", x[-3+:6]) | write("u. wraparound failed"); # should fail (v9 bug)
+   limage("v", x[3-:6]) | write("v. wraparound failed");	 # should fail (v9 bug)
 
    write();
    y := copy(x);		# ensure that copies are distinct
@@ -2986,7 +3859,7 @@ procedure limage(label, lst)
    write();
    return;
 end
-#------------------------------------------------------------------------ 34 map
+#---------------------------------------------------------------- 44 general/map
 #SRC: JCON
 
 procedure main()
@@ -3001,7 +3874,7 @@ procedure main()
     write(map("", "abcdef", "!@#$%^"));
     write(map("abcdef", "aa", "bc"));
 end
-#------------------------------------------------------------------- 35 mathfunc
+#----------------------------------------------------------- 45 general/mathfunc
 #SRC: JCON
 
 #  test math functions including argument coercion
@@ -3038,9 +3911,7 @@ procedure r(v)
    else
       return integer(v * 1000 - 0.5) / 1000.0;
 end
-#-------------------------------------------------------------------- 36 meander
-#SRC: V9SAM
-
+#------------------------------------------------------------ 46 general/meander
 #
 #          M E A N D E R I N G   S T R I N G S
 #
@@ -3074,9 +3945,111 @@ procedure meander(alpha,n)
       $);
    return result;
 end
-#--------------------------------------------------------------------- 37 mffsol
-#SRC: V9GEN
+#--------------------------------------------------------------- 47 general/mega
+#  mega.icn -- build really long strings
+#
+#  usage:  icon mega.icn [n]
+#
+#  Builds larger and larger strings until the length reaches n bits.
+#  The default value of n is 20, for a longest string of just over 1 MB.
+#  If omitted, less detail is printed, and the output is reproducible.
+#  Explicit values of n through 33 (at least) have been tested on 64-bit Icon.
 
+link hexcvt
+link numbers
+
+global arglen	# if arg count > 0, show more info, irreproducibly
+
+global base	# basic string of 63 characters
+global mega	# growing mega-string
+
+
+procedure main(args)
+   local nbits;
+   arglen := *args;
+   nbits := integer(args[1]) | 20;	# number of length bits to try
+   init();
+   report();
+   while bitlen(*mega) < nbits do {
+      mega := double(mega);	# double the size
+      validate(mega);		# validate new longer string
+      tscan(mega);		# test string scanning
+      collect();			# perform a garbage collection
+      report()			# print statistics
+      };
+   write("PASS.");
+end
+
+procedure report();		#: write statistics to stdout
+   local n, alc, avl;
+   n := *mega;
+   every alc := &allocated \ 3;
+   every avl := &regions \ 2;
+   writes("okay: ",
+      right(commas(n), 15), right(bitlen(n), 4), " ", right(fxu(n, 8), 12));
+   if arglen > 0 then
+      writes(" ", right(commas(alc), 15), " / ", commas(avl));
+   write();
+end
+
+procedure bitlen(n);		#: return number of bits needed to represent n
+   local i;
+   every i := seq(1) do
+      if n < ishift(1, i - 1) then
+         return i - 1;
+end
+
+procedure validate(s);		#: check that s is plausibly correct
+   local n, lh, rh;
+   n := *s / 2 + 63;
+   lh := s[1+:n];
+   rh := s[0-:n];
+   if lh ~=== rh then
+      stop("failed validation   *s=", *s, " n-", n);
+   return;
+end
+
+procedure tscan(s);		#: test string scanning
+   local L, n, t, i;
+   L := [.91, .22, .77, .11, .88];
+   s ? every n := 0 | 1 | -17 | 23 | integer(!L * *s) do {
+      t := tab(n);
+      i := find(base, t) | 0;
+      if *t > 127 & (i > 63 || i = 0) then
+         stop("failed tscan   *s=", *s, " *t=", *t, " n=", *n, " &pos=", &pos)
+      };
+end
+
+procedure init();		#: set up globals
+   writes("            strlength bits   hexlength");
+   if arglen > 0 then
+      writes("       allocated / available");
+   write();
+   # make and validate a string of 63 distinct unordered characters
+   # (63 so that the six top bits of the length are set)
+   base := "1SPHINX0FBL4CKQUARTZ8JDGEMYVOW$7packmy3boxwth5five6dzn2lqrjugs9";
+   *base = 63 | stop("wrong base length");
+   *cset(base) = 63 | stop("base contains duplicates");
+   # initialize the growing string
+   mega := base;
+end
+
+procedure double(s);		#: return s || s, mainly to test a big "return"
+   return s || s;
+end
+
+procedure fxu(i, n);		#: format i with n hex digits plus underscores
+   local s, t;
+   s := "";
+   hexstring(i, n) ? {
+      tab(0);
+      while t := move(-4) & not pos(1) do
+         s := "_" || t || s;
+      s := tab(1) || s
+      };
+   return s;
+end
+#------------------------------------------------------------- 48 general/mffsol
 ##  mffsol.icn -- show solution graphically in mff format
 #
 #   input is assumed to be one line per round
@@ -3191,9 +4164,7 @@ procedure newcolor()
 	if lum > 96 then return
     };
     end
-#--------------------------------------------------------------------- 38 mindfa
-#SRC: V9GEN
-
+#------------------------------------------------------------- 49 general/mindfa
 ### mindfa -- minimize a DFA
 
 record dfa(Q,S,d,q0,F)          # a DFA
@@ -3408,7 +4379,7 @@ local l,t1,t2;
    if *l = 0 then fail;
    return l;
 end
-#----------------------------------------------------------------------- 39 misc
+#--------------------------------------------------------------- 50 general/misc
 #SRC: JCON
 
 record message(who,gap,what)
@@ -3537,7 +4508,7 @@ procedure nullsuspend()
    suspend;
    suspend;
 end
-#---------------------------------------------------------------------- 40 nargs
+#-------------------------------------------------------------- 51 general/nargs
 #SRC: JCON
 
 #  check return values from args()
@@ -3592,7 +4563,7 @@ procedure main()
    nargs(move, "move");
    nargs(name, "name");
    nargs(numeric, "numeric");
-   nargs(open, "open");
+#  nargs(open, "open")       # not checked: varies depending on #ifdef Graphics
    nargs(ord, "ord");
    nargs(pop, "pop");
    nargs(pos, "pos");
@@ -3636,9 +4607,7 @@ end
 procedure nargs(p, s)
    write(right(args(p),3), " ", s);
 end
-#-------------------------------------------------------------------- 41 numeric
-#SRC: V9GEN
-
+#------------------------------------------------------------ 52 general/numeric
 record array(a,b,c,d,e,f,g)
 
 procedure p1()
@@ -3831,9 +4800,7 @@ procedure main()
    p21();
 end
 
-#--------------------------------------------------------------------- 42 others
-#SRC: V9GEN
-
+#------------------------------------------------------------- 53 general/others
 
 procedure spell(n)
    local m;
@@ -3932,7 +4899,72 @@ procedure wordcount(n)
    every i := 1 to *x - 1 by 2 do
       write(left(x[i],n),x[i + 1]);
 end
-#---------------------------------------------------------------------- 43 parse
+#--------------------------------------------------------------- 54 general/over
+procedure main()
+   if not(&features == "large integers") then
+      stop("large integers not supported");
+   i := 100000 + 10000;
+   write(i);
+   i +:= 2 ^ 30;
+   write(i);
+   i +:= i;
+   write(i);
+   i := 100000 * 10000;
+   write(i);
+   i +:= 2 ^ 30;
+   write(i);
+   i *:= i;
+   write(i);
+   i := -100000 - 10000;
+   write(i);
+   i +:= -(2 ^ 30);
+   write(i);
+   i -:= 2 ^ 30;
+   write(i);
+end
+#----------------------------------------------------------- 55 general/overflow
+# floating overflow test
+# assumes 64-bit IEEE values
+
+procedure main()
+   local v;
+
+   &error := -1;
+   binary("+", 1e307, 1e307);
+   binary("+", 1e308, 1e308);
+   binary("-", -1e307, 1e307);
+   binary("-", -1e308, 1e308);
+   binary("-", 1e308, -1e308);
+   binary("*", 1e100, 1e100);
+   binary("*", 1e200, 1e200);
+   binary("/", 1e100, 1e-100);
+   binary("/", 1e200, 1e-200);
+   binary("^", 1e100, 2);
+   binary("^", 1e100, 3);
+   binary("^", 1e100, 4);
+   binary("^", 1e200, 2);
+   binary("^", 10.0, 308);
+   binary("^", 10.0, 309);
+   binary("^", 10e9, 10);
+   binary("^", 10e9, 20);
+   binary("^", 10e9, 30);
+   binary("^", 10e9, 40);
+   convert(7 ^ 317);
+   convert(11 ^ 193);
+   convert(11 ^ 317);
+   convert(string(7 ^ 317));
+   convert(string(11 ^ 193));
+   convert(string(11 ^ 317));
+end
+
+procedure binary(opr, x, y)
+   write(x, " ", opr, " ", y, " : ", opr(x, y) | ("error " || &errornumber));
+end
+
+procedure convert(v)
+   write(image(v), " : ", image(real(v)) | ("error " || &errornumber));
+end
+#-------------------------------------------------------------- 56 general/parse
 #SRC: JCON
 
 # test grouping of various operators
@@ -3954,9 +4986,187 @@ end
 procedure g(x)
 	return x+2;
 end
-#--------------------------------------------------------------------- 44 prefix
-#SRC: V9SAM
+#--------------------------------------------------------------- 57 general/pdco
+#
+#          D E F I N E D   C O N T R O L   O P E R A T I O N S
+#
 
+#  This program illustrates how programmer-control operations can be
+#  implemented in Icon using co-expressions and the p{ ... }
+#  syntax that facilitates their use.
+
+procedure main()
+   if not(&features == "co-expressions") then
+      stop("co-expressions not supported");
+   write(Seqimage{1 to 10});
+   write(Seqimage{&fail});
+   write(Seqimage{(1 to 10 by 2) | (10 to 1 by -2)});
+   write(Seqimage{!"abc" || !"xy"});
+   write(Seqimage{Seqimage | main});
+   every write(Galt{1 to 10,!"abcd",1 to 10});
+   write(Seqimage{star("abc") \ 10});
+   write(Seqimage{1 to 50,5});
+   write("---");
+   every write(Limit{1 to 100,3});
+   write("---");
+   every write(Ranseq{!"abcd",1 to 10});
+   every Parallel{|write,!"abcd",1 to 10};
+   every Allpar{|write,!"abcd",1 to 10} \ 20;
+   every Rotate{|write,!"abcd",1 to 10} \ 20;
+end
+
+procedure star(s)
+   suspend "" | (star(s) || !s);
+end
+
+procedure Galt(a)
+   local e;
+   every e := !a do suspend |@e;
+end
+
+procedure Limit(a)
+   local i, x;
+   while i := @a[2] do {
+      a[1] := ^a[1];
+      every 1 to i do
+         if x := @a[1] then suspend x
+         else break
+      };
+end
+
+procedure Ranseq(a)
+   local x;
+   while x := @?a do suspend x;
+end
+
+procedure Seqimage(L)
+   local s;
+   s := "";
+   while s ||:= ", " || image(@L[1]);
+   return "{" || s[3:0] || "}" | "{}";
+end
+
+procedure Allpar(a)
+   local i, x, done;
+   x := list(*a);
+   done := list(*a,1);
+   every i := 1 to *a do x[i] := @a[i] | fail;
+   repeat {
+      suspend Call(x);
+      every i := 1 to *a do
+         if done[i] = 1 then ((x[i] := @a[i]) | (done[i] := 0));
+      if not(!done = 1) then fail
+       };
+end
+
+procedure Call(a)
+   suspend case *a of {
+      1 : a[1]();
+      2 : a[1](a[2]);
+      3 : a[1](a[2],a[3]);
+      4 : a[1](a[2],a[3],a[4]);
+      5 : a[1](a[2],a[3],a[4],a[5]);
+      6 : a[1](a[2],a[3],a[4],a[5],a[6]);
+      7 : a[1](a[2],a[3],a[4],a[5],a[6],a[7]);
+      8 : a[1](a[2],a[3],a[4],a[5],a[6],a[7],a[8]);
+      9 : a[1](a[2],a[3],a[4],a[5],a[6],a[7],a[8],a[9]);
+      10 : a[1](a[2],a[3],a[4],a[5],a[6],a[7],a[8],a[9],a[10]);
+      default :  stop("Call : too many args.")
+      };
+end
+
+procedure Extract(a)
+   local i, j, n, x;
+   x := list(*a/2);
+   repeat {
+      i := 1;
+      while i < *a do {
+         n := @a[i] | fail;
+         every 1 to n do
+            x[(i + 1)/2] := @a[i + 1] | fail;
+         a[i + 1] := ^a[i + 1];
+         i +:= 2
+         };
+      suspend Call(x)
+      };
+end
+
+procedure Lifo(a)
+   local i, x, ptr;
+   x := list(*a);
+   ptr := 1;
+   repeat {
+      repeat
+         if x[ptr] := @a[ptr]
+         then {
+            ptr +:= 1;
+            (a[ptr] := ^a[ptr]) |
+            break
+            }
+         else if (ptr -:=  1) = 0
+              then fail;
+      suspend Call(x);
+      ptr := *a
+      };
+end
+
+procedure Parallel(a)
+   local i, x;
+   x := list(*a);
+   repeat {
+      every i := 1 to *a do
+         x[i] := @a[i] | fail;
+      suspend Call(x)
+      };
+end
+
+procedure Reverse(a)
+   local i, x, ptr;
+   x := list(*a);
+   ptr := *a;
+   repeat {
+      repeat
+         if x[ptr] := @a[ptr]
+         then {
+            ptr -:= 1;
+            (a[ptr] := ^a[ptr]) |
+            break
+            }
+         else if (ptr +:= 1) > *a
+              then fail;
+      suspend Call(x);
+      ptr := 1
+      };
+end
+
+procedure Rotate(a)
+   local i, x, done;
+   x := list(*a);
+   done := list(*a,1);
+   every i := 1 to *a do x[i] := @a[i] | fail;
+   repeat {
+      suspend Call(x);
+      every i := 1 to *a do
+         if not(x[i] := @a[i]) then {
+            done[i] := 0;
+            if !done = 1 then {
+               a[i] := ^a[i];
+               x[i] := @a[i] | fail
+               }
+            else fail
+            }
+        };
+end
+
+procedure Simple(a)
+   local i, x;
+   x := list(*a);
+   every i := 1 to *a do
+      x[i] := @a[i] | fail;
+   return Call(x);
+end
+
+#------------------------------------------------------------- 58 general/prefix
 #
 #          I N F I X - T O - P R E F I X   C O N V E R S I O N
 #
@@ -3991,14 +5201,14 @@ end
 
 procedure form(s,k)
    local a1, a2, op;
-   s ? $(
+   s ? {
       a1 := tab(k);
       op := move(1);
       a2 := tab(0)
-      $);
+      };
    return op || "(" || prefix(a1) || "," || prefix(a2) || ")";
 end
-#--------------------------------------------------------------------- 45 primes
+#------------------------------------------------------------- 59 general/primes
 #SRC: JCON
 
 # a simple and slow prime number generator
@@ -4011,140 +5221,7 @@ procedure main()
       write(i)
    };
 end
-#-------------------------------------------------------------------- 46 profsum
-#SRC: APP
-
-#  profsum -- read and summarize profiling data from "java -prof"
-#
-#  usage:  profsum [-t] [file]	-- typically: profsum java.prof
-#
-#	-t	sort on total time instead of time in method
-#
-#  3-jul-97/gmt
-#  5-jun-98/gmt
-
-
-
-record method(name, ncalls, tself, tcalled, tlocal)
-
-global ptab
-
-
-
-procedure main(args)
-   local f, line, p, l, tlocal, ttotal, pctlocal, pcttotal, sorttotal;
-
-   if args[1] == "-t" then
-      sorttotal := get(args);
-
-   if *args > 0 then
-      f := open(args[1]) | stop(&progname, ": can't open ", args[1])
-   else
-      f := &input;
-
-   while line := read(f) do line ? {
-      if ="count" then
-          next;
-      if not any(&digits) then
-          break;
-      accumulate()
-      };
-
-   l := [];
-   ttotal := 0;
-   every p := !ptab do {
-      p.tlocal := p.tself - p.tcalled;
-      if p.tlocal > 0 then
-         ttotal +:= p.tlocal;
-      put(l, p)
-   };
-
-   if \sorttotal then
-      l := sortf(l, 3)
-   else
-      l := sortf(l, 5);
-
-   write("  calls  totaltime   inmethod  method");
-
-   while p := pull(l) do {
-      if p.tlocal > 0 then
-	 pctlocal := (100 * p.tlocal + ttotal / 2) / ttotal
-      else
-	 pctlocal := (100 * p.tlocal - ttotal / 2) / ttotal;
-      pcttotal := ((100 * p.tself) + (ttotal / 2)) / ttotal;
-      write(
-	 pad(p.ncalls, 7),
-	 pad(p.tself, 7), " ",
-         pad(pcttotal, 2), "%",
-	 pad(p.tlocal, (if pcttotal = 100 then 6 else 7)), " ",
-         pad(pctlocal, 2), "%",
-	 "  ",
-	 p.name);
-      };
-
-end
-
-
-
-procedure lookup(s)
-   local p;
-   initial ptab := table();
-
-   if p := \ptab[s] then
-      return p
-   else
-      return ptab[s] := method(s, 0, 0, 0);
-end
-
-
-
-procedure accumulate()
-   local count, caller, callee, time, p, q;
-
-   count := integer(tab(many(&digits)));
-   tab(many(' '));
-   callee := tab(upto(' '));
-   tab(many(' '));
-   caller := tab(upto(' '));
-   if caller ||:= =" caller" then
-      caller ||:= tab(upto(' '));
-   tab(many(' '));
-   time := integer(tab(many(&digits)));
-
-   caller := fixname(caller);
-   callee := fixname(callee);
-
-   p := lookup(callee);
-   p.tself +:= time;
-   p.ncalls +:= count;
-
-   q := lookup(caller);
-   q.tcalled +:= time;
-
-   return;
-end
-
-
-
-procedure fixname(s)
-   s ? {
-      # strip "meaningless" prefix
-      ="jcon/" | (="java/" & tab(upto('/') + 1)) | (="p_l$" & tab(upto('$')));
-      return tab(0)
-   };
-end
-
-
-
-#  pad(s, n) -- pad string to length n, never truncating
-
-procedure pad(s, n)
-   if *s < n then
-      return right(s, n)
-   else
-      return s;
-end
-#--------------------------------------------------------------------- 47 queens
+#------------------------------------------------------------- 60 general/queens
 #SRC: IPL
 
 ############################################################################
@@ -4243,8 +5320,7 @@ procedure show()
       };
    write();
 end
-#---------------------------------------------------------------------- 48 radix
-#SRC: V9/201909
+#-------------------------------------------------------------- 61 general/radix
 #  radix.icn -- test radix conversion in linker vs runtime
 
 procedure main()
@@ -4307,7 +5383,7 @@ procedure try(s, i)
 	else
 		write(image(s), ": got ", j, ", but expected ", i);
 end
-#--------------------------------------------------------------------- 49 random
+#------------------------------------------------------------- 62 general/random
 #SRC: JCON
 
 #  test of random selection
@@ -4367,9 +5443,7 @@ procedure rtest()
 #   write(right(&random,10), "  T  ", ?T)
    return;
 end
-#--------------------------------------------------------------------- 50 recent
-#SRC: V9GEN
-
+#------------------------------------------------------------- 63 general/recent
 procedure main ()
    sf([]);
 
@@ -4429,7 +5503,7 @@ procedure main ()
 
 #  test seek() and where()
 
-   f := open("recent.dat") | stop("can't open recent.dat");
+   f := open("concord.dat");
    write(image(seek(f,11)));
    write(where(f));
    write(image(reads(f,10)));
@@ -4461,8 +5535,9 @@ procedure main ()
    every ferr (ord, &output | table(), 103);
 
 #  test getenv()
-   write("getenv(JCONT) = ", getenv("JCONT") | "[FAILED]");
-   write("getenv(NOPE!) = ", getenv("nope") | "[FAILED]");
+
+   write("getenv $HOME ", if getenv("HOME") then "succeeded" else "failed");
+   write("getenv $FOOBAR ", if getenv("FOOBAR") then "succeeded" else "failed");
 
 #  test open(directory)
 
@@ -4660,9 +5735,7 @@ procedure same (a, b)
 	if a[i] ~=== b[i] then fail;
     return;
     end
-#--------------------------------------------------------------------- 51 recogn
-#SRC: V9SAM
-
+#------------------------------------------------------------- 64 general/recogn
 #
 #          C F L   R E C O G N I T I O N
 #
@@ -4691,7 +5764,7 @@ end
 procedure t()
    suspend (="d" || s() || ="d") | ="e" | ="f";
 end
-#--------------------------------------------------------------------- 52 record
+#------------------------------------------------------------- 65 general/record
 #SRC: JCON
 
 record simple(f)
@@ -4735,7 +5808,7 @@ procedure main()
    every !b +:= 70;
    every writes(" ", !a | !b | "\n");
 end
-#---------------------------------------------------------------------- 53 right
+#-------------------------------------------------------------- 66 general/right
 #SRC: JCON
 
 procedure main()
@@ -4767,9 +5840,7 @@ procedure main()
    write(right("stu", 5, "<>"));
    write(right("vwx", 6, "<>"));
 end
-#---------------------------------------------------------------------- 54 roman
-#SRC: V9SAM
-
+#-------------------------------------------------------------- 67 general/roman
 #
 #          R O M A N   N U M E R A L S
 #
@@ -4793,9 +5864,7 @@ procedure roman(n)
       result := map(result,"IVXLCDM","XLCDM**") || equiv$<arabic+1$>;
    if find("*",result) then fail else return result;
 end
-#----------------------------------------------------------------------- 55 scan
-#SRC: V9GEN
-
+#--------------------------------------------------------------- 68 general/scan
 record array(a,b,c,d,e,f,g)
 
 procedure p1()
@@ -4855,7 +5924,7 @@ procedure main()
    p4();
 end
 
-#---------------------------------------------------------------------- 56 scan1
+#-------------------------------------------------------------- 69 general/scan1
 #SRC: JCON
 
 procedure main()
@@ -4940,7 +6009,7 @@ procedure main()
       every writes(" ", "upprs?skips" | upto(skips) | "\n")
       };
 end
-#---------------------------------------------------------------------- 57 scan2
+#-------------------------------------------------------------- 70 general/scan2
 #SRC: JCON
 
 # test maintenance of scanning environments.
@@ -4992,7 +6061,7 @@ procedure foo()
 	"zxc" ? suspend upto(&lcase);
 	suspend upto(&lcase);
 end
-#----------------------------------------------------------------------- 58 sets
+#--------------------------------------------------------------- 71 general/sets
 #SRC: JCON
 
 # set test
@@ -5074,9 +6143,7 @@ procedure wset(label, S)
    write();
    return;
 end
-#---------------------------------------------------------------------- 59 sieve
-#SRC: V9SAM
-
+#-------------------------------------------------------------- 72 general/sieve
 #
 #          S I E V E   O F   E R A T O S T H E N E S
 #
@@ -5084,20 +6151,20 @@ end
 #  This program illustrates the use of sets in implementing the
 #  classical sieve algorithm for computing prime numbers.
 
-procedure main(args)
-   local limit, s, i, primes;
-   limit := integer(args[1]) | 1000;
+procedure main()
+   local limit, s, i;
+   limit := 100;
    s := set();
    every insert(s,1 to limit);
    every member(s,i := 2 to limit) do
       every delete(s,i + i to limit by i);
    delete(s,1);
-   write("There are ",*s," primes in the first ",limit," integers.");
-   # primes := sort(s)
-   # write("The primes are:")
-   # every write(right(!primes,*limit + 1))
+   primes := sort(s);
+   write("There are ",*primes," primes in the first ",limit," integers.");
+   write("The primes are:");
+   every write(right(!primes,*limit + 1));
 end
-#-------------------------------------------------------------------- 60 sorting
+#------------------------------------------------------------ 73 general/sorting
 #SRC: JCON
 
 # test sorting and copying
@@ -5332,7 +6399,23 @@ procedure wsortf(L, n)
       };
    return;
 end
-#-------------------------------------------------------------------- 61 statics
+#----------------------------------------------------------- 74 general/spellnum
+#  test procedure spell() from the core file numbers.icn
+
+link numbers
+
+procedure main()
+   local L, n;
+   L := [];
+   every put(L, -2 to 31);
+   every put(L, 47 to 92 by 9);
+   every put(L, 100 | 113 | 144 | (200 to 1400 by 100) | 3456 | 7803);
+   every n := 10 ^ (4 to 25) do
+      every put(L, n, integer(n * &pi));
+   every n := !L do
+      write(n, ": ", spell(n) | "[failed]");
+end
+#------------------------------------------------------------ 75 general/statics
 #SRC: JCON
 
 procedure main()
@@ -5359,9 +6442,7 @@ procedure p()
    write(c);
 
 end
-#--------------------------------------------------------------------- 62 string
-#SRC: V9GEN
-
+#------------------------------------------------------------- 76 general/string
 record array(a,b,c,d,e,f,g)
 
 procedure p1()
@@ -5449,7 +6530,7 @@ procedure p7()
    write("'abc' ~=== ('abc' ++ '') ----> ",image('abc' ~=== ('abc' ++ '')) | "none");
    write("any('aeiou',&lcase) ----> ",image(any('aeiou',&lcase)) | "none");
    write("any('aeiou',&ucase) ----> ",image(any('aeiou',&ucase)) | "none");
-   write("every write(any('aeiou',&lcase,1 to 15,10 to 20)) ----> ",image(every write(any('aeiou',&lcase,1 to 15,10 to 20))) | "none");
+   write("every write(any('aeiou',&lcase,1 to 5,10 to 20)) ----> ",image(every write(any('aeiou',&lcase,1 to 5,10 to 20))) | "none");
    write("match(\"abc\",\"abcabcabcabc\") ----> ",image(match("abc","abcabcabcabc")) | "none");
    write("match(\"abc\",\"xabcabcabcabc\") ----> ",image(match("abc","xabcabcabcabc")) | "none");
    write("every write(match(\"abc\",\"xabcabcabcabc\",1 to 10,1 to 10)) ----> ",image(every write(match("abc","xabcabcabcabc",1 to 10,1 to 10))) | "none");
@@ -5490,8 +6571,7 @@ procedure main()
 end
 
 global s
-
-#-------------------------------------------------------------------- 63 string1
+#------------------------------------------------------------ 77 general/string1
 #SRC: JCON
 
 # string test -- including operations on string *constants*
@@ -5546,9 +6626,7 @@ procedure main()
    write("c5: ", image(3.14 || 159));
    write("c6: ", image('abc' || 'def'));
 end
-#--------------------------------------------------------------------- 64 struct
-#SRC: V9GEN
-
+#------------------------------------------------------------- 78 general/struct
 record array(a,b,c,d,e,f,g)
 
 procedure p1()
@@ -5751,7 +6829,7 @@ end
 
 global s, t, x, r
 global a, a1, a2, a3, a4
-#-------------------------------------------------------------------- 65 subjpos
+#------------------------------------------------------------ 79 general/subjpos
 #SRC: JCON
 
 procedure main()
@@ -5834,7 +6912,7 @@ procedure ws();	# write state of &setpos and &subject
    write("  &pos=", image(&pos), "   &subject=", image(&subject));
    return;
 end
-#------------------------------------------------------------------ 66 substring
+#---------------------------------------------------------- 80 general/substring
 #SRC: JCON
 
 # string subscripting test
@@ -5849,8 +6927,8 @@ procedure main()
    every i := 0 to 6 do write("C ", i, ". ", s[i] | "--");
    every i := 0 to -6 by -1 do write("D ", i, ". ", s[i] | "--");
    every i := -10 to 10 do write("E ", i, ". ", s[3:i] | "--");
-   every i := -10 to 5 do write("F ", i, ". ", s[3+:i] | "--");
-   every i := -5 to 10 do write("G ", i, ". ", s[3-:i] | "--");
+   every i := -10 to 5 do write("F ", i, ". ", s[3+:i] | "--"); #some SHOULD fail
+   every i := -5 to 10 do write("G ", i, ". ", s[3-:i] | "--"); #some SHOULD fail
 
    !s := "X";
    write("H. ", s);
@@ -5900,7 +6978,7 @@ procedure main()
    every s[2:4] := !"456" do { write("Q ", s); s := "klmno" };
    
 end
-#---------------------------------------------------------------------- 67 table
+#-------------------------------------------------------------- 81 general/table
 #SRC: JCON
 
 # table test
@@ -5998,7 +7076,198 @@ procedure tdump(label, T)
    write();
    return;
 end
-#----------------------------------------------------------------------- 68 trim
+#-------------------------------------------------------------- 82 general/techo
+global time, date, save, wombats
+
+# All variables passed to echo() must be:
+
+#    Simple scalar variables, because echo() does not yet understand
+#    Icon keywords (such as &clock), arrays, records, or function
+#    calls.  However, such entities may be assigned to simple global
+#    variables, as the main program below shows; and
+
+#    Global, because echo() cannot accesss their values otherwise.
+
+# If a variable is undefined or null, echo() outputs nothing.
+
+link echo
+
+procedure main()
+   time := "12:34:56";		# fake &clock for reproducible test
+   date := "2010/02/30";		# fake &date for reproducible test
+   save := 47.23;
+   wombats := 22;
+
+   # Usage method 1:
+
+   "It is now $time on $date and you have savings of $$$save." ? echo();
+   "The number of wombats is $wombats." ? echo();
+   "It is now ${time} on ${date} and you have ${wombats} wombats." ? echo();
+   "There is no global variable named \"$foo\"." ? echo();
+   "This does not work:  It is now ${&clock}." ? echo();
+   echo();
+   "The previous echo() example printed an empty line." ? echo();
+   echo();
+   "Here is another way to use echo()..." ? echo();
+   echo();
+
+   # Usage method 2:
+
+   "It is now $time on $date and you have savings of $$$save." |
+      "The number of wombats is $wombats." |
+      "It is now ${time} on ${date} and you have ${wombats} wombats." |
+      "There is no global variable named \"$foo\"." |
+      "This does not work:  It is now ${&clock}." |
+      "" |
+      "The previous input line printed an empty output line." ? echo();
+
+   # The value of &subject defaults to "", so echo() will print out an
+   # empty line if it is called without a `?'.
+
+   echo();
+
+   # The next test takes advantage of the fact that string
+   # concatenation has a higher precedence than alternation.  It
+   # prints three lines:
+
+   "Fee, " ||
+      "fi, " ||
+      "fo, " ||
+      "fum, " |                    # 1st line
+      "I " ||
+      "smell " ||
+      "the blood " |               # 2nd line
+      "of an Englishman!" ? echo(); #3rd line
+
+end
+#------------------------------------------------------------ 83 general/tprintf
+#  test the library printf procedure
+#
+#  also incidentally tests large integers, real arithmetic, etc.
+
+link printf
+
+procedure main()
+   local v, vlist;
+
+   vlist := [ -16r80000000, -16r7FFFFFFF, -16r40000000, -16r3FFFFFFF, 
+      -16r10000, -16RFFFF, -20104, -719, -2, -1, 0, 1, 2, 7, 15, 47, 11213,
+      16rFFFF, 16r10000, 16r7FFFFFFF, 16r80000000, 16rFFFFFFFF, 16r100000000,
+      0.125, &phi, &e, &pi, "4.56789", 16.0, 1024.0, 65536.0, 5e12, 6.02e23 ];
+
+   every v := !vlist | realseq() | -realseq() do
+      printf("%16s %15.3r %10.3e %11d %12o %9x\n", v, v, v, v, v, v);
+end
+
+procedure realseq()
+   suspend 0.0;
+   suspend 10.0 ^ (-12 to 30) * (1.0 | 13./9 | 3./2 | 5./2. | 14./9 );
+end
+#------------------------------------------------------------- 84 general/tracer
+global s
+procedure main()
+   &trace := -1;
+   s := "abcdef";
+   &subject := "123456";
+   &pos := 4;
+   every tracer(1);
+   every foo(&pos | &subject | &pos[1] | &subject[2:5]);
+   display();
+   write(&line);
+   write(&file);
+   write(&level);
+end
+
+procedure tracer(a)
+   local i;
+   static j;
+   i := 2;
+   j := 3;
+   suspend .(a | i | j | s | &subject |
+      &pos | &random | &trace | &subject[3:4] | &pos[1] |
+      s[3] | s[3:5] | &random[1] | &trace[1] | &subject[2:5][1]);
+   suspend (a | i | j | s | &subject |
+      &pos | &random | &trace | &subject[3:4] | &pos[1] |
+      s[3] | s[3:5] | &random[1] | &trace[1] | &subject[2:5][1]);
+end
+
+procedure foo(s)
+   return s;
+end
+#-------------------------------------------------------------- 85 general/traps
+# test assignments to trapped variables
+# original source unknown; found 2013 in an ancient to-do collection
+
+procedure tvtbl_test ()
+local T;
+
+    #
+    # Test to make sure that the table trapped variable returns
+    # the correct value.
+    #
+    # Developer's note: The parameters to write are not de-referenced
+    # until all of them are evaluated.  Any line produced by this section
+    # that has includes two different values for T [] is therefore incorrect.
+    #
+    write ( "TVTBL test 1" );
+    T := table ("Defaulted");
+
+    write ( "Assignment test:  \t", T [], "\t", T [] := "Assigned" );
+    write ( "Reassignment test:\t", T [], "\t", T [] := "Reassigned" );
+    write ( "Deletion test:    \t", T [], "\t", delete ( T ) & T [] );
+    write ( "Insertion test:   \t", T [], "\t",
+	 T [] := ( insert ( T, , "Assigned" ) & "Reassigned" ) );
+
+    #
+    # Test to make sure that the table is getting updated properly by
+    # trapped variable assignment.
+    #
+    # Note: there have been past errors where "T [] :=..." returns the
+    # correct value without properly updating the table.
+    #
+    write ( "\nTVTBL test 2" );
+    delete ( T );
+    T [] := "Assigned";   write ( "Assignment test:  \t",   T [] );
+    T [] := "Reassigned"; write ( "Reassignment test:\t", T [] );
+    T [] := "Assigned";
+    T [] := ( delete ( T ) & "Reassigned" );
+    write ( "Deletion test:    \t" , T [] );
+    delete ( T );
+    T [] := ( insert ( T, , "Assigned" ) & "Reassigned" );
+    write ( "Insertion test:   \t", T [] );
+    write ( );
+
+end
+
+
+procedure subs_test (  )
+local T, s;
+
+    write ( "TVSUBS test" );     
+    T := table ( "....." );
+    T [ 7 ] [ 4 ] := "X";
+    write ( "Subs of new table elem:      ", T [ 7 ] );
+    insert ( T, 7, "....." );
+    T [ 7 ] [ 4 ] := "X";
+    write ( "Subs of existing table elem: ", T [ 7 ] );
+
+    &progname := ".....";
+    &progname [ 4 ] := "X";
+    write ( "Subs of string trapped var:  ", &progname );
+    write ( );
+
+    # Lots more cases should be added here.
+
+    return;    
+end
+
+
+procedure main (  )
+    tvtbl_test ( );
+    subs_test ( );
+    return;
+end
+#--------------------------------------------------------------- 86 general/trim
 #SRC: JCON
 
 procedure main()
@@ -6013,7 +7282,7 @@ procedure main()
     write(image(trim("", ' ')));
     write(image(trim("")));
 end
-#------------------------------------------------------------------------ 69 var
+#---------------------------------------------------------------- 87 general/var
 #SRC: V9GEN
 
 procedure main(a)
@@ -6083,9 +7352,7 @@ procedure recurse(a,b);	# to build up some context for display()
       };
    return;
 end
-#-------------------------------------------------------------------- 70 wordcnt
-#SRC: V9SAM
-
+#------------------------------------------------------------ 88 general/wordcnt
 #
 #          W O R D   C O U N T I N G
 #
