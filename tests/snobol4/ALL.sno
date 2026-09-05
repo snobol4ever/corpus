@@ -16165,7 +16165,7 @@ END
         P  =  OR(',A')
         OUTPUT  =  'built'
 END
-*---------------------------------------------------- 1774 array_replace_2 XFAIL
+*---------------------------------------------------------- 1774 array_replace_2
 -INCLUDE "gimpel_triage_class5_sig11_seq_module.sno"
         A  =  ARRAY(2)
         A<1>  =  'a'
@@ -16590,7 +16590,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*--------------------- 1807 user_function_code_eval_array_replace_branch_1 XFAIL
+*--------------------------- 1807 user_function_code_eval_array_replace_branch_1
 *  seq_code_loop_in_function - distilled from gimpel SEQ_driver (batch C);
 *  the same crash takes AI_driver and AOPA_driver, which both go through SEQ.
 *  A DEFINE'd function that (a) reaches its loop variable INDIRECTLY through
