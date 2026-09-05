@@ -1,3 +1,4 @@
+1113_table[scrip_test]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 arith_loop[benchmarks]	already in the master (origin benchmark_snobol4_arith_loop__arith_loop) -- not re-appended
 arith_loop_twin[benchmarks]	already in the master (origin benchmark_snobol4_arith_loop_twin__arith_loop_twin) -- not re-appended
 arithmetic[demos]	already in the master (origin demo_snobol4_arithmetic__arithmetic) -- not re-appended
@@ -23,12 +24,20 @@ claws5[benchmarks]	already in the master (origin benchmark_snobol4_claws5__claws
 claws5[demos]	already in the master (origin demo_snobol4_claws5__claws5) -- not re-appended
 config_probe_loose_fwctx_fwctx_suite_malformed	plain body carries suite-format markers (banner or ';* tag' line) -- a block would split on re-read; quarantined class, stays as files
 counter[demos]	already in the master (origin demo_snobol4_counter__counter) -- not re-appended
+coverage_sno_nodes[scrip_test]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=231
+coverage_sno_nodes[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=231
 demos/scrip/family_net/family_snobol4.sno	cross-language demo module -- IMPORTs family_prolog and EXPORTs parse_csv for family_icon.icn via Scrip ABI linkage; not a standalone runnable program, same polyglot family-tree demo as demos/scrip/family_snobol4.sno
 demos/scrip/family_snobol4.sno	cross-language demo module -- IMPORTs family_prolog via Scrip ABI linkage (ARCH-scrip-abi.md), reads shared family.csv; not a standalone runnable program, assembled with its Prolog/Icon counterparts elsewhere (see tests/scrip_test/polyglot_tri_main.sno)
 eval_fixed[benchmarks]	already in the master (origin benchmark_snobol4_eval_fixed__eval_fixed) -- not re-appended
+feat_f15_trace_dump[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+feat_f18_error_handling[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=231
 fib_recur[benchmarks]	already in the master (origin benchmark_snobol4_fib_recur__fib_recur) -- not re-appended
 fibonacci[benchmarks]	already in the master (origin benchmark_snobol4_fibonacci__fibonacci) -- not re-appended
 func_call[benchmarks]	already in the master (origin benchmark_snobol4_func_call__func_call) -- not re-appended
+gimpel_triage_class1_dup_label_shared[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
+gimpel_triage_class5_sig11_seq_module[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
+gimpel_triage_class8_sig6_perm_module[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
+gimpel_triage_class8_sig6_perm_swap[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 hello[demos]	already in the master (origin demo_snobol4_hello__hello) -- not re-appended
 ident_call1[benchmarks]	already in the master (origin benchmark_snobol4_ident_call1__ident_call1) -- not re-appended
 ident_call2[benchmarks]	already in the master (origin benchmark_snobol4_ident_call2__ident_call2) -- not re-appended
@@ -39,21 +48,84 @@ json-match[benchmarks]	committed .ref disagrees with a fresh oracle run -- re-co
 json-match[demos]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
 json[benchmarks]	already in the master (origin benchmark_snobol4_json__json) -- not re-appended
 json[demos]	already in the master (origin demo_snobol4_json__json) -- not re-appended
+jvm_j3_goto_f[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
+jvm_j3_input_test[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
+linker_ancestor_ancestor_main[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+linker_greet_main[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 mixed_workload[benchmarks]	already in the master (origin benchmark_snobol4_mixed_workload__mixed_workload) -- not re-appended
 name_indirection[benchmarks]	already in the master (origin benchmark_snobol4_name_indirection__name_indirection) -- not re-appended
 op_dispatch[benchmarks]	already in the master (origin benchmark_snobol4_op_dispatch__op_dispatch) -- not re-appended
+parser_binary_opsyn[tests]	already in the master (origin test_snobol4_parser_binary_opsyn__parser_binary_opsyn) -- not re-appended
+parser_cf_bare_goto[tests]	already in the master (origin test_snobol4_parser_cf_bare_goto__parser_cf_bare_goto) -- not re-appended
+parser_cf_goto_computed[tests]	already in the master (origin test_snobol4_parser_cf_goto_computed__parser_cf_goto_computed) -- not re-appended
+parser_cf_goto_f[tests]	already in the master (origin test_snobol4_parser_cf_goto_f__parser_cf_goto_f) -- not re-appended
+parser_cf_goto_sf[tests]	already in the master (origin test_snobol4_parser_cf_goto_sf__parser_cf_goto_sf) -- not re-appended
+parser_cf_goto_u[tests]	already in the master (origin test_snobol4_parser_cf_goto_u__parser_cf_goto_u) -- not re-appended
+parser_cf_label_assign[tests]	already in the master (origin test_snobol4_parser_cf_label_assign__parser_cf_label_assign) -- not re-appended
+parser_cf_loop[tests]	already in the master (origin test_snobol4_parser_cf_loop__parser_cf_loop) -- not re-appended
+parser_fn_call_arith[tests]	already in the master (origin test_snobol4_parser_fn_call_arith__parser_fn_call_arith) -- not re-appended
+parser_fn_call_expr_arg[tests]	already in the master (origin test_snobol4_parser_fn_call_expr_arg__parser_fn_call_expr_arg) -- not re-appended
+parser_fn_call_in_pat[tests]	already in the master (origin test_snobol4_parser_fn_call_in_pat__parser_fn_call_in_pat) -- not re-appended
+parser_fn_call_nested[tests]	already in the master (origin test_snobol4_parser_fn_call_nested__parser_fn_call_nested) -- not re-appended
+parser_fn_call_one[tests]	already in the master (origin test_snobol4_parser_fn_call_one__parser_fn_call_one) -- not re-appended
+parser_fn_call_str[tests]	already in the master (origin test_snobol4_parser_fn_call_str__parser_fn_call_str) -- not re-appended
+parser_fn_call_three[tests]	already in the master (origin test_snobol4_parser_fn_call_three__parser_fn_call_three) -- not re-appended
+parser_fn_call_two[tests]	already in the master (origin test_snobol4_parser_fn_call_two__parser_fn_call_two) -- not re-appended
+parser_fn_call_zero[tests]	already in the master (origin test_snobol4_parser_fn_call_zero__parser_fn_call_zero) -- not re-appended
+parser_fn_stmt[tests]	already in the master (origin test_snobol4_parser_fn_stmt__parser_fn_stmt) -- not re-appended
+parser_idx_in_assign_lhs[tests]	already in the master (origin test_snobol4_parser_idx_in_assign_lhs__parser_idx_in_assign_lhs) -- not re-appended
+parser_idx_multi[tests]	already in the master (origin test_snobol4_parser_idx_multi__parser_idx_multi) -- not re-appended
+parser_idx_nested[tests]	already in the master (origin test_snobol4_parser_idx_nested__parser_idx_nested) -- not re-appended
+parser_idx_simple[tests]	already in the master (origin test_snobol4_parser_idx_simple__parser_idx_simple) -- not re-appended
+parser_kw_lcase[tests]	already in the master (origin test_snobol4_parser_kw_lcase__parser_kw_lcase) -- not re-appended
+parser_kw_maxlngth[tests]	already in the master (origin test_snobol4_parser_kw_maxlngth__parser_kw_maxlngth) -- not re-appended
+parser_unary_assign[tests]	already in the master (origin test_snobol4_parser_unary_assign__parser_unary_assign) -- not re-appended
+parser_unary_indirect[tests]	already in the master (origin test_snobol4_parser_unary_indirect__parser_unary_indirect) -- not re-appended
+parser_unary_not[tests]	already in the master (origin test_snobol4_parser_unary_not__parser_unary_not) -- not re-appended
 pattern_bt[benchmarks]	already in the master (origin benchmark_snobol4_pattern_bt__pattern_bt) -- not re-appended
 pattern_test[demos]	already in the master (origin demo_snobol4_pattern_test__pattern_test) -- not re-appended
+polyglot_tri_main[scrip_test]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 porter[benchmarks]	already in the master (origin benchmark_snobol4_porter__porter) -- not re-appended
 porter[demos]	already in the master (origin demo_snobol4_porter__porter) -- not re-appended
+probe_loose_ab_undef_call[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 probe_loose_callout_claws5_call	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
 probe_loose_callout_claws5_cap	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_conformance_f09_apply[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+probe_loose_conformance_f12_load[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+probe_loose_conformance_f15_unload[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+probe_loose_conformance_f21_output[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+probe_loose_conformance_f25_collect[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+probe_loose_conformance_f26_dump[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+probe_loose_conformance_f52_dupl[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+probe_loose_conformance_f65_exit[tests]	over budget (oracle exceeded 3.0s)
+probe_loose_conformance_f65b_exit_savefile[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+probe_loose_conformance_f68_stoptr[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+probe_loose_conformance_f69_trace[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+probe_loose_conformance_f83_trim[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 probe_loose_conformance_k09_file	source-identity-sensitive keyword (&FILE/&LASTFILE/...) -- output depends on the source FILENAME, which absorption renames; stays as files (measured: k09/k11/k30/k32 went red in the master while green loose)
+probe_loose_conformance_k10_fnclevel[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 probe_loose_conformance_k11_lastfile_lastline_lastno	source-identity-sensitive keyword (&FILE/&LASTFILE/...) -- output depends on the source FILENAME, which absorption renames; stays as files (measured: k09/k11/k30/k32 went red in the master while green loose)
 probe_loose_conformance_k30_lastfile_only	source-identity-sensitive keyword (&FILE/&LASTFILE/...) -- output depends on the source FILENAME, which absorption renames; stays as files (measured: k09/k11/k30/k32 went red in the master while green loose)
 probe_loose_conformance_k32_file_keyword	source-identity-sensitive keyword (&FILE/&LASTFILE/...) -- output depends on the source FILENAME, which absorption renames; stays as files (measured: k09/k11/k30/k32 went red in the master while green loose)
+probe_loose_conformance_u03_question[tests]	already in the master (origin test_snobol4_probe_loose_conformance_u03_question__probe_loose_conformance_u03_question) -- not re-appended
+probe_loose_csnobol4_triage_include_trailing_space[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=1
+probe_loose_csnobol4_triage_include_trailing_space_lib[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
+probe_loose_csnobol4_triage_setexit_label_pruned[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+probe_loose_dv_dv_nreturn_imm[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+probe_loose_errpath_bad_type_arith[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=231
+probe_loose_errpath_bad_type_builtin[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+probe_loose_errpath_deep_recursion[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+probe_loose_errpath_div_by_zero[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=231
+probe_loose_errpath_duplicate_label[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=231
+probe_loose_errpath_end_star_no_boundary[tests]	already in the master (origin test_snobol4_probe_loose_errpath_end_star_no_boundary__probe_loose_errpath_end_star_no_boundary) -- not re-appended
+probe_loose_errpath_huge_string[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+probe_loose_errpath_missing_end[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
+probe_loose_errpath_undef_label_goto[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
+probe_loose_errpath_unterminated_string[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=231
 probe_loose_fuzz_fz_red_m4b_blob_defer_fence	fuzz nondeterministic-crash class -- a captured ref is one sample of a distribution; util_fuzz_witness_stability.sh owns these, stays as files
 probe_loose_fwctx_fwctx_standalone_ctl	plain body carries suite-format markers (banner or ';* tag' line) -- a block would split on re-read; quarantined class, stays as files
+probe_loose_gimpel_gim_cassign_array_elt_loud[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=0
+probe_loose_preord_pre_unsafe_then_guard[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 probe_loose_table_nested_chain_incr_d1	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
 probe_loose_table_nested_chain_incr_d2	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
 probe_loose_table_nested_chain_incr_d3	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
@@ -64,15 +136,26 @@ probe_loose_table_nested_claws5_l1	scratch-escaping relative reference (../) -- 
 probe_loose_table_nested_claws5_l2	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
 probe_loose_table_nested_ident_guard_d1	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
 probe_loose_table_nested_value_type_tbl	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
+probe_loose_unload_un_self_exec[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 roman[benchmarks]	already in the master (origin benchmark_snobol4_roman__roman) -- not re-appended
 roman[demos]	already in the master (origin demo_snobol4_roman__roman) -- not re-appended
+rtx_func_11_inc[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
+smoke_beauty_compiled[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
+smoke_empty_string[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=231
+smoke_expr_parser[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=0
+smoke_hello[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=231
+smoke_multi[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=231
 string_concat[benchmarks]	already in the master (origin benchmark_snobol4_string_concat__string_concat) -- not re-appended
 string_concat_twin[benchmarks]	already in the master (origin benchmark_snobol4_string_concat_twin__string_concat_twin) -- not re-appended
 string_manip[benchmarks]	already in the master (origin benchmark_snobol4_string_manip__string_manip) -- not re-appended
 string_pattern[benchmarks]	already in the master (origin benchmark_snobol4_string_pattern__string_pattern) -- not re-appended
 table_access[benchmarks]	already in the master (origin benchmark_snobol4_table_access__table_access) -- not re-appended
 table_variety[benchmarks]	already in the master (origin benchmark_snobol4_table_variety__table_variety) -- not re-appended
+test_case[scrip_test]	module (include/ or library/ dir -- no runnable top level, never absorbed alone)
 test_icon[benchmarks]	already in the master (origin benchmark_snobol4_test_icon__test_icon) -- not re-appended
+test_math[scrip_test]	module (include/ or library/ dir -- no runnable top level, never absorbed alone)
+test_stack[scrip_test]	module (include/ or library/ dir -- no runnable top level, never absorbed alone)
+test_string[scrip_test]	module (include/ or library/ dir -- no runnable top level, never absorbed alone)
 treebank-alloc[demos]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
 treebank-match-fence[benchmarks]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)
 treebank-match-fence[demos]	committed .ref disagrees with a fresh oracle run -- re-confirm by hand (stale ref, drifted oracle, or a scale/flag this recipe does not supply)

@@ -17061,3 +17061,337 @@ loop     line     =  INPUT                         :F(END)
          OUTPUT   =  Pop()                         :(loop)
 error    OUTPUT   = 'Bad INPUT, try again'         :(loop)
 END
+*------------------------------------------------- 1815 test_parser_binary_opsyn
+        x = 'a' & 'b'
+        y = 'a' ~ 'b'
+        z = 'a' @ 'b'
+END
+*------------------------------------------------- 1816 test_parser_cf_bare_goto
+        :(NEXT)
+NEXT    END
+*--------------------------------------------- 1817 test_parser_cf_goto_computed
+        DIFFER(t)      :S($('pp_' t))F(RETURN)
+END
+*---------------------------------------------------- 1818 test_parser_cf_goto_f
+        y = x          :F(DONE)
+DONE    END
+*--------------------------------------------------- 1819 test_parser_cf_goto_sf
+        x = 1          :S(OK):F(FAIL)
+OK      END
+*---------------------------------------------------- 1820 test_parser_cf_goto_u
+        z = 1          :(LOOP)
+LOOP    END
+*---------------------------------------------- 1821 test_parser_cf_label_assign
+LOOP    x = x + 1      :S(LOOP)
+END
+*------------------------------------------------------ 1822 test_parser_cf_loop
+        n = 1
+LOOP    n = n + 1      :S(LOOP)
+END
+*------------------------------------------------ 1823 test_parser_fn_call_arith
+	X = F(A) + F(B)
+END
+*--------------------------------------------- 1824 test_parser_fn_call_expr_arg
+	X = F(A + 1)
+END
+*----------------------------------------------- 1825 test_parser_fn_call_in_pat
+	S F(A) . X
+END
+*----------------------------------------------- 1826 test_parser_fn_call_nested
+	X = G(F(1))
+END
+*-------------------------------------------------- 1827 test_parser_fn_call_one
+	X = F(1)
+END
+*-------------------------------------------------- 1828 test_parser_fn_call_str
+	X = F('hi')
+END
+*------------------------------------------------ 1829 test_parser_fn_call_three
+	X = F(A, B, C)
+END
+*-------------------------------------------------- 1830 test_parser_fn_call_two
+	X = F(A, B)
+END
+*------------------------------------------------- 1831 test_parser_fn_call_zero
+	X = NOARG()
+END
+*------------------------------------------------------ 1832 test_parser_fn_stmt
+	F(X)
+END
+*-------------------------------------------- 1833 test_parser_idx_in_assign_lhs
+        A[1] = 'hello'
+        B[I, J] = X
+END
+*---------------------------------------------------- 1834 test_parser_idx_multi
+        X = A[1, 2]
+        Y = B[I, J, K]
+END
+*--------------------------------------------------- 1835 test_parser_idx_nested
+        X = A[B[1]]
+END
+*--------------------------------------------------- 1836 test_parser_idx_simple
+        X = A[1]
+END
+*----------------------------------------------------- 1837 test_parser_kw_lcase
+        X = &LCASE
+        &LCASE = 'abcdefghijklmnopqrstuvwxyz'
+        Y LEN(1) . C
+        Z = REPLACE(Y, &UCASE, &LCASE)
+END
+*-------------------------------------------------- 1838 test_parser_kw_maxlngth
+        X = &MAXLNGTH
+        &MAXLNGTH = 500
+        IF LT(&MAXLNGTH, 100)
+END
+*------------------------------------------------- 1839 test_parser_unary_assign
+        x = DIFFER(sno = Pop())
+END
+*----------------------------------------------- 1840 test_parser_unary_indirect
+        x = $'='
+        y = $name
+END
+*---------------------------------------------------- 1841 test_parser_unary_not
+        x = ~BREAK(nl)
+END
+*-------------------------------- 1842 test_probe_loose_conformance_u03_question
+        s = 'ABCDEF'
+        p = 'ABC'
+        n = 0
+        n = ?(s ? p) n + 1
+        OUTPUT = 'after-success-match n=' n
+        p = 'ZZZ'
+        n = ?(s ? p) n + 1
+        OUTPUT = 'after-failed-match n=' n
+END
+*---------------------------- 1843 test_probe_loose_errpath_end_star_no_boundary
+*  probe: '*' jammed directly onto a keyword/label with no separating boundary (no ';', no
+*  whitespace, no true column 1) is NOT a trailing-comment start in either engine -- both fail
+*  to recognize a valid END and refuse (row snobol4-trailing-star-comment-not-lexed, witness 3)
+;END*abc
+*--------------------------------------------------- 1844 test_smoke_expr_parser
+* expr_parser.sno — Expression parser in SNOBOL4
+* Translated mechanically from Expressions.py (ByrdBox)
+* Each Python generator function becomes a named SNOBOL4 pattern
+*
+* parse_item:
+*   SPAN('0123456789') | 'x' | 'y' | 'z' | '(' parse_term ')'
+*
+* parse_element:
+*   parse_item | '+' parse_element | '-' parse_element
+*
+* parse_factor:
+*   parse_element | parse_element '*' parse_factor | parse_element '/' parse_factor
+*
+* parse_term:
+*   parse_factor | parse_factor '+' parse_term | parse_factor '-' parse_term
+*
+* parse_expression:
+*   POS(0) parse_term RPOS(0)
+
+        DEFINE('ITEM()')
+        DEFINE('ELEMENT()')
+        DEFINE('FACTOR()')
+        DEFINE('TERM()')
+        DEFINE('EXPRESSION()')
+
+* ── ITEM ──────────────────────────────────────────────────────────────────
+ITEM    SUBJECT SPAN('0123456789')          :S(ITEM.OK)
+        SUBJECT LIT('x')                    :S(ITEM.OK)
+        SUBJECT LIT('y')                    :S(ITEM.OK)
+        SUBJECT LIT('z')                    :S(ITEM.OK)
+        SUBJECT LIT('(')                    :F(ITEM.FAIL)
+        TERM()                              :F(ITEM.FAIL)
+        SUBJECT LIT(')')                    :F(ITEM.FAIL)
+ITEM.OK                                     :(RETURN)
+ITEM.FAIL                                   :F(FRETURN)
+
+* ── ELEMENT ───────────────────────────────────────────────────────────────
+ELEMENT ITEM()                              :S(ELEMENT.OK)
+        SUBJECT LIT('+')                    :F(ELEMENT.TRY.MINUS)
+        ELEMENT()                           :S(ELEMENT.OK) F(ELEMENT.TRY.MINUS)
+ELEMENT.TRY.MINUS
+        SUBJECT LIT('-')                    :F(ELEMENT.FAIL)
+        ELEMENT()                           :S(ELEMENT.OK) F(ELEMENT.FAIL)
+ELEMENT.OK                                  :(RETURN)
+ELEMENT.FAIL                                :(FRETURN)
+
+END
+*---------------------------------------------- 1845 scrip_test_treebank-prepend
+*------------------------------------------------------------------------------
+* treebank.sno — Penn Treebank s-expression parser
+* ENG 685, Lon Cherryholmes Sr.
+*
+* Faithful SNOBOL4 port of assignment3.py (treebank pattern).
+* Run: sbl -b treebank.sno   (VBGinTASA.dat must be in working directory)
+*
+* Function names match Python exactly:
+*   init_list(v)  push_list(v)  push_item(v)  pop_list()  pop_final(v)
+*
+* Each is a single NRETURN function usable two ways:
+*   (1) Direct deferred call in pattern:  (word . tag) . *push_list(tag)
+*   (2) Zero-width epsilon hook:          (epsilon . *push_list('BANK'))
+*
+* Python:
+*   def init_list(v): λ(f"{v}=None") + λ("stack=[]")
+*   def push_list(v): λ("stack.append(list())") + λ("stack[-1].append(v)")
+*   def push_item(v): λ("stack[-1].append(v)")
+*   def pop_list():   λ("stack[-2].append(tuple(stack.pop()))")
+*   def pop_final(v): λ(f"{v}=tuple(stack.pop())")
+*------------------------------------------------------------------------------
+               &TRIM          =  1
+               &ANCHOR        =  0
+               &FULLSCAN      =  1
+               &ALPHABET      POS(10) LEN(1) . nl
+*------------------------------------------------------------------------------
+               DATA('list(head,tail)')
+*------------------------------------------------------------------------------
+               DEFINE('list_reverse(lst)acc,cur')           :(list_reverse_end)
+list_reverse   acc            =
+               cur            =  lst
+lr1            DIFFER(cur)                                  :F(lr_done)
+               acc            =  list(head(cur), acc)
+               cur            =  tail(cur)                  :(lr1)
+lr_done        list_reverse   =  acc                        :(RETURN)
+list_reverse_end
+*------------------------------------------------------------------------------
+               DEFINE('stk_push_frame(v)')                  :(stk_push_frame_end)
+stk_push_frame stk            =  list(list(v,), stk)
+               stk_push_frame =  .dummy                     :(RETURN)
+stk_push_frame_end
+*------------------------------------------------------------------------------
+               DEFINE('stk_push_item(v)')                   :(stk_push_item_end)
+stk_push_item  head(stk)      =  list(v, head(stk))
+               stk_push_item  =  .dummy                     :(RETURN)
+stk_push_item_end
+*------------------------------------------------------------------------------
+               DEFINE('stk_pop_into_parent()child')         :(stk_pop_into_parent_end)
+stk_pop_into_parent
+               child          =  list_reverse(head(stk))
+               stk            =  tail(stk)
+               head(stk)      =  list(child, head(stk))
+               stk_pop_into_parent =  .dummy                :(RETURN)
+stk_pop_into_parent_end
+*------------------------------------------------------------------------------
+               DEFINE('stk_pop_final(var)')                 :(stk_pop_final_end)
+stk_pop_final  $var           =  list_reverse(head(stk))
+               stk            =  tail(stk)
+               stk_pop_final  =  .dummy                     :(RETURN)
+stk_pop_final_end
+*------------------------------------------------------------------------------
+*  init_list(v) — λ(f"{v}=None") + λ("stack=[]")
+*------------------------------------------------------------------------------
+               DEFINE('init_list(v)')                       :(init_list_end)
+init_list      $v             =
+               stk            =
+               init_list      =  .dummy                     :(NRETURN)
+init_list_end
+*------------------------------------------------------------------------------
+*  push_list(v) — λ("stack.append(list())") + λ("stack[-1].append(v)")
+*  Called as: (word . tag) . *push_list(tag)   or   epsilon . *push_list('BANK')
+*------------------------------------------------------------------------------
+               DEFINE('push_list(v)')                       :(push_list_end)
+push_list      dummy          =  stk_push_frame(v)
+               push_list      =  .dummy                     :(NRETURN)
+push_list_end
+*------------------------------------------------------------------------------
+*  push_item(v) — λ("stack[-1].append(v)")
+*  Called as: (word . wrd) . *push_item(wrd)
+*------------------------------------------------------------------------------
+               DEFINE('push_item(v)')                       :(push_item_end)
+push_item      dummy          =  stk_push_item(v)
+               push_item      =  .dummy                     :(NRETURN)
+push_item_end
+*------------------------------------------------------------------------------
+*  pop_list() — λ("stack[-2].append(tuple(stack.pop()))")
+*------------------------------------------------------------------------------
+               DEFINE('pop_list()')                         :(pop_list_end)
+pop_list       dummy          =  stk_pop_into_parent()
+               pop_list       =  .dummy                     :(NRETURN)
+pop_list_end
+*------------------------------------------------------------------------------
+*  pop_final(v) — λ(f"{v}=tuple(stack.pop())")
+*------------------------------------------------------------------------------
+               DEFINE('pop_final(v)')                       :(pop_final_end)
+pop_final      dummy          =  stk_pop_final(v)
+               pop_final      =  .dummy                     :(NRETURN)
+pop_final_end
+*------------------------------------------------------------------------------
+               delim          =  SPAN(' ' nl)
+               word           =  NOTANY('( )' nl) BREAK('( )' nl)
+*------------------------------------------------------------------------------
+*  group — direct port of Python:
+*    σ('(') + word%"tag" + push_list(tag)
+*    + ARBNO(delim + (ζ(λ:group) | word%"wrd" + push_item(wrd)))
+*    + pop_list() + σ(')')
+*------------------------------------------------------------------------------
+               group          =
++              '('
++              (word . tag) . *push_list(tag)
++              ARBNO(
++                  *delim
++                  ( *group
++                  | (word . wrd) . *push_item(wrd)
++                  )
++              )
++              (epsilon . *pop_list())
++              ')'
+*------------------------------------------------------------------------------
+*  treebank — direct port of Python:
+*    POS(0) + init_list("bank") + push_list("'BANK'")
+*    + ARBNO(push_list("'ROOT'") + ARBNO(group) + pop_list() + delim)
+*    + pop_final("bank") + RPOS(0)
+*------------------------------------------------------------------------------
+               treebank       =
++              POS(0)
++              (epsilon . *init_list('bank'))
++              (epsilon . *push_list('BANK'))
++              ARBNO(
++                  (epsilon . *push_list('ROOT'))
++                  ARBNO(*group)
++                  *delim
++                  (epsilon . *pop_list())
++              )
++              (epsilon . *pop_final('bank'))
++              RPOS(0)
+*------------------------------------------------------------------------------
+               DEFINE('pp_node(node,indent)child,nxt,pad')  :(pp_node_end)
+pp_node        pad            =  DUPL(' ', indent)
+               IDENT(DATATYPE(node), 'string')              :F(pp_node_list)
+               OUTPUT         =  pad node                   :(RETURN)
+pp_node_list   OUTPUT         =  pad '(' head(node)
+               child          =  tail(node)
+pp_ch          DIFFER(child)                                :F(pp_close)
+               nxt            =  tail(child)
+               pp_node(head(child), indent + 3)
+               child          =  nxt                        :(pp_ch)
+pp_close       OUTPUT         =  pad ')'                    :(RETURN)
+pp_node_end
+*------------------------------------------------------------------------------
+               DEFINE('pp_bank()cur')                       :(pp_bank_end)
+pp_bank        pp_node(bank, 0)
+               pp_bank        =  .dummy                     :(RETURN)
+pp_bank_end
+*------------------------------------------------------------------------------
+               INPUT(.rdch, 8, 'VBGinTASA.dat')             :F(main_err)
+slurp          line           =  rdch                       :F(slurp_done)
+               src            =  src line nl                :(slurp)
+slurp_done     ENDFILE(8)
+               src            treebank                      :F(main_fail)
+               dummy          =  pp_bank()                  :(END)
+main_fail      OUTPUT         =  'Pattern match failed'     :(END)
+main_err       OUTPUT         =  'Could not read VBGinTASA.dat'
+*------------------------------------------------------------------------------
+END
+*--------------------------------------- 1846 snocone_ladder_datatype.oracle_ref
+	&FULLSCAN = 1
+	OUTPUT = DATATYPE('hello')
+	OUTPUT = DATATYPE(42)
+	OUTPUT = DATATYPE(3.14)
+	OUTPUT = CONVERT('42','INTEGER') + 1
+END
+*--------------------------------------- 1847 snocone_ladder_lit_real.oracle_ref
+	&FULLSCAN = 1
+	OUTPUT = 3.14
+	OUTPUT = 1.0e3
+	OUTPUT = 2.5E-2
+END
