@@ -8,7 +8,10 @@
 # be combined with in the combinations phase (sibling row prolog-ladder-feature-combinations-after-isolation).
 # Expected origins: isolation ladder__<rung>_<construct>_<form> · combinations ladder__<rung>_<construct>_with_<lower>.
 #
-# RUNGS come from ARCH-PROLOG-BYRD-BOX-TRANSLATION.md sec E (rungs 0-13, sovereign). FORMS come from the
+# RUNGS come from ARCH-PROLOG-BYRD-BOX-TRANSLATION.md sec E (rungs 0-18, sovereign). Rungs 14-18 were added
+# here first (ceo, corpus 6e84528bf, on Lon 2026-09-05 "ensure that each ladder is full and complete") and
+# BACK-FILLED into sec E by hq_C 2026-09-05 -- until then this header cited an authority that did not
+# contain five of its own rungs. FORMS come from the
 # language reference (ISO/IEC 13211-1 clause numbers cited per row, SWI where the standard is silent), NOT from
 # what SCRIP happens to implement -- a census that enumerated the implementation could never name a gap.
 #
