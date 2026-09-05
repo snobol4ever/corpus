@@ -1,0 +1,7 @@
+	TEST = (ARBNO('-') POS(2) 'Q' | ARBNO('-') POS(2) 'Q')
+	B = '--Q'
+	B TEST                                                          :S(YES)F(NO)
+YES	OUTPUT = 'MATCHED'                                              :(DONE)
+NO	OUTPUT = 'NO MATCH'
+DONE
+END
