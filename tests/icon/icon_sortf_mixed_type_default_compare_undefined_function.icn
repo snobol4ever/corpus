@@ -1,0 +1,8 @@
+record r1(a)
+record r3(a,b,c)
+procedure main()
+    local data;
+    data := [r3(3,1,4), [1,5,9], r3(2,6,5), r1(2), 3];
+    write(image(sortf(data, &null)));
+    write(image(sortf(set(data), &null)));
+end
