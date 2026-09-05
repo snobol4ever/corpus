@@ -1,0 +1,18 @@
+sizes 3 2 2
+LGT(A,B) yes
+LLT(B,A) yes
+LEQ(A,C) no
+LNE(A,C) yes
+LGE(A,B) yes
+LLE(B,A) yes
+LGE(B,A) no
+LLE(A,B) no
+LEQ(A,D) yes
+LLT(C,A) no
+LGT(C,A) yes
+LGT(abc,ab) yes
+LGT(ab,abc) no
+LEQ(null,null) yes
+LGT(255,1) yes
+LGT(3,12) yes
+done

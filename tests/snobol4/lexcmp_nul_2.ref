@@ -1,0 +1,11 @@
+APPLY LGT(A,B) yes
+APPLY LLT(B,A) yes
+APPLY LEQ(A,C) no
+APPLY LNE(A,C) yes
+APPLY LGE(B,A) no
+APPLY LLE(A,B) no
+APPLY LEQ(A,A) yes
+APPLY LGT(abc,ab) yes
+OPSYN LEXGT(A,B) yes
+OPSYN LEXGT(C,A) yes
+done

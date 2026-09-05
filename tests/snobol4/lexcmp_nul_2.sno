@@ -1,0 +1,26 @@
+        A = CHAR(0) CHAR(2) CHAR(4)
+        B = CHAR(0) CHAR(2)
+        C = CHAR(0) CHAR(9)
+        OUTPUT = APPLY('LGT', A, B) 'APPLY LGT(A,B) yes'    :S(L1)
+        OUTPUT = 'APPLY LGT(A,B) no'
+L1      OUTPUT = APPLY('LLT', B, A) 'APPLY LLT(B,A) yes'    :S(L2)
+        OUTPUT = 'APPLY LLT(B,A) no'
+L2      OUTPUT = APPLY('LEQ', A, C) 'APPLY LEQ(A,C) yes'    :S(L3)
+        OUTPUT = 'APPLY LEQ(A,C) no'
+L3      OUTPUT = APPLY('LNE', A, C) 'APPLY LNE(A,C) yes'    :S(L4)
+        OUTPUT = 'APPLY LNE(A,C) no'
+L4      OUTPUT = APPLY('LGE', B, A) 'APPLY LGE(B,A) yes'    :S(L5)
+        OUTPUT = 'APPLY LGE(B,A) no'
+L5      OUTPUT = APPLY('LLE', A, B) 'APPLY LLE(A,B) yes'    :S(L6)
+        OUTPUT = 'APPLY LLE(A,B) no'
+L6      OUTPUT = APPLY('LEQ', A, A) 'APPLY LEQ(A,A) yes'    :S(L7)
+        OUTPUT = 'APPLY LEQ(A,A) no'
+L7      OUTPUT = APPLY('LGT', 'abc', 'ab') 'APPLY LGT(abc,ab) yes'    :S(L8)
+        OUTPUT = 'APPLY LGT(abc,ab) no'
+L8      OPSYN('LEXGT', 'LGT')
+        OUTPUT = LEXGT(A, B) 'OPSYN LEXGT(A,B) yes'    :S(L9)
+        OUTPUT = 'OPSYN LEXGT(A,B) no'
+L9      OUTPUT = LEXGT(C, A) 'OPSYN LEXGT(C,A) yes'    :S(L10)
+        OUTPUT = 'OPSYN LEXGT(C,A) no'
+L10     OUTPUT = 'done'
+END
