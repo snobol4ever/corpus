@@ -50,6 +50,14 @@ json[benchmarks]	already in the master (origin benchmark_snobol4_json__json) -- 
 json[demos]	already in the master (origin demo_snobol4_json__json) -- not re-appended
 jvm_j3_goto_f[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 jvm_j3_input_test[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
+ladder__rung09_alternation_result_capture	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+ladder__rung09_conditional_assignment_no_effect_on_overall_failure	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+ladder__rung09_immediate_assignment_fires_on_each_retry	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+ladder__rung09_immediate_assignment_survives_overall_failure	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+ladder__rung09_immediate_assignment_with_deferred_reuse	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+ladder__rung09_nested_capture_with_outer_group	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+ladder__rung09_outer_capture_over_pattern_valued_variable_group	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+ladder__rung09_repeated_target_reassigned_in_sequence	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 linker_ancestor_ancestor_main[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 linker_greet_main[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 mixed_workload[benchmarks]	already in the master (origin benchmark_snobol4_mixed_workload__mixed_workload) -- not re-appended
