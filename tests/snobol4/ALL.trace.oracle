@@ -1,0 +1,48 @@
+%---- ladder__rung08_null_default_return total=2
+alpha NADA
+gamma NADA
+%---- ladder__rung08_define_function total=2
+alpha DBL
+gamma DBL
+%---- ladder__rung08_function_as_argument total=4
+alpha ADD1
+gamma ADD1
+alpha ADD1
+gamma ADD1
+%---- ladder__rung08_used_in_replacement_field total=2
+alpha TAG
+gamma TAG
+%---- ladder__rung08_call_by_value_default total=2
+alpha ZERO
+gamma ZERO
+%---- ladder__rung08_dummy_arg_saved_restored total=2
+alpha DBL2
+gamma DBL2
+%---- ladder__rung08_local_var_saved_restored total=2
+alpha SETX
+gamma SETX
+%---- ladder__rung08_array_arg_implicit_reference total=2
+alpha BUMP
+gamma BUMP
+%---- ladder__rung08_recursive_factorial total=10
+alpha FACT
+alpha FACT
+alpha FACT
+alpha FACT
+alpha FACT
+gamma FACT
+gamma FACT
+gamma FACT
+gamma FACT
+gamma FACT
+%---- ladder__rung08_call_by_name_swap total=2
+alpha SWAP
+gamma SWAP
+%---- ladder__rung08_returns_pattern_for_match total=2
+alpha BRK1
+gamma BRK1
+%---- ladder__rung08_freturn_signals_failure total=4
+alpha MAYBE
+gamma MAYBE
+alpha MAYBE
+omega MAYBE
