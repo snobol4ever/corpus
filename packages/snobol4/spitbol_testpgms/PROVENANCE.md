@@ -35,6 +35,18 @@ followed by a line starting with `(`, and `ANY('+-&.$*?!@%#')` became an untermi
 the combined file carries four programs the split never had. So: **#1-#4 keep the repaired text, #5-#8 come from
 the combined file**, and both facts are written down because a future re-split from either source alone will
 silently undo half of this.
+✅ **CORROBORATED BY TWO INDEPENDENT METHODS (hq_P and seat09, 2026-09-04).** seat09 found the same corruption
+from the benchmarks side by RAW-BYTE inspection, without having read this census, and agreed on every program
+including that #3 was spared. hq_P then measured it a third way, and this is the cleanest statement of the damage
+any of us has: **combined `testpgms.spt` = 2 exclamation marks total; vendored `test1.spt` = 23, `test4.spt` = 1,
+`test3.spt` = 2.** ⭐ That matters most for #5-#8, whose clearance here rested partly on an EYEBALL (#5's odd quote
+run down to the apostrophe in `FLOYD'S TREESORT3`); seat09's raw-byte pass over the same span agrees, by a method
+that cannot make that mistake.
+⛔ **`corpus/benchmarks/snobol4/testpgms.spt` IS NOT TO BE REPAIRED** (hq_P's ruling, endorsed): nothing consumes
+it (the three scripts naming testpgms read the split files), both its roles are served by these copies and the
+benchmarks splits, and a line-count-changing edit would invalidate the start/END boundary ledger above while rows
+are reading against it. Repairing it would trade a known-damaged archive for an unknown-damaged one.
+
 ⭐ The damage has a signature worth reusing: a line ending in `= ` followed by a line starting with `(`, or a
 line with an odd number of `'`. Censused across all eight — #1 (5 orphan parens, 23 trailing `=`) and #4 (4
 odd-quote lines) are damaged in the combined file; #5-#8 are clean (#5's single odd quote is an apostrophe in a
