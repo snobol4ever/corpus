@@ -16575,7 +16575,7 @@ END
 	value = 1
 	OUTPUT = value
 end
-*--------------------------------------------------- 1821 simple_output_67 XFAIL
+*--------------------------------------------------------- 1821 simple_output_67
 *  MINIMAL WITNESS (s183): BLANKS('X = A') must remove blanks -> 'X=A'.
 *  SCRIP answers 'X = A' -- a SILENT WRONG ANSWER, oracle-differential, and
 *  INDEPENDENT of RTSEQ-RESUME (SCRIP_RTSEQ_RESUME=0 gives the same wrong answer).
@@ -16635,7 +16635,7 @@ END
         P  =  OR(',A')
         OUTPUT  =  'built'
 END
-*---------------------------------------------------- 1825 user_function_6 XFAIL
+*---------------------------------------------------------- 1825 user_function_6
 	PROTO = 'F(N)'
 	DEFINE(PROTO)	:(FEND)
 F	F = N + 1	:(RETURN)
@@ -16676,7 +16676,7 @@ FEnd
         DEFINE('F(x)','F2')
         OUTPUT     =     F('b')
 END
-*----------------------------------------------------- 1830 span_replace_1 XFAIL
+*----------------------------------------------------------- 1830 span_replace_1
 *  gim_span_self_rebind_wrong - SILENT WRONG ANSWER, 5 lines, no function.
 *  A variable rebound to a PATTERN BUILT OVER ITS OWN FORMER VALUE (X = SPAN(X))
 *  is inert as a pattern in SCRIP: the replacement removes nothing and the
