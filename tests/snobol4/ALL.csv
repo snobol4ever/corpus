@@ -1724,7 +1724,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1723,span_replace_1,probe_gimpel__gim_span_self_rebind_wrong,probe_gimpel,block,1,14,UNKNOWN,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1724,span_replace_2,gimpel_triage_class3_diff_span_self_rebind__class3_diff_span_self_rebind,gimpel_triage_class3_diff_span_self_rebind,block,1,14,UNKNOWN,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1725,indirect_replace_1,probe_gimpel__gim_name_of_field_store,probe_gimpel,block,1,18,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
-1726,eval_defer_3,probe_m1eval2__m1e_eval_chained_defer_red,probe_m1eval2,block,1,4,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+1726,eval_defer_3,probe_m1eval2__m1e_eval_chained_defer_red,probe_m1eval2,block,0,4,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
 1727,array_replace_branch_2,gimpel_triage_class8_sig6_perm_driver__class8_sig6_perm_driver,gimpel_triage_class8_sig6_perm_driver,block,1,9,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 1728,keyword_replace_branch_10,probe_setexit2__se_oneshot,probe_setexit2,block,1,13,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0
 1729,keyword_replace_branch_11,probe_setexit2__se_rearm,probe_setexit2,block,1,14,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0

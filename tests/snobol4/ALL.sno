@@ -13614,7 +13614,7 @@ END
 	$Q  =  'CHANGED2'
 	OUTPUT  =  Y
 END
-*------------------------------------------------------- 1726 eval_defer_3 XFAIL
+*------------------------------------------------------- 1726 eval_defer_3
 	a = *(1 + 2)
 	b = *a
 	OUTPUT = EVAL(b)
@@ -13845,7 +13845,7 @@ skip3	Command        =  'x'
 	Src            =  "xxx"
 	Src *&Parse5 RPOS(0)
 	OUTPUT         =  "depth=" depth
-	END
+END
 *------------------------------ 1742 user_function_table_datatype_branch_1 XFAIL
         DEFINE('COPYL(L)T');   DATA('LINK(NEXT,VALUE)')     :(COPYL_END)
 COPYL   DEFINE('COPYL(L)', 'COPYL_1');   T  =  TABLE(100)
