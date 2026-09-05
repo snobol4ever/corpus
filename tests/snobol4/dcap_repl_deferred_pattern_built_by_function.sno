@@ -1,0 +1,9 @@
+        DEFINE('H(A,B,S)')              :(HE)
+H       H = BREAK(S) ARBNO(ANY(A))
+        $('N' &STCOUNT) = H            :(RETURN)
+HE      P = (POS(0) H('ab', 'q', ';') ';') . F
+        DEFINE('F()')                   :(FE)
+F       B = 'ab; cd;'
+        B P =                           :S(RETURN)F(FRETURN)
+FE      OUTPUT = 'r=' F() '|' B
+END

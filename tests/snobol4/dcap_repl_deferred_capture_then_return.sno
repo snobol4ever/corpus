@@ -1,0 +1,7 @@
+        P = 'b' . F
+        DEFINE('F()')                   :(FE)
+F       B = 'abc'
+        B P = 'X'                       :F(FRETURN)
+        X = 1                           :(RETURN)
+FE      OUTPUT = 'r=' F() '|' B
+END

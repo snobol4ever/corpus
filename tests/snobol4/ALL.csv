@@ -1799,7 +1799,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1798,user_function_arbno_rpos_1,probe_cn2__cn_defer_pushcounter_capture,probe_cn2,block,1,12,UNKNOWN,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0
 1799,user_function_table_datatype_branch_1,gimpel_triage_class4_rc1_rc1_copyl__class4_rc1_rc1_copyl,gimpel_triage_class4_rc1_rc1_copyl,block,1,12,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0
 1800,user_function_convert_indirect_branch_1,gimpel_triage_class6_rc1_sig11_once__class6_rc1_sig11_once,gimpel_triage_class6_rc1_sig11_once,block,1,13,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0
-1801,break_len_array_replace_1,probe_gimpel__gim_defer_cassign_array_elt,probe_gimpel,block,1,17,UNKNOWN,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0
+1801,break_len_array_replace_1,probe_gimpel__gim_defer_cassign_array_elt,probe_gimpel,block,0,17,UNKNOWN,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0
 1802,arbno_arb_rpos_replace_branch_1,probe_fuzz__fz_red_m3_arbno_nullalt_gen,probe_fuzz,block,1,6,UNKNOWN,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,1,0
 1803,fence_span_rpos_replace_branch_1,probe_fuzz__fz_red_m2_breach_m3only,probe_fuzz,block,1,6,UNKNOWN,1,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 1804,arbno_fence_pos_replace_branch_2,probe_fuzz__fz_segv_14,probe_fuzz,block,1,8,UNKNOWN,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0
