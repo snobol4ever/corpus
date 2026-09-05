@@ -16746,7 +16746,7 @@ N7      X = ARRAY('0:' (IDENT('a') 0, 5))
         OUTPUT = 'treebank-shape       ' PROTOTYPE(X)
         OUTPUT = 'end'
 END
-*---------------------------------------- 1827 opsyn_any_capture_replace_1 XFAIL
+*---------------------------------------- 1827 opsyn_any_capture_replace_1
 *  OPSYN'd unused UNARY operator (manual p.116: OPSYN('!','ANY',1); unused unary set = ! % / # = |).
         OPSYN('!', 'ANY', 1)
         'ABC321'       ?   !'3C' . OUTPUT
