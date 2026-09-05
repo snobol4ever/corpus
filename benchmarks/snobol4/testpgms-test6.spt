@@ -1,0 +1,109 @@
+-TITLE SPITBOL TEST PROGRAM #6 -- TOPOLOGICAL SORT
+*
+*        TOPOLOGICAL SORT
+*
+*   MAPS A PARTIAL ORDERING OF OBJECTS INTO A LINEAR ORDERING
+*
+*        A(1), A(2), ..., A(N)
+*
+*   SUCH THAT IF   A(S) < A(T) IN THE PARTIAL ORDERING,THEN S < T.
+*   (CF. D.E.KNUTH, THE ART OF COMPUTER PROGRAMMING,VOLUME 1,
+*   ADDISON-WESLEY,MASS.,1968, P.262)
+*
+         &DUMP = 2
+         OUTPUT('OUT',6,'(121A1)')
+         PAIR      = BREAK('<') . MU LEN(1) BREAK(',') . NU LEN(1)
+         DATA('ITEM(COUNT,TOP)')
+         DATA('NODE(SUC,NEXT)')
+         DEFINE('DECR(X)')
+         DEFINE('INDEX(TAU)')
+         INPUT(.INPUT,,72)
+*
+*     READ IN THE NUMBER OF ITEMS, N, AND GENERATE AN ARRAY OF ITEMS.
+*
+*   EACH ITEM HAS TWO FIELDS, (COUNT,TOP), WHERE
+*        COUNT = NO. OF ELEMENTS PRECEEDING IT.
+         TOP = TOP OF LIST OF ITEMS SUCCEEDING IT.
+*
+         N         = TRIM(INPUT)
+         X         = ARRAY('0:' N)
+*   INITIALIZE THE ITEMS TO (0,NULL).
+*
+T1       X<I>      =  ITEM(0,)              :F(T1A)
+         I         =  I + 1                 :(T1)
+*
+*   READ IN RELATIONS.
+*
+T1A      OUT       = '1 THE RELATIONS ARE:'
+T2A      REL       = TRIM(INPUT) ','        :F(T3A)
+         OUTPUT    = REL
+T2       REL       PAIR  =                  :F(T2A)
+         J         = INDEX(MU)
+         K         = INDEX(NU)
+*
+*   SINCE MU < NU, INCREASE THE COUNT OF THE KTH ITEM AND ADD A
+*   NODE TO THE LIST OF SUCCESSORS OF THE JTH ITEM.
+*
+T3       COUNT(X<K>) = COUNT(X<K>) + 1
+         TOP(X<J>) = NODE(K,TOP(X<J>))      :(T2)
+-EJECT
+*
+*    A QUEUE IS MAINTAINED OF THOSE ITEMS WITH ZERO COUNT FIELD.
+*    THE LINKS FOR THE QUEUE, QLINK, ARE KEPT IN THE COUNT FIELD.
+*    THE VARIABLES F,R POINT TO THE FRONT AND REAR OF THE QUEUE.
+*
+T3A      OPSYN('QLINK','COUNT')
+*
+*    INITIALIZE THE QUEUE FOR OUTPUT.
+*
+         R         = 0
+         QLINK(X<0>) = 0
+         K         = 0
+T4       K         = ?X<K + 1>  K + 1       :F(T4A)
+         QLINK(X<R>) = EQ(COUNT(X<K>),0)  K :F(T4)
+         R         = K                      :(T4)
+T4A      F         = QLINK(X<0>)
+*
+*    OUTPUT THE FRONT OF THE QUEUE.
+*
+         OUT       = '0 THE LINEAR ORDERING IS:'
+T5       OUTPUT    = NE(F,0)  $(F ':')      :F(T8)
+         N         = N - 1
+         P         = TOP(X<F>)
+*    ERASE RELATIONS.
+T6       IDENT(P)                           :S(T7)
+         DECR(.COUNT(X<SUC(P)>))            :S(T6A)
+*
+*    IF COUNT IS ZERO ADD  ITEM TO QUEUE.
+*
+         QLINK(X<R>) = SUC(P)
+         R         = SUC(P)
+T6A      P         = NEXT(P)                :(T6)
+*
+*    REMOVE FROM QUEUE.
+*
+T7       F         = QLINK(X<F>)            :(T5)
+*
+*    FUNCTION DEFINITIONS.
+*
+DECR     $X        = GT($X,1)  $X - 1       :S(RETURN)
+         $X        = 0                      :(FRETURN)
+*
+INDEX    INDEX     = DIFFER($(TAU ':'))  $(TAU ':')  :S(RETURN)
+         TERMCT    = LT(TERMCT,N)  TERMCT + 1    :F(FRETURN)
+         INDEX     = TERMCT
+         $(TERMCT ':')   =  TAU
+         $(TAU ':')   =  TERMCT             :(RETURN)
+*
+T8       OUTPUT    = NE(N,0) 'THE ORDERING CONTAINS A LOOP.'
+END
+14
+LETTERS<ALPHANUM,NUMBERS<ALPHANUM
+BLANKS<OPTBLANKS
+NUMBERS<REAL
+NUMBERS<INTEGER
+LETTERS<VARIABLE,ALPHANUM<VARIABLE
+BINARY<BINARYOP,BLANKS<BINARYOP
+UNQALPHABET<DLITERAL
+UNQALPHABET<SLITERAL
+SLITERAL<LITERAL,DLITERAL<LITERAL,INTEGER<LITERAL,REAL<LITERAL
