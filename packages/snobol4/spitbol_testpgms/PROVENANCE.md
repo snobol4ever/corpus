@@ -38,8 +38,11 @@ silently undo half of this.
 ✅ **CORROBORATED BY TWO INDEPENDENT METHODS (hq_P and seat09, 2026-09-04).** seat09 found the same corruption
 from the benchmarks side by RAW-BYTE inspection, without having read this census, and agreed on every program
 including that #3 was spared. hq_P then measured it a third way, and this is the cleanest statement of the damage
-any of us has: **combined `testpgms.spt` = 2 exclamation marks total; vendored `test1.spt` = 23, `test4.spt` = 1,
-`test3.spt` = 2.** ⭐ That matters most for #5-#8, whose clearance here rested partly on an EYEBALL (#5's odd quote
+any of us has: **a WHOLE-FILE count of literal `!` characters: combined `testpgms.spt` = 2 in the entire file; vendored
+`test1.spt` = 23, `test3.spt` = 2, `test4.spt` = 1.** ⚠ Quoted as what it is, at hq_P's own insistence: that is a
+file-level census, NOT a per-span count of the #1 and #4 regions. It CORROBORATES the signature census below and
+it does not independently establish the per-program boundaries — those rest on the `-TITLE`/`END` line pairs
+recorded above. ⭐ That matters most for #5-#8, whose clearance here rested partly on an EYEBALL (#5's odd quote
 run down to the apostrophe in `FLOYD'S TREESORT3`); seat09's raw-byte pass over the same span agrees, by a method
 that cannot make that mistake.
 ⛔ **`corpus/benchmarks/snobol4/testpgms.spt` IS NOT TO BE REPAIRED** (hq_P's ruling, endorsed): nothing consumes
