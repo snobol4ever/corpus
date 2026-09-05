@@ -10976,7 +10976,32 @@ TABLE_ACCESS_END
         OUTPUT = 'sum of T[1..500] = ' TABLE_ACCESS(1)
         OUTPUT = 'after 20 rebuilds = ' TABLE_ACCESS(20)
 END
-*-------------------------------- 1644 user_function_arbno_span_replace_branch_2
+*------------------------------------------------- 1644 arbno_span_pos_branch_29
+        ITEM = SPAN("0123456789")
+        LIST = POS(0) "(" ITEM ARBNO("," ITEM) ")" RPOS(0)
+        "(12,345,6)" ? LIST :S(L1)F(L1F)
+L1      OUTPUT = "multi-item list ok"
+        :(L2)
+L1F     OUTPUT = "multi-item list failed unexpectedly"
+L2      "(12)" ? LIST :S(L2S)F(L2F)
+L2S     OUTPUT = "single-item list ok (ARBNO matched zero times)"
+        :(L3)
+L2F     OUTPUT = "single-item list failed unexpectedly"
+L3      "(12,,34)" ? LIST :S(L3S)F(L3F)
+L3S     OUTPUT = "malformed list should have failed"
+        :(L4)
+L3F     OUTPUT = "malformed list correctly failed"
+L4      PAIRS = POS(0) ARBNO("AA" | "BB" | "CC") RPOS(0)
+        "CCBBAAAACC" ? PAIRS :S(L4S)F(L4F)
+L4S     OUTPUT = "pairs match ok"
+        :(L5)
+L4F     OUTPUT = "pairs match failed unexpectedly"
+L5      "AABBB" ? PAIRS :S(L5S)F(L5F)
+L5S     OUTPUT = "pairs match should have failed"
+        :(END)
+L5F     OUTPUT = "pairs correctly failed"
+END
+*-------------------------------- 1645 user_function_arbno_span_replace_branch_2
 * rty_arbno_extend_double_fires_cond_capture -- FALSIFICATION WITNESS (hq_C, s261)
 * A deferred conditional capture ( . *FN() ) whose captured sub-pattern contains an
 * ARBNO that EXTENDS after the capture's first success fires its action TWICE:
@@ -11003,7 +11028,7 @@ A_end
 y       OUTPUT = 'ok'                           :(END)
 n       OUTPUT = 'no'
 END
-*-------------------------------------------- 1645 bal_span_pos_replace_branch_2
+*-------------------------------------------- 1646 bal_span_pos_replace_branch_2
 *  leafsib bal flat grn -- s193 (row alt-arb-bal-witness).  THE ALT-ARM LEAF-SUSPENSION CLASS
 *  FOR BAL, minted in the PADDED shape of probe/cn/cn_alt_leaf_flat_grn because this family's
 *  own leafsib_bal.sno has gone INERT: on the STORED road (`t = (... | BAL . I)`) its cell is
@@ -11031,7 +11056,7 @@ END
 Y	OUTPUT = "match"	:(END)
 N	OUTPUT = "nomatch"
 END
-*---------------------------------------------- 1646 break_trim_capture_branch_1
+*---------------------------------------------- 1647 break_trim_capture_branch_1
         &TRIM = 1
         A = 'alpha,beta,gamma,'
 DEL A ',' = ''                              :S(DEL)
@@ -11063,7 +11088,7 @@ INNER S BREAK(',') . W ',' = ''             :F(FIN)
         R = R W :(INNER)
 FIN OUTPUT = 'loop: ' R
 END
-*-------------------------------------------- 1647 bal_span_pos_replace_branch_3
+*-------------------------------------------- 1648 bal_span_pos_replace_branch_3
 *  leafsib bal flat red -- s193 (row alt-arb-bal-witness).  THE ALT-ARM LEAF-SUSPENSION CLASS
 *  FOR BAL, minted in the PADDED shape of probe/cn/cn_alt_leaf_flat_red because this family's
 *  own leafsib_bal.sno has gone INERT: on the STORED road (`t = (... | BAL . I)`) its cell is
@@ -11107,7 +11132,7 @@ END
 Y	OUTPUT = "match"	:(END)
 N	OUTPUT = "nomatch"
 END
-*-------------------------------------------- 1648 code_eval_span_table_branch_1
+*-------------------------------------------- 1649 code_eval_span_table_branch_1
         &ERRLIMIT = 100
         DATA('PT(X,Y)')
         NULLS =
@@ -11154,7 +11179,7 @@ N9      ARR[1] = 'in-array'
         OUTPUT = 'table        accepted=' TBL['k']
         OUTPUT = 'end'
 END
-*----------------------------------------- 1649 len_table_array_replace_branch_1
+*----------------------------------------- 1650 len_table_array_replace_branch_1
 *     indirect_name_boundary.sno -- THE UNARY $ ACCEPT/REFUSE BOUNDARY, ERROR 239.
 *     Manual v3.7 p.83: "Indirection may proceed to any depth, provided the null
 *     string is never encountered as a variable name" -- the null string is not a
@@ -11201,7 +11226,7 @@ TB      K = $(LEN(1))                   :F(FB)
 FB      OUTPUT = 'TB ERR ' &ERRTYPE
 TC      OUTPUT = 'END errlimit=' &ERRLIMIT
 END
-*-------------------------------------------- 1650 any_pos_rpos_replace_branch_1
+*-------------------------------------------- 1651 any_pos_rpos_replace_branch_1
 *------------------------------------------------------------------------------
 * alt_defer_recur_af.sno — RED witness (s101).  A recursive deferred pattern
 * through an ALT arm: the ALT's all-fail edge reads a saved cursor cell that
@@ -11291,35 +11316,35 @@ T4      S4  P                                                                  :
 F4      OUTPUT         =  'NOMATCH 4'
 DONE
 END
-*--------------------------------------------------- 1651 arbno_any_pos_branch_9
+*--------------------------------------------------- 1652 arbno_any_pos_branch_9
         DIGIT = ANY('0123456789')
         X = '123'
         X POS(0) ARBNO(*DIGIT) . V RPOS(0)  :S(YES)F(NO)
 YES     OUTPUT = V                           :(END)
 NO      OUTPUT = 'fail'
 END
-*------------------------------------------------ 1652 arbno_fence_pos_branch_28
+*------------------------------------------------ 1653 arbno_fence_pos_branch_28
         cmd = FENCE('a' | 'ab')
         s = 'aaa'
         s POS(0) ARBNO(*cmd) RPOS(0)                          :S(YES)F(NO)
 YES     OUTPUT = 'arbno-star-cmd matched aaa'                 :(END)
 NO      OUTPUT = 'fail'
 END
-*------------------------------------------------ 1653 arbno_fence_pos_branch_32
+*------------------------------------------------ 1654 arbno_fence_pos_branch_32
         eps  = LEN(0)
         s    = 'abcde'
         s POS(0) ARBNO(LEN(1) FENCE(LEN(1) | eps)) RPOS(0)    :S(YES)F(NO)
 YES     OUTPUT = 'arbno fence ok'                             :(END)
 NO      OUTPUT = 'fail'
 END
-*--------------------------------------------------- 1654 span_pos_rpos_branch_9
+*--------------------------------------------------- 1655 span_pos_rpos_branch_9
         WORD = SPAN(&LCASE)
         X = 'hello world'
         X POS(0) *WORD . V1 ' ' *WORD . V2 RPOS(0)  :S(YES)F(NO)
 YES     OUTPUT = V1 ', ' V2                          :(END)
 NO      OUTPUT = 'fail'
 END
-*------------------------------------------ 1655 arbno_arb_rpos_replace_branch_2
+*------------------------------------------ 1656 arbno_arb_rpos_replace_branch_2
 *  s183 pattern-fuzz witness (SEGV).  oracle=match  scrip=
 *  Generated by SCRIP/scripts/util_pattern_fuzz.py --seed 11 --depth 4 (from pf_00642.sno).
           P             =  ARBNO(ARBNO((LEN(0) | '+') ARB))
@@ -11327,7 +11352,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------------ 1656 arbno_fence_pos_branch_20
+*------------------------------------------------ 1657 arbno_fence_pos_branch_20
         cmd   = FENCE('a' | 'ab')
         outer = ARBNO(*cmd)
         s     = 'aa'
@@ -11335,7 +11360,7 @@ END
 GOOD    OUTPUT = 'arbno-star-cmd spanned aa'                  :(END)
 BAD     OUTPUT = 'FAILED: pattern did not span aa'
 END
-*------------------------------------------------ 1657 arbno_fence_pos_branch_29
+*------------------------------------------------ 1658 arbno_fence_pos_branch_29
         cmd = FENCE('a' | 'ab')
         s = 'aab'
         s POS(0) *outer RPOS(0)                               :S(BAD)F(GOOD)
@@ -11343,7 +11368,7 @@ END
 BAD     OUTPUT = 'should fail (alt was tried)'                :(END)
 GOOD    OUTPUT = 'arbno-star-cmd FENCE sealed'
 END
-*------------------------------------------------ 1658 arbno_fence_pos_branch_30
+*------------------------------------------------ 1659 arbno_fence_pos_branch_30
         cmd = FENCE('a' | 'ab')
         outer = ARBNO(*cmd)
         s = 'aab'
@@ -11351,7 +11376,7 @@ END
 BAD     OUTPUT = 'unexpected match (alt was tried)'           :(END)
 GOOD    OUTPUT = 'triple-indirect FENCE sealed'
 END
-*------------------------------------------------ 1659 arbno_fence_pos_branch_31
+*------------------------------------------------ 1660 arbno_fence_pos_branch_31
         cmd   = FENCE('a' | 'ab')
         outer = ARBNO(*cmd)
         s = 'aab'
@@ -11359,7 +11384,7 @@ END
 BAD     OUTPUT = 'unexpected match'                           :(END)
 GOOD    OUTPUT = 'beauty-class FENCE seal held'
 END
-*------------------------------------------------ 1660 arbno_fence_pos_branch_33
+*------------------------------------------------ 1661 arbno_fence_pos_branch_33
         LP   = FENCE('a' | 'b' | 'c')
         R    = ARBNO(*LP)
         s    = 'aabbcc'
@@ -11367,7 +11392,7 @@ END
 YES     OUTPUT = 'matched ' s                                 :(END)
 NO      OUTPUT = 'fail'
 END
-*------------------------------------------------ 1661 arbno_fence_pos_branch_34
+*------------------------------------------------ 1662 arbno_fence_pos_branch_34
         cmd   = FENCE('a' | 'ab')
         outer = ARBNO(*cmd)
         s     = 'ab'
@@ -11375,7 +11400,7 @@ END
 BAD     OUTPUT = 'leak: seal failed to block ab alt retry'    :(END)
 GOOD    OUTPUT = 'seal blocks ab retry'
 END
-*------------------------------------------------ 1662 arbno_fence_pos_branch_35
+*------------------------------------------------ 1663 arbno_fence_pos_branch_35
         cmd = FENCE('a' | 'ab')
         outer = ARBNO(*cmd)
         s = 'aab'
@@ -11383,7 +11408,7 @@ END
 BAD     OUTPUT = 'should fail (seal violated)'                :(END)
 GOOD    OUTPUT = 'arbno-star-cmd FENCE sealed'
 END
-*---------------------------------------------- 1663 code_eval_pos_rpos_branch_1
+*---------------------------------------------- 1664 code_eval_pos_rpos_branch_1
         $('Z' 'Z') = 1
         P1B = LEN(3) | LEN(2)
         P2 = LEN(1) *P1B LEN(1)
@@ -11391,7 +11416,7 @@ END
         OUTPUT = 'before'                     :<C>
 RET       OUTPUT = 'back'
 END
-*------------------------------------------------- 1664 fence_pos_rpos_branch_45
+*------------------------------------------------- 1665 fence_pos_rpos_branch_45
         eps  = LEN(0)
         P    = LEN(1) FENCE(*P | eps)
         s    = DUPL('a', 30)
@@ -11399,7 +11424,7 @@ END
 YES     OUTPUT = 'matched depth 30'                           :(END)
 NO      OUTPUT = 'fail'
 END
-*------------------------------------------------- 1665 fence_pos_rpos_branch_46
+*------------------------------------------------- 1666 fence_pos_rpos_branch_46
         eps  = LEN(0)
         P    = LEN(1) FENCE(*P | eps)
         s    = DUPL('a', 100)
@@ -11407,7 +11432,7 @@ END
 YES     OUTPUT = 'matched depth 100'                          :(END)
 NO      OUTPUT = 'fail'
 END
-*------------------------------------------------- 1666 fence_pos_rpos_branch_48
+*------------------------------------------------- 1667 fence_pos_rpos_branch_48
         eps  = LEN(0)
         B    = '(' FENCE(*B | eps) ')'
         s    = DUPL('(', 40) DUPL(')', 40)
@@ -11415,7 +11440,7 @@ END
 YES     OUTPUT = 'balanced depth 40'                          :(END)
 NO      OUTPUT = 'fail'
 END
-*---------------------------------------------------- 1667 span_any_pos_branch_2
+*---------------------------------------------------- 1668 span_any_pos_branch_2
         epsilon        =
         CS             = '0123456789' &UCASE '_' &LCASE
         T              = 'Name'
@@ -11423,7 +11448,7 @@ END
 OK        OUTPUT         = 'bare'                                                  :(END)
 NO        OUTPUT         = 'quoted'
 END
-*------------------------------------- 1668 user_function_code_eval_pos_branch_4
+*------------------------------------- 1669 user_function_code_eval_pos_branch_4
         $('Z' 'Z') = 1
         DEFINE('F()')                         :(GO)
 F         F = LEN(4)                            :(RETURN)
@@ -11431,7 +11456,7 @@ GO        C = CODE(" 'abcdef' POS(0) *F() 'ef' RPOS(0) :S(COK)F(CNO) ;COK OUTPUT
         OUTPUT = 'before'                     :<C>
 RET       OUTPUT = 'back'
 END
-*------------------------------------------------- 1669 arbno_span_pos_branch_10
+*------------------------------------------------- 1670 arbno_span_pos_branch_10
         &Word = SPAN("abcdefghijklmnopqrstuvwxyz")
         &Num = SPAN("0123456789")
         &Item = &Word | &Num
@@ -11440,7 +11465,7 @@ END
 Y	OUTPUT = "match"	:(END)
 N	OUTPUT = "nomatch"
 END
-*------------------------------------------------- 1670 arbno_span_pos_branch_28
+*------------------------------------------------- 1671 arbno_span_pos_branch_28
 	Word = SPAN("abcdefghijklmnopqrstuvwxyz")
 	Num = SPAN("0123456789")
 	Item = Word | Num
@@ -11449,7 +11474,7 @@ END
 Y	OUTPUT = "match"	:(END)
 N	OUTPUT = "nomatch"
 END
-*-------------------------------------------------- 1671 fence_span_any_branch_1
+*-------------------------------------------------- 1672 fence_span_any_branch_1
         digit  = ANY('0123456789')
         alpha  = ANY('abcdefghijklmnopqrstuvwxyz')
         token  = FENCE(SPAN('0123456789') | SPAN('abcdefghijklmnopqrstuvwxyz'))
@@ -11458,7 +11483,7 @@ END
 YES     OUTPUT = 'token: ' T                                  :(END)
 NO      OUTPUT = 'fail'
 END
-*-------------------------------------------------- 1672 fence_span_pos_branch_2
+*-------------------------------------------------- 1673 fence_span_pos_branch_2
         num    = SPAN('0123456789')
         ws     = SPAN(' ') | LEN(0)
         expr   = num . A ws FENCE('+') ws num . B
@@ -11467,7 +11492,7 @@ END
 YES     OUTPUT = 'sum: ' A ' + ' B                            :(END)
 NO      OUTPUT = 'parse fail'
 END
-*-------------------------------------------------- 1673 fence_span_pos_branch_3
+*-------------------------------------------------- 1674 fence_span_pos_branch_3
         num    = SPAN('0123456789')
         ws     = SPAN(' ') | LEN(0)
         op     = FENCE('+' | '-' | '*' | '/')
@@ -11476,7 +11501,7 @@ END
 YES     OUTPUT = A ' ' OP ' ' B                               :(END)
 NO      OUTPUT = 'parse fail'
 END
-*-------------------------------------------------- 1674 fence_span_pos_branch_5
+*-------------------------------------------------- 1675 fence_span_pos_branch_5
         digits = SPAN('0123456789')
         eps    = LEN(0)
         num    = digits . INT FENCE('.' digits | eps) . FRAC
@@ -11485,7 +11510,7 @@ END
 YES     OUTPUT = 'int=' INT ' frac=' FRAC                     :(END)
 NO      OUTPUT = 'fail'
 END
-*--------------------------------------- 1675 user_function_arbno_fence_branch_1
+*--------------------------------------- 1676 user_function_arbno_fence_branch_1
         DEFINE('F(S)')                                        :(F.END)
 F       S ? POS(0) FENCE(ARBNO('z')) 'ab' RPOS(0)            :F(FRETURN)
         F = 'matched'                                         :(RETURN)
@@ -11494,7 +11519,7 @@ F.END
 OK      OUTPUT = 'T1 ok'                                      :(END)
 NO      OUTPUT = 'T1 failed'
 END
-*------------------------------------- 1676 user_function_code_eval_pos_branch_2
+*------------------------------------- 1677 user_function_code_eval_pos_branch_2
         $('Z' 'Z') = 1
         P1 = LEN(4)
         DEFINE('F1()')                        :(GO)
@@ -11503,7 +11528,7 @@ GO        C = CODE(F1())
         OUTPUT = 'before'                     :<C>
 RET       OUTPUT = 'back'
 END
-*------------------------------------- 1677 user_function_code_eval_pos_branch_3
+*------------------------------------- 1678 user_function_code_eval_pos_branch_3
         $('Z' 'Z') = 1
         P1 = LEN(2)
         DEFINE('F2()')                        :(GO)
@@ -11512,7 +11537,7 @@ GO        C = CODE(" 'abcdef' POS(0) *F2() 'ef' RPOS(0) :S(COK)F(CNO) ;COK OUTPU
         OUTPUT = 'before'                     :<C>
 RET       OUTPUT = 'back'
 END
-*------------------------------------- 1678 user_function_code_eval_pos_branch_5
+*------------------------------------- 1679 user_function_code_eval_pos_branch_5
         $('Z' 'Z') = 1
         DEFINE('F()')                         :(GO)
 F         F = LEN(4)                            :(RETURN)
@@ -11521,7 +11546,7 @@ PRE       C = CODE(" 'abcdef' POS(0) *F() 'ef' RPOS(0) :S(COK)F(CNO) ;COK OUTPUT
         OUTPUT = 'before'                     :<C>
 RET       OUTPUT = 'back'
 END
-*------------------------------------------ 1679 user_function_eval_pos_branch_8
+*------------------------------------------ 1680 user_function_eval_pos_branch_8
         $('Z' 'Z') = 1
         PX = 'LEN(2)'
         DEFINE('F2()')                        :(GO)
@@ -11530,7 +11555,7 @@ GO        'abcdef' POS(0) *F2() 'ef' RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*----------------------------------------- 1680 user_function_fence_pos_branch_4
+*----------------------------------------- 1681 user_function_fence_pos_branch_4
         DEFINE('makeP()')
         eps  = LEN(0)
         P    = LEN(1) FENCE(*P | eps)
@@ -11539,7 +11564,7 @@ END
 YES     OUTPUT = 'matched depth 3'                            :(END)
 NO      OUTPUT = 'fail'
 END
-*---------------------------------------- 1681 arbno_fence_span_replace_branch_8
+*---------------------------------------- 1682 arbno_fence_span_replace_branch_8
 *  CONTROL, GREEN (s192).  capture+defer inside the ARBNO body ONLY -- element 0 is a capture over a LEAF.
 *  The other half of the ablation: this is the exact body the SEGV witness has, proving the body alone is
 *  not the ingredient.  ⭐ It is also a CURE: red ('fail') before s192 FENCE-RTAIL, green after, both modes.
@@ -11549,7 +11574,7 @@ END
 Y OUTPUT = 'match'                                      :(END)
 N OUTPUT = 'fail'
 END
-*-------------------------------------------------- 1682 fence_span_pos_branch_6
+*-------------------------------------------------- 1683 fence_span_pos_branch_6
         eps   = LEN(0)
         cmdA  = FENCE('x' | 'xy')
         cmdB  = SPAN(' ') | eps
@@ -11559,7 +11584,7 @@ END
 YES     OUTPUT = 'sequence of star-cmd-FENCE matched'         :(END)
 NO      OUTPUT = 'fail'
 END
-*-------------------------------------------------- 1683 span_break_any_branch_1
+*-------------------------------------------------- 1684 span_break_any_branch_1
         S = 'xxxaeioZrest'
         S BREAK('aeiou') . V1 SPAN('aeiou') . V2 NOTANY('aeiou') . V3   :S(K1)F(NO)
 K1        OUTPUT = V1 '|' V2 '|' V3
@@ -11569,7 +11594,7 @@ K2        OUTPUT = 'any:' V4
 K3        OUTPUT = 'breakx:' V5                                           :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------- 1684 user_function_any_pos_branch_5
+*------------------------------------------- 1685 user_function_any_pos_branch_5
         $('Z' 'Z') = 1
         DEFINE('F1()')
         DEFINE('F2()')                        :(GO)
@@ -11579,7 +11604,7 @@ GO        'abcdef' POS(0) *F2() 'ef' RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------- 1685 user_function_arb_pos_branch_4
+*------------------------------------------- 1686 user_function_arb_pos_branch_4
         $('Z' 'Z') = 1
         DEFINE('F1()')
         DEFINE('F2()')                        :(GO)
@@ -11589,7 +11614,7 @@ GO        'abcdef' POS(0) *F2() 'ef' RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*----------------------------------------- 1686 user_function_fence_pos_branch_2
+*----------------------------------------- 1687 user_function_fence_pos_branch_2
         $('Z' 'Z') = 1
         DEFINE('F1()')
         DEFINE('F2()')                        :(GO)
@@ -11599,7 +11624,7 @@ GO        'abcdef' POS(0) *F2() 'ef' RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*---------------------------------------- 1687 arbno_fence_span_replace_branch_4
+*---------------------------------------- 1688 arbno_fence_span_replace_branch_4
 *  RED, CHECKED IN RED (law 0d).  ***A STORED PATTERN WHOSE ARBNO BODY BEGINS WITH FENCE(x)
 *  FOLLOWED BY ANOTHER ELEMENT NEVER MATCHES.***  Reduced from crosscheck 145_pat_left_assoc_
 *  via_arbno_fence (oracle 'first=1 last=5', SCRIP 'fail').  Capture and SPAN are NOT
@@ -11610,7 +11635,7 @@ END
 Y OUTPUT = 'match'                                      :(END)
 N OUTPUT = 'nomatch'
 END
-*------------------------------------------------- 1688 arbno_span_pos_branch_11
+*------------------------------------------------- 1689 arbno_span_pos_branch_11
         ITEM = SPAN('0123456789') | *LIST
         LIST = '(' ITEM ARBNO(',' ITEM) ')'
         TEST = POS(0) LIST RPOS(0)
@@ -11621,7 +11646,7 @@ T2      '(12,(34)' ? TEST                                     :S(B2)F(G2)
 B2      OUTPUT = 'match2'                                     :(END)
 G2      OUTPUT = 'nomatch2'
 END
-*------------------------------------------------- 1689 arbno_span_pos_branch_16
+*------------------------------------------------- 1690 arbno_span_pos_branch_16
         &ANCHOR      =  1
         Word         =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
         Sp           =  LEN(0)
@@ -11632,7 +11657,7 @@ END
         OUTPUT       =  'ok'                                     :(END)
 FA       OUTPUT       =  'FAIL'
 END
-*------------------------------------------------- 1690 arbno_span_pos_branch_22
+*------------------------------------------------- 1691 arbno_span_pos_branch_22
         ITEM = SPAN("0123456789") | *LIST
         LIST = "(" ITEM ARBNO("," ITEM) ")"
         TEST = POS(0) LIST RPOS(0)
@@ -11643,7 +11668,7 @@ T2	"(12,(34)" ? TEST	:S(BAD2)F(OK2)
 OK2	OUTPUT = "T2 CORRECT-FAIL"	:(END)
 BAD2	OUTPUT = "T2 WRONG-MATCH"
 END
-*-------------------------------------------------- 1691 fence_span_pos_branch_7
+*-------------------------------------------------- 1692 fence_span_pos_branch_7
         atom  = FENCE('true' | 'false')
         ws    = SPAN(' ') | LEN(0)
         op    = FENCE('AND' | 'OR' | 'XOR')
@@ -11654,7 +11679,7 @@ END
 YES     OUTPUT = A ' ' OP ' ' B                               :(END)
 NO      OUTPUT = 'parse fail'
 END
-*---------------------------------------------------- 1692 rtab_pos_len_branch_1
+*---------------------------------------------------- 1693 rtab_pos_len_branch_1
         BIG = DUPL('abcdefghij', 500)
         J = 0
 cl      J = LT(J, 250) J + 1                                        :F(rd)
@@ -11665,7 +11690,7 @@ rd      OUTPUT = SIZE(BIG)
         BIG RTAB(10) REM . TAIL10
         OUTPUT = TAIL10
 END
-*------------------------------------------ 1693 user_function_eval_pos_branch_4
+*------------------------------------------ 1694 user_function_eval_pos_branch_4
         DEFINE('SH(p,t)')	:(SHe)
 SH	SH = EVAL("p . thx . *CB('" t "', thx)")	:(RETURN)
 SHe	DEFINE('CB(a,b)')	:(CBe)
@@ -11677,7 +11702,7 @@ CBe	R = SH('AB', 'ty')
 Y	OUTPUT = 'match'	:(END)
 N	OUTPUT = 'nomatch'
 END
-*---------------------------------------- 1694 user_function_opsyn_eval_branch_6
+*---------------------------------------- 1695 user_function_opsyn_eval_branch_6
         DEFINE('reduce(t,n)')
         DEFINE('DoReduce(t,n)')
         OPSYN('&', 'reduce', 2)               :(E)
@@ -11689,7 +11714,7 @@ E         P = ARBNO('a') ("'A'" & 1)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*---------------------------------------- 1695 user_function_opsyn_eval_branch_8
+*---------------------------------------- 1696 user_function_opsyn_eval_branch_8
         DEFINE('reduce(t,n)')
         DEFINE('DoReduce(t,n)')
         OPSYN('&', 'reduce', 2)               :(E)
@@ -11701,7 +11726,7 @@ E         P = ARBNO('a') reduce("'A'", 1)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*----------------------------------------- 1696 arbno_fence_pos_replace_branch_9
+*----------------------------------------- 1697 arbno_fence_pos_replace_branch_9
 *  zb_arena_collection_grow - forces ARBNO v2 COLLECTION past its initial
 *  capacity of 4 elements (needs 10 iterations: growth sequence 4->8->16),
 *  to exercise rt_zcol_push's grow-and-copy path under ZC_COL_ARENA, not
@@ -11714,7 +11739,7 @@ END
 YES     OUTPUT = 'grow ok'                          :(END)
 NO      OUTPUT = 'fail'
 END
-*------------------------------------------------- 1697 fence_break_pos_branch_2
+*------------------------------------------------- 1698 fence_break_pos_branch_2
         $('Z' 'Z') = 1
         nl = CHAR(10)
         tab = CHAR(9)
@@ -11727,7 +11752,7 @@ END
 NO        OUTPUT = 'nomatch'
 DONE
 END
-*---------------------------------------- 1698 user_function_eval_arbno_branch_3
+*---------------------------------------- 1699 user_function_eval_arbno_branch_3
         DEFINE('grab(c)')
         DEFINE('catch(cs)')                                   :(both_end)
 grab    out    = out c
@@ -11740,7 +11765,7 @@ both_end
 YES     OUTPUT = 'out=' out                                   :(END)
 NO      OUTPUT = 'fail'
 END
-*---------------------------------------- 1699 user_function_eval_break_branch_1
+*---------------------------------------- 1700 user_function_eval_break_branch_1
         DEFINE('mk(p,t)')                     :(D2)
 mk        mk = EVAL("p . thx . *Sh('" t "', thx)")     :(RETURN)
 D2        DEFINE('Sh(t,v)')                     :(D3)
@@ -11753,7 +11778,7 @@ D3        nl = ' '
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------ 1700 arb_span_break_replace_branch_1
+*------------------------------------------ 1701 arb_span_break_replace_branch_1
 *     word3.sno - Record parsing using BREAK/SPAN/ARB.
 *     Tests: BREAK(x), SPAN(x), ARB backtracking, multiple captures.
 *     Input format: YYYY  Name  : Invention  (spaces flexible, no TAB requirement)
@@ -11767,7 +11792,7 @@ LOOP  LINE     =  INPUT                            :F(END)
       LINE     ?  PAT                              :F(LOOP)
       OUTPUT   =  WHO " invented the " WHAT " in " WHEN  :(LOOP)
 END
-*------------------------------------------ 1701 arb_span_break_replace_branch_3
+*------------------------------------------ 1702 arb_span_break_replace_branch_3
 *     word3.sno - Record parsing using BREAK/SPAN/ARB.
 *     Tests: BREAK(x), SPAN(x), ARB backtracking, multiple captures.
 *     Input format: YYYY  Name  : Invention  (spaces flexible, no TAB requirement)
@@ -11781,7 +11806,7 @@ LOOP  LINE     =  INPUT                            :F(END)
       LINE     ?  PAT                              :F(LOOP)
       OUTPUT   =  WHO " invented the " WHAT " in " WHEN  :(LOOP)
 END
-*------------------------------------------------- 1702 arbno_span_pos_branch_23
+*------------------------------------------------- 1703 arbno_span_pos_branch_23
         ITEM = SPAN('0123456789') | *LIST
         LIST = '(' ITEM ARBNO(',' ITEM) ')'
         TEST = POS(0) LIST RPOS(0)
@@ -11795,7 +11820,7 @@ T3      '((1,2),(3,(4,5,6)),7)' ? TEST                        :S(OK3)F(BAD3)
 OK3     OUTPUT = 'match3 ok'                                   :(END)
 BAD3    OUTPUT = 'match3 FAIL'
 END
-*------------------------------------------- 1703 user_function_pos_len_branch_2
+*------------------------------------------- 1704 user_function_pos_len_branch_2
         DEFINE('up(up)')                :(up_end)
 up      up = REPLACE(up, &LCASE, &UCASE)  :(RETURN)
 up_end
@@ -11809,7 +11834,7 @@ mk_end
 NO      OUTPUT = 'NOMATCH'
 FIN
 END
-*--------------------------------------- 1704 user_function_break_table_branch_1
+*--------------------------------------- 1705 user_function_break_table_branch_1
         &TRIM = 1
         &ANCHOR = 0
         DEFINE('F(N)')  :(E)
@@ -11824,7 +11849,7 @@ L       D ? P =  :F(Z)
         T[I] = W + 0  :(L)
 Z       OUTPUT = "tot: " (T[1] + T[2])
 END
-*--------------------------------------- 1705 user_function_break_table_branch_2
+*--------------------------------------- 1706 user_function_break_table_branch_2
         &TRIM = 1
         &ANCHOR = 0
         DEFINE('F(N)')  :(E)
@@ -11839,7 +11864,7 @@ L       D ? P =  :F(Z)
         T[I] = W + 0  :(L)
 Z       OUTPUT = "tot: " (T[1] + T[2])
 END
-*--------------------------------------- 1706 user_function_break_table_branch_3
+*--------------------------------------- 1707 user_function_break_table_branch_3
         &TRIM = 1
         &ANCHOR = 0
         DEFINE('F(N)')  :(E)
@@ -11854,7 +11879,7 @@ L       LT(I, 2)  :F(Z)
         T[I] = I  :(L)
 Z       OUTPUT = "tot: " (T[1] + T[2])
 END
-*---------------------------------------- 1707 arbno_fence_span_replace_branch_7
+*---------------------------------------- 1708 arbno_fence_span_replace_branch_7
 *  CURED s193 (row rty-fence-arbno-stored, FENCE1-DEPTH).  Was the residual after s192 FENCE-RTAIL and
 *  the minimal spelling of what still failed crosscheck 145.  The carrier was published CORRECTLY here
 *  (SCRIP_RESUME_WHY=1: body_root_op=57 tier=1 f1r=0, identical to the GREEN right_ctl beside it), so
@@ -11870,7 +11895,7 @@ END
 Y OUTPUT = 'match'                                      :(END)
 N OUTPUT = 'fail'
 END
-*--------------------------------------------------------------- 1708 demo_roman
+*--------------------------------------------------------------- 1709 demo_roman
       DEFINE('ROMAN(N)UNITS')  :(ROMAN_END)
 ROMAN N RPOS(1) LEN(1) . UNITS =  :F(RETURN)
       '0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' UNITS BREAK(',') . UNITS  :F(FRETURN)
@@ -11886,7 +11911,7 @@ TEST_END
       TEST(480,520)
       TEST(1900,2100)
 END
-*------------------------------------------------ 1709 fence_span_break_branch_2
+*------------------------------------------------ 1710 fence_span_break_branch_2
         nl = CHAR(10)
         Leaf1 = '*' BREAK(nl)
         Leaf2 = '-' BREAK(nl)
@@ -11902,7 +11927,7 @@ OK      OUTPUT = 'match'                                   :(FIN)
 NO      OUTPUT = 'nomatch'
 FIN
 END
-*-------------------------------------------------- 1710 fence_span_pos_branch_1
+*-------------------------------------------------- 1711 fence_span_pos_branch_1
         $('Z' 'Z') = 1
         nl = CHAR(10)
         tab = CHAR(9)
@@ -11918,7 +11943,7 @@ END
 NO        OUTPUT = 'nomatch'
 DONE
 END
-*----------------------------------------- 1711 arbno_fence_pos_replace_branch_1
+*----------------------------------------- 1712 arbno_fence_pos_replace_branch_1
 *  arbno_defer_altarg_red - stored ARBNO whose deferred argument has INTERNAL ALTERNATIVES.
 *  NO FENCE ANYWHERE.  Minted s123 as the discriminating control for 148/119/129/149:
 *  those four are named "..._fence_..." but the seal is NOT what breaks them.
@@ -11935,7 +11960,7 @@ END
 BAD     OUTPUT = 'match'                                      :(END)
 GOOD    OUTPUT = 'nomatch'
 END
-*-------------------------------------------------- 1712 fence_bal_arb_replace_1
+*-------------------------------------------------- 1713 fence_bal_arb_replace_1
 *  KW-1 witness: the DATATYPE of every protected repository keyword.
 *  SNOBOL4 has NO cset datatype -- &UCASE/&LCASE/&ALPHABET are STRINGs.
 	OUTPUT = 'ALPHABET=' DATATYPE(&ALPHABET) ' ' SIZE(&ALPHABET)
@@ -11953,7 +11978,7 @@ END
 	OUTPUT = 'UCASE-val=' &UCASE
 	OUTPUT = 'LCASE-val=' &LCASE
 END
-*--------------------------------------------------- 1713 benchmark_string_manip
+*--------------------------------------------------- 1714 benchmark_string_manip
 * string_manip -- masks every vowel in a fixed sentence and reports the result.
 * bottleneck: REPLACE character translation over a fixed string.
 * Standalone:  scrip string_manip.sno   |   sbl -bf string_manip.sno   |   snobol4 string_manip.sno
@@ -11972,7 +11997,7 @@ STRING_MANIP_END
         OUTPUT = 'masked length = ' STRING_MANIP(1000)
         OUTPUT = 'masked text   = ' S
 END
-*----------------------------------------------- 1714 benchmark_name_indirection
+*----------------------------------------------- 1715 benchmark_name_indirection
 * name_indirection -- repeatedly reads and writes a variable through a runtime-computed name.
 * bottleneck: $-indirection's by-name dispatch chain (rt_call_arr_bl -> try_call_builtin_by_name_bl -> bn_sno_name),
 * the mechanism perf-dispatch-fastpath-name-indirect targets. holder never becomes a compile-time-known literal
@@ -11992,7 +12017,7 @@ name_indirection_end
 *BENCH kernel=name_indirection check=20000 bud=500 flr=20
         OUTPUT = 'final value = ' name_indirection(20000)
 END
-*-------------------------------------------- 1715 arb_span_pos_replace_branch_2
+*-------------------------------------------- 1716 arb_span_pos_replace_branch_2
 *  leafsib arb flat grn -- s193 (row alt-arb-bal-witness).  THE ALT-ARM LEAF-SUSPENSION CLASS
 *  FOR ARB, minted in the PADDED shape of probe/cn/cn_alt_leaf_flat_grn because this family's
 *  own leafsib_arb.sno has gone INERT: on the STORED road (`t = (... | ARB . I)`) its cell is
@@ -12016,7 +12041,7 @@ END
 Y	OUTPUT = "match"	:(END)
 N	OUTPUT = "nomatch"
 END
-*------------------------------------------ 1716 user_function_eval_pos_branch_9
+*------------------------------------------ 1717 user_function_eval_pos_branch_9
         DEFINE('shift(p,t)')
         DEFINE('SA(v)')
         DEFINE('SB(v)')
@@ -12042,7 +12067,7 @@ E         P = shift(epsilon,'SA') shift(epsilon,'SB') shift(epsilon,'SC') shift(
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------------- 1717 arbno_span_pos_branch_26
+*------------------------------------------------- 1718 arbno_span_pos_branch_26
         G = "<" SPAN("ab") ARBNO(*G) ">"
         W = "ab"
         E = "" | "c"
@@ -12080,7 +12105,7 @@ A8      OUTPUT = "T8 MATCH"                      :(N8)
 B8      OUTPUT = "T8 NOMATCH"
 N8      OUTPUT = "DONE"
 END
-*------------------------------------------------- 1718 arbno_span_pos_branch_25
+*------------------------------------------------- 1719 arbno_span_pos_branch_25
         ITEM  = SPAN("0123456789")
         ITEM2 = SPAN("0123456789") | "x"
         NEST  = SPAN("0123456789") | "(" *NEST ")"
@@ -12119,7 +12144,7 @@ A8      OUTPUT = "T8 MATCH"             :(N8)
 B8      OUTPUT = "T8 NOMATCH"
 N8
 END
-*-------------------------------------------- 1719 arb_span_pos_replace_branch_3
+*-------------------------------------------- 1720 arb_span_pos_replace_branch_3
 *  leafsib arb flat red -- s193 (row alt-arb-bal-witness).  THE ALT-ARM LEAF-SUSPENSION CLASS
 *  FOR ARB, minted in the PADDED shape of probe/cn/cn_alt_leaf_flat_red because this family's
 *  own leafsib_arb.sno has gone INERT: on the STORED road (`t = (... | ARB . I)`) its cell is
@@ -12159,7 +12184,7 @@ END
 Y	OUTPUT = "match"	:(END)
 N	OUTPUT = "nomatch"
 END
-*-------------------------------- 1720 code_eval_array_datatype_replace_branch_1
+*-------------------------------- 1721 code_eval_array_datatype_replace_branch_1
 *     indirect_name_datatypes.sno -- WHICH DATATYPES $ REFUSES, AND THE LHS AND
 *     DOUBLE-INDIRECTION POSITIONS.  Every refusal here is ERROR 239 on the live
 *     oracle; each spends exactly one &ERRLIMIT credit, which the closing line
@@ -12201,7 +12226,7 @@ T8      $3.5 = 'realname'
 F8      OUTPUT = 'T8 ERR ' &ERRTYPE
 T9      OUTPUT = 'END errlimit=' &ERRLIMIT
 END
-*-------------------------------------------------- 1721 benchmark_table_variety
+*-------------------------------------------------- 1722 benchmark_table_variety
 * table_variety -- probes one TABLE with keys of EVERY datatype and reports the census.
 * bottleneck: table key handling across every key datatype, not just integers.
 * ⭐ WHY THIS EXISTS (hq_P s262, Lon): table_access is integer-keyed only, so the
@@ -12267,14 +12292,14 @@ TABLE_VARIETY_END
         OUTPUT = 'census of 40 passes = ' TABLE_VARIETY(40)
         OUTPUT = 'tab[17] = ' tab[17] '   tab["17"] = ' tab['17'] '   tab[5] = ' tab[5]
 END
-*----------------------------------------------- 1722 code_eval_any_pos_branch_1
+*----------------------------------------------- 1723 code_eval_any_pos_branch_1
         $('Z' 'Z') = 1
         P1 = LEN(3) | LEN(2) ANY('c') LEN(1)
         C = CODE(" 'abcdef' POS(0) *P1 'ef' RPOS(0) :S(COK)F(CNO) ;COK OUTPUT = 'match' :(RET) ;CNO OUTPUT = 'nomatch' :(RET)")
         OUTPUT = 'before'                     :<C>
 RET       OUTPUT = 'back'
 END
-*---------------------------------------- 1723 arbno_fence_span_replace_branch_1
+*---------------------------------------- 1724 arbno_fence_span_replace_branch_1
 *  s183 pattern-fuzz witness (rc134).  oracle=match  scrip=
 *  Generated by SCRIP/scripts/util_pattern_fuzz.py --seed 11 --depth 4 (from pf_00275.sno).
           P             =  FENCE(((SPAN('ab')) . v0) $ v0) ARBNO(FENCE(BREAK('ab')))
@@ -12282,7 +12307,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*---------------------------------------- 1724 user_function_any_notany_branch_1
+*---------------------------------------- 1725 user_function_any_notany_branch_1
         $('Z' 'Z') = 1
         DEFINE('F1()')                        :(GO)
 F1        F1 = LEN(1) ANY('b') NOTANY('a') LEN(1)                :(RETURN)
@@ -12290,7 +12315,7 @@ GO        'abcdef' POS(0) *F1() 'ef' RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------- 1725 user_function_any_pos_branch_3
+*------------------------------------------- 1726 user_function_any_pos_branch_3
         $('Z' 'Z') = 1
         DEFINE('F1()')                        :(GO)
 F1        F1 = LEN(3) | LEN(2) ANY('c') LEN(1)                :(RETURN)
@@ -12298,7 +12323,7 @@ GO        'abcdef' POS(0) *F1() 'ef' RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*-------------------------------------- 1726 arbno_fence_notany_replace_branch_2
+*-------------------------------------- 1727 arbno_fence_notany_replace_branch_2
 *  s183 pattern-fuzz witness (SEGV).  oracle=nomatch  scrip=
 *  Generated by SCRIP/scripts/util_pattern_fuzz.py --seed 11 --depth 4 (from pf_00665.sno).
           G0            =  (POS(0)) . v0
@@ -12307,7 +12332,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------------- 1727 arbno_pos_rpos_branch_69
+*------------------------------------------------- 1728 arbno_pos_rpos_branch_69
         G1 = ARBNO((LEN(1) | LEN(2)) (LEN(1) | LEN(2)))
         n = 0
 LOOP      n = LT(n, 8) n + 1                    :F(END)
@@ -12316,7 +12341,7 @@ LOOP      n = LT(n, 8) n + 1                    :F(END)
 Y         OUTPUT = n ' match'                   :(LOOP)
 N         OUTPUT = n ' NOMATCH'                 :(LOOP)
 END
-*------------------------------------- 1728 user_function_code_eval_pos_branch_1
+*------------------------------------- 1729 user_function_code_eval_pos_branch_1
         $('Z' 'Z') = 1
         P1B = LEN(3) | LEN(2)
         DEFINE('F2()')                        :(GO)
@@ -12325,7 +12350,7 @@ GO        C = CODE(" 'abcdef' POS(0) *F2() 'ef' RPOS(0) :S(COK)F(CNO) ;COK OUTPU
         OUTPUT = 'before'                     :<C>
 RET       OUTPUT = 'back'
 END
-*------------------------------------------ 1729 user_function_eval_pos_branch_6
+*------------------------------------------ 1730 user_function_eval_pos_branch_6
         $('Z' 'Z') = 1
         PB = 'LEN(3) | LEN(2)'
         DEFINE('F2()')                        :(GO)
@@ -12334,7 +12359,7 @@ GO        'abcdef' POS(0) *F2() 'ef' RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------- 1730 user_function_any_pos_branch_4
+*------------------------------------------- 1731 user_function_any_pos_branch_4
         $('Z' 'Z') = 1
         DEFINE('F1()')
         DEFINE('F2()')                        :(GO)
@@ -12344,7 +12369,7 @@ GO        'abcdef' POS(0) *F2() 'ef' RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------- 1731 user_function_arb_pos_branch_2
+*------------------------------------------- 1732 user_function_arb_pos_branch_2
         $('Z' 'Z') = 1
         DEFINE('F1()')
         DEFINE('F2()')                        :(GO)
@@ -12354,7 +12379,7 @@ GO        'abcdef' POS(0) *F2() 'ef' RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*----------------------------------------- 1732 user_function_arbno_any_branch_2
+*----------------------------------------- 1733 user_function_arbno_any_branch_2
         $('Z' 'Z') = 1
         DEFINE('F1()')
         DEFINE('F2()')                        :(GO)
@@ -12364,7 +12389,7 @@ GO        'abcdef' POS(0) *F2() 'ef' RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------ 1733 user_function_pos_rpos_branch_3
+*------------------------------------------ 1734 user_function_pos_rpos_branch_3
         $('Z' 'Z') = 1
         DEFINE('F1()')
         DEFINE('F2()')                        :(GO)
@@ -12374,7 +12399,7 @@ GO        'abcdef' POS(0) *F2() 'ef' RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match:' CV                  :(END)
 NO        OUTPUT = 'nomatch'
 END
-*---------------------------------------- 1734 user_function_span_break_branch_3
+*---------------------------------------- 1735 user_function_span_break_branch_3
         $('Z' 'Z') = 1
         DEFINE('F1()')
         DEFINE('F2()')                        :(GO)
@@ -12384,7 +12409,7 @@ GO        'abcdef' POS(0) *F2() 'ef' RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------- 1735 user_function_tab_pos_branch_3
+*------------------------------------------- 1736 user_function_tab_pos_branch_3
         $('Z' 'Z') = 1
         DEFINE('F1()')
         DEFINE('F2()')                        :(GO)
@@ -12394,7 +12419,7 @@ GO        'abcdef' POS(0) *F2() 'ef' RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*-------------------------------------------------- 1736 fence_span_any_branch_2
+*-------------------------------------------------- 1737 fence_span_any_branch_2
         digit = ANY('0123456789')
         num   = SPAN('0123456789')
         op    = FENCE('+' | '-' | '*' | '/')
@@ -12405,7 +12430,7 @@ END
 YES     OUTPUT = 'parsed ' s                                  :(END)
 NO      OUTPUT = 'parse fail'
 END
-*------------------------------------------------ 1737 fence_span_break_branch_4
+*------------------------------------------------ 1738 fence_span_break_branch_4
         $('Z' 'Z') = 1
         nl = CHAR(10)
         tab = CHAR(9)
@@ -12416,7 +12441,7 @@ END
 NO        OUTPUT = 'nomatch'
 DONE
 END
-*-------------------------------------------------- 1738 arbno_span_any_branch_2
+*-------------------------------------------------- 1739 arbno_span_any_branch_2
         $' '           =  SPAN(' ' CHAR(9) CHAR(10) CHAR(13)) | ''
         jnumber        =  ANY('0123456789')
         jarray         =  '[' ( *jelement ARBNO(',' *jelement) | $' ' ) ']'
@@ -12428,7 +12453,7 @@ END
         OUTPUT = 'MATCH'  :(END)
 BAD     OUTPUT = 'FAIL'
 END
-*------------------------------------------ 1739 arbno_span_pos_replace_branch_2
+*------------------------------------------ 1740 arbno_span_pos_replace_branch_2
 *  dc_recur [DCAP] recursive pattern through *LIST with captures INSIDE
 *  the recursion: same static capture nodes live at several depths at once
         ITEM = SPAN('0123456789') $ LAST | *LIST
@@ -12440,7 +12465,7 @@ NO      OUTPUT = '=F'
 EN      OUTPUT = 'LAST=' LAST
         OUTPUT = 'GRP=' GRP
 END
-*---------------------------------------- 1740 user_function_opsyn_eval_branch_3
+*---------------------------------------- 1741 user_function_opsyn_eval_branch_3
         DEFINE('shift(p,t)')
         DEFINE('DoShift(t,v)')
         OPSYN('~', 'shift', 2)                :(E)
@@ -12452,7 +12477,7 @@ E         P = epsilon ~ 'a' epsilon ~ 'b' epsilon ~ 'c' epsilon ~ 'd'
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*---------------------------------------- 1741 user_function_opsyn_eval_branch_4
+*---------------------------------------- 1742 user_function_opsyn_eval_branch_4
         DEFINE('shift(p,t)')
         DEFINE('DoShift(t,v)')
         OPSYN('~', 'shift', 2)                :(E)
@@ -12464,7 +12489,7 @@ E         P = epsilon ~ 'a' epsilon ~ 'b' epsilon ~ 'c' epsilon ~ 'd' epsilon ~ 
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*---------------------------------------- 1742 user_function_opsyn_eval_branch_5
+*---------------------------------------- 1743 user_function_opsyn_eval_branch_5
         DEFINE('shift(p,t)')
         DEFINE('DoShift(t,v)')
         OPSYN('~', 'shift', 2)                :(E)
@@ -12476,7 +12501,7 @@ E         P = epsilon ~ 'a' epsilon ~ 'b' epsilon ~ 'c' epsilon ~ 'd' epsilon ~ 
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------ 1743 code_eval_eval_arbno_replace_branch_1
+*------------------------------------ 1744 code_eval_eval_arbno_replace_branch_1
 *  s182 -- ptw_min_compose SIMPLIFIED: the capture is NOT an ingredient (measured).
 *  A runtime-composed pattern value (P2 = A B, both variable-held) loses ARBNO's
 *  RETRY when a later element fails.  Oracle backtracks into ARBNO and extends; SCRIP does not.
@@ -12489,7 +12514,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------------ 1744 fence_span_break_branch_1
+*------------------------------------------------ 1745 fence_span_break_branch_1
         ws     = SPAN(' ') | LEN(0)
         digits = SPAN('0123456789')
         str    = '"' BREAK('"') . SVAL '"'
@@ -12502,7 +12527,7 @@ END
 YES     OUTPUT = 'k=' KVAL ' s=' SVAL ' n=' NVAL ' b=' BVAL   :(END)
 NO      OUTPUT = 'fail'
 END
-*------------------------------------------------ 1745 fence_span_break_branch_6
+*------------------------------------------------ 1746 fence_span_break_branch_6
         ws     = SPAN(' ') | LEN(0)
         digits = SPAN('0123456789')
         str    = '"' BREAK('"') . S '"'
@@ -12515,7 +12540,7 @@ END
 YES     OUTPUT = 'k=' K ' s=' S ' n=' N ' b=' B               :(END)
 NO      OUTPUT = 'fail'
 END
-*------------------------------------------------ 1746 fence_span_break_branch_7
+*------------------------------------------------ 1747 fence_span_break_branch_7
         ws     = SPAN(' ') | LEN(0)
         digits = SPAN('0123456789')
         str    = '"' BREAK('"') . SVAL '"'
@@ -12528,7 +12553,7 @@ END
 YES     OUTPUT = 'k=' KVAL ' s=' SVAL ' n=' NVAL ' b=' BVAL   :(END)
 NO      OUTPUT = 'fail'
 END
-*------------------------------------------ 1747 user_function_eval_pos_branch_5
+*------------------------------------------ 1748 user_function_eval_pos_branch_5
         DEFINE('CB(a,b)')	:(CBe)
 CB	OUTPUT = "CB: " a " cap=" b	:(RETURN)
 CBe	DEFINE('SH(p,t)')	:(SHe)
@@ -12541,7 +12566,7 @@ SHe	BASE = 'A' | 'B'
 Y	OUTPUT = "match"	:(END)
 N	OUTPUT = "nomatch"
 END
-*---------------------------------------- 1748 user_function_opsyn_eval_branch_7
+*---------------------------------------- 1749 user_function_opsyn_eval_branch_7
         $('Z' 'Z') = 1
         DEFINE('red2(t,n)')
         DEFINE('RDX(t,n)')                    :(SEND)
@@ -12554,7 +12579,7 @@ SEND      OPSYN('&', 'red2', 2)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------- 1749 user_function_pos_len_branch_4
+*------------------------------------------- 1750 user_function_pos_len_branch_4
         DEFINE('up(up)')                :(up_end)
 up      up = REPLACE(up, &LCASE, &UCASE)  :(RETURN)
 up_end
@@ -12568,7 +12593,7 @@ mk_end
 NO      OUTPUT = 'NOMATCH'
 FIN
 END
-*------------------------------------------------ 1750 fence_span_break_branch_5
+*------------------------------------------------ 1751 fence_span_break_branch_5
         $('Z' 'Z') = 1
         nl = CHAR(10)
         tab = CHAR(9)
@@ -12584,7 +12609,7 @@ END
 NO        OUTPUT = 'nomatch'
 DONE
 END
-*----------------------------------------------------- 1751 benchmark_pattern_bt
+*----------------------------------------------------- 1752 benchmark_pattern_bt
 * pattern_bt -- matches an alternation that must backtrack before the winning arm commits.
 * bottleneck: alternation backtracking; capture on the winning arm.
 * Standalone:  scrip pattern_bt.sno   |   sbl -bf pattern_bt.sno   |   snobol4 pattern_bt.sno
@@ -12603,7 +12628,7 @@ PATTERN_BT_END
         OUTPUT = 'subject = ' SUB
         OUTPUT = 'captured tail = ' PATTERN_BT(1000)
 END
-*--------------------------------------------- 1752 any_pos_len_replace_branch_1
+*--------------------------------------------- 1753 any_pos_len_replace_branch_1
 *     cross.sno - Print visual intersections between two words.
 *     Input: pairs of lines, H then V, one pair per two INPUT lines.
 *     Tests: @N position capture, ANY(string), conditional replacement,
@@ -12623,7 +12648,7 @@ PRINT PRINTV   ?  LEN(1) . C =                     :F(NEXTV)
       OUTPUT   =  DIFFER(C, '#') DUPL(' ', NH) C   :S(PRINT)
       OUTPUT   =  H                                :(PRINT)
 END
-*--------------------------------------------- 1753 any_pos_len_replace_branch_2
+*--------------------------------------------- 1754 any_pos_len_replace_branch_2
 *     cross.sno - Print visual intersections between two words.
 *     Input: pairs of lines, H then V, one pair per two input lines.
 *     Tests: @N position capture, ANY(string), conditional replacement,
@@ -12643,7 +12668,7 @@ PRINT PRINTV   ?  LEN(1) . C =                     :F(NEXTV)
       OUTPUT   =  DIFFER(C, '#') DUPL(' ', NH) C   :S(PRINT)
       OUTPUT   =  H                                :(PRINT)
 END
-*------------------------------------------------- 1754 benchmark_string_pattern
+*------------------------------------------------- 1755 benchmark_string_pattern
 * string_pattern -- splits a comma-separated record into its leading three fields.
 * bottleneck: BREAK scanning with conditional capture, field split.
 * Standalone:  scrip string_pattern.sno   |   sbl -bf string_pattern.sno
@@ -12664,7 +12689,7 @@ STRING_PATTERN_END
         OUTPUT = 'field 1 = ' F1
         OUTPUT = 'field 2 = ' F2
 END
-*------------------------------------------------- 1755 arbno_span_pos_branch_24
+*------------------------------------------------- 1756 arbno_span_pos_branch_24
         P = SPAN("ab") "c"
         Q = SPAN("ab") | ""
         R = ("x" | SPAN("ab")) "y"
@@ -12694,7 +12719,7 @@ A6      OUTPUT = "T6 MATCH"             :(N6)
 B6      OUTPUT = "T6 NOMATCH"
 N6
 END
-*---------------------------------------------- 1756 benchmark_indirect_dispatch
+*---------------------------------------------- 1757 benchmark_indirect_dispatch
 * indirect_dispatch -- sums 1..N through APPLY(<name held in a variable>, arg).
 * bottleneck: BY-NAME dispatch to a SNOBOL-defined target; contrast with func_call
 * (direct) and eval_fixed (EVAL).
@@ -12724,7 +12749,7 @@ INDIRECT_DISPATCH_END
         OUTPUT = 'APPLY(ZFN, 41) = ' APPLY(ZFN, 41)
         OUTPUT = 'sum of ADD1(1..500) = ' INDIRECT_DISPATCH(500)
 END
-*--------------------------------------------------------- 1757 span_break_any_1
+*--------------------------------------------------------- 1758 span_break_any_1
         V = 'q'
         V = ','
         'ab,cd' BREAK(V) . W
@@ -12758,7 +12783,7 @@ END
         'abcde' TAB(N) . W
         OUTPUT = W
 END
-*------------------------------------------------- 1758 fence_break_rem_branch_1
+*------------------------------------------------- 1759 fence_break_rem_branch_1
         S1 = 'BCD'
         S1 'C'                          :S(T1A)F(T1B)
 T1A OUTPUT = 'T1-plain: MATCH'   :(T1C)
@@ -12810,7 +12835,7 @@ T8 S8 = 'AB'
 T8A OUTPUT = 'T8-fence: MATCH'   :(END)
 T8B OUTPUT = 'T8-fence: FAIL'
 END
-*------------------------------ 1759 user_function_len_datatype_replace_branch_1
+*------------------------------ 1760 user_function_len_datatype_replace_branch_1
 *  driver.sno — test driver for omega subsystem (B-276)
 *  Oracle: snobol4 -f -P256k -Idemo/inc driver.sno
 *  Run via: INC=demo/inc bash test/beauty/run_beauty_subsystem.sh omega
@@ -12985,14 +13010,14 @@ F15     OUTPUT = 'FAIL: 15 upr=' upr('hello')
 T15
 
 END
-*----------------------------------------- 1760 arbno_fence_arb_replace_branch_1
+*----------------------------------------- 1761 arbno_fence_arb_replace_branch_1
 *  FALSE REJECT: ARBNO left element then a BARE alternation carrying the recursive defer. FENCE(...) instead of the bare ALT is GREEN. Controls 'a'/SPAN/ARB left elements are all GREEN.
           E = ARBNO('a') ('+' *E | '')
           'a+a+a' POS(0) *E RPOS(0)            :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*-------------------------------------------------- 1761 arbno_span_pos_branch_7
+*-------------------------------------------------- 1762 arbno_span_pos_branch_7
         &TRIM   =   0
         src     =   'ab_A0 ab_A0 ab_A0 ab_A0 '
         p       =   POS(0) ARBNO((SPAN('0123456789') | SPAN('ab') SPAN('_A0')) SPAN(' ')) RPOS(0)
@@ -13000,7 +13025,7 @@ END
         OUTPUT  =   'matched bytes=' SIZE(src)  :(END)
 error   OUTPUT  =   'Pattern match failed'
 END
-*-------------------------------------------------- 1762 arbno_span_pos_branch_8
+*-------------------------------------------------- 1763 arbno_span_pos_branch_8
         &TRIM   =   0
         src     =   'ab_A0 ab_A0 ab_A0 ab_A0 ab_A0 '
         p       =   POS(0) ARBNO((SPAN('0123456789') | SPAN('ab') SPAN('_A0')) SPAN(' ')) RPOS(0)
@@ -13008,7 +13033,7 @@ END
         OUTPUT  =   'matched bytes=' SIZE(src)  :(END)
 error   OUTPUT  =   'Pattern match failed'
 END
-*------------------------------------- 1763 user_function_code_eval_any_branch_1
+*------------------------------------- 1764 user_function_code_eval_any_branch_1
         $('Z' 'Z') = 1
         DEFINE('F1()')                        :(GO)
 F1        F1 = LEN(3) | LEN(2) ANY('c') LEN(1)  :(RETURN)
@@ -13016,7 +13041,7 @@ GO        C = CODE(" 'abcdef' POS(0) *F1() 'ef' RPOS(0) :S(COK)F(CNO) ;COK OUTPU
         OUTPUT = 'before'                     :<C>
 RET       OUTPUT = 'back'
 END
-*------------------------------------------------- 1764 arbno_span_pos_branch_13
+*------------------------------------------------- 1765 arbno_span_pos_branch_13
         &ANCHOR      =  1
         L            =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
         Sp           =  SPAN(' ') | LEN(0)
@@ -13025,7 +13050,7 @@ END
         OUTPUT       =  'ok'                                      :(END)
 F1       OUTPUT       =  'FAIL'
 END
-*----------------------------------------- 1765 user_function_arbno_any_branch_3
+*----------------------------------------- 1766 user_function_arbno_any_branch_3
         $('Z' 'Z') = 1
         DEFINE('F1()')                        :(GO)
 F1        F1 = ANY('ab')                        :(RETURN)
@@ -13034,7 +13059,7 @@ GO        P2 = ARBNO(*F1() . CV)
 OK        OUTPUT = 'match:' CV                  :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------ 1766 user_function_eval_any_branch_1
+*------------------------------------------ 1767 user_function_eval_any_branch_1
         $('Z' 'Z') = 1
         QC = 'c'
         DEFINE('F1()')                        :(GO)
@@ -13043,7 +13068,7 @@ GO        'abcdef' POS(0) *EVAL(F1()) 'ef' RPOS(0) :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------------- 1767 arbno_span_pos_branch_18
+*------------------------------------------------- 1768 arbno_span_pos_branch_18
         &ANCHOR      =  1
         Word         =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
         Command      =  Word (SPAN(' ') | LEN(0))
@@ -13053,7 +13078,7 @@ END
         OUTPUT       =  'ok'                                     :(END)
 FA       OUTPUT       =  'FAIL'
 END
-*------------------------------------------------- 1768 fence_break_pos_branch_1
+*------------------------------------------------- 1769 fence_break_pos_branch_1
         ',abc' ? POS(0) (BREAK(',') | REM) $ STR *DIFFER(STR)           :F(bad1)
         OUTPUT = 'unfenced-succeeds-via-rem:' STR                         :(next)
 bad1    OUTPUT = 'unfenced-should-have-succeeded-via-rem'
@@ -13063,7 +13088,7 @@ next
 bad2    OUTPUT = 'fence-wrongly-allowed-rem-retry:' STR
 fin
 END
-*----------------------------------------- 1769 user_function_fence_tab_branch_2
+*----------------------------------------- 1770 user_function_fence_tab_branch_2
         $('Z' 'Z') = 1
         DEFINE('F1()')
         DEFINE('F2()')                        :(GO)
@@ -13073,7 +13098,7 @@ GO        'abcdef' POS(0) *F2() 'ef' RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------ 1770 user_function_pos_rpos_branch_2
+*------------------------------------------ 1771 user_function_pos_rpos_branch_2
         $('Z' 'Z') = 1
         DEFINE('F1()')
         DEFINE('F2()')                        :(GO)
@@ -13083,7 +13108,7 @@ GO        'abcdef' POS(0) *F2() 'ef' RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match:' CV                  :(END)
 NO        OUTPUT = 'nomatch'
 END
-*----------------------------------------- 1771 arbno_fence_bal_replace_branch_4
+*----------------------------------------- 1772 arbno_fence_bal_replace_branch_4
 *  CLASS (a) PURE FENCE REFUSAL -- pfenced=1 right_sealed=0 rn=0, the PAT$12/PAT$20 signature.
 *  The blob's live resume surface is the TRAILING alternation, but the s182 tier-1 narrowing only
 *  publishes a carrier when the FIRST body node is an ARBNO/ARB/BAL generator, so this blob keeps
@@ -13094,7 +13119,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------------- 1772 arbno_span_pos_branch_15
+*------------------------------------------------- 1773 arbno_span_pos_branch_15
         &ANCHOR      =  1
         Word         =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
         Sp           =  SPAN(' ') | LEN(0)
@@ -13105,7 +13130,7 @@ END
         OUTPUT       =  'ok'                                     :(END)
 FA       OUTPUT       =  'FAIL'
 END
-*------------------------------------------------- 1773 arbno_span_pos_branch_19
+*------------------------------------------------- 1774 arbno_span_pos_branch_19
         &ANCHOR      =  1
         Word         =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
         Sp           =  SPAN(' ') | LEN(0)
@@ -13116,7 +13141,7 @@ END
         OUTPUT       =  'ok'                                     :(END)
 FA       OUTPUT       =  'FAIL'
 END
-*------------------------------------------ 1774 user_function_eval_pos_branch_1
+*------------------------------------------ 1775 user_function_eval_pos_branch_1
         DEFINE('F(a,b)')	:(Fe)
 F	OUTPUT = 'F called: ' a ' cap=' b	:(RETURN)
 Fe	P = EVAL("'A' . TH . *F('t', TH)")	:F(EF)
@@ -13127,7 +13152,7 @@ Y	OUTPUT = 'match'	:(END)
 N	OUTPUT = 'nomatch'	:(END)
 EF	OUTPUT = 'EVAL failed'
 END
-*------------------------------------------------- 1775 arbno_span_pos_branch_20
+*------------------------------------------------- 1776 arbno_span_pos_branch_20
         $('Z' 'Z') = 1
         D01 = LEN(1) ; D02 = LEN(2) ; D03 = LEN(3) ; D04 = LEN(4)
         D05 = LEN(5) ; D06 = LEN(6) ; D07 = LEN(7) ; D08 = LEN(8)
@@ -13141,7 +13166,7 @@ END
 OK        OUTPUT = 'match:' HD                  :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------------- 1776 arbno_span_pos_branch_21
+*------------------------------------------------- 1777 arbno_span_pos_branch_21
         $('Z' 'Z') = 1
         D01 = LEN(1) ; D02 = LEN(2) ; D03 = LEN(3) ; D04 = LEN(4)
         D05 = LEN(5) ; D06 = LEN(6) ; D07 = LEN(7) ; D08 = LEN(8)
@@ -13155,7 +13180,7 @@ END
 OK        OUTPUT = 'match:' HD                  :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------------ 1777 fence_span_break_branch_3
+*------------------------------------------------ 1778 fence_span_break_branch_3
         $('Z' 'Z') = 1
         nl = CHAR(10)
         tab = CHAR(9)
@@ -13171,7 +13196,7 @@ END
 NO        OUTPUT = 'nomatch'
 DONE
 END
-*---------------------------------------- 1778 user_function_eval_break_branch_3
+*---------------------------------------- 1779 user_function_eval_break_branch_3
         $('Z' 'Z') = 1
         nl = CHAR(10)
         DEFINE('SH(t,v)')
@@ -13189,7 +13214,7 @@ SEND
 NO        OUTPUT = 'nomatch'
 DONE
 END
-*------------------------------------------- 1779 user_function_any_pos_branch_1
+*------------------------------------------- 1780 user_function_any_pos_branch_1
         DEFINE('lwr(lwr)')                                                   :(lwr_end)
 lwr            lwr            =   REPLACE(lwr, &UCASE, &LCASE)                      :(RETURN)
 lwr_end
@@ -13208,7 +13233,7 @@ icase_end
 P7      OUTPUT = 'PASS: icase matches'
 T7
 END
-*------------------------------------------------- 1780 arbno_span_pos_branch_14
+*------------------------------------------------- 1781 arbno_span_pos_branch_14
         &ANCHOR      =  1
         Word         =  SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
         Space        =  SPAN(' ') | LEN(0)
@@ -13231,7 +13256,7 @@ D        Src          =
         OUTPUT       =  'D ok'                                   :(END)
 FD       OUTPUT       =  'D FAIL'
 END
-*---------------------------------------- 1781 user_function_span_break_branch_1
+*---------------------------------------- 1782 user_function_span_break_branch_1
         $('Z' 'Z') = 1
         &FULLSCAN = 1
         nl = CHAR(10)
@@ -13258,7 +13283,7 @@ SEND
 NOMATCH   OUTPUT = 'nomatch'
 DONE
 END
-*------------------------------------------- 1782 fence_bal_arb_replace_branch_1
+*------------------------------------------- 1783 fence_bal_arb_replace_branch_1
 *  KW-3 witness (s147): the PRIMITIVE-PATTERN KEYWORD FAMILY must BEHAVE as its
 *  pattern, not merely report DATATYPE=PATTERN.  Manual Ch.16 p.187-188 names each
 *  a protected read-only repository of a fundamental system pattern: "&ARB The
@@ -13291,7 +13316,7 @@ END
 FARB	OUTPUT = 'FAIL: &ARB did not match'			:(END)
 FREM	OUTPUT = 'FAIL: &REM did not match'			:(END)
 END
-*------------------------------------------ 1783 fence_arb_span_replace_branch_2
+*------------------------------------------ 1784 fence_arb_span_replace_branch_2
 *  s183 pattern-fuzz witness (SEGV).  oracle=nomatch  scrip=
 *  Generated by SCRIP/scripts/util_pattern_fuzz.py --seed 11 --depth 4 (from pf_00714.sno).
           P             =  (SPAN('ab')) . v0 FENCE((SPAN('ab') | NOTANY('ab'))) FENCE((ARB) . v0 (POS(1) | ''))
@@ -13299,7 +13324,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------- 1784 user_function_tab_pos_branch_4
+*------------------------------------------- 1785 user_function_tab_pos_branch_4
         $('Z' 'Z') = 1
         DEFINE('F1()')                        :(GO)
 F1        F1 = (LEN(3) . CV | LEN(2) . CV) TAB(4)                :(RETURN)
@@ -13307,7 +13332,7 @@ GO        'abcdef' POS(0) *F1() 'ef' RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match:' CV                  :(END)
 NO        OUTPUT = 'nomatch'
 END
-*----------------------------------------- 1785 user_function_arbno_any_branch_1
+*----------------------------------------- 1786 user_function_arbno_any_branch_1
         $('Z' 'Z') = 1
         DEFINE('F1()')
         DEFINE('F2()')                        :(GO)
@@ -13317,7 +13342,7 @@ GO        'abcdef' POS(0) *F2() 'ef' RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*---------------------------------------- 1786 user_function_arbno_span_branch_1
+*---------------------------------------- 1787 user_function_arbno_span_branch_1
         DEFINE('token()')  :(token_end)
 token   n       =   n + 1
         token   =   .dummy  :(NRETURN)
@@ -13330,7 +13355,7 @@ token_end
         OUTPUT  =   'matched bytes=' SIZE(src) ' n=' n  :(END)
 error   OUTPUT  =   'Pattern match failed'
 END
-*---------------------------------------- 1787 user_function_arbno_span_branch_4
+*---------------------------------------- 1788 user_function_arbno_span_branch_4
         $('Z' 'Z') = 1
         D01 = LEN(1) ; D02 = LEN(2) ; D03 = LEN(3) ; D04 = LEN(4)
         D05 = LEN(5) ; D06 = LEN(6) ; D07 = LEN(7) ; D08 = LEN(8)
@@ -13344,7 +13369,7 @@ GO        P = (LEN(1) . HD) ARBNO(*FS())
 OK        OUTPUT = 'match:' HD                  :(END)
 NO        OUTPUT = 'nomatch'
 END
-*---------------------------------------- 1788 user_function_arbno_span_branch_5
+*---------------------------------------- 1789 user_function_arbno_span_branch_5
         $('Z' 'Z') = 1
         D01 = LEN(1) ; D02 = LEN(2) ; D03 = LEN(3) ; D04 = LEN(4)
         D05 = LEN(5) ; D06 = LEN(6) ; D07 = LEN(7) ; D08 = LEN(8)
@@ -13358,7 +13383,7 @@ GO        P = (LEN(1) . HD) ARBNO(*FS())
 OK        OUTPUT = 'match:' HD                  :(END)
 NO        OUTPUT = 'nomatch'
 END
-*---------------------------------------- 1789 user_function_eval_break_branch_2
+*---------------------------------------- 1790 user_function_eval_break_branch_2
         $('Z' 'Z') = 1
         nl = CHAR(10)
         DEFINE('SH(t,v)')
@@ -13375,7 +13400,7 @@ SEND
 NO        OUTPUT = 'nomatch'
 DONE
 END
-*-------------------------------- 1790 user_function_eval_break_replace_branch_1
+*-------------------------------- 1791 user_function_eval_break_replace_branch_1
 * x3: x2 + one more seam level and an epsilon-shift ALT arm
           $('Z' 'Z') = 1
           nl = CHAR(10)
@@ -13394,7 +13419,7 @@ SEND
 NO        OUTPUT = 'nomatch'
 DONE
 END
-*---------------------------------------- 1791 user_function_eval_arbno_branch_2
+*---------------------------------------- 1792 user_function_eval_arbno_branch_2
         DEFINE('k()')                         :(D1)
 k         k = ''                                :(RETURN)
 D1        DEFINE('mk2(p,t)')                    :(D2)
@@ -13416,7 +13441,7 @@ D3        nl = ''
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------------- 1792 benchmark_mixed_workload
+*------------------------------------------------- 1793 benchmark_mixed_workload
 * mixed_workload -- parses a CSV record into a TABLE, totals it, and adds a recursive sum.
 * bottleneck: COMBINED -- pattern parse (BREAK capture, destructive replacement) + TABLE
 * store/fetch + recursive function call, one of each per iteration.  Per-iteration answer
@@ -13453,7 +13478,7 @@ MIXED_WORKLOAD_END
         OUTPUT = 'one record = ' MIXED_WORKLOAD(1)
         OUTPUT = '20 records = ' MIXED_WORKLOAD(20)
 END
-*------------------------------------------ 1793 arbno_span_len_replace_branch_1
+*------------------------------------------ 1794 arbno_span_len_replace_branch_1
 *  gim_fortput_m4_only_segv - AN m4-ONLY SIGSEGV, THREE LINES, **CURED BY THE
 *  SPAN-FRAME FLIP** -- kept as a regression guard and as an independent
 *  witness FOR that flip, from a seat that did not know it was landing.
@@ -13494,7 +13519,7 @@ END
 -INCLUDE 'FORTPUT.sno'
         FORTPUT('hi')
 END
-*---------------------------------- 1794 user_function_eval_pos_replace_branch_2
+*---------------------------------- 1795 user_function_eval_pos_replace_branch_2
 *------------------------------------------------------------------------------
 * Minimized from v05_treebank_pushlist_235.sno (49 lines vs 94). Isolates the m3/m4
 * divergence to: a *E deferred-expression pattern call (NOT EVAL -- EVAL is not
@@ -13552,7 +13577,7 @@ StackEnd    stack           =   list()
         OUTPUT = 'MATCH size=' ListSize(stack)  :(END)
 NO      OUTPUT = 'FAIL'
 END
-*----------------------------------------- 1795 user_function_arbno_pos_branch_5
+*----------------------------------------- 1796 user_function_arbno_pos_branch_5
         $('Z' 'Z') = 1
         DEFINE('F1()')                        :(GO)
 F1        F1 = 'a' | 'b'                        :(RETURN)
@@ -13561,7 +13586,7 @@ GO        P = (LEN(1) . HD) ARBNO(*F1())
 OK        OUTPUT = 'match:' HD                  :(END)
 NO        OUTPUT = 'nomatch'
 END
-*----------------------------------------- 1796 user_function_arbno_pos_branch_6
+*----------------------------------------- 1797 user_function_arbno_pos_branch_6
         $('Z' 'Z') = 1
         DEFINE('F1()')                        :(GO)
 F1        F1 = 'a' | 'b'                        :(RETURN)
@@ -13570,7 +13595,7 @@ GO        P = (LEN(1) . HD) ARBNO(*F1())
 OK        OUTPUT = 'match:' HD                  :(END)
 NO        OUTPUT = 'nomatch'
 END
-*---------------------------------------- 1797 user_function_arbno_span_branch_2
+*---------------------------------------- 1798 user_function_arbno_span_branch_2
         DEFINE('token()')  :(token_end)
 token   n       =   n + 1
         token   =   .dummy  :(NRETURN)
@@ -13583,7 +13608,7 @@ token_end
         OUTPUT  =   'matched bytes=' SIZE(src) ' n=' n  :(END)
 error   OUTPUT  =   'Pattern match failed'
 END
-*---------------------------------------- 1798 user_function_arbno_span_branch_3
+*---------------------------------------- 1799 user_function_arbno_span_branch_3
         DEFINE('token()')  :(token_end)
 token   n       =   n + 1
         token   =   .dummy  :(NRETURN)
@@ -13596,7 +13621,7 @@ token_end
         OUTPUT  =   'matched bytes=' SIZE(src) ' n=' n  :(END)
 error   OUTPUT  =   'Pattern match failed'
 END
-*---------------------------------- 1799 user_function_span_any_replace_branch_1
+*---------------------------------- 1800 user_function_span_any_replace_branch_1
 *  driver.sno — test driver for match.sno
 *  Oracle: snobol4 -f -P256k -I$INC driver.sno
 *  Run via: bash test/beauty/run_beauty_subsystem.sh match
@@ -13668,7 +13693,7 @@ P9      OUTPUT = 'PASS: 9 word list miss'
 T9
 
 END
-*-------------------------------------------------- 1800 arbno_arb_span_branch_1
+*-------------------------------------------------- 1801 arbno_arb_span_branch_1
         'hello' POS(0) 'he' RPOS(3)            :F(FAIL)
         'abcde' ANY('abc')                      :F(FAIL)
         'abcxyz' SPAN('abc') . V
@@ -13684,7 +13709,7 @@ END
         OUTPUT = 'PASS'                         :(END)
 FAIL    OUTPUT = 'FAIL'
 END
-*---------------------------------------- 1801 arbno_span_break_replace_branch_2
+*---------------------------------------- 1802 arbno_span_break_replace_branch_2
 * json-match -- TIME-BASED: fixed ms budget, count iterations.
 * workload: full recursive JSON grammar over 631 KB of twitter.json.
 * PURE MATCH -- no captures, no side effects: isolates pattern throughput from the
@@ -13738,7 +13763,7 @@ N1	'{"a": 1}' ? json	:F(N2)
 	OUTPUT = 'leading-one MATCH'	:(END)
 N2	OUTPUT = 'leading-one FAIL'
 END
-*--------------------------------- 1802 user_function_eval_span_replace_branch_2
+*--------------------------------- 1803 user_function_eval_span_replace_branch_2
 *     expr_eval.sno - Expression evaluator using pattern side-effects.
 *     Recursive descent parser built entirely from SNOBOL4 patterns.
 *     Tests: DEFINE, TABLE, NRETURN, *func() side-effect patterns, EVAL,
@@ -13796,7 +13821,7 @@ loop     line     =  INPUT                         :F(END)
          OUTPUT   =  Pop()                         :(loop)
 error    OUTPUT   = 'Bad INPUT, try again'         :(loop)
 END
-*--------------------------------- 1803 user_function_eval_span_replace_branch_3
+*--------------------------------- 1804 user_function_eval_span_replace_branch_3
 *     expr_eval.sno - Expression evaluator using pattern side-effects.
 *     Recursive descent parser built entirely from SNOBOL4 patterns.
 *     Tests: DEFINE, TABLE, NRETURN, *func() side-effect patterns, EVAL,
@@ -13854,7 +13879,7 @@ loop     line     =  INPUT                         :F(END)
          OUTPUT   =  Pop()                         :(loop)
 error    OUTPUT   = 'Bad input, try again'         :(loop)
 END
-*---------------------------------- 1804 user_function_eval_pos_replace_branch_1
+*---------------------------------- 1805 user_function_eval_pos_replace_branch_1
 *------------------------------------------------------------------------------
                 DATA('list(n,a)')
                 DEFINE('ListValue(x,place)')
@@ -13949,7 +13974,7 @@ StackEnd    p = POS(0) Init_list("'bank'") Push_list("'BANK'") 'ab' Push_list('t
         OUTPUT = 'MATCH size=' ListSize(bank)  :(END)
 NO      OUTPUT = 'FAIL'
 END
-*---------------------------------------- 1805 user_function_eval_fence_branch_1
+*---------------------------------------- 1806 user_function_eval_fence_branch_1
         $('Z' 'Z') = 1
         nl = CHAR(10)
         tab = CHAR(9)
@@ -13988,7 +14013,7 @@ SEND
 NO        OUTPUT = 'nomatch'
 DONE
 END
-*---------------------------------------------------------- 1806 benchmark_roman
+*---------------------------------------------------------- 1807 benchmark_roman
 * roman -- converts integers to Roman numerals and prints them.
 * bottleneck: recursive function dispatch; RPOS/LEN/BREAK patterns; REPLACE.
 * The kernel converts a DIFFERENT integer each iteration (1001..1000+N) rather than a
@@ -14023,7 +14048,7 @@ RTAB    OUTPUT = K ' -> ' ROMAN(K)
         K = LT(K, 1010) K + 1                           :S(RTAB)
         OUTPUT = 'total numeral length for 1001..1200 = ' ROMAN_RUN(200)
 END
-*-------------------------------------------------------------- 1807 demo_porter
+*-------------------------------------------------------------- 1808 demo_porter
 *// ---------------------------------------------------------------------------------------------------------
 *// porter.sno — Porter (1980) stemming algorithm in SNOBOL4
 *//
@@ -14441,7 +14466,7 @@ stm_end
 NEXT           word           =  INPUT                              :F(END)
                OUTPUT         =  stemmer(word)                      :(NEXT)
 END
-*---------------------------------------- 1808 user_function_eval_arbno_branch_1
+*---------------------------------------- 1809 user_function_eval_arbno_branch_1
         $('Z' 'Z') = 1
         nl = CHAR(10)
         tab = CHAR(9)
@@ -14481,7 +14506,7 @@ SEND
 NO        OUTPUT = 'nomatch'
 DONE
 END
-*-------------------------------- 1809 user_function_eval_arbno_replace_branch_2
+*-------------------------------- 1810 user_function_eval_arbno_replace_branch_2
 START
 -INCLUDE 'global.inc'
 -INCLUDE 'case.inc'
@@ -14531,7 +14556,7 @@ XEND
 NO                OUTPUT         =  'nomatch'
 DONE
 END
-*--------------------------------------------------------- 1810 benchmark_porter
+*--------------------------------------------------------- 1811 benchmark_porter
 *// ---------------------------------------------------------------------------------------------------------
 *// porter.sno — Porter (1980) stemming algorithm in SNOBOL4
 *//
@@ -14969,7 +14994,7 @@ PORTER_END
 PNEXT          OUTPUT         =  stemmer(WORDS[PJ])
                PJ             =  LT(PJ, NW) PJ + 1                  :S(PNEXT)
 END
-*--------------------------------------------------- 1811 benchmark_calculator-1
+*--------------------------------------------------- 1812 benchmark_calculator-1
         DEFINE('EMIT()')
         DEFINE('PSH()')
         DEFINE('DRF(nm)')
@@ -15047,7 +15072,7 @@ bad     t1 = TIME()
         OUTPUT = 'Boo!'
         TERMINAL = 'match_ms=' (t1 - t0) / 1000000
 END
-*--------------------------------------------------- 1812 benchmark_calculator-2
+*--------------------------------------------------- 1813 benchmark_calculator-2
 *------------------------------------------------------------------------------
 * calculator-2.sno — precedence calculator, Variant 2: LEFT associativity
 * (Lon, 2026-07-24).  Same atoms/factors as calculator-1; terms and
@@ -15155,7 +15180,7 @@ bad     t1 = TIME()
         OUTPUT = 'Boo!'
         TERMINAL = 'match_ms=' (t1 - t0) / 1000000
 END
-*-------------------------------- 1813 user_function_arbno_span_replace_branch_3
+*-------------------------------- 1814 user_function_arbno_span_replace_branch_3
 *------------------------------------------------------------------------------
 * claws5.sno — CLAWS5 POS-tagged corpus tokenizer
 * ENG 685, Lon Cherryholmes Sr.
@@ -15272,7 +15297,7 @@ main_fail      OUTPUT          =  'Pattern match failed'    :(END)
 main_err       OUTPUT          =  'Could not read CLAWS5inTASA.dat'
 *------------------------------------------------------------------------------
 END
-*------------------------------- 1814 user_function_arbno_fence_replace_branch_1
+*------------------------------- 1815 user_function_arbno_fence_replace_branch_1
 *  claws5_table_flat1 -- minimal witness, row table-flat-1level-segv (FINDING-2026-08-21-s199).
 *  Flattens claws5's 3-level counts[number][word][tag] table build to ONE level, counts[word],
 *  keeping the SAME grammar shape (FENCE/ARBNO + a deferred *token() callout) claws5 itself uses.
@@ -15302,7 +15327,7 @@ token_end
 bad     OUTPUT = 'MATCH-FAILED'
 done
 END
-*---------------------------------------------- 1815 scrip_test_treebank-prepend
+*---------------------------------------------- 1816 scrip_test_treebank-prepend
 *------------------------------------------------------------------------------
 * treebank.sno — Penn Treebank s-expression parser
 * ENG 685, Lon Cherryholmes Sr.
@@ -15468,7 +15493,7 @@ main_fail      OUTPUT         =  'Pattern match failed'     :(END)
 main_err       OUTPUT         =  'Could not read VBGinTASA.dat'
 *------------------------------------------------------------------------------
 END
-*-------------------------------------------------------------- 1816 demo_claws5
+*-------------------------------------------------------------- 1817 demo_claws5
 *------------------------------------------------------------------------------
         DEFINE('token()')  :(token_end)
 token   num = +num
@@ -15498,7 +15523,7 @@ token_end
         OUTPUT  =   'matched bytes=' SIZE(src)  :(END)
 error   OUTPUT  =   'Pattern match failed'
 END
-*--------------------------------------------------------- 1817 benchmark_claws5
+*--------------------------------------------------------- 1818 benchmark_claws5
 *------------------------------------------------------------------------------
         DEFINE('token()')  :(token_end)
 token   num = +num
@@ -15541,7 +15566,7 @@ CLAWS5_END
 *BENCH kernel=CLAWS5 check=1 bud=1000 flr=20
         OUTPUT = CLAWS5(1)
 END
-*------------------------------------------------------------ 1818 demo_treebank
+*------------------------------------------------------------ 1819 demo_treebank
 *------------------------------------------------------------------------------
                 DATA('list(n,a)')
                 DEFINE('ListValue(x,place)')
@@ -15664,7 +15689,7 @@ StackEnd        delim           =   SPAN(' ' CHAR(10))
                 OUTPUT          =   'matched bytes=' SIZE(src)  :(END)
 error           OUTPUT          =   'Pattern match failed'
 END
-*-------------------------------- 1819 user_function_eval_arbno_replace_branch_1
+*-------------------------------- 1820 user_function_eval_arbno_replace_branch_1
 * json -- TIME-BASED: fixed ms budget, count iterations.
 * workload: 631 KB of twitter.json parsed into real TABLEs/ARRAYs; check is the full node census.
 * DESERIALIZING -- the -match sibling runs the same grammar with NO captures; the delta
@@ -15974,7 +15999,7 @@ ZBODY_END
 	ZSRC = '["s","s"]'
 	OUTPUT = 'two-element ' ZBODY(1)
 END
-*---------------------------------------------------------------- 1820 demo_json
+*---------------------------------------------------------------- 1821 demo_json
 *------------------------------------------------------------------------------
 * json.sno - JSON DE-SERIALIZER: RFC-8259 text -> native SNOBOL4 data structures.
 * ENG 685, Lon Cherryholmes Sr.
@@ -16269,7 +16294,7 @@ fail            t1              =   TIME()
                 TERMINAL        =   'match_ms=' (t1 - t0) / 1000000
 *------------------------------------------------------------------------------
 END
-*----------------------------------------------------------- 1821 benchmark_json
+*----------------------------------------------------------- 1822 benchmark_json
 *------------------------------------------------------------------------------
 * json.sno - JSON DE-SERIALIZER: RFC-8259 text -> native SNOBOL4 data structures.
 * ENG 685, Lon Cherryholmes Sr.
@@ -16590,20 +16615,20 @@ fail            t1              =   TIME()
                 TERMINAL        =   'match_ms=' (t1 - t0) / 1000000
 *------------------------------------------------------------------------------
 END
-*--------------------------------------------------- 1822 simple_program_1 XFAIL
+*--------------------------------------------------- 1823 simple_program_1 XFAIL
 * -INCLUDE names a file that exists nowhere in the corpus repo.  BOTH scrip and sbl -bf refuse
 * it identically (ERROR 285 upstream) -- a missing corpus fixture, not a SCRIP defect.  Mirrors
 * the already-documented lon_cherryholmes 24-file include gap (RULES.md ABSOLUTE RULES).
 -INCLUDE 'nonexistent_target.sno'
 END
-*--------------------------------------------------- 1823 simple_output_63 XFAIL
+*--------------------------------------------------- 1824 simple_output_63 XFAIL
 * SCRIP requires uppercase END (design choice, RULES.md); csnobol4_suite programs commonly end
 * lowercase.  BOTH scrip and the sbl -bf correctness oracle reject this -- corpus dialect, not a
 * SCRIP-only defect.  Cure: util_uppercase_keywords.py already exists for this normalization.
 	value = 1
 	OUTPUT = value
 end
-*--------------------------------------------------- 1824 simple_output_64 XFAIL
+*--------------------------------------------------- 1825 simple_output_64 XFAIL
 * ORD (character -> ordinal value, the inverse of CHAR) is unimplemented in scrip: fatal parse-
 * time "Error 5 -- Undefined function or operation", no output at all (root cause of
 * csnobol4_suite/ord.sno's RC1).  sbl -bf ALSO refuses it (runtime ERROR 022 -- undefined
@@ -16612,7 +16637,7 @@ end
 * stated SPITBOL-semantics target, not a confirmed SCRIP-specific gap.
 	OUTPUT = ORD('A')
 END
-*--------------------------------------------------- 1825 simple_output_68 XFAIL
+*--------------------------------------------------- 1826 simple_output_68 XFAIL
 *  gim_double_include_hang - INCLUDING THE SAME FILE TWICE HANGS SCRIP.
 *
 *  Distilled from gimpel batch D.  MINP.sno includes SPACING.sno AND
@@ -16629,7 +16654,7 @@ END
 -INCLUDE "gim_double_include_hang_A.sno"
         OUTPUT  =  DI_COUNT('aaa','a')
 END
-*--------------------------------------------------- 1826 simple_output_70 XFAIL
+*--------------------------------------------------- 1827 simple_output_70 XFAIL
 *  gim_or_single_alternative_crash - distilled from gimpel batch E, where it
 *  takes OR_driver, ORSORT_driver and ORVISUAL_driver together.
 *  ONE call to OR(LIST) with a SINGLE one-character alternative crashes
@@ -16656,14 +16681,14 @@ END
         P  =  OR(',A')
         OUTPUT  =  'built'
 END
-*--------------------------------------------------------- 1827 keyword_19 XFAIL
+*--------------------------------------------------------- 1828 keyword_19 XFAIL
 * &DUMP=1 should print a termination dump of variables/keywords (see csnobol4_suite/a.sno + .ref).
 * sbl -bf prints the real dump; scrip accepts the assignment (rc=0) but silently no-ops it,
 * producing zero output.  SCRIP-only defect: &DUMP keyword unimplemented.
 	value = 1
 	&DUMP = 1
 END
-*--------------------------------------------------- 1828 simple_output_62 XFAIL
+*--------------------------------------------------- 1829 simple_output_62 XFAIL
 * INPUT() on an exhausted/empty file never signals failure in scrip: the S(loop) branch keeps
 * succeeding forever, so this floods stdout with blank records instead of terminating (root
 * cause of csnobol4_suite/openi.sno + openo2.sno TIMEOUT).  sbl -bf fails fast instead (ERROR 116
@@ -16671,7 +16696,7 @@ END
 	INPUT(.holder, 10, , "input_eof_hang.dat")
 loop	OUTPUT = holder			:S(loop)
 END
-*-------------------------------------------- 1829 user_function_replace_4 XFAIL
+*-------------------------------------------- 1830 user_function_replace_4 XFAIL
 * AB-0 witness: re-DEFINE repoints the fn cell; DEFINE(s,name) alt entry label (p.219).
 	DEFINE('F()')			:(E1)
 F	F = 'first'			:(RETURN)
@@ -16680,7 +16705,7 @@ E1	OUTPUT = F()
 G	F = 'second-via-alt-entry'	:(RETURN)
 E2	OUTPUT = F()
 END
-*-------------------------------------------- 1830 user_function_replace_7 XFAIL
+*-------------------------------------------- 1831 user_function_replace_7 XFAIL
 *  M1-R4b witness 2: redefinition must be LAST-WINS -- the second DEFINE
 *  re-points the same function name at a different body label.
         DEFINE('F(x)','F1')                                                                  :(FEnd)
@@ -16691,7 +16716,7 @@ FEnd
         DEFINE('F(x)','F2')
         OUTPUT     =     F('b')
 END
-*----------------------------------------------------- 1831 span_replace_2 XFAIL
+*----------------------------------------------------- 1832 span_replace_2 XFAIL
 *  gim_span_self_rebind_wrong - SILENT WRONG ANSWER, 5 lines, no function.
 *  A variable rebound to a PATTERN BUILT OVER ITS OWN FORMER VALUE (X = SPAN(X))
 *  is inert as a pattern in SCRIP: the replacement removes nothing and the
@@ -16706,7 +16731,7 @@ END
         S  X  =
         OUTPUT  =  S
 END
-*------------------------------------------------- 1832 indirect_replace_1 XFAIL
+*------------------------------------------------- 1833 indirect_replace_1 XFAIL
 *  MINIMAL WITNESS (s186, batch B, from LINEARIZ.sno and READL.sno): an
 *  indirect store through the NAME OF A DATA FIELD -- P = .R(X) then $P = ...
 *  -- is a SILENT NO-OP in SCRIP; the field keeps its old value.  The same
@@ -16725,7 +16750,7 @@ END
 	$Q  =  'CHANGED2'
 	OUTPUT  =  Y
 END
-*--------------------------------------------- 1833 array_replace_branch_2 XFAIL
+*--------------------------------------------- 1834 array_replace_branch_2 XFAIL
 -INCLUDE "gimpel_triage_class8_sig6_perm_module.sno"
         A  =  ARRAY(2)
         A<1>  =  'x'
@@ -16735,7 +16760,7 @@ LOOP    N  =  N + 1
         PERM(A)                                  :S(LOOP)
         OUTPUT  =  N ' permutations'
 END
-*----------------------------------- 1834 user_function_indirect_replace_1 XFAIL
+*----------------------------------- 1835 user_function_indirect_replace_1 XFAIL
 *  gim_goto_function_call_parse - distilled from gimpel STATEF_driver (batch F).
 *  A GOTO WHOSE OPERAND IS A FUNCTION CALL -- :(GO()) -- IS A PARSE ERROR IN
 *  SCRIP.  The oracle compiles and runs it: the function returns a label NAME
@@ -16764,13 +16789,13 @@ L2      OUTPUT  =  'sib2 landed'
         OUTPUT  =  'NOT REACHED'
 L3      OUTPUT  =  'witness landed'
 END
-*---------------------------------------- 1835 user_function_len_capture_1 XFAIL
+*---------------------------------------- 1836 user_function_len_capture_1 XFAIL
         DEFINE('S()')          :(A)
 S       S = .G                 :(NRETURN)
 A       'AB' ? LEN(1) . S()
         OUTPUT = 'g=' G
 END
-*-------------------------------- 1836 user_function_len_capture_replace_1 XFAIL
+*-------------------------------- 1837 user_function_len_capture_replace_1 XFAIL
 * AB-0 witness: NRETURN as lvalue (manual p.133 STORE example).
 	DEFINE('STORE()')		:(STORE_END)
 STORE	STORE = .DUMMY			:(NRETURN)
@@ -16780,7 +16805,7 @@ STORE_END
 	'ABCDE' ? LEN(2) . STORE()
 	OUTPUT = 'DUMMY=' DUMMY
 END
-*------------------------------- 1837 user_function_array_replace_branch_1 XFAIL
+*------------------------------- 1838 user_function_array_replace_branch_1 XFAIL
 *  ⛔ RED ON ARRIVAL -- A PRE-EXISTING DEFECT EXPOSED BY queue row `subscript-silent-accept`,
 *  NOT CAUSED BY IT.  SPITBOL's parenthesised comma expression `(e1, e2, ... , en)` is an
 *  EXPRESSION ALTERNATION: the elements are evaluated LEFT TO RIGHT, the value is the FIRST
@@ -16810,7 +16835,7 @@ N7      X = ARRAY('0:' (IDENT('a') 0, 5))
         OUTPUT = 'treebank-shape       ' PROTOTYPE(X)
         OUTPUT = 'end'
 END
-*--------------------------------- 1838 user_function_len_capture_branch_2 XFAIL
+*--------------------------------- 1839 user_function_len_capture_branch_2 XFAIL
         DEFINE('F()')                    :(FEND)
 F       F = .dummy                       :(NRETURN)
 FEND
@@ -16818,7 +16843,7 @@ FEND
         OUTPUT = 'B dummy=' dummy        :(END)
 B1      OUTPUT = 'B NOMATCH'
 END
-*------------------------- 1839 fence_capture_imm_capture_replace_branch_1 XFAIL
+*------------------------- 1840 fence_capture_imm_capture_replace_branch_1 XFAIL
 *  MINIMAL WITNESS for the fz_abort_05/fz_abort_25 SIGABRT class (s188 seat1, row fuzz-abort-batch).
 *  Two ingredients ONLY: a one-argument FENCE1, and TWO STACKED captures on its body.
 *  SCRIP bombs at emit: bb_match_capture.cpp:88 "IR_MATCH_CAPTURE_SAVE: no home".  rc=134, m3 AND m4.
@@ -16827,7 +16852,7 @@ END
 OK        OUTPUT = 'match'                                 :(END)
 NO        OUTPUT = 'nomatch'
 END
-*----------------------------- 1840 size_indirect_keyword_replace_branch_1 XFAIL
+*----------------------------- 1841 size_indirect_keyword_replace_branch_1 XFAIL
 *     indirect_nul_prefix_name.sno -- ⛔ CHECKED IN RED ON PURPOSE (s194, row
 *     `indirect-nonname-silent-accept`).  SPITBOL ACCEPTS a variable name whose
 *     first byte is NUL -- &ALPHABET is 256 such bytes and $&ALPHABET is legal --
@@ -16855,7 +16880,7 @@ T4      D = $('X' CHAR(0) 'Y')          :F(F4)
 F4      OUTPUT = 'T4 ERR ' &ERRTYPE
 T5      OUTPUT = 'END errlimit=' &ERRLIMIT
 END
-*---------------------------------- 1841 trim_alt_keyword_replace_branch_1 XFAIL
+*---------------------------------- 1842 trim_alt_keyword_replace_branch_1 XFAIL
 * k40 -- lambda/LAMBDA pattern primitives (Lon 2026-08-28; row lang-lambda-pattern-primitives).
 * ⛔ RED ON PURPOSE until the feature lands (the k30 precedent): this witness is the instrument,
 * authored BEFORE the cure per RULES.md THE INSTRUMENT LAWS clause 3.
@@ -16890,14 +16915,14 @@ A5      G = ''
         SUB ? P
         OUTPUT = 'arm5 G=' G ' H=' H
 END
-*------------------------------------ 1842 fence_rpos_rem_replace_branch_1 XFAIL
+*------------------------------------ 1843 fence_rpos_rem_replace_branch_1 XFAIL
 *  s188 seat4, row fuzz-segv-batch.  ⛔ 1:1 BREACH WITNESS IN THE OTHER DIRECTION -- m3 ANSWERS CORRECTLY, m4 SEGVs.
 *  m3 rc=0 'match', m4 rc=139.  One ingredient from fz_red_m2a: RPOS(0) added, the defer removed.
           'a+a+a' FENCE((BREAKX('abc')) $ v0) REM RPOS(0)                          :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*---------------------------------- 1843 arbno_fence_rpos_replace_branch_1 XFAIL
+*---------------------------------- 1844 arbno_fence_rpos_replace_branch_1 XFAIL
 *  s188 seat4 REDUCTION of fz_segv_14 (row fuzz-segv-batch).  MECHANISM: M1 ARBNO-OVER-DEFER RE-ENTRY (inline road)
 *  Necessary ingredients, each measured by ablation: outer ARBNO + the defer + FENCE + a fenced body that matches the NULL string + a forcing tail. Drop any one and it is GREEN: ARBNO(FENCE('')) inline AGREE; G0='' AGREE; no tail AGREE; defer depth 2 AGREE.
           G0            =  FENCE('')
@@ -16905,7 +16930,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*----------------------------------------- 1844 user_function_arbno_rpos_1 XFAIL
+*----------------------------------------- 1845 user_function_arbno_rpos_1 XFAIL
 	DEFINE('nPush()')                    :(skip1)
 nPush	nPush          =  "" . *pushc()      :(RETURN)
 skip1	DEFINE('pushc()')                    :(skip3)
@@ -16918,7 +16943,7 @@ skip3	Command        =  'x'
 	Src *&Parse5 RPOS(0)
 	OUTPUT         =  "depth=" depth
 END
-*------------------------------ 1845 user_function_table_datatype_branch_1 XFAIL
+*------------------------------ 1846 user_function_table_datatype_branch_1 XFAIL
         DEFINE('COPYL(L)T');   DATA('LINK(NEXT,VALUE)')     :(COPYL_END)
 COPYL   DEFINE('COPYL(L)', 'COPYL_1');   T  =  TABLE(100)
         COPYL  =  COPYL(L);   DEFINE('COPYL(L)T')            :(RETURN)
@@ -16931,7 +16956,7 @@ COPYL_END
         C2  =  COPYL(R1)
         OUTPUT = 'done'
 END
-*---------------------------- 1846 user_function_convert_indirect_branch_1 XFAIL
+*---------------------------- 1847 user_function_convert_indirect_branch_1 XFAIL
         DEFINE('ONCE(ID)NAME')                   :(ONCE_END)
 ONCE    ONCE  =  IDENT(ID,NULL)
 +       CONVERT('ONCE(' &STCOUNT ')' , 'EXPRESSION')  :S(RETURN)
@@ -16945,7 +16970,7 @@ OK      OUTPUT = 'matched'                        :(END1)
 NO      OUTPUT = 'failed'
 END1
 END
-*------------------------------------------ 1847 break_len_array_replace_1 XFAIL
+*------------------------------------------ 1848 break_len_array_replace_1 XFAIL
 *  gim_defer_cassign_array_elt - SILENT WRONG ANSWER (distilled from CRACK.sno,
 *  gimpel batch D).  A conditional assignment whose target is a DEFERRED
 *  non-simple name -- an array element -- captures nothing and says nothing.
@@ -16963,14 +16988,14 @@ END
         S  PAT  =
         OUTPUT  =  '[' A<1> '][' A<2> '][' A<3> ']'
 END
-*----------------------------------- 1848 fence_span_rpos_replace_branch_1 XFAIL
+*----------------------------------- 1849 fence_span_rpos_replace_branch_1 XFAIL
 *  s188 seat4, row fuzz-segv-batch.  ⛔ 1:1 BREACH WITNESS -- M2 shape, m3 SEGVs and m4 ANSWERS CORRECTLY.
 *  m3 rc=139, m4 rc=0 'match'.  Same shape as fz_red_m2a with SPAN for BREAKX and no RPOS(0).
           'a+a+a' FENCE((SPAN('abc')) . v0) REM                          :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*----------------------------------- 1849 arbno_fence_pos_replace_branch_2 XFAIL
+*----------------------------------- 1850 arbno_fence_pos_replace_branch_2 XFAIL
 *  s183 pattern-fuzz witness (SEGV).  oracle=match  scrip=
 *  Generated by SCRIP/scripts/util_pattern_fuzz.py --seed 11 --depth 4 (from pf_00478.sno).
           G0            =  FENCE(ARBNO(POS(2)))
@@ -16979,7 +17004,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*----------------------------------- 1850 arbno_fence_tab_replace_branch_1 XFAIL
+*----------------------------------- 1851 arbno_fence_tab_replace_branch_1 XFAIL
 *  s188 seat4 REDUCTION of fz_segv_24 (row fuzz-segv-batch).  MECHANISM: M1 ARBNO-OVER-DEFER RE-ENTRY (blob road -- no FENCE needed)
 *  Necessary ingredients, each measured by ablation: outer ARBNO + the defer + the pattern reached through a STORED pattern *P. Written INLINE ('aa a' ARBNO(*G0) RPOS(0)) it is GREEN -- the road is the ingredient.
           G0            =  ARBNO(TAB(1))
@@ -16988,7 +17013,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------ 1851 fence_pos_rpos_replace_branch_3 XFAIL
+*------------------------------------ 1852 fence_pos_rpos_replace_branch_3 XFAIL
 *  CLASS (b) IN BEAUTY'S OWN SHAPE -- beauty's Commands (line 217) verbatim:
 *      Commands = *Command FENCE(*Commands | epsilon)
 *  with Command given real alternatives, which is what beauty's Command has.  The left element's
@@ -17000,14 +17025,14 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------- 1852 arbno_pos_rpos_branch_81 XFAIL
+*------------------------------------------- 1853 arbno_pos_rpos_branch_81 XFAIL
           G1 = ARBNO('a' | 'ab')
           P = *G1 RPOS(0)
           'abcdef' POS(0) *P                    :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------- 1853 arbno_bal_tab_replace_branch_1 XFAIL
+*------------------------------------- 1854 arbno_bal_tab_replace_branch_1 XFAIL
 *  s183 pattern-fuzz witness (SEGV).  oracle=match  scrip=
 *  Generated by SCRIP/scripts/util_pattern_fuzz.py --seed 11 --depth 4 (from pf_00719.sno).
           G0            =  ARBNO(TAB(1) BAL)
@@ -17016,7 +17041,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------ 1854 fence_arb_span_replace_branch_1 XFAIL
+*------------------------------------ 1855 fence_arb_span_replace_branch_1 XFAIL
 *  s188 seat4 REDUCTION of fz_segv_23 (row fuzz-segv-batch).  MECHANISM: M2 SEALED CAPTURED GENERATOR (null-arm ALT as the forcer)
 *  Necessary ingredients: FENCE + a CAPTURE on a generator + a following ALT with a NULL arm.
 *  Drop the capture GREEN; replace the ALT by bare POS(1) GREEN; drop the ALT GREEN.  BOTH MODES rc=139.
@@ -17024,7 +17049,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------- 1855 fence_arb_tab_replace_branch_1 XFAIL
+*------------------------------------- 1856 fence_arb_tab_replace_branch_1 XFAIL
 *  s188 seat4 REDUCTION of fz_segv_18 (row fuzz-segv-batch).  MECHANISM: M2 SEALED CAPTURED GENERATOR (the capture wraps the DEFER)
 *  Necessary ingredients, each measured by ablation: FENCE + defer + the capture placed AROUND the deferred reference + a following element. Inline the same text GREEN; drop the FENCE GREEN; drop the outer capture GREEN.
           G0            =  FENCE(ARB)
@@ -17033,7 +17058,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------- 1856 fence_arb_tab_replace_branch_2 XFAIL
+*------------------------------------- 1857 fence_arb_tab_replace_branch_2 XFAIL
 *  s183 pattern-fuzz witness (SEGV).  oracle=nomatch  scrip=
 *  Generated by SCRIP/scripts/util_pattern_fuzz.py --seed 11 --depth 4 (from pf_00659.sno).
           G0            =  FENCE(ARB)
@@ -17043,7 +17068,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------- 1857 user_function_code_eval_bal_branch_1 XFAIL
+*------------------------------- 1858 user_function_code_eval_bal_branch_1 XFAIL
         DEFINE('DEXP(PROTO)NAME,ARGS')          :(DEXP_END)
 DEXP    PROTO   POS(0)  SPAN(' ')  =
         PROTO   BREAK('(') . NAME  BAL . ARGS  =  NAME
@@ -17053,7 +17078,7 @@ DEXP_END
         DEXP('AVE(X,Y) = (X + Y) / 2.0')
         OUTPUT  =  AVE(1, 3)
 END
-*----------------------------------- 1858 arbno_fence_pos_replace_branch_4 XFAIL
+*----------------------------------- 1859 arbno_fence_pos_replace_branch_4 XFAIL
 *  CONTROL THAT SEPARATES THE TWO REFUSALS BY ONE TOKEN.  Identical to ptw_min_rseal_arbno with a
 *  trailing epsilon appended, which moves the fence off the right end: right_sealed flips 1 -> 0 and
 *  nothing else changes.  Default arm: still red (the fence refusal is now the one firing).
@@ -17064,7 +17089,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*----------------------------------- 1859 arbno_fence_pos_replace_branch_3 XFAIL
+*----------------------------------- 1860 arbno_fence_pos_replace_branch_3 XFAIL
 *  CLASS (b) RIGHT-SEALED REFUSAL -- right_sealed=1, the PAT$13/PAT$22/PAT$28 signature, a SECOND
 *  refusal the s182 fence work does not touch.  sno_pat_right_sealed seals the WHOLE blob because
 *  its RIGHTMOST element is a fence form, but the manual's seal only forbids re-offering the FENCE'S
@@ -17076,13 +17101,13 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------------ 1860 arbno_fence_pos_branch_22 XFAIL
+*------------------------------------------ 1861 arbno_fence_pos_branch_22 XFAIL
           G1 = ARBNO((LEN(1) | LEN(2)) FENCE(LEN(1) | ''))
           'abcdef' POS(0) *G1 LEN(1) RPOS(0)    :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*----------------------------------- 1861 arbno_fence_bal_replace_branch_3 XFAIL
+*----------------------------------- 1862 arbno_fence_bal_replace_branch_3 XFAIL
 *  s189 (seat6, row fuzz-diff-batch) REDUCED WITNESS.  RED.  Reduced from fz_diff_13.  Both arms pass ALONE; their alternation does not.
           G0            =  FENCE(BAL)
           P             =  (ARBNO(*G0) | ARBNO(ARBNO(FENCE(POS(1)))))
@@ -17090,7 +17115,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*----------------------------------- 1862 arbno_fence_bal_replace_branch_1 XFAIL
+*----------------------------------- 1863 arbno_fence_bal_replace_branch_1 XFAIL
 *  s183 pattern-fuzz witness (DIFF).  oracle=match  scrip=nomatch
 *  Generated by SCRIP/scripts/util_pattern_fuzz.py --seed 11 --depth 4 (from pf_00466.sno).
           G0            =  FENCE(BAL)
@@ -17099,7 +17124,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*---------------------------------- 1863 arbno_span_break_replace_branch_1 XFAIL
+*---------------------------------- 1864 arbno_span_break_replace_branch_1 XFAIL
 *  s183 pattern-fuzz witness (HANG).  oracle=nomatch  scrip=
 *  Generated by SCRIP/scripts/util_pattern_fuzz.py --seed 11 --depth 4 (from pf_00409.sno).
           P             =  (ARBNO((BREAK('+') | RTAB(1))) SPAN(' ')) $ v0
@@ -17107,7 +17132,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*------------------------------------ 1864 arbno_span_tab_replace_branch_1 XFAIL
+*------------------------------------ 1865 arbno_span_tab_replace_branch_1 XFAIL
 *  s183 pattern-fuzz witness (SEGV).  oracle=nomatch  scrip=
 *  Generated by SCRIP/scripts/util_pattern_fuzz.py --seed 11 --depth 4 (from pf_00090.sno).
           P             =  (ARBNO((ARBNO(RTAB(1)) | ARBNO(SPAN(' ')))) | TAB(0))
@@ -17115,7 +17140,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*----------------------------------- 1865 arbno_fence_bal_replace_branch_2 XFAIL
+*----------------------------------- 1866 arbno_fence_bal_replace_branch_2 XFAIL
 *  s183 pattern-fuzz witness (SEGV).  oracle=match  scrip=
 *  Generated by SCRIP/scripts/util_pattern_fuzz.py --seed 11 --depth 4 (from pf_00149.sno).
           G0            =  BAL RPOS(3)
@@ -17125,7 +17150,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*---------------------------------- 1866 arbno_fence_span_replace_branch_2 XFAIL
+*---------------------------------- 1867 arbno_fence_span_replace_branch_2 XFAIL
 *  s189 REDUCED WITNESS (class C, STILL RED -- checked in red per law 0d): a NESTED alternation
 *  (A | (B | C)) livelocks; flattening to (A | B) is green.  No ARBNO, no FENCE, no capture, no
 *  defer -- all four ablated away and the hang survives.  Reduced from fz_hang_12.  This is the
@@ -17135,7 +17160,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*--------------------------- 1867 user_function_eval_span_replace_branch_1 XFAIL
+*--------------------------- 1868 user_function_eval_span_replace_branch_1 XFAIL
 *  alpha_scan_pollution.sno -- witness for row m3-executes-three-times-m4-on-beauty
 *  (FINDING-2026-08-22-m3-run-only-is-alpha-cell-scan-pollution.md).
 *  Body = corpus/crosscheck/control/expr_eval.sno UNCHANGED (a small recursive-descent
