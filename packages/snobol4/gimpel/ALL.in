@@ -1,0 +1,118 @@
+*------------------------------------------------------------- 8 BCD_EBCD_driver
+A#B@C%D<E&F
+#@%<&
+NO SPECIALS HERE
+X#X#X
+*------------------------------------------------------------ 32 FORTREAD_driver
+C     THIS IS A COMMENT
+      PROGRAM MAIN
+C     ANOTHER COMMENT
+      X = AAAA + BBBB
+     1     + CCCC
+     2     + DDDD
+      CALL SUB(X)
+C     TRAILING COMMENT
+      STOP
+      END
+*--------------------------------------------------------------- 52 L_ONE_driver
+A = (B - C * D) / 10
+X = Y + Z
+P = -Q
+R = (S/T)/U
+*------------------------------------------------------------ 65 PARAGRAP_driver
+Chapter one opens the book.
+It runs on for a second line.
+And a third line closes it.
+ 
+Chapter two opens later on.
+It has only two lines.
+ 
+Appendix is not a chapter.
+ 
+*-------------------------------------------------------------------- 69 PHRASES
+<GOOD>::=excellent|wonderful|nice|careful|impeccable|shrewd|
+clever|nifty|good|smart|skillful|cunning|witty|fine|
+splendid|elegant|#5#very <GOOD>|bright|brainy|brilliant|sharp|
+keen|nimble-witted|slick|sly|astute|penetrating
+<LETMESEE>::=<THOUGHT>|<MUMBLE>|<MUMBLE> <THOUGHT>|<THOUGHT>
+ <MUMBLE>
+<MUMBLE>::=Hmmm|Ahh|Well Well|Gosh|Gee|OK|Oh man|Let's see|
+Wait a minute|Interesting|Wow|Wowee|Yipes|Zowee|Whoosh|
+#5#<MUMBLE> <MUMBLE>|#6#<MUMBLE>...
+<THOUGHT>::=<LETME> <CONSIDER> <THIS>
+<LETME>::=I think I'll|let me|I need time to|I'm going to
+ have to
+<CONSIDER>::=consider|contemplate|mull over|#4#<THINK> about
+<THINK>::=think|see|cogitate|meditate
+<THIS>::=this|this one|the situation|this problem|this here
+<P1>::=maneuver|strategem|tactic|play|move
+<P2>::=performance|game|effort
+<P3>::=play|strategy
+<P13>::=<P1>s|<P3>
+<P23>::=<P2>|<P3>
+<P123>::=<P1>s|<P2>|<P3>
+<PRAISE>::=<THANKS> for the game, <NICEGAME>
+<THANKS>::=Thanks|Thank you|Thank you very much
+<NICEGAME>::=I admired the <GOOD> <P123> on your part|
+that was <GOOD> <P3> on your part|your <P1>s were quite
+ <GOOD>|it was a pleasure to play against one so <GOOD>|I
+ enjoyed your <GOOD> <P123>|I enjoyed particularly that last
+ <GOOD> <P1>
+<STUPID>::=stupid|dumb|blundering|thick-headed|sad|
+thick-skulled|silly|ludicrous|witless|poor|ponderous|
+brainless|foolish|bungling|heavy-handed|graceless|clumsy
+<FOOL>::=fool|dolt|idiot|oaf|blockhead|chump|ass|moron|ninny|
+nincompoop|chump|dunce|bonehead|fathead|imbecile|jerk|baboon
+<INSULT>::=You <STUPID> <FOOL>|I have never seen such <STUPID>
+ <P13>|Your <STUPID> <P23> befits a <STUPID> <FOOL>|
+Your <STUPID> <P1>s indicate that you are a <STUPID>
+ <FOOL>|A <STUPID> <FOOL> is not so <STUPID> as you|
+Your <P23> marks you as a <STUPID> <FOOL>|Your <P1>s are
+ less than <GOOD>
+END
+*--------------------------------------------------------------- 79 RCHAR_driver
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+BREAD AND BUTTER BRING BRIGHT BREAKFASTS
+BRAVE BRIGANDS BROKE THE BRASS BRIDGE
+THE BROWN BREAD WAS BRITTLE
+END
+*--------------------------------------------------------------- 80 READL_driver
+one
+two
+three
+STOP here
+four
+five
+*-------------------------------------------------------------- 81 READRL_driver
+one
+two
+three
+STOP here
+four
+five
+*---------------------------------------------------------------- 82 READ_driver
+alpha one
+beta two
+gamma three
+*--------------------------------------------------------- 93 RSEASON_lib_driver
+648, 231, 36, 23,  6,  62
+526, 150, 20, 11,  3,  25
+540, 192, 29,  8, 60, 138
+584, 218, 52, 18, 47, 109
+516, 174, 47,  9,  8,  45
+570, 176, 29,  8, 18,  69
+387, 104, 24,  3,  2,  27
+251,  69,  9,  3,  7,  54
+500,  50,  5,  1,  2,  10
+*--------------------------------------------------------------- 95 RWORD_driver
+banana bandana canary caravan savanna
+*------------------------------------------------------------- 98 SNOREAD_driver
+        X = 1
+LBL     Y = X + 2                       :S(LBL)
+        OUTPUT = 'hi'
+*----------------------------------------------------------- 113 TREEREAD_driver
+0 root
+ 1 alpha
+ 1 beta
+  2 beta1
+ 1 gamma

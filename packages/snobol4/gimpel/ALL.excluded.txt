@@ -1,0 +1,171 @@
+AGT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+AI: oracle produced EMPTY output -- refusing to mint a vacuous ref
+AOPA: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ARC: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ARC_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+ASM: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+ASM360: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ASM_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+BAL: oracle produced EMPTY output -- refusing to mint a vacuous ref
+BALREV: oracle produced EMPTY output -- refusing to mint a vacuous ref
+BAL_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+BASE10: oracle produced EMPTY output -- refusing to mint a vacuous ref
+BASEB: oracle produced EMPTY output -- refusing to mint a vacuous ref
+BCD_EBCD: oracle produced EMPTY output -- refusing to mint a vacuous ref
+BLANKS: oracle produced EMPTY output -- refusing to mint a vacuous ref
+BLEND: oracle produced EMPTY output -- refusing to mint a vacuous ref
+BNORM: oracle produced EMPTY output -- refusing to mint a vacuous ref
+BREAKX: oracle produced EMPTY output -- refusing to mint a vacuous ref
+BRKREM: oracle produced EMPTY output -- refusing to mint a vacuous ref
+BSORT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+CARDPAK: oracle produced EMPTY output -- refusing to mint a vacuous ref
+CATA: oracle produced EMPTY output -- refusing to mint a vacuous ref
+CH: oracle produced EMPTY output -- refusing to mint a vacuous ref
+COMB: oracle produced EMPTY output -- refusing to mint a vacuous ref
+COPYL: oracle produced EMPTY output -- refusing to mint a vacuous ref
+COUNT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+CRACK: oracle produced EMPTY output -- refusing to mint a vacuous ref
+DAY: oracle produced EMPTY output -- refusing to mint a vacuous ref
+DECOMB: oracle produced EMPTY output -- refusing to mint a vacuous ref
+DEXP: oracle produced EMPTY output -- refusing to mint a vacuous ref
+DEXTERN: oracle produced EMPTY output -- refusing to mint a vacuous ref
+DIFF: oracle produced EMPTY output -- refusing to mint a vacuous ref
+FASTBAL: oracle produced EMPTY output -- refusing to mint a vacuous ref
+FIND: oracle produced EMPTY output -- refusing to mint a vacuous ref
+FLD: oracle produced EMPTY output -- refusing to mint a vacuous ref
+FLOOR: oracle produced EMPTY output -- refusing to mint a vacuous ref
+FORTPUT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+FORTREAD: oracle produced EMPTY output -- refusing to mint a vacuous ref
+FPROFILE: oracle produced EMPTY output -- refusing to mint a vacuous ref
+FPROFILE_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+FRSORT_driver: missing corpus dependency: -INCLUDE 'stringout.sno' not vendored anywhere in corpus
+FTRACE: oracle produced EMPTY output -- refusing to mint a vacuous ref
+FTRACE_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+GPM: oracle produced EMPTY output -- refusing to mint a vacuous ref
+GPM_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+HEX: oracle produced EMPTY output -- refusing to mint a vacuous ref
+HSORT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+HYPHENAT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+IMAGE: oracle produced EMPTY output -- refusing to mint a vacuous ref
+INFINIP: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+INFINIP_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+INFINIP_lib: oracle produced EMPTY output -- refusing to mint a vacuous ref
+INFINIP_lib_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+INORM: oracle produced EMPTY output -- refusing to mint a vacuous ref
+INSERT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+INSERTB: oracle produced EMPTY output -- refusing to mint a vacuous ref
+INSULATE: oracle produced EMPTY output -- refusing to mint a vacuous ref
+INSULATE_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+IP: oracle produced EMPTY output -- refusing to mint a vacuous ref
+LAST: oracle produced EMPTY output -- refusing to mint a vacuous ref
+LEXGT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+LIKE: oracle produced EMPTY output -- refusing to mint a vacuous ref
+LINE: oracle produced EMPTY output -- refusing to mint a vacuous ref
+LINEARIZ: oracle produced EMPTY output -- refusing to mint a vacuous ref
+LOG: oracle produced EMPTY output -- refusing to mint a vacuous ref
+LPAD: oracle produced EMPTY output -- refusing to mint a vacuous ref
+LPERM: oracle produced EMPTY output -- refusing to mint a vacuous ref
+LPROG: oracle produced EMPTY output -- refusing to mint a vacuous ref
+LSORT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+L_ONE: oracle produced EMPTY output -- refusing to mint a vacuous ref
+L_TWO: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+L_TWO_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+MDY: oracle produced EMPTY output -- refusing to mint a vacuous ref
+MFREAD: oracle produced EMPTY output -- refusing to mint a vacuous ref
+MFREAD_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+MINP: oracle produced EMPTY output -- refusing to mint a vacuous ref
+MSORT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+NOT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ONCE: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ONEWAY: oracle produced EMPTY output -- refusing to mint a vacuous ref
+OR: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ORBREAK: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ORDER: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ORSORT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ORVISUAL: oracle produced EMPTY output -- refusing to mint a vacuous ref
+PAD: oracle produced EMPTY output -- refusing to mint a vacuous ref
+PARAGRAP: oracle produced EMPTY output -- refusing to mint a vacuous ref
+PEEL: oracle produced EMPTY output -- refusing to mint a vacuous ref
+PEEL_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+PERM: oracle produced EMPTY output -- refusing to mint a vacuous ref
+PERMS: oracle produced EMPTY output -- refusing to mint a vacuous ref
+PERMUTAT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+PHRASE: oracle produced EMPTY output -- refusing to mint a vacuous ref
+PHRASE_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+PHYSICAL: oracle produced EMPTY output -- refusing to mint a vacuous ref
+PHYSICAL_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+PLI_STMT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+POKER: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+POKER_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+POKEV: oracle produced EMPTY output -- refusing to mint a vacuous ref
+POL: oracle produced EMPTY output -- refusing to mint a vacuous ref
+PUSH: oracle produced EMPTY output -- refusing to mint a vacuous ref
+PUT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+QUEST: oracle produced EMPTY output -- refusing to mint a vacuous ref
+QUEST_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+QUOTE: oracle produced EMPTY output -- refusing to mint a vacuous ref
+RAISE: oracle produced EMPTY output -- refusing to mint a vacuous ref
+RAMM: oracle produced EMPTY output -- refusing to mint a vacuous ref
+RANDOM: oracle produced EMPTY output -- refusing to mint a vacuous ref
+RCHAR: oracle produced EMPTY output -- refusing to mint a vacuous ref
+READ: oracle produced EMPTY output -- refusing to mint a vacuous ref
+READL: oracle produced EMPTY output -- refusing to mint a vacuous ref
+READRL: oracle produced EMPTY output -- refusing to mint a vacuous ref
+REDEFINE: oracle produced EMPTY output -- refusing to mint a vacuous ref
+REORDER: oracle produced EMPTY output -- refusing to mint a vacuous ref
+REPL: oracle produced EMPTY output -- refusing to mint a vacuous ref
+RESOLUTI: oracle produced EMPTY output -- refusing to mint a vacuous ref
+REVERSE: oracle produced EMPTY output -- refusing to mint a vacuous ref
+REVL: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ROMAN: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ROTATER: oracle produced EMPTY output -- refusing to mint a vacuous ref
+RPAD: oracle produced EMPTY output -- refusing to mint a vacuous ref
+RPERMUTE: oracle produced EMPTY output -- refusing to mint a vacuous ref
+RPOEM: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+RPOEM_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+RSEASON: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+RSEASON_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+RSEASON_lib: oracle produced EMPTY output -- refusing to mint a vacuous ref
+RSELECT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+RSENTENC: oracle produced EMPTY output -- refusing to mint a vacuous ref
+RSENTENC_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+RSTORY: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+RSTORY_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+RWORD: oracle produced EMPTY output -- refusing to mint a vacuous ref
+SEQ: oracle produced EMPTY output -- refusing to mint a vacuous ref
+SKIM: oracle produced EMPTY output -- refusing to mint a vacuous ref
+SNOPUT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+SNOPUT_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+SNOREAD: oracle produced EMPTY output -- refusing to mint a vacuous ref
+SPACING: oracle produced EMPTY output -- refusing to mint a vacuous ref
+SPELL: oracle produced EMPTY output -- refusing to mint a vacuous ref
+SQRT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+SQRT_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+SSORT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+STACK: oracle produced EMPTY output -- refusing to mint a vacuous ref
+STATEF: oracle produced EMPTY output -- refusing to mint a vacuous ref
+STONE: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+STONE_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+STRINGOU: oracle produced EMPTY output -- refusing to mint a vacuous ref
+SUBSTR: oracle produced EMPTY output -- refusing to mint a vacuous ref
+SWAP: oracle produced EMPTY output -- refusing to mint a vacuous ref
+SYSTEM: oracle produced EMPTY output -- refusing to mint a vacuous ref
+TEMP: oracle produced EMPTY output -- refusing to mint a vacuous ref
+TEST: oracle produced EMPTY output -- refusing to mint a vacuous ref
+TICTACTO: oracle produced EMPTY output -- refusing to mint a vacuous ref
+TIMEGC: missing corpus dependency: -INCLUDE 'resolution.sno' not vendored anywhere in corpus
+TIMER: missing corpus dependency: -INCLUDE 'system.inc' not vendored anywhere in corpus
+TPROFILE: oracle produced EMPTY output -- refusing to mint a vacuous ref
+TPROFILE_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+TR: oracle produced EMPTY output -- refusing to mint a vacuous ref
+TREE: oracle produced EMPTY output -- refusing to mint a vacuous ref
+TREEREAD: oracle produced EMPTY output -- refusing to mint a vacuous ref
+TRIG: oracle produced EMPTY output -- refusing to mint a vacuous ref
+TRIG_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+TRUNC: oracle produced EMPTY output -- refusing to mint a vacuous ref
+TSORT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+TUPLE: oracle produced EMPTY output -- refusing to mint a vacuous ref
+TUPLE_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+UPLO: oracle produced EMPTY output -- refusing to mint a vacuous ref
+VISIT: oracle produced EMPTY output -- refusing to mint a vacuous ref
+VISIT_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
