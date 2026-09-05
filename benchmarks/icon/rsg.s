@@ -3687,8 +3687,18 @@ n00110_scan_tab_β:        mov              r11, 160
 n00111_limit_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00111_limit_α:           mov              r11, 161
+                        mov              rdi, qword ptr [rsp + 656]
+                        mov              rsi, qword ptr [rsp + 664]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_limit_count_check@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rcx, rax
                         mov              rax, qword ptr [rsp + 640]
-                        mov              rcx, qword ptr [rsp + 664]
                         cmp              rax, rcx;                            jge   n00106_scan_tab_β
                         inc              qword ptr [rsp + 640]
                         mov              rax, qword ptr [rsp + 672]
