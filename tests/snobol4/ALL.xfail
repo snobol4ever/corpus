@@ -46,8 +46,6 @@ ROOT-CAUSED 2026-09-04 (seat14): the "missing END statement" symptom was a CORPU
 gimpel_triage class4 (COPYL): runtime self-DEFINE recursion (DEFINE('F(...)','OTHER_ENTRY') called from inside F to swap its own entry point) never terminates in SCRIP, overflowing the C call stack (ERROR 246) on a 2-node case the oracle finishes instantly. Root-caused, FINDING-2026-08-27-seat10 section4 (shared mechanism with array_replace_branch_2/class8's workspace-heap exhaustion). Known, still open.
 *---------------------------- 1836 user_function_convert_indirect_branch_1 XFAIL
 gimpel_triage class6 (ONCE): mode-divergent on the self-modifying CONVERT(...,'EXPRESSION')-built indirect self-reference. m3 matches FINDING-2026-08-27-seat10 rank6 exactly (Error 22, undefined function called, rc=1); m4 now refuses to compile rather than the FINDING's recorded SIGSEGV -- apparent drift since 2026-08-27, worth a note to whoever re-triages this class, not re-diagnosed fresh here.
-*------------------------------------ 1838 arbno_arb_rpos_replace_branch_1 XFAIL
-Tracked probe/fuzz crash corpus (fz_red_m3_arbno_nullalt_gen); see FINDING-2026-08-20-s189 (fuzz-diff-batch, two classes) and successors. Known, still open.
 *----------------------------------- 1839 fence_span_rpos_replace_branch_1 XFAIL
 Tracked probe/fuzz crash corpus (fz_red_m2_breach_m3only); see FINDING-2026-08-20-s188/s189 series. Known, still open.
 *----------------------------------- 1840 arbno_fence_pos_replace_branch_2 XFAIL
@@ -60,8 +58,6 @@ probe_passthru (ptw class): reproduces beauty's own Commands = *Command FENCE(*C
 probe_passthru (ptw class, ptw_min_defer2_hang): a stored/deferred ARBNO pattern (*G1) anchored by RPOS(0) hangs instead of cleanly failing. Active, documented passthru correctness campaign (ARCH-PASSTHRU.md); deliberately red.
 *------------------------------------- 1844 arbno_bal_tab_replace_branch_1 XFAIL
 Tracked probe/fuzz crash corpus (fz_segv_24); m3/m4 mode-divergent (FAIL/CRASH). See FINDING-2026-08-20-s188/s189 series (own-noise caveat: fz_segv_24 was separately measured as a flaky, non-deterministic signal across repeated runs of one binary -- read any single run here as one draw, not a verdict). Known, still open.
-*------------------------------------ 1845 arbno_arb_rpos_replace_branch_2 XFAIL
-Tracked probe/fuzz crash corpus (fz_segv_17). See FINDING-2026-08-20-s188 (eleven-fuzz-segvs, four mechanisms). Known, still open.
 *------------------------------------ 1846 fence_arb_span_replace_branch_1 XFAIL
 Tracked probe/fuzz crash corpus (fz_red_m2b_fence_cap_nullalt). See FINDING-2026-08-20-s188/s189 series. Known, still open.
 *------------------------------------- 1847 fence_arb_tab_replace_branch_1 XFAIL
