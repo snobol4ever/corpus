@@ -1561,11 +1561,92 @@ t
 	a = 1
 	:(RETURN)
 end
-*------------------------------------------------------------------------ 54 str
+*----------------------------------------------------------------------- 54 spit
+*	test SPITBOL (-PLUSOPS) operators added in [PLB32]
+
+	&TRACE = 100
+	TRACE(.a, .value)
+	TRACE(.b, .value)
+	TRACE(.c, .value)
+
+	c = 'yes'
+
+-PLUSOPS 1
+
+****************
+*	embeded assign, tracing thereof
+	a = (b = c '!!')
+	OUTPUT = a
+	OUTPUT = b
+
+****************
+*	exponents on reals (not an operator)
+	OUTPUT = 4.2e1
+	OUTPUT = 50.e-3
+
+****************
+*	nested table/array access
+	tt = TABLE()
+	tt['blue'] = TABLE()
+	tt<'blue'><'green'> = 'cyan'
+	OUTPUT = tt<'blue'>['green']
+*
+****************
+*	'numeric' conversion
+	x = CONVERT('17', .numeric)
+	OUTPUT = DATATYPE(x) ': ' x
+
+	x = CONVERT('3.14159', .numeric)
+	OUTPUT = DATATYPE(x) ': ' x
+
+****************
+*	alternation
+
+	DEFINE("x()")
+	DEFINE("y()")
+	DEFINE("z()")					:(ez)
+x	OUTPUT = 'TOO BIG'				:(FRETURN)
+y	OUTPUT = 'too small'				:(FRETURN)
+z	OUTPUT = 'Just Right'				:(RETURN)
+ez
+
+	(x(), y(), z(), death())
+
+****************
+*	match operator
+	a = b = 'yes!!'
+
+	(a ? b . c)					:f(END)
+	(a ? b $ c)					:f(END)
+
+****************
+*	tracing of match assign, replace
+	a b . c
+	a b $ c
+	a ? b . c
+	a ? b $ c
+
+****************************************************************
+* not yet working;
+
+	p = 'yes'
+* either of next two cause "Variable not present where required" err
+	b p =
+*	b 'yes' =
+
+*	variable not present...
+	(a ? '!!' = '')
+
+****************
+*	the very end
+	OUTPUT = 'all done'
+
+END
+*------------------------------------------------------------------------ 55 str
 	a = 'hello world'
 	OUTPUT = a
 END
-*--------------------------------------------------------------------- 55 substr
+*--------------------------------------------------------------------- 56 substr
 	S = "hello world"
 	M = SIZE(S)
 
@@ -1577,7 +1658,7 @@ LOOP	OUTPUT = O ',' L ': "' SUBSTR(S,O,L) '"'
 	O = O + 1
 	LE(O,M)						:S(LLOOP)
 END
-*--------------------------------------------------------------------- 56 sudoku
+*--------------------------------------------------------------------- 57 sudoku
 * Sudoku solving program written in the SNOBOL4 programming language
 * Look at end for sample input
 
@@ -1789,7 +1870,7 @@ STOP
 64-----2-
 --7----19
 
-*--------------------------------------------------------------------- 57 trace1
+*--------------------------------------------------------------------- 58 trace1
         &TRACE = 10
         TRACE('foo')
         foo = 1
@@ -1797,7 +1878,7 @@ STOP
         foo = 3
         FOO = 4
 END
-*--------------------------------------------------------------------- 58 trace2
+*--------------------------------------------------------------------- 59 trace2
 -CASE 0
         &TRACE = 10
         TRACE('foo')
@@ -1806,19 +1887,53 @@ END
         foo = 3
         FOO = 4
 END
-*--------------------------------------------------------------------- 59 uneval
+*--------------------------------------------------------------------- 60 trfunc
+	DEFINE('A()')
+	DEFINE('B()')
+	DEFINE('C()')
+
+	DEFINE('D()')
+	DEFINE('E()')
+	DEFINE('F()')
+
+	TRACE(.A, "F")
+	TRACE(.B, "C")
+	TRACE(.C, "R")
+
+	TRACE(.D, "FUNCTION")
+	TRACE(.E, "CALL")
+	TRACE(.F, "RETURN")
+
+	&TRACE = 100
+	A()
+	B()
+	C()
+	D()
+	E()
+	F()
+	:(END)
+
+A	A = 1	:(RETURN)
+B	B = 1	:(RETURN)
+C	C = 1	:(RETURN)
+D	D = 1	:(RETURN)
+E	E = 1	:(RETURN)
+F	F = 1	:(RETURN)
+
+END
+*--------------------------------------------------------------------- 61 uneval
 	&ANCHOR = 1
 	H = 'H'
 	'HELLO' *H 'ELLO'				:F(END)
 	OUTPUT = 'YES!!'
 END
-*----------------------------------------------------------------------- 60 unsc
+*----------------------------------------------------------------------- 62 unsc
         STR = '12 x 23434 x 123'
         P = SPAN('0123456789')
 
 	STR (*P $ OUTPUT) FAIL
 END
-*---------------------------------------------------------------------- 61 words
+*---------------------------------------------------------------------- 63 words
 *   WORDS.SNO -- word counting program
 *
 *	Sample program from Chapter 6 of the Tutorial
@@ -1856,7 +1971,7 @@ this
 is
 a
 test
-*--------------------------------------------------------------------- 62 words1
+*--------------------------------------------------------------------- 64 words1
 *   WORDS.SNO -- word counting program
 *
 *	Sample program from Chapter 6 of the Tutorial

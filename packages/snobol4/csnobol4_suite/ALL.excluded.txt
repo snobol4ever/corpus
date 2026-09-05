@@ -57,11 +57,9 @@ setexit7: oracle died: graceful fatal report (e.g. undefined function) -- no gro
 sleep: missing corpus dependency: -INCLUDE '../modules/time/time.sno' not vendored anywhere in corpus
 space: oracle produced EMPTY output -- refusing to mint a vacuous ref
 space2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-spit: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
 t: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
 tab: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
 time: missing corpus dependency: -INCLUDE '../modules/time/time.sno' not vendored anywhere in corpus
-trfunc: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
 trim0: oracle produced EMPTY output -- refusing to mint a vacuous ref
 trim1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 uneval2: oracle produced EMPTY output -- refusing to mint a vacuous ref

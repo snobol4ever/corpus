@@ -1,0 +1,31 @@
+btrees: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+concord: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+cxtrace: oracle produced EMPTY output -- refusing to mint a vacuous ref
+diffwrds: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+geddump: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+htprep: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+kross: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+lgint: oracle timed out -- non-terminating or too slow for the grading timeout
+link1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+link2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+load1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+load2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+loadfunc: oracle produced EMPTY output -- refusing to mint a vacuous ref
+meander: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+prefix: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+prepro: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+profsum: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+proto: oracle produced EMPTY output -- refusing to mint a vacuous ref
+recogn: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+roman: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+tgrlink: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
+toby: oracle timed out -- non-terminating or too slow for the grading timeout
+tpp: oracle produced EMPTY output -- refusing to mint a vacuous ref
+tpp1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+tpp2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+tpp3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+tpp4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+tpp5: oracle produced EMPTY output -- refusing to mint a vacuous ref
+traceback: oracle produced EMPTY output -- refusing to mint a vacuous ref
+tracing: oracle produced EMPTY output -- refusing to mint a vacuous ref
+wordcnt: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output

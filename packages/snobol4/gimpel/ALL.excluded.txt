@@ -37,7 +37,6 @@ FLOOR: oracle produced EMPTY output -- refusing to mint a vacuous ref
 FORTPUT: oracle produced EMPTY output -- refusing to mint a vacuous ref
 FORTREAD: oracle produced EMPTY output -- refusing to mint a vacuous ref
 FPROFILE: oracle produced EMPTY output -- refusing to mint a vacuous ref
-FPROFILE_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
 FRSORT_driver: missing corpus dependency: -INCLUDE 'stringout.sno' not vendored anywhere in corpus
 FTRACE: oracle produced EMPTY output -- refusing to mint a vacuous ref
 FTRACE_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
@@ -156,7 +155,6 @@ TICTACTO: oracle produced EMPTY output -- refusing to mint a vacuous ref
 TIMEGC: missing corpus dependency: -INCLUDE 'resolution.sno' not vendored anywhere in corpus
 TIMER: missing corpus dependency: -INCLUDE 'system.inc' not vendored anywhere in corpus
 TPROFILE: oracle produced EMPTY output -- refusing to mint a vacuous ref
-TPROFILE_driver: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
 TR: oracle produced EMPTY output -- refusing to mint a vacuous ref
 TREE: oracle produced EMPTY output -- refusing to mint a vacuous ref
 TREEREAD: oracle produced EMPTY output -- refusing to mint a vacuous ref
