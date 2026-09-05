@@ -1,40 +1,83 @@
+# MODES.tsv — the DECLARED grading mode per family. hq_C FORMAT RULING (TRIO 2026-08-29):
+# DECLARED, NEVER DERIVED. A family absent from this file is UNKNOWN, which is UNPROVEN at
+# grading time — never PASS, never FAIL — and is reported loudly by the builder.
+# ⛔ Do NOT populate this by pattern-matching family names. The mode is a property of THE RUNNER;
+# record what a runner actually does, with the runner named, or leave the family out.
+#
+# ⛔⭐ COLUMN 1 IS THE `family` COLUMN OF ALL.csv, NOT `origin` (hq_C 2026-09-05). read_modes_decl()
+# keys on family, so an origin-shaped key matches NOTHING and declares NOTHING while reading, to any
+# human opening the file, as a declaration. 37 of the 39 keys here were origin-shaped and therefore
+# inert: the file claimed 39 declared families and bound 2. They are re-keyed below, each to the
+# family its origin actually belongs to (ALL.csv, no renames involved, no conflicts).
+# ⭐ AN ORPHANED KEY IS WORSE THAN AN ABSENT ONE. An absent family is UNKNOWN and says so; an
+# orphaned key is UNKNOWN that looks answered, so nobody goes looking. util_build_master_suite.py
+# now REPORTS every key that matches no family, which is why this can be seen at all.
+#
 # family	modes	(evidence)
-benchmark_prolog_crypt__crypt	m3,m4
-benchmark_prolog_ham__ham	m3,m4
-benchmark_prolog_meta_qsort__meta_qsort	m3,m4
-benchmark_prolog_mu__mu	m3,m4
-benchmark_prolog_nrev__nrev	m3,m4
-benchmark_prolog_nreverse__nreverse	m3,m4
-benchmark_prolog_qsort__qsort	m3,m4
-benchmark_prolog_queens_8__queens_8	m3,m4
-benchmark_prolog_queens__queens	m3,m4
-benchmark_prolog_queensn__queensn	m3,m4
-benchmark_prolog_query__query	m3,m4
-benchmark_prolog_witness_depth_nrev8__witness_depth_nrev8	m3,m4
-benchmark_prolog_zebra__zebra	m3,m4
-ladder	m3,m4	# SCRIP/scripts/test_prolog_ladder.sh runs each ladder__rungNN_* entry ALONE in m3 (scrip --run) and m4 (scrip --compile + as + gcc + run), stdout vs .ref and rc vs ALL.wantrc; the trace arm is test_gate_pl_port_trace.sh
-parser	ast	# SCRIP/scripts/test_prolog_parser_fixtures.sh grades parser.pl via `scrip --dump-ast`, diffed per entry
-scrip_test_prolog_coverage_net_gaps__coverage_net_gaps	m3,m4
-scrip_test_prolog_coverage_pl_nodes__coverage_pl_nodes	m3,m4
-scrip_test_prolog_hello__hello	m3,m4
-scrip_test_prolog_palindrome__palindrome	m3,m4
-scrip_test_prolog_roman__roman	m3,m4
-scrip_test_prolog_wordcount__wordcount	m3,m4
-test_prolog_coverage_net_gaps__coverage_net_gaps	m3,m4
-test_prolog_coverage_pl_nodes__coverage_pl_nodes	m3,m4
-test_prolog_rung10_programs_puzzle_02__rung10_programs_puzzle_02	m3,m4
-test_prolog_rung10_programs_puzzle_03__rung10_programs_puzzle_03	m3,m4
-test_prolog_rung10_programs_puzzle_04__rung10_programs_puzzle_04	m3,m4
-test_prolog_rung10_programs_puzzle_06__rung10_programs_puzzle_06	m3,m4
-test_prolog_rung10_programs_puzzle_07__rung10_programs_puzzle_07	m3,m4
-test_prolog_rung10_programs_puzzle_08__rung10_programs_puzzle_08	m3,m4
-test_prolog_rung10_programs_puzzle_10__rung10_programs_puzzle_10	m3,m4
-test_prolog_rung10_programs_puzzle_11__rung10_programs_puzzle_11	m3,m4
-test_prolog_rung10_programs_puzzle_12__rung10_programs_puzzle_12	m3,m4
-test_prolog_rung10_programs_puzzle_13__rung10_programs_puzzle_13	m3,m4
-test_prolog_rung10_programs_puzzle_14__rung10_programs_puzzle_14	m3,m4
-test_prolog_rung10_programs_puzzle_15__rung10_programs_puzzle_15	m3,m4
-test_prolog_rung10_programs_puzzle_16__rung10_programs_puzzle_16	m3,m4
-test_prolog_rung10_programs_puzzle_17__rung10_programs_puzzle_17	m3,m4
-test_prolog_rung10_programs_puzzle_18__rung10_programs_puzzle_18	m3,m4
-test_prolog_rung10_programs_puzzle_20__rung10_programs_puzzle_20	m3,m4
+benchmark_prolog_crypt	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `benchmark_prolog_crypt__crypt`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+benchmark_prolog_ham	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `benchmark_prolog_ham__ham`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+benchmark_prolog_meta_qsort	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `benchmark_prolog_meta_qsort__meta_qsort`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+benchmark_prolog_mu	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `benchmark_prolog_mu__mu`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+benchmark_prolog_nrev	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `benchmark_prolog_nrev__nrev`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+benchmark_prolog_nreverse	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `benchmark_prolog_nreverse__nreverse`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+benchmark_prolog_qsort	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `benchmark_prolog_qsort__qsort`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+benchmark_prolog_queens	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `benchmark_prolog_queens__queens`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+benchmark_prolog_queens_8	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `benchmark_prolog_queens_8__queens_8`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+benchmark_prolog_queensn	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `benchmark_prolog_queensn__queensn`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+benchmark_prolog_query	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `benchmark_prolog_query__query`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+benchmark_prolog_witness_depth_nrev8	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `benchmark_prolog_witness_depth_nrev8__witness_depth_nrev8`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+benchmark_prolog_zebra	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `benchmark_prolog_zebra__zebra`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+ladder	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `ladder__rung00_hello`; modes preserved verbatim from that line, family from ALL.csv (240 entries)
+parser	ast	# re-keyed 2026-09-05 from the inert origin-shaped key `parser__anon_in_body`; modes preserved verbatim from that line, family from ALL.csv (134 entries)
+rung12_atom_builtins	m3	# SCRIP/scripts/test_prolog_rung12.sh declares FAMILY=rung12_atom_builtins and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (5 entries)
+rung13_assertz	m3	# SCRIP/scripts/test_prolog_rung13.sh declares FAMILY=rung13_assertz and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (1 entries)
+rung14_retract	m3	# SCRIP/scripts/test_prolog_rung14.sh declares FAMILY=rung14_retract and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (2 entries)
+rung15_abolish	m3	# SCRIP/scripts/test_prolog_rung15.sh declares FAMILY=rung15_abolish and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (1 entries)
+rung16_atop	m3	# SCRIP/scripts/test_prolog_rung16.sh declares FAMILY=rung16_atop and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (5 entries)
+rung17_sort	m3	# SCRIP/scripts/test_prolog_rung17.sh declares FAMILY=rung17_sort and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (5 entries)
+rung18_succ_plus	m3	# SCRIP/scripts/test_prolog_rung18.sh declares FAMILY=rung18_succ_plus and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (5 entries)
+rung19_format	m3	# SCRIP/scripts/test_prolog_rung19.sh declares FAMILY=rung19_format and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (5 entries)
+rung20_numbervars	m3	# SCRIP/scripts/test_prolog_rung20.sh declares FAMILY=rung20_numbervars and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (5 entries)
+rung21_char_type	m3	# SCRIP/scripts/test_prolog_rung21.sh declares FAMILY=rung21_char_type and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (5 entries)
+rung22	m3	# SCRIP/scripts/test_prolog_rung_22.sh declares FAMILY=rung22 and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (5 entries)
+rung23	m3	# SCRIP/scripts/test_prolog_rung_23.sh declares FAMILY=rung23 and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (5 entries)
+rung24	m3	# SCRIP/scripts/test_prolog_rung_24.sh declares FAMILY=rung24 and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (5 entries)
+rung25	m3	# SCRIP/scripts/test_prolog_rung_25.sh declares FAMILY=rung25 and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (5 entries)
+rung26	m3	# SCRIP/scripts/test_prolog_rung26.sh declares FAMILY=rung26 and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (5 entries)
+rung27	m3,m4	# SCRIP/scripts/test_prolog_rung27.sh declares FAMILY=rung27 and grades it via corpus_suite_harness.py run --lang prolog --modes m3,m4 (5 entries)
+rung28	m3,m4	# SCRIP/scripts/test_prolog_rung28.sh declares FAMILY=rung28 and grades it via corpus_suite_harness.py run --lang prolog --modes m3,m4 (5 entries)
+rung29	m3	# SCRIP/scripts/test_prolog_rung29.sh declares FAMILY=rung29 and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (5 entries)
+rung30	m3	# SCRIP/scripts/test_prolog_rung30.sh declares FAMILY=rung30 and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (4 entries)
+rung31_bridge_catch	m3,m4	# SCRIP/scripts/test_prolog_rung31_bridge_catch.sh declares FAMILY=rung31_bridge_catch and grades it via corpus_suite_harness.py run --lang prolog --modes m3,m4 (3 entries)
+rung32_bridge_negation	m3,m4	# SCRIP/scripts/test_prolog_rung32_bridge_negation.sh declares FAMILY=rung32_bridge_negation and grades it via corpus_suite_harness.py run --lang prolog --modes m3,m4 (5 entries)
+rung33_bridge_callN	m3,m4	# SCRIP/scripts/test_prolog_rung33_bridge_callN.sh declares FAMILY=rung33_bridge_callN and grades it via corpus_suite_harness.py run --lang prolog --modes m3,m4 (4 entries)
+rung34_bridge_setof	m3,m4	# SCRIP/scripts/test_prolog_rung34_bridge_setof.sh declares FAMILY=rung34_bridge_setof and grades it via corpus_suite_harness.py run --lang prolog --modes m3,m4 (1 entries)
+rung35_bridge_setup	m3,m4	# SCRIP/scripts/test_prolog_rung35_bridge_setup.sh declares FAMILY=rung35_bridge_setup and grades it via corpus_suite_harness.py run --lang prolog --modes m3,m4 (5 entries)
+rung36_arith_edge	m3	# SCRIP/scripts/test_prolog_rung36_arith_edge.sh declares FAMILY=rung36_arith_edge and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (5 entries)
+rung37_term_ops	m3	# SCRIP/scripts/test_prolog_rung37_term_ops.sh declares FAMILY=rung37_term_ops and grades it via corpus_suite_harness.py run --lang prolog --modes m3 (5 entries)
+rung38_iso_errors	m3,m4	# SCRIP/scripts/test_prolog_rung38_iso_errors.sh declares FAMILY=rung38_iso_errors and grades it via corpus_suite_harness.py run --lang prolog --modes m3,m4 (4 entries)
+rung39_atom_iso	m3,m4	# SCRIP/scripts/test_prolog_rung39_atom_iso.sh declares FAMILY=rung39_atom_iso and grades it via corpus_suite_harness.py run --lang prolog --modes m3,m4 (5 entries)
+scrip_test_prolog_coverage_net_gaps	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `scrip_test_prolog_coverage_net_gaps__coverage_net_gaps`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+scrip_test_prolog_coverage_pl_nodes	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `scrip_test_prolog_coverage_pl_nodes__coverage_pl_nodes`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+scrip_test_prolog_hello	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `scrip_test_prolog_hello__hello`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+scrip_test_prolog_palindrome	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `scrip_test_prolog_palindrome__palindrome`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+scrip_test_prolog_roman	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `scrip_test_prolog_roman__roman`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+scrip_test_prolog_wordcount	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `scrip_test_prolog_wordcount__wordcount`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_coverage_net_gaps	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_coverage_net_gaps__coverage_net_gaps`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_coverage_pl_nodes	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_coverage_pl_nodes__coverage_pl_nodes`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_rung10_programs_puzzle_02	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_02__rung10_programs_puzzle_02`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_rung10_programs_puzzle_03	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_03__rung10_programs_puzzle_03`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_rung10_programs_puzzle_04	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_04__rung10_programs_puzzle_04`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_rung10_programs_puzzle_06	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_06__rung10_programs_puzzle_06`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_rung10_programs_puzzle_07	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_07__rung10_programs_puzzle_07`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_rung10_programs_puzzle_08	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_08__rung10_programs_puzzle_08`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_rung10_programs_puzzle_10	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_10__rung10_programs_puzzle_10`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_rung10_programs_puzzle_11	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_11__rung10_programs_puzzle_11`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_rung10_programs_puzzle_12	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_12__rung10_programs_puzzle_12`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_rung10_programs_puzzle_13	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_13__rung10_programs_puzzle_13`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_rung10_programs_puzzle_14	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_14__rung10_programs_puzzle_14`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_rung10_programs_puzzle_15	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_15__rung10_programs_puzzle_15`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_rung10_programs_puzzle_16	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_16__rung10_programs_puzzle_16`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_rung10_programs_puzzle_17	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_17__rung10_programs_puzzle_17`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_rung10_programs_puzzle_18	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_18__rung10_programs_puzzle_18`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
+test_prolog_rung10_programs_puzzle_20	m3,m4	# re-keyed 2026-09-05 from the inert origin-shaped key `test_prolog_rung10_programs_puzzle_20__rung10_programs_puzzle_20`; modes preserved verbatim from that line, family from ALL.csv (1 entries)
