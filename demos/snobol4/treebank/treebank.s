@@ -1639,6 +1639,9 @@ main:
                         lea              rdi, [rip + __gva_names]
                         mov              edx, 50
                         call             gva_register@PLT
+                        lea              rdi, [rip + __label_names]
+                        mov              esi, 32
+                        call             rt_label_table_install@PLT
                         mov              rdi, qword ptr [rsp]
                         add              rdi, 8
                         mov              esi, dword ptr [rsp + 8]
@@ -1752,6 +1755,75 @@ __gva_names:
                         .quad            .Lgvan47
                         .quad            .Lgvan48
                         .quad            .Lgvan49
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .section         .rodata
+.Llbln0:                .string          "ListValue"
+.Llbln1:                .string          "ListName"
+.Llbln2:                .string          "ListAppend"
+.Llbln3:                .string          "ListPrepend"
+.Llbln4:                .string          "ListInsert"
+.Llbln5:                .string          "ListInsert1"
+.Llbln6:                .string          "ListInsert2"
+.Llbln7:                .string          "ListInsert4"
+.Llbln8:                .string          "ListInsert5"
+.Llbln9:                .string          "ListInsert6"
+.Llbln10:               .string          "ListInsert7"
+.Llbln11:               .string          "ListInsert8"
+.Llbln12:               .string          "ListInsert9"
+.Llbln13:               .string          "ListRemove"
+.Llbln14:               .string          "ListRemove1"
+.Llbln15:               .string          "ListRemove2"
+.Llbln16:               .string          "ListPop"
+.Llbln17:               .string          "ListSize"
+.Llbln18:               .string          "ListEnd"
+.Llbln19:               .string          "Init_list"
+.Llbln20:               .string          "Push_list"
+.Llbln21:               .string          "Push_item"
+.Llbln22:               .string          "Pop_list"
+.Llbln23:               .string          "Pop_final"
+.Llbln24:               .string          "init_list"
+.Llbln25:               .string          "push_list"
+.Llbln26:               .string          "push_item"
+.Llbln27:               .string          "pop_list"
+.Llbln28:               .string          "pop_final"
+.Llbln29:               .string          "StackEnd"
+.Llbln30:               .string          "error"
+.Llbln31:               .string          "END"
+                        .align           8
+__label_names:
+                        .quad            .Llbln0
+                        .quad            .Llbln1
+                        .quad            .Llbln2
+                        .quad            .Llbln3
+                        .quad            .Llbln4
+                        .quad            .Llbln5
+                        .quad            .Llbln6
+                        .quad            .Llbln7
+                        .quad            .Llbln8
+                        .quad            .Llbln9
+                        .quad            .Llbln10
+                        .quad            .Llbln11
+                        .quad            .Llbln12
+                        .quad            .Llbln13
+                        .quad            .Llbln14
+                        .quad            .Llbln15
+                        .quad            .Llbln16
+                        .quad            .Llbln17
+                        .quad            .Llbln18
+                        .quad            .Llbln19
+                        .quad            .Llbln20
+                        .quad            .Llbln21
+                        .quad            .Llbln22
+                        .quad            .Llbln23
+                        .quad            .Llbln24
+                        .quad            .Llbln25
+                        .quad            .Llbln26
+                        .quad            .Llbln27
+                        .quad            .Llbln28
+                        .quad            .Llbln29
+                        .quad            .Llbln30
+                        .quad            .Llbln31
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------

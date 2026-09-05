@@ -5042,6 +5042,9 @@ main:
                         lea              rdi, [rip + __gva_names]
                         mov              edx, 115
                         call             gva_register@PLT
+                        lea              rdi, [rip + __label_names]
+                        mov              esi, 45
+                        call             rt_label_table_install@PLT
                         mov              rdi, qword ptr [rsp]
                         add              rdi, 8
                         mov              esi, dword ptr [rsp + 8]
@@ -5285,6 +5288,101 @@ __gva_names:
                         .quad            .Lgvan112
                         .quad            .Lgvan113
                         .quad            .Lgvan114
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .section         .rodata
+.Llbln0:                .string          "hxlp"
+.Llbln1:                .string          "hxdone"
+.Llbln2:                .string          "jutf8"
+.Llbln3:                .string          "jutf8_2"
+.Llbln4:                .string          "jutf8_3"
+.Llbln5:                .string          "jutf8_end"
+.Llbln6:                .string          "jdec"
+.Llbln7:                .string          "jdec_lp"
+.Llbln8:                .string          "jdec_u"
+.Llbln9:                .string          "jdec_done"
+.Llbln10:               .string          "jdec_fast"
+.Llbln11:               .string          "jdec_end"
+.Llbln12:               .string          "vpush"
+.Llbln13:               .string          "voflo"
+.Llbln14:               .string          "vpush_end"
+.Llbln15:               .string          "pobj"
+.Llbln16:               .string          "pobj_end"
+.Llbln17:               .string          "parr"
+.Llbln18:               .string          "parr_end"
+.Llbln19:               .string          "ekey"
+.Llbln20:               .string          "ekey_end"
+.Llbln21:               .string          "eobj"
+.Llbln22:               .string          "eobj_lp"
+.Llbln23:               .string          "eobj_empty"
+.Llbln24:               .string          "eobj_fin"
+.Llbln25:               .string          "eobj_end"
+.Llbln26:               .string          "earr"
+.Llbln27:               .string          "earr_lp"
+.Llbln28:               .string          "earr_empty"
+.Llbln29:               .string          "earr_fin"
+.Llbln30:               .string          "earr_end"
+.Llbln31:               .string          "estr"
+.Llbln32:               .string          "estr_end"
+.Llbln33:               .string          "enum"
+.Llbln34:               .string          "enum_real"
+.Llbln35:               .string          "enum_end"
+.Llbln36:               .string          "etru"
+.Llbln37:               .string          "etru_end"
+.Llbln38:               .string          "efal"
+.Llbln39:               .string          "efal_end"
+.Llbln40:               .string          "enul"
+.Llbln41:               .string          "enul_end"
+.Llbln42:               .string          "slurped"
+.Llbln43:               .string          "fail"
+.Llbln44:               .string          "END"
+                        .align           8
+__label_names:
+                        .quad            .Llbln0
+                        .quad            .Llbln1
+                        .quad            .Llbln2
+                        .quad            .Llbln3
+                        .quad            .Llbln4
+                        .quad            .Llbln5
+                        .quad            .Llbln6
+                        .quad            .Llbln7
+                        .quad            .Llbln8
+                        .quad            .Llbln9
+                        .quad            .Llbln10
+                        .quad            .Llbln11
+                        .quad            .Llbln12
+                        .quad            .Llbln13
+                        .quad            .Llbln14
+                        .quad            .Llbln15
+                        .quad            .Llbln16
+                        .quad            .Llbln17
+                        .quad            .Llbln18
+                        .quad            .Llbln19
+                        .quad            .Llbln20
+                        .quad            .Llbln21
+                        .quad            .Llbln22
+                        .quad            .Llbln23
+                        .quad            .Llbln24
+                        .quad            .Llbln25
+                        .quad            .Llbln26
+                        .quad            .Llbln27
+                        .quad            .Llbln28
+                        .quad            .Llbln29
+                        .quad            .Llbln30
+                        .quad            .Llbln31
+                        .quad            .Llbln32
+                        .quad            .Llbln33
+                        .quad            .Llbln34
+                        .quad            .Llbln35
+                        .quad            .Llbln36
+                        .quad            .Llbln37
+                        .quad            .Llbln38
+                        .quad            .Llbln39
+                        .quad            .Llbln40
+                        .quad            .Llbln41
+                        .quad            .Llbln42
+                        .quad            .Llbln43
+                        .quad            .Llbln44
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------

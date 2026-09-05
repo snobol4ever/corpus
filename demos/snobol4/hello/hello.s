@@ -8,6 +8,9 @@ main:
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
+                        lea              rdi, [rip + __label_names]
+                        mov              esi, 1
+                        call             rt_label_table_install@PLT
                         mov              rdi, qword ptr [rsp]
                         add              rdi, 8
                         mov              esi, dword ptr [rsp + 8]
@@ -18,6 +21,13 @@ main:
                         xor              esi, esi
                         xor              r14d, r14d
                                                                               jmp   main_α
+                        .section         .rodata
+.Llbln0:                .string          "END"
+                        .align           8
+__label_names:
+                        .quad            .Llbln0
+                        .section         .text
+                        .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
 main_α_body:

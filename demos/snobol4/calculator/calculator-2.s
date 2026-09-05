@@ -2064,6 +2064,9 @@ main:
                         lea              rdi, [rip + __gva_names]
                         mov              edx, 41
                         call             gva_register@PLT
+                        lea              rdi, [rip + __label_names]
+                        mov              esi, 11
+                        call             rt_label_table_install@PLT
                         mov              rdi, qword ptr [rsp]
                         add              rdi, 8
                         mov              esi, dword ptr [rsp + 8]
@@ -2159,6 +2162,33 @@ __gva_names:
                         .quad            .Lgvan38
                         .quad            .Lgvan39
                         .quad            .Lgvan40
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .section         .rodata
+.Llbln0:                .string          "EMIT"
+.Llbln1:                .string          "PSH"
+.Llbln2:                .string          "DRF"
+.Llbln3:                .string          "ADD"
+.Llbln4:                .string          "SUB"
+.Llbln5:                .string          "MUL"
+.Llbln6:                .string          "DIV"
+.Llbln7:                .string          "SGN"
+.Llbln8:                .string          "FNS_end"
+.Llbln9:                .string          "bad"
+.Llbln10:               .string          "END"
+                        .align           8
+__label_names:
+                        .quad            .Llbln0
+                        .quad            .Llbln1
+                        .quad            .Llbln2
+                        .quad            .Llbln3
+                        .quad            .Llbln4
+                        .quad            .Llbln5
+                        .quad            .Llbln6
+                        .quad            .Llbln7
+                        .quad            .Llbln8
+                        .quad            .Llbln9
+                        .quad            .Llbln10
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------

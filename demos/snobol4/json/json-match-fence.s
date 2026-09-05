@@ -1972,6 +1972,9 @@ main:
                         lea              rdi, [rip + __gva_names]
                         mov              edx, 23
                         call             gva_register@PLT
+                        lea              rdi, [rip + __label_names]
+                        mov              esi, 2
+                        call             rt_label_table_install@PLT
                         mov              rdi, qword ptr [rsp]
                         add              rdi, 8
                         mov              esi, dword ptr [rsp + 8]
@@ -2031,6 +2034,15 @@ __gva_names:
                         .quad            .Lgvan20
                         .quad            .Lgvan21
                         .quad            .Lgvan22
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .section         .rodata
+.Llbln0:                .string          "error"
+.Llbln1:                .string          "END"
+                        .align           8
+__label_names:
+                        .quad            .Llbln0
+                        .quad            .Llbln1
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
