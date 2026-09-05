@@ -15,6 +15,9 @@ main:
                         lea              rdi, [rip + __gva_names]
                         mov              edx, 7
                         call             gva_register@PLT
+                        lea              rdi, [rip + __label_names]
+                        mov              esi, 6
+                        call             rt_label_table_install@PLT
                         mov              rdi, qword ptr [rsp]
                         add              rdi, 8
                         mov              esi, dword ptr [rsp + 8]
@@ -42,6 +45,23 @@ __gva_names:
                         .quad            .Lgvan4
                         .quad            .Lgvan5
                         .quad            .Lgvan6
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .section         .rodata
+.Llbln0:                .string          "ADD1"
+.Llbln1:                .string          "ADD1_END"
+.Llbln2:                .string          "INDIRECT_DISPATCH"
+.Llbln3:                .string          "ZBL"
+.Llbln4:                .string          "INDIRECT_DISPATCH_END"
+.Llbln5:                .string          "END"
+                        .align           8
+__label_names:
+                        .quad            .Llbln0
+                        .quad            .Llbln1
+                        .quad            .Llbln2
+                        .quad            .Llbln3
+                        .quad            .Llbln4
+                        .quad            .Llbln5
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------

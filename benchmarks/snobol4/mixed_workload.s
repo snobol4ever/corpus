@@ -109,6 +109,9 @@ main:
                         lea              rdi, [rip + __gva_names]
                         mov              edx, 12
                         call             gva_register@PLT
+                        lea              rdi, [rip + __label_names]
+                        mov              esi, 10
+                        call             rt_label_table_install@PLT
                         mov              rdi, qword ptr [rsp]
                         add              rdi, 8
                         mov              esi, dword ptr [rsp + 8]
@@ -146,6 +149,31 @@ __gva_names:
                         .quad            .Lgvan9
                         .quad            .Lgvan10
                         .quad            .Lgvan11
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .section         .rodata
+.Llbln0:                .string          "RSUM"
+.Llbln1:                .string          "RSUM_END"
+.Llbln2:                .string          "MIXED_WORKLOAD"
+.Llbln3:                .string          "ZBL"
+.Llbln4:                .string          "ZPARSE"
+.Llbln5:                .string          "ZCALC"
+.Llbln6:                .string          "ZADD"
+.Llbln7:                .string          "ZNEXT"
+.Llbln8:                .string          "MIXED_WORKLOAD_END"
+.Llbln9:                .string          "END"
+                        .align           8
+__label_names:
+                        .quad            .Llbln0
+                        .quad            .Llbln1
+                        .quad            .Llbln2
+                        .quad            .Llbln3
+                        .quad            .Llbln4
+                        .quad            .Llbln5
+                        .quad            .Llbln6
+                        .quad            .Llbln7
+                        .quad            .Llbln8
+                        .quad            .Llbln9
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------

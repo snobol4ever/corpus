@@ -14,6 +14,9 @@ main:
                         lea              rdi, [rip + __gva_names]
                         mov              edx, 14
                         call             gva_register@PLT
+                        lea              rdi, [rip + __label_names]
+                        mov              esi, 54
+                        call             rt_label_table_install@PLT
                         mov              rdi, qword ptr [rsp]
                         add              rdi, 8
                         mov              esi, dword ptr [rsp + 8]
@@ -55,6 +58,119 @@ __gva_names:
                         .quad            .Lgvan11
                         .quad            .Lgvan12
                         .quad            .Lgvan13
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .section         .rodata
+.Llbln0:                .string          "START"
+.Llbln1:                .string          "x5.start"
+.Llbln2:                .string          "x5.resume"
+.Llbln3:                .string          "x1.start"
+.Llbln4:                .string          "x1.resume"
+.Llbln5:                .string          "x2.start"
+.Llbln6:                .string          "x2.resume"
+.Llbln7:                .string          "to1.start"
+.Llbln8:                .string          "x1.fail"
+.Llbln9:                .string          "x2.fail"
+.Llbln10:               .string          "to1.code"
+.Llbln11:               .string          "to1.resume"
+.Llbln12:               .string          "x1.succeed"
+.Llbln13:               .string          "x2.succeed"
+.Llbln14:               .string          "x3.start"
+.Llbln15:               .string          "x3.resume"
+.Llbln16:               .string          "x4.start"
+.Llbln17:               .string          "x4.resume"
+.Llbln18:               .string          "to2.start"
+.Llbln19:               .string          "x3.fail"
+.Llbln20:               .string          "x4.fail"
+.Llbln21:               .string          "to2.code"
+.Llbln22:               .string          "to2.resume"
+.Llbln23:               .string          "x3.succeed"
+.Llbln24:               .string          "x4.succeed"
+.Llbln25:               .string          "mult.start"
+.Llbln26:               .string          "to1.fail"
+.Llbln27:               .string          "to2.fail"
+.Llbln28:               .string          "mult.resume"
+.Llbln29:               .string          "to1.succeed"
+.Llbln30:               .string          "to2.succeed"
+.Llbln31:               .string          "greater.start"
+.Llbln32:               .string          "x5.fail"
+.Llbln33:               .string          "mult.fail"
+.Llbln34:               .string          "greater.resume"
+.Llbln35:               .string          "x5.succeed"
+.Llbln36:               .string          "mult.succeed"
+.Llbln37:               .string          "write1.start"
+.Llbln38:               .string          "write1.resume"
+.Llbln39:               .string          "greater.fail"
+.Llbln40:               .string          "greater.succeed"
+.Llbln41:               .string          "write2.start"
+.Llbln42:               .string          "to3.resume"
+.Llbln43:               .string          "to3.code"
+.Llbln44:               .string          "write2.resume"
+.Llbln45:               .string          "to4.code"
+.Llbln46:               .string          "main1"
+.Llbln47:               .string          "write1.fail"
+.Llbln48:               .string          "write1.succeed"
+.Llbln49:               .string          "main2"
+.Llbln50:               .string          "write2.fail"
+.Llbln51:               .string          "write2.succeed"
+.Llbln52:               .string          "exception"
+.Llbln53:               .string          "END"
+                        .align           8
+__label_names:
+                        .quad            .Llbln0
+                        .quad            .Llbln1
+                        .quad            .Llbln2
+                        .quad            .Llbln3
+                        .quad            .Llbln4
+                        .quad            .Llbln5
+                        .quad            .Llbln6
+                        .quad            .Llbln7
+                        .quad            .Llbln8
+                        .quad            .Llbln9
+                        .quad            .Llbln10
+                        .quad            .Llbln11
+                        .quad            .Llbln12
+                        .quad            .Llbln13
+                        .quad            .Llbln14
+                        .quad            .Llbln15
+                        .quad            .Llbln16
+                        .quad            .Llbln17
+                        .quad            .Llbln18
+                        .quad            .Llbln19
+                        .quad            .Llbln20
+                        .quad            .Llbln21
+                        .quad            .Llbln22
+                        .quad            .Llbln23
+                        .quad            .Llbln24
+                        .quad            .Llbln25
+                        .quad            .Llbln26
+                        .quad            .Llbln27
+                        .quad            .Llbln28
+                        .quad            .Llbln29
+                        .quad            .Llbln30
+                        .quad            .Llbln31
+                        .quad            .Llbln32
+                        .quad            .Llbln33
+                        .quad            .Llbln34
+                        .quad            .Llbln35
+                        .quad            .Llbln36
+                        .quad            .Llbln37
+                        .quad            .Llbln38
+                        .quad            .Llbln39
+                        .quad            .Llbln40
+                        .quad            .Llbln41
+                        .quad            .Llbln42
+                        .quad            .Llbln43
+                        .quad            .Llbln44
+                        .quad            .Llbln45
+                        .quad            .Llbln46
+                        .quad            .Llbln47
+                        .quad            .Llbln48
+                        .quad            .Llbln49
+                        .quad            .Llbln50
+                        .quad            .Llbln51
+                        .quad            .Llbln52
+                        .quad            .Llbln53
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------

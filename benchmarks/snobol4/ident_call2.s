@@ -15,6 +15,9 @@ main:
                         lea              rdi, [rip + __gva_names]
                         mov              edx, 4
                         call             gva_register@PLT
+                        lea              rdi, [rip + __label_names]
+                        mov              esi, 4
+                        call             rt_label_table_install@PLT
                         mov              rdi, qword ptr [rsp]
                         add              rdi, 8
                         mov              esi, dword ptr [rsp + 8]
@@ -36,6 +39,19 @@ __gva_names:
                         .quad            .Lgvan1
                         .quad            .Lgvan2
                         .quad            .Lgvan3
+                        .section         .text
+                        .intel_syntax    noprefix
+                        .section         .rodata
+.Llbln0:                .string          "IDENT_CALL2"
+.Llbln1:                .string          "ZBL"
+.Llbln2:                .string          "IDENT_CALL2_END"
+.Llbln3:                .string          "END"
+                        .align           8
+__label_names:
+                        .quad            .Llbln0
+                        .quad            .Llbln1
+                        .quad            .Llbln2
+                        .quad            .Llbln3
                         .section         .text
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
