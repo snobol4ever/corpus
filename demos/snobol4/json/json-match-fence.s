@@ -660,7 +660,7 @@ n57_match_arbno_β:      mov              r11, 24
                         mov              r12, qword ptr [rbp + -40];          jmp   n60_match_defer_α
 .Lmatch_arbno_γ_57_as:  mov              r11, 24
                         mov              eax, dword ptr [rbp + -44]
-                        cmp              r14d, eax;                           je    n60_match_defer_β
+                        cmp              r14d, eax;                           je    n61_match_defer_β
                         mov              dword ptr [rbp + -44], r14d
                         mov              qword ptr [rbp + -40], r12;          jmp   n58_match_lit_α
 .Lmatch_arbno_γ_57_af:  mov              r11, 24

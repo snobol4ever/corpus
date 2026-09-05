@@ -1834,7 +1834,7 @@ n75_match_arbno_β:      mov              r11, 32
                         mov              r12, qword ptr [rbp + -40];          jmp   n77_match_defer_α
 .Lmatch_arbno_γ_75_as:  mov              r11, 32
                         mov              eax, dword ptr [rbp + -44]
-                        cmp              r14d, eax;                           je    n77_match_defer_β
+                        cmp              r14d, eax;                           je    n78_match_defer_β
                         mov              dword ptr [rbp + -44], r14d
                         mov              qword ptr [rbp + -40], r12;          jmp   n76_match_rpos_α
 .Lmatch_arbno_γ_75_af:  mov              r11, 32

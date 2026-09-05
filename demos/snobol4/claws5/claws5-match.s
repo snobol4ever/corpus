@@ -34,7 +34,7 @@ n1_match_arbno_β:       mov              r11, 2
                         mov              r12, qword ptr [rbp + -40];          jmp   n3_match_alternate_α
 .Lmatch_arbno_γ_1_as:   mov              r11, 2
                         mov              eax, dword ptr [rbp + -44]
-                        cmp              r14d, eax;                           je    n3_match_alternate_β
+                        cmp              r14d, eax;                           je    n4_match_span_β
                         mov              dword ptr [rbp + -44], r14d
                         mov              qword ptr [rbp + -40], r12;          jmp   n2_match_rpos_α
 .Lmatch_arbno_γ_1_af:   mov              r11, 2
@@ -747,7 +747,7 @@ n56_match_arbno_β:      mov              r11, 36
                         mov              r12, qword ptr [rbp + -56];          jmp   n60_match_alternate_α
 .Lmatch_arbno_γ_56_as:  mov              r11, 36
                         mov              eax, dword ptr [rbp + -60]
-                        cmp              r14d, eax;                           je    n60_match_alternate_β
+                        cmp              r14d, eax;                           je    n61_match_span_β
                         mov              dword ptr [rbp + -60], r14d
                         mov              qword ptr [rbp + -56], r12;          jmp   n57_match_rpos_α
 .Lmatch_arbno_γ_56_af:  mov              r11, 36

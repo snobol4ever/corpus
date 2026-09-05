@@ -612,7 +612,7 @@ n51_match_arbno_β:      mov              r11, 20
                         mov              r12, qword ptr [rbp + -40];          jmp   n52_match_defer_α
 .Lmatch_arbno_γ_51_as:  mov              r11, 20
                         mov              eax, dword ptr [rbp + -44]
-                        cmp              r14d, eax;                           je    n52_match_defer_β
+                        cmp              r14d, eax;                           je    n53_match_defer_β
                         mov              dword ptr [rbp + -44], r14d
                         mov              qword ptr [rbp + -40], r12;          jmp   PAT$3_γ
 .Lmatch_arbno_γ_51_af:  mov              r11, 20
@@ -3046,7 +3046,7 @@ n209_match_arbno_β:     mov              r11, 85
                         mov              r12, qword ptr [rbp + -104];         jmp   n210_match_lit_α
 .Lmatch_arbno_γ_209_as: mov              r11, 85
                         mov              eax, dword ptr [rbp + -108]
-                        cmp              r14d, eax;                           je    n210_match_lit_β
+                        cmp              r14d, eax;                           je    n211_match_defer_β
                         mov              dword ptr [rbp + -108], r14d
                         mov              qword ptr [rbp + -104], r12;         jmp   .Lmatch_alternate_γ_201_s0
 .Lmatch_arbno_γ_209_af: mov              r11, 85
@@ -3629,7 +3629,7 @@ n249_match_arbno_β:     mov              r11, 100
                         mov              r12, qword ptr [rbp + -104];         jmp   n250_match_lit_α
 .Lmatch_arbno_γ_249_as: mov              r11, 100
                         mov              eax, dword ptr [rbp + -108]
-                        cmp              r14d, eax;                           je    n250_match_lit_β
+                        cmp              r14d, eax;                           je    n251_match_defer_β
                         mov              dword ptr [rbp + -108], r14d
                         mov              qword ptr [rbp + -104], r12;         jmp   .Lmatch_alternate_γ_241_s0
 .Lmatch_arbno_γ_249_af: mov              r11, 100

@@ -1756,7 +1756,7 @@ n121_match_arbno_β:     mov              r11, 46
                         mov              r12, qword ptr [rbp + -40];          jmp   n123_match_defer_α
 .Lmatch_arbno_γ_121_as: mov              r11, 46
                         mov              eax, dword ptr [rbp + -44]
-                        cmp              r14d, eax;                           je    n123_match_defer_β
+                        cmp              r14d, eax;                           je    n126_match_defer_β
                         mov              dword ptr [rbp + -44], r14d
                         mov              qword ptr [rbp + -40], r12;          jmp   n122_match_rpos_α
 .Lmatch_arbno_γ_121_af: mov              r11, 46
