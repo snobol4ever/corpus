@@ -1942,3 +1942,19 @@ no
 no
 %------------------------------------------------------ 649 benchmark_meta_qsort
 ok
+%----------------------------------------- 650 rung01_rule_with_program_skeleton
+ready
+%---------------------------------------------- 651 rung01_unification_with_fact
+1-2
+%-------------------------------------------- 652 rung02_clause_choice_with_rule
+hello
+bonjour
+%------------------------------------- 653 rung03_disjunction_with_clause_choice
+left
+only
+%---------------------------------------------- 654 rung03_disjunction_with_rule
+axb
+%--------------------------------------------- 655 rung04_cut_with_clause_choice
+1
+%----------------------------------------------- 656 rung04_cut_with_disjunction
+nonzero

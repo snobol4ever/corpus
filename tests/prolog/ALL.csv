@@ -648,3 +648,10 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,findall,bagof,setof,forall,ass
 647,termops_directive_1,ladder__rung06_term_construct_sort,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,1,1,0,1,0,0,0
 648,functor_ite_univ_1,rung09__rung09_builtins_builtins,rung09,block,0,18,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,1,0,1,1,0,1,0,0,0
 649,benchmark_meta_qsort,benchmark_prolog_meta_qsort__meta_qsort,benchmark_prolog_meta_qsort,block,0,30,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,0,1,0,0,0,1,0,1,1,1,0,1,1,0,0,0
+650,rung01_rule_with_program_skeleton,ladder__rung01_rule_with_program_skeleton,ladder,block,0,3,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+651,rung01_unification_with_fact,ladder__rung01_unification_with_fact,ladder,block,0,3,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
+652,rung02_clause_choice_with_rule,ladder__rung02_clause_choice_with_rule,ladder,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+653,rung03_disjunction_with_clause_choice,ladder__rung03_disjunction_with_clause_choice,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+654,rung03_disjunction_with_rule,ladder__rung03_disjunction_with_rule,ladder,block,0,3,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+655,rung04_cut_with_clause_choice,ladder__rung04_cut_with_clause_choice,ladder,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0
+656,rung04_cut_with_disjunction,ladder__rung04_cut_with_disjunction,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0

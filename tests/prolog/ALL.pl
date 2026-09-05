@@ -4724,3 +4724,37 @@ define(qsort([],R,R),true).
 define(partition([X|L],Y,[X|L1],L2),(X=<Y,!,partition(L,Y,L1,L2))).
 define(partition([X|L],Y,L1,[X|L2]),(partition(L,Y,L1,L2))).
 define(partition([],_,[],[]),true).
+%----------------------------------------- 650 rung01_rule_with_program_skeleton
+:- initialization(main).
+banner :- write(ready), nl.
+main :- banner.
+%---------------------------------------------- 651 rung01_unification_with_fact
+:- initialization(main).
+point(1, 2).
+main :- point(X, Y), X = 1, write(X-Y), nl.
+%-------------------------------------------- 652 rung02_clause_choice_with_rule
+:- initialization(main).
+lang(en) :- write(hello), nl.
+lang(fr) :- write(bonjour), nl.
+main :- lang(_), fail.
+main :- true.
+%------------------------------------- 653 rung03_disjunction_with_clause_choice
+:- initialization(main).
+pick(a) :- (write(left) ; write(right)).
+pick(b) :- write(only).
+main :- pick(a), nl, pick(b), nl.
+%---------------------------------------------- 654 rung03_disjunction_with_rule
+:- initialization(main).
+combo :- write(a), (write(x) ; write(y)), write(b).
+main :- combo, nl.
+%--------------------------------------------- 655 rung04_cut_with_clause_choice
+:- initialization(main).
+first(1) :- !.
+first(2).
+first(3).
+main :- first(X), write(X), nl.
+%----------------------------------------------- 656 rung04_cut_with_disjunction
+:- initialization(main).
+test(X) :- (X > 0 ; X < 0), !, write(nonzero).
+test(_) :- write(zero).
+main :- test(5), nl.
