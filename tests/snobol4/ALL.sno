@@ -16103,7 +16103,7 @@ end
 -INCLUDE "BLANKS.sno"
         OUTPUT  =  BLANKS('X = A')
 END
-*--------------------------------------------------- 1770 simple_output_61 XFAIL
+*--------------------------------------------------- 1770 simple_output_61
 * SCRIP keeps label-scanning text physically AFTER a valid END statement; SPITBOL stops at END.
 * Two identical trailing lines here trigger a spurious "duplicate label" parse error in scrip.
 * Root cause behind csnobol4_suite/sudoku.sno, where the puzzle-grid text after END repeats a
