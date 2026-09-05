@@ -146,7 +146,7 @@ ROMAN_α:                sub              rsp, 80
                         lea              rax, [rip + ROMAN_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n3_statement_begin_α];   jmp   rax
+                        lea              rax, [rip + LBL__ROMAN];             jmp   rax
 ROMAN_γ:                mov              rdi, qword ptr [r9 + 0]              # ROMAN
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 48]
@@ -219,7 +219,7 @@ n3_statement_begin_bx:
 # ROMAN N RPOS(1) LEN(1) . UNITS =  :F(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 2 0
-n3_statement_begin_α:   mov              r11, 4
+LBL__ROMAN:             mov              r11, 4
                         mov              r10, 2;                              jmp   n4_var_α
 n3_statement_begin_β:   mov              r11, 4;                              jmp   RETURN
                         .size            n3_statement_begin_bx, .-n3_statement_begin_bx
@@ -1091,7 +1091,7 @@ TEST_α:                 sub              rsp, 80
                         lea              rax, [rip + TEST_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n40_statement_begin_α];  jmp   rax
+                        lea              rax, [rip + LBL__TEST];              jmp   rax
 TEST_γ:                 mov              rdi, qword ptr [r9 + 48]             # TEST
                         mov              rsi, qword ptr [r9 + 56]
                         mov              rcx, qword ptr [rsp + 32]
@@ -1182,7 +1182,7 @@ n40_statement_begin_bx:
 # TEST  OUTPUT = I ' -> ' ROMAN(I)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 7 0
-n40_statement_begin_α:  mov              r11, 41
+LBL__TEST:              mov              r11, 41
                         mov              r10, 7;                              jmp   n41_var_α
 n40_statement_begin_β:  mov              r11, 41;                             jmp   n49_statement_begin_α
                         .size            n40_statement_begin_bx, .-n40_statement_begin_bx
@@ -1502,7 +1502,7 @@ n56_statement_begin_bx:
                         .loc             1 9 0
 n56_statement_begin_α:  mov              r11, 57
                         mov              r10, 9;                              jmp   n57_var_α
-n56_statement_begin_β:  mov              r11, 57;                             jmp   n40_statement_begin_α
+n56_statement_begin_β:  mov              r11, 57;                             jmp   LBL__TEST
                         .size            n56_statement_begin_bx, .-n56_statement_begin_bx
                         .type            n57_var_bx, @function
 n57_var_bx:
@@ -1622,7 +1622,7 @@ n61_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n61_statement_end_α:    mov              r11, 62
                         mov              r10, 9
-                        add              rsp, 48;                             jmp   n40_statement_begin_α
+                        add              rsp, 48;                             jmp   LBL__TEST
                         .size            n61_statement_end_bx, .-n61_statement_end_bx
                         .type            n62_statement_begin_bx, @function
 n62_statement_begin_bx:
@@ -1959,7 +1959,7 @@ n83_statement_end_α:    mov              r11, 84
                         .type            n84_goto_bx, @function
 n84_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n84_goto_α:             mov              r11, 85;                             jmp   n3_statement_begin_α
+n84_goto_α:             mov              r11, 85;                             jmp   LBL__ROMAN
 n84_goto_β:             mov              r11, 85;                             jmp   main_ω
                         .size            n84_goto_bx, .-n84_goto_bx
                         .type            n85_goto_bx, @function
@@ -1971,7 +1971,7 @@ n85_goto_β:             mov              r11, 86;                             j
                         .type            n86_goto_bx, @function
 n86_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n86_goto_α:             mov              r11, 87;                             jmp   n40_statement_begin_α
+n86_goto_α:             mov              r11, 87;                             jmp   LBL__TEST
 n86_goto_β:             mov              r11, 87;                             jmp   main_ω
                         .size            n86_goto_bx, .-n86_goto_bx
                         .type            n87_goto_bx, @function
@@ -2028,6 +2028,44 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__ROMAN"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__ROMAN
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            1296
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname1:       .string          "LBL__TEST"
+                        .align           8
+.Lstartup_prec1:
+                        .quad            .Lstartup_pname1
+                        .quad            LBL__TEST
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            1296
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec1]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala2:               .string          "ROMAN"
                         .section         .text

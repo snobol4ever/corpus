@@ -1988,7 +1988,7 @@ ListValue_α:            sub              rsp, 80
                         lea              rax, [rip + ListValue_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n115_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__ListValue];         jmp   rax
 ListValue_γ:            mov              rdi, qword ptr [r9 + 0]              # ListValue
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2166,7 +2166,7 @@ ListName_α:             sub              rsp, 80
                         lea              rax, [rip + ListName_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n135_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__ListName];          jmp   rax
 ListName_γ:             mov              rdi, qword ptr [r9 + 48]             # ListName
                         mov              rsi, qword ptr [r9 + 56]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2344,7 +2344,7 @@ ListAppend_α:           sub              rsp, 80
                         lea              rax, [rip + ListAppend_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n154_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__ListAppend];        jmp   rax
 ListAppend_γ:           mov              rdi, qword ptr [r9 + 64]             # ListAppend
                         mov              rsi, qword ptr [r9 + 72]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2522,7 +2522,7 @@ ListPrepend_α:          sub              rsp, 80
                         lea              rax, [rip + ListPrepend_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n162_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__ListPrepend];       jmp   rax
 ListPrepend_γ:          mov              rdi, qword ptr [r9 + 96]             # ListPrepend
                         mov              rsi, qword ptr [r9 + 104]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2735,7 +2735,7 @@ ListInsert_α:           sub              rsp, 144
                         lea              rax, [rip + ListInsert_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n169_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__ListInsert];        jmp   rax
 ListInsert_γ:           mov              rdi, qword ptr [r9 + 112]            # ListInsert
                         mov              rsi, qword ptr [r9 + 120]
                         mov              rcx, qword ptr [rsp + 80]
@@ -2975,7 +2975,7 @@ ListRemove_α:           sub              rsp, 112
                         lea              rax, [rip + ListRemove_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n349_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__ListRemove];        jmp   rax
 ListRemove_γ:           mov              rdi, qword ptr [r9 + 176]            # ListRemove
                         mov              rsi, qword ptr [r9 + 184]
                         mov              rcx, qword ptr [rsp + 64]
@@ -3152,7 +3152,7 @@ ListPop_α:              sub              rsp, 64
                         lea              rax, [rip + ListPop_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n431_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__ListPop];           jmp   rax
 ListPop_γ:              mov              rdi, qword ptr [r9 + 192]            # ListPop
                         mov              rsi, qword ptr [r9 + 200]
                         mov              rcx, qword ptr [rsp + 32]
@@ -3287,7 +3287,7 @@ ListSize_α:             sub              rsp, 64
                         lea              rax, [rip + ListSize_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n438_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__ListSize];          jmp   rax
 ListSize_γ:             mov              rdi, qword ptr [r9 + 208]            # ListSize
                         mov              rsi, qword ptr [r9 + 216]
                         mov              rcx, qword ptr [rsp + 32]
@@ -3352,7 +3352,7 @@ n115_statement_begin_bx:
 # ListValue       place           =   LT(place, 0) n(x) + place
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 12 0
-n115_statement_begin_α: mov              r11, 64
+LBL__ListValue:         mov              r11, 64
                         mov              r10, 10;                             jmp   n116_var_α
 n115_statement_begin_β: mov              r11, 64;                             jmp   n127_statement_begin_α
                         .size            n115_statement_begin_bx, .-n115_statement_begin_bx
@@ -3802,7 +3802,7 @@ n135_statement_begin_bx:
 # ListName        place           =   LT(place, 0) n(x) + place
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 14 0
-n135_statement_begin_α: mov              r11, 84
+LBL__ListName:          mov              r11, 84
                         mov              r10, 12;                             jmp   n136_var_α
 n135_statement_begin_β: mov              r11, 84;                             jmp   n147_statement_begin_α
                         .size            n135_statement_begin_bx, .-n135_statement_begin_bx
@@ -4230,7 +4230,7 @@ n154_statement_begin_bx:
 # ListAppend      ListAppend      =   ListInsert(x, item, n(x))           :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 17 0
-n154_statement_begin_α: mov              r11, 103
+LBL__ListAppend:        mov              r11, 103
                         mov              r10, 14;                             jmp   n155_var_α
 n154_statement_begin_β: mov              r11, 103;                            jmp   RETURN
                         .size            n154_statement_begin_bx, .-n154_statement_begin_bx
@@ -4404,7 +4404,7 @@ n162_statement_begin_bx:
 # ListPrepend     ListPrepend     =   ListInsert(x, item, 0)              :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 19 0
-n162_statement_begin_α: mov              r11, 111
+LBL__ListPrepend:       mov              r11, 111
                         mov              r10, 15;                             jmp   n163_var_α
 n162_statement_begin_β: mov              r11, 111;                            jmp   RETURN
                         .size            n162_statement_begin_bx, .-n162_statement_begin_bx
@@ -4544,7 +4544,7 @@ n169_statement_begin_bx:
 # ListInsert      ListInsert      =   x
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 21 0
-n169_statement_begin_α: mov              r11, 118
+LBL__ListInsert:        mov              r11, 118
                         mov              r10, 16;                             jmp   n170_var_α
 n169_statement_begin_β: mov              r11, 118;                            jmp   n173_statement_begin_α
                         .size            n169_statement_begin_bx, .-n169_statement_begin_bx
@@ -8399,7 +8399,7 @@ n349_statement_begin_bx:
 # ListRemove      place           =   LT(place, 0) n(x) + place
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 41 0
-n349_statement_begin_α: mov              r11, 298
+LBL__ListRemove:        mov              r11, 298
                         mov              r10, 35;                             jmp   n350_var_α
 n349_statement_begin_β: mov              r11, 298;                            jmp   n361_statement_begin_α
                         .size            n349_statement_begin_bx, .-n349_statement_begin_bx
@@ -10164,7 +10164,7 @@ n431_statement_begin_bx:
 # ListPop         ListPop         =   ListRemove(x, -1)                   :S(RETURN)F(FRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 51 0
-n431_statement_begin_α: mov              r11, 380
+LBL__ListPop:           mov              r11, 380
                         mov              r10, 44;                             jmp   n432_var_α
 n431_statement_begin_β: mov              r11, 380;                            jmp   FRETURN
                         .size            n431_statement_begin_bx, .-n431_statement_begin_bx
@@ -10311,7 +10311,7 @@ n438_statement_begin_bx:
 # ListSize        ListSize        =   IDENT(a(x)) 0                       :S(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 53 0
-n438_statement_begin_α: mov              r11, 387
+LBL__ListSize:          mov              r11, 387
                         mov              r10, 45;                             jmp   n439_var_α
 n438_statement_begin_β: mov              r11, 387;                            jmp   n446_statement_begin_α
                         .size            n438_statement_begin_bx, .-n438_statement_begin_bx
@@ -10943,7 +10943,7 @@ Init_list_α:            sub              rsp, 64
                         lea              rax, [rip + Init_list_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n495_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__Init_list];         jmp   rax
 Init_list_γ:            mov              rdi, qword ptr [r9 + 224]            # Init_list
                         mov              rsi, qword ptr [r9 + 232]
                         mov              rcx, qword ptr [rsp + 32]
@@ -11078,7 +11078,7 @@ init_list_α:            sub              rsp, 64
                         lea              rax, [rip + init_list_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n539_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__init_list];         jmp   rax
 init_list_γ:            mov              rdi, qword ptr [r9 + 256]            # init_list
                         mov              rsi, qword ptr [r9 + 264]
                         mov              rcx, qword ptr [rsp + 32]
@@ -11213,7 +11213,7 @@ Push_list_α:            sub              rsp, 64
                         lea              rax, [rip + Push_list_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n504_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__Push_list];         jmp   rax
 Push_list_γ:            mov              rdi, qword ptr [r9 + 288]            # Push_list
                         mov              rsi, qword ptr [r9 + 296]
                         mov              rcx, qword ptr [rsp + 32]
@@ -11348,7 +11348,7 @@ push_list_α:            sub              rsp, 64
                         lea              rax, [rip + push_list_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n557_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__push_list];         jmp   rax
 push_list_γ:            mov              rdi, qword ptr [r9 + 304]            # push_list
                         mov              rsi, qword ptr [r9 + 312]
                         mov              rcx, qword ptr [rsp + 32]
@@ -11483,7 +11483,7 @@ Push_item_α:            sub              rsp, 64
                         lea              rax, [rip + Push_item_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n513_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__Push_item];         jmp   rax
 Push_item_γ:            mov              rdi, qword ptr [r9 + 320]            # Push_item
                         mov              rsi, qword ptr [r9 + 328]
                         mov              rcx, qword ptr [rsp + 32]
@@ -11618,7 +11618,7 @@ push_item_α:            sub              rsp, 64
                         lea              rax, [rip + push_item_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n585_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__push_item];         jmp   rax
 push_item_γ:            mov              rdi, qword ptr [r9 + 336]            # push_item
                         mov              rsi, qword ptr [r9 + 344]
                         mov              rcx, qword ptr [rsp + 32]
@@ -11736,7 +11736,7 @@ Pop_list_α:             sub              rsp, 48
                         lea              rax, [rip + Pop_list_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n522_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__Pop_list];          jmp   rax
 Pop_list_γ:             mov              rdi, qword ptr [r9 + 352]
                         mov              rsi, qword ptr [r9 + 360]
                         mov              rcx, qword ptr [rsp + 32]
@@ -11828,7 +11828,7 @@ pop_list_α:             sub              rsp, 48
                         lea              rax, [rip + pop_list_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n597_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__pop_list];          jmp   rax
 pop_list_γ:             mov              rdi, qword ptr [r9 + 368]
                         mov              rsi, qword ptr [r9 + 376]
                         mov              rcx, qword ptr [rsp + 32]
@@ -11937,7 +11937,7 @@ Pop_final_α:            sub              rsp, 64
                         lea              rax, [rip + Pop_final_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n530_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__Pop_final];         jmp   rax
 Pop_final_γ:            mov              rdi, qword ptr [r9 + 384]            # Pop_final
                         mov              rsi, qword ptr [r9 + 392]
                         mov              rcx, qword ptr [rsp + 32]
@@ -12072,7 +12072,7 @@ pop_final_α:            sub              rsp, 64
                         lea              rax, [rip + pop_final_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n610_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__pop_final];         jmp   rax
 pop_final_γ:            mov              rdi, qword ptr [r9 + 400]            # pop_final
                         mov              rsi, qword ptr [r9 + 408]
                         mov              rcx, qword ptr [rsp + 32]
@@ -12137,7 +12137,7 @@ n495_statement_begin_bx:
 # Init_list       Init_list       =   EVAL("epsilon . *init_list(" vs ")")  :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 64 0
-n495_statement_begin_α: mov              r11, 444
+LBL__Init_list:         mov              r11, 444
                         mov              r10, 59;                             jmp   n496_lit_string_α
 n495_statement_begin_β: mov              r11, 444;                            jmp   RETURN
                         .size            n495_statement_begin_bx, .-n495_statement_begin_bx
@@ -12321,7 +12321,7 @@ n504_statement_begin_bx:
 # Push_list       Push_list       =   EVAL("epsilon . *push_list(" vs ")")  :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 65 0
-n504_statement_begin_α: mov              r11, 453
+LBL__Push_list:         mov              r11, 453
                         mov              r10, 60;                             jmp   n505_lit_string_α
 n504_statement_begin_β: mov              r11, 453;                            jmp   RETURN
                         .size            n504_statement_begin_bx, .-n504_statement_begin_bx
@@ -12505,7 +12505,7 @@ n513_statement_begin_bx:
 # Push_item       Push_item       =   EVAL("epsilon . *push_item(" vs ")")  :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 66 0
-n513_statement_begin_α: mov              r11, 462
+LBL__Push_item:         mov              r11, 462
                         mov              r10, 61;                             jmp   n514_lit_string_α
 n513_statement_begin_β: mov              r11, 462;                            jmp   RETURN
                         .size            n513_statement_begin_bx, .-n513_statement_begin_bx
@@ -12689,7 +12689,7 @@ n522_statement_begin_bx:
 # Pop_list        Pop_list        =         epsilon . *pop_list()           :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 67 0
-n522_statement_begin_α: mov              r11, 471
+LBL__Pop_list:          mov              r11, 471
                         mov              r10, 62;                             jmp   n523_var_α
 n522_statement_begin_β: mov              r11, 471;                            jmp   RETURN
                         .size            n522_statement_begin_bx, .-n522_statement_begin_bx
@@ -12881,7 +12881,7 @@ n530_statement_begin_bx:
 # Pop_final       Pop_final       =   EVAL("epsilon . *pop_final(" vs ")")  :(RETURN)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 68 0
-n530_statement_begin_α: mov              r11, 479
+LBL__Pop_final:         mov              r11, 479
                         mov              r10, 63;                             jmp   n531_lit_string_α
 n530_statement_begin_β: mov              r11, 479;                            jmp   RETURN
                         .size            n530_statement_begin_bx, .-n530_statement_begin_bx
@@ -13065,7 +13065,7 @@ n539_statement_begin_bx:
 # init_list       $v              =
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 70 0
-n539_statement_begin_α: mov              r11, 488
+LBL__init_list:         mov              r11, 488
                         mov              r10, 64;                             jmp   n540_var_α
 n539_statement_begin_β: mov              r11, 488;                            jmp   n545_statement_begin_α
                         .size            n539_statement_begin_bx, .-n539_statement_begin_bx
@@ -13430,7 +13430,7 @@ n557_statement_begin_bx:
 # push_list       tags[v]         =   tags[v] + 1
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 75 0
-n557_statement_begin_α: mov              r11, 506
+LBL__push_list:         mov              r11, 506
                         mov              r10, 68;                             jmp   n558_var_α
 n557_statement_begin_β: mov              r11, 506;                            jmp   n568_statement_begin_α
                         .size            n557_statement_begin_bx, .-n557_statement_begin_bx
@@ -13975,7 +13975,7 @@ n585_statement_begin_bx:
 # push_item       ListAppend(ListValue(stack, -1), v)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 80 0
-n585_statement_begin_α: mov              r11, 534
+LBL__push_item:         mov              r11, 534
                         mov              r10, 72;                             jmp   n586_var_α
 n585_statement_begin_β: mov              r11, 534;                            jmp   n593_statement_begin_α
                         .size            n585_statement_begin_bx, .-n585_statement_begin_bx
@@ -14202,7 +14202,7 @@ n597_statement_begin_bx:
 # pop_list        ListAppend(ListValue(stack, -2), ListPop(stack))
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 83 0
-n597_statement_begin_α: mov              r11, 546
+LBL__pop_list:          mov              r11, 546
                         mov              r10, 74;                             jmp   n598_var_α
 n597_statement_begin_β: mov              r11, 546;                            jmp   n606_statement_begin_α
                         .size            n597_statement_begin_bx, .-n597_statement_begin_bx
@@ -14467,7 +14467,7 @@ n610_statement_begin_bx:
 # pop_final       $v              =   ListPop(stack)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 86 0
-n610_statement_begin_α: mov              r11, 559
+LBL__pop_final:         mov              r11, 559
                         mov              r10, 76;                             jmp   n611_var_α
 n610_statement_begin_β: mov              r11, 559;                            jmp   n617_statement_begin_α
                         .size            n610_statement_begin_bx, .-n610_statement_begin_bx
@@ -16892,31 +16892,31 @@ n701_statement_end_α:   mov              r11, 650
                         .type            n702_goto_bx, @function
 n702_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n702_goto_α:            mov              r11, 651;                            jmp   n115_statement_begin_α
+n702_goto_α:            mov              r11, 651;                            jmp   LBL__ListValue
 n702_goto_β:            mov              r11, 651;                            jmp   main_ω
                         .size            n702_goto_bx, .-n702_goto_bx
                         .type            n703_goto_bx, @function
 n703_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n703_goto_α:            mov              r11, 652;                            jmp   n135_statement_begin_α
+n703_goto_α:            mov              r11, 652;                            jmp   LBL__ListName
 n703_goto_β:            mov              r11, 652;                            jmp   main_ω
                         .size            n703_goto_bx, .-n703_goto_bx
                         .type            n704_goto_bx, @function
 n704_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n704_goto_α:            mov              r11, 653;                            jmp   n154_statement_begin_α
+n704_goto_α:            mov              r11, 653;                            jmp   LBL__ListAppend
 n704_goto_β:            mov              r11, 653;                            jmp   main_ω
                         .size            n704_goto_bx, .-n704_goto_bx
                         .type            n705_goto_bx, @function
 n705_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n705_goto_α:            mov              r11, 654;                            jmp   n162_statement_begin_α
+n705_goto_α:            mov              r11, 654;                            jmp   LBL__ListPrepend
 n705_goto_β:            mov              r11, 654;                            jmp   main_ω
                         .size            n705_goto_bx, .-n705_goto_bx
                         .type            n706_goto_bx, @function
 n706_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n706_goto_α:            mov              r11, 655;                            jmp   n169_statement_begin_α
+n706_goto_α:            mov              r11, 655;                            jmp   LBL__ListInsert
 n706_goto_β:            mov              r11, 655;                            jmp   main_ω
                         .size            n706_goto_bx, .-n706_goto_bx
                         .type            n707_goto_bx, @function
@@ -16970,7 +16970,7 @@ n714_goto_β:            mov              r11, 663;                            j
                         .type            n715_goto_bx, @function
 n715_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n715_goto_α:            mov              r11, 664;                            jmp   n349_statement_begin_α
+n715_goto_α:            mov              r11, 664;                            jmp   LBL__ListRemove
 n715_goto_β:            mov              r11, 664;                            jmp   main_ω
                         .size            n715_goto_bx, .-n715_goto_bx
                         .type            n716_goto_bx, @function
@@ -16988,13 +16988,13 @@ n717_goto_β:            mov              r11, 666;                            j
                         .type            n718_goto_bx, @function
 n718_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n718_goto_α:            mov              r11, 667;                            jmp   n431_statement_begin_α
+n718_goto_α:            mov              r11, 667;                            jmp   LBL__ListPop
 n718_goto_β:            mov              r11, 667;                            jmp   main_ω
                         .size            n718_goto_bx, .-n718_goto_bx
                         .type            n719_goto_bx, @function
 n719_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n719_goto_α:            mov              r11, 668;                            jmp   n438_statement_begin_α
+n719_goto_α:            mov              r11, 668;                            jmp   LBL__ListSize
 n719_goto_β:            mov              r11, 668;                            jmp   main_ω
                         .size            n719_goto_bx, .-n719_goto_bx
                         .type            n720_goto_bx, @function
@@ -17006,61 +17006,61 @@ n720_goto_β:            mov              r11, 669;                            j
                         .type            n721_goto_bx, @function
 n721_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n721_goto_α:            mov              r11, 670;                            jmp   n495_statement_begin_α
+n721_goto_α:            mov              r11, 670;                            jmp   LBL__Init_list
 n721_goto_β:            mov              r11, 670;                            jmp   main_ω
                         .size            n721_goto_bx, .-n721_goto_bx
                         .type            n722_goto_bx, @function
 n722_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n722_goto_α:            mov              r11, 671;                            jmp   n504_statement_begin_α
+n722_goto_α:            mov              r11, 671;                            jmp   LBL__Push_list
 n722_goto_β:            mov              r11, 671;                            jmp   main_ω
                         .size            n722_goto_bx, .-n722_goto_bx
                         .type            n723_goto_bx, @function
 n723_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n723_goto_α:            mov              r11, 672;                            jmp   n513_statement_begin_α
+n723_goto_α:            mov              r11, 672;                            jmp   LBL__Push_item
 n723_goto_β:            mov              r11, 672;                            jmp   main_ω
                         .size            n723_goto_bx, .-n723_goto_bx
                         .type            n724_goto_bx, @function
 n724_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n724_goto_α:            mov              r11, 673;                            jmp   n522_statement_begin_α
+n724_goto_α:            mov              r11, 673;                            jmp   LBL__Pop_list
 n724_goto_β:            mov              r11, 673;                            jmp   main_ω
                         .size            n724_goto_bx, .-n724_goto_bx
                         .type            n725_goto_bx, @function
 n725_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n725_goto_α:            mov              r11, 674;                            jmp   n530_statement_begin_α
+n725_goto_α:            mov              r11, 674;                            jmp   LBL__Pop_final
 n725_goto_β:            mov              r11, 674;                            jmp   main_ω
                         .size            n725_goto_bx, .-n725_goto_bx
                         .type            n726_goto_bx, @function
 n726_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n726_goto_α:            mov              r11, 675;                            jmp   n539_statement_begin_α
+n726_goto_α:            mov              r11, 675;                            jmp   LBL__init_list
 n726_goto_β:            mov              r11, 675;                            jmp   main_ω
                         .size            n726_goto_bx, .-n726_goto_bx
                         .type            n727_goto_bx, @function
 n727_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n727_goto_α:            mov              r11, 676;                            jmp   n557_statement_begin_α
+n727_goto_α:            mov              r11, 676;                            jmp   LBL__push_list
 n727_goto_β:            mov              r11, 676;                            jmp   main_ω
                         .size            n727_goto_bx, .-n727_goto_bx
                         .type            n728_goto_bx, @function
 n728_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n728_goto_α:            mov              r11, 677;                            jmp   n585_statement_begin_α
+n728_goto_α:            mov              r11, 677;                            jmp   LBL__push_item
 n728_goto_β:            mov              r11, 677;                            jmp   main_ω
                         .size            n728_goto_bx, .-n728_goto_bx
                         .type            n729_goto_bx, @function
 n729_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n729_goto_α:            mov              r11, 678;                            jmp   n597_statement_begin_α
+n729_goto_α:            mov              r11, 678;                            jmp   LBL__pop_list
 n729_goto_β:            mov              r11, 678;                            jmp   main_ω
                         .size            n729_goto_bx, .-n729_goto_bx
                         .type            n730_goto_bx, @function
 n730_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n730_goto_α:            mov              r11, 679;                            jmp   n610_statement_begin_α
+n730_goto_α:            mov              r11, 679;                            jmp   LBL__pop_final
 n730_goto_β:            mov              r11, 679;                            jmp   main_ω
                         .size            n730_goto_bx, .-n730_goto_bx
                         .type            n731_goto_bx, @function
@@ -17138,6 +17138,348 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lclassspec0]
                         call             record_register@PLT
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__ListValue"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__ListValue
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname1:       .string          "LBL__ListName"
+                        .align           8
+.Lstartup_prec1:
+                        .quad            .Lstartup_pname1
+                        .quad            LBL__ListName
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec1]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname2:       .string          "LBL__ListAppend"
+                        .align           8
+.Lstartup_prec2:
+                        .quad            .Lstartup_pname2
+                        .quad            LBL__ListAppend
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec2]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname3:       .string          "LBL__ListPrepend"
+                        .align           8
+.Lstartup_prec3:
+                        .quad            .Lstartup_pname3
+                        .quad            LBL__ListPrepend
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec3]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname4:       .string          "LBL__ListInsert"
+                        .align           8
+.Lstartup_prec4:
+                        .quad            .Lstartup_pname4
+                        .quad            LBL__ListInsert
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec4]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname5:       .string          "LBL__ListRemove"
+                        .align           8
+.Lstartup_prec5:
+                        .quad            .Lstartup_pname5
+                        .quad            LBL__ListRemove
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec5]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname6:       .string          "LBL__ListPop"
+                        .align           8
+.Lstartup_prec6:
+                        .quad            .Lstartup_pname6
+                        .quad            LBL__ListPop
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec6]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname7:       .string          "LBL__ListSize"
+                        .align           8
+.Lstartup_prec7:
+                        .quad            .Lstartup_pname7
+                        .quad            LBL__ListSize
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec7]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname8:       .string          "LBL__Init_list"
+                        .align           8
+.Lstartup_prec8:
+                        .quad            .Lstartup_pname8
+                        .quad            LBL__Init_list
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec8]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname9:       .string          "LBL__init_list"
+                        .align           8
+.Lstartup_prec9:
+                        .quad            .Lstartup_pname9
+                        .quad            LBL__init_list
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec9]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname10:      .string          "LBL__Push_list"
+                        .align           8
+.Lstartup_prec10:
+                        .quad            .Lstartup_pname10
+                        .quad            LBL__Push_list
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec10]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname11:      .string          "LBL__push_list"
+                        .align           8
+.Lstartup_prec11:
+                        .quad            .Lstartup_pname11
+                        .quad            LBL__push_list
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec11]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname12:      .string          "LBL__Push_item"
+                        .align           8
+.Lstartup_prec12:
+                        .quad            .Lstartup_pname12
+                        .quad            LBL__Push_item
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec12]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname13:      .string          "LBL__push_item"
+                        .align           8
+.Lstartup_prec13:
+                        .quad            .Lstartup_pname13
+                        .quad            LBL__push_item
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec13]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname14:      .string          "LBL__Pop_list"
+                        .align           8
+.Lstartup_prec14:
+                        .quad            .Lstartup_pname14
+                        .quad            LBL__Pop_list
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec14]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname15:      .string          "LBL__pop_list"
+                        .align           8
+.Lstartup_prec15:
+                        .quad            .Lstartup_pname15
+                        .quad            LBL__pop_list
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec15]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname16:      .string          "LBL__Pop_final"
+                        .align           8
+.Lstartup_prec16:
+                        .quad            .Lstartup_pname16
+                        .quad            LBL__Pop_final
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec16]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname17:      .string          "LBL__pop_final"
+                        .align           8
+.Lstartup_prec17:
+                        .quad            .Lstartup_pname17
+                        .quad            LBL__pop_final
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            8576
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec17]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala18:              .string          "ListValue"
                         .section         .text

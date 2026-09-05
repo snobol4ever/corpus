@@ -2272,7 +2272,7 @@ EMIT_α:                 sub              rsp, 48
                         lea              rax, [rip + EMIT_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n160_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__EMIT];              jmp   rax
 EMIT_γ:                 mov              rdi, qword ptr [r9 + 0]
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2364,7 +2364,7 @@ PSH_α:                  sub              rsp, 48
                         lea              rax, [rip + PSH_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n178_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__PSH];               jmp   rax
 PSH_γ:                  mov              rdi, qword ptr [r9 + 16]
                         mov              rsi, qword ptr [r9 + 24]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2473,7 +2473,7 @@ DRF_α:                  sub              rsp, 64
                         lea              rax, [rip + DRF_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n187_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__DRF];               jmp   rax
 DRF_γ:                  mov              rdi, qword ptr [r9 + 32]             # DRF
                         mov              rsi, qword ptr [r9 + 40]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2591,7 +2591,7 @@ ADD_α:                  sub              rsp, 48
                         lea              rax, [rip + ADD_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n206_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__ADD];               jmp   rax
 ADD_γ:                  mov              rdi, qword ptr [r9 + 64]
                         mov              rsi, qword ptr [r9 + 72]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2683,7 +2683,7 @@ SUB_α:                  sub              rsp, 48
                         lea              rax, [rip + SUB_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n231_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__SUB];               jmp   rax
 SUB_γ:                  mov              rdi, qword ptr [r9 + 80]
                         mov              rsi, qword ptr [r9 + 88]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2775,7 +2775,7 @@ MUL_α:                  sub              rsp, 48
                         lea              rax, [rip + MUL_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n256_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__MUL];               jmp   rax
 MUL_γ:                  mov              rdi, qword ptr [r9 + 96]
                         mov              rsi, qword ptr [r9 + 104]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2867,7 +2867,7 @@ DIV_α:                  sub              rsp, 48
                         lea              rax, [rip + DIV_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n281_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__DIV];               jmp   rax
 DIV_γ:                  mov              rdi, qword ptr [r9 + 112]
                         mov              rsi, qword ptr [r9 + 120]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2959,7 +2959,7 @@ NEG_α:                  sub              rsp, 48
                         lea              rax, [rip + NEG_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n306_statement_begin_α]; jmp   rax
+                        lea              rax, [rip + LBL__NEG];               jmp   rax
 NEG_γ:                  mov              rdi, qword ptr [r9 + 128]
                         mov              rsi, qword ptr [r9 + 136]
                         mov              rcx, qword ptr [rsp + 32]
@@ -2998,7 +2998,7 @@ n160_statement_begin_bx:
 # EMIT    OUTPUT = DRF(S[1])
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 9 0
-n160_statement_begin_α: mov              r11, 76
+LBL__EMIT:              mov              r11, 76
                         mov              r10, 9;                              jmp   n161_var_α
 n160_statement_begin_β: mov              r11, 76;                             jmp   n168_statement_begin_α
                         .size            n160_statement_begin_bx, .-n160_statement_begin_bx
@@ -3329,13 +3329,13 @@ n176_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n176_statement_begin_α: mov              r11, 92
                         mov              r10, 0;                              jmp   n177_statement_end_α
-n176_statement_begin_β: mov              r11, 92;                             jmp   n178_statement_begin_α
+n176_statement_begin_β: mov              r11, 92;                             jmp   LBL__PSH
                         .size            n176_statement_begin_bx, .-n176_statement_begin_bx
                         .type            n177_statement_end_bx, @function
 n177_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n177_statement_end_α:   mov              r11, 93
-                        mov              r10, 12;                             jmp   n178_statement_begin_α
+                        mov              r10, 12;                             jmp   LBL__PSH
                         .size            n177_statement_end_bx, .-n177_statement_end_bx
                         .type            n178_statement_begin_bx, @function
 n178_statement_begin_bx:
@@ -3343,7 +3343,7 @@ n178_statement_begin_bx:
 # PSH     PSH = .S[sp = sp + 1]                   :(NRETURN)
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 13 0
-n178_statement_begin_α: mov              r11, 94
+LBL__PSH:               mov              r11, 94
                         mov              r10, 13;                             jmp   n179_var_α
 n178_statement_begin_β: mov              r11, 94;                             jmp   NRETURN
                         .size            n178_statement_begin_bx, .-n178_statement_begin_bx
@@ -3557,7 +3557,7 @@ n187_statement_begin_bx:
 # DRF     DRF = nm
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 14 0
-n187_statement_begin_α: mov              r11, 103
+LBL__DRF:               mov              r11, 103
                         mov              r10, 14;                             jmp   n188_var_α
 n187_statement_begin_β: mov              r11, 103;                            jmp   n191_statement_begin_α
                         .size            n187_statement_begin_bx, .-n187_statement_begin_bx
@@ -3927,7 +3927,7 @@ n206_statement_begin_bx:
 # ADD     S[sp = sp - 1] = DRF(S[sp]) + DRF(S[sp + 1])
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 17 0
-n206_statement_begin_α: mov              r11, 122
+LBL__ADD:               mov              r11, 122
                         mov              r10, 17;                             jmp   n207_var_α
 n206_statement_begin_β: mov              r11, 122;                            jmp   n227_statement_begin_α
                         .size            n206_statement_begin_bx, .-n206_statement_begin_bx
@@ -4520,7 +4520,7 @@ n231_statement_begin_bx:
 # SUB     S[sp = sp - 1] = DRF(S[sp]) - DRF(S[sp + 1])
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 19 0
-n231_statement_begin_α: mov              r11, 147
+LBL__SUB:               mov              r11, 147
                         mov              r10, 19;                             jmp   n232_var_α
 n231_statement_begin_β: mov              r11, 147;                            jmp   n252_statement_begin_α
                         .size            n231_statement_begin_bx, .-n231_statement_begin_bx
@@ -5113,7 +5113,7 @@ n256_statement_begin_bx:
 # MUL     S[sp = sp - 1] = DRF(S[sp]) * DRF(S[sp + 1])
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 21 0
-n256_statement_begin_α: mov              r11, 172
+LBL__MUL:               mov              r11, 172
                         mov              r10, 21;                             jmp   n257_var_α
 n256_statement_begin_β: mov              r11, 172;                            jmp   n277_statement_begin_α
                         .size            n256_statement_begin_bx, .-n256_statement_begin_bx
@@ -5706,7 +5706,7 @@ n281_statement_begin_bx:
 # DIV     S[sp = sp - 1] = DRF(S[sp]) / DRF(S[sp + 1])
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 23 0
-n281_statement_begin_α: mov              r11, 197
+LBL__DIV:               mov              r11, 197
                         mov              r10, 23;                             jmp   n282_var_α
 n281_statement_begin_β: mov              r11, 197;                            jmp   n302_statement_begin_α
                         .size            n281_statement_begin_bx, .-n281_statement_begin_bx
@@ -6275,7 +6275,7 @@ n306_statement_begin_bx:
 # NEG     S[sp] = -DRF(S[sp])
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 25 0
-n306_statement_begin_α: mov              r11, 222
+LBL__NEG:               mov              r11, 222
                         mov              r10, 25;                             jmp   n307_var_α
 n306_statement_begin_β: mov              r11, 222;                            jmp   n317_statement_begin_α
                         .size            n306_statement_begin_bx, .-n306_statement_begin_bx
@@ -9933,49 +9933,49 @@ n470_statement_end_α:   mov              r11, 386
                         .type            n471_goto_bx, @function
 n471_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n471_goto_α:            mov              r11, 387;                            jmp   n160_statement_begin_α
+n471_goto_α:            mov              r11, 387;                            jmp   LBL__EMIT
 n471_goto_β:            mov              r11, 387;                            jmp   main_ω
                         .size            n471_goto_bx, .-n471_goto_bx
                         .type            n472_goto_bx, @function
 n472_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n472_goto_α:            mov              r11, 388;                            jmp   n178_statement_begin_α
+n472_goto_α:            mov              r11, 388;                            jmp   LBL__PSH
 n472_goto_β:            mov              r11, 388;                            jmp   main_ω
                         .size            n472_goto_bx, .-n472_goto_bx
                         .type            n473_goto_bx, @function
 n473_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n473_goto_α:            mov              r11, 389;                            jmp   n187_statement_begin_α
+n473_goto_α:            mov              r11, 389;                            jmp   LBL__DRF
 n473_goto_β:            mov              r11, 389;                            jmp   main_ω
                         .size            n473_goto_bx, .-n473_goto_bx
                         .type            n474_goto_bx, @function
 n474_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n474_goto_α:            mov              r11, 390;                            jmp   n206_statement_begin_α
+n474_goto_α:            mov              r11, 390;                            jmp   LBL__ADD
 n474_goto_β:            mov              r11, 390;                            jmp   main_ω
                         .size            n474_goto_bx, .-n474_goto_bx
                         .type            n475_goto_bx, @function
 n475_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n475_goto_α:            mov              r11, 391;                            jmp   n231_statement_begin_α
+n475_goto_α:            mov              r11, 391;                            jmp   LBL__SUB
 n475_goto_β:            mov              r11, 391;                            jmp   main_ω
                         .size            n475_goto_bx, .-n475_goto_bx
                         .type            n476_goto_bx, @function
 n476_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n476_goto_α:            mov              r11, 392;                            jmp   n256_statement_begin_α
+n476_goto_α:            mov              r11, 392;                            jmp   LBL__MUL
 n476_goto_β:            mov              r11, 392;                            jmp   main_ω
                         .size            n476_goto_bx, .-n476_goto_bx
                         .type            n477_goto_bx, @function
 n477_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n477_goto_α:            mov              r11, 393;                            jmp   n281_statement_begin_α
+n477_goto_α:            mov              r11, 393;                            jmp   LBL__DIV
 n477_goto_β:            mov              r11, 393;                            jmp   main_ω
                         .size            n477_goto_bx, .-n477_goto_bx
                         .type            n478_goto_bx, @function
 n478_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n478_goto_α:            mov              r11, 394;                            jmp   n306_statement_begin_α
+n478_goto_α:            mov              r11, 394;                            jmp   LBL__NEG
 n478_goto_β:            mov              r11, 394;                            jmp   main_ω
                         .size            n478_goto_bx, .-n478_goto_bx
                         .type            n479_goto_bx, @function
@@ -10047,6 +10047,158 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__EMIT"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__EMIT
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            4224
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname1:       .string          "LBL__PSH"
+                        .align           8
+.Lstartup_prec1:
+                        .quad            .Lstartup_pname1
+                        .quad            LBL__PSH
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            4224
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec1]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname2:       .string          "LBL__DRF"
+                        .align           8
+.Lstartup_prec2:
+                        .quad            .Lstartup_pname2
+                        .quad            LBL__DRF
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            4224
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec2]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname3:       .string          "LBL__ADD"
+                        .align           8
+.Lstartup_prec3:
+                        .quad            .Lstartup_pname3
+                        .quad            LBL__ADD
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            4224
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec3]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname4:       .string          "LBL__SUB"
+                        .align           8
+.Lstartup_prec4:
+                        .quad            .Lstartup_pname4
+                        .quad            LBL__SUB
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            4224
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec4]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname5:       .string          "LBL__MUL"
+                        .align           8
+.Lstartup_prec5:
+                        .quad            .Lstartup_pname5
+                        .quad            LBL__MUL
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            4224
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec5]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname6:       .string          "LBL__DIV"
+                        .align           8
+.Lstartup_prec6:
+                        .quad            .Lstartup_pname6
+                        .quad            LBL__DIV
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            4224
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec6]
+                        call             rt_proc_register_rec@PLT
+                        .section         .rodata
+.Lstartup_pname7:       .string          "LBL__NEG"
+                        .align           8
+.Lstartup_prec7:
+                        .quad            .Lstartup_pname7
+                        .quad            LBL__NEG
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            4224
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec7]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala8:               .string          "EMIT"
                         .section         .text

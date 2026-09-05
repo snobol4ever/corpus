@@ -477,7 +477,7 @@ token_α:                sub              rsp, 48
                         lea              rax, [rip + token_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + n63_statement_begin_α];  jmp   rax
+                        lea              rax, [rip + LBL__token];             jmp   rax
 token_γ:                mov              rdi, qword ptr [r9 + 0]
                         mov              rsi, qword ptr [r9 + 8]
                         mov              rcx, qword ptr [rsp + 32]
@@ -516,7 +516,7 @@ n63_statement_begin_bx:
 # token   num = +num
 #-----------------------------------------------------------------------------------------------------------------------
                         .loc             1 3 0
-n63_statement_begin_α:  mov              r11, 25
+LBL__token:             mov              r11, 25
                         mov              r10, 2;                              jmp   n64_var_α
 n63_statement_begin_β:  mov              r11, 25;                             jmp   n68_statement_begin_α
                         .size            n63_statement_begin_bx, .-n63_statement_begin_bx
@@ -3165,7 +3165,7 @@ n195_statement_end_α:   mov              r11, 157
                         .type            n196_goto_bx, @function
 n196_goto_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n196_goto_α:            mov              r11, 158;                            jmp   n63_statement_begin_α
+n196_goto_α:            mov              r11, 158;                            jmp   LBL__token
 n196_goto_β:            mov              r11, 158;                            jmp   main_ω
                         .size            n196_goto_bx, .-n196_goto_bx
                         .type            n197_goto_bx, @function
@@ -3237,6 +3237,25 @@ main_ω:
                         call             exit@PLT
 module_init:
                         sub              rsp, 8
+                        .section         .rodata
+.Lstartup_pname0:       .string          "LBL__token"
+                        .align           8
+.Lstartup_prec0:
+                        .quad            .Lstartup_pname0
+                        .quad            LBL__token
+                        .quad            0
+                        .quad            0
+                        .quad            0
+                        .long            0
+                        .long            0
+                        .long            1888
+                        .long            16
+                        .long            0
+                        .long            0
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_prec0]
+                        call             rt_proc_register_rec@PLT
                         .section         .rodata
 .Lseala1:               .string          "token"
                         .section         .text
