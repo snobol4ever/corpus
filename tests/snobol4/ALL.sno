@@ -16599,7 +16599,7 @@ FEnd
         DEFINE('F(x)','F2')
         OUTPUT     =     F('b')
 END
-*-------------------------------------------- 1818 user_function_replace_6 XFAIL
+*-------------------------------------------- 1818 user_function_replace_6
 *  gim_omitted_arg_shift - SILENT WRONG ANSWER.  An OMITTED LEADING argument in
 *  a call, F(, 'y'), shifts the remaining arguments left in SCRIP: 'y' lands in
 *  A instead of B.  A trailing omission, F('x', ), is handled correctly.
