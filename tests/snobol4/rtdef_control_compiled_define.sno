@@ -1,0 +1,4 @@
+        DEFINE('F(X)')                :(FEND)
+F       F = X + 1                     :(RETURN)
+FEND    OUTPUT = 'plain:' F(4)
+END

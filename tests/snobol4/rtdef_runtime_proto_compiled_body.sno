@@ -1,0 +1,6 @@
+        P = 'G(A,B)'
+        DEFINE(P)                     :(MAIN)
+G       G = A * B                     :(RETURN)
+MAIN    OUTPUT = 'g:' G(6,7)
+        OUTPUT = 'a:' A
+END

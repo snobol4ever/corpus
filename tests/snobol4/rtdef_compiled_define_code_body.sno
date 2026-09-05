@@ -1,0 +1,4 @@
+        DEFINE('F(X)')
+        C = CODE("F OUTPUT = 'in body'; F = X + 1 :(RETURN)")
+        OUTPUT = 'call:' F(4)
+END
