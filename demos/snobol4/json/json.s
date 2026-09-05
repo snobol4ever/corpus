@@ -11724,9 +11724,7 @@ n628_match_defer_α:     mov              r11, 416
                         push             rcx
                         lea              rcx, [rip + .Lmatch_defer_α_1988_4]
                         push             rcx;                                 jmp   rax
-.Lmatch_defer_α_1988_4: lea              rcx, [rip + g_scan_hit_start]
-                        mov              rax, qword ptr [rcx]
-                        mov              dword ptr [rsp + 3344], eax;         jmp   n629_match_end_α
+.Lmatch_defer_α_1988_4:                                                       jmp   n629_match_end_α
 .Lmatch_defer_α_1988_5:                                                       jmp   n627_match_begin_β
 .Lmatch_defer_α_1988_0: mov              eax, edx
                         test             eax, eax;                            js    n627_match_begin_β
@@ -12261,7 +12259,7 @@ n649_match_end_α:       mov              r11, 437
                         mov              rax, qword ptr [rbp + -48]
                         mov              qword ptr [rcx + 248], rax
                         mov              eax, dword ptr [rbp + -40]           # repl_start
-                        mov              dword ptr [rbp + -48], eax
+                        mov              dword ptr [rbp + -36], eax
                         mov              qword ptr [rbp + -56], r14           # repl_end
                         push             r14
                         push             r15
@@ -12298,7 +12296,7 @@ n649_match_end_α:       mov              r11, 437
                         mov              r13, qword ptr [rbp + -16]           # outer_Σ
                         mov              r14, qword ptr [rbp + -24]           # outer_δ
                         mov              r15, qword ptr [rbp + -32]           # outer_Δ
-                        mov              eax, dword ptr [rbp + -48]           # repl_start
+                        mov              eax, dword ptr [rbp + -36]           # repl_start
                         mov              dword ptr [r12 + 0], eax
                         mov              rax, qword ptr [rbp + -56]           # repl_end
                         mov              qword ptr [r12 + 8], rax
@@ -12877,7 +12875,7 @@ n681_match_end_α:       mov              r11, 469
                         mov              rax, qword ptr [rbp + -48]
                         mov              qword ptr [rcx + 248], rax
                         mov              eax, dword ptr [rbp + -40]           # repl_start
-                        mov              dword ptr [rbp + -48], eax
+                        mov              dword ptr [rbp + -36], eax
                         mov              qword ptr [rbp + -56], r14           # repl_end
                         push             r14
                         push             r15
@@ -12914,7 +12912,7 @@ n681_match_end_α:       mov              r11, 469
                         mov              r13, qword ptr [rbp + -16]           # outer_Σ
                         mov              r14, qword ptr [rbp + -24]           # outer_δ
                         mov              r15, qword ptr [rbp + -32]           # outer_Δ
-                        mov              eax, dword ptr [rbp + -48]           # repl_start
+                        mov              eax, dword ptr [rbp + -36]           # repl_start
                         mov              dword ptr [r12 + 0], eax
                         mov              rax, qword ptr [rbp + -56]           # repl_end
                         mov              qword ptr [r12 + 8], rax
