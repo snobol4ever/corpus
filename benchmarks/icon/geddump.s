@@ -3477,8 +3477,47 @@ n00131_assign_α:          mov              r11, 174
                         mov              qword ptr [r9 + 16], rax             # gedscan__STATIC__alnum
                         mov              qword ptr [r9 + 24], rdx
                         mov              qword ptr [rsp + 1200], rax
-                        mov              qword ptr [rsp + 1208], rdx;         jmp   .Ldisjunction_γ_410_as
+                        mov              qword ptr [rsp + 1208], rdx
+                        push             rax
+                        push             rax
+                        push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r10
+                        push             r11
+                        mov              rsi, rax
+                        mov              rdi, qword ptr [rip + .Lassign_α_478_0]
+                        .section         .rodata
+.Lassign_α_478_1_s:     .string          ""
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rcx, [rip + .Lassign_α_478_1_s]
+                        mov              r8, 0
+                        mov              r9, 0
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             comm_var@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              r11
+                        pop              r10
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+                        pop              rax
+                        pop              rax;                                 jmp   .Ldisjunction_γ_410_as
 n00131_assign_β:          mov              r11, 174;                            jmp   n00122_var_α
+.Lassign_α_478_0:       .quad            .Lassign_α_478_0_s
+.Lassign_α_478_0_s:     .string          "gedscan__STATIC__alnum"
                         .size            n00131_assign_bx, .-n00131_assign_bx
                         .type            n00122_var_bx, @function
 n00122_var_bx:
@@ -8650,7 +8689,46 @@ n00325_assign_α:          mov              r11, 367
                         mov              rax, qword ptr [rsp + 3136]
                         mov              rdx, qword ptr [rsp + 3144]
                         mov              qword ptr [r9 + 48], rax             # geddate__STATIC__ftab
-                        mov              qword ptr [r9 + 56], rdx;            jmp   n00324_var_ref_α
+                        mov              qword ptr [r9 + 56], rdx
+                        push             rax
+                        push             rax
+                        push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r10
+                        push             r11
+                        mov              rsi, rax
+                        mov              rdi, qword ptr [rip + .Lassign_α_1071_0]
+                        .section         .rodata
+.Lassign_α_1071_1_s:    .string          ""
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rcx, [rip + .Lassign_α_1071_1_s]
+                        mov              r8, 0
+                        mov              r9, 0
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             comm_var@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              r11
+                        pop              r10
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+                        pop              rax
+                        pop              rax;                                 jmp   n00324_var_ref_α
+.Lassign_α_1071_0:      .quad            .Lassign_α_1071_0_s
+.Lassign_α_1071_0_s:    .string          "geddate__STATIC__ftab"
                         .size            n00325_assign_bx, .-n00325_assign_bx
                         .type            n00324_var_ref_bx, @function
 n00324_var_ref_bx:
@@ -11268,7 +11346,46 @@ n00474_assign_α:         mov              r11, 514
                         mov              rax, qword ptr [rsp + 4736]
                         mov              rdx, qword ptr [rsp + 4744]
                         mov              qword ptr [r9 + 0], rax              # ptab
-                        mov              qword ptr [r9 + 8], rdx;             jmp   n00473_var_α
+                        mov              qword ptr [r9 + 8], rdx
+                        push             rax
+                        push             rax
+                        push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r10
+                        push             r11
+                        mov              rsi, rax
+                        mov              rdi, qword ptr [rip + .Lassign_α_1450_0]
+                        .section         .rodata
+.Lassign_α_1450_1_s:    .string          ""
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rcx, [rip + .Lassign_α_1450_1_s]
+                        mov              r8, 0
+                        mov              r9, 0
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             comm_var@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              r11
+                        pop              r10
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+                        pop              rax
+                        pop              rax;                                 jmp   n00473_var_α
+.Lassign_α_1450_0:      .quad            .Lassign_α_1450_0_s
+.Lassign_α_1450_0_s:    .string          "ptab"
                         .size            n00474_assign_bx, .-n00474_assign_bx
                         .type            n00473_var_bx, @function
 n00473_var_bx:

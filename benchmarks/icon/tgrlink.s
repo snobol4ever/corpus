@@ -54,7 +54,46 @@ n1_assign_α:            mov              r11, 2
                         mov              rax, qword ptr [rsp + 1616]
                         mov              rdx, qword ptr [rsp + 1624]
                         mov              qword ptr [r9 + 64], rax             # chtab
-                        mov              qword ptr [r9 + 72], rdx;            jmp   n2_disjunction_α
+                        mov              qword ptr [r9 + 72], rdx
+                        push             rax
+                        push             rax
+                        push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r10
+                        push             r11
+                        mov              rsi, rax
+                        mov              rdi, qword ptr [rip + .Lassign_α_84_0]
+                        .section         .rodata
+.Lassign_α_84_1_s:      .string          ""
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rcx, [rip + .Lassign_α_84_1_s]
+                        mov              r8, 0
+                        mov              r9, 0
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             comm_var@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              r11
+                        pop              r10
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+                        pop              rax
+                        pop              rax;                                 jmp   n2_disjunction_α
+.Lassign_α_84_0:        .quad            .Lassign_α_84_0_s
+.Lassign_α_84_0_s:      .string          "chtab"
                         .size            n1_assign_bx, .-n1_assign_bx
                         .type            n2_disjunction_bx, @function
 n2_disjunction_bx:
@@ -2022,7 +2061,46 @@ n00038_assign_α:          mov              r11, 119
                         mov              rax, qword ptr [rsp + 848]
                         mov              rdx, qword ptr [rsp + 856]
                         mov              qword ptr [r9 + 80], rax             # done
-                        mov              qword ptr [r9 + 88], rdx;            jmp   n00037_var_ref_α
+                        mov              qword ptr [r9 + 88], rdx
+                        push             rax
+                        push             rax
+                        push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r10
+                        push             r11
+                        mov              rsi, rax
+                        mov              rdi, qword ptr [rip + .Lassign_α_324_0]
+                        .section         .rodata
+.Lassign_α_324_1_s:     .string          ""
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rcx, [rip + .Lassign_α_324_1_s]
+                        mov              r8, 0
+                        mov              r9, 0
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             comm_var@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              r11
+                        pop              r10
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+                        pop              rax
+                        pop              rax;                                 jmp   n00037_var_ref_α
+.Lassign_α_324_0:       .quad            .Lassign_α_324_0_s
+.Lassign_α_324_0_s:     .string          "done"
                         .size            n00038_assign_bx, .-n00038_assign_bx
                         .type            n00037_var_ref_bx, @function
 n00037_var_ref_bx:
@@ -4018,7 +4096,46 @@ n00133_assign_α:          mov              r11, 214
                         mov              rax, qword ptr [rsp + 2848]
                         mov              rdx, qword ptr [rsp + 2856]
                         mov              qword ptr [r9 + 96], rax             # xoff
-                        mov              qword ptr [r9 + 104], rdx;           jmp   n00134_make_list_α
+                        mov              qword ptr [r9 + 104], rdx
+                        push             rax
+                        push             rax
+                        push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r10
+                        push             r11
+                        mov              rsi, rax
+                        mov              rdi, qword ptr [rip + .Lassign_α_687_0]
+                        .section         .rodata
+.Lassign_α_687_1_s:     .string          ""
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rcx, [rip + .Lassign_α_687_1_s]
+                        mov              r8, 0
+                        mov              r9, 0
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             comm_var@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              r11
+                        pop              r10
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+                        pop              rax
+                        pop              rax;                                 jmp   n00134_make_list_α
+.Lassign_α_687_0:       .quad            .Lassign_α_687_0_s
+.Lassign_α_687_0_s:     .string          "xoff"
                         .size            n00133_assign_bx, .-n00133_assign_bx
                         .type            n00134_make_list_bx, @function
 n00134_make_list_bx:
@@ -4044,7 +4161,46 @@ n00135_assign_α:          mov              r11, 216
                         mov              rax, qword ptr [rsp + 2832]
                         mov              rdx, qword ptr [rsp + 2840]
                         mov              qword ptr [r9 + 112], rax            # yoff
-                        mov              qword ptr [r9 + 120], rdx;           jmp   n00136_var_α
+                        mov              qword ptr [r9 + 120], rdx
+                        push             rax
+                        push             rax
+                        push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r10
+                        push             r11
+                        mov              rsi, rax
+                        mov              rdi, qword ptr [rip + .Lassign_α_690_0]
+                        .section         .rodata
+.Lassign_α_690_1_s:     .string          ""
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rcx, [rip + .Lassign_α_690_1_s]
+                        mov              r8, 0
+                        mov              r9, 0
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             comm_var@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              r11
+                        pop              r10
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+                        pop              rax
+                        pop              rax;                                 jmp   n00136_var_α
+.Lassign_α_690_0:       .quad            .Lassign_α_690_0_s
+.Lassign_α_690_0_s:     .string          "yoff"
                         .size            n00135_assign_bx, .-n00135_assign_bx
                         .type            n00136_var_bx, @function
 n00136_var_bx:
@@ -13266,8 +13422,47 @@ n00595_assign_α:         mov              r11, 676
                         mov              qword ptr [r9 + 128], rax            # crack__STATIC__o
                         mov              qword ptr [r9 + 136], rdx
                         mov              qword ptr [rsp + 2608], rax
-                        mov              qword ptr [rsp + 2616], rdx;         jmp   .Ldisjunction_γ_1686_as
+                        mov              qword ptr [rsp + 2616], rdx
+                        push             rax
+                        push             rax
+                        push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r10
+                        push             r11
+                        mov              rsi, rax
+                        mov              rdi, qword ptr [rip + .Lassign_α_1836_0]
+                        .section         .rodata
+.Lassign_α_1836_1_s:    .string          ""
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rcx, [rip + .Lassign_α_1836_1_s]
+                        mov              r8, 0
+                        mov              r9, 0
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             comm_var@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              r11
+                        pop              r10
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+                        pop              rax
+                        pop              rax;                                 jmp   .Ldisjunction_γ_1686_as
 n00595_assign_β:         mov              r11, 676;                            jmp   n00590_var_α
+.Lassign_α_1836_0:      .quad            .Lassign_α_1836_0_s
+.Lassign_α_1836_0_s:    .string          "crack__STATIC__o"
                         .size            n00595_assign_bx, .-n00595_assign_bx
                         .type            n00590_var_bx, @function
 n00590_var_bx:
@@ -18481,7 +18676,46 @@ n00845_assign_α:         mov              r11, 926
                         mov              rax, qword ptr [rsp + 2080]
                         mov              rdx, qword ptr [rsp + 2088]
                         mov              qword ptr [r9 + 32], rax             # maxangle
-                        mov              qword ptr [r9 + 40], rdx;            jmp   n00847_disjunction_α
+                        mov              qword ptr [r9 + 40], rdx
+                        push             rax
+                        push             rax
+                        push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r10
+                        push             r11
+                        mov              rsi, rax
+                        mov              rdi, qword ptr [rip + .Lassign_α_2421_0]
+                        .section         .rodata
+.Lassign_α_2421_1_s:    .string          ""
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rcx, [rip + .Lassign_α_2421_1_s]
+                        mov              r8, 0
+                        mov              r9, 0
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             comm_var@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              r11
+                        pop              r10
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+                        pop              rax
+                        pop              rax;                                 jmp   n00847_disjunction_α
+.Lassign_α_2421_0:      .quad            .Lassign_α_2421_0_s
+.Lassign_α_2421_0_s:    .string          "maxangle"
                         .size            n00845_assign_bx, .-n00845_assign_bx
                         .type            n00847_disjunction_bx, @function
 n00847_disjunction_bx:
@@ -18524,7 +18758,46 @@ n00849_assign_α:         mov              r11, 928
                         mov              rax, qword ptr [rsp + 1936]
                         mov              rdx, qword ptr [rsp + 1944]
                         mov              qword ptr [r9 + 16], rax             # maxerr
-                        mov              qword ptr [r9 + 24], rdx;            jmp   n00851_disjunction_α
+                        mov              qword ptr [r9 + 24], rdx
+                        push             rax
+                        push             rax
+                        push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r10
+                        push             r11
+                        mov              rsi, rax
+                        mov              rdi, qword ptr [rip + .Lassign_α_2424_0]
+                        .section         .rodata
+.Lassign_α_2424_1_s:    .string          ""
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rcx, [rip + .Lassign_α_2424_1_s]
+                        mov              r8, 0
+                        mov              r9, 0
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             comm_var@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              r11
+                        pop              r10
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+                        pop              rax
+                        pop              rax;                                 jmp   n00851_disjunction_α
+.Lassign_α_2424_0:      .quad            .Lassign_α_2424_0_s
+.Lassign_α_2424_0_s:    .string          "maxerr"
                         .size            n00849_assign_bx, .-n00849_assign_bx
                         .type            n00851_disjunction_bx, @function
 n00851_disjunction_bx:
@@ -18623,8 +18896,47 @@ n00858_assign_α:         mov              r11, 932
                         mov              qword ptr [r9 + 0], rax              # ifile
                         mov              qword ptr [r9 + 8], rdx
                         mov              qword ptr [rsp + 1888], rax
-                        mov              qword ptr [rsp + 1896], rdx;         jmp   .Ldisjunction_γ_2323_as
+                        mov              qword ptr [rsp + 1896], rdx
+                        push             rax
+                        push             rax
+                        push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r10
+                        push             r11
+                        mov              rsi, rax
+                        mov              rdi, qword ptr [rip + .Lassign_α_2430_0]
+                        .section         .rodata
+.Lassign_α_2430_1_s:    .string          ""
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rcx, [rip + .Lassign_α_2430_1_s]
+                        mov              r8, 0
+                        mov              r9, 0
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             comm_var@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              r11
+                        pop              r10
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+                        pop              rax
+                        pop              rax;                                 jmp   .Ldisjunction_γ_2323_as
 n00858_assign_β:         mov              r11, 932;                            jmp   n00853_disjunction_α
+.Lassign_α_2430_0:      .quad            .Lassign_α_2430_0_s
+.Lassign_α_2430_0_s:    .string          "ifile"
                         .size            n00858_assign_bx, .-n00858_assign_bx
                         .type            n00855_var_bx, @function
 n00855_var_bx:
@@ -18760,8 +19072,47 @@ n00863_assign_α:         mov              r11, 938
                         mov              qword ptr [r9 + 0], rax              # ifile
                         mov              qword ptr [r9 + 8], rdx
                         mov              qword ptr [rsp + 1472], rax
-                        mov              qword ptr [rsp + 1480], rdx;         jmp   .Ldisjunction_γ_2323_as
+                        mov              qword ptr [rsp + 1480], rdx
+                        push             rax
+                        push             rax
+                        push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r10
+                        push             r11
+                        mov              rsi, rax
+                        mov              rdi, qword ptr [rip + .Lassign_α_2438_0]
+                        .section         .rodata
+.Lassign_α_2438_1_s:    .string          ""
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rcx, [rip + .Lassign_α_2438_1_s]
+                        mov              r8, 0
+                        mov              r9, 0
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             comm_var@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              r11
+                        pop              r10
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+                        pop              rax
+                        pop              rax;                                 jmp   .Ldisjunction_γ_2323_as
 n00863_assign_β:         mov              r11, 938;                            jmp   n00853_disjunction_α
+.Lassign_α_2438_0:      .quad            .Lassign_α_2438_0_s
+.Lassign_α_2438_0_s:    .string          "ifile"
                         .size            n00863_assign_bx, .-n00863_assign_bx
                         .type            n00864_lit_string_bx, @function
 n00864_lit_string_bx:
@@ -19725,7 +20076,46 @@ n00916_assign_α:         mov              r11, 989
                         mov              rax, qword ptr [rsp + 336]
                         mov              rdx, qword ptr [rsp + 344]
                         mov              qword ptr [r9 + 48], rax             # latsin
-                        mov              qword ptr [r9 + 56], rdx;            jmp   n00905_call_proc_staged_α
+                        mov              qword ptr [r9 + 56], rdx
+                        push             rax
+                        push             rax
+                        push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r10
+                        push             r11
+                        mov              rsi, rax
+                        mov              rdi, qword ptr [rip + .Lassign_α_2508_0]
+                        .section         .rodata
+.Lassign_α_2508_1_s:    .string          ""
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rcx, [rip + .Lassign_α_2508_1_s]
+                        mov              r8, 0
+                        mov              r9, 0
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             comm_var@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              r11
+                        pop              r10
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+                        pop              rax
+                        pop              rax;                                 jmp   n00905_call_proc_staged_α
+.Lassign_α_2508_0:      .quad            .Lassign_α_2508_0_s
+.Lassign_α_2508_0_s:    .string          "latsin"
                         .size            n00916_assign_bx, .-n00916_assign_bx
                         .type            n00905_call_proc_staged_bx, @function
 n00905_call_proc_staged_bx:
