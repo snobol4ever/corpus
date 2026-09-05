@@ -652,369 +652,388 @@ main :- same(a, a), nl.
 :- initialization(main).
 greet :- write(hi).
 main :- greet, nl.
-%------------------------------------------------------ 248 sub_atom_directive_1
+%----------------------------------------- 248 rung01_rule_with_program_skeleton
+:- initialization(main).
+banner :- write(ready), nl.
+main :- banner.
+%---------------------------------------------- 249 rung03_disjunction_with_rule
+:- initialization(main).
+combo :- write(a), (write(x) ; write(y)), write(b).
+main :- combo, nl.
+%------------------------------------------------------ 250 sub_atom_directive_1
 :- initialization(main).
 main :- sub_atom(abc, B, 1, _, S), write(B-S), nl, fail.
 main :- write(done), nl.
-%----------------------------------------------------- 249 zero_arity_dispatch_1
+%----------------------------------------------------- 251 zero_arity_dispatch_1
 :- initialization(main).
 main(x) :- write(wrong), nl.
 main :- write(right), nl.
-%-------------------------------- 250 clause_choice_two_clauses_distinct_heads_1
+%-------------------------------- 252 clause_choice_two_clauses_distinct_heads_1
 :- initialization(main).
 sound(dog, woof).
 sound(cat, meow).
 main :- sound(cat, S), write(S), nl.
-%-------------------------------------------------------------- 251 directive_13
+%-------------------------------------------------------------- 253 directive_13
 :- initialization(main).
 f(a).
 f(b).
 main :- f(X), write(X), nl.
-%-------------------------------------------------------------- 252 directive_16
+%-------------------------------------------------------------- 254 directive_16
 % rung01_hello — write/1, nl/0, halt/0
 % Expected output: hello
 :- initialization(main).
 main :- write(hello), nl.
-%-------------------------------------------------------------- 253 directive_35
+%-------------------------------------------------------------- 255 directive_35
 :- initialization(main).
 main :-
     X1 is 2**10, write(X1), nl,
     X2 is 3**3,  write(X2), nl.
-%-------------------------------------------------------------- 254 directive_36
+%-------------------------------------------------------------- 256 directive_36
 :- initialization(main).
 main :-
     X1 is 1 << 4,   write(X1), nl,
     X2 is 256 >> 3, write(X2), nl.
-%-------------------------------------------------------------- 255 directive_49
+%-------------------------------------------------------------- 257 directive_49
 :- initialization(main).
 main :-
     number_string(42, S), write(S), nl,
     number_string(N, "99"), write(N), nl.
-%-------------------------------------------------------------- 256 directive_51
+%-------------------------------------------------------------- 258 directive_51
 :- initialization(main).
 main :-
     string_concat("foo", "bar", S), write(S), nl,
     string_concat(hello, ' world', S2), write(S2), nl.
-%-------------------------------------------------------------- 257 directive_52
+%-------------------------------------------------------------- 259 directive_52
 :- initialization(main).
 main :-
     string_length("hello", N), write(N), nl,
     string_length(abcde, M), write(M), nl.
-%-------------------------------------------------------------- 258 directive_57
+%-------------------------------------------------------------- 260 directive_57
 :- initialization(main).
 main :-
     upcase_atom(hello, U), write(U), nl,
     downcase_atom('HELLO', D), write(D), nl.
-%-------------------------------------------------------------- 259 directive_58
+%-------------------------------------------------------------- 261 directive_58
 :- initialization(main).
 main :-
     term_string(point(3,4), S), write(S), nl,
     term_string(42, S2), write(S2), nl.
-%-------------------------------------------------------------- 260 directive_60
+%-------------------------------------------------------------- 262 directive_60
 :- initialization(main).
 main :-
     term_to_atom(1+2, A), write(A), nl,
     term_to_atom(f(a,b,c), B), write(B), nl.
-%-------------------------------------------------------------- 261 directive_61
+%-------------------------------------------------------------- 263 directive_61
 :- initialization(main).
 main :-
     atomic_list_concat([hello, world], A), write(A), nl,
     atomic_list_concat([1, 2, 3], B), write(B), nl.
-%-------------------------------------------------------------- 262 directive_62
+%-------------------------------------------------------------- 264 directive_62
 :- initialization(main).
 main :-
     atomic_list_concat([hello, beautiful, world], ' ', A), write(A), nl,
     atomic_list_concat([a, b, c], '-', B), write(B), nl.
-%-------------------------------------------------------------- 263 directive_63
+%-------------------------------------------------------------- 265 directive_63
 :- initialization(main).
 main :-
     string_to_atom(hello, A), write(A), nl,
     string_to_atom(S, world), write(S), nl.
-%-------------------------------------------------------------- 264 directive_64
+%-------------------------------------------------------------- 266 directive_64
 :- initialization(main).
 main :-
     atomic_list_concat([hello, world], A), write(A), nl,
     atomic_list_concat([1, 2, 3], B), write(B), nl.
-%-------------------------------------------------------------- 265 directive_65
+%-------------------------------------------------------------- 267 directive_65
 :- initialization(main).
 main :-
     atomic_list_concat([hello, beautiful, world], ' ', A), write(A), nl,
     atomic_list_concat([a, b, c], '-', B), write(B), nl.
-%-------------------------------------------------------------- 266 directive_67
+%-------------------------------------------------------------- 268 directive_67
 :- initialization(main).
 main :-
     string_to_atom(hello, A), write(A), nl,
     string_to_atom(S, world), write(S), nl.
-%-------------------------------------------------------------- 267 directive_73
+%-------------------------------------------------------------- 269 directive_73
 :- initialization(main).
 main :-
     X is pi, write(X), nl,
     Y is exp(1.0), write(Y), nl.
-%-------------------------------------------------------------- 268 directive_77
+%-------------------------------------------------------------- 270 directive_77
 :- initialization(main).
 main :-
     X is gcd(12, 8), write(X), nl,
     Y is gcd(100, 75), write(Y), nl.
-%-------------------------------------------------------------- 269 directive_85
+%-------------------------------------------------------------- 271 directive_85
 :- initialization(main).
 p :- ( write(a) ; write(b) ), nl, fail.
 p.
 main :- p.
-%-------------------------------------------------------------- 270 directive_86
+%-------------------------------------------------------------- 272 directive_86
 :- initialization(main).
 main :- open('/tmp/scrip_rung06_tail.txt', write, W), write(W, 'hello(world).'), nl(W), write(W, 'second(1).'), nl(W), write(W, xy), close(W),
     open('/tmp/scrip_rung06_tail.txt', read, R), read(R, T), set_input(R), read_term(T2, []), set_input(user_input), get_char(R, C1), peek_char(R, P), get_char(R, C2), get_char(R, E), close(R),
     write(T), nl, write(T2), nl, write(C1), write(P), write(C2), nl, write(E), nl.
-%------------------------------------------------- 271 ofi_once_first_solution_1
+%------------------------------------------------- 273 ofi_once_first_solution_1
 :- initialization(main).
 p(1).
 p(2).
 main :- once(p(X)), write(X), nl.
-%---------------------------------------------------- 272 rule_body_calls_fact_1
+%---------------------------------------------------- 274 rule_body_calls_fact_1
 :- initialization(main).
 color(red).
 likes_color :- color(X), write(X).
 main :- likes_color, nl.
-%----------------------------------------------- 273 write_canonical_directive_2
+%------------------------------------- 275 rung03_disjunction_with_clause_choice
+:- initialization(main).
+pick(a) :- (write(left) ; write(right)).
+pick(b) :- write(only).
+main :- pick(a), nl, pick(b), nl.
+%----------------------------------------------- 276 write_canonical_directive_2
 :- initialization(main).
 main :-
     write_canonical(f(a,b)), nl,
     write_canonical(g(1,2,3)), nl.
-%----------------------------------------------- 274 write_canonical_directive_3
+%----------------------------------------------- 277 write_canonical_directive_3
 :- initialization(main).
 main :-
     write_canonical(1+2), nl,
     write_canonical(a-b), nl.
-%--------------------------------------- 275 clause_choice_first_solution_only_1
+%--------------------------------------- 278 clause_choice_first_solution_only_1
 :- initialization(main).
 r(1).
 r(2).
 r(3).
 main :- r(X), write(X), nl.
-%--------------------------------------------------------------- 276 directive_1
+%--------------------------------------------------------------- 279 directive_1
 % SCRIP DEMO1 -- Hello World (Prolog section)
 % Idiom: write/1 + nl/0
 :- initialization(main, main).
 main :-
     write('Hello, World!'), nl.
-%-------------------------------------------------------------- 277 directive_14
+%-------------------------------------------------------------- 280 directive_14
 :- initialization(main).
 f(a).
 f(b).
 f(c).
 main :- ( f(X), write(X), nl, fail ) ; true.
-%-------------------------------------------------------------- 278 directive_33
+%-------------------------------------------------------------- 281 directive_33
 :- initialization(main).
 main :-
     X1 is 12 /\ 10, write(X1), nl,
     X2 is 12 \/ 3,  write(X2), nl,
     X3 is 12 xor 10, write(X3), nl.
-%-------------------------------------------------------------- 279 directive_34
+%-------------------------------------------------------------- 282 directive_34
 :- initialization(main).
 main :-
     X1 is max(3,7),  write(X1), nl,
     X2 is min(3,7),  write(X2), nl,
     X3 is max(-1,0), write(X3), nl.
-%-------------------------------------------------------------- 280 directive_37
+%-------------------------------------------------------------- 283 directive_37
 :- initialization(main).
 main :-
     X1 is sign(5),  write(X1), nl,
     X2 is sign(-3), write(X2), nl,
     X3 is sign(0),  write(X3), nl.
-%-------------------------------------------------------------- 281 directive_48
+%-------------------------------------------------------------- 284 directive_48
 :- initialization(main).
 main :-
     atom_string(hello, S), write(S), nl,
     atom_string(A, "world"), write(A), nl,
     atom_string(42, S2), write(S2), nl.
-%-------------------------------------------------------------- 282 directive_50
+%-------------------------------------------------------------- 285 directive_50
 :- initialization(main).
 main :-
     string_upper("hello", U), write(U), nl,
     string_lower("WORLD", L), write(L), nl,
     string_upper(foo, U2), write(U2), nl.
-%-------------------------------------------------------------- 283 directive_59
+%-------------------------------------------------------------- 286 directive_59
 :- initialization(main).
 main :-
     term_to_atom(foo(1,2), A), write(A), nl,
     term_to_atom(hello, B), write(B), nl,
     term_to_atom([1,2,3], C), write(C), nl.
-%-------------------------------------------------------------- 284 directive_68
+%-------------------------------------------------------------- 287 directive_68
 :- initialization(main).
 fruit(apple). fruit(banana). fruit(cherry).
 main :-
     aggregate_all(count, fruit(_), N),
     write(N), nl.
-%-------------------------------------------------------------- 285 directive_69
+%-------------------------------------------------------------- 288 directive_69
 :- initialization(main).
 val(5). val(3). val(8). val(1).
 main :-
     aggregate_all(max(V), val(V), Max), write(Max), nl,
     aggregate_all(min(W), val(W), Min), write(Min), nl.
-%-------------------------------------------------------------- 286 directive_70
+%-------------------------------------------------------------- 289 directive_70
 :- initialization(main).
 score(10). score(20). score(30).
 main :-
     aggregate_all(sum(S), score(S), Total),
     write(Total), nl.
-%-------------------------------------------------------------- 287 directive_72
+%-------------------------------------------------------------- 290 directive_72
 :- initialization(main).
 main :-
     nb_setval(msg, hello),
     nb_getval(msg, X),
     write(X), nl.
-%-------------------------------------------------------------- 288 directive_75
+%-------------------------------------------------------------- 291 directive_75
 :- initialization(main).
 main :-
     X is sqrt(4.0), write(X), nl,
     Y is sin(0.0), write(Y), nl,
     Z is cos(0.0), write(Z), nl.
-%-------------------------------------------------------------- 289 directive_76
+%-------------------------------------------------------------- 292 directive_76
 :- initialization(main).
 main :-
     X is float_integer_part(3.7), write(X), nl,
     Y is float_fractional_part(3.7), write(Y), nl,
     Z is float(5), write(Z), nl.
-%--------------------------------------------------------- 290 index_directive_1
+%--------------------------------------------------------- 293 index_directive_1
 :- initialization(main).
 fact(a, 1).
 fact(b, 2).
 fact(c, 3).
 main :- fact(b, V), write(V), nl.
-%----------------------------------- 291 indexing_distinct_constant_first_args_1
+%----------------------------------- 294 indexing_distinct_constant_first_args_1
 color_code(red, 1).
 color_code(green, 2).
 color_code(blue, 3).
 :- initialization(main).
 main :- color_code(green, X), write(X), nl.
-%---------------------------------------------------------- 292 scrip_test_hello
+%-------------------------------------------- 295 rung02_clause_choice_with_rule
+:- initialization(main).
+lang(en) :- write(hello), nl.
+lang(fr) :- write(bonjour), nl.
+main :- lang(_), fail.
+main :- true.
+%---------------------------------------------------------- 296 scrip_test_hello
 % SCRIP DEMO1 -- Hello World (Prolog section)
 % Idiom: write/1 + nl/0
 :- initialization(main, main).
 main :-
     write('Hello, World!'), nl.
-%--------------------------------------------------------- 293 simple_program_91
+%--------------------------------------------------------- 297 simple_program_91
 :- initialization(main).
 main :-
     plus(3, Y, 10), write(Y), nl,
     plus(0, W, 5),  write(W), nl.
 main.
-%--------------------------------------------------------- 294 simple_program_92
+%--------------------------------------------------------- 298 simple_program_92
 :- initialization(main).
 main :-
     plus(X, 4, 10), write(X), nl,
     plus(Y, 3, 3),  write(Y), nl.
 main.
-%----------------------------------------------- 295 write_canonical_directive_1
+%----------------------------------------------- 299 write_canonical_directive_1
 :- initialization(main).
 main :-
     write_canonical(hello), nl,
     write_canonical('Hello'), nl,
     write_canonical([]), nl.
-%-------------------------------------------------------- 296 writeq_directive_1
+%-------------------------------------------------------- 300 writeq_directive_1
 :- initialization(main).
 main :-
     writeq(hello), nl,
     writeq('Hello'), nl,
     writeq([]), nl.
-%-------------------------------------------------------- 297 writeq_directive_2
+%-------------------------------------------------------- 301 writeq_directive_2
 :- initialization(main).
 main :-
     writeq(1+2), nl,
     writeq(f(a,b)), nl,
     writeq(a-b), nl.
-%----------------------------------- 298 clause_choice_three_clauses_enumerate_1
+%----------------------------------- 302 clause_choice_three_clauses_enumerate_1
 :- initialization(main).
 q(1).
 q(2).
 q(3).
 main :- q(X), write(X), fail.
 main :- nl.
-%---------------------------------------------- 299 declarations_discontiguous_1
+%---------------------------------------------- 303 declarations_discontiguous_1
 :- discontiguous(bar/1).
 bar(1).
 other(x).
 bar(2).
 :- initialization(main).
 main :- bar(1), bar(2), write(ok), nl.
-%-------------------------------------------------------------- 300 directive_20
+%-------------------------------------------------------------- 304 directive_20
 :- initialization(main).
 main :-
     atom_chars(hi, Cs),
     write(Cs), nl,
     atom_chars(A, [w,o,r,l,d]),
     write(A), nl.
-%-------------------------------------------------------------- 301 directive_21
+%-------------------------------------------------------------- 305 directive_21
 :- initialization(main).
 main :-
     atom_codes(hi, Cs),
     write(Cs), nl,
     atom_codes(A, [104,101,108,108,111]),
     write(A), nl.
-%-------------------------------------------------------------- 302 directive_22
+%-------------------------------------------------------------- 306 directive_22
 :- initialization(main).
 main :-
     atom_concat(foo, bar, R),
     write(R), nl,
     atom_concat(hello, ' world', R2),
     write(R2), nl.
-%-------------------------------------------------------------- 303 directive_23
+%-------------------------------------------------------------- 307 directive_23
 :- initialization(main).
 main :-
     atom_length(hello, N),
     write(N), nl,
     atom_length('', Z),
     write(Z), nl.
-%-------------------------------------------------------------- 304 directive_38
+%-------------------------------------------------------------- 308 directive_38
 :- initialization(main).
 main :- X is 5 /\ 3, write(X), nl,
         Y is 5 \/ 3, write(Y), nl,
         Z is 5 xor 3, write(Z), nl,
         W is 5 >> 1, write(W), nl,
         V is 5 << 1, write(V), nl.
-%-------------------------------------------------------------- 305 directive_71
+%-------------------------------------------------------------- 309 directive_71
 :- initialization(main).
 main :-
     nb_setval(counter, 0),
     nb_setval(counter, 42),
     nb_getval(counter, V),
     write(V), nl.
-%-------------------------------------------------------------- 306 directive_74
+%-------------------------------------------------------------- 310 directive_74
 :- initialization(main).
 main :-
     X is truncate(3.7), write(X), nl,
     Y is ceiling(3.2), write(Y), nl,
     Z is floor(3.9), write(Z), nl,
     W is round(3.5), write(W), nl.
-%-------------------------------------------------------------- 307 directive_84
+%-------------------------------------------------------------- 311 directive_84
 :- initialization(main).
 p(1).
 p(2).
 p(3).
 main :- p(X), write(X), nl, fail.
 main.
-%-------------------------------------------------------- 308 simple_program_100
+%-------------------------------------------------------- 312 simple_program_100
 :- initialization(main).
 main :-
     sub_atom(abcdef, 2, 3, _, Sub),
     write(Sub), nl,
     sub_atom(abcdef, B, 1, _, b),
     write(B), nl.
-%-------------------------------------------------------- 309 simple_program_102
+%-------------------------------------------------------- 313 simple_program_102
 :- initialization(main).
 main :-
     upcase_atom(hello, U),
     write(U), nl,
     downcase_atom('WORLD', D),
     write(D), nl.
-%--------------------------------------------------------- 310 simple_program_90
+%--------------------------------------------------------- 314 simple_program_90
 :- initialization(main).
 main :-
     plus(3, 4, Z), write(Z), nl,
     plus(0, 7, W), write(W), nl,
     plus(10, 20, V), write(V), nl.
 main.
-%-------------------------------------------------------------- 311 directive_17
+%-------------------------------------------------------------- 315 directive_17
 % rung02_facts — deterministic fact lookup
 % Expected output (one per line): brown jones smith
 :- initialization(main).
@@ -1022,7 +1041,7 @@ person(brown).
 person(jones).
 person(smith).
 main :- person(X), write(X), nl, fail ; true.
-%-------------------------------------------------------- 312 simple_program_103
+%-------------------------------------------------------- 316 simple_program_103
 :- initialization(main).
 main :-
     atom_to_term('foo(1,2)', T, B),
@@ -1030,7 +1049,7 @@ main :-
     write(B), nl,
     atom_to_term(A, bar(x), []),
     write(A), nl.
-%--------------------------------------------------------- 313 simple_program_97
+%--------------------------------------------------------- 317 simple_program_97
 % ** and ^ for exponentiation
 :- initialization(main).
 main :-
@@ -1038,7 +1057,7 @@ main :-
     B is 2 ^ 10,  write(B), nl,
     C is 3 ** 0,  write(C), nl,
     D is 2 ** -1, write(D), nl.
-%-------------------------------------------------------------- 314 directive_19
+%-------------------------------------------------------------- 318 directive_19
 :- initialization(main).
 main :-
     upcase_atom(hello, U),
@@ -1047,7 +1066,7 @@ main :-
     write(D), nl,
     atom_length(abcde, N),
     write(N), nl.
-%-------------------------------------------------------------- 315 directive_78
+%-------------------------------------------------------------- 319 directive_78
 % rung35_bridge_setup/01_scc_basic — all three positions are concrete goals.
 :- initialization(main).
 main :-
@@ -1056,7 +1075,7 @@ main :-
         (nl, write(goal), nl),
         (write(cleanup), nl)
     ).
-%-------------------------------------------------------- 316 simple_program_101
+%-------------------------------------------------------- 320 simple_program_101
 :- initialization(main).
 main :-
     atom_number('42', N),
@@ -1065,7 +1084,7 @@ main :-
     write(F), nl,
     atom_number(A, 7),
     write(A), nl.
-%-------------------------------------------------------- 317 simple_program_104
+%-------------------------------------------------------- 321 simple_program_104
 % sub_atom in determinate mode: Before and Length both bound
 :- initialization(main).
 main :-
@@ -1075,7 +1094,7 @@ main :-
     write(Sub2), nl,
     sub_atom(hello, 0, 0, _, Sub3),
     write(Sub3), nl.
-%--------------------------------------------------------- 318 simple_program_96
+%--------------------------------------------------------- 322 simple_program_96
 % ISO §8.7 — truncate/round/ceiling/floor
 :- initialization(main).
 main :-
@@ -1086,7 +1105,7 @@ main :-
     E is ceiling(3.2),   write(E), nl,
     F is floor(3.7),     write(F), nl,
     G is floor(-3.2),    write(G), nl.
-%--------------------------------------------------------- 319 simple_program_98
+%--------------------------------------------------------- 323 simple_program_98
 % abs/1, sign/1, max/2, min/2
 :- initialization(main).
 main :-
@@ -1097,7 +1116,7 @@ main :-
     E is sign(3),      write(E), nl,
     F is max(3, 7),    write(F), nl,
     G is min(3, 7),    write(G), nl.
-%--------------------------------------------------------- 320 simple_program_95
+%--------------------------------------------------------- 324 simple_program_95
 % ISO §8.4 mod (sign of divisor) vs rem (sign of dividend)
 :- initialization(main).
 main :-
@@ -1109,7 +1128,7 @@ main :-
     F is -7 rem 3,  write(F), nl,
     G is 7 rem -3,  write(G), nl,
     H is -7 rem -3, write(H), nl.
-%-------------------------------------------------------- 321 simple_program_105
+%-------------------------------------------------------- 325 simple_program_105
 :- initialization(main).
 main :-
     writeln(hello),
@@ -1123,7 +1142,7 @@ main :-
     writeln(after_tail),
     writeln(end).
 main :- write(main_failed), nl.
-%-------------------------------------------------------------- 322 directive_80
+%-------------------------------------------------------------- 326 directive_80
 :- initialization(main).
 main :-
     put(72), put(105), put(33), nl,
@@ -1141,7 +1160,7 @@ main :-
     write(chars(C0,C1,C2,C3)), nl,
     write(done), nl,
     halt.
-%-------------------------------------------------------------- 323 directive_81
+%-------------------------------------------------------------- 327 directive_81
 :- initialization(main).
 main :-
     telling(T0), seeing(S0),
@@ -1161,7 +1180,7 @@ main :-
     seeing(S1), write(after_seen(S1)), nl,
     write(done), nl,
     halt.
-%-------------------------------------------------------------- 324 directive_79
+%-------------------------------------------------------------- 328 directive_79
 :- initialization(main).
 main :-
     open('/tmp/rung72_ug.txt', write, WS), write(WS, 'ABC'), close(WS),
@@ -1184,7 +1203,7 @@ main :-
     write(byte(B1,B2)), nl,
     write(done), nl,
     halt.
-%-------------------------------------------------------------- 325 directive_18
+%-------------------------------------------------------------- 329 directive_18
 % rung08_recursion — fibonacci/2, factorial/2
 % Expected output: 8  6
 :- initialization(main).
@@ -1209,7 +1228,7 @@ factorial(N, F) :-
 main :-
     fib(6, F), write(F), nl,
     factorial(3, G), write(G), nl.
-%-------------------------------------------- 326 test_rung10_programs_puzzle_10
+%-------------------------------------------- 330 test_rung10_programs_puzzle_10
 %-------------------------------------------------------------------------------
 % 10 — High school chums
 %-------------------------------------------------------------------------------
@@ -1250,459 +1269,474 @@ all_diff5(A,B,C,D,E) :-
     A\=B, A\=C, A\=D, A\=E,
     B\=C, B\=D, B\=E,
     C\=D, C\=E, D\=E.
-%-------------------------------------------------------- 327 arith_compare_ge_1
+%-------------------------------------------------------- 331 arith_compare_ge_1
 :- initialization(main).
 main :- (2 >= 2 -> write(yes) ; write(no)), nl.
-%-------------------------------------------------------- 328 arith_compare_gt_1
+%-------------------------------------------------------- 332 arith_compare_gt_1
 :- initialization(main).
 main :- (3 > 2 -> write(yes) ; write(no)), nl.
-%-------------------------------------------------------- 329 arith_compare_le_1
+%-------------------------------------------------------- 333 arith_compare_le_1
 :- initialization(main).
 main :- (2 =< 2 -> write(yes) ; write(no)), nl.
-%-------------------------------------------------------- 330 arith_compare_lt_1
+%-------------------------------------------------------- 334 arith_compare_lt_1
 :- initialization(main).
 main :- (2 < 3 -> write(yes) ; write(no)), nl.
-%--------------------------------------------------------- 331 arith_directive_1
+%--------------------------------------------------------- 335 arith_directive_1
 :- initialization(main).
 main :- X is 3 + 4 * 2, Y is X - 1, Z is X mod 3, X > Y, Y >= 10, Z =:= 2, X =\= Y, Y < X, Y =< X, write(X), nl, write(Y), nl, write(Z), nl.
-%----------------------------------------------------- 332 arith_eval_negation_1
+%----------------------------------------------------- 336 arith_eval_negation_1
 :- initialization(main).
 main :- N = 5, X is -N, write(X), nl.
-%------------------------------------------- 333 arith_eval_zero_divisor_error_1
+%------------------------------------------- 337 arith_eval_zero_divisor_error_1
 :- initialization(main).
 main :- catch(( _ is 1 / 0, write(nocaught) ), error(evaluation_error(zero_divisor), _), write(caught)), nl.
-%-------------------------------------------- 334 between_backtrack_all_values_1
+%-------------------------------------------- 338 between_backtrack_all_values_1
 :- initialization(main).
 main :- (between(1,4,X), write(X), fail ; true), nl.
-%------------------------------------ 335 catch_throw_catch_of_succeeding_goal_1
+%------------------------------------ 339 catch_throw_catch_of_succeeding_goal_1
 :- initialization(main).
 main :- catch(write(normal), _, write(recovery)), nl.
-%------------------------------------- 336 catch_throw_error_term_from_builtin_1
+%------------------------------------- 340 catch_throw_error_term_from_builtin_1
 :- initialization(main).
 main :- catch(( X is 1/0, write(X) ), error(evaluation_error(zero_divisor),_), write(caught)), nl.
-%-------------------------------------------------------------- 337 directive_15
+%-------------------------------------------------------------- 341 directive_15
 :- initialization(main).
 main :- ( ( X = a ; X = b ), write(X), nl, fail ) ; true.
-%------------------------------------------------------- 338 findall_directive_4
+%------------------------------------------------------- 342 findall_directive_4
 :- initialization(main).
 main :- findall(X, fail, Xs), write(Xs), nl.
-%---------------------------------------------------- 339 findall_empty_result_1
+%---------------------------------------------------- 343 findall_empty_result_1
 :- initialization(main).
 main :- findall(X, fail, L), write(L), nl.
-%-------------------------------------------------------------------- 340 ite_10
+%-------------------------------------------------------------------- 344 ite_10
 :- initialization(main).
 main :- read(X), read(Y), ( ( X == end_of_file, Y == end_of_file ) -> write(both_eof) ; write(no) ), nl.
-%-------------------------------------------------------------------- 341 ite_11
+%-------------------------------------------------------------------- 345 ite_11
 :- initialization(main).
 main :- read_term(X, []), ( X == end_of_file -> write(rt_eof) ; write(X) ), nl.
-%--------------------------------------------------------------------- 342 ite_9
+%--------------------------------------------------------------------- 346 ite_9
 :- initialization(main).
 main :- read(X), ( X == end_of_file -> write(eof) ; write(X) ), nl.
-%------------------------------------------------ 343 ite_bare_if_then_no_else_1
+%------------------------------------------------ 347 ite_bare_if_then_no_else_1
 :- initialization(main).
 main :- (1 =:= 1 -> write(yes)), nl.
-%----------------------------------------------------- 344 ite_condition_fails_1
+%----------------------------------------------------- 348 ite_condition_fails_1
 :- initialization(main).
 main :- (fail -> write(then) ; write(else)), nl.
-%---------------------------------------------- 345 ofi_ignore_of_failing_goal_1
+%---------------------------------------------- 349 ofi_ignore_of_failing_goal_1
 :- initialization(main).
 main :- (ignore(fail) -> write(yes) ; write(no)), nl.
-%----------------------------------------------------- 346 ofi_ignore_succeeds_1
+%----------------------------------------------------- 350 ofi_ignore_succeeds_1
 :- initialization(main).
 main :- ignore(X = bound), write(X), nl.
-%------------------------------------------------ 347 ofi_once_of_failing_goal_1
+%------------------------------------------------ 351 ofi_once_of_failing_goal_1
 :- initialization(main).
 main :- (once(fail) -> write(yes) ; write(no)), nl.
-%-------------------------------------------------- 348 repeat_repeat_with_cut_1
+%-------------------------------------------------- 352 repeat_repeat_with_cut_1
 :- initialization(main).
 main :- repeat, write(x), !, nl.
-%--------------------------------------------------- 349 streams_current_input_1
+%--------------------------------------------------- 353 streams_current_input_1
 :- initialization(main).
 main :- current_input(S0), open('/tmp/scrip_rung06_sw_current_input.txt', write, W), write(W, 'val(7).'), close(W), open('/tmp/scrip_rung06_sw_current_input.txt', read, R), set_input(R), current_input(S1), (S1 == R -> write(matched) ; write(nomatch)), nl, read(T), close(R), set_input(S0), write(T), nl.
-%----------------------------------------------------- 350 streams_stream_term_1
+%----------------------------------------------------- 354 streams_stream_term_1
 :- initialization(main).
 main :- open('/tmp/scrip_rung06_sw_stream_term.txt', write, S), Terms = [S], [S2] = Terms, write(S2, 'passed.'), close(S2), open('/tmp/scrip_rung06_sw_stream_term.txt', read, R), read(R, T), close(R), write(T), nl.
-%------------------------------------------------ 351 sub_atom_empty_substring_1
+%------------------------------------------------ 355 sub_atom_empty_substring_1
 :- initialization(main).
 main :- sub_atom(hello, 2, 0, _, S), (S == '' -> write(empty) ; write(S)), nl.
-%-------------------------------------------------- 352 sub_atom_enumerate_all_1
+%-------------------------------------------------- 356 sub_atom_enumerate_all_1
 :- initialization(main).
 main :- findall(S, sub_atom(ab, _, _, _, S), L), write(L), nl.
-%------------------------------------------------- 353 sub_atom_find_substring_1
+%------------------------------------------------- 357 sub_atom_find_substring_1
 :- initialization(main).
 main :- (sub_atom(hello, B, _, 0, lo) -> write(B) ; write(notfound)), nl.
-%------------------------------------------ 354 term_compare_standard_order_lt_1
+%------------------------------------------ 358 term_compare_standard_order_lt_1
 :- initialization(main).
 main :- (1 @< a -> write(yes) ; write(no)), nl.
-%---------------------------------------------------- 355 term_compare_term_eq_1
+%---------------------------------------------------- 359 term_compare_term_eq_1
 :- initialization(main).
 main :- (foo(1, 2) == foo(1, 2) -> write(yes) ; write(no)), nl.
-%---------------------------------------------------- 356 term_compare_term_ne_1
+%---------------------------------------------------- 360 term_compare_term_ne_1
 :- initialization(main).
 main :- (foo(1, 2) \== foo(1, 3) -> write(yes) ; write(no)), nl.
-%----------------------------------------------- 357 term_construction_arg_nth_1
+%----------------------------------------------- 361 term_construction_arg_nth_1
 :- initialization(main).
 main :- arg(2, foo(a, b, c), X), write(X), nl.
-%------------------------------------- 358 term_construction_functor_decompose_1
+%------------------------------------- 362 term_construction_functor_decompose_1
 :- initialization(main).
 main :- functor(foo(1, 2, 3), Name, Arity), write(Name/Arity), nl.
-%-------------------------------------------------------- 359 type_test_atomic_1
+%-------------------------------------------------------- 363 type_test_atomic_1
 :- initialization(main).
 main :- (atomic(foo) -> write(yes) ; write(no)), nl.
-%------------------------------------------------------ 360 type_test_callable_1
+%------------------------------------------------------ 364 type_test_callable_1
 :- initialization(main).
 main :- (callable(foo) -> write(yes) ; write(no)), nl.
-%------------------------------------------------------ 361 type_test_compound_1
+%------------------------------------------------------ 365 type_test_compound_1
 :- initialization(main).
 main :- (compound(foo(1, 2)) -> write(yes) ; write(no)), nl.
-%--------------------------------------------------------- 362 type_test_float_1
+%--------------------------------------------------------- 366 type_test_float_1
 :- initialization(main).
 main :- (float(3.14) -> write(yes) ; write(no)), nl.
-%-------------------------------------------------------- 363 type_test_ground_1
+%-------------------------------------------------------- 367 type_test_ground_1
 :- initialization(main).
 main :- (ground(foo(1, bar(2))) -> write(yes) ; write(no)), nl.
-%------------------------------------------------------- 364 type_test_integer_1
+%------------------------------------------------------- 368 type_test_integer_1
 :- initialization(main).
 main :- (integer(42) -> write(yes) ; write(no)), nl.
-%------------------------------------------------------- 365 type_test_is_list_1
+%------------------------------------------------------- 369 type_test_is_list_1
 :- initialization(main).
 main :- (is_list([1, 2, 3]) -> write(yes) ; write(no)), nl.
-%------------------------------------------------------ 366 unify_occurs_check_1
+%------------------------------------------------------ 370 unify_occurs_check_1
 :- initialization(main).
 main :- (unify_with_occurs_check(X, f(X)) -> write(yes) ; write(no)), nl.
-%---------------------------------------------------- 367 unify_two_vars_alias_1
+%---------------------------------------------------- 371 unify_two_vars_alias_1
 :- initialization(main).
 main :- X = Y, Y = val, write(X), nl.
-%---------------------------------------------------- 368 unify_var_binds_atom_1
+%---------------------------------------------------- 372 unify_var_binds_atom_1
 :- initialization(main).
 main :- X = bound, write(X), nl.
-%------------------------------------------------ 369 unify_var_binds_compound_1
+%------------------------------------------------ 373 unify_var_binds_compound_1
 :- initialization(main).
 main :- X = pair(a, b), write(X), nl.
-%---------------------------------------- 370 write_family_format_3_codes_sink_1
+%---------------------------------------- 374 write_family_format_3_codes_sink_1
 :- initialization(main).
 main :- format(codes(C), "~w", [hi]), write(C), nl.
-%----------------------------------------------------- 371 assert_assertz_fact_1
+%----------------------------------------------------- 375 assert_assertz_fact_1
 :- dynamic(p10a/1).
 :- initialization(main).
 main :- assertz(p10a(hello)), p10a(X), write(X), nl.
-%------------------------------------------------------- 372 between_directive_1
+%------------------------------------------------------- 376 between_directive_1
 :- initialization(main).
 main :- between(1, 3, X), write(X), nl, fail.
 main :- write(done), nl.
-%------------------------------------------------------ 373 call_n_call_1_atom_1
+%------------------------------------------------------ 377 call_n_call_1_atom_1
 foo1 :- write(called).
 :- initialization(main).
 main :- call(foo1), nl.
-%-------------------------------------------------- 374 call_n_call_1_compound_1
+%-------------------------------------------------- 378 call_n_call_1_compound_1
 bar1(X) :- Y is X*2, write(Y).
 :- initialization(main).
 main :- call(bar1(5)), nl.
-%------------------------------------------------- 375 call_n_call_2_extra_arg_1
+%------------------------------------------------- 379 call_n_call_2_extra_arg_1
 baz1(X,Y) :- Z is X+Y, write(Z).
 :- initialization(main).
 main :- call(baz1(3), 4), nl.
-%----------------------------------------------------------- 376 call_n_call_3_1
+%----------------------------------------------------------- 380 call_n_call_3_1
 qux1(X,Y,Z) :- W is X+Y+Z, write(W).
 :- initialization(main).
 main :- call(qux1(1),2,3), nl.
-%------------------------------------------- 377 clause_choice_redo_after_fail_1
+%------------------------------------------- 381 clause_choice_redo_after_fail_1
 :- initialization(main).
 main :- between(1, 3, X), write(X), fail.
 main :- nl.
-%----------------------------------------------------- 378 copy_term_directive_1
+%----------------------------------------------------- 382 copy_term_directive_1
 :- initialization(main).
 main :-
     copy_term(foo(1,2), T), write(T), nl.
-%----------------------------------------------------------- 379 dcg_directive_2
+%----------------------------------------------------------- 383 dcg_directive_2
 :- initialization(main).
 greeting --> [hello], [world].
 main :- phrase(greeting, [hello, world]), write(ok), nl.
-%------------------------------------------------------------ 380 dcg_phrase_2_1
+%------------------------------------------------------------ 384 dcg_phrase_2_1
 greeting --> [hello], [world].
 :- initialization(main).
 main :- phrase(greeting, [hello,world]), write(matched), nl.
-%------------------------------------------------------- 381 dcg_phrase_3_rest_1
+%------------------------------------------------------- 385 dcg_phrase_3_rest_1
 greeting2 --> [hi].
 :- initialization(main).
 main :- phrase(greeting2, [hi,there], Rest), write(Rest), nl.
-%------------------------------------------------------------ 382 dcg_pushback_1
+%------------------------------------------------------------ 386 dcg_pushback_1
 tag, [pushed] --> [x].
 :- initialization(main).
 main :- phrase(tag, [x], Rest), write(Rest), nl.
-%------------------------------------------------------- 383 dcg_terminal_list_1
+%------------------------------------------------------- 387 dcg_terminal_list_1
 nums --> [1,2,3].
 :- initialization(main).
 main :- phrase(nums, [1,2,3]), write(ok), nl.
-%---------------------------------------------------- 384 declarations_dynamic_1
+%---------------------------------------------------- 388 declarations_dynamic_1
 :- dynamic(foo/1).
 :- initialization(main).
 main :- (foo(x) -> write(yes) ; write(no)), nl.
-%----------------------------------------------------------- 385 ite_directive_2
+%----------------------------------------------------------- 389 ite_directive_2
 :- initialization(main).
 main :- ( char_type(a, alpha) -> write(yes) ; write(no) ), nl,
         ( char_type('3', alpha) -> write(yes) ; write(no) ), nl.
-%------------------------------------------------- 386 bagof_setof_bagof_basic_1
+%---------------------------------------------- 390 rung01_unification_with_fact
+:- initialization(main).
+point(1, 2).
+main :- point(X, Y), X = 1, write(X-Y), nl.
+%------------------------------------------------- 391 bagof_setof_bagof_basic_1
 likes(mary,wine).
 likes(mary,cheese).
 :- initialization(main).
 main :- bagof(X, likes(mary,X), L), write(L), nl.
-%------------------------------------------- 387 clause_choice_no_clause_fails_1
+%------------------------------------------- 392 clause_choice_no_clause_fails_1
 :- initialization(main).
 s(1).
 s(2).
 main :- (s(99) -> write(yes) ; write(no)), nl.
-%----------------------------------------------------------- 388 cut_directive_2
+%----------------------------------------------------------- 393 cut_directive_2
 :- initialization(main).
 count(0) :- !.
 count(N) :- N > 0, write(N), nl, N1 is N - 1, count(N1).
 main :- count(3).
-%----------------------------------------------------------- 389 cut_directive_3
+%----------------------------------------------------------- 394 cut_directive_3
 :- initialization(main).
 f(a) :- !.
 f(b).
 main :- ( f(X), write(X), nl, fail ) ; true.
-%---------------------------------------------------------- 390 cut_first_goal_1
+%---------------------------------------------------------- 395 cut_first_goal_1
 :- initialization(main).
 q :- !, write(first).
 q :- write(second).
 main :- q, nl.
-%------------------------------------------------------- 391 declarations_op_3_1
+%------------------------------------------------------- 396 declarations_op_3_1
 :- op(700, xfx, ===>).
 implies(X ===> Y) :- write(X), write(then), write(Y), nl.
 :- initialization(main).
 main :- implies(rain ===> wet).
-%------------------------------------------------------- 392 findall_directive_2
+%------------------------------------------------------- 397 findall_directive_2
 :- initialization(main).
 main :-
     findall(X, fail, Xs),
     write(Xs), nl.
-%----------------------------------------------------------- 393 ite_directive_3
+%----------------------------------------------------------- 398 ite_directive_3
 :- initialization(main).
 main :- ( char_type(' ', space) -> write(yes) ; write(no) ), nl,
         ( char_type(a, alnum) -> write(yes) ; write(no) ), nl,
         ( char_type('3', alnum) -> write(yes) ; write(no) ), nl.
-%----------------------------------------------------------- 394 ite_directive_5
+%----------------------------------------------------------- 399 ite_directive_5
 :- initialization(main).
 main :-
     ( compound(f(a,b)) -> write(yes) ; write(no) ), nl,
     ( compound(foo)    -> write(yes) ; write(no) ), nl.
-%----------------------------------------------------------- 395 ite_directive_6
+%----------------------------------------------------------- 400 ite_directive_6
 :- initialization(main).
 main :-
     ( ground(g(a,b))  -> write(yes) ; write(no) ), nl,
     ( ground(g(a,X))  -> write(yes) ; write(no) ), nl.
-%----------------------------------------------------------- 396 ite_directive_9
+%----------------------------------------------------------- 401 ite_directive_9
 :- initialization(main).
 q(1).
 q(2).
 main :- ( q(2) -> write(yes) ; write(no) ), nl, ( q(3) -> write(yes) ; write(no) ), nl.
-%---------------------------------------------- 397 last_call_accumulator_loop_1
+%---------------------------------------------- 402 last_call_accumulator_loop_1
 sum_acc(N, Acc, Acc) :- N =< 0, !.
 sum_acc(N, Acc, Sum) :- N > 0, Acc1 is Acc + N, N1 is N - 1, sum_acc(N1, Acc1, Sum).
 :- initialization(main).
 main :- sum_acc(1000, 0, Sum), write(Sum), nl.
-%------------------------------------------ 398 last_call_tail_recursive_count_1
+%------------------------------------------ 403 last_call_tail_recursive_count_1
 count_to(N, N) :- !, write(N).
 count_to(I, N) :- I < N, J is I + 1, count_to(J, N).
 :- initialization(main).
 main :- count_to(0, 50000), nl.
-%------------------------------------------------------ 399 lastcall_directive_1
+%------------------------------------------------------ 404 lastcall_directive_1
 :- initialization(main).
 count(N, N) :- !.
 count(I, N) :- I < N, J is I + 1, count(J, N).
 main :- count(0, 100000), write(done), nl.
-%---------------------------------------------------------- 400 list_directive_1
+%---------------------------------------------------------- 405 list_directive_1
 :- initialization(main).
 mem(X, [X|_]).
 mem(X, [_|T]) :- mem(X, T).
 main :- ( mem(X, [1,2,3]), write(X), nl, fail ) ; true.
-%----------------------------------------------------------------- 401 abolish_1
+%----------------------------------------------- 406 rung04_cut_with_disjunction
+:- initialization(main).
+test(X) :- (X > 0 ; X < 0), !, write(nonzero).
+test(_) :- write(zero).
+main :- test(5), nl.
+%----------------------------------------------------------------- 407 abolish_1
 :- initialization(main).
 main :-
     abolish(ghost/1),
     write(ok), nl.
 main.
-%------------------------------------------- 402 bagof_setof_caret_existential_1
+%------------------------------------------- 408 bagof_setof_caret_existential_1
 likes(mary,wine).
 likes(john,wine).
 likes(mary,cheese).
 :- initialization(main).
 main :- setof(X, Y^likes(Y,X), L), write(L), nl.
-%------------------------------------------ 403 bagof_setof_setof_sorts_dedups_1
+%------------------------------------------ 409 bagof_setof_setof_sorts_dedups_1
 item(banana).
 item(apple).
 item(banana).
 :- initialization(main).
 main :- setof(X, item(X), L), write(L), nl.
-%--------------------------------------------------------- 404 catch_directive_1
+%--------------------------------------------------------- 410 catch_directive_1
 :- initialization(main).
 main :-
     catch(safe(3), _, write(bad)),
     write(ok), nl.
 safe(X) :- X > 0, write(X), nl.
-%------------------------------------------------ 405 dcg_nonterminal_sequence_1
+%------------------------------------------------ 411 dcg_nonterminal_sequence_1
 article --> [the].
 noun --> [cat].
 np --> article, noun.
 :- initialization(main).
 main :- phrase(np, [the,cat]), write(ok), nl.
-%-------------------------------------------------- 406 declarations_multifile_1
+%-------------------------------------------------- 412 declarations_multifile_1
 :- multifile(baz/1).
 baz(1).
 baz(2).
 :- initialization(main).
 main :- findall(N, baz(N), L), write(L), nl.
-%----------------------------------------------------- 407 findall_collect_all_1
+%----------------------------------------------------- 413 findall_collect_all_1
 color(red).
 color(green).
 color(blue).
 :- initialization(main).
 main :- findall(C, color(C), L), write(L), nl.
-%------------------------------------------------------- 408 findall_directive_1
+%------------------------------------------------------- 414 findall_directive_1
 :- initialization(main).
 color(red). color(green). color(blue).
 main :-
     findall(X, color(X), Xs),
     write(Xs), nl.
-%------------------------------------------------------- 409 findall_directive_3
+%------------------------------------------------------- 415 findall_directive_3
 :- initialization(main).
 pair(a,1). pair(b,2). pair(c,3).
 main :-
     findall(K-V, pair(K,V), Ps),
     write(Ps), nl.
-%--------------------------------------- 410 indexing_indexed_vs_var_first_arg_1
+%--------------------------------------- 416 indexing_indexed_vs_var_first_arg_1
 item_price(apple, 1).
 item_price(banana, 2).
 item_price(cherry, 3).
 :- initialization(main).
 main :- item_price(banana, P), write(P), nl, findall(N-Pr, item_price(N,Pr), All), write(All), nl.
-%---------------------------------------------------------- 411 ite_directive_10
+%---------------------------------------------------------- 417 ite_directive_10
 :- initialization(main).
 q(1).
 q(2).
 main :- ( q(X) -> write(X) ; write(none) ), nl, fail.
 main :- write(done), nl.
-%--------------------------------------------------------- 412 catch_directive_2
+%--------------------------------------------- 418 rung04_cut_with_clause_choice
+:- initialization(main).
+first(1) :- !.
+first(2).
+first(3).
+main :- first(X), write(X), nl.
+%--------------------------------------------------------- 419 catch_directive_2
 :- initialization(main).
 main :-
     put_char(h), put_char(i), nl,
     tab(3), write(x), nl,
     tab(2+1), write(y), nl,
     catch(put_char(ab), error(type_error(character,_),_), (write(caught), nl)).
-%----------------------------------------------------------- 413 cut_directive_4
+%----------------------------------------------------------- 420 cut_directive_4
 :- initialization(main).
 t(1).
 t(2).
 t(3).
 f(X) :- t(X), X > 1, !.
 main :- f(X), write(X), nl.
-%----------------------------------------------------------- 414 cut_directive_7
+%----------------------------------------------------------- 421 cut_directive_7
 :- initialization(main).
 q(1).
 q(2).
 q(3).
 p(X) :- q(X), !.
 main :- p(X), write(X), nl.
-%------------------------------------------------------ 415 cut_in_disjunction_1
+%------------------------------------------------------ 422 cut_in_disjunction_1
 :- initialization(main).
 p(1).
 p(2).
 q(X) :- p(X), (X =:= 1, ! ; true), write(X).
 main :- q(_), nl, fail.
 main :- write(done), nl.
-%----------------------------------------------------------- 416 cut_last_goal_1
+%----------------------------------------------------------- 423 cut_last_goal_1
 :- initialization(main).
 p(1).
 p(2).
 q(X) :- p(X), write(X), !.
 main :- q(_), nl, fail.
 main :- write(done), nl.
-%------------------------------------------------------- 417 directive_replace_1
+%------------------------------------------------------- 424 directive_replace_1
 % rung03_unify — head unification, compound terms
 % Expected output: b a
 :- initialization(main).
 main :-
     f(X, a) = f(b, Y),
     write(X), write(' '), write(Y), nl.
-%--------------------------------------------------------------------- 418 ite_4
+%--------------------------------------------------------------------- 425 ite_4
 :- initialization(main).
 main :-
     ( b @>= a -> write(yes) ; write(no) ), nl,
     ( b @>= b -> write(yes) ; write(no) ), nl,
     ( a @>= b -> write(yes) ; write(no) ), nl.
 main.
-%--------------------------------------------------------------------- 419 ite_5
+%--------------------------------------------------------------------- 426 ite_5
 :- initialization(main).
 main :-
     ( b @> a -> write(yes) ; write(no) ), nl,
     ( a @> b -> write(yes) ; write(no) ), nl,
     ( z @> z -> write(yes) ; write(no) ), nl.
 main.
-%--------------------------------------------------------------------- 420 ite_6
+%--------------------------------------------------------------------- 427 ite_6
 :- initialization(main).
 main :-
     ( a @=< b -> write(yes) ; write(no) ), nl,
     ( a @=< a -> write(yes) ; write(no) ), nl,
     ( b @=< a -> write(yes) ; write(no) ), nl.
 main.
-%--------------------------------------------------------------------- 421 ite_7
+%--------------------------------------------------------------------- 428 ite_7
 :- initialization(main).
 main :-
     ( a @< b -> write(yes) ; write(no) ), nl,
     ( b @< a -> write(yes) ; write(no) ), nl,
     ( a @< a -> write(yes) ; write(no) ), nl.
 main.
-%---------------------------------------------------------- 422 list_directive_2
+%---------------------------------------------------------- 429 list_directive_2
 % rung05_backtrack — member/2, fail, multiple solutions
 % Expected output: a b c (one per line)
 :- initialization(main).
 member(X, [X|_]).
 member(X, [_|T]) :- member(X, T).
 main :- member(X, [a, b, c]), write(X), nl, fail ; true.
-%---------------------------------------------------------- 423 simple_assign_13
+%---------------------------------------------------------- 430 simple_assign_13
 :- initialization(main).
 main :-
     msort([c,a,b,a], S),
     S = [A,B,C,D],
     write(A), nl, write(B), nl, write(C), nl, write(D), nl.
 main.
-%---------------------------------------------------------- 424 simple_assign_14
+%---------------------------------------------------------- 431 simple_assign_14
 :- initialization(main).
 main :-
     msort([b,b,a,a,c], S),
     S = [X1,X2,X3,X4,X5],
     write(X1), nl, write(X2), nl, write(X3), nl, write(X4), nl, write(X5), nl.
 main.
-%---------------------------------------------------------- 425 simple_assign_15
+%---------------------------------------------------------- 432 simple_assign_15
 :- initialization(main).
 main :-
     sort([apple,banana,cherry], S),
     S = [A,B,C],
     write(A), nl, write(B), nl, write(C), nl.
 main.
-%---------------------------------------------------------- 426 simple_assign_16
+%---------------------------------------------------------- 433 simple_assign_16
 :- initialization(main).
 main :-
     sort([c,a,b,a], S),
     S = [A,B,C],
     write(A), nl, write(B), nl, write(C), nl.
 main.
-%--------------------------------------------------------- 427 simple_program_93
+%--------------------------------------------------------- 434 simple_program_93
 :- initialization(main).
 main :-
     succ(X, 1), write(X), nl,
     succ(Y, 5), write(Y), nl,
     succ(Z, 100), write(Z), nl.
 main.
-%--------------------------------------------------------- 428 simple_program_94
+%--------------------------------------------------------- 435 simple_program_94
 :- initialization(main).
 main :-
     succ(0, A), write(A), nl,
     succ(4, B), write(B), nl,
     succ(99, C), write(C), nl.
 main.
-%----------------------------------------------------------- 429 cut_directive_6
+%----------------------------------------------------------- 436 cut_directive_6
 :- initialization(main).
 main :-
     succ_or_zero(3, X), write(X), nl,
@@ -1710,7 +1744,7 @@ main :-
     succ_or_zero(0, Z), write(Z), nl.
 succ_or_zero(0, 0) :- !.
 succ_or_zero(N, M) :- M is N - 1.
-%----------------------------------------------------------- 430 cut_directive_9
+%----------------------------------------------------------- 437 cut_directive_9
 :- initialization(main).
 q(1).
 q(2).
@@ -1718,7 +1752,7 @@ q(3).
 t(X) :- q(X), !.
 main :- t(X), write(X), nl, fail.
 main :- write(done), nl.
-%----------------------------------------------------------- 431 dcg_directive_1
+%----------------------------------------------------------- 438 dcg_directive_1
 :- initialization(main).
 
 ab --> [a], [b].
@@ -1726,7 +1760,7 @@ ab --> [a], [b].
 main :-
     phrase(ab, [a,b,c,d], Rest),
     write(Rest), nl.
-%------------------------------------------------------- 432 directive_replace_7
+%------------------------------------------------------- 439 directive_replace_7
 % rung42_floatunify — unify variables against float literals (both operand orders)
 % Expected output: 3.14 2.5
 :- initialization(main).
@@ -1734,7 +1768,7 @@ main :-
     X = 3.14,
     2.5 = Y,
     write(X), write(' '), write(Y), nl.
-%----------------------------------------------------------------- 433 functor_2
+%----------------------------------------------------------------- 440 functor_2
 % functor/3: functor(Term, Name, Arity)
 :- initialization(main).
 main :-
@@ -1742,7 +1776,7 @@ main :-
     functor(hello, F2, A2), write(F2/A2), nl,
     functor(42, F3, A3), write(F3/A3), nl,
     functor(T, bar, 2), numbervars(T, 0, _), write(T), nl.
-%--------------------------------------------------------------------- 434 ite_8
+%--------------------------------------------------------------------- 441 ite_8
 :- initialization(main).
 main :-
     ( apple @< banana -> write(ok1) ; write(fail1) ), nl,
@@ -1750,7 +1784,7 @@ main :-
     ( cat @=< cat     -> write(ok3) ; write(fail3) ), nl,
     ( dog @>= cat     -> write(ok4) ; write(fail4) ), nl.
 main.
-%--------------------------------------------------------- 435 simple_program_99
+%--------------------------------------------------------- 442 simple_program_99
 % arg(+N, +Term, ?Arg): 1-based argument access
 :- initialization(main).
 main :-
@@ -1758,7 +1792,7 @@ main :-
     arg(2, foo(a,b,c), Y), write(Y), nl,
     arg(3, foo(a,b,c), Z), write(Z), nl,
     arg(1, f(hello), W), write(W), nl.
-%------------------------------------------------------- 436 assertz_directive_1
+%------------------------------------------------------- 443 assertz_directive_1
 :- initialization(main).
 :- assertz(fact(1, one)).
 :- assertz(fact(2, two)).
@@ -1767,7 +1801,7 @@ main :-
 main :-
     fact(2, W),
     write(W), nl.
-%------------------------------------------------------------------- 437 bagof_1
+%------------------------------------------------------------------- 444 bagof_1
 :- initialization(main).
 item(banana).
 item(apple).
@@ -1776,7 +1810,7 @@ item(apple).
 main :-
     bagof(X, item(X), L),
     write(L), nl.
-%------------------------------------------------------------------- 438 catch_1
+%------------------------------------------------------------------- 445 catch_1
 % catch a type_error thrown by is/2 on non-numeric
 :- initialization(main).
 main :-
@@ -1785,7 +1819,7 @@ main :-
         error(type_error(evaluable, foo/0), _),
         write(caught_type_error)
     ), nl.
-%------------------------------------------------------------------- 439 catch_2
+%------------------------------------------------------------------- 446 catch_2
 % catch instantiation_error from is/2 on unbound var
 :- initialization(main).
 main :-
@@ -1794,7 +1828,7 @@ main :-
         error(instantiation_error, _),
         write(caught_instantiation_error)
     ), nl.
-%------------------------------------------------------------------- 440 catch_3
+%------------------------------------------------------------------- 447 catch_3
 % catch existence_error for calling undefined predicate
 :- initialization(main).
 main :-
@@ -1803,7 +1837,7 @@ main :-
         error(existence_error(procedure, no_such_pred/1), _),
         write(caught_existence_error)
     ), nl.
-%----------------------------------------------------------- 441 ite_directive_1
+%----------------------------------------------------------- 448 ite_directive_1
 % rung04_arith — is/2, arithmetic, comparisons
 % Expected output: 6  true  false
 :- initialization(main).
@@ -1812,7 +1846,7 @@ main :-
     write(X), nl,
     ( 3 < 5 -> write(true) ; write(false) ), nl,
     ( 5 < 3 -> write(true) ; write(false) ), nl.
-%----------------------------------------------------------- 442 ite_directive_7
+%----------------------------------------------------------- 449 ite_directive_7
 % rung41_ite_nested — if-then-else nested in conjunction/disjunction + bare arrow
 :- initialization(main).
 a(1). a(2). a(3).
@@ -1821,7 +1855,7 @@ main :-
     ( a(Y) -> write(Y) ; write(none) ), nl,
     ( fail -> write(t) ; write(e) ), nl,
     ( fail -> write(a) ; fail -> write(b) ; write(c) ), nl.
-%------------------------------------------------------------------- 443 setof_1
+%------------------------------------------------------------------- 450 setof_1
 :- initialization(main).
 num(3).
 num(1).
@@ -1830,7 +1864,7 @@ num(3).
 main :-
     setof(X, num(X), L),
     write(L), nl.
-%---------------------------------------------------------- 444 simple_assign_17
+%---------------------------------------------------------- 451 simple_assign_17
 % ISO §8.4 — integer division truncates toward zero
 % 7 // 2 = 3,  -7 // 2 = -3,  7 // -2 = -3,  -7 // -2 = 3
 :- initialization(main).
@@ -1839,7 +1873,7 @@ main :-
     B is -7 // 2,  write(B), nl,
     C is 7 // -2,  write(C), nl,
     D is -7 // -2, write(D), nl.
-%------------------------------------------------------- 445 directive_replace_2
+%------------------------------------------------------- 452 directive_replace_2
 % rung32_bridge_negation/03_var_goal_once — once(Var) where Var binds caller var.
 % Bridge requirement: once/1 with goal_e->kind == E_VAR must dispatch the
 % deref'd Term through the bridge, AND the bridge's env-share must propagate
@@ -1849,7 +1883,7 @@ main :-
     G = (X = 7),
     once(G),
     write(X), nl.
-%------------------------------------------------------- 446 directive_replace_4
+%------------------------------------------------------- 453 directive_replace_4
 % rung35_bridge_setup/02_call_var — Goal position is a Var.
 :- initialization(main).
 main :-
@@ -1859,7 +1893,7 @@ main :-
         G,
         (write(cleanup), nl)
     ).
-%------------------------------------------------------- 447 directive_replace_5
+%------------------------------------------------------- 454 directive_replace_5
 % rung35_bridge_setup/03_setup_var — Setup position is a Var.
 :- initialization(main).
 main :-
@@ -1869,7 +1903,7 @@ main :-
         (write(goal), nl),
         (write(cleanup), nl)
     ).
-%------------------------------------------------------- 448 directive_replace_6
+%------------------------------------------------------- 455 directive_replace_6
 % rung35_bridge_setup/04_cleanup_var — Cleanup position is a Var.
 :- initialization(main).
 main :-
@@ -1879,7 +1913,7 @@ main :-
         (write(goal), nl),
         C
     ).
-%------------------------------------------------------- 449 assertz_directive_2
+%------------------------------------------------------- 456 assertz_directive_2
 :- initialization(main).
 :- assertz(color(red)).
 :- assertz(color(green)).
@@ -1890,7 +1924,7 @@ main :-
     write(X), nl,
     fail.
 main.
-%------------------------------------------------------- 450 assertz_directive_3
+%------------------------------------------------------- 457 assertz_directive_3
 :- initialization(main).
 :- assertz(person(alice, 30)).
 :- assertz(person(bob, 25)).
@@ -1901,7 +1935,7 @@ main :-
     write(Name), write(' '), write(Age), nl,
     fail.
 main.
-%------------------------------------------------------- 451 directive_replace_3
+%------------------------------------------------------- 458 directive_replace_3
 % rung32_bridge_negation/05_var_goal_once_arith — once(Var) with arith compound.
 % Bridge requirement: once/1's bridge dispatch must recurse the Term→EXPR
 % walker through arithmetic compounds (TT_COMPOUND "+" arity 2 → E_ADD)
@@ -1912,7 +1946,7 @@ main :-
     G = (A is 6 * 7),
     once(G),
     write(A), nl.
-%------------------------------------------------------- 452 assertz_directive_4
+%------------------------------------------------------- 459 assertz_directive_4
 :- initialization(main).
 :- assertz(animal(cat)).
 :- assertz(animal(dog)).
@@ -1924,7 +1958,7 @@ main :-
     write(X), nl,
     fail.
 main.
-%----------------------------------------------------------- 453 cut_directive_1
+%----------------------------------------------------------- 460 cut_directive_1
 % SCRIP DEMO4 -- Palindrome (Prolog section)
 % Idiom: reverse/2 built-in; unification does the comparison
 :- initialization(main, main).
@@ -1936,7 +1970,7 @@ main :-
     palindrome("racecar", A), write(A), nl,
     palindrome("hello",   B), write(B), nl,
     palindrome("level",   C), write(C), nl.
-%----------------------------------------------------- 454 scrip_test_palindrome
+%----------------------------------------------------- 461 scrip_test_palindrome
 % SCRIP DEMO4 -- Palindrome (Prolog section)
 % Idiom: reverse/2 built-in; unification does the comparison
 :- initialization(main, main).
@@ -1948,7 +1982,7 @@ main :-
     palindrome("racecar", A), write(A), nl,
     palindrome("hello",   B), write(B), nl,
     palindrome("level",   C), write(C), nl.
-%------------------------------------------------------------------- 455 setof_2
+%------------------------------------------------------------------- 462 setof_2
 :- initialization(main).
 age(peter, 7).
 age(ann, 11).
@@ -1960,7 +1994,7 @@ main :-
     write(Kids), nl,
     setof(A, C^age(C, A), Ages),
     write(Ages), nl.
-%-------------------------------------------------------- 456 benchmark_nreverse
+%-------------------------------------------------------- 463 benchmark_nreverse
 % nreverse — naive reverse of a 30-element list (Warren / van Roy suite)
 % Bottleneck: list construction + deep recursion (O(n^2) conses).
 % Source: SWI-Prolog/bench (van Roy set). SCRIP harness prints the reversed
@@ -1974,7 +2008,7 @@ nreverse([X|L0],L) :- nreverse(L0,L1), concatenate(L1,[X],L).
 nreverse([],[]).
 concatenate([X|L1],L2,[X|L3]) :- concatenate(L1,L2,L3).
 concatenate([],L,L).
-%---------------------------------------------------------- 457 list_directive_3
+%---------------------------------------------------------- 464 list_directive_3
 % rung06_lists — append/3, length/2, reverse/2
 % Expected output: [a,b,c,d]  4  [d,c,b,a]
 :- initialization(main).
@@ -1988,7 +2022,7 @@ main :-
     append([a,b], [c,d], L), write(L), nl,
     length([a,b,c,d], N), write(N), nl,
     reverse([a,b,c,d], R), write(R), nl.
-%----------------------------------------------------------- 458 benchmark_query
+%----------------------------------------------------------- 465 benchmark_query
 % query — Warren "query" database benchmark (van Roy suite, D.H.D. Warren).
 % Bottleneck: fact-base lookup (25-clause pop/2 + area/2) + integer arithmetic (//)
 % + generate-and-test. The 25-clause predicates exercise the >16 clause-choice path.
@@ -2007,7 +2041,7 @@ area(japan, 148). area(brazil, 3288). area(bangladesh, 55). area(pakistan, 311).
 area(nigeria, 373). area(mexico, 764). area(uk, 86). area(italy, 116). area(france, 213).
 area(philippines, 90). area(thailand, 200). area(turkey, 296). area(egypt, 386). area(spain, 190).
 area(poland, 121). area(s_korea, 37). area(iran, 628). area(ethiopia, 350). area(argentina, 1080).
-%-------------------------------------------------------- 459 writeq_directive_5
+%-------------------------------------------------------- 466 writeq_directive_5
 :- initialization(main).
 main :-
     read_term_from_atom('foo(x,y,z).', T1, []),
@@ -2030,7 +2064,7 @@ main :-
     numbervars(VN7, 0, _),
     writeq(VN7), nl,
     write(done), nl.
-%--------------------------------------------------- 460 cut_directive_replace_1
+%--------------------------------------------------- 467 cut_directive_replace_1
 % SCRIP DEMO3 -- Roman Numerals (Prolog section)
 % Idiom: arithmetic rules map value to numeral via recursive subtraction
 :- initialization(main, main).
@@ -2054,7 +2088,7 @@ main :-
     roman(1776, A), write(A), nl,
     roman(42,   B), write(B), nl,
     roman(9,    C), write(C), nl.
-%---------------------------------------------------------- 461 scrip_test_roman
+%---------------------------------------------------------- 468 scrip_test_roman
 % SCRIP DEMO3 -- Roman Numerals (Prolog section)
 % Idiom: arithmetic rules map value to numeral via recursive subtraction
 :- initialization(main, main).
@@ -2078,7 +2112,7 @@ main :-
     roman(1776, A), write(A), nl,
     roman(42,   B), write(B), nl,
     roman(9,    C), write(C), nl.
-%------------------------------------------------------------- 462 benchmark_ham
+%------------------------------------------------------------- 469 benchmark_ham
 :- initialization(main).
 main :- ham1(X), write(X), nl.
 ham1(X):- cycle_ham([a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t],X).
@@ -2110,7 +2144,7 @@ connect(q,[p,r,d]).
 connect(r,[q,s,f]).
 connect(s,[r,t,h]).
 connect(t,[p,s,j]).
-%----------------------------------------------------------- 463 cut_directive_5
+%----------------------------------------------------------- 470 cut_directive_5
 %-------------------------------------------------------------------------------
 % 1
 % In a certain bank the positions of cashier, manager, and teller are held by
@@ -2148,7 +2182,7 @@ differ(X, _, X) :- !, fail.
 differ(_, X, X) :- !, fail.
 differ(_, _, _).
 %-------------------------------------------------------------------------------
-%-------------------------------------------- 464 test_rung10_programs_puzzle_03
+%-------------------------------------------- 471 test_rung10_programs_puzzle_03
 %-------------------------------------------------------------------------------
 % 3
 % Dorothy, Jean, Virginia, Bill, Jim, and Tom are six young persons who have
@@ -2200,7 +2234,7 @@ puzzle :-
     write(' Jim+'), write(GJin),
     write(' Tom+'), write(GTn), nl,
     fail.
-%-------------------------------------------- 465 test_rung10_programs_puzzle_06
+%-------------------------------------------- 472 test_rung10_programs_puzzle_06
 %-------------------------------------------------------------------------------
 % 6
 % Clark, Jones, Morgan, and Smith are four men whose occupation are butcher,
@@ -2265,234 +2299,234 @@ differ(_, X, _, X) :- !, fail.
 differ(_, _, X, X) :- !, fail.
 differ(_, _, _, _).
 %-------------------------------------------------------------------------------
-%------------------------------------ 466 abolish_abolish_of_unknown_predicate_1
+%------------------------------------ 473 abolish_abolish_of_unknown_predicate_1
 :- initialization(main).
 main :- catch(abolish(nonexistent_pred10a/2), _, true), write(done), nl.
-%-------------------------------------------------- 467 arith_compare_eq_arith_1
+%-------------------------------------------------- 474 arith_compare_eq_arith_1
 :- initialization(main).
 main :- (2 + 1 =:= 3 -> write(yes) ; write(no)), nl.
-%------------------------------------------- 468 arith_compare_mixed_int_float_1
+%------------------------------------------- 475 arith_compare_mixed_int_float_1
 :- initialization(main).
 main :- (2 =:= 2.0 -> write(yes) ; write(no)), nl.
-%-------------------------------------------------- 469 arith_compare_ne_arith_1
+%-------------------------------------------------- 476 arith_compare_ne_arith_1
 :- initialization(main).
 main :- (2 =\= 3 -> write(yes) ; write(no)), nl.
-%------------------------------------------ 470 between_bound_third_arg_checks_1
+%------------------------------------------ 477 between_bound_third_arg_checks_1
 :- initialization(main).
 main :- (between(1,10,7) -> write(yes) ; write(no)), nl.
-%----------------------------------------------- 471 between_empty_range_fails_1
+%----------------------------------------------- 478 between_empty_range_fails_1
 :- initialization(main).
 main :- (between(5,3,_) -> write(yes) ; write(no)), nl.
-%------------------------------------------------ 472 between_enumerates_range_1
+%------------------------------------------------ 479 between_enumerates_range_1
 :- initialization(main).
 main :- findall(X, between(1,5,X), L), write(L), nl.
-%---------------------------------------------- 473 between_single_value_range_1
+%---------------------------------------------- 480 between_single_value_range_1
 :- initialization(main).
 main :- findall(X, between(3,3,X), L), write(L), nl.
-%---------------------------------------------------------- 474 call_directive_1
+%---------------------------------------------------------- 481 call_directive_1
 :- initialization(main).
 main :- G = write(hi), call(G), nl, call(write, there), nl.
-%---------------------------------------------- 475 call_n_call_of_conjunction_1
+%---------------------------------------------- 482 call_n_call_of_conjunction_1
 :- initialization(main).
 main :- G = (write(a), write(b)), call(G), nl.
-%-------------------------------------------------------------- 476 clause_ite_1
+%-------------------------------------------------------------- 483 clause_ite_1
 :- initialization(main).
 main :- ( clause(ghost(_), _) -> write(found) ; write(nofact) ), nl.
-%------------------------------------------------------- 477 findall_directive_5
+%------------------------------------------------------- 484 findall_directive_5
 :- initialization(main).
 main :- findall(X, between(1, 4, X), L), write(L), nl.
-%---------------------------------------- 478 findall_findall_over_disjunction_1
+%---------------------------------------- 485 findall_findall_over_disjunction_1
 :- initialization(main).
 main :- findall(X, (X=1 ; X=2 ; X=3), L), write(L), nl.
-%-------------------------------------------------- 479 findall_nested_findall_1
+%-------------------------------------------------- 486 findall_nested_findall_1
 :- initialization(main).
 main :- findall(L1, (between(1,2,X), findall(Y,between(1,X,Y),L1)), LL), write(LL), nl.
-%---------------------------------------------------------- 480 ite_nested_ite_1
+%---------------------------------------------------------- 487 ite_nested_ite_1
 :- initialization(main).
 main :- (1 =:= 1 -> (2 =:= 3 -> write(a) ; write(b)) ; write(c)), nl.
-%-------------------------------------------- 481 neg_fails_on_succeeding_goal_1
+%-------------------------------------------- 488 neg_fails_on_succeeding_goal_1
 :- initialization(main).
 main :- (\+ true -> write(yes) ; write(no)), nl.
-%-------------------------------------------- 482 neg_succeeds_on_failing_goal_1
+%-------------------------------------------- 489 neg_succeeds_on_failing_goal_1
 :- initialization(main).
 main :- (\+ fail -> write(yes) ; write(no)), nl.
-%--------------------------------------------- 483 term_construction_copy_term_1
+%--------------------------------------------- 490 term_construction_copy_term_1
 :- initialization(main).
 main :- copy_term(foo(X, X), foo(A, B)), (A == B -> write(yes) ; write(no)), nl.
-%------------------------------------- 484 term_construction_functor_construct_1
+%------------------------------------- 491 term_construction_functor_construct_1
 :- initialization(main).
 main :- functor(T, foo, 2), T = foo(a, b), write(T), nl.
-%---------------------------------------- 485 term_construction_univ_construct_1
+%---------------------------------------- 492 term_construction_univ_construct_1
 :- initialization(main).
 main :- T =.. [foo, 1, 2], write(T), nl.
-%---------------------------------------- 486 term_construction_univ_decompose_1
+%---------------------------------------- 493 term_construction_univ_decompose_1
 :- initialization(main).
 main :- foo(1, 2) =.. L, write(L), nl.
-%----------------------------------------------------- 487 throw_ite_directive_1
+%----------------------------------------------------- 494 throw_ite_directive_1
 :- initialization(main).
 main :- write(before), nl, ( throw(oops) -> write(yes) ; write(no) ), nl, write(after), nl.
-%---------------------------------------------------------- 488 type_test_atom_1
+%---------------------------------------------------------- 495 type_test_atom_1
 :- initialization(main).
 main :- (atom(foo) -> write(yes) ; write(no)), nl.
-%-------------------------------------------------------- 489 type_test_nonvar_1
+%-------------------------------------------------------- 496 type_test_nonvar_1
 :- initialization(main).
 main :- (nonvar(bound) -> write(yes) ; write(no)), nl.
-%-------------------------------------------------------- 490 type_test_number_1
+%-------------------------------------------------------- 497 type_test_number_1
 :- initialization(main).
 main :- (number(42) -> write(yes) ; write(no)), nl.
-%----------------------------------------------------------- 491 type_test_var_1
+%----------------------------------------------------------- 498 type_test_var_1
 :- initialization(main).
 main :- (var(_) -> write(yes) ; write(no)), nl.
-%-------------------------------------------------- 492 unify_atom_atom_differ_1
+%-------------------------------------------------- 499 unify_atom_atom_differ_1
 :- initialization(main).
 main :- (a = b -> write(yes) ; write(no)), nl.
-%---------------------------------------------------- 493 unify_atom_atom_same_1
+%---------------------------------------------------- 500 unify_atom_atom_same_1
 :- initialization(main).
 main :- (a = a -> write(yes) ; write(no)), nl.
-%--------------------------------------------- 494 unify_compound_arity_differ_1
+%--------------------------------------------- 501 unify_compound_arity_differ_1
 :- initialization(main).
 main :- (f(a) = f(a, b) -> write(yes) ; write(no)), nl.
-%----------------------------------------- 495 write_family_format_3_atom_sink_1
+%----------------------------------------- 502 write_family_format_3_atom_sink_1
 :- initialization(main).
 main :- format(atom(A), "~w", [hi]), write(A), nl.
-%------------------------------------------------- 496 assert_assert_then_call_1
+%------------------------------------------------- 503 assert_assert_then_call_1
 :- dynamic(greet10a/0).
 :- initialization(main).
 main :- assertz((greet10a :- write(hi))), call(greet10a), nl.
-%------------------------------------------ 497 assert_assert_unbound_arg_call_1
+%------------------------------------------ 504 assert_assert_unbound_arg_call_1
 :- dynamic(r10a/1).
 :- initialization(main).
 main :- assertz(r10a(_)), (r10a(anything) -> write(yes) ; write(no)), nl.
-%----------------------------------------------------- 498 assert_assertz_rule_1
+%----------------------------------------------------- 505 assert_assertz_rule_1
 :- dynamic(q10a/1).
 :- initialization(main).
 main :- assertz((q10a(X) :- X > 0)), (q10a(5) -> write(yes) ; write(no)), nl.
-%------------------------------------------------------------- 499 assertz_ite_2
+%------------------------------------------------------------- 506 assertz_ite_2
 :- initialization(main).
 main :- assertz(gadget(1)),
         ( predicate_property(gadget(_), dynamic) -> write(yes) ; write(no) ), nl.
-%---------------------------------------- 500 bagof_setof_bagof_fails_on_empty_1
+%---------------------------------------- 507 bagof_setof_bagof_fails_on_empty_1
 likes(mary,wine).
 :- initialization(main).
 main :- (bagof(X, likes(nobody,X), L) -> write(L) ; write(fails)), nl.
-%--------------------------------------------------- 501 between_ite_directive_1
+%--------------------------------------------------- 508 between_ite_directive_1
 :- initialization(main).
 t(L,U,X) :- ( between(L,U,X) -> write(yes) ; write(no) ), nl.
 main :- t(1,5,3), t(1,5,1), t(1,5,5), t(1,5,0), t(1,5,6), t(5,1,3), t(3,3,3).
-%-------------------------------------------- 502 call_n_call_of_variable_goal_1
+%-------------------------------------------- 509 call_n_call_of_variable_goal_1
 foo2 :- write(viacall).
 :- initialization(main).
 main :- G = foo2, call(G), nl.
-%----------------------------------- 503 clause_reflect_reflect_fact_body_true_1
+%----------------------------------- 510 clause_reflect_reflect_fact_body_true_1
 :- dynamic(dd10a/1).
 :- initialization(main).
 main :- assertz(dd10a(5)), clause(dd10a(5), Body), write(Body), nl.
-%---------------------------------------- 504 clause_reflect_reflect_rule_body_1
+%---------------------------------------- 511 clause_reflect_reflect_rule_body_1
 :- dynamic(ee10a/1).
 :- initialization(main).
 main :- assertz((ee10a(1) :- write(matched))), clause(ee10a(1), Body), write(Body), nl.
-%----------------------------------------------------- 505 determinism_semidet_1
+%----------------------------------------------------- 512 determinism_semidet_1
 even(X) :- 0 is X mod 2.
 :- initialization(main).
 main :- (even(4) -> write(yes) ; write(no)), nl, findall(x, even(4), L), length(L,N), write(N), nl.
-%-------------------------------------------------------- 506 format_directive_7
+%-------------------------------------------------------- 513 format_directive_7
 :- initialization(main).
 main :- format(atom(A), "~w+~w", [1, 2]), write(A), nl, atom_length(A, L), write(L), nl, format(codes(C), "~a", [hi]), write(C), nl, format(chars(Ch), "~a", [ok]), write(Ch), nl,
     current_output(S), write(S, via_current), nl(S), current_input(I), set_input(I), set_output(S), write(still), nl, keysort([b-2, a-1, c-0, a-0], K), write(K), nl.
-%------------------------------------------------------- 507 ite_naf_directive_1
+%------------------------------------------------------- 514 ite_naf_directive_1
 :- initialization(main).
 q(1).
 main :- ( \+ q(2) -> write(a) ; write(b) ), nl, ( \+ q(1) -> write(c) ; write(d) ), nl.
-%------------------------------------------------------------- 508 retract_ite_1
+%------------------------------------------------------------- 515 retract_ite_1
 :- initialization(main).
 main :-
     ( retract(ghost(x)) -> write(found) ; write(notfound) ), nl.
-%------------------------------------------------------------- 509 assertz_ite_1
+%------------------------------------------------------------- 516 assertz_ite_1
 :- initialization(main).
 main :- assertz(widget(1)), assertz(widget(2)),
         ( current_predicate(widget/1) -> write(yes) ; write(no) ), nl,
         ( current_predicate(nothing/3) -> write(yes) ; write(no) ), nl.
-%----------------------------------------------------------- 510 ite_directive_4
+%----------------------------------------------------------- 517 ite_directive_4
 :- initialization(main).
 main :-
     ( callable(f(x)) -> write(yes) ; write(no) ), nl,
     ( atom(f(x))     -> write(yes) ; write(no) ), nl.
-%-------------------------------------- 511 bagof_setof_free_variable_grouping_1
+%-------------------------------------- 518 bagof_setof_free_variable_grouping_1
 likes(mary,wine).
 likes(mary,cheese).
 likes(john,beer).
 :- initialization(main).
 main :- findall(Y-L, bagof(X,likes(Y,X),L), Groups), write(Groups), nl.
-%--------------------------------------------- 512 call_n_call_of_cut_is_local_1
+%--------------------------------------------- 519 call_n_call_of_cut_is_local_1
 p1(1). p1(2). p1(3).
 q1 :- call((p1(X), !)), write(X), fail.
 q1 :- write(done).
 :- initialization(main).
 main :- q1, nl.
-%----------------------------------------- 513 copy_term_ite_directive_replace_1
+%----------------------------------------- 520 copy_term_ite_directive_replace_1
 :- initialization(main).
 main :-
     copy_term(f(X, X), f(A, B)),
     (A == B -> write(same) ; write(diff)), nl,
     copy_term(hello, C), write(C), nl.
-%----------------------------------------- 514 copy_term_ite_directive_replace_2
+%----------------------------------------- 521 copy_term_ite_directive_replace_2
 :- initialization(main).
 main :-
     copy_term(f(X, X), f(A, B)),
     (A == B -> write(same) ; write(diff)), nl,
     copy_term(hello, C), write(C), nl.
-%------------------------------------------------------ 515 ite_list_directive_1
+%------------------------------------------------------ 522 ite_list_directive_1
 % rung40_typetest_compound — type tests on compound-literal args (mode-3 BINARY parity)
 :- initialization(main).
 main :-
     ( is_list([1,2,3]) -> write(yes) ; write(no) ), nl,
     ( is_list([a|b])   -> write(yes) ; write(no) ), nl.
-%------------------------------------------------------------- 516 ite_replace_1
+%------------------------------------------------------------- 523 ite_replace_1
 :- initialization(main).
 main :-
     sort([], S),
     ( S = [] -> write(ok) ; write(fail) ), nl.
 main.
-%----------------------------------------------------- 517 ofi_forall_all_hold_1
+%----------------------------------------------------- 524 ofi_forall_all_hold_1
 :- initialization(main).
 q(1).
 q(2).
 q(3).
 main :- (forall(q(X), X > 0) -> write(yes) ; write(no)), nl.
-%----------------------------------------------- 518 ofi_forall_counterexample_1
+%----------------------------------------------- 525 ofi_forall_counterexample_1
 :- initialization(main).
 r(1).
 r(2).
 r(-1).
 main :- (forall(r(X), X > 0) -> write(yes) ; write(no)), nl.
-%------------------------------------------------ 519 op_ite_directive_replace_1
+%------------------------------------------------ 526 op_ite_directive_replace_1
 :- op(100, xf, fact).
 :- initialization(main).
 main :-
     ( 5 fact == fact(5) -> write(yes) ; write(no) ), nl,
     ( (1 + 2) fact == fact(1 + 2) -> write(yes) ; write(no) ), nl.
-%------------------------------------------------- 520 catch_between_directive_1
+%------------------------------------------------- 527 catch_between_directive_1
 :- initialization(main).
 main :- catch(between(a,3,_), error(F1,_), (write(F1), nl)),
         catch(between(1,b,_), error(F2,_), (write(F2), nl)),
         catch(between(_,3,_), error(F3,_), (write(F3), nl)),
         catch(between(1,_,_), error(F4,_), (write(F4), nl)),
         catch(between(1,3,foo), error(F5,_), (write(F5), nl)).
-%------------------------------------------------------- 521 cut_ite_directive_1
+%------------------------------------------------------- 528 cut_ite_directive_1
 :- initialization(main).
 t(1).
 t(2).
 t(3).
 g :- t(X), !, X > 2.
 main :- ( g -> write(yes) ; write(no) ), nl.
-%--------------------------------------------------- 522 setof_bagof_directive_1
+%--------------------------------------------------- 529 setof_bagof_directive_1
 :- initialization(main).
 q(c).
 q(a).
 q(b).
 q(a).
 main :- setof(X, q(X), S), write(S), nl, bagof(Y, q(Y), B), write(B), nl.
-%----------------------------------------------------------- 523 cut_directive_8
+%----------------------------------------------------------- 530 cut_directive_8
 :- initialization(main).
 q(1).
 q(2).
@@ -2500,7 +2534,7 @@ p(X) :- q(X), X = 2, !.
 p(0).
 main :- p(X), write(X), nl, fail.
 main :- write(done), nl.
-%------------------------------------------------------- 524 dcg_ite_directive_1
+%------------------------------------------------------- 531 dcg_ite_directive_1
 :- initialization(main).
 
 greeting --> [hello], [world].
@@ -2508,7 +2542,7 @@ greeting --> [hello], [world].
 main :-
     ( phrase(greeting, [hello, world]) -> write(yes) ; write(no) ), nl,
     ( phrase(greeting, [hello, there]) -> write(yes) ; write(no) ), nl.
-%-------------------------------------------------------------------- 525 univ_3
+%-------------------------------------------------------------------- 532 univ_3
 % =.. (univ): decompose and construct terms
 :- initialization(main).
 main :-
@@ -2516,7 +2550,7 @@ main :-
     T =.. [bar, 1, 2], write(T), nl,
     hello =.. L2, write(L2), nl,
     42 =.. L3, write(L3), nl.
-%--------------------------------------------- 526 benchmark_witness_depth_nrev8
+%--------------------------------------------- 533 benchmark_witness_depth_nrev8
 :- initialization(main).
 main :- mklist(8, L), rev(L, R), write(R), nl.
 mklist(0, []) :- !.
@@ -2525,7 +2559,7 @@ rev([], []).
 rev([H|T], R) :- rev(T, RT), append(RT, [H], R).
 append([], L, L).
 append([H|T], L, [H|R]) :- append(T, L, R).
-%----------------------------------------------------- 527 catch_ite_directive_1
+%----------------------------------------------------- 534 catch_ite_directive_1
 :- initialization(main).
 main :-
     current_prolog_flag(bounded, B), write(B), nl,
@@ -2534,7 +2568,7 @@ main :-
     current_prolog_flag(double_quotes, D), write(D), nl,
     ( catch(set_prolog_flag(bounded, false), error(permission_error(modify,flag,_),_), write(ro_protected)) ), nl,
     ( catch(set_prolog_flag(no_such_flag, x), error(domain_error(prolog_flag,_),_), write(dom_checked)) ), nl.
-%--------------------------------------------------- 528 ite_directive_replace_3
+%--------------------------------------------------- 535 ite_directive_replace_3
 % rung42_floatunify — equality and disequality of float literals
 % Expected output: yes neq
 :- initialization(main).
@@ -2543,7 +2577,7 @@ main :-
     write(' '),
     ( 1.5 = 2.5 -> write(eq) ; write(neq) ),
     nl.
-%-------------------------------------------------- 529 call_directive_replace_1
+%-------------------------------------------------- 536 call_directive_replace_1
 % rung33_bridge_callN/02_call1_compound — call/1 with Var bound to compound goal.
 % Bridge requirement: Var is bound to a compound (X=5); bridge dispatches
 % it and caller-visible variable X gets bound. Mirrors rung31/02 shape
@@ -2553,7 +2587,7 @@ main :-
     G = (X = 5),
     call(G),
     write(X), nl.
-%-------------------------------------------------- 530 call_directive_replace_2
+%-------------------------------------------------- 537 call_directive_replace_2
 % rung33_bridge_callN/03_call2_extra_arg — call/2 with Var bound to atom,
 % one extra arg appended. call(G, X) where G=write is call(write, X) = write(X).
 % Bridge requirement: call/N with N>1 must reconstruct the goal by appending
@@ -2563,7 +2597,7 @@ main :-
     G = write,
     call(G, hello),
     nl.
-%------------------------------------------------- 531 catch_directive_replace_1
+%------------------------------------------------- 538 catch_directive_replace_1
 % rung31_bridge_catch/02_var_goal_unify — goal-as-var binds caller-visible vars.
 % Bridge requirement: when synth-EXPR walks the Term, TT_VAR slots must map to
 % the caller's env cells (pointer-identity dedup) so unification threads
@@ -2573,7 +2607,7 @@ main :-
     G = (X = 5),
     catch(G, _, fail),
     write(X), nl.
-%------------------------------------------------- 532 catch_directive_replace_2
+%------------------------------------------------- 539 catch_directive_replace_2
 % rung31_bridge_catch/03_var_goal_arith — goal-as-var with arithmetic compound.
 % Bridge requirement: Term→EXPR walker must recurse through arithmetic operators
 % (TT_COMPOUND "+" arity 2 → E_ADD with E_ILIT children) so is/2's arith eval
@@ -2583,7 +2617,7 @@ main :-
     G = (A is 3 + 4),
     catch(G, _, fail),
     write(A), nl.
-%---------------------------------------------------- 533 forall_ite_directive_2
+%---------------------------------------------------- 540 forall_ite_directive_2
 :- initialization(main).
 q(1).
 q(2).
@@ -2593,7 +2627,7 @@ r(2).
 r(3).
 s(1).
 main :- once(q(X)), write(X), nl, ( forall(q(Y), r(Y)) -> write(all) ; write(notall) ), nl, ( forall(q(Z), s(Z)) -> write(all) ; write(notall) ), nl, ignore(q(9)), write(end), nl.
-%--------------------------------------------------- 534 ite_directive_replace_4
+%--------------------------------------------------- 541 ite_directive_replace_4
 :- initialization(main).
 main :-
     put_code(0'A), put_code(user_output, 0'B), put_char(c), nl,
@@ -2603,7 +2637,7 @@ main :-
     write(C4), nl, write(N5), nl,
     ( C1 == end_of_file, N2 =:= -1, C3 == end_of_file, C4 == end_of_file, N5 =:= -1 -> write(eof_all_ok) ; write(eof_bad) ), nl,
     write(done), nl.
-%------------------------------------------------------------ 535 op_directive_2
+%------------------------------------------------------------ 542 op_directive_2
 :- dynamic counter/1.
 :- discontiguous foo/1.
 :- multifile bar/2.
@@ -2613,7 +2647,7 @@ main :-
 foo(1).
 main :- X = (a === b), write(X), nl, foo(Y), write(Y), nl, write(before), nl, counter(_), write(never), nl.
 main :- write(second), nl.
-%------------------------------------------------- 536 writeq_format_directive_1
+%------------------------------------------------- 543 writeq_format_directive_1
 :- initialization(main).
 main :-
     writeq('hello world'), nl,
@@ -2623,7 +2657,7 @@ main :-
     writeq(restored_to_out), nl,
     format("~a done~n", [format]),
     write(plain_write), nl.
-%----------------------------------------------- 537 asserta_assertz_directive_1
+%----------------------------------------------- 544 asserta_assertz_directive_1
 :- initialization(main).
 :- assertz(item(b)).
 :- assertz(item(c)).
@@ -2634,7 +2668,7 @@ main :-
     write(X), nl,
     fail.
 main.
-%--------------------------------------------------- 538 findall_dcg_directive_1
+%--------------------------------------------------- 545 findall_dcg_directive_1
 :- initialization(main).
 
 item(X) --> [X].
@@ -2645,7 +2679,7 @@ main :-
     write(As), nl,
     findall(X, phrase(item(X), [b]), Bs),
     write(Bs), nl.
-%--------------------------------------------------- 539 ite_directive_replace_2
+%--------------------------------------------------- 546 ite_directive_replace_2
 % rung35_bridge_setup/05_cleanup_on_fail — Cleanup runs even when Goal fails.
 :- initialization(main).
 main :-
@@ -2656,7 +2690,7 @@ main :-
         (write(cleanup), nl)
       ) -> write(goal_ok) ; write(goal_failed) ),
     nl.
-%-------------------------------------------------- 540 call_directive_replace_4
+%-------------------------------------------------- 547 call_directive_replace_4
 % rung33_bridge_callN/04_call3_user_pred — call/3 with user predicate and two args.
 % G is bound to a user-defined predicate atom; call(G, A, B) reconstructs
 % the compound G(A,B) and dispatches via pl_box_choice.
@@ -2668,7 +2702,7 @@ main :-
     G = add,
     call(G, 3, 4, R),
     write(R), nl.
-%--------------------------------------------------- 541 ite_directive_replace_1
+%--------------------------------------------------- 548 ite_directive_replace_1
 % rung32_bridge_negation/04_var_goal_not — not(Var) discriminating dispatch.
 % Decisive: silent-success would skip the side effect entirely (the goal is
 % never invoked), printing only "after". Real dispatch invokes the goal,
@@ -2680,7 +2714,7 @@ main :-
     G = (write(side), nl),
     ( not(G) -> write(neg_succ) ; write(after) ),
     nl.
-%---------------------------------------------------- 542 ite_writeq_directive_2
+%---------------------------------------------------- 549 ite_writeq_directive_2
 :- initialization(main).
 main :-
     atom_number(A1, 123), writeq(A1), nl,
@@ -2693,7 +2727,7 @@ main :-
     ( atom_number('789', 789) -> writeq(roundtrip_ok) ; writeq(roundtrip_fail) ), nl,
     write(done), nl,
     halt.
-%----------------------------------------------------- 543 catch_ite_directive_3
+%----------------------------------------------------- 550 catch_ite_directive_3
 :- initialization(main).
 main :-
     open('/tmp/rung65_scrip.txt', write, S), write(S, hello), nl(S), write(S, world), nl(S), close(S),
@@ -2707,7 +2741,7 @@ main :-
     ( catch(open(_Unbound, read, _), error(instantiation_error, _), true) -> write(inst_ok) ; write(inst_bad) ), nl,
     ( catch(open(123, read, _), error(domain_error(source_sink, 123), _), true) -> write(sourcesink_ok) ; write(sourcesink_bad) ), nl,
     write(done), nl.
-%----------------------------------------------------- 544 catch_ite_directive_2
+%----------------------------------------------------- 551 catch_ite_directive_2
 :- initialization(main).
 main :-
     current_output(CO), write(CO), nl,
@@ -2722,7 +2756,7 @@ main :-
     ( flush_output -> write(flushed0) ; write(flush0_fail) ), nl,
     ( flush_output(user_output) -> write(flushed1) ; write(flush1_fail) ), nl,
     write(done), nl.
-%----------------------------------------------------------- 545 benchmark_qsort
+%----------------------------------------------------------- 552 benchmark_qsort
 % qsort — quicksort of 50 integers (Warren / van Roy suite).
 % Bottleneck: cut (!), multi-clause partition, structure-building recursion.
 % Source: SWI-Prolog/bench. Prints the sorted list.
@@ -2738,7 +2772,7 @@ qsort([],R,R).
 partition([X|L],Y,[X|L1],L2) :- X =< Y, !, partition(L,Y,L1,L2).
 partition([X|L],Y,L1,[X|L2]) :- partition(L,Y,L1,L2).
 partition([],_,[],[]).
-%------------------------------------------------------- 546 dcg_ite_directive_2
+%------------------------------------------------------- 553 dcg_ite_directive_2
 :- initialization(main).
 
 sentence --> noun_phrase, verb_phrase.
@@ -2755,7 +2789,7 @@ main :-
     ( phrase(sentence, [the, cat, chases, the, mouse]) -> write(yes) ; write(no) ), nl,
     ( phrase(sentence, [the, dog, sees]) -> write(yes) ; write(no) ), nl,
     ( phrase(sentence, [cat, chases]) -> write(yes) ; write(no) ), nl.
-%----------------------------------------------------- 547 catch_ite_directive_4
+%----------------------------------------------------- 554 catch_ite_directive_4
 :- initialization(main).
 main :-
     open('/tmp/rung71_br.bin', write, WS, [type(binary)]),
@@ -2773,7 +2807,7 @@ main :-
     ( catch((open('/tmp/rung71_br.bin', write, WS2, [type(binary)]), put_byte(WS2, 300), close(WS2)), error(type_error(T,V),_), (write(range_err(T,V)), nl)) -> true ; write(no_range_check), nl ),
     write(done), nl,
     halt.
-%----------------------------------------------------------- 548 ite_directive_8
+%----------------------------------------------------------- 555 ite_directive_8
 :- initialization(main).
 main :-
     open('/tmp/rung67_a.txt', write, S),
@@ -2791,7 +2825,7 @@ main :-
     ( stream_property(S2, end_of_stream(not)) -> write(nonempty_not_eof) ; write(eof_bad) ), nl,
     close(S2),
     write(done), nl.
-%--------------------------------------------------- 549 ite_directive_replace_5
+%--------------------------------------------------- 556 ite_directive_replace_5
 :- initialization(main).
 main :-
     open('/tmp/rung77_data.txt', write, W),
@@ -2811,7 +2845,7 @@ main :-
     close(R2),
     write(done), nl,
     halt.
-%--------------------------------------------------- 550 ite_directive_replace_6
+%--------------------------------------------------- 557 ite_directive_replace_6
 :- initialization(main).
 main :-
     open('/tmp/rung78_d.txt', write, W),
@@ -2831,7 +2865,7 @@ main :-
     close(R),
     write(done), nl,
     halt.
-%------------------------------------------------------------ 551 benchmark_nrev
+%------------------------------------------------------------ 558 benchmark_nrev
 % nrev - naive reverse of a 30-element atom list via a user-defined app/3.
 % Bottleneck: O(n^2) list construction; exercises a user-defined append plus a
 % recursive list generator (data/2). Source: gprolog examples/ExamplesPl. The
@@ -2852,7 +2886,7 @@ app([X|L1], L2, [X|L3]) :- app(L1, L2, L3).
 data(X) :- data(X, 30).
 data([], 0).
 data([a|Y], N) :- N > 0, N1 is N - 1, data(Y, N1).
-%--------------------------------------------------------- 552 benchmark_queensn
+%--------------------------------------------------------- 559 benchmark_queensn
 % queensn — 10-queens by permutation generate-and-test (GNU examples).
 % Bottleneck: full permutation search; exercises list permutation (perm/sel),
 % column/row pairing into p/2 compounds (pair/3), and a struct-matching safety
@@ -2873,7 +2907,7 @@ safe(X, [Q|R]) :- test(X, Q), safe([Q|X], R).
 test([], _X).
 test([R|S], Q) :- test(S, Q), nd(R, Q).
 nd(p(C1,R1), p(C2,R2)) :- C is C1 - C2, R is R1 - R2, C =\= R, NR is R2 - R1, C =\= NR.
-%----------------------------------------------------- 553 catch_ite_directive_5
+%----------------------------------------------------- 560 catch_ite_directive_5
 :- initialization(main).
 main :-
     open('/tmp/rung76_s.txt', write, WS),
@@ -2895,7 +2929,7 @@ main :-
     ( catch(put_char(user_output, _), error(instantiation_error,_), (write(instantiation_caught), nl)) -> true ; write(no_inst_check), nl ),
     write(done), nl,
     halt.
-%---------------------------------------------------------- 554 list_directive_4
+%---------------------------------------------------------- 561 list_directive_4
 :- initialization(main).
 main :-
     display(1+2*3), nl,
@@ -2917,7 +2951,7 @@ main :-
     print(user_output, [x,y,z]), nl,
     write(done), nl,
     halt.
-%----------------------------------------------------------- 555 benchmark_zebra
+%----------------------------------------------------------- 562 benchmark_zebra
 % zebra — the zebra puzzle (van Roy suite, Claude Sammut). Pure unification constraint.
 % Bottleneck: nondeterministic search via unification only; no arithmetic.
 % Source: SWI-Prolog/bench (zebra). Prints the solved Houses list.
@@ -2949,7 +2983,7 @@ next_to(A, B, [B, A | _]).
 next_to(A, B, [_ | Y]) :- next_to(A, B, Y).
 my_member(X, [X|_]).
 my_member(X, [_|T]) :- my_member(X, T).
-%----------------------------------------------------------- 556 benchmark_crypt
+%----------------------------------------------------------- 563 benchmark_crypt
 % crypt — cryptomultiplication (van Roy suite, Peter Van Roy). Arithmetic + generate-and-test.
 % Source: SWI-Prolog/bench (crypt). Prints the found digit assignment.
 :- initialization(main).
@@ -2986,7 +3020,7 @@ lefteven(2).
 lefteven(4).
 lefteven(6).
 lefteven(8).
-%-------------------------------------------- 557 test_rung10_programs_puzzle_02
+%-------------------------------------------- 564 test_rung10_programs_puzzle_02
 %-------------------------------------------------------------------------------
 % 2
 % Clark, Daw, and Fuller make their living as carpenter, painter, and plumber,
@@ -3035,7 +3069,7 @@ display(OC, OD, OF) :-
 write_occ(OC, _, _, carpenter, _) :- write('Clark='),  write(OC), write(' ').
 write_occ(_, OD, _, painter,   _) :- write('Daw='),    write(OD), write(' ').
 write_occ(_, _, OF, plumber,   _) :- write('Fuller='), write(OF), write(' ').
-%-------------------------------------------- 558 test_rung10_programs_puzzle_14
+%-------------------------------------------- 565 test_rung10_programs_puzzle_14
 %-------------------------------------------------------------------------------
 % 14
 % Bill, Ed, and Tom with their wives Grace, Helen, and Mary played eighteen
@@ -3087,7 +3121,7 @@ differ(X, X, _) :- !, fail.
 differ(X, _, X) :- !, fail.
 differ(_, X, X) :- !, fail.
 differ(_, _, _).
-%-------------------------------------------- 559 test_rung10_programs_puzzle_04
+%-------------------------------------------- 566 test_rung10_programs_puzzle_04
 %-------------------------------------------------------------------------------
 % 4
 % Mr. Carter, Mr. Flynn, Mr. Milne, and Mr. Savage serve the little town of
@@ -3145,7 +3179,7 @@ differ(_, X, X, _) :- !, fail.
 differ(_, X, _, X) :- !, fail.
 differ(_, _, X, X) :- !, fail.
 differ(_, _, _, _).
-%-------------------------------------------- 560 test_rung10_programs_puzzle_13
+%-------------------------------------------- 567 test_rung10_programs_puzzle_13
 %-------------------------------------------------------------------------------
 % 13
 % A recent murder case centered around six men: Clayton, Forbes, Graham,
@@ -3206,7 +3240,7 @@ display(Victim, Murderer, Witness, Policeman, Judge, Hangman) :-
     write(' Judge='),     write(Judge),
     write(' Hangman='),   write(Hangman),
     write('\n').
-%-------------------------------------------- 561 test_rung10_programs_puzzle_08
+%-------------------------------------------- 568 test_rung10_programs_puzzle_08
 %-------------------------------------------------------------------------------
 % 8 — Department store positions
 %-------------------------------------------------------------------------------
@@ -3269,7 +3303,7 @@ all_diff5(A,B,C,D,E) :-
     A\=B, A\=C, A\=D, A\=E,
     B\=C, B\=D, B\=E,
     C\=D, C\=E, D\=E.
-%-------------------------------------------- 562 test_rung10_programs_puzzle_11
+%-------------------------------------------- 569 test_rung10_programs_puzzle_11
 %-------------------------------------------------------------------------------
 % 11 -- Smith family positions
 %-------------------------------------------------------------------------------
@@ -3337,7 +3371,7 @@ all_diff5(A,B,C,D,E) :-
     A\=B, A\=C, A\=D, A\=E,
     B\=C, B\=D, B\=E,
     C\=D, C\=E, D\=E.
-%-------------------------------------------- 563 test_rung10_programs_puzzle_12
+%-------------------------------------------- 570 test_rung10_programs_puzzle_12
 %-------------------------------------------------------------------------------
 % 12
 % Stillwater High: economics, English, French, history, Latin, math taught by
@@ -3411,7 +3445,7 @@ display(SAr, SBa, SCo, SDu, SEg, SFu) :-
     write(' Eggleston='), write(SEg),
     write(' Furness='),   write(SFu),
     write('\n').
-%-------------------------------------------- 564 test_rung10_programs_puzzle_07
+%-------------------------------------------- 571 test_rung10_programs_puzzle_07
 %-------------------------------------------------------------------------------
 % 7
 % Brown, Clark, Jones and Smith are four substantial citizens who serve their
@@ -3493,111 +3527,111 @@ differ(_, _, X, X) :- !, fail.
 differ(_, _, _, _).
 differ(X, X) :- !, fail.
 differ(_, _).
-%-------------------------------------------- 565 catch_throw_ball_is_compound_1
+%-------------------------------------------- 572 catch_throw_ball_is_compound_1
 :- initialization(main).
 main :- catch(throw(err(bad_input, 42)), err(Reason,Code), (write(Reason), write(Code))), nl.
-%----------------------------- 566 catch_throw_catcher_does_not_unify_rethrows_1
+%----------------------------- 573 catch_throw_catcher_does_not_unify_rethrows_1
 :- initialization(main).
 main :- catch(catch(throw(foo), bar, write(inner)), foo, write(outer)), nl.
-%--------------------------------------------------- 567 catch_throw_directive_5
+%--------------------------------------------------- 574 catch_throw_directive_5
 :- initialization(main).
 main :- catch(throw(boom), E, (write(caught(E)), nl)), write(done), nl.
-%------------------------------------------------ 568 catch_throw_nested_catch_1
+%------------------------------------------------ 575 catch_throw_nested_catch_1
 :- initialization(main).
 main :- catch(catch(throw(x), x, write(caught_inner)), x, write(caught_outer)), nl.
-%-------------------------------------------- 569 findall_template_is_compound_1
+%-------------------------------------------- 576 findall_template_is_compound_1
 :- initialization(main).
 main :- findall(f(X,X), between(1,3,X), L), write(L), nl.
-%----------------------------------------------------- 570 neg_double_negation_1
+%----------------------------------------------------- 577 neg_double_negation_1
 :- initialization(main).
 main :- (\+ \+ (X = 1) -> write(yes) ; write(no)), nl.
-%--------------------------------------------- 571 neg_negation_of_unification_1
+%--------------------------------------------- 578 neg_negation_of_unification_1
 :- initialization(main).
 main :- (\+ (a = b) -> write(yes) ; write(no)), nl.
-%------------------------------------------------- 572 writeq_format_directive_3
+%------------------------------------------------- 579 writeq_format_directive_3
 :- initialization(main).
 main :- write('hello world'), nl, writeq('hello world'), nl, print(foo), nl, write_canonical([a,b]), nl, writeln(done), tab(3), write(x), nl, format('~w ~a ~d~n', [alpha, beta, 42]).
-%----------------------- 573 abolish_call_after_abolish_raises_existence_error_1
+%----------------------- 580 abolish_call_after_abolish_raises_existence_error_1
 :- dynamic(bb10a/1).
 :- initialization(main).
 main :- assertz(bb10a(1)), abolish(bb10a/1), catch((bb10a(X), write(X)), error(existence_error(procedure,_),_), write(existence_error)), nl.
-%------------------------------------------------------------ 574 abolish_pred_1
+%------------------------------------------------------------ 581 abolish_pred_1
 :- dynamic(k/1).
 :- initialization(main).
 main :- assertz(k(1)), abolish(k/1), catch((k(_), write(found)), error(existence_error(procedure,_),_), write(gone)), nl.
-%------------------------------------------- 575 abolish_retractall_vs_abolish_1
+%------------------------------------------- 582 abolish_retractall_vs_abolish_1
 :- dynamic(cc10a/1).
 :- initialization(main).
 main :- assertz(cc10a(1)), assertz(cc10a(2)), retractall(cc10a(_)), catch((findall(X,cc10a(X),L),write(L)),_,write(crashed)), nl.
-%----------------------------------------------------------- 576 asserta_order_1
+%----------------------------------------------------------- 583 asserta_order_1
 :- dynamic(g/1).
 :- initialization(main).
 main :- assertz(g(1)), assertz(g(2)), asserta(g(0)), findall(X, g(X), L), write(L), nl.
-%--------------------------------------------------- 577 catch_throw_directive_1
+%--------------------------------------------------- 584 catch_throw_directive_1
 :- initialization(main).
 main :-
     catch(throw(myerr), myerr, write(matched)), nl.
-%--------------------------------------------------- 578 catch_throw_directive_3
+%--------------------------------------------------- 585 catch_throw_directive_3
 :- initialization(main).
 main :-
     catch(throw(hello), E, (write(caught), write(' '), write(E), nl)).
-%--------------------------------------------------- 579 catch_throw_directive_6
+%--------------------------------------------------- 586 catch_throw_directive_6
 :- initialization(main).
 p :- throw(oops).
 main :- catch(p, E, (write(E), nl)), write(after), nl.
-%---------------------------------------------------------- 580 clause_reflect_1
+%---------------------------------------------------------- 587 clause_reflect_1
 :- dynamic(likes/1).
 :- initialization(main).
 main :- assertz(likes(wine)), assertz(likes(beer)), findall(H, clause(likes(H), true), L), write(L), nl.
-%------------------------ 581 clause_reflect_enumerate_clauses_on_backtracking_1
+%------------------------ 588 clause_reflect_enumerate_clauses_on_backtracking_1
 :- dynamic(ff10a/1).
 :- initialization(main).
 main :- assertz(ff10a(1)), assertz(ff10a(2)), assertz(ff10a(3)), findall(X, clause(ff10a(X), true), L), write(L), nl.
-%---------------------------------------- 582 clause_reflect_fails_on_no_match_1
+%---------------------------------------- 589 clause_reflect_fails_on_no_match_1
 :- dynamic(gg10a/1).
 :- initialization(main).
 main :- assertz(gg10a(1)), (clause(gg10a(2), _) -> write(yes) ; write(no)), nl.
-%---------------------------------------- 583 repeat_repeat_bounded_by_counter_1
+%---------------------------------------- 590 repeat_repeat_bounded_by_counter_1
 :- dynamic(seen/1).
 :- initialization(main).
 main :- repeat, findall(X, seen(X), L), length(L, N), (N >= 3 -> ! ; (assertz(seen(N)), fail)), write(N), nl.
-%--------------------------------------------------- 584 catch_throw_directive_4
+%--------------------------------------------------- 591 catch_throw_directive_4
 :- initialization(main).
 main :-
     catch(foo, E, (write(caught), write(' '), write(E), nl)).
 foo :- throw(error(type_error(integer, foo), context)).
-%------------------------------------------- 585 write_canonical_writeq_format_1
+%------------------------------------------- 592 write_canonical_writeq_format_1
 :- initialization(main).
 main :- write(user_output, a), nl(user_output), write(user_error, hidden), nl(user_error), writeq(user_output, 'B c'), nl(user_output), print(user_output, [1,2]), nl(user_output),
     write_canonical(user_output, f('X', y)), nl(user_output), writeln(user_output, done1), tab(user_output, 3), put_char(user_output, x), nl(user_output),
     format(user_output, "~w-~a~n", [p, q]), format(user_error, "~w~n", [err]), flush_output(user_output), set_output(user_error), write(also_hidden), nl, set_output(user_output), write(back), nl.
-%--------------------------------------------------- 586 catch_throw_directive_2
+%--------------------------------------------------- 593 catch_throw_directive_2
 :- initialization(main).
 main :-
     catch(inner, E, (write(outer), write(' '), write(E), nl)).
 inner :-
     catch(throw(mine), other, write(wrong)).
-%---------------------------------------------------- 587 forall_ite_directive_1
+%---------------------------------------------------- 594 forall_ite_directive_1
 :- initialization(main).
 main :-
     ( forall(member(X,[2,4,6]), X mod 2 =:= 0) -> write(all_even) ; write(not_all) ), nl,
     ( forall(member(Y,[2,3,4]), Y mod 2 =:= 0) -> write(all_even2) ; write(not_all2) ), nl,
     ( forall(member(_,[]), fail) -> write(vacuous_true) ; write(vacuous_false) ), nl.
-%------------------------------------------------ 588 last_call_nreverse_large_1
+%------------------------------------------------ 595 last_call_nreverse_large_1
 myapp([], L, L).
 myapp([H|T], L, [H|R]) :- myapp(T, L, R).
 nrev([], []).
 nrev([H|T], R) :- nrev(T, RT), myapp(RT, [H], R).
 :- initialization(main).
 main :- findall(X, between(1,30,X), L), nrev(L, R), write(R), nl.
-%------------------------------------------------ 589 op_ite_directive_replace_2
+%------------------------------------------------ 596 op_ite_directive_replace_2
 :- op(200, fy, ~).
 :- initialization(main).
 main :-
     ( ~ ~ a == ~(~(a)) -> write(yes) ; write(no) ), nl,
     ( X = ~ foo, X == ~(foo) -> write(yes) ; write(no) ), nl,
     ( ~ (b + c) == ~(b + c) -> write(yes) ; write(no) ), nl.
-%----------------------------------------------- 590 assertz_retract_directive_1
+%----------------------------------------------- 597 assertz_retract_directive_1
 :- initialization(main).
 :- assertz(age(alice, 30)).
 :- assertz(age(bob, 25)).
@@ -3605,7 +3639,7 @@ main :-
 main :-
     retract(age(bob, X)),
     write(X), nl.
-%----------------------------------------------- 591 findall_directive_replace_1
+%----------------------------------------------- 598 findall_directive_replace_1
 % rung34_bridge_setof/03_findall_var_fail
 % findall/3 with goal-as-Var that always fails. Should produce empty list (not exception).
 :- initialization(main).
@@ -3613,7 +3647,7 @@ main :-
     G = fail,
     findall(X, G, Xs),
     write(Xs), nl.
-%-------------------------------------------------- 592 call_directive_replace_3
+%-------------------------------------------------- 599 call_directive_replace_3
 % rung33_bridge_callN/05_call2_compound_g — call/2 where G is already a compound.
 % call(G, ExtraArg) where G=succ(3) reconstructs succ(3, R) — G's args
 % prepended, extra args appended. Tests the compound-G case of call/N.
@@ -3622,7 +3656,7 @@ main :-
     G = succ(3),
     call(G, R),
     write(R), nl.
-%--------------------------------------------- 593 catch_ite_directive_replace_1
+%--------------------------------------------- 600 catch_ite_directive_replace_1
 % rung31_bridge_catch/01_var_goal_fails — goal-as-var that fails should be caught as failure.
 % Bridge requirement: catch(Var, _, _) must dispatch the deref'd Term as a goal,
 % not silently succeed via the default switch arm.
@@ -3631,7 +3665,7 @@ main :-
     G = fail,
     ( catch(G, _, write(caught)) -> write(succeeded) ; write(failed) ),
     nl.
-%------------------------------------------------------------- 594 catch_throw_1
+%------------------------------------------------------------- 601 catch_throw_1
 % throw and catch a user-defined error term
 :- initialization(main).
 main :-
@@ -3640,7 +3674,7 @@ main :-
         my_error(Code, Msg),
         (write(Code), write(' '), write(Msg), nl)
     ).
-%----------------------------------------------- 595 findall_directive_replace_3
+%----------------------------------------------- 602 findall_directive_replace_3
 % rung34_bridge_setof/02_findall_var_goal_arith
 % findall/3 where the goal Var contains an arithmetic expression.
 :- initialization(main).
@@ -3649,7 +3683,7 @@ main :-
     G = (val(X), Y is X * 2),
     findall(Y, G, Ys),
     write(Ys), nl.
-%----------------------------------------------- 596 findall_directive_replace_5
+%----------------------------------------------- 603 findall_directive_replace_5
 % rung34_bridge_setof/05_findall_var_conj
 % findall/3 where goal Var is bound to a conjunction with a filter.
 :- initialization(main).
@@ -3658,7 +3692,7 @@ main :-
     G = (num(X), X > 15),
     findall(X, G, Xs),
     write(Xs), nl.
-%----------------------------------------------------------- 597 op_ite_format_1
+%----------------------------------------------------------- 604 op_ite_format_1
 :- initialization(main).
 main :-
     op(600, xfx, rt_infix),
@@ -3667,7 +3701,7 @@ main :-
     ( current_op(P2, T2, rt_pre) -> format("~w ~w~n", [P2, T2]) ; write(none), nl ),
     op(400, yfx, rt_multi),
     ( current_op(400, yfx, rt_multi) -> write(yes) ; write(no) ), nl.
-%------------------------------------------------- 598 writeq_format_directive_2
+%------------------------------------------------- 605 writeq_format_directive_2
 :- initialization(main).
 main :-
     writeq(user_output, 'quoted atom'), nl,
@@ -3676,7 +3710,7 @@ main :-
     writeq(user_error, this_to_err), nl(user_error),
     format(user_error, "~w~n", [err_fmt]),
     write(done), nl.
-%---------------------------------------------- 599 call_ite_directive_replace_1
+%---------------------------------------------- 606 call_ite_directive_replace_1
 % rung33_bridge_callN/01_call1_atom — call/1 with Var bound to atom goal.
 % Bridge requirement: call/1 with goal_e->kind == E_VAR dispatches the
 % deref'd Term as a goal. Here Var is bound to 'true' (atom); bridge
@@ -3686,7 +3720,7 @@ main :-
     G = true,
     ( call(G) -> write(succeeded) ; write(failed) ),
     nl.
-%----------------------------------------------- 600 findall_directive_replace_2
+%----------------------------------------------- 607 findall_directive_replace_2
 % rung34_bridge_setof/01_findall_var_goal
 % findall/3 where the goal argument is a Var bound to a callable term.
 % Bridge requirement: findall(X, G, Xs) must dispatch G as a goal when G is a Var.
@@ -3696,7 +3730,7 @@ main :-
     G = item(X),
     findall(X, G, Xs),
     write(Xs), nl.
-%------------------------------------------------------------- 601 catch_throw_2
+%------------------------------------------------------------- 608 catch_throw_2
 % inner catch handles its own error; outer catch not triggered
 :- initialization(main).
 risky :- throw(inner_err).
@@ -3707,7 +3741,7 @@ main :-
         outer_err,
         write(outer_caught)
     ), nl.
-%------------------------------------------------------- 602 cut_ite_directive_2
+%------------------------------------------------------- 609 cut_ite_directive_2
 % rung07_cut — !, differ/N, closed-world negation
 % Expected output: differ(a,b)=yes  differ(a,a)=no
 :- initialization(main).
@@ -3718,7 +3752,7 @@ differ(_, _).
 main :-
     ( differ(a, b) -> write(yes) ; write(no) ), nl,
     ( differ(a, a) -> write(yes) ; write(no) ), nl.
-%----------------------------------------------- 603 findall_directive_replace_4
+%----------------------------------------------- 610 findall_directive_replace_4
 % rung34_bridge_setof/04_findall_var_userpred
 % findall/3 where goal Var is bound to a call into a user-defined predicate.
 :- initialization(main).
@@ -3729,7 +3763,7 @@ main :-
     G = color(C),
     findall(C, G, Cs),
     write(Cs), nl.
-%----------------------------------------------- 604 ite_naf_directive_replace_1
+%----------------------------------------------- 611 ite_naf_directive_replace_1
 % rung32_bridge_negation/01_var_goal_neg_succeeds — \+ Var where Var=fail.
 % Bridge requirement: \+/1 with goal_e->kind == E_VAR must dispatch the
 % deref'd Term through the bridge, not silently succeed (which would also
@@ -3741,7 +3775,7 @@ main :-
     G = fail,
     ( \+ G -> write(succeeded) ; write(failed) ),
     nl.
-%------------------------------------------------------------- 605 ite_replace_2
+%------------------------------------------------------------- 612 ite_replace_2
 :- initialization(main).
 main :-
     ( a \= b -> write(t1_differ) ; write(t1_eq) ), nl,
@@ -3753,7 +3787,7 @@ main :-
     ( g(a,Y) \= g(b,c) -> write(t7_differ) ; write(t7_unify) ), nl,
     write(done), nl.
 main :- write(main_failed), nl.
-%----------------------------------------- 606 catch_functor_directive_replace_1
+%----------------------------------------- 613 catch_functor_directive_replace_1
 % rung31_bridge_catch/04_var_goal_userpred — goal-as-var dispatches user predicate.
 % Bridge requirement: walker must recognize TT_COMPOUND with user-defined
 % functor (not in builtin or arith table) and route to pl_box_choice + bb_broker
@@ -3766,7 +3800,7 @@ main :-
     G = double(21, R),
     catch(G, _, fail),
     write(R), nl.
-%---------------------------------------------------- 607 dcg_ite_list_replace_1
+%---------------------------------------------------- 614 dcg_ite_list_replace_1
 :- initialization(main).
 
 digits([D|Ds]) --> digit(D), digits(Ds).
@@ -3779,7 +3813,7 @@ main :-
         atom_codes(A, Ds), write(A)
     ; write(fail)
     ), nl.
-%----------------------------------------------------------- 608 op_ite_format_2
+%----------------------------------------------------------- 615 op_ite_format_2
 :- op(700, xfx, ===).
 :- op(200, xfy, likes).
 :- op(500, fy, myp).
@@ -3792,7 +3826,7 @@ main :-
     ( current_op(P4, T4, myq) -> format("~w ~w~n", [P4, T4]) ; write(none), nl ),
     ( current_op(700, xfx, ===) -> write(yes) ; write(no) ), nl,
     ( current_op(_, _, nosuchop) -> write(yes) ; write(no) ), nl.
-%------------------------------------------------------- 609 catch_ite_replace_1
+%------------------------------------------------------- 616 catch_ite_replace_1
 :- initialization(main).
 main :-
     open('/tmp/rung83_probe.txt', write, S0), close(S0),
@@ -3807,7 +3841,7 @@ main :-
     G3 = write(user_output, w2ok),
     ( catch(G3, _, fail) -> write(w2_after) ; write(w2_fail) ), nl.
 main :- write(main_failed), nl.
-%----------------------------------------------------------------- 610 cut_ite_1
+%----------------------------------------------------------------- 617 cut_ite_1
 :- initialization(main).
 main :-
     ( acyclic_term(foo(a,b,c)) -> write(compound_yes) ; write(compound_no) ), nl,
@@ -3822,7 +3856,7 @@ main :-
 make_cycle(X) :- X = f(X).
 acyc(T, yes) :- acyclic_term(T), !.
 acyc(_, no).
-%----------------------------------------------- 611 ite_naf_directive_replace_2
+%----------------------------------------------- 618 ite_naf_directive_replace_2
 % rung32_bridge_negation/02_var_goal_neg_fails — \+ Var where Var=true.
 % Discriminating test: pre-bridge default-arm silent-success would dispatch
 % the inner goal as 'succeed' (the silent-success bug), so \+ would correctly
@@ -3838,7 +3872,7 @@ main :-
     G = true,
     ( \+ G -> write(succeeded) ; write(failed) ),
     nl.
-%-------------------------------------------------------- 612 benchmark_queens_8
+%-------------------------------------------------------- 619 benchmark_queens_8
 % queens_8 — place 8 non-attacking queens (van Roy suite).
 % Bottleneck: nondeterministic search, backtracking, list permutation.
 % Source: SWI-Prolog/bench. Prints the first solution.
@@ -3858,7 +3892,7 @@ not_attack([Y|Ys], X, N) :-
         not_attack(Ys, X, N1).
 sel(X, [X|T], T).
 sel(X, [H|T], [H|Rest]) :- sel(X, T, Rest).
-%-------------------------------------------------------------- 613 benchmark_mu
+%-------------------------------------------------------------- 620 benchmark_mu
 % mu — prove the MU-math theorem muiiu (Hofstadter GEB; van Roy suite).
 % Bottleneck: depth-bounded search + list rewriting via the four MU rules.
 % Source: SWI-Prolog/bench (mu). Prints ok if the theorem is proved.
@@ -3880,7 +3914,7 @@ rule4([u,u|X], X).
 rule4([H|X], [H|Y]) :- rule4(X, Y).
 my_append([], X, X).
 my_append([A|B], X, [A|B1]) :- my_append(B, X, B1).
-%---------------------------------------------------- 614 dcg_ite_list_replace_2
+%---------------------------------------------------- 621 dcg_ite_list_replace_2
 % SCRIP DEMO2 -- Word Count (Prolog section)
 % Idiom: DCG rules tokenise char list; phrase/3 counts words
 :- initialization(main, main).
@@ -3902,7 +3936,7 @@ count_words(Str, N) :-
 main :-
     count_words("the quick brown fox jumps over the lazy dog", N),
     write(N), nl.
-%---------------------------------------------------- 615 ite_writeq_directive_1
+%---------------------------------------------------- 622 ite_writeq_directive_1
 :- initialization(main).
 main :-
     name(foo, C1),
@@ -3924,7 +3958,7 @@ main :-
     ( name(bar, [0'b,0'a,0'r]) -> writeq(roundtrip_ok) ; writeq(roundtrip_fail) ), nl,
     write(done), nl,
     halt.
-%------------------------------------------------------ 616 scrip_test_wordcount
+%------------------------------------------------------ 623 scrip_test_wordcount
 % SCRIP DEMO2 -- Word Count (Prolog section)
 % Idiom: DCG rules tokenise char list; phrase/3 counts words
 :- initialization(main, main).
@@ -3946,7 +3980,7 @@ count_words(Str, N) :-
 main :-
     count_words("the quick brown fox jumps over the lazy dog", N),
     write(N), nl.
-%---------------------------------------------------------- 617 benchmark_queens
+%---------------------------------------------------------- 624 benchmark_queens
 % queens — place 16 non-attacking queens, first solution (GNU examples).
 % Bottleneck: nondeterministic search with deep backtracking; exercises a
 % recursive list generator (range/3 with a clause cut), selection (sel/3), and
@@ -3970,7 +4004,7 @@ sel([X|Xs], Xs, X).
 sel([Y|Ys], [Y|Zs], X) :- sel(Ys, Zs, X).
 range(N, N, [N]) :- !.
 range(M, N, [M|Ns]) :- M < N, M1 is M + 1, range(M1, N, Ns).
-%---------------------------------------------- 618 scrip_test_coverage_net_gaps
+%---------------------------------------------- 625 scrip_test_coverage_net_gaps
 % coverage_net_gaps.pro — exercises Prolog IR nodes missing from prolog_emit_net.c
 % Covers: AST_ADD AST_SUB AST_MPY AST_DIV AST_ILIT AST_FLIT AST_CUT AST_TRAIL_MARK AST_TRAIL_UNWIND AST_UNIFY
 % (AST_QLIT AST_VART AST_FNC AST_CLAUSE AST_CHOICE already handled in prolog_emit_net.c)
@@ -4014,7 +4048,7 @@ main :-
     member(X, [a, b, c]),
     write(X), nl,
     fail ; true.
-%---------------------------------------------------- 619 test_coverage_net_gaps
+%---------------------------------------------------- 626 test_coverage_net_gaps
 % coverage_net_gaps.pro — exercises Prolog IR nodes missing from prolog_emit_net.c
 % Covers: E_ADD E_SUB E_MPY E_DIV E_ILIT E_FLIT E_CUT E_TRAIL_MARK E_TRAIL_UNWIND E_UNIFY
 % (E_QLIT E_VART E_FNC E_CLAUSE E_CHOICE already handled in prolog_emit_net.c)
@@ -4058,7 +4092,7 @@ main :-
     member(X, [a, b, c]),
     write(X), nl,
     fail ; true.
-%-------------------------------------------- 620 test_rung10_programs_puzzle_20
+%-------------------------------------------- 627 test_rung10_programs_puzzle_20
 %-------------------------------------------------------------------------------
 % 20
 % Adams, Brown, Clark, and Davis: historian, poet, novelist, playwright.
@@ -4112,7 +4146,7 @@ display(PrAd,RdAd,PrBr,RdBr,PrCl,RdCl,PrDa,RdDa) :-
     write('brown='), write(PrBr), write(' reads='), write(RdBr), write('\n'),
     write('clark='), write(PrCl), write(' reads='), write(RdCl), write('\n'),
     write('davis='), write(PrDa), write(' reads='), write(RdDa), write('\n').
-%-------------------------------------------- 621 test_rung10_programs_puzzle_17
+%-------------------------------------------- 628 test_rung10_programs_puzzle_17
 %-------------------------------------------------------------------------------
 % 17
 % Ed, Frank, George, and Harry took their wives to the Country Club dance.
@@ -4170,7 +4204,7 @@ differ(_, _, _, _).
 
 differ(X, X) :- !, fail.
 differ(_, _).
-%---------------------------------------------- 622 scrip_test_coverage_pl_nodes
+%---------------------------------------------- 629 scrip_test_coverage_pl_nodes
 % coverage_pl_nodes.pl — exercises every Prolog IR node kind
 % Covers: AST_CLAUSE AST_CHOICE AST_UNIFY AST_CUT AST_FNC AST_QLIT AST_ILIT AST_FLIT
 %         AST_VART AST_ADD AST_SUB AST_MPY AST_DIV AST_TRAIL_MARK AST_TRAIL_UNWIND
@@ -4229,7 +4263,7 @@ trail_test.
 :- unify_test(hello, hello), write(unified), nl.
 :- trail_test.
 :- write(done), nl.
-%---------------------------------------------------- 623 test_coverage_pl_nodes
+%---------------------------------------------------- 630 test_coverage_pl_nodes
 % coverage_pl_nodes.pl — exercises every Prolog IR node kind
 % Covers: E_CLAUSE E_CHOICE E_UNIFY E_CUT E_FNC E_QLIT E_ILIT E_FLIT
 %         E_VART E_ADD E_SUB E_MPY E_DIV E_TRAIL_MARK E_TRAIL_UNWIND
@@ -4288,7 +4322,7 @@ trail_test.
 :- unify_test(hello, hello), write(unified), nl.
 :- trail_test.
 :- write(done), nl.
-%-------------------------------------------- 624 test_rung10_programs_puzzle_16
+%-------------------------------------------- 631 test_rung10_programs_puzzle_16
 %-------------------------------------------------------------------------------
 % 16
 % The crew of a train consists of a brakeman, conductor, engineer, and fireman
@@ -4354,7 +4388,7 @@ display(Brakeman, Conductor, Engineer, Fireman) :-
     write(' Engineer='),  write(Engineer),
     write(' Fireman='),   write(Fireman),
     write('\n').
-%-------------------------------------------- 625 test_rung10_programs_puzzle_18
+%-------------------------------------------- 632 test_rung10_programs_puzzle_18
 %-------------------------------------------------------------------------------
 % 18
 % In Luncyville the shoe store is closed every Monday, the hardware store every
@@ -4425,7 +4459,7 @@ display(Today, SAb, SBr, SCu, SDe) :-
     write(' Culver='), write(SCu),
     write(' Denny='),  write(SDe),
     write('\n').
-%-------------------------------------------- 626 test_rung10_programs_puzzle_15
+%-------------------------------------------- 633 test_rung10_programs_puzzle_15
 %-------------------------------------------------------------------------------
 % 15
 % Vernon, Wilson, and Yates are an architect, a doctor, and a lawyer with
@@ -4522,51 +4556,51 @@ display(OVernon, SVernon, OWilson, SWilson, OYates, SYates) :-
     write(' Wilson='), write(OWilson),  write(' sec='), write(SWilson),
     write(' Yates='),  write(OYates),   write(' sec='), write(SYates),
     write('\n').
-%------------------------------------------- 627 if_then_else_condition_throws_1
+%------------------------------------------- 634 if_then_else_condition_throws_1
 :- initialization(main).
 main :- catch(( throw(oops) -> write(yes) ; write(no) ), oops, write(propagated)), nl.
-%------------------------------------------------------ 628 typetest_directive_1
+%------------------------------------------------------ 635 typetest_directive_1
 :- initialization(main).
 main :- a == a, a \== b, a @< b, b @> a, a @=< a, b @>= a, compare(O, 1, 2), atom(foo), number(3), integer(3), float(1.5), atomic(foo), var(_), nonvar(foo), compound(f(x)), callable(foo), write(O), nl, write(ok), nl.
-%----------------------------------------- 629 abolish_abolish_removes_clauses_1
+%----------------------------------------- 636 abolish_abolish_removes_clauses_1
 :- dynamic(aa10a/1).
 :- initialization(main).
 main :- assertz(aa10a(1)), assertz(aa10a(2)), abolish(aa10a/1), catch((findall(X,aa10a(X),L), write(L)), _, write(gone)), nl.
-%----------------------------------------------------- 630 assertz_clause_call_1
+%----------------------------------------------------- 637 assertz_clause_call_1
 :- initialization(main).
 main :- assertz((greet :- write(hello), nl)),
         ( clause(greet, Body) -> call(Body) ; write(noclause), nl ).
-%----------------------------------------------- 631 assertz_retract_directive_2
+%----------------------------------------------- 638 assertz_retract_directive_2
 :- dynamic(f/1).
 :- initialization(main).
 main :- assertz(f(1)), assertz(f(2)), retract(f(1)), findall(X, f(X), L), write(L), nl.
-%------------------------------------------------------- 632 retract_backtrack_1
+%------------------------------------------------------- 639 retract_backtrack_1
 :- dynamic(h/1).
 :- initialization(main).
 main :- assertz(h(1)), assertz(h(2)), assertz(h(3)), (retract(h(_)), fail ; true), findall(X, h(X), L), write(L), nl.
-%----------------------------------------------- 633 retract_erase_first_match_1
+%----------------------------------------------- 640 retract_erase_first_match_1
 :- dynamic(s10a/1).
 :- initialization(main).
 main :- assertz(s10a(1)), assertz(s10a(2)), retract(s10a(1)), findall(X,s10a(X),L), write(L), nl.
-%----------------------------------------------- 634 retract_fails_on_no_match_1
+%----------------------------------------------- 641 retract_fails_on_no_match_1
 :- dynamic(v10a/1).
 :- initialization(main).
 main :- assertz(v10a(1)), (retract(v10a(2)) -> write(yes) ; write(no)), nl.
-%----------------------------------- 635 retract_resatisfiable_on_backtracking_1
+%----------------------------------- 642 retract_resatisfiable_on_backtracking_1
 :- dynamic(t10a/1).
 :- initialization(main).
 main :- assertz(t10a(1)), assertz(t10a(2)), assertz(t10a(3)), (retract(t10a(_)), fail ; true), findall(X,t10a(X),L), write(L), nl.
-%-------------------------------------------- 636 retract_retract_then_findall_1
+%-------------------------------------------- 643 retract_retract_then_findall_1
 :- dynamic(w10a/1).
 :- initialization(main).
 main :- assertz(w10a(1)), assertz(w10a(2)), assertz(w10a(3)), retract(w10a(2)), findall(X,w10a(X),L), write(L), nl.
-%--------------------------------------------------------- 637 between_ite_naf_1
+%--------------------------------------------------------- 644 between_ite_naf_1
 :- initialization(main).
 main :-
     ( member(X,[1,2,-3]), \+ X>0, write(found(X)), nl, fail ; true ),
     ( member(A,[1,2,3,4]), (A mod 2 =:= 0 -> true ; fail), write(even(A)), nl, fail ; true ),
     ( between(1,4,N), \+ (N =:= 2), write(n(N)), nl, fail ; true ).
-%---------------------------------------------- 638 copy_term_ite_list_replace_1
+%---------------------------------------------- 645 copy_term_ite_list_replace_1
 % copy_term/2: fresh copy with new variables
 :- initialization(main).
 main :-
@@ -4575,7 +4609,7 @@ main :-
     X = original,
     ( A == original -> write(aliased) ; write(independent) ), nl,
     copy_term([H|T], Copy), numbervars(Copy, 0, _), write(Copy), nl.
-%----------------------------------------------------- 639 findall_bagof_setof_1
+%----------------------------------------------------- 646 findall_bagof_setof_1
 :- initialization(main).
 num(1).
 num(2).
@@ -4586,7 +4620,7 @@ main :-
     write(F), nl,
     keysort([b-2, a-1, b-1, a-9], K),
     write(K), nl.
-%----------------------------------------------------------- 640 ite_univ_list_1
+%----------------------------------------------------------- 647 ite_univ_list_1
 % compound/1, atomic/1, is_list/1 style checks via =..
 :- initialization(main).
 main :-
@@ -4597,7 +4631,7 @@ main :-
     ( atomic(foo(a))   -> write(yes) ; write(no) ), nl,
     T = p(1,p(2,p(3,nil))),
     T =.. [p, H | _], write(H), nl.
-%------------------------------------------------------- 641 ite_writeq_format_1
+%------------------------------------------------------- 648 ite_writeq_format_1
 :- initialization(main).
 main :-
     write_to_atom(A1, foo(x,y)), writeq(A1), nl,
@@ -4610,7 +4644,7 @@ main :-
     format(atom(A8), "~w!~w", [x,y]), writeq(A8), nl,
     ( with_output_to(atom(_), fail) -> write(unexpected) ; write(goal_failed) ), nl,
     write(done), nl.
-%----------------------------------------------------- 642 assertz_retract_ite_1
+%----------------------------------------------------- 649 assertz_retract_ite_1
 :- initialization(main).
 :- assertz(item(a)).
 :- assertz(item(b)).
@@ -4624,7 +4658,7 @@ retract_loop.
 main :-
     retract_loop,
     ( item(_) -> write(notempty) ; write(empty) ), nl.
-%--------------------------------------------- 643 catch_ite_directive_replace_2
+%--------------------------------------------- 650 catch_ite_directive_replace_2
 :- initialization(main).
 t(N, G) :- ( catch(G, error(E,_), true) -> ( var(E) -> write(N=success) ; E = permission_error(Op,Ty,_), write(N=perm(Op,Ty)) ) ; write(N=failed) ), nl.
 main :-
@@ -4642,7 +4676,7 @@ main :-
     close(R),
     write(done), nl,
     halt.
-%------------------------------------------- 644 catch_throw_directive_replace_1
+%------------------------------------------- 651 catch_throw_directive_replace_1
 % rung31_bridge_catch/05_var_goal_throw — goal-as-var throws; catch recovers.
 % Bridge requirement: when the dispatched goal throws via the synth-EXPR path,
 % the throw must propagate to catch/3's setjmp boundary, not be swallowed by
@@ -4660,21 +4694,21 @@ main :-
     G = risky(99),
     catch(G, _, write(caught)),
     nl.
-%---------------------------------------- 645 retract_retract_clause_with_body_1
+%---------------------------------------- 652 retract_retract_clause_with_body_1
 :- dynamic(u10a/1).
 :- initialization(main).
 main :- assertz((u10a(X) :- X > 100)), retract((u10a(_) :- _ > 100)), (catch(u10a(200),_,fail) -> write(yes) ; write(no)), nl.
-%----------------------------------------------------- 646 findall_bagof_setof_2
+%----------------------------------------------------- 653 findall_bagof_setof_2
 :- initialization(main).
 main :-
     findall(X, (X=1;X=2;X=3), La), write(La), nl,
     ( findall(Y, (Y=4;Y=5), Lb) -> write(Lb) ; write(none) ), nl,
     ( bagof(Z, (Z=6;Z=7;Z=8), Lc) -> write(Lc) ; write(none) ), nl,
     ( setof(W, (W=3;W=1;W=2;W=1), Ld) -> write(Ld) ; write(none) ), nl.
-%------------------------------------------------------- 647 termops_directive_1
+%------------------------------------------------------- 654 termops_directive_1
 :- initialization(main).
 main :- functor(f(a,b), Nm, Ar), arg(1, f(a,b), A1), T =.. [g, 1, 2], copy_term(h(X,X,_), Cp), numbervars(Cp, 0, End), succ(3, S), plus(2, 3, P), sort([c,a,b,a], Srt), write(Nm), nl, write(Ar), nl, write(A1), nl, write(T), nl, write(Cp), nl, write(End), nl, write(S), nl, write(P), nl, write(Srt), nl.
-%-------------------------------------------------------- 648 functor_ite_univ_1
+%-------------------------------------------------------- 655 functor_ite_univ_1
 % rung09_builtins — functor/3, arg/3, =../2, type tests
 % Expected output: foo 2  b  [foo,a,b]  yes yes no no
 :- initialization(main).
@@ -4693,7 +4727,7 @@ main :-
     ( integer(42)   -> write(yes) ; write(no) ), nl,
     ( atom(42)      -> write(yes) ; write(no) ), nl,
     ( integer(hello)-> write(yes) ; write(no) ), nl.
-%------------------------------------------------------ 649 benchmark_meta_qsort
+%------------------------------------------------------ 656 benchmark_meta_qsort
 % meta_qsort — a meta-interpreter running the Warren qsort benchmark (van Roy suite).
 % Bottleneck: clause/call indirection through interpret/1-2 (meta-level dispatch).
 % Source: SWI-Prolog/bench (meta_qsort, Ralph M. Haygood). Prints ok on success.
@@ -4724,37 +4758,3 @@ define(qsort([],R,R),true).
 define(partition([X|L],Y,[X|L1],L2),(X=<Y,!,partition(L,Y,L1,L2))).
 define(partition([X|L],Y,L1,[X|L2]),(partition(L,Y,L1,L2))).
 define(partition([],_,[],[]),true).
-%----------------------------------------- 650 rung01_rule_with_program_skeleton
-:- initialization(main).
-banner :- write(ready), nl.
-main :- banner.
-%---------------------------------------------- 651 rung01_unification_with_fact
-:- initialization(main).
-point(1, 2).
-main :- point(X, Y), X = 1, write(X-Y), nl.
-%-------------------------------------------- 652 rung02_clause_choice_with_rule
-:- initialization(main).
-lang(en) :- write(hello), nl.
-lang(fr) :- write(bonjour), nl.
-main :- lang(_), fail.
-main :- true.
-%------------------------------------- 653 rung03_disjunction_with_clause_choice
-:- initialization(main).
-pick(a) :- (write(left) ; write(right)).
-pick(b) :- write(only).
-main :- pick(a), nl, pick(b), nl.
-%---------------------------------------------- 654 rung03_disjunction_with_rule
-:- initialization(main).
-combo :- write(a), (write(x) ; write(y)), write(b).
-main :- combo, nl.
-%--------------------------------------------- 655 rung04_cut_with_clause_choice
-:- initialization(main).
-first(1) :- !.
-first(2).
-first(3).
-main :- first(X), write(X), nl.
-%----------------------------------------------- 656 rung04_cut_with_disjunction
-:- initialization(main).
-test(X) :- (X > 0 ; X < 0), !, write(nonzero).
-test(_) :- write(zero).
-main :- test(5), nl.
