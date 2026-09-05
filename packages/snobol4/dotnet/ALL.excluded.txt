@@ -1,0 +1,14 @@
+1brc: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+SourceLines001: source carries a UTF-8 BOM -- confuses the oracle's label lexer (segfault, or a compile-time-only fatal that never executes the program), so its output would be a lexer-confusion artifact, not the program's ground truth
+SourceLines002: source carries a UTF-8 BOM -- confuses the oracle's label lexer (segfault, or a compile-time-only fatal that never executes the program), so its output would be a lexer-confusion artifact, not the program's ground truth
+SourceLines003: source carries a UTF-8 BOM -- confuses the oracle's label lexer (segfault, or a compile-time-only fatal that never executes the program), so its output would be a lexer-confusion artifact, not the program's ground truth
+Test: source carries a UTF-8 BOM -- confuses the oracle's label lexer (segfault, or a compile-time-only fatal that never executes the program), so its output would be a lexer-confusion artifact, not the program's ground truth
+Test2: source carries a UTF-8 BOM -- confuses the oracle's label lexer (segfault, or a compile-time-only fatal that never executes the program), so its output would be a lexer-confusion artifact, not the program's ground truth
+asgn1: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+chap7: multi-program file: 2 top-level END statements -- not a single valid program (SCRIP correctly refuses a duplicate 'END' label; the oracle instead silently continues past it, so neither engine's output is a meaningful single-program comparison)
+chap8_funcs: oracle produced EMPTY output -- refusing to mint a vacuous ref
+code: oracle produced EMPTY output -- refusing to mint a vacuous ref
+expr_parser_stub: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+palin: oracle produced EMPTY output -- refusing to mint a vacuous ref
+pattern_demo: oracle produced EMPTY output -- refusing to mint a vacuous ref
+temp: oracle produced EMPTY output -- refusing to mint a vacuous ref
