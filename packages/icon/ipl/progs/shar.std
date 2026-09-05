@@ -1,9 +1,0 @@
-#! /bin/sh
-# This is a shell archive, meaning:
-# 1. Remove everything above the #! /bin/sh line.
-# 2. Save the resulting text in a file.
-;;  # 3. Execute the file with /bin/sh (not csh) to create:
-# This archive created: Saturday, September 5, 2026  11:07 am
-export PATH; PATH=/bin:/usr/bin:$PATH
-exit 0
-;#	End of shell archive
