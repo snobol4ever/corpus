@@ -5356,3 +5356,27 @@ Barbecuing with Liquid Oxygen</a>
 <hr>
 <address><a href="http://www.cs.arizona.edu/~gmt">Gregg Townsend</a></address>
 </body></html>
+#----------------------------------------------- 755 ladder_rung01_paper_by_zero
+before
+#----------------------------------------------- 756 ladder_rung02_proc_variadic
+ab
+2
+c
+d
+xy
+0
+#----------------------------------------------- 757 ladder_rung05_scan_scan_pos
+3
+#-------------------------------------- 758 ladder_rung14_limit_limit_refuse_neg
+before
+#------------------------------------- 759 ladder_rung14_limit_limit_refuse_type
+before
+#-------------------------------------- 760 ladder_rung15_real_swap_rev_exchange
+1 2
+2 1
+2 1
+1 2
+#----------------------------------------- 761 ladder_rung26_pow_pow_zero_negexp
+before
+#---------------------------------------- 762 ladder_rung26_pow_pow_negbase_real
+before

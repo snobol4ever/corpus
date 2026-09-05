@@ -9,3 +9,8 @@ ladder_rung08_strbuiltins_scan_refuse_match	1
 ladder_rung08_strbuiltins_scan_refuse_tab	1
 ladder_rung08_strbuiltins_scan_refuse_move	1
 ladder_rung37_bal_scan_refuse	1
+ladder_rung01_paper_by_zero	1
+ladder_rung14_limit_limit_refuse_neg	1
+ladder_rung14_limit_limit_refuse_type	1
+ladder_rung26_pow_pow_zero_negexp	1
+ladder_rung26_pow_pow_negbase_real	1

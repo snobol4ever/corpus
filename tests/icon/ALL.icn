@@ -7699,3 +7699,60 @@ procedure warn(a[])
    errors +:= 1;
    return;
 end
+#----------------------------------------------- 755 ladder_rung01_paper_by_zero
+procedure main()
+  write("before");
+  every write(1 to 5 by 0);
+  write("after");
+end
+#----------------------------------------------- 756 ladder_rung02_proc_variadic
+procedure cat(s1, s2, rest[])
+  write(s1 || s2);
+  write(*rest);
+  every write(!rest);
+end
+
+procedure main()
+  cat("a", "b", "c", "d");
+  cat("x", "y");
+end
+#----------------------------------------------- 757 ladder_rung05_scan_scan_pos
+procedure main()
+  "hello" ? {
+    move(2);
+    write(&pos);
+  }
+end
+#-------------------------------------- 758 ladder_rung14_limit_limit_refuse_neg
+procedure main()
+  write("before");
+  every write((1 to 5) \ -1);
+  write("after");
+end
+#------------------------------------- 759 ladder_rung14_limit_limit_refuse_type
+procedure main()
+  write("before");
+  every write((1 to 5) \ "x");
+  write("after");
+end
+#-------------------------------------- 760 ladder_rung15_real_swap_rev_exchange
+procedure main()
+  local x, y;
+  x := 1;
+  y := 2;
+  write(x, " ", y);
+  every (1 to 2) & (x <-> y) & write(x, " ", y);
+  write(x, " ", y);
+end
+#----------------------------------------- 761 ladder_rung26_pow_pow_zero_negexp
+procedure main()
+  write("before");
+  write(0 ^ (-1));
+  write("after");
+end
+#---------------------------------------- 762 ladder_rung26_pow_pow_negbase_real
+procedure main()
+  write("before");
+  write((-2.0) ^ 0.5);
+  write("after");
+end
