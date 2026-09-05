@@ -1,0 +1,1016 @@
+*------------------------------------------------------------------ 1 AGT_driver
+abc AGT ABB -> YES
+ABC AGT abb -> YES
+abc AGT ABC -> no
+ABC AGT abc -> no
+abb AGT ABC -> no
+Zebra AGT apple -> YES
+*------------------------------------------------------------------- 2 AI_driver
+epsilon alpha gamma alpha
+beta delta
+gamma
+*----------------------------------------------------------------- 3 AOPA_driver
+11 22 33
+2 4 6
+99 98 97
+42
+*--------------------------------------------------------------- 4 ASM360_driver
+N[LABEL] O[LA] D[1,4(2)] C[load address here]
+N[] O[BR] D[14] C[]
+N[TAG] O[DC] D[C'HI,THERE'] C[a literal]
+N[] O[AGO] D[(1).SKIP] C[]
+N[ENTRY] O[CSECT] D[] C[]
+*--------------------------------------------------------------- 5 BALREV_driver
+(X)F
+CBA
+(C(B)A)
+(Z)G(Y,X)F
+*--------------------------------------------------------------- 6 BASE10_driver
+255
+10
+511
+1295
+0
+*---------------------------------------------------------------- 7 BASEB_driver
+FF
+1010
+777
+ZZ
+7
+[]
+*------------------------------------------------------------- 8 BCD_EBCD_driver
+A=B'C(D)E+F
+='()+
+NO SPECIALS HERE
+X=X=X
+*--------------------------------------------------------------- 9 BLANKS_driver
+X=A+B
+IF(A.EQ.B)GOTO10
+WRITE(6,100)A,B
+*--------------------------------------------------------------- 10 BLEND_driver
+A1B2C3
+A1
+HWEOLRLLOD
+A1C3
+S1N2O3B4O5L6
+*--------------------------------------------------------------- 11 BNORM_driver
+[PLAIN]
+[AB<C]
+[ <BA<C]
+[ <X <Y]
+[AB<C_DE<F]
+[]
+*-------------------------------------------------------------- 12 BREAKX_driver
+[ABC.DEF.GHI] BREAKX(.) then [.GHI] -> [ABC.DEF]
+[ABC.DEF.GHI] BREAKX(.) then [.DEF] -> [ABC]
+[ABCDEF] BREAKX(.) then [X] -> NO MATCH
+[A,B;C] BREAKX(,;) then [;C] -> [A,B]
+*-------------------------------------------------------------- 13 BRKREM_driver
+[abc]
+[abcdef]
+[]
+[cdef]
+[abcdef]
+*--------------------------------------------------------------- 14 BSORT_driver
+APPLE CHERRY DATE FIG PEAR
+ZULU ALPHA BRAVO CHARLIE DELTA
+*------------------------------------------------------------- 15 CARDPAK_driver
+hand    4C JD AD 7C 2H 
+suits   CDDCH
+vals    CJMFA
+hand2   2D 2S JC 8C AH 
+hand3   
+reshuffled 5C 3D 5S 
+RHAND(60) on a fresh deck -> FAILED as specified
+*---------------------------------------------------------------- 16 CATA_driver
+<5> ay bee cee dee ee
+<5> dee ee ay bee cee
+<2> solo solo
+*------------------------------------------------------------------ 17 CH_driver
+ABC
+Hello
+0123456789
+[]
+[z]
+*---------------------------------------------------------------- 18 COMB_driver
+10
+20
+1
+1
+2598960
+*--------------------------------------------------------------- 19 COPYL_driver
+A B C 
+CHANGED B C 
+A B C 
+P Q P Q P 
+COPY IS STILL CIRCULAR
+*--------------------------------------------------------------- 20 COUNT_driver
+COUNT(MISSISSIPPI,S) = [4]
+COUNT(MISSISSIPPI,SS) = [2]
+COUNT(MISSISSIPPI,I) = [4]
+COUNT(MISSISSIPPI,MISS) = [1]
+COUNT(MISSISSIPPI,X) = []
+COUNT(BANANA,ANA) = [2]
+COUNT(AAAA,AA) = [3]
+*--------------------------------------------------------------- 21 CRACK_driver
+<3> [ay] [bee] [cee]
+<1> [one]
+<4> [a] [b] [c] [d]
+<3> [A] [B] [C]
+<3> [x] [y] [z]
+*----------------------------------------------------------------- 22 DAY_driver
+SUNDAY
+SATURDAY
+TUESDAY
+SATURDAY
+THURSDAY
+THURSDAY
+*-------------------------------------------------------------- 23 DECOMB_driver
+DECOMB(0) = [0]
+DECOMB(1) = [1]
+DECOMB(2) = [2]
+DECOMB(10) = [0]
+DECOMB(21) = [2]
+DECOMB(321) = [3]
+DECOMB(54) = [14]
+DECOMB(A9) = [54]
+*---------------------------------------------------------------- 24 DEXP_driver
+2.
+7.5
+81
+abab
+*------------------------------------------------------------- 25 DEXTERN_driver
+DEXTERN SQUARE -> DECLARED
+DEXTERN JOIN -> DECLARED
+LIB_=[]
+*---------------------------------------------------------------- 26 DIFF_driver
+ACE
+ABCDEF
+[]
+MIIIPPI
+ABC
+*------------------------------------------------------------- 27 FASTBAL_driver
+[A,B)] -> [A]
+[F(X,Y),Z)] -> [F]
+['A,B',C)] -> []
+[[A,B],C)] -> []
+*---------------------------------------------------------------- 28 FIND_driver
+2
+3
+2
+3
+*----------------------------------------------------------------- 29 FLD_driver
+
+bbb
+
+FIELD 3 -> FAILS AS SPECIFIED
+*--------------------------------------------------------------- 30 FLOOR_driver
+3.7 -> FLOOR 3 CEIL 4
+-3.7 -> FLOOR -4 CEIL -3
+3.2 -> FLOOR 3 CEIL 4
+-3.2 -> FLOOR -4 CEIL -3
+5 -> FLOOR 5 CEIL 5
+-5 -> FLOOR -5 CEIL -5
+0 -> FLOOR 0 CEIL 0
+*------------------------------------------------------------- 31 FORTPUT_driver
+      X = 1.0                                                           FP     1
+      CALL SUB(A,B)                                                     FP     2
+      Y = AAAAAAAAAA + BBBBBBBBBB + CCCCCCCCCC + DDDDDDDDDD + EEEEEEEEEEFP     3
+     1 + FFFFFFFFFF                                                     FP     4
+      STOP                                                              FP     5
+*------------------------------------------------------------ 32 FORTREAD_driver
+[      PROGRAM MAIN]
+[      X = AAAA + BBBB     + CCCC     + DDDD]
+[      CALL SUB(X)]
+[      STOP]
+[      END]
+end of deck
+*--------------------------------------------------------------------- 33 FRSORT
+
+
+
+macro spitbol version 4.0f
+x86-64  Fri Sep  4 20:42:26 2026
+
+
+
+                                                                                                                page 1
+
+        -INCLUDE "stringout.sno"
+                 !
+FRSORT.sno(9,10) : ERROR 285 -- include file cannot be opened
+*----------------------------------------------------------------- 34 HEX_driver
+414243
+48656C6C6F
+30313233343536373839
+20
+7E
+54686520717569636B2062726F776E20666F78
+*--------------------------------------------------------------- 35 HSORT_driver
+ apple banana cherry date fig pear
+ pear apple date fig cherry banana
+ 1 2 3
+ aa zz
+*------------------------------------------------------------ 36 HYPHENAT_driver
+hyphenation min=2 -> 4
+hyphenation min=6 -> no hyphenation point
+computer min=2 -> 5
+running min=2 -> 4
+cat min=1 -> no hyphenation point
+self-evident min=2 -> 7
+*--------------------------------------------------------------- 37 IMAGE_driver
+I=1 [ABC]
+I=0 [ _]
+I=2 [ _ ]
+I=1 [XYZ]
+I=2 [/= ]
+I=3 FAILED
+I=1 [plain text]
+I=0 FAILED
+*--------------------------------------------------------------- 38 INORM_driver
+AB/ overstruck -> [/AB]
+B/A same image -> [/AB]
+triple strike -> [-/XY]
+no backspace -> [plain]
+trailing strike -> [ab*c]
+*------------------------------------------------------------- 39 INSERTB_driver
+ROOT=MIKE
+ROOT=ALPHA
+ROOT=ZULU
+ROOT=DELTA
+ALPHA x1
+DELTA x1
+MIKE x1
+ZULU x1
+*-------------------------------------------------------------- 40 INSERT_driver
+ALPHA x1
+DELTA x1
+MIKE x2
+ZULU x1
+ROOT=MIKE
+ROOT=SOLO x1
+*------------------------------------------------------------------ 41 IP_driver
+3 5 1 2 4
+3 4 1 5 2
+3 5 1 2 4
+1 2 3
+*---------------------------------------------------------------- 42 LAST_driver
+A B 
+C D 
+A B C D 
+Q Q Q Q 
+LAST(NULL) FAILS AS SPECIFIED
+*--------------------------------------------------------------- 43 LEXGT_driver
+b gt A
+A notgt b
+A gt a
+a notgt A
+apple notgt Apple
+Zebra gt apple
+abc notgt abc
+abc gt ab
+*---------------------------------------------------------------- 44 LIKE_driver
+abc like
+bac like
+acb like
+abx unlike
+ab like
+ac like
+bc like
+xabc like
+abxc like
+abcx like
+xyz unlike
+abcd like
+DONE
+*------------------------------------------------------------ 45 LINEARIZ_driver
+apple 2
+banana 1
+cherry 1
+date 1
+fig 1
+pear 1
+LAST_NAME IS SET
+LINEARIZE OF NULL FAILS
+solo
+DONE
+*---------------------------------------------------------------- 46 LINE_driver
+-- cw=40 justify=1 hyphenate=1 --
+|The  quick brown fox jumps over the lazy|
+|dog  while  the  hyphenation   machinery|
+|decides  where  a sufficiently long word|
+|such  as  internationalization  may   be|
+|divided.|
+-- cw=40 justify=0 hyphenate=0 --
+|The quick brown fox jumps over the lazy|
+|dog while the hyphenation machinery|
+|decides where a sufficiently long word|
+|such as internationalization may be|
+|divided.|
+-- cw=20 justify=0 hyphenate=0 --
+|The quick brown fox|
+|jumps over the lazy|
+|dog while the|
+|hyphenation|
+|machinery decides|
+|where a sufficiently|
+|long word such as|
+|internationalization|
+|may be divided.|
+*----------------------------------------------------------------- 47 LOG_driver
+2.
+3.
+3.
+4.
+0.
+1.
+*---------------------------------------------------------------- 48 LPAD_driver
+[   ab]
+[000ab]
+[abcde]
+[abc]
+[----]
+[xy]
+*--------------------------------------------------------------- 49 LPERM_driver
+ABC
+ACB
+BAC
+BCA
+CAB
+CBA
+no successor
+ABAB
+BTA
+*--------------------------------------------------------------- 50 LPROG_driver
+INTEGER
+LPROG IS POSITIVE
+LPROG DOES NOT SHRINK
+*--------------------------------------------------------------- 51 LSORT_driver
+banana cherry date fig apple pear .
+apple banana cherry date fig pear .
+echo bravo charlie alpha delta .
+echo delta charlie bravo alpha .
+[]
+DONE
+*--------------------------------------------------------------- 52 L_ONE_driver
+ LOAD C
+ MUL D
+ STORE TEMP1
+ LOAD B
+ SUB TEMP1
+ STORE TEMP2
+ LOAD TEMP2
+ DIV 10
+ STORE TEMP3
+ LOAD TEMP3
+ STORE A
+ LOAD Y
+ ADD Z
+ STORE TEMP1
+ LOAD TEMP1
+ STORE X
+ LOADN Q
+ STORE TEMP1
+ LOAD TEMP1
+ STORE P
+ LOAD S
+ DIV T
+ STORE TEMP1
+ LOAD TEMP1
+ DIV U
+ STORE TEMP2
+ LOAD TEMP2
+ STORE R
+*----------------------------------------------------------------- 53 MDY_driver
+3/24/71
+M=3 D=24
+1/1/71
+12/31/71
+2/29/72
+2/29/2000
+3/1/1900
+MDY(71,400) FAILS
+MDY(71,0) FAILS
+DONE
+*---------------------------------------------------------------- 54 MINP_driver
+JUSTIFY=0 [ABC] -> 3
+JUSTIFY=0 [a  b  c] -> 7
+JUSTIFY=0 [one two three] -> 13
+JUSTIFY=1 [ABC] -> 3
+JUSTIFY=1 [a  b  c] -> 5
+JUSTIFY=1 [one two three] -> 13
+*--------------------------------------------------------------- 55 MSORT_driver
+apple date fig mango pear
+pear mango fig date apple
+pear apple mango fig date
+aaa bbb ccc
+ant zebra
+*----------------------------------------------------------------- 56 NOT_driver
+guard holds: matched
+guard on a hit: no match
+span guard: matched
+later-only guard: matched
+guard past position 0: matched
+*---------------------------------------------------------------- 57 ONCE_driver
+TRY 1 MATCHED
+TRY 2 FAILED
+TRY 3 FAILED
+ALTERNATE TAKEN AFTER ONCE FAILS
+TAGGED TRY 1 MATCHED
+TAGGED TRY 2 FAILED
+DONE
+*-------------------------------------------------------------- 58 ONEWAY_driver
+MKVN2
+MKVN2
+XEQGN
+5NSDA
+O
+QEBWEGRY3Y
+*------------------------------------------------------------- 59 ORBREAK_driver
+LLAL
+abcXpq
+O
+abg
+[]
+ORBREAK OF NULL FAILS
+DONE
+*--------------------------------------------------------------- 60 ORDER_driver
+aaabnn
+4BLNOOS
+uvwxyz
+A
+[]
+Miiiippssss
+*-------------------------------------------------------------- 61 ORSORT_driver
+LISO: matched
+LIST: matched
+LISTER: matched
+ABC: matched
+LIS: no match
+sorted input: matched
+slash delimiter: matched
+*------------------------------------------------------------ 62 ORVISUAL_driver
+ (('A' (('BLE') | ('CTOR') | ('NCHOR'))) | ('B' (('AKER') | ('ULL'))))
+ ('C' ANY('AO') ( (('D') | ('ST'))))
+ (('LI' ('' | ('ST'))))
+round trip ANCHOR: matched
+round trip ANCHOVY: no match
+*------------------------------------------------------------------ 63 OR_driver
+ACTOR: matched
+BULL: matched
+ANCHOVY: no match
+CAD: matched
+COST: matched
+CID: no match
+LI: matched
+LIST: matched
+slash delimiter: matched
+*----------------------------------------------------------------- 64 PAD_driver
+[a    b    c]
+[one two three four]
+[a b c]
+[abcdef]
+[word]
+[the quick  brown fox]
+*------------------------------------------------------------ 65 PARAGRAP_driver
+[Chapter one opens the book.  It runs on for a second line.  And a third line closes it.]
+[Chapter two opens later on.  It has only two lines.]
+third paragraph: not found
+*--------------------------------------------------------------- 66 PERMS_driver
+ABC
+BCA
+CAB
+BAC
+ACB
+CBA
+ABC EXHAUSTED
+AB
+BA
+AB EXHAUSTED
+*------------------------------------------------------------ 67 PERMUTAT_driver
+0 ABC
+1 BAC
+2 ACB
+3 BCA
+4 CAB
+5 CBA
+AB
+BA
+DCBA
+[]
+*---------------------------------------------------------------- 68 PERM_driver
+123
+123
+213
+231
+321
+312
+132
+three elements gave 7 permutations
+xy
+xy
+yx
+two elements gave 3 permutations
+*-------------------------------------------------------------------- 69 PHRASES
+
+
+
+macro spitbol version 4.0f
+x86-64  Fri Sep  4 20:42:26 2026
+
+
+
+                                                                                                                page 1
+
+1       <GOOD>::=excellent|wonderful|nice|careful|impeccable|shrewd|
+
+PHRASES.sno(1) : ERROR 214 -- bad label or misplaced continuation line
+
+3       splendid|elegant|#5#very <GOOD>|bright|brainy|brilliant|sharp|
+                                 !
+PHRASES.sno(3,26) : ERROR 222 -- syntax error: invalid use of left bracket
+
+5       <LETMESEE>::=<THOUGHT>|<MUMBLE>|<MUMBLE> <THOUGHT>|<THOUGHT>
+
+PHRASES.sno(5) : ERROR 214 -- bad label or misplaced continuation line
+
+6        <MUMBLE>
+         !
+PHRASES.sno(6,2) : ERROR 222 -- syntax error: invalid use of left bracket
+
+7       <MUMBLE>::=Hmmm|Ahh|Well Well|Gosh|Gee|OK|Oh man|Let's see|
+
+PHRASES.sno(7) : ERROR 214 -- bad label or misplaced continuation line
+
+8       Wait a minute|Interesting|Wow|Wowee|Yipes|Zowee|Whoosh|
+                     !
+PHRASES.sno(8,14) : ERROR 233 -- syntax error: invalid use of operator
+
+9       #5#<MUMBLE> <MUMBLE>|#6#<MUMBLE>...
+
+PHRASES.sno(9) : ERROR 214 -- bad label or misplaced continuation line
+
+10      <THOUGHT>::=<LETME> <CONSIDER> <THIS>
+
+PHRASES.sno(10) : ERROR 214 -- bad label or misplaced continuation line
+
+11      <LETME>::=I think I'll|let me|I need time to|I'm going to
+
+PHRASES.sno(11) : ERROR 214 -- bad label or misplaced continuation line
+
+13      <CONSIDER>::=consider|contemplate|mull over|#4#<THINK> about
+
+PHRASES.sno(13) : ERROR 214 -- bad label or misplaced continuation line
+
+14      <THINK>::=think|see|cogitate|meditate
+
+PHRASES.sno(14) : ERROR 214 -- bad label or misplaced continuation line
+
+15      <THIS>::=this|this one|the situation|this problem|this here
+
+PHRASES.sno(15) : ERROR 214 -- bad label or misplaced continuation line
+
+16      <P1>::=maneuver|strategem|tactic|play|move
+
+PHRASES.sno(16) : ERROR 214 -- bad label or misplaced continuation line
+
+
+
+
+                                                                                                                page 2
+
+17      <P2>::=performance|game|effort
+
+PHRASES.sno(17) : ERROR 214 -- bad label or misplaced continuation line
+
+18      <P3>::=play|strategy
+
+PHRASES.sno(18) : ERROR 214 -- bad label or misplaced continuation line
+
+19      <P13>::=<P1>s|<P3>
+
+PHRASES.sno(19) : ERROR 214 -- bad label or misplaced continuation line
+
+20      <P23>::=<P2>|<P3>
+
+PHRASES.sno(20) : ERROR 214 -- bad label or misplaced continuation line
+
+21      <P123>::=<P1>s|<P2>|<P3>
+
+PHRASES.sno(21) : ERROR 214 -- bad label or misplaced continuation line
+
+22      <PRAISE>::=<THANKS> for the game, <NICEGAME>
+
+PHRASES.sno(22) : ERROR 214 -- bad label or misplaced continuation line
+
+23      <THANKS>::=Thanks|Thank you|Thank you very much
+
+PHRASES.sno(23) : ERROR 214 -- bad label or misplaced continuation line
+
+24      <NICEGAME>::=I admired the <GOOD> <P123> on your part|
+
+PHRASES.sno(24) : ERROR 214 -- bad label or misplaced continuation line
+
+25      that was <GOOD> <P3> on your part|your <P1>s were quite
+                                         !
+PHRASES.sno(25,34) : ERROR 233 -- syntax error: invalid use of operator
+
+26       <GOOD>|it was a pleasure to play against one so <GOOD>|I
+         !
+PHRASES.sno(26,2) : ERROR 222 -- syntax error: invalid use of left bracket
+
+27       enjoyed your <GOOD> <P123>|I enjoyed particularly that last
+                                   !
+PHRASES.sno(27,28) : ERROR 233 -- syntax error: invalid use of operator
+
+28       <GOOD> <P1>
+         !
+PHRASES.sno(28,2) : ERROR 222 -- syntax error: invalid use of left bracket
+
+29      <STUPID>::=stupid|dumb|blundering|thick-headed|sad|
+
+PHRASES.sno(29) : ERROR 214 -- bad label or misplaced continuation line
+
+32      <FOOL>::=fool|dolt|idiot|oaf|blockhead|chump|ass|moron|ninny|
+
+PHRASES.sno(32) : ERROR 214 -- bad label or misplaced continuation line
+
+
+
+
+                                                                                                                page 3
+
+34      <INSULT>::=You <STUPID> <FOOL>|I have never seen such <STUPID>
+
+PHRASES.sno(34) : ERROR 214 -- bad label or misplaced continuation line
+
+35       <P13>|Your <STUPID> <P23> befits a <STUPID> <FOOL>|
+         !
+PHRASES.sno(35,2) : ERROR 222 -- syntax error: invalid use of left bracket
+
+36      Your <STUPID> <P1>s indicate that you are a <STUPID>
+             !
+PHRASES.sno(36,6) : ERROR 222 -- syntax error: invalid use of left bracket
+
+37       <FOOL>|A <STUPID> <FOOL> is not so <STUPID> as you|
+         !
+PHRASES.sno(37,2) : ERROR 222 -- syntax error: invalid use of left bracket
+
+38      Your <P23> marks you as a <STUPID> <FOOL>|Your <P1>s are
+
+PHRASES.sno(38) : ERROR 217 -- syntax error: duplicate label
+*------------------------------------------------------------ 70 PLI_STMT_driver
+[A = B;]
+[PUT = 'a;b';]
+[X /* ; */ = 1;]
+[;]
+NO STATEMENT
+NO STATEMENT
+*--------------------------------------------------------------- 71 POKEV_driver
+2C 4D 5H 8S JC  -> 0.556666666666667e-1
+2C 2D 3C 4C 5C  -> 0.50134131253362
+2C 2D 3C 3D 4C  -> 0.927658170232135
+2C 2D 2H 3C 4C  -> 0.971042209072978
+2C 3D 4H 5S 6C  -> 0.9924
+2C 3C 4C 5C 7C  -> 0.996301554001554
+2C 2D 2H 3C 3D  -> 0.998308520710059
+AC AD AH AS 2C  -> 0.999966153846154
+10C JC QC KC AC  -> 0.999999988344988
+*----------------------------------------------------------------- 72 POL_driver
+IFTHEN:2,>:2,REF:2,A,I,6,=:2,I,2
+=:2,I,2
+=:2,REF:2,A,I,B
+IFTHEN:2,<:2,X,Y,=:2,Z,1
+*---------------------------------------------------------------- 73 PUSH_driver
+c
+c
+b
+ASSIGNED-BY-NAME
+ASSIGNED-BY-NAME
+TOP-ASSIGNED-BY-NAME
+POP ON EMPTY FAILS
+TOP ON EMPTY FAILS
+DONE
+*----------------------------------------------------------------- 74 PUT_driver
+first line                                                                     1
+second line                                                                    2
+after the label was set                                                 TAG    3
+after the increment was set                                             TAG   13
+and again                                                               TAG   23
+a much longer line of text that runs on for a while                     TAG   33
+                                                                        TAG   43
+*--------------------------------------------------------------- 75 QUOTE_driver
+'abc'
+'it' "'" 's'
+'say "hi"'
+'both ' "'" ' and "'
+['']
+*--------------------------------------------------------------- 76 RAISE_driver
+1024.
+3.
+1.
+7.
+0.5
+0.25
+*---------------------------------------------------------------- 77 RAMM_driver
+0.889876641982211
+0.276009648867029
+3
+1
+6
+50
+1
+*-------------------------------------------------------------- 78 RANDOM_driver
+1
+5
+2
+2
+2
+2
+2
+5
+4
+2
+73
+1
+REAL
+*--------------------------------------------------------------- 79 RCHAR_driver
+[O]
+[E]
+[R]
+[D]
+[G]
+absent context: failed
+*--------------------------------------------------------------- 80 READL_driver
+one two three .
+four five .
+DONE
+*-------------------------------------------------------------- 81 READRL_driver
+three two one .
+five four .
+DONE
+*---------------------------------------------------------------- 82 READ_driver
+alpha one
+READ ZZZ FAILED ON THE PATTERN
+beta two
+gamma three
+READ AT END OF FILE FAILS
+READ AFTER END OF FILE STILL FAILS
+DONE
+*------------------------------------------------------------ 83 REDEFINE_driver
+original(x)
+new[original(x)]
+original(x)
+DONE
+*------------------------------------------------------------- 84 REORDER_driver
+aab
+aba
+baa
+aab EXHAUSTED
+abc
+acb
+cab
+bac
+bca
+cba
+abc EXHAUSTED
+*---------------------------------------------------------------- 85 REPL_driver
+aXYcaXYc
+abcabc
+aaaaaa
+[acac]
+ONE two ONE two
+QaQ
+[]
+*------------------------------------------------------------ 86 RESOLUTI_driver
+INTEGER
+RESOLUTION IS POSITIVE
+RESOLUTION IS AT MOST ONE SECOND
+*------------------------------------------------------------- 87 REVERSE_driver
+4LOBONS
+A
+[]
+palindrome
+zyxwvutsrqponmlkjihgfedcba
+*---------------------------------------------------------------- 88 REVL_driver
+a b c d .
+d c b a .
+solo .
+[notalist]
+[]
+*--------------------------------------------------------------- 89 ROMAN_driver
+I
+IV
+IX
+XIV
+XL
+XC
+CD
+MCMXC
+MMXXVI
+MMMCMXCIX
+*------------------------------------------------------------- 90 ROTATER_driver
+EFABCD
+ABCDEF
+ABCDEF
+ABCDEF
+EFABCD
+ABCDEF
+[]
+BA
+*---------------------------------------------------------------- 91 RPAD_driver
+[AB...]
+[AB   ]
+[ABCDEF]
+[ABC]
+[XXXX]
+*------------------------------------------------------------ 92 RPERMUTE_driver
+CFEDAB (6)
+DACEBF (6)
+BCDEAF (6)
+YX (2)
+Z (1)
+[] (0)
+*--------------------------------------------------------- 93 RSEASON_lib_driver
+885
+3
+*------------------------------------------------------------- 94 RSELECT_driver
+A
+CAT
+A
+BIG
+BIG
+ONE
+*--------------------------------------------------------------- 95 RWORD_driver
+banary
+can
+bandananananananary
+*----------------------------------------------------------------- 96 SEQ_driver
+alpha
+beta
+gamma
+returned; K = 4
+
+
+J = 3
+*---------------------------------------------------------------- 97 SKIM_driver
+MISP
+ABC
+A
+AB
+
+THE QUICKBROWNFX
+*------------------------------------------------------------- 98 SNOREAD_driver
+[        X = 1;]
+[LBL     Y = X + 2                       :S(LBL);]
+[        OUTPUT = 'hi';]
+exhausted
+*------------------------------------------------------------- 99 SPACING_driver
+3
+5
+0
+3
+6
+*-------------------------------------------------------------- 100 SPELL_driver
+ONE
+NINE
+TWELVE
+THIRTEEN
+FIFTEEN
+TWENTY
+TWENTY-ONE
+FORTY
+NINETY-NINE
+ONE HUNDRED
+ONE HUNDRED AND ONE
+NINE HUNDRED AND NINETY-NINE
+ONE THOUSAND
+TWO THOUSAND AND TWENTY-SIX
+*-------------------------------------------------------------- 101 SSORT_driver
+,PEAR,
+,APPLE,PEAR,
+,APPLE,MANGO,PEAR,
+,APPLE,MANGO,PEAR,ZUCCHINI,
+,APPLE,MANGO,MANGO,PEAR,ZUCCHINI,
+*-------------------------------------------------------------- 102 STACK_driver
+three
+three
+two
+two
+one
+X
+kept
+*------------------------------------------------------------- 103 STATEF_driver
+first
+second
+third
+first
+*----------------------------------------------------------- 104 STRINGOU_driver
+alpha-beta-gamma-delta
+alpha, beta, gamma, delta
+alphabetagammadelta
+only
+[||]
+*------------------------------------------------------------- 105 SUBSTR_driver
+ABC
+BCD
+DEF
+ABCDEF
+past the end: fails
+*--------------------------------------------------------------- 106 SWAP_driver
+two one
+[][kept]
+same
+*------------------------------------------------------------- 107 SYSTEM_driver
+SPITBOL
+*--------------------------------------------------------------- 108 TEMP_driver
+TEMP1
+TEMP2
+TEMP3=stored
+TEMP4
+*--------------------------------------------------------------- 109 TEST_driver
+datatype = PATTERN
+holding assertion, then consume: W = [AAA]
+non-holding assertion: match proceeded
+name argument: matched
+*----------------------------------------------------------- 110 TICTACTO_driver
+[  X  O   ]
+[       OX]
+[   O  X  ]
+[     O  X]
+[      XO ]
+[X  O     ]
+[ OX      ]
+[XO       ]
+TTTV OXX XOO X   = 0
+TTTM OXX XOO X   = [OXXXOO XX]
+TTTM XO  OX      = [XOXOX    ]
+*------------------------------------------------------------- 111 TIMEGC_driver
+
+
+
+macro spitbol version 4.0f
+x86-64  Fri Sep  4 20:42:26 2026
+
+
+
+                                                                                                                page 1
+
+     1  -INCLUDE "resolution.sno"
+                 !
+TIMEGC.sno(6,10) : ERROR 285 -- include file cannot be opened
+
+     2  -INCLUDE "system.inc"
+                 !
+TIMEGC.sno(7,10) : ERROR 285 -- include file cannot be opened
+*-------------------------------------------------------------- 112 TIMER_driver
+
+
+
+macro spitbol version 4.0f
+x86-64  Fri Sep  4 20:42:26 2026
+
+
+
+                                                                                                                page 1
+
+     1  -INCLUDE "system.inc"
+                 !
+TIMER.sno(5,10) : ERROR 285 -- include file cannot be opened
+
+     2  -INCLUDE "resolution.sno"
+                 !
+TIMER.sno(6,10) : ERROR 285 -- include file cannot be opened
+*----------------------------------------------------------- 113 TREEREAD_driver
+root,3,alpha,,beta,1,beta1,,gamma,,
+*--------------------------------------------------------------- 114 TREE_driver
+S1 matches 2 branches
+S2 matches 3 branches
+S3 matches 2 branches
+S1 does not match 3 branches
+S2 matches an arbitrary count
+node-pattern PLUS captured [PLUS:2,A,B,]
+*-------------------------------------------------------------- 115 TRUNC_driver
+3
+bcd
+6
+af
+1
+c
+*----------------------------------------------------------------- 116 TR_driver
+ADD,I,J,TEMP1//
+ADD,I,J,TEMP2//MUL,TEMP2,K,TEMP3//
+MNS,I,,TEMP4//
+*-------------------------------------------------------------- 117 TSORT_driver
+apple fig mango pear
+apple fig mango pear
+pear apple mango fig
+one three two
+alpha beta gamma
+a b c
+*--------------------------------------------------------------- 118 UPLO_driver
+abc
+ABC
+hELLO, wORLD!
+123 +-*/
+[]
