@@ -40,6 +40,14 @@ line with an odd number of `'`. Censused across all eight — #1 (5 orphan paren
 odd-quote lines) are damaged in the combined file; #5-#8 are clean (#5's single odd quote is an apostrophe in a
 comment, `FLOYD'S TREESORT3`, checked by eye — a signature is a candidate, never a verdict).
 
+⚠ **`rc=0` IS NOT `PASS`, AND THIS FILE SAID SO TOO LOOSELY (seat09, hq_P lane, 2026-09-04).** Several of these
+programs print an internal SPITBOL diagnostic partway through — #4 an `ERROR 116` on an INPUT unit-number call,
+#5 the same, #6 and #7 an `ERROR 248` redefinition, #8 an `ERROR 160` — and then **exit 0 anyway**. So a line
+below reading "rc=0, 16 lines" means *the oracle terminated normally*, not *the program did what it was written
+to do*. The runner is unaffected, because it grades SCRIP against whatever the oracle actually produced, and a
+truncated-but-clean-exit oracle answer is still a real answer to diff against. But nobody should read this table
+as a statement that the eight programs run correctly under SPITBOL: four of them announce an error first.
+
 **Measured on the shared oracle after the repair (`sbl -bf`, fed `testpgms.in`):** seven of eight run clean —
 #1 rc=0/120 lines · #3 rc=0/46 · #4 rc=0/16 · #5 rc=0/16 · #6 rc=0/44 · #7 rc=0/16 · #8 rc=0/16. Only **#2**
 still exits rc=231, at `test2.spt(238)`, on a `;`-separated statement followed by a `.` continuation line whose
