@@ -2451,7 +2451,28 @@ begin
   r := square(6);
   writeln(r)
 end.
-{--------------------------------------------- 137 program_while_goto_replace_1}
+{------------------------------------------------------- 137 benchmark_uplevel3}
+program ub3;
+  procedure p1;
+  var a, sum : integer;
+    procedure p2;
+      procedure p3;
+        procedure p4;
+        var i, j : integer;
+        begin
+          for i := 1 to 30000 do
+            for j := 1 to 8000 do
+              sum := sum + a
+        end;
+      begin p4 end;
+    begin p3 end;
+  begin
+    a := 1; sum := 0;
+    p2;
+    writeln(sum)
+  end;
+begin p1 end.
+{--------------------------------------------- 138 program_while_goto_replace_1}
 program goto2;
 label 1, 5;
 var i, n, total: integer;
@@ -2472,7 +2493,7 @@ begin
 5:
   writeln(total * 100 + n)
 end.
-{--------------------------------------------- 138 program_while_goto_replace_2}
+{--------------------------------------------- 139 program_while_goto_replace_2}
 program goto2;
 label 1, 5;
 var i, n, total: integer;
@@ -2493,7 +2514,7 @@ begin
 5:
   writeln(total * 100 + n)
 end.
-{------------------------------------------------------ 139 ladder__rung11_case}
+{------------------------------------------------------ 140 ladder__rung11_case}
 program rung11case;
 var
   i: integer;
@@ -2516,7 +2537,7 @@ begin
     'c': writeln('charlie')
   end
 end.
-{----------------------------------------------------- 140 program_record_for_1}
+{----------------------------------------------------- 141 program_record_for_1}
 program rec2;
 type
   rec = record
@@ -2539,7 +2560,31 @@ begin
     writeln(r.a);
   writeln(r.a, r.b, r.c)
 end.
-{------------------------------------------- 141 program_function_for_replace_1}
+{------------------------------------------------------- 142 benchmark_uplevel2}
+program uplevelbench;
+  procedure p1;
+  var a, sum : integer;
+    procedure p2;
+      procedure p3;
+      var i, j : integer;
+      begin
+        for i := 1 to 30000 do
+          for j := 1 to 8000 do
+            sum := sum + a
+      end;
+    begin
+      p3
+    end;
+  begin
+    a := 1;
+    sum := 0;
+    p2;
+    writeln(sum)
+  end;
+begin
+  p1
+end.
+{------------------------------------------- 143 program_function_for_replace_1}
 (*$c+,d+,l-,t-*)
 (* recursion on the p-machine: fact and fib *)
 program recursion(output);
@@ -2566,7 +2611,7 @@ begin
    for k := 1 to 10 do
       writeln(k, fact(k), fib(k))
 end.
-{------------------------------------------- 142 program_function_for_replace_2}
+{------------------------------------------- 144 program_function_for_replace_2}
 (*$c+,d+,l-,t-*)
 (* recursion on the p-machine: fact and fib *)
 program recursion(output);
@@ -2593,7 +2638,7 @@ begin
    for k := 1 to 10 do
       writeln(k, fact(k), fib(k))
 end.
-{------------------------------------------------------ 143 program_array_for_4}
+{------------------------------------------------------ 145 program_array_for_4}
 program enumarr(output);
 type color = (red, green, blue);
 var a: array[color] of integer;
@@ -2602,7 +2647,7 @@ begin
   a[red] := 10; a[green] := 20; a[blue] := 30;
   for c := red to blue do writeln(a[c])
 end.
-{--------------------------------------------------- 144 program_array_packed_2}
+{--------------------------------------------------- 146 program_array_packed_2}
 program aa2;
 var m: array [0..3] of packed array [1..4] of char;
 begin
@@ -2611,7 +2656,7 @@ begin
   writeln(m[0]);
   writeln(m[1])
 end.
-{-------------------------------------------------------- 145 program_set_for_2}
+{-------------------------------------------------------- 147 program_set_for_2}
 program set5;
 var s : set of 0..47; i, n : integer;
 begin
@@ -2620,7 +2665,7 @@ begin
   for i := 0 to 10 do if i in s then n := n + 1;
   writeln(n)
 end.
-{-------------------------------------------------------- 146 program_set_for_3}
+{-------------------------------------------------------- 148 program_set_for_3}
 program set6;
 var s : set of 0..47; i, n : integer;
 begin
@@ -2629,7 +2674,7 @@ begin
   for i := 0 to 12 do if i in s then n := n + 1;
   writeln(n)
 end.
-{-------------------------------------------------------- 147 program_set_for_4}
+{-------------------------------------------------------- 149 program_set_for_4}
 program set7;
 var s : set of 0..47; i, n : integer;
 begin
@@ -2638,7 +2683,7 @@ begin
   for i := 0 to 12 do if i in s then n := n + 1;
   writeln(n)
 end.
-{------------------------------------------------ 148 program_procedure_array_2}
+{------------------------------------------------ 150 program_procedure_array_2}
 program vparr(output);
 var a: array[1..3] of integer; i: integer;
   procedure genlabel(var nxtlab: integer); begin nxtlab := 42 end;
@@ -2648,7 +2693,7 @@ begin
   genlabel(a[i]);
   writeln(a[1]); writeln(a[2]); writeln(a[3])
 end.
-{------------------------------------------------ 149 program_procedure_array_5}
+{------------------------------------------------ 151 program_procedure_array_5}
 program vparr(output);
 var a: array[1..3] of integer; i: integer;
   procedure genlabel(var nxtlab: integer); begin nxtlab := 42 end;
@@ -2658,7 +2703,7 @@ begin
   genlabel(a[i]);
   writeln(a[1]); writeln(a[2]); writeln(a[3])
 end.
-{------------------------------------------------ 150 program_pointer_writeln_1}
+{------------------------------------------------ 152 program_pointer_writeln_1}
 program ptr1(output);
 type
   ip = ^integer;
@@ -2669,7 +2714,7 @@ begin
   p^ := 42;
   writeln(p^)
 end.
-{------------------------------------------------ 151 program_pointer_writeln_2}
+{------------------------------------------------ 153 program_pointer_writeln_2}
 program ptr2(output);
 type ip = ^integer;
 var p, q : ip;
@@ -2680,7 +2725,7 @@ begin
   p^ := p^ + 1;
   writeln(p^, q^)
 end.
-{------------------------------------------------ 152 program_pointer_writeln_5}
+{------------------------------------------------ 154 program_pointer_writeln_5}
 program ptr7(output);
 type ip = ^integer;
 var p, q : ip;
@@ -2691,7 +2736,7 @@ begin
   q := p;
   if p = q then writeln(300) else writeln(400)
 end.
-{------------------------------------------------ 153 program_pointer_writeln_4}
+{------------------------------------------------ 155 program_pointer_writeln_4}
 program ptr6(output);
 type ip = ^integer;
 var p, q : ip;
@@ -2703,7 +2748,7 @@ begin
   writeln(p^);
   if p = q then writeln(1) else writeln(0)
 end.
-{-------------------------------------------------------- 154 program_set_for_1}
+{-------------------------------------------------------- 156 program_set_for_1}
 program set1;
 var
   s : set of 0..47;
@@ -2716,7 +2761,7 @@ begin
       n := n + 1;
   writeln(n)
 end.
-{----------------------------------------------- 155 program_procedure_record_2}
+{----------------------------------------------- 157 program_procedure_record_2}
 program rec_local_collision;
 type rec = record f: integer end;
 var g: integer;
@@ -2730,7 +2775,7 @@ begin
   g := 0;
   outer
 end.
-{----------------------------------------------- 156 program_procedure_record_9}
+{----------------------------------------------- 158 program_procedure_record_9}
 program rec_local_collision;
 type rec = record f: integer end;
 var g: integer;
@@ -2744,7 +2789,7 @@ begin
   g := 0;
   outer
 end.
-{------------------------------------------------------ 157 ladder__rung08_sets}
+{------------------------------------------------------ 159 ladder__rung08_sets}
 program rung08sets;
 type
   digset = set of 0..9;
@@ -2761,7 +2806,7 @@ begin
   else
     writeln('no')
 end.
-{---------------------------------------------------- 158 program_record_with_1}
+{---------------------------------------------------- 160 program_record_with_1}
 program with1;
 type
   point = record
@@ -2780,7 +2825,7 @@ begin
   end;
   writeln(p.x)
 end.
-{---------------------------------------------------- 159 program_record_with_2}
+{---------------------------------------------------- 161 program_record_with_2}
 program with2;
 type
   point = record x : integer; y : integer end;
@@ -2802,7 +2847,7 @@ begin
     writeln(x)
   end
 end.
-{-------------------------------------------- 160 program_case_repeat_replace_1}
+{-------------------------------------------- 162 program_case_repeat_replace_1}
 (* pb40: KNOWN FAIL (session 40) - no .ref on purpose; gate skips it.
    Lowering bug: inside a case arm, an if/else whose ELSE contains a loop,
    followed by a for-loop, wires the for's exit edge to the preceding IR_IF
@@ -2826,7 +2871,7 @@ begin
   end;
   writeln(sy:1)
 end.
-{-------------------------------------------- 161 program_case_repeat_replace_2}
+{-------------------------------------------- 163 program_case_repeat_replace_2}
 (* pb40: KNOWN FAIL (session 40) - no .ref on purpose; gate skips it.
    Lowering bug: inside a case arm, an if/else whose ELSE contains a loop,
    followed by a for-loop, wires the for's exit edge to the preceding IR_IF
@@ -2850,7 +2895,7 @@ begin
   end;
   writeln(sy:1)
 end.
-{------------------------------------------------------- 162 program_case_for_2}
+{------------------------------------------------------- 164 program_case_for_2}
 program enumtest;
 type
   color = (red, green, blue);
@@ -2875,7 +2920,7 @@ begin
     winter: writeln(40)
   end
 end.
-{------------------------------------------------------ 163 program_array_for_7}
+{------------------------------------------------------ 165 program_array_for_7}
 program subarr(output);
 type range = 1..4;
 var a: array[range] of integer;
@@ -2884,7 +2929,7 @@ begin
   for i := 1 to 4 do a[i] := i * i;
   for i := 1 to 4 do writeln(a[i])
 end.
-{--------------------------------------------------- 164 program_array_packed_1}
+{--------------------------------------------------- 166 program_array_packed_1}
 program aa1;
 type alpha = packed array [1..8] of char;
 var a: array [1..3] of alpha;
@@ -2894,7 +2939,7 @@ begin
   writeln(a[1]);
   writeln(a[2])
 end.
-{------------------------------------------------ 165 program_pointer_writeln_3}
+{------------------------------------------------ 167 program_pointer_writeln_3}
 program ptr3(output);
 type ip = ^integer;
 var p : ip;
@@ -2904,7 +2949,7 @@ begin
   new(p);
   if p <> nil then writeln(2) else writeln(0)
 end.
-{--------------------------------------------------- 166 program_record_array_5}
+{--------------------------------------------------- 168 program_record_array_5}
 program vrec8;
 type r = record
       a: array [1..4] of integer;
@@ -2915,7 +2960,7 @@ begin
   c.pval := 5;
   writeln(c.pval)
 end.
-{--------------------------------------------------- 167 program_record_array_6}
+{--------------------------------------------------- 169 program_record_array_6}
 program vrec9;
 type r = record
       pval: integer;
@@ -2926,7 +2971,7 @@ begin
   c.pval := 5;
   writeln(c.pval)
 end.
-{------------------------------------------------- 168 program_record_pointer_1}
+{------------------------------------------------- 170 program_record_pointer_1}
 program boolptr(output);
 type rp = ^rec; rec = record f : boolean end;
 var p : rp; i : integer;
@@ -2938,7 +2983,7 @@ begin
   p^.f := i < 3;
   if p^.f then writeln(1) else writeln(0)
 end.
-{------------------------------------------------ 169 program_record_pointer_11}
+{------------------------------------------------ 171 program_record_pointer_11}
 program boolptr(output);
 type rp = ^rec; rec = record f : boolean end;
 var p : rp; i : integer;
@@ -2950,7 +2995,7 @@ begin
   p^.f := i < 3;
   if p^.f then writeln(1) else writeln(0)
 end.
-{---------------------------------------------------- 170 ladder__rung06_arrays}
+{---------------------------------------------------- 172 ladder__rung06_arrays}
 program rung06arrays;
 var
   a: array[1..5] of integer;
@@ -2963,7 +3008,7 @@ begin
     s := s + a[i];
   writeln(s)
 end.
-{------------------------------------------------- 171 program_record_pointer_2}
+{------------------------------------------------- 173 program_record_pointer_2}
 program disc(output);
 type
   pp = ^prec;
@@ -2976,7 +3021,7 @@ begin
   writeln(arr^.ael^.f);
   writeln(arr^.inx^.f)
 end.
-{--------------------------------------------------- 172 ladder__rung09_strings}
+{--------------------------------------------------- 174 ladder__rung09_strings}
 program rung09strings;
 type
   str3 = packed array[1..3] of char;
@@ -2990,7 +3035,7 @@ begin
     writeln('ne');
   writeln(a)
 end.
-{------------------------------------------- 173 program_array_packed_replace_3}
+{------------------------------------------- 175 program_array_packed_replace_3}
 program chararrvv(output);
 type alpha = packed array[1..8] of char;
 var a, b: alpha; n: integer;
@@ -3005,7 +3050,7 @@ begin
   if a <> b then n := n + 20;
   writeln(n)
 end.
-{-------------------------------------------------- 174 program_writeln_trunc_1}
+{-------------------------------------------------- 176 program_writeln_trunc_1}
 program stdlib1(input, output);
 var i : integer;
 begin
@@ -3020,7 +3065,7 @@ begin
   writeln(pred(10));
   writeln(succ(10))
 end.
-{------------------------------------------------------ 175 program_array_for_1}
+{------------------------------------------------------ 177 program_array_for_1}
 program matmul;
 var a, b, c: array[0..1, 0..1] of integer;
     i, j, k: integer;
@@ -3036,7 +3081,7 @@ begin
   writeln(c[0,0]); writeln(c[0,1]);
   writeln(c[1,0]); writeln(c[1,1])
 end.
-{------------------------------------------------------ 176 program_array_for_8}
+{------------------------------------------------------ 178 program_array_for_8}
 program matmul;
 var a, b, c: array[0..1, 0..1] of integer;
     i, j, k: integer;
@@ -3052,7 +3097,7 @@ begin
   writeln(c[0,0]); writeln(c[0,1]);
   writeln(c[1,0]); writeln(c[1,1])
 end.
-{------------------------------------------------- 177 program_record_pointer_6}
+{------------------------------------------------- 179 program_record_pointer_6}
 program nestpv;
 type
   cell = record num: integer end;
@@ -3068,7 +3113,7 @@ begin
   writeln(gattr.kind);
   writeln(gattr.cval^.num)
 end.
-{------------------------------------------- 178 program_array_packed_replace_2}
+{------------------------------------------- 180 program_array_packed_replace_2}
 program chararrord(output);
 type alpha = packed array[1..8] of char;
 var a, b: alpha; n: integer;
@@ -3085,7 +3130,7 @@ begin
   if 'mmm     ' > a then n := n + 400;
   writeln(n)
 end.
-{------------------------------------------------------ 179 program_array_for_5}
+{------------------------------------------------------ 181 program_array_for_5}
 program enumsubarr(output);
 type
   season = (spring, summer, fall, winter);
@@ -3103,7 +3148,7 @@ begin
   writeln(counts[1]);
   writeln(counts[12])
 end.
-{------------------------------------------------- 180 program_record_pointer_3}
+{------------------------------------------------- 182 program_record_pointer_3}
 program nestptr1;
 type
   inner = record a, b: integer end;
@@ -3121,7 +3166,7 @@ begin
   writeln(p^.c.b);
   writeln(p^.y)
 end.
-{------------------------------------------------- 181 program_record_pointer_7}
+{------------------------------------------------- 183 program_record_pointer_7}
 program nestpv2;
 type
   cell = record num: integer end;
@@ -3140,7 +3185,7 @@ begin
   writeln(gattr.cval.ival);
   writeln(gattr.cval.valp^.num)
 end.
-{--------------------------------------------------- 182 program_array_packed_5}
+{--------------------------------------------------- 184 program_array_packed_5}
 program chararrcvc(output);
 type alfa = packed array[1..4] of char;
 var rw: array[1..3] of alfa;
@@ -3161,7 +3206,7 @@ begin
   i := 3; j := 1;
   if rw[i] = rw[j] then writeln('eq') else writeln('ne')
 end.
-{--------------------------------------------- 183 program_function_procedure_5}
+{--------------------------------------------- 185 program_function_procedure_5}
 program goto3;
 var r: integer;
 
@@ -3195,21 +3240,21 @@ begin
   writeln(r);
   writeln(dbl(5))
 end.
-{---------------------------------------------- 184 program_procedure_record_12}
+{---------------------------------------------- 186 program_procedure_record_12}
 program vpfld(output);
 type rec = record fld: integer; other: integer end; pr = ^rec;
 var p: pr;
   procedure genlabel(var nxtlab: integer); begin nxtlab := 42 end;
 begin new(p); p^.fld := 7; p^.other := 99; genlabel(p^.fld);
   writeln(p^.fld); writeln(p^.other) end.
-{----------------------------------------------- 185 program_procedure_record_5}
+{----------------------------------------------- 187 program_procedure_record_5}
 program vpfld(output);
 type rec = record fld: integer; other: integer end; pr = ^rec;
 var p: pr;
   procedure genlabel(var nxtlab: integer); begin nxtlab := 42 end;
 begin new(p); p^.fld := 7; p^.other := 99; genlabel(p^.fld);
   writeln(p^.fld); writeln(p^.other) end.
-{--------------------------------------------------- 186 program_record_array_4}
+{--------------------------------------------------- 188 program_record_array_4}
 program vrec7;
 type constant = record
       rval: packed array [1..8] of char;
@@ -3220,7 +3265,7 @@ begin
   c.pval := 5;
   writeln(c.pval)
 end.
-{------------------------------------------------- 187 program_record_pointer_5}
+{------------------------------------------------- 189 program_record_pointer_5}
 program vrecfield;
 type csp=^cc; cc=record slgth:integer end;
      valu=record case b:boolean of true:(ival:integer); false:(valp:csp) end;
@@ -3231,7 +3276,7 @@ begin new(lvp); lvp^.slgth:=99; v.valp:=lvp;
   g.cval := v;
   writeln(g.cval.valp^.slgth)
 end.
-{------------------------------------------------------ 188 program_array_for_2}
+{------------------------------------------------------ 190 program_array_for_2}
 program arr2d;
 var a: array[0..1, 0..2] of integer;
     i, j: integer;
@@ -3245,7 +3290,7 @@ begin
     writeln
   end
 end.
-{------------------------------------------------------ 189 program_array_for_3}
+{------------------------------------------------------ 191 program_array_for_3}
 program arr2d2;
 var b: array[0..2, 0..2] of integer;
     i, j: integer;
@@ -3260,7 +3305,7 @@ begin
     writeln
   end
 end.
-{------------------------------------------------------ 190 program_array_for_6}
+{------------------------------------------------------ 192 program_array_for_6}
 program markrel;
 var mark: array[0..2, 0..2] of integer;
     i, j: integer;
@@ -3275,7 +3320,7 @@ begin
     writeln
   end
 end.
-{------------------------------------------- 191 program_array_packed_replace_1}
+{------------------------------------------- 193 program_array_packed_replace_1}
 program chararrlit(output);
 type alpha = packed array[1..8] of char;
 var id: alpha;
@@ -3290,7 +3335,7 @@ begin
   if id = 'readln  ' then n := n + 1000;
   writeln(n)
 end.
-{------------------------------------------------ 192 program_procedure_array_1}
+{------------------------------------------------ 194 program_procedure_array_1}
 program aa6;
 var m: array [0..3] of packed array [1..4] of char;
 procedure outer;
@@ -3305,7 +3350,7 @@ begin
   outer;
   writeln(m[0]); writeln(m[1])
 end.
-{------------------------------------------------ 193 program_procedure_array_4}
+{------------------------------------------------ 195 program_procedure_array_4}
 program aa6;
 var m: array [0..3] of packed array [1..4] of char;
 procedure outer;
@@ -3320,7 +3365,7 @@ begin
   outer;
   writeln(m[0]); writeln(m[1])
 end.
-{--------------------------------------------------- 194 program_record_array_3}
+{--------------------------------------------------- 196 program_record_array_3}
 program recspan_copy(output);
 type
   pt = record x: integer; y: integer end;
@@ -3339,7 +3384,7 @@ begin
   v[2] := v[1];
   writeln(v[2].vi)
 end.
-{------------------------------------------------- 195 program_record_pointer_8}
+{------------------------------------------------- 197 program_record_pointer_8}
 program ptr4(output);
 type
   link = ^node;
@@ -3359,7 +3404,7 @@ begin
   writeln(head^.val);
   writeln(head^.next^.val)
 end.
-{--------------------------------------------- 196 program_function_procedure_3}
+{--------------------------------------------- 198 program_function_procedure_3}
 program char3;
 var c : char;
 procedure printc(x : char);
@@ -3380,7 +3425,7 @@ begin
     'Z': writeln('late')
   end
 end.
-{--------------------------------------------- 197 program_function_procedure_8}
+{--------------------------------------------- 199 program_function_procedure_8}
 program char3;
 var c : char;
 procedure printc(x : char);
@@ -3401,7 +3446,33 @@ begin
     'Z': writeln('late')
   end
 end.
-{---------------------------------------------- 198 program_array_for_replace_1}
+{--------------------------------------------------------- 200 benchmark_towers}
+(* PROVENANCE: Hennessy "Towers" — Stanford integer benchmark suite
+   (John L. Hennessy, Stanford, c.1981; public domain). Towers of Hanoi,
+   recursive move count (2^disks-1). P4-faithful transliteration.
+   Repeat knob via stdin. *)
+program towersbench;
+const disks = 18;
+var movesdone, reps, rep: integer;
+procedure move(n, frm, via, dest: integer);
+begin
+  if n = 1 then movesdone := movesdone + 1
+  else begin
+    move(n - 1, frm, dest, via);
+    movesdone := movesdone + 1;
+    move(n - 1, via, frm, dest)
+  end
+end;
+begin
+  readln(reps);
+  movesdone := 0;
+  for rep := 1 to reps do begin
+    movesdone := 0;
+    move(disks, 1, 2, 3)
+  end;
+  writeln(movesdone)
+end.
+{---------------------------------------------- 201 program_array_for_replace_1}
 (* PB-37: pcom init simulation - does 256-element init + char-indexed array work? *)
 program pb37(output);
 const
@@ -3431,7 +3502,7 @@ begin
   writeln(chartp[' ']);
   writeln(chartp['x'])
 end.
-{---------------------------------------------- 199 program_array_for_replace_2}
+{---------------------------------------------- 202 program_array_for_replace_2}
 (* PB-37: pcom init simulation - does 256-element init + char-indexed array work? *)
 program pb37(output);
 const
@@ -3461,7 +3532,7 @@ begin
   writeln(chartp[' ']);
   writeln(chartp['x'])
 end.
-{--------------------------------------------- 200 program_function_procedure_4}
+{--------------------------------------------- 203 program_function_procedure_4}
 program enum2;
 type
   opkind = (lod, str, add, sub, mpi, dvi, ujp, fjp, stp);
@@ -3492,7 +3563,7 @@ begin
   for op := lod to fjp do
     if op = ujp then writeln(ord(op))
 end.
-{--------------------------------------------- 201 program_function_procedure_9}
+{--------------------------------------------- 204 program_function_procedure_9}
 program enum2;
 type
   opkind = (lod, str, add, sub, mpi, dvi, ujp, fjp, stp);
@@ -3523,7 +3594,7 @@ begin
   for op := lod to fjp do
     if op = ujp then writeln(ord(op))
 end.
-{--------------------------------------------------- 202 program_record_array_2}
+{--------------------------------------------------- 205 program_record_array_2}
 program arrrec2;
 type rec = record a, b: integer end;
 var d: array[0..3] of rec;
@@ -3531,7 +3602,7 @@ begin
   with d[2] do begin a := 7; b := 9 end;
   writeln(d[2].a); writeln(d[2].b)
 end.
-{--------------------------------------------------- 203 program_record_array_1}
+{--------------------------------------------------- 206 program_record_array_1}
 program arrrec2;
 type rec = record a, b: integer end;
 var d: array[0..3] of rec;
@@ -3540,7 +3611,7 @@ begin
   for i := 0 to 3 do begin d[i].a := i * 10; d[i].b := i + 100 end;
   for i := 0 to 3 do writeln(d[i].a, d[i].b)
 end.
-{--------------------------------------------------- 204 program_array_packed_3}
+{--------------------------------------------------- 207 program_array_packed_3}
 program chararr1;
 var s: packed array [1..8] of char;
     i: integer;
@@ -3550,7 +3621,7 @@ begin
   for i := 1 to 8 do write(s[i]);
   writeln
 end.
-{------------------------------------------------- 205 program_function_array_1}
+{------------------------------------------------- 208 program_function_array_1}
 program arrparam(output);
 type vec = array[0..4] of integer;
 var v: vec; i: integer;
@@ -3561,7 +3632,7 @@ begin
   for i := 0 to 4 do v[i] := i + 1;
   writeln(sumvec(v))
 end.
-{------------------------------------------------- 206 program_function_array_3}
+{------------------------------------------------- 209 program_function_array_3}
 program arrparam(output);
 type vec = array[0..4] of integer;
 var v: vec; i: integer;
@@ -3572,7 +3643,7 @@ begin
   for i := 0 to 4 do v[i] := i + 1;
   writeln(sumvec(v))
 end.
-{------------------------------------------- 207 program_record_array_replace_4}
+{------------------------------------------- 210 program_record_array_replace_4}
 program vrec6;
 type constant = record case cclass: integer of
         1: (rval: packed array [1..8] of char);
@@ -3583,7 +3654,7 @@ begin
   c.pval := 5;
   writeln(c.pval)
 end.
-{------------------------------------------- 208 program_record_array_replace_3}
+{------------------------------------------- 211 program_record_array_replace_3}
 program vrec5;
 type constant = record case cclass: integer of
         1: (rval: packed array [1..8] of char);
@@ -3596,7 +3667,7 @@ begin
   c.slgth := 5;
   writeln(c.slgth)
 end.
-{------------------------------------------------- 209 program_function_array_2}
+{------------------------------------------------- 212 program_function_array_2}
 program arr2dtype2;
 type row = array[0..2] of integer;
 var r: row; i: integer;
@@ -3611,7 +3682,7 @@ begin
   for i := 0 to 2 do r[i] := i + 1;
   writeln(sumrow(r))
 end.
-{--------------------------------------------- 210 program_function_procedure_2}
+{--------------------------------------------- 213 program_function_procedure_2}
 program arr2dtype3;
 type vec = array[0..3] of integer;
 var v: vec; i: integer;
@@ -3627,7 +3698,7 @@ begin
   fill(v);
   writeln(get2(v))
 end.
-{--------------------------------------------- 211 program_function_procedure_7}
+{--------------------------------------------- 214 program_function_procedure_7}
 program arr2dtype3;
 type vec = array[0..3] of integer;
 var v: vec; i: integer;
@@ -3643,7 +3714,7 @@ begin
   fill(v);
   writeln(get2(v))
 end.
-{------------------------------------------------- 212 program_record_pointer_4}
+{------------------------------------------------- 215 program_record_pointer_4}
 program nestwith1;
 type
   valu = record ival: integer; rval: integer end;
@@ -3659,7 +3730,7 @@ begin
   writeln(lcp^.values.ival);
   writeln(lcp^.values.rval)
 end.
-{------------------------------------------------ 213 program_record_pointer_10}
+{------------------------------------------------ 216 program_record_pointer_10}
 program with3;
 type
   rp = ^rec;
@@ -3677,7 +3748,7 @@ begin
   end;
   writeln(p^.x)
 end.
-{----------------------------------------- 214 program_record_pointer_replace_1}
+{----------------------------------------- 217 program_record_pointer_replace_1}
 (* PB-38: test new() and pointer dereference - used heavily in pcom init *)
 program pb38(output);
 type
@@ -3699,7 +3770,7 @@ begin
   writeln(q^.val);
   writeln(q^.next^.val)
 end.
-{------------------------------------------- 215 program_record_array_replace_2}
+{------------------------------------------- 218 program_record_array_replace_2}
 (* PB-36: variant record initialization - same structure as pcom's display[] *)
 program pb36(output);
 type
@@ -3723,7 +3794,7 @@ begin
   writeln(d[0].occur);
   writeln(d[1].occur)
 end.
-{-------------------------------------------------- 216 ladder__rung10_pointers}
+{-------------------------------------------------- 219 ladder__rung10_pointers}
 program rung10pointers;
 type
   node = ^cell;
@@ -3757,7 +3828,7 @@ begin
   dispose(b);
   dispose(a)
 end.
-{--------------------------------------------------- 217 program_array_packed_4}
+{--------------------------------------------------- 220 program_array_packed_4}
 program chararr2;
 type alpha = packed array [1..8] of char;
 var id: alpha;
@@ -3768,7 +3839,7 @@ begin
   for i := 1 to 8 do write(id[i]);
   writeln
 end.
-{--------------------------------------------------- 218 program_array_packed_6}
+{--------------------------------------------------- 221 program_array_packed_6}
 (* pb39: element read of a BULK-assigned packed char array must work.
    Regression for arr_get packed-string fallback: bulk assign stores a plain
    string; arr_get previously FAILed for idx>=1, silently severing continuation
@@ -3786,7 +3857,7 @@ begin
   until ch = '.';
   writeln(n:1)
 end.
-{------------------------------------------------- 219 program_record_pointer_9}
+{------------------------------------------------- 222 program_record_pointer_9}
 program ptr5(output);
 type link = ^node; node = record val : integer; next : link end;
 var head, t, p : link; i : integer;
@@ -3806,7 +3877,7 @@ begin
     p := p^.next
   end
 end.
-{----------------------------------------- 220 program_record_pointer_replace_2}
+{----------------------------------------- 223 program_record_pointer_replace_2}
 program vrec3;
 type valu = record case b: boolean of
       true: (ival: integer);
@@ -3829,7 +3900,7 @@ begin
   end;
   writeln(fmin)
 end.
-{-------------------------------------------- 221 program_array_while_replace_1}
+{-------------------------------------------- 224 program_array_while_replace_1}
 (*$c+,d+,l-,t-*)
 (*
   Sieve of Eratosthenes. Displays primes less than 'n'.
@@ -3858,7 +3929,7 @@ begin
         for i := 2 to n do
                 if a[i] then writeln(i);
 end.
-{-------------------------------------------- 222 program_array_while_replace_2}
+{-------------------------------------------- 225 program_array_while_replace_2}
 (*$c+,d+,l-,t-*)
 (*
   Sieve of Eratosthenes. Displays primes less than 'n'.
@@ -3887,7 +3958,7 @@ begin
         for i := 2 to n do
                 if a[i] then writeln(i);
 end.
-{------------------------------------------ 223 program_procedure_set_replace_1}
+{------------------------------------------ 226 program_procedure_set_replace_1}
 (* PB-30: scaled flat stress of setofsys-global repeat/while conditions *)
 (* 20 block-body cycles; procedures reference only params, no globals in nested *)
 program pb30(output);
@@ -3926,7 +3997,7 @@ begin
   writeln(nstmt);
   writeln(ncycles)
 end.
-{------------------------------------------ 224 program_procedure_set_replace_2}
+{------------------------------------------ 227 program_procedure_set_replace_2}
 (* PB-30: scaled flat stress of setofsys-global repeat/while conditions *)
 (* 20 block-body cycles; procedures reference only params, no globals in nested *)
 program pb30(output);
@@ -3965,1133 +4036,7 @@ begin
   writeln(nstmt);
   writeln(ncycles)
 end.
-{------------------------------------------- 225 program_record_array_replace_1}
-program t;
-type dt = (ci, cc);
-     r = record case dt of
-       ci: (vi: integer);
-       cc: (vc: char)
-     end;
-var s: array[0..4] of r; i: integer;
-begin
-  s[0].vc := 'H'; s[1].vc := 'e'; s[2].vc := 'l'; s[3].vc := 'l'; s[4].vc := 'o';
-  for i := 0 to 4 do write(s[i].vc);
-  writeln
-end.
-{--------------------------------------------- 226 program_function_procedure_1}
-program arr2dtype;
-type mat = array[0..1, 0..1] of integer;
-var m: mat; x: integer;
-procedure setmat(var a: mat);
-begin
-  a[0,0] := 1; a[0,1] := 2; a[1,0] := 3; a[1,1] := 4
-end;
-function summat(a: mat): integer;
-var i, j, s: integer;
-begin
-  s := 0;
-  for i := 0 to 1 do
-    for j := 0 to 1 do
-      s := s + a[i,j];
-  summat := s
-end;
-begin
-  setmat(m);
-  x := summat(m);
-  writeln(x)
-end.
-{--------------------------------------------- 227 program_function_procedure_6}
-program arr2dtype;
-type mat = array[0..1, 0..1] of integer;
-var m: mat; x: integer;
-procedure setmat(var a: mat);
-begin
-  a[0,0] := 1; a[0,1] := 2; a[1,0] := 3; a[1,1] := 4
-end;
-function summat(a: mat): integer;
-var i, j, s: integer;
-begin
-  s := 0;
-  for i := 0 to 1 do
-    for j := 0 to 1 do
-      s := s + a[i,j];
-  summat := s
-end;
-begin
-  setmat(m);
-  x := summat(m);
-  writeln(x)
-end.
-{----------------------------------------------- 228 program_procedure_record_6}
-program ptr8(output);
-type link = ^node; node = record val : integer; next : link end;
-var head : link;
-
-procedure printlist(p : link);
-begin
-  while p <> nil do
-  begin
-    writeln(p^.val);
-    p := p^.next
-  end
-end;
-
-procedure setval(p : link; v : integer);
-begin
-  p^.val := v
-end;
-
-begin
-  new(head);
-  head^.val := 1;
-  new(head^.next);
-  head^.next^.val := 2;
-  head^.next^.next := nil;
-  setval(head, 77);
-  printlist(head)
-end.
-{--------------------------------------- 229 program_procedure_record_replace_1}
-program w1;
-type valu = record case b: boolean of
-        true: (ival: integer);
-        false: (valp: integer)
-     end;
-     structform = (scalar, subrange);
-     stp = ^ structure;
-     structure = record
-        size: integer;
-        case form: structform of
-          scalar: (fconst: integer);
-          subrange: (rangetype: stp; min, max: valu)
-     end;
-var p: stp; fmin: integer;
-procedure getbounds(fsp: stp; var fmn: integer);
-begin
-  fmn := 0;
-  if fsp <> nil then
-  with fsp^ do
-    if form = subrange then fmn := min.ival
-end;
-begin
-  new(p);
-  p^.form := subrange;
-  p^.min.ival := 77;
-  getbounds(p, fmin);
-  writeln(fmin)
-end.
-{--------------------------------------- 230 program_procedure_record_replace_2}
-program w1;
-type valu = record case b: boolean of
-        true: (ival: integer);
-        false: (valp: integer)
-     end;
-     structform = (scalar, subrange);
-     stp = ^ structure;
-     structure = record
-        size: integer;
-        case form: structform of
-          scalar: (fconst: integer);
-          subrange: (rangetype: stp; min, max: valu)
-     end;
-var p: stp; fmin: integer;
-procedure getbounds(fsp: stp; var fmn: integer);
-begin
-  fmn := 0;
-  if fsp <> nil then
-  with fsp^ do
-    if form = subrange then fmn := min.ival
-end;
-begin
-  new(p);
-  p^.form := subrange;
-  p^.min.ival := 77;
-  getbounds(p, fmin);
-  writeln(fmin)
-end.
-{------------------------------------------------ 231 program_procedure_array_3}
-program alphacmp(output);
-type alpha = packed array [1..8] of char;
-var rw : array [1..5] of alpha;
-    rsy: array [1..5] of integer;
-    frw: array [1..3] of integer;
-    id : alpha;
-    sy : integer;
-
-procedure lookup(k: integer);
-  label 2;
-  var i: integer;
-begin
-  for i := frw[k] to frw[k+1] - 1 do
-    if rw[i] = id then
-      begin sy := rsy[i]; goto 2 end;
-  sy := 0;
-2:
-end;
-
-begin
-  rw[1] := 'do      '; rw[2] := 'if      '; rw[3] := 'of      ';
-  rw[4] := 'end     '; rw[5] := 'for     ';
-  rsy[1] := 2; rsy[2] := 1; rsy[3] := 3; rsy[4] := 7; rsy[5] := 8;
-  frw[1] := 1; frw[2] := 1; frw[3] := 6;
-  id[1] := 'd'; id[2] := 'o'; id[3] := ' '; id[4] := ' ';
-  id[5] := ' '; id[6] := ' '; id[7] := ' '; id[8] := ' ';
-  lookup(2); writeln(sy);
-  id[1] := 'e'; id[2] := 'n'; id[3] := 'd'; id[4] := ' ';
-  id[5] := ' '; id[6] := ' '; id[7] := ' '; id[8] := ' ';
-  lookup(1); writeln(sy);
-  id[1] := 'x'; id[2] := 'x'; id[3] := ' '; id[4] := ' ';
-  id[5] := ' '; id[6] := ' '; id[7] := ' '; id[8] := ' ';
-  lookup(2); writeln(sy);
-end.
-{---------------------------------------- 232 program_procedure_array_replace_1}
-{ Regression probe for the in-process binary emitter's forward-reference
-  patch table (BB_PATCH_MAX). A single procedure with many statements leaves
-  one pending forward-ref patch per statement (the chain jumps to the proc's
-  gamma/omega ports, which resolve only at proc end). With the old cap of 512
-  this overflowed at ~64 array-element assignments inside one proc: the proc's
-  binary build returned NULL, its runtime fn went unregistered, and the call
-  to it returned FAILDESCR -> the whole statement chain silently dropped.
-
-  `fill` does exactly 64 such assignments inside a nested procedure (past the
-  old 512-patch point), then the caller prints markers around the call.
-  Correct output is SABE on one line; a regression (proc build overflow)
-  prints only SA and drops the rest (fill never returns success). Must pass
-  both --run (M3) and --compile (M4); M4 always worked since the assembler
-  resolves labels with no patch table. }
-program patchtable(output);
-type colour = (red, green, blue, white);
-var tab: array[char] of colour;
-  procedure outer;
-    procedure fill;
-    begin
-      tab['a'] := red;   tab['b'] := green; tab['c'] := blue;  tab['d'] := white;
-      tab['e'] := red;   tab['f'] := green; tab['g'] := blue;  tab['h'] := white;
-      tab['i'] := red;   tab['j'] := green; tab['k'] := blue;  tab['l'] := white;
-      tab['m'] := red;   tab['n'] := green; tab['o'] := blue;  tab['p'] := white;
-      tab['q'] := red;   tab['r'] := green; tab['s'] := blue;  tab['t'] := white;
-      tab['u'] := red;   tab['v'] := green; tab['w'] := blue;  tab['x'] := white;
-      tab['y'] := red;   tab['z'] := green; tab['0'] := blue;  tab['1'] := white;
-      tab['2'] := red;   tab['3'] := green; tab['4'] := blue;  tab['5'] := white;
-      tab['6'] := red;   tab['7'] := green; tab['8'] := blue;  tab['9'] := white;
-      tab['A'] := red;   tab['B'] := green; tab['C'] := blue;  tab['D'] := white;
-      tab['E'] := red;   tab['F'] := green; tab['G'] := blue;  tab['H'] := white;
-      tab['I'] := red;   tab['J'] := green; tab['K'] := blue;  tab['L'] := white;
-      tab['M'] := red;   tab['N'] := green; tab['O'] := blue;  tab['P'] := white;
-      tab['Q'] := red;   tab['R'] := green; tab['S'] := blue;  tab['T'] := white;
-      tab['U'] := red;   tab['V'] := green; tab['W'] := blue;  tab['X'] := white;
-      tab['Y'] := red;   tab['Z'] := green; tab[' '] := blue;  tab['.'] := white
-    end;
-  begin
-    write('A');
-    fill;
-    write('B')
-  end;
-begin
-  write('S');
-  outer;
-  write('E');
-  writeln
-end.
-{---------------------------------------- 233 program_procedure_array_replace_6}
-{ Regression probe for the in-process binary emitter's forward-reference
-  patch table (BB_PATCH_MAX). A single procedure with many statements leaves
-  one pending forward-ref patch per statement (the chain jumps to the proc's
-  gamma/omega ports, which resolve only at proc end). With the old cap of 512
-  this overflowed at ~64 array-element assignments inside one proc: the proc's
-  binary build returned NULL, its runtime fn went unregistered, and the call
-  to it returned FAILDESCR -> the whole statement chain silently dropped.
-
-  `fill` does exactly 64 such assignments inside a nested procedure (past the
-  old 512-patch point), then the caller prints markers around the call.
-  Correct output is SABE on one line; a regression (proc build overflow)
-  prints only SA and drops the rest (fill never returns success). Must pass
-  both --run (M3) and --compile (M4); M4 always worked since the assembler
-  resolves labels with no patch table. }
-program patchtable(output);
-type colour = (red, green, blue, white);
-var tab: array[char] of colour;
-  procedure outer;
-    procedure fill;
-    begin
-      tab['a'] := red;   tab['b'] := green; tab['c'] := blue;  tab['d'] := white;
-      tab['e'] := red;   tab['f'] := green; tab['g'] := blue;  tab['h'] := white;
-      tab['i'] := red;   tab['j'] := green; tab['k'] := blue;  tab['l'] := white;
-      tab['m'] := red;   tab['n'] := green; tab['o'] := blue;  tab['p'] := white;
-      tab['q'] := red;   tab['r'] := green; tab['s'] := blue;  tab['t'] := white;
-      tab['u'] := red;   tab['v'] := green; tab['w'] := blue;  tab['x'] := white;
-      tab['y'] := red;   tab['z'] := green; tab['0'] := blue;  tab['1'] := white;
-      tab['2'] := red;   tab['3'] := green; tab['4'] := blue;  tab['5'] := white;
-      tab['6'] := red;   tab['7'] := green; tab['8'] := blue;  tab['9'] := white;
-      tab['A'] := red;   tab['B'] := green; tab['C'] := blue;  tab['D'] := white;
-      tab['E'] := red;   tab['F'] := green; tab['G'] := blue;  tab['H'] := white;
-      tab['I'] := red;   tab['J'] := green; tab['K'] := blue;  tab['L'] := white;
-      tab['M'] := red;   tab['N'] := green; tab['O'] := blue;  tab['P'] := white;
-      tab['Q'] := red;   tab['R'] := green; tab['S'] := blue;  tab['T'] := white;
-      tab['U'] := red;   tab['V'] := green; tab['W'] := blue;  tab['X'] := white;
-      tab['Y'] := red;   tab['Z'] := green; tab[' '] := blue;  tab['.'] := white
-    end;
-  begin
-    write('A');
-    fill;
-    write('B')
-  end;
-begin
-  write('S');
-  outer;
-  write('E');
-  writeln
-end.
-{------------------------------------------ 234 program_record_packed_replace_1}
-program mir3(output);
-type
-  sf = (scalar,subrange,pointer,arrays);
-  stp = ^structure;
-  valu = record case intval: boolean of true:(ival:integer); false:(valp:integer) end;
-  structure = packed record
-                marked: boolean; size: integer;
-                case form: sf of
-                  subrange: (rangetype: stp; min,max: valu);
-                  arrays:   (aeltype,inxtype: stp)
-              end;
-var lsp: stp; lvalu: valu;
-begin
-  new(lsp); lsp^.form := subrange;
-  lvalu.ival := 7;
-  with lsp^ do begin rangetype := nil; min := lvalu end;
-  writeln(ord(lsp^.form));
-  writeln(lsp^.min.ival)
-end.
-{---------------------------------------- 235 program_procedure_array_replace_3}
-(* PB-32: minimal programme->block->body chain, no decls
-   mirrors pcom token flow for "program x; begin end." 
-   token stream: period(progsy-done)->beginsy->endsy->period *)
-program pb32(output);
-var
-  sy         : integer;
-  test       : boolean;
-  ncycles    : integer;
-  nstmts     : integer;
-  statbegsys : set of 0..47;
-  blockbegsys: set of 0..47;
-  funcprocsy : set of 0..47;
-  ident_v    : integer;
-  period_v   : integer;
-  semicolon_v: integer;
-  beginsy_v  : integer;
-  endsy_v    : integer;
-  tok_idx    : integer;
-  tokens     : array [0..7] of integer;
-procedure insymbol;
-begin
-  tok_idx := tok_idx + 1;
-  if tok_idx <= 6 then
-    sy := tokens[tok_idx]
-  else
-    sy := period_v
-end;
-procedure statement_sim;
-begin
-  if (sy in statbegsys) or (sy = ident_v) then
-    begin
-      nstmts := nstmts + 1;
-      insymbol
-    end
-end;
-procedure body_sim;
-begin
-  repeat
-    repeat statement_sim
-    until not (sy in statbegsys);
-    test := sy <> semicolon_v;
-    if not test then insymbol
-  until test;
-  if sy = endsy_v then insymbol
-end;
-procedure block_sim;
-begin
-  repeat
-    while sy in funcprocsy do
-      insymbol;
-    if sy <> beginsy_v then
-      sy := period_v
-  until (sy in statbegsys) or (sy = period_v);
-  if sy = beginsy_v then insymbol;
-  repeat body_sim;
-    if (sy <> period_v) and not (sy in blockbegsys) then
-      sy := period_v
-  until (sy = period_v) or (sy in blockbegsys)
-end;
-begin
-  ident_v     := 0;
-  semicolon_v := 13;
-  period_v    := 14;
-  beginsy_v   := 31;
-  endsy_v     := 39;
-  statbegsys  := [31, 32, 33, 34, 35, 36, 37, 38];
-  blockbegsys := [18, 19, 20, 21, 22, 24, 31];
-  funcprocsy  := [22, 24];
-  ncycles     := 0;
-  nstmts      := 0;
-  (* token stream: beginsy(31), endsy(39), period(14) *)
-  tokens[0]   := 31;
-  tokens[1]   := 31;
-  tokens[2]   := 39;
-  tokens[3]   := 14;
-  tok_idx     := 0;
-  sy          := tokens[0];
-  repeat
-    block_sim;
-    ncycles := ncycles + 1
-  until sy = period_v;
-  writeln(ncycles);
-  writeln(nstmts)
-end.
-{---------------------------------------- 236 program_procedure_array_replace_8}
-(* PB-32: minimal programme->block->body chain, no decls
-   mirrors pcom token flow for "program x; begin end." 
-   token stream: period(progsy-done)->beginsy->endsy->period *)
-program pb32(output);
-var
-  sy         : integer;
-  test       : boolean;
-  ncycles    : integer;
-  nstmts     : integer;
-  statbegsys : set of 0..47;
-  blockbegsys: set of 0..47;
-  funcprocsy : set of 0..47;
-  ident_v    : integer;
-  period_v   : integer;
-  semicolon_v: integer;
-  beginsy_v  : integer;
-  endsy_v    : integer;
-  tok_idx    : integer;
-  tokens     : array [0..7] of integer;
-procedure insymbol;
-begin
-  tok_idx := tok_idx + 1;
-  if tok_idx <= 6 then
-    sy := tokens[tok_idx]
-  else
-    sy := period_v
-end;
-procedure statement_sim;
-begin
-  if (sy in statbegsys) or (sy = ident_v) then
-    begin
-      nstmts := nstmts + 1;
-      insymbol
-    end
-end;
-procedure body_sim;
-begin
-  repeat
-    repeat statement_sim
-    until not (sy in statbegsys);
-    test := sy <> semicolon_v;
-    if not test then insymbol
-  until test;
-  if sy = endsy_v then insymbol
-end;
-procedure block_sim;
-begin
-  repeat
-    while sy in funcprocsy do
-      insymbol;
-    if sy <> beginsy_v then
-      sy := period_v
-  until (sy in statbegsys) or (sy = period_v);
-  if sy = beginsy_v then insymbol;
-  repeat body_sim;
-    if (sy <> period_v) and not (sy in blockbegsys) then
-      sy := period_v
-  until (sy = period_v) or (sy in blockbegsys)
-end;
-begin
-  ident_v     := 0;
-  semicolon_v := 13;
-  period_v    := 14;
-  beginsy_v   := 31;
-  endsy_v     := 39;
-  statbegsys  := [31, 32, 33, 34, 35, 36, 37, 38];
-  blockbegsys := [18, 19, 20, 21, 22, 24, 31];
-  funcprocsy  := [22, 24];
-  ncycles     := 0;
-  nstmts      := 0;
-  (* token stream: beginsy(31), endsy(39), period(14) *)
-  tokens[0]   := 31;
-  tokens[1]   := 31;
-  tokens[2]   := 39;
-  tokens[3]   := 14;
-  tok_idx     := 0;
-  sy          := tokens[0];
-  repeat
-    block_sim;
-    ncycles := ncycles + 1
-  until sy = period_v;
-  writeln(ncycles);
-  writeln(nstmts)
-end.
-{--------------------------------------- 237 program_procedure_array_replace_10}
-(* PB-34: Test complex repeat-until with eof()-like sentinel
-   Simulates block()'s outer repeat: until (sy in statbegsys) or done
-   where "done" is an integer boolean flag (like eof check)
-   AND block's body repeat: until (sy=fsy) or (sy in blockbegsys) or done *)
-program pb34(output);
-var
-  sy         : integer;
-  test       : boolean;
-  done       : integer;
-  ncycles    : integer;
-  nstmts     : integer;
-  statbegsys : set of 0..47;
-  blockbegsys: set of 0..47;
-  funcprocsy : set of 0..47;
-  ident_v    : integer;
-  period_v   : integer;
-  semicolon_v: integer;
-  beginsy_v  : integer;
-  endsy_v    : integer;
-  tok_idx    : integer;
-  tokens     : array [0..7] of integer;
-procedure insymbol;
-begin
-  tok_idx := tok_idx + 1;
-  if tok_idx <= 4 then
-    begin sy := tokens[tok_idx]; done := 0 end
-  else
-    begin sy := period_v; done := 1 end
-end;
-procedure statement_sim;
-begin
-  if (sy in statbegsys) or (sy = ident_v) then
-    begin
-      nstmts := nstmts + 1;
-      insymbol
-    end
-end;
-procedure body_sim(fsy: integer);
-begin
-  repeat
-    repeat statement_sim
-    until not (sy in statbegsys);
-    test := sy <> semicolon_v;
-    if not test then insymbol
-  until test;
-  if sy = endsy_v then insymbol
-end;
-procedure block_sim;
-begin
-  repeat
-    while sy in funcprocsy do insymbol;
-    if sy <> beginsy_v then
-      begin sy := period_v; done := 1 end
-  until (sy in statbegsys) or (done = 1);
-  if sy = beginsy_v then insymbol;
-  repeat body_sim(period_v);
-    if (sy <> period_v) and not (sy in blockbegsys) then
-      begin sy := period_v; done := 1 end
-  until (sy = period_v) or (sy in blockbegsys) or (done = 1)
-end;
-begin
-  ident_v     := 0;
-  semicolon_v := 13;
-  period_v    := 14;
-  beginsy_v   := 31;
-  endsy_v     := 39;
-  statbegsys  := [31, 32, 33, 34, 35, 36, 37, 38];
-  blockbegsys := [18, 19, 20, 21, 22, 24, 31];
-  funcprocsy  := [22, 24];
-  ncycles     := 0;
-  nstmts      := 0;
-  done        := 0;
-  (* token stream: beginsy(31), endsy(39), period(14) - same as pb33 *)
-  tokens[0]   := 31;
-  tokens[1]   := 39;
-  tokens[2]   := 14;
-  tok_idx     := 0;
-  sy          := tokens[0];
-  repeat
-    block_sim;
-    ncycles := ncycles + 1
-  until (sy = period_v) or (done = 1);
-  writeln(ncycles);
-  writeln(nstmts)
-end.
-{---------------------------------------- 238 program_procedure_array_replace_5}
-(* PB-34: Test complex repeat-until with eof()-like sentinel
-   Simulates block()'s outer repeat: until (sy in statbegsys) or done
-   where "done" is an integer boolean flag (like eof check)
-   AND block's body repeat: until (sy=fsy) or (sy in blockbegsys) or done *)
-program pb34(output);
-var
-  sy         : integer;
-  test       : boolean;
-  done       : integer;
-  ncycles    : integer;
-  nstmts     : integer;
-  statbegsys : set of 0..47;
-  blockbegsys: set of 0..47;
-  funcprocsy : set of 0..47;
-  ident_v    : integer;
-  period_v   : integer;
-  semicolon_v: integer;
-  beginsy_v  : integer;
-  endsy_v    : integer;
-  tok_idx    : integer;
-  tokens     : array [0..7] of integer;
-procedure insymbol;
-begin
-  tok_idx := tok_idx + 1;
-  if tok_idx <= 4 then
-    begin sy := tokens[tok_idx]; done := 0 end
-  else
-    begin sy := period_v; done := 1 end
-end;
-procedure statement_sim;
-begin
-  if (sy in statbegsys) or (sy = ident_v) then
-    begin
-      nstmts := nstmts + 1;
-      insymbol
-    end
-end;
-procedure body_sim(fsy: integer);
-begin
-  repeat
-    repeat statement_sim
-    until not (sy in statbegsys);
-    test := sy <> semicolon_v;
-    if not test then insymbol
-  until test;
-  if sy = endsy_v then insymbol
-end;
-procedure block_sim;
-begin
-  repeat
-    while sy in funcprocsy do insymbol;
-    if sy <> beginsy_v then
-      begin sy := period_v; done := 1 end
-  until (sy in statbegsys) or (done = 1);
-  if sy = beginsy_v then insymbol;
-  repeat body_sim(period_v);
-    if (sy <> period_v) and not (sy in blockbegsys) then
-      begin sy := period_v; done := 1 end
-  until (sy = period_v) or (sy in blockbegsys) or (done = 1)
-end;
-begin
-  ident_v     := 0;
-  semicolon_v := 13;
-  period_v    := 14;
-  beginsy_v   := 31;
-  endsy_v     := 39;
-  statbegsys  := [31, 32, 33, 34, 35, 36, 37, 38];
-  blockbegsys := [18, 19, 20, 21, 22, 24, 31];
-  funcprocsy  := [22, 24];
-  ncycles     := 0;
-  nstmts      := 0;
-  done        := 0;
-  (* token stream: beginsy(31), endsy(39), period(14) - same as pb33 *)
-  tokens[0]   := 31;
-  tokens[1]   := 39;
-  tokens[2]   := 14;
-  tok_idx     := 0;
-  sy          := tokens[0];
-  repeat
-    block_sim;
-    ncycles := ncycles + 1
-  until (sy = period_v) or (done = 1);
-  writeln(ncycles);
-  writeln(nstmts)
-end.
-{---------------------------------------- 239 program_procedure_array_replace_4}
-(* PB-33: exact "program x; begin end." chain
-   When block_sim is called: sy=beginsy(31)
-   insymbol -> sy=endsy(39)
-   body: statement_sim(sy=39): 39 not in statbegsys, 39<>ident(0) -> NO-OP
-   inner until: not(39 in statbegsys) -> exit immediately
-   test=39<>13=true -> until test exits immediately
-   if sy=endsy: insymbol -> sy=period(14)
-   block body-repeat: sy=period=fsy -> EXIT
-   programme: sy=period -> EXIT
-*)
-program pb33(output);
-var
-  sy         : integer;
-  test       : boolean;
-  ncycles    : integer;
-  nstmts     : integer;
-  statbegsys : set of 0..47;
-  blockbegsys: set of 0..47;
-  funcprocsy : set of 0..47;
-  ident_v    : integer;
-  period_v   : integer;
-  semicolon_v: integer;
-  beginsy_v  : integer;
-  endsy_v    : integer;
-  tok_idx    : integer;
-  tokens     : array [0..7] of integer;
-procedure insymbol;
-begin
-  tok_idx := tok_idx + 1;
-  if tok_idx <= 5 then
-    sy := tokens[tok_idx]
-  else
-    sy := period_v
-end;
-procedure statement_sim;
-begin
-  if (sy in statbegsys) or (sy = ident_v) then
-    begin
-      nstmts := nstmts + 1;
-      insymbol
-    end
-end;
-procedure body_sim;
-begin
-  repeat
-    repeat statement_sim
-    until not (sy in statbegsys);
-    test := sy <> semicolon_v;
-    if not test then insymbol
-  until test;
-  if sy = endsy_v then insymbol
-end;
-procedure block_sim;
-begin
-  repeat
-    while sy in funcprocsy do
-      insymbol;
-    if sy <> beginsy_v then
-      sy := period_v
-  until (sy in statbegsys) or (sy = period_v);
-  if sy = beginsy_v then insymbol;
-  repeat body_sim;
-    if (sy <> period_v) and not (sy in blockbegsys) then
-      sy := period_v
-  until (sy = period_v) or (sy in blockbegsys)
-end;
-begin
-  ident_v     := 0;
-  semicolon_v := 13;
-  period_v    := 14;
-  beginsy_v   := 31;
-  endsy_v     := 39;
-  statbegsys  := [31, 32, 33, 34, 35, 36, 37, 38];
-  blockbegsys := [18, 19, 20, 21, 22, 24, 31];
-  funcprocsy  := [22, 24];
-  ncycles     := 0;
-  nstmts      := 0;
-  (* token stream for "begin end.": beginsy(31), endsy(39), period(14) *)
-  tokens[0]   := 31;
-  tokens[1]   := 39;
-  tokens[2]   := 14;
-  tok_idx     := 0;
-  sy          := tokens[0];
-  repeat
-    block_sim;
-    ncycles := ncycles + 1
-  until sy = period_v;
-  writeln(ncycles);
-  writeln(nstmts)
-end.
-{---------------------------------------- 240 program_procedure_array_replace_9}
-(* PB-33: exact "program x; begin end." chain
-   When block_sim is called: sy=beginsy(31)
-   insymbol -> sy=endsy(39)
-   body: statement_sim(sy=39): 39 not in statbegsys, 39<>ident(0) -> NO-OP
-   inner until: not(39 in statbegsys) -> exit immediately
-   test=39<>13=true -> until test exits immediately
-   if sy=endsy: insymbol -> sy=period(14)
-   block body-repeat: sy=period=fsy -> EXIT
-   programme: sy=period -> EXIT
-*)
-program pb33(output);
-var
-  sy         : integer;
-  test       : boolean;
-  ncycles    : integer;
-  nstmts     : integer;
-  statbegsys : set of 0..47;
-  blockbegsys: set of 0..47;
-  funcprocsy : set of 0..47;
-  ident_v    : integer;
-  period_v   : integer;
-  semicolon_v: integer;
-  beginsy_v  : integer;
-  endsy_v    : integer;
-  tok_idx    : integer;
-  tokens     : array [0..7] of integer;
-procedure insymbol;
-begin
-  tok_idx := tok_idx + 1;
-  if tok_idx <= 5 then
-    sy := tokens[tok_idx]
-  else
-    sy := period_v
-end;
-procedure statement_sim;
-begin
-  if (sy in statbegsys) or (sy = ident_v) then
-    begin
-      nstmts := nstmts + 1;
-      insymbol
-    end
-end;
-procedure body_sim;
-begin
-  repeat
-    repeat statement_sim
-    until not (sy in statbegsys);
-    test := sy <> semicolon_v;
-    if not test then insymbol
-  until test;
-  if sy = endsy_v then insymbol
-end;
-procedure block_sim;
-begin
-  repeat
-    while sy in funcprocsy do
-      insymbol;
-    if sy <> beginsy_v then
-      sy := period_v
-  until (sy in statbegsys) or (sy = period_v);
-  if sy = beginsy_v then insymbol;
-  repeat body_sim;
-    if (sy <> period_v) and not (sy in blockbegsys) then
-      sy := period_v
-  until (sy = period_v) or (sy in blockbegsys)
-end;
-begin
-  ident_v     := 0;
-  semicolon_v := 13;
-  period_v    := 14;
-  beginsy_v   := 31;
-  endsy_v     := 39;
-  statbegsys  := [31, 32, 33, 34, 35, 36, 37, 38];
-  blockbegsys := [18, 19, 20, 21, 22, 24, 31];
-  funcprocsy  := [22, 24];
-  ncycles     := 0;
-  nstmts      := 0;
-  (* token stream for "begin end.": beginsy(31), endsy(39), period(14) *)
-  tokens[0]   := 31;
-  tokens[1]   := 39;
-  tokens[2]   := 14;
-  tok_idx     := 0;
-  sy          := tokens[0];
-  repeat
-    block_sim;
-    ncycles := ncycles + 1
-  until sy = period_v;
-  writeln(ncycles);
-  writeln(nstmts)
-end.
-{---------------------------------------- 241 program_procedure_array_replace_2}
-(* PB-31: full programme->block->body->statement chain simulation
-   mirrors pcom token flow for "program hello; begin writeln(...) end." *)
-program pb31(output);
-var
-  sy         : integer;
-  test       : boolean;
-  ncycles    : integer;
-  nstmts     : integer;
-  ndecls     : integer;
-  statbegsys : set of 0..47;
-  blockbegsys: set of 0..47;
-  funcprocsy : set of 0..47;
-  ident_v    : integer;
-  period_v   : integer;
-  semicolon_v: integer;
-  beginsy_v  : integer;
-  endsy_v    : integer;
-  tok_idx    : integer;
-  tokens     : array [0..15] of integer;
-(*--------------------------------------------------------------------*)
-procedure insymbol;
-begin
-  tok_idx := tok_idx + 1;
-  if tok_idx <= 4 then
-    sy := tokens[tok_idx]
-  else
-    sy := period_v
-end;
-(*--------------------------------------------------------------------*)
-procedure statement_sim;
-begin
-  if (sy in statbegsys) or (sy = ident_v) then
-    begin
-      nstmts := nstmts + 1;
-      insymbol
-    end
-end;
-(*--------------------------------------------------------------------*)
-procedure body_sim(fsy: integer);
-begin
-  repeat
-    repeat statement_sim
-    until not (sy in statbegsys);
-    test := sy <> semicolon_v;
-    if not test then insymbol
-  until test;
-  if sy = endsy_v then insymbol
-end;
-(*--------------------------------------------------------------------*)
-procedure block_sim;
-begin
-  repeat
-    while sy in funcprocsy do
-      begin
-        ndecls := ndecls + 1;
-        insymbol
-      end;
-    if sy <> beginsy_v then
-      sy := period_v
-  until (sy in statbegsys) or (sy = period_v);
-  if sy = beginsy_v then insymbol;
-  repeat body_sim(period_v);
-    if sy <> period_v then
-      if not (sy in blockbegsys) then
-        sy := period_v
-  until (sy = period_v) or (sy in blockbegsys)
-end;
-(*--------------------------------------------------------------------*)
-begin
-  ident_v     := 0;
-  semicolon_v := 13;
-  period_v    := 14;
-  beginsy_v   := 31;
-  endsy_v     := 39;
-  statbegsys  := [31, 32, 33, 34, 35, 36, 37, 38];
-  blockbegsys := [18, 19, 20, 21, 22, 24, 31];
-  funcprocsy  := [22, 24];
-  ncycles     := 0;
-  nstmts      := 0;
-  ndecls      := 0;
-  (* token stream: funcsy(22), beginsy(31), ident(0), endsy(39), period(14) *)
-  tokens[0]   := 22;
-  tokens[1]   := 22;
-  tokens[2]   := 31;
-  tokens[3]   := 0;
-  tokens[4]   := 39;
-  tok_idx     := 0;
-  sy          := tokens[0];
-  repeat
-    block_sim;
-    ncycles := ncycles + 1
-  until sy = period_v;
-  writeln(ncycles);
-  writeln(nstmts);
-  writeln(ndecls)
-end.
-{---------------------------------------- 242 program_procedure_array_replace_7}
-(* PB-31: full programme->block->body->statement chain simulation
-   mirrors pcom token flow for "program hello; begin writeln(...) end." *)
-program pb31(output);
-var
-  sy         : integer;
-  test       : boolean;
-  ncycles    : integer;
-  nstmts     : integer;
-  ndecls     : integer;
-  statbegsys : set of 0..47;
-  blockbegsys: set of 0..47;
-  funcprocsy : set of 0..47;
-  ident_v    : integer;
-  period_v   : integer;
-  semicolon_v: integer;
-  beginsy_v  : integer;
-  endsy_v    : integer;
-  tok_idx    : integer;
-  tokens     : array [0..15] of integer;
-(*--------------------------------------------------------------------*)
-procedure insymbol;
-begin
-  tok_idx := tok_idx + 1;
-  if tok_idx <= 4 then
-    sy := tokens[tok_idx]
-  else
-    sy := period_v
-end;
-(*--------------------------------------------------------------------*)
-procedure statement_sim;
-begin
-  if (sy in statbegsys) or (sy = ident_v) then
-    begin
-      nstmts := nstmts + 1;
-      insymbol
-    end
-end;
-(*--------------------------------------------------------------------*)
-procedure body_sim(fsy: integer);
-begin
-  repeat
-    repeat statement_sim
-    until not (sy in statbegsys);
-    test := sy <> semicolon_v;
-    if not test then insymbol
-  until test;
-  if sy = endsy_v then insymbol
-end;
-(*--------------------------------------------------------------------*)
-procedure block_sim;
-begin
-  repeat
-    while sy in funcprocsy do
-      begin
-        ndecls := ndecls + 1;
-        insymbol
-      end;
-    if sy <> beginsy_v then
-      sy := period_v
-  until (sy in statbegsys) or (sy = period_v);
-  if sy = beginsy_v then insymbol;
-  repeat body_sim(period_v);
-    if sy <> period_v then
-      if not (sy in blockbegsys) then
-        sy := period_v
-  until (sy = period_v) or (sy in blockbegsys)
-end;
-(*--------------------------------------------------------------------*)
-begin
-  ident_v     := 0;
-  semicolon_v := 13;
-  period_v    := 14;
-  beginsy_v   := 31;
-  endsy_v     := 39;
-  statbegsys  := [31, 32, 33, 34, 35, 36, 37, 38];
-  blockbegsys := [18, 19, 20, 21, 22, 24, 31];
-  funcprocsy  := [22, 24];
-  ncycles     := 0;
-  nstmts      := 0;
-  ndecls      := 0;
-  (* token stream: funcsy(22), beginsy(31), ident(0), endsy(39), period(14) *)
-  tokens[0]   := 22;
-  tokens[1]   := 22;
-  tokens[2]   := 31;
-  tokens[3]   := 0;
-  tokens[4]   := 39;
-  tok_idx     := 0;
-  sy          := tokens[0];
-  repeat
-    block_sim;
-    ncycles := ncycles + 1
-  until sy = period_v;
-  writeln(ncycles);
-  writeln(nstmts);
-  writeln(ndecls)
-end.
-{--------------------------------------------------------- 243 benchmark_bubble}
-(* PROVENANCE: Hennessy "Bubble" — Stanford integer benchmark suite
-   (John L. Hennessy, Stanford, c.1981; long-circulated, public domain).
-   Algorithm/constants per llvm-test-suite Stanford C port
-   (github.com/llvm/llvm-test-suite SingleSource/Benchmarks/Stanford).
-   Canonical RNG seed=(seed*1309+13849) mod 65536, seed0=74755.
-   P4-faithful transliteration. Repeat knob via stdin. *)
-program bubblebench;
-const srtelements = 500;
-var sortlist: array[1..500] of integer;
-    seed, biggest, littlest, top, i, temp, reps, rep: integer;
-begin
-  readln(reps);
-  biggest := 0; littlest := 0;
-  for rep := 1 to reps do begin
-    seed := 74755; biggest := 0; littlest := 0;
-    for i := 1 to srtelements do begin
-      seed := (seed * 1309 + 13849) mod 65536;
-      temp := seed;
-      sortlist[i] := temp - (temp div 100000) * 100000 - 50000;
-      if sortlist[i] > biggest then biggest := sortlist[i]
-      else if sortlist[i] < littlest then littlest := sortlist[i]
-    end;
-    top := srtelements;
-    while top > 1 do begin
-      i := 1;
-      while i < top do begin
-        if sortlist[i] > sortlist[i + 1] then begin
-          temp := sortlist[i]; sortlist[i] := sortlist[i + 1]; sortlist[i + 1] := temp
-        end;
-        i := i + 1
-      end;
-      top := top - 1
-    end
-  end;
-  writeln(sortlist[1]);
-  writeln(sortlist[srtelements])
-end.
-{---------------------------------------------------------- 244 benchmark_intmm}
-(* PROVENANCE: Hennessy "Intmm" — Stanford integer benchmark suite
-   (John L. Hennessy, Stanford, c.1981; public domain). 40x40 integer
-   matrix multiply. Algorithm/constants per llvm-test-suite Stanford C port
-   (rowsize=40). Canonical RNG. Global matrices (avoids aggregate var-param);
-   output = checksum sum of result matrix. Repeat knob via stdin. *)
-program intmmbench;
-const rowsize = 40;
-var ima, imb, imr: array[1..40, 1..40] of integer;
-    seed, i, j, k, s, cksum, reps, rep: integer;
-begin
-  readln(reps);
-  cksum := 0;
-  for rep := 1 to reps do begin
-    seed := 74755;
-    for i := 1 to rowsize do
-      for j := 1 to rowsize do begin
-        seed := (seed * 1309 + 13849) mod 65536;
-        ima[i, j] := seed - (seed div 120) * 120 - 60
-      end;
-    for i := 1 to rowsize do
-      for j := 1 to rowsize do begin
-        seed := (seed * 1309 + 13849) mod 65536;
-        imb[i, j] := seed - (seed div 120) * 120 - 60
-      end;
-    for i := 1 to rowsize do
-      for j := 1 to rowsize do begin
-        s := 0;
-        for k := 1 to rowsize do s := s + ima[i, k] * imb[k, j];
-        imr[i, j] := s
-      end;
-    cksum := 0;
-    for i := 1 to rowsize do
-      for j := 1 to rowsize do cksum := cksum + imr[i, j]
-  end;
-  writeln(cksum)
-end.
-{----------------------------------------------------------- 245 benchmark_perm}
-(* PROVENANCE: Hennessy "Perm" — Stanford integer benchmark suite
-   (John L. Hennessy, Stanford, c.1981; public domain). Recursive permutation
-   generation; output = pctr (call count), correct value 43300 (=5*P(7), P(7)=8660).
-   FRONTIER: SCRIP currently returns 635 — a recursive call inside a FOR loop
-   clobbers the loop control variable (not allocated per-activation). See
-   GOAL-PASCAL-BB.md PAS-FOR-RECURSE. Repeat knob via stdin. *)
-program permbench;
-const permrange = 7;
-var permarray: array[1..7] of integer;
-    pctr, i, reps, rep: integer;
-procedure swap(var a, b: integer);
-var t: integer;
-begin t := a; a := b; b := t end;
-procedure permute(n: integer);
-var k: integer;
-begin
-  pctr := pctr + 1;
-  if n <> 1 then begin
-    permute(n - 1);
-    for k := n - 1 downto 1 do begin
-      swap(permarray[n], permarray[k]);
-      permute(n - 1);
-      swap(permarray[n], permarray[k])
-    end
-  end
-end;
-begin
-  readln(reps);
-  pctr := 0;
-  for rep := 1 to reps do begin
-    pctr := 0;
-    for i := 1 to permrange do permarray[i] := i;
-    for i := 1 to 5 do permute(permrange)
-  end;
-  writeln(pctr)
-end.
-{--------------------------------------------------------- 246 benchmark_queens}
+{--------------------------------------------------------- 228 benchmark_queens}
 (* PROVENANCE: Hennessy "Queens" / Wirth 8-queens — Stanford integer benchmark
    suite (John L. Hennessy, Stanford, c.1981; public domain). Backtracking,
    first solution; output = checksum sum(x[i]*i)=162 for [1,5,8,6,3,7,2,4].
@@ -5135,7 +4080,1159 @@ begin
   end;
   writeln(cksum)
 end.
-{---------------------------------------------------------- 247 benchmark_quick}
+{------------------------------------------- 229 program_record_array_replace_1}
+program t;
+type dt = (ci, cc);
+     r = record case dt of
+       ci: (vi: integer);
+       cc: (vc: char)
+     end;
+var s: array[0..4] of r; i: integer;
+begin
+  s[0].vc := 'H'; s[1].vc := 'e'; s[2].vc := 'l'; s[3].vc := 'l'; s[4].vc := 'o';
+  for i := 0 to 4 do write(s[i].vc);
+  writeln
+end.
+{--------------------------------------------- 230 program_function_procedure_1}
+program arr2dtype;
+type mat = array[0..1, 0..1] of integer;
+var m: mat; x: integer;
+procedure setmat(var a: mat);
+begin
+  a[0,0] := 1; a[0,1] := 2; a[1,0] := 3; a[1,1] := 4
+end;
+function summat(a: mat): integer;
+var i, j, s: integer;
+begin
+  s := 0;
+  for i := 0 to 1 do
+    for j := 0 to 1 do
+      s := s + a[i,j];
+  summat := s
+end;
+begin
+  setmat(m);
+  x := summat(m);
+  writeln(x)
+end.
+{--------------------------------------------- 231 program_function_procedure_6}
+program arr2dtype;
+type mat = array[0..1, 0..1] of integer;
+var m: mat; x: integer;
+procedure setmat(var a: mat);
+begin
+  a[0,0] := 1; a[0,1] := 2; a[1,0] := 3; a[1,1] := 4
+end;
+function summat(a: mat): integer;
+var i, j, s: integer;
+begin
+  s := 0;
+  for i := 0 to 1 do
+    for j := 0 to 1 do
+      s := s + a[i,j];
+  summat := s
+end;
+begin
+  setmat(m);
+  x := summat(m);
+  writeln(x)
+end.
+{---------------------------------------------------------- 232 benchmark_sieve}
+(* PROVENANCE: Sieve of Eratosthenes (Byte-magazine sieve benchmark lineage).
+   Public-domain algorithm. Benchmark form: counts primes < limit, repeat knob
+   via stdin. SCRIP corpus PAS-BENCH. *)
+program sievebench;
+const limit = 8190;
+var flags: array[0..8190] of boolean;
+    reps, rep, i, k, count: integer;
+begin
+  readln(reps);
+  count := 0;
+  for rep := 1 to reps do begin
+    count := 0;
+    for i := 0 to limit do flags[i] := true;
+    for i := 0 to limit do
+      if flags[i] then begin
+        k := i + i + 3;
+        while i + k <= limit do begin
+          flags[i + k] := false;
+          k := k + i + i + 3
+        end;
+        count := count + 1
+      end
+  end;
+  writeln(count)
+end.
+{----------------------------------------------- 233 program_procedure_record_6}
+program ptr8(output);
+type link = ^node; node = record val : integer; next : link end;
+var head : link;
+
+procedure printlist(p : link);
+begin
+  while p <> nil do
+  begin
+    writeln(p^.val);
+    p := p^.next
+  end
+end;
+
+procedure setval(p : link; v : integer);
+begin
+  p^.val := v
+end;
+
+begin
+  new(head);
+  head^.val := 1;
+  new(head^.next);
+  head^.next^.val := 2;
+  head^.next^.next := nil;
+  setval(head, 77);
+  printlist(head)
+end.
+{--------------------------------------- 234 program_procedure_record_replace_1}
+program w1;
+type valu = record case b: boolean of
+        true: (ival: integer);
+        false: (valp: integer)
+     end;
+     structform = (scalar, subrange);
+     stp = ^ structure;
+     structure = record
+        size: integer;
+        case form: structform of
+          scalar: (fconst: integer);
+          subrange: (rangetype: stp; min, max: valu)
+     end;
+var p: stp; fmin: integer;
+procedure getbounds(fsp: stp; var fmn: integer);
+begin
+  fmn := 0;
+  if fsp <> nil then
+  with fsp^ do
+    if form = subrange then fmn := min.ival
+end;
+begin
+  new(p);
+  p^.form := subrange;
+  p^.min.ival := 77;
+  getbounds(p, fmin);
+  writeln(fmin)
+end.
+{--------------------------------------- 235 program_procedure_record_replace_2}
+program w1;
+type valu = record case b: boolean of
+        true: (ival: integer);
+        false: (valp: integer)
+     end;
+     structform = (scalar, subrange);
+     stp = ^ structure;
+     structure = record
+        size: integer;
+        case form: structform of
+          scalar: (fconst: integer);
+          subrange: (rangetype: stp; min, max: valu)
+     end;
+var p: stp; fmin: integer;
+procedure getbounds(fsp: stp; var fmn: integer);
+begin
+  fmn := 0;
+  if fsp <> nil then
+  with fsp^ do
+    if form = subrange then fmn := min.ival
+end;
+begin
+  new(p);
+  p^.form := subrange;
+  p^.min.ival := 77;
+  getbounds(p, fmin);
+  writeln(fmin)
+end.
+{------------------------------------------------ 236 program_procedure_array_3}
+program alphacmp(output);
+type alpha = packed array [1..8] of char;
+var rw : array [1..5] of alpha;
+    rsy: array [1..5] of integer;
+    frw: array [1..3] of integer;
+    id : alpha;
+    sy : integer;
+
+procedure lookup(k: integer);
+  label 2;
+  var i: integer;
+begin
+  for i := frw[k] to frw[k+1] - 1 do
+    if rw[i] = id then
+      begin sy := rsy[i]; goto 2 end;
+  sy := 0;
+2:
+end;
+
+begin
+  rw[1] := 'do      '; rw[2] := 'if      '; rw[3] := 'of      ';
+  rw[4] := 'end     '; rw[5] := 'for     ';
+  rsy[1] := 2; rsy[2] := 1; rsy[3] := 3; rsy[4] := 7; rsy[5] := 8;
+  frw[1] := 1; frw[2] := 1; frw[3] := 6;
+  id[1] := 'd'; id[2] := 'o'; id[3] := ' '; id[4] := ' ';
+  id[5] := ' '; id[6] := ' '; id[7] := ' '; id[8] := ' ';
+  lookup(2); writeln(sy);
+  id[1] := 'e'; id[2] := 'n'; id[3] := 'd'; id[4] := ' ';
+  id[5] := ' '; id[6] := ' '; id[7] := ' '; id[8] := ' ';
+  lookup(1); writeln(sy);
+  id[1] := 'x'; id[2] := 'x'; id[3] := ' '; id[4] := ' ';
+  id[5] := ' '; id[6] := ' '; id[7] := ' '; id[8] := ' ';
+  lookup(2); writeln(sy);
+end.
+{---------------------------------------------------------- 237 benchmark_intmm}
+(* PROVENANCE: Hennessy "Intmm" — Stanford integer benchmark suite
+   (John L. Hennessy, Stanford, c.1981; public domain). 40x40 integer
+   matrix multiply. Algorithm/constants per llvm-test-suite Stanford C port
+   (rowsize=40). Canonical RNG. Global matrices (avoids aggregate var-param);
+   output = checksum sum of result matrix. Repeat knob via stdin. *)
+program intmmbench;
+const rowsize = 40;
+var ima, imb, imr: array[1..40, 1..40] of integer;
+    seed, i, j, k, s, cksum, reps, rep: integer;
+begin
+  readln(reps);
+  cksum := 0;
+  for rep := 1 to reps do begin
+    seed := 74755;
+    for i := 1 to rowsize do
+      for j := 1 to rowsize do begin
+        seed := (seed * 1309 + 13849) mod 65536;
+        ima[i, j] := seed - (seed div 120) * 120 - 60
+      end;
+    for i := 1 to rowsize do
+      for j := 1 to rowsize do begin
+        seed := (seed * 1309 + 13849) mod 65536;
+        imb[i, j] := seed - (seed div 120) * 120 - 60
+      end;
+    for i := 1 to rowsize do
+      for j := 1 to rowsize do begin
+        s := 0;
+        for k := 1 to rowsize do s := s + ima[i, k] * imb[k, j];
+        imr[i, j] := s
+      end;
+    cksum := 0;
+    for i := 1 to rowsize do
+      for j := 1 to rowsize do cksum := cksum + imr[i, j]
+  end;
+  writeln(cksum)
+end.
+{---------------------------------------- 238 program_procedure_array_replace_1}
+{ Regression probe for the in-process binary emitter's forward-reference
+  patch table (BB_PATCH_MAX). A single procedure with many statements leaves
+  one pending forward-ref patch per statement (the chain jumps to the proc's
+  gamma/omega ports, which resolve only at proc end). With the old cap of 512
+  this overflowed at ~64 array-element assignments inside one proc: the proc's
+  binary build returned NULL, its runtime fn went unregistered, and the call
+  to it returned FAILDESCR -> the whole statement chain silently dropped.
+
+  `fill` does exactly 64 such assignments inside a nested procedure (past the
+  old 512-patch point), then the caller prints markers around the call.
+  Correct output is SABE on one line; a regression (proc build overflow)
+  prints only SA and drops the rest (fill never returns success). Must pass
+  both --run (M3) and --compile (M4); M4 always worked since the assembler
+  resolves labels with no patch table. }
+program patchtable(output);
+type colour = (red, green, blue, white);
+var tab: array[char] of colour;
+  procedure outer;
+    procedure fill;
+    begin
+      tab['a'] := red;   tab['b'] := green; tab['c'] := blue;  tab['d'] := white;
+      tab['e'] := red;   tab['f'] := green; tab['g'] := blue;  tab['h'] := white;
+      tab['i'] := red;   tab['j'] := green; tab['k'] := blue;  tab['l'] := white;
+      tab['m'] := red;   tab['n'] := green; tab['o'] := blue;  tab['p'] := white;
+      tab['q'] := red;   tab['r'] := green; tab['s'] := blue;  tab['t'] := white;
+      tab['u'] := red;   tab['v'] := green; tab['w'] := blue;  tab['x'] := white;
+      tab['y'] := red;   tab['z'] := green; tab['0'] := blue;  tab['1'] := white;
+      tab['2'] := red;   tab['3'] := green; tab['4'] := blue;  tab['5'] := white;
+      tab['6'] := red;   tab['7'] := green; tab['8'] := blue;  tab['9'] := white;
+      tab['A'] := red;   tab['B'] := green; tab['C'] := blue;  tab['D'] := white;
+      tab['E'] := red;   tab['F'] := green; tab['G'] := blue;  tab['H'] := white;
+      tab['I'] := red;   tab['J'] := green; tab['K'] := blue;  tab['L'] := white;
+      tab['M'] := red;   tab['N'] := green; tab['O'] := blue;  tab['P'] := white;
+      tab['Q'] := red;   tab['R'] := green; tab['S'] := blue;  tab['T'] := white;
+      tab['U'] := red;   tab['V'] := green; tab['W'] := blue;  tab['X'] := white;
+      tab['Y'] := red;   tab['Z'] := green; tab[' '] := blue;  tab['.'] := white
+    end;
+  begin
+    write('A');
+    fill;
+    write('B')
+  end;
+begin
+  write('S');
+  outer;
+  write('E');
+  writeln
+end.
+{---------------------------------------- 239 program_procedure_array_replace_6}
+{ Regression probe for the in-process binary emitter's forward-reference
+  patch table (BB_PATCH_MAX). A single procedure with many statements leaves
+  one pending forward-ref patch per statement (the chain jumps to the proc's
+  gamma/omega ports, which resolve only at proc end). With the old cap of 512
+  this overflowed at ~64 array-element assignments inside one proc: the proc's
+  binary build returned NULL, its runtime fn went unregistered, and the call
+  to it returned FAILDESCR -> the whole statement chain silently dropped.
+
+  `fill` does exactly 64 such assignments inside a nested procedure (past the
+  old 512-patch point), then the caller prints markers around the call.
+  Correct output is SABE on one line; a regression (proc build overflow)
+  prints only SA and drops the rest (fill never returns success). Must pass
+  both --run (M3) and --compile (M4); M4 always worked since the assembler
+  resolves labels with no patch table. }
+program patchtable(output);
+type colour = (red, green, blue, white);
+var tab: array[char] of colour;
+  procedure outer;
+    procedure fill;
+    begin
+      tab['a'] := red;   tab['b'] := green; tab['c'] := blue;  tab['d'] := white;
+      tab['e'] := red;   tab['f'] := green; tab['g'] := blue;  tab['h'] := white;
+      tab['i'] := red;   tab['j'] := green; tab['k'] := blue;  tab['l'] := white;
+      tab['m'] := red;   tab['n'] := green; tab['o'] := blue;  tab['p'] := white;
+      tab['q'] := red;   tab['r'] := green; tab['s'] := blue;  tab['t'] := white;
+      tab['u'] := red;   tab['v'] := green; tab['w'] := blue;  tab['x'] := white;
+      tab['y'] := red;   tab['z'] := green; tab['0'] := blue;  tab['1'] := white;
+      tab['2'] := red;   tab['3'] := green; tab['4'] := blue;  tab['5'] := white;
+      tab['6'] := red;   tab['7'] := green; tab['8'] := blue;  tab['9'] := white;
+      tab['A'] := red;   tab['B'] := green; tab['C'] := blue;  tab['D'] := white;
+      tab['E'] := red;   tab['F'] := green; tab['G'] := blue;  tab['H'] := white;
+      tab['I'] := red;   tab['J'] := green; tab['K'] := blue;  tab['L'] := white;
+      tab['M'] := red;   tab['N'] := green; tab['O'] := blue;  tab['P'] := white;
+      tab['Q'] := red;   tab['R'] := green; tab['S'] := blue;  tab['T'] := white;
+      tab['U'] := red;   tab['V'] := green; tab['W'] := blue;  tab['X'] := white;
+      tab['Y'] := red;   tab['Z'] := green; tab[' '] := blue;  tab['.'] := white
+    end;
+  begin
+    write('A');
+    fill;
+    write('B')
+  end;
+begin
+  write('S');
+  outer;
+  write('E');
+  writeln
+end.
+{------------------------------------------ 240 program_record_packed_replace_1}
+program mir3(output);
+type
+  sf = (scalar,subrange,pointer,arrays);
+  stp = ^structure;
+  valu = record case intval: boolean of true:(ival:integer); false:(valp:integer) end;
+  structure = packed record
+                marked: boolean; size: integer;
+                case form: sf of
+                  subrange: (rangetype: stp; min,max: valu);
+                  arrays:   (aeltype,inxtype: stp)
+              end;
+var lsp: stp; lvalu: valu;
+begin
+  new(lsp); lsp^.form := subrange;
+  lvalu.ival := 7;
+  with lsp^ do begin rangetype := nil; min := lvalu end;
+  writeln(ord(lsp^.form));
+  writeln(lsp^.min.ival)
+end.
+{----------------------------------------------------------- 241 benchmark_perm}
+(* PROVENANCE: Hennessy "Perm" — Stanford integer benchmark suite
+   (John L. Hennessy, Stanford, c.1981; public domain). Recursive permutation
+   generation; output = pctr (call count), correct value 43300 (=5*P(7), P(7)=8660).
+   FRONTIER: SCRIP currently returns 635 — a recursive call inside a FOR loop
+   clobbers the loop control variable (not allocated per-activation). See
+   GOAL-PASCAL-BB.md PAS-FOR-RECURSE. Repeat knob via stdin. *)
+program permbench;
+const permrange = 7;
+var permarray: array[1..7] of integer;
+    pctr, i, reps, rep: integer;
+procedure swap(var a, b: integer);
+var t: integer;
+begin t := a; a := b; b := t end;
+procedure permute(n: integer);
+var k: integer;
+begin
+  pctr := pctr + 1;
+  if n <> 1 then begin
+    permute(n - 1);
+    for k := n - 1 downto 1 do begin
+      swap(permarray[n], permarray[k]);
+      permute(n - 1);
+      swap(permarray[n], permarray[k])
+    end
+  end
+end;
+begin
+  readln(reps);
+  pctr := 0;
+  for rep := 1 to reps do begin
+    pctr := 0;
+    for i := 1 to permrange do permarray[i] := i;
+    for i := 1 to 5 do permute(permrange)
+  end;
+  writeln(pctr)
+end.
+{--------------------------------------------------------- 242 benchmark_bubble}
+(* PROVENANCE: Hennessy "Bubble" — Stanford integer benchmark suite
+   (John L. Hennessy, Stanford, c.1981; long-circulated, public domain).
+   Algorithm/constants per llvm-test-suite Stanford C port
+   (github.com/llvm/llvm-test-suite SingleSource/Benchmarks/Stanford).
+   Canonical RNG seed=(seed*1309+13849) mod 65536, seed0=74755.
+   P4-faithful transliteration. Repeat knob via stdin. *)
+program bubblebench;
+const srtelements = 500;
+var sortlist: array[1..500] of integer;
+    seed, biggest, littlest, top, i, temp, reps, rep: integer;
+begin
+  readln(reps);
+  biggest := 0; littlest := 0;
+  for rep := 1 to reps do begin
+    seed := 74755; biggest := 0; littlest := 0;
+    for i := 1 to srtelements do begin
+      seed := (seed * 1309 + 13849) mod 65536;
+      temp := seed;
+      sortlist[i] := temp - (temp div 100000) * 100000 - 50000;
+      if sortlist[i] > biggest then biggest := sortlist[i]
+      else if sortlist[i] < littlest then littlest := sortlist[i]
+    end;
+    top := srtelements;
+    while top > 1 do begin
+      i := 1;
+      while i < top do begin
+        if sortlist[i] > sortlist[i + 1] then begin
+          temp := sortlist[i]; sortlist[i] := sortlist[i + 1]; sortlist[i + 1] := temp
+        end;
+        i := i + 1
+      end;
+      top := top - 1
+    end
+  end;
+  writeln(sortlist[1]);
+  writeln(sortlist[srtelements])
+end.
+{---------------------------------------- 243 program_procedure_array_replace_3}
+(* PB-32: minimal programme->block->body chain, no decls
+   mirrors pcom token flow for "program x; begin end." 
+   token stream: period(progsy-done)->beginsy->endsy->period *)
+program pb32(output);
+var
+  sy         : integer;
+  test       : boolean;
+  ncycles    : integer;
+  nstmts     : integer;
+  statbegsys : set of 0..47;
+  blockbegsys: set of 0..47;
+  funcprocsy : set of 0..47;
+  ident_v    : integer;
+  period_v   : integer;
+  semicolon_v: integer;
+  beginsy_v  : integer;
+  endsy_v    : integer;
+  tok_idx    : integer;
+  tokens     : array [0..7] of integer;
+procedure insymbol;
+begin
+  tok_idx := tok_idx + 1;
+  if tok_idx <= 6 then
+    sy := tokens[tok_idx]
+  else
+    sy := period_v
+end;
+procedure statement_sim;
+begin
+  if (sy in statbegsys) or (sy = ident_v) then
+    begin
+      nstmts := nstmts + 1;
+      insymbol
+    end
+end;
+procedure body_sim;
+begin
+  repeat
+    repeat statement_sim
+    until not (sy in statbegsys);
+    test := sy <> semicolon_v;
+    if not test then insymbol
+  until test;
+  if sy = endsy_v then insymbol
+end;
+procedure block_sim;
+begin
+  repeat
+    while sy in funcprocsy do
+      insymbol;
+    if sy <> beginsy_v then
+      sy := period_v
+  until (sy in statbegsys) or (sy = period_v);
+  if sy = beginsy_v then insymbol;
+  repeat body_sim;
+    if (sy <> period_v) and not (sy in blockbegsys) then
+      sy := period_v
+  until (sy = period_v) or (sy in blockbegsys)
+end;
+begin
+  ident_v     := 0;
+  semicolon_v := 13;
+  period_v    := 14;
+  beginsy_v   := 31;
+  endsy_v     := 39;
+  statbegsys  := [31, 32, 33, 34, 35, 36, 37, 38];
+  blockbegsys := [18, 19, 20, 21, 22, 24, 31];
+  funcprocsy  := [22, 24];
+  ncycles     := 0;
+  nstmts      := 0;
+  (* token stream: beginsy(31), endsy(39), period(14) *)
+  tokens[0]   := 31;
+  tokens[1]   := 31;
+  tokens[2]   := 39;
+  tokens[3]   := 14;
+  tok_idx     := 0;
+  sy          := tokens[0];
+  repeat
+    block_sim;
+    ncycles := ncycles + 1
+  until sy = period_v;
+  writeln(ncycles);
+  writeln(nstmts)
+end.
+{---------------------------------------- 244 program_procedure_array_replace_8}
+(* PB-32: minimal programme->block->body chain, no decls
+   mirrors pcom token flow for "program x; begin end." 
+   token stream: period(progsy-done)->beginsy->endsy->period *)
+program pb32(output);
+var
+  sy         : integer;
+  test       : boolean;
+  ncycles    : integer;
+  nstmts     : integer;
+  statbegsys : set of 0..47;
+  blockbegsys: set of 0..47;
+  funcprocsy : set of 0..47;
+  ident_v    : integer;
+  period_v   : integer;
+  semicolon_v: integer;
+  beginsy_v  : integer;
+  endsy_v    : integer;
+  tok_idx    : integer;
+  tokens     : array [0..7] of integer;
+procedure insymbol;
+begin
+  tok_idx := tok_idx + 1;
+  if tok_idx <= 6 then
+    sy := tokens[tok_idx]
+  else
+    sy := period_v
+end;
+procedure statement_sim;
+begin
+  if (sy in statbegsys) or (sy = ident_v) then
+    begin
+      nstmts := nstmts + 1;
+      insymbol
+    end
+end;
+procedure body_sim;
+begin
+  repeat
+    repeat statement_sim
+    until not (sy in statbegsys);
+    test := sy <> semicolon_v;
+    if not test then insymbol
+  until test;
+  if sy = endsy_v then insymbol
+end;
+procedure block_sim;
+begin
+  repeat
+    while sy in funcprocsy do
+      insymbol;
+    if sy <> beginsy_v then
+      sy := period_v
+  until (sy in statbegsys) or (sy = period_v);
+  if sy = beginsy_v then insymbol;
+  repeat body_sim;
+    if (sy <> period_v) and not (sy in blockbegsys) then
+      sy := period_v
+  until (sy = period_v) or (sy in blockbegsys)
+end;
+begin
+  ident_v     := 0;
+  semicolon_v := 13;
+  period_v    := 14;
+  beginsy_v   := 31;
+  endsy_v     := 39;
+  statbegsys  := [31, 32, 33, 34, 35, 36, 37, 38];
+  blockbegsys := [18, 19, 20, 21, 22, 24, 31];
+  funcprocsy  := [22, 24];
+  ncycles     := 0;
+  nstmts      := 0;
+  (* token stream: beginsy(31), endsy(39), period(14) *)
+  tokens[0]   := 31;
+  tokens[1]   := 31;
+  tokens[2]   := 39;
+  tokens[3]   := 14;
+  tok_idx     := 0;
+  sy          := tokens[0];
+  repeat
+    block_sim;
+    ncycles := ncycles + 1
+  until sy = period_v;
+  writeln(ncycles);
+  writeln(nstmts)
+end.
+{--------------------------------------- 245 program_procedure_array_replace_10}
+(* PB-34: Test complex repeat-until with eof()-like sentinel
+   Simulates block()'s outer repeat: until (sy in statbegsys) or done
+   where "done" is an integer boolean flag (like eof check)
+   AND block's body repeat: until (sy=fsy) or (sy in blockbegsys) or done *)
+program pb34(output);
+var
+  sy         : integer;
+  test       : boolean;
+  done       : integer;
+  ncycles    : integer;
+  nstmts     : integer;
+  statbegsys : set of 0..47;
+  blockbegsys: set of 0..47;
+  funcprocsy : set of 0..47;
+  ident_v    : integer;
+  period_v   : integer;
+  semicolon_v: integer;
+  beginsy_v  : integer;
+  endsy_v    : integer;
+  tok_idx    : integer;
+  tokens     : array [0..7] of integer;
+procedure insymbol;
+begin
+  tok_idx := tok_idx + 1;
+  if tok_idx <= 4 then
+    begin sy := tokens[tok_idx]; done := 0 end
+  else
+    begin sy := period_v; done := 1 end
+end;
+procedure statement_sim;
+begin
+  if (sy in statbegsys) or (sy = ident_v) then
+    begin
+      nstmts := nstmts + 1;
+      insymbol
+    end
+end;
+procedure body_sim(fsy: integer);
+begin
+  repeat
+    repeat statement_sim
+    until not (sy in statbegsys);
+    test := sy <> semicolon_v;
+    if not test then insymbol
+  until test;
+  if sy = endsy_v then insymbol
+end;
+procedure block_sim;
+begin
+  repeat
+    while sy in funcprocsy do insymbol;
+    if sy <> beginsy_v then
+      begin sy := period_v; done := 1 end
+  until (sy in statbegsys) or (done = 1);
+  if sy = beginsy_v then insymbol;
+  repeat body_sim(period_v);
+    if (sy <> period_v) and not (sy in blockbegsys) then
+      begin sy := period_v; done := 1 end
+  until (sy = period_v) or (sy in blockbegsys) or (done = 1)
+end;
+begin
+  ident_v     := 0;
+  semicolon_v := 13;
+  period_v    := 14;
+  beginsy_v   := 31;
+  endsy_v     := 39;
+  statbegsys  := [31, 32, 33, 34, 35, 36, 37, 38];
+  blockbegsys := [18, 19, 20, 21, 22, 24, 31];
+  funcprocsy  := [22, 24];
+  ncycles     := 0;
+  nstmts      := 0;
+  done        := 0;
+  (* token stream: beginsy(31), endsy(39), period(14) - same as pb33 *)
+  tokens[0]   := 31;
+  tokens[1]   := 39;
+  tokens[2]   := 14;
+  tok_idx     := 0;
+  sy          := tokens[0];
+  repeat
+    block_sim;
+    ncycles := ncycles + 1
+  until (sy = period_v) or (done = 1);
+  writeln(ncycles);
+  writeln(nstmts)
+end.
+{---------------------------------------- 246 program_procedure_array_replace_5}
+(* PB-34: Test complex repeat-until with eof()-like sentinel
+   Simulates block()'s outer repeat: until (sy in statbegsys) or done
+   where "done" is an integer boolean flag (like eof check)
+   AND block's body repeat: until (sy=fsy) or (sy in blockbegsys) or done *)
+program pb34(output);
+var
+  sy         : integer;
+  test       : boolean;
+  done       : integer;
+  ncycles    : integer;
+  nstmts     : integer;
+  statbegsys : set of 0..47;
+  blockbegsys: set of 0..47;
+  funcprocsy : set of 0..47;
+  ident_v    : integer;
+  period_v   : integer;
+  semicolon_v: integer;
+  beginsy_v  : integer;
+  endsy_v    : integer;
+  tok_idx    : integer;
+  tokens     : array [0..7] of integer;
+procedure insymbol;
+begin
+  tok_idx := tok_idx + 1;
+  if tok_idx <= 4 then
+    begin sy := tokens[tok_idx]; done := 0 end
+  else
+    begin sy := period_v; done := 1 end
+end;
+procedure statement_sim;
+begin
+  if (sy in statbegsys) or (sy = ident_v) then
+    begin
+      nstmts := nstmts + 1;
+      insymbol
+    end
+end;
+procedure body_sim(fsy: integer);
+begin
+  repeat
+    repeat statement_sim
+    until not (sy in statbegsys);
+    test := sy <> semicolon_v;
+    if not test then insymbol
+  until test;
+  if sy = endsy_v then insymbol
+end;
+procedure block_sim;
+begin
+  repeat
+    while sy in funcprocsy do insymbol;
+    if sy <> beginsy_v then
+      begin sy := period_v; done := 1 end
+  until (sy in statbegsys) or (done = 1);
+  if sy = beginsy_v then insymbol;
+  repeat body_sim(period_v);
+    if (sy <> period_v) and not (sy in blockbegsys) then
+      begin sy := period_v; done := 1 end
+  until (sy = period_v) or (sy in blockbegsys) or (done = 1)
+end;
+begin
+  ident_v     := 0;
+  semicolon_v := 13;
+  period_v    := 14;
+  beginsy_v   := 31;
+  endsy_v     := 39;
+  statbegsys  := [31, 32, 33, 34, 35, 36, 37, 38];
+  blockbegsys := [18, 19, 20, 21, 22, 24, 31];
+  funcprocsy  := [22, 24];
+  ncycles     := 0;
+  nstmts      := 0;
+  done        := 0;
+  (* token stream: beginsy(31), endsy(39), period(14) - same as pb33 *)
+  tokens[0]   := 31;
+  tokens[1]   := 39;
+  tokens[2]   := 14;
+  tok_idx     := 0;
+  sy          := tokens[0];
+  repeat
+    block_sim;
+    ncycles := ncycles + 1
+  until (sy = period_v) or (done = 1);
+  writeln(ncycles);
+  writeln(nstmts)
+end.
+{---------------------------------------- 247 program_procedure_array_replace_4}
+(* PB-33: exact "program x; begin end." chain
+   When block_sim is called: sy=beginsy(31)
+   insymbol -> sy=endsy(39)
+   body: statement_sim(sy=39): 39 not in statbegsys, 39<>ident(0) -> NO-OP
+   inner until: not(39 in statbegsys) -> exit immediately
+   test=39<>13=true -> until test exits immediately
+   if sy=endsy: insymbol -> sy=period(14)
+   block body-repeat: sy=period=fsy -> EXIT
+   programme: sy=period -> EXIT
+*)
+program pb33(output);
+var
+  sy         : integer;
+  test       : boolean;
+  ncycles    : integer;
+  nstmts     : integer;
+  statbegsys : set of 0..47;
+  blockbegsys: set of 0..47;
+  funcprocsy : set of 0..47;
+  ident_v    : integer;
+  period_v   : integer;
+  semicolon_v: integer;
+  beginsy_v  : integer;
+  endsy_v    : integer;
+  tok_idx    : integer;
+  tokens     : array [0..7] of integer;
+procedure insymbol;
+begin
+  tok_idx := tok_idx + 1;
+  if tok_idx <= 5 then
+    sy := tokens[tok_idx]
+  else
+    sy := period_v
+end;
+procedure statement_sim;
+begin
+  if (sy in statbegsys) or (sy = ident_v) then
+    begin
+      nstmts := nstmts + 1;
+      insymbol
+    end
+end;
+procedure body_sim;
+begin
+  repeat
+    repeat statement_sim
+    until not (sy in statbegsys);
+    test := sy <> semicolon_v;
+    if not test then insymbol
+  until test;
+  if sy = endsy_v then insymbol
+end;
+procedure block_sim;
+begin
+  repeat
+    while sy in funcprocsy do
+      insymbol;
+    if sy <> beginsy_v then
+      sy := period_v
+  until (sy in statbegsys) or (sy = period_v);
+  if sy = beginsy_v then insymbol;
+  repeat body_sim;
+    if (sy <> period_v) and not (sy in blockbegsys) then
+      sy := period_v
+  until (sy = period_v) or (sy in blockbegsys)
+end;
+begin
+  ident_v     := 0;
+  semicolon_v := 13;
+  period_v    := 14;
+  beginsy_v   := 31;
+  endsy_v     := 39;
+  statbegsys  := [31, 32, 33, 34, 35, 36, 37, 38];
+  blockbegsys := [18, 19, 20, 21, 22, 24, 31];
+  funcprocsy  := [22, 24];
+  ncycles     := 0;
+  nstmts      := 0;
+  (* token stream for "begin end.": beginsy(31), endsy(39), period(14) *)
+  tokens[0]   := 31;
+  tokens[1]   := 39;
+  tokens[2]   := 14;
+  tok_idx     := 0;
+  sy          := tokens[0];
+  repeat
+    block_sim;
+    ncycles := ncycles + 1
+  until sy = period_v;
+  writeln(ncycles);
+  writeln(nstmts)
+end.
+{---------------------------------------- 248 program_procedure_array_replace_9}
+(* PB-33: exact "program x; begin end." chain
+   When block_sim is called: sy=beginsy(31)
+   insymbol -> sy=endsy(39)
+   body: statement_sim(sy=39): 39 not in statbegsys, 39<>ident(0) -> NO-OP
+   inner until: not(39 in statbegsys) -> exit immediately
+   test=39<>13=true -> until test exits immediately
+   if sy=endsy: insymbol -> sy=period(14)
+   block body-repeat: sy=period=fsy -> EXIT
+   programme: sy=period -> EXIT
+*)
+program pb33(output);
+var
+  sy         : integer;
+  test       : boolean;
+  ncycles    : integer;
+  nstmts     : integer;
+  statbegsys : set of 0..47;
+  blockbegsys: set of 0..47;
+  funcprocsy : set of 0..47;
+  ident_v    : integer;
+  period_v   : integer;
+  semicolon_v: integer;
+  beginsy_v  : integer;
+  endsy_v    : integer;
+  tok_idx    : integer;
+  tokens     : array [0..7] of integer;
+procedure insymbol;
+begin
+  tok_idx := tok_idx + 1;
+  if tok_idx <= 5 then
+    sy := tokens[tok_idx]
+  else
+    sy := period_v
+end;
+procedure statement_sim;
+begin
+  if (sy in statbegsys) or (sy = ident_v) then
+    begin
+      nstmts := nstmts + 1;
+      insymbol
+    end
+end;
+procedure body_sim;
+begin
+  repeat
+    repeat statement_sim
+    until not (sy in statbegsys);
+    test := sy <> semicolon_v;
+    if not test then insymbol
+  until test;
+  if sy = endsy_v then insymbol
+end;
+procedure block_sim;
+begin
+  repeat
+    while sy in funcprocsy do
+      insymbol;
+    if sy <> beginsy_v then
+      sy := period_v
+  until (sy in statbegsys) or (sy = period_v);
+  if sy = beginsy_v then insymbol;
+  repeat body_sim;
+    if (sy <> period_v) and not (sy in blockbegsys) then
+      sy := period_v
+  until (sy = period_v) or (sy in blockbegsys)
+end;
+begin
+  ident_v     := 0;
+  semicolon_v := 13;
+  period_v    := 14;
+  beginsy_v   := 31;
+  endsy_v     := 39;
+  statbegsys  := [31, 32, 33, 34, 35, 36, 37, 38];
+  blockbegsys := [18, 19, 20, 21, 22, 24, 31];
+  funcprocsy  := [22, 24];
+  ncycles     := 0;
+  nstmts      := 0;
+  (* token stream for "begin end.": beginsy(31), endsy(39), period(14) *)
+  tokens[0]   := 31;
+  tokens[1]   := 39;
+  tokens[2]   := 14;
+  tok_idx     := 0;
+  sy          := tokens[0];
+  repeat
+    block_sim;
+    ncycles := ncycles + 1
+  until sy = period_v;
+  writeln(ncycles);
+  writeln(nstmts)
+end.
+{---------------------------------------- 249 program_procedure_array_replace_2}
+(* PB-31: full programme->block->body->statement chain simulation
+   mirrors pcom token flow for "program hello; begin writeln(...) end." *)
+program pb31(output);
+var
+  sy         : integer;
+  test       : boolean;
+  ncycles    : integer;
+  nstmts     : integer;
+  ndecls     : integer;
+  statbegsys : set of 0..47;
+  blockbegsys: set of 0..47;
+  funcprocsy : set of 0..47;
+  ident_v    : integer;
+  period_v   : integer;
+  semicolon_v: integer;
+  beginsy_v  : integer;
+  endsy_v    : integer;
+  tok_idx    : integer;
+  tokens     : array [0..15] of integer;
+(*--------------------------------------------------------------------*)
+procedure insymbol;
+begin
+  tok_idx := tok_idx + 1;
+  if tok_idx <= 4 then
+    sy := tokens[tok_idx]
+  else
+    sy := period_v
+end;
+(*--------------------------------------------------------------------*)
+procedure statement_sim;
+begin
+  if (sy in statbegsys) or (sy = ident_v) then
+    begin
+      nstmts := nstmts + 1;
+      insymbol
+    end
+end;
+(*--------------------------------------------------------------------*)
+procedure body_sim(fsy: integer);
+begin
+  repeat
+    repeat statement_sim
+    until not (sy in statbegsys);
+    test := sy <> semicolon_v;
+    if not test then insymbol
+  until test;
+  if sy = endsy_v then insymbol
+end;
+(*--------------------------------------------------------------------*)
+procedure block_sim;
+begin
+  repeat
+    while sy in funcprocsy do
+      begin
+        ndecls := ndecls + 1;
+        insymbol
+      end;
+    if sy <> beginsy_v then
+      sy := period_v
+  until (sy in statbegsys) or (sy = period_v);
+  if sy = beginsy_v then insymbol;
+  repeat body_sim(period_v);
+    if sy <> period_v then
+      if not (sy in blockbegsys) then
+        sy := period_v
+  until (sy = period_v) or (sy in blockbegsys)
+end;
+(*--------------------------------------------------------------------*)
+begin
+  ident_v     := 0;
+  semicolon_v := 13;
+  period_v    := 14;
+  beginsy_v   := 31;
+  endsy_v     := 39;
+  statbegsys  := [31, 32, 33, 34, 35, 36, 37, 38];
+  blockbegsys := [18, 19, 20, 21, 22, 24, 31];
+  funcprocsy  := [22, 24];
+  ncycles     := 0;
+  nstmts      := 0;
+  ndecls      := 0;
+  (* token stream: funcsy(22), beginsy(31), ident(0), endsy(39), period(14) *)
+  tokens[0]   := 22;
+  tokens[1]   := 22;
+  tokens[2]   := 31;
+  tokens[3]   := 0;
+  tokens[4]   := 39;
+  tok_idx     := 0;
+  sy          := tokens[0];
+  repeat
+    block_sim;
+    ncycles := ncycles + 1
+  until sy = period_v;
+  writeln(ncycles);
+  writeln(nstmts);
+  writeln(ndecls)
+end.
+{---------------------------------------- 250 program_procedure_array_replace_7}
+(* PB-31: full programme->block->body->statement chain simulation
+   mirrors pcom token flow for "program hello; begin writeln(...) end." *)
+program pb31(output);
+var
+  sy         : integer;
+  test       : boolean;
+  ncycles    : integer;
+  nstmts     : integer;
+  ndecls     : integer;
+  statbegsys : set of 0..47;
+  blockbegsys: set of 0..47;
+  funcprocsy : set of 0..47;
+  ident_v    : integer;
+  period_v   : integer;
+  semicolon_v: integer;
+  beginsy_v  : integer;
+  endsy_v    : integer;
+  tok_idx    : integer;
+  tokens     : array [0..15] of integer;
+(*--------------------------------------------------------------------*)
+procedure insymbol;
+begin
+  tok_idx := tok_idx + 1;
+  if tok_idx <= 4 then
+    sy := tokens[tok_idx]
+  else
+    sy := period_v
+end;
+(*--------------------------------------------------------------------*)
+procedure statement_sim;
+begin
+  if (sy in statbegsys) or (sy = ident_v) then
+    begin
+      nstmts := nstmts + 1;
+      insymbol
+    end
+end;
+(*--------------------------------------------------------------------*)
+procedure body_sim(fsy: integer);
+begin
+  repeat
+    repeat statement_sim
+    until not (sy in statbegsys);
+    test := sy <> semicolon_v;
+    if not test then insymbol
+  until test;
+  if sy = endsy_v then insymbol
+end;
+(*--------------------------------------------------------------------*)
+procedure block_sim;
+begin
+  repeat
+    while sy in funcprocsy do
+      begin
+        ndecls := ndecls + 1;
+        insymbol
+      end;
+    if sy <> beginsy_v then
+      sy := period_v
+  until (sy in statbegsys) or (sy = period_v);
+  if sy = beginsy_v then insymbol;
+  repeat body_sim(period_v);
+    if sy <> period_v then
+      if not (sy in blockbegsys) then
+        sy := period_v
+  until (sy = period_v) or (sy in blockbegsys)
+end;
+(*--------------------------------------------------------------------*)
+begin
+  ident_v     := 0;
+  semicolon_v := 13;
+  period_v    := 14;
+  beginsy_v   := 31;
+  endsy_v     := 39;
+  statbegsys  := [31, 32, 33, 34, 35, 36, 37, 38];
+  blockbegsys := [18, 19, 20, 21, 22, 24, 31];
+  funcprocsy  := [22, 24];
+  ncycles     := 0;
+  nstmts      := 0;
+  ndecls      := 0;
+  (* token stream: funcsy(22), beginsy(31), ident(0), endsy(39), period(14) *)
+  tokens[0]   := 22;
+  tokens[1]   := 22;
+  tokens[2]   := 31;
+  tokens[3]   := 0;
+  tokens[4]   := 39;
+  tok_idx     := 0;
+  sy          := tokens[0];
+  repeat
+    block_sim;
+    ncycles := ncycles + 1
+  until sy = period_v;
+  writeln(ncycles);
+  writeln(nstmts);
+  writeln(ndecls)
+end.
+{---------------------------------------------------------- 251 benchmark_quick}
 (* PROVENANCE: Hennessy "Quick" — Stanford integer benchmark suite
    (John L. Hennessy, Stanford, c.1981; public domain). Hoare quicksort.
    Algorithm/constants per llvm-test-suite Stanford C port. Canonical RNG.
@@ -5176,100 +5273,3 @@ begin
   writeln(sortlist[1]);
   writeln(sortlist[srtelements])
 end.
-{---------------------------------------------------------- 248 benchmark_sieve}
-(* PROVENANCE: Sieve of Eratosthenes (Byte-magazine sieve benchmark lineage).
-   Public-domain algorithm. Benchmark form: counts primes < limit, repeat knob
-   via stdin. SCRIP corpus PAS-BENCH. *)
-program sievebench;
-const limit = 8190;
-var flags: array[0..8190] of boolean;
-    reps, rep, i, k, count: integer;
-begin
-  readln(reps);
-  count := 0;
-  for rep := 1 to reps do begin
-    count := 0;
-    for i := 0 to limit do flags[i] := true;
-    for i := 0 to limit do
-      if flags[i] then begin
-        k := i + i + 3;
-        while i + k <= limit do begin
-          flags[i + k] := false;
-          k := k + i + i + 3
-        end;
-        count := count + 1
-      end
-  end;
-  writeln(count)
-end.
-{--------------------------------------------------------- 249 benchmark_towers}
-(* PROVENANCE: Hennessy "Towers" — Stanford integer benchmark suite
-   (John L. Hennessy, Stanford, c.1981; public domain). Towers of Hanoi,
-   recursive move count (2^disks-1). P4-faithful transliteration.
-   Repeat knob via stdin. *)
-program towersbench;
-const disks = 18;
-var movesdone, reps, rep: integer;
-procedure move(n, frm, via, dest: integer);
-begin
-  if n = 1 then movesdone := movesdone + 1
-  else begin
-    move(n - 1, frm, dest, via);
-    movesdone := movesdone + 1;
-    move(n - 1, via, frm, dest)
-  end
-end;
-begin
-  readln(reps);
-  movesdone := 0;
-  for rep := 1 to reps do begin
-    movesdone := 0;
-    move(disks, 1, 2, 3)
-  end;
-  writeln(movesdone)
-end.
-{------------------------------------------------------- 250 benchmark_uplevel2}
-program uplevelbench;
-  procedure p1;
-  var a, sum : integer;
-    procedure p2;
-      procedure p3;
-      var i, j : integer;
-      begin
-        for i := 1 to 30000 do
-          for j := 1 to 8000 do
-            sum := sum + a
-      end;
-    begin
-      p3
-    end;
-  begin
-    a := 1;
-    sum := 0;
-    p2;
-    writeln(sum)
-  end;
-begin
-  p1
-end.
-{------------------------------------------------------- 251 benchmark_uplevel3}
-program ub3;
-  procedure p1;
-  var a, sum : integer;
-    procedure p2;
-      procedure p3;
-        procedure p4;
-        var i, j : integer;
-        begin
-          for i := 1 to 30000 do
-            for j := 1 to 8000 do
-              sum := sum + a
-        end;
-      begin p4 end;
-    begin p3 end;
-  begin
-    a := 1; sum := 0;
-    p2;
-    writeln(sum)
-  end;
-begin p1 end.
