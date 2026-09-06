@@ -55,9 +55,9 @@ procedure try(s, i)
 	local j;
 	j := integer(s);
 	if /j then
-		write(image(s), ": failed to convert");
+		write(image(s), ": failed to convert")
 	else if i == j then
-		write(image(s), ": ", j);
+		write(image(s), ": ", j)
 	else
 		write(image(s), ": got ", j, ", but expected ", i);
 end

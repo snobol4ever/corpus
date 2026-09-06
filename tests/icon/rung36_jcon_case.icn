@@ -1,6 +1,6 @@
 #SRC: JCON
 
-record rec(a);
+record rec(a)
 
 procedure main(args)
    local L, s, x, r, c;

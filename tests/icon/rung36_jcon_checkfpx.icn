@@ -101,7 +101,7 @@ procedure Image(x)
 
    span := 9;
 
-   if type(x) ~== "real" then return image(x);
+   if type(x) ~== "real" then return image(x)
    else {
       x ? {
          if head := tab(upto('e'));
@@ -117,7 +117,7 @@ procedure Image(x)
             #
             if exp := *tab(upto('.')) then
                head ? return move(1) || "." || move(span - 3) ||
-                  "e+" || (span - 3 + exp);
+                  "e+" || (span - 3 + exp)
             else {
                if head[-1] == "." then
                   head ||:= (move(1) | "0");

@@ -3,11 +3,11 @@
 #  This program contains samples of all the basic syntactic
 #  forms in Icon.
 
-record three(x,y,z);
-record zero();
-record one(z);
+record three(x,y,z)
+record zero()
+record one(z)
 
-global line, count;
+global line, count
 
 procedure main()
 end

@@ -1,6 +1,6 @@
 #SRC: V9GEN
 
-record array(a,b,c,d,e,f,g);
+record array(a,b,c,d,e,f,g)
 
 procedure p1()
    write(" ----> ",image() | "none");

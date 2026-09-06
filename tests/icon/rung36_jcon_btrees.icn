@@ -8,7 +8,7 @@
 #  standard input.  It performs a tree walk and lists the leaves of
 #  each tree.
 
-record node(data,ltree,rtree);
+record node(data,ltree,rtree)
 
 procedure main()
    local line, tree;

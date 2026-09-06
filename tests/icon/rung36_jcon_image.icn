@@ -2,8 +2,8 @@
 
 #  test image(), serial(), *x, and explicit conversion functions
 
-record point(x,y);
-record circle(x, y, r);
+record point(x,y)
+record circle(x, y, r)
 
 procedure main(args)
    local c1, c2, c3, c4, s;
