@@ -956,7 +956,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            400
+                        .long            416
                         .long            16
                         .long            0
                         .long            0

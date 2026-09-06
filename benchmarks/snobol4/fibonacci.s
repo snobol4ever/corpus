@@ -3193,7 +3193,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            2336
+                        .long            2368
                         .long            16
                         .long            0
                         .long            0
@@ -3212,7 +3212,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            2336
+                        .long            2368
                         .long            16
                         .long            0
                         .long            0

@@ -2019,7 +2019,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            1600
+                        .long            1616
                         .long            16
                         .long            0
                         .long            0

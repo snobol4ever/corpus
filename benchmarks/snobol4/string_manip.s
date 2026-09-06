@@ -2268,7 +2268,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            1840
+                        .long            1856
                         .long            16
                         .long            0
                         .long            0
