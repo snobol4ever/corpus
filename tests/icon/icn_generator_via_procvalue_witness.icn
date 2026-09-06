@@ -1,0 +1,14 @@
+#  WITNESS (hq_B/hq_C): a generator reached through a PROCEDURE VALUE, not called directly --
+#  forces the rt_call_value_gen_h -> rt_call_value_resume_h coroutine protocol. Prior corpus had
+#  procedure-value invocation (rung37_proc_lookup.icn, no suspend) and generators (generators.icn,
+#  all called directly) but nothing at their intersection.
+procedure g()
+   suspend 1;
+   suspend 2;
+   suspend 3;
+end
+procedure main()
+   local p;
+   p := g;
+   every write(p());
+end
