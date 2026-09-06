@@ -1,0 +1,10 @@
+link1.icn	NO-ORACLE-SHIPPED	upstream jcon ships no link1.std, so the package carries no expected output for this program -- ungradable against its own oracle, not work owed
+link2.icn	NO-ORACLE-SHIPPED	upstream jcon ships no link2.std, so the package carries no expected output for this program -- ungradable against its own oracle, not work owed
+load1.icn	NO-ORACLE-SHIPPED	upstream jcon ships no load1.std, so the package carries no expected output for this program -- ungradable against its own oracle, not work owed
+load2.icn	NO-ORACLE-SHIPPED	upstream jcon ships no load2.std, so the package carries no expected output for this program -- ungradable against its own oracle, not work owed
+tpp1.icn	NO-ORACLE-SHIPPED	upstream jcon ships no tpp1.std, so the package carries no expected output for this program -- ungradable against its own oracle, not work owed
+tpp2.icn	NO-ORACLE-SHIPPED	upstream jcon ships no tpp2.std, so the package carries no expected output for this program -- ungradable against its own oracle, not work owed
+tpp3.icn	NO-ORACLE-SHIPPED	upstream jcon ships no tpp3.std, so the package carries no expected output for this program -- ungradable against its own oracle, not work owed
+tpp4.icn	NO-ORACLE-SHIPPED	upstream jcon ships no tpp4.std, so the package carries no expected output for this program -- ungradable against its own oracle, not work owed
+tpp5.icn	NO-ORACLE-SHIPPED	upstream jcon ships no tpp5.std, so the package carries no expected output for this program -- ungradable against its own oracle, not work owed
+tpp.icn	ORACLE-IS-NOT-PROGRAM-OUTPUT	tpp.std is jcon PREPROCESSOR text, not the program output -- comparing run output against it would grade the wrong artifact
