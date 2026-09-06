@@ -532,15 +532,15 @@ procedure main()
 end
 #---------------------------------------- 137 ladder_rung26_pow_pow_negbase_real
 procedure main()
-  write("before");
+  &error := 1;
   write((-2.0) ^ 0.5);
-  write("after");
+  write("num=", &errornumber, " text=", &errortext);
 end
 #----------------------------------------- 138 ladder_rung26_pow_pow_zero_negexp
 procedure main()
-  write("before");
+  &error := 1;
   write(0 ^ (-1));
-  write("after");
+  write("num=", &errornumber, " text=", &errortext);
 end
 #--------------------------------------- 139 ladder_rung39_numbit_acos_asin_atan
 procedure main()

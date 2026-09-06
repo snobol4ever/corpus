@@ -335,9 +335,9 @@ done
 le
 done
 #---------------------------------------- 137 ladder_rung26_pow_pow_negbase_real
-before
+num=206 text=negative first argument to real exponentiation
 #----------------------------------------- 138 ladder_rung26_pow_pow_zero_negexp
-before
+num=204 text=real overflow, underflow, or division by zero
 #--------------------------------------- 139 ladder_rung39_numbit_acos_asin_atan
 1.047197551
 0.5235987756
