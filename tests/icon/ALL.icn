@@ -7826,3 +7826,44 @@ procedure main()
   if serial(c2) > serial(c1) then write("increasing") else write("not-increasing");
   write(serial(5) | "not-serialable");
 end
+#--------------------------------------- 770 ladder_rung39_numbit_acos_asin_atan
+procedure main()
+  write(acos(0.5));
+  write(asin(0.5));
+  write(atan(1.0, 1.0));
+end
+#------------------------------------------ 771 ladder_rung39_numbit_cos_sin_tan
+procedure main()
+  write(cos(0.0));
+  write(sin(0.0));
+  write(tan(0.0));
+end
+#----------------------------------------- 772 ladder_rung39_numbit_exp_log_sqrt
+procedure main()
+  write(exp(1.0));
+  write(log(8.0, 2.0));
+  write(log(2.718281828459045));
+  write(sqrt(2.0));
+end
+#-------------------------------------------- 773 ladder_rung39_numbit_dtor_rtod
+procedure main()
+  write(dtor(180.0));
+  write(rtod(dtor(180.0)));
+end
+#---------------------------------------- 774 ladder_rung39_numbit_iand_ior_ixor
+procedure main()
+  write(iand(12, 10));
+  write(ior(12, 10));
+  write(ixor(12, 10));
+end
+#------------------------------------------ 775 ladder_rung39_numbit_icom_ishift
+procedure main()
+  write(icom(0));
+  write(ishift(1, 4));
+  write(ishift(16, -4));
+end
+#------------------------------------ 776 ladder_rung39_numbit_large_integer_ops
+procedure main()
+  write(2^100);
+  write(type(2^100));
+end

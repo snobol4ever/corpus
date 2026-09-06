@@ -5412,3 +5412,30 @@ main done
 #------------------------------------- 769 ladder_rung38_coexpr_serial_on_coexpr
 increasing
 not-serialable
+#--------------------------------------- 770 ladder_rung39_numbit_acos_asin_atan
+1.047197551
+0.5235987756
+0.7853981634
+#------------------------------------------ 771 ladder_rung39_numbit_cos_sin_tan
+1.0
+0.0
+0.0
+#----------------------------------------- 772 ladder_rung39_numbit_exp_log_sqrt
+2.718281828
+3.0
+1.0
+1.414213562
+#-------------------------------------------- 773 ladder_rung39_numbit_dtor_rtod
+3.141592654
+180.0
+#---------------------------------------- 774 ladder_rung39_numbit_iand_ior_ixor
+8
+14
+6
+#------------------------------------------ 775 ladder_rung39_numbit_icom_ishift
+-1
+16
+1
+#------------------------------------ 776 ladder_rung39_numbit_large_integer_ops
+1267650600228229401496703205376
+integer
