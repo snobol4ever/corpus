@@ -1,5 +1,11 @@
 # UNGRADED.tsv -- csnobol4_suite: shipped, GRADABLE, ref not cut yet. THE PACKAGE LOCKDOWN (Lon
 # 2026-09-06). Columns: path<TAB>CLASS<TAB>what is owed (lib_inventory.sh's own documented and
-# gate-tested shape; CLASS added 2026-09-06 -- these two rows predate the shared instrument landing).
-preload1.sno	NEEDS_RUNNER_WIRING	the pickup is TWO things, not one: `scrip` HAS NO -L FLAG AT ALL (measured 2026-09-06 by hq_S: `scrip -Laa/aa.sno preload1.sno` -> rc=1 `scrip: cannot open '-Laa/aa.sno'`, i.e. it falls through to the filename path, so there is no preload to wire yet), AND the runner needs the per-test flag map (the existing argv_for() shape used for genc). Measured: `csnobol4 -b -Laa/aa.sno preload1.sno` (exactly tests.in's own `reg -Laa/aa.sno preload1.sno`) -> stdout "aa\n", rc=0, deterministic (re-run twice, identical). Ref not yet cut pending that wiring — see FINDING-2026-09-06-seat03.
-preload2.sno	NEEDS_RUNNER_WIRING	same two-part pickup as preload1.sno, with two -L flags. `scrip` has no -L (measured, see preload1.sno above). Measured: `csnobol4 -b -Laa/aa.sno -Lbb/bb.sno preload2.sno` (exactly tests.in's own `reg -Laa/aa.sno -Lbb/bb.sno preload2.sno`) -> stdout "aa\nbb\n", rc=0, deterministic. Ref not yet cut pending that wiring — see FINDING-2026-09-06-seat03.
+# gate-tested shape).
+# EMPTY ON PURPOSE, 2026-09-06 (hq_S): preload1.sno and preload2.sno were this bucket's only two rows.
+# Their pickup was TWO things and the sidecar named only one -- scrip had no -L flag at all (the argument
+# fell through to the filename path), so there was no preload for a runner map to pass. Both landed
+# together: -L in the driver, preload_for() in the runner, and their refs cut from csnobol4's own run of
+# upstream tests.in's registration lines. They are GRADED now, and they are RED -- lowercase `output` in
+# aa/aa.sno relies on csnobol4's default identifier folding, which SCRIP does not do (it is
+# case-sensitive by SPITBOL semantics). That is a real, named divergence in the graded population
+# instead of two rows hidden in an ungraded bucket, which is the whole point of the lockdown.
