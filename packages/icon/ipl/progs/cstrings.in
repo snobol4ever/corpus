@@ -1,0 +1,8 @@
+/* a comment with a "string" that must not be reported */
+#include <stdio.h>
+static const char *greeting = "hello, world";
+int main(void) {
+    char c = '"';
+    printf("%s\n", greeting);
+    return 0; /* "also in a comment" */
+}

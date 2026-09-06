@@ -1,0 +1,2 @@
++3 cstrings.in "hello, world"
++6 cstrings.in "%s\n"

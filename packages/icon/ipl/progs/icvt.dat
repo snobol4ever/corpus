@@ -1,0 +1,7 @@
+procedure main()
+   local a, t
+   a := [1, 2, 3]
+   t := table()
+   if *a > 0 then { write("kept [as data]"); write(t) }
+   every write(a[1 to 3])
+end
