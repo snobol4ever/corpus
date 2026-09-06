@@ -1,0 +1,5 @@
+procedure main()
+   local L;
+   L := [7 | 9, 1, 2];
+   every write(!L);
+end

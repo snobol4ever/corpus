@@ -1,0 +1,5 @@
+procedure main()
+   local L;
+   L := [1, 1 to 3, !"ab"];
+   every write(!L);
+end

@@ -1,0 +1,8 @@
+procedure main()
+   local L;
+   L := [1, pat() | fail];
+   if /L then write("CONSTRUCTOR FAILED") else every write(!L);
+end
+procedure pat()
+   return "p";
+end
