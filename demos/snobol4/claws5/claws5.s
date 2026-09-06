@@ -525,15 +525,6 @@ body_cell$token:        .quad            LBL__token
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 token_γ:                mov              rdi, qword ptr [r9 + 0]
                         mov              rsi, qword ptr [r9 + 8]
-                        mov              rcx, qword ptr [rsp + 32]
-                        mov              rdx, qword ptr [rcx + 0]
-                        lea              r8, [rsp + 48]
-                        mov              rax, qword ptr [rsp + 0]
-                        mov              qword ptr [r9 + 0], rax
-                        mov              rax, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 8], rax
-                        mov              rcx, qword ptr [rcx + 8]
-                        add              rsp, 48
                         mov              rax, rdi
                         mov              rdx, rsi
                         push             rax
@@ -568,7 +559,18 @@ token_γ:                mov              rdi, qword ptr [r9 + 0]
 .Ldefine_α_206_237:     .quad            .Ldefine_α_206_237_s
 .Ldefine_α_206_237_s:   .string          "token"
 .Ldefine_α_206_236:     pop              rdx
-                        pop              rax;                                 jmp   rcx
+                        pop              rax
+                        mov              rcx, qword ptr [rsp + 32]
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 48]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              qword ptr [r9 + 0], rax
+                        mov              rax, qword ptr [rsp + 8]
+                        mov              qword ptr [r9 + 8], rax
+                        mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 48
+                        mov              rax, rdi
+                        mov              rdx, rsi;                            jmp   rcx
 token_ω:                mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 48]

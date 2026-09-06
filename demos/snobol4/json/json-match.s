@@ -2661,77 +2661,41 @@ n190_var_α:             sub              rsp, 16
                         mov              rax, qword ptr [r9 + 16]             # jchunk
                         mov              rdx, qword ptr [r9 + 24]
                         mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n191_assign_α
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n191_var_α
                         .size            n190_var_bx, .-n190_var_bx
-                        .type            n191_assign_bx, @function
-n191_assign_bx:
+                        .type            n191_var_bx, @function
+n191_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n191_assign_α:          mov              r11, 94
-                        mov              rax, qword ptr [rsp + 0]             # var
-                        mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 240], rax            # PAT$2$V0
-                        mov              qword ptr [r9 + 248], rdx
-                        push             rax
-                        push             rax
-                        push             rdi
-                        push             rsi
-                        push             rdx
-                        push             rcx
-                        push             r8
-                        push             r9
-                        push             r10
-                        push             r11
-                        mov              rsi, rax
-                        mov              rdi, qword ptr [rip + .Lassign_α_379_0]
-                        .section         .rodata
-.Lassign_α_379_1_s:     .string          "snobol4/json/json-match.sno"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rcx, [rip + .Lassign_α_379_1_s]
-                        mov              r8, 14
-                        mov              r9, 5
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             comm_var@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
-                        pop              r11
-                        pop              r10
-                        pop              r9
-                        pop              r8
-                        pop              rcx
-                        pop              rdx
-                        pop              rsi
-                        pop              rdi
-                        pop              rax
-                        pop              rax;                                 jmp   n192_var_α
-.Lassign_α_379_0:       .quad            .Lassign_α_379_0_s
-.Lassign_α_379_0_s:     .string          "PAT$2$V0"
-                        .size            n191_assign_bx, .-n191_assign_bx
+n191_var_α:             sub              rsp, 16
+                        mov              r11, 94
+                        mov              rax, qword ptr [r9 + 0]              # jescape
+                        mov              rdx, qword ptr [r9 + 8]
+                        mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n192_var_α
+n191_var_β:             mov              r11, 94
+                        add              rsp, 16
+                        add              rsp, 16;                             jmp   n189_statement_begin_β
+                        .size            n191_var_bx, .-n191_var_bx
                         .type            n192_var_bx, @function
 n192_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n192_var_α:             sub              rsp, 16
                         mov              r11, 95
-                        mov              rax, qword ptr [r9 + 0]              # jescape
-                        mov              rdx, qword ptr [r9 + 8]
+                        mov              rax, qword ptr [r9 + 16]             # jchunk
+                        mov              rdx, qword ptr [r9 + 24]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx;            jmp   n193_assign_α
 n192_var_β:             mov              r11, 95
-                        add              rsp, 16
-                        add              rsp, 16;                             jmp   n189_statement_begin_β
+                        add              rsp, 16;                             jmp   n191_var_β
                         .size            n192_var_bx, .-n192_var_bx
                         .type            n193_assign_bx, @function
 n193_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n193_assign_α:          mov              r11, 96
-                        mov              rax, qword ptr [rsp + 0]             # var
-                        mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 256], rax            # PAT$2$V1
-                        mov              qword ptr [r9 + 264], rdx
+                        mov              rax, qword ptr [rsp + 32]            # var
+                        mov              rdx, qword ptr [rsp + 40]
+                        mov              qword ptr [r9 + 240], rax            # PAT$2$V0
+                        mov              qword ptr [r9 + 248], rdx
                         push             rax
                         push             rax
                         push             rdi
@@ -2768,22 +2732,58 @@ n193_assign_α:          mov              r11, 96
                         pop              rsi
                         pop              rdi
                         pop              rax
-                        pop              rax;                                 jmp   n194_var_α
+                        pop              rax;                                 jmp   n194_assign_α
 .Lassign_α_381_0:       .quad            .Lassign_α_381_0_s
-.Lassign_α_381_0_s:     .string          "PAT$2$V1"
+.Lassign_α_381_0_s:     .string          "PAT$2$V0"
                         .size            n193_assign_bx, .-n193_assign_bx
-                        .type            n194_var_bx, @function
-n194_var_bx:
+                        .type            n194_assign_bx, @function
+n194_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n194_var_α:             sub              rsp, 16
-                        mov              r11, 97
-                        mov              rax, qword ptr [r9 + 16]             # jchunk
-                        mov              rdx, qword ptr [r9 + 24]
-                        mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n195_assign_α
-n194_var_β:             mov              r11, 97
-                        add              rsp, 16;                             jmp   n192_var_β
-                        .size            n194_var_bx, .-n194_var_bx
+n194_assign_α:          mov              r11, 97
+                        mov              rax, qword ptr [rsp + 16]            # var
+                        mov              rdx, qword ptr [rsp + 24]
+                        mov              qword ptr [r9 + 256], rax            # PAT$2$V1
+                        mov              qword ptr [r9 + 264], rdx
+                        push             rax
+                        push             rax
+                        push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r10
+                        push             r11
+                        mov              rsi, rax
+                        mov              rdi, qword ptr [rip + .Lassign_α_382_0]
+                        .section         .rodata
+.Lassign_α_382_1_s:     .string          "snobol4/json/json-match.sno"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rcx, [rip + .Lassign_α_382_1_s]
+                        mov              r8, 14
+                        mov              r9, 5
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             comm_var@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              r11
+                        pop              r10
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+                        pop              rax
+                        pop              rax;                                 jmp   n195_assign_α
+.Lassign_α_382_0:       .quad            .Lassign_α_382_0_s
+.Lassign_α_382_0_s:     .string          "PAT$2$V1"
+                        .size            n194_assign_bx, .-n194_assign_bx
                         .type            n195_assign_bx, @function
 n195_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -2842,7 +2842,7 @@ n196_lit_string_α:      sub              rsp, 16
                         mov              rax, qword ptr [rip + .Llit_string_α_384_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n197_lit_string_α
 n196_lit_string_β:      mov              r11, 99
-                        add              rsp, 16;                             jmp   n194_var_β
+                        add              rsp, 16;                             jmp   n192_var_β
 .Llit_string_α_384_0:   .quad            .Llit_string_α_384_0_s
 .Llit_string_α_384_0_s: .string          "PAT$2"
                         .size            n196_lit_string_bx, .-n196_lit_string_bx
@@ -4423,14 +4423,51 @@ n268_var_α:             sub              rsp, 16
                         mov              rax, qword ptr [r9 + 32]             # jstring
                         mov              rdx, qword ptr [r9 + 40]
                         mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n269_assign_α
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n269_var_α
                         .size            n268_var_bx, .-n268_var_bx
-                        .type            n269_assign_bx, @function
-n269_assign_bx:
+                        .type            n269_var_bx, @function
+n269_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n269_assign_α:          mov              r11, 172
-                        mov              rax, qword ptr [rsp + 0]             # var
-                        mov              rdx, qword ptr [rsp + 8]
+n269_var_α:             sub              rsp, 16
+                        mov              r11, 172
+                        mov              rax, qword ptr [r9 + 48]             # jnumber
+                        mov              rdx, qword ptr [r9 + 56]
+                        mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n270_var_α
+n269_var_β:             mov              r11, 172
+                        add              rsp, 16
+                        add              rsp, 16;                             jmp   n267_statement_begin_β
+                        .size            n269_var_bx, .-n269_var_bx
+                        .type            n270_var_bx, @function
+n270_var_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n270_var_α:             sub              rsp, 16
+                        mov              r11, 173
+                        mov              rax, qword ptr [r9 + 80]             # jobject
+                        mov              rdx, qword ptr [r9 + 88]
+                        mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n271_var_α
+n270_var_β:             mov              r11, 173
+                        add              rsp, 16;                             jmp   n269_var_β
+                        .size            n270_var_bx, .-n270_var_bx
+                        .type            n271_var_bx, @function
+n271_var_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n271_var_α:             sub              rsp, 16
+                        mov              r11, 174
+                        mov              rax, qword ptr [r9 + 96]             # jarray
+                        mov              rdx, qword ptr [r9 + 104]
+                        mov              qword ptr [rsp + 0], rax             # result
+                        mov              qword ptr [rsp + 8], rdx;            jmp   n272_assign_α
+n271_var_β:             mov              r11, 174
+                        add              rsp, 16;                             jmp   n270_var_β
+                        .size            n271_var_bx, .-n271_var_bx
+                        .type            n272_assign_bx, @function
+n272_assign_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n272_assign_α:          mov              r11, 175
+                        mov              rax, qword ptr [rsp + 48]            # var
+                        mov              rdx, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 288], rax            # PAT$4$V0
                         mov              qword ptr [r9 + 296], rdx
                         push             rax
@@ -4444,12 +4481,12 @@ n269_assign_α:          mov              r11, 172
                         push             r10
                         push             r11
                         mov              rsi, rax
-                        mov              rdi, qword ptr [rip + .Lassign_α_478_0]
+                        mov              rdi, qword ptr [rip + .Lassign_α_481_0]
                         .section         .rodata
-.Lassign_α_478_1_s:     .string          "snobol4/json/json-match.sno"
+.Lassign_α_481_1_s:     .string          "snobol4/json/json-match.sno"
                         .section         .text
                         .intel_syntax    noprefix
-                        lea              rcx, [rip + .Lassign_α_478_1_s]
+                        lea              rcx, [rip + .Lassign_α_481_1_s]
                         mov              r8, 26
                         mov              r9, 10
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4469,91 +4506,18 @@ n269_assign_α:          mov              r11, 172
                         pop              rsi
                         pop              rdi
                         pop              rax
-                        pop              rax;                                 jmp   n270_var_α
-.Lassign_α_478_0:       .quad            .Lassign_α_478_0_s
-.Lassign_α_478_0_s:     .string          "PAT$4$V0"
-                        .size            n269_assign_bx, .-n269_assign_bx
-                        .type            n270_var_bx, @function
-n270_var_bx:
-#-----------------------------------------------------------------------------------------------------------------------
-n270_var_α:             sub              rsp, 16
-                        mov              r11, 173
-                        mov              rax, qword ptr [r9 + 48]             # jnumber
-                        mov              rdx, qword ptr [r9 + 56]
-                        mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n271_assign_α
-n270_var_β:             mov              r11, 173
-                        add              rsp, 16
-                        add              rsp, 16;                             jmp   n267_statement_begin_β
-                        .size            n270_var_bx, .-n270_var_bx
-                        .type            n271_assign_bx, @function
-n271_assign_bx:
-#-----------------------------------------------------------------------------------------------------------------------
-n271_assign_α:          mov              r11, 174
-                        mov              rax, qword ptr [rsp + 0]             # var
-                        mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 304], rax            # PAT$4$V1
-                        mov              qword ptr [r9 + 312], rdx
-                        push             rax
-                        push             rax
-                        push             rdi
-                        push             rsi
-                        push             rdx
-                        push             rcx
-                        push             r8
-                        push             r9
-                        push             r10
-                        push             r11
-                        mov              rsi, rax
-                        mov              rdi, qword ptr [rip + .Lassign_α_480_0]
-                        .section         .rodata
-.Lassign_α_480_1_s:     .string          "snobol4/json/json-match.sno"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rcx, [rip + .Lassign_α_480_1_s]
-                        mov              r8, 26
-                        mov              r9, 10
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             comm_var@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
-                        pop              r11
-                        pop              r10
-                        pop              r9
-                        pop              r8
-                        pop              rcx
-                        pop              rdx
-                        pop              rsi
-                        pop              rdi
-                        pop              rax
-                        pop              rax;                                 jmp   n272_var_α
-.Lassign_α_480_0:       .quad            .Lassign_α_480_0_s
-.Lassign_α_480_0_s:     .string          "PAT$4$V1"
-                        .size            n271_assign_bx, .-n271_assign_bx
-                        .type            n272_var_bx, @function
-n272_var_bx:
-#-----------------------------------------------------------------------------------------------------------------------
-n272_var_α:             sub              rsp, 16
-                        mov              r11, 175
-                        mov              rax, qword ptr [r9 + 80]             # jobject
-                        mov              rdx, qword ptr [r9 + 88]
-                        mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n273_assign_α
-n272_var_β:             mov              r11, 175
-                        add              rsp, 16;                             jmp   n270_var_β
-                        .size            n272_var_bx, .-n272_var_bx
+                        pop              rax;                                 jmp   n273_assign_α
+.Lassign_α_481_0:       .quad            .Lassign_α_481_0_s
+.Lassign_α_481_0_s:     .string          "PAT$4$V0"
+                        .size            n272_assign_bx, .-n272_assign_bx
                         .type            n273_assign_bx, @function
 n273_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n273_assign_α:          mov              r11, 176
-                        mov              rax, qword ptr [rsp + 0]             # var
-                        mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 320], rax            # PAT$4$V2
-                        mov              qword ptr [r9 + 328], rdx
+                        mov              rax, qword ptr [rsp + 32]            # var
+                        mov              rdx, qword ptr [rsp + 40]
+                        mov              qword ptr [r9 + 304], rax            # PAT$4$V1
+                        mov              qword ptr [r9 + 312], rdx
                         push             rax
                         push             rax
                         push             rdi
@@ -4590,22 +4554,58 @@ n273_assign_α:          mov              r11, 176
                         pop              rsi
                         pop              rdi
                         pop              rax
-                        pop              rax;                                 jmp   n274_var_α
+                        pop              rax;                                 jmp   n274_assign_α
 .Lassign_α_482_0:       .quad            .Lassign_α_482_0_s
-.Lassign_α_482_0_s:     .string          "PAT$4$V2"
+.Lassign_α_482_0_s:     .string          "PAT$4$V1"
                         .size            n273_assign_bx, .-n273_assign_bx
-                        .type            n274_var_bx, @function
-n274_var_bx:
+                        .type            n274_assign_bx, @function
+n274_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n274_var_α:             sub              rsp, 16
-                        mov              r11, 177
-                        mov              rax, qword ptr [r9 + 96]             # jarray
-                        mov              rdx, qword ptr [r9 + 104]
-                        mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n275_assign_α
-n274_var_β:             mov              r11, 177
-                        add              rsp, 16;                             jmp   n272_var_β
-                        .size            n274_var_bx, .-n274_var_bx
+n274_assign_α:          mov              r11, 177
+                        mov              rax, qword ptr [rsp + 16]            # var
+                        mov              rdx, qword ptr [rsp + 24]
+                        mov              qword ptr [r9 + 320], rax            # PAT$4$V2
+                        mov              qword ptr [r9 + 328], rdx
+                        push             rax
+                        push             rax
+                        push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r10
+                        push             r11
+                        mov              rsi, rax
+                        mov              rdi, qword ptr [rip + .Lassign_α_483_0]
+                        .section         .rodata
+.Lassign_α_483_1_s:     .string          "snobol4/json/json-match.sno"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rcx, [rip + .Lassign_α_483_1_s]
+                        mov              r8, 26
+                        mov              r9, 10
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             comm_var@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              r11
+                        pop              r10
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+                        pop              rax
+                        pop              rax;                                 jmp   n275_assign_α
+.Lassign_α_483_0:       .quad            .Lassign_α_483_0_s
+.Lassign_α_483_0_s:     .string          "PAT$4$V2"
+                        .size            n274_assign_bx, .-n274_assign_bx
                         .type            n275_assign_bx, @function
 n275_assign_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4664,7 +4664,7 @@ n276_lit_string_α:      sub              rsp, 16
                         mov              rax, qword ptr [rip + .Llit_string_α_485_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n277_lit_string_α
 n276_lit_string_β:      mov              r11, 179
-                        add              rsp, 16;                             jmp   n274_var_β
+                        add              rsp, 16;                             jmp   n271_var_β
 .Llit_string_α_485_0:   .quad            .Llit_string_α_485_0_s
 .Llit_string_α_485_0_s: .string          "PAT$4"
                         .size            n276_lit_string_bx, .-n276_lit_string_bx
