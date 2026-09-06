@@ -8086,3 +8086,15 @@ procedure warn(a[])
    errors +:= 1;
    return;
 end
+#------------------------------------------------------- 809 procedure_write_203
+procedure main()
+  if not(1<2) then write("BUG") else write("done1");
+  if not(2<1) then write("done2") else write("BUG");
+end
+#------------------------------------------------------- 810 procedure_write_204
+procedure main()
+  local x;
+  write(if /x then "isnull-ok" else "BUG");
+  x := 5;
+  write(if /x then "BUG" else "notnull-ok");
+end

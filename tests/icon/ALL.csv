@@ -807,3 +807,5 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,write,writes,read,reads,find,m
 806,procedure_every_scan_replace_6,rung36_all__rung36_jcon_mffsol,rung36_all,block,0,116,"m3,m4",1,1,1,0,0,0,1,1,1,0,1,1,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,1,1,1,1,0,0,0,0,0,1,0,0,1,1,1,1,0,1,1,0,1,0,1,0,1,1
 807,procedure_every_scan_replace_4,rung36_all__rung36_jcon_endetab,rung36_all,block,0,150,"m3,m4",1,1,1,0,0,0,1,1,0,0,1,1,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,1,1,0,0,1,0,0,0,0,1,1,0,0,1,1,1,1,1,1,0,1,0,1,0,1,1
 808,procedure_record_scan_replace_2,rung36_all__rung36_jcon_htprep,rung36_all,block,0,318,"m3,m4",1,1,1,0,0,0,1,1,1,1,1,1,0,1,0,0,0,1,1,1,1,0,0,0,0,1,0,0,1,1,0,0,0,0,1,1,1,0,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,1,0
+809,procedure_write_203,ladder__rung07_control_not_fails,ladder,block,0,4,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+810,procedure_write_204,ladder__rung34_null_test_real_null_succeeds,ladder,block,0,6,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
