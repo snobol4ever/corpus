@@ -1143,10 +1143,7 @@ n75_disjunction_α:      mov              r11, 46
 .Ldisjunction_γ_75_as:  mov              r11, 46
                         mov              eax, dword ptr [rsp + 1104]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_178_0
-                        mov              rax, qword ptr [rsp + 1120]
-                        mov              qword ptr [rsp + 1088], rax
-                        mov              rax, qword ptr [rsp + 1128]
-                        mov              qword ptr [rsp + 1096], rax;         jmp   n76_conjunction_α
+                                                                              jmp   n76_conjunction_α
 .Ldisjunction_α_178_0:                                                        jmp   n76_conjunction_α
 n75_disjunction_β:      mov              r11, 46
                         mov              eax, dword ptr [rsp + 1104];         jmp   n56_var_α

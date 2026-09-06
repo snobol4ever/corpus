@@ -3768,10 +3768,7 @@ n00113_disjunction_α:     mov              r11, 179
 .Ldisjunction_γ_397_as: mov              r11, 179
                         mov              eax, dword ptr [rsp + 2256]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_524_0
-                        mov              rax, qword ptr [rsp + 2288]
-                        mov              qword ptr [rsp + 2240], rax
-                        mov              rax, qword ptr [rsp + 2296]
-                        mov              qword ptr [rsp + 2248], rax;         jmp   n00115_lit_integer_α
+                                                                              jmp   n00115_lit_integer_α
 .Ldisjunction_α_524_0:                                                        jmp   n00115_lit_integer_α
 n00113_disjunction_β:     mov              r11, 179
                         mov              eax, dword ptr [rsp + 2256];         jmp   n00115_lit_integer_α

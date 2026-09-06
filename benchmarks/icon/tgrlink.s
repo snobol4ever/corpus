@@ -150,10 +150,7 @@ n4_disjunction_α:       mov              r11, 5
                         mov              rax, qword ptr [rsp + 1336]
                         mov              qword ptr [rsp + 1304], rax;         jmp   n5_assign_α
 .Ldisjunction_α_89_0:   cmp              eax, 1;                              jne   .Ldisjunction_α_89_1
-                        mov              rax, qword ptr [rsp + 1392]
-                        mov              qword ptr [rsp + 1296], rax
-                        mov              rax, qword ptr [rsp + 1400]
-                        mov              qword ptr [rsp + 1304], rax;         jmp   n5_assign_α
+                                                                              jmp   n5_assign_α
 .Ldisjunction_α_89_1:                                                         jmp   n5_assign_α
 n4_disjunction_β:       mov              r11, 5
                         mov              eax, dword ptr [rsp + 1312]
@@ -17245,10 +17242,7 @@ n00759_disjunction_α:    mov              r11, 838
                         mov              r11, 838
                         mov              eax, dword ptr [rsp + 2256]
                         cmp              eax, 0;                              jne   .Ldisjunction_α_2185_0
-                        mov              rax, qword ptr [rsp + 2288]
-                        mov              qword ptr [rsp + 2240], rax
-                        mov              rax, qword ptr [rsp + 2296]
-                        mov              qword ptr [rsp + 2248], rax;         jmp   n00761_lit_integer_α
+                                                                              jmp   n00761_lit_integer_α
 .Ldisjunction_α_2185_0:                                                       jmp   n00761_lit_integer_α
 n00759_disjunction_β:    mov              r11, 838
                         mov              eax, dword ptr [rsp + 2256];         jmp   n00761_lit_integer_α
