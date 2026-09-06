@@ -24,6 +24,9 @@ epsilon
 *----------------------------------------- 1508 span_break_trim_replace_branch_1
 it's a well-known fact that the quick brown fox
 jumped over the lazy dog
+*----------------------------------------- 1509 span_break_trim_replace_branch_2
+The quick brown fox jumps over the lazy dog.
+It's a well-known pangram, used since 1885.
 *------------------------------------------ 1662 arb_span_break_replace_branch_2
 1769  Watt : Steam Engine
 1876  Bell : Telephone
