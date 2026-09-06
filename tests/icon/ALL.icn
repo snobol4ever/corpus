@@ -8141,3 +8141,55 @@ procedure main()
   s := "foo" || "bar";
   s ? write(tab(3));
 end
+#------------------------------------------------------- 818 procedure_write_212
+procedure main()
+  local s;
+  s := "abc123";
+  s ? (tab(many(&letters)) & write(&pos));
+end
+#------------------------------------------------------- 819 procedure_write_213
+procedure isEven(x)
+  return x % 2 = 0;
+end
+procedure main()
+  local i;
+  every i := 1 to 6 do
+    if not isEven(i) then write(i);
+end
+#------------------------------------------------------- 820 procedure_write_214
+procedure main()
+  local s;
+  s := "hello world";
+  s ? (tab(find("world")) & write(move(5)) & write(&pos));
+end
+#------------------------------------------------------- 821 procedure_write_215
+procedure main()
+  local i;
+  i := 0;
+  until not (i < 5) do {
+    write(i);
+    i +:= 1
+  };
+end
+#------------------------------------------------------- 822 procedure_write_216
+procedure main()
+  local sum;
+  sum := 0;
+  every sum +:= ((1 to 6) > 3);
+  write(sum);
+end
+#------------------------------------------------------- 823 procedure_write_217
+procedure main()
+  local s, result;
+  s := "ab" || "cd";
+  result := "";
+  every result ||:= !s;
+  write(result);
+end
+#------------------------------------------------------- 824 procedure_write_218
+procedure main()
+  local a, b;
+  a := "foo" || "bar";
+  b := "foobar";
+  if a == b then write(*a);
+end
