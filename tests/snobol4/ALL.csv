@@ -1886,6 +1886,6 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1885,arbno_fence_pos_branch_22,probe_passthru__ptw_min_arbno_alt_fence_L1,probe_passthru,block,1,5,UNKNOWN,1,0,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
 1886,arbno_span_break_replace_branch_1,probe_fuzz__fz_hang_11,probe_fuzz,block,1,7,UNKNOWN,0,0,1,1,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,1,0,1,0
 1887,arbno_span_tab_replace_branch_1,probe_fuzz__fz_segv_02,probe_fuzz,block,1,7,UNKNOWN,0,0,1,1,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
-1888,arbno_fence_bal_replace_branch_2,probe_fuzz__fz_segv_03,probe_fuzz,block,1,9,UNKNOWN,1,0,1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,1,0,1,0
+1888,arbno_fence_bal_replace_branch_2,probe_fuzz__fz_segv_03,probe_fuzz,block,0,9,UNKNOWN,1,0,1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,1,0,1,0
 1889,arbno_fence_span_replace_branch_2,probe_fuzz__fz_min_nested_alt_red,probe_fuzz,block,1,9,UNKNOWN,1,0,1,0,1,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
 1890,user_function_eval_span_replace_branch_1,probe_m3m4div__alpha_scan_pollution,probe_m3m4div,block,0,375,UNKNOWN,0,0,0,1,1,0,0,0,1,0,1,0,0,0,0,1,0,1,0,1,0,0,0,0,1,0,0,0,0,0,1,1,1,1,1,0,0,0,0
