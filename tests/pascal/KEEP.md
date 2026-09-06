@@ -3,7 +3,7 @@
 `corpus_suite_harness.py convert-blocks` requires every entry's ORIGINAL file to be green (PASS)
 on both m3 and m4 before it will convert it — this is deliberate, matching the SNOBOL4-side
 `convert` path exactly (byte-equal-or-no-delete cannot prove anything about a file that is not
-green to begin with). 58 files stay loose for that reason, in three categories:
+green to begin with).
 
 ## 1. Stdin-bearing tests (5 files: read1-4, pb35)
 
@@ -24,89 +24,42 @@ never silently absorbed, matching this ruling exactly. `pb35` was added to this 
 missing `.in` and the wrong `.ref` are fixed (corpus `979c8a006`). Worth re-sweeping by content, not name, if
 this list is ever revisited — a filename-based assumption is exactly what missed `pb35` the first time.
 
-## 2. Intermittent SIGSEGV under m4 — ✅ NOW ROWED as `pascal-m4-intermittent-segv-layout-sensitive` (hq_C 2026-08-28); the set is LARGER than 2
+## 2. RESOLVED — the intermittent-SIGSEGV and pre-existing-failure sets (54 files, formerly §2/§3 here)
 
-⛔ **This section read "NEW finding, not yet rowed" for a full day.** seat02's write-up below was correct and complete; what was missing was a queue row. **"Not yet rowed" in a KEEP.md is a note to nobody** — this file is read by whoever next edits this directory, the queue is read by the picker. Rowed now.
+✅ **Both blockers this section used to cite are landed, and a fresh re-check (seat02, 2026-09-06,
+FLEET-12, row `pascal-every-non-package-source-that-runs-with-output-absorbed-into-the-master-with-
+oracle-refs`) confirms every file this section used to name is green on m3 AND m4 against its existing,
+already oracle-confirmed `.ref` (two full passes, plus 30 repeat runs apiece for the two former
+intermittent-SIGSEGV witnesses — 0 failures).** Absorbed into the master this session (see git log /
+this row's task LEDGER for the commit). Nothing named here stays loose for either reason any more:
 
-⭐ **UPDATED CENSUS (hq_C 2026-08-28, measured):** the witnesses are **`pb30`, `boolmix`, `boolchain`** — `boolmix` and `boolchain` are NEW since seat02's pass. `sieve` passed 3/3 in that sample, which is **low crash probability, not evidence of a fix**. `test_gate_pascal_m4.sh` itself reports a different number every run (PASS=142/143/144/145/144 over five consecutive runs, unchanged tree and binary), so **no single-run Pascal m4 figure is trustworthy**. All 17 suite families stay constant at 96/0 — the instability is entirely in the loose set.
+- The **intermittent-SIGSEGV-under-m4** set (`pascal-m4-intermittent-segv-pb30-sieve`, tracked as
+  `pascal-m4-intermittent-segv-layout-sensitive`) was bisected and cured at SCRIP `8ebf6535`
+  (2026-08-29; `bb_binop_relop_val.cpp` gates the ZD arm on `op_node_kind` instead of taking a
+  branch-and-bail exit on a value-producing relop) — see `FINDING-2026-09-03-seat10-pascal-m4-
+  intermittent-segv-pb30-sieve-bisected-to-8ebf6535-cured.md` (380/380 clean runs across three
+  independent sessions post-cure, precise single-commit bisection against a positive control).
+- The **pre-existing-failures / `pascal-restore-prezeta` territory** set closed DONE 2026-08-30
+  (`QUEUE.done.tsv`) — the ζ-window regression-restoration work this section deferred to has landed.
 
-⛔ **`-no-pie` IS NOT THE CURE.** Identical `.o` linked both ways, 12 runs each: `boolmix` 12/12 PIE vs 9/12 no-PIE; `boolchain` 6/12 vs 2/12; `pb30` 1/12 vs 1/12. **Both modes are non-deterministic** — the flag shifts the probability and eliminates it for none. Linking `-no-pie` would make the gate flake less often, which is strictly worse than flaking visibly. See `FINDING-2026-08-28-hq_C-the-pascal-m4-gate-cannot-measure-it-reports-a-different-number-every-run.md`.
+If a regression ever reopens one of these, re-add it here **by bare stem, without a `.pas` suffix** —
+the builder's KEEP.md matcher keys on the literal `<stem>.pas`/`<stem>.ref`-shaped token, so a
+`.pas`-suffixed mention anywhere in this file is a real, load-bearing exclusion, not decoration.
 
-### seat02's original finding (2026-08-27), unchanged
-
-Discovered during this conversion pass: both `pb30.pas` and `sieve.pas` are reported green by a
-single m3/m4 run, but a tight repeat loop (5x, same compiled binary, `SCRIP` unchanged) showed
-**genuine non-determinism** — `pb30`: PASS,PASS,PASS,SIGSEGV,SIGSEGV; `sieve`: PASS,SIGSEGV,
-SIGSEGV,PASS,PASS. Not a conversion artifact — reproduced directly against the standalone files.
-Distinct from the already-tracked `pascal-m4-registered-dispatch-segv` (that row's witness,
-`arrparam.pas`, crashes on the FIRST call deterministically; this is intermittent on unrelated
-programs). See `FINDING-2026-08-27-seat02-pascal-m4-intermittent-segv-pb30-sieve.md`. Left loose
-rather than force a lucky green run into the suite, which would just hide the flakiness inside a
-regression-guard file instead of surfacing it.
-
-## 3. Pre-existing failures — `pascal-restore-prezeta` territory (52 files)
-
-Not green today on m3 and/or m4 (measured fresh, `tests-consolidate-pascal` session,
-2026-08-27): `aa6.pas`, `aggloc2.pas`, `alias.pas`, `arr2dtype.pas`, `arr2dtype3.pas`,
-`arrparam.pas`, `boolarg.pas`, `boolassign.pas`, `boolchain.pas`, `boolidx.pas`, `boolmix.pas`,
-`boolnot.pas`, `boolptr.pas`, `char3.pas`, `deep5.pas`, `downto1.pas`, `downto2.pas`,
-`enum2.pas`, `flatnoarg.pas`, `forward1.pas`, `goto2.pas`, `matmul.pas`, `nest2.pas`,
-`nestcount.pas`, `nested.pas`, `nested_vp_writeback.pas`, `nestfunc.pas`, `nestrec.pas`,
-`nestshadow.pas`, `nestvar.pas`, `nestvar2.pas`, `nestvar3.pas`, `patchtable.pas`, `pb31.pas`,
-`pb32.pas`, `pb33.pas`, `pb34.pas`, `pb35.pas`, `pb37.pas`, `pb40.pas`,
-`rec_local_collision.pas`, `recursion.pas`, `swap.pas`, `varframe.pas`, `varmix.pas`,
-`varparam.pas`, `vartrans.pas`, `vparam_field_then_whole.pas`, `vparam_field_write.pas`,
-`vparr.pas`, `vpfld.pas`, `withfwd1.pas`.
-
-These are exactly `pascal-restore-prezeta`'s territory (the ζ-window regression-restoration row),
-not this row's to fix. Consolidating them into a suite before that row's bisect starts would
-require either faking a conversion around a non-green original (defeats byte-equal-or-no-delete)
-or teaching the harness to convert non-green entries (a real behavior change to shared,
-load-bearing tooling, out of scope for a consolidation pass). **Convert these once
-`pascal-restore-prezeta` lands** — per this project's own sequencing interlock ("Pascal converts
-either before this bisect starts or after it lands, never during"), converting them now, mid a
-not-yet-started bisect, would also be the wrong order for that row's own STEP 2 denominator.
-
-## 4. FPC-oracle regen exceptions (2 files: pb37, read3) — row `pascal-refs-regen-from-fpc-oracle`
+## 3. FPC-oracle regen exceptions (read3; pb37 no longer exempted here)
 
 hq_C ruled (2026-08-28) `fpc -Miso` as the correctness oracle and default integer field width
-moves 10→11 to match it (one constant, `src/runtime/by_name_dispatch.c`'s `__pas_write`/
-`__pas_writeln` handler). All 56 other loose pairs regenerated clean against `fpc -Miso` output
-(measured this session: 51 whitespace-only + 5 already-identical, zero value disagreements —
-refuting the ruling's own estimate of "4 substantive diffs", which traces to its dry run not
-feeding the four stdin-bearing tests their `.in` files). These two `fpc -Miso` cannot produce a
-ground truth for, so their `.ref` stays the pre-existing, SCRIP-computed value (unaffected by the
-width move — neither prints a plain unspecified-width integer that a width bump would touch):
+moves 10→11 to match it. `read3`'s `.ref` cannot be regenerated from that oracle (FPC's ISO-mode
+`eof`/numeric-`read` rejects the corpus's input where SCRIP accepts it) and stays the pre-existing
+SCRIP-computed value; `read3` is loose regardless, permanently, via §1 (stdin). The former enum-write
+exception for `pb37` (and `pb36`, already inside the master) is SETTLED, not merely exempted — full
+ruling in `.github/ARCH-LANGUAGES.md` § PASCAL: ISO 7185 forbids `writeln(<enum>)` outright, so
+`writeln(<enum>)` is a SCRIP extension beyond the standard rather than an oracle gap, and both are
+`ISO-EXTENSION` witnesses with permanent SCRIP-self-derived refs — not a reason to keep either loose.
+Full detail (including the exact FPC failure text) lives in ARCH-LANGUAGES.md, not duplicated here.
 
-- **`pb37.pas`** — `fpc -Miso pb37.pas` fails to compile: `Fatal: Unknown compilerproc
-  "fpc_write_text_enum_iso"`. FPC's ISO-mode runtime library is missing the support routine for
-  `writeln` on an enum value directly (`writeln(chartp[ch])` where `chartp: array[char] of chtp`).
-  ✅ **SETTLED (seat10, row `pascal-writeln-enum-iso-conformance-unresolved`, 2026-09-03; full ruling
-  + citation in `.github/ARCH-LANGUAGES.md` § PASCAL):** this is **not** "a real gap in a legitimate
-  ISO feature's RTL" — ISO 7185 does not permit writing an enumerated value directly at all (Moore's
-  Rules of ISO 7185, <https://standardpascal.org/iso7185rules.html>: only integer/real/boolean/string
-  are listed as text-file-writable; corroborated by the ISO acceptance test itself, which writes every
-  enum as `ord(e):1`, never `writeln(e)` — `iso7185pat.pas:559,562,570`). `writeln(<enum>)` is a
-  **SCRIP extension beyond the standard**, not a defect — `pb36`/`pb37` are re-marked
-  `ISO-EXTENSION`, their SCRIP-self-derived refs are the correct, permanent provenance (no ISO oracle
-  can grade a construct outside its own conformance mode), and `fpc -Miso`'s crash here is fpc's own
-  incomplete handling of that extension under strict mode, not evidence about ISO 7185's text either way.
-- **`read3.pas`** — compiles, but crashes at runtime: `Runtime error 106` (invalid numeric
-  format) inside the `while not eof do read(i)` loop reading `read3.in` ("1 2 3 4 5\n"). FPC's
-  ISO-mode `eof`/numeric-`read` is strict about the trailing newline after the last token in a
-  way SCRIP's implementation is not; SCRIP's own answer (15, the correct sum) stays the ref.
-  Reproduced directly (`fpc -Miso read3.pas && printf '1 2 3 4 5\n' | ./read3` → `Runtime error
-  106`), not a dry-run artifact.
-
-## 5. Suite-entry ref provenance — see `crosscheck/PROVENANCE.md`
+## 4. Suite-entry ref provenance — see `crosscheck/PROVENANCE.md`
 
 The 96 blocks in `crosscheck/` are not all oracle-derived: **91 are, 4 are `ISO-DELEGATED-SCRIP-DEFAULT`
 (real-number formatting, ruled by Lon via CEO-72/CEO-74 2026-08-28), and 1 (`pb:1 pb36`) has no oracle at all.**
 Full provenance, sources and the measured audit: `crosscheck/PROVENANCE.md`.
-
-✅ **§4 above's `pb37`/`pb36` enum-write characterization is now SOURCED and SETTLED (seat10, 2026-09-03,
-row `pascal-writeln-enum-iso-conformance-unresolved`, citation in `.github/ARCH-LANGUAGES.md` § PASCAL):**
-ISO 7185 forbids `writeln(<enum>)`, SCRIP's support for it is a non-standard extension, and `pb37`/`pb36`
-are `ISO-EXTENSION` witnesses with permanent SCRIP-self-derived refs, not oracle-pending ones — see
-`crosscheck/PROVENANCE.md`.
-
