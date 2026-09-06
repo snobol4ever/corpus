@@ -1,1 +1,15 @@
-runs to completion (rc=0) but stdout does not match .expected. Not further diagnosed.
+UPDATE 2026-09-06 (seat06): stale in the dangerous direction -- this text (and the still-open
+`icon-jcon-sorting-randval-undefined-function-error` task file, now hq_I's row) both said/implied rc=0
+or blamed `randval()`'s case-arms; actual behavior is rc=1, `(0) : ERROR 022 -- Undefined function
+called`, and `randval()` is NOT involved at all. Bisected by running each of `main()`'s five called
+procedures in isolation (`listtest`, `rectest`, `tbltest`, `copytest`, `messtest`): `listtest()` --
+the ONLY one that calls `randval()` -- runs clean to completion by itself (all 14 iterations, rc=0).
+The real failures are TWO SEPARATE, now-diagnosed builtin gaps, both first hit inside `rectest()`:
+(1) `sort()` has no case for a bare RECORD argument (`sort(r1(12))` etc.) though real icont defines one
+(sorts the record's field values, returns them as a list) -- rowed
+`icon-sort-builtin-does-not-handle-a-bare-record-argument` (rank 2, hq_B). `copytest()` hits the same gap
+via `sort(R1)`/`sort(R2)`. (2) `messtest()` separately hits `sortf()` crashing/misordering on a list
+mixing record and non-record elements -- rowed `icon-sortf-crashes-on-mixed-record-and-scalar-lists`
+(rank 1, hq_B, confirmed SEGV on one shape). Both DONE-WHENs exercised red before trusting. The task
+file's own GOAL/NEXT still describes the old (wrong) `randval()`/case-arm hypothesis as of this writing --
+cross-posted this correction to its LEDGER rather than editing another lane's row unilaterally.

@@ -1,12 +1,14 @@
-UPDATE 2026-09-05 (seat03): marker text corrected AND likely-classified. Actual current behavior:
-SCRIP exits rc=1 with `(0) : ERROR 022 -- Undefined function called` (repeated twice, "in statement 0" both
-times) -- NOT a benign rc=1/output-mismatch as the old text implied; nothing else runs. ⚠️ LIKELY (not
-independently confirmed this session -- flagging by strong circumstantial match, not a traced repro) a
-THIRD witness of `icon-jcon-sorting-randval-undefined-function-error`'s class: the upstream twin
-(`corpus/packages/icon/jcon_tests/image.icn`) defines `procedure dump(x)` at line 62, the SAME procedure
-NAME already confirmed as one of `rung36_jcon_recent.icn`'s two forward-referenced ERROR-022 triggers
-(that row's own LEDGER: "via forward-referenced procedures dump()/same()"). If `image.icn`'s `main` (line
-8) calls `dump` before line 62 the same way `recent.icn`'s did, this is the same mechanism, not a new one --
-but the call site itself was not traced this session, so treat the match as a strong lead, not a proof.
-Whoever roots this out should check both `image.icn` and `recent.icn`'s `dump` call sites together; if
-confirmed, add `image` as a witness on the existing row rather than minting a new one.
+UPDATE 2026-09-06 (seat06): the "likely third witness of the sorting/randval class" lead in seat03's
+2026-09-05 note below is REFUTED -- bisected with SCRIP_DEBUG_APPLY=1 to the exact call, and `dump(x)`'s
+forward-reference has nothing to do with it: `dump`'s BODY calls Icon's `serial(x)` builtin, and SCRIP's
+diagnostic says plainly `[call-err5] unresolved 'serial' (ufname='serial', nargs=1)` -- `serial()` is
+simply not implemented in SCRIP at all (any argument, any context, confirmed in total isolation). This is
+a THIRD, UNRELATED mechanism from both `sorting.icn` and `recent.icn`'s real causes (see their own marker
+updates, same date) -- all three merely SHARE the generic "(0) : ERROR 022 -- Undefined function called"
+surface message, which is exactly why they looked like one class before anyone traced the actual call.
+Rowed as `icon-serial-builtin-is-entirely-unimplemented` (rank 2, hq_B, DONE-WHEN exercised red before
+trusting).
+UPDATE 2026-09-05 (seat03), KEPT FOR THE RECORD, mechanism corrected above: marker text corrected AND
+likely-classified. Actual current behavior: SCRIP exits rc=1 with `(0) : ERROR 022 -- Undefined function
+called` (repeated twice, "in statement 0" both times) -- NOT a benign rc=1/output-mismatch as the old text
+implied; nothing else runs.
