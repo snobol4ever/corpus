@@ -7900,3 +7900,107 @@ procedure main()
   write(char(65));
   write(char(ord("Z")));
 end
+#------------------------------------ 784 ladder_rung41_rt_open_close_write_file
+procedure main()
+  local f, g, s;
+  f := open("/tmp/s05_r41_openclose.txt", "wc");
+  write(f, "hello file");
+  close(f);
+  g := open("/tmp/s05_r41_openclose.txt", "r");
+  s := read(g);
+  write(s);
+  close(g);
+  remove("/tmp/s05_r41_openclose.txt");
+end
+#------------------------------------- 785 ladder_rung41_rt_read_reads_from_file
+procedure main()
+  local f, g;
+  f := open("/tmp/s05_r41_readreads.txt", "wc");
+  write(f, "abcdefgh");
+  close(f);
+  g := open("/tmp/s05_r41_readreads.txt", "r");
+  write(reads(g, 3));
+  write(reads(g, 3));
+  write(read(g) | "eof");
+  close(g);
+  remove("/tmp/s05_r41_readreads.txt");
+end
+#---------------------------------------- 786 ladder_rung41_rt_writes_no_newline
+procedure main()
+  writes("a");
+  writes("b");
+  write("c");
+end
+#----------------------------------------- 787 ladder_rung41_rt_flush_seek_where
+procedure main()
+  local f;
+  f := open("/tmp/s05_r41_seek.txt", "wc");
+  writes(f, "0123456789");
+  flush(f);
+  write(where(f));
+  seek(f, 1);
+  writes(f, "X");
+  close(f);
+  f := open("/tmp/s05_r41_seek.txt", "r");
+  write(reads(f, 10));
+  close(f);
+  remove("/tmp/s05_r41_seek.txt");
+end
+#---------------------------------------------- 788 ladder_rung41_rt_remove_file
+procedure main()
+  local f;
+  f := open("/tmp/s05_r41_remove.txt", "wc");
+  close(f);
+  write(remove("/tmp/s05_r41_remove.txt"));
+  write(if open("/tmp/s05_r41_remove.txt", "r") then "still-there" else "gone");
+end
+#--------------------------------------------- 789 ladder_rung41_rt_chdir_getenv
+procedure main()
+  write(if chdir("/tmp") then "chdir-ok" else "chdir-fail");
+  write(if chdir("/no/such/dir/s05r41") then "chdir-ok" else "chdir-fail");
+  write(if getenv("PATH") then "has-path" else "no-path");
+  write(if getenv("S05_R41_DEFINITELY_UNSET_XYZ") then "set" else "unset");
+end
+#----------------------------------------- 790 ladder_rung41_rt_system_exit_stop
+procedure main()
+  write(system("true"));
+  exit(42);
+end
+#---------------------------------------------------- 791 ladder_rung41_rt_delay
+procedure main()
+  delay(1);
+  write("after-delay");
+end
+#--------------------------------------------------- 792 ladder_rung41_rt_runerr
+procedure main()
+  write("before");
+  runerr(205, "bogus");
+end
+#------------------------------------------ 793 ladder_rung41_rt_collect_display
+procedure main()
+  write(type(collect()));
+end
+#--------------------------------------------------- 794 ladder_rung41_rt_serial
+procedure main()
+  write(type(serial([1,2,3])));
+end
+#----------------------------------------------- 795 ladder_rung41_rt_errorclear
+procedure main()
+  &error := 1;
+  1 + "abc";
+  write("num1=", &errornumber);
+  errorclear();
+  write("num2=", &errornumber | "FAILED");
+end
+#----------------------------------------- 796 ladder_rung41_rt_loadfunc_refusal
+procedure main()
+  write("calling");
+  loadfunc("/no/such/lib.so", "nofunc");
+  write("unreached");
+end
+#-------------------------------- 797 ladder_rung41_rt_getch_getche_kbhit_on_eof
+procedure main()
+  write(if getch() then "got" else "eof-fail");
+  write(if getche() then "got" else "eof-fail");
+  write(if kbhit() then "avail" else "none");
+end

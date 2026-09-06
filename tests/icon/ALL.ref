@@ -5458,3 +5458,41 @@ hello
 65
 A
 Z
+#------------------------------------ 784 ladder_rung41_rt_open_close_write_file
+hello file
+#------------------------------------- 785 ladder_rung41_rt_read_reads_from_file
+abc
+def
+gh
+#---------------------------------------- 786 ladder_rung41_rt_writes_no_newline
+abc
+#----------------------------------------- 787 ladder_rung41_rt_flush_seek_where
+11
+X123456789
+#---------------------------------------------- 788 ladder_rung41_rt_remove_file
+
+gone
+#--------------------------------------------- 789 ladder_rung41_rt_chdir_getenv
+chdir-ok
+chdir-fail
+has-path
+unset
+#----------------------------------------- 790 ladder_rung41_rt_system_exit_stop
+0
+#---------------------------------------------------- 791 ladder_rung41_rt_delay
+after-delay
+#--------------------------------------------------- 792 ladder_rung41_rt_runerr
+before
+#------------------------------------------ 793 ladder_rung41_rt_collect_display
+null
+#--------------------------------------------------- 794 ladder_rung41_rt_serial
+integer
+#----------------------------------------------- 795 ladder_rung41_rt_errorclear
+num1=102
+num2=FAILED
+#----------------------------------------- 796 ladder_rung41_rt_loadfunc_refusal
+calling
+#-------------------------------- 797 ladder_rung41_rt_getch_getche_kbhit_on_eof
+eof-fail
+eof-fail
+avail
