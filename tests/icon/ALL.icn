@@ -1156,15 +1156,15 @@ procedure main()
 end
 #------------------------------------------------ 260 ladder_rung36_sets_refusal
 procedure main()
-  write("before");
+  &error := 1;
   insert(3, 1);
-  write("after");
+  write("num=", &errornumber, " text=", &errortext);
 end
 #------------------------------------------------- 261 ladder_rung37_bal_refusal
 procedure main()
-  write("before");
+  &error := 1;
   write(bal([1,2,3]));
-  write("after");
+  write("num=", &errornumber, " text=", &errortext);
 end
 #--------------------------------------------------- 262 procedure_case_write_13
 procedure main()
@@ -1887,57 +1887,57 @@ procedure main()
 end
 #---------------------------------------- 378 ladder_rung06_cset_scan_refuse_any
 procedure main()
-  write("before");
+  &error := 1;
   "abc" ? any([1,2]);
-  write("after");
+  write("num=", &errornumber, " text=", &errortext);
 end
 #--------------------------------------- 379 ladder_rung06_cset_scan_refuse_many
 procedure main()
-  write("before");
+  &error := 1;
   "abc" ? many([1,2]);
-  write("after");
+  write("num=", &errornumber, " text=", &errortext);
 end
 #--------------------------------------- 380 ladder_rung06_cset_scan_refuse_upto
 procedure main()
-  write("before");
+  &error := 1;
   "abc" ? upto([1,2]);
-  write("after");
+  write("num=", &errornumber, " text=", &errortext);
 end
 #-------------------------------- 381 ladder_rung08_strbuiltins_scan_refuse_find
 procedure main()
-  write("before");
+  &error := 1;
   "abc" ? find([1,2]);
-  write("after");
+  write("num=", &errornumber, " text=", &errortext);
 end
 #------------------------------- 382 ladder_rung08_strbuiltins_scan_refuse_match
 procedure main()
-  write("before");
+  &error := 1;
   "abc" ? match([1,2]);
-  write("after");
+  write("num=", &errornumber, " text=", &errortext);
 end
 #-------------------------------- 383 ladder_rung08_strbuiltins_scan_refuse_move
 procedure main()
-  write("before");
+  &error := 1;
   "abc" ? move([1,2]);
-  write("after");
+  write("num=", &errornumber, " text=", &errortext);
 end
 #-------------------------------------- 384 ladder_rung14_limit_limit_refuse_neg
 procedure main()
-  write("before");
+  &error := 1;
   every write((1 to 5) \ -1);
-  write("after");
+  write("num=", &errornumber, " text=", &errortext);
 end
 #------------------------------------- 385 ladder_rung14_limit_limit_refuse_type
 procedure main()
-  write("before");
+  &error := 1;
   every write((1 to 5) \ "x");
-  write("after");
+  write("num=", &errornumber, " text=", &errortext);
 end
 #--------------------------------------------- 386 ladder_rung37_bal_scan_refuse
 procedure main()
-  write("before");
+  &error := 1;
   "a(b)" ? bal([1,2]);
-  write("after");
+  write("num=", &errornumber, " text=", &errortext);
 end
 #----------------------------------------------------- 387 procedure_every_to_40
 # rung02 t04: nested generators + relational filter
@@ -2989,9 +2989,9 @@ procedure main()
 end
 #--------------------------------- 530 ladder_rung08_strbuiltins_scan_refuse_tab
 procedure main()
-  write("before");
+  &error := 1;
   "abc" ? tab([1,2]);
-  write("after");
+  write("num=", &errornumber, " text=", &errortext);
 end
 #------------------------------------------------------ 531 procedure_scan_alt_1
 # rung08 t03: match(s) — match at current scan pos
@@ -7994,9 +7994,9 @@ procedure main()
 end
 #----------------------------------------- 796 ladder_rung41_rt_loadfunc_refusal
 procedure main()
-  write("calling");
+  &error := 1;
   loadfunc("/no/such/lib.so", "nofunc");
-  write("unreached");
+  write("num=", &errornumber, " text=", &errortext);
 end
 #-------------------------------- 797 ladder_rung41_rt_getch_getche_kbhit_on_eof
 procedure main()
