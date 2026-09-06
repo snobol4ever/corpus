@@ -1,1 +1,21 @@
-next inside line?{} doesn't restart enclosing while loop — pre-existing control-flow issue (next/break propagation through scan body).
+UPDATE 2026-09-05 (seat06): PRIOR HYPOTHESIS REFUTED WITH DIRECT EVIDENCE -- "next inside line?{} doesn't
+restart enclosing while loop" (2026-08-30/09-03 note) is WRONG: SCRIP's output and .expected are the exact
+same 62-line multiset (verified via `sort`+`diff`, exit 0), only reordered -- a hypothesis predicting
+missing/duplicated entries cannot explain a pure permutation of identical lines.
+REAL MECHANISM, confirmed this session by instrumenting a SCRATCH COPY of the upstream twin
+(corpus/packages/icon/jcon_tests/profsum.icn, not the checked-in test) to dump `!ptab`'s iteration order
+right before the `sortf(l, 5)` call: real icont and SCRIP produce the IDENTICAL 61-element multiset of
+table entries but in COMPLETELY DIFFERENT iteration order (verified side by side, not inferred -- see
+LEDGER). Icon `!table` order depends on each implementation's own internal hashing, which is well-
+established Icon knowledge but NOT independently re-confirmed against a written spec this session (searched
+refs/icon-master's doc/ tree and found no explicit statement either way -- flagging the gap rather than
+asserting more than was checked). A subsequent `sortf()` on a tied field is CONFIRMED STABLE AND CORRECT
+against real icont (isolated 5-element record witness, ties preserve relative order identically on both
+sides) -- so both the table contents and the sort are right on both sides; only the pre-sort order (an
+implementation's own hash layout, not a language-guaranteed property) differs, and a stable sort preserves
+whichever pre-sort order it was given.
+POLICY QUESTION for hq_B, not decided unilaterally (same shape as the struct/fncs allocator-serial class,
+FINDING-2026-09-04-hq_B-the-24-icon-jcon-markers-...): is hash-order-dependent output the SAME
+"non-reproducible implementation detail, don't re-cut, don't chase as a SCRIP defect" class as struct/fncs,
+or does this one warrant a different disposition? Asked hq_B: q-profsum-table-iteration-order-is-
+implementation-defined-like-struct-fncs.

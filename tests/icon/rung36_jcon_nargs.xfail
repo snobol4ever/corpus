@@ -1,13 +1,10 @@
-UPDATE 2026-09-05 (seat03): ablated (fresh oracle vs SCRIP, first divergence only, not fully root-caused).
-FIRST DIVERGENCE: SCRIP reports NEGATIVE argument counts for built-in functions where real icont/iconx
-reports positive ones -- ` -1 acos` vs `  1 acos`, ` -2 any` vs `  4 any`, ` -1 asin` vs ... (pattern
-continues). This is a NEW, deterministic, reproducible divergence in the nargs-per-builtin count itself --
-NOT (at this first divergence) the previously-flagged non-reproducible-value issue
-(`FINDING-2026-09-04-hq_B-...`: "nargs a file-descriptor number ( -3 open vs  2 open)"), which if still
-present would show up FURTHER DOWN this same file's output and was not re-checked this session (per "read
-the FIRST divergence, don't batch-assume" -- stopping here rather than assuming the two are the same
-mechanism or that the fd issue is resolved). Untested hypothesis, not chased: Icon's own convention may use
-a negative count to mean "variadic, at least N" for some C-implemented builtins vs a positive exact count
-for others, and SCRIP's sign convention differs from the oracle's -- or SCRIP may simply be reporting the
-count with an inverted sign uniformly. Whoever picks this up should re-derive the fd-non-reproducibility
-question fresh (the row's own law) rather than trust the 2026-09-04 census unchanged.
+UPDATE 2026-09-06 (seat06): ROOT-CAUSED AND ROWED, not just first-divergence classified. 60 of 86 builtins'
+reported arg counts diverge from real icont/iconx (9.5.25a); the wrong-sign-only theory from the prior note
+is INCOMPLETE -- most mismatches are wrong MAGNITUDE too (e.g. `any`/`many`/`match`/`upto`/`find` should be
+4, `bal` should be 6, SCRIP reports a flat -2 for most of these). Full mechanism (three sub-paths, all in
+`by_name_dispatch.c`'s BID_args handler, src/runtime/by_name_dispatch.c:4698-4743) and the complete side-by-
+side evidence are in the new row's own task file, not repeated here. Previously-flagged non-reproducible fd
+question (`open`: SCRIP=2, oracle=-3) is ALSO covered by this same row -- it is not a separate non-
+reproducible-value class, it is the SAME arity-table defect (open should be reported variadic, -3, and
+isn't). Rowed as `icon-args-builtin-arity-table-is-wrong-or-missing-for-most-builtins` (rank 2, hq_B),
+DONE-WHEN exercised red before trusting.

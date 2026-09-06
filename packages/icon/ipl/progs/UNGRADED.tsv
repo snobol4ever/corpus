@@ -5,7 +5,7 @@ adllist.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a s
 adlsort.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 animal.icn	ORACLE_FAIL	needs interactive input this driver's /dev/null stdin cannot supply -- 'Are you thinking of an animal?'
 applyfnc.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** no function specified'
-based.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'Basic Line Editor V1.3 by Tenaglia 910104.1700'
+based.icn	ORACLE_FAIL	CONFIRMED NONDETERMINISTIC (seat07 2026-09-05, source-read): main()'s second write() is `write(&host," ",&dateline,"\n")` -- literally prints the machine hostname and current date/time as its second line of output, every run, unconditionally, before any interactive editing begins. No input can make this stable; same class as when.icn/lister.icn/listviz.icn.
 bfd.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: bfd.icn binsize'
 bj.icn	ORACLE_FAIL	needs a real terminal (termcap/tty), cannot run headless -- "/bin/stty: 'standard input': Inappropriate ioctl for device"
 blnk2tab.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
@@ -20,13 +20,12 @@ compare.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a s
 comply83.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 concord.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 countlst.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-cross.icn	ORACLE_FAIL	rc!=0 with no/minimal diagnostic ('') -- needs individual follow-up
 crypt.icn	ORACLE_FAIL	needs interactive input this driver's /dev/null stdin cannot supply -- 'Enter password:    Enter input file:  Enter output file:'
-csgen.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'no goal specification'
+csgen.icn	NONDETERMINISTIC	CONFIRMED empirically (seat07 2026-09-05): fed a valid grammar via stdin (its own header's worked example), calls randomize() (real entropy, not a fixed default) before generating sentences -- two runs with identical input produced different sentences (verified: 2/5 lines differed). Genuinely random by design, not a missing-input problem; the original ORACLE_FAIL reason (no stdin supplied) was a symptom, not the cause.
 cstrings.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'Usage: cstrings file...'
 datmerge.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: datmerge.icn [-operator] filename...'
 daystil.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'Usage: DaysTil sMonth iDay'
-ddfdump.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'standard input is not a DDF file'
+ddfdump.icn	ORACLE_FAIL	CONFIRMED (seat07 2026-09-05, source-read): requires a genuine ISO 8211 Data Descriptive File -- a real, complex USGS binary geographic-data format (per the file's own header: "an incredibly complex file format"). None is vendored anywhere in this corpus and fabricating a spec-valid one is out of proportion to this row's scope. Genuinely untestable without an external fixture; not a missing-input problem this suite can self-supply.
 delam.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'Usage: delam fieldlist {outputfile | -} ...'
 delamc.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'Usage: delamc [-tc] {outputfile | -} ...'
 dellines.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** no lines specified'
@@ -40,10 +39,10 @@ digcol.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -
 duplfile.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 duplproc.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 evaluate.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-extweave.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'delta move error'
+extweave.icn	ORACLE_FAIL	CONFIRMED (seat07 2026-09-05, source-read): requires a genuine Macintosh Fractal Design Painter 5 weave file in MacBinary format (a specific, proprietary 1990s binary layout the program parses by fixed byte offsets, e.g. move(400)/move(4400)). None vendored, impractical to fabricate a spec-valid instance for this row's scope. Same class as ddfdump.icn -- a real external binary fixture this suite cannot self-supply.
 farb.icn	NONDETERMINISTIC	DETERMINISM: calls randomize() (clock-seeded) by design -- program purpose is "a randomly selected farberism", not a bug
 farb2.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- '*** cannot open "farber.sen"'
-filecnvt.icn	ORACLE_FAIL	rc!=0 with no/minimal diagnostic ('') -- needs individual follow-up
+filecnvt.icn	ORACLE_FAIL	VERIFIED LIVE-CAPABLE, not yet minted (seat07 2026-09-05): takes 2 positional args (infile, outfile; "-" means stdin/stdout). Tested with a 3-line fixture file and args [fixture, "-"] (redirects output to stdout) -- clean, byte-identical across 2 runs. NOT mintable via the NAME.dat stdin-only convention alone (needs a real fixture FILE present in the run dir, not just piped stdin, plus fixed argv naming it). Needs the ref-cutting harness's fixture-file convention extended beyond stdin-only .dat before this can be minted -- see FINDING-2026-09-05-seat07-icon-ipl-follow-up-batch.md.
 fileprnt.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- '*** cannot open input file'
 filerepl.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 filesect.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** starting value missing'
@@ -58,10 +57,10 @@ fnctmpl.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a s
 format.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 former.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** no input line'
 fset.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-fuzz.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'The 15 best matches for the first word in each line will be written.'
+fuzz.icn	ORACLE_FAIL	CONFIRMED NONDETERMINISTIC (seat07 2026-09-05, source-read): its own last line of output is `write("Elapsed time in milliseconds: ", &time - start_time)` -- literal wall-clock timing, printed unconditionally. Even with a fully fixed input file + search word + algorithm choice via stdin, this line can never be byte-stable across runs. Not a missing-input problem; the original ORACLE_FAIL reason (no filename supplied) was upstream of this deeper issue.
 gcomp.icn	LIVE	DETERMINISM: reads the LIVE progs/ directory listing via open("echo * .*","rp") and prints it (source: entire program body) -- output is literally "whatever files are in progs/ right now", which THIS VERY TASK mutates by minting .std files; structurally unmintable regardless of same-session repeat-run agreement. seat01 2026-09-05: classifier read 4/4 and a manual 8/8 confirm as agreeing (false accept, unperturbed template each time) until a real mint attempt into the live corpus tree produced a THIRD, different byte count -- do not re-attempt without extending the classifier to detect self-referential directory reads
 geddump.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-gediff.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- "diff: missing operand after 'diff'"
+gediff.icn	ORACLE_FAIL	VERIFIED LIVE-CAPABLE, not yet minted (seat07 2026-09-05): needs argv[-2]/argv[-1] as two real files to diff (spawns the system `diff` command via a pipe). Tested with two small fixture files -- clean, byte-identical across 2 runs (rc=1, which is diff's own correct "files differ" exit; that's the expected, gradeable outcome). Same harness gap as filecnvt.icn: needs fixture-file support (two files this time), not just stdin .dat. See FINDING-2026-09-05-seat07-icon-ipl-follow-up-batch.md.
 gener.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 genfile.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- '*** cannot open file'
 getcol.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
@@ -75,7 +74,7 @@ hotedit.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- "can'
 hr.icn	ORACLE_FAIL	paints raw ANSI/terminal control sequences -- needs a real terminal, cannot run headless -- '\x1b[0;1;33;44m\x1b[2J\x1b[H'
 htget.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: htget.icn [-h] url'
 htprep.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-huffstuf.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'huffcode -i|o filename1'
+huffstuf.icn	ORACLE_FAIL	VERIFIED LIVE-CAPABLE, not yet minted (seat07 2026-09-05): needs argv = ["-o", filename] to COMPRESS (writes huffman-coded binary to stdout; "-i" is the DECODE direction and needs an already-encoded file, easy to get backwards -- confirmed by trying it first). Tested "-o" against a small fixture text file -- clean, byte-identical binary output across 2 runs. Same harness gap as filecnvt.icn/gediff.icn: needs a fixture-file convention, not just stdin .dat.
 ibar.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 icalc.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 icalls.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
@@ -85,8 +84,8 @@ idxtext.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: idxtex
 ifilter.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** invalid or missing operation'
 iheader.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 ihelp.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- 'Can\'t open help file "ihelp.dat"'
-iidecode.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'No begin line.'
-iiencode.icn	ORACLE_FAIL	rc!=0 with no/minimal diagnostic ('') -- needs individual follow-up
+iidecode.icn	ORACLE_FAIL	CONFIRMED (seat07 2026-09-05, source-read): decodes into a FILE named by the "begin MODE filename" header line of its input, via `open(dest,"wu")` -- its real result is a written file, never stdout. Same structural gap as versum.icn/iplweb.icn: the ref-cutting harness's LIVE/EMPTY taxonomy only ever looks at stdout, so this can never register as LIVE without extending grading to check a named output file's content post-run. Not attempted this session (see FINDING-2026-09-05-seat07-icon-ipl-follow-up-batch.md) -- a design decision spanning 3+ programs, not a per-file fix.
+iiencode.icn	ORACLE_FAIL	VERIFIED LIVE-CAPABLE, not yet minted (seat07 2026-09-05): one positional arg (input filename); defaults output to &output (stdout) when no "-o" given, unlike its sibling iidecode.icn. Tested against a small fixture text file -- clean uuencode-style output, byte-identical across 2 runs. Same harness gap as filecnvt.icn/gediff.icn/huffstuf.icn: needs a fixture-file convention, not just stdin .dat.
 ilump.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 imagetyp.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 indxcomp.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
@@ -95,7 +94,7 @@ inter.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- '*** ca
 interpe.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 ipatch.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: ipatch.icn file iconx'
 iplkwic.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-iplweb.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'Set IPL environment variable or use'
+iplweb.icn	ORACLE_FAIL	CONFIRMED (seat07 2026-09-05, source-read): generates HTML files (dest := arglist[1] || "/HTML", file-based output, not stdout -- same structural gap as versum.icn/iidecode.icn) by scanning header comments across the ENTIRE vendored IPL tree pointed to by -ipl:/$IPL. Its output is coupled to the total corpus population, which THIS TASK's own census work is actively changing (LIVE count moved 0->9 this session alone) -- not a stable target for a fixed ref even setting the file-output issue aside. Two structural reasons, not a missing-input problem.
 ipower.icn	TIMEOUT	unbounded by default: stop defaults to 2^64 with no -e/-l option supplied (source: procedure main) -- needs explicit -l/-e argv to terminate in bounded time, not a hang
 ipp.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 iprint.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: iprint -options file ...'
@@ -126,9 +125,8 @@ lcn.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin
 limitf.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 lindsys.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** no axiom'
 link2url.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-lisp.icn	ORACLE_FAIL	rc!=0 with no/minimal diagnostic ('>') -- needs individual follow-up
-lister.icn	ORACLE_FAIL	rc!=0 with no/minimal diagnostic ('') -- needs individual follow-up
-listviz.icn	ORACLE_FAIL	rc!=0 with no/minimal diagnostic ('') -- needs individual follow-up
+lister.icn	ORACLE_FAIL	CONFIRMED NONDETERMINISTIC (seat07 2026-09-05, source-read): its startup banner is `write("...", &dateline, "...")` -- prints the current date/time unconditionally, before any menu interaction. Same class as based.icn/when.icn/listviz.icn (identical to listviz.icn's main() byte-for-byte). Also an interactive menu-driven file browser, but the &dateline line alone is definitive.
+listviz.icn	ORACLE_FAIL	CONFIRMED NONDETERMINISTIC (seat07 2026-09-05, source-read): identical main() to lister.icn byte-for-byte, including the `&dateline` startup banner -- see that row for the evidence.
 literat.icn	ORACLE_FAIL	paints raw ANSI/terminal control sequences -- needs a real terminal, cannot run headless -- '\x1b[0;77;1p\x1b[0;75;2p\x1b[0;72;14p\x1b[0;80;21p\x1b[0;116;8p\x1b[0;115;9p\x1b[0;71;4p\x1b[0;79;5p\x1b[0;83;6p\x1b[2J\x1b[1;10HLITERAT:    EASY DATABASE SYSTEM'
 loadmap.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: loadmap [-t -d -b -u -a -c -l] file'
 lower.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
@@ -151,13 +149,12 @@ pack.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdi
 paginate.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 papply.icn	ORACLE_FAIL	needs argv (specific value) this driver does not supply -- '*** invalid or missing procedure'
 parens.icn	NONDETERMINISTIC	DETERMINISM: calls randomize() (clock-seeded) by design, same shape as farb.icn
-parse.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- '** error **  id expected'
 patchu.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'patchu: usage: patchu source diffs'
 pbkdump.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 pdecomp.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 polydemo.icn	TIMEOUT	interactive menu (polynomial library demo) -- option := choice(read()) loop, needs a real menu-choice transcript
 post.icn	ORACLE_FAIL	needs interactive input this driver's /dev/null stdin cannot supply -- 'Newsgroups:'
-press.icn	ORACLE_FAIL	rc!=0 with no/minimal diagnostic ('') -- needs individual follow-up
+press.icn	ORACLE_FAIL	STILL OPEN (seat07 2026-09-05): a 896-line custom LZW archiver (compr/archive/extract/print/list/delete operations via Options(arg), magic bytes "\^p\^r\^e\^s\^s\^i\^c\^n"). No time/random calls spotted near main() on a source skim, so likely deterministic in principle (create/extract round-trip against a fixture file) -- genuinely not investigated this session for scope/time reasons, unlike the other 19 rows in this batch. Real remaining work: read Options()'s flag letters, construct a minimal archive+extract round trip, verify byte-stability.
 pretrim.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 procwrap.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 proto.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
@@ -195,7 +192,6 @@ tabulate.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a 
 textcvt.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'Usage: textcvt [-options] -<output format> textfile...'
 trim.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 ttt.icn	TIMEOUT	interactive game (tic-tac-toe) -- repeat-loop calls read() for each move, needs a real input transcript
-turing.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'line <EOF>: no machine!'
 unclog.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 unique.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 unpack.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
@@ -203,12 +199,12 @@ upper.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a std
 url2link.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 utrim.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: utrim.icn [-s | -v] file.u1 ...'
 verse.icn	ORACLE_FAIL	needs a specific data file not vendored/present -- "Can't open vocabulary file (verse.dat)"
-versum.icn	TIMEOUT	looks for a "<start>.vsq" data file (default start=196, so "196.vsq") not present in the vendored tree; open() fails so the visible read-loop is skipped -- exact hang mechanism beyond that point not yet traced, needs individual follow-up
+versum.icn	TIMEOUT	CONFIRMED, mechanism fully traced (seat07 2026-09-05, source-read): with no args, `limit` defaults to -1 and the `until (limit -:= 1) = -1 do {...}` loop's stop condition can never re-hit -1 once decremented past it (and `-m` is unset, so the alternate stop condition never fires either) -- an infinite loop BY DESIGN absent -t/-m bounds, not a missing-file problem (confirmed separately: the missing "196.vsq" read-attempt fails harmlessly and falls back to the seed, per the source). Even bounding it with -t/-m would NOT make this stdout-gradeable: its real output is a side-effect FILE (open(name,"a"), appended to), never stdout -- same structural gap as iidecode.icn/iplweb.icn.
 vrepl.icn	EMPTY	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 weblinks.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage: weblinks.icn [options] file ...'
 what.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'Usage: what.icn file1 [file2 [file3]]'
-when.icn	ORACLE_FAIL	rc!=0 with no/minimal diagnostic ('') -- needs individual follow-up
-wshfdemo.icn	ORACLE_FAIL	rc!=0, needs individual follow-up -- 'Weighted Shuffle Demonstration'
+when.icn	ORACLE_FAIL	CONFIRMED NONDETERMINISTIC (seat07 2026-09-05, source-read): shells out to `ls -al` (open("ls -al","pr")) and computes each file's "age" from &date/&clock versus file mtimes -- inherently dependent on the current date AND on this checkout's file mtimes (which are set by whenever/wherever it was cloned, not by git). Same class as the already-excluded shar.icn/filexref.icn/solit.icn (time/clock-dependent), plus OS-specific (`ls -al` column layout).
+wshfdemo.icn	ORACLE_FAIL	CONFIRMED, mechanism traced (seat07 2026-09-05, empirical + source-read): the seed/size/pct prompts read fine via scripted stdin (blank seed uses Icon's fixed non-clock default, which IS reproducible -- confirmed byte-identical shuffle output across 2 runs up to that point), but the "Do another [Y/N]?" prompt uses getche() (character-mode terminal read), which fails outright over any non-tty stdin regardless of remaining buffered content -- confirmed empirically: rc=1 Runtime error 103 (string expected, offending &null) on every attempt, deterministically. Genuinely unscriptable, not a missing/wrong-input problem.
 xtable.icn	SUSPECT_USAGE	usage banner on clean exit (rc=0) -- "Usage: xtable -<option>" -- needs a specific -<option> argv
 yahtz.icn	ORACLE_FAIL	needs a real terminal (termcap/tty), cannot run headless -- "getentry:  I can't access your termcap file.  Read iolib.icn."
 yescr.icn	ORACLE_FAIL	needs argv this driver does not supply -- 'usage:  yescr file1 [file2...]'
