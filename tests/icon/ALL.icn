@@ -8241,3 +8241,48 @@ procedure warn(a[])
    errors +:= 1;
    return;
 end
+#------------------------------------------------------- 831 procedure_write_225
+procedure main()
+  local s;
+  s := "abcdef";
+  s ? {
+    move(3);
+    every write(!tab(0))
+  };
+end
+#------------------------------------------------------- 832 procedure_write_226
+procedure main()
+  local a, b;
+  a := "foo" || "1";
+  b := "bar" || "2";
+  a :=: b;
+  write(a);
+  write(b);
+end
+#------------------------------------------------------- 833 procedure_write_227
+procedure main()
+  local s;
+  s := "foo" || "bar";
+  write(s[4]);
+end
+#------------------------------------------------------- 834 procedure_write_228
+procedure main()
+  every write(((1 to 6) > 3) + 0.5);
+end
+#------------------------------------------------------- 835 procedure_write_229
+procedure main()
+  local x, y;
+  x := 1.5 + 2.5;
+  y := 4.0;
+  if x = y then write("equal");
+end
+#------------------------------------------------------- 836 procedure_write_230
+procedure main()
+  local x;
+  x := 1.5 + 0.5;
+  write(x ^ 2);
+end
+#------------------------------------------------------- 837 procedure_write_231
+procedure main()
+  every write((1.0 to 3.0 by 1.0) ^ 2);
+end
