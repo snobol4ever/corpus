@@ -1,0 +1,7821 @@
+#------------------------------------------------------------------------ 1 args
+&null
+p0 
+p1 ~ 
+p2 ~ ~ 
+p3 ~ ~ ~ 
+p4 ~ ~ ~ ~ 
+p5 ~ ~ ~ ~ ~ 
+p6 ~ ~ ~ ~ ~ ~ 
+p7 ~ ~ ~ ~ ~ ~ ~ 
+p8 ~ ~ ~ ~ ~ ~ ~ ~ 
+p9 ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p10 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p11 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p12 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+1
+
+p0 
+p1 1 
+p2 1 ~ 
+p3 1 ~ ~ 
+p4 1 ~ ~ ~ 
+p5 1 ~ ~ ~ ~ 
+p6 1 ~ ~ ~ ~ ~ 
+p7 1 ~ ~ ~ ~ ~ ~ 
+p8 1 ~ ~ ~ ~ ~ ~ ~ 
+p9 1 ~ ~ ~ ~ ~ ~ ~ ~ 
+p10 1 ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p11 1 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p12 1 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+1
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 ~ 
+p4 1 2 ~ ~ 
+p5 1 2 ~ ~ ~ 
+p6 1 2 ~ ~ ~ ~ 
+p7 1 2 ~ ~ ~ ~ ~ 
+p8 1 2 ~ ~ ~ ~ ~ ~ 
+p9 1 2 ~ ~ ~ ~ ~ ~ ~ 
+p10 1 2 ~ ~ ~ ~ ~ ~ ~ ~ 
+p11 1 2 ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p12 1 2 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+3
+2
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 ~ 
+p5 1 2 3 ~ ~ 
+p6 1 2 3 ~ ~ ~ 
+p7 1 2 3 ~ ~ ~ ~ 
+p8 1 2 3 ~ ~ ~ ~ ~ 
+p9 1 2 3 ~ ~ ~ ~ ~ ~ 
+p10 1 2 3 ~ ~ ~ ~ ~ ~ ~ 
+p11 1 2 3 ~ ~ ~ ~ ~ ~ ~ ~ 
+p12 1 2 3 ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+3
+3
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 ~ 
+p6 1 2 3 4 ~ ~ 
+p7 1 2 3 4 ~ ~ ~ 
+p8 1 2 3 4 ~ ~ ~ ~ 
+p9 1 2 3 4 ~ ~ ~ ~ ~ 
+p10 1 2 3 4 ~ ~ ~ ~ ~ ~ 
+p11 1 2 3 4 ~ ~ ~ ~ ~ ~ ~ 
+p12 1 2 3 4 ~ ~ ~ ~ ~ ~ ~ ~ 
+3
+4
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 ~ 
+p7 1 2 3 4 5 ~ ~ 
+p8 1 2 3 4 5 ~ ~ ~ 
+p9 1 2 3 4 5 ~ ~ ~ ~ 
+p10 1 2 3 4 5 ~ ~ ~ ~ ~ 
+p11 1 2 3 4 5 ~ ~ ~ ~ ~ ~ 
+p12 1 2 3 4 5 ~ ~ ~ ~ ~ ~ ~ 
+3
+5
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 ~ 
+p8 1 2 3 4 5 6 ~ ~ 
+p9 1 2 3 4 5 6 ~ ~ ~ 
+p10 1 2 3 4 5 6 ~ ~ ~ ~ 
+p11 1 2 3 4 5 6 ~ ~ ~ ~ ~ 
+p12 1 2 3 4 5 6 ~ ~ ~ ~ ~ ~ 
+3
+6
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 ~ 
+p9 1 2 3 4 5 6 7 ~ ~ 
+p10 1 2 3 4 5 6 7 ~ ~ ~ 
+p11 1 2 3 4 5 6 7 ~ ~ ~ ~ 
+p12 1 2 3 4 5 6 7 ~ ~ ~ ~ ~ 
+3
+7
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 ~ 
+p10 1 2 3 4 5 6 7 8 ~ ~ 
+p11 1 2 3 4 5 6 7 8 ~ ~ ~ 
+p12 1 2 3 4 5 6 7 8 ~ ~ ~ ~ 
+3
+8
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 ~ 
+p11 1 2 3 4 5 6 7 8 9 ~ ~ 
+p12 1 2 3 4 5 6 7 8 9 ~ ~ ~ 
+3
+9
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 10 
+p11 1 2 3 4 5 6 7 8 9 10 ~ 
+p12 1 2 3 4 5 6 7 8 9 10 ~ ~ 
+3
+10
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 10 
+p11 1 2 3 4 5 6 7 8 9 10 11 
+p12 1 2 3 4 5 6 7 8 9 10 11 ~ 
+3
+11
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 10 
+p11 1 2 3 4 5 6 7 8 9 10 11 
+p12 1 2 3 4 5 6 7 8 9 10 11 12 
+&null
+p0 
+p1 ~ 
+p2 ~ ~ 
+p3 ~ ~ ~ 
+p4 ~ ~ ~ ~ 
+p5 ~ ~ ~ ~ ~ 
+p6 ~ ~ ~ ~ ~ ~ 
+p7 ~ ~ ~ ~ ~ ~ ~ 
+p8 ~ ~ ~ ~ ~ ~ ~ ~ 
+p9 ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p10 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p11 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p12 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+1
+
+p0 
+p1 1 
+p2 1 ~ 
+p3 1 ~ ~ 
+p4 1 ~ ~ ~ 
+p5 1 ~ ~ ~ ~ 
+p6 1 ~ ~ ~ ~ ~ 
+p7 1 ~ ~ ~ ~ ~ ~ 
+p8 1 ~ ~ ~ ~ ~ ~ ~ 
+p9 1 ~ ~ ~ ~ ~ ~ ~ ~ 
+p10 1 ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p11 1 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p12 1 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+1
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 ~ 
+p4 1 2 ~ ~ 
+p5 1 2 ~ ~ ~ 
+p6 1 2 ~ ~ ~ ~ 
+p7 1 2 ~ ~ ~ ~ ~ 
+p8 1 2 ~ ~ ~ ~ ~ ~ 
+p9 1 2 ~ ~ ~ ~ ~ ~ ~ 
+p10 1 2 ~ ~ ~ ~ ~ ~ ~ ~ 
+p11 1 2 ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p12 1 2 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+3
+2
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 ~ 
+p5 1 2 3 ~ ~ 
+p6 1 2 3 ~ ~ ~ 
+p7 1 2 3 ~ ~ ~ ~ 
+p8 1 2 3 ~ ~ ~ ~ ~ 
+p9 1 2 3 ~ ~ ~ ~ ~ ~ 
+p10 1 2 3 ~ ~ ~ ~ ~ ~ ~ 
+p11 1 2 3 ~ ~ ~ ~ ~ ~ ~ ~ 
+p12 1 2 3 ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+3
+3
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 ~ 
+p6 1 2 3 4 ~ ~ 
+p7 1 2 3 4 ~ ~ ~ 
+p8 1 2 3 4 ~ ~ ~ ~ 
+p9 1 2 3 4 ~ ~ ~ ~ ~ 
+p10 1 2 3 4 ~ ~ ~ ~ ~ ~ 
+p11 1 2 3 4 ~ ~ ~ ~ ~ ~ ~ 
+p12 1 2 3 4 ~ ~ ~ ~ ~ ~ ~ ~ 
+3
+4
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 ~ 
+p7 1 2 3 4 5 ~ ~ 
+p8 1 2 3 4 5 ~ ~ ~ 
+p9 1 2 3 4 5 ~ ~ ~ ~ 
+p10 1 2 3 4 5 ~ ~ ~ ~ ~ 
+p11 1 2 3 4 5 ~ ~ ~ ~ ~ ~ 
+p12 1 2 3 4 5 ~ ~ ~ ~ ~ ~ ~ 
+3
+5
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 ~ 
+p8 1 2 3 4 5 6 ~ ~ 
+p9 1 2 3 4 5 6 ~ ~ ~ 
+p10 1 2 3 4 5 6 ~ ~ ~ ~ 
+p11 1 2 3 4 5 6 ~ ~ ~ ~ ~ 
+p12 1 2 3 4 5 6 ~ ~ ~ ~ ~ ~ 
+3
+6
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 ~ 
+p9 1 2 3 4 5 6 7 ~ ~ 
+p10 1 2 3 4 5 6 7 ~ ~ ~ 
+p11 1 2 3 4 5 6 7 ~ ~ ~ ~ 
+p12 1 2 3 4 5 6 7 ~ ~ ~ ~ ~ 
+3
+7
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 ~ 
+p10 1 2 3 4 5 6 7 8 ~ ~ 
+p11 1 2 3 4 5 6 7 8 ~ ~ ~ 
+p12 1 2 3 4 5 6 7 8 ~ ~ ~ ~ 
+3
+8
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 ~ 
+p11 1 2 3 4 5 6 7 8 9 ~ ~ 
+p12 1 2 3 4 5 6 7 8 9 ~ ~ ~ 
+3
+9
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 10 
+p11 1 2 3 4 5 6 7 8 9 10 ~ 
+p12 1 2 3 4 5 6 7 8 9 10 ~ ~ 
+3
+10
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 10 
+p11 1 2 3 4 5 6 7 8 9 10 11 
+p12 1 2 3 4 5 6 7 8 9 10 11 ~ 
+3
+11
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 10 
+p11 1 2 3 4 5 6 7 8 9 10 11 
+p12 1 2 3 4 5 6 7 8 9 10 11 12 
+3
+12
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 10 
+p11 1 2 3 4 5 6 7 8 9 10 11 
+p12 1 2 3 4 5 6 7 8 9 10 11 12 
+#----------------------------------------------------------------------- 2 arith
+   0    0    0    0    0    0    0  ---  ---    0  ---    0    0  ---    0  --- 
+   0    1    0   -1    1   -1    0    0    0   -1    1    1  ---    1  ---  --- 
+   0   -1    0    1   -1    1    0    0    0    1  ---  ---  ---   -1   -1   -1 
+   1    0    1    0    1    1    0  ---  ---    0  ---  ---  ---    0    0    0 
+   1    1    1   -1    2    0    1    1    0   -1  ---    1    1  ---    1  --- 
+   1    2    1   -2    3   -1    2    0    1   -2    2    2  ---    2  ---  --- 
+   7    3    7   -3   10    4   21    2    1   -3  ---  ---  ---    3    3    3 
+   3    8    3   -8   11   -5   24    0    3   -8    8    8  ---    8  ---  --- 
+ 6.2    4  6.2   -4 10.2  2.2 24.8  1.6  2.2   -4  ---  ---  ---  4.0  4.0  4.0 
+   8  2.5    8 -2.5 10.5  5.5 20.0  3.2  0.5 -2.5  ---  ---  ---  2.5  2.5  2.5 
+ 5.4  1.2  5.4 -1.2  6.6  4.2  6.5  4.5  0.6 -1.2  ---  ---  ---  1.2  1.2  1.2 
+   1  2.5    1 -2.5  3.5 -1.5  2.5  0.4  1.0 -2.5  2.5  2.5  ---  2.5  ---  --- 
+ 3.4  1.7  3.4 -1.7  5.1  1.7  5.8  2.0  0.0 -1.7  ---  ---  ---  1.7  1.7  1.7 
+   5   5     5   -5   10    0   25    1    0   -5  ---    5    5  ---    5  --- 
+   4    7    4   -7   11   -3   28    0    4   -7    7    7  ---    7  ---  --- 
+   3   12    3  -12   15   -9   36    0    3  -12   12   12  ---   12  ---  --- 
+ 0.0  0.0  0.0  0.0  0.0  0.0  0.0  ---  ---  0.0  ---  0.0  0.0  ---  0.0  --- 
+ 0.0  1.0  0.0 -1.0  1.0 -1.0  0.0  0.0  0.0 -1.0  1.0  1.0  ---  1.0  ---  --- 
+ 0.0 -1.0  0.0  1.0 -1.0  1.0  0.0  0.0  0.0  1.0  ---  ---  --- -1.0 -1.0 -1.0 
+   1   -2    1    2   -1    3   -2    0    1    2  ---  ---  ---   -2   -2   -2 
+ 1.0 -2.0  1.0  2.0 -1.0  3.0 -2.0 -0.5  1.0  2.0  ---  ---  --- -2.0 -2.0 -2.0 
+  -3    2    3   -2   -1   -5   -6   -1   -1   -2    2    2  ---    2  ---  --- 
+-3.0  2.   3.0 -2.0 -1.0 -5.0 -6.0 -1.5 -1.0 -2.0  2.0  2.0  ---  2.0  ---  --- 
+  -6   -3    6    3   -9   -3   18    2    0    3   -3   -3  ---   -3  ---  --- 
+-6.0 -3.0  6.0  3.0 -9.0 -3.0 18.0  2.0  0.0  3.0 -3.0 -3.0  --- -3.0  ---  --- 
+
+  -9  -23    8   22  -31   -1   30 
+  -9    0    8   -1    0   -9   -9 
+  -9    9    8  -10    1   -1   -2 
+  -9   61    8  -62   53   -1  -54 
+   0  -23   -1   22    0  -23  -23 
+   0    0   -1   -1    0    0    0 
+   0    9   -1  -10    0    9    9 
+   0   61   -1  -62    0   61   61 
+   5  -23   -6   22    1  -19  -20 
+   5    0   -6   -1    0    5    5 
+   5    9   -6  -10    1   13   12 
+   5   61   -6  -62    5   61   56 
+ 191  -23 -192   22  169   -1 -170 
+ 191    0 -192   -1    0  191  191 
+ 191    9 -192  -10    9  191  182 
+ 191   61 -192  -62   61  191  130 
+
+     18446744073709551616  31414805157527366402048  -4630132762501097455616
+      9223372036854775808  15707402578763683201024  -2315066381250548727808
+                       32                    54496                    -8032
+                       16                    27248                    -4016
+                        8                    13624                    -2008
+                        4                     6812                    -1004
+                        2                     3406                     -502
+                        1                     1703                     -251
+                        0                      851                     -126
+                        0                      425                      -63
+                        0                      212                      -32
+                        0                      106                      -16
+                        0                       53                       -8
+                        0                        0                       -1
+                        0                        0                       -1
+
+   -3 ^ -3   =      0
+   -3 ^ -2   =      0
+   -3 ^ -1   =      0
+   -3 ^ 0    =      1
+   -3 ^ 1    =     -3
+   -3 ^ 2    =      9
+   -3 ^ 3    =    -27
+   -2 ^ -3   =      0
+   -2 ^ -2   =      0
+   -2 ^ -1   =      0
+   -2 ^ 0    =      1
+   -2 ^ 1    =     -2
+   -2 ^ 2    =      4
+   -2 ^ 3    =     -8
+   -1 ^ -3   =     -1
+   -1 ^ -2   =      1
+   -1 ^ -1   =     -1
+   -1 ^ 0    =      1
+   -1 ^ 1    =     -1
+   -1 ^ 2    =      1
+   -1 ^ 3    =     -1
+    0 ^ 1    =      0
+    0 ^ 2    =      0
+    0 ^ 3    =      0
+    1 ^ -3   =      1
+    1 ^ -2   =      1
+    1 ^ -1   =      1
+    1 ^ 0    =      1
+    1 ^ 1    =      1
+    1 ^ 2    =      1
+    1 ^ 3    =      1
+    2 ^ -3   =      0
+    2 ^ -2   =      0
+    2 ^ -1   =      0
+    2 ^ 0    =      1
+    2 ^ 1    =      2
+    2 ^ 2    =      4
+    2 ^ 3    =      8
+    3 ^ -3   =      0
+    3 ^ -2   =      0
+    3 ^ -1   =      0
+    3 ^ 0    =      1
+    3 ^ 1    =      3
+    3 ^ 2    =      9
+    3 ^ 3    =     27
+  0.5 ^ -1.5 =  2.828
+  0.5 ^ -1.0 =    2.0
+  0.5 ^ -0.5 =  1.414
+  0.5 ^ 0.0  =    1.0
+  0.5 ^ 0.5  =  0.707
+  0.5 ^ 1.0  =    0.5
+  0.5 ^ 1.5  =  0.354
+    1 ^ -1.5 =    1.0
+    1 ^ -1.0 =    1.0
+    1 ^ -0.5 =    1.0
+    1 ^ 0.0  =    1.0
+    1 ^ 0.5  =    1.0
+    1 ^ 1.0  =    1.0
+    1 ^ 1.5  =    1.0
+  1.5 ^ -1.5 =  0.544
+  1.5 ^ -1.0 =  0.667
+  1.5 ^ -0.5 =  0.816
+  1.5 ^ 0.0  =    1.0
+  1.5 ^ 0.5  =  1.225
+  1.5 ^ 1.0  =    1.5
+  1.5 ^ 1.5  =  1.837
+ -1.5 ^ -3   = -0.296
+ -1.5 ^ -2   =  0.444
+ -1.5 ^ -1   = -0.667
+ -1.5 ^ 0    =    1.0
+ -1.5 ^ 1    =   -1.5
+ -1.5 ^ 2    =   2.25
+ -1.5 ^ 3    = -3.375
+ -1.0 ^ -3   =   -1.0
+ -1.0 ^ -2   =    1.0
+ -1.0 ^ -1   =   -1.0
+ -1.0 ^ 0    =    1.0
+ -1.0 ^ 1    =   -1.0
+ -1.0 ^ 2    =    1.0
+ -1.0 ^ 3    =   -1.0
+ -0.5 ^ -3   =   -8.0
+ -0.5 ^ -2   =    4.0
+ -0.5 ^ -1   =   -2.0
+ -0.5 ^ 0    =    1.0
+ -0.5 ^ 1    =   -0.5
+ -0.5 ^ 2    =   0.25
+ -0.5 ^ 3    = -0.125
+  0.0 ^ 1    =    0.0
+  0.0 ^ 2    =    0.0
+  0.0 ^ 3    =    0.0
+#--------------------------------------------------------------------- 3 augment
+i := 10 ----> 10
+i =:= 9 ----> none
+i ----> 10
+i := 10 ----> 10
+i =:= 10 ----> 10
+i ----> 10
+i := 10 ----> 10
+i =:= 11 ----> none
+i ----> 10
+i := 10 ----> 10
+i >=:= 9 ----> 9
+i ----> 9
+i := 10 ----> 10
+i >=:= 10 ----> 10
+i ----> 10
+i := 10 ----> 10
+i >=:= 11 ----> none
+i ----> 10
+i := 10 ----> 10
+i >:= 9 ----> 9
+i ----> 9
+i := 10 ----> 10
+i >:= 10 ----> none
+i ----> 10
+i := 10 ----> 10
+i >:= 11 ----> none
+i ----> 10
+i := 10 ----> 10
+i <=:= 9 ----> none
+i ----> 10
+i := 10 ----> 10
+i <=:= 10 ----> 10
+i ----> 10
+i := 10 ----> 10
+i <=:= 11 ----> 11
+i ----> 11
+i := 10 ----> 10
+i <:= 9 ----> none
+i ----> 10
+i := 10 ----> 10
+i <:= 10 ----> none
+i ----> 10
+i := 10 ----> 10
+i <:= 11 ----> 11
+i ----> 11
+i := 10 ----> 10
+i ~=:= 9 ----> 9
+i ----> 9
+i := 10 ----> 10
+i ~=:= 10 ----> none
+i ----> 10
+i := 10 ----> 10
+i ~=:= 11 ----> 11
+i ----> 11
+i := 10 ----> 10
+i +:= 9 ----> 19
+i ----> 19
+i := 10 ----> 10
+i +:= 10 ----> 20
+i ----> 20
+i := 10 ----> 10
+i +:= 11 ----> 21
+i ----> 21
+i := 10 ----> 10
+i -:= 9 ----> 1
+i ----> 1
+i := 10 ----> 10
+i -:= 10 ----> 0
+i ----> 0
+i := 10 ----> 10
+i -:= 11 ----> -1
+i ----> -1
+i := 10 ----> 10
+i *:= 9 ----> 90
+i ----> 90
+i := 10 ----> 10
+i *:= 10 ----> 100
+i ----> 100
+i := 10 ----> 10
+i *:= 11 ----> 110
+i ----> 110
+i := 10 ----> 10
+i /:= 9 ----> 1
+i ----> 1
+i := 10 ----> 10
+i /:= 10 ----> 1
+i ----> 1
+i := 10 ----> 10
+i /:= 11 ----> 0
+i ----> 0
+i := 10 ----> 10
+i %:= 9 ----> 1
+i ----> 1
+i := 10 ----> 10
+i %:= 10 ----> 0
+i ----> 0
+i := 10 ----> 10
+i %:= 11 ----> 10
+i ----> 10
+i := 10 ----> 10
+i ^:= 9 ----> 1000000000
+i ----> 1000000000
+i := 10 ----> 10
+s := "x" ----> "x"
+s <<:= "x" ----> none
+s ----> "x"
+s := "x" ----> "x"
+s <<:= "xx" ----> "xx"
+s ----> "xx"
+s := "x" ----> "x"
+s <<:= "X" ----> none
+s ----> "x"
+s := "x" ----> "x"
+s <<:= "abc" ----> none
+s ----> "x"
+s := "x" ----> "x"
+s ~==:= "x" ----> none
+s ----> "x"
+s := "x" ----> "x"
+s ~==:= "xx" ----> "xx"
+s ----> "xx"
+s := "x" ----> "x"
+s ~==:= "X" ----> "X"
+s ----> "X"
+s := "x" ----> "x"
+s ~==:= "abc" ----> "abc"
+s ----> "abc"
+#---------------------------------------------------------------------- 4 btrees
+tree walk
+b
+c
+a
+leaves
+b
+c
+tree walk
+3
+4
+2
+5
+1
+leaves
+3
+4
+5
+tree walk
+2
+a
+d
+e
+c
+8
+a
+leaves
+2
+a
+d
+e
+#------------------------------------------------------------------------ 5 case
+      null : &null
+   default : 0
+         1 : 1
+   default : 2
+   default : 0.0
+       1.0 : 1.0
+   default : 2.0
+   default : ""
+   default : "0"
+       "1" : "1"
+   default : "2"
+   default : ''
+   default : '0'
+       '1' : '1'
+   default : '2'
+       rec : record constructor rec
+      main : procedure main
+   default : procedure foo
+       rec : record constructor rec
+   default : record rec_2(1)
+         r : record rec_1(1)
+         c : co-expression_2(0)
+   default : list_2(0)
+         L : list_3(24)
+#---------------------------------------------------------------------- 6 center
+234
+ 1 
+2
+2
+3
+23
+234
+3
+34
+234
+  123   
+   12   
+   123   
+   12    
+<>123><>
+<><12><>
+<><123><>
+<><12<><>
+#-------------------------------------------------------------------- 7 checkfpx
+This test of floating-point arithmetic is likely to show
+differences from platform to platform because of differences
+in floating-point precision and details of the routines that
+convert floating-point numbers to strings.  If the values
+produced in local tests are approximately the same in magnitude
+as shown in the standard results, there's nothing to worry about.
+In addition, some platforms may show 0.0 as "-0.0".  You can
+ignore this if you wish.
+0.21132
+0.41242
+0.31579
+0.51044
+0.42173
+0.30569
+0.07960
+0.73752
+0.05072
+0.71694
+every 1 to 10 do write(?0) ----> none
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+every i := 1 to 50 do write(real(repl("0",i) || "2.")) ----> none
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+every i := 1 to 30 do write(integer(repl("0",i) || "2")) ----> none
+2.0 ~=== +2.0 ----> none
+abs(3.0) ----> 3.0
+Image(2e13) ----> "2e+13"
+Image(0.0006) ----> "0.0006"
+Image(2.0) ----> "2.0"
+integer(2.0) ----> 2
+integer(2.7) ----> 2
+integer(".") ----> none
+integer(".3") ----> 0
+integer("0.3") ----> 0
+integer(" . 3") ----> none
+integer("e2") ----> none
+integer("3e500") ----> none
+numeric(2.0) ----> 2.0
+numeric(2.7) ----> 2.7
+numeric(".") ----> none
+numeric(".3") ----> 0.3
+numeric("0.3") ----> 0.3
+numeric(" . 3") ----> none
+numeric("e2") ----> none
+numeric("3e500") ----> none
+real(2) ----> 2.0
+real(2.0) ----> 2.0
+real(2.7) ----> 2.7
+real("2") ----> 2.0
+real(" 2") ----> 2.0
+real("2 ") ----> 2.0
+real("+2") ----> 2.0
+real("-2") ----> -2.0
+real("- 2") ----> none
+real(" -    2 ") ----> none
+real("") ----> none
+real("--2") ----> none
+real(" ") ----> none
+real("-") ----> none
+real("+") ----> none
+real(".") ----> none
+real(".3") ----> 0.3
+real("0.3") ----> 0.3
+real(" . 3") ----> none
+real("e2") ----> none
+real("3e500") ----> none
+real("7r4") ----> 4.0
+real("4r7") ----> none
+real("4r 7") ----> none
+real("7r 4") ----> none
+real("16rff") ----> 255.0
+real("36rcat") ----> 15941.0
+real("36Rcat") ----> 15941.0
+real("36rCAT") ----> 15941.0
+real("1r1") ----> none
+real("2r0") ----> 0.0
+real("22222222222222222222222222222") ----> 2.222222e+28
+numeric(2.0) ----> 2.0
+numeric(2.7) ----> 2.7
+numeric(0.3) ----> 0.3
+numeric(e2) ----> none
+36. ^ 9 ----> 1.015599e+14
+36 ^ 9. ----> 1.015599e+14
+36. ^ 9. ----> 1.015599e+14
+-36. ^ 9 ----> -1.01559e+14
+-36. ^ -9 ----> -9.84640e-15
+2.0
+22.0
+222.0
+2222.0
+22222.0
+222222.0
+2.222222e+6
+2.222222e+7
+2.222222e+8
+2.222222e+9
+2.222222e+10
+2.222222e+11
+2.222222e+12
+2.222222e+13
+2.222222e+14
+2.222222e+15
+2.222222e+16
+2.222222e+17
+2.222222e+18
+2.222222e+19
+2.222222e+20
+2.222222e+21
+2.222222e+22
+2.222222e+23
+2.222222e+24
+2.222222e+25
+2.222222e+26
+2.222222e+27
+2.222222e+28
+2.222222e+29
+2.222222e+30
+2.222222e+31
+2.222222e+32
+2.222222e+33
+2.222222e+34
+2.222222e+35
+2.222222e+36
+failed
+2.2
+22.2
+222.2
+2222.2
+22222.2
+222222.2
+2.222222e+6
+2.222222e+7
+2.222222e+8
+2.222222e+9
+2.222222e+10
+2.222222e+11
+2.222222e+12
+2.222222e+13
+2.222222e+14
+2.222222e+15
+2.222222e+16
+2.222222e+17
+2.222222e+18
+2.222222e+19
+2.222222e+20
+2.222222e+21
+2.222222e+22
+2.222222e+23
+2.222222e+24
+2.222222e+25
+2.222222e+26
+2.222222e+27
+2.222222e+28
+2.222222e+29
+2.222222e+30
+2.222222e+31
+2.222222e+32
+2.222222e+33
+2.222222e+34
+2.222222e+35
+2.222222e+36
+failed
+3.2
+23.2
+223.2
+2223.2
+22223.2
+222223.2
+2.222223e+6
+2.222222e+7
+2.222222e+8
+2.222222e+9
+2.222222e+10
+2.222222e+11
+2.222222e+12
+2.222222e+13
+2.222222e+14
+2.222222e+15
+2.222222e+16
+2.222222e+17
+2.222222e+18
+2.222222e+19
+2.222222e+20
+2.222222e+21
+2.222222e+22
+2.222222e+23
+2.222222e+24
+2.222222e+25
+2.222222e+26
+2.222222e+27
+2.222222e+28
+2.222222e+29
+2.222222e+30
+2.222222e+31
+2.222222e+32
+2.222222e+33
+2.222222e+34
+2.222222e+35
+2.222222e+36
+failed
+2.0 === +2.0 ----> 2.0
+?30.0 ----> 5
+copy(1.0) ----> 1.0
+trim(3.14159,58) ----> "3.14159"
+Image(2e13) ----> "2e+13"
+Image(0.0006) ----> "0.0006"
+#-------------------------------------------------------------------------- 8 ck
+This test of floating-point arithmetic is likely to show
+differences from platform to platform because of differences
+in floating-point precision and details of the routines that
+convert floating-point numbers to strings.  If the values
+produced in local tests are approximately the same in magnitude
+as shown in the standard results, there's nothing to worry about.
+In addition, some platforms may show 0.0 as "-0.0".  You can
+ignore this if you wish.
+Image(2.0) ----> "2.0"
+string(2.0) ----> "2.0"
+string(2.7) ----> "2.7"
+string(".") ----> "."
+string(".3") ----> ".3"
+string("0.3") ----> "0.3"
+string(" . 3") ----> " . 3"
+string("e2") ----> "e2"
+string("3e500") ----> "3e500"
+type(1.0) ----> "real"
+cset(2.0) ----> '.02'
+cset(2.7) ----> '.27'
+cset(".") ----> '.'
+cset(".3") ----> '.3'
+cset("0.3") ----> '.03'
+cset(" . 3") ----> ' .3'
+cset("e2") ----> '2e'
+cset("3e500") ----> '035e'
++1.0 ----> 1.0
+-1.0 ----> -1.0
+real(2) ----> 2.0
+real(2.0) ----> 2.0
+real(2.7) ----> 2.7
+real("2") ----> 2.0
+real(" 2") ----> 2.0
+real("2 ") ----> 2.0
+real("+2") ----> 2.0
+real("-2") ----> -2.0
+real("- 2") ----> none
+real(" -    2 ") ----> none
+real("") ----> none
+real("--2") ----> none
+real(" ") ----> none
+real("-") ----> none
+real("+") ----> none
+real(".") ----> none
+real(".3") ----> 0.3
+real("0.3") ----> 0.3
+real(" . 3") ----> none
+real("e2") ----> none
+real("3e500") ----> none
+real("7r4") ----> 4.0
+real("4r7") ----> none
+real("4r 7") ----> none
+real("7r 4") ----> none
+real("16rff") ----> 255.0
+real("36rcat") ----> 15941.0
+real("36Rcat") ----> 15941.0
+real("36rCAT") ----> 15941.0
+real("1r1") ----> none
+integer(2.0) ----> 2
+integer(2.7) ----> 2
+integer(".") ----> none
+integer(".3") ----> 0
+integer("0.3") ----> 0
+integer(" . 3") ----> none
+numeric(2.0) ----> 2.0
+numeric(2.7) ----> 2.7
+numeric(".") ----> none
+numeric(".3") ----> 0.3
+numeric("0.3") ----> 0.3
+numeric(" . 3") ----> none
+real(2.0) ----> 2.0
+real(2.7) ----> 2.7
+real(".") ----> none
+real(".3") ----> 0.3
+real("0.3") ----> 0.3
+real(" . 3") ----> none
+abs(3.0) ----> 3.0
+abs(0.0) ----> 0.0
+abs(-3.0) ----> 3.0
+36. % 7 ----> 1.0
+36 % 7. ----> 1.0
+36. % 7. ----> 1.0
+-36. % 7 ----> -1.0
+36 % -7. ----> 1.0
+-36. % -7. ----> -1.0
+36. * 9 ----> 324.0
+36 * 9. ----> 324.0
+36. * 9. ----> 324.0
+-36. * 9 ----> -324.0
+36 * -9. ----> -324.0
+-36. * -9. ----> 324.0
+36. / 9 ----> 4.0
+36 / 9. ----> 4.0
+36. / 9. ----> 4.0
+-36. / 9 ----> -4.0
+36 / -9. ----> -4.0
+-36. / -9. ----> 4.0
+36. + 9 ----> 45.0
+36 + 9. ----> 45.0
+36. + 9. ----> 45.0
+-36. + 9 ----> -27.0
+36 + -9. ----> 27.0
+-36. + -9. ----> -45.0
+1. < 1 ----> none
+1 < 2. ----> 2.0
+1. < 0. ----> none
+-1 < 0. ----> 0.0
+1. < -2 ----> none
+-1 < -0. ----> 0.0
+1. > 1 ----> none
+1 > 2. ----> none
+1. > 0. ----> 0.0
+-1 > 0. ----> none
+1. > -2 ----> -2.0
+-1 > -0. ----> none
+1. <= 1 ----> 1.0
+1 <= 2. ----> 2.0
+1. <= 0. ----> none
+-1 <= 0. ----> 0.0
+1. <= -2 ----> none
+-1 <= -0. ----> 0.0
+1. >= 1 ----> 1.0
+1 >= 2. ----> none
+1. >= 0. ----> 0.0
+-1 >= 0. ----> none
+1. >= -2 ----> -2.0
+-1 >= -0. ----> none
+1. = 1 ----> 1.0
+1 = 2. ----> none
+1. = 0. ----> none
+-1 = 0. ----> none
+1. = -2 ----> none
+-1 = -0. ----> none
+1. ~= 1 ----> none
+1 ~= 2. ----> 2.0
+1. ~= 0. ----> 0.0
+-1 ~= 0. ----> 0.0
+1. ~= -2 ----> -2.0
+-1 ~= -0. ----> 0.0
+36. ^ 9 ----> 1.015599e+14
+36 ^ 9. ----> 1.015599e+14
+36. ^ 9. ----> 1.015599e+14
+-36. ^ 9 ----> -1.01559e+14
+-36. ^ -9 ----> -9.84640e-15
+#---------------------------------------------------------------------- 9 coerce
++x          1     2     3     9
+-x         -1    -2    -3    -9
+*x          1     1     1     1
+!x          1     2     3     9
+/x        ---   ---   ---   ---
+\x          1     2     3     9
+
+x + y       3     4    10     3     5    11     4     5    12    10    11    12
+x - y      -1    -2    -8     1    -1    -7     2     1    -6     8     7     6
+x * y       2     3     9     2     6    18     3     6    27     9    18    27
+x / y       0     0     0     2     0     0     3     1     0     9     4     3
+x % y       1     1     1     0     2     2     0     1     3     0     1     0
+x ^ y       1     1     1     2     8   512     3     9 19683     9    81   729
+x < y       2     3     9   ---     3     9   ---   ---     9   ---   ---   ---
+x = y     ---   ---   ---   ---   ---   ---   ---   ---   ---   ---   ---   ---
+x > y     ---   ---   ---     1   ---   ---     1     2   ---     1     2     3
+x << y      2     3     9   ---     3     9   ---   ---     9   ---   ---   ---
+x == y    ---   ---   ---   ---   ---   ---   ---   ---   ---   ---   ---   ---
+x >> y    ---   ---   ---     1   ---   ---     1     2   ---     1     2     3
+x [] y    ---   ---   ---     2   ---   ---     1     2   ---     6     7   ---
+x ++ y  .0123   12x   12x .0123.0123x .023x   12x.0123x   12x   12x .023x   12x
+x -- y      1     2     1   .03  .023   .03     x    1x     1     x     x     2
+x ** y      2     1     2     2           2     1           x     2     2     x
+
+2.3 to 17.5 by 3.1:      2 5 8 11 14 17
+2.3 to 17.5 by '03':     2 5 8 11 14 17
+2.3 to 17.5 by "3.2":    2 5 8 11 14 17
+2.3 to '17' by 3.1:      2 5 8 11 14 17
+2.3 to '17' by '03':     2 5 8 11 14 17
+2.3 to '17' by "3.2":    2 5 8 11 14 17
+2.3 to "17" by 3.1:      2 5 8 11 14 17
+2.3 to "17" by '03':     2 5 8 11 14 17
+2.3 to "17" by "3.2":    2 5 8 11 14 17
+'02' to 17.5 by 3.1:     2 5 8 11 14 17
+'02' to 17.5 by '03':    2 5 8 11 14 17
+'02' to 17.5 by "3.2":   2 5 8 11 14 17
+'02' to '17' by 3.1:     2 5 8 11 14 17
+'02' to '17' by '03':    2 5 8 11 14 17
+'02' to '17' by "3.2":   2 5 8 11 14 17
+'02' to "17" by 3.1:     2 5 8 11 14 17
+'02' to "17" by '03':    2 5 8 11 14 17
+'02' to "17" by "3.2":   2 5 8 11 14 17
+"2" to 17.5 by 3.1:      2 5 8 11 14 17
+"2" to 17.5 by '03':     2 5 8 11 14 17
+"2" to 17.5 by "3.2":    2 5 8 11 14 17
+"2" to '17' by 3.1:      2 5 8 11 14 17
+"2" to '17' by '03':     2 5 8 11 14 17
+"2" to '17' by "3.2":    2 5 8 11 14 17
+"2" to "17" by 3.1:      2 5 8 11 14 17
+"2" to "17" by '03':     2 5 8 11 14 17
+"2" to "17" by "3.2":    2 5 8 11 14 17
+
+  12578  .13459  ainorz  
+  12345  678.9  cnost  
+#-------------------------------------------------------------------- 10 collate
+"\xfd\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xff\xfe"
+"\xfd\x01\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xff\x01"
+"\x02\x01\xff\xfe\xfd\xfc\xfb\xfa\xf9\xf8\xf7\xf6\xf5\xf4\xf3\xf2\xf1\xf0\xef\xee\xed\xec\xeb\xea\xe9\xe8\xe7\xe6\xe5\xe4\xe3\xe2\xe1\xe0\xdf\xde\xdd\xdc\xdb\xda\xd9\xd8\xd7\xd6\xd5\xd4\xd3\xd2\xd1\xd0\xcf\xce\xcd\xcc\xcb\xca\xc9\xc8\xc7\xc6\xc5\xc4\xc3\xc2\xc1\xc0\xbf\xbe\xbd\xbc\xbb\xba\xb9\xb8\xb7\xb6\xb5\xb4\xb3\xb2\xb1\xb0\xaf\xae\xad\xac\xab\xaa\xa9\xa8\xa7\xa6\xa5\xa4\xa3\xa2\xa1\xa0\x9f\x9e\x9d\x9c\x9b\x9a\x99\x98\x97\x96\x95\x94\x93\x92\x91\x90\x8f\x8e\x8d\x8c\x8b\x8a\x89\x88\x87\x86\x85\x84\x83\x82\x81\x80\d~}|{zyxwvutsrqponmlkjihgfedcba`_^]\\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#\"! \x1f\x1e\x1d\x1c\e\x1a\x19\x18\x17\x16\x15\x14\x13\x12\x11\x10\x0f\x0e\r\f\v\n\t\b\x07\x06\x05\x04\x00\x01"
+"\x02\xff\xfe\xfd\xfc\xfb\xfa\xf9\xf8\xf7\xf6\xf5\xf4\xf3\xf2\xf1\xf0\xef\xee\xed\xec\xeb\xea\xe9\xe8\xe7\xe6\xe5\xe4\xe3\xe2\xe1\xe0\xdf\xde\xdd\xdc\xdb\xda\xd9\xd8\xd7\xd6\xd5\xd4\xd3\xd2\xd1\xd0\xcf\xce\xcd\xcc\xcb\xca\xc9\xc8\xc7\xc6\xc5\xc4\xc3\xc2\xc1\xc0\xbf\xbe\xbd\xbc\xbb\xba\xb9\xb8\xb7\xb6\xb5\xb4\xb3\xb2\xb1\xb0\xaf\xae\xad\xac\xab\xaa\xa9\xa8\xa7\xa6\xa5\xa4\xa3\xa2\xa1\xa0\x9f\x9e\x9d\x9c\x9b\x9a\x99\x98\x97\x96\x95\x94\x93\x92\x91\x90\x8f\x8e\x8d\x8c\x8b\x8a\x89\x88\x87\x86\x85\x84\x83\x82\x81\x80\d~}|{zyxwvutsrqponmlkjihgfedcba`_^]\\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#\"! \x1f\x1e\x1d\x1c\e\x1a\x19\x18\x17\x16\x15\x14\x13\x12\x11\x10\x0f\x0e\r\f\v\n\t\b\x07\x06\x05\x04\x03\x00\x01"
+agmor
+agmro
+agomr
+agorm
+agrmo
+agrom
+amgor
+amgro
+amogr
+amorg
+amrgo
+amrog
+aogmr
+aogrm
+aomgr
+aomrg
+aorgm
+aormg
+argmo
+argom
+armgo
+armog
+arogm
+aromg
+gamor
+gamro
+gaomr
+gaorm
+garmo
+garom
+gmaor
+gmaro
+gmoar
+gmora
+gmrao
+gmroa
+goamr
+goarm
+gomar
+gomra
+goram
+gorma
+gramo
+graom
+grmao
+grmoa
+groam
+groma
+magor
+magro
+maogr
+maorg
+margo
+marog
+mgaor
+mgaro
+mgoar
+mgora
+mgrao
+mgroa
+moagr
+moarg
+mogar
+mogra
+morag
+morga
+mrago
+mraog
+mrgao
+mrgoa
+mroag
+mroga
+oagmr
+oagrm
+oamgr
+oamrg
+oargm
+oarmg
+ogamr
+ogarm
+ogmar
+ogmra
+ogram
+ogrma
+omagr
+omarg
+omgar
+omgra
+omrag
+omrga
+oragm
+oramg
+orgam
+orgma
+ormag
+ormga
+ragmo
+ragom
+ramgo
+ramog
+raogm
+raomg
+rgamo
+rgaom
+rgmao
+rgmoa
+rgoam
+rgoma
+rmago
+rmaog
+rmgao
+rmgoa
+rmoag
+rmoga
+roagm
+roamg
+rogam
+rogma
+romag
+romga
+#-------------------------------------------------------------------- 11 concord
+     1  Order, Coleoptera, (Beetles). Many beetles are colored so as
+     2  to resemble the surfaces which they habitually frequent, and they thus
+     3  escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
+     4  with splendid colors, which are often arranged in stripes, spots, crosses,
+     5  and other elegant patterns.  Such colors can hardly serve directly as a protection, except in the case
+     6  of certain flower-feeding species; but they may serve as a warning or means of
+     7  recognition, on the same principle as the
+     8  phosphorescence of the glow-worm.
+     9  As with beetles the colors of the two sexes are generally alike, we have
+    10  no evidence that they have been gained through sexual selection; but this is
+    11  at least possible, for they may have been developed in one sex and then
+    12  transferred to the other; and this view is even in some degree probable
+    13  in those groups which possess other well-marked secondary
+    14  sexual characters. Blind beetles, which cannot, of course, behold each
+    15  other's beauty, never, as I hear from Mr. Waterhouse, Jr., exhibit bright
+    16  colors, though they often have polished coats; but the explanation of their
+    17  obscurity may be that they generally inhabit caves and other obscure stations.
+
+alike            : 9
+and              : 2, 5, 11, 12, 17
+are              : 1, 3, 4, 9
+arranged         : 4
+beauty           : 15
+been             : 10, 11
+beetles          : 1, 3, 9, 14
+behold           : 14
+blind            : 14
+bright           : 15
+but              : 6, 10, 16
+can              : 5
+cannot           : 14
+case             : 5
+caves            : 17
+certain          : 6
+characters       : 14
+coats            : 16
+coleoptera       : 1
+colored          : 1
+colors           : 4, 5, 9, 16
+course           : 14
+crosses          : 4
+degree           : 12
+detection        : 3
+developed        : 11
+diamond          : 3
+directly         : 5
+each             : 14
+elegant          : 5
+enemies          : 3
+escape           : 3
+even             : 12
+evidence         : 10
+except           : 5
+exhibit          : 15
+explanation      : 16
+feeding          : 6
+flower           : 6
+for              : 3, 11
+frequent         : 2
+from             : 15
+gained           : 10
+generally        : 9, 17
+glow             : 8
+groups           : 13
+habitually       : 2
+hardly           : 5
+have             : 9, 10, 11, 16
+hear             : 15
+inhabit          : 17
+instance         : 3
+least            : 11
+many             : 1
+marked           : 13
+may              : 6, 11, 17
+means            : 6
+never            : 15
+obscure          : 17
+obscurity        : 17
+often            : 4, 16
+one              : 11
+order            : 1
+ornamented       : 3
+other            : 3, 5, 12, 13, 17
+other's          : 15
+patterns         : 5
+phosphorescence  : 8
+polished         : 16
+possess          : 13
+possible         : 11
+principle        : 7
+probable         : 12
+protection       : 5
+recognition      : 7
+resemble         : 2
+same             : 7
+secondary        : 13
+selection        : 10
+serve            : 5, 6
+sex              : 11
+sexes            : 9
+sexual           : 10, 14
+some             : 12
+species          : 3, 6
+splendid         : 4
+spots            : 4
+stations         : 17
+stripes          : 4
+such             : 5
+surfaces         : 2
+that             : 10, 17
+the              : 2, 5, 7, 8, 9, 12, 16
+their            : 3, 16
+then             : 11
+they             : 2, 6, 10, 11, 16, 17
+this             : 10, 12
+those            : 13
+though           : 16
+through          : 10
+thus             : 2
+transferred      : 12
+two              : 9
+view             : 12
+warning          : 6
+waterhouse       : 15
+well             : 13
+which            : 2, 4, 13, 14
+with             : 4, 9
+worm             : 8
+#----------------------------------------------------------------------- 12 cset
+x:    123abc
+*x:   6
+!x:   123abc
+?z:   z
+
+   &digits: '0123456789'
+    &lcase: 'abcdefghijklmnopqrstuvwxyz'
+    &ucase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  &letters: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+    &ascii: 128 elements
+
+   x         y          x++y         y++x     x--y   y--x   x**y   y**x   ~~x
+'123abc' 'abcxyz'    123abcxyz    123abcxyz    123    xyz    abc    abc 123abc
+'123abc' "xyzabc"    123abcxyz    123abcxyz    123    xyz    abc    abc 123abc
+'123abc'     3456    123456abc    123456abc  12abc    456      3      3 123abc
+'123abc'    34.56   .123456abc   .123456abc  12abc   .456      3      3 123abc
+'123abc'   "@ 90"    01239@abc    01239@abc 123abc    09@               123abc
+"a1b2c3" 'abcxyz'    123abcxyz    123abcxyz    123    xyz    abc    abc 123abc
+"a1b2c3" "xyzabc"    123abcxyz    123abcxyz    123    xyz    abc    abc 123abc
+"a1b2c3"     3456    123456abc    123456abc  12abc    456      3      3 123abc
+"a1b2c3"    34.56   .123456abc   .123456abc  12abc   .456      3      3 123abc
+"a1b2c3"   "@ 90"    01239@abc    01239@abc 123abc    09@               123abc
+    1234 'abcxyz'   1234abcxyz   1234abcxyz   1234 abcxyz                 1234
+    1234 "xyzabc"   1234abcxyz   1234abcxyz   1234 abcxyz                 1234
+    1234     3456       123456       123456     12     56     34     34   1234
+    1234    34.56      .123456      .123456     12    .56     34     34   1234
+    1234   "@ 90"      012349@      012349@   1234    09@                 1234
+   12.34 'abcxyz'  .1234abcxyz  .1234abcxyz  .1234 abcxyz                .1234
+   12.34 "xyzabc"  .1234abcxyz  .1234abcxyz  .1234 abcxyz                .1234
+   12.34     3456      .123456      .123456    .12     56     34     34  .1234
+   12.34    34.56      .123456      .123456     12     56    .34    .34  .1234
+   12.34   "@ 90"     .012349@     .012349@  .1234    09@                .1234
+      '' 'abcxyz'       abcxyz       abcxyz        abcxyz                     
+      '' "xyzabc"       abcxyz       abcxyz        abcxyz                     
+      ''     3456         3456         3456          3456                     
+      ''    34.56        .3456        .3456         .3456                     
+      ''   "@ 90"          09@          09@           09@                     
+
+  0  "\x00"  "\x00"    0  '\x00'
+ 15  "\x0f"  "\x0f"   15  '\x0f'
+ 30  "\x1e"  "\x1e"   30  '\x1e'
+ 45     "-"     "-"   45     '-'
+ 60     "<"     "<"   60     '<'
+ 75     "K"     "K"   75     'K'
+ 90     "Z"     "Z"   90     'Z'
+105     "i"     "i"  105     'i'
+120     "x"     "x"  120     'x'
+135  "\x87"  "\x87"  135  '\x87'
+150  "\x96"  "\x96"  150  '\x96'
+165  "\xa5"  "\xa5"  165  '\xa5'
+180  "\xb4"  "\xb4"  180  '\xb4'
+195  "\xc3"  "\xc3"  195  '\xc3'
+210  "\xd2"  "\xd2"  210  '\xd2'
+225  "\xe1"  "\xe1"  225  '\xe1'
+240  "\xf0"  "\xf0"  240  '\xf0'
+255  "\xff"  "\xff"  255  '\xff'
+
+       0  "\x00"    0
+   15.71  "\x0f"   15
+  "32rU"  "\x1e"   30
+ "16r2D"     "-"   45
+    "60"     "<"   60
+ "8r113"     "K"   75
+    "90"     "Z"   90
+   "105"     "i"  105
+   "120"     "x"  120
+ "8r207"  "\x87"  135
+ "16r96"  "\x96"  150
+ "16ra5"  "\xa5"  165
+ "16rB4"  "\xb4"  180
+ "16rc3"  "\xc3"  195
+ "16rD2"  "\xd2"  210
+ "16re1"  "\xe1"  225
+ "16rf0"  "\xf0"  240
+ "16rfF"  "\xff"  255
+
+"\x00"    0  "\x00"
+"\x0f"   15  "\x0f"
+"\x1e"   30  "\x1e"
+   "-"   45     "-"
+   "<"   60     "<"
+   "K"   75     "K"
+   "Z"   90     "Z"
+   "i"  105     "i"
+   "x"  120     "x"
+"\x87"  135  "\x87"
+"\x96"  150  "\x96"
+"\xa5"  165  "\xa5"
+"\xb4"  180  "\xb4"
+"\xc3"  195  "\xc3"
+"\xd2"  210  "\xd2"
+"\xe1"  225  "\xe1"
+"\xf0"  240  "\xf0"
+"\xff"  255  "\xff"
+
+'\x00'  "\x00"    0
+'\x0f'  "\x0f"   15
+'\x1e'  "\x1e"   30
+   '-'     "-"   45
+   '<'     "<"   60
+   'K'     "K"   75
+   'Z'     "Z"   90
+   'i'     "i"  105
+   'x'     "x"  120
+'\x87'  "\x87"  135
+'\x96'  "\x96"  150
+'\xa5'  "\xa5"  165
+'\xb4'  "\xb4"  180
+'\xc3'  "\xc3"  195
+'\xd2'  "\xd2"  210
+'\xe1'  "\xe1"  225
+'\xf0'  "\xf0"  240
+'\xff'  "\xff"  255
+#------------------------------------------------------------------- 13 cxprimes
+2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+31
+37
+41
+43
+47
+53
+59
+61
+67
+71
+73
+79
+83
+89
+97
+#------------------------------------------------------------------- 14 diffwrds
+The
+There
+are
+by
+delete
+do
+end
+every
+first
+i
+in
+insert
+integers
+limit
+local
+main
+member
+primes
+procedure
+right
+s
+set
+sort
+the
+to
+write
+#-------------------------------------------------------------------- 15 endetab
+testing entab/detab(s)
+testing entab/detab(s,5)
+testing entab/detab(s,8,12)
+testing entab/detab(s,11,18,30,36)
+testing entab/detab(s,11,60)
+testing entab/detab(s,2)
+testing entab/detab(s,2,4)
+testing entab/detab(s,3)
+testing entab/detab(s,3,4)
+testing entab/detab(s,5)
+testing entab/detab(s,5,7,10)
+#-------------------------------------------------------------------- 16 errkwds
+0
+fail
+fail
+fail
+1
+fail
+0
+106
+procedure or integer expected
+&null
+0
+106
+procedure or integer expected
+&null
+0
+fail
+fail
+fail
+#--------------------------------------------------------------------- 17 errors
+
+error in line 7:
+   &error = -2
+   &errornumber = 101
+   &errortext = "integer expected or out of range"
+   &errorvalue = "a"
+seq("a") | monitor(&line) ----> 7
+
+error in line 9:
+   &error = -3
+   &errornumber = 106
+   &errortext = "procedure or integer expected"
+   &errorvalue = "|"
+"|"(1,2) | monitor(&line) ----> 9
+
+error in line 11:
+   &error = -4
+   &errornumber = 122
+   &errortext = "set or table expected"
+   &errorvalue = &null
+member(x,x) | monitor(&line) ----> 11
+
+error in line 13:
+   &error = -5
+   &errornumber = 120
+   &errortext = "two csets or two sets expected"
+   &errorvalue = set_1(0)
+(set([]) ++ 'a') | monitor(&line) ----> 13
+
+error in line 15:
+   &error = -6
+   &errornumber = 112
+   &errortext = "invalid type to size operation"
+   &errorvalue = &null
+(every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1])) | monitor(&line) ----> 15
+
+error in line 17:
+   &error = -7
+   &errornumber = 112
+   &errortext = "invalid type to size operation"
+   &errorvalue = &null
+(every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1])) | monitor(&line) ----> 17
+
+error in line 19:
+   &error = -8
+   &errornumber = 108
+   &errortext = "list expected"
+   &errorvalue = &null
+(c |||:= s) | monitor(&line) ----> 19
+
+error in line 21:
+   &error = -9
+   &errornumber = 113
+   &errortext = "invalid type to random operation"
+   &errorvalue = &null
+?&null | monitor(&line) ----> 21
+
+error in line 23:
+   &error = -10
+   &errornumber = 114
+   &errortext = "invalid type to subscript operation"
+   &errorvalue = &null
+c[1] | monitor(&line) ----> 23
+
+error in line 25:
+   &error = -11
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = function image
+(image + image) | monitor(&line) ----> 25
+
+error in line 27:
+   &error = -12
+   &errornumber = 114
+   &errortext = "invalid type to subscript operation"
+   &errorvalue = &null
+.1(s[1],s := &null) | monitor(&line) ----> 27
+
+error in line 32:
+   &error = -13
+   &errornumber = 105
+   &errortext = "file expected"
+   &errorvalue = list_2(0)
+display(,[]) | monitor(&line) ----> 32
+
+error in line 34:
+   &error = -14
+   &errornumber = 103
+   &errortext = "string expected"
+   &errorvalue = list_3(0)
+([] ~== "x") | monitor(&line) ----> 34
+
+error in line 36:
+   &error = -15
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = &null
+(x + 1) | monitor(&line) ----> 36
+
+error in line 38:
+   &error = -16
+   &errornumber = 106
+   &errortext = "procedure or integer expected"
+   &errorvalue = "a"
+"a"(1,2,3) | monitor(&line) ----> 38
+
+error in line 40:
+   &error = -17
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "o"
+("o" + 0) | monitor(&line) ----> 40
+
+error in line 42:
+   &error = -18
+   &errornumber = 120
+   &errortext = "two csets or two sets expected"
+   &errorvalue = list_4(0)
+(&cset ++ []) | monitor(&line) ----> 42
+
+error in line 44:
+   &error = -19
+   &errornumber = 101
+   &errortext = "integer expected or out of range"
+   &errorvalue = "a"
+(every 1 to "a") | monitor(&line) ----> 44
+
+error in line 46:
+   &error = -20
+   &errornumber = 116
+   &errortext = "invalid type to element generator"
+   &errorvalue = function image
+!image | monitor(&line) ----> 46
+
+error in line 51:
+   &error = -21
+   &errornumber = 211
+   &errortext = "by value equal to zero"
+   &errorvalue = 0
+(0 to 0 by 0) | monitor(&line) ----> 51
+
+error in line 53:
+   &error = -22
+   &errornumber = 101
+   &errortext = "integer expected or out of range"
+   &errorvalue = "a"
+repl("b","a") | monitor(&line) ----> 53
+
+error in line 55:
+   &error = -23
+   &errornumber = 106
+   &errortext = "procedure or integer expected"
+   &errorvalue = &null
+t(t) | monitor(&line) ----> 55
+
+error in line 57:
+   &error = -24
+   &errornumber = 115
+   &errortext = "structure expected"
+   &errorvalue = &lcase
+sort(&lcase) | monitor(&line) ----> 57
+
+error in line 59:
+   &error = -25
+   &errornumber = 108
+   &errortext = "list expected"
+   &errorvalue = &null
+pull(&null) | monitor(&line) ----> 59
+
+error in line 61:
+   &error = -26
+   &errornumber = 114
+   &errortext = "invalid type to subscript operation"
+   &errorvalue = &null
+c[-4] | monitor(&line) ----> 61
+
+error in line 63:
+   &error = -27
+   &errornumber = 106
+   &errortext = "procedure or integer expected"
+   &errorvalue = "procedure"
+(type(type)(type)) | monitor(&line) ----> 63
+
+error in line 65:
+   &error = -28
+   &errornumber = 114
+   &errortext = "invalid type to subscript operation"
+   &errorvalue = &null
+r[r] | monitor(&line) ----> 65
+
+error in line 67:
+   &error = -29
+   &errornumber = 120
+   &errortext = "two csets or two sets expected"
+   &errorvalue = list_5(0)
+([] ** "abc") | monitor(&line) ----> 67
+
+error in line 69:
+   &error = -30
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = 'abc'
+('abc' ~= ('abc' ++ '')) | monitor(&line) ----> 69
+
+error in line 74:
+   &error = -31
+   &errornumber = 103
+   &errortext = "string expected"
+   &errorvalue = function numeric
+(&lcase || numeric) | monitor(&line) ----> 74
+
+error in line 76:
+   &error = -32
+   &errornumber = 114
+   &errortext = "invalid type to subscript operation"
+   &errorvalue = &null
+x["a"] | monitor(&line) ----> 76
+
+error in line 78:
+   &error = -33
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = &null
+(100-()) | monitor(&line) ----> 78
+
+error in line 80:
+   &error = -34
+   &errornumber = 111
+   &errortext = "variable expected"
+   &errorvalue = 1
+((1 := y) & &fail) | monitor(&line) ----> 80
+
+error in line 82:
+   &error = -35
+   &errornumber = 110
+   &errortext = "string or list expected"
+   &errorvalue = &null
+(a[1:3] := a) | monitor(&line) ----> 82
+
+error in line 84:
+   &error = -36
+   &errornumber = 114
+   &errortext = "invalid type to subscript operation"
+   &errorvalue = &null
+(a[3] :=: a3[&null]) | monitor(&line) ----> 84
+
+error in line 86:
+   &error = -37
+   &errornumber = 114
+   &errortext = "invalid type to subscript operation"
+   &errorvalue = &null
+a5[a5] | monitor(&line) ----> 86
+
+error in line 88:
+   &error = -38
+   &errornumber = 114
+   &errortext = "invalid type to subscript operation"
+   &errorvalue = function pull
+pull[c] | monitor(&line) ----> 88
+
+error in line 90:
+   &error = -39
+   &errornumber = 103
+   &errortext = "string expected"
+   &errorvalue = list_6(0)
+(&subject := []) | monitor(&line) ----> 90
+
+error in line 92:
+   &error = -40
+   &errornumber = 103
+   &errortext = "string expected"
+   &errorvalue = list_7(0)
+([] ? []) | monitor(&line) ----> 92
+
+error in line 94:
+   &error = -41
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
++"a" | monitor(&line) ----> 94
+
+error in line 99:
+   &error = -42
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = &null
+(i <= []) | monitor(&line) ----> 99
+
+error in line 101:
+   &error = -43
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = list_9(0)
+([] ^ i) | monitor(&line) ----> 101
+
+error in line 103:
+   &error = -44
+   &errornumber = 103
+   &errortext = "string expected"
+   &errorvalue = &null
+(s ?:= &subject[3]) | monitor(&line) ----> 103
+
+error in line 105:
+   &error = -45
+   &errornumber = 103
+   &errortext = "string expected"
+   &errorvalue = &null
+(s >>:= 0) | monitor(&line) ----> 105
+
+error in line 107:
+   &error = -46
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = &null
+(s = 0) | monitor(&line) ----> 107
+
+error in line 109:
+   &error = -47
+   &errornumber = 108
+   &errortext = "list expected"
+   &errorvalue = &null
+put(s) | monitor(&line) ----> 109
+
+error in line 111:
+   &error = -48
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = 'abc'
+('abc' = ('abc' ++ '')) | monitor(&line) ----> 111
+
+error in line 113:
+   &error = -49
+   &errornumber = 103
+   &errortext = "string expected"
+   &errorvalue = list_10(0)
+=[] | monitor(&line) ----> 113
+
+error in line 115:
+   &error = -50
+   &errornumber = 111
+   &errortext = "variable expected"
+   &errorvalue = 1
+((1 <-> y) & &fail) | monitor(&line) ----> 115
+
+error in line 117:
+   &error = -51
+   &errornumber = 116
+   &errortext = "invalid type to element generator"
+   &errorvalue = &null
+!&null | monitor(&line) ----> 117
+
+error in line 119:
+   &error = -52
+   &errornumber = 101
+   &errortext = "integer expected or out of range"
+   &errorvalue = "a"
+(2 \ "a") | monitor(&line) ----> 119
+
+error in line 124:
+   &error = -53
+   &errornumber = 101
+   &errortext = "integer expected or out of range"
+   &errorvalue = ""
+right("","") | monitor(&line) ----> 124
+
+error in line 126:
+   &error = -54
+   &errornumber = 105
+   &errortext = "file expected"
+   &errorvalue = "F"
+close("F") | monitor(&line) ----> 126
+
+error in line 128:
+   &error = -55
+   &errornumber = 104
+   &errortext = "cset expected"
+   &errorvalue = list_11(0)
+trim(&lcase,[]) | monitor(&line) ----> 128
+
+error in line 130:
+   &error = -56
+   &errornumber = 101
+   &errortext = "integer expected or out of range"
+   &errorvalue = list_12(0)
+list([]) | monitor(&line) ----> 130
+
+error in line 132:
+   &error = -57
+   &errornumber = 205
+   &errortext = "invalid value"
+   &errorvalue = 0
+reads(f,0) | monitor(&line) ----> 132
+
+error in line 134:
+   &error = -58
+   &errornumber = 105
+   &errortext = "file expected"
+   &errorvalue = "f"
+read("f") | monitor(&line) ----> 134
+
+error in line 136:
+   &error = -59
+   &errornumber = 104
+   &errortext = "cset expected"
+   &errorvalue = list_13(0)
+bal([],,,"") | monitor(&line) ----> 136
+
+error in line 138:
+   &error = -60
+   &errornumber = 101
+   &errortext = "integer expected or out of range"
+   &errorvalue = "a"
+pos("a") | monitor(&line) ----> 138
+
+error in line 140:
+   &error = -61
+   &errornumber = 101
+   &errortext = "integer expected or out of range"
+   &errorvalue = "a"
+140
+
+error in line 142:
+   &error = -62
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 % "a") | monitor(&line) ----> 142
+
+error in line 147:
+   &error = -63
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 * "a") | monitor(&line) ----> 147
+
+error in line 149:
+   &error = -64
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 / "a") | monitor(&line) ----> 149
+
+error in line 151:
+   &error = -65
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 + "a") | monitor(&line) ----> 151
+(-36 ^ -9) | monitor(&line) ----> 0
+
+error in line 155:
+   &error = -66
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 < "a") | monitor(&line) ----> 155
+
+error in line 157:
+   &error = -67
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = &null
+(0 > &null) | monitor(&line) ----> 157
+
+error in line 159:
+   &error = -68
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 <= "a") | monitor(&line) ----> 159
+
+error in line 161:
+   &error = -69
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 > "a") | monitor(&line) ----> 161
+
+error in line 163:
+   &error = -70
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 = "a") | monitor(&line) ----> 163
+
+error in line 165:
+   &error = -71
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 ~= "a") | monitor(&line) ----> 165
+
+error in line 167:
+   &error = -72
+   &errornumber = 108
+   &errortext = "list expected"
+   &errorvalue = "abc"
+(list(10)) ||| "abc" | monitor(&line) ----> 167
+
+error in line 172:
+   &error = -73
+   &errornumber = 111
+   &errortext = "variable expected"
+   &errorvalue = "a"
+(x :=: "a") | monitor(&line) ----> 172
+
+error in line 174:
+   &error = -74
+   &errornumber = 111
+   &errortext = "variable expected"
+   &errorvalue = "b"
+(x <-> "b") | monitor(&line) ----> 174
+
+error in line 176:
+   &error = -75
+   &errornumber = 111
+   &errortext = "variable expected"
+   &errorvalue = 4
+((x & 2 & 3 & 4) := 3) | monitor(&line) ----> 176
+
+error in line 178:
+   &error = -76
+   &errornumber = 111
+   &errortext = "variable expected"
+   &errorvalue = 1
+((1 <- y) & &fail) | monitor(&line) ----> 178
+
+error in line 180:
+   &error = -77
+   &errornumber = 206
+   &errortext = "negative first argument to real exponentiation"
+(-36. ^ -9.) | monitor(&line) ----> 180
+ eginopst
+#---------------------------------------------------------------------- 18 evalx
+ ----> &null
+2 === +2 ----> 2
+3 === *"abc" ----> 3
+'abc' === ('abc' ++ '') ----> 'abc'
+'a' ----> 'a'
+'ab' ----> 'ab'
+'\xb9' ----> '\xb9'
+'\xb8\xb4' ----> '\xb4\xb8'
+'\^d' ----> '\x04'
+'\^a\^d' ----> '\x01\x04'
+"a" ----> "a"
+"ab" ----> "ab"
+"\xb9" ----> "\xb9"
+"\xb8\xb4" ----> "\xb8\xb4"
+"\^d" ----> "\x04"
+"\^a\^d" ----> "\x01\x04"
+*'a' ----> 1
+*'ab' ----> 2
+*'\xb9' ----> 1
+*'\xb8\xb4' ----> 2
+*'\^d' ----> 1
+*'\^a\^d' ----> 2
+*"a" ----> 1
+*"ab" ----> 2
+*"\xb9" ----> 1
+*"\xb8\xb4" ----> 2
+*"\^d" ----> 1
+"*\^a\^d" ----> "*\x01\x04"
+1
+3
+5
+7
+9
+every write("..."(1,10,2)) ----> none
+function write
+every write("image"(write)) ----> none
+"[:]"("abcdef",3,5) ----> "cd"
+"[]"(&lcase,3) ----> "c"
+image(proc("^",1)) ----> "function ^"
+image(proc("^",2)) ----> "function ^"
+proc("+",2)(3,4) ----> 7
+proc(proc)("write") ----> function write
+proc("+") ----> function +
+?10 ----> 3
+?10 ----> 5
+?10 ----> 4
+?20 ----> 11
+?[1,2,3,4] ----> 2
+?[1,2,3,4] ----> 2
+x := array(1,2,3,4,5,6,7) ----> record array_1(7)
+?x ----> 1
+?x ----> 6
+?x ----> 1
+?x ----> 6
+?x ----> 1
+?x ----> 3
+?x ----> 4
+?x ----> 5
+6
+8
+8
+3
+9
+4
+4
+9
+9
+1
+every 1 to 10 do write(?10) ----> none
+8
+4
+7
+5
+9
+10
+4
+5
+6
+7
+every 1 to 10 do write(?[1,2,3,4,5,6,7,8,9,10]) ----> none
+a
+f
+c
+c
+a
+f
+d
+d
+f
+b
+every 1 to 10 do write(?"abcdef") ----> none
+x := array(1,2,3,4,5,6,7) ----> record array_2(7)
+3
+6
+7
+7
+4
+6
+4
+1
+6
+6
+every 1 to 10 do write(?x) ----> none
+(1,2,3,4,5) ----> 5
+1
+2
+3
+4
+5
+every write((1 to 5)(1,2,3,4,5)) ----> none
+0(1,2) ----> none
+1(1) ----> 1
+2(1) ----> none
+(-1)(1,2,3) ----> 3
+3(1,2,3,&fail) ----> none
+a
+a
+b
+b
+c
+c
+a
+a
+b
+b
+c
+c
+a
+a
+b
+b
+c
+c
+a
+a
+b
+b
+c
+c
+a
+a
+b
+b
+c
+c
+every write(2(1 to 5,!"abc",1 to 2)) ----> none
+x := 1 ----> 1
+y := 2 ----> 2
+(x := y) & &fail ----> none
+a
+b
+c
+d
+e
+f
+every write(!"abcdef") ----> none
+1
+2
+3
+4
+5
+every write(![1,2,3,4,5]) ----> none
+1
+2
+3
+4
+5
+every write(!![1,2,3,4,5]) ----> none
+1
+a
+b
+1
+2
+3
+3
+4
+every write(!![1,"ab",[1,2,3],34]) ----> none
+1
+a
+b
+1
+2
+3
+3
+4
+every write(!([1,"ab",[1,2,3],34][1 to 4])) ----> none
+x := array(1,2,3,4,5) ----> record array_3(7)
+1
+2
+3
+4
+5
+
+
+every write(!x) ----> none
+x := 1 ----> 1
+y := 2 ----> 2
+x <-> y ----> 2
+y <-> x ----> 2
+(x <-> y) & &fail ----> none
+x ----> 1
+y ----> 2
+*"" ----> 0
+*'' ----> 0
+*[] ----> 0
+*table() ----> 0
+*30 ----> 2
+!"abc" ----> "a"
+![1,2,3] ----> 1
+!&lcase ----> "a"
+!30 ----> "3"
+!table() ----> none
+?"abc" ----> "c"
+?&lcase ----> "f"
+?[1,2,3] ----> 2
+?table() ----> none
+?30 ----> 27
+.x ----> &null
+."abc" ----> "abc"
+.[] ----> list_22(0)
+.main ----> procedure main
+/main ----> none
+/"abc" ----> none
+/&null ----> &null
+/[] ----> none
+/&lcase ----> none
+\main ----> procedure main
+\"abc" ----> "abc"
+\x ----> none
+\[] ----> list_24(0)
+\&null ----> none
+1 | 2 | 3 ----> 1
+|(1 to 10) ----> 1
+||(1 to 10) ----> 1
+|||(1 to 10) ----> 1
+||||(1 to 10) ----> 1
+|||||(1 to 10) ----> 1
+|||||||(1 to 10) ----> 1
+2 \ 2 ----> 2
+while 1 do break ----> &null
+while 1 do break "hello" ----> "hello"
+while break ----> &null
+case 1 of {2:3; "1":4; 1: 4 to 10; default: "whoa"} ----> 4
+not 1 ----> none
+not \&null ----> &null
+repeat break ----> &null
+until 1 do 2 ----> none
+if 1 then 2 else 3 ----> 2
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+every write(if 1 then 1 to 10 else 5) ----> none
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+every write(if 1 = 0 then 1 to 10 else 10 to 1 by -1) ----> none
+if 1 then 2 ----> 2
+if 1 = 0 then 2 ----> none
+x := 1 ----> 1
+y := 2 ----> 2
+z := 3 ----> 3
+x :=: y ----> 2
+y :=: x ----> &null
+x ----> &null
+y ----> &null
+z ----> &null
+x :=: y :=: z ----> &null
+x ----> &null
+y ----> &null
+z ----> &null
+x := 1 ----> 1
+y := 2 ----> 2
+z := 3 ----> 3
+x <-> y ----> &null
+y <-> x ----> &null
+x ----> &null
+y ----> &null
+z ----> &null
+x <-> y :=: z ----> &null
+x ----> &null
+y ----> &null
+z ----> &null
+1 & 2 & 3 & 4 ----> 4
+(1 & 2 & 3 & x) := 3 ----> 3
+x ----> &null
+x := 1 ----> 1
+y := 2 ----> 2
+(x <- y) & &fail ----> none
+x ----> 1
+y ----> 2
+#---------------------------------------------------------------------- 19 every
+a. 
+b. -3
+c. 1
+c. 2
+c. 3
+c. 4
+c. 5
+c. 6
+c. 7
+c. 8
+c. 9
+c. 10
+d. 1
+d. 4
+d. 7
+d. 10
+e. 1
+e. 4
+e. 7
+e. 10
+f. 1
+f. 4
+f. 7
+f. 10
+h. 10
+h. 7
+h. 4
+h. 1
+i. 11
+i. 8
+i. 5
+i. 2
+j. 12
+j. 9
+j. 6
+j. 3
+k. 9
+k. 9.1
+k. 8.5
+k. 8.6
+l. hello world
+l. hello mom
+l. goodbye world
+l. goodbye mom
+n. a
+o. a
+o. b
+o. c
+o. d
+o. e
+p. -
+p. 5
+p. 1
+p. 4
+q. 1
+q. 2
+q. .
+q. 5
+r. .bcde
+r. ..cde
+r. ...de
+r. ....e
+r. .....
+s. 101
+s. 102
+s. 101
+s. 102
+t. 201
+t. 202
+t. 201
+t. 202
+u. 5
+u. -5
+#----------------------------------------------------------------------- 20 fncs
+ ----> &null
+copy(1) ----> 1
+copy("abc") ----> "abc"
+copy('aabbcc') ----> 'abc'
+copy(main) ----> procedure main
+copy([1,2,3]) ----> list_2(3)
+copy(table(0)) ----> table_2(0)
+copy() ----> &null
+copy(&input) ----> &input
+w := copy(write) ----> function write
+function write
+w(image(w)) ----> "function write"
+copy(array()) ----> record array_2(7)
+copy := copy(copy) ----> function copy
+x := copy(array) ----> record constructor array
+x := x(1,2,3,4,5,6,7) ----> record array_3(7)
+x[-4] ----> 4
+v := copy(c) ----> &null
+x := repl("123",4) ----> "123123123123"
+t := table() ----> table_3(0)
+every i := 1 to 100 do t[i] := i ----> none
+x := sort(t) ----> list_3(100)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+every write((!x)[2]) ----> none
+d
+d
+d
+cd
+cd
+cd
+cde
+cde
+cde
+bcde
+bcde
+bcde
+bcdef
+bcdef
+bcdef
+abcdef
+abcdef
+abcdef
+abcdef 
+abcdef0
+abcdef-
+ abcdef 
+0abcdef0
+=abcdef-
+ abcdef  
+0abcdef00
+=abcdef=-
+  abcdef  
+00abcdef00
+=-abcdef=-
+  abcdef   
+00abcdef000
+=-abcdef-=-
+   abcdef   
+000abcdef000
+=-=abcdef-=-
+   abcdef    
+000abcdef0000
+=-=abcdef=-=-
+    abcdef    
+0000abcdef0000
+=-=-abcdef=-=-
+    abcdef     
+0000abcdef00000
+=-=-abcdef-=-=-
+     abcdef     
+00000abcdef00000
+=-=-=abcdef-=-=-
+     abcdef      
+00000abcdef000000
+=-=-=abcdef=-=-=-
+      abcdef      
+000000abcdef000000
+=-=-=-abcdef=-=-=-
+      abcdef       
+000000abcdef0000000
+=-=-=-abcdef-=-=-=-
+       abcdef       
+0000000abcdef0000000
+=-=-=-=abcdef-=-=-=-
+every write(center("abcdef",1 to 20," " | "0" | "=-")) ----> none
+a
+a
+a
+ab
+ab
+ab
+abc
+abc
+abc
+abcd
+abcd
+abcd
+abcde
+abcde
+abcde
+abcdef
+abcdef
+abcdef
+abcdef 
+abcdef0
+abcdef-
+abcdef  
+abcdef00
+abcdef=-
+abcdef   
+abcdef000
+abcdef-=-
+abcdef    
+abcdef0000
+abcdef=-=-
+abcdef     
+abcdef00000
+abcdef-=-=-
+abcdef      
+abcdef000000
+abcdef=-=-=-
+abcdef       
+abcdef0000000
+abcdef-=-=-=-
+abcdef        
+abcdef00000000
+abcdef=-=-=-=-
+abcdef         
+abcdef000000000
+abcdef-=-=-=-=-
+abcdef          
+abcdef0000000000
+abcdef=-=-=-=-=-
+abcdef           
+abcdef00000000000
+abcdef-=-=-=-=-=-
+abcdef            
+abcdef000000000000
+abcdef=-=-=-=-=-=-
+abcdef             
+abcdef0000000000000
+abcdef-=-=-=-=-=-=-
+abcdef              
+abcdef00000000000000
+abcdef=-=-=-=-=-=-=-
+every write(left("abcdef",1 to 20," " | "0" | "=-")) ----> none
+f
+f
+f
+ef
+ef
+ef
+def
+def
+def
+cdef
+cdef
+cdef
+bcdef
+bcdef
+bcdef
+abcdef
+abcdef
+abcdef
+ abcdef
+0abcdef
+=abcdef
+  abcdef
+00abcdef
+=-abcdef
+   abcdef
+000abcdef
+=-=abcdef
+    abcdef
+0000abcdef
+=-=-abcdef
+     abcdef
+00000abcdef
+=-=-=abcdef
+      abcdef
+000000abcdef
+=-=-=-abcdef
+       abcdef
+0000000abcdef
+=-=-=-=abcdef
+        abcdef
+00000000abcdef
+=-=-=-=-abcdef
+         abcdef
+000000000abcdef
+=-=-=-=-=abcdef
+          abcdef
+0000000000abcdef
+=-=-=-=-=-abcdef
+           abcdef
+00000000000abcdef
+=-=-=-=-=-=abcdef
+            abcdef
+000000000000abcdef
+=-=-=-=-=-=-abcdef
+             abcdef
+0000000000000abcdef
+=-=-=-=-=-=-=abcdef
+              abcdef
+00000000000000abcdef
+=-=-=-=-=-=-=-abcdef
+every write(right("abcdef",1 to 20," " | "0" | "=-")) ----> none
+center("",20,repl("x.",30)) ----> "x.x.x.x.x.x.x.x.x.x."
+left("",20,repl("x.",30)) ----> "x.x.x.x.x.x.x.x.x.x."
+right("",20,repl("x.",30)) ----> "x.x.x.x.x.x.x.x.x.x."
+a
+aa
+aaa
+aaaa
+aaaaa
+ab
+abab
+ababab
+abababab
+ababababab
+ba
+baba
+bababa
+babababa
+bababababa
+every write(repl("a" | "ab" | "ba",1 to 5)) ----> none
+repl("",0) ----> ""
+repl(&cset,0) ----> ""
+trim(&lcase) ----> "abcdefghijklmnopqrstuvwxyz"
+trim(&lcase,&lcase) ----> ""
+image(2) ----> "2"
+image('cab') ----> "'abc'"
+image(&lcase) ----> "&lcase"
+image('abcdefghijklmnopqrstuvwxyz') ----> "&lcase"
+image(&input) ----> "&input"
+image() ----> "&null"
+image(&null) ----> "&null"
+image([1,2,3]) ----> "list_104(3)"
+image([]) ----> "list_105(0)"
+image([,]) ----> "list_106(2)"
+image(table()) ----> "table_4(0)"
+image(table(3)) ----> "table_5(0)"
+image(list(0)) ----> "list_107(0)"
+image(set()) ----> "set_1(0)"
+image(set([1,2,3,3,3,3,3,4])) ----> "set_2(4)"
+image(repl) ----> "function repl"
+image(main) ----> "procedure main"
+image(repl(&lcase,10)) ----> "\"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz\""
+image(array) ----> "record constructor array"
+image(a) ----> "&null"
+image(array) ----> "record constructor array"
+image(image) ----> "function image"
+string(2) ----> "2"
+string("2") ----> "2"
+string(" 2") ----> " 2"
+string("2 ") ----> "2 "
+string("+2") ----> "+2"
+string("-2") ----> "-2"
+string("- 2") ----> "- 2"
+string(" -    2 ") ----> " -    2 "
+string("") ----> ""
+string("--2") ----> "--2"
+string(" ") ----> " "
+string("-") ----> "-"
+string("+") ----> "+"
+string("22222222222222222222222222222222222222222222222222222222222") ----> "22222222222222222222222222222222222222222222222222222222222"
+string("7r4") ----> "7r4"
+string("4r7") ----> "4r7"
+string("4r 7") ----> "4r 7"
+string("7r 4") ----> "7r 4"
+string("16rff") ----> "16rff"
+string("36rcat") ----> "36rcat"
+string("36Rcat") ----> "36Rcat"
+string("36rCAT") ----> "36rCAT"
+string("1r1") ----> "1r1"
+string("2r0") ----> "2r0"
+type(0) ----> "integer"
+type("abc") ----> "string"
+type('aba') ----> "cset"
+type() ----> "null"
+type(&null) ----> "null"
+type([]) ----> "list"
+type(table()) ----> "table"
+type(main) ----> "procedure"
+type(write) ----> "procedure"
+type(array()) ----> "array"
+type(array) ----> "procedure"
+type(f) ----> "null"
+cset(2) ----> '2'
+cset("2") ----> '2'
+cset(" 2") ----> ' 2'
+cset("2 ") ----> ' 2'
+cset("+2") ----> '+2'
+cset("-2") ----> '-2'
+cset("- 2") ----> ' -2'
+cset(" -    2 ") ----> ' -2'
+cset("") ----> ''
+cset("--2") ----> '-2'
+cset(" ") ----> ' '
+cset("-") ----> '-'
+cset("+") ----> '+'
+cset("22222222222222222222222222222222222222222222222222222222222") ----> '2'
+cset("7r4") ----> '47r'
+cset("4r7") ----> '47r'
+cset("4r 7") ----> ' 47r'
+cset("7r 4") ----> ' 47r'
+cset("16rff") ----> '16fr'
+cset("36rcat") ----> '36acrt'
+cset("36Rcat") ----> '36Ract'
+cset("36rCAT") ----> '36ACTr'
+cset("1r1") ----> '1r'
+cset("2r0") ----> '02r'
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+every write(seq()) \ 10 ----> none
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+every write(seq(2)) \ 10 ----> none
+-10
+-9
+-8
+-7
+-6
+-5
+-4
+-3
+-2
+-1
+every write(seq(-10)) \ 10 ----> none
+1
+4
+7
+10
+13
+16
+19
+22
+25
+28
+every write(seq(,3)) \ 10 ----> none
+#---------------------------------------------------------------------- 21 fncs1
+ ----> &null
+f := open("foo.baz","w") ----> file(foo.baz)
+write(f,"hello world") ----> "hello world"
+close(f) ----> file(foo.baz)
+F := open("fncs1.dat") ----> none
+#---------------------------------------------------------------------- 22 gener
+test delete:    41,    3	[ok]
+test delete:    41,   11	[ok]
+test delete:    41,   23	[ok]
+test delete:   619,    3	[ok]
+test delete:   619,   11	[ok]
+test delete:   619,   23	[ok]
+test delete:   991,    3	[ok]
+test delete:   991,   11	[ok]
+test delete:   991,   23	[ok]
+test insert:    40,  239,  3	[ok]
+test insert:    40,  239, 11	[ok]
+test insert:    40,  239, 23	[ok]
+test insert:    40,  419,  3	[ok]
+test insert:    40,  419, 11	[ok]
+test insert:    40,  419, 23	[ok]
+test insert:    40,  503,  3	[ok]
+test insert:    40,  503, 11	[ok]
+test insert:    40,  503, 23	[ok]
+test insert:   103,  239,  3	[ok]
+test insert:   103,  239, 11	[ok]
+test insert:   103,  239, 23	[ok]
+test insert:   103,  419,  3	[ok]
+test insert:   103,  419, 11	[ok]
+test insert:   103,  419, 23	[ok]
+test insert:   103,  503,  3	[ok]
+test insert:   103,  503, 11	[ok]
+test insert:   103,  503, 23	[ok]
+test insert:   233,  239,  3	[ok]
+test insert:   233,  239, 11	[ok]
+test insert:   233,  239, 23	[ok]
+test insert:   233,  419,  3	[ok]
+test insert:   233,  419, 11	[ok]
+test insert:   233,  419, 23	[ok]
+test insert:   233,  503,  3	[ok]
+test insert:   233,  503, 11	[ok]
+test insert:   233,  503, 23	[ok]
+
+checking !S:
+checking !T:
+checking key(T):
+
+[done]
+#------------------------------------------------------------------- 23 genqueen
+-------------
+| | | |Q| | |
+-------------
+|Q| | | | | |
+-------------
+| | | | |Q| |
+-------------
+| |Q| | | | |
+-------------
+| | | | | |Q|
+-------------
+| | |Q| | | |
+-------------
+
+-------------
+| | | | |Q| |
+-------------
+| | |Q| | | |
+-------------
+|Q| | | | | |
+-------------
+| | | | | |Q|
+-------------
+| | | |Q| | |
+-------------
+| |Q| | | | |
+-------------
+
+-------------
+| |Q| | | | |
+-------------
+| | | |Q| | |
+-------------
+| | | | | |Q|
+-------------
+|Q| | | | | |
+-------------
+| | |Q| | | |
+-------------
+| | | | |Q| |
+-------------
+
+-------------
+| | |Q| | | |
+-------------
+| | | | | |Q|
+-------------
+| |Q| | | | |
+-------------
+| | | | |Q| |
+-------------
+|Q| | | | | |
+-------------
+| | | |Q| | |
+-------------
+#---------------------------------------------------------------------- 24 image
+	null : &null
+    *2	integer : 47
+    *7	real : 3.14159
+    *3	cset : '127'
+    *9	string : "asparagus"
+	procedure : procedure main
+	procedure : function write
+#1  *0	list : list_1(0)
+#2  *0	list : list_2(0)
+#3  *5	list : list_3(5)
+#1  *0	set : set_1(0)
+#2  *3	set : set_2(3)
+#1  *0	table : table_1(0)
+#2  *1	table : table_2(1)
+	procedure : record constructor point
+	procedure : record constructor circle
+#1  *2	point : record point_1(2)
+#1  *3	circle : record circle_1(3)
+#2  *2	point : record point_2(2)
+#3  *2	point : record point_3(2)
+#2  *3	circle : record circle_2(3)
+#3  *3	circle : record circle_3(3)
+#2  *0	co-expression : co-expression_2(0)
+#3  *10	co-expression : co-expression_3(10)
+#4  *10	co-expression : co-expression_4(10)
+#5  *0	co-expression : co-expression_5(0)
+
+          x     integer(x)      real(x)   numeric(x)    string(x)      cset(x)
+            0            0          0.0            0          "0"          '0'
+          0.0            0          0.0          0.0        "0.0"         '.0'
+          "0"            0          0.0            0          "0"          '0'
+          '0'            0          0.0            0          "0"          '0'
+            7            7          7.0            7          "7"          '7'
+        7.315            7        7.315        7.315      "7.315"      '.1357'
+      "7.315"            7        7.315        7.315      "7.315"      '.1357'
+      '.1357'            0       0.1357       0.1357      ".1357"      '.1357'
+      "25e-2"            0         0.25         0.25      "25e-2"       '-25e'
+      "25e-1"            2          2.5          2.5      "25e-1"      '-125e'
+     " 4e+3 "         4000       4000.0       4000.0     " 4e+3 "      ' +34e'
+   " 3.8e3  "         3800       3800.0       3800.0   " 3.8e3  "      ' .38e'
+           ""          ---          ---          ---           ""           ''
+          " "          ---          ---          ---          " "          ' '
+       " -3 "           -3         -3.0           -3       " -3 "        ' -3'
+      "  9  "            9          9.0            9      "  9  "         ' 9'
+       " +77"           77         77.0           77       " +77"        ' +7'
+    "  4.7  "            4          4.7          4.7    "  4.7  "       ' .47'
+
+"\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\xf9\xfa\xfb\xfc\xfd\xfe"
+
+'\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\xf9\xfa\xfb\xfc\xfd\xfe'
+#------------------------------------------------------------------------- 25 io
+file: &errout
+file: &input
+file: &output
+file: file(/dev/null)
+file: file(/etc/passwd)
+
+aaa
+bbbb
+ccccc
+dddddd
+eeeeeee
+ffffffff
+ggggggggg
+hhhhhhhhhh
+
+flush /etc/passwd: file(/etc/passwd)
+close /etc/passwd: file(/etc/passwd)
+close /etc/passwd: file(/etc/passwd)
+flush /etc/passwd: file(/etc/passwd)
+
+flush /dev/null: file(/dev/null)
+close /dev/null: file(/dev/null)
+close /dev/null: file(/dev/null)
+flush /dev/null: file(/dev/null)
+
+read  /dev/null:	
+   !f:		 
+   read/!f:	
+   reads():	
+   nonseq:	 ?????????????????????????????????????????????????????????????
+
+write tmp1,w:	 follow the yellow brick road : 30
+read  tmp1:	 follow the yellow brick road
+   !f:		 follow the yellow brick road 
+   read/!f:	 follow the yellow brick road
+   reads():	 follo w.the .yell ow.br ick.r oad.
+   nonseq:	 ?.daor.kcirb.wolley.eht.wollof?.daor.kcirb.wolley.eht.wollof-
+
+write tmp1,w:	 shorter file : 14
+read  tmp1:	 shorter file
+   !f:		 shorter file 
+   read/!f:	 shorter file
+   reads():	 short er.fi le.
+   nonseq:	 ?????????????????.elif.retrohs?.elif.retrohs-----------------
+
+write tmp1,a:	 gets extended : 28
+read  tmp1:	 shorter file gets extended
+   !f:		 shorter file gets extended 
+   read/!f:	 shorter file gets extended
+   reads():	 short er.fi le.ge ts.ex tende d.
+   nonseq:	 ???.dednetxe.steg.elif.retrohs?.dednetxe.steg.elif.retrohs---
+
+write tmp1,rw:	 changed : 9
+read  tmp1:	 changed file gets extended
+   !f:		 changed file gets extended 
+   read/!f:	 changed file gets extended
+   reads():	 chang ed.fi le.ge ts.ex tende d.
+   nonseq:	 ???.dednetxe.steg.elif.degnahc?.dednetxe.steg.elif.degnahc---
+
+write tmp1,b:	 mode b  : 8
+read  tmp1:	 mode b  file gets extended
+   !f:		 mode b  file gets extended 
+   read/!f:	 mode b  file gets extended
+   reads():	 mode. b..fi le.ge ts.ex tende d.
+   nonseq:	 ???.dednetxe.steg.elif..b.edom?.dednetxe.steg.elif..b.edom---
+
+write tmp1,crw:	 cleared anew : 14
+read  tmp1:	 cleared anew
+   !f:		 cleared anew 
+   read/!f:	 cleared anew
+   reads():	 clear ed.an ew.
+   nonseq:	 ?????????????????.wena.deraelc?.wena.deraelc-----------------
+read  tmp2:	 cleared anew
+   !f:		 cleared anew 
+   read/!f:	 cleared anew
+   reads():	 clear ed.an ew.
+   nonseq:	 ?????????????????.wena.deraelc?.wena.deraelc-----------------
+
+file(tmp1)
+file(tmp2)
+>stdout>stdout>stdout
+
+>stdout
+
+read  tmp1:	 >1a>1b>1c  >1d  >1e>1f
+   !f:		 >1a>1b>1c  >1d  >1e>1f 
+   read/!f:	 >1a>1b>1c  >1d  >1e>1f
+   reads():	 >1a>1 b>1c. .>1d. .>1e> 1f.
+   nonseq:	 ???????.f1>e1>..d1>..c1>b1>a1>?.f1>e1>..d1>..c1>b1>a1>-------
+read  tmp2:	 >2a>2b >2c >2d  >2e>2f
+   !f:		 >2a>2b >2c >2d  >2e>2f 
+   read/!f:	 >2a>2b >2c >2d  >2e>2f
+   reads():	 >2a>2 b.>2c .>2d. .>2e> 2f.
+   nonseq:	 ???????.f2>e2>..d2>.c2>.b2>a2>?.f2>e2>..d2>.c2>.b2>a2>-------
+
+abcdef
+ghi
+jklmno
+pqr
+stu
+vwxyz
+
+$ echo hello world
+hello world
+$ ls io.[ids][tca][dnt]
+io.icn
+
+file(echo hello world)
+> hello world
+
+file(sed 's/^/=()= /' io.icn)
+> =()= #SRC: JCON
+> =()= 
+> =()= #  I/O test -- writes ./tmp1 and ./tmp2 as well as stdout
+> =()= 
+> =()= procedure main()
+> =()=    local L, f, m, n, t1, t2;
+> =()= 
+> =()=    L := [&input, &output, &errout,
+> =()=    	m := open("/etc/passwd") | stop("no /etc/passwd"),
+> =()= 	n := open("/dev/null" | stop("no /dev/null"), "w")];
+
+file(ls io.i?n io.d?t io.s?d)
+> io.icn
+
+file(tr aeiou oaeui)
+--- closing output pipe
+unca ipun o medneght draory
+twu ruods devargad en o yalluw wuud
+ond tha muma roths uitgroba
+--- done closing output pipe
+#---------------------------------------------------------------------- 26 iobig
+writing file(tmp3)
+reading file(tmp3)
+closing file(tmp3)
+writing file(tmp4)
+reading file(tmp4)
+closing file(tmp4)
+no problems found
+#---------------------------------------------------------------------- 27 kross
+
+
+p
+elephants
+a
+n
+u
+t
+s
+
+  p
+elephants
+  a
+  n
+  u
+  t
+  s
+
+elephants
+   e
+   a
+   n
+   u
+   t
+   s
+
+     p
+     e
+elephants
+     n
+     u
+     t
+     s
+
+      p
+      e
+      a
+elephants
+      u
+      t
+      s
+
+       p
+       e
+       a
+       n
+       u
+elephants
+       s
+
+        p
+        e
+        a
+        n
+        u
+        t
+elephants
+
+
+r
+o
+a
+c
+h
+encroachment
+s
+
+  r
+  o
+  a
+encroachment
+  h
+  e
+  s
+
+encroachment
+   o
+   a
+   c
+   h
+   e
+   s
+
+    r
+encroachment
+    a
+    c
+    h
+    e
+    s
+
+     r
+     o
+encroachment
+     c
+     h
+     e
+     s
+
+      r
+      o
+      a
+encroachment
+      h
+      e
+      s
+
+       r
+       o
+       a
+       c
+encroachment
+       e
+       s
+
+         r
+         o
+         a
+         c
+         h
+encroachment
+         s
+
+
+gaggle
+e
+e
+s
+e
+
+gaggle
+  e
+  e
+  s
+  e
+
+gaggle
+   e
+   e
+   s
+   e
+
+     g
+gaggle
+     e
+     s
+     e
+
+     g
+     e
+gaggle
+     s
+     e
+
+     g
+     e
+     e
+     s
+gaggle
+#----------------------------------------------------------------------- 28 kwds
+  &allocated: 0
+  &allocated: 0
+  &allocated: 46
+  &allocated: 0
+      &ascii: &ascii  [size 128]
+      &clock: nn:nn:nn
+        &col: [failed]
+&collections: 0
+&collections: 0
+&collections: 0
+&collections: 0
+    &control: [failed]
+       &cset: &cset  [size 256]
+    &current: co-expression_1(1)
+       &date: nnnn/nn/nn
+   &dateline: ' ,:admy'  [size 7]
+     &digits: &digits  [size 10]
+       &dump: 0
+          &e: 2.718281828
+      &error: 747
+&errornumber: [failed]
+  &errortext: [failed]
+ &errorvalue: [failed]
+     &errout: &errout
+       &fail: [failed]
+   &features: UNIX
+   &features: ASCII
+   &features: co-expressions
+   &features: dynamic loading
+   &features: environment variables
+   &features: external values
+   &features: keyboard functions
+   &features: large integers
+   &features: pipes
+   &features: system function
+      &input: &input
+   &interval: [failed]
+      &lcase: &lcase  [size 26]
+      &ldrag: -7
+    &letters: &letters  [size 52]
+      &level: 1
+     &lpress: -1
+   &lrelease: -4
+       &main: co-expression_1(1)
+      &mdrag: -8
+       &meta: [failed]
+     &mpress: -2
+   &mrelease: -5
+       &null: &null
+     &output: &output
+        &phi: 1.618033989
+         &pi: 3.141592654
+        &pos: 1
+   &progname: kwds.icn
+     &random: 0
+      &rdrag: -9
+    &regions: 0
+    &regions: 500000
+    &regions: 500000
+     &resize: -10
+        &row: [failed]
+     &rpress: -3
+   &rrelease: -6
+      &shift: [failed]
+     &source: co-expression_1(1)
+    &storage: 0
+    &storage: 1549
+    &storage: 48
+    &subject: 
+       &time: nnnn
+      &trace: 0
+      &ucase: &ucase  [size 26]
+    &version: Icon Version 9.5
+     &window: [failed]
+          &x: [failed]
+          &y: [failed]
+#---------------------------------------------------------------------- 29 large
+111111111111111111111 + 111111111111111111111 = 222222222222222222222
+111111111111111111111 + -111111111111111111111 = 0
+111111111111111111111 + 4 = 111111111111111111115
+111111111111111111111 + -4 = 111111111111111111107
+-111111111111111111111 + 111111111111111111111 = 0
+-111111111111111111111 + -111111111111111111111 = -222222222222222222222
+-111111111111111111111 + 4 = -111111111111111111107
+-111111111111111111111 + -4 = -111111111111111111115
+4 + 111111111111111111111 = 111111111111111111115
+4 + -111111111111111111111 = -111111111111111111107
+4 + 4 = 8
+4 + -4 = 0
+-4 + 111111111111111111111 = 111111111111111111107
+-4 + -111111111111111111111 = -111111111111111111115
+-4 + 4 = 0
+-4 + -4 = -8
+111111111111111111111 - 111111111111111111111 = 0
+111111111111111111111 - -111111111111111111111 = 222222222222222222222
+111111111111111111111 - 4 = 111111111111111111107
+111111111111111111111 - -4 = 111111111111111111115
+-111111111111111111111 - 111111111111111111111 = -222222222222222222222
+-111111111111111111111 - -111111111111111111111 = 0
+-111111111111111111111 - 4 = -111111111111111111115
+-111111111111111111111 - -4 = -111111111111111111107
+4 - 111111111111111111111 = -111111111111111111107
+4 - -111111111111111111111 = 111111111111111111115
+4 - 4 = 0
+4 - -4 = 8
+-4 - 111111111111111111111 = -111111111111111111115
+-4 - -111111111111111111111 = 111111111111111111107
+-4 - 4 = -8
+-4 - -4 = 0
+111111111111111111111 * 111111111111111111111 = 12345679012345679012320987654320987654321
+111111111111111111111 * -111111111111111111111 = -12345679012345679012320987654320987654321
+111111111111111111111 * 4 = 444444444444444444444
+111111111111111111111 * -4 = -444444444444444444444
+-111111111111111111111 * 111111111111111111111 = -12345679012345679012320987654320987654321
+-111111111111111111111 * -111111111111111111111 = 12345679012345679012320987654320987654321
+-111111111111111111111 * 4 = -444444444444444444444
+-111111111111111111111 * -4 = 444444444444444444444
+4 * 111111111111111111111 = 444444444444444444444
+4 * -111111111111111111111 = -444444444444444444444
+4 * 4 = 16
+4 * -4 = -16
+-4 * 111111111111111111111 = -444444444444444444444
+-4 * -111111111111111111111 = 444444444444444444444
+-4 * 4 = -16
+-4 * -4 = 16
+111111111111111111111 / 111111111111111111111 = 1
+111111111111111111111 / -111111111111111111111 = -1
+111111111111111111111 / 4 = 27777777777777777777
+111111111111111111111 / -4 = -27777777777777777777
+-111111111111111111111 / 111111111111111111111 = -1
+-111111111111111111111 / -111111111111111111111 = 1
+-111111111111111111111 / 4 = -27777777777777777777
+-111111111111111111111 / -4 = 27777777777777777777
+4 / 111111111111111111111 = 0
+4 / -111111111111111111111 = 0
+4 / 4 = 1
+4 / -4 = -1
+-4 / 111111111111111111111 = 0
+-4 / -111111111111111111111 = 0
+-4 / 4 = -1
+-4 / -4 = 1
+111111111111111111111 % 111111111111111111111 = 0
+111111111111111111111 % -111111111111111111111 = 0
+111111111111111111111 % 4 = 3
+111111111111111111111 % -4 = 3
+-111111111111111111111 % 111111111111111111111 = 0
+-111111111111111111111 % -111111111111111111111 = 0
+-111111111111111111111 % 4 = -3
+-111111111111111111111 % -4 = -3
+4 % 111111111111111111111 = 4
+4 % -111111111111111111111 = 4
+4 % 4 = 0
+4 % -4 = 0
+-4 % 111111111111111111111 = -4
+-4 % -111111111111111111111 = -4
+-4 % 4 = 0
+-4 % -4 = 0
+111111111111111111111 iand 111111111111111111111 = 111111111111111111111
+111111111111111111111 iand -111111111111111111111 = 1
+111111111111111111111 iand 4 = 4
+111111111111111111111 iand -4 = 111111111111111111108
+-111111111111111111111 iand 111111111111111111111 = 1
+-111111111111111111111 iand -111111111111111111111 = -111111111111111111111
+-111111111111111111111 iand 4 = 0
+-111111111111111111111 iand -4 = -111111111111111111112
+4 iand 111111111111111111111 = 4
+4 iand -111111111111111111111 = 0
+4 iand 4 = 4
+4 iand -4 = 4
+-4 iand 111111111111111111111 = 111111111111111111108
+-4 iand -111111111111111111111 = -111111111111111111112
+-4 iand 4 = 4
+-4 iand -4 = -4
+111111111111111111111 ior 111111111111111111111 = 111111111111111111111
+111111111111111111111 ior -111111111111111111111 = -1
+111111111111111111111 ior 4 = 111111111111111111111
+111111111111111111111 ior -4 = -1
+-111111111111111111111 ior 111111111111111111111 = -1
+-111111111111111111111 ior -111111111111111111111 = -111111111111111111111
+-111111111111111111111 ior 4 = -111111111111111111107
+-111111111111111111111 ior -4 = -3
+4 ior 111111111111111111111 = 111111111111111111111
+4 ior -111111111111111111111 = -111111111111111111107
+4 ior 4 = 4
+4 ior -4 = -4
+-4 ior 111111111111111111111 = -1
+-4 ior -111111111111111111111 = -3
+-4 ior 4 = -4
+-4 ior -4 = -4
+111111111111111111111 ixor 111111111111111111111 = 0
+111111111111111111111 ixor -111111111111111111111 = -2
+111111111111111111111 ixor 4 = 111111111111111111107
+111111111111111111111 ixor -4 = -111111111111111111109
+-111111111111111111111 ixor 111111111111111111111 = -2
+-111111111111111111111 ixor -111111111111111111111 = 0
+-111111111111111111111 ixor 4 = -111111111111111111107
+-111111111111111111111 ixor -4 = 111111111111111111109
+4 ixor 111111111111111111111 = 111111111111111111107
+4 ixor -111111111111111111111 = -111111111111111111107
+4 ixor 4 = 0
+4 ixor -4 = -8
+-4 ixor 111111111111111111111 = -111111111111111111109
+-4 ixor -111111111111111111111 = 111111111111111111109
+-4 ixor 4 = -8
+-4 ixor -4 = 0
+111111111111111111111 < 111111111111111111111 = none
+111111111111111111111 < -111111111111111111111 = none
+111111111111111111111 < 4 = none
+111111111111111111111 < -4 = none
+-111111111111111111111 < 111111111111111111111 = 111111111111111111111
+-111111111111111111111 < -111111111111111111111 = none
+-111111111111111111111 < 4 = 4
+-111111111111111111111 < -4 = -4
+4 < 111111111111111111111 = 111111111111111111111
+4 < -111111111111111111111 = none
+4 < 4 = none
+4 < -4 = none
+-4 < 111111111111111111111 = 111111111111111111111
+-4 < -111111111111111111111 = none
+-4 < 4 = 4
+-4 < -4 = none
+111111111111111111111 = 111111111111111111111 = 111111111111111111111
+111111111111111111111 = -111111111111111111111 = none
+111111111111111111111 = 4 = none
+111111111111111111111 = -4 = none
+-111111111111111111111 = 111111111111111111111 = none
+-111111111111111111111 = -111111111111111111111 = -111111111111111111111
+-111111111111111111111 = 4 = none
+-111111111111111111111 = -4 = none
+4 = 111111111111111111111 = none
+4 = -111111111111111111111 = none
+4 = 4 = 4
+4 = -4 = none
+-4 = 111111111111111111111 = none
+-4 = -111111111111111111111 = none
+-4 = 4 = none
+-4 = -4 = -4
+111111111111111111111 + 2222222222 = 111111111113333333333
+111111111111111111111 + 3333333333 = 111111111114444444444
+111111111111111111111 + -3333333333 = 111111111107777777778
+2222222222 + 2222222222 = 4444444444
+2222222222 + 3333333333 = 5555555555
+2222222222 + -3333333333 = -1111111111
+-2222222222 + 2222222222 = 0
+-2222222222 + 3333333333 = 1111111111
+-2222222222 + -3333333333 = -5555555555
+111111111111111111111 - 2222222222 = 111111111108888888889
+111111111111111111111 - 3333333333 = 111111111107777777778
+111111111111111111111 - -3333333333 = 111111111114444444444
+2222222222 - 2222222222 = 0
+2222222222 - 3333333333 = -1111111111
+2222222222 - -3333333333 = 5555555555
+-2222222222 - 2222222222 = -4444444444
+-2222222222 - 3333333333 = -5555555555
+-2222222222 - -3333333333 = 1111111111
+111111111111111111111 * 2222222222 = 246913580222222222221975308642
+111111111111111111111 * 3333333333 = 370370370333333333332962962963
+111111111111111111111 * -3333333333 = -370370370333333333332962962963
+2222222222 * 2222222222 = 4938271603950617284
+2222222222 * 3333333333 = 7407407405925925926
+2222222222 * -3333333333 = -7407407405925925926
+-2222222222 * 2222222222 = -4938271603950617284
+-2222222222 * 3333333333 = -7407407405925925926
+-2222222222 * -3333333333 = 7407407405925925926
+111111111111111111111 / 2222222222 = 50000000005
+111111111111111111111 / 3333333333 = 33333333336
+111111111111111111111 / -3333333333 = -33333333336
+2222222222 / 2222222222 = 1
+2222222222 / 3333333333 = 0
+2222222222 / -3333333333 = 0
+-2222222222 / 2222222222 = -1
+-2222222222 / 3333333333 = 0
+-2222222222 / -3333333333 = 0
+111111111111111111111 % 2222222222 = 1
+111111111111111111111 % 3333333333 = 2222222223
+111111111111111111111 % -3333333333 = 2222222223
+2222222222 % 2222222222 = 0
+2222222222 % 3333333333 = 2222222222
+2222222222 % -3333333333 = 2222222222
+-2222222222 % 2222222222 = 0
+-2222222222 % 3333333333 = -2222222222
+-2222222222 % -3333333333 = -2222222222
+111111111111111111111 iand 2222222222 = 3432838
+111111111111111111111 iand 3333333333 = 11280709
+111111111111111111111 iand -3333333333 = 111111111111099830403
+2222222222 iand 2222222222 = 2222222222
+2222222222 iand 3333333333 = 2216960260
+2222222222 iand -3333333333 = 5261962
+-2222222222 iand 2222222222 = 2
+-2222222222 iand 3333333333 = 1116373072
+-2222222222 iand -3333333333 = -3338595294
+111111111111111111111 ior 2222222222 = 111111111113329900495
+111111111111111111111 ior 3333333333 = 111111111114433163735
+111111111111111111111 ior -3333333333 = -3322052625
+2222222222 ior 2222222222 = 2222222222
+2222222222 ior 3333333333 = 3338595295
+2222222222 ior -3333333333 = -1116373073
+-2222222222 ior 2222222222 = -2
+-2222222222 ior 3333333333 = -5261961
+-2222222222 ior -3333333333 = -2216960261
+111111111111111111111 ixor 2222222222 = 111111111113326467657
+111111111111111111111 ixor 3333333333 = 111111111114421883026
+111111111111111111111 ixor -3333333333 = -111111111114421883028
+2222222222 ixor 2222222222 = 0
+2222222222 ixor 3333333333 = 1121635035
+2222222222 ixor -3333333333 = -1121635035
+-2222222222 ixor 2222222222 = -4
+-2222222222 ixor 3333333333 = -1121635033
+-2222222222 ixor -3333333333 = 1121635033
+111111111111111111111 < 2222222222 = none
+111111111111111111111 < 3333333333 = none
+111111111111111111111 < -3333333333 = none
+2222222222 < 2222222222 = none
+2222222222 < 3333333333 = 3333333333
+2222222222 < -3333333333 = none
+-2222222222 < 2222222222 = 2222222222
+-2222222222 < 3333333333 = 3333333333
+-2222222222 < -3333333333 = none
+111111111111111111111 = 2222222222 = none
+111111111111111111111 = 3333333333 = none
+111111111111111111111 = -3333333333 = none
+2222222222 = 2222222222 = 2222222222
+2222222222 = 3333333333 = none
+2222222222 = -3333333333 = none
+-2222222222 = 2222222222 = none
+-2222222222 = 3333333333 = none
+-2222222222 = -3333333333 = none
+111111111111111111111 ^ 2 = 12345679012345679012320987654320987654321
+111111111111111111111 ^ 5 = 16935087808430286710951921285711866416027536452776507646192145336923571948720554116157767278023336551
+-111111111111111111111 ^ 2 = 12345679012345679012320987654320987654321
+-111111111111111111111 ^ 5 = -16935087808430286710951921285711866416027536452776507646192145336923571948720554116157767278023336551
+4 ^ 2 = 16
+4 ^ 5 = 1024
+-4 ^ 2 = 16
+-4 ^ 5 = -1024
+2 ^ 10 = 1024
+2 ^ 30 = 1073741824
+3 ^ 10 = 59049
+3 ^ 30 = 205891132094649
+111111111111111111111 ishift 1 = 222222222222222222222
+111111111111111111111 ishift 8 = 28444444444444444444416
+111111111111111111111 ishift -1 = 55555555555555555555
+111111111111111111111 ishift -39 = 202109933
+-111111111111111111111 ishift 1 = -222222222222222222222
+-111111111111111111111 ishift 8 = -28444444444444444444416
+-111111111111111111111 ishift -1 = -55555555555555555556
+-111111111111111111111 ishift -39 = -202109934
+2222222222 ishift 1 = 4444444444
+2222222222 ishift 8 = 568888888832
+2222222222 ishift -1 = 1111111111
+2222222222 ishift -39 = 0
+-2222222222 ishift 1 = -4444444444
+-2222222222 ishift 8 = -568888888832
+-2222222222 ishift -1 = -1111111111
+-2222222222 ishift -39 = -1
+4 ishift 1 = 8
+4 ishift 8 = 1024
+4 ishift -1 = 2
+4 ishift -39 = 0
+1024
+1024:1024
+1073741824
+1073741824:1073741824
+1180591620717411303424
+1180591620717411303424:1180591620717411303424
+1267650600228229401496703205376
+1267650600228229401496703205376:integer(~10^30)
+#----------------------------------------------------------------------- 30 left
+a
+d
+g
+jk
+mno
+237 
+stu  
+vwx   
+abc
+d
+g
+jk
+mno
+237.
+stu..
+vwx...
+abc
+d
+g
+jk
+mno
+237>
+stu<>
+vwx><>
+#---------------------------------------------------------------------- 31 level
+1
+2
+3
+4
+5
+5
+4
+3
+2
+1
+2
+2
+2
+2
+2
+1
+#--------------------------------------------------------------------- 32 lexcmp
+    s1    s2    <<   <<=    ==   ~==   >>=    >>
+    ""    ""   ---    ""    ""   ---    ""   ---
+    ""   "a"   "a"   "a"   ---   "a"   ---   ---
+    ""   "c"   "c"   "c"   ---   "c"   ---   ---
+    ""   'x'   "x"   "x"   ---   "x"   ---   ---
+    ""   '2'   "2"   "2"   ---   "2"   ---   ---
+   "a"    ""   ---   ---   ---    ""    ""    ""
+   "a"   "a"   ---   "a"   "a"   ---   "a"   ---
+   "a"   "c"   "c"   "c"   ---   "c"   ---   ---
+   "a"   'x'   "x"   "x"   ---   "x"   ---   ---
+   "a"   '2'   ---   ---   ---   "2"   "2"   "2"
+   "b"    ""   ---   ---   ---    ""    ""    ""
+   "b"   "a"   ---   ---   ---   "a"   "a"   "a"
+   "b"   "c"   "c"   "c"   ---   "c"   ---   ---
+   "b"   'x'   "x"   "x"   ---   "x"   ---   ---
+   "b"   '2'   ---   ---   ---   "2"   "2"   "2"
+   'c'    ""   ---   ---   ---    ""    ""    ""
+   'c'   "a"   ---   ---   ---   "a"   "a"   "a"
+   'c'   "c"   ---   "c"   "c"   ---   "c"   ---
+   'c'   'x'   "x"   "x"   ---   "x"   ---   ---
+   'c'   '2'   ---   ---   ---   "2"   "2"   "2"
+   "x"    ""   ---   ---   ---    ""    ""    ""
+   "x"   "a"   ---   ---   ---   "a"   "a"   "a"
+   "x"   "c"   ---   ---   ---   "c"   "c"   "c"
+   "x"   'x'   ---   "x"   "x"   ---   "x"   ---
+   "x"   '2'   ---   ---   ---   "2"   "2"   "2"
+     2    ""   ---   ---   ---    ""    ""    ""
+     2   "a"   "a"   "a"   ---   "a"   ---   ---
+     2   "c"   "c"   "c"   ---   "c"   ---   ---
+     2   'x'   "x"   "x"   ---   "x"   ---   ---
+     2   '2'   ---   "2"   "2"   ---   "2"   ---
+    ''    ""   ---    ""    ""   ---    ""   ---
+    ''   "a"   "a"   "a"   ---   "a"   ---   ---
+    ''   "c"   "c"   "c"   ---   "c"   ---   ---
+    ''   'x'   "x"   "x"   ---   "x"   ---   ---
+    ''   '2'   "2"   "2"   ---   "2"   ---   ---
+#---------------------------------------------------------------------- 33 lists
+-2
+-2
+a. [0]
+b. [2] &null &null
+c. [0]
+d. [4] 5 5 5 5
+d. [6] 7 7 7 7 7 7
+e. [0]
+f. [1] &null
+g. [1] 1
+h. [4] 2 3 4 5
+i. [8] 1 2 3 4 5 6 7 8
+A. [4] &null 1 2 3
+B. [5] &null 1 2 3 &null
+	&null
+C. [4] 1 2 3 &null
+	1
+D. [3] 2 3 &null
+	&null
+E. [2] 2 3
+F. [3] 4 2 3
+G. [6] 7 6 5 4 2 3
+H. [10] 11 10 9 8 7 6 5 4 2 3
+I. [11] 11 10 9 8 7 6 5 4 2 3 12
+J. [14] 11 10 9 8 7 6 5 4 2 3 12 13 14 15
+K. [18] 11 10 9 8 7 6 5 4 2 3 12 13 14 15 16 17 18 19
+L. [22] 21 20 11 10 9 8 7 6 5 4 2 3 12 13 14 15 16 17 18 19 22 23
+M. [22] 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+N. [5] 1 2 3 4 5
+O. [5] -5 -4 -3 -2 -1
+	1
+P. [1] 2
+ok failure 0
+ok failure 2
+ok failure -2
+ok failure on get
+ok failure on pop
+ok failure on pull
+p. [9] 1 2 3 4 5 6 7 8 9
+q. [9] 1 2 3 4 5 6 7 8 9
+r. [3] 2 3 4
+s. [2] 5 6
+t. [4] 5 6 7 8
+u. [4] 3 4 5 6
+v. [4] 3 4 5 6
+
+x. [9] 11 12 13 14 15 16 17 18 19
+y. [9] 21 22 23 24 25 26 27 28 29
+z. [18] 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29
+x. [9] 21 22 23 24 25 26 27 28 29
+y. [9] 41 42 43 44 45 46 47 48 49
+z. [18] 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78 79
+#------------------------------------------------------------------------ 34 map
+abcdef
+abcdef
+aBcDeF
+AbCdEf
+a2c4e6
+1b3d5f
+!B#D%F
+A@C$E^
+
+cbcdef
+#------------------------------------------------------------------- 35 mathfunc
+function sqrt(0.0) = 0.0
+function sqrt(0.25) = 0.5
+function sqrt(1.0) = 1.0
+function sqrt(2.25) = 1.5
+function sqrt(4.0) = 2.0
+function sqrt(256.0) = 16.0
+function log(0.1) = -2.303
+function log(0.25) = -1.386
+function log(1.0) = 0.0
+function log(2.718) = 1.0
+function log(10.0) = 2.303
+function log(100.0) = 4.605
+function log(1000.0) = 6.908
+function log(0.1, 10.0) = -1.0
+function log(0.25, 10.0) = -0.602
+function log(1.0, 10.0) = 0.0
+function log(2.718, 10.0) = 0.434
+function log(10.0, 10.0) = 1.0
+function log(100.0, 10.0) = 2.0
+function log(1000.0, 10.0) = 3.0
+function exp(-3.0) = 0.05
+function exp(-1.0) = 0.368
+function exp(0.0) = 1.0
+function exp(1.0) = 2.718
+function exp(2.0) = 7.389
+function exp(3.0) = 20.086
+
+function dtor(-1000.0) = -17.453
+function dtor(-360.0) = -6.283
+function dtor(-90.0) = -1.571
+function dtor(0.0) = 0.0
+function dtor(45.0) = 0.785
+function dtor(360.0) = 6.283
+function dtor(1000.0) = 17.453
+function rtod(-9.425) = -540.0
+function rtod(-6.283) = -360.0
+function rtod(-3.142) = -180.0
+function rtod(0.0) = 0.0
+function rtod(1.047) = 60.0
+function rtod(1.571) = 90.0
+function rtod(3.142) = 180.0
+function rtod(6.283) = 360.0
+function sin(-1.047) = -0.866
+function sin(0.0) = 0.0
+function sin(3.142) = 0.0
+function cos(-1.047) = 0.5
+function cos(0.0) = 1.0
+function cos(3.142) = -1.0
+function tan(-1.047) = -1.732
+function tan(0.0) = 0.0
+function tan(3.142) = 0.0
+function asin(-1.0) = -1.571
+function asin(-0.5) = -0.524
+function asin(0.0) = 0.0
+function asin(0.5) = 0.524
+function asin(1.0) = 1.571
+function acos(-1.0) = 3.142
+function acos(-0.5) = 2.094
+function acos(0.0) = 1.571
+function acos(0.5) = 1.047
+function acos(1.0) = 0.0
+function atan(-1000.0) = -1.57
+function atan(-47.0) = -1.55
+function atan(-1.0) = -0.785
+function atan(-0.5) = -0.464
+function atan(0.0) = 0.0
+function atan(0.5) = 0.464
+function atan(1.0) = 0.785
+function atan(47.0) = 1.55
+function atan(1000.0) = 1.57
+function atan(-1.0, -1.0) = -2.356
+function atan(-1.0, 0.0) = -1.571
+function atan(-1.0, 1.0) = -0.785
+function atan(0.0, -1.0) = 3.142
+function atan(0.0, 0.0) = 0.0
+function atan(0.0, 1.0) = 0.0
+function atan(1.0, -1.0) = 2.356
+function atan(1.0, 0.0) = 1.571
+function atan(1.0, 1.0) = 0.785
+#-------------------------------------------------------------------- 36 meander
+accbcabbaa
+14434241332312211
+AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABABAAAA
+#--------------------------------------------------------------------- 37 mffsol
+1 metafile 1250 1000 0 0 0 init
+581 950 (A) text
+751 880 (B) text
+880 751 (C) text
+950 581 (D) text
+950 398 (E) text
+880 228 (F) text
+751 99 (G) text
+581 29 (H) text
+398 29 (I) text
+228 99 (J) text
+99 228 (K) text
+29 398 (L) text
+29 581 (M) text
+99 751 (N) text
+228 880 (O) text
+398 950 (P) text
+250 255 0 color
+1100 960 (1) text
+587 941 begin 750 874 line 874 750 line 941 587 line 587 941 line
+874 750 line stroke 750 874 begin 941 587 line stroke
+941 412 begin 874 249 line 750 125 line 587 58 line 941 412 line
+750 125 line stroke 874 249 begin 587 58 line stroke
+412 58 begin 249 125 line 125 249 line 58 412 line 412 58 line
+125 249 line stroke 249 125 begin 58 412 line stroke
+58 587 begin 125 750 line 249 874 line 412 941 line 58 587 line
+249 874 line stroke 125 750 begin 412 941 line stroke
+97 210 71 color
+1100 920 (2) text
+587 941 begin 941 412 line 412 58 line 58 587 line 587 941 line
+412 58 line stroke 941 412 begin 58 587 line stroke
+750 874 begin 874 249 line 249 125 line 125 750 line 750 874 line
+249 125 line stroke 874 249 begin 125 750 line stroke
+874 750 begin 750 125 line 125 249 line 249 874 line 874 750 line
+125 249 line stroke 750 125 begin 249 874 line stroke
+941 587 begin 587 58 line 58 412 line 412 941 line 941 587 line
+58 412 line stroke 587 58 begin 412 941 line stroke
+200 165 142 color
+1100 880 (3) text
+587 941 begin 587 58 line 125 249 line 125 750 line 587 941 line
+125 249 line stroke 587 58 begin 125 750 line stroke
+750 874 begin 750 125 line 58 412 line 58 587 line 750 874 line
+58 412 line stroke 750 125 begin 58 587 line stroke
+874 750 begin 874 249 line 412 58 line 412 941 line 874 750 line
+412 58 line stroke 874 249 begin 412 941 line stroke
+941 587 begin 941 412 line 249 125 line 249 874 line 941 587 line
+249 125 line stroke 941 412 begin 249 874 line stroke
+47 120 213 color
+1100 840 (4) text
+587 941 begin 874 249 line 58 412 line 249 874 line 587 941 line
+58 412 line stroke 874 249 begin 249 874 line stroke
+750 874 begin 941 412 line 125 249 line 412 941 line 750 874 line
+125 249 line stroke 941 412 begin 412 941 line stroke
+874 750 begin 587 58 line 249 125 line 58 587 line 874 750 line
+249 125 line stroke 587 58 begin 58 587 line stroke
+941 587 begin 750 125 line 412 58 line 125 750 line 941 587 line
+412 58 line stroke 750 125 begin 125 750 line stroke
+253 30 99 color
+1100 800 (5) text
+587 941 begin 750 125 line 249 125 line 412 941 line 587 941 line
+249 125 line stroke 750 125 begin 412 941 line stroke
+750 874 begin 587 58 line 412 58 line 249 874 line 750 874 line
+412 58 line stroke 587 58 begin 249 874 line stroke
+874 750 begin 941 412 line 58 412 line 125 750 line 874 750 line
+58 412 line stroke 941 412 begin 125 750 line stroke
+941 587 begin 874 249 line 125 249 line 58 587 line 941 587 line
+125 249 line stroke 874 249 begin 58 587 line stroke
+255 255 255 color
+0 0 (16 players, 5 rounds, 20 matches) text
+#--------------------------------------------------------------------- 38 mindfa
+Enter states (1 character names): Enter input alphabet: Enter Final states (subset of states): What is the start state? enter delta(a,0) = enter delta(a,1) = enter delta(b,0) = enter delta(b,1) = enter delta(c,0) = enter delta(c,1) = enter delta(d,0) = enter delta(d,1) = enter delta(e,0) = enter delta(e,1) = enter delta(f,0) = enter delta(f,1) = enter delta(g,0) = enter delta(g,1) = enter delta(h,0) = enter delta(h,1) = 
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+#----------------------------------------------------------------------- 39 misc
+2
+3
+b
+c
+e
+f
+g
+h
+ijk
+23skidoo
+bob
+hello!
+mom!
+hello!
+mom!
+hello!
+mom!
+hello!
+mom!
+hello
+hello pop
+i=-4: failed
+i=-3: a
+i=-2: b
+i=-1: c
+i=0: failed
+i=1: a
+i=2: b
+i=3: c
+i=4: failed
+1
+2
+3
+4
+5
+6
+1
+5
+9
+10
+30
+50
+1 11
+2 22
+3 33
+4 44
+5 55
+6 66
+7 77
+8 88
+9 99
+repl: xxxxyzxyzxyzxyz
+reverse: xba54321
+char: @ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+proc: 
+   function write
+   function write
+   function write
+   function write
+   procedure args
+   function args
+  >procedure main
+  >0
+   function args
+   function args
+argument evaluation test
+11
+33
+33
+qq
+wqwerty
+33
+77
+88
+&null
+&null
+record constructor recordAsVariable
+3
+OK to get here
+done
+#---------------------------------------------------------------------- 40 nargs
+  1 abs
+  1 acos
+  4 any
+  1 args
+  1 asin
+  2 atan
+  6 bal
+  3 center
+  1 char
+  1 close
+  2 collect
+  1 copy
+  1 cos
+  1 cset
+  1 delay
+  2 delete
+ -2 detab
+  2 display
+  1 dtor
+ -2 entab
+  0 errorclear
+  1 exit
+  1 exp
+  4 find
+  1 flush
+  0 function
+  1 get
+  1 getenv
+  2 iand
+  1 icom
+  1 image
+  3 insert
+  1 integer
+  2 ior
+  2 ishift
+  2 ixor
+  1 key
+  3 left
+  2 list
+  2 log
+  4 many
+  3 map
+  4 match
+  2 member
+  1 move
+  1 name
+  1 numeric
+  2 open
+  1 ord
+  1 pop
+  1 pos
+  2 proc
+  1 pull
+ -2 push
+ -2 put
+  1 read
+  2 reads
+  1 real
+  1 remove
+  2 rename
+  2 repl
+  1 reverse
+  3 right
+  1 rtod
+ -2 runerr
+  2 seek
+  2 seq
+  1 serial
+  1 set
+  1 sin
+  2 sort
+  2 sortf
+  1 sqrt
+ -1 stop
+  1 string
+  1 system
+  1 tab
+  1 table
+  1 tan
+  2 trim
+  1 type
+  4 upto
+  1 variable
+  1 where
+ -1 write
+ -1 writes
+#-------------------------------------------------------------------- 41 numeric
+integer(2) ----> 2
+integer("2") ----> 2
+integer(" 2") ----> 2
+integer("2 ") ----> 2
+integer("+2") ----> 2
+integer("-2") ----> -2
+integer("- 2") ----> none
+integer(" -    2 ") ----> none
+integer("") ----> none
+integer("--2") ----> none
+integer(" ") ----> none
+integer("-") ----> none
+integer("+") ----> none
+integer("7r4") ----> 4
+integer("4r7") ----> none
+integer("4r 7") ----> none
+integer("7r 4") ----> none
+integer("16rff") ----> 255
+integer("36rcat") ----> 15941
+integer("36Rcat") ----> 15941
+integer("36rCAT") ----> 15941
+integer("1r1") ----> none
+integer("2r0") ----> 0
+integer(integer) ----> none
+integer := abs ----> function abs
+numeric(2) ----> 2
+numeric("2") ----> 2
+numeric(" 2") ----> 2
+numeric("2 ") ----> 2
+numeric("+2") ----> 2
+numeric("-2") ----> -2
+numeric("- 2") ----> none
+numeric(" -    2 ") ----> none
+numeric("") ----> none
+numeric("--2") ----> none
+numeric(" ") ----> none
+numeric("-") ----> none
+numeric("+") ----> none
+numeric("7r4") ----> 4
+numeric("4r7") ----> none
+numeric("4r 7") ----> none
+numeric("7r 4") ----> none
+numeric("16rff") ----> 255
+numeric("36rcat") ----> 15941
+numeric("36Rcat") ----> 15941
+numeric("36rCAT") ----> 15941
+numeric("1r1") ----> none
+numeric("2r0") ----> 0
+100 - - 4 ----> 104
+100 --4 ----> '01'
+100- - 4 ----> 104
+100 -- 4 ----> '01'
+100 - -4 ----> 104
+abs(1) ----> 1
+abs(-1) ----> 1
+abs(0) ----> 0
+36 % 7 ----> 1
+-36 % 7 ----> -1
+36 % -7 ----> 1
+-36 % -7 ----> -1
+36 * 9 ----> 324
+-36 * 9 ----> -324
+36 * -9 ----> -324
+-36 * -9 ----> 324
+36 / 9 ----> 4
+-36 / 9 ----> -4
+36 / -9 ----> -4
+-36 / -9 ----> 4
+36 + 9 ----> 45
+-36 + 9 ----> -27
+36 + -9 ----> 27
+-36 + -9 ----> -45
+36 ^ -9 ----> 0
+1 < 1 ----> none
+1 < 2 ----> 2
+1 < 0 ----> none
+-1 < 0 ----> 0
+1 < -2 ----> none
+-1 < -0 ----> 0
+1 > 1 ----> none
+1 > 2 ----> none
+1 > 0 ----> 0
+-1 > 0 ----> none
+1 > -2 ----> -2
+-1 > -0 ----> none
+1 <= 1 ----> 1
+1 <= 2 ----> 2
+1 <= 0 ----> none
+-1 <= 0 ----> 0
+1 <= -2 ----> none
+-1 <= -0 ----> 0
+1 >= 1 ----> 1
+1 >= 2 ----> none
+1 >= 0 ----> 0
+-1 >= 0 ----> none
+1 >= -2 ----> -2
+-1 >= -0 ----> none
+1 = 1 ----> 1
+1 = 2 ----> none
+1 = 0 ----> none
+-1 = 0 ----> none
+1 = -2 ----> none
+-1 = -0 ----> none
+1 ~= 1 ----> none
+1 ~= 2 ----> 2
+1 ~= 0 ----> 0
+-1 ~= 0 ----> 0
+1 ~= -2 ----> -2
+-1 ~= -0 ----> 0
+36 ^ -9 ----> 0
+-36 ^ -9 ----> 0
+#--------------------------------------------------------------------- 42 others
+1	one
+2	two
+3	three
+4	four
+5	five
+6	six
+7	seven
+8	eight
+9	nine
+10	ten
+11	eleven
+12	twelve
+21	twenty-one
+22	twenty-two
+23	twenty-three
+24	twenty-four
+25	twenty-five
+33	thirty-three
+36	thirty-six
+39	thirty-nine
+42	forty-two
+45	forty-five
+48	forty-eight
+51	fifty-one
+54	fifty-four
+57	fifty-seven
+63	sixty-three
+66	sixty-six
+69	sixty-nine
+72	seventy-two
+75	seventy-five
+78	seventy-eight
+81	eighty-one
+84	eighty-four
+87	eighty-seven
+93	ninety-three
+96	ninety-six
+99	ninety-nine
+102	one hundred and two
+105	one hundred and five
+108	one hundred and eight
+945123342	nine hundred and forty-five million and forty-five million and five million and one hundred and twenty-three thousand and twenty-three thousand and three thousand and three hundred and forty-two
+10000000	ten million
+10000007	ten million and seven
+10000021	ten million and twenty-one
+10000028	ten million and twenty-eight
+10000035	ten million and thirty-five
+10000042	ten million and forty-two
+10000049	ten million and forty-nine
+10000056	ten million and fifty-six
+10000063	ten million and sixty-three
+10000077	ten million and seventy-seven
+10000084	ten million and eighty-four
+10000091	ten million and ninety-one
+10000098	ten million and ninety-eight
+10000105	ten million and one hundred and five
+10000112	ten million and one hundred and twelve
+10000126	ten million and one hundred and twenty-six
+10000133	ten million and one hundred and thirty-three
+10000147	ten million and one hundred and forty-seven
+10000154	ten million and one hundred and fifty-four
+10000161	ten million and one hundred and sixty-one
+10000168	ten million and one hundred and sixty-eight
+10000175	ten million and one hundred and seventy-five
+10000182	ten million and one hundred and eighty-two
+10000189	ten million and one hundred and eighty-nine
+10000196	ten million and one hundred and ninety-six
+10000203	ten million and two hundred and three
+10000210	ten million and two hundred and ten
+10000224	ten million and two hundred and twenty-four
+10000231	ten million and two hundred and thirty-one
+10000238	ten million and two hundred and thirty-eight
+10000245	ten million and two hundred and forty-five
+10000252	ten million and two hundred and fifty-two
+10000259	ten million and two hundred and fifty-nine
+10000266	ten million and two hundred and sixty-six
+10000273	ten million and two hundred and seventy-three
+10000287	ten million and two hundred and eighty-seven
+10000294	ten million and two hundred and ninety-four
+10000301	ten million and three hundred and one
+10000308	ten million and three hundred and eight
+10000322	ten million and three hundred and twenty-two
+10000329	ten million and three hundred and twenty-nine
+10000336	ten million and three hundred and thirty-six
+10000343	ten million and three hundred and forty-three
+10000357	ten million and three hundred and fifty-seven
+10000364	ten million and three hundred and sixty-four
+10000371	ten million and three hundred and seventy-one
+10000378	ten million and three hundred and seventy-eight
+10000385	ten million and three hundred and eighty-five
+10000392	ten million and three hundred and ninety-two
+10000399	ten million and three hundred and ninety-nine
+10000406	ten million and four hundred and six
+10000427	ten million and four hundred and twenty-seven
+10000434	ten million and four hundred and thirty-four
+10000441	ten million and four hundred and forty-one
+10000448	ten million and four hundred and forty-eight
+10000455	ten million and four hundred and fifty-five
+10000462	ten million and four hundred and sixty-two
+10000469	ten million and four hundred and sixty-nine
+10000476	ten million and four hundred and seventy-six
+10000483	ten million and four hundred and eighty-three
+10000497	ten million and four hundred and ninety-seven
+There are 25 primes in the first 100 integers.
+The primes are:
+   2
+   3
+   5
+   7
+  11
+  13
+  17
+  19
+  23
+  29
+  31
+  37
+  41
+  43
+  47
+  53
+  59
+  61
+  67
+  71
+  73
+  79
+  83
+  89
+  97
+A                   2
+B                   1
+D                   1
+I                   1
+L                   1
+N                   1
+O                   2
+R                   1
+T                   2
+This                1
+U                   1
+W                   1
+a                   1
+and                 1
+characters          1
+column              1
+do                  3
+end                 2
+every               2
+in                  1
+initial             1
+input               2
+lcase               1
+left                1
+letters             4
+line                3
+local               1
+main                2
+many                1
+n                   2
+procedure           3
+processes           1
+results             1
+scan                1
+sort                1
+standard            1
+static              1
+t                   4
+tab                 2
+table               1
+the                 2
+ucase               1
+upto                1
+using               1
+while               1
+wide                1
+with                1
+wordcount           2
+words               1
+write               1
+writes              1
+x                   3
+y                   4
+#---------------------------------------------------------------------- 43 parse
+19683
+1
+-2
+4
+2
+1
+2
+3
+2
+3
+xy
+#--------------------------------------------------------------------- 44 prefix
+x
+x
++(x,1)
+-(-(x,y),z)
++(*(3,delta),1)
++(x,1)
+^(2,^(2,n))
+/(^(x,n),+(z,1))
+#--------------------------------------------------------------------- 45 primes
+2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+31
+37
+41
+43
+47
+53
+59
+61
+67
+71
+73
+79
+83
+89
+97
+#-------------------------------------------------------------------- 46 profsum
+  calls  totaltime   inmethod  method
+      1   1536 77%   1536 77%  System.initProperties(Ljava/util/Properties;)Ljava/util/Properties;
+      1   1806 90%    105  5%  System.initializeSystemClass()V
+      2    126  6%     92  5%  sun/io/CharToByteConverter.getConverter(Ljava/lang/String;)Lsun/io/CharToByteConverter;
+      1     76  4%     51  3%  sun/io/CharacterEncoding.<clinit>()V
+      4     37  2%     35  2%  Integer.toString(II)Ljava/lang/String;
+      2     25  1%     22  1%  sun/io/CharacterEncoding.aliasName(Ljava/lang/String;)Ljava/lang/String;
+      2    160  8%     20  1%  PrintStream.<init>(Ljava/io/OutputStream;Z)V
+      4     52  3%     15  1%  StringBuffer.append(I)Ljava/lang/StringBuffer;
+    376     25  1%     15  1%  Hashtable.put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     84     14  1%     14  1%  String.getChars(II[CI)V
+      4     79  4%     12  1%  Thread.<init>()V
+    406      8  0%      8  0%  String.hashCode()I
+      2    137  7%      8  0%  OutputStreamWriter.<init>(Ljava/io/OutputStream;)V
+      2      8  0%      8  0%  Class.forName(Ljava/lang/String;)Ljava/lang/Class;
+      1      8  0%      8  0%  Character.<clinit>()V
+      5      8  0%      6  0%  System.getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+     85      5  0%      5  0%  String.<init>([C)V
+      1      5  0%      5  0%  Hashtable.<init>(IF)V
+      1      3  0%      3  0%  System.nullInputStream()Ljava/io/InputStream;
+    491      3  0%      3  0%  String.<init>(II[C)V
+     21      3  0%      3  0%  Locale.toLowerCase(Ljava/lang/String;)Ljava/lang/String;
+      1      3  0%      3  0%  Hashtable.rehash()V
+      2      3  0%      3  0%  BufferedWriter.<init>(Ljava/io/Writer;I)V
+      5      2  0%      2  0%  ThreadGroup.add(Ljava/lang/Thread;)V
+      2      2  0%      2  0%  String.toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+      4      2  0%      2  0%  String.<init>(Ljava/lang/StringBuffer;)V
+      2      2  0%      2  0%  OutputStreamWriter.<init>(Ljava/io/OutputStream;Lsun/io/CharToByteConverter;)V
+      1      1  0%      1  0%  sun/io/CharToByteConverter.<clinit>()V
+      5      1  0%      1  0%  ThreadGroup.checkAccess()V
+      1      1  0%      1  0%  ThreadGroup.<init>()V
+      6     13  1%      1  0%  StringBuffer.append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     43      3  0%      1  0%  String.toCharArray()[C
+      1      1  0%      1  0%  Properties.<clinit>()V
+      1      3  0%      1  0%  PrintStream.println(Ljava/lang/String;)V
+     42      6  0%      1  0%  Locale.toUpperCase(Ljava/lang/String;)Ljava/lang/String;
+     21     10  0%      1  0%  Locale.<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+      1     11  1%      1  0%  Locale.<clinit>()V
+      1      1  0%      1  0%  Integer.<clinit>()V
+      8      2  0%      1  0%  Hashtable.get(Ljava/lang/Object;)Ljava/lang/Object;
+      1      1  0%      1  0%  FileDescriptor.<clinit>()V
+      1      1  0%      1  0%  Compiler.<clinit>()V
+      1      1  0%      1  0%  BufferedWriter.flushBuffer()V
+      3      1  0%      1  0%  BufferedOutputStream.flushBuffer()V
+      2    127  6%      0  0%  sun/io/CharToByteConverter.getDefault()Lsun/io/CharToByteConverter;
+      4      3  0%      0  0%  Thread.init(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;)V
+      1      3  0%      0  0%  System.<clinit>()V
+      6     13  1%      0  0%  StringBuffer.<init>(Ljava/lang/String;)V
+      4      2  0%      0  0%  Properties.getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      4      2  0%      0  0%  Properties.getProperty(Ljava/lang/String;)Ljava/lang/String;
+      1      5  0%      0  0%  Properties.<init>(Ljava/util/Properties;)V
+      1      5  0%      0  0%  Properties.<init>()V
+      2      1  0%      0  0%  PrintStream.write([BII)V
+      1      2  0%      0  0%  PrintStream.write(Ljava/lang/String;)V
+      1      2  0%      0  0%  PrintStream.print(Ljava/lang/String;)V
+      1      1  0%      0  0%  OutputStreamWriter.flushBuffer()V
+      2      1  0%      0  0%  Locale.getDefault()Ljava/util/Locale;
+      1      3  0%      0  0%  HelloWorldApp.main([Ljava/lang/String;)V
+      1      5  0%      0  0%  Hashtable.<init>()V
+      2      3  0%      0  0%  BufferedWriter.<init>(Ljava/io/Writer;)V
+      2      1  0%      0  0%  BufferedOutputStream.flush()V
+      0      0  0%  -2004 -100%  <unknown caller>
+#--------------------------------------------------------------------- 47 queens
+6-Queens:
+solution: 1
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+
+solution: 2
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+
+solution: 3
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+
+solution: 4
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+#---------------------------------------------------------------------- 48 radix
+"2r101111": 47
+"3r201": 19
+"4r11213": 359
+"5r1234": 194
+"6r1253": 321
+"7r1253": 479
+"8r1257": 687
+"9r1257": 943
+"10r1257": 1257
+"11r1257": 1635
+"12r1257": 2083
+"13r1257": 2607
+"19r1257": 7683
+"23r1257": 13347
+"29r1257": 26223
+"31r1257": 31875
+"36r1257": 49435
+"8r76054132752": 8333080042
+"9r76054132752": 26758135154
+"10r76054132752": 76054132752
+"11r76054132752": 195814388992
+"12r76054132752": 464571650222
+"13r76054132752": 1028969951622
+"19r76054132752": 44858250416904
+"23r76054132752": 300810118039132
+"29r76054132752": 3032082160319254
+"31r76054132752": 5896176886381092
+"36r76054132752": 26202869414008742
+"2r01001010100010101010": 305322
+"2r111111111111111111111111111111111111111111111111111111111111111": 9223372036854775807
+"2r1111111111111111111111111111111111111111111111111111111111111111": 18446744073709551615
+"2r11111111111111111111111111111111111111111111111111111111111111111": 36893488147419103231
+"8r01234567": 342391
+"8r377777777777777777777": 4611686018427387903
+"16r0123456789ABCDEF": 81985529216486895
+"16r7fffffffffffffff": 9223372036854775807
+"16rffffffffffffffff": 18446744073709551615
+"16r10000000000000000": 18446744073709551616
+"16r123456789ABCDEF01234": 85968058283706962416180
+"36rICON": 856247
+"36rIcon": 856247
+"36r123456789AEIOU": 180468505894476358686
+"36rZYXWVYTSRQPONMLKJIHGFEDCBA9876543210": 106300512295600039567362168178520907819968174883825255684
+#--------------------------------------------------------------------- 49 random
+
+         0  i  2114
+ 453816694  i  4124
+ 885666996  r  3157
+ 678165018  r  5104
+1096161928  s  k
+ 905669982  s  H
+ 656467580  c  c
+ 170957890  c  T
+1583830416  L  6
+ 108920774  L  72
+1539632324  R  2
+ 295778538  R  4
+
+ 721762584  i  5331
+1144737966  i  6208
+1333202828  r  5762
+1237514258  r  7075
+1519504672  s  t
+1583400982  s  G
+ 507287252  c  w
+1824883130  c  I
+ 679975336  L  36
+ 764038654  L  90
+1931954844  R  9
+1814756834  R  1
+
+         0  i  2114
+ 453816694  i  4124
+ 885666996  r  3157
+ 678165018  r  5104
+1096161928  s  k
+ 905669982  s  H
+ 656467580  c  c
+ 170957890  c  T
+1583830416  L  6
+ 108920774  L  72
+1539632324  R  2
+ 295778538  R  4
+
+ 721762584  i  5331
+1144737966  i  6208
+1333202828  r  5762
+1237514258  r  7075
+1519504672  s  t
+1583400982  s  G
+ 507287252  c  w
+1824883130  c  I
+ 679975336  L  36
+ 764038654  L  90
+1931954844  R  9
+1814756834  R  1
+
+     11213  i  1721
+ 369479103  i  7573
+1626308041  r  3422
+ 734952971  r  9053
+1944172069  s  z
+2101642551  s  Q
+1364863969  c  o
+1221979715  c  E
+ 395152893  L  65
+1380138031  L  20
+ 425567097  R  2
+ 407906811  R  2
+#--------------------------------------------------------------------- 50 recent
+
+sort(L):
+  integer  3
+  integer  4
+  list     1 2 3 4 5 95 96 97 98 99 100 
+  list     1 5 9 
+  list     5 &null 5 
+  list     4 4 4 4 
+  list     3 3 3 
+  list     &null 25 
+  list     2 2 
+  list     1 
+  list     &null &null 
+  list     
+  r1       2 
+  r1       4 
+  r1       8 
+  r3       3 1 4 
+  r3       2 6 5 
+  r3       3 5 &null 
+  r3       7 8 9 
+
+-------------------- testing n = &null
+
+sortf(L,n):
+  integer  3
+  integer  4
+  list     
+  list     &null 25 
+  list     &null &null 
+  list     1 2 3 4 5 95 96 97 98 99 100 
+  list     1 5 9 
+  list     1 
+  list     2 2 
+  list     3 3 3 
+  list     4 4 4 4 
+  list     5 &null 5 
+  r1       2 
+  r3       2 6 5 
+  r3       3 1 4 
+  r3       3 5 &null 
+  r1       4 
+  r3       7 8 9 
+  r1       8 
+
+sortf(S,n) [same]
+
+-------------------- testing n = 1
+
+sortf(L,n):
+  integer  3
+  integer  4
+  list     
+  list     &null 25 
+  list     &null &null 
+  list     1 2 3 4 5 95 96 97 98 99 100 
+  list     1 5 9 
+  list     1 
+  list     2 2 
+  list     3 3 3 
+  list     4 4 4 4 
+  list     5 &null 5 
+  r1       2 
+  r3       2 6 5 
+  r3       3 1 4 
+  r3       3 5 &null 
+  r1       4 
+  r3       7 8 9 
+  r1       8 
+
+sortf(S,n) [same]
+
+-------------------- testing n = 2
+
+sortf(L,n):
+  integer  3
+  integer  4
+  list     1 
+  list     
+  list     5 &null 5 
+  list     &null &null 
+  list     1 2 3 4 5 95 96 97 98 99 100 
+  list     2 2 
+  list     3 3 3 
+  list     4 4 4 4 
+  list     1 5 9 
+  list     &null 25 
+  r1       2 
+  r1       4 
+  r1       8 
+  r3       3 1 4 
+  r3       3 5 &null 
+  r3       2 6 5 
+  r3       7 8 9 
+
+sortf(S,n) [same]
+
+-------------------- testing n = 3
+
+sortf(L,n):
+  integer  3
+  integer  4
+  list     &null 25 
+  list     2 2 
+  list     1 
+  list     &null &null 
+  list     
+  list     1 2 3 4 5 95 96 97 98 99 100 
+  list     3 3 3 
+  list     4 4 4 4 
+  list     5 &null 5 
+  list     1 5 9 
+  r1       2 
+  r1       4 
+  r1       8 
+  r3       3 5 &null 
+  r3       3 1 4 
+  r3       2 6 5 
+  r3       7 8 9 
+
+sortf(S,n) [same]
+
+-------------------- testing n = 4
+
+sortf(L,n):
+  integer  3
+  integer  4
+  list     1 5 9 
+  list     5 &null 5 
+  list     3 3 3 
+  list     &null 25 
+  list     2 2 
+  list     1 
+  list     &null &null 
+  list     
+  list     1 2 3 4 5 95 96 97 98 99 100 
+  list     4 4 4 4 
+  r1       2 
+  r1       4 
+  r1       8 
+  r3       3 1 4 
+  r3       2 6 5 
+  r3       3 5 &null 
+  r3       7 8 9 
+
+sortf(S,n) [same]
+
+-------------------- testing n = 17
+
+sortf(L,n):
+  integer  3
+  integer  4
+  list     1 5 9 
+  list     5 &null 5 
+  list     4 4 4 4 
+  list     3 3 3 
+  list     &null 25 
+  list     2 2 
+  list     1 
+  list     &null &null 
+  list     
+  list     1 2 3 4 5 95 96 97 98 99 100 
+  r1       2 
+  r1       4 
+  r1       8 
+  r3       3 1 4 
+  r3       2 6 5 
+  r3       3 5 &null 
+  r3       7 8 9 
+
+sortf(S,n) [same]
+
+-------------------- testing n = -4
+
+sortf(L,n):
+  integer  3
+  integer  4
+  list     1 5 9 
+  list     5 &null 5 
+  list     3 3 3 
+  list     &null 25 
+  list     2 2 
+  list     1 
+  list     &null &null 
+  list     
+  list     4 4 4 4 
+  list     1 2 3 4 5 95 96 97 98 99 100 
+  r1       2 
+  r1       4 
+  r1       8 
+  r3       3 1 4 
+  r3       2 6 5 
+  r3       3 5 &null 
+  r3       7 8 9 
+
+sortf(S,n) [same]
+
+-------------------- testing n = -3
+
+sortf(L,n):
+  integer  3
+  integer  4
+  list     &null 25 
+  list     2 2 
+  list     1 
+  list     &null &null 
+  list     
+  list     1 5 9 
+  list     3 3 3 
+  list     4 4 4 4 
+  list     5 &null 5 
+  list     1 2 3 4 5 95 96 97 98 99 100 
+  r1       2 
+  r1       4 
+  r1       8 
+  r3       2 6 5 
+  r3       3 1 4 
+  r3       3 5 &null 
+  r3       7 8 9 
+
+sortf(S,n) [same]
+
+-------------------- testing n = -2
+
+sortf(L,n):
+  integer  3
+  integer  4
+  list     1 
+  list     
+  list     5 &null 5 
+  list     &null 25 
+  list     &null &null 
+  list     2 2 
+  list     3 3 3 
+  list     4 4 4 4 
+  list     1 5 9 
+  list     1 2 3 4 5 95 96 97 98 99 100 
+  r1       2 
+  r1       4 
+  r1       8 
+  r3       3 1 4 
+  r3       3 5 &null 
+  r3       2 6 5 
+  r3       7 8 9 
+
+sortf(S,n) [same]
+
+-------------------- testing n = -1
+
+sortf(L,n):
+  integer  3
+  integer  4
+  list     
+  list     &null &null 
+  list     1 
+  list     2 2 
+  list     3 3 3 
+  list     4 4 4 4 
+  list     5 &null 5 
+  list     1 5 9 
+  list     &null 25 
+  list     1 2 3 4 5 95 96 97 98 99 100 
+  r3       3 5 &null 
+  r1       2 
+  r1       4 
+  r3       3 1 4 
+  r3       2 6 5 
+  r1       8 
+  r3       7 8 9 
+
+sortf(S,n) [same]
+0
+-1
+    i        j       ~j      i & j    i | j    i ^ j   i << j   i >> j
+       1        0
+00000001 00000000 FFFFFFFF 00000000 00000001 00000001 00000001 00000001 
+       1        1
+00000001 00000001 FFFFFFFE 00000001 00000001 00000000 00000002 00000000 
+       1        2
+00000001 00000002 FFFFFFFD 00000000 00000003 00000003 00000004 00000000 
+       1        3
+00000001 00000003 FFFFFFFC 00000001 00000003 00000002 00000008 00000000 
+       1        4
+00000001 00000004 FFFFFFFB 00000000 00000005 00000005 00000010 00000000 
+       1      100
+00000001 00000064 FFFFFF9B 00000000 00000065 00000065 00000000 00000000 
+    i        j       ~j      i & j    i | j    i ^ j   i << j   i >> j
+       2        0
+00000002 00000000 FFFFFFFF 00000000 00000002 00000002 00000002 00000002 
+       2        1
+00000002 00000001 FFFFFFFE 00000000 00000003 00000003 00000004 00000001 
+       2        2
+00000002 00000002 FFFFFFFD 00000002 00000002 00000000 00000008 00000000 
+       2        3
+00000002 00000003 FFFFFFFC 00000002 00000003 00000001 00000010 00000000 
+       2        4
+00000002 00000004 FFFFFFFB 00000000 00000006 00000006 00000020 00000000 
+       2      100
+00000002 00000064 FFFFFF9B 00000000 00000066 00000066 00000000 00000000 
+    i        j       ~j      i & j    i | j    i ^ j   i << j   i >> j
+       3        0
+00000003 00000000 FFFFFFFF 00000000 00000003 00000003 00000003 00000003 
+       3        1
+00000003 00000001 FFFFFFFE 00000001 00000003 00000002 00000006 00000001 
+       3        2
+00000003 00000002 FFFFFFFD 00000002 00000003 00000001 0000000C 00000000 
+       3        3
+00000003 00000003 FFFFFFFC 00000003 00000003 00000000 00000018 00000000 
+       3        4
+00000003 00000004 FFFFFFFB 00000000 00000007 00000007 00000030 00000000 
+       3      100
+00000003 00000064 FFFFFF9B 00000000 00000067 00000067 00000000 00000000 
+#--------------------------------------------------------------------- 51 recogn
+accepted
+rejected
+accepted
+accepted
+rejected
+rejected
+rejected
+rejected
+#--------------------------------------------------------------------- 52 record
+1 2
+3 4
+5 6
+7 8
+9 10
+11
+12
+13
+14
+15
+3
+7
+3
+7
+ 11 22 73 74 
+#---------------------------------------------------------------------- 53 right
+c
+f
+i
+kl
+mno
+ 237
+  stu
+   vwx
+abc
+f
+i
+kl
+mno
+.237
+..stu
+...vwx
+abc
+f
+i
+kl
+mno
+<237
+<>stu
+<><vwx
+#---------------------------------------------------------------------- 54 roman
+XIII
+IV
+VI
+cannot convert
+cannot convert
+XXXIX
+MMMCMXCIX
+cannot convert
+#----------------------------------------------------------------------- 55 scan
+ ----> &null
+2
+2
+1
+1
+4
+4
+3
+3
+2
+2
+1
+1
+4
+4
+3
+3
+1
+1
+every write(("badc" | "edgf" | "x") ? write(upto(!&lcase))) ----> none
+1
+5
+5
+every write((("aeiou" | "foobaz") ? upto('dracula')) ? =(1 to 10)) ----> none
+1
+2
+3
+4
+5
+6
+7
+8
+9
+1
+every write((1 to 10) ? move(1)) ----> none
+&subject := &pos ----> "1"
+&pos :=: &subject ----> 1
+&pos ----> 1
+&subject ----> "1"
++1 ----> 1
+-1 ----> -1
+?10 ----> 3
+?10 ----> 5
+?10 ----> 4
+~&cset ----> ''
+~&ascii ----> '\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff'
+&subject := string(&lcase) ----> "abcdefghijklmnopqrstuvwxyz"
+="a" ----> "a"
+="b" ----> "b"
+="d" ----> none
+&subject := string(&lcase) ----> "abcdefghijklmnopqrstuvwxyz"
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+while write(move(1)) ----> none
+&subject := string(&lcase) ----> "abcdefghijklmnopqrstuvwxyz"
+
+a
+ab
+abc
+abcd
+abcde
+abcdef
+abcdefg
+abcdefgh
+abcdefghi
+every write(tab(1 to 10)) ----> none
+pos(0) ----> none
+pos(15) ----> none
+&subject := string(&lcase) ----> "abcdefghijklmnopqrstuvwxyz"
+pos(1) ----> 1
+
+a
+ab
+abc
+abcd
+abcde
+abcdef
+every write("abcdef" ? tab(1 to 10)) ----> none
+every write("abcde" ? while move(2) ? move(1)) ----> none
+s := "abcdef" ----> "abcdef"
+s ?:= move(3) ----> "abc"
+s := "abcdef" ----> "abcdef"
+1
+2
+3
+4
+5
+6
+every write(s ?:= upto(&lcase)) ----> none
+s := "this is the time to work it all out" ----> "this is the time to work it all out"
+this
+this is
+this is the
+this is the time
+this is the time to
+this is the time to work
+this is the time to work it
+this is the time to work it all
+every write(s ? tab(find(" "))) ----> none
+s := "xxxxxx" ----> "xxxxxx"
+x
+every s ? write(=("a" | "x")) ----> none
+f
+e
+d
+c
+b
+a
+"abcdef" ? (tab(0) & (while write(move(-1)))) ----> none
+#---------------------------------------------------------------------- 56 scan1
+fail
+fail
+7
+7
+fail
+fail
+fail
+7
+
+6
+7
+fail
+
+3
+fail
+3
+fail
+
+1
+3
+5
+1
+3
+1
+done
+
+1
+2
+5
+6
+2
+3
+4
+1
+2
+1
+done
+
+1 23
+1
+23
+456
+3456
+
+ 1
+1
+23
+45
+6
+123
+123
+12
+
+1
+10
+10
+
+1
+1
+fail
+
+123
+fail
+23
+
+ ascii?skips 1 16 31 46 61 76 91 106 121 
+ ascii?vowls 66 70 74 80 86 98 102 106 112 118 
+ letts?skips 11 26 35 50 
+ letts?vowls 1 5 9 15 21 27 31 35 41 47 
+ vowls?skips 8 
+ vowls?letts 1 2 3 4 5 6 7 8 9 10 
+ vowls?ascii 1 2 3 4 5 6 7 8 9 10 
+ skips?vowls 8 
+ skips?letts 6 7 8 9 
+ skips?ascii 1 2 3 4 5 6 7 8 9 
+ skips?upprs 10 11 12 13 14 15 16 17 18 
+ skips?skips 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 
+ upprs?ascii 
+ upprs?skips 8 23 38 53 68 83 98 113 128 
+#---------------------------------------------------------------------- 57 scan2
+simple
+fg
+3
+hj
+nested
+12
+ab
+3
+cd
+3
+34
+break
+1
+2
+3
+4
+5
+nested break
+6
+1
+2
+3
+4
+5
+next
+98
+98
+non-local
+q
+w
+1
+q
+2
+w
+3
+e
+4
+r
+5
+t
+6
+y
+1
+4
+1
+#----------------------------------------------------------------------- 58 sets
+     empty : 0 :
+set
+    insert : 1 : &null
+&null
+&null
+    insert : 1 : &null
+    delete : 0 :
+    delete : 0 :
+
+         x : 3 : 1 2 4
+         y : 3 : 1 2 5
+    x ++ y : 4 : 1 2 4 5
+    y ++ x : 4 : 1 2 4 5
+    x -- y : 1 : 4
+    y -- x : 1 : 5
+    x ** y : 2 : 1 2
+    y ** x : 2 : 1 2
+
+     empty : 0 :
+       + 1 : 1 : 1
+       + 2 : 2 : 1 2
+       + c : 3 : 1 2 "c"
+       - 3 : 3 : 1 2 "c"
+       - 1 : 2 : 2 "c"
+       - 1 : 2 : 2 "c"
+       + 2 : 2 : 2 "c"
+       + 1 : 3 : 1 2 "c"
+     + 7.0 : 4 : 1 2 7.0 "c"
+     + 7.0 : 4 : 1 2 7.0 "c"
+    + 'cs' : 5 : 1 2 7.0 "c" 'cs'
+    + 'cs' : 5 : 1 2 7.0 "c" 'cs'
+       x = : 5 : 1 2 7.0 "c" 'cs'
+
+     3,a,4 : 3 : 3 4 "a"
+    y ++ x : 8 : 1 2 3 4 7.0 "a" "c" 'cs'
+    y ** x : 0 :
+    y -- x : 3 : 3 4 "a"
+    x -- y : 5 : 1 2 7.0 "c" 'cs'
+
+ z from !y : 3 : 3 4 "a"
+
+         x : 7 : 1 2 3 5 6 7 9
+         y : 7 : 0 2 3 4 5 6 9
+#---------------------------------------------------------------------- 59 sieve
+There are 168 primes in the first 1000 integers.
+#-------------------------------------------------------------------- 60 sorting
+0:
+1:
+2:
+3:
+4:
+5:
+6:
+7:
+8:
+9:
+10:
+23:
+47:
+91:
+
+0:
+0:
+1:  12
+2:   2   5
+5:   1   2   3   7   8
+5:   1   1   3   4   6
+5:   a   d   e   p   t
+5:   a   d   e   p   t
+
+ 10 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 10 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 10 2 a 9 d 0 e 7 h 4 i 5 n 3 o 8 r 6 s 1 t 
+ 20 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 20 2 a 9 d 0 e 7 h 4 i 5 n 3 o 8 r 6 s 1 t 
+ 10 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 10 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 10 2 a 9 d 0 e 7 h 4 i 5 n 3 o 8 r 6 s 1 t 
+ 20 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 20 2 a 9 d 0 e 7 h 4 i 5 n 3 o 8 r 6 s 1 t 
+
+ L1: list_164(4) 1 2 3 
+ L2: list_164(4) 1 2 4 
+ S1: 1 2 3 set_57(4) 
+ S2: 1 3 5 set_57(4) 
+ T1: 2 "j" 5 "c" 8 "n" 15 table_3(4) 
+ T2: 2 "j" 8 "n" 11 "t" 15 table_3(4) 
+ R1: record r5_6(5) 1 4 5 7 9 
+ R2: record r5_7(5) 1 3 5 6 9 
+
+
+&null
+&null
+&null
+&null
+&null
+&null
+-36472996377170786403
+-36472996377170786403
+-27368747340080916343
+-27368747340080916343
+1
+1
+2
+2
+3
+3
+4
+4
+5
+5
+37252902984619140625
+37252902984619140625
+61159090448414546291
+61159090448414546291
+1.1
+1.1
+2.2
+2.2
+3.3
+3.3
+4.4
+4.4
+5.5
+5.5
+""
+""
+"a"
+"a"
+"alpha"
+"alpha"
+"beta"
+"beta"
+"delta"
+"delta"
+"epsilon"
+"epsilon"
+"epsilons"
+"epsilons"
+"gamma"
+"gamma"
+"gamma"
+"gamma"
+''
+''
+'0cs'
+'0cs'
+'1234cs'
+'1234cs'
+'123cs'
+'123cs'
+'XYZcs'
+'XYZcs'
+&errout
+&errout
+&input
+&input
+&output
+&output
+co-expression_2(0)
+co-expression_2(0)
+co-expression_3(0)
+co-expression_3(0)
+co-expression_4(0)
+co-expression_4(0)
+procedure check
+procedure check
+function image
+function image
+function integer
+function integer
+procedure listtest
+procedure listtest
+procedure main
+procedure main
+procedure messtest
+procedure messtest
+function push
+function push
+record constructor r0
+record constructor r0
+record constructor r1
+record constructor r1
+record constructor r2
+record constructor r2
+record constructor r5
+record constructor r5
+function read
+function read
+function reverse
+function reverse
+function right
+function right
+function serial
+function serial
+function table
+function table
+procedure wlist
+procedure wlist
+function write
+function write
+list_173(0)
+list_174(2)
+list_175(0)
+list_177(3)
+list_179(152)
+list_181(0)
+list_182(2)
+list_183(0)
+list_184(3)
+list_185(151)
+set_59(0)
+set_60(2)
+set_61(3)
+set_62(0)
+set_63(2)
+set_64(3)
+table_5(0)
+table_6(1)
+table_7(0)
+table_8(0)
+table_9(1)
+table_10(0)
+record r0_4(0)
+record r0_5(0)
+record r0_6(0)
+record r0_7(0)
+record r1_2(1)
+record r1_3(1)
+record r1_4(1)
+record r1_5(1)
+record r2_2(2)
+record r2_3(2)
+record r2_4(2)
+record r2_5(2)
+record r5_8(5)
+record r5_9(5)
+record r5_10(5)
+record r5_11(5)
+record r5_12(5)
+record r5_13(5)
+record r5_14(5)
+record r5_15(5)
+
+&null
+&null
+&null
+&null
+&null
+&null
+-36472996377170786403
+-36472996377170786403
+-27368747340080916343
+-27368747340080916343
+1
+1
+2
+2
+3
+3
+4
+4
+5
+5
+37252902984619140625
+37252902984619140625
+61159090448414546291
+61159090448414546291
+1.1
+1.1
+2.2
+2.2
+3.3
+3.3
+4.4
+4.4
+5.5
+5.5
+""
+""
+"a"
+"a"
+"alpha"
+"alpha"
+"beta"
+"beta"
+"delta"
+"delta"
+"epsilon"
+"epsilon"
+"epsilons"
+"epsilons"
+"gamma"
+"gamma"
+"gamma"
+"gamma"
+''
+''
+'0cs'
+'0cs'
+'1234cs'
+'1234cs'
+'123cs'
+'123cs'
+'XYZcs'
+'XYZcs'
+&errout
+&errout
+&input
+&input
+&output
+&output
+co-expression_2(0)
+co-expression_2(0)
+co-expression_3(0)
+co-expression_3(0)
+co-expression_4(0)
+co-expression_4(0)
+procedure check
+procedure check
+function image
+function image
+function integer
+function integer
+procedure listtest
+procedure listtest
+procedure main
+procedure main
+procedure messtest
+procedure messtest
+function push
+function push
+record constructor r0
+record constructor r0
+record constructor r1
+record constructor r1
+record constructor r2
+record constructor r2
+record constructor r5
+record constructor r5
+function read
+function read
+function reverse
+function reverse
+function right
+function right
+function serial
+function serial
+function table
+function table
+procedure wlist
+procedure wlist
+function write
+function write
+list_173(0)
+list_175(0)
+list_181(0)
+list_183(0)
+key=2 list_177(3)
+key=2 list_184(3)
+key=4 list_174(2)
+key=4 list_182(2)
+key='0cs' list_179(152)
+key='0cs' list_185(151)
+set_59(0)
+set_60(2)
+set_61(3)
+set_62(0)
+set_63(2)
+set_64(3)
+table_5(0)
+table_6(1)
+table_7(0)
+table_8(0)
+table_9(1)
+table_10(0)
+record r0_4(0)
+record r0_5(0)
+record r0_6(0)
+record r0_7(0)
+record r1_2(1)
+record r1_3(1)
+record r1_4(1)
+record r1_5(1)
+key=2 record r2_3(2)
+key=2 record r2_5(2)
+key=2 record r5_10(5)
+key=2 record r5_14(5)
+key=5 record r5_11(5)
+key=5 record r5_15(5)
+key=6 record r2_2(2)
+key=6 record r2_4(2)
+key=8 record r5_9(5)
+key=8 record r5_13(5)
+key=23 record r5_8(5)
+key=23 record r5_12(5)
+
+&null
+&null
+&null
+&null
+&null
+&null
+-36472996377170786403
+-36472996377170786403
+-27368747340080916343
+-27368747340080916343
+1
+1
+2
+2
+3
+3
+4
+4
+5
+5
+37252902984619140625
+37252902984619140625
+61159090448414546291
+61159090448414546291
+1.1
+1.1
+2.2
+2.2
+3.3
+3.3
+4.4
+4.4
+5.5
+5.5
+""
+""
+"a"
+"a"
+"alpha"
+"alpha"
+"beta"
+"beta"
+"delta"
+"delta"
+"epsilon"
+"epsilon"
+"epsilons"
+"epsilons"
+"gamma"
+"gamma"
+"gamma"
+"gamma"
+''
+''
+'0cs'
+'0cs'
+'1234cs'
+'1234cs'
+'123cs'
+'123cs'
+'XYZcs'
+'XYZcs'
+&errout
+&errout
+&input
+&input
+&output
+&output
+co-expression_2(0)
+co-expression_2(0)
+co-expression_3(0)
+co-expression_3(0)
+co-expression_4(0)
+co-expression_4(0)
+procedure check
+procedure check
+function image
+function image
+function integer
+function integer
+procedure listtest
+procedure listtest
+procedure main
+procedure main
+procedure messtest
+procedure messtest
+function push
+function push
+record constructor r0
+record constructor r0
+record constructor r1
+record constructor r1
+record constructor r2
+record constructor r2
+record constructor r5
+record constructor r5
+function read
+function read
+function reverse
+function reverse
+function right
+function right
+function serial
+function serial
+function table
+function table
+procedure wlist
+procedure wlist
+function write
+function write
+list_173(0)
+list_175(0)
+list_181(0)
+list_183(0)
+key=3 list_177(3)
+key=3 list_184(3)
+key=3 list_185(151)
+key=4 list_174(2)
+key=4 list_182(2)
+key=list_185(151) list_179(152)
+set_59(0)
+set_60(2)
+set_61(3)
+set_62(0)
+set_63(2)
+set_64(3)
+table_5(0)
+table_6(1)
+table_7(0)
+table_8(0)
+table_9(1)
+table_10(0)
+record r0_4(0)
+record r0_5(0)
+record r0_6(0)
+record r0_7(0)
+key=&null record r5_8(5)
+key=&null record r5_9(5)
+key=&null record r5_10(5)
+key=&null record r5_12(5)
+key=&null record r5_13(5)
+key=&null record r5_14(5)
+key=1 record r1_2(1)
+key=1 record r1_4(1)
+key=2 record r2_3(2)
+key=2 record r2_5(2)
+key=5 record r1_3(1)
+key=5 record r1_5(1)
+key=6 record r2_2(2)
+key=6 record r2_4(2)
+key=8 record r5_11(5)
+key=8 record r5_15(5)
+#-------------------------------------------------------------------- 61 statics
+&null
+1
+1
+2
+#--------------------------------------------------------------------- 62 string
+ ----> &null
+s := "abcd" ----> "abcd"
+s := "x" ----> "x"
+s ||:= "x" ----> "xx"
+s ----> "xx"
+s := "x" ----> "x"
+s ||:= "xx" ----> "xxx"
+s ----> "xxx"
+s := "x" ----> "x"
+s ||:= "X" ----> "xX"
+s ----> "xX"
+s := "x" ----> "x"
+s ||:= "abc" ----> "xabc"
+s ----> "xabc"
+s := "x" ----> "x"
+s ==:= "x" ----> "x"
+s ----> "x"
+s := "x" ----> "x"
+s ==:= "xx" ----> none
+s ----> "x"
+s := "x" ----> "x"
+s ==:= "X" ----> none
+s ----> "x"
+s := "x" ----> "x"
+s ==:= "abc" ----> none
+s ----> "x"
+{s[1:2] := "xx";s} ----> "xx"
+{s[-1:0] := "";s} ----> "x"
+{s[1] := "abc";s} ----> "abc"
+{s[1+:2] := "y";s} ----> "yc"
+{s[2] :=: s[3];s} ----> "yc"
+s[6] := "t" ----> none
+s[0-:6] := "u" ----> none
+{s[1:0] :=: s[0:1];s} ----> "yc"
+"x" << "x" ----> none
+"x" << "X" ----> none
+"X" << "x" ----> "x"
+"xx" <<= "xx" ----> "xx"
+"xxx" <<= "xx" ----> none
+"xx" <<= "xxx" ----> "xxx"
+"x" >>= "x" ----> "x"
+"x" >>= "xx" ----> none
+"xx" >>= "x" ----> "x"
+"x" >> "x" ----> none
+"x" >> "X" ----> "X"
+"X" >> "x" ----> none
+"x" == "x" ----> "x"
+"x" == "X" ----> none
+"X" == "x" ----> none
+"x" ~== "x" ----> none
+"x" ~== "X" ----> "X"
+"X" ~== "x" ----> "x"
+2
+22
+222
+2222
+22222
+222222
+2222222
+22222222
+222222222
+every i := 1 to 9 do write(integer(repl("2",i))) ----> none
+3
+23
+223
+2223
+22223
+222223
+2222223
+22222223
+222222223
+every i := 1 to 9 do write(repl("2",i) + 1) ----> none
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+every i := 1 to 30 do write(integer(repl("0",i) || "2")) ----> none
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+every i := 1 to 30 do write((repl("0",i) || "2") + 1) ----> none
+c1 := 'abcde' ----> 'abcde'
+c2 := 'aeuoi' ----> 'aeiou'
+c1 ++ c2 ----> 'abcdeiou'
+c1 -- c2 ----> 'bcd'
+c1 ** c2 ----> 'ae'
+2 ~=== +2 ----> none
+3 ~=== *"abc" ----> none
+'abc' ~=== ('abc' ++ '') ----> none
+any('aeiou',&lcase) ----> 2
+any('aeiou',&ucase) ----> none
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+16
+16
+16
+16
+16
+every write(any('aeiou',&lcase,1 to 15,10 to 20)) ----> none
+match("abc","abcabcabcabc") ----> 4
+match("abc","xabcabcabcabc") ----> none
+5
+5
+5
+5
+5
+5
+5
+8
+8
+8
+5
+5
+5
+8
+5
+8
+5
+8
+every write(match("abc","xabcabcabcabc",1 to 10,1 to 10)) ----> none
+upto('56d&',&lcase) ----> 4
+upto('56d&',&ucase) ----> none
+upto('56d&',&lcase,15) ----> none
+many(&lcase,"this is a Test") ----> 5
+many(&lcase,"this is a Test",5) ----> none
+many(&lcase,"this is a Test",5,9) ----> none
+find("aa","xxaaaaaa") ----> 3
+3
+4
+5
+6
+7
+every write(find("aa","xxaaaaaa")) ----> none
+4
+5
+every write(find("aa","xxaaaaaa",4,7)) ----> none
+bal('-','(',')',"-35") ----> 1
+bal('+','(',')',"((2*x)+3)+(5*y)") ----> 10
+10
+7
+7
+10
+every write(bal('+','(',')',"((2*x)+3)+(5*y)",1 to 10)) ----> none
+bal('+','[','[',"[[2*x[+3[+[5*y[") ----> none
+bal('+','([','])',"([2*x)+3]+(5*y]") ----> 10
+bal(,,,"()+()") ----> 1
+bal(&cset,,,"()+()") ----> 1
+#-------------------------------------------------------------------- 63 string1
+type string
+*s  5
+s:  abcde
+s:  "abcde"
+!:  abcde
+1:  abcde
+0:  abcde
+-5: abcde
+-7: abcde
+s1: abcde
+s2: abcde
+s3: abcde
+s4: abcde
+s5: abcde
+s6: abcde
+s7: abcde
+s8: bc
+s9: bc
+k1: ABCDE
+k2: ABCDE
+k3: ABCDE
+k4: ABCDE
+k5: ABCDE
+k6: ABCDE
+k7: ABCDE
+k8: BC
+k9: BC
+t:  "abcde"
+?x:  x
+?y:  y
+?z:  nope
+c1: ""
+c2: "a"
+c3: "b"
+c4: "cdef"
+c5: "3.14159"
+c6: "abcdef"
+#--------------------------------------------------------------------- 64 struct
+ ----> &null
+list(0) ----> list_1(0)
+list(0,1) ----> list_2(0)
+list(1,1) ----> list_3(1)
+list(100,"a") ----> list_4(100)
+table() ----> table_1(0)
+table(0) ----> table_2(0)
+a := [] ----> list_5(0)
+every put(a,!&lcase) ----> none
+a1 := sort(a) ----> list_6(26)
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+every write(!a1) ----> none
+sort(a1) ----> list_7(26)
+t := table() ----> table_3(0)
+every t[!&lcase] := 1 ----> none
+sort(t) ----> list_8(26)
+a := sort(t) ----> list_35(26)
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+every write((!a)[1]) ----> none
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+every write((!a)[2]) ----> none
+set([1,0,1,0,1,0,1,0]) ----> set_1(2)
+set([]) ----> set_2(0)
+s := set([1,2,3,4,5,6,7,8,9,10]) ----> set_3(10)
+*s ----> 10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+every write(!sort(s)) ----> none
+*copy(s) ----> 10
+image(s) ----> "set_3(10)"
+type(s) ----> "set"
+member(s,8) ----> 8
+member(s,"8") ----> none
+s := set([]) ----> set_5(0)
+every insert(s,1 to 100) ----> none
+*s ----> 100
+every delete(s,15 to 30) ----> none
+*s ----> 84
+every s1 := insert(set([]),!&lcase) ----> none
+s2 := set(["a","aa","ab","b",1,2,3,4]) ----> set_7(8)
+s3 := s1 ++ s2 ----> set_8(32)
+s4 := s1 ** s2 ----> set_9(2)
+s5 := s1 -- s2 ----> set_10(24)
+*s3 ----> 32
+*s4 ----> 2
+*s5 ----> 24
+t := table() ----> table_4(0)
+every t[1 | &output | &cset | [] | "hello" | main | 2 | table()] := ?100 ----> none
+a := sort(t,3) ----> list_70(16)
+1 22
+2 8
+"hello" 43
+&cset 32
+&output 42
+procedure main 31
+list_69(0) 52
+table_5(0) 74
+every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1]) ----> none
+a := sort(t,4) ----> list_71(16)
+2 8
+1 22
+procedure main 31
+&cset 32
+&output 42
+"hello" 43
+list_69(0) 52
+table_5(0) 74
+every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1]) ----> none
+t := table() ----> table_6(0)
+every t[1 | &output | &cset | [] | "hello" | main | 2 | table()] := ?100 ----> none
+a := sort(t,3) ----> list_73(16)
+1 6
+2 58
+"hello" 54
+&cset 14
+&output 72
+procedure main 63
+list_72(0) 34
+table_7(0) 71
+every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1]) ----> none
+a := sort(t,4) ----> list_74(16)
+1 6
+&cset 14
+list_72(0) 34
+"hello" 54
+2 58
+procedure main 63
+table_7(0) 71
+&output 72
+every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1]) ----> none
+x := [array(),table(),write,[],&input,1,"abc",'aa',&null] ----> list_76(9)
+x := sort(x) ----> list_77(9)
+&null
+1
+"abc"
+'a'
+&input
+function write
+list_75(0)
+table_8(0)
+record array_1(7)
+every write(image(!x)) ----> none
+t := table(table()) ----> table_10(0)
+table_10(1)
+table_10(2)
+table_10(3)
+table_10(4)
+table_10(5)
+table_10(6)
+table_10(7)
+table_10(8)
+table_10(9)
+table_10(10)
+every t[1 to 10] := 1 do write(image(t)) ----> none
+t := table() ----> table_11(0)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+every t[1 to 10] := 1 do write(*t) ----> none
+t[] := 6 ----> 6
+t[] ----> 6
+*t ----> 11
+t[&null] := 7 ----> 7
+t[] ----> 7
+*t ----> 11
+x := [] ----> list_78(0)
+*x ----> 0
+every push(x,1 to 10) ----> none
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+every 1 to 10 do write(pop(x)) ----> none
+*x ----> 0
+pop(x) ----> none
+pull(x) ----> none
+get(x) ----> none
+every put(x,1 to 10) ----> none
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+every 1 to 10 do write(get(x)) ----> none
+every push(x,1 to 10) ----> none
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+every 1 to 10 do write(pull(x)) ----> none
+x := [1,2,3,4,5,6,7,8,9,0] ----> list_79(10)
+list_80(10)
+list_81(9)
+list_82(8)
+list_83(7)
+list_84(6)
+list_85(5)
+list_86(4)
+list_87(3)
+list_88(2)
+list_89(1)
+list_90(0)
+every write(image(x[1:0 to -20 by -1])) ----> none
+a := [1,2,3,4,5,6,7,8] ----> list_91(8)
+a1 := a[2:4] ----> list_92(2)
+a2 := a[7:2] ----> list_93(5)
+a3 := a[2+:3] ----> list_94(3)
+a4 := a[-1-:3] ----> list_95(3)
+a1[1] ----> 2
+a2[1] ----> 2
+a3[1] ----> 2
+a4[1] ----> 5
+a4[1] := a ----> list_91(8)
+a := [1,2,3,4] ----> list_96(4)
+a1 := a[1:2] ----> list_97(1)
+1
+every write(!a1) ----> none
+a2 := a[3:0] ----> list_98(2)
+3
+4
+every write(!a2) ----> none
+a4 := a[2:2] ----> list_99(0)
+every write(!a4) ----> none
+a5 := a[0-:2] ----> list_100(2)
+3
+4
+every write(!a5) ----> none
+a3 := a[0:3] ----> list_101(2)
+3
+4
+every write(!a3) ----> none
+a := "abcd" ----> "abcd"
+a1 := a[1:2] ----> "a"
+a
+every write(!a1) ----> none
+a2 := a[3:0] ----> "cd"
+c
+d
+every write(!a2) ----> none
+a3 := a[0:3] ----> "cd"
+c
+d
+every write(!a3) ----> none
+a4 := a[2:2] ----> ""
+every write(!a4) ----> none
+a5 := a[0-:2] ----> "cd"
+c
+d
+every write(!a5) ----> none
+[] ||| [] ----> list_104(0)
+[1,2,3] ||| [] ----> list_107(3)
+[] ||| [1,2,3] ----> list_110(3)
+r := array(1,2,3,4,5,6,7,8,9) ----> record array_2(7)
+r.a ----> 1
+r.b ----> 2
+r.c ----> 3
+r.d ----> 4
+r.e ----> 5
+r.f ----> 6
+type(r) ----> "array"
+image(r) ----> "record array_2(7)"
+r.a +:= 0 ----> 1
+r.b +:= 0 ----> 2
+r.c +:= 0 ----> 3
+r.d +:= 0 ----> 4
+r.e +:= 0 ----> 5
+r.f +:= 0 ----> 6
+r.a ----> 1
+r.b ----> 2
+r.c ----> 3
+r.d ----> 4
+r.e ----> 5
+r.f ----> 6
+r := array("a",2,array(),r,main) ----> record array_4(7)
+"a"
+2
+3.5
+record array_3(7)
+record array_2(7)
+procedure main
+&null
+every write(image(!r)) ----> none
+r[1] :=: r.d ----> record array_3(7)
+record array_3(7)
+2
+3.5
+"a"
+record array_2(7)
+procedure main
+&null
+every write(image(!r)) ----> none
+ a: -2035912587 847198497 
+#-------------------------------------------------------------------- 65 subjpos
+  &pos=1   &subject=""
+
+s :=      "cat"         &pos=1   &subject="cat"
+p :=         -5 FAILED  &pos=1   &subject="cat"
+p :=         -4 FAILED  &pos=1   &subject="cat"
+p :=         -3         &pos=1   &subject="cat"
+p :=         -2         &pos=2   &subject="cat"
+p :=         -1         &pos=3   &subject="cat"
+p :=          0         &pos=4   &subject="cat"
+p :=          1         &pos=1   &subject="cat"
+p :=          2         &pos=2   &subject="cat"
+p :=          3         &pos=3   &subject="cat"
+p :=          4         &pos=4   &subject="cat"
+p :=          5 FAILED  &pos=4   &subject="cat"
+p :=          6 FAILED  &pos=4   &subject="cat"
+s :=         ""         &pos=1   &subject=""
+p :=         -2 FAILED  &pos=1   &subject=""
+p :=         -1 FAILED  &pos=1   &subject=""
+p :=          0         &pos=1   &subject=""
+p :=          1         &pos=1   &subject=""
+p :=          2 FAILED  &pos=1   &subject=""
+p :=          3 FAILED  &pos=1   &subject=""
+s :=    "donut"         &pos=1   &subject="donut"
+p :=         -7 FAILED  &pos=1   &subject="donut"
+p :=         -6 FAILED  &pos=1   &subject="donut"
+p :=         -5         &pos=1   &subject="donut"
+p :=         -4         &pos=2   &subject="donut"
+p :=         -3         &pos=3   &subject="donut"
+p :=         -2         &pos=4   &subject="donut"
+p :=         -1         &pos=5   &subject="donut"
+p :=          0         &pos=6   &subject="donut"
+p :=          1         &pos=1   &subject="donut"
+p :=          2         &pos=2   &subject="donut"
+p :=          3         &pos=3   &subject="donut"
+p :=          4         &pos=4   &subject="donut"
+p :=          5         &pos=5   &subject="donut"
+p :=          6         &pos=6   &subject="donut"
+p :=          7 FAILED  &pos=6   &subject="donut"
+p :=          8 FAILED  &pos=6   &subject="donut"
+s :=        "x"         &pos=1   &subject="x"
+p :=         -3 FAILED  &pos=1   &subject="x"
+p :=         -2 FAILED  &pos=1   &subject="x"
+p :=         -1         &pos=1   &subject="x"
+p :=          0         &pos=2   &subject="x"
+p :=          1         &pos=1   &subject="x"
+p :=          2         &pos=2   &subject="x"
+p :=          3 FAILED  &pos=2   &subject="x"
+p :=          4 FAILED  &pos=2   &subject="x"
+
+  &pos=1   &subject="outer"
+  &pos=3   &subject="outer"
+  &pos=1   &subject="inner"
+  &pos=2   &subject="inner"
+  &pos=3   &subject="outer"
+&pos=3 x=4
+&pos=4 x=3
+&pos=3 x=9
+&pos=3 x=3
+&pos=3 x=9
+&pos=3 x=3
+&pos=1 x=3
+&pos=1 x=2
+#------------------------------------------------------------------ 66 substring
+A. a
+B. a
+B. b
+B. c
+B. d
+B. e
+C 0. --
+C 1. a
+C 2. b
+C 3. c
+C 4. d
+C 5. e
+C 6. --
+D 0. --
+D -1. e
+D -2. d
+D -3. c
+D -4. b
+D -5. a
+D -6. --
+E -10. --
+E -9. --
+E -8. --
+E -7. --
+E -6. --
+E -5. ab
+E -4. b
+E -3. 
+E -2. c
+E -1. cd
+E 0. cde
+E 1. ab
+E 2. b
+E 3. 
+E 4. c
+E 5. cd
+E 6. cde
+E 7. --
+E 8. --
+E 9. --
+E 10. --
+F -10. --
+F -9. --
+F -8. ab
+F -7. b
+F -6. 
+F -5. c
+F -4. cd
+F -3. cde
+F -2. ab
+F -1. b
+F 0. 
+F 1. c
+F 2. cd
+F 3. cde
+F 4. --
+F 5. --
+G -5. --
+G -4. --
+G -3. cde
+G -2. cd
+G -1. c
+G 0. 
+G 1. b
+G 2. ab
+G 3. cde
+G 4. cd
+G 5. c
+G 6. 
+G 7. b
+G 8. ab
+G 9. --
+G 10. --
+H. Xbcde
+I. YYYYY
+J -6. --
+J -5. Abcde
+J -4. aBcde
+J -3. abCde
+J -2. abcDe
+J -1. abcdE
+J 0. --
+J 1. Abcde
+J 2. aBcde
+J 3. abCde
+J 4. abcDe
+J 5. abcdE
+J 6. --
+K 1 1. (*)abcde
+K 1 2. (*)bcde
+K 1 3. (*)cde
+K 1 4. (*)de
+K 1 5. (*)e
+K 1 6. (*)
+K 2 1. (*)bcde
+K 2 2. a(*)bcde
+K 2 3. a(*)cde
+K 2 4. a(*)de
+K 2 5. a(*)e
+K 2 6. a(*)
+K 3 1. (*)cde
+K 3 2. a(*)cde
+K 3 3. ab(*)cde
+K 3 4. ab(*)de
+K 3 5. ab(*)e
+K 3 6. ab(*)
+K 4 1. (*)de
+K 4 2. a(*)de
+K 4 3. ab(*)de
+K 4 4. abc(*)de
+K 4 5. abc(*)e
+K 4 6. abc(*)
+K 5 1. (*)e
+K 5 2. a(*)e
+K 5 3. ab(*)e
+K 5 4. abc(*)e
+K 5 5. abcd(*)e
+K 5 6. abcd(*)
+K 6 1. (*)
+K 6 2. a(*)
+K 6 3. ab(*)
+K 6 4. abc(*)
+K 6 5. abcd(*)
+K 6 6. abcde(*)
+L 1 1 1. abcde [failed]
+L 1 1 2. abcde [failed]
+L 1 1 3. abcde [failed]
+L 1 1 4. abcde [failed]
+L 1 1 5. abcde [failed]
+L 1 1 6. abcde [failed]
+L 1 2 1. (*)bcde
+L 1 2 2. a(*)bcde
+L 1 2 3. abcde [failed]
+L 1 2 4. abcde [failed]
+L 1 2 5. abcde [failed]
+L 1 2 6. abcde [failed]
+L 1 3 1. (*)bcde
+L 1 3 2. a(*)bcde
+L 1 3 3. a(*)cde
+L 1 3 4. abcde [failed]
+L 1 3 5. abcde [failed]
+L 1 3 6. abcde [failed]
+L 1 4 1. (*)bcde
+L 1 4 2. a(*)bcde
+L 1 4 3. a(*)cde
+L 1 4 4. a(*)de
+L 1 4 5. abcde [failed]
+L 1 4 6. abcde [failed]
+L 1 5 1. (*)bcde
+L 1 5 2. a(*)bcde
+L 1 5 3. a(*)cde
+L 1 5 4. a(*)de
+L 1 5 5. a(*)e
+L 1 5 6. abcde [failed]
+L 1 6 1. (*)bcde
+L 1 6 2. a(*)bcde
+L 1 6 3. a(*)cde
+L 1 6 4. a(*)de
+L 1 6 5. a(*)e
+L 1 6 6. a(*)
+L 2 1 1. (*)bcde
+L 2 1 2. a(*)bcde
+L 2 1 3. abcde [failed]
+L 2 1 4. abcde [failed]
+L 2 1 5. abcde [failed]
+L 2 1 6. abcde [failed]
+L 2 2 1. abcde [failed]
+L 2 2 2. abcde [failed]
+L 2 2 3. abcde [failed]
+L 2 2 4. abcde [failed]
+L 2 2 5. abcde [failed]
+L 2 2 6. abcde [failed]
+L 2 3 1. a(*)cde
+L 2 3 2. ab(*)cde
+L 2 3 3. abcde [failed]
+L 2 3 4. abcde [failed]
+L 2 3 5. abcde [failed]
+L 2 3 6. abcde [failed]
+L 2 4 1. a(*)cde
+L 2 4 2. ab(*)cde
+L 2 4 3. ab(*)de
+L 2 4 4. abcde [failed]
+L 2 4 5. abcde [failed]
+L 2 4 6. abcde [failed]
+L 2 5 1. a(*)cde
+L 2 5 2. ab(*)cde
+L 2 5 3. ab(*)de
+L 2 5 4. ab(*)e
+L 2 5 5. abcde [failed]
+L 2 5 6. abcde [failed]
+L 2 6 1. a(*)cde
+L 2 6 2. ab(*)cde
+L 2 6 3. ab(*)de
+L 2 6 4. ab(*)e
+L 2 6 5. ab(*)
+L 2 6 6. abcde [failed]
+L 3 1 1. (*)bcde
+L 3 1 2. a(*)bcde
+L 3 1 3. a(*)cde
+L 3 1 4. abcde [failed]
+L 3 1 5. abcde [failed]
+L 3 1 6. abcde [failed]
+L 3 2 1. a(*)cde
+L 3 2 2. ab(*)cde
+L 3 2 3. abcde [failed]
+L 3 2 4. abcde [failed]
+L 3 2 5. abcde [failed]
+L 3 2 6. abcde [failed]
+L 3 3 1. abcde [failed]
+L 3 3 2. abcde [failed]
+L 3 3 3. abcde [failed]
+L 3 3 4. abcde [failed]
+L 3 3 5. abcde [failed]
+L 3 3 6. abcde [failed]
+L 3 4 1. ab(*)de
+L 3 4 2. abc(*)de
+L 3 4 3. abcde [failed]
+L 3 4 4. abcde [failed]
+L 3 4 5. abcde [failed]
+L 3 4 6. abcde [failed]
+L 3 5 1. ab(*)de
+L 3 5 2. abc(*)de
+L 3 5 3. abc(*)e
+L 3 5 4. abcde [failed]
+L 3 5 5. abcde [failed]
+L 3 5 6. abcde [failed]
+L 3 6 1. ab(*)de
+L 3 6 2. abc(*)de
+L 3 6 3. abc(*)e
+L 3 6 4. abc(*)
+L 3 6 5. abcde [failed]
+L 3 6 6. abcde [failed]
+L 4 1 1. (*)bcde
+L 4 1 2. a(*)bcde
+L 4 1 3. a(*)cde
+L 4 1 4. a(*)de
+L 4 1 5. abcde [failed]
+L 4 1 6. abcde [failed]
+L 4 2 1. a(*)cde
+L 4 2 2. ab(*)cde
+L 4 2 3. ab(*)de
+L 4 2 4. abcde [failed]
+L 4 2 5. abcde [failed]
+L 4 2 6. abcde [failed]
+L 4 3 1. ab(*)de
+L 4 3 2. abc(*)de
+L 4 3 3. abcde [failed]
+L 4 3 4. abcde [failed]
+L 4 3 5. abcde [failed]
+L 4 3 6. abcde [failed]
+L 4 4 1. abcde [failed]
+L 4 4 2. abcde [failed]
+L 4 4 3. abcde [failed]
+L 4 4 4. abcde [failed]
+L 4 4 5. abcde [failed]
+L 4 4 6. abcde [failed]
+L 4 5 1. abc(*)e
+L 4 5 2. abcd(*)e
+L 4 5 3. abcde [failed]
+L 4 5 4. abcde [failed]
+L 4 5 5. abcde [failed]
+L 4 5 6. abcde [failed]
+L 4 6 1. abc(*)e
+L 4 6 2. abcd(*)e
+L 4 6 3. abcd(*)
+L 4 6 4. abcde [failed]
+L 4 6 5. abcde [failed]
+L 4 6 6. abcde [failed]
+L 5 1 1. (*)bcde
+L 5 1 2. a(*)bcde
+L 5 1 3. a(*)cde
+L 5 1 4. a(*)de
+L 5 1 5. a(*)e
+L 5 1 6. abcde [failed]
+L 5 2 1. a(*)cde
+L 5 2 2. ab(*)cde
+L 5 2 3. ab(*)de
+L 5 2 4. ab(*)e
+L 5 2 5. abcde [failed]
+L 5 2 6. abcde [failed]
+L 5 3 1. ab(*)de
+L 5 3 2. abc(*)de
+L 5 3 3. abc(*)e
+L 5 3 4. abcde [failed]
+L 5 3 5. abcde [failed]
+L 5 3 6. abcde [failed]
+L 5 4 1. abc(*)e
+L 5 4 2. abcd(*)e
+L 5 4 3. abcde [failed]
+L 5 4 4. abcde [failed]
+L 5 4 5. abcde [failed]
+L 5 4 6. abcde [failed]
+L 5 5 1. abcde [failed]
+L 5 5 2. abcde [failed]
+L 5 5 3. abcde [failed]
+L 5 5 4. abcde [failed]
+L 5 5 5. abcde [failed]
+L 5 5 6. abcde [failed]
+L 5 6 1. abcd(*)
+L 5 6 2. abcde(*)
+L 5 6 3. abcde [failed]
+L 5 6 4. abcde [failed]
+L 5 6 5. abcde [failed]
+L 5 6 6. abcde [failed]
+L 6 1 1. (*)bcde
+L 6 1 2. a(*)bcde
+L 6 1 3. a(*)cde
+L 6 1 4. a(*)de
+L 6 1 5. a(*)e
+L 6 1 6. a(*)
+L 6 2 1. a(*)cde
+L 6 2 2. ab(*)cde
+L 6 2 3. ab(*)de
+L 6 2 4. ab(*)e
+L 6 2 5. ab(*)
+L 6 2 6. abcde [failed]
+L 6 3 1. ab(*)de
+L 6 3 2. abc(*)de
+L 6 3 3. abc(*)e
+L 6 3 4. abc(*)
+L 6 3 5. abcde [failed]
+L 6 3 6. abcde [failed]
+L 6 4 1. abc(*)e
+L 6 4 2. abcd(*)e
+L 6 4 3. abcd(*)
+L 6 4 4. abcde [failed]
+L 6 4 5. abcde [failed]
+L 6 4 6. abcde [failed]
+L 6 5 1. abcd(*)
+L 6 5 2. abcde(*)
+L 6 5 3. abcde [failed]
+L 6 5 4. abcde [failed]
+L 6 5 5. abcde [failed]
+L 6 5 6. abcde [failed]
+L 6 6 1. abcde [failed]
+L 6 6 2. abcde [failed]
+L 6 6 3. abcde [failed]
+L 6 6 4. abcde [failed]
+L 6 6 5. abcde [failed]
+L 6 6 6. abcde [failed]
+M -bcde
+M a-cde
+M ab-de
+M abc-e
+M abcd-
+N -bcde
+N a-cde
+N ab-de
+N abc-e
+N abcd-
+O --abcde
+O a--bcde
+O ab--cde
+O abc--de
+O abcd--e
+O abcde--
+O --abcde
+O a--bcde
+O ab--cde
+O abc--de
+O abcd--e
+O abcde--
+P a1de
+P a2de
+P a3de
+Q f4ij
+Q k5mno
+Q k6mno
+#---------------------------------------------------------------------- 67 table
+   initial : 0 :
+ >> 
+ >> 3 3 
+    +2+4+a : 3 : [2]3 [4]7 ["a"]"A"
+     !x=88 : 3 : [2]88 [4]88 ["a"]88
+  [all]=99 : 3 : [2]99 [4]99 ["a"]99
+    x[k]=k : 3 : [2]2 [4]4 ["a"]"a"
+    insert : 6 : [&null]"null" [1]&null [3]&null [5]55 [6]66 [7]77
+    delete : 2 : [5]55 [6]66
+0
+        t0 : 0 :
+       t0i : 6 : [&null]"null" [1]&null [3]&null [5]55 [6]66 [7]77
+       t0d : 2 : [5]55 [6]66
+
+k 3
+v 7
+       30s : 5 : [0]30 [1]31 [2]32 [3]33 [4]34
+       50s : 5 : [0]50 [1]51 [2]52 [3]53 [4]54
+#----------------------------------------------------------------------- 68 trim
+"abc"
+"abc"
+"abc  "
+""
+"a c"
+"a c"
+""
+""
+""
+""
+#------------------------------------------------------------------------ 69 var
+&pos &subject: 3 abcde
+&pos &subject: 1 wxyz
+"main"
+"T"
+"L"
+"s"
+"a"
+&null
+"&error"
+"T[\"abc\"]"
+"T[\"abc\"]"
+"L[1]"
+"L[2]"
+"L[3]"
+"L[200]"
+"L[191]"
+"L[1]"
+"L[2]"
+"L[3]"
+"L[200]"
+"L[191]"
+"complex.r"
+
+----------------------------------------------------------------------
+co-expression_1(1)
+
+recurse local identifiers:
+   a = 5
+   b = 14
+   x = 19
+   y = -9
+recurse local identifiers:
+   a = 4
+   b = 10
+   x = 14
+   y = -6
+recurse local identifiers:
+   a = 3
+   b = 7
+   x = 10
+   y = -4
+
+global identifiers:
+   complex = record constructor complex
+   display = function display
+   image = function image
+   list = function list
+   main = procedure main
+   main2 = procedure main2
+   name = function name
+   push = function push
+   recurse = procedure recurse
+   repl = function repl
+   table = function table
+   variable = function variable
+   write = function write
+----------------------------------------------------------------------
+co-expression_1(1)
+
+recurse local identifiers:
+   a = 5
+   b = 14
+   x = 19
+   y = -9
+recurse local identifiers:
+   a = 4
+   b = 10
+   x = 14
+   y = -6
+recurse local identifiers:
+   a = 3
+   b = 7
+   x = 10
+   y = -4
+recurse local identifiers:
+   a = 2
+   b = 5
+   x = 7
+   y = -3
+recurse local identifiers:
+   a = 1
+   b = 4
+   x = 5
+   y = -3
+main local identifiers:
+   a = 1
+   x = 2
+   l0 = list_4 = []
+   l1 = list_5 = ['ABCDEFGHIKLMNOPQ...']
+   l2 = list_6 = ["supercalifragili...","expialidocious"]
+   l3 = list_7 = [1.618033989,2.718281828,3.141592654]
+   l4 = list_8 = [1,2,3,4]
+   l5 = list_9 = [1,2,3,4,5]
+   l6 = list_10 = [1,2,3,4,5,6]
+   l7 = list_11 = [1,2,3,...,5,6,7]
+   l8 = list_12 = [1,2,3,...,6,7,8]
+   l9 = list_13 = [list_4 = [],list_5(1),list_6(2),...,list_10(6),list_11(7),list_12(8)]
+   y = 3
+
+global identifiers:
+   complex = record constructor complex
+   display = function display
+   image = function image
+   list = function list
+   main = procedure main
+   main2 = procedure main2
+   name = function name
+   push = function push
+   recurse = procedure recurse
+   repl = function repl
+   table = function table
+   variable = function variable
+   write = function write
+----------------------------------------------------------------------
+#-------------------------------------------------------------------- 70 wordcnt
+A                   2
+B                   1
+D                   1
+I                   1
+L                   1
+N                   1
+O                   2
+R                   1
+T                   2
+This                1
+U                   1
+W                   1
+a                   1
+and                 1
+characters          1
+column              1
+do                  3
+end                 2
+every               2
+in                  1
+initial             1
+input               2
+lcase               1
+left                1
+letters             4
+line                3
+local               1
+main                2
+many                1
+n                   2
+procedure           3
+processes           1
+results             1
+scan                1
+sort                1
+standard            1
+static              1
+t                   4
+tab                 2
+table               1
+the                 2
+ucase               1
+upto                1
+using               1
+while               1
+wide                1
+with                1
+wordcount           2
+words               1
+write               1
+writes              1
+x                   3
+y                   4

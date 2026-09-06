@@ -1,0 +1,6121 @@
+#------------------------------------------------------------------------ 1 args
+#SRC: JCON
+#
+#  test various numbers of args
+
+procedure main()
+   local plist, alist, e;
+
+   plist := [3, -2, "image", proc("~===", 2), 
+      p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12];
+
+   every write((!plist)());
+   every write((!plist)(1));
+   every write((!plist)(1, 2));
+   every write((!plist)(1, 2, 3));
+   every write((!plist)(1, 2, 3, 4));
+   every write((!plist)(1, 2, 3, 4, 5));
+   every write((!plist)(1, 2, 3, 4, 5, 6));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7, 8));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7, 8, 9));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12));
+
+   alist := [];
+   while *alist < 14 do {
+       every write((!plist) ! alist);
+       put(alist, *alist + 1)
+   };
+end
+
+
+
+#  p0 through p12 do their own output and then fail
+
+procedure p0()
+   note("p0");
+end
+
+procedure p1(a)
+   note("p1", a);
+end
+
+procedure p2(a, b)
+   note("p2", a, b);
+end
+
+procedure p3(a, b, c)
+   note("p3", a, b, c);
+end
+
+procedure p4(a, b, c, d)
+   note("p4", a, b, c, d);
+end
+
+procedure p5(a, b, c, d, e)
+   note("p5", a, b, c, d, e);
+end
+
+procedure p6(a, b, c, d, e, f)
+   note("p6", a, b, c, d, e, f);
+end
+
+procedure p7(a, b, c, d, e, f, g)
+   note("p7", a, b, c, d, e, f, g);
+end
+
+procedure p8(a, b, c, d, e, f, g, h)
+   note("p8", a, b, c, d, e, f, g, h);
+end
+
+procedure p9(a, b, c, d, e, f, g, h, i)
+   note("p9", a, b, c, d, e, f, g, h, i);
+end
+
+procedure p10(a, b, c, d, e, f, g, h, i, j)
+   note("p10", a, b, c, d, e, f, g, h, i, j);
+end
+
+procedure p11(a, b, c, d, e, f, g, h, i, j, k)
+   note("p11", a, b, c, d, e, f, g, h, i, j, k);
+end
+
+procedure p12(a, b, c, d, e, f, g, h, i, j, k, l)
+   note("p12", a, b, c, d, e, f, g, h, i, j, k, l);
+end
+
+
+
+procedure note(a[])
+   local e;
+
+   every e := !a do writes(\e | "~", " ");
+   write();
+   return;
+end
+#----------------------------------------------------------------------- 2 arith
+#SRC: JCON
+
+# test arithmetic operators and numeric coercion
+#
+# note: two lines of shifttest output differ from v9 with large integers
+#
+# note also:  on Dec Alpha, Java doesn't sign-extend on right-shifts,
+#		causing differences to appear.
+
+procedure main()
+   local i, j;
+
+   numtest(0, 0);
+   numtest(0, 1);
+   numtest(0, -1);
+   numtest(1, 0);
+   numtest(1, 1);
+   numtest(1, 2);
+   numtest(7, 3);
+   numtest(3, 8);
+   numtest(6.2, 4);
+   numtest(8, 2.5);
+   numtest(5.4, 1.2);
+   numtest(" 1 ", 2.5);
+   numtest(" 3.4", 1.7);
+   numtest(" 5 ", " 5 ");
+   numtest('40', '7');
+   numtest(3, '21');
+   numtest(0., 0.);
+   numtest(0., 1.);
+   numtest(0., -1.);
+   numtest(1, -2);
+   numtest(1., -2.);
+   numtest(-3, 2);
+   numtest(-3., " 2. ");
+   numtest(-6, -3);
+   numtest(-6., -3.);
+   write();
+
+   every (i := -9 | 0 | 5 | 191) & (j := -23 | 0 | 9 | 61) do
+      bitcombo(i, j);
+   write();
+
+   shifttest();
+   write();
+
+   every pow(-3 to 3, -3 to 3);
+   every pow(.5 | 1 | 1.5, (-3 to 3) / 2.0);
+   every pow(-1.5 | -1.0 | -.5 | 0.0, -3 to 3);
+end
+
+procedure numtest(a, b)
+   static f;
+   initial f := "---";
+
+   wr5(+a);
+   wr5(b);
+   wr5(abs(a));
+   wr5(-b);
+   wr5(a + b);
+   wr5(a - b);
+   wr5(a * b);
+   if b ~= 0 then wr5(a / b) else wr5(f);
+   if b ~= 0 then wr5(a % b) else wr5(f);
+   wr5(-b);
+   wr5(a < b  | f);
+   wr5(a <= b | f);
+   wr5(a = b  | f);
+   wr5(a ~= b | f);
+   wr5(a >= b | f);
+   wr5(a > b  | f);
+   write();
+   return;
+end
+
+procedure bitcombo(i, j)
+   every wr5(i | j | icom(i) | icom(j) | iand(i,j) | ior(i,j) | ixor(i,j));
+   write();
+   return;
+end
+
+procedure wr5(n);			# write in 5 chars
+   local s;
+   if type(n) == "real" then n := r1(n);
+   s := string(n);
+   if *s < 4 then s := right(s, 4);
+   writes(s, " ");
+   return;
+end
+
+procedure r1(v);				# round real to 1 digit after decimal
+   if v >= 0 then
+      return integer(v * 10 + 0.5) / 10.0
+   else
+      return integer(v * 10 - 0.5) / 10.0;
+end
+
+
+procedure shifttest()
+   local n;
+
+   every n := 64 | 63 | (5 to -5 by -1) | -63 | -64 do {
+      wr25(ishift(1, n));
+      wr25(ishift(1703, n));
+      wr25(ishift(-251, n));
+      write()
+   };
+end
+
+procedure wr25(n)
+   writes(right(n, 25));
+end
+
+
+
+procedure pow(m, n)
+   local v;
+
+   if m = 0 & n <= 0 then
+      fail;
+   v := m ^ n;
+   if type(v) == "real" then {
+      if v > 0 then
+	 v := integer(v * 1000 + 0.5) / 1000.0
+      else
+	 v := integer(v * 1000 - 0.5) / 1000.0
+      };
+   write(right(m, 5), " ^ ", left(n, 5), "=", right(v, 7));
+   return;
+end
+
+#--------------------------------------------------------------------- 3 augment
+#SRC: V9GEN
+
+record array(a,b,c,d,e,f,g)
+
+procedure p1()
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i =:= 9 ----> ",image(i =:= 9) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i =:= 10 ----> ",image(i =:= 10) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i =:= 11 ----> ",image(i =:= 11) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i >=:= 9 ----> ",image(i >=:= 9) | "none");
+end
+
+procedure p2()
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i >=:= 10 ----> ",image(i >=:= 10) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i >=:= 11 ----> ",image(i >=:= 11) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i >:= 9 ----> ",image(i >:= 9) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+end
+
+procedure p3()
+   write("i >:= 10 ----> ",image(i >:= 10) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i >:= 11 ----> ",image(i >:= 11) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i <=:= 9 ----> ",image(i <=:= 9) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i <=:= 10 ----> ",image(i <=:= 10) | "none");
+   write("i ----> ",image(i) | "none");
+end
+
+procedure p4()
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i <=:= 11 ----> ",image(i <=:= 11) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i <:= 9 ----> ",image(i <:= 9) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i <:= 10 ----> ",image(i <:= 10) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i <:= 11 ----> ",image(i <:= 11) | "none");
+end
+
+procedure p5()
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i ~=:= 9 ----> ",image(i ~=:= 9) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i ~=:= 10 ----> ",image(i ~=:= 10) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i ~=:= 11 ----> ",image(i ~=:= 11) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+end
+
+procedure p6()
+   write("i +:= 9 ----> ",image(i +:= 9) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i +:= 10 ----> ",image(i +:= 10) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i +:= 11 ----> ",image(i +:= 11) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i -:= 9 ----> ",image(i -:= 9) | "none");
+   write("i ----> ",image(i) | "none");
+end
+
+procedure p7()
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i -:= 10 ----> ",image(i -:= 10) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i -:= 11 ----> ",image(i -:= 11) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i *:= 9 ----> ",image(i *:= 9) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i *:= 10 ----> ",image(i *:= 10) | "none");
+end
+
+procedure p8()
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i *:= 11 ----> ",image(i *:= 11) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i /:= 9 ----> ",image(i /:= 9) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i /:= 10 ----> ",image(i /:= 10) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+end
+
+procedure p9()
+   write("i /:= 11 ----> ",image(i /:= 11) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i %:= 9 ----> ",image(i %:= 9) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i %:= 10 ----> ",image(i %:= 10) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i %:= 11 ----> ",image(i %:= 11) | "none");
+   write("i ----> ",image(i) | "none");
+end
+
+procedure p10()
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("i ^:= 9 ----> ",image(i ^:= 9) | "none");
+   write("i ----> ",image(i) | "none");
+   write("i := 10 ----> ",image(i := 10) | "none");
+   write("s := \"x\" ----> ",image(s := "x") | "none");
+   write("s <<:= \"x\" ----> ",image(s <<:= "x") | "none");
+end
+
+procedure p11()
+   write("s ----> ",image(s) | "none");
+   write("s := \"x\" ----> ",image(s := "x") | "none");
+   write("s <<:= \"xx\" ----> ",image(s <<:= "xx") | "none");
+   write("s ----> ",image(s) | "none");
+   write("s := \"x\" ----> ",image(s := "x") | "none");
+   write("s <<:= \"X\" ----> ",image(s <<:= "X") | "none");
+   write("s ----> ",image(s) | "none");
+   write("s := \"x\" ----> ",image(s := "x") | "none");
+   write("s <<:= \"abc\" ----> ",image(s <<:= "abc") | "none");
+   write("s ----> ",image(s) | "none");
+   write("s := \"x\" ----> ",image(s := "x") | "none");
+end
+
+procedure p12()
+   write("s ~==:= \"x\" ----> ",image(s ~==:= "x") | "none");
+   write("s ----> ",image(s) | "none");
+   write("s := \"x\" ----> ",image(s := "x") | "none");
+   write("s ~==:= \"xx\" ----> ",image(s ~==:= "xx") | "none");
+   write("s ----> ",image(s) | "none");
+   write("s := \"x\" ----> ",image(s := "x") | "none");
+   write("s ~==:= \"X\" ----> ",image(s ~==:= "X") | "none");
+   write("s ----> ",image(s) | "none");
+   write("s := \"x\" ----> ",image(s := "x") | "none");
+   write("s ~==:= \"abc\" ----> ",image(s ~==:= "abc") | "none");
+   write("s ----> ",image(s) | "none");
+end
+
+procedure main()
+   p1();
+   p2();
+   p3();
+   p4();
+   p5();
+   p6();
+   p7();
+   p8();
+   p9();
+   p10();
+   p11();
+   p12();
+end
+
+global i, s, c, one, two, x
+#---------------------------------------------------------------------- 4 btrees
+#SRC: V9SAM
+
+#
+#          B I N A R Y   T R E E S
+#
+
+#  This program accepts string representations of binary trees from
+#  standard input.  It performs a tree walk and lists the leaves of
+#  each tree.
+
+record node(data,ltree,rtree)
+
+procedure main()
+   local line, tree;
+   while line := read() do $(
+      tree := tform(line);
+      write("tree walk");
+      every write(walk(tree));
+      write("leaves");
+      every write(leaves(tree))
+      $);
+end
+
+procedure tform(s)
+   local value,left,right;
+   if /s then return;
+   s ? if value := tab(upto('(')) then $(
+      move(1);
+      left := tab(bal(','));
+      move(1);
+      right := tab(bal(')'));
+      return node(value,tform(left),tform(right))
+      $)
+      else return node(s);
+end
+
+procedure walk(t)
+   suspend walk(\t.ltree | \t.rtree);
+   return t.data;
+end
+
+procedure leaves(t)
+   if not(\t.ltree | \t.rtree) then return t.data;
+   suspend leaves(\t.ltree | \t.rtree);
+end
+#------------------------------------------------------------------------ 5 case
+#SRC: JCON
+
+record rec(a)
+
+procedure main(args)
+   local L, s, x, r, c;
+
+   r := rec(45);
+   c := create 1 | 2;
+   L := [&null, 0, 1, 2, 0.0, 1.0, 2.0, "", "0", "1", "2", '', '0', '1', '2',
+      rec, main, foo, rec, rec(), r, c, []];
+   put(L, L);
+
+   every x := !L do {
+      s := case x of {
+        1:        "1";
+	'1':      "'1'";
+        1.0:      "1.0";
+        "1":      "\"1\"";
+        &null:    "null";
+        main:     "main";
+        rec:	  "rec";
+	rec():    "rec()";	# shouldn't ever match
+	r:        "r";
+	c:        "c";
+	L:        "L";
+        default:  "default"
+        };
+      write(right(s, 10), " : " , image(x))
+      };
+end
+
+procedure foo()
+end
+#---------------------------------------------------------------------- 6 center
+#SRC: JCON
+
+procedure main()
+    write(center("12345",3, ""));
+    write(center("1",3, ""));
+    write(center("123"));
+    write(center("12"));
+    write(center("1234",1));
+    write(center("1234",2));
+    write(center("1234",3));
+    write(center("12345",1));
+    write(center("12345",2));
+    write(center("12345",3));
+    write(center("123",8));
+    write(center("12",8));
+    write(center("123",9));
+    write(center("12",9));
+    write(center("123",8,"<>"));
+    write(center("12",8,"<>"));
+    write(center("123",9,"<>"));
+    write(center("12",9,"<>"));
+end
+#-------------------------------------------------------------------- 7 checkfpx
+#SRC: V9GEN
+
+procedure main()
+   write("This test of floating-point arithmetic is likely to show");
+   write("differences from platform to platform because of differences");
+   write("in floating-point precision and details of the routines that");
+   write("convert floating-point numbers to strings.  If the values");
+   write("produced in local tests are approximately the same in magnitude");
+   write("as shown in the standard results, there's nothing to worry about.");
+   write("In addition, some platforms may show 0.0 as \"-0.0\".  You can");
+   write("ignore this if you wish.");
+   p1();
+   p2();
+   p3();
+end
+
+procedure p1()
+   write("every 1 to 10 do write(?0) ----> ",(every 1 to 10 do write(Image(?0))) | "none");
+   write("every i := 1 to 50 do write(real(repl(\"0\",i) || \"2.\")) ----> ",Image(every i := 1 to 50 do write(real(repl("0",i) || "2."))) | "none");
+   write("every i := 1 to 30 do write(integer(repl(\"0\",i) || \"2\")) ----> ",Image(every i := 1 to 30 do write(integer(repl("0",i) || "2"))) | "none");
+   write("2.0 ~=== +2.0 ----> ",Image(2.0 ~=== +2.0) | "none");
+   write("abs(3.0) ----> ",Image(abs(3.0)) | "none");
+   write("Image(2e13) ----> ",Image(Image(2e13)) | "none");
+   write("Image(0.0006) ----> ",Image(Image(0.0006)) | "none");
+   write("Image(2.0) ----> ",Image(Image(2.0)) | "none");
+   write("integer(2.0) ----> ",Image(integer(2.0)) | "none");
+   write("integer(2.7) ----> ",Image(integer(2.7)) | "none");
+   write("integer(\".\") ----> ",Image(integer(".")) | "none");
+   write("integer(\".3\") ----> ",Image(integer(".3")) | "none");
+   write("integer(\"0.3\") ----> ",Image(integer("0.3")) | "none");
+   write("integer(\" . 3\") ----> ",Image(integer(" . 3")) | "none");
+   write("integer(\"e2\") ----> ",Image(integer("e2")) | "none");
+   write("integer(\"3e500\") ----> ",Image(integer("3e500")) | "none");
+   write("numeric(2.0) ----> ",Image(numeric(2.0)) | "none");
+   write("numeric(2.7) ----> ",Image(numeric(2.7)) | "none");
+   write("numeric(\".\") ----> ",Image(numeric(".")) | "none");
+   write("numeric(\".3\") ----> ",Image(numeric(".3")) | "none");
+   write("numeric(\"0.3\") ----> ",Image(numeric("0.3")) | "none");
+end
+
+procedure p2()
+   write("numeric(\" . 3\") ----> ",Image(numeric(" . 3")) | "none");
+   write("numeric(\"e2\") ----> ",Image(numeric("e2")) | "none");
+   write("numeric(\"3e500\") ----> ",Image(numeric("3e500")) | "none");
+   write("real(2) ----> ",Image(real(2)) | "none");
+   write("real(2.0) ----> ",Image(real(2.0)) | "none");
+   write("real(2.7) ----> ",Image(real(2.7)) | "none");
+   write("real(\"2\") ----> ",Image(real("2")) | "none");
+   write("real(\" 2\") ----> ",Image(real(" 2")) | "none");
+   write("real(\"2 \") ----> ",Image(real("2 ")) | "none");
+   write("real(\"+2\") ----> ",Image(real("+2")) | "none");
+   write("real(\"-2\") ----> ",Image(real("-2")) | "none");
+   write("real(\"- 2\") ----> ",Image(real("- 2")) | "none");
+   write("real(\" -    2 \") ----> ",Image(real(" -    2 ")) | "none");
+   write("real(\"\") ----> ",Image(real("")) | "none");
+   write("real(\"--2\") ----> ",Image(real("--2")) | "none");
+   write("real(\" \") ----> ",Image(real(" ")) | "none");
+   write("real(\"-\") ----> ",Image(real("-")) | "none");
+   write("real(\"+\") ----> ",Image(real("+")) | "none");
+   write("real(\".\") ----> ",Image(real(".")) | "none");
+   write("real(\".3\") ----> ",Image(real(".3")) | "none");
+   write("real(\"0.3\") ----> ",Image(real("0.3")) | "none");
+   write("real(\" . 3\") ----> ",Image(real(" . 3")) | "none");
+   write("real(\"e2\") ----> ",Image(real("e2")) | "none");
+   write("real(\"3e500\") ----> ",Image(real("3e500")) | "none");
+   write("real(\"7r4\") ----> ",Image(real("7r4")) | "none");
+   write("real(\"4r7\") ----> ",Image(real("4r7")) | "none");
+   write("real(\"4r 7\") ----> ",Image(real("4r 7")) | "none");
+   write("real(\"7r 4\") ----> ",Image(real("7r 4")) | "none");
+   write("real(\"16rff\") ----> ",Image(real("16rff")) | "none");
+   write("real(\"36rcat\") ----> ",Image(real("36rcat")) | "none");
+   write("real(\"36Rcat\") ----> ",Image(real("36Rcat")) | "none");
+   write("real(\"36rCAT\") ----> ",Image(real("36rCAT")) | "none");
+   write("real(\"1r1\") ----> ",Image(real("1r1")) | "none");
+   write("real(\"2r0\") ----> ",Image(real("2r0")) | "none");
+   write("real(\"22222222222222222222222222222\") ----> ",Image(real("22222222222222222222222222222")) | "none");
+   write("numeric(2.0) ----> ",Image(numeric(2.0)) | "none");
+   write("numeric(2.7) ----> ",Image(numeric(2.7)) | "none");
+   write("numeric(0.3) ----> ",Image(numeric(0.3)) | "none");
+   write("numeric(e2) ----> ",Image(numeric(e2)) | "none");
+   write("36. ^ 9 ----> ",Image(36. ^ 9) | "none");
+   write("36 ^ 9. ----> ",Image(36 ^ 9.) | "none");
+   write("36. ^ 9. ----> ",Image(36. ^ 9.) | "none");
+   write("-36. ^ 9 ----> ",Image(-36. ^ 9) | "none");
+   write("-36. ^ -9 ----> ",Image(-36. ^ -9) | "none");
+   write((every i := 1 to 37 do write(Image(real(repl("2",i) || ".")))) | "failed");
+   write((every i := 1 to 37 do write(Image(real(repl("2",i) || ".2")))) | "failed");
+   write((every i := 1 to 37 do write(Image((repl("2",i) || ".2") + 1))) | "failed");
+   write("2.0 === +2.0 ----> ",Image(2.0 === +2.0) | "none");
+   write("?30.0 ----> ",Image(?30.0) | "none");
+end
+
+procedure p3()
+   write("copy(1.0) ----> ",Image(copy(1.0)) | "none");
+   write("trim(3.14159,58) ----> ",Image(trim(3.14159,58)) | "none");
+   write("Image(2e13) ----> ",Image(Image(2e13)) | "none");
+   write("Image(0.0006) ----> ",Image(Image(0.0006)) | "none");
+end
+procedure Image(x)
+   local head, tail, exp, span;
+
+   span := 9;
+
+   if type(x) ~== "real" then return image(x)
+   else {
+      x ? {
+         if head := tab(upto('e'))
+         then {
+            tail := tab(0);
+            head ? return (tab(span | 0) || tail)
+            }
+         else {
+            head := tab(span - 1 | 0);
+            #
+            # if head is too small to include the ".", go to floating point
+            # format.
+            #
+            if exp := *tab(upto('.')) then
+               head ? return move(1) || "." || move(span - 3) ||
+                  "e+" || (span - 3 + exp)
+            else {
+               if head[-1] == "." then
+                  head ||:= (move(1) | "0");
+               return head
+               }
+            }
+         }
+      };
+end
+#-------------------------------------------------------------------------- 8 ck
+#SRC: V9GEN
+
+procedure main()
+   write("This test of floating-point arithmetic is likely to show");
+   write("differences from platform to platform because of differences");
+   write("in floating-point precision and details of the routines that");
+   write("convert floating-point numbers to strings.  If the values");
+   write("produced in local tests are approximately the same in magnitude");
+   write("as shown in the standard results, there's nothing to worry about.");
+   write("In addition, some platforms may show 0.0 as \"-0.0\".  You can");
+   write("ignore this if you wish.");
+   p4();
+   p5();
+   p6();
+end
+
+procedure p4()
+   write("Image(2.0) ----> ",Image(Image(2.0)) | "none");
+   write("string(2.0) ----> ",Image(string(2.0)) | "none");
+   write("string(2.7) ----> ",Image(string(2.7)) | "none");
+   write("string(\".\") ----> ",Image(string(".")) | "none");
+   write("string(\".3\") ----> ",Image(string(".3")) | "none");
+   write("string(\"0.3\") ----> ",Image(string("0.3")) | "none");
+   write("string(\" . 3\") ----> ",Image(string(" . 3")) | "none");
+   write("string(\"e2\") ----> ",Image(string("e2")) | "none");
+   write("string(\"3e500\") ----> ",Image(string("3e500")) | "none");
+   write("type(1.0) ----> ",Image(type(1.0)) | "none");
+   write("cset(2.0) ----> ",Image(cset(2.0)) | "none");
+   write("cset(2.7) ----> ",Image(cset(2.7)) | "none");
+   write("cset(\".\") ----> ",Image(cset(".")) | "none");
+   write("cset(\".3\") ----> ",Image(cset(".3")) | "none");
+   write("cset(\"0.3\") ----> ",Image(cset("0.3")) | "none");
+   write("cset(\" . 3\") ----> ",Image(cset(" . 3")) | "none");
+   write("cset(\"e2\") ----> ",Image(cset("e2")) | "none");
+   write("cset(\"3e500\") ----> ",Image(cset("3e500")) | "none");
+   write("+1.0 ----> ",Image(+1.0) | "none");
+   write("-1.0 ----> ",Image(-1.0) | "none");
+end
+
+procedure p5()
+   write("real(2) ----> ",Image(real(2)) | "none");
+   write("real(2.0) ----> ",Image(real(2.0)) | "none");
+   write("real(2.7) ----> ",Image(real(2.7)) | "none");
+   write("real(\"2\") ----> ",Image(real("2")) | "none");
+   write("real(\" 2\") ----> ",Image(real(" 2")) | "none");
+   write("real(\"2 \") ----> ",Image(real("2 ")) | "none");
+   write("real(\"+2\") ----> ",Image(real("+2")) | "none");
+   write("real(\"-2\") ----> ",Image(real("-2")) | "none");
+   write("real(\"- 2\") ----> ",Image(real("- 2")) | "none");
+   write("real(\" -    2 \") ----> ",Image(real(" -    2 ")) | "none");
+   write("real(\"\") ----> ",Image(real("")) | "none");
+   write("real(\"--2\") ----> ",Image(real("--2")) | "none");
+   write("real(\" \") ----> ",Image(real(" ")) | "none");
+   write("real(\"-\") ----> ",Image(real("-")) | "none");
+   write("real(\"+\") ----> ",Image(real("+")) | "none");
+   write("real(\".\") ----> ",Image(real(".")) | "none");
+   write("real(\".3\") ----> ",Image(real(".3")) | "none");
+   write("real(\"0.3\") ----> ",Image(real("0.3")) | "none");
+   write("real(\" . 3\") ----> ",Image(real(" . 3")) | "none");
+   write("real(\"e2\") ----> ",Image(real("e2")) | "none");
+   write("real(\"3e500\") ----> ",Image(real("3e500")) | "none");
+   write("real(\"7r4\") ----> ",Image(real("7r4")) | "none");
+   write("real(\"4r7\") ----> ",Image(real("4r7")) | "none");
+   write("real(\"4r 7\") ----> ",Image(real("4r 7")) | "none");
+   write("real(\"7r 4\") ----> ",Image(real("7r 4")) | "none");
+   write("real(\"16rff\") ----> ",Image(real("16rff")) | "none");
+   write("real(\"36rcat\") ----> ",Image(real("36rcat")) | "none");
+   write("real(\"36Rcat\") ----> ",Image(real("36Rcat")) | "none");
+   write("real(\"36rCAT\") ----> ",Image(real("36rCAT")) | "none");
+   write("real(\"1r1\") ----> ",Image(real("1r1")) | "none");
+   write("integer(2.0) ----> ",Image(integer(2.0)) | "none");
+   write("integer(2.7) ----> ",Image(integer(2.7)) | "none");
+   write("integer(\".\") ----> ",Image(integer(".")) | "none");
+   write("integer(\".3\") ----> ",Image(integer(".3")) | "none");
+   write("integer(\"0.3\") ----> ",Image(integer("0.3")) | "none");
+   write("integer(\" . 3\") ----> ",Image(integer(" . 3")) | "none");
+   write("numeric(2.0) ----> ",Image(numeric(2.0)) | "none");
+   write("numeric(2.7) ----> ",Image(numeric(2.7)) | "none");
+   write("numeric(\".\") ----> ",Image(numeric(".")) | "none");
+   write("numeric(\".3\") ----> ",Image(numeric(".3")) | "none");
+   write("numeric(\"0.3\") ----> ",Image(numeric("0.3")) | "none");
+   write("numeric(\" . 3\") ----> ",Image(numeric(" . 3")) | "none");
+   write("real(2.0) ----> ",Image(real(2.0)) | "none");
+   write("real(2.7) ----> ",Image(real(2.7)) | "none");
+   write("real(\".\") ----> ",Image(real(".")) | "none");
+   write("real(\".3\") ----> ",Image(real(".3")) | "none");
+   write("real(\"0.3\") ----> ",Image(real("0.3")) | "none");
+   write("real(\" . 3\") ----> ",Image(real(" . 3")) | "none");
+   write("abs(3.0) ----> ",Image(abs(3.0)) | "none");
+   write("abs(0.0) ----> ",Image(abs(0.0)) | "none");
+   write("abs(-3.0) ----> ",Image(abs(-3.0)) | "none");
+   write("36. % 7 ----> ",Image(36. % 7) | "none");
+   write("36 % 7. ----> ",Image(36 % 7.) | "none");
+   write("36. % 7. ----> ",Image(36. % 7.) | "none");
+   write("-36. % 7 ----> ",Image(-36. % 7) | "none");
+   write("36 % -7. ----> ",Image(36 % -7.) | "none");
+   write("-36. % -7. ----> ",Image(-36. % -7.) | "none");
+   write("36. * 9 ----> ",Image(36. * 9) | "none");
+   write("36 * 9. ----> ",Image(36 * 9.) | "none");
+   write("36. * 9. ----> ",Image(36. * 9.) | "none");
+   write("-36. * 9 ----> ",Image(-36. * 9) | "none");
+end
+
+procedure p6()
+   write("36 * -9. ----> ",Image(36 * -9.) | "none");
+   write("-36. * -9. ----> ",Image(-36. * -9.) | "none");
+   write("36. / 9 ----> ",Image(36. / 9) | "none");
+   write("36 / 9. ----> ",Image(36 / 9.) | "none");
+   write("36. / 9. ----> ",Image(36. / 9.) | "none");
+   write("-36. / 9 ----> ",Image(-36. / 9) | "none");
+   write("36 / -9. ----> ",Image(36 / -9.) | "none");
+   write("-36. / -9. ----> ",Image(-36. / -9.) | "none");
+   write("36. + 9 ----> ",Image(36. + 9) | "none");
+   write("36 + 9. ----> ",Image(36 + 9.) | "none");
+   write("36. + 9. ----> ",Image(36. + 9.) | "none");
+   write("-36. + 9 ----> ",Image(-36. + 9) | "none");
+   write("36 + -9. ----> ",Image(36 + -9.) | "none");
+   write("-36. + -9. ----> ",Image(-36. + -9.) | "none");
+   write("1. < 1 ----> ",Image(1. < 1) | "none");
+   write("1 < 2. ----> ",Image(1 < 2.) | "none");
+   write("1. < 0. ----> ",Image(1. < 0.) | "none");
+   write("-1 < 0. ----> ",Image(-1 < 0.) | "none");
+   write("1. < -2 ----> ",Image(1. < -2) | "none");
+   write("-1 < -0. ----> ",Image(-1 < -0.) | "none");
+   write("1. > 1 ----> ",Image(1. > 1) | "none");
+   write("1 > 2. ----> ",Image(1 > 2.) | "none");
+   write("1. > 0. ----> ",Image(1. > 0.) | "none");
+   write("-1 > 0. ----> ",Image(-1 > 0.) | "none");
+   write("1. > -2 ----> ",Image(1. > -2) | "none");
+   write("-1 > -0. ----> ",Image(-1 > -0.) | "none");
+   write("1. <= 1 ----> ",Image(1. <= 1) | "none");
+   write("1 <= 2. ----> ",Image(1 <= 2.) | "none");
+   write("1. <= 0. ----> ",Image(1. <= 0.) | "none");
+   write("-1 <= 0. ----> ",Image(-1 <= 0.) | "none");
+   write("1. <= -2 ----> ",Image(1. <= -2) | "none");
+   write("-1 <= -0. ----> ",Image(-1 <= -0.) | "none");
+   write("1. >= 1 ----> ",Image(1. >= 1) | "none");
+   write("1 >= 2. ----> ",Image(1 >= 2.) | "none");
+   write("1. >= 0. ----> ",Image(1. >= 0.) | "none");
+   write("-1 >= 0. ----> ",Image(-1 >= 0.) | "none");
+   write("1. >= -2 ----> ",Image(1. >= -2) | "none");
+   write("-1 >= -0. ----> ",Image(-1 >= -0.) | "none");
+   write("1. = 1 ----> ",Image(1. = 1) | "none");
+   write("1 = 2. ----> ",Image(1 = 2.) | "none");
+   write("1. = 0. ----> ",Image(1. = 0.) | "none");
+   write("-1 = 0. ----> ",Image(-1 = 0.) | "none");
+   write("1. = -2 ----> ",Image(1. = -2) | "none");
+   write("-1 = -0. ----> ",Image(-1 = -0.) | "none");
+   write("1. ~= 1 ----> ",Image(1. ~= 1) | "none");
+   write("1 ~= 2. ----> ",Image(1 ~= 2.) | "none");
+   write("1. ~= 0. ----> ",Image(1. ~= 0.) | "none");
+   write("-1 ~= 0. ----> ",Image(-1 ~= 0.) | "none");
+   write("1. ~= -2 ----> ",Image(1. ~= -2) | "none");
+   write("-1 ~= -0. ----> ",Image(-1 ~= -0.) | "none");
+   write("36. ^ 9 ----> ",Image(36. ^ 9) | "none");
+   write("36 ^ 9. ----> ",Image(36 ^ 9.) | "none");
+   write("36. ^ 9. ----> ",Image(36. ^ 9.) | "none");
+   write("-36. ^ 9 ----> ",Image(-36. ^ 9) | "none");
+   write("-36. ^ -9 ----> ",Image(-36. ^ -9) | "none");
+end
+
+procedure Image(x)
+   local head, tail, exp, span;
+
+   span := 9;
+
+   if type(x) ~== "real" then return image(x)
+   else {
+      x ? {
+         if head := tab(upto('e'))
+         then {
+            tail := tab(0);
+            head ? return (tab(span | 0) || tail)
+            }
+         else {
+            head := tab(span - 1 | 0);
+            #
+            # if head is too small to include the ".", go to floating point
+            # format.
+            #
+            if exp := *tab(upto('.')) then
+               head ? return move(1) || "." || move(span - 3) ||
+                  "e+" || (span - 3 + exp)
+            else {
+               if head[-1] == "." then
+                  head ||:= (move(1) | "0");
+               return head
+               }
+            }
+         }
+      };
+end
+#---------------------------------------------------------------------- 9 coerce
+#SRC: JCON
+
+#  check coercion of operator arguments
+#  uses string invocation of operations
+
+
+procedure main()
+   local i, r, c, s;
+
+   i := 1;
+   r := 2;
+   c := '3';
+   s := "9";
+
+   every unop(!"+-*!/\\", i, r, c, s);
+
+   write();
+   every binop(!"+-*/%^<=>" | "<<" | "==" | ">>" , i, r, c, s);
+   binop("[]", i, r, '12345', "67890");
+   every binop("++" | "--" | "**", 12, .23, 'x1', "x2");
+
+   write();
+   every toby(2.3 | '20' | "2", 17.5 | '71' | "17", 3.1 | '30' | "3.2");
+
+   write();
+   every writes("  ", ~~(1257787 | 3.14159 | "arizona") | "\n");
+   every writes("  ", ((123456 | 678.901 | 'tucson') ? move(5)) | "\n");
+
+end
+
+
+procedure toby(i, j, k)
+   local n, s;
+   s := image(i) || " to " || image(j) || " by " || image(k) || ":";
+   writes(left(s, 24));
+   every n := i to j by k do
+      writes(" ", n);
+   write();
+end
+
+
+procedure unop(o, i, r, c, s)
+   write(left(o || "x", 7),
+      right(o(i) | "---", 6),
+      right(o(r) | "---", 6),
+      right(o(c) | "---", 6),
+      right(o(s) | "---", 6));
+   return;
+end
+
+
+procedure binop(o, i, r, c, s)
+   write("x ", left(o || " y", 5),
+      right(o(i, r) | "---", 6),
+      right(o(i, c) | "---", 6),
+      right(o(i, s) | "---", 6),
+      right(o(r, i) | "---", 6),
+      right(o(r, c) | "---", 6),
+      right(o(r, s) | "---", 6),
+      right(o(c, i) | "---", 6),
+      right(o(c, r) | "---", 6),
+      right(o(c, s) | "---", 6),
+      right(o(s, i) | "---", 6),
+      right(o(s, r) | "---", 6),
+      right(o(s, c) | "---", 6));
+   return;
+end
+#-------------------------------------------------------------------- 10 collate
+#SRC: V9GEN
+
+procedure main()
+   s1 := collate(&cset,&cset);
+   s2 := collate(reverse(&cset),reverse(&cset));
+   write(image(decollate(s1,0)));
+   write(image(decollate(s1,1)));
+   write(image(decollate(s2,1)));
+   write(image(decollate(s2,0)));
+   perm();
+end
+
+procedure collate(s1,s2)
+  local length, ltemp, rtemp, t;
+  static llabels, rlabels, clabels, blabels, half;
+  initial {
+    llabels := "abxy";
+    rlabels := "cduv";
+    blabels := llabels || rlabels;
+    clabels := "acbdxuyv";
+    half := 4;
+    ltemp := left(&cset,*&cset/2);
+    rtemp := right(&cset,*&cset/2);
+    clabels := collate(ltemp,rtemp);
+    llabels := ltemp;
+    rlabels := rtemp;
+    blabels := string(&cset);
+    half := *llabels
+    };
+   if *s1 > *s2 then {
+      t := s1[*s2+1:0];
+      s1 := s1[1:*s2+1]
+      }
+   else if *s2 > *s1 then {
+      t := s2[*s1+1:0];
+      s2 := s2[1:*s1+1]
+      }
+   else t := "";
+  length := *s1;
+  if length <= half then
+    return map(left(clabels,2*length),left(llabels,length) ||
+      left(rlabels,length),s1 || s2) || t
+  else
+    return map(clabels,blabels,left(s1,half) || left(s2,half)) ||
+      collate(right(s1,length-half),right(s2,length-half)) || t;
+end
+
+procedure decollate(s,n)
+   static dsize, image, object;
+   local ssize;
+   initial {
+      image := collate(&cset[2:0],repl(&cset[1],*&cset-1));
+      object := string(&cset);
+      dsize := *image
+      };
+   n %:= 2;
+   ssize := *s;
+   if ssize + n <= dsize then
+      return map(object[1+:(ssize+n)/2],image[(n+1)+:ssize],s)
+   else
+      return map(object[1+:(dsize-2)/2],image[(n+1)+:dsize-2],
+         s[1+:(dsize-2)]) || decollate(s[dsize-1:0],n);
+end
+procedure perm()
+   output := set();
+   every 1 to 2 do
+      every insert(output,permute("ogram"));
+   every write(!sort(output));
+end
+
+procedure permute(s)
+   local i, x, t;
+   if s == "" then return "";
+   every i := 1 to *s do {
+      x := s[i];
+      t := s;
+      t[i] := "";
+      suspend x || permute(t)
+      };
+end
+#-------------------------------------------------------------------- 11 concord
+#SRC: V9GEN
+
+procedure main()
+   local letters, line, wordlist, word, words, maxword, lineno, i;
+   local j, lines, numbers;
+   letters := &lcase ++ &ucase ++ '\'';
+   words := table("");
+   maxword := lineno := 0;
+   while line := read() do {
+      lineno +:= 1;
+      write(right(lineno,6),"  ",line);
+      line := map(line);				# fold to lowercase
+      i := 1;
+      while j := upto(letters,line,i) do {
+         i := many(letters,line,j);
+         word := line[j:i];
+         if *word < 3 then next;			# skip short words
+         maxword <:= *word;			# keep track of longest word
+						# if it's a new word, start set
+         if *words[word] = 0 then words[word] := set([lineno])
+         else insert(words[word],lineno)	# else add the line number
+         }
+      };
+   write();
+   wordlist := sort(words);			# sort by words
+   i := 0;
+   while word := wordlist[i +:= 1][1] do {
+      lines := "";				# build up line numbers
+      numbers := sort(wordlist[i][2]);
+      while lines ||:= get(numbers) || ", ";
+      write(left(word,maxword + 2),": ",lines[1:-2])
+      };
+end
+#----------------------------------------------------------------------- 12 cset
+#SRC: JCON
+
+# test csets and character conversions
+
+procedure main()
+   local a, c, i, n, s, cs, ct, x, y;
+
+   x := 'a1b2c3';
+   write("x:    ", x);
+   write("*x:   ", *x);
+   every writes("!x:   " | !x | "\n");
+   write("?z:   ", ?'z');
+   write("?empty: ", ?'', " (OOPS)");	# should fail
+   write();
+
+   kw("digits", &digits);
+   kw("lcase", &lcase);
+   kw("ucase", &ucase);
+   kw("letters", &letters);
+   write("    &ascii: ", *&ascii, " elements");
+   write();
+
+   write ("   x         y     ",
+      "     x++y         y++x     x--y   y--x   x**y   y**x   ~~x");
+
+   every x := ( 'a1b2c3' | "a1b2c3" | 1234 | 12.34 | '') &
+         y := ( 'xyzabc' | "xyzabc" | 3456 | 34.56 | "@ 90") do {
+	write(
+	   right(image(x),8), right(image(y),9),
+	   right(x++y, 13), right(y++x, 13),
+	   right(x--y, 7), right(y--x, 7),
+	   right(x**y, 7), right(y**x, 7),
+	   right(~~x, 7))
+   };
+
+   # various tests involving chars with the sign bit set
+
+   # test conversion of int to char (string) and back
+   write();
+   every i := 0 to 255 by 15 do {
+      s := "";
+      c := char(i);
+      s ||:= c;
+      n := ord(c);
+      cs := cset(c);
+      write(right(i, 3), right(image(c), 8), right(image(s), 8), right(n, 5),
+	 right(image(cs), 8))
+      };
+
+   # test more and stranger conversions 
+   write();
+   a := [0, 15.71, "32rU", "16r2D", "60", "8r113", "90", "105", "120", "8r207",
+	"16r96", "16ra5", "16rB4", "16rc3", "16rD2", "16re1", "16rf0", "16rfF"];
+   every s := !a do {
+      c := char(s);
+      n := ord(c);
+      write(right(image(s), 8), right(image(c), 8), right(n, 5))
+      };
+
+   # test conversion of string to int and back
+   write();
+   a := ["\x00", "\x0F", "\x1e", "-", "<", "\113", "Z", "i", "x", "\x87",
+         "\x96", "\xa5", "\xB4", "\xc3", "\xD2", "\xe1", "\xf0", "\xfF"];
+   every s := !a do {
+      n := ord(s);
+      c := char(n);
+      write(right(image(s), 6), right(n, 5), right(image(c), 8))
+      };
+
+   # test conversion of cset to string and int
+   write();
+   a := ['\x00', '\x0F', '\x1e', '-', '<', '\113', 'Z', 'i', 'x', '\x87',
+         '\x96', '\xa5', '\xB4', '\xc3', '\xD2', '\xe1', '\xf0', '\xfF'];
+   every cs := !a do {
+      s := string(cs);
+      n := ord(cs);
+      write(right(image(cs), 6), right(image(s), 8), right(n, 5))
+      };
+end
+
+procedure kw(label, value)
+   write(right("&" || label, 10), ": '", value, "'");
+   return;
+end
+
+#------------------------------------------------------------------- 13 cxprimes
+#SRC: JCON
+
+#  prime number generation using co-expressions
+
+procedure main()
+   local s, x;
+
+   s := create (2 to 100);
+   while (x := @s) do {
+      write(x);
+      s := create sieve(x, s)
+   };
+end
+
+procedure sieve(x, s)
+   local t;
+
+   while t := @s do {
+      if t % x ~= 0 then suspend t
+   };
+end
+#------------------------------------------------------------------- 14 diffwrds
+#SRC: V9SAM
+
+#
+#          D I F F E R E N T   W O R D S
+#
+
+#  This program lists all the different words in the input text.
+#  The definition of a "word" is naive.
+
+procedure main()
+   words := set();
+   while text := read() do
+      text ? while tab(upto(&letters)) do
+         insert(words,tab(many(&letters)));
+   every write(!sort(words));
+end
+#-------------------------------------------------------------------- 15 endetab
+#SRC: V9GEN
+#OPT: -fe
+
+# test type conversion and error handling in entab/detab
+
+procedure main ()
+   local s;
+
+   s := "rutabaga";
+   if entab('1987') ~== "1789" then write ("oops 1");
+   if detab('1492') ~== "1249" then write ("oops 2");
+   if entab("    ","3") ~== "\t\t" then write ("oops 3");
+   if detab("\t\t","3") ~== "    " then write ("oops 4");
+   ferr (103, entab, []);
+   ferr (103, detab, []);
+   ferr (103, entab, [[]]);
+   ferr (103, detab, [[]]);
+   ferr (101, entab, [s,2,3,&lcase]);
+   ferr (101, detab, [s,4,5,&ucase]);
+   ferr (210, entab, [s,7,4]);
+   ferr (210, entab, [s,6,6]);
+   ferr (210, detab, [s,8,5]);
+   ferr (210, detab, [s,3,3]);
+
+   endetab1();
+
+end
+
+
+
+# ferr(err,func,arglst) -- call func(args), verify that error "err" is produced
+
+procedure ferr (err, func, args)
+   local val, msg;
+
+   val := "";
+   every val ||:= image(!args) || ",";
+   val := val[1:-1];
+   msg := "oops -- " || image(func) || "(" || val || ") ";
+   &error := 1;
+   if func ! args
+      then write (msg, "succeeded")
+   else if &error ~= 0
+      then write (msg, "failed but no error")
+   else if &errornumber ~= err
+      then write (msg, "got error ",&errornumber," instead of ",err);
+   &error := 0;
+   return;
+end
+
+
+
+## Test driver for entab and detab
+#
+#  Input is read from standard input.  Commentary and error reports go to
+#  standard output.
+#
+#  Input lines are first preprocessed by interpreting escape sequences \a, \b,
+#  \n, \r, and \t and trimming a trailing '$' character.
+#  
+#  Input lines beginning with "=" establish tab stop settings.  Each numeric
+#  field specifies a tab stop, according to the entab/detab specs.
+#  
+#  All other lines are passed through entab and then detab, and the results are
+#  checked.  The characters "!" and "." are replaced by spaces before calling
+#  entab; "!" positions are expected to be replaced by tabs, with "." positions
+#  disappearing.  For example, "abcd!...ijk" tests that entab("abcd    ijk")
+#  returns "abcd\tijk".
+#  
+#  The result of each entab call is then passed to detab, with results expected
+#  to match the original entab argument (or its detab, if it had any tabs).
+
+procedure endetab1 ()
+   local params, line, s, t;
+
+   params := setup ("=");		# start with default tabs (no args)
+   while line := escape (read ()) do {	# read and preprocess line
+      if line[1] == "=" then
+         params := setup (line)		# '=' line sets tab stops (arg list)
+      else {
+         s := map (line, "!.", "  ");	# turn "!." characters into spaces
+         params[1] := s;
+         t := entab ! params;		# run entab
+         if t ~== interp (line) then {	# check results
+            write ("entab error: ", map(line,"\t\r\n\b\007","!RNBA"));
+            write ("   returned: ", map(t,   "\t\r\n\b\007","!RNBA"))
+         } else {
+            if upto ('\t', s) then	# detab input if it had a tab
+               s := detab ! params;
+            params[1] := t;
+            t := detab ! params;		# detab the result of the entab
+            if t ~== s then {		# compare results
+               write ("detab error: ", map(line,"\t\r\n\b\007","!RNBA"));
+               write ("   returned: ", map(t,   "\t\r\n\b\007","!RNBA"))
+               }
+            }
+         }
+   };
+end
+
+
+
+procedure escape (line);		# interpret escape sequences and trim one '$'
+   local s, c;
+
+   if line[-1] == "$" then
+      line := line[1:-1];
+   s := "";
+   line ? 
+      while not pos (0) do {
+         s ||:= tab (upto ('\\') | 0);
+         s ||:= (="\\" & case (c := move(1)) of {
+	    "a": "\007";
+            "b": "\b";
+            "n": "\n";
+            "r": "\r";
+            "t": "\t";
+            default: "\\" || c
+         })
+      };
+   return s;
+end
+
+
+
+procedure interp (pattern);	# interpret metacharacters '!.'
+   local s;
+
+   s := "";
+   pattern ? 
+      while not pos (0) do {
+         tab (many ('.'));
+         s ||:= tab (upto ('.') | 0)
+      };
+   return map (s, "!", "\t");
+end
+
+
+
+procedure setup (line);		# interpret and report a column spec line
+   local p;
+
+   p := [&null];
+   line ? while tab (upto (&digits)) do
+      put (p, integer (tab (many (&digits))));
+   writes ("testing entab/detab(s");
+   every writes (",", \!p);
+   write (")");
+   return p;
+end
+#-------------------------------------------------------------------- 16 errkwds
+#SRC: JCON
+#OPT: -fe
+
+procedure main()
+	write(&error);
+	write(&errornumber | "fail");
+	write(&errortext | "fail");
+	write(image(&errorvalue) | "fail");
+	&error := 1;
+	write(&error);
+	write(&null() | "fail");
+	write(&error);
+	write(&errornumber | "fail");
+	write(&errortext | "fail");
+	write(image(&errorvalue) | "fail");
+	write(&error);
+	write(&errornumber | "fail");
+	write(&errortext | "fail");
+	write(image(&errorvalue) | "fail");
+	errorclear();
+	write(&error);
+	write(&errornumber | "fail");
+	write(&errortext | "fail");
+	write(image(&errorvalue) | "fail");
+end
+#--------------------------------------------------------------------- 17 errors
+#SRC: V9GEN
+#OPT: -fe
+
+record array(a,b,c,d,e,f,g)
+procedure p1()
+   write("seq(\"a\") | monitor(&line) ----> ",
+      image(seq("a") | monitor(&line)) | "none");
+   write("\"|\"(1,2) | monitor(&line) ----> ",
+      image("|"(1,2) | monitor(&line)) | "none");
+   write("member(x,x) | monitor(&line) ----> ",
+      image(member(x,x) | monitor(&line)) | "none");
+   write("(set([]) ++ 'a') | monitor(&line) ----> ",
+      image((set([]) ++ 'a') | monitor(&line)) | "none");
+   write("(every i := 1 to *a - 1 by 2 do write(image(a[i]),\" \",a[i + 1])) | monitor(&line) ----> ",
+      image((every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1])) | monitor(&line)) | "none");
+   write("(every i := 1 to *a - 1 by 2 do write(image(a[i]),\" \",a[i + 1])) | monitor(&line) ----> ",
+      image((every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1])) | monitor(&line)) | "none");
+   write("(c |||:= s) | monitor(&line) ----> ",
+      image((c |||:= s) | monitor(&line)) | "none");
+   write("?&null | monitor(&line) ----> ",
+      image(?&null | monitor(&line)) | "none");
+   write("c[1] | monitor(&line) ----> ",
+      image(c[1] | monitor(&line)) | "none");
+   write("(image + image) | monitor(&line) ----> ",
+      image((image + image) | monitor(&line)) | "none");
+   write(".1(s[1],s := &null) | monitor(&line) ----> ",
+      image(.1(s[1],s := &null) | monitor(&line)) | "none");
+end
+
+procedure p2()
+   write("display(,[]) | monitor(&line) ----> ",
+      image(display(,[]) | monitor(&line)) | "none");
+   write("([] ~== \"x\") | monitor(&line) ----> ",
+      image(([] ~== "x") | monitor(&line)) | "none");
+   write("(x + 1) | monitor(&line) ----> ",
+      image((x + 1) | monitor(&line)) | "none");
+   write("\"a\"(1,2,3) | monitor(&line) ----> ",
+      image("a"(1,2,3) | monitor(&line)) | "none");
+   write("(\"o\" + 0) | monitor(&line) ----> ",
+      image(("o" + 0) | monitor(&line)) | "none");
+   write("(&cset ++ []) | monitor(&line) ----> ",
+      image((&cset ++ []) | monitor(&line)) | "none");
+   write("(every 1 to \"a\") | monitor(&line) ----> ",
+      image((every 1 to "a") | monitor(&line)) | "none");
+   write("!image | monitor(&line) ----> ",
+      image(!image | monitor(&line)) | "none");
+end
+
+procedure p3()
+   write("(0 to 0 by 0) | monitor(&line) ----> ",
+      image((0 to 0 by 0) | monitor(&line)) | "none");
+   write("repl(\"b\",\"a\") | monitor(&line) ----> ",
+      image(repl("b","a") | monitor(&line)) | "none");
+   write("t(t) | monitor(&line) ----> ",
+      image(t(t) | monitor(&line)) | "none");
+   write("sort(&lcase) | monitor(&line) ----> ",
+      image(sort(&lcase) | monitor(&line)) | "none");
+   write("pull(&null) | monitor(&line) ----> ",
+      image(pull(&null) | monitor(&line)) | "none");
+   write("c[-4] | monitor(&line) ----> ",
+      image(c[-4] | monitor(&line)) | "none");
+   write("(type(type)(type)) | monitor(&line) ----> ",
+      image((type(type)(type)) | monitor(&line)) | "none");
+   write("r[r] | monitor(&line) ----> ",
+      image(r[r] | monitor(&line)) | "none");
+   write("([] ** \"abc\") | monitor(&line) ----> ",
+      image(([] ** "abc") | monitor(&line)) | "none");
+   write("('abc' ~= ('abc' ++ '')) | monitor(&line) ----> ",
+      image(('abc' ~= ('abc' ++ '')) | monitor(&line)) | "none");
+end
+
+procedure p4()
+   write("(&lcase || numeric) | monitor(&line) ----> ",
+      image((&lcase || numeric) | monitor(&line)) | "none");
+   write("x[\"a\"] | monitor(&line) ----> ",
+      image(x["a"] | monitor(&line)) | "none");
+   write("(100-()) | monitor(&line) ----> ",
+      image((100-()) | monitor(&line)) | "none");
+   write("((1 := y) & &fail) | monitor(&line) ----> ",
+      image(((1 := y) & &fail) | monitor(&line)) | "none");
+   write("(a[1:3] := a) | monitor(&line) ----> ",
+      image((a[1:3] := a) | monitor(&line)) | "none");
+   write("(a[3] :=: a3[&null]) | monitor(&line) ----> ",
+      image((a[3] :=: a3[&null]) | monitor(&line)) | "none");
+   write("a5[a5] | monitor(&line) ----> ",
+      image(a5[a5] | monitor(&line)) | "none");
+   write("pull[c] | monitor(&line) ----> ",
+      image(pull[c] | monitor(&line)) | "none");
+   write("(&subject := []) | monitor(&line) ----> ",
+      image((&subject := []) | monitor(&line)) | "none");
+   write("([] ? []) | monitor(&line) ----> ",
+      image(([] ? []) | monitor(&line)) | "none");
+   write("+\"a\" | monitor(&line) ----> ",
+      image(+"a" | monitor(&line)) | "none");
+end
+
+procedure p5()
+   write("(i <= []) | monitor(&line) ----> ",
+      image((i <= []) | monitor(&line)) | "none");
+   write("([] ^ i) | monitor(&line) ----> ",
+      image(([] ^ i) | monitor(&line)) | "none");
+   write("(s ?:= &subject[3]) | monitor(&line) ----> ",
+      image((s ?:= &subject[3]) | monitor(&line)) | "none");
+   write("(s >>:= 0) | monitor(&line) ----> ",
+      image((s >>:= 0) | monitor(&line)) | "none");
+   write("(s = 0) | monitor(&line) ----> ",
+      image((s = 0) | monitor(&line)) | "none");
+   write("put(s) | monitor(&line) ----> ",
+      image(put(s) | monitor(&line)) | "none");
+   write("('abc' = ('abc' ++ '')) | monitor(&line) ----> ",
+      image(('abc' = ('abc' ++ '')) | monitor(&line)) | "none");
+   write("=[] | monitor(&line) ----> ",
+      image(=[] | monitor(&line)) | "none");
+   write("((1 <-> y) & &fail) | monitor(&line) ----> ",
+      image(((1 <-> y) & &fail) | monitor(&line)) | "none");
+   write("!&null | monitor(&line) ----> ",
+      image(!&null | monitor(&line)) | "none");
+   write("(2 \\ \"a\") | monitor(&line) ----> ",
+      image((2 \ "a") | monitor(&line)) | "none");
+end
+
+procedure p6()
+   write("right(\"\",\"\") | monitor(&line) ----> ",
+      image(right("","") | monitor(&line)) | "none");
+   write("close(\"F\") | monitor(&line) ----> ",
+      image(close("F") | monitor(&line)) | "none");
+   write("trim(&lcase,[]) | monitor(&line) ----> ",
+      image(trim(&lcase,[]) | monitor(&line)) | "none");
+   write("list([]) | monitor(&line) ----> ",
+      image(list([]) | monitor(&line)) | "none");
+   write("reads(f,0) | monitor(&line) ----> ",
+      image(reads(f,0) | monitor(&line)) | "none");
+   write("read(\"f\") | monitor(&line) ----> ",
+      image(read("f") | monitor(&line)) | "none");
+   write("bal([],,,\"\") | monitor(&line) ----> ",
+      image(bal([],,,"") | monitor(&line)) | "none");
+   write("pos(\"a\") | monitor(&line) ----> ",
+      image(pos("a") | monitor(&line)) | "none");
+   write(("\"abcdef\" ? (tab(0) & (while write(move(\"a\"))))) | monitor(&line) ----> ",
+      image(("abcdef" ? (tab(0) & (while write(move("a")))))) | monitor(&line)) | "none");
+   write("(2 % \"a\") | monitor(&line) ----> ",
+      image((2 % "a") | monitor(&line)) | "none");
+end
+
+procedure p7()
+   write("(2 * \"a\") | monitor(&line) ----> ",
+      image((2 * "a") | monitor(&line)) | "none");
+   write("(2 / \"a\") | monitor(&line) ----> ",
+      image((2 / "a") | monitor(&line)) | "none");
+   write("(2 + \"a\") | monitor(&line) ----> ",
+      image((2 + "a") | monitor(&line)) | "none");
+   write("(-36 ^ -9) | monitor(&line) ----> ",
+      image((-36 ^ -9) | monitor(&line)) | "none");
+   write("(2 < \"a\") | monitor(&line) ----> ",
+      image((2 < "a") | monitor(&line)) | "none");
+   write("(0 > &null) | monitor(&line) ----> ",
+      image((0 > &null) | monitor(&line)) | "none");
+   write("(2 <= \"a\") | monitor(&line) ----> ",
+      image((2 <= "a") | monitor(&line)) | "none");
+   write("(2 > \"a\") | monitor(&line) ----> ",
+      image((2 > "a") | monitor(&line)) | "none");
+   write("(2 = \"a\") | monitor(&line) ----> ",
+      image((2 = "a") | monitor(&line)) | "none");
+   write("(2 ~= \"a\") | monitor(&line) ----> ",
+      image((2 ~= "a") | monitor(&line)) | "none");
+   write("(list(10)) ||| \"abc\" | monitor(&line) ----> ",
+      image((list(10)) ||| "abc" | monitor(&line)) | "none");
+end
+
+procedure p8()
+   write("(x :=: \"a\") | monitor(&line) ----> ",
+      image((x :=: "a") | monitor(&line)) | "none");
+   write("(x <-> \"b\") | monitor(&line) ----> ",
+      image((x <-> "b") | monitor(&line)) | "none");
+   write("((x & 2 & 3 & 4) := 3) | monitor(&line) ----> ",
+      image(((x & 2 & 3 & 4) := 3) | monitor(&line)) | "none");
+   write("((1 <- y) & &fail) | monitor(&line) ----> ",
+      image(((1 <- y) & &fail) | monitor(&line)) | "none");
+   write("(-36. ^ -9.) | monitor(&line) ----> ",
+      image((-36. ^ -9.) | monitor(&line)) | "none");
+end
+
+procedure main()
+   &error := -1;
+   p1();
+   p2();
+   p3();
+   p4();
+   p5();
+   p6();
+   p7();
+   p8();
+   write("stop(&output,'testing stop') | monitor(&line) ----> ",
+      image(stop(&output,'testing stop') | monitor(&line)) | "none");
+end
+
+procedure monitor(line)
+   write("\nerror in line ",line,":");
+   write("   &error = ",&error);
+   write("   &errornumber = ",&errornumber);
+   write("   &errortext = ",
+      image(&errortext));
+   write("   &errorvalue = ", image(&errorvalue));
+   return line;
+end
+#---------------------------------------------------------------------- 18 evalx
+#SRC: V9GEN
+
+record array(a,b,c,d,e,f,g)
+
+procedure p1()
+   write(" ----> ",image() | "none");
+   write("2 === +2 ----> ",image(2 === +2) | "none");
+   write("3 === *\"abc\" ----> ",image(3 === *"abc") | "none");
+   write("'abc' === ('abc' ++ '') ----> ",image('abc' === ('abc' ++ '')) | "none");
+   write("'a' ----> ",image('a') | "none");
+   write("'ab' ----> ",image('ab') | "none");
+   write("'\\xb9' ----> ",image('\xb9') | "none");
+   write("'\\xb8\\xb4' ----> ",image('\xb8\xb4') | "none");
+   write("'\\^d' ----> ",image('\^d') | "none");
+   write("'\\^a\\^d' ----> ",image('\^a\^d') | "none");
+end
+
+procedure p2()
+   write("\"a\" ----> ",image("a") | "none");
+   write("\"ab\" ----> ",image("ab") | "none");
+   write("\"\\xb9\" ----> ",image("\xb9") | "none");
+   write("\"\\xb8\\xb4\" ----> ",image("\xb8\xb4") | "none");
+   write("\"\\^d\" ----> ",image("\^d") | "none");
+   write("\"\\^a\\^d\" ----> ",image("\^a\^d") | "none");
+   write("*'a' ----> ",image(*'a') | "none");
+   write("*'ab' ----> ",image(*'ab') | "none");
+   write("*'\\xb9' ----> ",image(*'\xb9') | "none");
+   write("*'\\xb8\\xb4' ----> ",image(*'\xb8\xb4') | "none");
+   write("*'\\^d' ----> ",image(*'\^d') | "none");
+end
+
+procedure p3()
+   write("*'\\^a\\^d' ----> ",image(*'\^a\^d') | "none");
+   write("*\"a\" ----> ",image(*"a") | "none");
+   write("*\"ab\" ----> ",image(*"ab") | "none");
+   write("*\"\\xb9\" ----> ",image(*"\xb9") | "none");
+   write("*\"\\xb8\\xb4\" ----> ",image(*"\xb8\xb4") | "none");
+   write("*\"\\^d\" ----> ",image(*"\^d") | "none");
+   write("\"*\\^a\\^d\" ----> ",image("*\^a\^d") | "none");
+   write("every write(\"...\"(1,10,2)) ----> ",image(every write("..."(1,10,2))) | "none");
+   write("every write(\"image\"(write)) ----> ",image(every write("image"(write))) | "none");
+   write("\"[:]\"(\"abcdef\",3,5) ----> ",image("[:]"("abcdef",3,5)) | "none");
+   write("\"[]\"(&lcase,3) ----> ",image("[]"(&lcase,3)) | "none");
+end
+
+procedure p4()
+   write("image(proc(\"^\",1)) ----> ",image(image(proc("^",1))) | "none");
+   write("image(proc(\"^\",2)) ----> ",image(image(proc("^",2))) | "none");
+   write("proc(\"+\",2)(3,4) ----> ",image(proc("+",2)(3,4)) | "none");
+   write("proc(proc)(\"write\") ----> ",image(proc(proc)("write")) | "none");
+   write("proc(\"+\") ----> ",image(proc("+")) | "none");
+   write("?10 ----> ",image(?10) | "none");
+   write("?10 ----> ",image(?10) | "none");
+   write("?10 ----> ",image(?10) | "none");
+   write("?20 ----> ",image(?20) | "none");
+   write("?[1,2,3,4] ----> ",image(?[1,2,3,4]) | "none");
+   write("?[1,2,3,4] ----> ",image(?[1,2,3,4]) | "none");
+end
+
+procedure p5()
+   write("x := array(1,2,3,4,5,6,7) ----> ",image(x := array(1,2,3,4,5,6,7)) | "none");
+   write("?x ----> ",image(?x) | "none");
+   write("?x ----> ",image(?x) | "none");
+   write("?x ----> ",image(?x) | "none");
+   write("?x ----> ",image(?x) | "none");
+   write("?x ----> ",image(?x) | "none");
+   write("?x ----> ",image(?x) | "none");
+   write("?x ----> ",image(?x) | "none");
+   write("?x ----> ",image(?x) | "none");
+   write("every 1 to 10 do write(?10) ----> ",image(every 1 to 10 do write(?10)) | "none");
+   write("every 1 to 10 do write(?[1,2,3,4,5,6,7,8,9,10]) ----> ",image(every 1 to 10 do write(?[1,2,3,4,5,6,7,8,9,10])) | "none");
+end
+
+procedure p6()
+   write("every 1 to 10 do write(?\"abcdef\") ----> ",image(every 1 to 10 do write(?"abcdef")) | "none");
+   write("x := array(1,2,3,4,5,6,7) ----> ",image(x := array(1,2,3,4,5,6,7)) | "none");
+   write("every 1 to 10 do write(?x) ----> ",image(every 1 to 10 do write(?x)) | "none");
+   write("(1,2,3,4,5) ----> ",image((1,2,3,4,5)) | "none");
+   write("every write((1 to 5)(1,2,3,4,5)) ----> ",image(every write((1 to 5)(1,2,3,4,5))) | "none");
+   write("0(1,2) ----> ",image(0(1,2)) | "none");
+end
+
+procedure p7()
+   write("1(1) ----> ",image(1(1)) | "none");
+   write("2(1) ----> ",image(2(1)) | "none");
+   write("(-1)(1,2,3) ----> ",image((-1)(1,2,3)) | "none");
+   write("3(1,2,3,&fail) ----> ",image(3(1,2,3,&fail)) | "none");
+   write("every write(2(1 to 5,!\"abc\",1 to 2)) ----> ",image(every write(2(1 to 5,!"abc",1 to 2))) | "none");
+   write("x := 1 ----> ",image(x := 1) | "none");
+   write("y := 2 ----> ",image(y := 2) | "none");
+   write("(x := y) & &fail ----> ",image((x := y) & &fail) | "none");
+   write("every write(!\"abcdef\") ----> ",image(every write(!"abcdef")) | "none");
+   write("every write(![1,2,3,4,5]) ----> ",image(every write(![1,2,3,4,5])) | "none");
+   write("every write(!![1,2,3,4,5]) ----> ",image(every write(!![1,2,3,4,5])) | "none");
+end
+
+procedure p8()
+   write("every write(!![1,\"ab\",[1,2,3],34]) ----> ",image(every write(!![1,"ab",[1,2,3],34])) | "none");
+   write("every write(!([1,\"ab\",[1,2,3],34][1 to 4])) ----> ",image(every write(!([1,"ab",[1,2,3],34][1 to 4]))) | "none");
+   write("x := array(1,2,3,4,5) ----> ",image(x := array(1,2,3,4,5)) | "none");
+   write("every write(!x) ----> ",image(every write(!x)) | "none");
+   write("x := 1 ----> ",image(x := 1) | "none");
+   write("y := 2 ----> ",image(y := 2) | "none");
+   write("x <-> y ----> ",image(x <-> y) | "none");
+   write("y <-> x ----> ",image(y <-> x) | "none");
+   write("(x <-> y) & &fail ----> ",image((x <-> y) & &fail) | "none");
+   write("x ----> ",image(x) | "none");
+   write("y ----> ",image(y) | "none");
+end
+
+procedure p9()
+   write("*\"\" ----> ",image(*"") | "none");
+   write("*'' ----> ",image(*'') | "none");
+   write("*[] ----> ",image(*[]) | "none");
+   write("*table() ----> ",image(*table()) | "none");
+   write("*30 ----> ",image(*30) | "none");
+   write("!\"abc\" ----> ",image(!"abc") | "none");
+   write("![1,2,3] ----> ",image(![1,2,3]) | "none");
+   write("!&lcase ----> ",image(!&lcase) | "none");
+   write("!30 ----> ",image(!30) | "none");
+   write("!table() ----> ",image(!table()) | "none");
+   write("?\"abc\" ----> ",image(?"abc") | "none");
+end
+
+procedure p10()
+   write("?&lcase ----> ",image(?&lcase) | "none");
+   write("?[1,2,3] ----> ",image(?[1,2,3]) | "none");
+   write("?table() ----> ",image(?table()) | "none");
+   write("?30 ----> ",image(?30) | "none");
+   write(".x ----> ",image(.x) | "none");
+   write(".\"abc\" ----> ",image(."abc") | "none");
+   write(".[] ----> ",image(.[]) | "none");
+   write(".main ----> ",image(.main) | "none");
+   write("/main ----> ",image(/main) | "none");
+   write("/\"abc\" ----> ",image(/"abc") | "none");
+end
+
+procedure p11()
+   write("/&null ----> ",image(/&null) | "none");
+   write("/[] ----> ",image(/[]) | "none");
+   write("/&lcase ----> ",image(/&lcase) | "none");
+   write("\\main ----> ",image(\main) | "none");
+   write("\\\"abc\" ----> ",image(\"abc") | "none");
+   write("\\x ----> ",image(\x) | "none");
+   write("\\[] ----> ",image(\[]) | "none");
+   write("\\&null ----> ",image(\&null) | "none");
+   write("1 | 2 | 3 ----> ",image(1 | 2 | 3) | "none");
+   write("|(1 to 10) ----> ",image(|(1 to 10)) | "none");
+   write("||(1 to 10) ----> ",image(||(1 to 10)) | "none");
+end
+
+procedure p12()
+   write("|||(1 to 10) ----> ",image(|||(1 to 10)) | "none");
+   write("||||(1 to 10) ----> ",image(||||(1 to 10)) | "none");
+   write("|||||(1 to 10) ----> ",image(|||||(1 to 10)) | "none");
+   write("|||||||(1 to 10) ----> ",image(|||||||(1 to 10)) | "none");
+   write("2 \\ 2 ----> ",image(2 \ 2) | "none");
+   write("while 1 do break ----> ",image(while 1 do break) | "none");
+   write("while 1 do break \"hello\" ----> ",image(while 1 do break "hello") | "none");
+   write("while break ----> ",image(while break) | "none");
+   write("case 1 of {2:3; \"1\":4; 1: 4 to 10; default: \"whoa\"} ----> ",image(case 1 of {2:3; "1":4; 1: 4 to 10; default: "whoa"}) | "none");
+   write("not 1 ----> ",image(not 1) | "none");
+   write("not \\&null ----> ",image(not \&null) | "none");
+end
+
+procedure p13()
+   write("repeat break ----> ",image(repeat break) | "none");
+   write("until 1 do 2 ----> ",image(until 1 do 2) | "none");
+   write("if 1 then 2 else 3 ----> ",image(if 1 then 2 else 3) | "none");
+   write("every write(if 1 then 1 to 10 else 5) ----> ",image(every write(if 1 then 1 to 10 else 5)) | "none");
+   write("every write(if 1 = 0 then 1 to 10 else 10 to 1 by -1) ----> ",image(every write(if 1 = 0 then 1 to 10 else 10 to 1 by -1)) | "none");
+   write("if 1 then 2 ----> ",image(if 1 then 2) | "none");
+   write("if 1 = 0 then 2 ----> ",image(if 1 = 0 then 2) | "none");
+   write("x := 1 ----> ",image(x := 1) | "none");
+   write("y := 2 ----> ",image(y := 2) | "none");
+   write("z := 3 ----> ",image(z := 3) | "none");
+   write("x :=: y ----> ",image(x :=: y) | "none");
+end
+
+procedure p14()
+   write("y :=: x ----> ",image(y :=: x) | "none");
+   write("x ----> ",image(x) | "none");
+   write("y ----> ",image(y) | "none");
+   write("z ----> ",image(z) | "none");
+   write("x :=: y :=: z ----> ",image(x :=: y :=: z) | "none");
+   write("x ----> ",image(x) | "none");
+   write("y ----> ",image(y) | "none");
+   write("z ----> ",image(z) | "none");
+   write("x := 1 ----> ",image(x := 1) | "none");
+   write("y := 2 ----> ",image(y := 2) | "none");
+   write("z := 3 ----> ",image(z := 3) | "none");
+end
+
+procedure p15()
+   write("x <-> y ----> ",image(x <-> y) | "none");
+   write("y <-> x ----> ",image(y <-> x) | "none");
+   write("x ----> ",image(x) | "none");
+   write("y ----> ",image(y) | "none");
+   write("z ----> ",image(z) | "none");
+   write("x <-> y :=: z ----> ",image(x <-> y :=: z) | "none");
+   write("x ----> ",image(x) | "none");
+   write("y ----> ",image(y) | "none");
+   write("z ----> ",image(z) | "none");
+   write("1 & 2 & 3 & 4 ----> ",image(1 & 2 & 3 & 4) | "none");
+   write("(1 & 2 & 3 & x) := 3 ----> ",image((1 & 2 & 3 & x) := 3) | "none");
+end
+
+procedure p16()
+   write("x ----> ",image(x) | "none");
+   write("x := 1 ----> ",image(x := 1) | "none");
+   write("y := 2 ----> ",image(y := 2) | "none");
+   write("(x <- y) & &fail ----> ",image((x <- y) & &fail) | "none");
+   write("x ----> ",image(x) | "none");
+   write("y ----> ",image(y) | "none");
+end
+
+procedure main()
+   p1();
+   p2();
+   p3();
+   p4();
+   p5();
+   p6();
+   p7();
+   p8();
+   p9();
+   p10();
+   p11();
+   p12();
+   p13();
+   p14();
+   p15();
+   p16();
+end
+
+#---------------------------------------------------------------------- 19 every
+#SRC: JCON
+
+procedure main()
+   local s;
+
+   every write("a. ");
+   every write("b. ", -3);
+   every write("c. ", 1 to 10);
+   every write("d. ", 1 to 10 by 3);
+   every write("e. ", 1 to 11 by 3);
+   every write("f. ", 1 to 12 by 3);
+   every write("g. ", 1 to 10 by -3);
+   every write("h. ", 10 to 1 by -3);
+   every write("i. ", 11 to 1 by -3);
+   every write("j. ", 12 to 1 by -3);
+   every write("k. ", (7 | 6.5) + (2 | 2.1));
+   every write("l. ", , "hello" | "goodbye", " ", "world" | "mom");
+   every write("m. ", !"");
+   every write("n. ", !"a");
+   every write("o. ", !"abcde");
+   every write("p. ", !-514);
+   every write("q. ", !12.5);
+
+   s := "abcde";
+   every !s := "." do write("r. ", s);
+
+   every write("s. ", (-3|-2|-1|0|1|2|3)(101,102));
+   every write("t. ", (-3|-2|-1|0|1|2|3) ! [201,202]);
+   every write("u. ", f ! [5]);
+end
+
+procedure f(n)
+   suspend n | -n;
+end
+#----------------------------------------------------------------------- 20 fncs
+#SRC: V9GEN
+
+record array(a,b,c,d,e,f,g)
+global F, f
+global w, t
+
+procedure p1()
+   write(" ----> ",image() | "none");
+   write("copy(1) ----> ",image(copy(1)) | "none");
+   write("copy(\"abc\") ----> ",image(copy("abc")) | "none");
+   write("copy('aabbcc') ----> ",image(copy('aabbcc')) | "none");
+   write("copy(main) ----> ",image(copy(main)) | "none");
+   write("copy([1,2,3]) ----> ",image(copy([1,2,3])) | "none");
+   write("copy(table(0)) ----> ",image(copy(table(0))) | "none");
+   write("copy() ----> ",image(copy()) | "none");
+   write("copy(&input) ----> ",image(copy(&input)) | "none");
+   write("w := copy(write) ----> ",image(w := copy(write)) | "none");
+end
+
+procedure p2()
+   write("w(image(w)) ----> ",image(w(image(w))) | "none");
+   write("copy(array()) ----> ",image(copy(array())) | "none");
+   write("copy := copy(copy) ----> ",image(copy := copy(copy)) | "none");
+   write("x := copy(array) ----> ",image(x := copy(array)) | "none");
+   write("x := x(1,2,3,4,5,6,7) ----> ",image(x := x(1,2,3,4,5,6,7)) | "none");
+   write("x[-4] ----> ",image(x[-4]) | "none");
+   write("v := copy(c) ----> ",image(v := copy(c)) | "none");
+   write("x := repl(\"123\",4) ----> ",image(x := repl("123",4)) | "none");
+   write("t := table() ----> ",image(t := table()) | "none");
+   write("every i := 1 to 100 do t[i] := i ----> ",image(every i := 1 to 100 do t[i] := i) | "none");
+end
+
+procedure p3()
+   write("x := sort(t) ----> ",image(x := sort(t)) | "none");
+   write("every write((!x)[2]) ----> ",image(every write((!x)[2])) | "none");
+   write("every write(center(\"abcdef\",1 to 20,\" \" | \"0\" | \"=-\")) ----> ",image(every write(center("abcdef",1 to 20," " | "0" | "=-"))) | "none");
+   write("every write(left(\"abcdef\",1 to 20,\" \" | \"0\" | \"=-\")) ----> ",image(every write(left("abcdef",1 to 20," " | "0" | "=-"))) | "none");
+   write("every write(right(\"abcdef\",1 to 20,\" \" | \"0\" | \"=-\")) ----> ",image(every write(right("abcdef",1 to 20," " | "0" | "=-"))) | "none");
+   write("center(\"\",20,repl(\"x.\",30)) ----> ",image(center("",20,repl("x.",30))) | "none");
+   write("left(\"\",20,repl(\"x.\",30)) ----> ",image(left("",20,repl("x.",30))) | "none");
+   write("right(\"\",20,repl(\"x.\",30)) ----> ",image(right("",20,repl("x.",30))) | "none");
+   write("every write(repl(\"a\" | \"ab\" | \"ba\",1 to 5)) ----> ",image(every write(repl("a" | "ab" | "ba",1 to 5))) | "none");
+   write("repl(\"\",0) ----> ",image(repl("",0)) | "none");
+   write("repl(&cset,0) ----> ",image(repl(&cset,0)) | "none");
+end
+
+procedure p4()
+   write("trim(&lcase) ----> ",image(trim(&lcase)) | "none");
+   write("trim(&lcase,&lcase) ----> ",image(trim(&lcase,&lcase)) | "none");
+   write("image(2) ----> ",image(image(2)) | "none");
+   write("image('cab') ----> ",image(image('cab')) | "none");
+   write("image(&lcase) ----> ",image(image(&lcase)) | "none");
+   write("image('abcdefghijklmnopqrstuvwxyz') ----> ",image(image('abcdefghijklmnopqrstuvwxyz')) | "none");
+   write("image(&input) ----> ",image(image(&input)) | "none");
+end
+
+procedure p5()
+   write("image() ----> ",image(image()) | "none");
+   write("image(&null) ----> ",image(image(&null)) | "none");
+   write("image([1,2,3]) ----> ",image(image([1,2,3])) | "none");
+   write("image([]) ----> ",image(image([])) | "none");
+   write("image([,]) ----> ",image(image([,])) | "none");
+   write("image(table()) ----> ",image(image(table())) | "none");
+   write("image(table(3)) ----> ",image(image(table(3))) | "none");
+   write("image(list(0)) ----> ",image(image(list(0))) | "none");
+   write("image(set()) ----> ",image(image(set())) | "none");
+   write("image(set([1,2,3,3,3,3,3,4])) ----> ",image(image(set([1,2,3,3,3,3,3,4]))) | "none");
+   write("image(repl) ----> ",image(image(repl)) | "none");
+end
+
+procedure p6()
+   write("image(main) ----> ",image(image(main)) | "none");
+   write("image(repl(&lcase,10)) ----> ",image(image(repl(&lcase,10))) | "none");
+   write("image(array) ----> ",image(image(array)) | "none");
+   write("image(a) ----> ",image(image(a)) | "none");
+   write("image(array) ----> ",image(image(array)) | "none");
+   write("image(image) ----> ",image(image(image)) | "none");
+   write("string(2) ----> ",image(string(2)) | "none");
+   write("string(\"2\") ----> ",image(string("2")) | "none");
+   write("string(\" 2\") ----> ",image(string(" 2")) | "none");
+end
+
+procedure p7()
+   write("string(\"2 \") ----> ",image(string("2 ")) | "none");
+   write("string(\"+2\") ----> ",image(string("+2")) | "none");
+   write("string(\"-2\") ----> ",image(string("-2")) | "none");
+   write("string(\"- 2\") ----> ",image(string("- 2")) | "none");
+   write("string(\" -    2 \") ----> ",image(string(" -    2 ")) | "none");
+   write("string(\"\") ----> ",image(string("")) | "none");
+   write("string(\"--2\") ----> ",image(string("--2")) | "none");
+   write("string(\" \") ----> ",image(string(" ")) | "none");
+   write("string(\"-\") ----> ",image(string("-")) | "none");
+   write("string(\"+\") ----> ",image(string("+")) | "none");
+end
+
+procedure p8()
+   write("string(\"22222222222222222222222222222222222222222222222222222222222\") ----> ",image(string("22222222222222222222222222222222222222222222222222222222222")) | "none");
+   write("string(\"7r4\") ----> ",image(string("7r4")) | "none");
+   write("string(\"4r7\") ----> ",image(string("4r7")) | "none");
+   write("string(\"4r 7\") ----> ",image(string("4r 7")) | "none");
+   write("string(\"7r 4\") ----> ",image(string("7r 4")) | "none");
+   write("string(\"16rff\") ----> ",image(string("16rff")) | "none");
+end
+
+procedure p9()
+   write("string(\"36rcat\") ----> ",image(string("36rcat")) | "none");
+   write("string(\"36Rcat\") ----> ",image(string("36Rcat")) | "none");
+   write("string(\"36rCAT\") ----> ",image(string("36rCAT")) | "none");
+   write("string(\"1r1\") ----> ",image(string("1r1")) | "none");
+   write("string(\"2r0\") ----> ",image(string("2r0")) | "none");
+   write("type(0) ----> ",image(type(0)) | "none");
+   write("type(\"abc\") ----> ",image(type("abc")) | "none");
+   write("type('aba') ----> ",image(type('aba')) | "none");
+   write("type() ----> ",image(type()) | "none");
+   write("type(&null) ----> ",image(type(&null)) | "none");
+end
+
+procedure p10()
+   write("type([]) ----> ",image(type([])) | "none");
+   write("type(table()) ----> ",image(type(table())) | "none");
+   write("type(main) ----> ",image(type(main)) | "none");
+   write("type(write) ----> ",image(type(write)) | "none");
+   write("type(array()) ----> ",image(type(array())) | "none");
+   write("type(array) ----> ",image(type(array)) | "none");
+   write("type(f) ----> ",image(type(f)) | "none");
+   write("cset(2) ----> ",image(cset(2)) | "none");
+end
+
+procedure p11()
+   write("cset(\"2\") ----> ",image(cset("2")) | "none");
+   write("cset(\" 2\") ----> ",image(cset(" 2")) | "none");
+   write("cset(\"2 \") ----> ",image(cset("2 ")) | "none");
+   write("cset(\"+2\") ----> ",image(cset("+2")) | "none");
+   write("cset(\"-2\") ----> ",image(cset("-2")) | "none");
+   write("cset(\"- 2\") ----> ",image(cset("- 2")) | "none");
+   write("cset(\" -    2 \") ----> ",image(cset(" -    2 ")) | "none");
+   write("cset(\"\") ----> ",image(cset("")) | "none");
+   write("cset(\"--2\") ----> ",image(cset("--2")) | "none");
+   write("cset(\" \") ----> ",image(cset(" ")) | "none");
+   write("cset(\"-\") ----> ",image(cset("-")) | "none");
+end
+
+procedure p12()
+   write("cset(\"+\") ----> ",image(cset("+")) | "none");
+   write("cset(\"22222222222222222222222222222222222222222222222222222222222\") ----> ",image(cset("22222222222222222222222222222222222222222222222222222222222")) | "none");
+   write("cset(\"7r4\") ----> ",image(cset("7r4")) | "none");
+   write("cset(\"4r7\") ----> ",image(cset("4r7")) | "none");
+   write("cset(\"4r 7\") ----> ",image(cset("4r 7")) | "none");
+end
+
+procedure p13()
+   write("cset(\"7r 4\") ----> ",image(cset("7r 4")) | "none");
+   write("cset(\"16rff\") ----> ",image(cset("16rff")) | "none");
+   write("cset(\"36rcat\") ----> ",image(cset("36rcat")) | "none");
+   write("cset(\"36Rcat\") ----> ",image(cset("36Rcat")) | "none");
+   write("cset(\"36rCAT\") ----> ",image(cset("36rCAT")) | "none");
+   write("cset(\"1r1\") ----> ",image(cset("1r1")) | "none");
+   write("cset(\"2r0\") ----> ",image(cset("2r0")) | "none");
+   write("every write(seq()) \\ 10 ----> ",image(every write(seq()) \ 10) | "none");
+   write("every write(seq(2)) \\ 10 ----> ",image(every write(seq(2)) \ 10) | "none");
+   write("every write(seq(-10)) \\ 10 ----> ",image(every write(seq(-10)) \ 10) | "none");
+   write("every write(seq(,3)) \\ 10 ----> ",image(every write(seq(,3)) \ 10) | "none");
+end
+
+procedure p14()
+end
+
+procedure main()
+   p1();
+   p2();
+   p3();
+   p4();
+   p5();
+   p6();
+   p7();
+   p8();
+   p9();
+   p10();
+   p11();
+   p12();
+   p13();
+   p14();
+end
+
+procedure wf (v)
+    writes(left(v,5)," ");
+    end
+#---------------------------------------------------------------------- 21 fncs1
+#SRC: V9GEN
+
+record array(a,b,c,d,e,f,g)
+global F, f
+global w, t
+
+procedure main()
+   q1();
+   q2();
+   q3();
+   q4();
+   q5();
+end
+
+procedure q1()
+   write(" ----> ",image() | "none");
+   write("f := open(\"foo.baz\",\"w\") ----> ",image(f := open("foo.baz","w")) | "none");
+   write("write(f,\"hello world\") ----> ",image(write(f,"hello world")) | "none");
+   write("close(f) ----> ",image(close(f)) | "none");
+   remove("foo.baz");
+   write("F := open(\"fncs1.dat\") ----> ",image(F := open("fncs1.dat")) | "none");
+   write("every write(reverse(!F)) ----> ",image(every write(reverse(!F))) | "none");
+   write("close(F) ----> ",image(close(F)) | "none");
+   write("F := open(\"fncs1.dat\") ----> ",image(F := open("fncs1.dat")) | "none");
+   write("every write(map(!F)) ----> ",image(every write(map(!F))) | "none");
+   write("close(F) ----> ",image(close(F)) | "none");
+   write("F := open(\"fncs1.dat\") ----> ",image(F := open("fncs1.dat")) | "none");
+end
+
+procedure q2()
+   write("every write(map(!F,&cset || \"aeiou\",&cset || \"-----\")) ----> ",image(every write(map(!F,&cset || "aeiou",&cset || "-----"))) | "none");
+   write("close(F) ----> ",image(close(F)) | "none");
+   write("F := open(\"fncs1.dat\") ----> ",image(F := open("fncs1.dat")) | "none");
+   write("every write(map(!F,&cset || \"     \",&cset || \"aeiou\")) ----> ",image(every write(map(!F,&cset || "     ",&cset || "aeiou"))) | "none");
+   write("close(F) ----> ",image(close(F)) | "none");
+   write("f := open(\"fncs1.dat\") ----> ",image(f := open("fncs1.dat")) | "none");
+   write("while writes(reads(f)) ----> ",image(while writes(reads(f))) | "none");
+   write("close(f) ----> ",image(close(f)) | "none");
+   write("f := open(\"fncs1.dat\") ----> ",image(f := open("fncs1.dat")) | "none");
+   write("while writes(reads(f,10)) ----> ",image(while writes(reads(f,10))) | "none");
+   write("f := open(\"fncs1.dat\") ----> ",image(f := open("fncs1.dat")) | "none");
+end
+
+procedure q3()
+   write("while write(read(f)) ----> ",image(while write(read(f))) | "none");
+   write("close(f) ----> ",image(close(f)) | "none");
+end
+
+procedure q4()
+   T := table();
+   L := list();
+   every T[1 to 20] := 1;
+   every put (L, key(T));
+   every write (!sort(L));
+end
+
+procedure q5()
+    every i := 1 to 25 do {
+	v := 0.25 * i;
+	wf (v);
+	if (v <= 1.0) then
+	    every wf ((acos | asin) (v))
+	else
+	    every wf ("" | "");
+	every wf (atan(v) | atan(v,3));
+	every wf ((cos | sin | tan) (v));
+	every wf ((sqrt | exp | log) (v));
+	wf (log(v,3));
+	write ()
+    };
+    end
+
+procedure wf (v)
+    writes(left(v,5)," ");
+    end
+#---------------------------------------------------------------------- 22 gener
+#SRC: V9GEN
+
+##    gener.icn -- test generation in parallel with inserts/deletes
+#
+#     This is a torture test for the set generation code.  Items are inserted
+#     in or deleted from the set while the set is being generated.  We check
+#     every item not inserted or deleted is generated exactly once, and every
+#     other item is generated no more than once.
+#
+#     If every line of output says '[ok]', the test has passed.  "gener -v"
+#     gives a little more information; in this case, the output is sensitive
+#     to the runtime system's configuration parameters.
+
+
+global verbose
+
+
+procedure main (args)
+   if args[1] == "-v" then
+      verbose := 1;
+   every tdel (41 | 619 | 991,  3 | 11 |  23);
+   every tins (40 | 103 | 233,  239 | 419 | 503,  3 | 11 | 23);
+   stale();
+   write ("[done]");
+   end
+
+
+##  tins (init, limit, n) -- test insertions
+#
+#   The initial set consists of the integers 1 through <init>.
+#   Then the set is generated, and <n> more integers are added
+#   for each element generated until the set reaches <limit>
+#   entries.
+
+procedure tins (init, limit, n)
+   writes ("test insert:",
+      right(init,6), ",", right(limit,5), ",", right(n,3));
+   s := set();
+   every insert (s, 1 to init);
+   s1 := copy (s);
+   l := list();
+   every put (l, e := !s) do
+      if *s < limit then
+         every 1 to n do
+            insert (s, *s + 1);
+   check (s1, s, l);
+   end
+
+
+##  tdel (limit, n) -- test deletions
+#
+#   The set initially contains the first <limit> integers.
+#   Then, for each one generated, n elements are deleted.
+
+procedure tdel (limit, n)
+   writes ("test delete:", right(limit,6), ",", right(n,5));
+   s := set();
+   every insert (s, 1 to limit);
+   s2 := copy(s);
+   l := list();
+   k := 0;
+   every put (l, !s) do
+      every 1 to n do 
+         delete (s, k +:= 1);
+   check (s, s2, l);
+   end
+
+
+
+##  check (s1, s2, l) -- check results of generation
+#
+#   s1	small set (before insertion / after deletion)
+#   s2  large set (after insertion / before deletion)
+#   l   generated list
+
+procedure check (s1, s2, l)
+   sg := set(l);
+   if \verbose then
+       writes ("  \tsizes ",right(*s1,5)," <=",right(*sg,5)," <=",right(*s2,5));
+   ok := "\t[ok]";
+
+   if *(s := (s1 -- sg)) > 0 then {
+      writes ("\n not generated:");
+      every writes (" ", !sort(s));
+      ok := &null
+      };
+
+   if *(s := (sg -- s2)) > 0 then {
+      writes ("\n unknown values generated:");
+      every writes (" ", !sort(s));
+      ok := &null
+      };
+
+   if *sg < *l then {
+      writes("\n generated twice:");
+      every e := !l do
+         delete(sg,member(sg,e)) | writes (" ", e);
+      ok := &null
+   };
+
+   write (ok);
+   end
+
+
+
+##  check for generation of stale (already deleted) elements of sets and tables
+
+procedure stale()
+   local i, N, S, T;
+
+   N := 100;
+   T := table();
+   S := set();
+
+   write();
+   every i := 1 to N do {
+      T[i] := i;
+      insert(S, i)
+      };
+
+   write("checking !S:");
+   every i := !S do {
+      if not member(S, i) then write("S[", i, "] stale");
+      delete(S, ?N)
+      };
+
+   write("checking !T:");
+   every i := !T do {
+      if /T[i] then write("T[", i, "] stale");
+      delete(T, ?N)
+      };
+
+   write("checking key(T):");
+   every i := key(T) do {
+      if /T[i] then write("T[", i, "] stale");
+      delete(T, ?N)
+      };
+
+   write();
+   return;
+end
+#------------------------------------------------------------------- 23 genqueen
+#SRC: APP
+
+############################################################################
+#
+#	File:     genqueen.icn
+#
+#	Subject:  Program to solve arbitrary-size n-queens problem
+#
+#	Author:   Peter A. Bigot
+#
+#	Date:     October 25, 1990
+#
+############################################################################
+#
+# This program solve the non-attacking n-queens problem for (square) boards
+# of arbitrary size.  The problem consists of placing chess queens on an
+# n-by-n grid such that no queen is in the same row, column, or diagonal as
+# any other queen.  The output is each of the solution boards; rotations
+# not considered equal.  An example of the output for n:
+#
+#     -----------------
+#     |Q| | | | | | | |
+#     -----------------
+#     | | | | | | |Q| |
+#     -----------------
+#     | | | | |Q| | | |
+#     -----------------
+#     | | | | | | | |Q|
+#     -----------------
+#     | |Q| | | | | | |
+#     -----------------
+#     | | | |Q| | | | |
+#     -----------------
+#     | | | | | |Q| | |
+#     -----------------
+#     | | |Q| | | | | |
+#     -----------------
+#     
+# Usage: genqueen n
+# where n is the number of rows / columns in the board.  The default for n
+# is 6.
+#
+############################################################################
+
+global
+   n,                           # Number of rows/columns
+   rw,                          # List of queens in each row
+   dd,                          # List of queens in each down diagonal
+   ud                           # List of queens in each up diagonal
+
+procedure main (args);           # Program arguments
+   n := integer (args [1]) | 6;
+   rw := list (n);
+   dd := list (2*n-1);
+   ud := list (2*n-1);
+   solvequeen (1);
+   end # procedure main
+
+# placequeen(c) -- Place a queen in every permissible position in column c.
+# Suspend with each result.
+procedure placequeen (c);        # Column at which to place queen
+   local r;                      # Possible placement row
+   
+   every r := 1 to n do
+      suspend (/rw [r] <- /dd [r+c-1] <- /ud [n+r-c] <- c);
+   fail;
+   end # procedure placequeen
+
+# solvequeen(c) -- Place the c'th and following column queens on the board.
+# Write board if have completed it.  Suspends all viable results
+procedure solvequeen (c);        # Column for next queen placement
+   if (c > n) then {
+      # Have placed all required queens.  Write the board, and resume search.
+      writeboard ();
+      fail
+      };
+   suspend placequeen (c) & solvequeen (c+1);
+   fail;
+   end # procedure solvequeen
+
+# writeboard() -- Write an image of the board with the queen positions
+# represented by Qs.
+procedure writeboard ()
+   local
+      r,                        # Index over rows during print
+      c,                        # Column of queen in row r
+      row;                       # Depiction of row as its created
+
+   write (repl ("--", n), "-");
+   every r := 1 to n do {
+      c := rw [r];
+      row := repl ("| ", n) || "|";
+      row [2*c] := "Q";
+      write (row);
+      write (repl ("--", n), "-")
+      };
+   write ();
+   end # procedure writeboard
+
+
+#---------------------------------------------------------------------- 24 image
+#SRC: JCON
+
+#  test image(), serial(), *x, and explicit conversion functions
+
+record point(x,y)
+record circle(x, y, r)
+
+procedure main(args)
+   local c1, c2, c3, c4, s;
+
+   dump();
+   dump(047);
+   dump(3.14159);
+   dump('7121');
+   dump("asparagus");
+   dump(main);
+   dump(write);
+   dump(args);
+   dump([]);
+   dump([1,2,3,4,5]);
+   dump(set());
+   dump(insert(insert(insert(set(),1),2),3));
+   dump(table());
+   dump(insert(table(), 3, 4));
+   dump(point);
+   dump(circle);
+   dump(point(0));
+   dump(circle(0));
+   dump(point(1,2));
+   dump(point(3,4,5));
+   dump(circle(6,7));
+   dump(circle(4,5,6));
+
+   c1 := create 10 to 19;
+   c2 := create 20 to 29;
+   c3 := create 30 to 39;
+   every 1 to 7 do @c2 & @c3;
+   c4 := ^c3;
+   every 1 to 7 do @c2 & @c3;
+   dump(c1);
+   dump(c2);
+   dump(c3);
+   dump(c4);
+
+   write();
+   write("          x     integer(x)      real(x)   numeric(x)",
+   	"    string(x)      cset(x)");
+   every convert(0 | 0.0 | "0" | '0' | 7 | 7.315 | "7.315" | '7.315' | 
+   	"25e-2" | "25e-1" | " 4e+3 " | " 3.8e3  " |
+   	"" | " " | " -3 " | "  9  " | " +77" | "  4.7  ");
+
+   s := &cset[1:140] || &cset[250:256];
+   write();
+   write(image(s));
+   write();
+   write(image(cset(s)));
+   write();
+
+end
+
+
+procedure dump(x)
+   local n;
+
+   if n := serial(x) then
+      writes("#", n, "  ", "*", *x)
+   else if type(x) === ("string" | "cset" | "real" | "integer") then
+      writes("    *", *x);
+   write("\t", type(x), " : ", image(x));
+   return;
+end
+
+
+procedure convert(x)
+   write(pad(x), pad(integer(x) | &null), pad(real(x) | &null),
+      pad(numeric(x) | &null), pad(string(x) | &null), pad(cset(x) | &null));
+   return;
+end
+
+
+procedure pad(x)
+   return right(image(\x) | "---", 13);
+end
+#------------------------------------------------------------------------- 25 io
+#SRC: JCON
+
+#  I/O test -- writes ./tmp1 and ./tmp2 as well as stdout
+
+procedure main()
+   local L, f, m, n, t1, t2;
+
+   L := [&input, &output, &errout,
+   	m := open("/etc/passwd") | stop("no /etc/passwd"),
+	n := open("/dev/null" | stop("no /dev/null"), "w")];
+   L := sort(L);
+   every f := !L do
+      write(type(f), ": ", image(f));
+
+   write();
+   write(read());
+   write(read(&input));
+   while write(read()) do break;
+   write(!&input);
+   every write(!&input \ 2);
+   every write(!&input) \ 2;
+
+   write();
+   write("flush /etc/passwd: ", image(flush(m)) | "FAILED");
+   write("close /etc/passwd: ", image(close(m)) | "FAILED");
+   write("close /etc/passwd: ", image(close(m)) | "FAILED");
+   write("flush /etc/passwd: ", image(flush(m)) | "FAILED");
+
+   write();
+   write("flush /dev/null: ", image(flush(n)) | "FAILED");
+   write("close /dev/null: ", image(close(n)) | "FAILED");
+   write("close /dev/null: ", image(close(n)) | "FAILED");
+   write("flush /dev/null: ", image(flush(n)) | "FAILED");
+
+   every remove("tmp1" | "tmp2");
+   every remove("tmp1" | "tmp2");
+   write(image(open("tmp1")));		# should fail
+
+   write();
+   rfile("/dev/null");
+   wfile("tmp1", "w", "follow the yellow brick road");
+   rfile("tmp1");
+   wfile("tmp1", "w", "shorter file");
+   rfile("tmp1");
+   wfile("tmp1", "a", "gets extended");
+   rfile("tmp1");
+   wfile("tmp1", "rw", "changed");
+   rfile("tmp1");
+   wfile("tmp1", "b", "mode b ");
+   rfile("tmp1");
+   wfile("tmp1", "crw", "cleared anew");
+   rfile("tmp1");
+   rename("tmp1", "tmp2");
+   rfile("tmp2");
+
+   write();
+   write(image(t1 := open("tmp1", "w")) | "can't open tmp1");
+   write(image(t2 := open("tmp2", "w")) | "can't open tmp2");
+   writes(">stdout", t1, ">1a", t2, ">2a", &output);
+   writes(">stdout", t2, ">2b", t1, ">1b", &output);
+   write(">stdout", t1, ">1c", t2, t2, ">2c", &output);
+   write(">stdout", t2, ">2d", t1, t1, ">1d", &output);
+   every write(t1 | t2);
+   writes(t1, ">1e");
+   writes(t2, ">2e");
+   write(t1, ">1f");
+   write(t2, ">2f");
+   every close(t1 | t2);
+   rfile("tmp1");
+   rfile("tmp2");
+
+   every remove("tmp1" | "tmp2");
+   every remove("tmp1" | "tmp2");
+
+   write();
+   writes("abc");
+   writes("def\nghi");
+   writes("\njklmno\n");
+   write("pqr\nstu");
+   writes("vwxyz");
+   writes();
+   writes("");
+   writes("\n");
+
+   write();
+   tsys("echo hello world");			# simple echo
+   tsys("ls io.[ids][tca][dnt]");		# check wildcarding
+
+   tpipe();
+
+end
+
+
+
+#  wfile(name, mode, s) -- break apart string and write file
+
+procedure wfile(name, mode, s)
+   local f;
+
+   write();
+   writes("write ", name, ",", mode, ":\t ");
+   if f := open(name, mode) then s ? {
+      writes(s);
+      tab(many(' '));
+      while not pos(0) do {
+	 write(f, tab(upto(' ') | 0));
+	 tab(many(' '))
+         };
+      write(" : ", where(f));
+      flush(f);
+      close(f)
+      }
+   else {
+      write("can't open")
+      };
+   return;
+end
+
+
+
+#  rfile(name) -- read and echo file contents (several different ways)
+
+procedure rfile(name)
+   local f, i;
+
+   writes("read  ", name, ":\t");
+   if not (f := open(name, "r")) then {
+      write(" can't open");
+      fail
+      };
+
+   # read()
+   while writes(" ", read(f));
+   write();
+
+   # bang
+   seek(f, 1);
+   every writes(" ", "  !f:\t\t" | !f | "\n");
+
+   # both, mixed
+   seek(f, 1);
+   writes("   read/!f:\t");
+   while writes(" ", read(f)) do writes(" ", !f);
+   write();
+
+   # reads()
+   seek(f, 1);
+   writes("   reads():\t");
+   while writes(" ", map(reads(f, 5), "\n", "."));
+   write();
+
+   # nonsequential
+   writes("   nonseq:\t ");
+   every i := 30 to -30 by -1 do
+      if seek(f, i) then
+	 writes(map(reads(f), "\n", ".") | "?")
+      else
+	 writes("-");
+   write();
+
+   close(f);
+   return;
+end
+
+
+#  tsys(s) -- test system call
+
+procedure tsys(s)
+   write("$ ", s);
+   system(s);
+   return;
+end
+
+
+#  tpipe() -- test pipes
+
+procedure tpipe()
+   local f, p;
+
+   # very simple case
+   write();
+   p := open("echo hello world", "rp") | stop("can't open echo pipe");
+   write(image(p));
+   while write("> ", read(p));
+   close(p);
+
+   # check unclosed pipe
+   write();
+   p := open("sed 's/^/=()= /' io.icn", "p") | stop("can't open od pipe");
+   write(image(p));
+   every 1 to 10 do write("> ", read(p));
+   # p is deliberately left unclosed
+
+   # check wildcarding, and also !pipe
+   write();
+   p := open("ls io.i?n io.d?t io.s?d", "p") | stop("can't open ls pipe");
+   write(image(p));
+   every write("> ", !p);
+   close(p);
+
+   # check output pipe
+   write();
+   p := open("tr aeiou oaeui", "wp") | stop("can't open tr pipe");
+   write(image(p));
+   write(p, "once upon a midnight dreary");
+   write(p, "two roads diverged in a yellow wood");
+   write(p, "and the mome raths outgrabe");
+   write("--- closing output pipe");
+   close(p);
+   write("--- done closing output pipe");
+   remove("tmp1");
+
+   return;
+end
+#---------------------------------------------------------------------- 26 iobig
+#  test text and binary I/O in many different lengths from tiny to huge
+
+procedure main()
+   testio("tmp3", "t", read, write, create textgen());
+   testio("tmp4", "u", reads, writes, create bingen() | textgen() | "\^@");
+   write("no problems found");
+end
+
+procedure testio(fname, mode, rfunc, wfunc, datagen);	#: test one file
+   local f, n, s, t;
+
+   f := open(fname, "w" || mode) | stop("can't open ", fname, " for writing");
+   write("writing ", image(f));
+   while wfunc(f, @datagen);
+   close(f);
+
+   datagen := ^datagen;
+   f := open(fname, "r" || mode) | stop("can't open ", fname, " for reading");
+   write("reading ", image(f));
+   n := 0;
+   while s := @datagen do {
+      n +:= 1;
+      t := rfunc(f, if rfunc === reads then *s else &null);
+      if s ~== t then stop("mismatch on item ", n)
+      };
+
+   if rfunc(f) then stop("read extra data beyond expected EOF");
+   write("closing ", image(f));
+   close(f);
+end
+
+procedure textgen();		#: generate printable strings for text file
+   suspend !&digits;
+   suspend &digits | &lcase | &ucase | &letters;
+   suspend &ascii[33+:95];
+   suspend repl("a", (16 | 128 | 256 | 512 | 1024 | 32768 | 65536) + (-2 to 1));
+end
+
+procedure bingen();		#: generate tougher strings for binary file
+   local h;
+
+   suspend !&cset;
+   suspend &cset[(1 to 255) +: 3];
+   suspend &cset;
+   h := "[ b\b t\t n\n v\v f\f r\r e\e d\d crlf\r\n z\^@ zzz\^@\^@\^@ ]";
+   suspend !h;
+   suspend h;
+   suspend repl("\^@", 1037);
+   suspend h;
+end
+#---------------------------------------------------------------------- 27 kross
+#SRC: V9SAM
+
+#
+#          W O R D   I N T E R S E C T I O N S
+#
+
+#  This program procedure accepts string pairs from standard input, with
+#  the strings separated by semicolons.  It then diagrams all the
+#  intersections of the two strings in a common character.
+
+procedure main()
+   local line, j;
+   while line := read() do $(
+      write();
+      j := upto(':',line);
+      cross(line$<1:j$>,line$<j+1:0$>)
+      $);
+end
+
+procedure cross(s1,s2)
+   local j, k;
+   every j := upto(s2,s1) do
+      every k := upto(s1$<j$>,s2) do
+         xprint(s1,s2,j,k);
+end
+
+procedure xprint(s1,s2,j,k)
+   write();
+   every write(right(s2$<1 to k-1$>,j));
+   write(s1);
+   every write(right(s2$<k+1 to *s2$>,j));
+end
+#----------------------------------------------------------------------- 28 kwds
+#SRC: JCON
+
+#  kwds.icn -- check keywords, as best can do reproducibly
+
+procedure main()
+   &error := 747;
+   every kw("allocated", &allocated | "[failed]");
+   every kw("ascii", &ascii | "[failed]");
+   every kw("clock", nmap(&clock) | "[failed]");
+   every kw("col", &col | "[failed]");
+   every kw("collections", &collections | "[failed]");
+   every kw("control", &control | "[failed]");
+   every kw("cset", &cset | "[failed]");
+   every kw("current", &current | "[failed]");
+   every kw("date", nmap(&date) | "[failed]");
+   every kw("dateline", (&dateline ** 'kwfxday, EIRL:m') | "[failed]");
+   every kw("digits", &digits | "[failed]");
+   every kw("dump", &dump | "[failed]");
+   every kw("e", &e | "[failed]");
+   every kw("error", &error | "[failed]");
+   every kw("errornumber", &errornumber | "[failed]");
+   every kw("errortext", &errortext | "[failed]");
+   every kw("errorvalue", &errorvalue | "[failed]");
+   every kw("errout", &errout | "[failed]");
+   every kw("fail", &fail | "[failed]");
+   every kw("features", "Macintosh" ~== &features | "[failed]");
+   every kw("input", &input | "[failed]");
+   every kw("interval", &interval | "[failed]");
+   every kw("lcase", &lcase | "[failed]");
+   every kw("ldrag", &ldrag | "[failed]");
+   every kw("letters", &letters | "[failed]");
+   every kw("level", &level | "[failed]");
+   every kw("lpress", &lpress | "[failed]");
+   every kw("lrelease", &lrelease | "[failed]");
+   every kw("main", &main | "[failed]");
+   every kw("mdrag", &mdrag | "[failed]");
+   every kw("meta", &meta | "[failed]");
+   every kw("mpress", &mpress | "[failed]");
+   every kw("mrelease", &mrelease | "[failed]");
+   every kw("null", &null | "[failed]");
+   every kw("output", &output | "[failed]");
+   every kw("phi", &phi | "[failed]");
+   every kw("pi", &pi | "[failed]");
+   every kw("pos", &pos | "[failed]");
+   every kw("progname", &progname | "[failed]");
+   every kw("random", &random | "[failed]");
+   every kw("rdrag", &rdrag | "[failed]");
+   every kw("regions", &regions | "[failed]");
+   every kw("resize", &resize | "[failed]");
+   every kw("row", &row | "[failed]");
+   every kw("rpress", &rpress | "[failed]");
+   every kw("rrelease", &rrelease | "[failed]");
+   every kw("shift", &shift | "[failed]");
+   every kw("source", &source | "[failed]");
+   every kw("storage", &storage | "[failed]");
+   every kw("subject", &subject | "[failed]");
+   every kw("time", nmap(right(&time,4,0)) | "[failed]");
+   every kw("trace", &trace | "[failed]");
+   every kw("ucase", &ucase | "[failed]");
+   every kw("version", left(&version,16) | "[failed]");
+   every kw("window", &window | "[failed]");
+   every kw("x", &x | "[failed]");
+   every kw("y", &y | "[failed]");
+end
+
+procedure kw(label, value)
+   local s;
+   static prev;
+
+   if \prev == label & value == "[failed]" then
+      return;
+   case type(value) of {
+      "string":  s := value;
+      "cset":    s := image(value) || "  [size " || *value || "]";
+      default:   s := image(value)
+      };
+   write(right("&" || label, 12), ": ", s);
+   prev := label;
+   return;
+end
+
+procedure nmap(s)
+   return map(s, "0123456789", "nnnnnnnnnn");
+end
+#---------------------------------------------------------------------- 29 large
+#SRC: V9GEN
+
+procedure main ()
+   local big, med1, med2, small, i;
+
+   if not(&features == "large integers") then
+      stop("large integers not supported");
+
+   big :=  111111111111111111111;
+   med1 := "2222222222";
+   med2 := "3333333333";
+   small := 4;
+
+   every optest ("+" | "-" | "*" | "/" | "%" |"iand"|"ior"|"ixor"|"<"|"=",
+	  big | -big | small | -small, 
+	  big | -big | small | -small);
+   every optest ("+" | "-" | "*" | "/" | "%" |"iand"|"ior"|"ixor"|"<"|"=",
+	  big | med1 | -med1,
+	  med1 | med2 | -med2);
+
+   every optest ("^", big | -big | small | -small, 2 | 5);
+   every optest ("^", 2 | 3, 10 | 30 );
+   every optest ("ishift", big |-big | med1 | -med1 | small, 1 | 8 | -1 | -39);
+
+   #&trace := -1
+   every i := 10 | 30 | 70 | 100 do {
+      write(2 ^ i);
+      write(2 ^ i || ":" || image(2 ^ i));
+      foo(2 ^ i)
+      };
+end
+
+procedure optest (op, a, b)
+    write (a, " ", op, " ", b, " = ", op(a,b)|"none");
+end
+
+procedure foo(x)
+end
+#----------------------------------------------------------------------- 30 left
+#SRC: JCON
+
+procedure main()
+
+   write(left("abc"));
+   write(left("def", ));
+   write(left("ghi", &null));
+   write(left("jkl", 2));
+   write(left("mno", 3));
+   write(left(237, 4));
+   write(left("stu", 5));
+   write(left("vwx", 6));
+
+   write(left("abc", 3, ));
+   write(left("def", , "."));
+   write(left("ghi", &null, "."));
+   write(left("jkl", 2, "."));
+   write(left("mno", 3, "."));
+   write(left(237, 4, "."));
+   write(left("stu", 5, "."));
+   write(left("vwx", 6, "."));
+
+   write(left("abc", 3, ));
+   write(left("def", , "<>"));
+   write(left("ghi", &null, "<>"));
+   write(left("jkl", 2, "<>"));
+   write(left("mno", 3, "<>"));
+   write(left(237, 4, "<>"));
+   write(left("stu", 5, "<>"));
+   write(left("vwx", 6, "<>"));
+end
+#---------------------------------------------------------------------- 31 level
+#SRC: JCON
+
+procedure main()
+	write(&level);
+	foo(3);
+	write(&level);
+	every bar(3);
+	write(&level);
+end
+
+procedure foo(n)
+	write(&level);
+	if n ~= 0 then foo(n-1);
+	write(&level);
+end
+
+procedure bar(n)
+	write(&level);
+	suspend 1 to n do write(&level);
+	write(&level);
+end
+#--------------------------------------------------------------------- 32 lexcmp
+#SRC: JCON
+
+# lexical comparison test
+
+procedure main()
+   local s, t;
+
+   write("    s1    s2    <<   <<=    ==   ~==   >>=    >>");
+
+   every (s := "" | "a" | "b" | 'c' | "x" | 2 | '') &
+	   (t := "" | "a" | "c" | 'x' | '2') do {
+      wr(s);
+      wr(t);
+      wr(s << t  | &null);
+      wr(s <<= t | &null);
+      wr(s == t  | &null);
+      wr(s ~== t | &null);
+      wr(s >>= t | &null);
+      wr(s >> t  | &null);
+      write()
+      };
+   end
+
+procedure wr(s)
+   writes(right(image(\s) | "---", 6));
+   return;
+end
+#---------------------------------------------------------------------- 33 lists
+#SRC: JCON
+
+procedure main()
+   local i, x, y, z;
+
+   write(args(push));
+   write(args(put));
+
+   limage("a", list());
+   limage("b", list(2));
+   limage("c", list(,3));
+   limage("d", list(4,5));
+   limage("d", list(6,7,8));
+   limage("e", []);
+   limage("f", [&null]);
+   limage("g", [1]);
+   limage("h", [2,3,4,5]);
+   limage("i", [1,2,3] ||| [4,5,6,7,8]);
+
+   x := [1,2,3];
+   push(x);			limage("A", x);
+   put(x);			limage("B", x);
+   write("\t", image(pop(x)));	limage("C", x);
+   write("\t", image(get(x)));	limage("D", x);
+   write("\t", image(pull(x)));	limage("E", x);
+   push(x,4);			limage("F", x);
+   push(x,5,6,7);		limage("G", x);
+   push(push(x,8,9),10,11);	limage("H", x);
+   put(x,12);			limage("I", x);
+   put(x,13,14,15);		limage("J", x);
+   put(put(x,16,17),18,19);	limage("K", x);
+   put(push(x,20,21),22,23);	limage("L", x);
+   every !x := 7;		limage("M", x);
+
+   x := [1,2,3,4,5];
+
+   every i := 0 to *x+3 do
+      x[i] := i;
+   limage("N", x);
+
+   every i := -*x-3 to 0 do
+      x[i] := i;
+   limage("O", x);
+
+   x := [1];
+   write("\t", ?x);
+   ?x := 2;
+   limage("P", x);
+   write(x[0] | "ok failure 0");
+   write(x[2] | "ok failure 2");
+   write(x[-2] | "ok failure -2");
+   get(x);
+   write(get(x) | "ok failure on get");
+   write(pop(x) | "ok failure on pop");
+   write(pull(x) | "ok failure on pull");
+
+   x := [1,2,3,4,5,6,7,8,9];
+   limage("p", x);
+   limage("q", x[1:0]);
+   limage("r", x[2:5]);
+   limage("s", x[-3:5]);
+   limage("t", x[-5:-1]);
+   limage("u", x[-3+:6]) | write("u. wraparound failed");	# should fail
+   limage("v", x[3-:6]) | write("v. wraparound failed");		# should fail
+
+   write();
+   y := copy(x);		# ensure that copies are distinct
+   every !x +:= 10;
+   every !y +:= 20;
+   limage("x", x);
+   limage("y", y);
+
+   z := x ||| y;
+   limage("z", z);
+   every !x +:= 10;
+   every !y +:= 20;
+   every !z +:= 50;
+   limage("x", x);
+   limage("y", y);
+   limage("z", z);
+
+end
+
+procedure limage(label, lst)
+   writes(label, ". [", *lst, "]");
+   every writes(" ", image(!lst));
+   write();
+   return;
+end
+#------------------------------------------------------------------------ 34 map
+#SRC: JCON
+
+procedure main()
+    write(map("aBcDeF"));
+    write(map("AbCdEf"));
+    write(map("aBcDeF", "abcdefghijklmnopqrstuvwxyz"));
+    write(map("AbCdEf", "abcdefghijklmnopqrstuvwxyz"));
+    write(map("aBcDeF", , "12345678901234567890123456"));
+    write(map("AbCdEf", , "12345678901234567890123456"));
+    write(map("aBcDeF", "abcdef", "!@#$%^"));
+    write(map("AbCdEf", "abcdef", "!@#$%^"));
+    write(map("", "abcdef", "!@#$%^"));
+    write(map("abcdef", "aa", "bc"));
+end
+#------------------------------------------------------------------- 35 mathfunc
+#SRC: JCON
+
+#  test math functions including argument coercion
+
+procedure main()
+   every try(sqrt, 0.0 | 0.25 | 1 | 2.25 | "4" | 256.0);
+   every try(log, 0.1 | 0.25 | 1.0 | &e | "10" | 100 | 1000);
+   every try(log, 0.1 | 0.25 | 1.0 | &e | "10" | 100 | 1000, 10);
+   every try(exp, -3 | -1 | 0 | 1.0 | "2" | '3');
+   write();
+   every try(dtor, -1000 | -360 | -90 | '0' | "45" | 360 | 1000);
+   every try(rtod, -3 * &pi | -2 * &pi | -&pi | '0' | &pi / 3 | &pi / 2 |
+   	"3.1415936535" | 2 * &pi);
+   every try(sin | cos | tan, -&pi / 3 | '0' | "3.1415926535");
+   every try(asin | acos, '-1' | -0.5 | "0" | 0.5 | 1.0);
+   every try(atan, "-1000" | -47 | -1 | -.5 | '0' | .5 | 1 | 47 | 1000); 
+   every try(atan, -1 | '0' | "1", '-1' | "0" | 1);
+end
+
+
+#  try(p, a, b) -- print call to p(a,b) and its results
+
+procedure try(p, a, b)
+   write(image(p,15), "(", r(a), (", "||r(\b)) | &null, ") = ", r(p(a,b)));
+   return;
+end
+
+
+#  r(v) -- round v to have only 3 digits after the decimal point
+
+procedure r(v)
+   if v >= 0 then
+      return integer(v * 1000 + 0.5) / 1000.0
+   else
+      return integer(v * 1000 - 0.5) / 1000.0;
+end
+#-------------------------------------------------------------------- 36 meander
+#SRC: V9SAM
+
+#
+#          M E A N D E R I N G   S T R I N G S
+#
+
+#  This main procedure accepts specifications for meandering strings
+#  from standard input with the alphabet separated from the length by
+#  a colon.
+
+procedure main()
+   local line, alpha, n;
+   while line := read() do $(
+      line ? if $(
+         alpha := tab(upto(':')) &
+         move(1) &
+         n := integer(tab(0))
+         $)
+         then write(meander(alpha,n)) 
+         else stop("*** erroneous input ***")
+      $);
+end
+
+procedure meander(alpha,n)
+   local result, t, i, c, k;
+   i := k := *alpha;
+   t := n-1;
+   result := repl(alpha$<1$>,t);
+   while c := alpha$<i$> do $(
+      if find(result$<-t:0$> || c,result)
+      then i -:= 1
+      else $(result ||:= c; i := k$)
+      $);
+   return result;
+end
+#--------------------------------------------------------------------- 37 mffsol
+#SRC: V9GEN
+
+##  mffsol.icn -- show solution graphically in mff format
+#
+#   input is assumed to be one line per round
+#   each player is represented by a different ASCII character
+#   matches are broken by whitespace
+
+global range				# vertical coordinate range
+global red, green, blue			# current color
+
+procedure main (args)
+    range := 1000;
+    aset := cset(&ascii ? (tab(upto(' ')) & move(1) & move(94)));
+    pset := '';				# set of chars in use as players
+    plist := "";				# same, in order of appearance
+    rounds := [];			# list of rounds (one text line each)
+    nmatches := 0;
+
+    if *args > 0 then
+	f := open(args[1]) | stop("can't open ",args[1])
+    else
+	f := &input;
+
+    # read input and save in memory
+    # (this first pass just accumulates a list of players)
+    while line := read(f) do
+	if line[1] ~== "[" & upto(aset,line) then {
+	    put(rounds,line);
+	    line ? while tab(upto(aset)) do {
+		c := move(1);
+		if not any(pset,c) then { # if first appearance of new player
+		    pset ++:= c;		# add to set of players
+		    plist ||:= c	# add at end of list
+		}
+	    }
+	};
+
+    # if all the characters are letters, arrange alphabetically
+    if *(plist -- &ucase -- &lcase) = 0 then
+	plist := string(cset(plist));
+
+    #  calculate a position (angle) for each player, and draw the clock face
+    write("1 metafile ", pct(125), " ", pct(100), " 0 0 0 init");
+    angle := table();
+    dtheta := 2 * 3.14159 / *pset;
+    theta := 3.14159 / 2 - dtheta / 2;
+    every c := !plist do {
+	angle[c] := theta;
+	cart(47, theta, -1, -1);
+	write("(",c,") text");
+	theta -:= dtheta
+    };
+
+    # draw each round in a different color
+    n := 1;
+    red := 250;
+    green := 255;
+    blue := 0;
+    every r := !rounds do {
+	write(red, " ", green, " ", blue, " color");
+	x := pct(110);
+	y := pct(100 - 4 * n);
+	if y > 0 then
+	    write(x, " ", y, " (", n, ") text");
+	r ? while tab(upto(aset)) do {
+	    match := tab(many(aset));
+	    cart (45, angle[match[1]], 0, 0);  writes ("begin ");
+	    cart (45, angle[match[2]], 0, 0);  writes ("line ");
+	    cart (45, angle[match[3]], 0, 0);  writes ("line ");
+	    cart (45, angle[match[4]], 0, 0);  writes ("line ");
+	    cart (45, angle[match[1]], 0, 0);  write  ("line");
+	    cart (45, angle[match[3]], 0, 0);  writes ("line stroke ");
+	    cart (45, angle[match[2]], 0, 0);  writes ("begin ");
+	    cart (45, angle[match[4]], 0, 0);  write  ("line stroke");
+	    nmatches +:= 1
+	};
+	n +:= 1;
+	newcolor()
+    };
+
+    # write some final statistics
+    write ("255 255 255 color");
+    write ("0 0 (",
+	*pset," players, ",*rounds," rounds, ",nmatches," matches) text");
+    end
+
+
+# given polar coordinates (radius,angle,dx,dy), write cartesian equivalents
+# offset by (dx,dy)
+
+procedure cart (r,a,dx,dy)
+    x := pct (50 + r * cos(a) + dy);
+    y := pct (50 + r * sin(a) + dy);
+    writes (x," ",y," ");
+    end
+
+
+# return a string representing a given percentage of the coordinate range
+
+procedure pct (n)
+    return string(integer(n * range / 100));
+    end
+
+
+# set new color coordinates.  iterate until acceptable.
+
+procedure newcolor()
+    repeat {
+	red := (red + 103) % 256;
+	green := (green + 211) % 256;
+	blue := (blue + 71) % 256;
+	lum := 0.30 * red + 0.59 * green + 0.11 * blue;
+	if lum > 96 then return
+    };
+    end
+#--------------------------------------------------------------------- 38 mindfa
+#SRC: V9GEN
+
+### mindfa -- minimize a DFA
+
+record dfa(Q,S,d,q0,F)          # a DFA
+
+procedure main()
+
+   x := getdfa();
+   every 1 to 10 do
+      showdfa("Reduced",minimize(showdfa("Original",x)));
+
+end
+
+## - getdfa() -- accept a dfa from input, return it
+##
+procedure getdfa()
+local Q,S,d,q0,F;
+local q,a;
+
+   Q := readset("Enter states (1 character names): ");
+   S := readset("Enter input alphabet: ");
+   F := readset("Enter Final states (subset of states): ");
+   writes("What is the start state? ");
+   q0 := read();
+   d := table();
+   every q := !Q & a := !S do {
+      writes("enter delta(",q,",",a,") = ");
+      d[q||":"||a] := read()
+      };
+   return dfa(Q,S,d,q0,F);
+
+end
+
+
+## readset(s) - get a set
+#
+procedure readset(s)
+local t1;
+
+   writes(s);
+   t1 := [];
+   every put(t1,!cset(read()));  # the cset removes duplicates
+   return t1;
+
+end
+
+## showdfa(msg,D) -- show a dfa
+#
+procedure showdfa(msg,D)
+local q,a;
+
+   every 1 to 3 do write();
+   write(msg," Deterministic Finite Automaton is:");
+   write();
+   write("\t(Q,S,delta,q0,F)");
+   write();
+   write("where:");
+   write();
+   writeset("Q",D.Q);
+   writeset("S",D.S);
+   writeset("F",D.F);
+   write("\tStart state is ",D.q0);
+   write("\tDelta: ");
+   every q := !D.Q do {
+      every writes("\td(",q,",",a := !D.S,") = ",D.d[q||":"||a]);
+      write()
+      };
+   return D;
+
+end
+
+## writeset(msg,s) -- display a set
+#
+procedure writeset(msg,s)
+local tmp;
+   tmp := "";
+   every tmp ||:= !s || ",";
+   write("\t",msg," = {",tmp[1:-1],"}");
+   return;
+end
+
+## minimize(D) -- minimize a dfa
+#
+global distab, dlists
+
+procedure minimize(D)
+local F,QF;
+local p,q,a,cs;
+
+   distab := table();
+   dlists := table();
+   F := D.F;
+   QF := diff(D.Q,D.F);
+   every p := !F & q := !QF do
+      distab[cset(p||q)] := "X";
+   every ((p := !F & q := !F) |
+          (p := !QF & q := !QF)) & p ~== q do
+      if \distab[cset(D.d[p||":"||(a:=!D.S)]||D.d[q||":"||a])] then {
+         distab[cset(p||q)] := "X";
+         marklists(dlists[cset(p||q)])
+         }
+      else
+         every a := !D.S do
+            if D.d[p||":"||a] ~== D.d[q||":"||a] then {
+               cs := cset(D.d[p||":"||a]||D.d[q||":"||a]);
+               if cs == cset(p||q) then next;
+               /dlists[cs] := [];
+               put(dlists[cs],cset(p||q))
+               };
+
+   return makemdfa(D,distab);
+
+end
+
+## marklists(l) -- recursively mark the pair of nodes
+#                  on list l.
+procedure marklists(l)
+local e;
+
+   if /l then return;
+   every e := !l do {
+      distab[e] := "X";
+      marklists(dlists[e])
+      };
+   return;
+
+end
+
+## makemdfa(D,DT) -- Use the table from the minimization
+#                    to construct the minimal dfa
+procedure makemdfa(D,DT)
+local elist, etab, qset, tlist, echeck;
+local p, q, Delta, q0;
+
+   etab := table();              # table of new states
+   qset := '';
+   every p := !D.Q do {
+      qset ++:= p;
+      plike := equiv(p,etab) | cset(p);
+      every q := !diff(D.Q,qset) & p ~== q do
+         if /distab[cset(p||q)] then {
+            plike ++:= equiv(q,etab) | q
+            };
+      etab[plike] := plike
+      };
+   tlist := [];
+   elist := [];
+   Delta := table();
+   q0 := equiv(D.q0,etab);       # start state of reduced machine
+   put(tlist,q0);
+   put(elist,q0);                # only worry about states reachable
+                                #   from [q0]
+   echeck := table();            #   keep track of states
+   echeck[q0] := q0;
+   while q := get(tlist) do
+      every a := !D.S do {
+         Delta[q||":"||a] := equivdelta(q,a,D,etab);
+         if /echeck[Delta[q||":"||a]] then {
+            echeck[Delta[q||":"||a]] := Delta[q||":"||a];
+            put(tlist,Delta[q||":"||a]);
+            put(elist,Delta[q||":"||a])
+            }
+         };
+
+   return dfa(elist,D.S,Delta,q0,finalstates(D,elist));
+end
+
+## equiv(q,el) -- return the equivalence class in el containing q
+#
+procedure equiv(q,el)
+   every p := !el do
+      if p++q == p then return p;
+end
+
+## equivdelta(p,a,D,el) -- apply delta to equiv. classes
+#
+procedure equivdelta(p,a,D,el)
+local q, r;
+   q := !p;               # any state in equiv. class p
+   r := D.d[q||":"||a];   # find state in original dfa
+
+   return equiv(r,el);    # return its equivalence class
+end
+
+
+## finalstates(D,el) -- build the set of final states
+#
+procedure finalstates(D,el)
+local flist, p, q;
+
+   ftab := table();
+   every p := !D.F do
+      ftab[q := equiv(p,el)] := q;
+   flist := [];
+   every put(flist,(!sort(ftab))[1]);
+   return flist;
+end
+
+
+## diff(l1,l2) -- return the difference of two sets
+#
+procedure diff(l1,l2)
+local l,t1,t2;
+
+   t1 := '';
+   every t1 ++:= !l1;
+
+   t2 := '';
+   every t2 ++:= !l2;
+
+   l := [];
+   every put(l,!(t1--t2));
+   if *l = 0 then fail;
+   return l;
+end
+#----------------------------------------------------------------------- 39 misc
+#SRC: JCON
+
+record message(who,gap,what)
+record recordAsVariable()
+
+procedure main()
+   local i, x;
+
+   x := 1;
+   x +:= |1;		# tickled optimizer bug.
+   write(x);
+
+   x := table(3);
+   write(x[]);
+
+   x := "o";
+   write("a" & "b");
+   write("c" | "d");
+   write(\"e");
+   write(!"f");
+   write(\&null | "g");
+   write(/&null & "h");
+   write("i" || "jk");
+   write(23 || "skidoo");
+   write(x, .x, x := "b");
+
+   every (write|"write")( (1|2)("hello", "mom"), "!");
+   every (write|"write")! [ (1|2) ! ["hello", "mom"], "!"];
+   write ! message("hello");
+   write ! message("hello", " ", "pop");
+   every i := -4 to 4 do
+      write("i=", i, ": ", i("a","b","c") | "failed");
+
+   every write(seq() \ 3);
+   every write(seq(4) \ 3);
+   every write(seq(,4) \ 3);
+   every write(seq(10,20) \ 3);
+
+   pairs { 1 to 100, 11 to 99 by 11 };
+
+   write("repl: ", repl("",5), repl("x",3), repl("foo",0), repl("xyz",4));
+   write("reverse: ", reverse(""), reverse("x"), reverse("ab"), reverse(12345));
+   every i := 0 to 255 do
+      if (ord(char(i)) ~= i) then write("char/ord oops ", i);
+   writes("char: "); 
+   every writes(char((64 to 126) | 10));
+
+   write("proc: ");
+   write("   ", image(proc("write")));
+   write("   ", image(proc("write",)));
+   write("   ", image(proc("write",0)));
+   write("   ", image(proc("write",1)));
+   write("   ", image(proc("args")));
+   write("   ", image(proc("args",0)));
+   write("  >", args(main));
+   args := proc("args", 0);
+   write("  >", args(main));
+   write("   ", image(proc("args")));
+   write("   ", image(proc("args",0)));
+
+   # the following should all be harmless, at least
+   every collect(&null | (0 to 3), &null | 0 | 1 | 100 | 1000);
+
+   evaluation("1234567890", "abcdefghi");
+
+   every write(image(nullsuspend()));
+
+   write(image(recordAsVariable));
+   recordAsVariable := 3;
+   write(image(recordAsVariable));
+
+   every write(tstreturn());
+
+   write("done");
+   exit();
+   write("oops!");
+   dummy();
+end
+
+procedure tstreturn()
+   return fn();
+end
+
+procedure fn()
+   suspend "OK to get here";
+   write("Should not get here when called from a 'return'");
+end
+
+# test Icon's (odd) two-pass argument evaluation process.
+procedure evaluation(a,b)
+     local x,y;
+
+     write("argument evaluation test");
+     write(x, x:=1);
+     write(x:=2, x:=3);
+     write(a, a := 3);
+     write(b[2], b[2] := "q");
+     write(b[2:3], b[1:4] := "qwerty");
+     y := [1,2,3,4];
+     write(y[1], y[1] := 3);
+     x := 7;
+     write(x[2], y[2] := 3);
+     y := table(0);
+     write(y[3], y[3] := 7);
+     x := y;
+     write(x[5], y[5] := 8);
+end
+
+procedure dummy()
+   image(every 1) | 2;	# this triggered a problem once upon a time.
+end
+
+procedure args(x[]);	# later replaced by proc("args",0)
+   local s;
+   s := "";
+   every s ||:= image(!x) do
+      s ||:= " ";
+   return s[1:-1] | "";
+end
+
+procedure pairs(e)
+   while write(@e[1], " ", @e[2]);
+end
+
+procedure nullsuspend()
+   suspend;
+   suspend;
+end
+#---------------------------------------------------------------------- 40 nargs
+#SRC: JCON
+
+#  check return values from args()
+
+#%#%  later: add graphics procedures
+
+procedure main()
+   nargs(abs, "abs");
+   nargs(acos, "acos");
+   nargs(any, "any");
+   nargs(args, "args");
+   nargs(asin, "asin");
+   nargs(atan, "atan");
+   nargs(bal, "bal");
+   nargs(center, "center");
+   nargs(char, "char");
+   nargs(close, "close");
+   nargs(collect, "collect");
+   nargs(copy, "copy");
+   nargs(cos, "cos");
+   nargs(cset, "cset");
+   nargs(delay, "delay");
+   nargs(delete, "delete");
+   nargs(detab, "detab");
+   nargs(display, "display");
+   nargs(dtor, "dtor");
+   nargs(entab, "entab");
+   nargs(errorclear, "errorclear");
+   nargs(exit, "exit");
+   nargs(exp, "exp");
+   nargs(find, "find");
+   nargs(flush, "flush");
+   nargs(function, "function");
+   nargs(get, "get");
+   nargs(getenv, "getenv");
+   nargs(iand, "iand");
+   nargs(icom, "icom");
+   nargs(image, "image");
+   nargs(insert, "insert");
+   nargs(integer, "integer");
+   nargs(ior, "ior");
+   nargs(ishift, "ishift");
+   nargs(ixor, "ixor");
+   nargs(key, "key");
+   nargs(left, "left");
+   nargs(list, "list");
+   nargs(log, "log");
+   nargs(many, "many");
+   nargs(map, "map");
+   nargs(match, "match");
+   nargs(member, "member");
+   nargs(move, "move");
+   nargs(name, "name");
+   nargs(numeric, "numeric");
+   nargs(open, "open");
+   nargs(ord, "ord");
+   nargs(pop, "pop");
+   nargs(pos, "pos");
+   nargs(proc, "proc");
+   nargs(pull, "pull");
+   nargs(push, "push");
+   nargs(put, "put");
+   nargs(read, "read");
+   nargs(reads, "reads");
+   nargs(real, "real");
+   nargs(remove, "remove");
+   nargs(rename, "rename");
+   nargs(repl, "repl");
+   nargs(reverse, "reverse");
+   nargs(right, "right");
+   nargs(rtod, "rtod");
+   nargs(runerr, "runerr");
+   nargs(seek, "seek");
+   nargs(seq, "seq");
+   nargs(serial, "serial");
+   nargs(set, "set");
+   nargs(sin, "sin");
+   nargs(sort, "sort");
+   nargs(sortf, "sortf");
+   nargs(sqrt, "sqrt");
+   nargs(stop, "stop");
+   nargs(string, "string");
+   nargs(system, "system");
+   nargs(tab, "tab");
+   nargs(table, "table");
+   nargs(tan, "tan");
+   nargs(trim, "trim");
+   nargs(type, "type");
+   nargs(upto, "upto");
+   nargs(variable, "variable");
+   nargs(where, "where");
+   nargs(write, "write");
+   nargs(writes, "writes");
+end
+
+procedure nargs(p, s)
+   write(right(args(p),3), " ", s);
+end
+#-------------------------------------------------------------------- 41 numeric
+#SRC: V9GEN
+
+record array(a,b,c,d,e,f,g)
+
+procedure p1()
+   write("integer(2) ----> ",image(integer(2)) | "none");
+   write("integer(\"2\") ----> ",image(integer("2")) | "none");
+   write("integer(\" 2\") ----> ",image(integer(" 2")) | "none");
+   write("integer(\"2 \") ----> ",image(integer("2 ")) | "none");
+   write("integer(\"+2\") ----> ",image(integer("+2")) | "none");
+   write("integer(\"-2\") ----> ",image(integer("-2")) | "none");
+   write("integer(\"- 2\") ----> ",image(integer("- 2")) | "none");
+   write("integer(\" -    2 \") ----> ",image(integer(" -    2 ")) | "none");
+   write("integer(\"\") ----> ",image(integer("")) | "none");
+end
+
+procedure p2()
+   write("integer(\"--2\") ----> ",image(integer("--2")) | "none");
+   write("integer(\" \") ----> ",image(integer(" ")) | "none");
+   write("integer(\"-\") ----> ",image(integer("-")) | "none");
+   write("integer(\"+\") ----> ",image(integer("+")) | "none");
+   write("integer(\"7r4\") ----> ",image(integer("7r4")) | "none");
+end
+
+procedure p3()
+   write("integer(\"4r7\") ----> ",image(integer("4r7")) | "none");
+   write("integer(\"4r 7\") ----> ",image(integer("4r 7")) | "none");
+   write("integer(\"7r 4\") ----> ",image(integer("7r 4")) | "none");
+   write("integer(\"16rff\") ----> ",image(integer("16rff")) | "none");
+   write("integer(\"36rcat\") ----> ",image(integer("36rcat")) | "none");
+   write("integer(\"36Rcat\") ----> ",image(integer("36Rcat")) | "none");
+   write("integer(\"36rCAT\") ----> ",image(integer("36rCAT")) | "none");
+   write("integer(\"1r1\") ----> ",image(integer("1r1")) | "none");
+   write("integer(\"2r0\") ----> ",image(integer("2r0")) | "none");
+   write("integer(integer) ----> ",image(integer(integer)) | "none");
+   write("integer := abs ----> ",image(integer := abs) | "none");
+end
+
+procedure p4()
+   write("numeric(2) ----> ",image(numeric(2)) | "none");
+   write("numeric(\"2\") ----> ",image(numeric("2")) | "none");
+   write("numeric(\" 2\") ----> ",image(numeric(" 2")) | "none");
+   write("numeric(\"2 \") ----> ",image(numeric("2 ")) | "none");
+   write("numeric(\"+2\") ----> ",image(numeric("+2")) | "none");
+   write("numeric(\"-2\") ----> ",image(numeric("-2")) | "none");
+   write("numeric(\"- 2\") ----> ",image(numeric("- 2")) | "none");
+   write("numeric(\" -    2 \") ----> ",image(numeric(" -    2 ")) | "none");
+   write("numeric(\"\") ----> ",image(numeric("")) | "none");
+end
+
+procedure p5()
+   write("numeric(\"--2\") ----> ",image(numeric("--2")) | "none");
+   write("numeric(\" \") ----> ",image(numeric(" ")) | "none");
+   write("numeric(\"-\") ----> ",image(numeric("-")) | "none");
+   write("numeric(\"+\") ----> ",image(numeric("+")) | "none");
+   write("numeric(\"7r4\") ----> ",image(numeric("7r4")) | "none");
+end
+
+procedure p6()
+   write("numeric(\"4r7\") ----> ",image(numeric("4r7")) | "none");
+   write("numeric(\"4r 7\") ----> ",image(numeric("4r 7")) | "none");
+   write("numeric(\"7r 4\") ----> ",image(numeric("7r 4")) | "none");
+   write("numeric(\"16rff\") ----> ",image(numeric("16rff")) | "none");
+   write("numeric(\"36rcat\") ----> ",image(numeric("36rcat")) | "none");
+   write("numeric(\"36Rcat\") ----> ",image(numeric("36Rcat")) | "none");
+   write("numeric(\"36rCAT\") ----> ",image(numeric("36rCAT")) | "none");
+   write("numeric(\"1r1\") ----> ",image(numeric("1r1")) | "none");
+   write("numeric(\"2r0\") ----> ",image(numeric("2r0")) | "none");
+end
+
+procedure p9()
+   write("100 - - 4 ----> ",image(100 - - 4) | "none");
+   write("100 --4 ----> ",image(100 --4) | "none");
+   write("100- - 4 ----> ",image(100- - 4) | "none");
+   write("100 -- 4 ----> ",image(100 -- 4) | "none");
+   write("100 - -4 ----> ",image(100 - -4) | "none");
+end
+
+procedure p10()
+   write("abs(1) ----> ",image(abs(1)) | "none");
+   write("abs(-1) ----> ",image(abs(-1)) | "none");
+   write("abs(0) ----> ",image(abs(0)) | "none");
+   write("36 % 7 ----> ",image(36 % 7) | "none");
+   write("-36 % 7 ----> ",image(-36 % 7) | "none");
+   write("36 % -7 ----> ",image(36 % -7) | "none");
+   write("-36 % -7 ----> ",image(-36 % -7) | "none");
+end
+
+procedure p11()
+   write("36 * 9 ----> ",image(36 * 9) | "none");
+   write("-36 * 9 ----> ",image(-36 * 9) | "none");
+   write("36 * -9 ----> ",image(36 * -9) | "none");
+   write("-36 * -9 ----> ",image(-36 * -9) | "none");
+end
+
+procedure p12()
+   write("36 / 9 ----> ",image(36 / 9) | "none");
+   write("-36 / 9 ----> ",image(-36 / 9) | "none");
+   write("36 / -9 ----> ",image(36 / -9) | "none");
+   write("-36 / -9 ----> ",image(-36 / -9) | "none");
+end
+
+procedure p13()
+   write("36 + 9 ----> ",image(36 + 9) | "none");
+   write("-36 + 9 ----> ",image(-36 + 9) | "none");
+   write("36 + -9 ----> ",image(36 + -9) | "none");
+   write("-36 + -9 ----> ",image(-36 + -9) | "none");
+end
+
+procedure p14()
+   write("36 ^ -9 ----> ",image(36 ^ -9) | "none");
+   write("1 < 1 ----> ",image(1 < 1) | "none");
+   write("1 < 2 ----> ",image(1 < 2) | "none");
+   write("1 < 0 ----> ",image(1 < 0) | "none");
+   write("-1 < 0 ----> ",image(-1 < 0) | "none");
+   write("1 < -2 ----> ",image(1 < -2) | "none");
+   write("-1 < -0 ----> ",image(-1 < -0) | "none");
+end
+
+procedure p15()
+   write("1 > 1 ----> ",image(1 > 1) | "none");
+   write("1 > 2 ----> ",image(1 > 2) | "none");
+   write("1 > 0 ----> ",image(1 > 0) | "none");
+   write("-1 > 0 ----> ",image(-1 > 0) | "none");
+   write("1 > -2 ----> ",image(1 > -2) | "none");
+end
+
+procedure p16()
+   write("-1 > -0 ----> ",image(-1 > -0) | "none");
+   write("1 <= 1 ----> ",image(1 <= 1) | "none");
+   write("1 <= 2 ----> ",image(1 <= 2) | "none");
+   write("1 <= 0 ----> ",image(1 <= 0) | "none");
+   write("-1 <= 0 ----> ",image(-1 <= 0) | "none");
+end
+
+procedure p17()
+   write("1 <= -2 ----> ",image(1 <= -2) | "none");
+   write("-1 <= -0 ----> ",image(-1 <= -0) | "none");
+   write("1 >= 1 ----> ",image(1 >= 1) | "none");
+   write("1 >= 2 ----> ",image(1 >= 2) | "none");
+   write("1 >= 0 ----> ",image(1 >= 0) | "none");
+end
+
+procedure p18()
+   write("-1 >= 0 ----> ",image(-1 >= 0) | "none");
+   write("1 >= -2 ----> ",image(1 >= -2) | "none");
+   write("-1 >= -0 ----> ",image(-1 >= -0) | "none");
+   write("1 = 1 ----> ",image(1 = 1) | "none");
+   write("1 = 2 ----> ",image(1 = 2) | "none");
+end
+
+procedure p19()
+   write("1 = 0 ----> ",image(1 = 0) | "none");
+   write("-1 = 0 ----> ",image(-1 = 0) | "none");
+   write("1 = -2 ----> ",image(1 = -2) | "none");
+   write("-1 = -0 ----> ",image(-1 = -0) | "none");
+   write("1 ~= 1 ----> ",image(1 ~= 1) | "none");
+end
+
+procedure p20()
+   write("1 ~= 2 ----> ",image(1 ~= 2) | "none");
+   write("1 ~= 0 ----> ",image(1 ~= 0) | "none");
+   write("-1 ~= 0 ----> ",image(-1 ~= 0) | "none");
+   write("1 ~= -2 ----> ",image(1 ~= -2) | "none");
+   write("-1 ~= -0 ----> ",image(-1 ~= -0) | "none");
+end
+
+procedure p21()
+   write("36 ^ -9 ----> ",image(36 ^ -9) | "none");
+   write("-36 ^ -9 ----> ",image(-36 ^ -9) | "none");
+end
+
+procedure main()
+   p1();
+   p2();
+   p3();
+   p4();
+   p5();
+   p6();
+   p9();
+   p10();
+   p11();
+   p12();
+   p13();
+   p14();
+   p15();
+   p16();
+   p17();
+   p18();
+   p19();
+   p20();
+   p21();
+end
+
+#--------------------------------------------------------------------- 42 others
+#SRC: V9GEN
+
+
+procedure spell(n)
+   local m;
+   n := integer(n) | stop(image(n)," is not an integer");
+   if n <= 12 then return {
+      "0zero,1one,2two,3three,4four,5five,6six,7seven,8eight,_
+         9nine,10ten,11eleven,12twelve," ? {
+            tab(find(n));
+            move(*n);
+            tab(upto(","))
+            }
+      }
+   else if n <= 19 then return {
+      spell(n[2] || "0") ?
+         (if ="for" then "four" else tab(find("ty"))) || "teen"
+      }
+   else if n <= 99 then return {
+      "2twen,3thir,4for,5fif,6six,7seven,8eigh,9nine," ? {
+         tab(upto(n[1]));
+         move(1);
+         tab(upto(",")) || "ty" ||
+            if n[2] ~= 0 then "-" || spell(n[2])
+         }
+      }
+   else if n <= 999 then return {
+      spell(n[1]) || " hundred" ||
+         (if (m := n[2:0]) ~= 0 then " and " || spell(m) else "")
+      }
+   else if n <= 999999 then return {
+      spell(n[1:-3]) || " thousand" ||
+         (if (m := n[2:0]) ~= 0 then " and " || spell(m) else "")
+      }
+   else if n <= 999999999 then return {
+      spell(n[1:-6]) || " million" ||
+         (if (m := n[2:0]) ~= 0 then " and " || spell(m) else "")
+      }
+   else fail;
+end
+
+procedure spellw(n)
+   write(n, "	", spell(n));
+   return;
+end
+
+procedure main()
+   every spellw(1 to 25);
+   every spellw(30 to 110 by 3);
+   spellw(945123342);
+   every spellw(10000000 to 10000500 by 7);
+   sieve();
+   wordcnt();
+end
+
+#
+#          S I E V E   O F   E R A T O S T H E N E S
+#
+
+#  This program illustrates the use of sets in implementing the
+#  classical sieve algorithm for computing prime numbers.
+
+procedure sieve()
+   local limit, s, i;
+   limit := 100;
+   s := set();
+   every insert(s,1 to limit);
+   every member(s,i := 2 to limit) do
+      every delete(s,i + i to limit by i);
+   delete(s,1);
+   primes := sort(s);
+   write("There are ",*primes," primes in the first ",limit," integers.");
+   write("The primes are:");
+   every write(right(!primes,*limit + 1));
+end
+
+#
+#          W O R D   C O U N T I N G
+#
+
+#  This program tabulates the words in standard input and writes the
+#  results with the words in a column 20 characters wide.  The definition
+#  of a "word" is naive.
+
+procedure wordcnt()
+   wordcount(20);
+end
+
+procedure wordcount(n)
+   local t, line, x, i;
+   static letters;
+   initial letters := &lcase ++ &ucase;
+   t := table(0);
+   while line := read() do
+      line ? while tab(upto(letters)) do
+         t[tab(many(letters))] +:= 1;
+   x := sort(t,3);
+   every i := 1 to *x - 1 by 2 do
+      write(left(x[i],n),x[i + 1]);
+end
+#---------------------------------------------------------------------- 43 parse
+#SRC: JCON
+
+# test grouping of various operators
+
+procedure main()
+	write(3^3^2);
+	write(8/4/2);
+	write(2-2-2);
+	write(image(f![g]![2]));
+	write((2<3>2)|"fail");
+	every write(1 to 2 to 3);
+	write("x" ? (tab(0)||"y") ? tab(0));
+end
+
+procedure f(x)
+	return x;
+end
+
+procedure g(x)
+	return x+2;
+end
+#--------------------------------------------------------------------- 44 prefix
+#SRC: V9SAM
+
+#
+#          I N F I X - T O - P R E F I X   C O N V E R S I O N
+#
+
+#  This program accepts infix expressions from standard input and
+#  writes the corresponding prefix expressions to standard output.
+
+procedure main()
+   while write(prefix(read()));
+end
+
+procedure prefix(s)
+   s := strip(s);
+   return lassoc(s,'+-' | '*/') | rassoc(s,'^') | s;
+end
+
+procedure strip(s)
+   while s ? (="(" & s <- tab(bal(')')) & pos(-1));
+   return s;
+end
+
+procedure lassoc(s,c)
+   local j;
+   s ? every j := bal(c);
+   return form(s,\j);
+end
+
+procedure rassoc(s,c)
+   local j;
+   return form(s,s ? bal(c));
+end
+
+procedure form(s,k)
+   local a1, a2, op;
+   s ? $(
+      a1 := tab(k);
+      op := move(1);
+      a2 := tab(0)
+      $);
+   return op || "(" || prefix(a1) || "," || prefix(a2) || ")";
+end
+#--------------------------------------------------------------------- 45 primes
+#SRC: JCON
+
+# a simple and slow prime number generator
+
+procedure main()
+   local i;
+   every i := 2 to 100 do {
+      if i % (2 to i - 1) = 0 then
+         next;
+      write(i)
+   };
+end
+#-------------------------------------------------------------------- 46 profsum
+#SRC: APP
+
+#  profsum -- read and summarize profiling data from "java -prof"
+#
+#  usage:  profsum [-t] [file]	-- typically: profsum java.prof
+#
+#	-t	sort on total time instead of time in method
+#
+#  3-jul-97/gmt
+#  5-jun-98/gmt
+
+
+
+record method(name, ncalls, tself, tcalled, tlocal)
+record skey(key, orig)
+
+global ptab
+
+
+
+procedure main(args)
+   local f, line, p, l, tlocal, ttotal, pctlocal, pcttotal, sorttotal, keyed;
+
+   if args[1] == "-t" then
+      sorttotal := get(args);
+
+   if *args > 0 then
+      f := open(args[1]) | stop(&progname, ": can't open ", args[1])
+   else
+      f := &input;
+
+   while line := read(f) do line ? {
+      if ="count" then
+          next;
+      if not any(&digits) then
+          break;
+      accumulate()
+      };
+
+   l := [];
+   ttotal := 0;
+   every p := !ptab do {
+      p.tlocal := p.tself - p.tcalled;
+      if p.tlocal > 0 then
+         ttotal +:= p.tlocal;
+      put(l, p)
+   };
+
+   # !ptab's own iteration order is per-implementation hash, not a language guarantee, so sort by an
+   # explicit (chosen numeric field, name) composite key instead of leaning on sortf's tie-break behavior
+   # -- confirmed empirically (2026-09-06, seat06) that a real Icon implementation does NOT preserve a
+   # prior sortf's order as the tie-break for a later sortf on a different field, so chaining two sortf
+   # calls is not a portable way to get a second sort key
+   keyed := [];
+   every p := !l do
+      put(keyed, skey(right(string((if \sorttotal then p.tself else p.tlocal) + 2000000000), 12, "0") || "|" || p.name, p));
+   keyed := sortf(keyed, 1);
+   l := [];
+   every p := !keyed do
+      put(l, p.orig);
+
+   write("  calls  totaltime   inmethod  method");
+
+   while p := pull(l) do {
+      if p.tlocal > 0 then
+	 pctlocal := (100 * p.tlocal + ttotal / 2) / ttotal
+      else
+	 pctlocal := (100 * p.tlocal - ttotal / 2) / ttotal;
+      pcttotal := ((100 * p.tself) + (ttotal / 2)) / ttotal;
+      write(
+	 pad(p.ncalls, 7),
+	 pad(p.tself, 7), " ",
+         pad(pcttotal, 2), "%",
+	 pad(p.tlocal, (if pcttotal = 100 then 6 else 7)), " ",
+         pad(pctlocal, 2), "%",
+	 "  ",
+	 p.name);
+      };
+
+end
+
+
+
+procedure lookup(s)
+   local p;
+   initial ptab := table();
+
+   if p := \ptab[s] then
+      return p
+   else
+      return ptab[s] := method(s, 0, 0, 0);
+end
+
+
+
+procedure accumulate()
+   local count, caller, callee, time, p, q;
+
+   count := integer(tab(many(&digits)));
+   tab(many(' '));
+   callee := tab(upto(' '));
+   tab(many(' '));
+   caller := tab(upto(' '));
+   if caller ||:= =" caller" then
+      caller ||:= tab(upto(' '));
+   tab(many(' '));
+   time := integer(tab(many(&digits)));
+
+   caller := fixname(caller);
+   callee := fixname(callee);
+
+   p := lookup(callee);
+   p.tself +:= time;
+   p.ncalls +:= count;
+
+   q := lookup(caller);
+   q.tcalled +:= time;
+
+   return;
+end
+
+
+
+procedure fixname(s)
+   s ? {
+      # strip "meaningless" prefix
+      ="jcon/" | (="java/" & tab(upto('/') + 1)) | (="p_l$" & tab(upto('$')));
+      return tab(0)
+   };
+end
+
+
+
+#  pad(s, n) -- pad string to length n, never truncating
+
+procedure pad(s, n)
+   if *s < n then
+      return right(s, n)
+   else
+      return s;
+end
+#--------------------------------------------------------------------- 47 queens
+#SRC: IPL
+
+############################################################################
+#
+#	File:     queens.icn
+#
+#	Subject:  Program to generate solutions to the n-queens problem
+#
+#	Author:   Stephen B. Wampler
+#
+#	Date:     June 10, 1988
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#  
+#     This program displays the solutions to the non-attacking n-
+#  queens problem: the ways in which n queens can be placed on an
+#  n-by-n chessboard so that no queen can attack another. A positive
+#  integer can be given as a command line argument to specify the
+#  number of queens. For example,
+#  
+#          iconx queens -n8
+#  
+#  displays the solutions for 8 queens on an 8-by-8 chessboard.  The
+#  default value in the absence of an argument is 6.  One solution
+#  for six queens is:
+#  
+#         -------------------------
+#         |   | Q |   |   |   |   |
+#         -------------------------
+#         |   |   |   | Q |   |   |
+#         -------------------------
+#         |   |   |   |   |   | Q |
+#         -------------------------
+#         | Q |   |   |   |   |   |
+#         -------------------------
+#         |   |   | Q |   |   |   |
+#         -------------------------
+#         |   |   |   |   | Q |   |
+#         -------------------------
+#  
+#  Comments: There are many approaches to programming solutions to
+#  the n-queens problem.  This program is worth reading for
+#  its programming techniques.
+#  
+############################################################################
+
+global n, solution
+
+procedure main(args)
+   local i, opts;
+
+   n := integer(args[1]) | 6;
+   if n <= 0 then stop("-n needs a positive numeric parameter");
+
+   solution := list(n);		# ... and a list of column solutions
+   write(n,"-Queens:");
+   every q(1);			# start by placing queen in first column
+end
+
+# q(c) - place a queen in column c.
+#
+procedure q(c)
+   local r;
+   static up, down, rows;
+   initial {
+      up := list(2*n-1,0);
+      down := list(2*n-1,0);
+      rows := list(n,0)
+      };
+   every 0 = rows[r := 1 to n] = up[n+r-c] = down[r+c-1] &
+      rows[r] <- up[n+r-c] <- down[r+c-1] <- 1        do {
+         solution[c] := r;	# record placement.
+         if c = n then show()
+         else q(c + 1)		# try to place next queen.
+         };
+end
+
+# show the solution on a chess board.
+#
+procedure show()
+   static count, line, border;
+   initial {
+      count := 0;
+      line := repl("|   ",n) || "|";
+      border := repl("----",n) || "-"
+      };
+   write("solution: ", count+:=1);
+   write("  ", border);
+   every line[4*(!solution - 1) + 3] <- "Q" do {
+      write("  ", line);
+      write("  ", border)
+      };
+   write();
+end
+#---------------------------------------------------------------------- 48 radix
+#SRC: V9/201909
+#  radix.icn -- test radix conversion in linker vs runtime
+
+procedure main()
+   try("2r101111", 2r101111);
+   try("3r201", 3r201);
+   try("4r11213", 4r11213);
+   try("5r1234", 5r1234);
+   try("6r1253", 6r1253);
+   try("7r1253", 7r1253);
+   try("8r1257", 8r1257);
+   try("9r1257", 9r1257);
+   try("10r1257", 10r1257);
+   try("11r1257", 11r1257);
+   try("12r1257", 12r1257);
+   try("13r1257", 13r1257);
+   try("19r1257", 19r1257);
+   try("23r1257", 23r1257);
+   try("29r1257", 29r1257);
+   try("31r1257", 31r1257);
+   try("36r1257", 36r1257);
+   try("8r76054132752", 8r76054132752);
+   try("9r76054132752", 9r76054132752);
+   try("10r76054132752", 10r76054132752);
+   try("11r76054132752", 11r76054132752);
+   try("12r76054132752", 12r76054132752);
+   try("13r76054132752", 13r76054132752);
+   try("19r76054132752", 19r76054132752);
+   try("23r76054132752", 23r76054132752);
+   try("29r76054132752", 29r76054132752);
+   try("31r76054132752", 31r76054132752);
+   try("36r76054132752", 36r76054132752);
+   try("2r01001010100010101010", 2r01001010100010101010);
+   try("2r111111111111111111111111111111111111111111111111111111111111111",
+      2r111111111111111111111111111111111111111111111111111111111111111);
+   try("2r1111111111111111111111111111111111111111111111111111111111111111",
+      2r1111111111111111111111111111111111111111111111111111111111111111);
+   try("2r11111111111111111111111111111111111111111111111111111111111111111",
+      2r11111111111111111111111111111111111111111111111111111111111111111);
+   try("8r01234567", 8r01234567);
+   try("8r377777777777777777777", 8r377777777777777777777);
+   try("16r0123456789ABCDEF", 16r0123456789ABCDEF);
+   try("16r7fffffffffffffff", 16r7fffffffffffffff);
+   try("16rffffffffffffffff", 16rffffffffffffffff);
+   try("16r10000000000000000", 16r10000000000000000);
+   try("16r123456789ABCDEF01234", 16r123456789ABCDEF01234); 
+   try("36rICON", 36rICON);
+   try("36rIcon", 36rIcon);
+   try("36r123456789AEIOU", 36r123456789AEIOU);
+   try("36rZYXWVYTSRQPONMLKJIHGFEDCBA9876543210", 
+      36rZYXWVYTSRQPONMLKJIHGFEDCBA9876543210);
+end
+
+procedure try(s, i)
+	local j;
+	j := integer(s);
+	if /j then
+		write(image(s), ": failed to convert")
+	else if i == j then
+		write(image(s), ": ", j)
+	else
+		write(image(s), ": got ", j, ", but expected ", i);
+end
+#--------------------------------------------------------------------- 49 random
+#SRC: JCON
+
+#  test of random selection
+#  (sets and tables are commented out because
+#   v9 and jcon select different elements)
+
+record r10(a,b,c,d,e,f,g,h,i,j)
+
+procedure main()
+   local r;
+
+   rtest();
+   r := &random;
+
+   rtest();
+
+   &random := 0;
+   rtest();
+
+   &random := r;
+   rtest();
+
+   &random := 11213;
+   rtest();
+end
+
+procedure rtest()
+   local i;
+   static L, S, T, R;
+   initial {
+      R := r10(1,2,3,4,5,6,7,8,9,10);
+      L := [];
+      T := table();
+      every i := 1 to 100 do {
+         put(L, i);
+	 T[i] := -i
+      };
+      S := set(L)
+   };
+
+   write();
+   write(right(&random,10), "  i  ", ?9999);
+   write(right(&random,10), "  i  ", ?9999);
+   write(right(&random,10), "  r  ", integer(10000 * ?0));
+   write(right(&random,10), "  r  ", integer(10000 * ?0));
+   write(right(&random,10), "  s  ", ?"abcdefghijklmnopqrstuvwxyz");
+   write(right(&random,10), "  s  ", ?"ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+   write(right(&random,10), "  c  ", ?&lcase);
+   write(right(&random,10), "  c  ", ?&ucase);
+   write(right(&random,10), "  L  ", ?L);
+   write(right(&random,10), "  L  ", ?L);
+   write(right(&random,10), "  R  ", ?R);
+   write(right(&random,10), "  R  ", ?R);
+#   write(right(&random,10), "  S  ", ?S)
+#   write(right(&random,10), "  S  ", ?S)
+#   write(right(&random,10), "  T  ", ?T)
+#   write(right(&random,10), "  T  ", ?T)
+   return;
+end
+#--------------------------------------------------------------------- 50 recent
+#SRC: V9GEN
+
+procedure main ()
+   sf([]);
+
+   write(args(main));
+   write(args(write));
+
+# show results of bitwise operations on various operand combinations
+
+   every i := 1 | '2' | "3" do {
+      write (
+       "    i        j       ~j      i & j    i | j    i ^ j   i << j   i >> j");
+      every j := 0 | 1 | 2 | 3 | 4 | 100 do {
+         write(right(i,8), right(j,9));
+         word (i);
+         word (j);
+         word (icom (j));
+         word (iand (i, j));
+         word (ior (i, j));
+         word (ixor (i, j));
+         word (ishift (i, j));
+         word (ishift (i, -j));
+         write ()
+         }
+      };
+
+# test remove() and rename(), and print errors in case of malfunction
+
+   name1 := "temp1";
+   name2 := "temp2";
+   data := "Here's the data";
+
+   every remove (name1 | name2);		# just in case
+   open (name1) & stop ("can't remove ", name1, " to initialize test");
+   open (name2) & stop ("can't remove ", name2, " to initialize test");
+   remove (name1) & stop ("successfully removed nonexistent file");
+   rename (name1, name2) & stop ("successfully renamed nonexistent file");
+
+   f := open (name1, "w") | stop ("can't open ",name1," for write");
+   write (f, data);
+   close (f);
+
+   f := open (name1) | stop ("can't open ",name1," after write");
+   s := read (f) | "";
+   close(f);
+   s == data | stop ("data lost after write");
+
+   rename (name1, name2) | stop ("can't rename(",name1,",",name2,")");
+   f := open (name2) | stop ("can't open ",name2," after rename");
+   s := read (f) | "";
+   close(f);
+   s == data | stop ("data lost after rename");
+
+   remove (name1) & stop ("remove succeeded on file already renamed");
+   remove (name2) | stop ("can't remove renamed file");
+   open (name1) & stop (name1, " still around at end of test");
+   open (name2) & stop (name2, " still around at end of test");
+
+#  test seek() and where()
+
+   f := open("recent.dat") | stop("can't open recent.dat");
+   write(image(seek(f,11)));
+   write(where(f));
+   write(image(reads(f,10)));
+   write(where(f));
+   write(where(f));
+   seek(f,-2);
+   write(where(f));
+   write(image(reads(f,1)));
+   write(where(f));
+   close(f);
+
+# test ord() and char(), and print messages if wrong results
+
+   s := string (&cset);
+   every i := 0 to 255 do {
+      c := char (i);
+      n := ord (c);
+      if n ~= i | c ~== s[i+1] then
+	 write ("oops -- ord/char failure at ",i)
+   };
+   if char("47") ~== char(47) then
+      write ("oops -- type conversion failed in char()");
+   if ord(9) ~= ord("9") then
+      write ("oops -- type conversion failed in ord()");
+
+   every ferr (char, -65536 | -337 | -1 | 256 | 4713 | 65536 | 123456, 205);
+   every ferr (char, "abc" | &lcase | &errout | [], 101);
+   every ferr (ord, "" | "ab" | "antidisestablishmentarianism" | 47, 205);
+   every ferr (ord, &output | table(), 103);
+
+#  test getenv()
+   write("getenv(JCONT) = ", getenv("JCONT") | "[FAILED]");
+   write("getenv(NOPE!) = ", getenv("nope") | "[FAILED]");
+
+#  test open(directory)
+
+   f := open(".") | stop("can't open `.'");
+   fset := set();
+   # try three kinds of reading in rotation
+   while insert(fset, read(f)) do {
+      insert(fset, !f);			# note just one per loop pass
+      insert(fset, reads(f, 25))	# assumes no name longer than 25
+      };
+   every s := ![".", "..", "Makefile", "recent.icn", "recogn.dat", "nope"] do
+      if member(fset, s) then
+         write("found file: ", s);
+
+#  test sorting
+
+   a := list(1);		# different sizes to make identification easy
+   b := list(2);
+   c := list(3);
+   d := list(4);
+   e := &lcase ++ &ucase;
+   f := &lcase ++ &ucase;
+   g := '123456789';
+   h := &digits;
+   A := sort([h,g,a,c,b,d,f,e,&lcase,[],&cset,&ascii]);
+   every write(image(!A));
+
+# test varargs
+
+   write("p(1):");
+   p(1);
+   write("p(1, 2):");
+   p(1, 2);
+   write("p(1, 2, 3):");
+   p(1, 2, 3);
+   write("p(1, 2, 3, 4, 5):");
+   p(1, 2, 3, 4, 5);
+   write("q(1, 2):");
+   q(1, 2);
+
+# test Version 7 table features
+
+   write("t := table(\"default\") --> ", image(t := table("default")) |
+      "failure");
+   show(t);
+   write("insert(t, 3, 4) --> ", image(insert(t, 3, 4)) | "failure");
+   write("insert(t, \"xyz\", \"abc\") --> ", image(insert(t, "xyz", "abc")) |
+      "failure");
+   write("insert(t, &digits) --> ", image(insert(t, &digits)) | "failure");
+   show(t);
+   write("t[\"xyz\"] := \"new value\" --> ", image(t["xyz"] := "new value") |
+      "failure");
+   show(t);
+   write("insert(t, \"xyz\", \"def\") --> ", image(insert(t, "xyz", "def")) |
+      "failure");
+   show(t);
+   write("delete(t, \"xyz\") -- > ", image(delete(t, "xyz")) | "failure");
+   show(t);
+   write("delete(t, \"xyz\") -- > ", image(delete(t, "xyz")) | "failure");
+   show(t);
+
+#  test multiple subscripts
+   
+   write("t := table(\"default\") --> ", image(t := table("default")) |
+      "failure");
+   write("t[\"one\"] := 1 --> ", image(t["one"] := 1) | "failure");
+   write("t[] --> ", image(t[]) | "failure");
+   write("x := r1([t, [1, [2, 3]]]) --> ", image(x := r1([t, [1, [2, 3]]])) |
+      "failure");
+   write("x[1, 1, \"one\"] --> ", image(x[1, 1, "one"]) | "failure");
+   write("x[1, 2, 2, 2] --> ", image(x[1, 2, 2, 2]) | "failure");
+   write("x[1, 2] := [\"abcd\", \"defg\"] --> ",
+      image(x[1, 2] := ["abcd", "defg"]) | "failure");
+   write("x[1, 2, 2, 2] --> ", image(x[1, 2, 2, 2]) | "failure");
+
+#  test run-time error mechanism
+
+end
+
+# write word in hexadecimal
+procedure word (v)
+   xd (v, 8);
+   writes (" ");
+   return;
+   end
+
+# write n low-order hex digits of v
+procedure xd (v, n)
+   xd (ishift (v, -4), 0 < n - 1);
+   writes ("0123456789ABCDEF" [1 + iand (v, 16r0F)]);
+   return;
+   end
+# ferr(func,val,err) -- call func(val) and verify that error "err" is produced
+
+procedure ferr (func, val, err)
+   write(msg := "oops -- " || image(func) || "(" || image (val) || ") ");
+   return;
+end
+
+procedure p(a, b, c[])
+   write("   image(a):", image(a));
+   write("   image(b):", image(b));
+   write("   image(c):", image(c));
+   write("   every write(\"\\t\", !c):");
+   every write("\t", !c);
+end
+
+procedure q(a[])
+   write("   every write(\"\\t\", !a):");
+   every write("\t", !a);
+end
+procedure show(t)
+   local x;
+
+   write("   *t --> ", *t);
+   write("   t[\"xyz\"] --> ", image(t["xyz"]) | "failure");
+   write("   member(t, \"xyz\") --> ", image(member(t, "xyz")) | "failure");
+   x := sort(t, 3);
+   write("   contents of t:");
+   while writes("\t", image(get(x)), " : ")
+      do write(image(get(x)));
+   write("");
+end
+
+#  test the new sortf(x,n) function
+
+global data
+record r1(a)
+record r3(a,b,c)
+
+procedure sf (args)
+    local n, z;
+
+    z := [];
+    every put (z, 1 to 100);
+    data := [
+       r3(3,1,4),
+       [1,5,9],
+       r3(2,6,5),
+       r3(3,5),
+       r1(2),
+       3,
+       r1(4),
+       r1(8),
+       [5,&null,5],
+       [4,4,4,4],
+       [3,3,3],
+       [&null,25],
+       4,
+       [2,2],
+       [1],
+       [&null,&null],
+       [],
+       r3(7,8,9),
+       z];
+    dump ("sort(L)", sort (data));
+
+    if *args = 0 then
+	every test (&null | 1 | "2" | '3' | 4 | 17 | -4 | -3 | "-2" | -1)
+    else
+	every test (!args);
+    end
+
+procedure test (n)
+    local r1, r2;
+    write ();
+    write ("-------------------- testing n = ", \n | "&null");
+    r1 := sortf (data, n);
+    r2 := sortf (set(data), n);
+    dump ("sortf(L,n)", r1);
+    if same (r1, r2) then
+	write ("\nsortf(S,n) [same]")
+    else
+	dump ("sortf(S,n) [********** OOPS -- results differ: **********]", r2);
+    end
+
+procedure dump (s, l)
+    local e;
+    write ();
+    write (s, ":");
+    every e := !l do {
+       writes ("  ", left(type(e), 8));
+       if (type(e) == ("r1" | "r3" | "list")) then
+	  every writes (" ", image(e[(1 to 5) | (95 to 100)]) | "\n")
+       else
+	  write (" ", image(e))
+       };
+    return;
+    end
+
+procedure same (a, b)
+    local i;
+    if *a ~= *b then fail;
+    every i := 1 to *a do
+	if a[i] ~=== b[i] then fail;
+    return;
+    end
+#--------------------------------------------------------------------- 51 recogn
+#SRC: V9SAM
+
+#
+#          C F L   R E C O G N I T I O N
+#
+
+#  This program takes strings from standard input and determines
+#  whether or not they are sentences in the language defined by <s>.
+
+procedure main()
+   local line;
+   while line := read() do
+      if recogn(s,line) then write("accepted") else write("rejected");
+end
+
+procedure recogn(goal,text)
+   return text ? (goal() & pos(0));
+end
+
+#  <s> ::= a <s> | <t> b | c
+
+procedure s()
+   suspend (="a" || s()) | (t() || ="b") | ="c";
+end
+
+#  <t> ::= d <s> d | e | f
+
+procedure t()
+   suspend (="d" || s() || ="d") | ="e" | ="f";
+end
+#--------------------------------------------------------------------- 52 record
+#SRC: JCON
+
+record simple(f)
+record rec(f1, f2)
+
+procedure main()
+   local a, b;
+
+   a := rec();
+   a.f1 := 1;
+   a.f2 := 2;
+   write(a.f1, " ", a.f2);
+   a := rec(3);
+   a.f2 := 4;
+   write(a.f1, " ", a.f2);
+   a := rec(5,6);
+   write(a.f1, " ", a.f2);
+   a.f1 := 7;
+   a.f2 := 8;
+   write(a.f1, " ", a.f2);
+   a := rec(9,10,11);
+   write(a.f1, " ", a.f2);
+   a := rec(11, 12);
+   every write(!a);
+   every !a := 13;
+   write(a.f2);
+
+   b := simple(14);
+   write(?b);
+   ?b := 15;
+   write(!b);
+
+   b := rec(3, 7);
+   every write(b[1 to 3]);
+   every write(b["f" || (1 to 3)]);
+
+   a := rec(1, 2);
+   b := rec(3, 4);
+   a.f1 +:= 10;
+   a.f2 +:= 20;
+   every !b +:= 70;
+   every writes(" ", !a | !b | "\n");
+end
+#---------------------------------------------------------------------- 53 right
+#SRC: JCON
+
+procedure main()
+
+   write(right("abc"));
+   write(right("def", ));
+   write(right("ghi", &null));
+   write(right("jkl", 2));
+   write(right("mno", 3));
+   write(right(237, 4));
+   write(right("stu", 5));
+   write(right("vwx", 6));
+
+   write(right("abc", 3, ));
+   write(right("def", , "."));
+   write(right("ghi", &null, "."));
+   write(right("jkl", 2, "."));
+   write(right("mno", 3, "."));
+   write(right(237, 4, "."));
+   write(right("stu", 5, "."));
+   write(right("vwx", 6, "."));
+
+   write(right("abc", 3, ));
+   write(right("def", , "<>"));
+   write(right("ghi", &null, "<>"));
+   write(right("jkl", 2, "<>"));
+   write(right("mno", 3, "<>"));
+   write(right(237, 4, "<>"));
+   write(right("stu", 5, "<>"));
+   write(right("vwx", 6, "<>"));
+end
+#---------------------------------------------------------------------- 54 roman
+#SRC: V9SAM
+
+#
+#          R O M A N   N U M E R A L S
+#
+
+#  This program takes Arabic numerals from standard input and writes
+#  the corresponding Roman numerals to standard outout.
+
+procedure main()
+   local n;
+   while n := read() do
+      write(roman(n) | "cannot convert");
+end
+
+procedure roman(n)
+   local arabic, result;
+   static equiv;
+   initial equiv := $<"","I","II","III","IV","V","VI","VII","VIII","IX"$>;
+   integer(n) > 0 | fail;
+   result := "";
+   every arabic := !n do
+      result := map(result,"IVXLCDM","XLCDM**") || equiv$<arabic+1$>;
+   if find("*",result) then fail else return result;
+end
+#----------------------------------------------------------------------- 55 scan
+#SRC: V9GEN
+
+record array(a,b,c,d,e,f,g)
+
+procedure p1()
+   write(" ----> ",image() | "none");
+   write("every write((\"badc\" | \"edgf\" | \"x\") ? write(upto(!&lcase))) ----> ",image(every write(("badc" | "edgf" | "x") ? write(upto(!&lcase)))) | "none");
+   write("every write(((\"aeiou\" | \"foobaz\") ? upto('dracula')) ? =(1 to 10)) ----> ",image(every write((("aeiou" | "foobaz") ? upto('dracula')) ? =(1 to 10))) | "none");
+   write("every write((1 to 10) ? move(1)) ----> ",image(every write((1 to 10) ? move(1))) | "none");
+   write("&subject := &pos ----> ",image(&subject := &pos) | "none");
+   write("&pos :=: &subject ----> ",image(&pos :=: &subject) | "none");
+   write("&pos ----> ",image(&pos) | "none");
+   write("&subject ----> ",image(&subject) | "none");
+   write("+1 ----> ",image(+1) | "none");
+   write("-1 ----> ",image(-1) | "none");
+end
+
+procedure p2()
+   write("?10 ----> ",image(?10) | "none");
+   write("?10 ----> ",image(?10) | "none");
+   write("?10 ----> ",image(?10) | "none");
+   write("~&cset ----> ",image(~&cset) | "none");
+   write("~&ascii ----> ",image(~&ascii) | "none");
+   write("&subject := string(&lcase) ----> ",image(&subject := string(&lcase)) | "none");
+   write("=\"a\" ----> ",image(="a") | "none");
+   write("=\"b\" ----> ",image(="b") | "none");
+   write("=\"d\" ----> ",image(="d") | "none");
+   write("&subject := string(&lcase) ----> ",image(&subject := string(&lcase)) | "none");
+end
+
+procedure p3()
+   write("while write(move(1)) ----> ",image(while write(move(1))) | "none");
+   write("&subject := string(&lcase) ----> ",image(&subject := string(&lcase)) | "none");
+   write("every write(tab(1 to 10)) ----> ",image(every write(tab(1 to 10))) | "none");
+   write("pos(0) ----> ",image(pos(0)) | "none");
+   write("pos(15) ----> ",image(pos(15)) | "none");
+   write("&subject := string(&lcase) ----> ",image(&subject := string(&lcase)) | "none");
+   write("pos(1) ----> ",image(pos(1)) | "none");
+   write("every write(\"abcdef\" ? tab(1 to 10)) ----> ",image(every write("abcdef" ? tab(1 to 10))) | "none");
+   write("every write(\"abcde\" ? while move(2) ? move(1)) ----> ",image(every write("abcde" ? while move(2) ? move(1))) | "none");
+   write("s := \"abcdef\" ----> ",image(s := "abcdef") | "none");
+   write("s ?:= move(3) ----> ",image(s ?:= move(3)) | "none");
+end
+
+procedure p4()
+   write("s := \"abcdef\" ----> ",image(s := "abcdef") | "none");
+   write("every write(s ?:= upto(&lcase)) ----> ",image(every write(s ?:= upto(&lcase))) | "none");
+   write("s := \"this is the time to work it all out\" ----> ",image(s := "this is the time to work it all out") | "none");
+   write("every write(s ? tab(find(\" \"))) ----> ",image(every write(s ? tab(find(" ")))) | "none");
+   write("s := \"xxxxxx\" ----> ",image(s := "xxxxxx") | "none");
+   write("every s ? write(=(\"a\" | \"x\")) ----> ",image(every s ? write(=("a" | "x"))) | "none");
+   write("\"abcdef\" ? (tab(0) & (while write(move(-1)))) ----> ",image("abcdef" ? (tab(0) & (while write(move(-1))))) | "none");
+end
+
+procedure main()
+   p1();
+   p2();
+   p3();
+   p4();
+end
+
+#---------------------------------------------------------------------- 56 scan1
+#SRC: JCON
+
+procedure main()
+   local skips, vowels, uppers;
+
+   write(any('ab', "1234ab", 0, 7) | "fail");
+   write(any('ab', "1234ab", 7, 0) | "fail");
+   write(any('ab', "1234ab", 6, 0) | "fail");
+   write(any('ab', "1234ab", 6) | "fail");
+   write(any('ab', "1234ab") | "fail");
+   "1234ab" ? write(any('ab', "1234ab") | "fail");
+   "1234ab" ? write(any('ab') | "fail");
+   "1234ab" ? { &pos := 6 & write(any('ab') | "fail") };
+   write();
+
+   write(many('ab', "ababac") | "fail");
+   write(many('ab', "ababab") | "fail");
+   write(many('ab', "cababab") | "fail");
+   write();
+
+   write(match("ab", "ababab") | "fail");
+   write(match("ab", "bbabab") | "fail");
+   write(match("ab", "ab") | "fail");
+   write(match("ab", "a") | "fail");
+   write();
+
+   every write(find("ab", "ababab"|"ababa"|"ab"|"a"|"") | "done");
+   write();
+
+   every write(upto('ab', "abccab"|"cbabc"|"ab"|"a"|"") | "done");
+   write();
+
+   "123456" ? write(move(1), " ", move(2));
+   "123456" ? { write(move(1)); write(move(2)); write(move(3));
+		write(move(4)); write(move(-4))};
+   write();
+
+   "123456" ? write(tab(1), " ", tab(2));
+   "123456" ? { write(tab(2)); write(tab(4)); write(tab(-1)); write(tab(0)); };
+   "123456" ? { write(tab(4)); write(tab(1)); write(tab(3)); };
+   write();
+
+   every write("-35" ? bal('-'));
+   every write("((2*x)+3)+(5*y)" ? bal('+'));
+   every write("[+,[2,3]],[*,[5,10]]" ? bal(',', '[', ']'));
+   write();
+
+   "12345" ? { write(pos(1)); write(pos(-5)); write(pos(3)|"fail"); };
+   write();
+
+   "12345" ? { write(="123" | "fail") };
+   "12345" ? { tab(2); write(="123" | "fail") };
+   "12345" ? { tab(2); write(="23" | "fail") };
+
+   # test upto, including some chars with 8th bit set
+   write();
+   skips := '\x00\x0f\x1e-<KZix\x87\x96\xa5\xb4\xc3\xd2\xe1\xf0\xff';
+   vowels := 'aeoiuAEIOU';
+   uppers := &cset -- &ascii;
+   &ascii ? {
+      every writes(" ", "ascii?skips" | upto(skips) | "\n");
+      every writes(" ", "ascii?vowls" | upto(vowels) | "\n")
+      };
+   &letters ? {
+      every writes(" ", "letts?skips" | upto(skips) | "\n");
+      every writes(" ", "letts?vowls" | upto(vowels) | "\n")
+      };
+   vowels ? {
+      every writes(" ", "vowls?skips" | upto(skips) | "\n");
+      every writes(" ", "vowls?letts" | upto(&letters) | "\n");
+      every writes(" ", "vowls?ascii" | upto(&ascii) | "\n")
+      };
+   skips ? {
+      every writes(" ", "skips?vowls" | upto(vowels) | "\n");
+      every writes(" ", "skips?letts" | upto(&letters) | "\n");
+      every writes(" ", "skips?ascii" | upto(&ascii) | "\n");
+      every writes(" ", "skips?upprs" | upto(uppers) | "\n");
+      every writes(" ", "skips?skips" | upto(skips) | "\n")
+      };
+   uppers ? {
+      every writes(" ", "upprs?ascii" | upto(&ascii) | "\n");
+      every writes(" ", "upprs?skips" | upto(skips) | "\n")
+      };
+end
+#---------------------------------------------------------------------- 57 scan2
+#SRC: JCON
+
+# test maintenance of scanning environments.
+
+procedure main()
+	write("simple");
+	"fghjkl" ? {
+		write(tab(3));
+		write(&pos);
+		write(tab(5))
+	};
+	write("nested");
+	"123456" ? {
+		write(tab(3));
+		"abcdef" ? {
+			write(tab(3));
+			write(&pos);
+			write(tab(5))
+		};
+		write(&pos);
+		write(tab(5))
+	};
+
+	write("break");
+	every write("98765" ? repeat break upto(&digits));
+
+	write("nested break");
+	every write("12345" ? repeat { "67890" ? { write(move(1)); break upto(&digits)}});
+	
+	write("next");
+	every write("98765" ? { every 1 do { "mnbv" ? next }; write(move(2))});
+
+	write("non-local");
+	"qwerty" ? {
+		every write(foo()) do write(move(1))
+	};
+
+	"abcdef" ? {
+	    write(&pos);
+	    every ="abc" do {
+	        write(&pos)
+	    };
+	    write(&pos)
+	};
+end
+
+procedure foo()
+	suspend move(1);
+	"zxc" ? suspend upto(&lcase);
+	suspend upto(&lcase);
+end
+#----------------------------------------------------------------------- 58 sets
+#SRC: JCON
+
+# set test
+
+procedure main()
+   local x, y, z;
+
+   wset("empty", x := set());
+   write(type(x));
+   write(image(?x));		# should fail
+   write(image(member(x)));	# should fail
+   wset("insert", insert(x));
+   write(image(?x));		# should write &null
+   write(image(member(x)));	# should write &null
+   write(image(member(x,3)));	# should write &null
+   wset("insert", insert(x));
+   wset("delete", delete(x));
+   wset("delete", delete(x));
+   write();
+
+   wset("x", x := set([1,2,4]));
+   wset("y", y := set([1,2,5]));
+   wset("x ++ y", x ++ y);
+   wset("y ++ x", y ++ x);
+   wset("x -- y", x -- y);
+   wset("y -- x", y -- x);
+   wset("x ** y", x ** y);
+   wset("y ** x", y ** x);
+   write();
+
+   wset("empty", x := set(&null));
+   wset("+ 1", insert(x, 1,4,7));	# only inserts 1
+   wset("+ 2", insert(x, 2));
+   wset("+ c", insert(x, "c"));
+   wset("- 3", delete(x, 3));		# deletes nothing
+   wset("- 1", delete(x, 1, 2));		# only deletes 1
+   wset("- 1", delete(x, 1));
+   wset("+ 2", insert(x, 2));
+   wset("+ 1", insert(x, 1));
+   wset("+ 7.0", insert(x, 7.0));
+   wset("+ 7.0", insert(x, 7.0));
+   wset("+ 'cs'", insert(x, 'cs'));
+   wset("+ 'cs'", insert(x, 'cs'));
+   wset("x =", x);
+   write();
+
+   wset("3,a,4", y := set([3,"a",4]));
+   wset("y ++ x", y ++ x);
+   wset("y ** x", y ** x);
+   wset("y -- x", y -- x);
+   wset("x -- y", x -- y);
+   write();
+
+   every insert(z := set(), !y);
+   wset("z from !y", z);
+
+   write();
+   x := set([3,1,4,1,5,9,2,6,5,3,5]);
+   y := copy(x);
+   delete(x, 4);
+   insert(x, 7);
+   insert(y, 0);
+   delete(y, 1);
+   wset("x", x);
+   wset("y", y);
+end
+
+
+
+#  dump a set, assuming it contains nothing other than:
+#	&null, 0 - 9, 0.0 - 9.0, "", "a" - "e", '', 'cs'
+
+procedure wset(label, S)
+   local x;
+
+   writes(right(label, 10), " :", right(*S, 2), " :");
+   every x := &null | (0 to 9) | 0.0+(0 to 9) | "" | !"abcde" | '' | 'cs' do
+      writes(" ", image(member(S, x)));
+   write();
+   return;
+end
+#---------------------------------------------------------------------- 59 sieve
+#SRC: V9SAM
+
+#
+#          S I E V E   O F   E R A T O S T H E N E S
+#
+
+#  This program illustrates the use of sets in implementing the
+#  classical sieve algorithm for computing prime numbers.
+
+procedure main(args)
+   local limit, s, i, primes;
+   limit := integer(args[1]) | 1000;
+   s := set();
+   every insert(s,1 to limit);
+   every member(s,i := 2 to limit) do
+      every delete(s,i + i to limit by i);
+   delete(s,1);
+   write("There are ",*s," primes in the first ",limit," integers.");
+   # primes := sort(s)
+   # write("The primes are:")
+   # every write(right(!primes,*limit + 1))
+end
+#-------------------------------------------------------------------- 60 sorting
+#SRC: JCON
+
+# test sorting and copying
+
+procedure main(args)
+   listtest();
+   rectest();
+   tbltest();
+   copytest();
+   messtest();
+end
+
+
+
+#  listtest() -- test sorting of lists and sets
+
+procedure listtest()
+   local n, x, S, L1, L2, L3;
+
+   every n := (0 to 10) | 23 | 47 | 91 do {
+
+      write(n, ":");
+      S := set();
+      while *S < n do
+         insert(S, randval());
+
+      L1 := list();
+      every put (L1, !S);
+
+      L2 := sort(L1);
+      L3 := sort(set(L1));
+
+      check(L2, L3);
+
+      L2 := sort(copy(L1));
+      L3 := sort(copy(set(L1)));
+      check(L2, L3)
+
+   };
+end
+
+
+#  rectest() -- test sorting of records
+
+record r0()
+record r1(a)
+record r2(a,b)
+record r5(a,b,c,d,e)
+
+procedure rectest()
+   write();
+   wlist(sort(r0()));
+   wlist(sort(copy(r0()),));
+   wlist(sort(r1(12)));
+   wlist(sort(r2(5,2)));
+   wlist(sort(r5(2,7,1,8,3)));
+   wlist(sort(r5(3,1,4,1,6)));
+   wlist(sort(r5("t","e","p","a","d")));
+   wlist(sort(copy(r5("t","e","p","a","d"))));
+   return;
+end
+
+
+
+#  tbltest() -- test sorting of tables
+
+procedure tbltest()
+   local T, L;
+
+   T := table();
+   T[7] := "h";
+   T[2] := "a";
+   T[8] := "r";
+   T[0] := "e";
+   T[3] := "o";
+   T[6] := "s";
+   T[5] := "n";
+   T[1] := "t";
+   T[4] := "i";
+   T[9] := "d";
+
+   write();
+   L := sort(T);    every writes(" ", *L | !!L | "\n");
+   L := sort(T, 1); every writes(" ", *L | !!L | "\n");
+   L := sort(T, 2); every writes(" ", *L | !!L | "\n");
+   L := sort(T, 3); every writes(" ", *L |  !L | "\n");
+   L := sort(T, 4); every writes(" ", *L |  !L | "\n");
+
+   T := copy(T);
+   L := sort(T);    every writes(" ", *L | !!L | "\n");
+   L := sort(T, 1); every writes(" ", *L | !!L | "\n");
+   L := sort(T, 2); every writes(" ", *L | !!L | "\n");
+   L := sort(T, 3); every writes(" ", *L |  !L | "\n");
+   L := sort(T, 4); every writes(" ", *L |  !L | "\n");
+   return;
+end
+
+
+
+#  randval() -- return random integer, real, string, or cset value
+
+procedure randval()
+   return case ?4 of {
+      1:  ?999;					# 000 - 999
+      2:  ?99 / 10.0;				# 0.0 - 9.9
+      3:  ?&letters || ?&letters || ?&letters;	# "AAA" - "ZZZ"
+      4:  ?&digits ++ ?&letters ++ ?&letters	# '0AA' - '9ZZ'
+      };
+end
+
+
+#  check that two lists have identical components
+#  and that they are in ascending order
+
+procedure check(a, b)
+   local i, ai, ai1, bi, d;
+
+   if *a ~= *b then
+      stop("different sizes: ", image(a), " / ", image(b));
+   every i := 1 to *a do {
+      ai := a[i];
+      bi := b[i];
+      ai1 := a[i-1] | &null;
+      if ai ~=== bi then
+         stop("element ", i, " differs");
+      if type(ai) === type(ai1) then {
+         case type(ai) of {
+	    "integer":	d := (ai1 > ai) | &null;
+	    "real":	d := (ai1 > ai) | &null;
+	    "string":	d := (ai1 >> ai) | &null
+	    };
+	 stop("element ", i, " out of order: ", image(\d))
+         }
+      };
+   return;
+end
+
+
+#  write list
+
+procedure wlist(L)
+   writes(*L, ":");
+   every writes(right(!L, 4) | "\n");
+   return;
+end
+
+
+
+#  test copy(), especially that copies are really distinct
+
+procedure copytest()
+   local L1, L2, S1, S2, T1, T2, R1, R2;
+
+   write();
+
+   L1 := [1,2,3];
+   push(L1, L1);
+   L2 := copy(L1);
+   pull(L2);
+   put(L2, 4);
+   every writes(" ", "L1:" | image(!L1) | "\n");
+   every writes(" ", "L2:" | image(!L2) | "\n");
+
+   S1 := set([1,2,3]);
+   insert(S1, S1);
+   S2 := copy(S1);
+   delete(S2, 2);
+   insert(S2, 5);
+   every writes(" ", "S1:" | image(!sort(S1)) | "\n");
+   every writes(" ", "S2:" | image(!sort(S2)) | "\n");
+
+   T1 := table();
+   T1[2] := "j";
+   T1[5] := "c";
+   T1[8] := "n";
+   T1[15] := T1;
+   T2 := copy(T1);
+   delete(T2, 5);
+   insert(T2, 11, "t");
+   every writes(" ", "T1:" | image(!sort(T1,3)) | "\n");
+   every writes(" ", "T2:" | image(!sort(T2,3)) | "\n");
+
+   R1 := r5(1,3,5,7,9);
+   R2 := copy(R1);
+   R1.b := 4;
+   R2.d := 6;
+   every writes(" ", "R1:" | image(R1) | image(!sort(R1)) | "\n");
+   every writes(" ", "R2:" | image(R2) | image(!sort(R2)) | "\n");
+
+   return;
+end
+
+
+
+#  sort different types together
+
+procedure messtest()
+   local L1, L2, L3;
+
+   write();
+   L1 := [
+      '', '0cs', 4.4, set(), 2.2, "a", &null, integer, wlist, "epsilons",
+      r0, "delta", push, "beta", table(5), [], write, '123cs', [3,4], -3^41,
+      image, insert(table(3),4,7), &input, 3.3, reverse, r1(1), [], table(4),
+      r5, r5(1,23), &null, create 1 | 2, 5.5, set([5,6]), "", r2(5,6), -7^23,
+      "epsilon", [1,2,3], r5(7,8,9), r2, &output, 4, , set([0,1,2]), 1,
+      r5(1,2,3), r1, check, create 3 | 4, serial, 'XYZcs', 1.1, r1(5), 5^28,
+      '1234cs', 5, r0(), read, "gamma", r5(4,5,6,7,8), 2, create 5 to 7,
+      table, r2(1,2), right, r0(), "alpha", messtest, &errout, 11^19,
+      listtest, "gamma", main, 3];
+   put(L1, L1);
+   L2 := copy(L1);
+   every put(L1, copy(!L2));
+
+   write();
+   every write(image(!sort(L1)));
+
+   wsortf(L1, 2);
+   wsortf(L1, -1);
+   return;
+end
+
+procedure wsortf(L, n)
+   local e, s;
+
+   write();
+   every e := !sortf(L,n) do {
+      s := image(e);
+      if (s ? =("list" | "record")) & not (s ?= "record constructor") then
+         writes("key=", image(e[n]), " ");	# may fail
+      write(s)
+      };
+   return;
+end
+#-------------------------------------------------------------------- 61 statics
+#SRC: JCON
+
+procedure main()
+	foo();
+	foo();
+	p();
+	p();
+end
+
+procedure foo()
+	static a;
+
+	write(image(a));
+	a := 1;
+end
+
+
+procedure p()
+   static c;
+   initial c := 0;
+
+   c +:= 1;
+
+   write(c);
+
+end
+#--------------------------------------------------------------------- 62 string
+#SRC: V9GEN
+
+record array(a,b,c,d,e,f,g)
+
+procedure p1()
+   write(" ----> ",image() | "none");
+   write("s := \"abcd\" ----> ",image(s := "abcd") | "none");
+   write("s := \"x\" ----> ",image(s := "x") | "none");
+   write("s ||:= \"x\" ----> ",image(s ||:= "x") | "none");
+   write("s ----> ",image(s) | "none");
+   write("s := \"x\" ----> ",image(s := "x") | "none");
+   write("s ||:= \"xx\" ----> ",image(s ||:= "xx") | "none");
+   write("s ----> ",image(s) | "none");
+   write("s := \"x\" ----> ",image(s := "x") | "none");
+   write("s ||:= \"X\" ----> ",image(s ||:= "X") | "none");
+   write("s ----> ",image(s) | "none");
+end
+
+procedure p2()
+   write("s := \"x\" ----> ",image(s := "x") | "none");
+   write("s ||:= \"abc\" ----> ",image(s ||:= "abc") | "none");
+   write("s ----> ",image(s) | "none");
+   write("s := \"x\" ----> ",image(s := "x") | "none");
+   write("s ==:= \"x\" ----> ",image(s ==:= "x") | "none");
+   write("s ----> ",image(s) | "none");
+   write("s := \"x\" ----> ",image(s := "x") | "none");
+   write("s ==:= \"xx\" ----> ",image(s ==:= "xx") | "none");
+   write("s ----> ",image(s) | "none");
+   write("s := \"x\" ----> ",image(s := "x") | "none");
+   write("s ==:= \"X\" ----> ",image(s ==:= "X") | "none");
+end
+
+procedure p3()
+   write("s ----> ",image(s) | "none");
+   write("s := \"x\" ----> ",image(s := "x") | "none");
+   write("s ==:= \"abc\" ----> ",image(s ==:= "abc") | "none");
+   write("s ----> ",image(s) | "none");
+   write("{s[1:2] := \"xx\";s} ----> ",image({s[1:2] := "xx";s}) | "none");
+   write("{s[-1:0] := \"\";s} ----> ",image({s[-1:0] := "";s}) | "none");
+   write("{s[1] := \"abc\";s} ----> ",image({s[1] := "abc";s}) | "none");
+   write("{s[1+:2] := \"y\";s} ----> ",image({s[1+:2] := "y";s}) | "none");
+   write("{s[2] :=: s[3];s} ----> ",image({s[2] :=: s[3];s}) | "none");
+   write("s[6] := \"t\" ----> ",image(s[6] := "t") | "none");
+   write("s[0-:6] := \"u\" ----> ",image(s[0-:6] := "u") | "none");
+end
+
+procedure p4()
+   write("{s[1:0] :=: s[0:1];s} ----> ",image({s[1:0] :=: s[0:1];s}) | "none");
+   write("\"x\" << \"x\" ----> ",image("x" << "x") | "none");
+   write("\"x\" << \"X\" ----> ",image("x" << "X") | "none");
+   write("\"X\" << \"x\" ----> ",image("X" << "x") | "none");
+   write("\"xx\" <<= \"xx\" ----> ",image("xx" <<= "xx") | "none");
+   write("\"xxx\" <<= \"xx\" ----> ",image("xxx" <<= "xx") | "none");
+   write("\"xx\" <<= \"xxx\" ----> ",image("xx" <<= "xxx") | "none");
+   write("\"x\" >>= \"x\" ----> ",image("x" >>= "x") | "none");
+   write("\"x\" >>= \"xx\" ----> ",image("x" >>= "xx") | "none");
+   write("\"xx\" >>= \"x\" ----> ",image("xx" >>= "x") | "none");
+   write("\"x\" >> \"x\" ----> ",image("x" >> "x") | "none");
+end
+
+procedure p5()
+   write("\"x\" >> \"X\" ----> ",image("x" >> "X") | "none");
+   write("\"X\" >> \"x\" ----> ",image("X" >> "x") | "none");
+   write("\"x\" == \"x\" ----> ",image("x" == "x") | "none");
+   write("\"x\" == \"X\" ----> ",image("x" == "X") | "none");
+   write("\"X\" == \"x\" ----> ",image("X" == "x") | "none");
+   write("\"x\" ~== \"x\" ----> ",image("x" ~== "x") | "none");
+   write("\"x\" ~== \"X\" ----> ",image("x" ~== "X") | "none");
+   write("\"X\" ~== \"x\" ----> ",image("X" ~== "x") | "none");
+   write("every i := 1 to 9 do write(integer(repl(\"2\",i))) ----> ",image(every i := 1 to 9 do write(integer(repl("2",i)))) | "none");
+   write("every i := 1 to 9 do write(repl(\"2\",i) + 1) ----> ",image(every i := 1 to 9 do write(repl("2",i) + 1)) | "none");
+end
+
+procedure p6()
+   write("every i := 1 to 30 do write(integer(repl(\"0\",i) || \"2\")) ----> ",image(every i := 1 to 30 do write(integer(repl("0",i) || "2"))) | "none");
+   write("every i := 1 to 30 do write((repl(\"0\",i) || \"2\") + 1) ----> ",image(every i := 1 to 30 do write((repl("0",i) || "2") + 1)) | "none");
+   write("c1 := 'abcde' ----> ",image(c1 := 'abcde') | "none");
+   write("c2 := 'aeuoi' ----> ",image(c2 := 'aeuoi') | "none");
+   write("c1 ++ c2 ----> ",image(c1 ++ c2) | "none");
+   write("c1 -- c2 ----> ",image(c1 -- c2) | "none");
+   write("c1 ** c2 ----> ",image(c1 ** c2) | "none");
+   write("2 ~=== +2 ----> ",image(2 ~=== +2) | "none");
+   write("3 ~=== *\"abc\" ----> ",image(3 ~=== *"abc") | "none");
+end
+
+procedure p7()
+   write("'abc' ~=== ('abc' ++ '') ----> ",image('abc' ~=== ('abc' ++ '')) | "none");
+   write("any('aeiou',&lcase) ----> ",image(any('aeiou',&lcase)) | "none");
+   write("any('aeiou',&ucase) ----> ",image(any('aeiou',&ucase)) | "none");
+   write("every write(any('aeiou',&lcase,1 to 15,10 to 20)) ----> ",image(every write(any('aeiou',&lcase,1 to 15,10 to 20))) | "none");
+   write("match(\"abc\",\"abcabcabcabc\") ----> ",image(match("abc","abcabcabcabc")) | "none");
+   write("match(\"abc\",\"xabcabcabcabc\") ----> ",image(match("abc","xabcabcabcabc")) | "none");
+   write("every write(match(\"abc\",\"xabcabcabcabc\",1 to 10,1 to 10)) ----> ",image(every write(match("abc","xabcabcabcabc",1 to 10,1 to 10))) | "none");
+   write("upto('56d&',&lcase) ----> ",image(upto('56d&',&lcase)) | "none");
+   write("upto('56d&',&ucase) ----> ",image(upto('56d&',&ucase)) | "none");
+   write("upto('56d&',&lcase,15) ----> ",image(upto('56d&',&lcase,15)) | "none");
+   write("many(&lcase,\"this is a Test\") ----> ",image(many(&lcase,"this is a Test")) | "none");
+end
+
+procedure p8()
+   write("many(&lcase,\"this is a Test\",5) ----> ",image(many(&lcase,"this is a Test",5)) | "none");
+   write("many(&lcase,\"this is a Test\",5,9) ----> ",image(many(&lcase,"this is a Test",5,9)) | "none");
+   write("find(\"aa\",\"xxaaaaaa\") ----> ",image(find("aa","xxaaaaaa")) | "none");
+   write("every write(find(\"aa\",\"xxaaaaaa\")) ----> ",image(every write(find("aa","xxaaaaaa"))) | "none");
+   write("every write(find(\"aa\",\"xxaaaaaa\",4,7)) ----> ",image(every write(find("aa","xxaaaaaa",4,7))) | "none");
+   write("bal('-','(',')',\"-35\") ----> ",image(bal('-','(',')',"-35")) | "none");
+   write("bal('+','(',')',\"((2*x)+3)+(5*y)\") ----> ",image(bal('+','(',')',"((2*x)+3)+(5*y)")) | "none");
+   write("every write(bal('+','(',')',\"((2*x)+3)+(5*y)\",1 to 10)) ----> ",image(every write(bal('+','(',')',"((2*x)+3)+(5*y)",1 to 10))) | "none");
+   write("bal('+','[','[',\"[[2*x[+3[+[5*y[\") ----> ",image(bal('+','[','[',"[[2*x[+3[+[5*y[")) | "none");
+   write("bal('+','([','])',\"([2*x)+3]+(5*y]\") ----> ",image(bal('+','([','])',"([2*x)+3]+(5*y]")) | "none");
+   write("bal(,,,\"()+()\") ----> ",image(bal(,,,"()+()")) | "none");
+end
+
+procedure p9()
+   write("bal(&cset,,,\"()+()\") ----> ",image(bal(&cset,,,"()+()")) | "none");
+end
+
+procedure main()
+   p1();
+   p2();
+   p3();
+   p4();
+   p5();
+   p6();
+   p7();
+   p8();
+   p9();
+end
+
+global s
+
+#-------------------------------------------------------------------- 63 string1
+#SRC: JCON
+
+# string test -- including operations on string *constants*
+
+procedure main()
+   local s, t;
+
+   s := "abcde";
+   write("type ", type(s));
+   write("*s  ", *s);
+   write("s:  ", s);
+   write("s:  ", image(s));
+   every writes("!:  " | !s | "\n");
+   every writes("1:  " | s[1 to 5] | "\n");
+   every writes("0:  " | s[0 to 7] | "\n");
+   every writes("-5: " | s[-5 to -1] | "\n");
+   every writes("-7: " | s[-7 to -0] | "\n");
+
+   write("s1: ", s[1:6]);
+   write("s2: ", s[1+:5]);
+   write("s3: ", s[1-:-5]);
+   write("s4: ", s[1:0]);
+   write("s5: ", s[-5:0]);
+   write("s6: ", s[6:1]);
+   write("s7: ", s[0:-5]);
+   write("s8: ", s[2:4]);
+   write("s9: ", s[-2:-4]);
+
+   write("k1: ","ABCDE"[1:6]);
+   write("k2: ","ABCDE"[1+:5]);
+   write("k3: ","ABCDE"[1-:-5]);
+   write("k4: ","ABCDE"[1:0]);
+   write("k5: ","ABCDE"[-5:0]);
+   write("k6: ","ABCDE"[6:1]);
+   write("k7: ","ABCDE"[0:-5]);
+   write("k8: ","ABCDE"[2:4]);
+   write("k9: ","ABCDE"[-2:-4]);
+
+   t := "abc" || "de";
+   write("t:  ", image(t));
+   (s === t) | write("not ===");
+   (s ~=== t) & write("are ~===");
+
+   write("?x:  ", ?"x");
+   write("?y:  ", ?"yyyyyyyyyyy");
+   write("?z:  ", ?"" | "nope");	# should "nope"
+
+   write("c1: ", image("" || ""));
+   write("c2: ", image("a" || ""));
+   write("c3: ", image("" || "b"));
+   write("c4: ", image("cd" || "ef"));
+   write("c5: ", image(3.14 || 159));
+   write("c6: ", image('abc' || 'def'));
+end
+#--------------------------------------------------------------------- 64 struct
+#SRC: V9GEN
+
+record array(a,b,c,d,e,f,g)
+
+procedure p1()
+   write(" ----> ",image() | "none");
+   write("list(0) ----> ",image(list(0)) | "none");
+   write("list(0,1) ----> ",image(list(0,1)) | "none");
+   write("list(1,1) ----> ",image(list(1,1)) | "none");
+   write("list(100,\"a\") ----> ",image(list(100,"a")) | "none");
+   write("table() ----> ",image(table()) | "none");
+   write("table(0) ----> ",image(table(0)) | "none");
+   write("a := [] ----> ",image(a := []) | "none");
+   write("every put(a,!&lcase) ----> ",image(every put(a,!&lcase)) | "none");
+   write("a1 := sort(a) ----> ",image(a1 := sort(a)) | "none");
+   write("every write(!a1) ----> ",image(every write(!a1)) | "none");
+end
+
+procedure p2()
+   write("sort(a1) ----> ",image(sort(a1)) | "none");
+   write("t := table() ----> ",image(t := table()) | "none");
+   write("every t[!&lcase] := 1 ----> ",image(every t[!&lcase] := 1) | "none");
+   write("sort(t) ----> ",image(sort(t)) | "none");
+   write("a := sort(t) ----> ",image(a := sort(t)) | "none");
+   write("every write((!a)[1]) ----> ",image(every write((!a)[1])) | "none");
+   write("every write((!a)[2]) ----> ",image(every write((!a)[2])) | "none");
+   write("set([1,0,1,0,1,0,1,0]) ----> ",image(set([1,0,1,0,1,0,1,0])) | "none");
+   write("set([]) ----> ",image(set([])) | "none");
+   write("s := set([1,2,3,4,5,6,7,8,9,10]) ----> ",image(s := set([1,2,3,4,5,6,7,8,9,10])) | "none");
+   write("*s ----> ",image(*s) | "none");
+end
+
+procedure p3()
+   write("every write(!sort(s)) ----> ",image(every write(!sort(s))) | "none");
+   write("*copy(s) ----> ",image(*copy(s)) | "none");
+   write("image(s) ----> ",image(image(s)) | "none");
+   write("type(s) ----> ",image(type(s)) | "none");
+   write("member(s,8) ----> ",image(member(s,8)) | "none");
+   write("member(s,\"8\") ----> ",image(member(s,"8")) | "none");
+   write("s := set([]) ----> ",image(s := set([])) | "none");
+   write("every insert(s,1 to 100) ----> ",image(every insert(s,1 to 100)) | "none");
+   write("*s ----> ",image(*s) | "none");
+   write("every delete(s,15 to 30) ----> ",image(every delete(s,15 to 30)) | "none");
+   write("*s ----> ",image(*s) | "none");
+end
+
+procedure p4()
+   write("every s1 := insert(set([]),!&lcase) ----> ",image(every s1 := insert(set([]),!&lcase)) | "none");
+   write("s2 := set([\"a\",\"aa\",\"ab\",\"b\",1,2,3,4]) ----> ",image(s2 := set(["a","aa","ab","b",1,2,3,4])) | "none");
+   write("s3 := s1 ++ s2 ----> ",image(s3 := s1 ++ s2) | "none");
+   write("s4 := s1 ** s2 ----> ",image(s4 := s1 ** s2) | "none");
+   write("s5 := s1 -- s2 ----> ",image(s5 := s1 -- s2) | "none");
+   write("*s3 ----> ",image(*s3) | "none");
+   write("*s4 ----> ",image(*s4) | "none");
+   write("*s5 ----> ",image(*s5) | "none");
+   write("t := table() ----> ",image(t := table()) | "none");
+   write("every t[1 | &output | &cset | [] | \"hello\" | main | 2 | table()] := ?100 ----> ",image(every t[1 | &output | &cset | [] | "hello" | main | 2 | table()] := ?100) | "none");
+   write("a := sort(t,3) ----> ",image(a := sort(t,3)) | "none");
+end
+
+procedure p5()
+   write("every i := 1 to *a - 1 by 2 do write(image(a[i]),\" \",a[i + 1]) ----> ",image(every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1])) | "none");
+   write("a := sort(t,4) ----> ",image(a := sort(t,4)) | "none");
+   write("every i := 1 to *a - 1 by 2 do write(image(a[i]),\" \",a[i + 1]) ----> ",image(every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1])) | "none");
+   write("t := table() ----> ",image(t := table()) | "none");
+   write("every t[1 | &output | &cset | [] | \"hello\" | main | 2 | table()] := ?100 ----> ",image(every t[1 | &output | &cset | [] | "hello" | main | 2 | table()] := ?100) | "none");
+   write("a := sort(t,3) ----> ",image(a := sort(t,3)) | "none");
+   write("every i := 1 to *a - 1 by 2 do write(image(a[i]),\" \",a[i + 1]) ----> ",image(every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1])) | "none");
+   write("a := sort(t,4) ----> ",image(a := sort(t,4)) | "none");
+   write("every i := 1 to *a - 1 by 2 do write(image(a[i]),\" \",a[i + 1]) ----> ",image(every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1])) | "none");
+   write("x := [array(),table(),write,[],&input,1,\"abc\",'aa',&null] ----> ",image(x := [array(),table(),write,[],&input,1,"abc",'aa',&null]) | "none");
+   write("x := sort(x) ----> ",image(x := sort(x)) | "none");
+end
+
+procedure p6()
+   write("every write(image(!x)) ----> ",image(every write(image(!x))) | "none");
+   write("t := table(table()) ----> ",image(t := table(table())) | "none");
+   write("every t[1 to 10] := 1 do write(image(t)) ----> ",image(every t[1 to 10] := 1 do write(image(t))) | "none");
+   write("t := table() ----> ",image(t := table()) | "none");
+   write("every t[1 to 10] := 1 do write(*t) ----> ",image(every t[1 to 10] := 1 do write(*t)) | "none");
+   write("t[] := 6 ----> ",image(t[] := 6) | "none");
+   write("t[] ----> ",image(t[]) | "none");
+   write("*t ----> ",image(*t) | "none");
+   write("t[&null] := 7 ----> ",image(t[&null] := 7) | "none");
+   write("t[] ----> ",image(t[]) | "none");
+   write("*t ----> ",image(*t) | "none");
+end
+
+procedure p7()
+   write("x := [] ----> ",image(x := []) | "none");
+   write("*x ----> ",image(*x) | "none");
+   write("every push(x,1 to 10) ----> ",image(every push(x,1 to 10)) | "none");
+   write("every 1 to 10 do write(pop(x)) ----> ",image(every 1 to 10 do write(pop(x))) | "none");
+   write("*x ----> ",image(*x) | "none");
+   write("pop(x) ----> ",image(pop(x)) | "none");
+   write("pull(x) ----> ",image(pull(x)) | "none");
+   write("get(x) ----> ",image(get(x)) | "none");
+   write("every put(x,1 to 10) ----> ",image(every put(x,1 to 10)) | "none");
+   write("every 1 to 10 do write(get(x)) ----> ",image(every 1 to 10 do write(get(x))) | "none");
+   write("every push(x,1 to 10) ----> ",image(every push(x,1 to 10)) | "none");
+end
+
+procedure p8()
+   write("every 1 to 10 do write(pull(x)) ----> ",image(every 1 to 10 do write(pull(x))) | "none");
+   write("x := [1,2,3,4,5,6,7,8,9,0] ----> ",image(x := [1,2,3,4,5,6,7,8,9,0]) | "none");
+   write("every write(image(x[1:0 to -20 by -1])) ----> ",image(every write(image(x[1:0 to -20 by -1]))) | "none");
+   write("a := [1,2,3,4,5,6,7,8] ----> ",image(a := [1,2,3,4,5,6,7,8]) | "none");
+   write("a1 := a[2:4] ----> ",image(a1 := a[2:4]) | "none");
+   write("a2 := a[7:2] ----> ",image(a2 := a[7:2]) | "none");
+   write("a3 := a[2+:3] ----> ",image(a3 := a[2+:3]) | "none");
+   write("a4 := a[-1-:3] ----> ",image(a4 := a[-1-:3]) | "none");
+   write("a1[1] ----> ",image(a1[1]) | "none");
+   write("a2[1] ----> ",image(a2[1]) | "none");
+   write("a3[1] ----> ",image(a3[1]) | "none");
+end
+
+procedure p9()
+   write("a4[1] ----> ",image(a4[1]) | "none");
+   write("a4[1] := a ----> ",image(a4[1] := a) | "none");
+   write("a := [1,2,3,4] ----> ",image(a := [1,2,3,4]) | "none");
+   write("a1 := a[1:2] ----> ",image(a1 := a[1:2]) | "none");
+   write("every write(!a1) ----> ",image(every write(!a1)) | "none");
+   write("a2 := a[3:0] ----> ",image(a2 := a[3:0]) | "none");
+   write("every write(!a2) ----> ",image(every write(!a2)) | "none");
+   write("a4 := a[2:2] ----> ",image(a4 := a[2:2]) | "none");
+   write("every write(!a4) ----> ",image(every write(!a4)) | "none");
+   write("a5 := a[0-:2] ----> ",image(a5 := a[0-:2]) | "none");
+   write("every write(!a5) ----> ",image(every write(!a5)) | "none");
+end
+
+procedure p10()
+   write("a3 := a[0:3] ----> ",image(a3 := a[0:3]) | "none");
+   write("every write(!a3) ----> ",image(every write(!a3)) | "none");
+   write("a := \"abcd\" ----> ",image(a := "abcd") | "none");
+   write("a1 := a[1:2] ----> ",image(a1 := a[1:2]) | "none");
+   write("every write(!a1) ----> ",image(every write(!a1)) | "none");
+   write("a2 := a[3:0] ----> ",image(a2 := a[3:0]) | "none");
+   write("every write(!a2) ----> ",image(every write(!a2)) | "none");
+   write("a3 := a[0:3] ----> ",image(a3 := a[0:3]) | "none");
+   write("every write(!a3) ----> ",image(every write(!a3)) | "none");
+   write("a4 := a[2:2] ----> ",image(a4 := a[2:2]) | "none");
+   write("every write(!a4) ----> ",image(every write(!a4)) | "none");
+end
+
+procedure p11()
+   write("a5 := a[0-:2] ----> ",image(a5 := a[0-:2]) | "none");
+   write("every write(!a5) ----> ",image(every write(!a5)) | "none");
+   write("[] ||| [] ----> ",image([] ||| []) | "none");
+   write("[1,2,3] ||| [] ----> ",image([1,2,3] ||| []) | "none");
+   write("[] ||| [1,2,3] ----> ",image([] ||| [1,2,3]) | "none");
+   write("r := array(1,2,3,4,5,6,7,8,9) ----> ",image(r := array(1,2,3,4,5,6,7,8,9)) | "none");
+   write("r.a ----> ",image(r.a) | "none");
+   write("r.b ----> ",image(r.b) | "none");
+   write("r.c ----> ",image(r.c) | "none");
+   write("r.d ----> ",image(r.d) | "none");
+   write("r.e ----> ",image(r.e) | "none");
+end
+
+procedure p12()
+   write("r.f ----> ",image(r.f) | "none");
+   write("type(r) ----> ",image(type(r)) | "none");
+   write("image(r) ----> ",image(image(r)) | "none");
+   write("r.a +:= 0 ----> ",image(r.a +:= 0) | "none");
+   write("r.b +:= 0 ----> ",image(r.b +:= 0) | "none");
+   write("r.c +:= 0 ----> ",image(r.c +:= 0) | "none");
+   write("r.d +:= 0 ----> ",image(r.d +:= 0) | "none");
+   write("r.e +:= 0 ----> ",image(r.e +:= 0) | "none");
+   write("r.f +:= 0 ----> ",image(r.f +:= 0) | "none");
+   write("r.a ----> ",image(r.a) | "none");
+   write("r.b ----> ",image(r.b) | "none");
+end
+
+procedure p13()
+   write("r.c ----> ",image(r.c) | "none");
+   write("r.d ----> ",image(r.d) | "none");
+   write("r.e ----> ",image(r.e) | "none");
+   write("r.f ----> ",image(r.f) | "none");
+   write("r := array(\"a\",2,array(),r,main) ----> ",image(r := array("a",2,3.5,array(),r,main)) | "none");
+   write("every write(image(!r)) ----> ",image(every write(image(!r))) | "none");
+   write("r[1] :=: r.d ----> ",image(r[1] :=: r.d) | "none");
+   write("every write(image(!r)) ----> ",image(every write(image(!r))) | "none");
+   # test that overflow is not ignored when comparing integers
+   a := [847198497, -2035912587];
+   every writes(" ", "a:" | !sort(a) | "\n");
+end
+
+procedure main()
+   p1();
+   p2();
+   p3();
+   p4();
+   p5();
+   p6();
+   p7();
+   p8();
+   p9();
+   p10();
+   p11();
+   p12();
+   p13();
+end
+
+global s, t, x, r
+global a, a1, a2, a3, a4
+#-------------------------------------------------------------------- 65 subjpos
+#SRC: JCON
+
+procedure main()
+   local i, s, x;
+
+   ws();		# dump initial state
+   write();
+
+   every setsubj(s := "cat" | "" | "donut" | "x") do
+      every i := -*s-2 to *s+3 do
+         setpos(i);
+   write();
+
+   "outer" ? {
+      ws();
+      &pos := 3;
+      ws();
+      "inner" ? {
+         ws();
+         &pos := 2;
+         ws()
+         };
+      ws()
+      };
+
+   "123456" ? {
+      &pos := 3;
+      x := 4;
+      write("&pos=", &pos, " x=", x);
+      &pos :=: x;
+      write("&pos=", &pos, " x=", x);
+      &pos := 3;
+      x := 9;
+      &pos :=: x;
+      write("&pos=", &pos, " x=", x);
+      &pos := 3;
+      x := 9;
+      x :=: &pos;
+      write("&pos=", &pos, " x=", x);
+      &pos := 3;
+      x := 9;
+      every &pos <-> x do write("&pos=", &pos, " x=", x);
+      write("&pos=", &pos, " x=", x);
+      &pos := 3;
+      x := 9;
+      every x <-> &pos do write("&pos=", &pos, " x=", x);
+      write("&pos=", &pos, " x=", x);
+      &pos := 3;
+      x := 2;
+      every &pos <-> x do &subject := "A";
+      write("&pos=", &pos, " x=", x);
+      &pos := 3;
+      x := 2;
+      every x <-> &pos do &subject := "A";
+      write("&pos=", &pos, " x=", x)
+   };
+end
+
+procedure setpos(n)
+   writes("p := ", right(image(n),10));
+   if &pos := n then
+      writes("       ")
+   else
+      writes(" FAILED");
+   ws();
+   return;
+end
+
+procedure setsubj(s)
+   writes("s := ", right(image(s),10));
+   if &subject := s then
+      writes("       ")
+   else
+      writes(" FAILED");
+   ws();
+   return;
+end
+
+procedure ws();	# write state of &setpos and &subject
+   write("  &pos=", image(&pos), "   &subject=", image(&subject));
+   return;
+end
+#------------------------------------------------------------------ 66 substring
+#SRC: JCON
+
+# string subscripting test
+
+procedure main()
+   local i, j, k, s, t;
+
+   s := "abcde";
+   t := "ABCDE";
+   write("A. ", !s);
+   every write("B. ", !s);
+   every i := 0 to 6 do write("C ", i, ". ", s[i] | "--");
+   every i := 0 to -6 by -1 do write("D ", i, ". ", s[i] | "--");
+   every i := -10 to 10 do write("E ", i, ". ", s[3:i] | "--");
+   every i := -10 to 5 do write("F ", i, ". ", s[3+:i] | "--");
+   every i := -5 to 10 do write("G ", i, ". ", s[3-:i] | "--");
+
+   !s := "X";
+   write("H. ", s);
+   every !s := "Y";
+   write("I. ", s);
+
+   every i := -6 to 6 do {
+      s := "abcde";
+      if s[i] := t[i] then
+         write("J ", i, ". ", s)
+      else
+         write("J ", i, ". --")
+      };
+
+   every i := 1 to 6 do {
+      every j := 1 to 6 do {
+	 s := "abcde";
+	 writes("K ", i, " ", j, ". ");
+	 if s[i:j] := "(*)" then
+	    write(s)
+	 else
+	    write(s, " [failed]")
+         }
+      };
+
+   every i := 1 to 6 do {
+      every j := 1 to 6 do {
+         every k := 1 to 6 do {
+	    s := "abcde";
+	    writes("L ", i, " ", j, " ", k, ". ");
+	    if s[i:j][k:2] := "(*)" then
+	       write(s)
+	    else
+	       write(s, " [failed]")
+	    }
+         }
+      };
+
+   s := "abcde";
+   every !s <- "-" do write("M ", s);
+   every s [1 to 5] <- "-" do write("N ", s);
+   every s [(-5 to 6) +: 0] <- "--" do write("O ", s);
+
+   s := "abcde";
+   every s[2:4] := !"123" do write("P ", s);
+   s := "fghij";
+   every s[2:4] := !"456" do { write("Q ", s); s := "klmno" };
+   
+end
+#---------------------------------------------------------------------- 67 table
+#SRC: JCON
+
+# table test
+
+procedure main()
+   local k, x, y;
+
+   x := table();
+   tdump("initial", x);
+   writes("should fail ", image(?x));
+   every writes(" ", ">>" | !x | "\n");		# portable with 0 or 1 entries
+   x[2] := 3;
+   every writes(" ", ">>" | !x | image(?x) | "\n");
+   x[4] := 7;
+   x["a"] := "A";
+   tdump("+2+4+a", x);
+
+   every !x := 88;
+   tdump("!x=88", x);
+
+   every x[key(x)] := 99;
+   tdump("[all]=99", x);
+
+   every k := key(x) do
+      x[k] := k;
+   tdump("x[k]=k", x);
+
+   /x[1] | write("/1");
+   \x[2] | write("\\2");
+
+   x := table();
+   if member(x) then write("NULL IS MEMBER");
+   insert(x)				| write("failed 0");
+   insert(x, 1)				| write("failed 1");
+   insert(x, 3, )			| write("failed 3");
+   insert(x, 5, 55)			| write("failed 5");
+   insert(insert(x, 6, 66), 7, 77)	| write("failed 67");
+   insert(x, , "null")			| write("failed n");
+   if not member(x) then write("NULL IS NOT MEMBER");
+   tdump("insert", x);
+   delete(x)				| write("failed dn");
+   delete(x, 3, 6)			| write("failed d36");	# del only 3
+   delete(delete(x, 7), 1)		| write("failed d71");
+   tdump("delete", x);
+
+   x := table(0);
+   write(x[47]);
+   tdump("t0", x);
+   insert(x)				| write("failed 0");
+   insert(x, 1)				| write("failed 1");
+   insert(x, 3, )			| write("failed 3");
+   insert(x, 5, 55)			| write("failed 5");
+   insert(insert(x, 6, 66), 7, 77)	| write("failed 67");
+   insert(x, , "null")			| write("failed n");
+   tdump("t0i", x);
+   delete(x)				| write("failed dn");
+   delete(x, 3, 6)			| write("failed d36");	# del only 3
+   delete(delete(x, 7), 1)		| write("failed d71");
+   tdump("t0d", x);
+
+   write();
+   x := table(7);
+   every x[3] <- 19;
+   every write("k ", key(x));
+   every write("v ", !x);
+
+   x := table();
+   every k := 0 to 4 do
+      x[k] := k + 10;
+   y := copy(x);
+   every !x +:= 20;
+   every !y +:= 40;
+   tdump("30s", x);
+   tdump("50s", y);
+
+end
+
+
+#  dump a table, assuming that keys are drawn from: &null, 0 - 9, "a" - "e"
+#
+#  also checks member()
+
+procedure tdump(label, T)
+   local x;
+
+   writes(right(label, 10), " :", right(*T, 2), " :");
+   every x := &null | (0 to 9) | !"abcde" do
+      if x === key(T) then {
+         writes(" [", image(x), "]", image(T[x]));
+	 member(T, x) | writes(":NONMEMBER")
+         }
+      else {
+	 member(T, x) & writes(" MEMBER:", image(x))
+         };
+   write();
+   return;
+end
+#----------------------------------------------------------------------- 68 trim
+#SRC: JCON
+
+procedure main()
+    write(image(trim("abc  ")));
+    write(image(trim("abc  ", ' ')));
+    write(image(trim("abc  ", 'x')));
+    write(image(trim("abc  ", 'abc ')));
+    write(image(trim("a c  ", ' ')));
+    write(image(trim("a c", ' ')));
+    write(image(trim("   ", ' ')));
+    write(image(trim(" ", ' ')));
+    write(image(trim("", ' ')));
+    write(image(trim("")));
+end
+#------------------------------------------------------------------------ 69 var
+#SRC: V9GEN
+
+procedure main(a)
+   local x, l0, l1, l2, l3, l4, l5, l6, l7, l8, l9;
+   static y;
+   variable("a") := 1;
+   variable("x") := 2;
+   variable("y") := 3;
+   if variable("z") then write("oops z");
+   &subject := "abcde";
+   &pos := 3;
+   write("&pos &subject: ", &pos, " ", variable("&subject"));
+   variable("&subject") := "wxyz";
+   write("&pos &subject: ", &pos, " ", variable("&subject"));
+   if variable("&clock") then write("oops &clock");
+   main2();
+   write();
+
+   # test display()
+   # some formats should differ from those of image()
+   l0 := [];
+   l1 := [&letters -- 'jJ'];
+   l2 := ["supercalifragilistic", "expialidocious"];
+   l3 := [&phi, &e, &pi];
+   l4 := [1,2,3,4];
+   l5 := [1,2,3,4,5];
+   l6 := [1,2,3,4,5,6];
+   l7 := [1,2,3,4,5,6,7];
+   l8 := [1,2,3,4,5,6,7,8];
+   l9 := [l0, l1, l2, l3, l4, l5, l6, l7, l8];
+   recurse(1, 4);
+end
+
+record complex(r,i)
+
+procedure main2(a)
+   local T, L, L1;
+   static s;
+   every write(image(name(main | T | L | s | a)));
+   T := table();
+   L := list(200);
+   L1 := [];
+   every 1 to 200 do push(L1,1);
+   write(image(L[10]));
+   write(image(name(&error)));
+   write(image(name(T["abc"])));
+   T["abc"] := 1;
+   write(image(name(T["abc"])));
+   every write(image(name(L[1 | 2 | 3 | -1 | -10])));
+   every write(image(name(L1[1 | 2 | 3 | -1 | -10])));
+   write(image(name(complex().r)));
+   return;
+end
+
+procedure recurse(a,b);	# to build up some context for display() 
+   local x, y;
+   x := a + b;
+   y := a - b;
+   if a < 5 then
+      recurse(a + 1, b + a)
+   else {
+      write(repl('-',70));
+      display(3, &output);
+      write(repl('-',70));
+      display(, &output);
+      write(repl('-',70))
+      };
+   return;
+end
+#-------------------------------------------------------------------- 70 wordcnt
+#SRC: V9SAM
+
+#
+#          W O R D   C O U N T I N G
+#
+
+#  This program tabulates the words in standard input and writes the
+#  results with the words in a column 20 characters wide.  The definition
+#  of a "word" is naive.
+
+procedure main()
+   wordcount(20);
+end
+
+procedure wordcount(n)
+   local t, line, x, i;
+   static letters;
+   initial letters := &lcase ++ &ucase;
+   t := table(0);
+   while line := read() do
+      line ? while tab(upto(letters)) do
+         t$<tab(many(letters))$> +:= 1;
+   x := sort(t,3);
+   every i := 1 to *x - 1 by 2 do
+      write(left(x$<i$>,n),x$<i + 1$>);
+end
