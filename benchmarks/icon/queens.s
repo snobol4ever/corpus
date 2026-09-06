@@ -10135,10 +10135,7 @@ n00343_call_proc_staged_α:
                         lea              rcx, [rip + .Lcall_proc_staged_α_1121_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_proc_staged_α_1121_3]
-                        push             rcx
-                        lea              rcx, [rip + .Lcall_proc_staged_α_1121_3]
-                        lea              rdx, [rip + .Lcall_proc_staged_α_1121_4]
-                                                                              jmp   rax
+                        push             rcx;                                 jmp   rax
 .Lcall_proc_staged_α_1121_3:
                         add              rsp, 16
                         mov              qword ptr [rip + rtccb+40], r8
