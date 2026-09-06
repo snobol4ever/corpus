@@ -4878,3 +4878,56 @@ main :-
     get_byte(RS, B1), get_byte(RS, B2),
     write(B1), write(' '), write(B2), nl,
     close(RS).
+%------------------------------------------------------------ 675 termio_write_term_quoted_1
+:- initialization(main).
+main :-
+    write_term('hello world', [quoted(true)]), nl,
+    write_term('hello world', [quoted(false)]), nl.
+%------------------------------------------------------------ 676 termio_write_term_ignore_ops_1
+:- initialization(main).
+main :-
+    write_term(1+2, [ignore_ops(true)]), nl,
+    write_term(1+2, [ignore_ops(false)]), nl.
+%------------------------------------------------------------ 677 termio_write_term_numbervars_1
+:- initialization(main).
+main :-
+    T = f(X, Y, X),
+    numbervars(T, 0, _),
+    write_term(T, [numbervars(true)]), nl,
+    write_term(T, [numbervars(false)]), nl.
+%------------------------------------------------------------ 678 termio_read_term_variable_names_1
+:- initialization(main).
+main :-
+    open('/tmp/scrip_rung16_termio_read_term_variable_names.txt', write, WS),
+    write(WS, 'foo(X, Y, X).'), close(WS),
+    open('/tmp/scrip_rung16_termio_read_term_variable_names.txt', read, RS),
+    read_term(RS, foo(A,B,C), [variable_names(VNs)]),
+    close(RS),
+    A = 1, B = 2,
+    write(foo(A,B,C)), nl,
+    findall(Name, member(Name=_, VNs), Names),
+    write(Names), nl.
+%------------------------------------------------------------ 679 termio_current_op_1
+:- initialization(main).
+main :-
+    findall(P-T, current_op(P, T, +), L),
+    sort(L, Sorted),
+    write(Sorted), nl.
+%------------------------------------------------------------ 680 termio_char_conversion_1
+:- initialization(main).
+main :-
+    char_conversion(a, b),
+    open('/tmp/scrip_rung16_termio_char_conversion.txt', write, WS),
+    write(WS, 'abc.'), close(WS),
+    open('/tmp/scrip_rung16_termio_char_conversion.txt', read, RS),
+    read_term(RS, T, []),
+    close(RS),
+    write(T), nl,
+    char_conversion(a, a).
+%------------------------------------------------------------ 681 termio_current_char_conversion_1
+:- initialization(main).
+main :-
+    current_char_conversion(a, X0), write(X0), nl,
+    char_conversion(a, z),
+    current_char_conversion(a, X1), write(X1), nl,
+    char_conversion(a, a).

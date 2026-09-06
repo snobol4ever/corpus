@@ -673,3 +673,10 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,findall,bagof,setof,forall,ass
 672,streamio_put_code_1,ladder__rung15_streamio_put_code,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 673,streamio_get_byte_peek_byte_1,ladder__rung15_streamio_get_byte_peek_byte,ladder,block,0,8,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 674,streamio_put_byte_1,ladder__rung15_streamio_put_byte,ladder,block,0,8,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+675,termio_write_term_quoted_1,ladder__rung16_termio_write_term_quoted,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+676,termio_write_term_ignore_ops_1,ladder__rung16_termio_write_term_ignore_ops,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+677,termio_write_term_numbervars_1,ladder__rung16_termio_write_term_numbervars,ladder,block,0,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+678,termio_read_term_variable_names_1,ladder__rung16_termio_read_term_variable_names,ladder,block,0,11,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+679,termio_current_op_1,ladder__rung16_termio_current_op,ladder,block,0,5,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+680,termio_char_conversion_1,ladder__rung16_termio_char_conversion,ladder,block,0,10,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+681,termio_current_char_conversion_1,ladder__rung16_termio_current_char_conversion,ladder,block,0,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
