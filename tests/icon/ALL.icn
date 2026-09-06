@@ -8098,3 +8098,46 @@ procedure main()
   x := 5;
   write(if /x then "BUG" else "notnull-ok");
 end
+#------------------------------------------------------- 811 procedure_write_205
+procedure main()
+  every write((1 to 5) > 3);
+end
+#------------------------------------------------------- 812 procedure_write_206
+procedure main()
+  every write(((1 to 5) > 3) + 10);
+end
+#------------------------------------------------------- 813 procedure_write_207
+procedure double(n)
+  if n > 0 then return n * 2;
+  return 0;
+end
+procedure main()
+  write(double(5));
+  write(double(-1));
+end
+#------------------------------------------------------- 814 procedure_write_208
+procedure greet()
+  write("hi");
+end
+procedure main()
+  greet();
+end
+#------------------------------------------------------- 815 procedure_write_209
+procedure gen()
+  suspend 1 | 2 | 3;
+end
+procedure main()
+  every write(gen());
+end
+#------------------------------------------------------- 816 procedure_write_210
+procedure main()
+  local s;
+  s := "foo";
+  write(s || "bar");
+end
+#------------------------------------------------------- 817 procedure_write_211
+procedure main()
+  local s;
+  s := "foo" || "bar";
+  s ? write(tab(3));
+end
