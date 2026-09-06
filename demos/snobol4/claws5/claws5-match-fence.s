@@ -855,7 +855,9 @@ n60_match_defer_α:      mov              r11, 38
                         lea              rcx, [rip + .Lmatch_defer_α_110_5]
                         push             rcx
                         lea              rcx, [rip + .Lmatch_defer_α_110_4]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rcx, [rip + .Lmatch_defer_α_110_4]
+                        lea              rdx, [rip + .Lmatch_defer_α_110_5];  jmp   rax
 .Lmatch_defer_α_110_4:                                                        jmp   n61_match_end_α
 .Lmatch_defer_α_110_5:                                                        jmp   n59_match_begin_β
 .Lmatch_defer_α_110_0:  mov              eax, edx

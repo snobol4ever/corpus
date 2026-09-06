@@ -185,32 +185,6 @@ ROMAN_α:                sub              rsp, 80
                         lea              rax, [rip + LBL__ROMAN];             jmp   rax
 ROMAN_γ:                mov              rdi, qword ptr [r9 + 0]              # ROMAN
                         mov              rsi, qword ptr [r9 + 8]
-                        mov              rcx, qword ptr [rsp + 48]
-                        mov              rdx, qword ptr [rcx + 0]
-                        lea              r8, [rsp + 80]
-                        mov              rax, qword ptr [rsp + 16]
-                        mov              qword ptr [r9 + 0], rax
-                        mov              rax, qword ptr [rsp + 24]
-                        mov              qword ptr [r9 + 8], rax
-                        mov              rax, qword ptr [rsp + 0]
-                        mov              qword ptr [r9 + 32], rax             # UNITS
-                        mov              rax, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 40], rax
-                        cmp              rdx, 0;                              jbe   .Ldefine_α_94_80
-                        mov              rax, qword ptr [rcx + 24]
-                        add              rax, r8
-                        mov              rax, qword ptr [rax + 0]
-                        mov              qword ptr [r9 + 16], rax             # N
-                        mov              rax, qword ptr [rcx + 24]
-                        add              rax, r8
-                        mov              rax, qword ptr [rax + 8]
-                        mov              qword ptr [r9 + 24], rax;            jmp   .Ldefine_α_94_110
-.Ldefine_α_94_80:       mov              rax, qword ptr [rsp + 64]
-                        mov              qword ptr [r9 + 16], rax
-                        mov              rax, qword ptr [rsp + 72]
-                        mov              qword ptr [r9 + 24], rax
-.Ldefine_α_94_110:      mov              rcx, qword ptr [rcx + 8]
-                        add              rsp, 80
                         mov              rax, rdi
                         mov              rdx, rsi
                         push             rax
@@ -245,7 +219,33 @@ ROMAN_γ:                mov              rdi, qword ptr [r9 + 0]              #
 .Ldefine_α_94_237:      .quad            .Ldefine_α_94_237_s
 .Ldefine_α_94_237_s:    .string          "ROMAN"
 .Ldefine_α_94_236:      pop              rdx
-                        pop              rax;                                 jmp   rcx
+                        pop              rax
+                        mov              rcx, qword ptr [rsp + 48]
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 80]
+                        mov              rax, qword ptr [rsp + 16]
+                        mov              qword ptr [r9 + 0], rax
+                        mov              rax, qword ptr [rsp + 24]
+                        mov              qword ptr [r9 + 8], rax
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              qword ptr [r9 + 32], rax             # UNITS
+                        mov              rax, qword ptr [rsp + 8]
+                        mov              qword ptr [r9 + 40], rax
+                        cmp              rdx, 0;                              jbe   .Ldefine_α_94_80
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [r9 + 16], rax             # N
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 8]
+                        mov              qword ptr [r9 + 24], rax;            jmp   .Ldefine_α_94_110
+.Ldefine_α_94_80:       mov              rax, qword ptr [rsp + 64]
+                        mov              qword ptr [r9 + 16], rax
+                        mov              rax, qword ptr [rsp + 72]
+                        mov              qword ptr [r9 + 24], rax
+.Ldefine_α_94_110:      mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 80;                             jmp   rcx
 ROMAN_ω:                mov              rcx, qword ptr [rsp + 48]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 80]
@@ -712,7 +712,9 @@ n19_match_defer_α:      mov              r11, 20
                         lea              rcx, [rip + .Lmatch_defer_α_122_5]
                         push             rcx
                         lea              rcx, [rip + .Lmatch_defer_α_122_4]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rcx, [rip + .Lmatch_defer_α_122_4]
+                        lea              rdx, [rip + .Lmatch_defer_α_122_5];  jmp   rax
 .Lmatch_defer_α_122_4:                                                        jmp   n20_match_assign_save_α
 .Lmatch_defer_α_122_5:                                                        jmp   n18_match_begin_β
 .Lmatch_defer_α_122_0:  mov              eax, edx
@@ -1194,41 +1196,6 @@ TEST_α:                 sub              rsp, 80
                         lea              rax, [rip + LBL__TEST];              jmp   rax
 TEST_γ:                 mov              rdi, qword ptr [r9 + 48]             # TEST
                         mov              rsi, qword ptr [r9 + 56]
-                        mov              rcx, qword ptr [rsp + 32]
-                        mov              rdx, qword ptr [rcx + 0]
-                        lea              r8, [rsp + 80]
-                        mov              rax, qword ptr [rsp + 0]
-                        mov              qword ptr [r9 + 48], rax
-                        mov              rax, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 56], rax
-                        cmp              rdx, 0;                              jbe   .Ldefine_α_155_80
-                        mov              rax, qword ptr [rcx + 24]
-                        add              rax, r8
-                        mov              rax, qword ptr [rax + 0]
-                        mov              qword ptr [r9 + 64], rax             # I
-                        mov              rax, qword ptr [rcx + 24]
-                        add              rax, r8
-                        mov              rax, qword ptr [rax + 8]
-                        mov              qword ptr [r9 + 72], rax;            jmp   .Ldefine_α_155_110
-.Ldefine_α_155_80:      mov              rax, qword ptr [rsp + 48]
-                        mov              qword ptr [r9 + 64], rax
-                        mov              rax, qword ptr [rsp + 56]
-                        mov              qword ptr [r9 + 72], rax
-.Ldefine_α_155_110:     cmp              rdx, 1;                              jbe   .Ldefine_α_155_81
-                        mov              rax, qword ptr [rcx + 32]
-                        add              rax, r8
-                        mov              rax, qword ptr [rax + 0]
-                        mov              qword ptr [r9 + 80], rax             # J
-                        mov              rax, qword ptr [rcx + 32]
-                        add              rax, r8
-                        mov              rax, qword ptr [rax + 8]
-                        mov              qword ptr [r9 + 88], rax;            jmp   .Ldefine_α_155_111
-.Ldefine_α_155_81:      mov              rax, qword ptr [rsp + 64]
-                        mov              qword ptr [r9 + 80], rax
-                        mov              rax, qword ptr [rsp + 72]
-                        mov              qword ptr [r9 + 88], rax
-.Ldefine_α_155_111:     mov              rcx, qword ptr [rcx + 8]
-                        add              rsp, 80
                         mov              rax, rdi
                         mov              rdx, rsi
                         push             rax
@@ -1263,7 +1230,42 @@ TEST_γ:                 mov              rdi, qword ptr [r9 + 48]             #
 .Ldefine_α_155_237:     .quad            .Ldefine_α_155_237_s
 .Ldefine_α_155_237_s:   .string          "TEST"
 .Ldefine_α_155_236:     pop              rdx
-                        pop              rax;                                 jmp   rcx
+                        pop              rax
+                        mov              rcx, qword ptr [rsp + 32]
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 80]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              qword ptr [r9 + 48], rax
+                        mov              rax, qword ptr [rsp + 8]
+                        mov              qword ptr [r9 + 56], rax
+                        cmp              rdx, 0;                              jbe   .Ldefine_α_155_80
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [r9 + 64], rax             # I
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 8]
+                        mov              qword ptr [r9 + 72], rax;            jmp   .Ldefine_α_155_110
+.Ldefine_α_155_80:      mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [r9 + 64], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [r9 + 72], rax
+.Ldefine_α_155_110:     cmp              rdx, 1;                              jbe   .Ldefine_α_155_81
+                        mov              rax, qword ptr [rcx + 32]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [r9 + 80], rax             # J
+                        mov              rax, qword ptr [rcx + 32]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 8]
+                        mov              qword ptr [r9 + 88], rax;            jmp   .Ldefine_α_155_111
+.Ldefine_α_155_81:      mov              rax, qword ptr [rsp + 64]
+                        mov              qword ptr [r9 + 80], rax
+                        mov              rax, qword ptr [rsp + 72]
+                        mov              qword ptr [r9 + 88], rax
+.Ldefine_α_155_111:     mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 80;                             jmp   rcx
 TEST_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 80]

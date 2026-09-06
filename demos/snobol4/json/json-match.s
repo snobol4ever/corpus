@@ -607,7 +607,9 @@ n56_match_defer_α:      sub              rsp, 16
                         lea              rcx, [rip + .Lmatch_defer_α_63_5]
                         push             rcx
                         lea              rcx, [rip + .Lmatch_defer_α_63_4]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rcx, [rip + .Lmatch_defer_α_63_4]
+                        lea              rdx, [rip + .Lmatch_defer_α_63_5];   jmp   rax
 .Lmatch_defer_α_63_4:                                                         jmp   n57_match_arbno_α
 .Lmatch_defer_α_63_5:   add              rsp, 16;                             jmp   n55_match_lit_β
 .Lmatch_defer_α_63_0:   push             r14
@@ -717,7 +719,9 @@ n59_match_defer_α:      mov              r11, 26
                         lea              rcx, [rip + .Lmatch_defer_α_68_5]
                         push             rcx
                         lea              rcx, [rip + .Lmatch_defer_α_68_4]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rcx, [rip + .Lmatch_defer_α_68_4]
+                        lea              rdx, [rip + .Lmatch_defer_α_68_5];   jmp   rax
 .Lmatch_defer_α_68_4:                                                         jmp   n60_match_defer_α
 .Lmatch_defer_α_68_5:                                                         jmp   .Lmatch_arbno_ω_57_af
 .Lmatch_defer_α_68_0:   push             r14
@@ -792,7 +796,9 @@ n60_match_defer_α:      mov              r11, 27
                         lea              rcx, [rip + .Lmatch_defer_α_69_5]
                         push             rcx
                         lea              rcx, [rip + .Lmatch_defer_α_69_4]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rcx, [rip + .Lmatch_defer_α_69_4]
+                        lea              rdx, [rip + .Lmatch_defer_α_69_5];   jmp   rax
 .Lmatch_defer_α_69_4:                                                         jmp   .Lmatch_arbno_γ_57_as
 .Lmatch_defer_α_69_5:                                                         jmp   n59_match_defer_β
 .Lmatch_defer_α_69_0:   push             r14
@@ -1437,7 +1443,9 @@ n134_match_defer_α:     mov              r11, 52
                         lea              rcx, [rip + .Lmatch_defer_α_146_5]
                         push             rcx
                         lea              rcx, [rip + .Lmatch_defer_α_146_4]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rcx, [rip + .Lmatch_defer_α_146_4]
+                        lea              rdx, [rip + .Lmatch_defer_α_146_5];  jmp   rax
 .Lmatch_defer_α_146_4:                                                        jmp   .Lmatch_alternate_γ_130_s3
 .Lmatch_defer_α_146_5:                                                        jmp   .Lmatch_alternate_ω_130_af
 .Lmatch_defer_α_146_0:  push             r14
@@ -1512,7 +1520,9 @@ n135_match_defer_α:     mov              r11, 53
                         lea              rcx, [rip + .Lmatch_defer_α_147_5]
                         push             rcx
                         lea              rcx, [rip + .Lmatch_defer_α_147_4]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rcx, [rip + .Lmatch_defer_α_147_4]
+                        lea              rdx, [rip + .Lmatch_defer_α_147_5];  jmp   rax
 .Lmatch_defer_α_147_4:                                                        jmp   .Lmatch_alternate_γ_130_s2
 .Lmatch_defer_α_147_5:                                                        jmp   .Lmatch_alternate_ω_130_af
 .Lmatch_defer_α_147_0:  push             r14
@@ -1587,7 +1597,9 @@ n136_match_defer_α:     mov              r11, 54
                         lea              rcx, [rip + .Lmatch_defer_α_148_5]
                         push             rcx
                         lea              rcx, [rip + .Lmatch_defer_α_148_4]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rcx, [rip + .Lmatch_defer_α_148_4]
+                        lea              rdx, [rip + .Lmatch_defer_α_148_5];  jmp   rax
 .Lmatch_defer_α_148_4:                                                        jmp   .Lmatch_alternate_γ_130_s1
 .Lmatch_defer_α_148_5:                                                        jmp   .Lmatch_alternate_ω_130_af
 .Lmatch_defer_α_148_0:  push             r14
@@ -1662,7 +1674,9 @@ n137_match_defer_α:     mov              r11, 55
                         lea              rcx, [rip + .Lmatch_defer_α_149_5]
                         push             rcx
                         lea              rcx, [rip + .Lmatch_defer_α_149_4]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rcx, [rip + .Lmatch_defer_α_149_4]
+                        lea              rdx, [rip + .Lmatch_defer_α_149_5];  jmp   rax
 .Lmatch_defer_α_149_4:                                                        jmp   .Lmatch_alternate_γ_130_s0
 .Lmatch_defer_α_149_5:                                                        jmp   .Lmatch_alternate_ω_130_af
 .Lmatch_defer_α_149_0:  push             r14
@@ -1783,7 +1797,9 @@ n151_match_defer_α:     sub              rsp, 16
                         lea              rcx, [rip + .Lmatch_defer_α_154_5]
                         push             rcx
                         lea              rcx, [rip + .Lmatch_defer_α_154_4]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rcx, [rip + .Lmatch_defer_α_154_4]
+                        lea              rdx, [rip + .Lmatch_defer_α_154_5];  jmp   rax
 .Lmatch_defer_α_154_4:                                                        jmp   n152_match_rpos_α
 .Lmatch_defer_α_154_5:  add              rsp, 16;                             jmp   PAT$5_ω
 .Lmatch_defer_α_154_0:  push             r14
@@ -5648,7 +5664,9 @@ n317_match_defer_α:     mov              r11, 220
                         lea              rcx, [rip + .Lmatch_defer_α_542_5]
                         push             rcx
                         lea              rcx, [rip + .Lmatch_defer_α_542_4]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rcx, [rip + .Lmatch_defer_α_542_4]
+                        lea              rdx, [rip + .Lmatch_defer_α_542_5];  jmp   rax
 .Lmatch_defer_α_542_4:                                                        jmp   n318_match_end_α
 .Lmatch_defer_α_542_5:                                                        jmp   n316_match_begin_β
 .Lmatch_defer_α_542_0:  mov              eax, edx
