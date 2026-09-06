@@ -1,0 +1,4 @@
+          'aa' (ARBNO(ARBNO(BREAKX('a'))) | '') RPOS(0)     :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END

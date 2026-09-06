@@ -8004,3 +8004,85 @@ procedure main()
   write(if getche() then "got" else "eof-fail");
   write(if kbhit() then "avail" else "none");
 end
+#-------------------------------- 798 ladder_rung42_kw_ascii_cset_letters_digits
+procedure main()
+  write(*&ascii);
+  write(*&cset);
+  write(&letters == (&ucase ++ &lcase));
+  write(&digits);
+end
+#---------------------------------------------- 799 ladder_rung42_kw_lcase_ucase
+procedure main()
+  write(string(&lcase));
+  write(string(&ucase));
+end
+#--------------------------------- 800 ladder_rung42_kw_date_dateline_clock_time
+procedure main()
+  write(*\&date);
+  write(*\&clock);
+  write(type(&dateline));
+  write(type(&time), " ", (&time >= 0));
+end
+#------------------------------------ 801 ladder_rung42_kw_host_version_progname
+procedure main()
+  write(type(&host), " ", (*\&host > 0));
+  write(type(&version), " ", (*\&version > 0));
+  write(type(&progname), " ", (*\&progname > 0));
+end
+#------------------------------------------- 802 ladder_rung42_kw_random_keyword
+procedure main()
+  &random := 12345;
+  write(?100);
+  write(?100);
+  &random := 12345;
+  write(?100);
+end
+#---------------------------------------------- 803 ladder_rung42_kw_trace_level
+procedure main()
+  write(&level);
+  a();
+end
+procedure a()
+  write(&level);
+  b();
+end
+procedure b()
+  write(&level);
+end
+#-------------------- 804 ladder_rung42_kw_collections_storage_regions_allocated
+procedure main()
+  write(type(&collections), " ", (&collections >= 0));
+  write(type(&storage), " ", (&storage >= 0));
+  write(type(&allocated), " ", (&allocated >= 0));
+  write(type(&regions));
+end
+#------------------------------------------- 805 ladder_rung42_kw_error_keywords
+procedure main()
+  &error := 1;
+  1 + "abc";
+  write(type(&errornumber) | "num-fails");
+  write(type(&errortext) | "text-fails");
+  write(type(&errorvalue) | "value-fails");
+end
+#----------------------------------------------------- 806 ladder_rung42_kw_dump
+procedure main()
+  write(type(&dump));
+  &dump := 0;
+  write("after-set");
+end
+#------------------------------------------------- 807 ladder_rung42_kw_e_pi_phi
+procedure main()
+  write(&e);
+  write(&pi);
+  write(&phi);
+end
+#------------------------------------------------- 808 ladder_rung42_kw_features
+procedure main()
+  local n, ok, f;
+  n := 0; ok := 1;
+  every f := &features do {
+    n +:= 1;
+    if type(f) ~== "string" then ok := 0;
+  }
+  write(n > 0, " ", ok);
+end
