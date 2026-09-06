@@ -1,2 +1,2 @@
-FAIL throw
-FAIL ex_coroutining
+PASS throw
+PASS ex_coroutining

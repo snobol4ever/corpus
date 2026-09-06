@@ -1,6 +1,6 @@
-EMPTY bips
+PASS bips
 EMPTY bips_occurs_check_error
-EMPTY arg
-EMPTY eq
-EMPTY length
-EMPTY is_most_general_term
+PASS arg
+PASS eq
+PASS length
+PASS is_most_general_term
