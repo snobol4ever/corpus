@@ -1,2 +1,3 @@
 # UNGRADED.tsv -- arizona_tests: shipped, GRADABLE, ref not cut yet. This file must reach zero rows.
-# THE PACKAGE LOCKDOWN (Lon 2026-09-06). Columns: path<TAB>what is owed.
+# THE PACKAGE LOCKDOWN (Lon 2026-09-06). Columns: path<TAB>CLASS<TAB>what is owed (lib_inventory.sh's own
+# documented and gate-tested shape).
