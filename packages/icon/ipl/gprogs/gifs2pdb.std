@@ -1,0 +1,4 @@
+gifs2pdb.icn: "Pixel": undeclared identifier, procedure main
+gifs2pdb.icn: "WAttrib": undeclared identifier, procedure main
+palettes.icn: "ColorValue": undeclared identifier, procedure CreatePalette
+palettes.icn: "ColorValue": undeclared identifier, procedure RGB

@@ -1,0 +1,6 @@
+imltogif.icn: "WAttrib": undeclared identifier, procedure main
+imltogif.icn: "Pattern": undeclared identifier, procedure main
+imltogif.icn: "FillRectangle": undeclared identifier, procedure main
+imltogif.icn: "DrawImage": undeclared identifier, procedure main
+imageseq.icn: "WriteImage": undeclared identifier, procedure save_image
+imscolor.icn: "PaletteChars": undeclared identifier, procedure imsheight
