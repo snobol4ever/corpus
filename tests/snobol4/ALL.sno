@@ -16984,7 +16984,7 @@ LOOP    N  =  N + 1
         PERM(A)                                  :S(LOOP)
         OUTPUT  =  N ' permutations'
 END
-*----------------------------------- 1854 user_function_indirect_replace_1 XFAIL
+*----------------------------------------- 1854 user_function_indirect_replace_1
 *  gim_goto_function_call_parse - distilled from gimpel STATEF_driver (batch F).
 *  A GOTO WHOSE OPERAND IS A FUNCTION CALL -- :(GO()) -- IS A PARSE ERROR IN
 *  SCRIP.  The oracle compiles and runs it: the function returns a label NAME
