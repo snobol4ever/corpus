@@ -5496,3 +5496,46 @@ calling
 eof-fail
 eof-fail
 avail
+#-------------------------------- 798 ladder_rung42_kw_ascii_cset_letters_digits
+128
+256
+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+0123456789
+#---------------------------------------------- 799 ladder_rung42_kw_lcase_ucase
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+#--------------------------------- 800 ladder_rung42_kw_date_dateline_clock_time
+10
+8
+string
+integer 0
+#------------------------------------ 801 ladder_rung42_kw_host_version_progname
+string 0
+string 0
+string 0
+#------------------------------------------- 802 ladder_rung42_kw_random_keyword
+87
+7
+87
+#---------------------------------------------- 803 ladder_rung42_kw_trace_level
+1
+2
+3
+#-------------------- 804 ladder_rung42_kw_collections_storage_regions_allocated
+integer 0
+integer 0
+integer 0
+integer
+#------------------------------------------- 805 ladder_rung42_kw_error_keywords
+integer
+string
+string
+#----------------------------------------------------- 806 ladder_rung42_kw_dump
+integer
+after-set
+#------------------------------------------------- 807 ladder_rung42_kw_e_pi_phi
+2.718281828
+3.141592654
+1.618033989
+#------------------------------------------------- 808 ladder_rung42_kw_features
+0 1
