@@ -1,1 +1,27 @@
-runs to completion (rc=0) but stdout does not match .expected. Not further diagnosed. UPDATE 2026-08-30 (seat01): looks real-formatting-shaped on the surface (e.g. "0.796084e-1" vs expected "0.07960", scientific vs decimal notation) but CONFIRMED NOT the same root cause as the cset()/list_bang_at real_str-vs-icon_real_str bug class fixed this same day elsewhere in rung36_jcon_* -- re-checked after those landed, this file's diff is byte-for-byte unchanged. A different, still-uninvestigated cause.
+UPDATE 2026-09-06 (seat06): REF WAS STALE, NOW RE-CUT. The checked-in .expected was cut from the
+original v9gen `.std` reference (or an old Icon build matching its formatting), not from our live oracle
+-- confirmed by diffing a fresh icont/iconx (9.5.25a) run against it: the old ref used bare-exponent
+scientific notation ("2.222222e28", "2.0e13") where the live oracle uses a "+" on positive exponents
+("2.222222e+28", "2e+13") -- a pure C-library number-to-string formatting drift between whatever produced
+`.std` and today's oracle, not a value bug on either side. Re-cut from a fresh icont run; the two Image()
+lines and the ~90 "2.222222eN" exponent lines that only differed by "+" are now gone from the diff.
+RESIDUAL, once the ref is honest, decomposes into exactly 4 mechanisms (verified: the SCRIP-vs-re-cut-ref
+diff has NO lines beyond these) -- none of them this row's to cure, all cross-referenced or freshly rowed
+rather than left as an unowned diff:
+- `integer("3e500")` wraps to -9223372036854775808 (INT64_MIN) where icont fails ("none") -- rowed as
+  `icon-integer-builtin-overflows-to-garbage-instead-of-failing` (rank 2, hq_B).
+- `numeric("3e500")` and `real("3e500")` both return `inf` where icont fails -- `real()`'s half is the
+  EXISTING `icon-real-builtin-returns-inf-on-overflow-instead-of-failing` row; `numeric()`'s half
+  cross-posted to that row's LEDGER as believed-same-mechanism, not independently confirmed.
+- `real("7r4")`, `real("16rff")`, `real("36rcat")`, `real("36Rcat")`, `real("36rCAT")`, `real("2r0")` all
+  fail ("none") where icont parses BASErDIGITS radix notation -- the EXISTING
+  `icon-real-builtin-does-not-recognize-radix-notation` row (this file adds the `2r0` base-2/zero-value
+  witness, cross-posted to its LEDGER).
+- `?30.0` fails outright where icont coerces the real to an integer and delegates to the already-correct
+  `?integer` path (confirmed via an isolated witness: `?30` and `?30.0` both print `7` on icont from a
+  cold &random state, and SCRIP's own `?30` already independently agrees) -- rowed as
+  `icon-question-mark-operator-does-not-coerce-a-real-operand-to-integer` (rank 2, hq_B). NOTE: this
+  file's OWN `?30.0` call is not the first &random draw in the program (icont prints `5` there, not the
+  cold-start `7`), so fixing the coercion gap is not independently confirmed to make THIS specific line
+  byte-match -- SCRIP would additionally need to consume &random state identically to icont at every
+  earlier point in this 90-line program, unverified either way.
