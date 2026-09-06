@@ -4931,3 +4931,30 @@ main :-
     char_conversion(a, z),
     current_char_conversion(a, X1), write(X1), nl,
     char_conversion(a, a).
+%------------------------------------------------------------ 682 misc17_term_variables_1
+:- initialization(main).
+main :-
+    T = f(X, Y, X),
+    term_variables(T, Vs),
+    length(Vs, N), write(N), nl,
+    Vs = [A, B],
+    A = 1, B = 2,
+    write(T), nl.
+%------------------------------------------------------------ 683 misc17_current_predicate_1
+:- initialization(main).
+foo(_).
+main :-
+    ( current_predicate(foo/1) -> write(yes) ; write(no) ), nl,
+    ( current_predicate(nonexistent_pred_xyz/3) -> write(yes) ; write(no) ), nl.
+%------------------------------------------------------------ 684 misc17_number_chars_1
+:- initialization(main).
+main :-
+    number_chars(42, Chars), write(Chars), nl,
+    number_chars(N, ['4','2']), write(N), nl,
+    number_chars(N2, ['3','.','5']), write(N2), nl.
+%------------------------------------------------------------ 685 misc17_halt_0_1
+:- initialization(main).
+main :- write(before), nl, halt, write(after), nl.
+%------------------------------------------------------------ 686 misc17_halt_1_status_1
+:- initialization(main).
+main :- write(before), nl, halt(3).

@@ -680,3 +680,8 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,findall,bagof,setof,forall,ass
 679,termio_current_op_1,ladder__rung16_termio_current_op,ladder,block,0,5,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0
 680,termio_char_conversion_1,ladder__rung16_termio_char_conversion,ladder,block,0,10,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 681,termio_current_char_conversion_1,ladder__rung16_termio_current_char_conversion,ladder,block,0,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+682,misc17_term_variables_1,ladder__rung17_misc17_term_variables,ladder,block,0,8,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+683,misc17_current_predicate_1,ladder__rung17_misc17_current_predicate,ladder,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+684,misc17_number_chars_1,ladder__rung17_misc17_number_chars,ladder,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+685,misc17_halt_0_1,ladder__rung17_misc17_halt_0,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+686,misc17_halt_1_status_1,ladder__rung17_misc17_halt_1_status,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
