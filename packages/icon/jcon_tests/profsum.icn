@@ -12,13 +12,14 @@
 
 
 record method(name, ncalls, tself, tcalled, tlocal)
+record skey(key, orig)
 
 global ptab
 
 
 
 procedure main(args)
-   local f, line, p, l, tlocal, ttotal, pctlocal, pcttotal, sorttotal;
+   local f, line, p, l, tlocal, ttotal, pctlocal, pcttotal, sorttotal, keyed;
 
    if args[1] == "-t" then
       sorttotal := get(args);
@@ -45,10 +46,18 @@ procedure main(args)
       put(l, p)
    };
 
-   if \sorttotal then
-      l := sortf(l, 3)
-   else
-      l := sortf(l, 5);
+   # !ptab's own iteration order is per-implementation hash, not a language guarantee, so sort by an
+   # explicit (chosen numeric field, name) composite key instead of leaning on sortf's tie-break behavior
+   # -- confirmed empirically (2026-09-06, seat06) that a real Icon implementation does NOT preserve a
+   # prior sortf's order as the tie-break for a later sortf on a different field, so chaining two sortf
+   # calls is not a portable way to get a second sort key
+   keyed := [];
+   every p := !l do
+      put(keyed, skey(right(string((if \sorttotal then p.tself else p.tlocal) + 2000000000), 12, "0") || "|" || p.name, p));
+   keyed := sortf(keyed, 1);
+   l := [];
+   every p := !keyed do
+      put(l, p.orig);
 
    write("  calls  totaltime   inmethod  method");
 
