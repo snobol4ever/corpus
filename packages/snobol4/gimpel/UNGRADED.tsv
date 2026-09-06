@@ -1,0 +1,10 @@
+# gimpel -- work OWED, claimable by anyone. Not a ruling: an entry here says only that nobody
+# has done the thing that would let the oracle grade it. hq_T RULED these three UNGRADED rather
+# than UNGRADABLE 2026-09-06 (SCRIP 58289d4cc, which admitted the class): when the bucket turns
+# on a fact nobody has measured, the answer is UNGRADED -- a wrong UNGRADABLE removes a program
+# from the debt permanently and silently, because nobody re-reads a closed ruling, while a wrong
+# UNGRADED only looks like unfinished work, which is what it will look like anyway.
+# name<TAB>CLASS<TAB>reason
+FRSORT_driver.sno	NEEDS_VENDORED_SOURCE	this driver's include chain requires stringout.sno, which exist nowhere in corpus, so sbl -bf rc=1 raises ERROR 285 include file cannot be opened and cannot build the program. UNMEASURED and it is the whole of what is owed: whether the Gimpel library ever shipped them. Vendor them and the entry becomes gradable; establish that upstream never had them and it becomes an ungradable ruling instead.
+TIMEGC_driver.sno	NEEDS_VENDORED_SOURCE	this driver's include chain requires resolution.sno and system.inc, which exist nowhere in corpus, so sbl -bf rc=1 raises ERROR 285 include file cannot be opened and cannot build the program. UNMEASURED and it is the whole of what is owed: whether the Gimpel library ever shipped them. Vendor them and the entry becomes gradable; establish that upstream never had them and it becomes an ungradable ruling instead.
+TIMER_driver.sno	NEEDS_VENDORED_SOURCE	this driver's include chain requires system.inc and resolution.sno, which exist nowhere in corpus, so sbl -bf rc=1 raises ERROR 285 include file cannot be opened and cannot build the program. UNMEASURED and it is the whole of what is owed: whether the Gimpel library ever shipped them. Vendor them and the entry becomes gradable; establish that upstream never had them and it becomes an ungradable ruling instead.
