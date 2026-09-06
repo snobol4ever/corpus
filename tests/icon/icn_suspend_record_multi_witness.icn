@@ -1,0 +1,10 @@
+#  WITNESS (hq_I): more than one suspended record, two fields each -- the shape ipl/progs/parse.icn uses.
+record token(type, string)
+procedure main()
+   local x;
+   every x := gen() do write(x.type, " ", x.string);
+end
+procedure gen()
+   suspend token("a", "1");
+   suspend token("b", "2");
+end

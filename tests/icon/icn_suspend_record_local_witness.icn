@@ -1,0 +1,12 @@
+#  WITNESS (hq_I): the record is built into a LOCAL first and only then suspended -- pins that the defect is
+#  not the inline constructor expression in the suspend operand.
+record one(f)
+procedure main()
+   local x;
+   every x := gen() do write(x.f);
+end
+procedure gen()
+   local t;
+   t := one("z");
+   suspend t;
+end

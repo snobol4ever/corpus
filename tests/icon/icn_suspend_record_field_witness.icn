@@ -1,0 +1,9 @@
+#  WITNESS (hq_I): suspend a record, then read a field of it.
+record one(f)
+procedure main()
+   local x;
+   every x := gen() do write(x.f);
+end
+procedure gen()
+   suspend one("z");
+end

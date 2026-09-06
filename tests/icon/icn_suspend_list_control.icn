@@ -1,0 +1,10 @@
+#  CONTROL (hq_I): identical generator shape suspending a LIST instead of a record. GREEN pre-cure -- the
+#  suspend path is equally misaligned here, but rt_make_list reaches no aligned SSE spill, so nothing faults.
+#  This control is what makes "records are special" a false reading of the class.
+procedure main()
+   local x;
+   every x := gen() do write("ok");
+end
+procedure gen()
+   suspend [ "z" ];
+end

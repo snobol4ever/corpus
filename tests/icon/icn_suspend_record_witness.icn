@@ -1,0 +1,10 @@
+#  WITNESS (hq_I): a procedure that SUSPENDS a record. The record is never even inspected -- constructing
+#  one inside a generator frame is enough. See test_gate_icn_suspend_record_stack_alignment.sh.
+record one(f)
+procedure main()
+   local x;
+   every x := gen() do write("ok");
+end
+procedure gen()
+   suspend one("z");
+end

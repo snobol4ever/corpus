@@ -1,0 +1,11 @@
+#  WITNESS (hq_I): the same record-through-a-generator, reached through a CO-EXPRESSION instead of every.
+record token(type, string)
+procedure main()
+   local e, x;
+   e := create gen();
+   while x := @e do write(x.type, " ", x.string);
+end
+procedure gen()
+   suspend token("a", "1");
+   suspend token("b", "2");
+end

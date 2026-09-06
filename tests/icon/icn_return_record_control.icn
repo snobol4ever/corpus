@@ -1,0 +1,11 @@
+#  CONTROL (hq_I): the same record built and RETURNED rather than suspended. GREEN pre-cure -- a plain call
+#  frame enters the runtime correctly aligned, so record construction itself is exonerated.
+record one(f)
+procedure main()
+   local x;
+   x := gen();
+   write(x.f);
+end
+procedure gen()
+   return one("z");
+end

@@ -1,0 +1,12 @@
+#  CONTROL (hq_I): a co-expression over a suspending generator of integers. GREEN pre-cure -- co-expressions
+#  are not the class, which is why the row's original "coexpression sigsegv" framing was the incidental half.
+procedure main()
+   local e, x;
+   e := create gen();
+   while x := @e do write(x);
+end
+procedure gen()
+   suspend 1;
+   suspend 2;
+   suspend 3;
+end
