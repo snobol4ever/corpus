@@ -1,0 +1,12 @@
+# UNGRADABLE.tsv -- dotnet: shipped, ruled UNGRADABLE by the ORACLE's own behavior, never ours.
+# Columns: name<TAB>CLASS<TAB>reason (lib_inventory.sh's documented, gate-tested shape).
+# The five BOM entries and chap7 are measured in test_snobol4_dotnet_suite.sh's own header/UNSCR loop.
+1brc.sno	ORACLE_REFUSES	sbl -bf halts at line 56 with ERROR 121 -- len argument is negative or too large; a graceful fatal report (rc=0), not a completed run
+asgn1.sno	ORACLE_REFUSES	sbl -bf halts at line 5 with ERROR 038 -- goto undefined label; a graceful fatal report (rc=0), not a completed run
+expr_parser_stub.sno	ORACLE_REFUSES	sbl -bf halts at line 20 with ERROR 248 -- attempted redefinition of system function; a graceful fatal report (rc=0), not a completed run
+chap7.sno	CONTAINER_OR_LIBRARY	a textbook chapter's worth of separate example programs concatenated into one file (2 top-level END statements), not a single gradable program; the oracle silently runs only the first chunk rather than refusing the file
+SourceLines001.sno	ORACLE_REFUSES	carries a UTF-8 BOM at byte 0; sbl -bf misreads it as part of the first label and SIGSEGVs or halts with a parse-time fatal before finishing a normal report
+SourceLines002.sno	ORACLE_REFUSES	carries a UTF-8 BOM at byte 0; sbl -bf misreads it as part of the first label and SIGSEGVs or halts with a parse-time fatal before finishing a normal report
+SourceLines003.sno	ORACLE_REFUSES	carries a UTF-8 BOM at byte 0; sbl -bf misreads it as part of the first label and SIGSEGVs or halts with a parse-time fatal before finishing a normal report
+Test.sno	ORACLE_REFUSES	carries a UTF-8 BOM at byte 0; sbl -bf misreads it as part of the first label and SIGSEGVs or halts with a parse-time fatal before finishing a normal report
+Test2.sno	ORACLE_REFUSES	carries a UTF-8 BOM at byte 0; sbl -bf misreads it as part of the first label and SIGSEGVs or halts with a parse-time fatal before finishing a normal report

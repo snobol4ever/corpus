@@ -1,0 +1,4 @@
+# UNGRADED.tsv -- aisnobol: shipped, GRADABLE, work owed before grading. THE PACKAGE LOCKDOWN.
+# Columns: name<TAB>CLASS<TAB>what is owed (lib_inventory.sh's documented, gate-tested shape).
+SIR.sno	NEEDS_VENDORED_SOURCE	-INCLUDE 'SNOCORE.sno' target is not vendored anywhere in corpus; needs that file sourced and vendored before this program can run
+TEST.sno	NEEDS_VENDORED_SOURCE	-INCLUDE 'SNOCORE.sno' target is not vendored anywhere in corpus; needs that file sourced and vendored before this program can run

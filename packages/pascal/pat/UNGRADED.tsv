@@ -1,0 +1,4 @@
+# UNGRADED.tsv -- pat: shipped, GRADABLE, work owed before grading. THE PACKAGE LOCKDOWN.
+# Columns: name<TAB>CLASS<TAB>what is owed (lib_inventory.sh's documented, gate-tested shape).
+# Applies only to the ACCEPTANCE population (iso7185pat*); all 427 iso7185prt* rejection tests are graded.
+iso7185pat.pas	TIMEOUT	fpc -Miso (this program's own oracle) does not finish compiling this 123KB acceptance program within the runner's 60s bound; raising the bound or profiling why the reference compiler is this slow on it is owed work, not a ruling

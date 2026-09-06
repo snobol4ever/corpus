@@ -1,0 +1,6 @@
+# UNGRADABLE.tsv -- aisnobol: shipped, ruled UNGRADABLE by the ORACLE's own behavior, never ours.
+# Columns: name<TAB>CLASS<TAB>reason (lib_inventory.sh's documented, gate-tested shape).
+ATN.sno	ORACLE_REFUSES	sbl -bf halts at line 25 with ERROR 274 -- value assigned to keyword &FULLSCAN is zero; exits before producing a comparable run
+BUILDLIB.sno	ORACLE_REFUSES	sbl -bf halts at line 14 with ERROR 022 -- undefined function called; exits before producing a comparable run
+HSORT.sno	ORACLE_REFUSES	sbl -bf halts at line 69 with ERROR 067 -- array dimension is zero, negative or out of range; exits before producing a comparable run
+KALAH.sno	ORACLE_REFUSES	sbl -bf halts at line 68 with ERROR 160 -- inappropriate file specification for output; exits before producing a comparable run

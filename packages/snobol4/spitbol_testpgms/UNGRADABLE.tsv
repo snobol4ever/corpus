@@ -1,0 +1,13 @@
+# UNGRADABLE.tsv -- spitbol_testpgms: shipped, ruled UNGRADABLE by the ORACLE's own behavior, never
+# ours. Columns: name<TAB>CLASS<TAB>reason (lib_inventory.sh's documented, gate-tested shape).
+# test5.spt and test8.spt are NOT here: CEO-281 clause (2) regrades them against CSNOBOL4 instead of
+# sbl, and both run to a real answer there -- they are GRADED, in graded_stream, per the runner itself.
+# ⛔ THIS FILE IS A DECLARATION ABOUT sbl's KNOWN BEHAVIOR, NOT A FRESH INFERENCE PER RUN: the runner's
+# own live rc/diagnostic check still decides UNSCORED each run; if a future run of sbl answers one of
+# these four cleanly instead, the runner's SCORED count changes but this file does not, and
+# inventory_line correctly REFUSES on that mismatch rather than silently accepting a stale declaration
+# -- re-measure and edit this file when that happens, per the runner's own header discipline.
+test2.spt	NONDETERMINISTIC	sbl -bf never completes this program, but the exact failure varies run to run -- measured rc=139 (SIGSEGV) on one run and rc=231 (SPITBOL's own non-signal error exit) on another, same tree, same input; the oracle's own instability, not ours
+test4.spt	ORACLE_REFUSES	sbl -bf halts at rc=0 with ERROR 116 plus a 9-line post-mortem block instead of a completed run; a graceful fatal report, not an answer
+test6.spt	ORACLE_REFUSES	sbl -bf halts at rc=0 with ERROR 248 plus a 37-line post-mortem block instead of a completed run; a graceful fatal report, not an answer
+test7.spt	ORACLE_REFUSES	sbl -bf halts at rc=0 with ERROR 248 plus a 9-line post-mortem block instead of a completed run; a graceful fatal report, not an answer

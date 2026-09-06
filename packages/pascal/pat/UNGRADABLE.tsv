@@ -1,0 +1,4 @@
+# UNGRADABLE.tsv -- pat: shipped, ruled UNGRADABLE by the ORACLE's own behavior, never ours.
+# Columns: name<TAB>CLASS<TAB>reason (lib_inventory.sh's documented, gate-tested shape).
+# Applies only to the ACCEPTANCE population (iso7185pat*); all 427 iso7185prt* rejection tests are graded.
+iso7185pat0001.pas	ORACLE_REFUSES	fpc -Miso itself fails to compile this ISO 7185 acceptance program: "Fatal: Syntax error, \"BEGIN\" expected but \"xor\" found" at line 48 col 4; the reference compiler rejects its own suite's fixture
