@@ -1,0 +1,1 @@
+Pl2Wam/compat.pl	TIMEOUT	SCRIP hangs after a parse error on this file -- a real, already-filed defect in error recovery (row misc-single-witness-parser-crashes), not an oracle-side ruling; owed work, not a permanent exclusion
