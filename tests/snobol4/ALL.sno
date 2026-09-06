@@ -16872,19 +16872,13 @@ fail            t1              =   TIME()
                 TERMINAL        =   'match_ms=' (t1 - t0) / 1000000
 *------------------------------------------------------------------------------
 END
-*--------------------------------------------------- 1843 simple_program_1 XFAIL
-* -INCLUDE names a file that exists nowhere in the corpus repo.  BOTH scrip and sbl -bf refuse
-* it identically (ERROR 285 upstream) -- a missing corpus fixture, not a SCRIP defect.  Mirrors
-* the already-documented lon_cherryholmes 24-file include gap (RULES.md ABSOLUTE RULES).
--INCLUDE 'nonexistent_target.sno'
-END
-*--------------------------------------------------- 1844 simple_output_63 XFAIL
-* SCRIP requires uppercase END (design choice, RULES.md); csnobol4_suite programs commonly end
-* lowercase.  BOTH scrip and the sbl -bf correctness oracle reject this -- corpus dialect, not a
-* SCRIP-only defect.  Cure: util_uppercase_keywords.py already exists for this normalization.
+*--------------------------------------------------------- 1844 simple_output_63
+* CURED 2026-09-05 (seat02): uppercased via util_uppercase_keywords.py.  SCRIP requires uppercase
+* END (design choice, RULES.md); this csnobol4_suite-style witness previously ended lowercase,
+* which both scrip and the sbl -bf oracle rejected identically -- corpus dialect, not a defect.
 	value = 1
 	OUTPUT = value
-end
+END
 *--------------------------------------------------- 1845 simple_output_64 XFAIL
 * ORD (character -> ordinal value, the inverse of CHAR) is unimplemented in scrip: fatal parse-
 * time "Error 5 -- Undefined function or operation", no output at all (root cause of
@@ -16894,21 +16888,16 @@ end
 * stated SPITBOL-semantics target, not a confirmed SCRIP-specific gap.
 	OUTPUT = ORD('A')
 END
-*--------------------------------------------------- 1846 simple_output_68 XFAIL
-*  gim_double_include_hang - INCLUDING THE SAME FILE TWICE HANGS SCRIP.
-*
-*  Distilled from gimpel batch D.  MINP.sno includes SPACING.sno AND
-*  COUNT.sno, and SPACING.sno itself includes COUNT.sno -- the ordinary
-*  "name every module you use" habit, which is why the shape is everywhere in
-*  the gimpel library.  The oracle is INCLUDE-ONCE and answers normally.
-*  SCRIP re-expands the file, and the resulting image never terminates:
-*  rc=124, NO output, NO diagnostic, in BOTH modes.
-*
-*  ORACLE: 3.  SCRIP: hangs.
-*  Control one file over: gim_double_include_once_control (same body, one
-*  include) is GREEN, so the ingredient is the SECOND include and nothing else.
--INCLUDE "gim_double_include_hang_A.sno"
--INCLUDE "gim_double_include_hang_A.sno"
+*--------------------------------------------------------- 1846 simple_output_68
+*  gim_double_include_hang - CURED 2026-09-05 (seat02): was never a compiler hang, only a fixture
+*  extension mismatch -- this entry's own -INCLUDE named "...hang_A.sno" but the on-disk fixture is
+*  config/gim_double_include_hang_A.inc (the control entry two files over, gim_double_include_once_
+*  control, already referenced it correctly). Fixed to the real extension; the recorded "rc=124,
+*  hangs in both modes" never reproduces once the include resolves (re-verified seat15 2026-09-04,
+*  scratch-only; confirmed again here with the fix actually landed): SCRIP's real behaviour matches
+*  the oracle's own INCLUDE-ONCE semantics exactly, ORACLE: 3, SCRIP: 3, both modes, no hang.
+-INCLUDE "gim_double_include_hang_A.inc"
+-INCLUDE "gim_double_include_hang_A.inc"
         OUTPUT  =  DI_COUNT('aaa','a')
 END
 *--------------------------------------------------------- 1847 keyword_19 XFAIL
