@@ -1,0 +1,5 @@
+file: "fixture.txt" occurs in the following directories
+	"./filecnvt.fixtures"
+	"./huffstuf.fixtures"
+	"./iiencode.fixtures"
+

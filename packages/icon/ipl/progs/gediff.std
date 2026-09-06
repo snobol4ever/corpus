@@ -1,0 +1,5 @@
+fixture_a.txt:2
+fixture_b.txt:2
+< banana
+---
+> blueberry
