@@ -268,14 +268,17 @@ n18_coerce_numeric_α:   mov              r11, 19
                         lea              rdi, [rsp + 576]
                         lea              rsi, [rsp + 336]
                         lea              rdx, [rsp + 304]
-                        mov              rcx, 0
+                        mov              rcx, 16777318
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_coerce_num2_d@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n19_binop_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              eax, dword ptr [rsp + 304]
+                        cmp              al, 104;                             je    n25_unmark_α
+                                                                              jmp   n19_binop_α
                         .size            n18_coerce_numeric_bx, .-n18_coerce_numeric_bx
                         .type            n19_binop_bx, @function
 n19_binop_bx:
