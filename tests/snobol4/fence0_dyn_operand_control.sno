@@ -1,0 +1,7 @@
+	N = 2
+	P = LEN(N) . X FENCE 'CD' . Z
+	B = 'ABCDEFGH'
+	B P						:S(Y)F(NO)
+Y	OUTPUT = 'X=' X ' Z=' Z			:(END)
+NO	OUTPUT = 'miss'
+END

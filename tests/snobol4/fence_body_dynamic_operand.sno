@@ -1,0 +1,8 @@
+	N = 2
+	M = 4
+	P = FENCE(LEN(N) . X) LEN(M) . Z
+	B = 'ABCDEFGH'
+	B P						:S(Y)F(NO)
+Y	OUTPUT = 'X=' X ' Z=' Z			:(END)
+NO	OUTPUT = 'miss'
+END

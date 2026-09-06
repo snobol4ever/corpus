@@ -14,3 +14,6 @@ ladder_rung14_limit_limit_refuse_neg	1
 ladder_rung14_limit_limit_refuse_type	1
 ladder_rung26_pow_pow_zero_negexp	1
 ladder_rung26_pow_pow_negbase_real	1
+ladder_rung41_rt_system_exit_stop	42
+ladder_rung41_rt_runerr	1
+ladder_rung41_rt_loadfunc_refusal	1

@@ -4758,3 +4758,230 @@ define(qsort([],R,R),true).
 define(partition([X|L],Y,[X|L1],L2),(X=<Y,!,partition(L,Y,L1,L2))).
 define(partition([X|L],Y,L1,[X|L2]),(partition(L,Y,L1,L2))).
 define(partition([],_,[],[]),true).
+%------------------------------------------------------------ 657 evaluable_sign_1
+:- initialization(main).
+main :-
+    X is sign(-5), write(X), nl,
+    Y is sign(0), write(Y), nl,
+    Z is sign(7), write(Z), nl.
+%------------------------------------------------------------ 658 evaluable_float_integer_part_1
+:- initialization(main).
+main :-
+    X is float_integer_part(3.7), write(X), nl,
+    Y is float_integer_part(-3.7), write(Y), nl.
+%------------------------------------------------------------ 659 evaluable_float_fractional_part_1
+:- initialization(main).
+main :-
+    X is float_fractional_part(3.5), write(X), nl,
+    Y is float_fractional_part(-3.5), write(Y), nl.
+%------------------------------------------------------------ 660 evaluable_floor_truncate_round_ceiling_1
+:- initialization(main).
+main :-
+    X is floor(3.7), write(X), nl,
+    Y is truncate(3.7), write(Y), nl,
+    Z is round(3.5), write(Z), nl,
+    W is ceiling(3.2), write(W), nl.
+%------------------------------------------------------------ 661 evaluable_sin_cos_atan_1
+:- initialization(main).
+main :-
+    X is sin(0.0), write(X), nl,
+    Y is cos(0.0), write(Y), nl,
+    Z is atan(0.0), write(Z), nl.
+%------------------------------------------------------------ 662 evaluable_exp_log_sqrt_1
+:- initialization(main).
+main :-
+    X is exp(0.0), write(X), nl,
+    Y is log(1.0), write(Y), nl,
+    Z is sqrt(4.0), write(Z), nl.
+%------------------------------------------------------------ 663 evaluable_shift_left_right_1
+:- initialization(main).
+main :-
+    X is 1 << 4, write(X), nl,
+    Y is 256 >> 3, write(Y), nl.
+%------------------------------------------------------------ 664 evaluable_bitand_bitor_bitneg_xor_1
+:- initialization(main).
+main :-
+    X is 12 /\ 10, write(X), nl,
+    Y is 12 \/ 10, write(Y), nl,
+    Z is \ 12, write(Z), nl,
+    W is 12 xor 10, write(W), nl.
+%------------------------------------------------------------ 665 evaluable_pi_e_constants_1
+:- initialization(main).
+main :-
+    X is pi, write(X), nl,
+    Y is e, write(Y), nl.
+%------------------------------------------------------------ 666 evaluable_type_error_on_non_evaluable_1
+:- initialization(main).
+main :-
+    catch(( _ is foo(1), write(noerror) ),
+          error(type_error(evaluable, foo/1), _),
+          write(caught)), nl.
+%------------------------------------------------------------ 667 streamio_flush_output_1
+:- initialization(main).
+main :-
+    write(a), flush_output, write(b), flush_output(user_output), nl.
+%------------------------------------------------------------ 668 streamio_stream_property_1
+:- initialization(main).
+main :-
+    open('/tmp/scrip_rung15_streamio_stream_property.txt', write, S),
+    ( stream_property(S, mode(Mode)) -> write(Mode) ; write(no_mode) ), nl,
+    close(S).
+%------------------------------------------------------------ 669 streamio_at_end_of_stream_1
+:- initialization(main).
+main :-
+    open('/tmp/scrip_rung15_streamio_at_end_of_stream.txt', write, WS),
+    write(WS, x), close(WS),
+    open('/tmp/scrip_rung15_streamio_at_end_of_stream.txt', read, RS),
+    get_char(RS, _C),
+    ( at_end_of_stream(RS) -> write(yes) ; write(no) ), nl,
+    close(RS).
+%------------------------------------------------------------ 670 streamio_set_stream_position_1
+:- initialization(main).
+main :-
+    open('/tmp/scrip_rung15_streamio_set_stream_position.txt', write, WS),
+    write(WS, 'abcdef'), close(WS),
+    open('/tmp/scrip_rung15_streamio_set_stream_position.txt', read, RS),
+    get_char(RS, C1), get_char(RS, C2),
+    stream_property(RS, position(Pos)),
+    get_char(RS, C3),
+    set_stream_position(RS, Pos),
+    get_char(RS, C3Again),
+    write(C1), write(C2), write(C3), write(C3Again), nl,
+    close(RS).
+%------------------------------------------------------------ 671 streamio_get_code_peek_code_1
+:- initialization(main).
+main :-
+    open('/tmp/scrip_rung15_streamio_get_code_peek_code.txt', write, WS),
+    write(WS, ab), close(WS),
+    open('/tmp/scrip_rung15_streamio_get_code_peek_code.txt', read, RS),
+    peek_code(RS, P1), get_code(RS, G1), get_code(RS, G2),
+    write(P1), write(' '), write(G1), write(' '), write(G2), nl,
+    close(RS).
+%------------------------------------------------------------ 672 streamio_put_code_1
+:- initialization(main).
+main :- put_code(0'A), put_code(0'B), nl.
+%------------------------------------------------------------ 673 streamio_get_byte_peek_byte_1
+:- initialization(main).
+main :-
+    open('/tmp/scrip_rung15_streamio_get_byte_peek_byte.bin', write, WS, [type(binary)]),
+    put_byte(WS, 65), put_byte(WS, 66), close(WS),
+    open('/tmp/scrip_rung15_streamio_get_byte_peek_byte.bin', read, RS, [type(binary)]),
+    peek_byte(RS, P1), get_byte(RS, G1), get_byte(RS, G2),
+    write(P1), write(' '), write(G1), write(' '), write(G2), nl,
+    close(RS).
+%------------------------------------------------------------ 674 streamio_put_byte_1
+:- initialization(main).
+main :-
+    open('/tmp/scrip_rung15_streamio_put_byte.bin', write, WS, [type(binary)]),
+    put_byte(WS, 0), put_byte(WS, 255), close(WS),
+    open('/tmp/scrip_rung15_streamio_put_byte.bin', read, RS, [type(binary)]),
+    get_byte(RS, B1), get_byte(RS, B2),
+    write(B1), write(' '), write(B2), nl,
+    close(RS).
+%------------------------------------------------------------ 675 termio_write_term_quoted_1
+:- initialization(main).
+main :-
+    write_term('hello world', [quoted(true)]), nl,
+    write_term('hello world', [quoted(false)]), nl.
+%------------------------------------------------------------ 676 termio_write_term_ignore_ops_1
+:- initialization(main).
+main :-
+    write_term(1+2, [ignore_ops(true)]), nl,
+    write_term(1+2, [ignore_ops(false)]), nl.
+%------------------------------------------------------------ 677 termio_write_term_numbervars_1
+:- initialization(main).
+main :-
+    T = f(X, Y, X),
+    numbervars(T, 0, _),
+    write_term(T, [numbervars(true)]), nl,
+    write_term(T, [numbervars(false)]), nl.
+%------------------------------------------------------------ 678 termio_read_term_variable_names_1
+:- initialization(main).
+main :-
+    open('/tmp/scrip_rung16_termio_read_term_variable_names.txt', write, WS),
+    write(WS, 'foo(X, Y, X).'), close(WS),
+    open('/tmp/scrip_rung16_termio_read_term_variable_names.txt', read, RS),
+    read_term(RS, foo(A,B,C), [variable_names(VNs)]),
+    close(RS),
+    A = 1, B = 2,
+    write(foo(A,B,C)), nl,
+    findall(Name, member(Name=_, VNs), Names),
+    write(Names), nl.
+%------------------------------------------------------------ 679 termio_current_op_1
+:- initialization(main).
+main :-
+    findall(P-T, current_op(P, T, +), L),
+    sort(L, Sorted),
+    write(Sorted), nl.
+%------------------------------------------------------------ 680 termio_char_conversion_1
+:- initialization(main).
+main :-
+    char_conversion(a, b),
+    open('/tmp/scrip_rung16_termio_char_conversion.txt', write, WS),
+    write(WS, 'abc.'), close(WS),
+    open('/tmp/scrip_rung16_termio_char_conversion.txt', read, RS),
+    read_term(RS, T, []),
+    close(RS),
+    write(T), nl,
+    char_conversion(a, a).
+%------------------------------------------------------------ 681 termio_current_char_conversion_1
+:- initialization(main).
+main :-
+    current_char_conversion(a, X0), write(X0), nl,
+    char_conversion(a, z),
+    current_char_conversion(a, X1), write(X1), nl,
+    char_conversion(a, a).
+%------------------------------------------------------------ 682 misc17_term_variables_1
+:- initialization(main).
+main :-
+    T = f(X, Y, X),
+    term_variables(T, Vs),
+    length(Vs, N), write(N), nl,
+    Vs = [A, B],
+    A = 1, B = 2,
+    write(T), nl.
+%------------------------------------------------------------ 683 misc17_current_predicate_1
+:- initialization(main).
+foo(_).
+main :-
+    ( current_predicate(foo/1) -> write(yes) ; write(no) ), nl,
+    ( current_predicate(nonexistent_pred_xyz/3) -> write(yes) ; write(no) ), nl.
+%------------------------------------------------------------ 684 misc17_number_chars_1
+:- initialization(main).
+main :-
+    number_chars(42, Chars), write(Chars), nl,
+    number_chars(N, ['4','2']), write(N), nl,
+    number_chars(N2, ['3','.','5']), write(N2), nl.
+%------------------------------------------------------------ 685 misc17_halt_0_1
+:- initialization(main).
+main :- write(before), nl, halt, write(after), nl.
+%------------------------------------------------------------ 686 misc17_halt_1_status_1
+:- initialization(main).
+main :- write(before), nl, halt(3).
+%------------------------------------------------------------ 687 erriso_instantiation_error_1
+:- initialization(main).
+main :- catch(( _ is _Y + 1 ), error(instantiation_error, _), write(caught)), nl.
+%------------------------------------------------------------ 688 erriso_type_error_1
+:- initialization(main).
+main :- catch( atom_length(foo, not_an_integer), error(type_error(integer, not_an_integer), _), write(caught) ), nl.
+%------------------------------------------------------------ 689 erriso_domain_error_1
+:- initialization(main).
+main :- catch( open('/tmp/scrip_rung18_erriso_domain.txt', bogus_mode, _), error(domain_error(io_mode, bogus_mode), _), write(caught) ), nl.
+%------------------------------------------------------------ 690 erriso_existence_error_1
+:- initialization(main).
+main :- catch( nonexistent_predicate_xyz(1,2,3), error(existence_error(procedure, nonexistent_predicate_xyz/3), _), write(caught) ), nl.
+%------------------------------------------------------------ 691 erriso_permission_error_1
+:- initialization(main).
+foo(1).
+main :- catch( retract((foo(1) :- true)), error(permission_error(_,_,_), _), write(caught) ), nl.
+%------------------------------------------------------------ 692 erriso_evaluation_error_1
+:- initialization(main).
+main :- catch(( _ is 1 // 0 ), error(evaluation_error(zero_divisor), _), write(caught)), nl.
+%------------------------------------------------------------ 693 erriso_syntax_error_on_read_1
+:- initialization(main).
+main :-
+    open('/tmp/scrip_rung18_erriso_syntax.txt', write, WS), write(WS, 'foo(.'), close(WS),
+    open('/tmp/scrip_rung18_erriso_syntax.txt', read, RS),
+    catch( ( read(RS, _T), write(noerror) ), error(syntax_error(_), _), write(caught) ),
+    nl,
+    close(RS).

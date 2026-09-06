@@ -7756,3 +7756,251 @@ procedure warn(a[])
    errors +:= 1;
    return;
 end
+#----------------------------------------------- 763 ladder_rung38_coexpr_create
+procedure main()
+  local c;
+  c := create write("ran");
+  write("created");
+  @c;
+end
+#------------------------------------------ 764 ladder_rung38_coexpr_activate_at
+procedure main()
+  local articles;
+  articles := create ("a" | "an" | "the");
+  write(@articles);
+  write(@articles);
+  write(@articles);
+  write(@articles | "exhausted");
+end
+#---------------------------------------- 765 ladder_rung38_coexpr_refresh_caret
+procedure main()
+  local i, seq1, seq3;
+  i := 1;
+  seq1 := create |(i *:= 2);
+  write(@seq1);
+  write(@seq1);
+  i := 99;
+  seq3 := ^seq1;
+  write(@seq3);
+  write(@seq3);
+end
+#---------------------------------- 766 ladder_rung38_coexpr_main_current_source
+procedure main()
+  local c;
+  if &current === &main then write("main-eq-main") else write("main-neq-main");
+  c := create body();
+  @c;
+end
+procedure body()
+  if &current === &main then write("body-eq-main") else write("body-neq-main");
+  if &source === &main then write("source-eq-main") else write("source-neq-main");
+end
+#---------------------------------- 767 ladder_rung38_coexpr_parallel_evaluation
+procedure main()
+  local a, b;
+  a := create (1 to 3);
+  b := create (10 to 30 by 10);
+  while write(@a + @b);
+end
+#------------------------------------- 768 ladder_rung38_coexpr_coroutine_switch
+global c1, c2
+procedure main()
+  c1 := create note(c2, "C2");
+  c2 := create note(c1, "C1");
+  @c1;
+  write("main done");
+end
+procedure note(c, tag)
+  local i;
+  i := 0;
+  while (i +:= 1) <= 3 do {
+    write("activation ", i, " of ", tag);
+    @c
+  }
+end
+#------------------------------------- 769 ladder_rung38_coexpr_serial_on_coexpr
+procedure main()
+  local c1, c2;
+  c1 := create 1;
+  c2 := create 2;
+  if serial(c2) > serial(c1) then write("increasing") else write("not-increasing");
+  write(serial(5) | "not-serialable");
+end
+#--------------------------------------- 770 ladder_rung39_numbit_acos_asin_atan
+procedure main()
+  write(acos(0.5));
+  write(asin(0.5));
+  write(atan(1.0, 1.0));
+end
+#------------------------------------------ 771 ladder_rung39_numbit_cos_sin_tan
+procedure main()
+  write(cos(0.0));
+  write(sin(0.0));
+  write(tan(0.0));
+end
+#----------------------------------------- 772 ladder_rung39_numbit_exp_log_sqrt
+procedure main()
+  write(exp(1.0));
+  write(log(8.0, 2.0));
+  write(log(2.718281828459045));
+  write(sqrt(2.0));
+end
+#-------------------------------------------- 773 ladder_rung39_numbit_dtor_rtod
+procedure main()
+  write(dtor(180.0));
+  write(rtod(dtor(180.0)));
+end
+#---------------------------------------- 774 ladder_rung39_numbit_iand_ior_ixor
+procedure main()
+  write(iand(12, 10));
+  write(ior(12, 10));
+  write(ixor(12, 10));
+end
+#------------------------------------------ 775 ladder_rung39_numbit_icom_ishift
+procedure main()
+  write(icom(0));
+  write(ishift(1, 4));
+  write(ishift(16, -4));
+end
+#------------------------------------ 776 ladder_rung39_numbit_large_integer_ops
+procedure main()
+  write(2^100);
+  write(type(2^100));
+end
+#------------------------------------------------ 777 ladder_rung40_strfn_center
+procedure main()
+  write(center("ab", 6, "*"));
+  write(center("abc", 6, "*"));
+end
+#------------------------------------------------- 778 ladder_rung40_strfn_right
+procedure main()
+  write(right("ab", 5, "0"));
+end
+#------------------------------------------------- 779 ladder_rung40_strfn_entab
+procedure main()
+  write(image(entab("a       b", 8)));
+end
+#------------------------------------------------- 780 ladder_rung40_strfn_detab
+procedure main()
+  write(image(detab("a\tb", 8)));
+end
+#-------------------------------------------------- 781 ladder_rung40_strfn_repl
+procedure main()
+  write(repl("ab", 3));
+  write(image(repl("x", 0)));
+end
+#------------------------------------- 782 ladder_rung40_strfn_map_transliterate
+procedure main()
+  write(map("hello", "el", "ip"));
+  write(map("HELLO"));
+end
+#------------------------------------ 783 ladder_rung40_strfn_ord_char_roundtrip
+procedure main()
+  write(ord("A"));
+  write(char(65));
+  write(char(ord("Z")));
+end
+#------------------------------------ 784 ladder_rung41_rt_open_close_write_file
+procedure main()
+  local f, g, s;
+  f := open("/tmp/s05_r41_openclose.txt", "wc");
+  write(f, "hello file");
+  close(f);
+  g := open("/tmp/s05_r41_openclose.txt", "r");
+  s := read(g);
+  write(s);
+  close(g);
+  remove("/tmp/s05_r41_openclose.txt");
+end
+#------------------------------------- 785 ladder_rung41_rt_read_reads_from_file
+procedure main()
+  local f, g;
+  f := open("/tmp/s05_r41_readreads.txt", "wc");
+  write(f, "abcdefgh");
+  close(f);
+  g := open("/tmp/s05_r41_readreads.txt", "r");
+  write(reads(g, 3));
+  write(reads(g, 3));
+  write(read(g) | "eof");
+  close(g);
+  remove("/tmp/s05_r41_readreads.txt");
+end
+#---------------------------------------- 786 ladder_rung41_rt_writes_no_newline
+procedure main()
+  writes("a");
+  writes("b");
+  write("c");
+end
+#----------------------------------------- 787 ladder_rung41_rt_flush_seek_where
+procedure main()
+  local f;
+  f := open("/tmp/s05_r41_seek.txt", "wc");
+  writes(f, "0123456789");
+  flush(f);
+  write(where(f));
+  seek(f, 1);
+  writes(f, "X");
+  close(f);
+  f := open("/tmp/s05_r41_seek.txt", "r");
+  write(reads(f, 10));
+  close(f);
+  remove("/tmp/s05_r41_seek.txt");
+end
+#---------------------------------------------- 788 ladder_rung41_rt_remove_file
+procedure main()
+  local f;
+  f := open("/tmp/s05_r41_remove.txt", "wc");
+  close(f);
+  write(remove("/tmp/s05_r41_remove.txt"));
+  write(if open("/tmp/s05_r41_remove.txt", "r") then "still-there" else "gone");
+end
+#--------------------------------------------- 789 ladder_rung41_rt_chdir_getenv
+procedure main()
+  write(if chdir("/tmp") then "chdir-ok" else "chdir-fail");
+  write(if chdir("/no/such/dir/s05r41") then "chdir-ok" else "chdir-fail");
+  write(if getenv("PATH") then "has-path" else "no-path");
+  write(if getenv("S05_R41_DEFINITELY_UNSET_XYZ") then "set" else "unset");
+end
+#----------------------------------------- 790 ladder_rung41_rt_system_exit_stop
+procedure main()
+  write(system("true"));
+  exit(42);
+end
+#---------------------------------------------------- 791 ladder_rung41_rt_delay
+procedure main()
+  delay(1);
+  write("after-delay");
+end
+#--------------------------------------------------- 792 ladder_rung41_rt_runerr
+procedure main()
+  write("before");
+  runerr(205, "bogus");
+end
+#------------------------------------------ 793 ladder_rung41_rt_collect_display
+procedure main()
+  write(type(collect()));
+end
+#--------------------------------------------------- 794 ladder_rung41_rt_serial
+procedure main()
+  write(type(serial([1,2,3])));
+end
+#----------------------------------------------- 795 ladder_rung41_rt_errorclear
+procedure main()
+  &error := 1;
+  1 + "abc";
+  write("num1=", &errornumber);
+  errorclear();
+  write("num2=", &errornumber | "FAILED");
+end
+#----------------------------------------- 796 ladder_rung41_rt_loadfunc_refusal
+procedure main()
+  write("calling");
+  loadfunc("/no/such/lib.so", "nofunc");
+  write("unreached");
+end
+#-------------------------------- 797 ladder_rung41_rt_getch_getche_kbhit_on_eof
+procedure main()
+  write(if getch() then "got" else "eof-fail");
+  write(if getche() then "got" else "eof-fail");
+  write(if kbhit() then "avail" else "none");
+end
