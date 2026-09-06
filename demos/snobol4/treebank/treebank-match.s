@@ -624,8 +624,9 @@ n31_match_arbno_β:      mov              r11, 15
 .Lmatch_arbno_γ_31_af:  mov              r11, 15
 .Lmatch_arbno_ω_31_af:  mov              r11, 15
                         mov              eax, dword ptr [rbp + -64]
-                        cmp              r14d, eax;                           jne   n33_match_defer_β
-                                                                              jmp   .Lmatch_arbno_ω_29_af
+                        cmp              r14d, eax;                           je    .Lmatch_arbno_β_39_3
+                        mov              dword ptr [rbp + -60], eax;          jmp   n33_match_defer_β
+.Lmatch_arbno_β_39_3:                                                         jmp   .Lmatch_arbno_ω_29_af
                         .size            n31_match_arbno_bx, .-n31_match_arbno_bx
                         .type            n32_match_defer_bx, @function
 n32_match_defer_bx:

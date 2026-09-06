@@ -3114,8 +3114,9 @@ n224_match_arbno_β:     mov              r11, 91
 .Lmatch_arbno_γ_224_af: mov              r11, 91
 .Lmatch_arbno_ω_224_af: mov              r11, 91
                         mov              eax, dword ptr [rbp + -112]
-                        cmp              r14d, eax;                           jne   n226_match_defer_β
-                                                                              jmp   n223_match_defer_β
+                        cmp              r14d, eax;                           je    .Lmatch_arbno_β_248_3
+                        mov              dword ptr [rbp + -108], eax;         jmp   n226_match_defer_β
+.Lmatch_arbno_β_248_3:                                                        jmp   n223_match_defer_β
                         .size            n224_match_arbno_bx, .-n224_match_arbno_bx
                         .type            n225_match_lit_bx, @function
 n225_match_lit_bx:
@@ -3697,8 +3698,9 @@ n264_match_arbno_β:     mov              r11, 106
 .Lmatch_arbno_γ_264_af: mov              r11, 106
 .Lmatch_arbno_ω_264_af: mov              r11, 106
                         mov              eax, dword ptr [rbp + -112]
-                        cmp              r14d, eax;                           jne   n266_match_defer_β
-                                                                              jmp   n263_match_defer_β
+                        cmp              r14d, eax;                           je    .Lmatch_arbno_β_288_3
+                        mov              dword ptr [rbp + -108], eax;         jmp   n266_match_defer_β
+.Lmatch_arbno_β_288_3:                                                        jmp   n263_match_defer_β
                         .size            n264_match_arbno_bx, .-n264_match_arbno_bx
                         .type            n265_match_lit_bx, @function
 n265_match_lit_bx:
