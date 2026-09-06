@@ -12666,8 +12666,8 @@ n669_match_break_bx:
 n669_match_break_α:     sub              rsp, 16
                         mov              r11, 448
                         mov              edi, r14d
-                        mov              rsi, qword ptr [rsp + 200]           # coerce_string
-                        mov              edx, dword ptr [rsp + 196]
+                        mov              rsi, qword ptr [rbp + 32]            # coerce_string
+                        mov              edx, dword ptr [rbp + 28]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
