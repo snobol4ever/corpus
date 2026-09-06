@@ -21,6 +21,15 @@ alias	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CO
 arr2dtype	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 arr2dtype3	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 arrparam	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
+benchmark_pascal_bubble	m3,m4
+benchmark_pascal_intmm	m3,m4
+benchmark_pascal_perm	m3,m4
+benchmark_pascal_queens	m3,m4
+benchmark_pascal_quick	m3,m4
+benchmark_pascal_sieve	m3,m4
+benchmark_pascal_towers	m3,m4
+benchmark_pascal_uplevel2	m3,m4
+benchmark_pascal_uplevel3	m3,m4
 boolarg	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 boolassign	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 boolchain	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
@@ -53,6 +62,7 @@ enum2	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CO
 flatnoarg	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 forward1	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 goto2	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
+ladder	m3,m4	# test_pascal_ladder.sh:12 -- "EACH WITNESS RUNS ALONE IN BOTH MODES: m3 = scrip --run . m4 = scrip --compile -o x.s + as --64 + gcc -no-pie + run" (35 entries, ladder__rungNN_*)
 matmul	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 nest2	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 nestcount	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
@@ -64,6 +74,7 @@ nestshadow	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITE
 nestvar	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 nestvar2	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 nestvar3	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
+parser	ast	# ⛔ AST, NOT m3,m4 -- these are graded by --dump-ast diff and NEVER EXECUTED. Evidence is the DATA, not just a comment: every parser__* ref in ALL.ref is an AST dump ("(STMT :subj (TT_PROC_DECL main ...") while a ladder__* ref beside it is program output ("7"). test_gate_pascal_m3.sh:63 says the same and passes --by-modes-column precisely so a plain --modes m3 cannot execute them. Declaring these m3,m4 runs a program whose ref is an AST dump -- it can never agree, and in the other direction (RUN entries declared ast) it is the false green the prolog master is carrying right now. (5 entries, parser__*)
 patchtable	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 pb30	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 pb31	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
@@ -90,5 +101,3 @@ vparam_field_write	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas
 vparr	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 vpfld	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
 withfwd1	m3,m4	# test_gate_pascal_m3.sh (--run, iterates $CORPUS/*.pas + SUITES=$CORPUS/crosscheck) + test_gate_pascal_m4.sh (--compile->link->run)
-ladder	m3,m4	# test_pascal_ladder.sh:12 -- "EACH WITNESS RUNS ALONE IN BOTH MODES: m3 = scrip --run . m4 = scrip --compile -o x.s + as --64 + gcc -no-pie + run" (35 entries, ladder__rungNN_*)
-parser	ast	# ⛔ AST, NOT m3,m4 -- these are graded by --dump-ast diff and NEVER EXECUTED. Evidence is the DATA, not just a comment: every parser__* ref in ALL.ref is an AST dump ("(STMT :subj (TT_PROC_DECL main ...") while a ladder__* ref beside it is program output ("7"). test_gate_pascal_m3.sh:63 says the same and passes --by-modes-column precisely so a plain --modes m3 cannot execute them. Declaring these m3,m4 runs a program whose ref is an AST dump -- it can never agree, and in the other direction (RUN entries declared ast) it is the false green the prolog master is carrying right now. (5 entries, parser__*)

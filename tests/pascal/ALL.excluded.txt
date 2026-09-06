@@ -1,5 +1,69 @@
-pb35	stdin sidecar (.in/.input) -- stays as files until the stdin-sections format extension lands
-read1	stdin sidecar (.in/.input) -- stays as files until the stdin-sections format extension lands
-read2	stdin sidecar (.in/.input) -- stays as files until the stdin-sections format extension lands
-read3	stdin sidecar (.in/.input) -- stays as files until the stdin-sections format extension lands
-read4	stdin sidecar (.in/.input) -- stays as files until the stdin-sections format extension lands
+aa6	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+aggloc2	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+alias	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+arr2dtype	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+arr2dtype3	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+arrparam	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+boolarg	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+boolassign	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+boolchain	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+boolidx	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+boolmix	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+boolnot	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+boolptr	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+bubble[benchmarks]	already in the master (origin benchmark_pascal_bubble__bubble) -- not re-appended
+char3	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+deep5	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+downto1	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+downto2	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+enum2	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+fbench[benchmarks]	SCRIP defect: fails fast (~0.13s) with "Run-time error 102 numeric expected" inside the ray-trace computation between the two `readln;` prompts; fpc -Miso runs it correctly with identical input. Bare `readln;` itself is ABLATED OUT as the cause (two-readln minimal repro passes clean with 0/1/2 newlines fed) -- not yet isolated further. ask filed to hq_P proposing row pascal-fbench-numeric-expected-in-trace-computation; see FINDING-2026-09-06-seat02-pascal-fbench-numeric-expected-in-trace-computation.md (seat02 2026-09-06)
+flatnoarg	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+forward1	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+goto2	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+intmm[benchmarks]	already in the master (origin benchmark_pascal_intmm__intmm) -- not re-appended
+matmul	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+nest2	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+nestcount	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+nested	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+nested_vp_writeback	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+nestfunc	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+nestrec	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+nestshadow	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+nestvar	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+nestvar2	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+nestvar3	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+patchtable	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+pb30	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+pb31	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+pb32	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+pb33	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+pb34	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+pb35	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+pb37	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+pb40	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+perm[benchmarks]	already in the master (origin benchmark_pascal_perm__perm) -- not re-appended
+queens[benchmarks]	already in the master (origin benchmark_pascal_queens__queens) -- not re-appended
+quick[benchmarks]	already in the master (origin benchmark_pascal_quick__quick) -- not re-appended
+read1	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+read2	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+read3	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+read4	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rec_local_collision	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+recursion	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+sieve	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+sieve[benchmarks]	already in the master (origin benchmark_pascal_sieve__sieve) -- not re-appended
+swap	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+towers[benchmarks]	already in the master (origin benchmark_pascal_towers__towers) -- not re-appended
+uplevel2[benchmarks]	already in the master (origin benchmark_pascal_uplevel2__uplevel2) -- not re-appended
+uplevel3[benchmarks]	already in the master (origin benchmark_pascal_uplevel3__uplevel3) -- not re-appended
+varframe	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+varmix	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+varparam	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+vartrans	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+vparam_field_then_whole	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+vparam_field_write	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+vparr	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+vpfld	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+whet[benchmarks]	neither engine parses it: fpc -Miso rejects its FPC-dialect `uses Dos;` block (ISO 7185 has no unit/uses system) and SCRIP's own parser fails independently at a later line -- multi-dialect {$IFDEF}-guarded Whetstone source, not ISO-7185-clean under either engine (seat02 2026-09-06)
+withfwd1	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
