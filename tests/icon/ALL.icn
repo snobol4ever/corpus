@@ -7867,3 +7867,36 @@ procedure main()
   write(2^100);
   write(type(2^100));
 end
+#------------------------------------------------ 777 ladder_rung40_strfn_center
+procedure main()
+  write(center("ab", 6, "*"));
+  write(center("abc", 6, "*"));
+end
+#------------------------------------------------- 778 ladder_rung40_strfn_right
+procedure main()
+  write(right("ab", 5, "0"));
+end
+#------------------------------------------------- 779 ladder_rung40_strfn_entab
+procedure main()
+  write(image(entab("a       b", 8)));
+end
+#------------------------------------------------- 780 ladder_rung40_strfn_detab
+procedure main()
+  write(image(detab("a\tb", 8)));
+end
+#-------------------------------------------------- 781 ladder_rung40_strfn_repl
+procedure main()
+  write(repl("ab", 3));
+  write(image(repl("x", 0)));
+end
+#------------------------------------- 782 ladder_rung40_strfn_map_transliterate
+procedure main()
+  write(map("hello", "el", "ip"));
+  write(map("HELLO"));
+end
+#------------------------------------ 783 ladder_rung40_strfn_ord_char_roundtrip
+procedure main()
+  write(ord("A"));
+  write(char(65));
+  write(char(ord("Z")));
+end

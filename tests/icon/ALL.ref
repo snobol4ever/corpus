@@ -5439,3 +5439,22 @@ not-serialable
 #------------------------------------ 776 ladder_rung39_numbit_large_integer_ops
 1267650600228229401496703205376
 integer
+#------------------------------------------------ 777 ladder_rung40_strfn_center
+**ab**
+*abc**
+#------------------------------------------------- 778 ladder_rung40_strfn_right
+000ab
+#------------------------------------------------- 779 ladder_rung40_strfn_entab
+"a\t b"
+#------------------------------------------------- 780 ladder_rung40_strfn_detab
+"a      b"
+#-------------------------------------------------- 781 ladder_rung40_strfn_repl
+ababab
+""
+#------------------------------------- 782 ladder_rung40_strfn_map_transliterate
+hippo
+hello
+#------------------------------------ 783 ladder_rung40_strfn_ord_char_roundtrip
+65
+A
+Z
