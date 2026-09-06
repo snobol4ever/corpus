@@ -1,0 +1,10 @@
+        DEFINE('F()')                                                   :(L1)
+F       F = 'one'                                                       :(RETURN)
+L1      OUTPUT = F()
+        DEFINE('F()','G')                                               :(L2)
+G       F = 'two'                                                       :(RETURN)
+L2      OUTPUT = F()
+        DEFINE('F()','H')                                               :(L3)
+H       F = 'three'                                                     :(RETURN)
+L3      OUTPUT = F()
+END

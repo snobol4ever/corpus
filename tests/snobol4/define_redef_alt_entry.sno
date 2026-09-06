@@ -1,0 +1,7 @@
+        DEFINE('F()')                                                   :(L1)
+F       F = 'first'                                                     :(RETURN)
+L1      OUTPUT = F()
+        DEFINE('F()','G')                                               :(L2)
+G       F = 'second-via-alt-entry'                                      :(RETURN)
+L2      OUTPUT = F()
+END

@@ -1,0 +1,8 @@
+        DEFINE('F()')                                                   :(L1)
+F       F = 'f-body'                                                    :(RETURN)
+L1      DEFINE('Q()')                                                   :(L2)
+Q       Q = 'q-body'                                                    :(RETURN)
+L2      OUTPUT = F()
+        OUTPUT = Q()
+        OUTPUT = F()
+END

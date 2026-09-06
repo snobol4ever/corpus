@@ -1,0 +1,5 @@
+        DEFINE('F()')                                                   :(L1)
+F       F = 'only'                                                      :(RETURN)
+L1      OUTPUT = F()
+        OUTPUT = F()
+END
