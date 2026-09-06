@@ -5380,3 +5380,35 @@ Barbecuing with Liquid Oxygen</a>
 <hr>
 <address><a href="http://www.cs.arizona.edu/~gmt">Gregg Townsend</a></address>
 </body></html>
+#----------------------------------------------- 763 ladder_rung38_coexpr_create
+created
+ran
+#------------------------------------------ 764 ladder_rung38_coexpr_activate_at
+a
+an
+the
+exhausted
+#---------------------------------------- 765 ladder_rung38_coexpr_refresh_caret
+2
+4
+2
+4
+#---------------------------------- 766 ladder_rung38_coexpr_main_current_source
+main-eq-main
+body-neq-main
+source-eq-main
+#---------------------------------- 767 ladder_rung38_coexpr_parallel_evaluation
+11
+22
+33
+#------------------------------------- 768 ladder_rung38_coexpr_coroutine_switch
+activation 1 of C2
+activation 1 of C1
+activation 2 of C2
+activation 2 of C1
+activation 3 of C2
+activation 3 of C1
+main done
+#------------------------------------- 769 ladder_rung38_coexpr_serial_on_coexpr
+increasing
+not-serialable
