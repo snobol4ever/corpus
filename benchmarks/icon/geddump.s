@@ -5561,7 +5561,9 @@ n00200_call_value_α:      mov              r11, 250
                         lea              rcx, [rip + .Lcall_value_α_640_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_640_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rcx, [rip + .Lcall_value_α_640_3]
+                        lea              rdx, [rip + .Lcall_value_α_640_4];   jmp   rax
 .Lcall_value_α_640_3:   mov              qword ptr [rbp + -552], rsp
                         mov              rax, qword ptr [rbp + -560]
                         test             rax, rax;                            jne   .Lcall_value_α_640_5
@@ -5776,7 +5778,9 @@ n00214_call_value_α:      mov              r11, 257
                         lea              rcx, [rip + .Lcall_value_α_658_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_658_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rcx, [rip + .Lcall_value_α_658_3]
+                        lea              rdx, [rip + .Lcall_value_α_658_4];   jmp   rax
 .Lcall_value_α_658_3:   mov              qword ptr [rbp + -152], rsp
                         mov              rax, qword ptr [rbp + -160]
                         test             rax, rax;                            jne   .Lcall_value_α_658_5
@@ -5966,7 +5970,9 @@ n00219_call_value_α:      mov              r11, 262
                         lea              rcx, [rip + .Lcall_value_α_672_4]
                         push             rcx
                         lea              rcx, [rip + .Lcall_value_α_672_3]
-                        push             rcx;                                 jmp   rax
+                        push             rcx
+                        lea              rcx, [rip + .Lcall_value_α_672_3]
+                        lea              rdx, [rip + .Lcall_value_α_672_4];   jmp   rax
 .Lcall_value_α_672_3:   mov              qword ptr [rbp + -152], rsp
                         mov              rax, qword ptr [rbp + -160]
                         test             rax, rax;                            jne   .Lcall_value_α_672_5
