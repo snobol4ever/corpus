@@ -1,0 +1,7 @@
+        X = &FILE
+LBL1    OUTPUT = "stno " &STNO
+        OUTPUT = "lastno " &LASTNO
+        OUTPUT = "line " &LINE
+        OUTPUT = "lastline " &LASTLINE
+        OUTPUT = "file same as lastfile " IDENT(&FILE, &LASTFILE)
+END

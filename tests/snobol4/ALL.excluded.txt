@@ -58,6 +58,8 @@ ladder__rung09_immediate_assignment_with_deferred_reuse	already in the master (1
 ladder__rung09_nested_capture_with_outer_group	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 ladder__rung09_outer_capture_over_pattern_valued_variable_group	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 ladder__rung09_repeated_target_reassigned_in_sequence	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+ladder__rung14_lastno_stno_line_file_lastline_lastfile	source-identity-sensitive keyword (&FILE/&LASTFILE/...) -- output depends on the source FILENAME, which absorption renames; stays as files (measured: k09/k11/k30/k32 went red in the master while green loose)
+ladder__rung14_stno_lastno_line_lastline	source-identity-sensitive keyword (&FILE/&LASTFILE/...) -- output depends on the source FILENAME, which absorption renames; stays as files (measured: k09/k11/k30/k32 went red in the master while green loose)
 linker_ancestor_ancestor_main[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 linker_greet_main[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 mixed_workload[benchmarks]	already in the master (origin benchmark_snobol4_mixed_workload__mixed_workload) -- not re-appended
