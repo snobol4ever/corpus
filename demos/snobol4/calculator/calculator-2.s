@@ -11411,7 +11411,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4512
+                        .long            4640
                         .long            16
                         .long            0
                         .long            0
@@ -11430,7 +11430,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4512
+                        .long            4640
                         .long            16
                         .long            0
                         .long            0
@@ -11449,7 +11449,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4512
+                        .long            4640
                         .long            16
                         .long            0
                         .long            0
@@ -11468,7 +11468,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4512
+                        .long            4640
                         .long            16
                         .long            0
                         .long            0
@@ -11487,7 +11487,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4512
+                        .long            4640
                         .long            16
                         .long            0
                         .long            0
@@ -11506,7 +11506,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4512
+                        .long            4640
                         .long            16
                         .long            0
                         .long            0
@@ -11525,7 +11525,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4512
+                        .long            4640
                         .long            16
                         .long            0
                         .long            0
@@ -11544,7 +11544,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4512
+                        .long            4640
                         .long            16
                         .long            0
                         .long            0
