@@ -162,7 +162,7 @@ end
 #  Originally based on a calculator algorithm posted to usenet on August 19,
 #  1987, by Joseph D. Rudmin, Duke University Physics Dept. (duke!dukempd!jdr)
 
-$define MAXITER 40;		# maximum number of iterations
+$define MAXITER 40 # maximum number of iterations
 $define PRECISION 1e-10		# default conversion precision
 
 procedure real2rat(r, p);	#: convert to rational with precision p

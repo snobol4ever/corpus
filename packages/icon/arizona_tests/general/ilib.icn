@@ -5,9 +5,9 @@ link core
 link levensht
 link options
 link printf
-link rational;
+link rational
 
-$define LSIZE 16;
+$define LSIZE 16
 $define GENLIMIT 25
 
 procedure main()

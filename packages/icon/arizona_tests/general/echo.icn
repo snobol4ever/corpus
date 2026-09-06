@@ -210,7 +210,7 @@
 
 procedure echo();			#: interpolate variables and print
 
-   $define idchars 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_';
+   $define idchars 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_'
    while writes(tab(find("$")) ) do {
       move(1);
       writes( ="$" |
@@ -222,6 +222,6 @@ procedure echo();			#: interpolate variables and print
                 ( ="{" & tab(find("}")) & ="}" )
    };
    write(tab(0));
-   $undef idchars;
+   $undef idchars
 
 end
