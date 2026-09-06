@@ -17139,7 +17139,7 @@ LOOP    N  =  N + 1
         PERM(A)                                  :S(LOOP)
         OUTPUT  =  N ' permutations'
 END
-*------------------------------- 1868 user_function_array_replace_branch_1 XFAIL
+*------------------------------- 1868 user_function_array_replace_branch_1
 *  ⛔ RED ON ARRIVAL -- A PRE-EXISTING DEFECT EXPOSED BY queue row `subscript-silent-accept`,
 *  NOT CAUSED BY IT.  SPITBOL's parenthesised comma expression `(e1, e2, ... , en)` is an
 *  EXPRESSION ALTERNATION: the elements are evaluated LEFT TO RIGHT, the value is the FIRST
@@ -17418,7 +17418,7 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
-*--------------------------- 1890 user_function_eval_span_replace_branch_1 XFAIL
+*--------------------------- 1890 user_function_eval_span_replace_branch_1
 *  alpha_scan_pollution.sno -- witness for row m3-executes-three-times-m4-on-beauty
 *  (FINDING-2026-08-22-m3-run-only-is-alpha-cell-scan-pollution.md).
 *  Body = corpus/crosscheck/control/expr_eval.sno UNCHANGED (a small recursive-descent
