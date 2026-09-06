@@ -176,7 +176,12 @@ main:
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                         xor              r14d, r14d
+                        lea              rax, [rip + .Llevel_zero_return]
+                        push             rax
+                        push             rax
                                                                               jmp   main_α
+.Llevel_zero_return:    call             rt_kw_return_level_zero@PLT
+                        ud2
                         .section         .rodata
 .Lgvan0:                .string          "NUMERALS"
 .Lgvan1:                .string          "WORD"
