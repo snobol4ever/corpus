@@ -1,0 +1,4 @@
+          'a+a+a' (SPAN('ab') | (BREAKX('ab') | '')) RPOS(0)                          :S(OK)F(NO)
+OK        OUTPUT = 'match'                      :(END)
+NO        OUTPUT = 'nomatch'
+END
