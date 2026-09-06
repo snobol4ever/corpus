@@ -724,7 +724,7 @@ n38_binop_α:            mov              r11, 39
                         cmp              dl, 3;                               jne   .Lbinop_α_127_2
                         mov              rax, qword ptr [rsp + 648]
                         mov              rdx, 1
-                        add              rax, rdx
+                        add              rax, rdx;                            jo    .Lbinop_α_127_2
                         mov              qword ptr [rsp + 624], 3
                         mov              qword ptr [rsp + 632], rax;          jmp   .Lbinop_α_127_7
 .Lbinop_α_127_2:        and              edx, 1;                              jz    .Lbinop_α_127_0
@@ -748,7 +748,7 @@ n38_binop_α:            mov              r11, 39
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_add@PLT
+                        call             rt_add_big@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -1500,7 +1500,7 @@ n00006_binop_α:           mov              r11, 75
                         cmp              dl, 3;                               jne   .Lbinop_α_223_2
                         mov              rax, qword ptr [rsp + 216]
                         mov              rdx, 2
-                        add              rax, rdx
+                        add              rax, rdx;                            jo    .Lbinop_α_223_2
                         mov              qword ptr [rsp + 192], 3
                         mov              qword ptr [rsp + 200], rax;          jmp   .Lbinop_α_223_7
 .Lbinop_α_223_2:        and              edx, 1;                              jz    .Lbinop_α_223_0
@@ -1524,7 +1524,7 @@ n00006_binop_α:           mov              r11, 75
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_add@PLT
+                        call             rt_add_big@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -1657,7 +1657,7 @@ n00012_binop_α:           mov              r11, 80
                         cmp              dl, 3;                               jne   .Lbinop_α_229_2
                         mov              rax, qword ptr [rsp + 856]
                         mov              rdx, 2
-                        add              rax, rdx
+                        add              rax, rdx;                            jo    .Lbinop_α_229_2
                         mov              qword ptr [rsp + 832], 3
                         mov              qword ptr [rsp + 840], rax;          jmp   .Lbinop_α_229_7
 .Lbinop_α_229_2:        and              edx, 1;                              jz    .Lbinop_α_229_0
@@ -1681,7 +1681,7 @@ n00012_binop_α:           mov              r11, 80
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_add@PLT
+                        call             rt_add_big@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -1768,7 +1768,7 @@ n00018_binop_α:           mov              r11, 86
                         cmp              dl, 3;                               jne   .Lbinop_α_238_2
                         mov              rax, qword ptr [rsp + 712]
                         mov              rdx, 1
-                        sub              rax, rdx
+                        sub              rax, rdx;                            jo    .Lbinop_α_238_2
                         mov              qword ptr [rsp + 688], 3
                         mov              qword ptr [rsp + 696], rax;          jmp   .Lbinop_α_238_7
 .Lbinop_α_238_2:        and              edx, 1;                              jz    .Lbinop_α_238_0
@@ -1792,7 +1792,7 @@ n00018_binop_α:           mov              r11, 86
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_sub@PLT
+                        call             rt_sub_big@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -2094,7 +2094,7 @@ n00036_binop_α:           mov              r11, 104
                         cmp              dl, 3;                               jne   .Lbinop_α_263_2
                         mov              rax, qword ptr [rsp + 472]
                         mov              rdx, 1
-                        add              rax, rdx
+                        add              rax, rdx;                            jo    .Lbinop_α_263_2
                         mov              qword ptr [rsp + 448], 3
                         mov              qword ptr [rsp + 456], rax;          jmp   .Lbinop_α_263_7
 .Lbinop_α_263_2:        and              edx, 1;                              jz    .Lbinop_α_263_0
@@ -2118,7 +2118,7 @@ n00036_binop_α:           mov              r11, 104
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_add@PLT
+                        call             rt_add_big@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -2352,7 +2352,7 @@ FN__item:
                         mov              qword ptr [rax + 1080], rcx
                         mov              rcx, qword ptr [rsp + 8]
                         mov              qword ptr [rax + 1088], rcx
-                        lea              rcx, [rsp + 40]
+                        lea              rcx, [rsp + 48]
                         mov              qword ptr [rax + 1096], rcx
                         lea              rbp, [rax + 1072]
                         mov              rdi, rax
@@ -2464,7 +2464,7 @@ n00052_binop_α:           mov              r11, 120
                         cmp              dl, 3;                               jne   .Lbinop_α_321_2
                         mov              rax, qword ptr [rbp + -264]
                         mov              rdx, 1
-                        add              rax, rdx
+                        add              rax, rdx;                            jo    .Lbinop_α_321_2
                         mov              qword ptr [rbp + -288], 3
                         mov              qword ptr [rbp + -280], rax;         jmp   .Lbinop_α_321_7
 .Lbinop_α_321_2:        and              edx, 1;                              jz    .Lbinop_α_321_0
@@ -2488,7 +2488,7 @@ n00052_binop_α:           mov              r11, 120
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_add@PLT
+                        call             rt_add_big@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -4033,7 +4033,7 @@ n00127_binop_α:           mov              r11, 192
                         cmp              dl, 3;                               jne   .Lbinop_α_544_2
                         mov              rax, qword ptr [rsp + 2008]
                         mov              rdx, 1
-                        add              rax, rdx
+                        add              rax, rdx;                            jo    .Lbinop_α_544_2
                         mov              qword ptr [rsp + 1984], 3
                         mov              qword ptr [rsp + 1992], rax;         jmp   .Lbinop_α_544_7
 .Lbinop_α_544_2:        and              edx, 1;                              jz    .Lbinop_α_544_0
@@ -4057,7 +4057,7 @@ n00127_binop_α:           mov              r11, 192
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_add@PLT
+                        call             rt_add_big@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -9030,7 +9030,7 @@ n00352_binop_α:          mov              r11, 420
                         cmp              dl, 3;                               jne   .Lbinop_α_1051_2
                         mov              rax, qword ptr [rsp + 56]
                         mov              rdx, qword ptr [rsp + 40]
-                        sub              rax, rdx
+                        sub              rax, rdx;                            jo    .Lbinop_α_1051_2
                         mov              qword ptr [rsp + 16], 3
                         mov              qword ptr [rsp + 24], rax;           jmp   .Lbinop_α_1051_7
 .Lbinop_α_1051_2:       and              edx, 1;                              jz    .Lbinop_α_1051_0
@@ -9054,7 +9054,7 @@ n00352_binop_α:          mov              r11, 420
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_sub@PLT
+                        call             rt_sub_big@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -9770,6 +9770,7 @@ n00378_proc_gen_bx:
 n00378_proc_gen_α:       mov              r11, 443
                         mov              qword ptr [rsp + 544], 0
                         sub              rsp, 8
+                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
                         lea              rax, [rip + .Lproc_gen_α_1128_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rax
                         mov              edi, 2
@@ -9783,7 +9784,7 @@ n00378_proc_gen_α:       mov              r11, 443
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lproc_gen_α_1128_1
-                        lea              rcx, [rsp + 1360]
+                        lea              rcx, [rsp + 1368]
                         push             rcx
                         lea              rcx, [rip + .Lproc_gen_α_1128_4]
                         push             rcx
@@ -9858,7 +9859,7 @@ n00378_proc_gen_β:       mov              r11, 443
                         call             rt_gen_spine_resume_enter@PLT
                         mov              rax, qword ptr [rsp + 552]
                         mov              rsp, qword ptr [rax + 24]
-                        sub              rsp, 40;                             jmp   qword ptr [rax + 32]
+                        sub              rsp, 48;                             jmp   qword ptr [rax + 32]
 .Lproc_gen_α_1128_7:    add              rsp, 8
                         mov              qword ptr [rsp + 528], rax
                         mov              qword ptr [rsp + 536], rdx
