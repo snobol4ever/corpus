@@ -41686,6 +41686,7 @@ n01923_create_α:         mov              r11, 1992
                         mov              qword ptr [rsp + 184], r15
                         mov              qword ptr [rsp + 192], rbx
                         mov              qword ptr [rsp + 200], rsp
+                        mov              qword ptr [rsp + 208], r9
                         lea              rdi, [rip + n01924_repalt_α]
                         lea              rsi, [rsp + 160]
                         mov              edx, 416
@@ -41697,7 +41698,8 @@ n01923_create_α:         mov              r11, 1992
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rsp + 144], rax;          jmp   n01925_unmark_α
+                        mov              qword ptr [rsp + 144], 128
+                        mov              qword ptr [rsp + 152], rax;          jmp   n01925_unmark_α
                         .size            n01923_create_bx, .-n01923_create_bx
                         .type            n01925_unmark_bx, @function
 n01925_unmark_bx:
@@ -42014,7 +42016,7 @@ n01940_var_α:            mov              r11, 2008
 n01941_activate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n01941_activate_α:       mov              r11, 2009
-                        mov              rdi, qword ptr [rsp + 160]
+                        mov              rdi, qword ptr [rsp + 168]
                         xor              esi, esi
                         xor              edx, edx
                         lea              rcx, [rsp + 144]
@@ -42148,6 +42150,7 @@ n01949_create_α:         mov              r11, 2019
                         mov              qword ptr [rsp + 360], r15
                         mov              qword ptr [rsp + 368], rbx
                         mov              qword ptr [rsp + 376], rsp
+                        mov              qword ptr [rsp + 384], r9
                         lea              rdi, [rip + n01950_repalt_α]
                         lea              rsi, [rsp + 336]
                         mov              edx, 560
@@ -42159,7 +42162,8 @@ n01949_create_α:         mov              r11, 2019
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rsp + 320], rax;          jmp   n01951_assign_α
+                        mov              qword ptr [rsp + 320], 128
+                        mov              qword ptr [rsp + 328], rax;          jmp   n01951_assign_α
                         .size            n01949_create_bx, .-n01949_create_bx
                         .type            n01951_assign_bx, @function
 n01951_assign_bx:
