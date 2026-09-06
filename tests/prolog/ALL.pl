@@ -4958,3 +4958,30 @@ main :- write(before), nl, halt, write(after), nl.
 %------------------------------------------------------------ 686 misc17_halt_1_status_1
 :- initialization(main).
 main :- write(before), nl, halt(3).
+%------------------------------------------------------------ 687 erriso_instantiation_error_1
+:- initialization(main).
+main :- catch(( _ is _Y + 1 ), error(instantiation_error, _), write(caught)), nl.
+%------------------------------------------------------------ 688 erriso_type_error_1
+:- initialization(main).
+main :- catch( atom_length(foo, not_an_integer), error(type_error(integer, not_an_integer), _), write(caught) ), nl.
+%------------------------------------------------------------ 689 erriso_domain_error_1
+:- initialization(main).
+main :- catch( open('/tmp/scrip_rung18_erriso_domain.txt', bogus_mode, _), error(domain_error(io_mode, bogus_mode), _), write(caught) ), nl.
+%------------------------------------------------------------ 690 erriso_existence_error_1
+:- initialization(main).
+main :- catch( nonexistent_predicate_xyz(1,2,3), error(existence_error(procedure, nonexistent_predicate_xyz/3), _), write(caught) ), nl.
+%------------------------------------------------------------ 691 erriso_permission_error_1
+:- initialization(main).
+foo(1).
+main :- catch( retract((foo(1) :- true)), error(permission_error(_,_,_), _), write(caught) ), nl.
+%------------------------------------------------------------ 692 erriso_evaluation_error_1
+:- initialization(main).
+main :- catch(( _ is 1 // 0 ), error(evaluation_error(zero_divisor), _), write(caught)), nl.
+%------------------------------------------------------------ 693 erriso_syntax_error_on_read_1
+:- initialization(main).
+main :-
+    open('/tmp/scrip_rung18_erriso_syntax.txt', write, WS), write(WS, 'foo(.'), close(WS),
+    open('/tmp/scrip_rung18_erriso_syntax.txt', read, RS),
+    catch( ( read(RS, _T), write(noerror) ), error(syntax_error(_), _), write(caught) ),
+    nl,
+    close(RS).

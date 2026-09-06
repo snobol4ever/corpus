@@ -685,3 +685,10 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,findall,bagof,setof,forall,ass
 684,misc17_number_chars_1,ladder__rung17_misc17_number_chars,ladder,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 685,misc17_halt_0_1,ladder__rung17_misc17_halt_0,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 686,misc17_halt_1_status_1,ladder__rung17_misc17_halt_1_status,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+687,erriso_instantiation_error_1,ladder__rung18_erriso_instantiation_error,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+688,erriso_type_error_1,ladder__rung18_erriso_type_error,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+689,erriso_domain_error_1,ladder__rung18_erriso_domain_error,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+690,erriso_existence_error_1,ladder__rung18_erriso_existence_error,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+691,erriso_permission_error_1,ladder__rung18_erriso_permission_error,ladder,block,0,3,"m3,m4",0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+692,erriso_evaluation_error_1,ladder__rung18_erriso_evaluation_error,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+693,erriso_syntax_error_on_read_1,ladder__rung18_erriso_syntax_error_on_read,ladder,block,0,7,"m3,m4",0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
