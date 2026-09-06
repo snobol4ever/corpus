@@ -17043,7 +17043,7 @@ N7      X = ARRAY('0:' (IDENT('a') 0, 5))
         OUTPUT = 'treebank-shape       ' PROTOTYPE(X)
         OUTPUT = 'end'
 END
-*------------------------- 1856 fence_capture_imm_capture_replace_branch_1 XFAIL
+*------------------------- 1856 fence_capture_imm_capture_replace_branch_1
 *  MINIMAL WITNESS for the fz_abort_05/fz_abort_25 SIGABRT class (s188 seat1, row fuzz-abort-batch).
 *  Two ingredients ONLY: a one-argument FENCE1, and TWO STACKED captures on its body.
 *  SCRIP bombs at emit: bb_match_capture.cpp:88 "IR_MATCH_CAPTURE_SAVE: no home".  rc=134, m3 AND m4.
@@ -17115,7 +17115,7 @@ A5      G = ''
         SUB ? P
         OUTPUT = 'arm5 G=' G ' H=' H
 END
-*------------------------------------ 1859 fence_rpos_rem_replace_branch_1 XFAIL
+*------------------------------------ 1859 fence_rpos_rem_replace_branch_1
 *  s188 seat4, row fuzz-segv-batch.  ⛔ 1:1 BREACH WITNESS IN THE OTHER DIRECTION -- m3 ANSWERS CORRECTLY, m4 SEGVs.
 *  m3 rc=0 'match', m4 rc=139.  One ingredient from fz_red_m2a: RPOS(0) added, the defer removed.
           'a+a+a' FENCE((BREAKX('abc')) $ v0) REM RPOS(0)                          :S(OK)F(NO)
@@ -17170,7 +17170,7 @@ OK      OUTPUT = 'matched'                        :(END1)
 NO      OUTPUT = 'failed'
 END1
 END
-*----------------------------------- 1864 fence_span_rpos_replace_branch_1 XFAIL
+*----------------------------------- 1864 fence_span_rpos_replace_branch_1
 *  s188 seat4, row fuzz-segv-batch.  ⛔ 1:1 BREACH WITNESS -- M2 shape, m3 SEGVs and m4 ANSWERS CORRECTLY.
 *  m3 rc=139, m4 rc=0 'match'.  Same shape as fz_red_m2a with SPAN for BREAKX and no RPOS(0).
           'a+a+a' FENCE((SPAN('abc')) . v0) REM                          :S(OK)F(NO)
