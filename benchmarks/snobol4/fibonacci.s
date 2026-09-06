@@ -486,7 +486,10 @@ n24_define_α:           mov              r11, 25
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n25_statement_end_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        lea              rax, [rip + LBL__FIB]
+                        mov              rcx, qword ptr [rip + body_cell$FIB@GOTPCREL]
+                        mov              qword ptr [rcx + 0], rax;            jmp   n25_statement_end_α
 n24_define_β:           mov              r11, 25;                             jmp   n23_statement_begin_β
 .Ldefine_α_179_0:       .quad            .Ldefine_α_179_0_s
 .Ldefine_α_179_0_s:     .string          "FIB"
@@ -556,9 +559,37 @@ FIB_α:                  sub              rsp, 64
                         lea              rax, [rip + FIB_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + LBL__FIB];               jmp   rax
+                        .section         .data
+                        .align           8
+body_cell$FIB:          .quad            LBL__FIB
+                        .section         .text
+                        .intel_syntax    noprefix
+                        mov              rax, qword ptr [rip + body_cell$FIB@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0];            jmp   rax
 FIB_γ:                  mov              rdi, qword ptr [r9 + 0]              # FIB
                         mov              rsi, qword ptr [r9 + 8]
+                        mov              rcx, qword ptr [rsp + 32]
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              qword ptr [r9 + 0], rax
+                        mov              rax, qword ptr [rsp + 8]
+                        mov              qword ptr [r9 + 8], rax
+                        cmp              rdx, 0;                              jbe   .Ldefine_α_180_80
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [r9 + 16], rax             # N
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 8]
+                        mov              qword ptr [r9 + 24], rax;            jmp   .Ldefine_α_180_110
+.Ldefine_α_180_80:      mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [r9 + 16], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [r9 + 24], rax
+.Ldefine_α_180_110:     mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi
                         push             rax
@@ -593,29 +624,7 @@ FIB_γ:                  mov              rdi, qword ptr [r9 + 0]              #
 .Ldefine_α_180_237:     .quad            .Ldefine_α_180_237_s
 .Ldefine_α_180_237_s:   .string          "FIB"
 .Ldefine_α_180_236:     pop              rdx
-                        pop              rax
-                        mov              rcx, qword ptr [rsp + 32]
-                        mov              rdx, qword ptr [rcx + 0]
-                        lea              r8, [rsp + 64]
-                        mov              rax, qword ptr [rsp + 0]
-                        mov              qword ptr [r9 + 0], rax
-                        mov              rax, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 8], rax
-                        cmp              rdx, 0;                              jbe   .Ldefine_α_180_80
-                        mov              rax, qword ptr [rcx + 24]
-                        add              rax, r8
-                        mov              rax, qword ptr [rax + 0]
-                        mov              qword ptr [r9 + 16], rax             # N
-                        mov              rax, qword ptr [rcx + 24]
-                        add              rax, r8
-                        mov              rax, qword ptr [rax + 8]
-                        mov              qword ptr [r9 + 24], rax;            jmp   .Ldefine_α_180_110
-.Ldefine_α_180_80:      mov              rax, qword ptr [rsp + 48]
-                        mov              qword ptr [r9 + 16], rax
-                        mov              rax, qword ptr [rsp + 56]
-                        mov              qword ptr [r9 + 24], rax
-.Ldefine_α_180_110:     mov              rcx, qword ptr [rcx + 8]
-                        add              rsp, 64;                             jmp   rcx
+                        pop              rax;                                 jmp   rcx
 FIB_ω:                  mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
@@ -1332,7 +1341,10 @@ n56_define_α:           mov              r11, 57
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n57_statement_end_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        lea              rax, [rip + LBL__FIBONACCI]
+                        mov              rcx, qword ptr [rip + body_cell$FIBONACCI@GOTPCREL]
+                        mov              qword ptr [rcx + 0], rax;            jmp   n57_statement_end_α
 n56_define_β:           mov              r11, 57;                             jmp   n55_statement_begin_β
 .Ldefine_α_228_0:       .quad            .Ldefine_α_228_0_s
 .Ldefine_α_228_0_s:     .string          "FIBONACCI"
@@ -1402,9 +1414,37 @@ FIBONACCI_α:            sub              rsp, 64
                         lea              rax, [rip + FIBONACCI_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + LBL__FIBONACCI];         jmp   rax
+                        .section         .data
+                        .align           8
+body_cell$FIBONACCI:    .quad            LBL__FIBONACCI
+                        .section         .text
+                        .intel_syntax    noprefix
+                        mov              rax, qword ptr [rip + body_cell$FIBONACCI@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0];            jmp   rax
 FIBONACCI_γ:            mov              rdi, qword ptr [r9 + 32]             # FIBONACCI
                         mov              rsi, qword ptr [r9 + 40]
+                        mov              rcx, qword ptr [rsp + 32]
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              qword ptr [r9 + 32], rax
+                        mov              rax, qword ptr [rsp + 8]
+                        mov              qword ptr [r9 + 40], rax
+                        cmp              rdx, 0;                              jbe   .Ldefine_α_229_80
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [r9 + 16], rax             # N
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 8]
+                        mov              qword ptr [r9 + 24], rax;            jmp   .Ldefine_α_229_110
+.Ldefine_α_229_80:      mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [r9 + 16], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [r9 + 24], rax
+.Ldefine_α_229_110:     mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi
                         push             rax
@@ -1439,29 +1479,7 @@ FIBONACCI_γ:            mov              rdi, qword ptr [r9 + 32]             #
 .Ldefine_α_229_237:     .quad            .Ldefine_α_229_237_s
 .Ldefine_α_229_237_s:   .string          "FIBONACCI"
 .Ldefine_α_229_236:     pop              rdx
-                        pop              rax
-                        mov              rcx, qword ptr [rsp + 32]
-                        mov              rdx, qword ptr [rcx + 0]
-                        lea              r8, [rsp + 64]
-                        mov              rax, qword ptr [rsp + 0]
-                        mov              qword ptr [r9 + 32], rax
-                        mov              rax, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 40], rax
-                        cmp              rdx, 0;                              jbe   .Ldefine_α_229_80
-                        mov              rax, qword ptr [rcx + 24]
-                        add              rax, r8
-                        mov              rax, qword ptr [rax + 0]
-                        mov              qword ptr [r9 + 16], rax             # N
-                        mov              rax, qword ptr [rcx + 24]
-                        add              rax, r8
-                        mov              rax, qword ptr [rax + 8]
-                        mov              qword ptr [r9 + 24], rax;            jmp   .Ldefine_α_229_110
-.Ldefine_α_229_80:      mov              rax, qword ptr [rsp + 48]
-                        mov              qword ptr [r9 + 16], rax
-                        mov              rax, qword ptr [rsp + 56]
-                        mov              qword ptr [r9 + 24], rax
-.Ldefine_α_229_110:     mov              rcx, qword ptr [rcx + 8]
-                        add              rsp, 64;                             jmp   rcx
+                        pop              rax;                                 jmp   rcx
 FIBONACCI_ω:            mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]

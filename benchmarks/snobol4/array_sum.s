@@ -484,7 +484,10 @@ n24_define_α:           mov              r11, 25
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n25_statement_end_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        lea              rax, [rip + LBL__ARRAY_SUM]
+                        mov              rcx, qword ptr [rip + body_cell$ARRAY_SUM@GOTPCREL]
+                        mov              qword ptr [rcx + 0], rax;            jmp   n25_statement_end_α
 n24_define_β:           mov              r11, 25;                             jmp   n23_statement_begin_β
 .Ldefine_α_200_0:       .quad            .Ldefine_α_200_0_s
 .Ldefine_α_200_0_s:     .string          "ARRAY_SUM"
@@ -554,9 +557,37 @@ ARRAY_SUM_α:            sub              rsp, 64
                         lea              rax, [rip + ARRAY_SUM_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + LBL__ARRAY_SUM];         jmp   rax
+                        .section         .data
+                        .align           8
+body_cell$ARRAY_SUM:    .quad            LBL__ARRAY_SUM
+                        .section         .text
+                        .intel_syntax    noprefix
+                        mov              rax, qword ptr [rip + body_cell$ARRAY_SUM@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0];            jmp   rax
 ARRAY_SUM_γ:            mov              rdi, qword ptr [r9 + 0]              # ARRAY_SUM
                         mov              rsi, qword ptr [r9 + 8]
+                        mov              rcx, qword ptr [rsp + 32]
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              qword ptr [r9 + 0], rax
+                        mov              rax, qword ptr [rsp + 8]
+                        mov              qword ptr [r9 + 8], rax
+                        cmp              rdx, 0;                              jbe   .Ldefine_α_201_80
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [r9 + 16], rax             # N
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 8]
+                        mov              qword ptr [r9 + 24], rax;            jmp   .Ldefine_α_201_110
+.Ldefine_α_201_80:      mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [r9 + 16], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [r9 + 24], rax
+.Ldefine_α_201_110:     mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi
                         push             rax
@@ -591,29 +622,7 @@ ARRAY_SUM_γ:            mov              rdi, qword ptr [r9 + 0]              #
 .Ldefine_α_201_237:     .quad            .Ldefine_α_201_237_s
 .Ldefine_α_201_237_s:   .string          "ARRAY_SUM"
 .Ldefine_α_201_236:     pop              rdx
-                        pop              rax
-                        mov              rcx, qword ptr [rsp + 32]
-                        mov              rdx, qword ptr [rcx + 0]
-                        lea              r8, [rsp + 64]
-                        mov              rax, qword ptr [rsp + 0]
-                        mov              qword ptr [r9 + 0], rax
-                        mov              rax, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 8], rax
-                        cmp              rdx, 0;                              jbe   .Ldefine_α_201_80
-                        mov              rax, qword ptr [rcx + 24]
-                        add              rax, r8
-                        mov              rax, qword ptr [rax + 0]
-                        mov              qword ptr [r9 + 16], rax             # N
-                        mov              rax, qword ptr [rcx + 24]
-                        add              rax, r8
-                        mov              rax, qword ptr [rax + 8]
-                        mov              qword ptr [r9 + 24], rax;            jmp   .Ldefine_α_201_110
-.Ldefine_α_201_80:      mov              rax, qword ptr [rsp + 48]
-                        mov              qword ptr [r9 + 16], rax
-                        mov              rax, qword ptr [rsp + 56]
-                        mov              qword ptr [r9 + 24], rax
-.Ldefine_α_201_110:     mov              rcx, qword ptr [rcx + 8]
-                        add              rsp, 64;                             jmp   rcx
+                        pop              rax;                                 jmp   rcx
 ARRAY_SUM_ω:            mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]

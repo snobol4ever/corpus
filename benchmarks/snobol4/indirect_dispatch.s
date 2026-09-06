@@ -486,7 +486,10 @@ n24_define_α:           mov              r11, 25
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n25_statement_end_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        lea              rax, [rip + LBL__ADD1]
+                        mov              rcx, qword ptr [rip + body_cell$ADD1@GOTPCREL]
+                        mov              qword ptr [rcx + 0], rax;            jmp   n25_statement_end_α
 n24_define_β:           mov              r11, 25;                             jmp   n23_statement_begin_β
 .Ldefine_α_172_0:       .quad            .Ldefine_α_172_0_s
 .Ldefine_α_172_0_s:     .string          "ADD1"
@@ -556,9 +559,37 @@ ADD1_α:                 sub              rsp, 64
                         lea              rax, [rip + ADD1_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + LBL__ADD1];              jmp   rax
+                        .section         .data
+                        .align           8
+body_cell$ADD1:         .quad            LBL__ADD1
+                        .section         .text
+                        .intel_syntax    noprefix
+                        mov              rax, qword ptr [rip + body_cell$ADD1@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0];            jmp   rax
 ADD1_γ:                 mov              rdi, qword ptr [r9 + 0]              # ADD1
                         mov              rsi, qword ptr [r9 + 8]
+                        mov              rcx, qword ptr [rsp + 32]
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              qword ptr [r9 + 0], rax
+                        mov              rax, qword ptr [rsp + 8]
+                        mov              qword ptr [r9 + 8], rax
+                        cmp              rdx, 0;                              jbe   .Ldefine_α_173_80
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [r9 + 16], rax             # V
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 8]
+                        mov              qword ptr [r9 + 24], rax;            jmp   .Ldefine_α_173_110
+.Ldefine_α_173_80:      mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [r9 + 16], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [r9 + 24], rax
+.Ldefine_α_173_110:     mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi
                         push             rax
@@ -593,29 +624,7 @@ ADD1_γ:                 mov              rdi, qword ptr [r9 + 0]              #
 .Ldefine_α_173_237:     .quad            .Ldefine_α_173_237_s
 .Ldefine_α_173_237_s:   .string          "ADD1"
 .Ldefine_α_173_236:     pop              rdx
-                        pop              rax
-                        mov              rcx, qword ptr [rsp + 32]
-                        mov              rdx, qword ptr [rcx + 0]
-                        lea              r8, [rsp + 64]
-                        mov              rax, qword ptr [rsp + 0]
-                        mov              qword ptr [r9 + 0], rax
-                        mov              rax, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 8], rax
-                        cmp              rdx, 0;                              jbe   .Ldefine_α_173_80
-                        mov              rax, qword ptr [rcx + 24]
-                        add              rax, r8
-                        mov              rax, qword ptr [rax + 0]
-                        mov              qword ptr [r9 + 16], rax             # V
-                        mov              rax, qword ptr [rcx + 24]
-                        add              rax, r8
-                        mov              rax, qword ptr [rax + 8]
-                        mov              qword ptr [r9 + 24], rax;            jmp   .Ldefine_α_173_110
-.Ldefine_α_173_80:      mov              rax, qword ptr [rsp + 48]
-                        mov              qword ptr [r9 + 16], rax
-                        mov              rax, qword ptr [rsp + 56]
-                        mov              qword ptr [r9 + 24], rax
-.Ldefine_α_173_110:     mov              rcx, qword ptr [rcx + 8]
-                        add              rsp, 64;                             jmp   rcx
+                        pop              rax;                                 jmp   rcx
 ADD1_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
@@ -1029,7 +1038,10 @@ n45_define_α:           mov              r11, 46
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n46_statement_end_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        lea              rax, [rip + LBL__INDIRECT_DISPATCH]
+                        mov              rcx, qword ptr [rip + body_cell$INDIRECT_DISPATCH@GOTPCREL]
+                        mov              qword ptr [rcx + 0], rax;            jmp   n46_statement_end_α
 n45_define_β:           mov              r11, 46;                             jmp   n44_statement_begin_β
 .Ldefine_α_205_0:       .quad            .Ldefine_α_205_0_s
 .Ldefine_α_205_0_s:     .string          "INDIRECT_DISPATCH"
@@ -1099,9 +1111,38 @@ INDIRECT_DISPATCH_α:    sub              rsp, 64
                         lea              rax, [rip + INDIRECT_DISPATCH_ω]
                         push             rax
                         push             rcx
-                        lea              rax, [rip + LBL__INDIRECT_DISPATCH]; jmp   rax
+                        .section         .data
+                        .align           8
+body_cell$INDIRECT_DISPATCH:
+                        .quad            LBL__INDIRECT_DISPATCH
+                        .section         .text
+                        .intel_syntax    noprefix
+                        mov              rax, qword ptr [rip + body_cell$INDIRECT_DISPATCH@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0];            jmp   rax
 INDIRECT_DISPATCH_γ:    mov              rdi, qword ptr [r9 + 32]             # INDIRECT_DISPATCH
                         mov              rsi, qword ptr [r9 + 40]
+                        mov              rcx, qword ptr [rsp + 32]
+                        mov              rdx, qword ptr [rcx + 0]
+                        lea              r8, [rsp + 64]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              qword ptr [r9 + 32], rax
+                        mov              rax, qword ptr [rsp + 8]
+                        mov              qword ptr [r9 + 40], rax
+                        cmp              rdx, 0;                              jbe   .Ldefine_α_206_80
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [r9 + 48], rax             # N
+                        mov              rax, qword ptr [rcx + 24]
+                        add              rax, r8
+                        mov              rax, qword ptr [rax + 8]
+                        mov              qword ptr [r9 + 56], rax;            jmp   .Ldefine_α_206_110
+.Ldefine_α_206_80:      mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [r9 + 48], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [r9 + 56], rax
+.Ldefine_α_206_110:     mov              rcx, qword ptr [rcx + 8]
+                        add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi
                         push             rax
@@ -1136,29 +1177,7 @@ INDIRECT_DISPATCH_γ:    mov              rdi, qword ptr [r9 + 32]             #
 .Ldefine_α_206_237:     .quad            .Ldefine_α_206_237_s
 .Ldefine_α_206_237_s:   .string          "INDIRECT_DISPATCH"
 .Ldefine_α_206_236:     pop              rdx
-                        pop              rax
-                        mov              rcx, qword ptr [rsp + 32]
-                        mov              rdx, qword ptr [rcx + 0]
-                        lea              r8, [rsp + 64]
-                        mov              rax, qword ptr [rsp + 0]
-                        mov              qword ptr [r9 + 32], rax
-                        mov              rax, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 40], rax
-                        cmp              rdx, 0;                              jbe   .Ldefine_α_206_80
-                        mov              rax, qword ptr [rcx + 24]
-                        add              rax, r8
-                        mov              rax, qword ptr [rax + 0]
-                        mov              qword ptr [r9 + 48], rax             # N
-                        mov              rax, qword ptr [rcx + 24]
-                        add              rax, r8
-                        mov              rax, qword ptr [rax + 8]
-                        mov              qword ptr [r9 + 56], rax;            jmp   .Ldefine_α_206_110
-.Ldefine_α_206_80:      mov              rax, qword ptr [rsp + 48]
-                        mov              qword ptr [r9 + 48], rax
-                        mov              rax, qword ptr [rsp + 56]
-                        mov              qword ptr [r9 + 56], rax
-.Ldefine_α_206_110:     mov              rcx, qword ptr [rcx + 8]
-                        add              rsp, 64;                             jmp   rcx
+                        pop              rax;                                 jmp   rcx
 INDIRECT_DISPATCH_ω:    mov              rcx, qword ptr [rsp + 32]
                         mov              rdx, qword ptr [rcx + 0]
                         lea              r8, [rsp + 64]
