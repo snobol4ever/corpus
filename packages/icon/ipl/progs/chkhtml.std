@@ -1,0 +1,8 @@
+
+"chkhtml.in": Checking HTML format...
+"chkhtml.in":6: "&" in open text
+"chkhtml.in":6: Unknown tag: <HERE </BODY>
+"chkhtml.in":8: Mismatched closing tag </HTML> pairs with <BODY> in line 3
+"chkhtml.in":4: Anchor name referenced but not defined: "THERE"
+"chkhtml.in": Warning: Anchor name not referenced: "HERE"
+"chkhtml.in": 4 errors detected

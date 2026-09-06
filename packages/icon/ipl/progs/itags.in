@@ -1,0 +1,6 @@
+procedure alpha(n)
+   return n + 1
+end
+procedure bravo()
+   return alpha(1)
+end

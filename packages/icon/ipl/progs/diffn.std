@@ -1,0 +1,10 @@
+File 1: diffn.in1
+File 2: diffn.in2
+File 3: diffn.in3
+==================================
+---- File 1, line 2 ---- (diffn.in1)
+green
+---- File 2, line 2 ---- (diffn.in2)
+green
+---- File 3, line 2 ---- (diffn.in3)
+yellow

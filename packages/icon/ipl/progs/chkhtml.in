@@ -1,0 +1,8 @@
+<HTML>
+<HEAD><TITLE>probe</TITLE></HEAD>
+<BODY>
+<A HREF="#there">go</A>
+<A NAME="here">anchor</A>
+<P>a bare ampersand & and a bare less-than < here
+</BODY>
+</HTML>
