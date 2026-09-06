@@ -1,32 +1,32 @@
 # test various preprocessor features
 
 # test $define and various whitespace uses
-$define abc 123;
- $  define  def   456;
-$define	ghi 789;
-$ define  ghi   789;	# duplicate definition should be ok if same
-$undef ghi;
-$define ghi 987;		# different definition should be ok after $undef
+$define abc 123
+ $  define  def   456
+$define	ghi 789
+$ define  ghi   789 # duplicate definition should be ok if same
+$undef ghi
+$define ghi 987 # different definition should be ok after $undef
 
 # test (when used later) that substituted text is rescanned
-$define yy (xx+xx);
-$define xx 1;
+$define yy (xx+xx)
+$define xx 1
 
 # test undefinition of something that isn't defined
-$undef notdefined;
+$undef notdefined
 
 # test ifdef of undefined symbol, and successful skip past bogus directive
-$ifdef notdef;
-$BOGUS;
-$endif;
+$ifdef notdef
+$BOGUS
+$endif
 
 # test ifdef of defined symbol, and null test body
-$ifdef abc;
-$endif;
+$ifdef abc
+$endif
 
 # test ifndef of defined symbol
-$ifndef abc;
-$error -- abc not defined;
+$ifndef abc
+$error -- abc not defined
 $endif#comment on if terminator
 
 
@@ -37,7 +37,7 @@ procedure main()
    write("abc,def,ghi,xx,yy: ", abc, " ", def, " ", ghi, " ", xx, " ", yy);
 
    # test $include by including a code fragment from prepro.dat
-   $include "prepro.dat";
+   $include "prepro.dat"
 
    # write values defined in prepro.dat
    write("xyzzy: ", xyzzy);

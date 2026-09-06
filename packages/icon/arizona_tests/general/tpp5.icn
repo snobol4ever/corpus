@@ -1,11 +1,11 @@
 # tpp5.icn: test for unterminated $if
 
-$endif;		# should not match includer's $if
+$endif # should not match includer's $if
 
 $else		# should not match includer's $if
 
-$ifdef id5;
-   $ifdef x;
+$ifdef id5
+   $ifdef x
    $else
    $endif
 

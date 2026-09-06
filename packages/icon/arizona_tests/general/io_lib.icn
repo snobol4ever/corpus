@@ -671,11 +671,11 @@ $endif
 procedure pathfind(fname, path);		#: find file on path
    local f, dir, fullname;
 
-   $ifdef _UNIX;
-      $define PSEP ' :'; 
+   $ifdef _UNIX
+      $define PSEP ' :'
    $else
-      $define PSEP ' '; 
-   $endif;
+      $define PSEP ' '
+   $endif
 
    fname ? {
       if ="/" & close(open(fname)) then

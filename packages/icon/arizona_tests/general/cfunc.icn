@@ -31,7 +31,7 @@
 #  It was created mechanically by the shell file "mkfunc.sh".
 #  Edit that instead.
 
-link io;
+link io
 
 $define LIB "libcfunc.so"
 
