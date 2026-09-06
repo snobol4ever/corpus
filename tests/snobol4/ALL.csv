@@ -1852,7 +1852,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1851,user_function_replace_7,probe_redef2__redef_lastwins,probe_redef2,block,1,10,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1852,indirect_replace_1,probe_gimpel__gim_name_of_field_store,probe_gimpel,block,1,18,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
 1853,array_replace_branch_2,gimpel_triage_class8_sig6_perm_driver__class8_sig6_perm_driver,gimpel_triage_class8_sig6_perm_driver,block,1,9,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-1854,user_function_indirect_replace_1,probe_gimpel__gim_goto_function_call_parse,probe_gimpel,block,1,28,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+1854,user_function_indirect_replace_1,probe_gimpel__gim_goto_function_call_parse,probe_gimpel,block,0,28,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
 1855,user_function_array_replace_branch_1,probe_vlist2__vlist_expr_alternation,probe_vlist2,block,1,29,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 1856,fence_capture_imm_capture_replace_branch_1,probe_fuzz__fz_abort_fence1_stackcap,probe_fuzz,block,1,8,UNKNOWN,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,0
 1857,size_indirect_keyword_replace_branch_1,probe_indirect2__indirect_nul_prefix_name,probe_indirect2,block,1,27,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,1,0,0,0,0
