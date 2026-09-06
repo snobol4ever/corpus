@@ -1,0 +1,5 @@
+        cs = REPLACE('0123456789', 'x', 'x')
+        '+12x' POS(0) (('+' | '-') SPAN(cs)) . m                             :F(NO)
+        OUTPUT = 'MATCH m=<' m '>'                                        :(END)
+NO      OUTPUT = 'NO MATCH'
+END

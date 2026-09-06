@@ -1,0 +1,5 @@
+        cs = REPLACE('0123456789', 'x', 'x')
+        'A:1' POS(0) (('+' | epsilon) NOTANY(cs)) . m                        :F(NO)
+        OUTPUT = 'MATCH m=<' m '>'                                        :(END)
+NO      OUTPUT = 'NO MATCH'
+END

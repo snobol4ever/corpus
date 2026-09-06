@@ -1,0 +1,4 @@
+        'A:1' POS(0) (('+' | epsilon) SPAN('0123456789')) . m             :F(NO)
+        OUTPUT = 'MATCH m=<' m '>'                                        :(END)
+NO      OUTPUT = 'NO MATCH'
+END
