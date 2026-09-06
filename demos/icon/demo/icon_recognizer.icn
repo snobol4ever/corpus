@@ -226,16 +226,23 @@ procedure r_expr_prec(min_prec)
   suspend &pos;
 end
 
-# Try to scan a two-character or one-character binary operator
+# Try to scan a multi-character or one-character binary operator, longest match first --
+# a slice fixed at 2 chars can never equal a 3/4-char operator, which is why every
+# augmented-assign form (+:= etc.) and <->/~== used to fall through to a bare 1-char match.
 procedure r_try_op2()
-  local p, s2, s1;
+  local p, s4, s3, s2, s1;
   p := &pos;
   ws();
+  s4 := &subject[&pos:&pos+4];
+  s3 := &subject[&pos:&pos+3];
   s2 := &subject[&pos:&pos+2];
   s1 := &subject[&pos:&pos+1];
-  if member(set([":=","+:=","-:=","*:=","/:=","%:=","^:=","||:=",
-                 "<->","->","||","++","--","**","//","<=",">=","==",
-                 "~=","~==","<<",">>","=:=","\\=","..","by","to","|"]), s2) then {
+  if member(set(["||:="]), s4) then {
+    &pos +:= *s4; suspend s4
+  } else if member(set(["+:=","-:=","*:=","/:=","%:=","^:=","<->","~==","=:="]), s3) then {
+    &pos +:= *s3; suspend s3
+  } else if member(set([":=","->","||","++","--","**","//","<=",">=","==",
+                 "~=","<<",">>","\\=","..","by","to"]), s2) then {
     &pos +:= *s2; suspend s2
   } else if member(set(["<",">","=","+","-","*","/","%","^",".","|","?"]), s1) & *s1 > 0 then {
     &pos +:= 1; suspend s1
