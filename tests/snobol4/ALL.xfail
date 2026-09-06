@@ -48,10 +48,6 @@ probe_passthru (ptw class, ptw_min_rseal_unsealed_ctl). Active, documented passt
 probe_passthru (ptw class, ptw_min_rseal_arbno). Active, documented passthru correctness campaign (ARCH-PASSTHRU.md); deliberately red.
 *------------------------------------------ 1882 arbno_fence_pos_branch_22 XFAIL
 probe_passthru (ptw class, ptw_min_arbno_alt_fence_L1). Active, documented passthru correctness campaign (ARCH-PASSTHRU.md); deliberately red.
-*----------------------------------- 1883 arbno_fence_bal_replace_branch_3 XFAIL
-Tracked probe/fuzz crash corpus (fzr_13_alt_of_arbno); see FINDING-2026-08-20-s189 (fuzz-diff-batch: 5 reduced red + 7 one-ingredient green controls, alternation-of-ARBNO class). Known, still open.
-*----------------------------------- 1884 arbno_fence_bal_replace_branch_1 XFAIL
-Tracked probe/fuzz crash corpus (fz_diff_13); oracle-differential, not a crash. See FINDING-2026-08-20-s189 (fuzz-diff-batch, two classes). Known, still open.
 *---------------------------------- 1885 arbno_span_break_replace_branch_1 XFAIL
 Tracked probe/fuzz hang corpus (fz_hang_11); see FINDING-2026-08-20-s189 (six-fuzz-hangs, three mechanisms). Known, still open.
 *------------------------------------ 1886 arbno_span_tab_replace_branch_1 XFAIL
