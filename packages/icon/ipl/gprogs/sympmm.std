@@ -1,7 +1,0 @@
-sympmm.icn: "WriteImage": undeclared identifier, procedure main
-xformimg.icn: "Fg": undeclared identifier, procedure wreflect
-xformimg.icn: "Pixel": undeclared identifier, procedure wreflect
-xformimg.icn: "DrawPoint": undeclared identifier, procedure wreflect
-xformimg.icn: "CopyArea": undeclared identifier, procedure wcatenate
-wattrib.icn: "WAttrib": undeclared identifier, procedure Width
-wattrib.icn: "WAttrib": undeclared identifier, procedure Height

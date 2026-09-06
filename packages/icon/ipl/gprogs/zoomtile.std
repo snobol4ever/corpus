@@ -1,5 +1,0 @@
-zoomtile.icn: "DrawLine": undeclared identifier, procedure main
-zoomtile.icn: "WriteImage": undeclared identifier, procedure main
-patutils.icn: "EraseArea": undeclared identifier, procedure DrawTile
-patutils.icn: "DrawPoint": undeclared identifier, procedure DrawTile
-patutils.icn: "FillRectangle": undeclared identifier, procedure DrawTile

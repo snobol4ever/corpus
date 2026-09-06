@@ -1,8 +1,0 @@
-blp2grid.icn: "WriteImage": undeclared identifier, procedure main
-cells.icn: "WAttrib": undeclared identifier, procedure clearpanel
-cells.icn: "Pattern": undeclared identifier, procedure clearpanel
-cells.icn: "Bg": undeclared identifier, procedure clearpanel
-cells.icn: "Fg": undeclared identifier, procedure clearpanel
-cells.icn: "DrawLine": undeclared identifier, procedure clearpanel
-cells.icn: "Fg": undeclared identifier, procedure colorcell
-cells.icn: "FillRectangle": undeclared identifier, procedure colorcell
