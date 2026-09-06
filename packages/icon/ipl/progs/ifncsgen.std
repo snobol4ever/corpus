@@ -543,3 +543,4 @@ procedure Writes(a[])
    initial __fnc_writes := proc("writes", 0)
    suspend __fnc_writes ! a
 end
+
