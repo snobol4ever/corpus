@@ -11,3 +11,14 @@ correctness gap rather than a narrow formatting bug, but NOT localized further t
 read, no bisection). Given the size of the divergence, this is a strong ablation-bisection candidate for
 whoever picks it up next -- likely deserves the same procedure-by-procedure narrowing `sorting` and `misc`
 already got, not a guess from the symptom alone.
+UPDATE 2026-09-05 (seat06): ROOT-MECHANISM PINNED AND ROWED, not just ablated. Bisected the `tdel` (delete-
+while-generating) half to a 14-line, argv-free minimal witness confirmed in both m3 and m4: SCRIP's `!s`
+set generator, after yielding an element the loop body then deletes, fails to seek forward to whatever
+else is still live in the set (icont's own generator always either continues correctly or correctly has
+nothing left). Smallest failing case: a 3-element set, 2 deletions per generated item. Rowed as
+`icon-set-generator-does-not-resume-past-a-deleted-current-element` (rank 2, hq_B), with the ablation
+trail and a concrete next bisection step -- this row's own DONE-WHEN is that mint's, not a re-derivation.
+The `tins` (insert-while-generating) half shows a DIFFERENT-shaped failure (both "not generated" AND real
+"generated twice" duplicates) -- flagged in that row as a plausibly-related but NOT verified same-mechanism
+sibling, deliberately not folded in (work in classes, one witness per class). This marker itself is not yet
+resolved (curing src/ is hq_B's, not this walker's) -- it stays as a marker pointing at the new row.
