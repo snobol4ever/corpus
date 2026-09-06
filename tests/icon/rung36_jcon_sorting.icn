@@ -42,10 +42,10 @@ end
 
 #  rectest() -- test sorting of records
 
-record r0();
-record r1(a);
-record r2(a,b);
-record r5(a,b,c,d,e);
+record r0()
+record r1(a)
+record r2(a,b)
+record r5(a,b,c,d,e)
 
 procedure rectest()
    write();

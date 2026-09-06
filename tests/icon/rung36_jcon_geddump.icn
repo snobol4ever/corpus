@@ -4,17 +4,17 @@
 
 #  geddump.icn -- print info from GEDCOM file
 
-record person(n, k, r);	# number, sort key, gedrec node
+record person(n, k, r) # number, sort key, gedrec node
 
 
-global ptab;		# person number table, indexed by gedrec node
+global ptab # person number table, indexed by gedrec node
 
 
 procedure main(args)
    local f, g, i, n, p, r, plist, fam, husb, sp;
 
    if *args > 0 then
-      f := open(args[1]) | stop("can't open ", args[1]);
+      f := open(args[1]) | stop("can't open ", args[1])
    else
       f := &input;
 
@@ -72,7 +72,7 @@ procedure event(label, r)
    date  := ("" ~== geddate(r));
    place := ("" ~== gedval(r, "PLAC"));
    if /place then
-      write("   ", label, " ", \date);
+      write("   ", label, " ", \date)
    else
       write("   ", label, " ", \date | "            ", "  ", place);
    return;
@@ -138,7 +138,7 @@ record gednode(
    sub		# sub-entry list
 );
 
-$define WHITESPACE ' \t\n\r';
+$define WHITESPACE ' \t\n\r'
 
 
 
@@ -229,7 +229,7 @@ procedure gedsub(r, f[]);	#: find subrecords
    every x := !r.sub do {
       if x.tag == tag then
 	 if *f > 0 then
-	    suspend gedsub ! push(f, x);
+	    suspend gedsub ! push(f, x)
 	 else
 	    suspend x;
    }
@@ -257,7 +257,7 @@ procedure gedfnf(r);		#: get last name first
       last := tab(upto('/') | 0);
    }
    if *first > 0 then
-      s := first || " " || last;
+      s := first || " " || last
    else
       s := last;
    s ||:= " " || gedval(r, "TITL");	# may fail
@@ -308,7 +308,7 @@ procedure geddate(r);		#: get canonical date
    }
 
    if *t > 13 then
-      return t[2:0];
+      return t[2:0]
    else
       return right(t, 12);
 end

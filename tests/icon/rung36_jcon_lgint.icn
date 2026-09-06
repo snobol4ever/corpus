@@ -153,7 +153,7 @@ procedure conv(n);			# test conversion to/from real & string
    d := n - in;
    r := d / rn;
    if abs(r) > 1.0e-14 then		# 1e-15 works for most, need -14 for IBM
-      write("real conv err: n=", n, " rn=", rn, " in=", in, " d=", d, " r=", r);
+      write("real conv err: n=", n, " rn=", rn, " in=", in, " d=", d, " r=", r)
    else
       write("conv ok: ", n);
    return;

@@ -532,15 +532,15 @@ procedure main()
 end
 #---------------------------------------- 137 ladder_rung26_pow_pow_negbase_real
 procedure main()
-  write("before");
+  &error := 1;
   write((-2.0) ^ 0.5);
-  write("after");
+  write("num=", &errornumber, " text=", &errortext);
 end
 #----------------------------------------- 138 ladder_rung26_pow_pow_zero_negexp
 procedure main()
-  write("before");
+  &error := 1;
   write(0 ^ (-1));
-  write("after");
+  write("num=", &errornumber, " text=", &errortext);
 end
 #--------------------------------------- 139 ladder_rung39_numbit_acos_asin_atan
 procedure main()
@@ -2565,7 +2565,7 @@ procedure main()
   write(greeting);
 end
 #-------------------------------------------------- 474 procedure_write_global_3
-global greeting;
+global greeting
 
 procedure setup()
   greeting := "hello";
@@ -2576,7 +2576,7 @@ procedure main()
   write(greeting);
 end
 #-------------------------------------------------- 475 procedure_write_global_7
-global greeting;
+global greeting
 
 procedure setup()
   greeting := "hello";
@@ -2599,7 +2599,7 @@ procedure main()
   write(x + y);
 end
 #-------------------------------------------------- 477 procedure_write_global_4
-global x, y;
+global x, y
 
 procedure setvals()
   x := 7;
@@ -2611,7 +2611,7 @@ procedure main()
   write(x + y);
 end
 #-------------------------------------------------- 478 procedure_write_global_9
-global x, y;
+global x, y
 
 procedure setvals()
   x := 7;
@@ -2767,7 +2767,7 @@ procedure main()
   write(sign(-4));
 end
 #-------------------------------------------------- 490 procedure_write_global_1
-global counter;
+global counter
 
 procedure inc()
   counter := counter + 1;
@@ -2809,7 +2809,7 @@ procedure main()
   write(total);
 end
 #-------------------------------------------------- 493 procedure_write_global_2
-global total;
+global total
 
 procedure add(n)
   initial total := 0;
@@ -2823,7 +2823,7 @@ procedure main()
   write(total);
 end
 #-------------------------------------------------- 494 procedure_write_global_5
-global counter;
+global counter
 
 procedure inc()
   counter := counter + 1;
@@ -2837,7 +2837,7 @@ procedure main()
   write(counter);
 end
 #-------------------------------------------------- 495 procedure_write_global_6
-global total;
+global total
 
 procedure add(n)
   initial total := 0;
@@ -2896,7 +2896,7 @@ procedure main()
     write(image(trim("")));
 end
 #-------------------------------------------------- 499 procedure_write_global_8
-global accum;
+global accum
 
 procedure reset()
   accum := 0;
@@ -3745,14 +3745,14 @@ procedure main()
     write(c.n);
 end
 #-------------------------------------------------- 642 procedure_record_every_2
-record point(x, y);
+record point(x, y)
 procedure main()
   L := [point(3, 10), point(1, 20), point(2, 30)];
   S := sortf(L, 1);
   every p := !S do write(p.x);
 end
 #-------------------------------------------------- 643 procedure_record_every_3
-record point(x, y);
+record point(x, y)
 procedure main()
   L := [point(3, 10), point(1, 30), point(2, 20)];
   S := sortf(L, 2);
@@ -4140,33 +4140,33 @@ end
 # test various preprocessor features
 
 # test $define and various whitespace uses
-$define abc 123;
- $  define  def   456;
-$define	ghi 789;
-$ define  ghi   789;	# duplicate definition should be ok if same
-$undef ghi;
-$define ghi 987;		# different definition should be ok after $undef
+$define abc 123
+ $  define  def   456
+$define	ghi 789
+$ define  ghi   789 # duplicate definition should be ok if same
+$undef ghi
+$define ghi 987 # different definition should be ok after $undef
 
 # test (when used later) that substituted text is rescanned
-$define yy (xx+xx);
-$define xx 1;
+$define yy (xx+xx)
+$define xx 1
 
 # test undefinition of something that isn't defined
-$undef notdefined;
+$undef notdefined
 
 # test ifdef of undefined symbol, and successful skip past bogus directive
-$ifdef notdef;
-$BOGUS;
-$endif;
+$ifdef notdef
+$BOGUS
+$endif
 
 # test ifdef of defined symbol, and null test body
-$ifdef abc;
-$endif;
+$ifdef abc
+$endif
 
 # test ifndef of defined symbol
-$ifndef abc;
-$error -- abc not defined;
-$endif;#comment on if terminator
+$ifndef abc
+$error -- abc not defined
+$endif #comment on if terminator
 
 
 # main test program
@@ -4176,7 +4176,7 @@ procedure main()
    write("abc,def,ghi,xx,yy: ", abc, " ", def, " ", ghi, " ", xx, " ", yy);
 
    # test $include by including a code fragment from prepro.dat
-   $include "prepro.dat";
+   $include "prepro.dat"
 
    # write values defined in prepro.dat
    write("xyzzy: ", xyzzy);
@@ -4232,13 +4232,13 @@ end
 procedure precheck (v, s, p)
    if s == &features then {
       if /v then
-	 write ("error: no predefined symbol for ", s); 
+	 write ("error: no predefined symbol for ", s)
       else if \p then 
 	 write ("found feature: ", s);
       }
    else {
       if \v then
-	 write ("error: unexpected predefined symbol for ", s); 
+	 write ("error: unexpected predefined symbol for ", s)
       else if \p then 
 	 write ("no feature:    ", s);
       }
@@ -4779,7 +4779,7 @@ end
 #-------------------------------------------- 737 procedure_record_alt_replace_2
 #SRC: V9GEN
 
-record array(a,b,c,d,e,f,g);
+record array(a,b,c,d,e,f,g)
 
 procedure p1()
    write("integer(2) ----> ",image(integer(2)) | "none");
@@ -5184,7 +5184,7 @@ end
 #-------------------------------------------- 753 procedure_record_alt_replace_1
 #SRC: V9GEN
 
-record array(a,b,c,d,e,f,g);
+record array(a,b,c,d,e,f,g)
 
 procedure p1()
    write("i := 10 ----> ",image(i := 10) | "none");
@@ -5364,7 +5364,7 @@ procedure main()
    p12();
 end
 
-global i, s, c, one, two, x;
+global i, s, c, one, two, x
 #------------------------------------------------- 754 ladder_rung37_bal_vs_upto
 procedure main()
   local s;
@@ -5757,7 +5757,7 @@ procedure main()
    every i := -6 to 6 do {
       s := "abcde";
       if s[i] := t[i] then
-         write("J ", i, ". ", s);
+         write("J ", i, ". ", s)
       else
          write("J ", i, ". --");
       }
@@ -5767,7 +5767,7 @@ procedure main()
 	 s := "abcde";
 	 writes("K ", i, " ", j, ". ");
 	 if s[i:j] := "(*)" then
-	    write(s);
+	    write(s)
 	 else
 	    write(s, " [failed]");
          }
@@ -5779,7 +5779,7 @@ procedure main()
 	    s := "abcde";
 	    writes("L ", i, " ", j, " ", k, ". ");
 	    if s[i:j][k:2] := "(*)" then
-	       write(s);
+	       write(s)
 	    else
 	       write(s, " [failed]");
 	    }
@@ -5904,7 +5904,7 @@ end
 
 procedure r(v)
    if v >= 0 then
-      return integer(v * 1000 + 0.5) / 1000.0;
+      return integer(v * 1000 + 0.5) / 1000.0
    else
       return integer(v * 1000 - 0.5) / 1000.0;
 end
@@ -6076,8 +6076,8 @@ end
 #------------------------------------------ 785 procedure_record_every_replace_6
 #SRC: JCON
 
-record simple(f);
-record rec(f1, f2);
+record simple(f)
+record rec(f1, f2)
 
 procedure main()
    local a, b;
@@ -6234,7 +6234,7 @@ end
 procedure setpos(n)
    writes("p := ", right(image(n),10));
    if &pos := n then
-      writes("       ");
+      writes("       ")
    else
       writes(" FAILED");
    ws();
@@ -6244,7 +6244,7 @@ end
 procedure setsubj(s)
    writes("s := ", right(image(s),10));
    if &subject := s then
-      writes("       ");
+      writes("       ")
    else
       writes(" FAILED");
    ws();
@@ -6389,7 +6389,7 @@ end
 #  (sets and tables are commented out because
 #   v9 and jcon select different elements)
 
-record r10(a,b,c,d,e,f,g,h,i,j);
+record r10(a,b,c,d,e,f,g,h,i,j)
 
 procedure main()
    local r;
@@ -6657,7 +6657,7 @@ procedure main()
          move(1) &
          n := integer(tab(0));
           }
-         then write(meander(alpha,n)); 
+         then write(meander(alpha,n))
          else stop("*** erroneous input ***");
        }
 end
@@ -6669,7 +6669,7 @@ procedure meander(alpha,n)
    result := repl(alpha[ 1 ],t);
    while c := alpha[ i ] do { 
       if find(result[ -t:0 ] || c,result);
-      then i -:= 1;
+      then i -:= 1
       else { result ||:= c; i := k }
        }
    return result;
@@ -6721,7 +6721,7 @@ procedure main()
          if *word < 3 then next;			# skip short words
          maxword <:= *word;			# keep track of longest word
 						# if it's a new word, start set
-         if *words[word] = 0 then words[word] := set([lineno]);
+         if *words[word] = 0 then words[word] := set([lineno])
          else insert(words[word],lineno);	# else add the line number
          }
       }
@@ -6786,7 +6786,7 @@ end
 #  
 ############################################################################
 
-global n, solution;
+global n, solution
 
 procedure main(args)
    local i, opts;
@@ -6812,7 +6812,7 @@ procedure q(c)
    every 0 = rows[r := 1 to n] = up[n+r-c] = down[r+c-1] &
       rows[r] <- up[n+r-c] <- down[r+c-1] <- 1        do {
          solution[c] := r;	# record placement.
-         if c = n then show();
+         if c = n then show()
          else q(c + 1);		# try to place next queen.
          }
 end
@@ -6837,9 +6837,9 @@ end
 #------------------------------------------ 800 procedure_record_every_replace_2
 #SRC: V9GEN
 
-record array(a,b,c,d,e,f,g);
-global F, f;
-global w, t;
+record array(a,b,c,d,e,f,g)
+global F, f
+global w, t
 
 procedure main()
    q1();
@@ -6896,7 +6896,7 @@ procedure q5()
 	v := 0.25 * i;
 	wf (v);
 	if (v <= 1.0) then
-	    every wf ((acos | asin) (v));
+	    every wf ((acos | asin) (v))
 	else
 	    every wf ("" | "");
 	every wf (atan(v) | atan(v,3));
@@ -7011,7 +7011,7 @@ end
 #------------------------------------------ 802 procedure_record_every_replace_7
 #SRC: V9GEN
 
-record array(a,b,c,d,e,f,g);
+record array(a,b,c,d,e,f,g)
 
 procedure p1()
    write(" ----> ",image() | "none");
@@ -7138,7 +7138,7 @@ procedure main()
    p9();
 end
 
-global s;
+global s
 
 #------------------------------------------ 803 procedure_record_every_replace_1
 global defs, limit, tswitch
@@ -7287,7 +7287,7 @@ end
 
 ### mindfa -- minimize a DFA
 
-record dfa(Q,S,d,q0,F);          # a DFA
+record dfa(Q,S,d,q0,F) # a DFA
 
 procedure main()
 
@@ -7367,7 +7367,7 @@ end
 
 ## minimize(D) -- minimize a dfa
 #
-global distab, dlists;
+global distab, dlists
 
 procedure minimize(D)
 local F,QF;
@@ -7508,8 +7508,8 @@ end
 #   each player is represented by a different ASCII character
 #   matches are broken by whitespace
 
-global range;				# vertical coordinate range
-global red, green, blue;			# current color
+global range # vertical coordinate range
+global red, green, blue # current color
 
 procedure main (args)
     range := 1000;
@@ -7520,7 +7520,7 @@ procedure main (args)
     nmatches := 0;
 
     if *args > 0 then
-	f := open(args[1]) | stop("can't open ",args[1]);
+	f := open(args[1]) | stop("can't open ",args[1])
     else
 	f := &input;
 
@@ -7658,9 +7658,9 @@ procedure ferr (err, func, args)
    msg := "oops -- " || image(func) || "(" || val || ") ";
    &error := 1;
    if func ! args;
-      then write (msg, "succeeded");
+      then write (msg, "succeeded")
    else if &error ~= 0;
-      then write (msg, "failed but no error");
+      then write (msg, "failed but no error")
    else if &errornumber ~= err;
       then write (msg, "got error ",&errornumber," instead of ",err);
    &error := 0;
@@ -7695,7 +7695,7 @@ procedure endetab1 ()
    params := setup ("=");		# start with default tabs (no args)
    while line := escape (read ()) do {	# read and preprocess line
       if line[1] == "=" then
-         params := setup (line);		# '=' line sets tab stops (arg list)
+         params := setup (line) # '=' line sets tab stops (arg list)
       else {
          s := map (line, "!.", "  ");	# turn "!." characters into spaces
          params[1] := s;
@@ -7813,23 +7813,23 @@ end
 #
 ############################################################################
 
-$define SIGNATURE "<!-- Created by HTPREP -->";
-$define WSPACE ' \t';		# whitespace cset
+$define SIGNATURE "<!-- Created by HTPREP -->"
+$define WSPACE ' \t' # whitespace cset
 
 
-record tag(label, line);		# tag record
-global tagstack;			# currently open tags
+record tag(label, line) # tag record
+global tagstack # currently open tags
 
-global cmdtable;			# table of known special commands
+global cmdtable # table of known special commands
 
-global infile;			# input file
-global outfile;			# output file
-global stdout;			# standard output, if usable
+global infile # input file
+global outfile # output file
+global stdout # standard output, if usable
 
-global lineno;			# current input line number
-global errors;			# error count
+global lineno # current input line number
+global errors # error count
 
-global idset;			# identifier characters
+global idset # identifier characters
 
 
 #  main procedure
@@ -7849,7 +7849,7 @@ procedure main(args)
    cmdtable["divert"] := divert;
 
    if *args = 0 then
-      infile := &input;
+      infile := &input
    else
       infile := open(args[1]) | stop("can't open ", args[1]);
 
@@ -7863,7 +7863,7 @@ procedure main(args)
       warn("unclosed tag {", t.label, "} from line ", t.line);
 
    if errors > 0 then
-      stop;
+      stop
    else
       return;
 end
@@ -7880,11 +7880,11 @@ procedure braces(line)
       while s ||:= tab(upto('{}')) do {
          c := move(1);
          if c == "{" then
-            s ||:= newtag();
+            s ||:= newtag()
          else {	  # "}"
             if t := pop(tagstack) then {
                if t.label == "!" then
-                  s ||:= "-->";
+                  s ||:= "-->"
                else
                   s ||:= "</" || t.label || ">";
                }
@@ -7913,7 +7913,7 @@ procedure newtag()
    if c := tab(any('@:')) then {
       label := "a";
       if c == "@" then
-         s := "<a href=";
+         s := "<a href="
       else
          s := "<a name=";
       s ||:= attval();
@@ -7995,7 +7995,7 @@ procedure in()
       while s ||:= tab(upto('\\')) do {
          move(1);
          if any(&ascii) then
-            s ||:= "\\" || char(128 + ord(move(1)));
+            s ||:= "\\" || char(128 + ord(move(1)))
          else
             s ||:= move(1);
          }
@@ -8085,4 +8085,16 @@ procedure warn(a[])
    write ! a;
    errors +:= 1;
    return;
+end
+#------------------------------------------------------- 809 procedure_write_203
+procedure main()
+  if not(1<2) then write("BUG") else write("done1");
+  if not(2<1) then write("done2") else write("BUG");
+end
+#------------------------------------------------------- 810 procedure_write_204
+procedure main()
+  local x;
+  write(if /x then "isnull-ok" else "BUG");
+  x := 5;
+  write(if /x then "BUG" else "notnull-ok");
 end

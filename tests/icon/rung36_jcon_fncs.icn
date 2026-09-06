@@ -1,8 +1,8 @@
 #SRC: V9GEN
 
-record array(a,b,c,d,e,f,g);
-global F, f;
-global w, t;
+record array(a,b,c,d,e,f,g)
+global F, f
+global w, t
 
 procedure p1()
    write(" ----> ",image() | "none");

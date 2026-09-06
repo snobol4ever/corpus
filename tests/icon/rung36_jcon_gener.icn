@@ -12,7 +12,7 @@
 #     to the runtime system's configuration parameters.
 
 
-global verbose;
+global verbose
 
 
 procedure main (args)

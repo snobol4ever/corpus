@@ -219,9 +219,9 @@ end
 
 #  test the new sortf(x,n) function
 
-global data;
-record r1(a);
-record r3(a,b,c);
+global data
+record r1(a)
+record r3(a,b,c)
 
 procedure sf (args)
     local n, z;
@@ -251,7 +251,7 @@ procedure sf (args)
     dump ("sort(L)", sort (data));
 
     if *args = 0 then
-	every test (&null | 1 | "2" | '3' | 4 | 17 | -4 | -3 | "-2" | -1);
+	every test (&null | 1 | "2" | '3' | 4 | 17 | -4 | -3 | "-2" | -1)
     else
 	every test (!args);
     end
@@ -264,7 +264,7 @@ procedure test (n)
     r2 := sortf (set(data), n);
     dump ("sortf(L,n)", r1);
     if same (r1, r2) then
-	write ("\nsortf(S,n) [same]");
+	write ("\nsortf(S,n) [same]")
     else
 	dump ("sortf(S,n) [********** OOPS -- results differ: **********]", r2);
     end
@@ -276,7 +276,7 @@ procedure dump (s, l)
     every e := !l do {
        writes ("  ", left(type(e), 8));
        if (type(e) == ("r1" | "r3" | "list")) then
-	  every writes (" ", image(e[(1 to 5) | (95 to 100)]) | "\n");
+	  every writes (" ", image(e[(1 to 5) | (95 to 100)]) | "\n")
        else
 	  write (" ", image(e));
        }

@@ -1,7 +1,7 @@
 #SRC: V9GEN
 #OPT: -fe
 
-record array(a,b,c,d,e,f,g);
+record array(a,b,c,d,e,f,g)
 procedure p1()
    write("seq(\"a\") | monitor(&line) ----> ",
       image(seq("a") | monitor(&line)) | "none");

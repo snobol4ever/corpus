@@ -1,10 +1,16 @@
-UPDATE 2026-09-05 (seat03): ablated (fresh oracle vs SCRIP, first divergence only, not fully root-caused).
-FIRST DIVERGENCE at output line 7: SCRIP prints `1 / fail / fail / fail / 1` (5 lines) where real
-icont/iconx prints 9 lines starting `0 / ...` for the same span -- SCRIP produces FEWER lines than the
-oracle here, so this is not a simple value mismatch but a control-flow/count divergence (something the
-oracle iterates further on than SCRIP does, or SCRIP fails/short-circuits where the oracle keeps going).
-Program name suggests it exercises Icon's `&error`-family keywords (converting runtime errors to failure
-rather than aborting) -- consistent with a control-flow-shaped divergence rather than a value-formatting
-one, but NOT CONFIRMED this session; would need the source read side-by-side with both outputs to localize
-which specific `&error`-keyword construct diverges. Not yet checked for further divergences past this
-first one.
+UPDATE 2026-09-06 (seat06): ROOT-CAUSED via gdb (breakpoint on core_runtime_error/core_icn_error,
+backtraces captured), routed to hq_B -- TWO INDEPENDENT, UNRELATED DEFECTS land on this one test, which
+is why the raw diff looked like a single confusing "control-flow/count divergence": (1) `errorclear()`
+(source line 20) has NO builtin dispatch anywhere in SCRIP -- it falls through to the undefined-function
+path and would ABORT the program right there if &error-conversion weren't separately (accidentally)
+converting that specific abort into a failure; see icon-errorclear-builtin-is-entirely-unimplemented-
+and-aborts-the-program (rank 2, hq_B). (2) `&null()` (source line 11, calling a non-procedure value)
+NEVER raises Icon's error 106 ("procedure or integer expected") at all -- it just silently fails with
+zero &error/&errornumber/&errortext/&errorvalue bookkeeping, a general gap in `rt_call_value()`
+unrelated to (1); see icon-call-of-a-non-callable-value-never-raises-error-106-or-updates-error-state
+(rank 2, hq_B). What LOOKS like the real error's info arriving one write-group late is actually
+`errorclear()`'s own accidental error (code 22, "Undefined function called", value always `&null`)
+landing where a human expects `&null()`'s error (106) to have persisted -- there was never anything
+real there to persist, because of defect (2). This marker stays until both rows land AND the full
+program is re-diffed against icont end-to-end (this row's own DONE-WHEN only proves the two isolated
+minimal witnesses, not the combined 18-line output).

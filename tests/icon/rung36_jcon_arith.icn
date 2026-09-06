@@ -90,7 +90,7 @@ end
 
 procedure r1(v);				# round real to 1 digit after decimal
    if v >= 0 then
-      return integer(v * 10 + 0.5) / 10.0;
+      return integer(v * 10 + 0.5) / 10.0
    else
       return integer(v * 10 - 0.5) / 10.0;
 end
@@ -121,7 +121,7 @@ procedure pow(m, n)
    v := m ^ n;
    if type(v) == "real" then {
       if v > 0 then
-	 v := integer(v * 1000 + 0.5) / 1000.0;
+	 v := integer(v * 1000 + 0.5) / 1000.0
       else
 	 v := integer(v * 1000 - 0.5) / 1000.0;
       }

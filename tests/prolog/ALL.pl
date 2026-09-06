@@ -1245,7 +1245,7 @@ main :-
     open('/tmp/scrip_rung16_termio_char_conversion.txt', write, WS),
     write(WS, 'abc.'), close(WS),
     open('/tmp/scrip_rung16_termio_char_conversion.txt', read, RS),
-    read_term(RS, T, []),
+    read(RS, T),
     close(RS),
     write(T), nl,
     char_conversion(a, a).

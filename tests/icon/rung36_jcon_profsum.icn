@@ -11,10 +11,10 @@
 
 
 
-record method(name, ncalls, tself, tcalled, tlocal);
-record skey(key, orig);
+record method(name, ncalls, tself, tcalled, tlocal)
+record skey(key, orig)
 
-global ptab;
+global ptab
 
 
 
@@ -25,7 +25,7 @@ procedure main(args)
       sorttotal := get(args);
 
    if *args > 0 then
-      f := open(args[1]) | stop(&progname, ": can't open ", args[1]);
+      f := open(args[1]) | stop(&progname, ": can't open ", args[1])
    else
       f := &input;
 
@@ -63,7 +63,7 @@ procedure main(args)
 
    while p := pull(l) do {
       if p.tlocal > 0 then
-	 pctlocal := (100 * p.tlocal + ttotal / 2) / ttotal;
+	 pctlocal := (100 * p.tlocal + ttotal / 2) / ttotal
       else
 	 pctlocal := (100 * p.tlocal - ttotal / 2) / ttotal;
       pcttotal := ((100 * p.tself) + (ttotal / 2)) / ttotal;
@@ -86,7 +86,7 @@ procedure lookup(s)
    initial ptab := table();
 
    if p := \ptab[s] then
-      return p;
+      return p
    else
       return ptab[s] := method(s, 0, 0, 0);
 end
@@ -135,7 +135,7 @@ end
 
 procedure pad(s, n)
    if *s < n then
-      return right(s, n);
+      return right(s, n)
    else
       return s;
 end

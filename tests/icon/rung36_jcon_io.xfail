@@ -1,16 +1,57 @@
-UPDATE 2026-09-05 (seat03): ablated, first divergence isolated but NOT yet root-caused -- record this so
-the next session doesn't repeat the same too-simple repro. SCRIP exits rc=1 printing exactly one line,
-`no /etc/passwd` -- that string is `io.icn`'s OWN `stop("no /etc/passwd")` fallback (line 9), meaning
-`open("/etc/passwd")` FAILED inside the program. `/etc/passwd` is present and world-readable in this
-environment (verified: `-rw-r--r-- ... /etc/passwd`, real content). ⚠️ TRIED AND DID NOT REPRODUCE: a
-minimal standalone repro (`local m; m := open("/etc/passwd"); if /m then write("open FAILED") else
-write("open OK: ", image(m));`) succeeds under SCRIP, byte-identical to real icont (`open OK:
-file(/etc/passwd)`) -- so a bare `open()` call is NOT the defect. The real call site is more complex:
-`L := [&input, &output, &errout, m := open("/etc/passwd") | stop(...), n := open("/dev/null" |
-stop("no /dev/null"), "w")]` -- an assignment-expression with `|`-alternation, INSIDE a list-constructor
-literal, mixed with keyword values (`&input` etc.) as sibling elements. The failure is most likely in how
-SCRIP evaluates one of THOSE shapes (assignment-as-list-element, or alternation nested inside a list
-literal) rather than in `open()` itself -- but this is a hypothesis, not a finding: the actual minimal
-repro that reproduces the divergence has not been found yet. Next step for whoever picks this up: bisect
-the REAL list-literal expression (not a simplified rewrite of it) down to the smallest form that still
-fails, the same way `sorting`/`misc` were bisected.
+UPDATE 2026-09-06 (seat06): PRIOR MARKER TEXT WAS STALE IN THE DANGEROUS DIRECTION -- the 2026-09-05
+symptom description ("SCRIP exits rc=1 printing exactly one line, `no /etc/passwd`") no longer reproduces
+on the current build (RT_TAG f65f143e2f): the `open("/etc/passwd")` list-literal construct it described
+now runs to completion, and the program instead dies LATER with `ERROR 022 -- Undefined function called`.
+Re-bisecting the full file surfaced TWO unrelated, now fully root-caused defects (same "one confusing
+combined shape, two independent mechanisms" pattern this row hit earlier on `errkwds`), both rowed to
+hq_B, plus a third still-open item this session did not chase:
+
+(1) `L := sort(L)` on a list containing `&input`/`&output`/`&errout`/two open() file values silently
+    no-ops -- SCRIP's sort() leaves the list in its ORIGINAL construction order instead of icont's
+    image()-string order. Root cause: sort's default comparator returns "" for any non-string/non-integer
+    element (src/runtime/by_name_dispatch.c:4257-4267), so every pair compares equal and nothing ever
+    swaps. Rowed as `icon-sort-default-comparator-returns-empty-key-for-files-and-other-opaque-types-so-
+    they-never-reorder` (rank 2, hq_B), DONE-WHEN written and exercised red before trusting.
+
+(2) The `\` (limitation) operator lets exactly ONE EXTRA result through for any N (E \ N yields N+1, not
+    N) -- confirmed at N=1 and N=4. Root cause: src/lower/lower_icon.c:813-825 (case TT_LIMIT) wires the
+    box so the wrapped expression's first evaluation runs before the box's own count-check is ever
+    reached, so the check only ever constrains the 2nd/3rd/... invocation onward. This ONE mechanism
+    explains both of io.icn's own limitation-operator lines once traced with the real stdin sidecar:
+    `every write(!&input \ 2)` silently consumes one extra input line (the ungated call's read happens,
+    its value just never reaches write); `every write(!&input) \ 2` prints one extra line (the ungated
+    call's write() side effect fires before any check exists for that round). Rowed as
+    `icon-limitation-operator-lets-exactly-one-extra-result-through-for-any-n` (rank 2, hq_B), DONE-WHEN
+    written and exercised red before trusting.
+
+(3) UPDATE 2026-09-06 (seat06, second pass -- item (3) above is now root-caused, not a guess): the ERROR
+    022 abort is `flush()` -- confirmed with a standalone 4-line witness (`open("/etc/passwd")` then
+    `write(image(flush(m)))` aborts identically). NOT the args()/`_bt[]` arity-table family guessed above
+    (that family returns WRONG counts, it does not abort) -- checked and ruled out. Same shape as the
+    already-rowed icon-serial-builtin-is-entirely-unimplemented and
+    icon-errorclear-builtin-is-entirely-unimplemented-and-aborts-the-program: `flush` is listed in the
+    arity-metadata tables (src/runtime/by_name_dispatch.c:3908, :4709) but there is no `BID_flush` enum
+    value anywhere in the codebase (confirmed: zero grep hits), so there is no dispatch arm and every call
+    falls straight to the undefined-user-function abort path. This is the true current blocker stopping
+    `io.icn` before ~115 remaining lines of its output can even be attempted. Rowed as
+    `icon-flush-builtin-is-entirely-unimplemented-and-aborts-the-program` (rank 1, hq_B), DONE-WHEN
+    written and exercised red before trusting.
+
+⛔ DUPLICATE-WORK NOTE (seat06, second pass, caught on re-read after a concurrent push landed mid-session):
+items (1) and (2) above were independently re-derived by this same seat within about a minute of the
+push that landed this file, under DIFFERENT topic names -- `icon-sort-does-not-order-file-values-varval-
+fn-has-no-dt-fh-case` (same mechanism as (1)) and `icon-backslash-limit-operator-over-pulls-its-generator-
+by-one-extra-result` (same symptom as (2)). Both pairs are cross-referenced in each other's LEDGER rather
+than one being retired unilaterally (RULES.md's DUPLICATE-WORK precedent: flag, cross-reference, let the
+curing HQ consolidate). ⭐ ONE GENUINE DISAGREEMENT worth hq_B's attention before curing (2)/the backslash
+pair: this file's root-cause names `src/lower/lower_icon.c:813-825`'s TT_LIMIT wiring as the defect site;
+the sibling mint's independent read of `src/templates/bb/bb_limit.cpp` concluded the box's own beta/resume
+path re-enters the wrapped generator unconditionally before any count check. Both are plausible, neither
+is gdb/register-trace confirmed to be THE site rather than a symptom one level removed from it -- verify
+with a live trace before committing to either narrative, per RULES.md's "a correct procedure with a false
+explanation is the hardest kind to notice."
+
+Neither (1) nor (2) overlaps any other mechanism already rowed in this task's history (checked: not the
+struct/fncs non-reproducible-serial class, not either sortf crash row, not any prior generator/limit
+finding). All three DONE-WHENs exercised red via `bash -c` with S4E_HOME/S4E_SEAT exported the same way
+`s4e_msg.sh done` invokes them, per this row's own two-part-proof law, before being trusted.

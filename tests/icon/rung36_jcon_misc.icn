@@ -1,7 +1,7 @@
 #SRC: JCON
 
-record message(who,gap,what);
-record recordAsVariable();
+record message(who,gap,what)
+record recordAsVariable()
 
 procedure main()
    local i, x;

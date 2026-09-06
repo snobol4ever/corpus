@@ -31,7 +31,7 @@ procedure main(a)
    recurse(1, 4);
 end
 
-record complex(r,i);
+record complex(r,i)
 
 procedure main2(a)
    local T, L, L1;
@@ -57,7 +57,7 @@ procedure recurse(a,b);	# to build up some context for display()
    x := a + b;
    y := a - b;
    if a < 5 then
-      recurse(a + 1, b + a);
+      recurse(a + 1, b + a)
    else {
       write(repl('-',70));
       display(3, &output);
