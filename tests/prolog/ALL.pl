@@ -4816,3 +4816,65 @@ main :-
     catch(( _ is foo(1), write(noerror) ),
           error(type_error(evaluable, foo/1), _),
           write(caught)), nl.
+%------------------------------------------------------------ 667 streamio_flush_output_1
+:- initialization(main).
+main :-
+    write(a), flush_output, write(b), flush_output(user_output), nl.
+%------------------------------------------------------------ 668 streamio_stream_property_1
+:- initialization(main).
+main :-
+    open('/tmp/scrip_rung15_streamio_stream_property.txt', write, S),
+    ( stream_property(S, mode(Mode)) -> write(Mode) ; write(no_mode) ), nl,
+    close(S).
+%------------------------------------------------------------ 669 streamio_at_end_of_stream_1
+:- initialization(main).
+main :-
+    open('/tmp/scrip_rung15_streamio_at_end_of_stream.txt', write, WS),
+    write(WS, x), close(WS),
+    open('/tmp/scrip_rung15_streamio_at_end_of_stream.txt', read, RS),
+    get_char(RS, _C),
+    ( at_end_of_stream(RS) -> write(yes) ; write(no) ), nl,
+    close(RS).
+%------------------------------------------------------------ 670 streamio_set_stream_position_1
+:- initialization(main).
+main :-
+    open('/tmp/scrip_rung15_streamio_set_stream_position.txt', write, WS),
+    write(WS, 'abcdef'), close(WS),
+    open('/tmp/scrip_rung15_streamio_set_stream_position.txt', read, RS),
+    get_char(RS, C1), get_char(RS, C2),
+    stream_property(RS, position(Pos)),
+    get_char(RS, C3),
+    set_stream_position(RS, Pos),
+    get_char(RS, C3Again),
+    write(C1), write(C2), write(C3), write(C3Again), nl,
+    close(RS).
+%------------------------------------------------------------ 671 streamio_get_code_peek_code_1
+:- initialization(main).
+main :-
+    open('/tmp/scrip_rung15_streamio_get_code_peek_code.txt', write, WS),
+    write(WS, ab), close(WS),
+    open('/tmp/scrip_rung15_streamio_get_code_peek_code.txt', read, RS),
+    peek_code(RS, P1), get_code(RS, G1), get_code(RS, G2),
+    write(P1), write(' '), write(G1), write(' '), write(G2), nl,
+    close(RS).
+%------------------------------------------------------------ 672 streamio_put_code_1
+:- initialization(main).
+main :- put_code(0'A), put_code(0'B), nl.
+%------------------------------------------------------------ 673 streamio_get_byte_peek_byte_1
+:- initialization(main).
+main :-
+    open('/tmp/scrip_rung15_streamio_get_byte_peek_byte.bin', write, WS, [type(binary)]),
+    put_byte(WS, 65), put_byte(WS, 66), close(WS),
+    open('/tmp/scrip_rung15_streamio_get_byte_peek_byte.bin', read, RS, [type(binary)]),
+    peek_byte(RS, P1), get_byte(RS, G1), get_byte(RS, G2),
+    write(P1), write(' '), write(G1), write(' '), write(G2), nl,
+    close(RS).
+%------------------------------------------------------------ 674 streamio_put_byte_1
+:- initialization(main).
+main :-
+    open('/tmp/scrip_rung15_streamio_put_byte.bin', write, WS, [type(binary)]),
+    put_byte(WS, 0), put_byte(WS, 255), close(WS),
+    open('/tmp/scrip_rung15_streamio_put_byte.bin', read, RS, [type(binary)]),
+    get_byte(RS, B1), get_byte(RS, B2),
+    write(B1), write(' '), write(B2), nl,
+    close(RS).
