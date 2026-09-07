@@ -1,4 +1,4 @@
-*  KALAH.SNO - SNOBOL4+ version
+*  KALAH.SPT - SPITBOL version
 *
 *	KALAH in SNOBOL4
 *
@@ -10,12 +10,12 @@
 *	The comments are from Shapiro's LISP program.
 *
 *	To run:
-*       SNOBOL4 KALAH
+*	spitbol kalah.spt
 *
-*       If you want to keep a game log to file "SHADOW", type:
-*       SNOBOL4 KALAH /1:SHADOW
+*	If you want to keep a game log to file "shadow", type:
+*	spitbol -u "shadow" kalah.spt
 *
-*	Try it with 4 stones per pot, and a search depth of 1.
+*	Try it with 4 stones per pot, and a search depth of 3.
 *
 *	This is one of the many variations of Mancala games.  Mancala games
 *	are popular in Africa and India.  It is a very old game; boards have
@@ -57,7 +57,6 @@
 	&ANCHOR	= 0
 	&DUMP	= 0
 	&FTRACE	= 0
-	&FULLSCAN = 1
 	&STLIMIT = -1
 	&TRACE	= 0
 	&TRIM	= 1
@@ -65,7 +64,7 @@
 *---------------------------------------------------------------------------
 * I/O Associations.
 *
-	OUTPUT(.SHADOW,1)
+	(DIFFER(HOST(0)) OUTPUT(.SHADOW,1,HOST(0)))
 *
 *---------------------------------------------------------------------------
 * Defined datatypes
@@ -94,6 +93,8 @@
 *---------------------------------------------------------------------------
 * Global constants
 *
+	UPPERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+	LOWERS = 'abcdefghijklmnopqrstuvwxyz'
 	null = ''
 	nil = STACK(null,null)
 	TOP(nil) = nil
@@ -123,8 +124,6 @@
 DEF1	ARGS ' ' = ','				:S(DEF1)
 DEF2	LOCALS ' ' = ','			:S(DEF2)
 *
-* Define new function
-	DEFINE( NAME '(' ARGS ')' LOCALS )
 * Build body with proper return
 	BODY = IDENT( RTN, null) BODY ' :(RETURN)'
 +	  :S(DEF3)
@@ -133,7 +132,9 @@ DEF2	LOCALS ' ' = ','			:S(DEF2)
 	BODY = IDENT( RTN, 'F') BODY ' :F(RETURN)S(FRETURN)'
 +	  :S(DEF3)
 	BODY = IDENT( RTN, 'N') BODY ' :(NRETURN)'
-DEF3	CODE(NAME ' ' BODY)		:(RETURN)
+DEF3	CODE(NAME ' ' BODY)
+* Define new function
+	DEFINE( NAME '(' ARGS ')' LOCALS )	:(RETURN)
 DEF_END
 *
 *---------------------------------------------------------------------------
@@ -707,7 +708,7 @@ PRINTBRD_END
 	DEFINE( 'MEFIRST()' )				:(MEFIRST_END)
 MEFIRST
 	PRT( 'Do you want to go first?')
-	MEFIRST = REPLACE(INPUT,&LCASE,&UCASE)		:F(END)
+	MEFIRST = REPLACE(INPUT,LOWERS,UPPERS)		:F(END)
 	SHADOW = DUPL(' ',10) 'Answer: ' MEFIRST
 	MEFIRST (LEFT_END ('YES' | 'NO') RIGHT_END)	:S(RETURN)
 	PRT( 'Please answer YES or NO.')		:(MEFIRST)
@@ -851,10 +852,8 @@ CHOOSE_END
 *
 	DEFINE( 'MAKE(CHOSEN,VAL)' )			:(MAKE_END)
 MAKE
-*	TIME() is integer nanoseconds off a monotonic wall clock (FINDING s249);
-*	divide by 1000000 for milliseconds, same idiom as harness.inc's "ms:" line.
 	REPORT(NUM(MOVEOF(CHOSEN)),
-+	 VAL, BNODES, TNODES, (TIME() - SECS) / 1000000 )
++	 VAL, BNODES, TNODES, TIME() - SECS )
 	MOVE(PLAYER(CHOSEN),MOVEOF(CHOSEN))		:F(MAKE1)
 	PRINTBRD()					:(RETURN)
 MAKE1

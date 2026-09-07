@@ -1,5 +1,496 @@
-*---------------------------------------------------------------------- 1 ENDING
-* ENDING.SNO -- SNOBOL4+ Version
+*------------------------------------------------------------------------- 1 ATN
+* ATN.SPT - SPITBOL Version
+*
+* SNOBOL4 program to implement a compiler for an
+*		Augmented Transition Network Language.
+*
+*	This program is slightly modified from the version in the report
+*	to provide faster compilation of the network.
+*
+*	Sample input in the ATN source language is contained in file ATN.IN.
+*
+*	Run the program by typing:
+*	spitbol -u slist <atn.in atn.spt
+*
+*	where -u slist specifies an optional listing file for the ATN compiler, and
+*	may be omitted.
+
+-CASE 0
+
+* Keyword settings
+
+	&ANCHOR = 0
+	&DUMP	= 0
+	&FTRACE	= 0
+	&MAXLNGTH = 32767
+	&STLIMIT  = 50000
+	&TRACE	= 0
+	&TRIM	= 1
+
+*
+* Set CODE_PRINT to 1 to get listing of generated code
+*
+	CODE_PRINT = 0
+
+* I/O Associations
+
+	INPUT(.ATNSOURCE)
+	DIFFER(HOST(0)) OUTPUT(.SLIST, 1, HOST(0))
+
+* Defined data types
+
+	DATA( 'STACK(TOP,REST)' )
+
+* Global constants
+
+	null = ''
+	nil  = STACK()
+	TOP(nil)  = nil
+	REST(nil) = nil
+
+	SENTENCES = nil
+	LEX_STACK = nil
+	LEXICAL_FEATURES = TABLE()
+
+* Utility patterns
+
+	BLANK	= ' '
+	SC	= ';'
+	Q1	= "'"
+	Q2	= '"'
+	COMMA	= ','
+	STAR	= '*'
+	LP	= '('
+	RP	= ')'
+	UL	= '_'
+	PUSHER	= '>'
+	POPPER	= '<'
+	TAB	= CHAR(9)
+
+	LEFT_END  = POS(0)
+	RIGHT_END = RPOS(0)
+
+	BLANKS	= SPAN(BLANK)
+	OPT_BLANKS = BLANKS | null
+	BB	= BREAK(BLANK)
+	BXB	= BREAKX(BLANK)
+
+	BBSC	= BREAK(BLANK SC)
+	SPSC	= SPAN(SC)
+	SPBSC	= SPAN(BLANK SC)
+	SPBSCN	= SPBSC | null
+	BSC	= BREAK(SC)
+
+	LEN1	= LEN(1)
+	L1REM	= LEN1 REM
+
+	BRP	= BREAK(RP)
+	BRPN	= BRP | null
+
+* Utility functions
+
+* Print X to the source listing file and output file
+
+	DEFINE('PRT(X)')					:(PRT_END)
+PRT	OUTPUT = SLIST = X 					:(RETURN)
+PRT_END
+
+* Error MSG to source listing file and output file
+
+	DEFINE('ERROR(MSG)')					:(ERROR_END)
+ERROR	( PRT() PRT(MSG) PRT() )				:(RETURN)
+ERROR_END
+
+* Readable display of SNOBOL4 code
+
+	DEFINE( 'DISPLAY(SNOCODE)S,L' )				:(DISPLAY_END)
+DISPLAY	EQ(CODE_PRINT,0)					:S(RETURN)
+	(PRT() PRT('------ Code ------') PRT())
+DISPLAY1
+	SNOCODE LEFT_END (BSC $ S) SPSC =			:F(DISPLAY3)
+	S LEFT_END (NOTANY(BLANK) (BB | null)) $ L =		:F(DISPLAY2)
+	PRT('     | ' L)
+DISPLAY2
+	S LEFT_END BLANKS =
+	S = TRIM(S)
+	NULL(S)							:S(DISPLAY1)
+	PRT('     |  ' S)					:(DISPLAY1)
+DISPLAY3
+	(PRT() PRT('------ End of Code ------') PRT())		:(RETURN)
+DISPLAY_END
+
+* Succeeds if X is nil, null, or zero
+
+	DEFINE('NULL(X)')					:(NULL_END)
+NULL	IDENT(X,nil)						:S(RETURN)
+	IDENT(X,null)						:S(RETURN)
+	X = CONVERT(X,'NUMERIC')				:F(FRETURN)
+	EQ(X,0)			     			:S(RETURN)F(FRETURN)
+NULL_END
+
+* Put COAT on RACK using HANGER
+
+	DEFINE( 'PUT(RACK,COAT,HANGER)' )			:(PUT_END)
+PUT	PROP<RACK> =
++		DIFFER('TABLE',DATATYPE(PROP<RACK>)) TABLE()
+	ITEM(PROP<RACK>,HANGER) = COAT				:(RETURN)
+PUT_END
+
+* Get contents of HANGER off RACK
+
+	DEFINE( 'GET(RACK,HANGER)' )				:(GET_END)
+GET	PROP<RACK> =
++		DIFFER('TABLE',DATATYPE(PROP<RACK>)) TABLE()	:S(RETURN)
+	GET = ITEM(PROP<RACK>,HANGER)				:(RETURN)
+GET_END
+
+* Program text semi-constants used in code generation
+
+	REPLACE_LIT = CHAR(1) 'RePlAcE' CHAR(1)
+
+	BEGIN_TEXT =
++		' HOLD = REMAINING_WORDS ;'
++		' REMAINING_WORDS (BREAK(" ") $ CURRENT_WORD) ;'
++		' THIS_NODE = GENNAME("' REPLACE_LIT '") ;'
++		' :(' REPLACE_LIT '_START) ;'
+
+	WIN_TEXT =
++		REPLACE_LIT '_WIN'
++		' TESTF(THIS_NODE,FEATS) :F(' REPLACE_LIT '_LOSE) ;'
++		' ATTACH(THIS_NODE,PARENT) ;'
++		' LAST_PARSED = THIS_NODE :(RETURN) ;'
+
+	LOSE_TEXT =
++		REPLACE_LIT '_LOSE'
++		' REMAINING_WORDS = HOLD ;'
++		' REMAINING_WORDS (BREAK(" ") $ CURRENT_WORD) :(FRETURN) ;'
+
+	INITIAL_ROUTINE =
++		REPLACE_LIT BEGIN_TEXT
++		WIN_TEXT LOSE_TEXT REPLACE_LIT '_START ;'
+
+* Patterns used in COMPILE routine
+
+	COMMENT_PAT = (LEFT_END OPT_BLANKS STAR) | (LEFT_END RIGHT_END)
+
+	KEYWORD_PAT = 'NETWORK' | 'FUNCTION' | 'LEXICON'
++		| 'SENTENCES' | 'EXEC'
+
+	NAME_PAT    = (BB $ NAME) BLANKS FENCE
+
+	LEGAL_PAT   = LEFT_END KEYWORD_PAT (BLANKS | RIGHT_END)
+
+	COMPLETE_PAT = (LEFT_END 'EXEC' BLANKS)
+	COMPLETE_PAT = COMPLETE_PAT |
++		(LEFT_END BB BLANKS (BB $ TNAME) BLANKS FAIL)
+	COMPLETE_PAT = COMPLETE_PAT |
++		('END' OPT_BLANKS *TNAME RIGHT_END)
+
+* Definitions of semantic (code-generating) functions
+
+	DEFINE( 'S(NA)' )
+	DEFINE( 'S_(NA)T' )
+
+* Recognizer/compiler patterns for the five types of blocks:
+*  EXEC, SENTENCES, LEXICON, FUNCTION, and NETWORK
+
+* Recognizer for EXEC statement
+
+	EXEC_PAT = LEFT_END 'EXEC' BLANKS (REM $ NAME) S('EX')
+
+* Recognizer/Compiler for SENTENCES block
+
+	SENTENCES_LIT = 'SENTENCES' BLANKS FENCE
+	SENTENCES_HEADER = LEFT_END SENTENCES_LIT NAME_PAT
+	SENTENCE_PAT   = (BSC $ SENT) SPBSC S('SENT')
+	SENTENCES_BODY = ARBNO(SENTENCE_PAT)
+	SENTENCES_ENDER = 'END' OPT_BLANKS *NAME RIGHT_END
+	SENTENCES_PAT = SENTENCES_HEADER SENTENCES_BODY SENTENCES_ENDER
+
+* Recognizer/Compiler for LEXICON block
+
+	LEXICON_LIT = 'LEXICON' BLANKS FENCE
+	LEXICON_HEADER = LEFT_END LEXICON_LIT NAME_PAT
+	LEX_PUSH_PAT = PUSHER (BB $ F) BLANKS S('PSH')
+	LEX_POP_PAT = POPPER (BB $ F) BLANKS S('POP')
+	WORD_PAT = NOTANY(PUSHER POPPER) (BB | null)
+	LEX_W_PAT = (WORD_PAT $ W) BLANKS S('LEX')
+	ENTRY_PAT = LEX_W_PAT | LEX_PUSH_PAT | LEX_POP_PAT
+	ENTRIES_PAT = ARBNO(ENTRY_PAT)
+	LEXICON_ENDER = SENTENCES_ENDER
+	LEXICON_PAT = LEXICON_HEADER ENTRIES_PAT LEXICON_ENDER
+
+* Recognizer/Compiler for FUNCTION block
+
+	FUNCTION_LIT = 'FUNCTION' BLANKS FENCE
+	FUNCTION_HEADER = LEFT_END FUNCTION_LIT NAME_PAT
+	ARG_PAT = (( LP BRPN RP ) $ ARG ) BLANKS S('ARG')
+	LOC_PAT = LP (BRPN $ LOC) RP BLANKS S('LOC')
+	FUNCTION_HEADER = FUNCTION_HEADER ARG_PAT LOC_PAT
+	STATEMENT_PAT = BSC SPSC
+	STATEMENTS_PAT = ARBNO(STATEMENT_PAT) $ BODY BLANKS
+	FUNCTION_ENDER = SENTENCES_ENDER
+	FUNCTION_PAT = FUNCTION_HEADER S('FN') STATEMENTS_PAT
++		FUNCTION_ENDER S('F')
+
+* Recongnizer/Compiler for NETWORK block
+
+* The IF part
+
+	IF_LIT = 'IF' BLANKS FENCE
+
+* The conditional clause
+
+	CLAUSE_PAT = BXB
+	COND_PAT = (CLAUSE_PAT $ COND) BLANKS
+
+* The GOTO clause
+
+	GOTO_LIT = 'GO' OPT_BLANKS 'TO' BLANKS FENCE
+	GOTO_LABEL_PAT = (BB $ GOTO_LABEL) BLANKS FENCE
+	GOTO_PAT = GOTO_LIT GOTO_LABEL_PAT
+
+* The AFTER clause (which may be null)
+
+	AFTER_LIT = 'AFTER' BLANKS FENCE
+	SIDE_PAT = (CLAUSE_PAT $ SIDE) BLANKS
+	ENDIF_PAT = 'END' OPT_BLANKS 'IF' BLANKS FENCE
+	AFTER_PAT =
++		((null $ SIDE) ENDIF_PAT)
++		| (AFTER_LIT SIDE_PAT ENDIF_PAT)
+	IF_PAT = IF_LIT COND_PAT GOTO_PAT AFTER_PAT S('IF')
+
+* The labelled set of IF statments (the RULE)
+
+	LABEL_PAT = (BB $ LABEL) BLANKS FENCE
+	IFS_PAT = ARBNO(IF_PAT)
+	END_LABEL_PAT = 'END' OPT_BLANKS *LABEL BLANKS FENCE
+	RULE_PAT = LABEL_PAT S('LAB') IFS_PAT END_LABEL_PAT S('ELB')
+
+* The set of RULEs (the NETWORK)
+
+	NETWORK_LIT = 'NETWORK' BLANKS FENCE
+	NETWORK_HEADER = LEFT_END NETWORK_LIT NAME_PAT
+	RULES_PAT = ARBNO(RULE_PAT)
+	NETWORK_ENDER = SENTENCES_ENDER
+	NETWORK_PAT = NETWORK_HEADER S('NTW')
++			RULES_PAT
++			NETWORK_ENDER S('ENW')
+
+* Grand pattern for compiling any legal block
+
+	COMPILE_PAT = NETWORK_PAT
++		    | FUNCTION_PAT
++		    | LEXICON_PAT
++		    | SENTENCES_PAT
++		    | EXEC_PAT
+
+* Read and compile all text from ATNSOURCE
+*   (source listing with comments goes to SLIST)
+
+	DEFINE( 'COMPILE()NEXT,TEXT' )				:(COMPILE_END)
+
+* Comment or first line of block
+
+COMPILE	TEXT = ATNSOURCE					:F(RETURN)
+
+* List the record, trim leading blanks, and check for legal syntax
+
+COMPILE1
+	PRT( TEXT )
+COMP6	TEXT TAB = BLANK					:S(COMP6)
+	TEXT COMMENT_PAT					:S(COMPILE)
+	TEXT LEFT_END BLANKS = null
+	TEXT LEGAL_PAT						:S(COMPILE2)
+	ERROR('Illegal record')					:(FRETURN)
+
+* Check for a complete block.  If block is incomplete, keep reading
+
+COMPILE2
+	TEXT COMPLETE_PAT					:S(COMPILE4)
+	NEXT = ATNSOURCE					:S(COMPILE3)
+	ERROR('Unexpected end of file on ATNSOURCE')		:(FRETURN)
+
+* List the record, convert leading blanks to a single blank,
+*  and concatenate with TEXT
+
+COMPILE3
+	PRT( NEXT )
+COMP7	TEXT TAB = BLANK					:S(COMP7)
+	NEXT COMMENT_PAT					:S(COMPILE2)
+	NEXT LEFT_END BLANKS = BLANK
+	TEXT = TEXT NEXT					:(COMPILE2)
+
+* Use COMPILE_PAT to compile TEXT
+
+COMPILE4
+	TIME_ZERO = TIME()
+	TEXT COMPILE_PAT					:F(COMPILE5)
+	PRT()
+	PRT(TIME() - TIME_ZERO ' milliseconds compile time')
+	PRT()							:(COMPILE)
+
+COMPILE5
+	ERROR('Compilation failed')				:(FRETURN)
+COMPILE_END
+
+* Semantic (code-generation) functions
+
+	:(S_END)
+
+* For immediate code generation
+*	The code is generated after a part of a syntactic
+*	pattern has successfully matched
+
+S	S = EVAL( "(NULL $ *S_('"  NA  "')) FENCE " )		:(RETURN)
+
+* This is a big computed GOTO with a branch for every
+*	semantic contigency.
+
+S_	S_ = .DUMMY						:($( 'S_' NA ))
+
+* Initialize the code for a network
+
+S_NTW	ROUTINE = INITIAL_ROUTINE				:(NRETURN)
+
+* The label for a rule
+
+S_LAB	ROUTINE = ROUTINE REPLACE_LIT UL LABEL BLANK		:(NRETURN)
+
+* One IF statement is a network
+
+S_IF	ROUTINE = ROUTINE
++		' ?( ' COND BLANK SIDE ' ) '
++		':S(' REPLACE_LIT UL GOTO_LABEL ') ;'		:(NRETURN)
+
+* The end of a labelled rule:  If none of the IF statements
+*	has been satisfied, then the LOSE branch is take
+
+S_ELB	ROUTINE = ROUTINE ' :(' REPLACE_LIT '_LOSE) ;'		:(NRETURN)
+
+* Wrap-up network:  (1) insert NAME in all the right places;
+*	(2) translate into machine language via CODE.
+
+S_ENW	ROUTINE REPLACE_LIT = NAME				:S(S_ENW)
+	DISPLAY( ROUTINE )
+	CODE( ROUTINE )						:F(S_ENW1)
+	DEFINE( NAME '(PARENT,FEATS)THIS_NODE,HOLD' )
+	DISPLAY(' DEFINE(' Q1 NAME '(PARENT,FEATS)THIS_NODE,HOLD' Q1 ') ;')
+								:(NRETURN)
+S_ENW1	ERROR('Compilation error')				:(FRETURN)
+
+* Push a sentence onto the stack of sentences
+
+S_SENT	SENTENCES = STACK(SENT,SENTENCES)			:(NRETURN)
+
+* Push F onto the stack of lexical features
+
+S_PSH	LEX_STACK = STACK(F,LEX_STACK)				:(NRETURN)
+
+* Pop lexical features up to, NOT INCLUDING, F
+
+S_POP	NULL(LEX_STACK)						:S(NRETURN)
+	IDENT(F,TOP(LEX_STACK))					:S(NRETURN)
+	LEX_STACK = REST(LEX_STACK)				:(S_POP)
+
+* Attach all stacked features to W
+
+S_LEX	LEX_STACK_SAVE = LEX_STACK
+S_LEX1	NULL(LEX_STACK)						:S(S_LEX2)
+	LEXICAL_FEATURES<W> = TOP(LEX_STACK) BLANK
++			LEXICAL_FEATURES<W>
+	LEX_STACK = REST(LEX_STACK)				:(S_LEX1)
+S_LEX2	PRT('     | ' W ':  ' LEXICAL_FEATURES<W>)
+	LEX_STACK = LEX_STACK_SAVE				:(NRETURN)
+
+* Remove all blanks from the formal argument list for a FUNCTION
+
+S_ARG	ARG BLANKS =					:S(S_ARG)F(NRETURN)
+
+* Remove all blanks from the local variable list for a FUNCTION
+
+S_LOC	LOC BLANKS = 					:S(S_LOC)F(NRETURN)
+
+* Initialize FUNCTION
+
+S_FN								:(NRETURN)
+
+* Compile a FUNCTION
+
+S_F	BODY = BODY " ERROR('No return from ' "
++		Q1 NAME Q1 ") :(END) ;"
+	DISPLAY( NAME BLANK BODY )
+	CODE( NAME BLANK BODY )					:F(S_F1)
+	DISPLAY(' DEFINE(' Q1 NAME ARG LOC Q1 ') ;')
+	DEFINE( NAME ARG LOC )					:(NRETURN)
+S_F1	ERROR('Compilation error')				:(FRETURN)
+
+* For EXEC, call MAIN with NAME = name of first network to be called
+
+S_EX	( PRT() PRT() )
+	PRT( '****** EXECUTION BEGINS WITH ' NAME ' ******') PRT()
+	MAIN(NAME)						:(NRETURN)
+S_END
+
+
+* This routine is triggered by the EXEC statement
+
+	DEFINE( 'MAIN(FIRST_PROC)LAST_PARSED,'
++	'CURRENT_WORD,REMAINING_WORDS,S,PROP' )			:(MAIN_END)
+MAIN	NULL(SENTENCES)						:S(RETURN)
+	S = TOP(SENTENCES)
+	SENTENCES = REST(SENTENCES)
+	( PRT() PRT() )
+	PRT(DUPL('-',SIZE(S)))
+	( PRT() PRT(S) PRT() )
+	PRT(DUPL('-',SIZE(S)))
+	PRT()
+	LAST_PARSED = null
+	CURRENT_WORD = null
+	REMAINING_WORDS = S BLANK
+	PROP = TABLE()
+	TIME_ZERO = TIME()
+	EVAL(FIRST_PROC)					:S(MAIN1)
+	( PRT() PRT('Parsing failed') PRT() )			:(MAIN)
+
+MAIN1	( PRT() PRT('Parsing Succeeded') PRT() )
+	( PRT(TIME() - TIME_ZERO ' milliseconds used') PRT() )
+	DUMP_PROP()						:(MAIN)
+MAIN_END
+
+* Dump registers after parse is completed
+
+	DEFINE( 'DUMP_PROP()T,N,R,M,TN1,TN2,RM1,RM2' )		:(DUMP_PROP_END)
+DUMP_PROP
+	T = CONVERT(PROP, 'ARRAY')				:F(RETURN)
+	PROP = null
+	N = 1
+
+DUMP1	TN1 = T<N,1>						:F(RETURN)
+	TN2 = T<N,2>
+	T<N,1> = null
+	T<N,2> = null
+	R = CONVERT(TN2, 'ARRAY')				:F(DUMP3)
+	PRT()
+	PRT( 'NODE: ' TN1 )
+	M = 1
+
+DUMP2		RM1 = R<M,1>					:F(DUMP3)
+		RM2 = R<M,2>
+		PRT( DUPL(' ',10) RM1 ' = ' RM2 )
+		M = M + 1					:(DUMP2)
+
+DUMP3	N = N + 1						:(DUMP1)
+DUMP_PROP_END
+
+
+* Compile main program starts here
+
+	COMPILE()						:S(END)
+	ERROR('****** FATAL ERROR ******')
+END
+*---------------------------------------------------------------------- 2 ENDING
+* ENDING.SPT -- SPITBOL Version
 *
 * Analysis of English Endings
 *
@@ -8,10 +499,11 @@
 *           New York:  Academic Press, 1972.
 *
 *	To run:
-*	  SNOBOL4 ENDING <ENDING.IN
+*	  spitbol ending.spt <ending.in
 *
- &FULLSCAN = 1
  &TRIM = 1
+ LCASE = "abcdefghijklmnopqrstuvwxyz"
+ UCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
  DEFINE('WORDEND(WORD)L,VOWEL,DOUBLE,LIQUID,NOEND')
  DEFINE('MATCH(L,PAT)')
@@ -107,12 +599,2411 @@ DICT.LOOP
        DICTIONARY<W> = 1                          :(DICT.LOOP)
 DICT.LOOP.END
 *
-READ   W = REPLACE(INPUT,&LCASE,&UCASE)           :F(END)
+       SETEXIT(.CONTINUE)
+
+READ   W = REPLACE(INPUT,LCASE,UCASE)             :F(END)
        WORDEND(W)
        OUTPUT = WRD                               :(READ)
 END
-*------------------------------------------------------------------------ 2 WANG
-*  WANG.SNO - SNOBOL4+ Version
+*----------------------------------------------------------------------- 3 HSORT
+*  HSORT.SPT - SPITBOL Version
+*
+*  C.A.R. Hoare's Quicksort algorithm
+*
+* Sort array A according to predicate P.
+*
+* Demonstration only:  Remember that SPITBOL has a built-in SORT function.
+*
+* P(A<I>,A<J>) true for all I < J.
+*
+* Possible values of P:
+*     .LE, .GE, .LLE, .LGE.  Use LE and GE for numeric sort, LLE and LGE
+*      for lexical sort.
+*
+* DO NOT USE:
+*     .LT, .GT, .LLT, .LGT
+*
+*  To run with sample data:
+*  spitbol -u "hsort.in" hsort.spt
+*
+ DEFINE('HSORT(A,I,N,P)J,K,C')
+ DEFINE('HSORT.KO(V1,V2)')
+ DEFINE('HSORT.OK(V1,V2)')
+ DEFINE('HSORT.SWAP(I1,I2)T')              :(HSORT.END)
+*
+HSORT
+      GT(N - I,  1)                        :S(HSORT1)
+      GE(I, N)                             :S(RETURN)
+      (HSORT.KO(A<I>,A<N>)   HSORT.SWAP(I,N))
+         :(RETURN)
+*
+HSORT1
+      C = A<(I + N) / 2>
+      J = I - 1
+      K = N + 1
+*
+HSORT2   J = J + 1
+      HSORT.OK(C,A<J>)                     :F(HSORT2)
+HSORT3   K = K - 1
+      HSORT.OK(A<K>,C)                     :F(HSORT3)
+*
+      (LT(J,K)    HSORT.SWAP(J,K))         :S(HSORT2)
+*
+      HSORT(A, I, K, P)
+      HSORT(A, K + 1, N, P)                :(RETURN)
+*
+HSORT.SWAP  T = A<I1> ; A<I1> = A<I2> ; A<I2> = T     :(RETURN)
+*
+HSORT.OK      APPLY(P,V1,V2)               :S(RETURN)F(FRETURN)
+*
+HSORT.KO      APPLY(P,V1,V2)               :S(FRETURN)F(RETURN)
+*
+HSORT.END
+*
+*
+* Begin main program *****
+*
+*
+      &TRIM = 1
+      INPUT(.INPUT,1,HOST(0))                :S(GO)
+      TERMINAL = "Cannot open input file: " HOST(0)  :(END)
+GO    SETEXIT(.CONTINUE)
+
+* Make two passes through input file -- First to count the number of lines
+* in the file to allocate an array of the correct size, second pass to read
+* in the values.
+
+      N = 0
+COUNT
+      N = ?INPUT   N + 1      :S(COUNT)
+*
+      A = ARRAY(N)
+      REWIND( 1 )
+      I = 0
+INPUT.LOOP
+      I = LT(I,N) I + 1       :F(INPUT.LOOP.END)
+      A<I> = INPUT            :(INPUT.LOOP)
+INPUT.LOOP.END
+*
+   HSORT(A,1,N, .LLE)
+*
+      I = 0
+OUTPUT.LOOP
+      I = LT(I,N) I + 1       :F(OUTPUT.LOOP.END)
+      OUTPUT = LPAD(I,5) ".   " A<I>    :(OUTPUT.LOOP)
+OUTPUT.LOOP.END
+END
+*----------------------------------------------------------------------- 4 KALAH
+*  KALAH.SPT - SPITBOL version
+*
+*	KALAH in SNOBOL4
+*
+*
+*	The program follows a LISP program which appeared in
+*	 Shapiro, S.C., Techniques of Artificial Intelligence,
+*	  New York: Van Nostrand, 1979, pp. 31-55.
+*
+*	The comments are from Shapiro's LISP program.
+*
+*	To run:
+*	spitbol kalah.spt
+*
+*	If you want to keep a game log to file "shadow", type:
+*	spitbol -u "shadow" kalah.spt
+*
+*	Try it with 4 stones per pot, and a search depth of 3.
+*
+*	This is one of the many variations of Mancala games.  Mancala games
+*	are popular in Africa and India.  It is a very old game; boards have
+*	been found in Ancient Egyptian ruins.  Some of the names of
+*	different versions are:  Mankala'h, Pallanguli, Wari, Awari, and Ba-Awa.
+*	We do not know the precise name of the version present here.
+*
+*	The board consists of two rows of six depressions, called 'pits' or
+*	'pots'.  A larger pit at each end holds captured pieces.
+*
+*	The board is as follows: (integers are pot numbers, 'P' is the
+*	program, 'O' is the opponent (you).
+*
+*	    P6  P5  P4  P3  P2  P1
+*	PKALAH			OKALAH
+*	    O1  O2  O3  O4  O5  O6
+*
+*	The move path is counter-clockwise.
+*	 For the computer: P1-P6-PKALAH-O1-O6-P1,
+*	 and for the user, O1-O6-OKALAH-P1-P6-O1.
+*
+*	Initially, P1-P6 and O1-O6 are filled with the desired number of stones.
+*	A move is made by taking all the stones from a numbered pot on your
+*	side, and sowing them one-by-one into succeeding pots along your
+*	path.  If your last stone went into the KALAH, you get another turn.
+*	If the last stone went into a numbered pot ON YOUR SIDE that was empty,
+*	and if the opponent's pot directly across from it is not empty, then
+*	all the stones in these two pots are "captured" and placed in the
+*	moving side's KALAH.  The game ends when one side has a majority
+*	of the stones in their KALAH.  If it is your turn and all of your
+*	are empty (you have no play), then all the stones in the other side's
+*	pots go into that side's KALAH, the game is over, and the one with the
+*	most stones wins.
+*
+*
+*---------------------------------------------------------------------------
+* Keyword settings
+*
+	&ANCHOR	= 0
+	&DUMP	= 0
+	&FTRACE	= 0
+	&STLIMIT = -1
+	&TRACE	= 0
+	&TRIM	= 1
+*
+*---------------------------------------------------------------------------
+* I/O Associations.
+*
+	(DIFFER(HOST(0)) OUTPUT(.SHADOW,1,HOST(0)))
+*
+*---------------------------------------------------------------------------
+* Defined datatypes
+*
+* The data structure describing each pot will contain these items:
+*  ONWER - the owner (P or O)
+*  NUM - the number of the pot (1-6, 0=kalah)
+*  KVALUE - stack of number of stones in the pot.  Top value is current.
+*  OPP - The pot number opposite this pot on the board
+*  PPATH, OPATH - Name of next pot along the program or opponent's path
+*
+	DATA( 'POT(OWNER,NUM,KVALUE,OPP,PPATH,OPATH)' )
+*
+* A node will contain three elements.  When a node is first generated, the
+* first element will be the player who is to move, the second element will
+* be the pot whose stones are to be taken, and the third element will be
+* the player who will move next.
+*
+	DATA( 'NODE(PLAYER,MOVEOF,NEXT_PLAYER)' )
+*
+* A simple stack consisting of a top-of-stack value, and a pointer to
+* the rest of stack.
+*
+	DATA( 'STACK(TOP,REST)' )
+*
+*---------------------------------------------------------------------------
+* Global constants
+*
+	UPPERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+	LOWERS = 'abcdefghijklmnopqrstuvwxyz'
+	null = ''
+	nil = STACK(null,null)
+	TOP(nil) = nil
+	REST(nil) = nil
+	t = COPY(nil)
+	TOP(t) = t
+	REST(t) = t
+	nilpot = POT(null,0,nil,null,null,null)
+	OPP(nilpot) = nilpot
+	PPATH(nilpot) = nilpot
+	OPATH(nilpot) = nilpot
+*
+*---------------------------------------------------------------------------
+* Utility patterns
+*
+	LEFT_END = POS(0)
+	RIGHT_END = RPOS(0)
+	TO_NEXT_BLANK = BREAK(' ')
+	SKIP_BLANKS = SPAN(' ')
+*
+*---------------------------------------------------------------------------
+* Utility functions
+*
+* DEF - Define other functions
+	DEFINE( 'DEF(NAME,ARGS,LOCALS,BODY,RTN)', 'DEF1')
++	    :(DEF_END)
+DEF1	ARGS ' ' = ','				:S(DEF1)
+DEF2	LOCALS ' ' = ','			:S(DEF2)
+*
+* Build body with proper return
+	BODY = IDENT( RTN, null) BODY ' :(RETURN)'
++	  :S(DEF3)
+	BODY = IDENT( RTN, 'S') BODY ' :S(RETURN)F(FRETURN)'
++	  :S(DEF3)
+	BODY = IDENT( RTN, 'F') BODY ' :F(RETURN)S(FRETURN)'
++	  :S(DEF3)
+	BODY = IDENT( RTN, 'N') BODY ' :(NRETURN)'
+DEF3	CODE(NAME ' ' BODY)
+* Define new function
+	DEFINE( NAME '(' ARGS ')' LOCALS )	:(RETURN)
+DEF_END
+*
+*---------------------------------------------------------------------------
+*
+* APPEND3 - Makes one stack out of three stacks.
+*
+	DEFINE( 'APPEND3(S1,S2,S3)' )	:(APPEND3_END)
+APPEND3
+	APPEND3 = ( NULL(S1) NULL(S2) NULL(S3)) nil	:S(RETURN)
+	APPEND3 = ( NULL(S1) NULL(S2))
++	   STACK( TOP(S3), APPEND3( S1, S2, REST(S3)))
++	    :S(RETURN)
+	APPEND3 = NULL(S1)
++	   STACK( TOP(S2), APPEND3( S1, REST(S2), S3))
++	    :S(RETURN)
+	APPEND3 =
++	   STACK( TOP(S1), APPEND3( REST(S1), S2, S3))
++	   :(RETURN)
+APPEND3_END
+*
+*---------------------------------------------------------------------------
+* NULL - Succeed if stack empty
+	DEF( 'NULL', 'X',, 'IDENT(X,nil)', 'S')
+*
+*---------------------------------------------------------------------------
+* TRUE - Succeed if stack not empty
+	DEF( 'TRUE', 'X',, 'DIFFER(X,nil)', 'S')
+*
+*---------------------------------------------------------------------------
+* MAX - Maximum of two values
+	DEF( 'MAX', 'N1 N2',, 'MAX = N1 ; MAX = GT(N2,N1) N2')
+*
+*---------------------------------------------------------------------------
+* MIN - Minimum of two values
+	DEF( 'MIN', 'N1 N2',, 'MIN = N1 ; MIN = LT(N2,N1) N2')
+*
+*---------------------------------------------------------------------------
+* CNTR - Center string in field
+	DEFINE( 'CNTR(N,V)X' )			:(CNTR_END)
+CNTR
+	X = CONVERT( (N - SIZE(V)) / 2, 'INTEGER')
+	CNTR = LPAD(RPAD(V, N - X), N)		:(RETURN)
+CNTR_END
+*
+*---------------------------------------------------------------------------
+* PRT - String to OUTPUT and SHADOW
+	PRT_PAT = LEFT_END REM $ OUTPUT $ SHADOW
+	DEF( 'PRT', 'X',, 'X PRT_PAT' )
+-EJECT
+*
+***************************************************************************
+* CORE FUNCTIONS FOR SEARCHING A GAME TREE WITH THE ALPHA-BETA ALGORITHMS *
+***************************************************************************
+*
+* We will assume the existance of some data structure called a NODE, which
+* will contain information about a state of the game space.  Since the
+* depth limit of the search might be changed in various runs of a game-
+* playing program, we assume the level of the root of the tree will be the
+* current depth bound and each node will have a level equal to 1 less than
+* that of its parent.
+*
+*---------------------------------------------------------------------------
+* Searches the node NODE that is at LEVEL and has alpha value ALPHA and
+* beta value BETA.  Returns the value of NODE as determined by the search.
+*
+	DEFINE( 'SEARCH(NODE,LEVEL,ALPHA,BETA)' )	:(SEARCH_END)
+SEARCH
+	NODE = START(NODE)
+	SEARCH = DEAD(NODE,LEVEL) STATIC(NODE)		:S(SEARCH_A)
+	SEARCH =
++	  SEARCH1( MAXER(NODE), (LEVEL - 1), ALPHA, BETA, EXPAND(NODE))
+SEARCH_A
+	NEND(NODE)					:(RETURN)
+SEARCH_END
+*
+*---------------------------------------------------------------------------
+* Initializes the search of the successors of some node.  MAXR is T or NIL
+* depending on whether the parent node is a maximizer or a minimizer.  ALPHA
+* and BETA are the alpha and beta values of the parent node.  NL is a list
+* of the successor nodes, and LVL is their level.
+*
+	DEFINE( 'SEARCH1(MAXR,LVL,ALPHA,BETA,NL)' )	:(SEARCH1_END)
+SEARCH1
+	SEARCH1 =
++	  SEARCH2( MAXR, LVL, ALPHA, BETA, REST(NL),
++	       SEARCH( TOP(NL), LVL, ALPHA, BETA))	:(RETURN)
+SEARCH1_END
+*
+*---------------------------------------------------------------------------
+* Searches the successors of some node, returning its final backed up value.
+* MAXR, LVL, ALPHA, and BETA are as in SEARCH1.  PBV is the provisional
+* backed-up value of the parent node.  NL is a list of the still to be
+* searched successor nodes.
+*
+	DEFINE( 'SEARCH2(MAXR,LVL,ALPHA,BETA,NL,PBV)' )	:(SEARCH2_END)
+SEARCH2
+	SEARCH2 = NULL(NL) PBV				:S(RETURN)
+	SEARCH2 = CUTOFF( MAXR, PBV, ALPHA, BETA ) PBV
++	  :S(RETURN)
+	SEARCH2 = TRUE(MAXR)
++	  SEARCH2( MAXR, LVL, ALPHA, BETA, REST(NL),
++	     MAX( PBV, SEARCH( TOP(NL), LVL, MAX(ALPHA,PBV), BETA)))
++	       :S(RETURN)
+	SEARCH2 =
++	  SEARCH2( MAXR, LVL, ALPHA, BETA, REST(NL),
++	     MIN( PBV, SEARCH( TOP(NL), LVL, ALPHA, MIN(BETA,PBV))))
++	       :(RETURN)
+SEARCH2_END
+*
+*---------------------------------------------------------------------------
+* PBV, ALPHA, and BETA are, respectively, the provisional backed up value,
+* alpha value, and beta value of some node.  MAXR is T or NIL depending on
+* whether the node is a maximizing or minimizing node.  CUTOFF returns T if
+* searching below then node should be terminated and PBV returned as the
+* final backed up value, and returns NIL otherwise.
+*
+	DEFINE( 'CUTOFF(MAXR,PBV,ALPHA,BETA)' )	:(CUTOFF_END)
+CUTOFF
+	TRUE(MAXR)				:F(CUTOFF1)
+	GE( PBV, BETA)				:S(RETURN)F(FRETURN)
+CUTOFF1
+	LE( PBV, ALPHA)				:S(RETURN)F(FRETURN)
+CUTOFF_END
+-EJECT
+*
+*******************************************************
+* FUNCTIONS DEFINING THE REPRESENTATIONS OF THE BOARD *
+*******************************************************
+*
+* Assuming that PL represents one player, OTHER returns the atom
+* representing the other player.  We use P to represent the program and
+* O to represent the opponent.
+*
+	OTHERP = 'O' ; OTHERO = 'P'
+	DEF( 'OTHER', 'PL',, 'OTHER = $( "OTHER" PL)' )
+*
+*---------------------------------------------------------------------------
+* Returns the atom representing player PL's Nth pot.
+*
+* The program's pots are P1, P2, P3, P4, P5, and P6.  The opponent's pots are
+* O1, O2, O3, O4, O5, and O6.
+*
+	DEF( 'POTR', 'PL N',, 'POTR = $( PL N)' )
+*
+*---------------------------------------------------------------------------
+* Returns the atom representing player PL' kalah.
+*
+* The program's kalah is represented by PKALAH, the opponents's by OKALAH.
+*
+	DEF( 'KALAHR', 'PL',, 'KALAHR = $( PL "KALAH" )' )
+*
+*---------------------------------------------------------------------------
+* Returns the number of stones in the pot POT.
+*
+	DEF( 'VALUE', 'POT',, 'VALUE = TOP(KVALUE(POT))' )
+*
+*---------------------------------------------------------------------------
+* Stacks VAL as the current number of stones in the pot POT.  Previous
+* values are maintained further down in the stack.
+*
+	DEF( 'PUSHVAL', 'POT VAL',, 'KVALUE(POT) = STACK(VAL,KVALUE(POT))' )
+*
+*---------------------------------------------------------------------------
+* Pops the stack used to maintain the value of pot POT, restoring the
+* previous value.
+*
+	DEF( 'POPVAL', 'POT',, 'KVALUE(POT) = REST(KVALUE(POT))' )
+*
+*---------------------------------------------------------------------------
+* Changes the current value of the POT to VAL, destroying the previous
+* current value.
+*
+	DEF( 'CHANGEVAL', 'POT VAL',, 'TOP(KVALUE(POT)) = VAL' )
+*
+*---------------------------------------------------------------------------
+* Succeeds if pot POT is empty.
+*
+	DEF( 'EMPTY', 'POT',, 'EQ(VALUE(POT), 0)', 'S')
+*
+*---------------------------------------------------------------------------
+* Returns the name of one of the two circular paths connecting the pots
+* and kalahs:  PPATH is the path the program uses to drop its stones,
+*	       OPATH is the path the opponent uses to drop its stones.
+*
+	DEF( 'PATHR', 'PL',, 'PATHR = PL "PATH" ' )
+*
+*---------------------------------------------------------------------------
+* Returns a list of all the pots on player PL' side of the board.
+*
+	PSIDE = 'P1 P2 P3 P4 P5 P6 '
+	OSIDE = 'O1 O2 O3 O4 O5 O6 '
+	DEF( 'SIDER', 'PL',, 'SIDER = $( PL "SIDE" )' )
+*
+*---------------------------------------------------------------------------
+* Joins each atom in the list LAT to the next one via the path P.
+*
+	DEFINE( 'SETPATH(P,LAT)' )
+	SETPATH_PAT = LEFT_END ( TO_NEXT_BLANK $ A )
++		     SKIP_BLANKS
++		     (( ( TO_NEXT_BLANK $ B) REM) $ C)
++			:(SETPATH_END)
+SETPATH
+	LAT SETPATH_PAT = C			:F(RETURN)
+* xPATH(pot) = pot
+	:<CODE(' ' P '(' A ') = ' B ' :(SETPATH)')>
+SETPATH_END
+*
+*---------------------------------------------------------------------------
+* Joins pairs of atoms in list L to each other symmetrically via the path P.
+*
+	SETSYM_PAT = FENCE ( TO_NEXT_BLANK $ A)
++	      SKIP_BLANKS ( TO_NEXT_BLANK $ B)
++	      SKIP_BLANKS *SETSYM1()
++	      *SETSYM_PAT
+	DEF( 'SETSYM', 'P L',, 'L SETSYM_PAT')
+*
+*---------------------------------------------------------------------------
+* SETSYM1 - Helper for SETSYM
+*
+	DEFINE( 'SETSYM1()' )			:(SETSYM1_END)
+*
+* Returns the pot oppostive 
+SETSYM1
+	:<CODE(' ' P '(' A ') = ' B ' ; '
++	  P '(' B ') = ' A ' :(RETURN)')>
+SETSYM1_END
+-EJECT
+*
+***************************************
+* FUNCTIONS TO DEFINE THE LEGAL MOVES *
+***************************************
+*
+* Makes the move, representing player PL moving the stones in pot POT,
+* and changes the global board representation accordingly.  It returns
+* success if player PL gets to go again, otherwise fails.
+*
+	DEFINE( 'MOVE(PL,POT)' )		:(MOVE_END)
+MOVE
+	MOVE1(PL,POT,TAKE(POT),PATHR(PL),KALAHR(PL))	:S(RETURN)F(FRETURN)
+MOVE_END
+*
+*---------------------------------------------------------------------------
+* Player PL moves STONES number of stones taken from pot POT along the
+* path PATH.  KALAH is PL's kalah.  It succeeds if PL gets to go again,
+* fails otherwise.
+*
+	DEFINE( 'MOVE1(PL,POT,STONES,PATH,KALAH)' )	:(MOVE1_END)
+*
+* Distribute all stones
+MOVE1
+	EQ(STONES,0)					:S(MOVE1A)
+*
+* Next pot along path
+	POT = APPLY(PATH,POT)
+*
+* Put a stone in it
+	DROP(1,POT)
+*
+* One less stone
+	STONES = STONES - 1				:(MOVE1)
+*
+* Check capture
+MOVE1A
+	CHECKCAP( POT, PL, KALAH, OPP(POT))
+*
+* Check for empty side
+	CHECKMT()
+*
+* Ck last stone land in Kalah?
+	IDENT( POT, KALAH)			:S(RETURN)F(FRETURN)
+MOVE1_END
+*
+*---------------------------------------------------------------------------
+* Player PL, whose kalah is KALAH, has just moved, the last stone landing
+* in the pot POT.  OPPOT is the pot opposite POT.  CHECKCAP checks to see
+* if this move was a capture move, and, if so, makes the capture.
+*
+* A capture occurs if:
+*  there is 1 stone in the landing pot,
+*   and it is a pot on the player's side,
+*    and it is not the nalah,
+*     and the opponent's opposite pot is not empty.
+* If so, then:
+*  transfer stones from player's pot to the Kalah and
+*   transfer stones from opponent's pot to the Kalah.
+*
+	DEFINE( 'CHECKCAP(POT,PL,KALAH,OPPOT)' )	:(CHECKCAP_END)
+CHECKCAP
+	 ( EQ(VALUE(POT), 1)
++	   IDENT(OWNER(POT),PL)
++	    DIFFER(POT,KALAH)
++	     ~EMPTY(OPPOT)
++	      DROP(TAKE(POT), KALAH)
++	       DROP(TAKE(OPPOT), KALAH) )		:(RETURN)
+CHECKCAP_END
+*
+*---------------------------------------------------------------------------
+* If all the pots on either side are empty, all the pots on the other
+* side are emptied into that side's kalah.
+*
+	DEFINE( 'CHECKMT()' )				:(CHECKMT_END)
+CHECKMT
+	( MTSIDEP(PSIDE) MTSIDE(OSIDE,OKALAH) )	:S(RETURN)
+	( MTSIDEP(OSIDE) MTSIDE(PSIDE,PKALAH) )	:S(RETURN)F(FRETURN)
+CHECKMT_END
+*
+* Use recursive pattern to loop scan
+	MTSIDEP_PAT = FENCE
++	      TO_NEXT_BLANK $ P  *EMPTY($P)
++	      SKIP_BLANKS (RIGHT_END | *MTSIDEP_PAT)
+*
+*---------------------------------------------------------------------------
+* Scan side for all empty
+*
+	DEF( 'MTSIDEP', 'SIDE',, 'SIDE MTSIDEP_PAT', 'S')
+*
+* Use recursive pattern to loop calls
+	MTSIDE_PAT = FENCE
++	      TO_NEXT_BLANK $ P *DROP(TAKE($P),KALAH)
++	      SKIP_BLANKS *MTSIDE_PAT
+*
+*---------------------------------------------------------------------------
+* Removes the stones from all pots in the list SIDE and puts them in KALAH.
+*
+	DEF( 'MTSIDE', 'SIDE KALAH',, 'SIDE MTSIDE_PAT' )
+*
+*---------------------------------------------------------------------------
+* Removes all the stones from pot POT and returns the number of stones removed.
+*
+	DEF( 'TAKE', 'POT',, 'TAKE = VALUE(POT) ; CHANGEVAL(POT,0)' )
+*
+*---------------------------------------------------------------------------
+* Adds N stones to pot POT.
+*
+	DEF( 'DROP', 'N POT',, 'CHANGEVAL(POT, (N + VALUE(POT)))' )
+*
+*---------------------------------------------------------------------------
+* A node represents a multiple move if the player who is to move is the
+* same as the player who will move next.
+*
+* MULT
+	DEF( 'MULT', 'NODE',, 'IDENT(PLAYER(NODE),NEXT_PLAYER(NODE))', 'S')
+-EJECT
+*
+**************************************************
+* FUNCTIONS REQUIRED FOR SEARCHING THE GAME TREE *
+**************************************************
+*
+* When we start to search the node NODE, we must stack the current contents
+* of the board, make the move represented by NODE, and return the reverse
+* of NODE as mentioned above.
+*
+	DEFINE( 'START(NODE)' )
+	START_PAT = FENCE
++	      TO_NEXT_BLANK $ P *PUSHVAL($P,VALUE($P))
++	      SKIP_BLANKS *START_PAT			:(START_END)
+START
+	(PSIDE 'PKALAH ' OSIDE 'OKALAH ') START_PAT
+	MOVE( PLAYER(NODE), MOVEOF(NODE))
+	START =
++	 NODE( NEXT_PLAYER(NODE), MOVEOF(NODE), PLAYER(NODE))	:(RETURN)
+START_END
+*
+*---------------------------------------------------------------------------
+* The only thing that need be done when we have finished evaluating a node
+* is to restore the board to its previous condition by popping the values of
+* the pots and kalahs.
+*
+	NEND_PAT = FENCE
++	 TO_NEXT_BLANK $ P *POPVAL($P)
++	 SKIP_BLANKS *NEND_PAT
+*
+	DEF( 'NEND', 'NODE',, '(PSIDE "PKALAH " OSIDE "OKALAH ") NEND_PAT' )
+*
+*---------------------------------------------------------------------------
+* Succeeds if NODE is to be a terminal node of the search tree.  LEVEL will
+* be greater than 0 if the depth bound has not yet been reached.
+* This will be a terminal node if we have reached the level bound and we
+* are not in the midst of a multiple move, or if the game is over.
+*
+	DEFINE( 'DEAD(NODE,LEVEL)' )			:(DEAD_END)
+DEAD
+	( LE(LEVEL,0) ~MULT(NODE) )			:S(RETURN)
+	GT( VALUE(PKALAH), HALFSTONES)			:S(RETURN)
+	GT( VALUE(OKALAH), HALFSTONES)			:S(RETURN)
+	( EQ( VALUE(PKALAH), HALFSTONES)
++	 EQ( VALUE(OKALAH), HALFSTONES) )		:S(RETURN)F(FRETURN)
+DEAD_END
+*
+*---------------------------------------------------------------------------
+* Returns the static value of NODE.  The static value will just be the
+* difference in kalahs, unless the game is won or lost.  TNODES is
+* used to keep count of the number of terminal nodes evaluated, so
+* that statistics can be printed.
+*
+	DEFINE( 'STATIC(NODE)' )			:(STATIC_END)
+STATIC
+	TNODES = TNODES + 1
+	STATIC = GT( VALUE(PKALAH), HALFSTONES) INFINITY	:S(RETURN)
+	STATIC = GT( VALUE(OKALAH), HALFSTONES) -INFINITY	:S(RETURN)
+	STATIC = VALUE(PKALAH) - VALUE(OKALAH)			:(RETURN)
+STATIC_END
+*
+*---------------------------------------------------------------------------
+* Returns T if the node is a maximizing node, NIL otherwise.
+*
+	DEFINE( 'MAXER(NODE)' )			:(MAXER_END)
+MAXER
+	MAXER = nil
+	MAXER = IDENT( PLAYER(NODE), 'P') t	:(RETURN)
+MAXER_END
+*
+*---------------------------------------------------------------------------
+* Returns a list of the successor nodes of NODE.
+* BNODES is used to keep count of the number of nodes expanded.
+*
+	DEFINE( 'EXPAND(NODE)' )		:(EXPAND_END)
+EXPAND
+	BNODES = BNODES + 1
+	EXPAND = EXPAND1( PLAYER(NODE), SIDER(PLAYER(NODE)))	:(RETURN)
+EXPAND_END
+*
+*---------------------------------------------------------------------------
+* Returns a list of nodes representing the moves player PL can make from
+* the current state of the board.  SIDE is a list of PL's pots.
+*
+* Moves can only made from nonempty pots.  The list of possible moves is
+* ordered: multiple moves, capture moves, others.  This is done to try to
+* play a strong game and to try to maximize cutoffs.
+*
+	DEFINE( 'EXPAND1(PL,SIDE)LMULT,LCAP,LREG')
+	EXPAND1_PAT = FENCE
++	      TO_NEXT_BLANK $ P  *EXPAND2(PL,$P)
++	      SKIP_BLANKS  *EXPAND1_PAT			:(EXPAND1_END)
+EXPAND1
+	LMULT = nil ; LCAP = nil ; LREG = nil
+	SIDE EXPAND1_PAT
+	EXPAND1 = APPEND3( LMULT, LCAP, LREG)		:(RETURN)
+EXPAND1_END
+*
+* EXPAND2
+	DEFINE( 'EXPAND2(PL,POT)' )			:(EXPAND2_END)
+EXPAND2
+	EMPTY(POT)					:S(RETURN)
+	LMULT = MULTMOVE(POT)
++	 STACK( NODE(PL,POT,PL), LMULT)			:S(RETURN)
+	LCAP = CAPMOVE(PL,POT)
++	 STACK( NODE(PL,POT,OTHER(PL)), LCAP)		:S(RETURN)
+	LREG =
++	 STACK( NODE(PL,POT,OTHER(PL)), LREG)		:(RETURN)
+EXPAND2_END
+*
+*---------------------------------------------------------------------------
+* Succeeds if a move from pot POT will result in the player making the
+* move getting another turn, fails otherwise.
+*
+* If s is the number of stones in the player's nth pot, the last stone will
+* land in the player's kalah if and only if:  s mod 13 = 7 - n
+*
+	DEF( 'MULTMOVE', 'POT',,
++	  'EQ(REMDR(VALUE(POT),13), 7 - NUM(POT))', 'S')
+*
+* Succeeds if player PL's move from pot POT will result in a capture
+* of some stones.
+*
+	DEF( 'CAPMOVE', 'PL POT',,
++	 'CAPMOVE1(PL,POT,VALUE(POT),NUM(POT))', 'S')
+*
+* Returns T if PL's move from POT will result in a capture, NIL otherwise.
+* POT is PL's Nth pot and it has V stones in it.
+*
+* If V=13, the last stone will land in POT, and the opposite pot must have
+* at least one stone in it, since one will be dropped into it on this move.
+* If V<(7-N), the last stone will land in PL's pot number N+V.  We must
+* check that it is empty and that the pot opposite it is not.
+* If (13-N)<V<13, the last stone will land in PL's pot number N+V+13, and we
+* must check that it is now empty, but PL will drop a stone into all the
+* opponent's pots, so none of them will be empty.  In all other cases, a
+* capture will not occur.
+*
+	DEFINE( 'CAPMOVE1(PL,POT,V,N)' )		:(CAPMOVE1_END)
+CAPMOVE1
+	EQ(V,13)					:S(RETURN)
+	( LT(V, (7 - N))
++	 EMPTY( POTR( PL, (N + V)))
++	 ~EMPTY( OPP( POTR( PL, (N + V)))) )		:S(RETURN)
+	( GT(V, (13 - N))
++	 LT(V, 13)
++	 EMPTY( POTR( PL, (N - 13 + V))) )		:S(RETURN)F(FRETURN)
+CAPMOVE1_END
+-EJECT
+*
+*************************************************
+* FUNCTIONS FOR CONTROLLING AN INTERACTIVE GAME *
+*************************************************
+*
+* This function is used to begin a game with the program.  N is the
+* number of stones in each pot at the beginning of the game.  DEPTH
+* is the depth bound on the search.
+*
+	DEFINE( 'KALAH(N,DEPTH)' )			:(KALAH_END)
+KALAH
+	( INITBRD(N)
++	 PRINTBRD()
++	 ALTMOVE(MEFIRST()) )
+	  KALAH = 'Thanks.'				:(RETURN)
+KALAH_END
+*
+*---------------------------------------------------------------------------
+* Initializes the board by putting VAL stones in each pot and emptying
+* the two kalahs.  Also, it initializes the global variable HALFSTONES.
+*
+	DEFINE( 'INITBRD(VAL)' )
+	INITBRD_PAT = FENCE
++	 TO_NEXT_BLANK $ P  *INITBRD1(P)
++	 SKIP_BLANKS  *INITBRD_PAT
+	INITBRD1_PAT = LEFT_END
++	      ( (LEN(1) $ O) (LEN(1) $ N) )
+	:(INITBRD_END)
+INITBRD
+	INFINITY = 100
+	TNODES = 0
+	BNODES = 0
+	HALFSTONES = 6 * VAL
+	(PSIDE OSIDE) INITBRD_PAT
+	PKALAH = POT('P',0,STACK(0,nil),null,null,null)
+	OKALAH = POT('O',0,STACK(0,nil),null,null,null)
+	SETSYM('OPP','P1 O6 P2 O5 P3 O4 P4 O3 P5 O2 P6 O1 ')
+	SETPATH('PPATH',
++	  'P1 P2 P3 P4 P5 P6 PKALAH O1 O2 O3 O4 O5 O6 P1 ')
+	SETPATH('OPATH',
++	  'O1 O2 O3 O4 O5 O6 OKALAH P1 P2 P3 P4 P5 P6 O1 ')
+			:(RETURN)
+INITBRD_END
+*
+* INITBRD1
+	DEFINE( 'INITBRD1(PNAME)' )			:(INITBRD1_END)
+INITBRD1
+	PNAME INITBRD1_PAT
+	$PNAME = POT(O,N,STACK(VAL,nil),null,null,null)	:(RETURN)
+INITBRD1_END
+*
+*---------------------------------------------------------------------------
+* Does a formatted print of the current state of the board.
+*
+	DEFINE( 'PRINTBRD()' )			:(PRINTBRD_END)
+PRINTBRD
+	PRT( DUPL(' ',7)
++	    CNTR(7,VALUE(P6))
++	    CNTR(7,VALUE(P5))
++	    CNTR(7,VALUE(P4))
++	    CNTR(7,VALUE(P3))
++	    CNTR(7,VALUE(P2))
++	    CNTR(7,VALUE(P1)) )
+	PRT( CNTR(7,VALUE(PKALAH))
++	    DUPL(' ',42)
++	    CNTR(7,VALUE(OKALAH)) )
+	PRT( DUPL(' ',7)
++	    CNTR(7,VALUE(O1))
++	    CNTR(7,VALUE(O2))
++	    CNTR(7,VALUE(O3))
++	    CNTR(7,VALUE(O4))
++	    CNTR(7,VALUE(O5))
++	    CNTR(7,VALUE(O6)) )
+		   :(RETURN)
+PRINTBRD_END
+*
+*---------------------------------------------------------------------------
+* Asks if the opponent wants to go first.  Returns YES or NO.
+*
+	DEFINE( 'MEFIRST()' )				:(MEFIRST_END)
+MEFIRST
+	PRT( 'Do you want to go first?')
+	MEFIRST = REPLACE(INPUT,LOWERS,UPPERS)		:F(END)
+	SHADOW = DUPL(' ',10) 'Answer: ' MEFIRST
+	MEFIRST (LEFT_END ('YES' | 'NO') RIGHT_END)	:S(RETURN)
+	PRT( 'Please answer YES or NO.')		:(MEFIRST)
+MEFIRST_END
+*
+*---------------------------------------------------------------------------
+* Alternates moves between the program and the opponent until the
+* game is over.
+*
+	DEFINE( 'ALTMOVE(YN)' )			:(ALTMOVE_END)
+ALTMOVE
+	IDENT(YN,'NO')				:F(ALTMOVE2)
+ALTMOVE1
+*
+* Computer, then user
+	( PMOVE() OMOVE() )			:S(ALTMOVE1)F(RETURN)
+*
+* User, then computer
+ALTMOVE2
+	( OMOVE() PMOVE() )			:S(ALTMOVE2)F(RETURN)
+ALTMOVE_END
+*
+*---------------------------------------------------------------------------
+* Gets the opponent's move, makes it, and prints the resulting board
+* until either it is no longer the opponent's move or the game is over.
+* If returns failing if the game is over, succeeds if it is now
+* the program's move.  In the latter case, the game might or might not
+* be over.
+*
+	DEFINE( 'OMOVE()' )			:(OMOVE_END)
+* Check for end of game
+OMOVE
+	ENDGAME()				:S(FRETURN)
+*
+* Get and make move
+	MOVE( 'O', GETMOVE() )			:F(OMOVE1)
+*
+* Landed on kalah
+	PRINTBRD()
+	PRT( 'You go again.' )			:(OMOVE)
+*
+* Did not land on Kalah
+OMOVE1
+	PRINTBRD()				:(RETURN)
+OMOVE_END
+*
+*---------------------------------------------------------------------------
+* Interacts with the opponent, returning the pot the opponent chooses
+* to move, making sure it is a legal move.
+*
+	DEFINE( 'GETMOVE()N' )			:(GETMOVE_END)
+GETMOVE
+	PRT( "What's your move?" )
+	N = INPUT				:F(END)
+	SHADOW = DUPL(' ',10) 'Answer: ' N
+	GETMOVE =
++	  ( INTEGER(N) GT(N,0) LT(N,7) ~EMPTY(POTR('O',N)) )
++	 POTR('O',N)				:S(RETURN)
+	PRT( "That's illegal.")			:(GETMOVE)
+GETMOVE_END
+*
+*---------------------------------------------------------------------------
+* If the game is over, this function prints an appropriate message
+* and returns succeeding.  Otherwise it fails.
+*
+	DEFINE( 'ENDGAME()' )			:(ENDGAME_END)
+ENDGAME
+	( GT(VALUE(PKALAH),HALFSTONES) PRT( 'I win.') )		:S(RETURN)
+	( GT(VALUE(OKALAH),HALFSTONES) PRT( 'You win.') )	:S(RETURN)
+	( EQ(VALUE(PKALAH),HALFSTONES)
++	   EQ(VALUE(OKALAH),HALFSTONES)
++	 PRT( "It's a tie.") )					:S(RETURN)
+	       :(FRETURN)
+ENDGAME_END
+*
+*---------------------------------------------------------------------------
+* Causes the program to make moves until either it isthe opponent's turn
+* of the game ends.  It returns failing if the game is over, succeeds
+* if it now the opponent's move.  In the latter case, the game might or
+* might not be over.
+*
+	DEFINE( 'PMOVE()' )			:(PMOVE_END)
+PMOVE
+	PRT( 'I go.' )
+PMOVE1
+	ENDGAME()				:S(FRETURN)
+	PRT( 'Hmmm....' )
+	COLLECT()
+	PLAY(-INFINITY,INFINITY,0,0,TIME())	:F(RETURN)
+*
+* If computer landed on PKALAH
+	PRT( 'I go again.' )			:(PMOVE1)
+PMOVE_END
+*
+*---------------------------------------------------------------------------
+* Makes a move for the program.  BNODES is the number of nodes expanded
+* so far.  TNODES is thenumber of terminal nodes evaluated.  SECS is the
+* nmber of CPU milliseconds used so far by the program.  This function
+* succeeds if the program gets another move.
+*
+	DEFINE( 'PLAY(ALPHA,BETA,BNODES,TNODES,SECS)' )	:(PLAY_END)
+PLAY
+	PLAY1(EXPAND(NODE('P',nilpot,'O')))		:S(RETURN)F(FRETURN)
+PLAY_END
+*
+*---------------------------------------------------------------------------
+* LNODES is a list of possible moves.  PLAY1 chooses one of them and makes it,
+* succeeding if the program gets another move.
+*
+	DEFINE( 'PLAY1(LNODES)' )			:(PLAY1_END)
+PLAY1
+	NULL(REST(LNODES))				:F(PLAY1A)
+	CHOOSE(REST(LNODES),TOP(LNODES),"not calculated") :S(RETURN)F(FRETURN)
+PLAY1A
+	CHOOSE(REST(LNODES),TOP(LNODES),
++	 SEARCH(TOP(LNODES),DEPTH,ALPHA,BETA))		:S(RETURN)F(FRETURN)
+PLAY1_END
+*
+*---------------------------------------------------------------------------
+* Chooses and makes the best possible move.  BEST is the best move found
+* so far, V is its value.  LNODES is a list of alternate moves.  It
+* returns succeeding if the program gets another move.
+*
+	DEFINE( 'CHOOSE(LNODES,BEST,V)NV' )		:(CHOOSE_END)
+CHOOSE
+	NULL(LNODES)					:S(CHOOSE2)
+	EQ(V,INFINITY)					:S(CHOOSE2)
+	NV = SEARCH(TOP(LNODES),DEPTH,V,BETA)
+	LE(NV,V)					:S(CHOOSE1)
+	V = NV
+	BEST = TOP(LNODES)
+CHOOSE1
+	LNODES = REST(LNODES)				:(CHOOSE)
+CHOOSE2
+	MAKE(BEST,V)					:S(RETURN)F(FRETURN)
+CHOOSE_END
+*
+*---------------------------------------------------------------------------
+* Makes the move CHOSEN, whose valueis VAL, reports to the opponent and
+* prints the board.  It returns success if the program gets another move.
+*
+	DEFINE( 'MAKE(CHOSEN,VAL)' )			:(MAKE_END)
+MAKE
+	REPORT(NUM(MOVEOF(CHOSEN)),
++	 VAL, BNODES, TNODES, TIME() - SECS )
+	MOVE(PLAYER(CHOSEN),MOVEOF(CHOSEN))		:F(MAKE1)
+	PRINTBRD()					:(RETURN)
+MAKE1
+	PRINTBRD()					:(FRETURN)
+MAKE_END
+*
+*---------------------------------------------------------------------------
+* Reports to the opponent that move M was chosen, it had calculated a
+* value of V, B nodes were expanded, T terminal nodes were evaluated,
+* and S CPU msec were used to make the decision.
+*
+	DEFINE( 'REPORT(M,V,B,T,S)' )			:(REPORT_END)
+REPORT
+	PRT("I pick pot " M ".  Value " V)
+	PRT(B " nodes expanded, " T " evaluated")
+	PRT(S " milliseconds used")			:(RETURN)
+REPORT_END
+
+-EJECT
+*
+****************************
+* MAIN PROGRAM STARTS HERE *
+****************************
+*
+GET_NUMBER_OF_STONES
+	PRT( 'Enter number of stones per pot' )
+	N = INPUT					:F(END)
+	SHADOW = DUPL(' ',10) 'Answer: ' N
+	( INTEGER(N) GT(N,0) )			:F(GET_NUMBER_OF_STONES)
+GET_SEARCH_DEPTH
+	PRT( 'Enter maximum search depth' )
+	D = INPUT
+	SHADOW = DUPL(' ',10) 'Answer: ' D
+	( INTEGER(D) GT(D,0) )			:F(GET_SEARCH_DEPTH)
+	OUTPUT = KALAH(N,D)			:S(GET_NUMBER_OF_STONES)
+END
+*------------------------------------------------------------------------- 5 SIR
+-INCLUDE "SPITCORE.sno"
+* SIR.SPT - Spitbol-68K Version
+*
+* This version of Bertram Raphael's SIR program
+* was translated into SNOBOL4 using the SNOLISPIST
+* list processing routines.
+*
+* This program follows closely the LISP version by
+* S. Shapiro, "Techniques of Artificial Intelligence,"
+* Van Nostrand, NY, 1979, pp. 123-140.
+*
+* The comments are from Shapiro's LISP program.
+*
+* To run the program with the canned input of Shapiro's book:
+*     a)  have copies of sir.spt, snocore.spt and snolib.spt in your
+*         directory.
+*     b)  type:
+*           spitbol spitcore.spt sir.spt <sir.in
+*
+*
+**************************************
+* FUNCTIONS FOR THE TOP LEVEL OF SIR *
+**************************************
+*
+* Gets and processes sentences until a sentence begins with the
+* word "BYE," then returns "GOODBYE."
+*
+ DEFINE('SIR()S')    :(SIR.END)
+SIR   S = GET.SENTENCE()      :F(FRETURN)
+      SIR = EQU(CAR(S),"BYE") "GOOD-BYE"     :S(RETURN)
+      PROCESS(S)    :S(SIR)F(FRETURN)
+SIR.END
+*
+*---------------------------------------------------------------------------
+* Reads in one sentence, which must end either with a "!" or a "?"
+* and returns the sentence in a list.
+*
+ DEFINE('GET.SENTENCE()S,P')       :(GET.SENTENCE.END)
+GET.SENTENCE   S = S " " REPLACE(IN(.OUTPUT.),
++    "abcdefghijklmnopqrstuvwxyz","ABCDEFGHIJKLMNOPQRSTUVWXYZ") :F(FRETURN)
+     S RPOS(1) ANY("!?") . P = " " P
++         :F(GET.SENTENCE)
+ GET.SENTENCE = READ( "(" S ")" )      :S(RETURN)F(FRETURN)
+GET.SENTENCE.END
+*
+*---------------------------------------------------------------------------
+* Processes the sentence SENTENCE according to the rules in the
+* global list RULE.LIST.
+*
+ DEXP('PROCESS(SENTENCE) = PROCESS.1(SENTENCE,RULE.LIST)')
+*
+*---------------------------------------------------------------------------
+* The first rule in the list RULES that is applicable to the sentence
+* SENTENCE is applied, and its value is printed.  If no rule is
+* applicable, an error message is printed.
+*
+ DEFINE('PROCESS.1(SENTENCE,RULES)RESP,CA')
++         :(PROCESS.1.END)
+PROCESS.1      CA = POP( .RULES)   :F(PROCESS.1.ERR)
+     RESP = APPLY.RULE(CA,SENTENCE)
+     IDENT(RESP,NIL)    :S(PROCESS.1)
+     PROCESS.1 = |RESP       :(RETURN)
+PROCESS.1.ERR
++     |"STATEMENT FORM NOT RECOGNIZED."
+      |"   IN PROCESS.1, "
+      |("    SENTENCE = " CONCAT(SENTENCE," "))     :(RETURN)
+PROCESS.1.END
+-EJECT
+********************************
+* DEFINING THE SYNTAX OF RULES *
+********************************
+*
+* The rules we will use are just like those Raphael used, except that
+* we will let a pattern be an atom as well as a list.  If a pattern
+* is an atom, it will mean "the same as the previous rule."  We do this
+* to make the rules more perspicuous without paying too high a price in
+* efficiency.  For each set of our rules with the same pattern, Raphael
+* used one rule, and used the test predicates and action functions to
+* perform the division into several rules that we have done directly.
+*
+* A rule has four parts:
+*
+* 1. A PATTERN, which is either a list or an atom.  An atom is to be
+*    interpreted as ditto marks, i.e., the same pattern as the previous rule.
+*
+* 2. A list of VARIABLES appearing in the pattern.  Each variable represents
+*    a blank in the pattern.  If a sentence matches the pattern, each
+*    variable is bound to the sequence of words filling its blank.
+*
+* 3. A list of TESTS, one for each variable.  Each test, applied to its
+*    variable, returns NIL if the test fails or some non-NIL value if it
+*    succeeds.
+*
+* 4. An ACTION to be carried out if the pattern matches and the variables
+*    pass the tests.  An action is a the form (ACT SELECTOR1 ... SELECTORk),
+*    where ACT is a function of k arguments and SELECTORi is a function
+*    which, when applied to the list of test results, gives the ith
+*    argument for ACT.
+*
+ DATA('RULE(PATTERN,VARIABLES,TESTS,ACTION)')
+-EJECT
+************************************
+* FUNCTIONS FOR INTERPRETING RULES *
+************************************
+*
+* Tries to apply the rule RULE to the input sentence INP.  Returns NIL
+* if the rule does not apply, otherwise, returns a message that depends
+* on the rule.
+*
+ DEFINE('APPLY.RULE(RULE,INP)')   :(APPLY.RULE.END)
+APPLY.RULE     APPLY.RULE = NIL
+      APPLY.RULE =
++        DIFFER(NIL,MATCH(INP,PATTERN(RULE),VARIABLES(RULE)))
++        APPLY.RULE.1(
++             APPLY.TESTS(TESTS(RULE),EVLIS(VARIABLES(RULE))),
++             ACTION(RULE))       :(RETURN)
+APPLY.RULE.END
+*
+*---------------------------------------------------------------------------
+* Tries to match the pattern PAT with the input sentence INP.  VARS is a list
+* of variables in the pattern.  If the pattern matches, each variable is set
+* to the substring which it matches in INP and MATCH returns T.  Otherwise,
+* MATCH returns NIL.
+*
+* The global variable MATCH.FLAG is set to the value that MATCH returns,
+* so if PAT is an atom, MATCH returns the value of MATCH.FLAG.  If this is
+* T, the variables still have the values they had when the previous rule
+* matched.
+*
+ DEFINE('MATCH(INP,PAT,VARS)')     :(MATCH.END)
+MATCH     ATOM(PAT)      :S(MATCH.A)
+      INITIALIZE(VARS)
+      MATCH.FLAG = MATCH1(INP,PAT,VARS)
+MATCH.A  MATCH = MATCH.FLAG   :(RETURN)
+MATCH.END
+*
+*---------------------------------------------------------------------------
+* Initializes each variable in the list LVARS to the value NIL.
+*
+ DEXP('INITIALIZE(LVARS) = MAPC( .'
++ DEXP('LAMBDA(LAMBDA...V) = SET.(LAMBDA...V,NIL)')
++     ',LVARS)')
+*
+*---------------------------------------------------------------------------
+* Tries to match the pattern PAT to the input sentence INP, setting the
+* variables in the list VARS to the substring of INPU which they match.
+* Returns T if PAT matches INP.  Otherwise, it returns NIL.
+*
+ DEFINE('MATCH1(INP,PAT,VARS)CA')    :(MATCH1.END)
+MATCH1  MATCH1 = NULL(INP) NULLP(PAT)       :S(RETURN)
+      MATCH1 = NULL(PAT) NIL       :S(RETURN)
+      CA = CAR(PAT)
+      MEMQ(CA,VARS)     :F(MATCH1A)
+         MATCH1 = NULL( CDR(PAT))
++             SET.(CA,APPEND($CA ~ INP ~ NIL))
++             :S(RETURN)
+         MATCH1 = EQU(CAR(INP),CADR(PAT))
++             MATCH1(CDR(INP),CDDR(PAT),VARS)
++             :S(RETURN)
+         MATCH1 = DIFFER(NIL,SET.(CA,SNOC($CA,CAR(INP))))
++             MATCH1(CDR(INP),PAT,VARS)     :(RETURN)
+MATCH1A  MATCH1 = EQU(CAR(INP),CA)
++             MATCH1(CDR(INP),CDR(PAT),VARS)
++             :S(RETURN)
+         MATCH1 = NIL       :(RETURN)
+MATCH1.END
+*
+*---------------------------------------------------------------------------
+* Applies the ith function on the list TESTS to the ith S-expression on
+* the list PHRASES, and returns a list of the results unless ony of these
+* results is NIL, in which case NIL is returned.  NIL is also returned
+* if the two lists are of different lengths or if PHRASES is an empty list.
+*
+ DEFINE('APPLY.TESTS(TESTS,PHRASES)L')       :(APPLY.TESTS.END)
+APPLY.TESTS    APPLY.TESTS = NIL
+      L = NIL
+APPLY.TESTS1 L = DIFFER(NIL,PHRASES) DIFFER(NIL,TESTS)
++        APPLY(CAR(TESTS),CAR(PHRASES)) ~ L       :F(RETURN)
+      DIFFER(NIL,CAR(L))  ?POP( .TESTS)  ?POP( .PHRASES)    :F(RETURN)
+      APPLY.TESTS = NULL(TESTS) NULL(PHRASES)
++        LREVERSE(L)      :S(RETURN)F(APPLY.TESTS1)
+APPLY.TESTS.END
+*
+*---------------------------------------------------------------------------
+* Applies the action ACT, which his a list of functions, to L, which is
+* a list of values, and returns the result.
+*
+ DEFINE('APPLY.RULE.1(L,ACT)XPR')       :(APPLY.RULE.1.END)
+APPLY.RULE.1
++     APPLY.RULE.1 = NULL(L)  NIL  :S(RETURN)
+      XPR =
++        CAR(ACT) '('
++        CONCAT( RMAPCAR( L, CDR(ACT)), ',', '"') ')'
+      APPLY.RULE.1 = EVALCODE(XPR)      :(RETURN)
+APPLY.RULE.1.END
+*
+*---------------------------------------------------------------------------
+* Applies each function on the list LF to the S-expression S, and
+* returns a list of the results.
+*
+ DEFINE('RMAPCAR(S,LF)F')    :(RMAPCAR.END)
+RMAPCAR  RMAPCAR = NIL
+RMAPCAR1      F = POP( .LF)       :F(RMAPCAR2)
+      RMAPCAR = APPLY(F,S) ~ RMAPCAR        :(RMAPCAR1)
+RMAPCAR2      RMAPCAR = LREVERSE(RMAPCAR)   :(RETURN)
+RMAPCAR.END
+-EJECT
+*******************************************
+* GENERAL FUNCTIONS FOR RELATIONAL GRAPHS *
+*******************************************
+*
+* Inserts an arc labeled REL from node X to node Y unless such an arc
+* already exists.
+*
+ DEFINE('ADDXRY(X,REL,Y)')    :(ADDXRY.END)
+ADDXRY   ADDXRY = MEMQ(Y,GET(X,REL)) NIL    :S(RETURN)
+      ADDXRY = PUTPROP(X,Y,REL)    :(RETURN)
+ADDXRY.END   OPSYN( .ADDYRX, .ADDXRY)
+*
+*---------------------------------------------------------------------------
+* Returns T if a path of arcs described by ARC_PATH exists from node X to
+* node Y.  The syntax of ARC_PATH can be described as follows:
+*
+* 1. Any atom is a basic path element.
+* 2. A basic path element followed by "*" or by "+" is a path element.
+* 3. A list of path elements is an ARC_PATH.
+* 4. An ARC_PATH is also a basic path element.
+*
+* A basic path element followed by a "*" means zero of more occurrences
+* of that basic path element.  A basic path element followed by a "+"
+* means one or more occurrences of that basic path element.
+*
+ DEXP('PATH(PATH...X,PATH...R,PATH...Y) = '
++     'MEMQ( $PATH...Y,'
++     'PATH1( $PATH...X ~ NIL, PATH...R))')
+*
+*---------------------------------------------------------------------------
+* Returns all nodes reachable from any of the nodes in the list LN
+* by following the ARC_PATH LR.
+ DEFINE('PATH1(LN,LR)')     :(PATH1.END)
+PATH1    DIFFER(NIL,LN)  DIFFER(NIL,LR)      :F(PATH1C)
+       DIFFER(NIL,CDR(LR)) MEMQ(CADR(LR),"*" ~ "+" ~ NIL)  :F(PATH1A)
+       LN = EXTENDM(CADR(LR),LN,CAR(LR))
+       LR = CDR(LR)       :(PATH1B)
+PATH1A    LN = EXTEND(LN,CAR(LR))
+PATH1B    LR = CDR(LR)    :(PATH1)
+PATH1C    PATH1 = LN      :(RETURN)
+PATH1.END
+*
+*---------------------------------------------------------------------------
+* Returns the list of nodes reachable from any of the nodes on the list LN
+* by following the path element consisting of the basic path element R
+* followed by OP, which is either "*" or "+".
+*
+ DEFINE('EXTENDM(OP,LN,R)')   :(EXTENDM.END)
+EXTENDM  LN = IDENT(OP,"+") EXTEND(LN,R)
+      EXTENDM = LN
+EXTENDM1      DIFFER(NIL,LN) :F(RETURN)
+      LN = COMPLEMENT(EXTEND(LN,R),EXTENDM)
+      EXTENDM = APPEND(EXTENDM ~ LN ~ NIL)  :(EXTENDM1)
+EXTENDM.END
+*
+*---------------------------------------------------------------------------
+* Returns the list of nodes reachable from any of the nodes on the list LN
+* by following one instance of the basic path element R.
+*
+ DEFINE('EXTEND(LN,R)')       :(EXTEND.END)
+EXTEND   EXTEND = NULL(LN) NIL    :S(RETURN)
+      EXTEND = ~ATOM(R) PATH1(LN,R)     :S(RETURN)
+      EXTEND = UNION(GET(CAR(LN),R),
++        EXTEND(CDR(LN),R))   :(RETURN)
+EXTEND.END
+*
+*---------------------------------------------------------------------------
+* Returns a set consisting of those elements of the set S1 that are not
+* also elements of the set S2.  (COMPLEMENT(S1,S2))
+*
+ OPSYN( .COMPLEMENT, .EXCLUDE)
+-EJECT
+*********************************************************
+* TEST FUNCTIONS FOR THE SYNTAX OF ENGLISH NOUN PHRASES *
+*********************************************************
+*
+* The division of noun phrases into unique, generic, and specific as
+* defined below is taken from Raphael (1968).  First we define two
+* global lists, one of generic determiners, and one of specific
+* (definite) determiners.
+*
+ G.DETS = READ( "(EACH EVERY ANY A AN)" )
+ S.DETS = READ( "(THE)" )
+*
+*---------------------------------------------------------------------------
+* If NP is a list of a single word, it is presumed to be a unique noun
+* phrase, and that word is returned.  Otherwise NIL is returned.
+*
+ DEXP('UNIQUE(NP) = NIL ; UNIQUE = '
++     'NULL(CDR(NP)) CAR(NP) ; ')
+*
+*---------------------------------------------------------------------------
+* If NP is a list of words beginning with a G.DET, it is presumed to
+* be a generic noun phrase, and that last word is returned.  Otherwise,
+* NIL is returned.
+*
+ DEXP('GENERIC(NP) = NIL ; GENERIC = '
++     'MEMQ(CAR(NP),G.DETS) RAC(NP) ; ')
+*
+*---------------------------------------------------------------------------
+* If NP is a list of words beginning with S.DET, it is presumed to be a
+* specific noun phrase, and the last word is returned.  Otherwise, NIL
+* is returned.
+*
+ DEXP('SPECIFIC(NP) = NIL ; SPECIFIC = '
++     'MEMQ(CAR(NP),S.DETS) RAC(NP) ; ')
+*
+*---------------------------------------------------------------------------
+* If NPNP is a unique noun phrase followed by a generic noun phrase, a list
+* is returned containing the one word of the forming and the last word of
+* of the latter.  Otherwise, NIL is returned.
+*
+ DEXP('UNIQUE.GENERIC(NPNP) = '
++     'APPLY.TESTS( #"(UNIQUE GENERIC)", SPLIT(NPNP,G.DETS))')
+*
+*---------------------------------------------------------------------------
+* IF NPNP is a specific noun phrase followed by a generic noun phrase, a
+* list is returned containing the last word of each.  Otherwise, NIL is
+* returned.
+*
+ DEXP('SPECIFIC.GENERIC(NPNP) = '
++     'APPLY.TESTS( #"(SPECIFIC GENERIC)", SPLIT(NPNP,G.DETS))')
+*
+*---------------------------------------------------------------------------
+* If NPNP is a generic noun phrase followed by another generic noun phrase,
+* a list is returned containing the last word of each of them.  Otherwise,
+* NIL is returned.
+*
+ DEXP('GENERIC.GENERIC(NPNP) = '
++     'APPLY.TESTS( #"(GENERIC GENERIC)", SPLIT(NPNP,G.DETS))')
+*
+*---------------------------------------------------------------------------
+* SNP is a list consisting of one or more noun phrases, and LD is a list
+* of initial words of noun phrases (determiners).  SPLIT returns a list
+* of sublists, the ith sublist being the ith noun phrase in SNP.
+*
+ DEXP('SPLIT(SNP,LD) = SPLIT1(CDR(SNP),LD,CAR(SNP) ~ NIL,NIL)')
+*
+ DEFINE('SPLIT1(SNP,LD,NP,LNP)')   :(SPLIT1.END)
+SPLIT1   SPLIT1 =
++     NULL(SNP) LREVERSE( LREVERSE(NP) ~ LNP)     :S(RETURN)
+      SPLIT1 = MEMQ(CAR(SNP),LD)
++        SPLIT1(CDR(SNP),LD,CAR(SNP) ~ NIL,
++             LREVERSE(NP) ~ LNP)       :S(RETURN)
+      SPLIT1 =
++        SPLIT1( CDR(SNP), LD, CAR(SNP) ~ NP, LNP)
++             :(RETURN)
+SPLIT1.END
+-EJECT
+********************
+* ACTION FUNCTIONS *
+********************
+*
+* We present action functions for set relations, equivalence relations,
+* and ownership relations.  Except for the function EQUIV.COMPRESS and
+* its help functions, the functions given here have exactly the same names,
+* arguments, and actions as specified in Raphael (1968).  They are,
+* however, implemented in a different way.
+*
+* Some responses returned from semantic routines
+*
+ UNDERSTAND = "I UNDERSTAND."
+ YES = "YES."
+ SOMETIMES = "SOMETIMES."
+ INSUFFICIENT = "INSUFFICIENT INFORMATION"
+ SILENCE = ""
+-EJECT
+***********************************************
+* ACTION FUNCTIONS FOR INFORMATION ABOUT SETS *
+***********************************************
+*
+* Adds the information that X is a subset of Y.
+*
+ DEFINE('SETR(X,Y)')    :(SETR.END)
+SETR  ADDXRY(X,"SUBSET",Y)
+      ADDYRX(Y,"SUPERSET",X)
+      SETR = UNDERSTAND      :(RETURN)
+SETR.END
+*
+*---------------------------------------------------------------------------
+* Determines if X is a subset of Y.
+*
+ DEFINE('SETRQ(X,Y)')   :(SETRQ.END)
+SETRQ  SETRQ = PATH( .X, #"(SUBSET *)", .Y)   YES
++        :S(RETURN)
+      SETRQ = PATH( .Y, #"(SUBSET +)", .X)   SOMETIMES
++        :S(RETURN)
+      SETRQ = INSUFFICIENT   :(RETURN)
+SETRQ.END
+*
+*---------------------------------------------------------------------------
+* Adds the information that X is a member of the set Y.
+*
+ DEFINE('SETRS(X,Y)')  :(SETRS.END)
+SETRS ADDXRY(X,"MEMBER",Y)
+        ADDYRX(Y,"ELEMENTS",X)
+        SETRS = UNDERSTAND  :(RETURN)
+SETRS.END
+*
+*---------------------------------------------------------------------------
+* Determines if X is a member of the set Y.
+*
+ DEFINE('SETRSQ(X,Y)') :(SETRSQ.END)
+SETRSQ   SETRSQ =
++        PATH( .X, #"(EQUIV * MEMBER SUBSET *)", .Y)   YES
++        :S(RETURN)
+      SETRSQ = INSUFFICIENT :(RETURN)
+SETRSQ.END
+*
+*---------------------------------------------------------------------------
+* Adds the information that the unique element of the set X is an
+* element of the set Y.  Does nothing if X has more than one element.
+*
+ DEFINE('SETRS1(X,Y)') :(SETRS1.END)
+SETRS1   SETRS1 = DIFFER(NIL,SET.(.X,SPECIFY(X)))
++        SETRS(X,Y)      :S(RETURN)
+      SETRS1 = SILENCE   :(RETURN)
+SETRS1.END
+*
+*---------------------------------------------------------------------------
+* If X has a unique element, it is returned.  If X has no elements, one
+* is created and returned.  If X has more than one element, a message is
+* printed and NIL is returned.
+*
+ DEXP('SPECIFY(X) = '
++     'SPECIFY1(EQUIV.COMPRESS(GET(X,"ELEMENTS")),X)')
+*
+ DEFINE('SPECIFY1(U,X)')      :(SPECIFY1.END)
+SPECIFY1     NULL(U)    :F(SPECIFY1A)
+      SPECIFY1 = SET.( .U, GENSYM())
+      SETRS(U,X)
+      |(U " IS A " X ".")   :(RETURN)
+SPECIFY1A
++     SPECIFY1 = NULL(CDR(U)) CAR(U)    :S(RETURN)
+      |("WHICH " X "? ... " !U)
+      SPECIFY1 = NIL    :(RETURN)
+SPECIFY1.END
+*
+*---------------------------------------------------------------------------
+* LX is a list of which some elements may be equivalent to some others.  A
+* list is returned of the elements of LX without such redundant members.
+*
+ DEXP('EQUIV.COMPRESS(LX) = EQUIV.COMP1(LX,NIL)')
+*
+ DEFINE('EQUIV.COMP1(LX,LEX)')     :(EQUIV.COMP1.END)
+EQUIV.COMP1
++     EQUIV.COMP1 = NULL(LX) NIL   :S(RETURN)
+      EQUIV.COMP1 = MEMQ(CAR(LX),LEX)
++        EQUIV.COMP1(CDR(LX),LEX)      :S(RETURN)
+      EQUIV.COMP1 =
++        CAR(LX) ~
++             EQUIV.COMP1( CDR(LX),
++                  APPEND( GET(CAR(LX),"EQUIV") ~ LEX ~ NIL))
++                  :(RETURN)
+EQUIV.COMP1.END
+*
+*---------------------------------------------------------------------------
+* Determines if the unique element of the set X (if there is one) is a
+* member of the set Y.
+*
+ DEFINE('SETRS1Q(X,Y)')      :(SETRS1Q.END)
+SETRS1Q  SETRS1Q = DIFFER(NIL,SET.(.X,SPECIFY(X)))
++        SETRSQ(X,Y)    :S(RETURN)
+      SETRS1Q = SILENCE      :(RETURN)
+SETRS1Q.END
+-EJECT
+*************************************************
+* ACTION FUNCTIONS FOR THE EQUIVALENCE RELATION *
+*************************************************
+*
+* Adds the information that X is equivalent to Y.
+*
+ DEFINE('EQUIV(X,Y)')   :(EQUIV.END)
+EQUIV  ADDXRY(X,"EQUIV",Y)
+       ADDYRX(Y,"EQUIV",X)
+       EQUIV = UNDERSTAND   :(RETURN)
+EQUIV.END
+*
+*---------------------------------------------------------------------------
+* If there is a unique element of the set Y, adds the information that it
+* is equivalent to X.
+*
+ DEFINE('EQUIV1(X,Y)')  :(EQUIV1.END)
+EQUIV1  EQUIV1 = DIFFER(NIL,SET.(.Y,SPECIFY(Y)))
++       EQUIV(X,Y)     :S(RETURN)
+     EQUIV1 = SILENCE  :(RETURN)
+EQUIV1.END
+-EJECT
+************************************
+* ACTION FUNCTIONS ABOUT OWNERSHIP *
+************************************
+*
+* Adds the information that every member of the set Y owns a member of
+* the set X.
+*
+ DEFINE('OWNR(X,Y)')   :(OWNR.END)
+OWNR  ADDXRY(X,"OWNED.BY",Y)
+      ADDYRX(Y,"POSSESS.BY.EACH",X)
+      OWNR = UNDERSTAND      :(RETURN)
+OWNR.END
+*
+*---------------------------------------------------------------------------
+* Determines if every member of the set Y owns a member of the set X.
+*
+ DEFINE('OWNRQ(X,Y)')  :(OWNRQ.END)
+OWNRQ OWNRQ = EQU(X,Y)
++        "NO, THEY ARE THE SAME."     :S(RETURN)
+      OWNRQ = PATH( .Y, #"(SUBSET * POSSESS.BY.EACH)", .X)
++        YES  :S(RETURN)
+      OWNRQ = INSUFFICIENT  :(RETURN)
+OWNRQ.END
+*
+*---------------------------------------------------------------------------
+* Adds the information that Y owns a member of the set X.
+*
+ DEFINE('OWNRGU(X,Y)') :(OWNRGU.END)
+OWNRGU   ADDYRX(Y,"POSSESS",X)
+      ADDXRY(X,"OWNED",Y)
+      OWNRGU = UNDERSTAND       :(RETURN)
+OWNRGU.END
+*
+*---------------------------------------------------------------------------
+* Determines if Y owns a member of the set X.
+*
+ DEFINE('OWNRGUQ(X,Y)')     :(OWNRGUQ.END)
+OWNRGUQ OWNRGUQ =
++         PATH( .Y, #"(EQUIV * POSSESS SUBSET *)", .X)
++         YES     :S(RETURN)
+      OWNRGUQ =
++         PATH( .Y, #("(EQUIV * MEMBER SUBSET *"
++           " POSSESS.BY.EACH SUBSET *)"), .X)
++         YES      :S(RETURN)
+      OWNRGUQ = INSUFFICIENT      :(RETURN)
+OWNRGUQ.END
+*
+*---------------------------------------------------------------------------
+* Determines if some member of the set Y owns the unique element of
+* the set X (if such exists).
+*
+ DEFINE('OWNRSGQ(X,Y)')     :(OWNRSGQ.END)
+OWNRSGQ  OWNRSGQ = IDENT(NIL,SPECIFY(X)) SILENCE    :S(RETURN)
+      OWNRSGQ =
++        PATH( .X, #"(OWNED EQUIV * MEMBER SUBSET *)", .Y)
++        YES      :S(RETURN)
+      OWNRSGQ = INSUFFICIENT      :(RETURN)
+OWNRSGQ.END
+-EJECT
+********************************************
+* A SET OF RULES USING THE ABOVE FUNCTIONS *
+********************************************
+*
+* Take a string of rules and convert them to the RULE data structure.
+*
+ DEFINE('MAKE.RULES(STL)ST,R')    :(MAKE.RULES.END)
+MAKE.RULES    MAKE.RULES = NIL
+MAKE.RULES1   ST = POP( .STL)    :F(MAKE.RULES2)
+      ST = READ( "(" ST ")" )
+      R = RULE(CAR(ST),CADR(ST),CADDR(ST),CADDDR(ST))
+      MAKE.RULES = R ~ MAKE.RULES       :(MAKE.RULES1)
+MAKE.RULES2   MAKE.RULES = LREVERSE(MAKE.RULES)    :(RETURN)
+MAKE.RULES.END
+*
+*---------------------------------------------------------------------------
+* Rules
+*
+ RULE.LIST = MAKE.RULES(
++ '(IS *X* ?) (*X*) (UNIQUE.GENERIC) (SETRSQ CAAR CADAR)' ~
++ '   -     (*X*) (SPECIFIC.GENERIC) (SETRS1Q CAAR CADAR)' ~
++ '   -     (*X*) (GENERIC.GENERIC) (SETRQ CAAR CADAR)' ~
++ '(DOES *X* OWN *Y* ?) (*X* *Y*) (GENERIC GENERIC) (OWNRQ CADR CAR)' ~
++ '   -     (*X* *Y*) (UNIQUE GENERIC) (OWNRGUQ CADR CAR)' ~
++ '   -     (*X* *Y*) (GENERIC SPECIFIC) (OWNRSGQ CADR CAR)' ~
++ '(*X* IS *Y* !) (*X* *Y*) (UNIQUE GENERIC) (SETRS CAR CADR)' ~
++ '   -     (*X* *Y*) (GENERIC GENERIC) (SETR CAR CADR)' ~
++ '   -     (*X* *Y*) (SPECIFIC GENERIC) (SETRS1 CAR CADR)' ~
++ '   -     (*X* *Y*) (UNIQUE UNIQUE) (EQUIV CAR CADR)' ~
++ '   -     (*X* *Y*) (UNIQUE SPECIFIC) (EQUIV1 CAR CADR)' ~
++ '   -     (*X* *Y*) (SPECIFIC UNIQUE) (EQUIV1 CADR CAR)' ~
++ '(*X* OWNS *Y* !) (*X* *Y*)  (GENERIC GENERIC) (OWNR CADR CAR)' ~
++ '   -     (*X* *Y*) (UNIQUE GENERIC) (OWNRGU CADR CAR)' ~
++ NIL)
+*
+*
+*************************
+* EXECUTION BEGINS HERE *
+*************************
+*
+ |SIR()
+END
+*------------------------------------------------------------------------ 6 TEST
+-INCLUDE "SPITCORE.sno"
+* TEST.SPT - SPITBOL VERSION
+*
+* To run this test program:
+*     a)  have copies of test.spt, snocore.spt, and snolib.spt
+*         under your default directory.
+*     b)  type
+*           spitbol spitcore.spt test.spt <test.in
+*
+*
+* Tests of single-argument numerical functions
+*     SNOLISPIST
+*
+* PAWS = *?( |'' |'Press ENTER to continue.'
+*+     |'' IN()    |(COLLECT() * 4 ' bytes available' |'') |'' )
+ PAWS = *?( |'' )
+ DEXP('PAUSE() = EVAL(PAWS)')
+*
+ ||''
+ ?( |'Single-argument numerical functions' |'' )
+ |'Incidentally uses MAPC, DEXP with LAMBDA, and EVALCODE'
+ |''
+ MAPC(DEXP('LAMBDA(EXPR) = '
++          '|("     " EVALCODE( |EXPR))' ),
++     'ABS(-15.9999)' ~
++     'SIGN(0 - 4444.4444)' ~
++     'ADD1(-1)' ~
++     'SUB1(14456.9765)' ~
++     'FLOAT(13 + 15 + 17)' ~
++     'DFLOAT(17 - 15 - 13)' ~
++     'FIX(P...I.)' ~
++     'MINUS(LN...10.)' ~
++     'ROUND(-8.5)' ~ NIL)
+*
+ PAUSE()
+*
+*
+* Tests of binary numerical functions
+*     SNOLISPIST
+*
+*
+ ||''
+ |'Binary numerical functions'
+ |''
+ MAPC(DEXP('LAMBDA(EXPR) = '
++          '|("    " EVALCODE( |EXPR))' ),
++     'ADD(P...I.,LN...10.)' ~
++     'SUB(P...I.,LN...10.)' ~
++     'MULT(P...I.,LN...10.)' ~
++     'DIV(P...I.,LN...10.)' ~
++     'MAX(1,-1)' ~
++     'MIN(1,-1)' ~
++     'REMAINDER(-44444444,119)' ~ NIL)
+*
+ PAUSE()
+*
+*
+* Tests of list-argument numerical functions
+*     SNOLISPIST
+*
+ ||''
+ |'List-argument numerical functions'
+ |''
+ |'Incidentally uses MAPCAR, LREVERSE, and READ'
+ |''
+ ARGUMENT.LIST =
++     MAPCAR(.DFLOAT,
++        LREVERSE(
++             #'(1 1 2 -3 5 8 -13 21)' ))
+ ?( |'Here is the argument list: ' |'' )
+ |ARGUMENT.LIST
+*
+ PAUSE()
+*
+ MAPC(DEXP('LAMBDA(FUNCTION) = '
++          '|("     " APPLY( |FUNCTION, ARGUMENT.LIST))' ),
++     .PLUS ~
++     .DIFFERENCE ~
++     .TIMES ~
++     .QUOTIENT ~
++     NIL)
+*
+ PAUSE()
+*
+*
+* Tests of extended numerical functions
+*     SNOLISPIST
+*
+*
+ |''
+ |'Extended numerical functions'
+ |''
+ ?( |'Testing FLOOR' |'' )
+ AL = #'(-10.9 -7.9 -6.01 -0.00001 0.00001 6.01 7.9 10.9)'
+ |'Argument list = '
+ ?( |("     "   !AL) |'' )
+ |MAPCAR(.FLOOR,AL)
+*
+ PAUSE()
+*
+ |''
+ ?( |'Testing CEIL' |'' )
+ |'Argument list = '
+ ?( |("     "   !AL) |'' )
+ |MAPCAR(.CEIL,AL)
+*
+ PAUSE()
+*
+ |''
+ ?( |'Testing SQRT by inverse mapping' |'' )
+ AL = #'(1 10 100 1000 10000 100000 1000000 10000000)'
+ |'Argument list = '
+ ?( |("     "   !AL) |'' )
+ |MAPCAR(DEXP('LAMBDA(A) = ROUND(A * A)'),
++     MAPCAR(.SQRT,AL))
+*
+ PAUSE()
+*
+ |''
+ |'Testing trigonometric and inverse trigonometric functions'
+ ?( |('     by inverse mapping') |'' )
+ AL = #( '(5 15 25 35 45 55 65 75 85 95 105 115 125 '
++     '135 145 155 165 175 185 195 205 215 225 235 245 '
++     '255 265 275 285 295 305 315 325 335 345 355)' )
+ |'Argument list = '
+ ?( |("     "   !AL) |'' )
+ ?( |'SIN and ASIN' |'' )
+ |MAPCAR(.ROUND,
++     MAPCAR(.DEG,
++        MAPCAR(.ASIN,
++             MAPCAR(.SIN,
++                  MAPCAR(.RAD,AL)))))
+*
+ PAUSE()
+*
+ ?( |'COS and ACOS' |'' )
+ |MAPCAR(.ROUND,
++     MAPCAR(.DEG,
++        MAPCAR(.ACOS,
++             MAPCAR(.COS,
++                  MAPCAR(.RAD,AL)))))
+*
+ PAUSE()
+*
+ ?( |'TAN and ATAN' |'' )
+ |MAPCAR(.ROUND,
++     MAPCAR(.DEG,
++        MAPCAR(.ATAN,
++             MAPCAR(.TAN,
++                  MAPCAR(.RAD,AL)))))
+*
+ PAUSE()
+*
+ |''
+ |'Logarithms to the base 2 of the first 30 powers of 2'
+ |''
+ I = 0 ; AL  = NIL  ; TWP = 1
+TWO.LOOP
+      I = LT(I,30) I + 1      :F(TWO.LOOP.END)
+      TWP = 2 * TWP
+      AL = TWP ~ AL      :(TWO.LOOP)
+TWO.LOOP.END
+      AL =  LREVERSE(AL)
+*
+ |MAPCAR(DEXP('LAMBDA(Z) = ROUND(LOG(Z,2))'), AL)
+*
+ PAUSE()
+*
+ |''
+ ?( |'The first 10 powers of e' |'' )
+ |MAPCAR(DEXP('LAMBDA(Z) = RAISE(NAT...BASE.,Z)' ),
++     #'(1 2 3 4 5 6 7 8 9 10)' )
+*
+ PAUSE()
+*
+ |''
+ ?( |'The first 10 negative powers of e' |'' )
+ |MAPCAR(DEXP('LAMBDA(X) = RAISE(NAT...BASE., -X)' ),
++     #'(1 2 3 4 5 6 7 8 9 10)' )
+*
+ PAUSE()
+*
+*
+* Test program for all compound CAR/CDR
+* functions in SNOLISPIST
+*
+ MNMNM = #'(1 2 3 4)'
+*
+* Build a reasonably hairy list
+*
+ LKLKL = #'((((\MNMNM) \MNMNM) \MNMNM) \MNMNM)'
+ MNMNM = #'(\LKLKL \LKLKL \LKLKL \LKLKL)'
+ LKLKL = LCOPY(MNMNM)
+*
+ ||''
+ |('LKLKL = ' !LKLKL)
+ |''
+ MAPC(DEXP('LAMBDA(S) = '
++          '|EVAL( |(  "C" S "R(LKLKL)" ))' ),
++     #('(A D AA AD DA DD '
++       ' AAA AAD ADA DAA '
++       ' ADD DAD DDA DDD '
++       ' AAAA AAAD AADA ADAA DAAA '
++       ' AADD ADAD DAAD ADDA DADA DDAA '
++       ' ADDD DADD DDAD DDDA DDDD)' ))
+*
+ PAUSE()
+*
+*
+* SNOLISPIST I/O test program
+*
+     A = 'C' ; B = 'L' ; C = 'R'
+*
+     (|(11 % 'C.A') |'Centered.' ||'')
+     (|(11 % 'L.B') |'Left justified.'  ||'')
+     (|(11 % 'R.C') |'Right justified.'  ||'')
+  L = #'(A CENTERED LIST)'
+*
+  (|(72 % 'C.L') |'A centered list.' ||'')
+*
+ (|'Test of indentation via % operator.' |'')
+ ?( |'Outline Level I' |'' )
+ ?( |(5 % ' '   'Outline Level I.A') |'' )
+ ?( |(10 % ' '   'Outline Level I.A.1') |'' )
+ ?( |(15 % ' '   'Outline Level I.A.1.a') ||'' )
+*
+ PAUSE()
+*
+ |'Input test:   Should print echo of next input line.'
+ |''
+ |IN()
+*
+ PAUSE()
+*
+*
+* Tests of recursively defined list processing functIons
+*   SNOLISPIST
+*
+*
+ ||''
+ |'Recursively defined list processing functions'
+ |''
+ ?( |'Test LCOPY' |'' )
+ ORIGINAL = #'((O . R) (I . G) (I . N) (A . L))'
+ COPY = LCOPY(ORIGINAL)
+ |'Here is the original:'
+ ?( |(62 % 'C.ORIGINAL') |'' )
+ |'Here is the copy:'
+ ?( |(62 % 'C.COPY') |'' )
+ |'Are they EQU?'
+ ?( |("     "   ~EQU(COPY,ORIGINAL) 'No.') |'' )
+ |'Are they EQUAL?'
+ ?( |("     "   EQUAL(COPY,ORIGINAL) 'Yes.') |'' )
+*
+ PAUSE()
+*
+ ?( |'Test SUBST' |'' )
+ TEST.LIST = #'(1 (2) (3 . 4) ((5 . 6) 7) 1 2 3 4 5 6 7)'
+ SUBST.LIST = #'(S I X)'
+ |'Here is the original list:'
+ ?( |(62 % 'C.TEST.LIST') |'' )
+ ?( |'Here is the target sublist:  6' |'' )
+ |'Here is the result:'
+ ?( |(62 % 'C.SUBST(TEST.LIST,6,SUBST.LIST)' ) |'' )
+*
+ PAUSE()
+*
+ ?( |'Test REMOVE' |'' )
+ TEST.LIST = #'(A (B (C . D) E (F . G)) H A I R)'
+ REM.LIST = #'(C . D)'
+ |'Here is the test list:'
+ ?( |(62 % 'C.TEST.LIST') |'' )
+ |'Here is the list to be removed:'
+ ?( |(62 % 'C.REM.LIST') |'' )
+ |'Here is the result:'
+ ?( |(62 % 'C.REMOVE(TEST.LIST,REM.LIST)' ) |'' )
+*
+ PAUSE()
+*
+ ?( |'Test FIND' |'' )
+ TEST.LIST = #'(H A Y ((N . E) (E . D) (L . E)) S T A C K)'
+ FIND.LIST = #'(E . D)'
+ |'Here is the test list:'
+ ?( |(62 % 'C.TEST.LIST') |'' )
+ |'Here is the list to be found:'
+ ?( |(62 % 'C.FIND.LIST') |'' )
+ |'Here is the result:'
+ ?( |(62 % 'C.FIND(FIND.LIST,TEST.LIST)' ) |'' )
+*
+ PAUSE()
+*
+* Tests of miscellaneous list processing functions
+*     SNOLISPIST
+*
+ ||''
+ |'Miscellaneous list processing functions'
+ |''
+ ?( |'Test EXPLODE and READLIST by inverse mapping' |'' )
+ |MAPCAR(.READLIST,
++     MAPCAR(.EXPLODE,
++        #'(1 AARDVARK (SUB LIST) (C (O (MPLEX))))' ))
+*
+ PAUSE()
+*
+ |''
+ ?( |'Test LENGTH' |'' )
+ |MAPLIST(.LENGTH,
++     EXPLODE('abcdefghijklmnopqrstuvwxyz'))
+*
+ PAUSE()
+*
+ |''
+ |'Test SETL (SET indirectly)'
+ |''
+ DEFINE('PLACE(CH)A')    :(PLACE.END)
+PLACE
++     &ALPHABET CH @A
+      PLACE = A     :(RETURN)
+PLACE.END
+*
+ DEFINE('INTERLEAVE(L1,L2)LL')      :(INTERLEAVE.END)
+INTERLEAVE
++     LL = NIL
+INTERLEAVE1
++     LL = POP( .L2) ~ POP( .L1) ~ LL
++        :S(INTERLEAVE1)
+      INTERLEAVE = LREVERSE(LL)    :(RETURN)
+INTERLEAVE.END
+*
+      AA =  EXPLODE('abcdefghijklmnopqrstuvwxyz')
+      VV =  MAPCAR(.PLACE,AA)
+      SETL(INTERLEAVE(AA,VV))
+      MAPC(DEXP('LAMBDA(Z) = '
++          '?|(Z " = " VALUE(Z))' ),  AA)
+*
+ PAUSE()
+*
+*
+*  Tests of set functions on lists
+*     SNOLISPIST
+*
+*
+ ||''
+ |'Set functions'
+ |''
+ EVEN  = #'(2 4 6 8 10 12 14 16 18 20)'
+ ODD   = #'(1 3 5 7 9 11 13 15 17 19)'
+ PRIME = #'(2 3 5 7 11 13 17 19)'
+ FIBONACCI = #'(1 1 2 3 5 8 13)'
+ UNIVERSE = UNION(EVEN,ODD)
+ NON.PRIME = EXCLUDE(UNIVERSE,PRIME)
+ EVEN.PRIME = INTERSECT(EVEN,PRIME)
+ PRIME.FIBO = INTERSECT(PRIME,FIBONACCI)
+ ODD.FIBO = INTERSECT(ODD,FIBONACCI)
+ PRIME.OR.FIBO = UNION(PRIME,FIBONACCI)
+ NEITHER.PRIME.NOR.FIBO = EXCLUDE(UNIVERSE,PRIME.OR.FIBO)
+*
+ MAPC(DEXP('LAMBDA(NAME) = |$|( |"" NAME )' ),
++     #( '(EVEN ODD PRIME FIBONACCI UNIVERSE NON.PRIME '
++          'EVEN.PRIME PRIME.FIBO ODD.FIBO PRIME.OR.FIBO '
++          'NEITHER.PRIME.NOR.FIBO)' ))
+*
+ PAUSE()
+*
+*
+*  Tests of some functions for adding to a list
+*     SNOLISPIST
+*
+*
+ ||''
+ |'Functions which add elements to lists'
+ |''
+ LIST1 = EXPLODE('APPEND')
+ LIST2 = EXPLODE('NCONC')
+ LIST3 = EXPLODE('SNOC')
+ LIST4 = EXPLODE('INSERT')
+*
+ EXTRA.LIST = EXPLODE('EXTRA')
+ EXTRA.ATOM = CONCAT(EXTRA.LIST)
+*
+ ||''
+ ?( |'Test APPEND' |'' )
+ |(62 % 'C.APPEND(LIST1 ~ EXTRA.LIST ~ NIL)' )
+*
+ PAUSE()
+*
+ ?( |'Test NCONC' |'' )
+ |(62 % 'C.NCONC(LIST2 ~ EXTRA.LIST ~ NIL)' )
+*
+ PAUSE()
+*
+ ?( |'Test SNOC' |'' )
+ |(62 % 'C.SNOC(LIST3,EXTRA.ATOM)' )
+*
+ PAUSE()
+*
+ ?( |'Test INSERT' |'' )
+ |(62 % 'C.INSERT("R",LIST4)'  )
+ |''
+ |(62 % 'C.INSERT(EXTRA.ATOM,LIST4)' )
+*
+ PAUSE()
+*
+* Tests of replacement functions
+*     SNOLISPIST
+*
+*
+ ||''
+ |'Replacement functions'
+ |''
+ LST = READ(
++     '(NOW IS THE TIME FOR ALL GOOD MEN '
++     'TO COME TO THE AID OF THEIR PARTY)' )
+ |''
+ |'The test list is'
+ ?( |(62 % 'C.LST') |'' )
+*
+ PAUSE()
+*
+ ?( |'Reverse the CDR' |'' )
+ RPLACD(LST,LREVERSE(CDR(LST)))
+ ?( |(62 % 'C.LST') |'' )
+*
+ PAUSE()
+*
+ ?( |'Put it back like it was' |'' )
+ RPLACD(LST,LREVERSE(CDR(LST)))
+ ?( |(62 % 'C.LST') |'' )
+*
+ PAUSE()
+*
+ ?( |'Use RPLACA to change the first five words' |'' )
+ RPLACA(LST,'Now')
+ RPLACA(CDR(LST),'is')
+ RPLACA(CDDR(LST),'the')
+ RPLACA(CDDDR(LST),'time')
+ RPLACA(CDDDDR(LST),'for')
+ ?( |(62 % 'C.LST') |'' )
+*
+ PAUSE()
+*
+ ?( |'Change the last five words using RPLACN' |'' )
+ RPLACN(LST,-1,'party?')
+ RPLACN(LST,-2,'their')
+ RPLACN(LST,-3,'of')
+ RPLACN(LST,-4,'aid')
+ RPLACN(LST,-5,'the')
+ ?( |(62 % 'C.LST') |'' )
+*
+ PAUSE()
+*
+ |'Restore the original list; then reverse each '
+ ?( |("     "   'word, starting with the last.') |'' )
+ LST = READ(
++     '(NOW IS THE TIME FOR ALL GOOD MEN '
++     'TO COME TO THE AID OF THEIR PARTY)' )
+ |''
+ |'The test list is'
+ ?( |(62 % 'C.LST') |'' )
+*
+ PAUSE()
+*
+       N = LENGTH(LST)
+       I = 0
+LUPE
+       I = LT(I,N) I + 1       :F(LUPE.END)
+       K = -I
+       RPLACN(LST,K,REVERSE(CAR(NTH(LST,K))))
+       PRINT(LST)         :(LUPE)
+LUPE.END
++     PAUSE()
+*
+*
+* Tests of sublist functions
+*     SNOLISPIST
+*
+*
+ ||''
+ |'Sublist functions'
+ |''
+ LST = READ(
++     '(NEVER TRY TO GIVE NECESSARY AND SUFFICIENT '
++     'CONDITIONS FOR ANYTHING -- Linsky)' )
+ |''
+ |'The test list is'
+ PRINT(LST)
+ PAUSE()
+*
+ |'The last element is'
+ PRINT(LAST(LST))
+*
+  PAUSE()
+*
+ ?( |'Here is a vertical listing, using NTH' |'' )
+      N = LENGTH(LST)
+      I = 0
+LOOP
++     I = LT(I,N) I + 1       :F(LOOP.END)
+      PRINT(CAR(NTH(LST,I)))       :(LOOP)
+LOOP.END      PAUSE()
+*
+ |''
+ |'The first 8 elements are'
+ PRINT(PRELIST(LST,8))
+ PAUSE()
+*
+ |'The tail starting with element 4 is'
+ PRINT(SUFLIST(LST,3))
+ PAUSE()
+*
+ |'The sublist consisting of elements 4 through 8 is'
+ PRINT(PRELIST(SUFLIST(LST,3),5))
+ PAUSE()
+*
+ |'The RAC is'
+ PRINT(RAC(LST))
+ |'The RDC is'
+ PRINT(RDC(LST))
+ PAUSE()
+*
+*
+* Tests of list searching functions
+*      SNOLISPIST
+*
+*
+ ||''
+ |'Searching functions'
+ |''
+ ALIST = READ(
++      '((1 BUN) '
++      '(2 SHOE) '
++      '(3 TREE) '
++      '(4 DOOR BORE SHORE CORE) '
++      '(5 HIVE JIVE) '
++      '(6 SEX) '
++      '(7 HEAVEN) '
++      '(8 WAIT) '
++      '(9 RESIGN) '
++      '(10 WHEN?) )' )
+*
+ |'The test list is'
+ PRINT(ALIST)
+ PAUSE()
+*
+ ?( |'NIL followed-by beat poetry' |'' )
+ PRINT(ASSOC(95,ALIST))
+ PRINT(ASSOC(6,ALIST))
+ PRINT(ASSOC(9,ALIST))
+ PRINT(ASSOC(5,ALIST))
+ PRINT(ASSOC(10,ALIST))
+*
+ PAUSE()
+*
+ MESS = #'(47 ABC XYZ BUN WAIT 5 7 1 3)'
+ |''
+ |'The list of targets for ASSOCL is'
+ |''
+ |'LTRACE is also tested here.'
+ |''
+ PRINT(MESS)
+ PAUSE()
+*
+ LTRACE(2, .ASSOCL ~ NIL) ; &TRACE = 10000
+ PRINT(ASSOCL(MESS,ALIST))
+ LTRACE(0, .ASSOCL ~ NIL) ; &TRACE = 0
+ PAUSE()
+*
+ |'Here is the tail of MESS starting with BUN'
+ PRINT(MEMBER('BUN',MESS))
+ PAUSE()
+*
+ MEMQ('WAIT',MESS) ?|'This line should appear'
+ MEMQ('INCLINE',ALIST) ?|'This line should NOT appear'
+*
+ PAUSE()
+*
+* Tests of mapping functions
+*     SNOLISPIST
+*
+*
+ ||''
+ |'Mapping functions'
+ |''
+ ?( |'Unimaginative MAP test' |'' )
+ MAP(.PRINT,#'(A B C D 11 22 33 44 (5 . 5))' )
+*
+ PAUSE()
+*
+ ?( |'Unimaginative MAPC test' |'' )
+ MAPC(.PRINT,
++     READ(
++         '(Now is the time for all good men '
++         'to come to the aid of their party)' ))
+*
+ PAUSE()
+*
+ ?( |'Unimaginative MAPLIST test' |'' )
+ PRINT(MAPLIST(.LENGTH,
++     #'(10 9 8 7 6 5 4 pi 3 e 2 1 0 BLAST OFF!    i)' ))
+*
+ PAUSE()
+*
+ ?( |'MAPCON test -- What will happen???' |'' )
+ PRINT(MAPCON(.EXPLODE,
++     #'(EVERY GOOD BOY DOES FINE)' ))
+*
+ PAUSE()
+*
+ ?( |'MAPCAN test -- What wlll happen?????' |'' )
+ PRINT(MAPCAN(.EXPLODE,
++     #'(CINNAMON PERSIMMON SIMIAN)' ))
+ PAUSE()
+*
+ |'EVERY test (correct answer = NIL)'
+ PRINT(EVERY(.NUMBERP,
++     #'(5 4 3 2 1 0 X)' ))
+*
+ PAUSE()
+*
+ |'EVLIS test'
+ |'Correct answer is (1 2 3 (LIST VALUE))'
+ SETL( #'(A 1 B 2 C 3 D (LIST VALUE))' )
+ PRINT(EVLIS(#'(A B C D)' ))
+*
+ PAUSE()
+*
+ |'SOME test (correct answer = NIL)'
+ PRINT(SOME(.ZEROP,
++     #'(19 9 8 3 6 4 2 \P...I. \LN...10. 66 666 -1)' ))
+*
+ PAUSE()
+*
+ |'SUBSET test (should print only negative numbers)'
+ PRINT(SUBSET(.NEGP,
++     #'(0 0 0 -1 -2 9 8 6.3 \-P...I. \LN...10. -5)' ))
+*
+ PAUSE()
+*
+*
+* Tests of non-numerical Predicates
+*     SNOLISPIST
+*
+      LLST = #'(A (SMALL (TEST (LIST))))'
+ ||''
+ |'A series of Ts'
+ |''
+ MAPC(DEXP('LAMBDA(EXPR) = |("      " !EVALCODE( |EXPR))' ),
++     '/T' ~
++     'NULLP(NIL)' ~
++     'NOTP(NIL)' ~
++     'ATOMP(13.965)' ~
++     'NUMBERP(-13.965)' ~
++     'EQP(13,"13.000000")' ~
++     'EQUALP(LLST,LCOPY(LLST))' ~
++     NIL)
+*
+ PAUSE()
+*
+ ||''
+ |'A series of NILs'
+ |''
+ LLST = #'(TWEEDLE (DEE . DUM))'
+ MAPC(DEXP('LAMBDA(EXPR) = |("    " !EVALCODE( |EXPR))' ),
++    'NULLP(14 ~ NIL)' ~
++    'NOTP(1 ~ 1)' ~
++    'ATOMP(1 ~ 2 ~ 3 ~ NIL)' ~
++    'NUMBERP("LINDA")' ~
++    'EQP(LLST,LCOPY(LLST))' ~
++    NIL)
+*
+ PAUSE()
+*
+*
+* Tests of numerical predicates
+*    SNOLISPIST
+*
+*
+ ||''
+ |'Alternating series of Ts and NILs'
+ |''
+ ?( |'Testing NEGP' |'' )
+ |MAPCAR(.NEGP,
++    #'(-1 2 -3.0 4 -5.00 6.00 -7.7 8.8 -8.999 10.101010)')
+*
+ PAUSE()
+*
+ ?( |'Testing ZEROP' |'' )
+ |MAPCAR(.ZEROP,
++    #'(0 14 0. -41 0.0 29 -0.0 2.99 00000 99999)')
+*
+ PAUSE()
+*
+ ?( |'Testing LESSP' |'' )
+ |LESSP( #'( \-P...I. 0.00 0.01 10000000)' )
+ |LESSP( #'( \-LN...10. 0.00 1.01 1.000000)' )
+*
+ PAUSE()
+*
+ |'Testing GREATERP.'
+ |''
+ |GREATERP( #'( \P...I. 3.1 -4  -19.84)' )
+ |GREATERP( #'( 6 16 7 17    14.82   )' )
+*
+ PAUSE()
+*
+*
+* Tests of the property-list functions
+*    SNOLISPIST
+*
+*
+ ||''
+ |'Property list functions'
+ |''
+*
+*
+ MAPC(DEXP('LAMBDA(XPR) = '
++     '|("      " !EVAL( |( |"" XPR )))' ),
++     'PUT(.DOG,"NUMBER.OF.LEGS",4)' ~
++     'GET(.DOG,"NUMBER.OF.LEGS")' ~ 'PAUSE()' ~
++     'REMPROP(.DOG,"NUMBER.OF.LEGS")' ~
++     'GET(.DOG,"NUMBER.OF.LEGS")' ~ 'PAUSE()' ~
++     'PUTL(#"(DOG CAT HORSE)","NUMBER.OF.LEGS",4)' ~
++     'GET(.DOG,"NUMBER.OF.LEGS")' ~
++     'GET(.CAT,"NUMBER.OF.LEGS")' ~
++     'GET(.HORSE,"NUMBER.OF.LEGS")' ~
++     'GET(.ARMADILLO,"NUMBER.OF.LEGS")' ~ 'PAUSE()' ~
++     'PUTPROP(.DOG,3,"LEGS")' ~
++     'PUTPROP(.DOG,2,"LEGS")' ~
++     'PUTPROP(.DOG,1,"LEGS")' ~
++     'PUTPROP(.DOG,1,"HEAD")' ~
++     'GETL(.DOG,#"(LEGS HEAD)")' ~
++     'GETL(.DOG,#"(HEAD)")' ~ 'PAUSE()' ~
++     'ADDPROP(.DOG,3,"LEGS")' ~
++     'GET(.DOG,"LEGS")' ~
++     'ADDPROP(.DOG,"ANOMALY","LEGS")' ~
++     'GET(.DOG,"LEGS")' ~ 'PAUSE()' ~
++     'DEFPROP(.FISH,0,"LEGS")' ~
++     'GETL(.FISH,#"(EYES ARMS TEETH LEGS)")' ~
++     NIL )
+*
+ PAUSE()
+*
+*
+ |''
+ ?( |'Empty all property stacks' |'' )
+ ?( |'DOG -- "LEGS"' |'' )
+*
+LOOP1 TEMP = GETPROP( .DOG, 'LEGS' )
+      ?( PRINT(TEMP) DIFFER(TEMP,NIL) )     :S(LOOP1)
+ |''
+ PAUSE()
+ ?( |'DOG -- "NUMBER.OF.LEGS"' |'' )
+LOOP2   TEMP = GETPROP( .DOG, 'NUMBER.OF.LEGS' )
+        ?( PRINT(TEMP) DIFFER(TEMP,NIL) )     :S(LOOP2)
+ |''
+ PAUSE()
+ ?( |'DOG -- "HEAD"' |'' )
+LOOP3   TEMP = GETPROP( .DOG, 'HEAD' )
+        ?( PRINT(TEMP) DIFFER(TEMP,NIL) )       :S(LOOP3)
+ |''
+ PAUSE()
+ |'CAT -- "NUMBER.OF.LEGS"'
+LOOP4   TEMP = GETPROP( .CAT, 'NUMBER.OF.LEGS' )
+        ?( PRINT(TEMP) DIFFER(TEMP,NIL) )     :S(LOOP4)
+ |''
+ PAUSE()
+ ?( |'FISH -- "LEGS"' |'' )
+LOOP5 TEMP = GETPROP( .FISH, 'LEGS' )
+      ?( PRINT(TEMP) DIFFER(TEMP,NIL) )      :S(LOOP5)
+ |''
+ PAUSE()
+ ?( |'HORSE -- "NUMBER.OF.LEGS"' |''   )
+LOOP6 TEMP = GETPROP( .HORSE, 'NUMBER.OF.LEGS' )
+      ?( PRINT(TEMP) DIFFER(TEMP,NIL) )      :S(LOOP6)
+*
+ PAUSE()
+*
+ ||''
+ ?( |'A combined test of CLA, CAL, and SORT' |'' )
+ ?( |'Should print ABDENWSSREBA' |'' )
+ L = CLA(EXPLODE('BADNEWSBEARS'))
+ SORT.(L,7,12,'LGE')
+ SORT.(L,1,6,'LLE')
+ |READLIST(CAL(L))
+*
+ PAUSE()
+*
+ ||''
+ |'A further test of SORT/CAL/CLA:'
+ |'Make anagrams out of some six-letter names by'
+ |'alphabetizing their letters.'
+ |''
+ MAPC(
++ DEXP(
++   'LAMBDA(X) = '
++    'PRINT('
++     'CONCAT('
++      'CAL('
++       'SORT.(CLA(EXPLODE(X)),1,6,.LLE) )))' ),
++         ('MARVIN' ~
++         'PACMAN' ~
++         'LOLITA' ~
++         'MERLIN' ~
++         'ELIJAH' ~
++         'SHAFTO' ~
++         'SYLVIA' ~
++         'ITALIA' ~
++         'GEORGE' ~
++         'GIMPEL' ~
++         'BACKUS' ~ NIL) )
+*
+ PAUSE()
+*
+ ||''
+ |'TDUMP test:  Should print suitable error message.'
+ |''
+ |(72 % 'C.a=b+c?')
+END
+*------------------------------------------------------------------------ 7 WANG
+*  WANG.SPT - SPITBOL Version
 *
 * Wang's algorlthm
 *
@@ -122,7 +3013,7 @@ END
 *          Pp. 183-185.
 *
 * To run:
-* SNOBOL4 WANG <WANG.IN
+* spitbol wang.spt <wang.in
 *
  DEFINE('WANG(ANTECEDENT,CONSEQUENT)PHI,PSI')
  UNOP = 'NOT'
@@ -186,8 +3077,8 @@ WANG.END
 *
 *
  &ANCHOR = 0
- &FULLSCAN = 1
  &TRIM  = 1
+ SETEXIT(.CONTINUE)
 *
 READ
        EXPRESSION = INPUT                         :F(END)

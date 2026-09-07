@@ -1,4 +1,431 @@
-*---------------------------------------------------------------------- 1 ENDING
+*------------------------------------------------------------------------- 1 ATN
+**********************************
+ NETWORK PARSE_CLAUSE
+**********************************
+    S1
+        IF PARSE_NOUN_GROUP(THIS_NODE) GOTO S2
+        AFTER SETR('SUBJECT',LAST_PARSED)
+        ENDIF
+    END S1
+**********************************
+    S2
+        IF PARSE_WORD(THIS_NODE,'VERB TENSED ') GOTO S3
+        AFTER SETR('VERB',LAST_PARSED)
+        ENDIF
+    END S2
+**********************************
+    S3
+        IF    TESTF(LAST_PARSED,'BE ')
+        PARSE_WORD(THIS_NODE,'PASTPARTICIPLE ') GOTO S4
+        AFTER    SETR('OBJECT',GETR('SUBJECT'))
+            SETR('SUBJECT')
+            SETR('VERB',LAST_PARSED)
+        ENDIF
+        IF    TESTF(GETR('VERB'),'TRANSITIVE ')
+        PARSE_NOUN_GROUP(THIS_NODE) GOTO S4
+        AFTER SETR('OBJECT',LAST_PARSED)
+        ENDIF
+        IF TESTF(GETR('VERB'),'INTRANSITIVE ') GOTO S4 ENDIF
+        IF ~NULL(GETR('OBJECT')) GOTO S4 ENDIF
+    END S3
+**********************************
+    S4
+        IF    ~NULL(GETR('SUBJECT'))
+        NULL(REMAINING_WORDS) GOTO WIN
+        ENDIF
+        IF    NULL(GETR('SUBJECT'))
+        IDENT(CURRENT_WORD,'BY')
+        PARSE_WORD(THIS_NODE) GOTO S5
+        ENDIF
+        IF NULL(GETR('SUBJECT')) GOTO S4
+        AFTER SETR('SUBJECT','SOMEONE')
+        ENDIF
+    END S4
+**********************************
+    S5
+        IF PARSE_NOUN_GROUP(THIS_NODE) GOTO S4
+        AFTER SETR('SUBJECT',LAST_PARSED)
+        ENDIF
+    END S5
+ END PARSE_CLAUSE
+
+631664 milliseconds compile time
+
+
+**********************************
+ NETWORK PARSE_NOUN_GROUP
+**********************************
+    S1
+        IF PARSE_WORD(THIS_NODE,'DETERMINER ') GOTO S2
+        AFTER SETR('NUMBER',
+               SELECT('SINGULAR PLURAL ',
+                  GETF(LAST_PARSED)))
+              SETR('DETERMINER',
+               SELECT('DEFINITE INDEFINITE ',
+                  GETF(LAST_PARSED)))
+        ENDIF
+    END S1
+**********************************
+    S2
+        IF PARSE_WORD(THIS_NODE,'ADJECTIVE ') GOTO S2
+         AFTER ADDR('ADJECTIVES',LAST_PARSED)
+        ENDIF
+        IF PARSE_WORD(THIS_NODE,'NOUN ') GOTO WIN
+         AFTER SETR('NUMBER',
+                SELECT('SINGULAR PLURAL ',
+                   GETF(LAST_PARSED)))
+               SETR('NOUN',LAST_PARSED)
+        ENDIF
+    END S2
+ END PARSE_NOUN_GROUP
+
+232289 milliseconds compile time
+
+
+**********************************
+ NETWORK PARSE_WORD
+    S1
+        IF NULL(null) GOTO WIN
+        AFTER PARSE_WORD_1()
+        ENDIF
+    END S1
+ END PARSE_WORD
+
+96712 milliseconds compile time
+
+
+**********************************
+ FUNCTION PARSE_WORD_1 () ()
+    THIS_NODE = CURRENT_WORD ;
+    REMAINING_WORDS BREAK(" ") SPAN(" ") = ;
+    REMAINING_WORDS (BREAK(" ") | null) $ CURRENT_WORD    :(RETURN) ;
+ END PARSE_WORD_1
+
+14588 milliseconds compile time
+
+
+**********************************
+ FUNCTION SETR (REGISTER,VALUE) ()
+    PUT(THIS_NODE,VALUE,REGISTER)        :(RETURN) ;
+ END SETR
+
+11692 milliseconds compile time
+
+
+**********************************
+ FUNCTION GETR (REGISTER) ()
+    GETR = GET(THIS_NODE,REGISTER)        :(RETURN) ;
+ END GETR
+
+12634 milliseconds compile time
+
+
+**********************************
+ FUNCTION ADDR (REGISTER,VALUE) ()
+    SETR(REGISTER,GETR(REGISTER) VALUE " ")    :(RETURN) ;
+ END ADDR
+
+10841 milliseconds compile time
+
+
+**********************************
+ FUNCTION GENNAME (X) ()
+    GENNAME =
+        '*' X '_' &STCOUNT '*'
+        :(RETURN) ;
+ END GENNAME
+
+11161 milliseconds compile time
+
+
+**********************************
+ FUNCTION ATTACH (C,P) ()
+    PUT(C,P,'PARENT') ;
+    PUT(P,GET(P,'CHILDREN') C " ",'CHILDREN')
+        :(RETURN) ;
+ END ATTACH
+
+11241 milliseconds compile time
+
+
+**********************************
+ FUNCTION SELECT (S,T) ()
+    S (BREAK(" ") $ SELECT) SPAN(" ") =    :F(FRETURN) ;
+    T (POS(0) | " ") SELECT " "
+        :S(RETURN)F(SELECT) ;
+ END SELECT
+
+13616 milliseconds compile time
+
+
+**********************************
+ FUNCTION TESTF (X,F) (W,G)
+    NULL(F)        :S(RETURN) ;
+    G = GETF(X) ;
+TESTF1
+    F (BREAK(" ") $ W) SPAN(" ") =    :F(RETURN) ;
+    G (POS(0) | " ") W " "    :S(TESTF)F(FRETURN) ;
+ END TESTF
+
+17132 milliseconds compile time
+
+
+**********************************
+ FUNCTION GETF (X) ()
+    GETF = LEXICAL_FEATURES<X> :(RETURN) ;
+ END GETF
+
+10530 milliseconds compile time
+
+
+**********************************
+ LEXICON L1
+    <* >NOUN >SINGULAR BLOCK BOY
+    <* >DETERMINER >SINGULAR >INDEFINITE A
+               <SINGULAR >DEFINITE THE
+    <* >VERB >TENSED >TRANSITIVE >INTRANSITIVE >PASTPARTICIPLE DROPPED
+         <TENSED >BE WAS
+    <* >ADJECTIVE BIG RED
+    <* >PREPOSITION BY
+    <*
+ END L1
+     | BLOCK:  NOUN SINGULAR 
+     | BOY:  NOUN SINGULAR 
+     | A:  DETERMINER SINGULAR INDEFINITE 
+     | THE:  DETERMINER SINGULAR DEFINITE 
+     | DROPPED:  VERB TENSED TRANSITIVE INTRANSITIVE PASTPARTICIPLE 
+     | WAS:  VERB TENSED BE 
+     | BIG:  ADJECTIVE 
+     | RED:  ADJECTIVE 
+     | BY:  PREPOSITION 
+
+55825 milliseconds compile time
+
+
+**********************************
+ SENTENCES S1
+    A BIG RED BLOCK WAS DROPPED BY THE BOY ;
+    THE BOY DROPPED A BIG RED BLOCK ;
+    A BLOCK WAS DROPPED ;
+    THE BLOCK DROPPED ;
+ END S1
+
+5691 milliseconds compile time
+
+
+**********************************
+ EXEC PARSE_CLAUSE("SENTENCE",null)
+
+
+****** EXECUTION BEGINS WITH PARSE_CLAUSE("SENTENCE",null) ******
+
+
+
+------------------
+
+THE BLOCK DROPPED 
+
+------------------
+
+
+Parsing Succeeded
+
+56247 milliseconds used
+
+
+NODE: THE
+          PARENT = *PARSE_NOUN_GROUP_2443*
+
+NODE: *PARSE_NOUN_GROUP_2443*
+          CHILDREN = THE BLOCK 
+          NUMBER = SINGULAR
+          DETERMINER = DEFINITE
+          NOUN = BLOCK
+          PARENT = *PARSE_CLAUSE_2436*
+
+NODE: BLOCK
+          PARENT = *PARSE_NOUN_GROUP_2443*
+
+NODE: *PARSE_CLAUSE_2436*
+          CHILDREN = *PARSE_NOUN_GROUP_2443* DROPPED 
+          SUBJECT = *PARSE_NOUN_GROUP_2443*
+          VERB = DROPPED
+          PARENT = SENTENCE
+
+NODE: DROPPED
+          PARENT = *PARSE_CLAUSE_2436*
+
+NODE: SENTENCE
+          CHILDREN = *PARSE_CLAUSE_2436* 
+
+
+--------------------
+
+A BLOCK WAS DROPPED 
+
+--------------------
+
+
+Parsing Succeeded
+
+47270 milliseconds used
+
+
+NODE: A
+          PARENT = *PARSE_NOUN_GROUP_2901*
+
+NODE: *PARSE_NOUN_GROUP_2901*
+          CHILDREN = A BLOCK 
+          NUMBER = SINGULAR
+          DETERMINER = INDEFINITE
+          NOUN = BLOCK
+          PARENT = *PARSE_CLAUSE_2894*
+
+NODE: BLOCK
+          PARENT = *PARSE_NOUN_GROUP_2901*
+
+NODE: *PARSE_CLAUSE_2894*
+          CHILDREN = *PARSE_NOUN_GROUP_2901* WAS DROPPED 
+          SUBJECT = SOMEONE
+          VERB = DROPPED
+          OBJECT = *PARSE_NOUN_GROUP_2901*
+          PARENT = SENTENCE
+
+NODE: WAS
+          PARENT = *PARSE_CLAUSE_2894*
+
+NODE: DROPPED
+          PARENT = *PARSE_CLAUSE_2894*
+
+NODE: SENTENCE
+          CHILDREN = *PARSE_CLAUSE_2894* 
+
+
+--------------------------------
+
+THE BOY DROPPED A BIG RED BLOCK 
+
+--------------------------------
+
+
+Parsing Succeeded
+
+72547 milliseconds used
+
+
+NODE: THE
+          PARENT = *PARSE_NOUN_GROUP_3390*
+
+NODE: *PARSE_NOUN_GROUP_3390*
+          CHILDREN = THE BOY 
+          NUMBER = SINGULAR
+          DETERMINER = DEFINITE
+          NOUN = BOY
+          PARENT = *PARSE_CLAUSE_3383*
+
+NODE: BOY
+          PARENT = *PARSE_NOUN_GROUP_3390*
+
+NODE: *PARSE_CLAUSE_3383*
+          CHILDREN = *PARSE_NOUN_GROUP_3390* DROPPED *PARSE_NOUN_GROUP_3596* 
+          SUBJECT = *PARSE_NOUN_GROUP_3390*
+          VERB = DROPPED
+          OBJECT = *PARSE_NOUN_GROUP_3596*
+          PARENT = SENTENCE
+
+NODE: DROPPED
+          PARENT = *PARSE_CLAUSE_3383*
+
+NODE: A
+          PARENT = *PARSE_NOUN_GROUP_3596*
+
+NODE: *PARSE_NOUN_GROUP_3596*
+          CHILDREN = A BIG RED BLOCK 
+          NUMBER = SINGULAR
+          DETERMINER = INDEFINITE
+          ADJECTIVES = BIG RED 
+          NOUN = BLOCK
+          PARENT = *PARSE_CLAUSE_3383*
+
+NODE: BIG
+          PARENT = *PARSE_NOUN_GROUP_3596*
+
+NODE: RED
+          PARENT = *PARSE_NOUN_GROUP_3596*
+
+NODE: BLOCK
+          PARENT = *PARSE_NOUN_GROUP_3596*
+
+NODE: SENTENCE
+          CHILDREN = *PARSE_CLAUSE_3383* 
+
+
+---------------------------------------
+
+A BIG RED BLOCK WAS DROPPED BY THE BOY 
+
+---------------------------------------
+
+
+Parsing Succeeded
+
+75273 milliseconds used
+
+
+NODE: A
+          PARENT = *PARSE_NOUN_GROUP_4138*
+
+NODE: *PARSE_NOUN_GROUP_4138*
+          CHILDREN = A BIG RED BLOCK 
+          NUMBER = SINGULAR
+          DETERMINER = INDEFINITE
+          ADJECTIVES = BIG RED 
+          NOUN = BLOCK
+          PARENT = *PARSE_CLAUSE_4131*
+
+NODE: BIG
+          PARENT = *PARSE_NOUN_GROUP_4138*
+
+NODE: RED
+          PARENT = *PARSE_NOUN_GROUP_4138*
+
+NODE: BLOCK
+          PARENT = *PARSE_NOUN_GROUP_4138*
+
+NODE: *PARSE_CLAUSE_4131*
+          CHILDREN = *PARSE_NOUN_GROUP_4138* WAS DROPPED BY *PARSE_NOUN_GROUP_4503* 
+          SUBJECT = *PARSE_NOUN_GROUP_4503*
+          VERB = DROPPED
+          OBJECT = *PARSE_NOUN_GROUP_4138*
+          PARENT = SENTENCE
+
+NODE: WAS
+          PARENT = *PARSE_CLAUSE_4131*
+
+NODE: DROPPED
+          PARENT = *PARSE_CLAUSE_4131*
+
+NODE: BY
+          PARENT = *PARSE_CLAUSE_4131*
+
+NODE: THE
+          PARENT = *PARSE_NOUN_GROUP_4503*
+
+NODE: *PARSE_NOUN_GROUP_4503*
+          CHILDREN = THE BOY 
+          NUMBER = SINGULAR
+          DETERMINER = DEFINITE
+          NOUN = BOY
+          PARENT = *PARSE_CLAUSE_4131*
+
+NODE: BOY
+          PARENT = *PARSE_NOUN_GROUP_4503*
+
+NODE: SENTENCE
+          CHILDREN = *PARSE_CLAUSE_4131* 
+
+174330 milliseconds compile time
+*---------------------------------------------------------------------- 2 ENDING
 BASH
 BASE
 BATHE
@@ -21,7 +448,937 @@ KNIFE
 PRETTY
 NOBLE
 PATROL
-*------------------------------------------------------------------------ 2 WANG
+*----------------------------------------------------------------------- 3 HSORT
+    1.   BASES
+    2.   BASH
+    3.   BATHES
+    4.   CURLING
+    5.   CURVED
+    6.   DANCING
+    7.   DENTED
+    8.   DOGS
+    9.   KISSES
+   10.   KNIFE
+   11.   LEAN
+   12.   LEANING
+   13.   LEAVING
+   14.   NOBLEST
+   15.   PALED
+   16.   PATROL
+   17.   PLAY
+   18.   PLYING
+   19.   PRETTIEST
+   20.   REALLY
+   21.   ROLLS
+   22.   ROTTING
+*----------------------------------------------------------------------- 4 KALAH
+Enter number of stones per pot
+*------------------------------------------------------------------------- 5 SIR
+Any fem-libber is an example of a modern-person !
+I UNDERSTAND.
+Every modern-person is a person !
+I UNDERSTAND.
+Is a fem-libber a person ?
+YES.
+Is a person a person ?
+YES.
+Is a person a modern-person ?
+SOMETIMES.
+Is a chauvinist-pig a person ?
+INSUFFICIENT INFORMATION
+Caren is a modern-person !
+I UNDERSTAND.
+Is Caren a person ?
+YES.
+Is Schnertz a person ?
+INSUFFICIENT INFORMATION
+The man is a chauvinist-pig !
+GSYM92529 IS A MAN.
+I UNDERSTAND.
+Every chauvinist-pig is an old-fashioned person !
+I UNDERSTAND.
+Is the man an old-fashioned-person ?
+INSUFFICIENT INFORMATION
+Stu is a man !
+I UNDERSTAND.
+Is the man an old-fashioned-person ?
+WHICH MAN? ... (STU GSYM92529)
+
+Charlie is a fireman !
+I UNDERSTAND.
+Stu is Charlie !
+I UNDERSTAND.
+Is Stu a fireman ?
+YES.
+Is the fireman a man ?
+YES.
+Is every fireman a man ?
+INSUFFICIENT INFORMATION
+Judi is a fireman !
+I UNDERSTAND.
+Judith is a fireman !
+I UNDERSTAND.
+Is the fireman a man ?
+WHICH FIREMAN? ... (JUDITH JUDI CHARLIE)
+
+Judi is Judith !
+I UNDERSTAND.
+Is the fireman a man ?
+WHICH FIREMAN? ... (JUDITH CHARLIE)
+
+Every fireman owns a pair of red suspenders !
+I UNDERSTAND.
+Does a doctor own a pair of red suspenders ?
+INSUFFICIENT INFORMATION
+Does a coat own a coat ?
+NO, THEY ARE THE SAME.
+A firechief is a fireman !
+I UNDERSTAND.
+Does a firechief own a pair of suspenders ?
+YES.
+Judith is the firechief !
+GSYM161831 IS A FIRECHIEF.
+I UNDERSTAND.
+Does Judi own a pair of suspenders ?
+YES.
+Stu owns a cat !
+I UNDERSTAND.
+The cat is Schnertz !
+GSYM177415 IS A CAT.
+I UNDERSTAND.
+Does a fireman own the cat ?
+YES.
+What is the meaning of life ?
+STATEMENT FORM NOT RECOGNIZED.
+   IN PROCESS.1, 
+    SENTENCE = WHAT IS THE MEANING OF LIFE ?
+Bye !
+GOOD-BYE
+*------------------------------------------------------------------------ 6 TEST
+
+
+Single-argument numerical functions
+
+Incidentally uses MAPC, DEXP with LAMBDA, and EVALCODE
+
+ABS(-15.9999)
+     15.9999
+SIGN(0 - 4444.4444)
+     -1
+ADD1(-1)
+     0
+SUB1(14456.9765)
+     14455.9765
+FLOAT(13 + 15 + 17)
+     45.
+DFLOAT(17 - 15 - 13)
+     -11.
+FIX(P...I.)
+     3
+MINUS(LN...10.)
+     -2.30258509299405
+ROUND(-8.5)
+     -9
+
+
+
+Binary numerical functions
+
+ADD(P...I.,LN...10.)
+    5.44417774658384
+SUB(P...I.,LN...10.)
+    0.839007560595744
+MULT(P...I.,LN...10.)
+    7.23378441241546
+DIV(P...I.,LN...10.)
+    1.36437635384184
+MAX(1,-1)
+    1
+MIN(1,-1)
+    -1
+REMAINDER(-44444444,119)
+    -86
+
+
+
+List-argument numerical functions
+
+Incidentally uses MAPCAR, LREVERSE, and READ
+
+Here is the argument list: 
+
+(21. -13. 8. 5. -3. 2. 1. 1.)
+
+PLUS
+     22.
+DIFFERENCE
+     20.
+TIMES
+     65520.
+QUOTIENT
+     0.673076923076923e-2
+
+
+Extended numerical functions
+
+Testing FLOOR
+
+Argument list = 
+     (-10.9 -7.9 -6.01 -0.00001 0.00001 6.01 7.9 10.9)
+
+(-11 -8 -7 -1 0 6 7 10)
+
+
+Testing CEIL
+
+Argument list = 
+     (-10.9 -7.9 -6.01 -0.00001 0.00001 6.01 7.9 10.9)
+
+(-10 -7 -6 0 1 7 8 11)
+
+
+Testing SQRT by inverse mapping
+
+Argument list = 
+     (1 10 100 1000 10000 100000 1000000 10000000)
+
+(1 10 100 1000 10000 100000 1000000 10000000)
+
+
+Testing trigonometric and inverse trigonometric functions
+     by inverse mapping
+
+Argument list = 
+     (5 15 25 35 45 55 65 75 85 95 105 115 125 135 145 155 165 175 185 195 205 215 225 235 245 255 265 275 285 295 305 315 325 335 345 355)
+
+SIN and ASIN
+
+(5 15 25 35 45 55 65 75 85 85 75 65 55 45 35 25 15 5 -5 -15 -25 -35 -45 -55 -65 -75 -85 -85 -75 -65 -55 -45 -35 -25 -15 -5)
+
+COS and ACOS
+
+(5 15 25 35 45 55 65 75 85 95 105 115 125 135 145 155 165 175 175 165 155 145 135 125 115 105 95 85 75 65 55 45 35 25 15 5)
+
+TAN and ATAN
+
+(5 15 25 35 45 55 65 75 85 -85 -75 -65 -55 -45 -35 -25 -15 -5 5 15 25 35 45 55 65 75 85 -85 -75 -65 -55 -45 -35 -25 -15 -5)
+
+
+Logarithms to the base 2 of the first 30 powers of 2
+
+(1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30)
+
+
+The first 10 powers of e
+
+(2.71828182845905 7.38905609893065 20.0855369231877 54.5981500331443 148.413159102577 403.428793492736 1096.63315842846 2980.95798704173 8103.0839275754 22026.4657948068)
+
+
+The first 10 negative powers of e
+
+(0.367879441171442 0.135335283236613 0.497870683678639e-1 0.183156388887342e-1 0.673794699908546e-2 0.247875217666635e-2 0.911881965554515e-3 0.335462627902511e-3 0.123409804086679e-3 0.453999297624848e-4)
+
+
+
+LKLKL = ((((((1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (((((1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (((((1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (((((1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (1 2 3 4)))
+
+CAR(LKLKL)
+(((((1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (1 2 3 4))
+CDR(LKLKL)
+((((((1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (((((1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (((((1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (1 2 3 4)))
+CAAR(LKLKL)
+((((1 2 3 4)) (1 2 3 4)) (1 2 3 4))
+CADR(LKLKL)
+(((((1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (1 2 3 4))
+CDAR(LKLKL)
+((1 2 3 4))
+CDDR(LKLKL)
+((((((1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (((((1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (1 2 3 4)))
+CAAAR(LKLKL)
+(((1 2 3 4)) (1 2 3 4))
+CAADR(LKLKL)
+((((1 2 3 4)) (1 2 3 4)) (1 2 3 4))
+CADAR(LKLKL)
+(1 2 3 4)
+CDAAR(LKLKL)
+((1 2 3 4))
+CADDR(LKLKL)
+(((((1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (1 2 3 4))
+CDADR(LKLKL)
+((1 2 3 4))
+CDDAR(LKLKL)
+NIL
+CDDDR(LKLKL)
+((((((1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (1 2 3 4)))
+CAAAAR(LKLKL)
+((1 2 3 4))
+CAAADR(LKLKL)
+(((1 2 3 4)) (1 2 3 4))
+CAADAR(LKLKL)
+1
+CADAAR(LKLKL)
+(1 2 3 4)
+CDAAAR(LKLKL)
+((1 2 3 4))
+CAADDR(LKLKL)
+((((1 2 3 4)) (1 2 3 4)) (1 2 3 4))
+CADADR(LKLKL)
+(1 2 3 4)
+CDAADR(LKLKL)
+((1 2 3 4))
+CADDAR(LKLKL)
+
+CDADAR(LKLKL)
+(2 3 4)
+CDDAAR(LKLKL)
+NIL
+CADDDR(LKLKL)
+(((((1 2 3 4)) (1 2 3 4)) (1 2 3 4)) (1 2 3 4))
+CDADDR(LKLKL)
+((1 2 3 4))
+CDDADR(LKLKL)
+NIL
+CDDDAR(LKLKL)
+
+CDDDDR(LKLKL)
+NIL
+
+     C     
+Centered.
+
+
+L          
+Left justified.
+
+
+          R
+Right justified.
+
+
+                            (A CENTERED LIST)                           
+A centered list.
+
+
+Test of indentation via % operator.
+
+Outline Level I
+
+     Outline Level I.A
+
+          Outline Level I.A.1
+
+               Outline Level I.A.1.a
+
+
+
+Input test:   Should print echo of next input line.
+
+Pack my box with five dozen liquor jugs
+
+
+
+Recursively defined list processing functions
+
+Test LCOPY
+
+Here is the original:
+               ((O . R) (I . G) (I . N) (A . L))              
+
+Here is the copy:
+               ((O . R) (I . G) (I . N) (A . L))              
+
+Are they EQU?
+     No.
+
+Are they EQUAL?
+     Yes.
+
+
+Test SUBST
+
+Here is the original list:
+           (1 (2) (3 . 4) ((5 . 6) 7) 1 2 3 4 5 6 7)          
+
+Here is the target sublist:  6
+
+Here is the result:
+       (1 (2) (3 . 4) ((5 S I X) 7) 1 2 3 4 5 (S I X) 7)      
+
+
+Test REMOVE
+
+Here is the test list:
+               (A (B (C . D) E (F . G)) H A I R)              
+
+Here is the list to be removed:
+                            (C . D)                           
+
+Here is the result:
+                   (A (B E (F . G)) H A I R)                  
+
+
+Test FIND
+
+Here is the test list:
+          (H A Y ((N . E) (E . D) (L . E)) S T A C K)         
+
+Here is the list to be found:
+                            (E . D)                           
+
+Here is the result:
+                            (E . D)                           
+
+
+
+
+Miscellaneous list processing functions
+
+Test EXPLODE and READLIST by inverse mapping
+
+(1 AARDVARK (SUB LIST) (C (O (MPLEX))))
+
+
+Test LENGTH
+
+(26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1)
+
+
+Test SETL (SET indirectly)
+
+a = 98
+b = 99
+c = 100
+d = 101
+e = 102
+f = 103
+g = 104
+h = 105
+i = 106
+j = 107
+k = 108
+l = 109
+m = 110
+n = 111
+o = 112
+p = 113
+q = 114
+r = 115
+s = 116
+t = 117
+u = 118
+v = 119
+w = 120
+x = 121
+y = 122
+z = 123
+
+
+
+Set functions
+
+
+EVEN
+(2 4 6 8 10 12 14 16 18 20)
+
+ODD
+(1 3 5 7 9 11 13 15 17 19)
+
+PRIME
+(2 3 5 7 11 13 17 19)
+
+FIBONACCI
+(1 1 2 3 5 8 13)
+
+UNIVERSE
+(19 17 15 13 11 9 7 5 3 1 20 18 16 14 12 10 8 6 4 2)
+
+NON.PRIME
+(15 9 1 20 18 16 14 12 10 8 6 4)
+
+EVEN.PRIME
+(2)
+
+PRIME.FIBO
+(2 3 5 13)
+
+ODD.FIBO
+(1 3 5 13)
+
+PRIME.OR.FIBO
+(8 1 19 17 13 11 7 5 3 2)
+
+NEITHER.PRIME.NOR.FIBO
+(15 9 20 18 16 14 12 10 6 4)
+
+
+
+Functions which add elements to lists
+
+
+
+Test APPEND
+
+                    (A P P E N D E X T R A)                   
+
+Test NCONC
+
+                     (N C O N C E X T R A)                    
+
+Test SNOC
+
+                        (S N O C EXTRA)                       
+
+Test INSERT
+
+                         (I N S E R T)                        
+
+                      (EXTRA I N S E R T)                     
+
+
+
+Replacement functions
+
+
+The test list is
+(NOW IS THE TIME FOR ALL GOOD MEN TO COME TO THE AID OF THEIR PARTY)
+
+
+Reverse the CDR
+
+(NOW PARTY THEIR OF AID THE TO COME TO MEN GOOD ALL FOR TIME THE IS)
+
+
+Put it back like it was
+
+(NOW IS THE TIME FOR ALL GOOD MEN TO COME TO THE AID OF THEIR PARTY)
+
+
+Use RPLACA to change the first five words
+
+(Now is the time for ALL GOOD MEN TO COME TO THE AID OF THEIR PARTY)
+
+
+Change the last five words using RPLACN
+
+(Now is the time for ALL GOOD MEN TO COME TO the aid of their party?)
+
+
+Restore the original list; then reverse each 
+     word, starting with the last.
+
+
+The test list is
+(NOW IS THE TIME FOR ALL GOOD MEN TO COME TO THE AID OF THEIR PARTY)
+
+
+(NOW IS THE TIME FOR ALL GOOD MEN TO COME TO THE AID OF THEIR YTRAP)
+(NOW IS THE TIME FOR ALL GOOD MEN TO COME TO THE AID OF RIEHT YTRAP)
+(NOW IS THE TIME FOR ALL GOOD MEN TO COME TO THE AID FO RIEHT YTRAP)
+(NOW IS THE TIME FOR ALL GOOD MEN TO COME TO THE DIA FO RIEHT YTRAP)
+(NOW IS THE TIME FOR ALL GOOD MEN TO COME TO EHT DIA FO RIEHT YTRAP)
+(NOW IS THE TIME FOR ALL GOOD MEN TO COME OT EHT DIA FO RIEHT YTRAP)
+(NOW IS THE TIME FOR ALL GOOD MEN TO EMOC OT EHT DIA FO RIEHT YTRAP)
+(NOW IS THE TIME FOR ALL GOOD MEN OT EMOC OT EHT DIA FO RIEHT YTRAP)
+(NOW IS THE TIME FOR ALL GOOD NEM OT EMOC OT EHT DIA FO RIEHT YTRAP)
+(NOW IS THE TIME FOR ALL DOOG NEM OT EMOC OT EHT DIA FO RIEHT YTRAP)
+(NOW IS THE TIME FOR LLA DOOG NEM OT EMOC OT EHT DIA FO RIEHT YTRAP)
+(NOW IS THE TIME ROF LLA DOOG NEM OT EMOC OT EHT DIA FO RIEHT YTRAP)
+(NOW IS THE EMIT ROF LLA DOOG NEM OT EMOC OT EHT DIA FO RIEHT YTRAP)
+(NOW IS EHT EMIT ROF LLA DOOG NEM OT EMOC OT EHT DIA FO RIEHT YTRAP)
+(NOW SI EHT EMIT ROF LLA DOOG NEM OT EMOC OT EHT DIA FO RIEHT YTRAP)
+(WON SI EHT EMIT ROF LLA DOOG NEM OT EMOC OT EHT DIA FO RIEHT YTRAP)
+
+
+
+Sublist functions
+
+
+The test list is
+(NEVER TRY TO GIVE NECESSARY AND SUFFICIENT CONDITIONS FOR ANYTHING -- Linsky)
+
+The last element is
+(Linsky)
+
+Here is a vertical listing, using NTH
+
+NEVER
+TRY
+TO
+GIVE
+NECESSARY
+AND
+SUFFICIENT
+CONDITIONS
+FOR
+ANYTHING
+--
+Linsky
+
+
+The first 8 elements are
+(NEVER TRY TO GIVE NECESSARY AND SUFFICIENT CONDITIONS)
+
+The tail starting with element 4 is
+(GIVE NECESSARY AND SUFFICIENT CONDITIONS FOR ANYTHING -- Linsky)
+
+The sublist consisting of elements 4 through 8 is
+(GIVE NECESSARY AND SUFFICIENT CONDITIONS)
+
+The RAC is
+Linsky
+The RDC is
+(NEVER TRY TO GIVE NECESSARY AND SUFFICIENT CONDITIONS FOR ANYTHING --)
+
+
+
+Searching functions
+
+The test list is
+((1 BUN) (2 SHOE) (3 TREE) (4 DOOR BORE SHORE CORE) (5 HIVE JIVE) (6 SEX) (7 HEAVEN) (8 WAIT) (9 RESIGN) (10 WHEN?))
+
+NIL followed-by beat poetry
+
+NIL
+((6 SEX) (7 HEAVEN) (8 WAIT) (9 RESIGN) (10 WHEN?))
+((9 RESIGN) (10 WHEN?))
+((5 HIVE JIVE) (6 SEX) (7 HEAVEN) (8 WAIT) (9 RESIGN) (10 WHEN?))
+((10 WHEN?))
+
+
+The list of targets for ASSOCL is
+
+LTRACE is also tested here.
+
+(47 ABC XYZ BUN WAIT 5 7 1 3)
+
+
+>>> 1947 ==> 1948 ==> 
+ ASSOCL
+     LTG = 
+       (47 ABC XYZ BUN WAIT 5 7 1 3)
+     L = 
+       ((1 BUN) (2 SHOE) (3 TREE) (4 DOOR BORE SHORE CORE) (5 HIVE JIVE) (6 SEX) (7 HEAVEN) (8 WAIT) (9 RESIGN) (10 WHEN?))
+
+<<< RETURN <== 1956 <== 1955
+ ASSOCL = 
+     ((1 BUN) (2 SHOE) (3 TREE) (4 DOOR BORE SHORE CORE) (5 HIVE JIVE) (6 SEX) (7 HEAVEN) (8 WAIT) (9 RESIGN) (10 WHEN?))
+     LTG = 
+       (47 ABC XYZ BUN WAIT 5 7 1 3)
+     L = 
+       ((2 SHOE) (3 TREE) (4 DOOR BORE SHORE CORE) (5 HIVE JIVE) (6 SEX) (7 HEAVEN) (8 WAIT) (9 RESIGN) (10 WHEN?))
+     A = 
+       (1 BUN)
+((1 BUN) (2 SHOE) (3 TREE) (4 DOOR BORE SHORE CORE) (5 HIVE JIVE) (6 SEX) (7 HEAVEN) (8 WAIT) (9 RESIGN) (10 WHEN?))
+
+Here is the tail of MESS starting with BUN
+(BUN WAIT 5 7 1 3)
+
+This line should appear
+
+
+
+Mapping functions
+
+Unimaginative MAP test
+
+(A B C D 11 22 33 44 (5 . 5))
+(B C D 11 22 33 44 (5 . 5))
+(C D 11 22 33 44 (5 . 5))
+(D 11 22 33 44 (5 . 5))
+(11 22 33 44 (5 . 5))
+(22 33 44 (5 . 5))
+(33 44 (5 . 5))
+(44 (5 . 5))
+((5 . 5))
+
+Unimaginative MAPC test
+
+Now
+is
+the
+time
+for
+all
+good
+men
+to
+come
+to
+the
+aid
+of
+their
+party
+
+Unimaginative MAPLIST test
+
+(16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1)
+
+MAPCON test -- What will happen???
+
+(( E V E R Y " " G O O D " " B O Y " " D O E S " " F I N E ) ( G O O D " " B O Y " " D O E S " " F I N E ) ( B O Y " " D O E S " " F I N E ) ( D O E S " " F I N E ) ( F I N E ))
+
+MAPCAN test -- What wlll happen?????
+
+(C I N N A M O N P E R S I M M O N S I M I A N)
+
+EVERY test (correct answer = NIL)
+NIL
+
+EVLIS test
+Correct answer is (1 2 3 (LIST VALUE))
+(1 2 3 (LIST VALUE))
+
+SOME test (correct answer = NIL)
+NIL
+
+SUBSET test (should print only negative numbers)
+(-1 -2 -3.14159265358979 -5)
+
+
+
+A series of Ts
+
+/T
+      T
+NULLP(NIL)
+      T
+NOTP(NIL)
+      T
+ATOMP(13.965)
+      T
+NUMBERP(-13.965)
+      T
+EQP(13,"13.000000")
+      T
+EQUALP(LLST,LCOPY(LLST))
+      T
+
+
+
+A series of NILs
+
+NULLP(14 ~ NIL)
+    NIL
+NOTP(1 ~ 1)
+    NIL
+ATOMP(1 ~ 2 ~ 3 ~ NIL)
+    NIL
+NUMBERP("LINDA")
+    NIL
+EQP(LLST,LCOPY(LLST))
+    NIL
+
+
+
+Alternating series of Ts and NILs
+
+Testing NEGP
+
+(T NIL T NIL T NIL T NIL T NIL)
+
+Testing ZEROP
+
+(T NIL T NIL T NIL T NIL T NIL)
+
+Testing LESSP
+
+T
+NIL
+
+Testing GREATERP.
+
+T
+NIL
+
+
+
+Property list functions
+
+
+PUT(.DOG,"NUMBER.OF.LEGS",4)
+      ((NUMBER.OF.LEGS 4))
+
+GET(.DOG,"NUMBER.OF.LEGS")
+      (4)
+
+PAUSE()
+
+      ""
+
+REMPROP(.DOG,"NUMBER.OF.LEGS")
+      T
+
+GET(.DOG,"NUMBER.OF.LEGS")
+      NIL
+
+PAUSE()
+
+      ""
+
+PUTL(#"(DOG CAT HORSE)","NUMBER.OF.LEGS",4)
+      NIL
+
+GET(.DOG,"NUMBER.OF.LEGS")
+      (4)
+
+GET(.CAT,"NUMBER.OF.LEGS")
+      (4)
+
+GET(.HORSE,"NUMBER.OF.LEGS")
+      (4)
+
+GET(.ARMADILLO,"NUMBER.OF.LEGS")
+      NIL
+
+PAUSE()
+
+      ""
+
+PUTPROP(.DOG,3,"LEGS")
+      ((LEGS 3) (NUMBER.OF.LEGS 4))
+
+PUTPROP(.DOG,2,"LEGS")
+      ((LEGS 2 3) (NUMBER.OF.LEGS 4))
+
+PUTPROP(.DOG,1,"LEGS")
+      ((LEGS 1 2 3) (NUMBER.OF.LEGS 4))
+
+PUTPROP(.DOG,1,"HEAD")
+      ((HEAD 1) (LEGS 1 2 3) (NUMBER.OF.LEGS 4))
+
+GETL(.DOG,#"(LEGS HEAD)")
+      ((HEAD 1) (LEGS 1 2 3) (NUMBER.OF.LEGS 4))
+
+GETL(.DOG,#"(HEAD)")
+      ((HEAD 1) (LEGS 1 2 3) (NUMBER.OF.LEGS 4))
+
+PAUSE()
+
+      ""
+
+ADDPROP(.DOG,3,"LEGS")
+      ((HEAD 1) (LEGS 1 2 3) (NUMBER.OF.LEGS 4))
+
+GET(.DOG,"LEGS")
+      (1 2 3)
+
+ADDPROP(.DOG,"ANOMALY","LEGS")
+      ((HEAD 1) (LEGS ANOMALY 1 2 3) (NUMBER.OF.LEGS 4))
+
+GET(.DOG,"LEGS")
+      (ANOMALY 1 2 3)
+
+PAUSE()
+
+      ""
+
+DEFPROP(.FISH,0,"LEGS")
+      ((LEGS 0))
+
+GETL(.FISH,#"(EYES ARMS TEETH LEGS)")
+      ((LEGS 0))
+
+
+Empty all property stacks
+
+DOG -- "LEGS"
+
+ANOMALY
+1
+2
+3
+NIL
+
+
+DOG -- "NUMBER.OF.LEGS"
+
+4
+NIL
+
+
+DOG -- "HEAD"
+
+1
+NIL
+
+
+CAT -- "NUMBER.OF.LEGS"
+4
+NIL
+
+
+FISH -- "LEGS"
+
+0
+NIL
+
+
+HORSE -- "NUMBER.OF.LEGS"
+
+4
+NIL
+
+
+
+A combined test of CLA, CAL, and SORT
+
+Should print ABDENWSSREBA
+
+ABDENWSSREBA
+
+
+
+A further test of SORT/CAL/CLA:
+Make anagrams out of some six-letter names by
+alphabetizing their letters.
+
+AIMNRV
+AACMNP
+AILLOT
+EILMNR
+AEHIJL
+AFHOST
+AILSVY
+AAIILT
+EEGGOR
+EGILMP
+ABCKSU
+
+
+
+TDUMP test:  Should print suitable error message.
+
+In PRINT.IN.FIELD (%):  In the second argument,
+the part after C. could not be interpreted
+as an expression.
+
+The values of the arguments and locals were:
+
+PIF...N. = 72
+PIF...S. = a=b+c?
+PIF...V. = 
+PIF...C. = C
+
+
+* * * * * * Terminal Error in PRINT.IN.FIELD
+
+            Arguments
+
+            PIF...N. = 72
+            PIF...S. = a=b+c?
+
+            Locals
+
+            PIF...C. = C
+            PIF...V. = 
+
+            PRINT.IN.FIELD = 
+
+* * * * * * End of SNOLISPIST dump from PRINT.IN.FIELD
+            You can get a SPITBOL dump:
+            Enter 0 for no dump, 1 for short dump, 2 for long dump
+*------------------------------------------------------------------------ 7 WANG
 
 FORMULA:  IMP(NOT(OR(P,Q)),NOT(P))
 

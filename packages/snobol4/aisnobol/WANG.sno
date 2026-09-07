@@ -1,4 +1,4 @@
-*  WANG.SNO - SNOBOL4+ Version
+*  WANG.SPT - SPITBOL Version
 *
 * Wang's algorlthm
 *
@@ -8,7 +8,7 @@
 *          Pp. 183-185.
 *
 * To run:
-* SNOBOL4 WANG <WANG.IN
+* spitbol wang.spt <wang.in
 *
  DEFINE('WANG(ANTECEDENT,CONSEQUENT)PHI,PSI')
  UNOP = 'NOT'
@@ -72,8 +72,8 @@ WANG.END
 *
 *
  &ANCHOR = 0
- &FULLSCAN = 1
  &TRIM  = 1
+ SETEXIT(.CONTINUE)
 *
 READ
        EXPRESSION = INPUT                         :F(END)

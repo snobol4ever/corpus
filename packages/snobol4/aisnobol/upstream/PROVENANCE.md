@@ -47,3 +47,17 @@ With both applied, SIR runs clean (1704 bytes) and TEST runs clean (14108 bytes)
 
 `REPORT1.DOC` / `REPORT2.DOC` (the report text, ~370KB) were deliberately NOT vendored; they are
 prose, not code, and remain at the source path above.
+
+## The graded set is the SPITBOL (`.SPT`) versions — 2026-09-07, cto, on Lon's order ("AIS should have gone 8/8")
+
+The oracle for this suite is `sbl -bf`; the SNOBOL4+ (`.SNO`) versions it refuses on dialect (`&FULLSCAN`,
+`HOST(0)` on stdin, file specifications, `TELL`/`SET`), and had been filed UNGRADABLE on that refusal. The
+eight `.SPT` versions run clean under it with the drivers of the table above, so the package's graded
+`NAME.sno` files are now byte-copies of `upstream/NAME.SPT` (the `.SNO` versions stay here, in `upstream/`,
+untouched). `SIR.sno` and `TEST.sno` carry one leading line, `-INCLUDE "SPITCORE.sno"`, in place of the
+two-file `spitbol spitcore.spt sir.spt` invocation; `SPITCORE.sno` is `SPITCORE.SPT` with exactly the two
+adaptations documented above (the six `DEXTERN`s dropped; `SET(15, LOADEX...POS., 0)` replaced by
+`REWIND(15)`, which the loader's sequential scan makes equivalent). `spitlib.spt` / `spitlib.idx` are the
+lowercase names the core opens. `HSORT.argv` declares the program argument the builder and the harness pass.
+The package-level `*.IN` drivers had kept CRLF; they are LF copies of the ones here. `BUILDLIB` stays
+UNGRADABLE: no oracle on this box has `TELL()`/`SET()`.

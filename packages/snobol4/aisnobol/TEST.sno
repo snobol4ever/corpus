@@ -1,18 +1,18 @@
+-INCLUDE "SPITCORE.sno"
+* TEST.SPT - SPITBOL VERSION
 *
 * To run this test program:
-*     a)  have copies of TEST, SNOCORE.INC, and SNOLIB.INC
+*     a)  have copies of test.spt, snocore.spt, and snolib.spt
 *         under your default directory.
 *     b)  type
-*         SNOBOL4 TEST
+*           spitbol spitcore.spt test.spt <test.in
 *
 *
 * Tests of single-argument numerical functions
 *     SNOLISPIST
 *
--INCLUDE 'SNOCORE.sno'
-*
 * PAWS = *?( |'' |'Press ENTER to continue.'
-*+     |'' IN()    |(COLLECT() * 5 ' bytes available' |'') |'' )
+*+     |'' IN()    |(COLLECT() * 4 ' bytes available' |'') |'' )
  PAWS = *?( |'' )
  DEXP('PAUSE() = EVAL(PAWS)')
 *
@@ -50,7 +50,7 @@
 +     'DIV(P...I.,LN...10.)' ~
 +     'MAX(1,-1)' ~
 +     'MIN(1,-1)' ~
-+     'REMAINDER(-44444444.,119)' ~ NIL)
++     'REMAINDER(-44444444,119)' ~ NIL)
 *
  PAUSE()
 *
@@ -108,7 +108,7 @@
 *
  |''
  ?( |'Testing SQRT by inverse mapping' |'' )
- AL = #'(1 10 100 1000. 10000. 100000. 1000000. 10000000.)'
+ AL = #'(1 10 100 1000 10000 100000 1000000 10000000)'
  |'Argument list = '
  ?( |("     "   !AL) |'' )
  |MAPCAR(DEXP('LAMBDA(A) = ROUND(A * A)'),
@@ -157,7 +157,7 @@
  I = 0 ; AL  = NIL  ; TWP = 1
 TWO.LOOP
       I = LT(I,30) I + 1      :F(TWO.LOOP.END)
-      TWP = 2. * TWP
+      TWP = 2 * TWP
       AL = TWP ~ AL      :(TWO.LOOP)
 TWO.LOOP.END
       AL =  LREVERSE(AL)
@@ -686,12 +686,12 @@ LOOP.END      PAUSE()
 *
  ?( |'Testing ZEROP' |'' )
  |MAPCAR(.ZEROP,
-+    #'(0 14 0. -41 0.0 29 -0.0 2.99 00000 99999.)')
++    #'(0 14 0. -41 0.0 29 -0.0 2.99 00000 99999)')
 *
  PAUSE()
 *
  ?( |'Testing LESSP' |'' )
- |LESSP( #'( \-P...I. 0.00 0.01 10000000.)' )
+ |LESSP( #'( \-P...I. 0.00 0.01 10000000)' )
  |LESSP( #'( \-LN...10. 0.00 1.01 1.000000)' )
 *
  PAUSE()

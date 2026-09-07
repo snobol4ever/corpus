@@ -1,4 +1,5 @@
-* ATN.SNO
+* ATN.SPT - SPITBOL Version
+*
 * SNOBOL4 program to implement a compiler for an
 *		Augmented Transition Network Language.
 *
@@ -8,13 +9,11 @@
 *	Sample input in the ATN source language is contained in file ATN.IN.
 *
 *	Run the program by typing:
+*	spitbol -u slist <atn.in atn.spt
 *
-*		SNOBOL4 ATN /I:ATN /1:SLIST
-*
-*	where /1 specifies an optional listing file for the ATN compiler, and
-*	may be omitted.  The program requires a minimum of 192K bytes.
+*	where -u slist specifies an optional listing file for the ATN compiler, and
+*	may be omitted.
 
--PLUSOPS 1
 -CASE 0
 
 * Keyword settings
@@ -22,9 +21,8 @@
 	&ANCHOR = 0
 	&DUMP	= 0
 	&FTRACE	= 0
-	&FULLSCAN = 0
 	&MAXLNGTH = 32767
-	&STLIMIT  = -1
+	&STLIMIT  = 50000
 	&TRACE	= 0
 	&TRIM	= 1
 
@@ -36,7 +34,7 @@
 * I/O Associations
 
 	INPUT(.ATNSOURCE)
-	OUTPUT(.SLIST, 1)
+	DIFFER(HOST(0)) OUTPUT(.SLIST, 1, HOST(0))
 
 * Defined data types
 
@@ -123,9 +121,10 @@ DISPLAY_END
 * Succeeds if X is nil, null, or zero
 
 	DEFINE('NULL(X)')					:(NULL_END)
-NULL	(IDENT(X,nil),
-+	 IDENT(X,null),
-+	  INTEGER(X) EQ(X,0))				:S(RETURN) F(FRETURN)
+NULL	IDENT(X,nil)						:S(RETURN)
+	IDENT(X,null)						:S(RETURN)
+	X = CONVERT(X,'NUMERIC')				:F(FRETURN)
+	EQ(X,0)			     			:S(RETURN)F(FRETURN)
 NULL_END
 
 * Put COAT on RACK using HANGER
@@ -146,9 +145,7 @@ GET_END
 
 * Program text semi-constants used in code generation
 
-	&ALPHABET POS(1) (LEN1 $ MAGIC_CHAR)
-
-	REPLACE_LIT = MAGIC_CHAR 'RePlAcE' MAGIC_CHAR
+	REPLACE_LIT = CHAR(1) 'RePlAcE' CHAR(1)
 
 	BEGIN_TEXT =
 +		' HOLD = REMAINING_WORDS ;'
@@ -180,9 +177,13 @@ GET_END
 
 	NAME_PAT    = (BB $ NAME) BLANKS FENCE
 
-	LEGAL_PAT   = LEFT_END KEYWORD_PAT . KEYTYPE BLANKS (BB | REM) . TNAME
+	LEGAL_PAT   = LEFT_END KEYWORD_PAT (BLANKS | RIGHT_END)
 
-	COMPLETE_PAT = LEFT_END OPT_BLANKS 'END' OPT_BLANKS *TNAME RIGHT_END
+	COMPLETE_PAT = (LEFT_END 'EXEC' BLANKS)
+	COMPLETE_PAT = COMPLETE_PAT |
++		(LEFT_END BB BLANKS (BB $ TNAME) BLANKS FAIL)
+	COMPLETE_PAT = COMPLETE_PAT |
++		('END' OPT_BLANKS *TNAME RIGHT_END)
 
 * Definitions of semantic (code-generating) functions
 
@@ -271,14 +272,9 @@ GET_END
 	NETWORK_HEADER = LEFT_END NETWORK_LIT NAME_PAT
 	RULES_PAT = ARBNO(RULE_PAT)
 	NETWORK_ENDER = SENTENCES_ENDER
-
-* Defer compilation of network to COMPILE code, where each labelled IF block
-*  will be compiled separately.  This prevents the stack overflow which
-*  occurs if RULES_PAT were used here directly.
-*
-	NETWORK_PAT = NETWORK_HEADER 
-+			ARB
-+			NETWORK_ENDER 
+	NETWORK_PAT = NETWORK_HEADER S('NTW')
++			RULES_PAT
++			NETWORK_ENDER S('ENW')
 
 * Grand pattern for compiling any legal block
 
@@ -304,12 +300,13 @@ COMPILE1
 COMP6	TEXT TAB = BLANK					:S(COMP6)
 	TEXT COMMENT_PAT					:S(COMPILE)
 	TEXT LEFT_END BLANKS = null
-	TEXT LEGAL_PAT						:S(COMPILE2A)
+	TEXT LEGAL_PAT						:S(COMPILE2)
 	ERROR('Illegal record')					:(FRETURN)
-COMPILE2A
-	IDENT(KEYTYPE,'EXEC')					:S(COMPILE4)
+
+* Check for a complete block.  If block is incomplete, keep reading
 
 COMPILE2
+	TEXT COMPLETE_PAT					:S(COMPILE4)
 	NEXT = ATNSOURCE					:S(COMPILE3)
 	ERROR('Unexpected end of file on ATNSOURCE')		:(FRETURN)
 
@@ -321,24 +318,14 @@ COMPILE3
 COMP7	TEXT TAB = BLANK					:S(COMP7)
 	NEXT COMMENT_PAT					:S(COMPILE2)
 	NEXT LEFT_END BLANKS = BLANK
-	TEXT = TEXT NEXT
-
-* Check for a complete block.  If block is incomplete, keep reading
-	NEXT COMPLETE_PAT					:F(COMPILE2)
+	TEXT = TEXT NEXT					:(COMPILE2)
 
 * Use COMPILE_PAT to compile TEXT
 
 COMPILE4
 	TIME_ZERO = TIME()
-	IDENT(KEYTYPE,'NETWORK')				:F(COMP8)
-* Handle networks special:
-	TEXT NETWORK_HEADER S('NTW') =				:F(COMPILE5)
-* Do network by repeatedly applying RULE_PAT:
-COMP9	TEXT RULE_PAT =						:S(COMP9)
-	TEXT NETWORK_ENDER S('ENW')				:F(COMPILE5)S(COMP10)
-
-COMP8	TEXT COMPILE_PAT					:F(COMPILE5)
-COMP10	PRT()
+	TEXT COMPILE_PAT					:F(COMPILE5)
+	PRT()
 	PRT(TIME() - TIME_ZERO ' milliseconds compile time')
 	PRT()							:(COMPILE)
 
@@ -363,9 +350,7 @@ S_	S_ = .DUMMY						:($( 'S_' NA ))
 
 * Initialize the code for a network
 
-S_NTW	DEFINE( NAME '(PARENT,FEATS)THIS_NODE,HOLD' )
-	DISPLAY(' DEFINE(' Q1 NAME '(PARENT,FEATS)THIS_NODE,HOLD' Q1 ') ;')
-	ROUTINE = INITIAL_ROUTINE				:(NRETURN)
+S_NTW	ROUTINE = INITIAL_ROUTINE				:(NRETURN)
 
 * The label for a rule
 
@@ -387,8 +372,11 @@ S_ELB	ROUTINE = ROUTINE ' :(' REPLACE_LIT '_LOSE) ;'		:(NRETURN)
 
 S_ENW	ROUTINE REPLACE_LIT = NAME				:S(S_ENW)
 	DISPLAY( ROUTINE )
-	CODE( ROUTINE )						:S(NRETURN)
-	ERROR('Compilation error')				:(FRETURN)
+	CODE( ROUTINE )						:F(S_ENW1)
+	DEFINE( NAME '(PARENT,FEATS)THIS_NODE,HOLD' )
+	DISPLAY(' DEFINE(' Q1 NAME '(PARENT,FEATS)THIS_NODE,HOLD' Q1 ') ;')
+								:(NRETURN)
+S_ENW1	ERROR('Compilation error')				:(FRETURN)
 
 * Push a sentence onto the stack of sentences
 
@@ -424,16 +412,17 @@ S_LOC	LOC BLANKS = 					:S(S_LOC)F(NRETURN)
 
 * Initialize FUNCTION
 
-S_FN	DISPLAY(' DEFINE(' Q1 NAME ARG LOC Q1 ') ;')
-	DEFINE( NAME ARG LOC )					:(NRETURN)
+S_FN								:(NRETURN)
 
 * Compile a FUNCTION
 
 S_F	BODY = BODY " ERROR('No return from ' "
 +		Q1 NAME Q1 ") :(END) ;"
 	DISPLAY( NAME BLANK BODY )
-	CODE( NAME BLANK BODY )					:S(NRETURN)
-	ERROR('Compilation error')				:(FRETURN)
+	CODE( NAME BLANK BODY )					:F(S_F1)
+	DISPLAY(' DEFINE(' Q1 NAME ARG LOC Q1 ') ;')
+	DEFINE( NAME ARG LOC )					:(NRETURN)
+S_F1	ERROR('Compilation error')				:(FRETURN)
 
 * For EXEC, call MAIN with NAME = name of first network to be called
 

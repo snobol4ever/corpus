@@ -1,4 +1,4 @@
-* ENDING.SNO -- SNOBOL4+ Version
+* ENDING.SPT -- SPITBOL Version
 *
 * Analysis of English Endings
 *
@@ -7,10 +7,11 @@
 *           New York:  Academic Press, 1972.
 *
 *	To run:
-*	  SNOBOL4 ENDING <ENDING.IN
+*	  spitbol ending.spt <ending.in
 *
- &FULLSCAN = 1
  &TRIM = 1
+ LCASE = "abcdefghijklmnopqrstuvwxyz"
+ UCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
  DEFINE('WORDEND(WORD)L,VOWEL,DOUBLE,LIQUID,NOEND')
  DEFINE('MATCH(L,PAT)')
@@ -106,7 +107,9 @@ DICT.LOOP
        DICTIONARY<W> = 1                          :(DICT.LOOP)
 DICT.LOOP.END
 *
-READ   W = REPLACE(INPUT,&LCASE,&UCASE)           :F(END)
+       SETEXIT(.CONTINUE)
+
+READ   W = REPLACE(INPUT,LCASE,UCASE)             :F(END)
        WORDEND(W)
        OUTPUT = WRD                               :(READ)
 END

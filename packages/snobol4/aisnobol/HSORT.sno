@@ -1,10 +1,10 @@
-*  HSORT.SNO - SNOBOL4+ Version
+*  HSORT.SPT - SPITBOL Version
 *
 *  C.A.R. Hoare's Quicksort algorithm
 *
 * Sort array A according to predicate P.
 *
-* Demonstration only:  Remember that SNOBOL4 has a built-in SORT function.
+* Demonstration only:  Remember that SPITBOL has a built-in SORT function.
 *
 * P(A<I>,A<J>) true for all I < J.
 *
@@ -16,7 +16,7 @@
 *     .LT, .GT, .LLT, .LGT
 *
 *  To run with sample data:
-*  SNOBOL4 HSORT /I:HSORT
+*  spitbol -u "hsort.in" hsort.spt
 *
  DEFINE('HSORT(A,I,N,P)J,K,C')
  DEFINE('HSORT.KO(V1,V2)')
@@ -57,6 +57,9 @@ HSORT.END
 *
 *
       &TRIM = 1
+      INPUT(.INPUT,1,HOST(0))                :S(GO)
+      TERMINAL = "Cannot open input file: " HOST(0)  :(END)
+GO    SETEXIT(.CONTINUE)
 
 * Make two passes through input file -- First to count the number of lines
 * in the file to allocate an array of the correct size, second pass to read
@@ -67,7 +70,7 @@ COUNT
       N = ?INPUT   N + 1      :S(COUNT)
 *
       A = ARRAY(N)
-      REWIND( 5 )
+      REWIND( 1 )
       I = 0
 INPUT.LOOP
       I = LT(I,N) I + 1       :F(INPUT.LOOP.END)

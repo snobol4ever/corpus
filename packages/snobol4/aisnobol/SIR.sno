@@ -1,4 +1,5 @@
-* SIR.SNO - SNOBOL4+ Version
+-INCLUDE "SPITCORE.sno"
+* SIR.SPT - Spitbol-68K Version
 *
 * This version of Bertram Raphael's SIR program
 * was translated into SNOBOL4 using the SNOLISPIST
@@ -11,13 +12,12 @@
 * The comments are from Shapiro's LISP program.
 *
 * To run the program with the canned input of Shapiro's book:
-*     a)  have copies of SIR, SNOCORE.INC, and SNOLIB.INC in your
+*     a)  have copies of sir.spt, snocore.spt and snolib.spt in your
 *         directory.
-*     b)  type SNOBOL4 SIR <SIR.IN
+*     b)  type:
+*           spitbol spitcore.spt sir.spt <sir.in
 *
 *
--INCLUDE "SNOCORE.sno"
--EJECT
 **************************************
 * FUNCTIONS FOR THE TOP LEVEL OF SIR *
 **************************************
@@ -36,7 +36,8 @@ SIR.END
 * and returns the sentence in a list.
 *
  DEFINE('GET.SENTENCE()S,P')       :(GET.SENTENCE.END)
-GET.SENTENCE   S = S " " REPLACE(IN(.OUTPUT.), &LCASE, &UCASE) :F(FRETURN)
+GET.SENTENCE   S = S " " REPLACE(IN(.OUTPUT.),
++    "abcdefghijklmnopqrstuvwxyz","ABCDEFGHIJKLMNOPQRSTUVWXYZ") :F(FRETURN)
      S RPOS(1) ANY("!?") . P = " " P
 +         :F(GET.SENTENCE)
  GET.SENTENCE = READ( "(" S ")" )      :S(RETURN)F(FRETURN)
