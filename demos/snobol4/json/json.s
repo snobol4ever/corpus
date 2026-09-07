@@ -10051,6 +10051,23 @@ jutf8_α:                sub              rsp, 64
                         sub              rcx, 1
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 0], rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 8], rax
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -10156,6 +10173,34 @@ jutf8_γ:                mov              rdi, qword ptr [r9 + 0]              #
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
@@ -10187,6 +10232,34 @@ jutf8_ω:                mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
 .Ldefine_α_1910_180:    push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -11702,6 +11775,23 @@ jdec_α:                 sub              rsp, 144
                         sub              rcx, 1
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 0], rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 8], rax
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -11827,6 +11917,34 @@ jdec_γ:                 mov              rdi, qword ptr [r9 + 32]             #
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
@@ -11878,6 +11996,34 @@ jdec_ω:                 mov              rcx, qword ptr [rsp + 112]
                         mov              rax, qword ptr [rsp + 136]
                         mov              qword ptr [r9 + 56], rax
 .Ldefine_α_2000_180:    push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -14736,6 +14882,23 @@ vpush_α:                sub              rsp, 64
                         sub              rcx, 1
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 0], rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 8], rax
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -14841,6 +15004,34 @@ vpush_γ:                mov              rdi, qword ptr [r9 + 128]            #
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
@@ -14872,6 +15063,34 @@ vpush_ω:                mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 152], rax
 .Ldefine_α_2176_180:    push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -15653,6 +15872,23 @@ pobj_α:                 sub              rsp, 48
                         sub              rcx, 1
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 0], rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 8], rax
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -15745,6 +15981,34 @@ pobj_γ:                 mov              rdi, qword ptr [r9 + 160]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
@@ -15763,6 +16027,34 @@ pobj_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 168], rax
                         push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -16706,6 +16998,23 @@ parr_α:                 sub              rsp, 48
                         sub              rcx, 1
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 0], rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 8], rax
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -16798,6 +17107,34 @@ parr_γ:                 mov              rdi, qword ptr [r9 + 176]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
@@ -16816,6 +17153,34 @@ parr_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 184], rax
                         push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -17759,6 +18124,23 @@ ekey_α:                 sub              rsp, 48
                         sub              rcx, 1
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 0], rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 8], rax
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -17851,6 +18233,34 @@ ekey_γ:                 mov              rdi, qword ptr [r9 + 192]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
@@ -17869,6 +18279,34 @@ ekey_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 200], rax
                         push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -18448,6 +18886,23 @@ eobj_α:                 sub              rsp, 144
                         sub              rcx, 1
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 0], rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 8], rax
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -18618,6 +19073,34 @@ eobj_γ:                 mov              rdi, qword ptr [r9 + 208]            #
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
@@ -18714,6 +19197,34 @@ eobj_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rsp + 136]
                         mov              qword ptr [r9 + 296], rax
 .Ldefine_α_2416_185:    push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -21313,6 +21824,23 @@ earr_α:                 sub              rsp, 112
                         sub              rcx, 1
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 0], rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 8], rax
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -21457,6 +21985,34 @@ earr_γ:                 mov              rdi, qword ptr [r9 + 304]            #
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
@@ -21527,6 +22083,34 @@ earr_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rsp + 104]
                         mov              qword ptr [r9 + 296], rax
 .Ldefine_α_2583_183:    push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -23403,6 +23987,23 @@ estr_α:                 sub              rsp, 48
                         sub              rcx, 1
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 0], rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 8], rax
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -23495,6 +24096,34 @@ estr_γ:                 mov              rdi, qword ptr [r9 + 336]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
@@ -23513,6 +24142,34 @@ estr_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 344], rax
                         push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -24006,6 +24663,23 @@ enum_α:                 sub              rsp, 48
                         sub              rcx, 1
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 0], rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 8], rax
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -24098,6 +24772,34 @@ enum_γ:                 mov              rdi, qword ptr [r9 + 352]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
@@ -24116,6 +24818,34 @@ enum_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 360], rax
                         push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -25175,6 +25905,23 @@ etru_α:                 sub              rsp, 48
                         sub              rcx, 1
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 0], rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 8], rax
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -25267,6 +26014,34 @@ etru_γ:                 mov              rdi, qword ptr [r9 + 368]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
@@ -25285,6 +26060,34 @@ etru_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 376], rax
                         push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -25742,6 +26545,23 @@ efal_α:                 sub              rsp, 48
                         sub              rcx, 1
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 0], rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 8], rax
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -25834,6 +26654,34 @@ efal_γ:                 mov              rdi, qword ptr [r9 + 384]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
@@ -25852,6 +26700,34 @@ efal_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 392], rax
                         push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -26309,6 +27185,23 @@ enul_α:                 sub              rsp, 48
                         sub              rcx, 1
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 0], rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              qword ptr [rcx + 8], rax
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
@@ -26401,6 +27294,34 @@ enul_γ:                 mov              rdi, qword ptr [r9 + 400]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
                         movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
                         sub              rcx, 1
                         mov              dword ptr [rax + 0], ecx
                         sub              rcx, 1
@@ -26419,6 +27340,34 @@ enul_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 408], rax
                         push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_stno@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 0]
+                        mov              qword ptr [rax + 0], rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        and              rcx, 4095
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        add              rcx, rcx
+                        mov              rax, qword ptr [rip + rt_stno_stack@GOTPCREL]
+                        add              rcx, rax
+                        mov              rax, qword ptr [rip + g_line@GOTPCREL]
+                        mov              rcx, qword ptr [rcx + 8]
+                        mov              qword ptr [rax + 0], rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
