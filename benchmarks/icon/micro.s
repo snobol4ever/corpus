@@ -41698,7 +41698,7 @@ n01923_create_α:         mov              r11, 1992
                         mov              qword ptr [rsp + 208], r9
                         lea              rdi, [rip + n01924_repalt_α]
                         lea              rsi, [rsp + 160]
-                        mov              edx, 416
+                        mov              edx, 448
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -42162,7 +42162,7 @@ n01949_create_α:         mov              r11, 2019
                         mov              qword ptr [rsp + 384], r9
                         lea              rdi, [rip + n01950_repalt_α]
                         lea              rsi, [rsp + 336]
-                        mov              edx, 560
+                        mov              edx, 592
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11

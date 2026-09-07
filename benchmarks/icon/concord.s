@@ -3141,6 +3141,15 @@ n00082_scan_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00082_scan_α:            mov              r11, 150
                         mov              qword ptr [rbp + -784], r14
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_scan_live_subj@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rbp + -776], rax
                         mov              rdi, qword ptr [rbp + -992]
                         mov              rsi, qword ptr [rbp + -984]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -3164,12 +3173,11 @@ n00082_scan_β:            mov              r11, 150
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + -984], rax
-                        mov              rdi, qword ptr [rbp + -608]
-                        mov              rsi, qword ptr [rbp + -600]
+                        mov              rdi, qword ptr [rbp + -776]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_scan_enter@PLT
+                        call             rt_scan_reenter_live@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3186,7 +3194,7 @@ n00082_scan_β:            mov              r11, 150
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n00073_disjunction_β
-                                                                              jmp   item_γ
+                                                                              jmp   .Ldisjunction_ω_304_af
                         .size            n00082_scan_bx, .-n00082_scan_bx
                         .type            n00069_scan_bx, @function
 n00069_scan_bx:
