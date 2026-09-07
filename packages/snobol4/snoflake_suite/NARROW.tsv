@@ -8,6 +8,7 @@ gimpel-basic-string-functions.sno	ERRNO	error compared by number only (m3), not 
 gimpel-bnorm-inorm-image-line.sno	ERRNO	error compared by number only (m3), not full stream equality against the sbl -bf oracle
 gimpel-crack-cata-functions.sno	ERRNO	error compared by number only (m3), not full stream equality against the sbl -bf oracle
 gimpel-function-tracing.sno	ERRNO	error compared by number only (m3), not full stream equality against the sbl -bf oracle
+gimpel-general-purpose-macro.sno	ERRNO	error compared by number only (m3), not full stream equality against the sbl -bf oracle
 gimpel-generated-stack-functions.sno	ERRNO	error compared by number only (m3), not full stream equality against the sbl -bf oracle
 gimpel-infinip-arithmetic.sno	ERRNO	error compared by number only (m3), not full stream equality against the sbl -bf oracle
 gimpel-insulate-anchor.sno	ERRNO	error compared by number only (m3), not full stream equality against the sbl -bf oracle
