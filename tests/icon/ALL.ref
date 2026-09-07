@@ -2644,7 +2644,9 @@ p0
 p1
 p0
 p11
-#------------------------------------------------ 768 procedure_every_elemgen_19
+#------------------------------------------------------- 768 procedure_write_252
+keyorder=@-*$!+%/
+#------------------------------------------------ 769 procedure_every_elemgen_19
 110
 120
 130
@@ -2653,7 +2655,7 @@ break
 next
 10
 30
-#------------------------------------------------- 769 procedure_every_elemgen_9
+#------------------------------------------------- 770 procedure_every_elemgen_9
 110
 120
 130
@@ -2662,7 +2664,7 @@ break
 next
 10
 30
-#------------------------------------------ 770 procedure_record_every_replace_8
+#------------------------------------------ 771 procedure_record_every_replace_8
 9
 9
 9
@@ -2670,24 +2672,24 @@ next
 4
 4
 XXX
-#---------------------------------------------- 771 procedure_every_to_replace_5
+#---------------------------------------------- 772 procedure_every_to_replace_5
 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47
-#---------------------------------------------- 772 procedure_every_to_replace_8
+#---------------------------------------------- 773 procedure_every_to_replace_8
 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47
-#------------------------------------------ 773 procedure_record_table_replace_1
+#------------------------------------------ 774 procedure_record_table_replace_1
 11 6
 105 5
 abcXde
 7
-#--------------------------------------------- 774 procedure_while_map_replace_1
+#--------------------------------------------- 775 procedure_while_map_replace_1
 yes
 no
 yes
-#--------------------------------------------- 775 procedure_while_map_replace_2
+#--------------------------------------------- 776 procedure_while_map_replace_2
 yes
 no
 yes
-#------------------------------------------------- 776 procedure_write_keyword_7
+#------------------------------------------------- 777 procedure_write_keyword_7
 1
 2
 3
@@ -2704,7 +2706,7 @@ yes
 2
 2
 1
-#------------------------------------------------- 777 procedure_write_keyword_6
+#------------------------------------------------- 778 procedure_write_keyword_6
 1
 2
 3
@@ -2721,7 +2723,7 @@ yes
 2
 2
 1
-#------------------------------------------------------- 778 procedure_write_143
+#------------------------------------------------------- 779 procedure_write_143
 procedure
 procedure
 procedure main
@@ -2734,7 +2736,7 @@ function push
 20
 30
 cba
-#-------------------------------------------- 779 procedure_record_alt_replace_2
+#-------------------------------------------- 780 procedure_record_alt_replace_2
 integer(2) ----> 2
 integer("2") ----> 2
 integer(" 2") ----> 2
@@ -2846,66 +2848,66 @@ abs(0) ----> 0
 -1 ~= -0 ----> 0
 36 ^ -9 ----> 0
 -36 ^ -9 ----> 0
-#---------------------------------------------------- 780 procedure_every_alt_26
+#---------------------------------------------------- 781 procedure_every_alt_26
 3
-#---------------------------------------------------- 781 procedure_every_alt_19
+#---------------------------------------------------- 782 procedure_every_alt_19
 done
-#-------------------------------------------------- 782 ladder_rung36_sets_union
+#-------------------------------------------------- 783 ladder_rung36_sets_union
 1
 2
 3
 4
-#---------------------------------- 783 ladder_rung38_coexpr_parallel_evaluation
+#---------------------------------- 784 ladder_rung38_coexpr_parallel_evaluation
 11
 22
 33
-#------------------------------------------------------ 784 procedure_scan_tab_3
+#------------------------------------------------------ 785 procedure_scan_tab_3
 s=[-n10] *s=4
-#------------------------------------------------------- 785 procedure_write_242
+#------------------------------------------------------- 786 procedure_write_242
 0
 1
 2
 3
-#---------------------------------------------- 786 ladder_rung36_sets_interdiff
+#---------------------------------------------- 787 ladder_rung36_sets_interdiff
 2
 3
 1
-#------------------------------------------------- 787 ladder_rung42_kw_features
+#------------------------------------------------- 788 ladder_rung42_kw_features
 0 1
-#------------------------------------------------- 788 procedure_every_suspend_3
+#------------------------------------------------- 789 procedure_every_suspend_3
 4
 3
 2
 1
-#-------------------------------------------- 789 procedure_scan_limit_replace_1
+#-------------------------------------------- 790 procedure_scan_limit_replace_1
 3
 2
-#---------------------------------------- 790 ladder_rung38_coexpr_refresh_caret
+#---------------------------------------- 791 ladder_rung38_coexpr_refresh_caret
 2
 4
 2
 4
-#------------------------------------------ 791 procedure_record_every_replace_9
+#------------------------------------------ 792 procedure_record_every_replace_9
 11
 12
 13
 15
 8
 9
-#--------------------------------------------- 792 procedure_alt_limit_replace_1
+#--------------------------------------------- 793 procedure_alt_limit_replace_1
 1 1
 5
 7
 10 2
-#---------------------------------------------- 793 procedure_every_to_replace_1
+#---------------------------------------------- 794 procedure_every_to_replace_1
 MDCCLXXVI
 XLII
 IX
-#---------------------------------------------- 794 procedure_every_to_replace_7
+#---------------------------------------------- 795 procedure_every_to_replace_7
 MDCCLXXVI
 XLII
 IX
-#------------------------------------------- 795 procedure_every_scan_replace_11
+#------------------------------------------- 796 procedure_every_scan_replace_11
 kw_lhs swap: &pos=4 x=3
 kw_lhs oob: blocked
 kw_lhs oob state: &pos=3 x=9
@@ -2914,7 +2916,7 @@ kw_rhs oob: &pos=3 x=3
 after rev &pos<->x: &pos=3 x=9
 subj_mut &pos<->x: &pos=1 x=3
 subj_mut x<->&pos: &pos=1 x=2
-#-------------------------------------------- 796 procedure_record_alt_replace_1
+#-------------------------------------------- 797 procedure_record_alt_replace_1
 i := 10 ----> 10
 i =:= 9 ----> none
 i ----> 10
@@ -3042,37 +3044,37 @@ s ----> "X"
 s := "x" ----> "x"
 s ~==:= "abc" ----> "abc"
 s ----> "abc"
-#------------------------------------------------------- 797 procedure_write_212
+#------------------------------------------------------- 798 procedure_write_212
 4
-#------------------------------------------------- 798 ladder_rung37_bal_vs_upto
+#------------------------------------------------- 799 ladder_rung37_bal_vs_upto
 a(b
 a(b,c)
-#------------------------------------------- 799 ladder_rung37_bal_custom_delims
+#------------------------------------------- 800 ladder_rung37_bal_custom_delims
 [a,[b,c]]
 d
-#--------------------------------------------- 800 procedure_alt_while_replace_1
+#--------------------------------------------- 801 procedure_alt_while_replace_1
 1
 1
 2
 2
 3
 3
-#------------------------------------------------- 801 procedure_every_suspend_1
+#------------------------------------------------- 802 procedure_every_suspend_1
 1
 2
 3
 4
-#------------------------------------------------- 802 procedure_every_suspend_2
+#------------------------------------------------- 803 procedure_every_suspend_2
 1
 2
 3
 1
 2
-#------------------------------------------------- 803 ladder_rung37_bal_default
+#------------------------------------------------- 804 ladder_rung37_bal_default
 f(a,b)
 c
 failed
-#------------------------------------- 804 ladder_rung38_coexpr_coroutine_switch
+#------------------------------------- 805 ladder_rung38_coexpr_coroutine_switch
 activation 1 of C2
 activation 1 of C1
 activation 2 of C2
@@ -3080,10 +3082,10 @@ activation 2 of C1
 activation 3 of C2
 activation 3 of C1
 main done
-#----------------------------------------------- 805 procedure_scan_to_replace_1
+#----------------------------------------------- 806 procedure_scan_to_replace_1
 entry:       p="-n10" q="AA" r="BB" s="CC"
 after match: p="-n10" q="AA" r="BB" s="CC"
-#----------------------------------------- 806 procedure_every_suspend_replace_1
+#----------------------------------------- 807 procedure_every_suspend_replace_1
 a2
 a2
 a4
@@ -3093,7 +3095,7 @@ l=a2
 l=a4
 l=a3
 l=a1
-#---------------------------------------------- 807 procedure_every_to_replace_2
+#---------------------------------------------- 808 procedure_every_to_replace_2
 
 
 p
@@ -3253,7 +3255,7 @@ gaggle
      e
      s
 gaggle
-#----------------------------------------- 808 procedure_every_elemgen_replace_5
+#----------------------------------------- 809 procedure_every_elemgen_replace_5
 cset
 cset
 cset
@@ -3266,13 +3268,13 @@ cset
 a
 b
 4
-#---------------------------------------------- 809 procedure_every_to_replace_4
+#---------------------------------------------- 810 procedure_every_to_replace_4
 fh-write-ok
 fh-writes-ok
 file-content
 42
 done
-#---------------------------------------------- 810 procedure_alt_fail_replace_1
+#---------------------------------------------- 811 procedure_alt_fail_replace_1
 cset
 cset
 cset
@@ -3307,37 +3309,306 @@ integer
 0
 0
 1
-#------------------------------------------------------- 811 procedure_write_214
+#------------------------------------------------------- 812 procedure_write_214
 world
 12
-#---------------------------------------------- 812 procedure_scan_tab_replace_2
+#---------------------------------------------- 813 procedure_scan_tab_replace_2
 pos=1
-#------------------------------------------ 813 ladder_rung36_sets_delete_member
+#------------------------------------------ 814 ladder_rung36_sets_delete_member
 2
 absent
 1
 3
-#------------------------------------------------------- 814 procedure_write_225
+#------------------------------------------------------- 815 procedure_write_225
 d
 e
 f
-#------------------------------------------------------- 815 procedure_write_249
+#------------------------------------------------------- 816 procedure_write_249
 4
 f(a,b)
 rest
-#------------------------------------------------------ 816 procedure_scan_tab_4
+#------------------------------------------------------- 817 procedure_write_250
+0 -> int
+"" -> empty
+"lab_199" -> 124
+"lab_757" -> 61
+"lab_170" -> 111
+"lab_327" -> 77
+"lab_389" -> 70
+"lab_790" -> 41
+"lab_947" -> 7
+"abcdefghij" -> ten
+"lab_360" -> 57
+"lab_517" -> 23
+"lab_579" -> 16
+"lab_629" -> 108
+1.25 -> real
+"lab_21" -> -79
+"lab_83" -> 72
+"lab_149" -> 32
+"lab_550" -> 3
+"lab_600" -> 95
+"lab_662" -> 88
+"lab_819" -> 54
+"abcdefghijkl" -> twelve
+"lab_182" -> 12
+"lab_232" -> 104
+"lab_294" -> 97
+"lab_852" -> 34
+"lab_902" -> 126
+"lab_964" -> 119
+49480 -> int
+"lab_422" -> 50
+"lab_484" -> 43
+"lab_596" -> 128
+"lab_724" -> 81
+"lab_786" -> 74
+"lab_244" -> 5
+"lab_356" -> 90
+"lab_914" -> -27
+"lab_976" -> 20
+"lab_17" -> 112
+"lab_79" -> -105
+"lab_546" -> 36
+"lab_658" -> 121
+"lab_1005" -> 33
+1.0 -> real
+43295 -> int
+"lab_50" -> -92
+"lab_116" -> 52
+"lab_178" -> 45
+"lab_691" -> 101
+"lab_848" -> 67
+"lab_261" -> 117
+"lab_418" -> 83
+"lab_881" -> 47
+"lab_29" -> 13
+"lab_451" -> 63
+"lab_608" -> 29
+37110 -> int
+"lab_641" -> 9
+"lab_753" -> 94
+"lab_211" -> 25
+"lab_273" -> 18
+"lab_323" -> 110
+"lab_385" -> 103
+"lab_943" -> -40
+0.75 -> real
+"lab_46" -> 125
+"lab_513" -> 56
+"lab_575" -> 49
+30925 -> int
+"lab_145" -> 65
+"lab_703" -> 2
+"lab_815" -> 87
+"lab_877" -> 80
+"lab_290" -> 130
+"lab_335" -> 11
+"lab_397" -> 4
+"lab_447" -> 96
+"lab_58" -> 26
+"lab_480" -> 76
+"lab_637" -> 42
+"lab_699" -> 35
+24740 -> int
+"lab_91" -> 6
+"lab_207" -> 58
+"lab_269" -> 51
+"lab_670" -> 22
+"lab_720" -> 114
+"lab_782" -> 107
+"lab_240" -> 38
+"lab_352" -> 123
+"lab_509" -> 89
+"lab_910" -> 60
+"lab_972" -> -53
+0.5 -> real
+"lab_542" -> 69
+"lab_1001" -> -66
+"lab_112" -> 85
+"lab_174" -> 78
+"lab_732" -> 15
+"lab_794" -> 8
+18555 -> int
+"lab_302" -> 31
+"lab_364" -> 24
+"lab_414" -> 116
+"lab_87" -> 39
+"lab_604" -> 62
+"lab_236" -> 71
+"lab_856" -> -1
+"lab_906" -> 93
+"lab_968" -> 86
+12370 -> int
+"lab_426" -> 17
+"lab_538" -> 102
+0.25 -> real
+"lab_108" -> -118
+"lab_728" -> 48
+"lab_141" -> 98
+"lab_811" -> 120
+"lab_873" -> 113
+6185 -> int
+"lab_331" -> 44
+"lab_443" -> 129
+"lab_54" -> 59
+"lab_633" -> 75
+"lab_695" -> 68
+"lab_265" -> 84
+"lab_823" -> 21
+"lab_885" -> -14
+"lab_935" -> 106
+"lab_997" -> 99
+"lab_455" -> 30
+"lab_505" -> 122
+"lab_567" -> 115
+int
+empty
+124
+61
+111
+77
+70
+41
+7
+ten
+57
+23
+16
+108
+real
+-79
+72
+32
+3
+95
+88
+54
+twelve
+12
+104
+97
+34
+126
+119
+int
+50
+43
+128
+81
+74
+5
+90
+-27
+20
+112
+-105
+36
+121
+33
+real
+int
+-92
+52
+45
+101
+67
+117
+83
+47
+13
+63
+29
+int
+9
+94
+25
+18
+110
+103
+-40
+real
+125
+56
+49
+int
+65
+2
+87
+80
+130
+11
+4
+96
+26
+76
+42
+35
+int
+6
+58
+51
+22
+114
+107
+38
+123
+89
+60
+-53
+real
+69
+-66
+85
+78
+15
+8
+int
+31
+24
+116
+39
+62
+71
+-1
+93
+86
+int
+17
+102
+real
+-118
+48
+98
+120
+113
+int
+44
+129
+59
+75
+68
+84
+21
+-14
+106
+99
+30
+122
+115
+#------------------------------------------------------ 818 procedure_scan_tab_4
 A pos=1
 B pos=1
 C pos=1
-#------------------------------------------------------ 817 procedure_alt_case_1
+#------------------------------------------------------ 819 procedure_alt_case_1
 int=1
 int=2
 iters=3 (expect 3)
-#------------------------------------------- 818 procedure_record_scan_replace_1
+#------------------------------------------- 820 procedure_record_scan_replace_1
 f:A/112/C
 A 112 C
 A112C
-#----------------------------------------- 819 procedure_record_every_replace_10
+#----------------------------------------- 821 procedure_record_every_replace_10
 22
 42
 10
@@ -3354,7 +3625,7 @@ abXde
 40
 50
 i
-#----------------------------------------- 820 procedure_every_elemgen_replace_4
+#----------------------------------------- 822 procedure_every_elemgen_replace_4
 A. a
 B. a
 B. b
@@ -3723,21 +3994,21 @@ P a3de
 Q f4ij
 Q k5mno
 Q k6mno
-#-------------------------------------------- 821 procedure_scan_while_replace_2
+#-------------------------------------------- 823 procedure_scan_while_replace_2
 9
-#-------------------------------------------- 822 procedure_scan_while_replace_3
+#-------------------------------------------- 824 procedure_scan_while_replace_3
 9
-#---------------------------------------------------- 823 procedure_scan_while_1
+#---------------------------------------------------- 825 procedure_scan_while_1
 dash
 flist size=0
-#----------------------------------------- 824 procedure_record_every_replace_11
+#----------------------------------------- 826 procedure_record_every_replace_11
 5 17
 42
 17 42
 103 4 105 60
 7
 aXcd!
-#--------------------------------------------- 825 procedure_every_alt_replace_6
+#--------------------------------------------- 827 procedure_every_alt_replace_6
 function sqrt(0.0) = 0.0
 function sqrt(0.25) = 0.5
 function sqrt(1.0) = 1.0
@@ -3817,7 +4088,7 @@ function atan(0.0, 1.0) = 0.0
 function atan(1.0, -1.0) = 2.356
 function atan(1.0, 0.0) = 1.571
 function atan(1.0, 1.0) = 0.785
-#---------------------------------------------------- 826 procedure_every_alt_20
+#---------------------------------------------------- 828 procedure_every_alt_20
 simple_mutual:
 1,4
 1,5
@@ -3853,7 +4124,7 @@ static_mutual:
 queens_4:
 sol:2413
 sol:3142
-#---------------------------------------------------- 827 procedure_every_scan_2
+#---------------------------------------------------- 829 procedure_every_scan_2
 19683
 1
 -2
@@ -3865,7 +4136,7 @@ sol:3142
 2
 3
 xy
-#--------------------------------------------- 828 procedure_every_alt_replace_5
+#--------------------------------------------- 830 procedure_every_alt_replace_5
     s1    s2    <<   <<=    ==   ~==   >>=    >>
     ""    ""   ---    ""    ""   ---    ""   ---
     ""   "a"   "a"   "a"   ---   "a"   ---   ---
@@ -3902,11 +4173,95 @@ xy
     ''   "c"   "c"   "c"   ---   "c"   ---   ---
     ''   'x'   "x"   "x"   ---   "x"   ---   ---
     ''   '2'   "2"   "2"   ---   "2"   ---   ---
-#------------------------------------------ 829 procedure_suspend_scan_replace_1
+#------------------------------------------ 831 procedure_suspend_scan_replace_1
 
-#-------------------------------------------- 830 procedure_every_scan_replace_1
+#------------------------------------------------------- 832 procedure_write_251
+record lab_5(1) -> l5
+record other_5(2) -> 5
+record lab_26(1) -> l26
+record lab_47(1) -> m19
+record lab_10(1) -> l10
+record lab_31(1) -> l31
+record lab_36(1) -> l36
+record lab_52(1) -> m34
+record lab_15(1) -> l15
+record lab_20(1) -> l20
+record lab_41(1) -> m1
+record lab_4(1) -> l4
+record other_4(2) -> 4
+record lab_25(1) -> l25
+record lab_46(1) -> m16
+record lab_9(1) -> l9
+record lab_30(1) -> l30
+record lab_51(1) -> m31
+record lab_14(1) -> l14
+record lab_19(1) -> l19
+record lab_35(1) -> l35
+record lab_40(1) -> l40
+record lab_3(1) -> l3
+record other_3(2) -> 3
+record lab_24(1) -> l24
+record lab_45(1) -> m13
+record lab_8(1) -> l8
+record lab_29(1) -> l29
+record lab_50(1) -> m28
+record lab_13(1) -> l13
+record lab_18(1) -> l18
+record lab_34(1) -> l34
+record lab_39(1) -> l39
+record lab_2(1) -> l2
+record other_2(2) -> 2
+record lab_23(1) -> l23
+record lab_44(1) -> m10
+record lab_7(1) -> l7
+record other_7(2) -> 7
+record lab_28(1) -> l28
+record lab_49(1) -> m25
+record lab_54(1) -> m40
+record lab_12(1) -> l12
+record lab_33(1) -> l33
+record lab_38(1) -> l38
+record lab_1(1) -> l1
+record other_1(2) -> 1
+record lab_17(1) -> l17
+record lab_22(1) -> l22
+record lab_43(1) -> m7
+record lab_6(1) -> l6
+record other_6(2) -> 6
+record lab_27(1) -> l27
+record lab_48(1) -> m22
+record lab_11(1) -> l11
+record lab_32(1) -> l32
+record lab_37(1) -> l37
+record lab_53(1) -> m37
+record lab_16(1) -> l16
+record lab_21(1) -> l21
+record lab_42(1) -> m4
+list_5(1) -> 4
+set_5(1) -> 5
+table_5(0) -> 3
+list_10(1) -> 9
+list_4(1) -> 3
+set_4(1) -> 4
+table_4(0) -> 2
+list_9(1) -> 8
+list_3(1) -> 2
+set_3(1) -> 3
+table_3(0) -> 1
+list_8(1) -> 7
+list_13(1) -> 12
+list_2(1) -> 1
+set_2(1) -> 2
+list_7(1) -> 6
+table_7(0) -> 5
+list_12(1) -> 11
+set_1(1) -> 1
+list_6(1) -> 5
+table_6(0) -> 4
+list_11(1) -> 10
+#-------------------------------------------- 833 procedure_every_scan_replace_1
 c="n" optstring="n+" find=1
-#------------------------------------------- 831 procedure_every_scan_replace_12
+#------------------------------------------- 834 procedure_every_scan_replace_12
 a
 c
 e
@@ -3918,7 +4273,7 @@ i
 3
 
 abcde
-#------------------------------------------ 832 procedure_record_every_replace_6
+#------------------------------------------ 835 procedure_record_every_replace_6
 1 2
 3 4
 5 6
@@ -3934,7 +4289,7 @@ abcde
 3
 7
  11 22 73 74 
-#-------------------------------------------- 833 procedure_every_scan_replace_7
+#-------------------------------------------- 836 procedure_every_scan_replace_7
 type string
 *s  5
 s:  abcde
@@ -3972,7 +4327,7 @@ c3: "b"
 c4: "cdef"
 c5: "3.14159"
 c6: "abcdef"
-#-------------------------------------------- 834 procedure_every_scan_replace_8
+#-------------------------------------------- 837 procedure_every_scan_replace_8
   &pos=1   &subject=""
 
 s :=      "cat"         &pos=1   &subject="cat"
@@ -4035,9 +4390,9 @@ p :=          4 FAILED  &pos=2   &subject="x"
 &pos=3 x=3
 &pos=1 x=3
 &pos=1 x=2
-#----------------------------------------- 835 procedure_every_elemgen_replace_3
+#----------------------------------------- 838 procedure_every_elemgen_replace_3
 There are 168 primes in the first 1000 integers.
-#--------------------------------------------- 836 procedure_every_alt_replace_1
+#--------------------------------------------- 839 procedure_every_alt_replace_1
 6-Queens:
 solution 1:
   -------------------------
@@ -4096,7 +4451,7 @@ solution 4:
   |   | Q |   |   |   |   |
   -------------------------
 4 solutions total.
-#--------------------------------------------- 837 procedure_every_alt_replace_8
+#--------------------------------------------- 840 procedure_every_alt_replace_8
 6-Queens:
 solution 1:
   -------------------------
@@ -4155,7 +4510,7 @@ solution 4:
   |   | Q |   |   |   |   |
   -------------------------
 4 solutions total.
-#------------------------------------------ 838 procedure_record_every_replace_5
+#------------------------------------------ 841 procedure_record_every_replace_5
 
          0  i  2114
  453816694  i  4124
@@ -4221,7 +4576,7 @@ solution 4:
 1380138031  L  20
  425567097  R  2
  407906811  R  2
-#-------------------------------------------- 839 procedure_every_scan_replace_2
+#-------------------------------------------- 842 procedure_every_scan_replace_2
 +x          1     2     3     9
 -x         -1    -2    -3    -9
 *x          1     1     1     1
@@ -4276,7 +4631,7 @@ x ** y      2     1     2     2           2     1           x     2     2     x
 
   12578  .13459  ainorz  
   12345  678.9  cnost  
-#-------------------------------------------- 840 procedure_every_scan_replace_3
+#-------------------------------------------- 843 procedure_every_scan_replace_3
 The
 There
 are
@@ -4303,7 +4658,7 @@ sort
 the
 to
 write
-#--------------------------------------------- 841 procedure_every_alt_replace_4
+#--------------------------------------------- 844 procedure_every_alt_replace_4
   &allocated: 0
   &allocated: 0
   &allocated: 0
@@ -4380,7 +4735,7 @@ write
      &window: &null
           &x: 0
           &y: 0
-#----------------------------------------- 842 procedure_every_elemgen_replace_2
+#----------------------------------------- 845 procedure_every_elemgen_replace_2
 XIII
 IV
 VI
@@ -4389,11 +4744,11 @@ cannot convert
 XXXIX
 MMMCMXCIX
 cannot convert
-#-------------------------------------------- 843 procedure_scan_while_replace_1
+#-------------------------------------------- 846 procedure_scan_while_replace_1
 accbcabbaa
 14434241332312211
 AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABABAAAA
-#------------------------------------------- 844 procedure_every_scan_replace_10
+#------------------------------------------- 847 procedure_every_scan_replace_10
 A                   2
 B                   1
 D                   1
@@ -4447,7 +4802,7 @@ write               1
 writes              1
 x                   3
 y                   4
-#---------------------------------------------- 845 procedure_to_while_replace_1
+#---------------------------------------------- 848 procedure_to_while_replace_1
      1  Order, Coleoptera, (Beetles). Many beetles are colored so as
      2  to resemble the surfaces which they habitually frequent, and they thus
      3  escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
@@ -4576,7 +4931,7 @@ well             : 13
 which            : 2, 4, 13, 14
 with             : 4, 9
 worm             : 8
-#------------------------------------------ 846 procedure_record_every_replace_4
+#------------------------------------------ 849 procedure_record_every_replace_4
 6-Queens:
 solution: 1
   -------------------------
@@ -4637,7 +4992,7 @@ solution: 4
   -------------------------
   |   | Q |   |   |   |   |
   -------------------------
-#------------------------------------------ 847 procedure_record_every_replace_2
+#------------------------------------------ 850 procedure_record_every_replace_2
  ----> &null
 f := open("foo.baz","w") ----> file(foo.baz)
 write(f,"hello world") ----> "hello world"
@@ -4812,7 +5167,7 @@ close(f) ----> file(fncs1.dat)
 5.75              1.398 1.089 0.861 -0.50 -0.59 2.397 314.1 1.749 1.592 
 6.0               1.405 1.107 0.960 -0.27 -0.29 2.449 403.4 1.791 1.630 
 6.25              1.412 1.123 0.999 -0.03 -0.03 2.5   518.0 1.832 1.668 
-#-------------------------------------------- 848 procedure_every_scan_replace_9
+#-------------------------------------------- 851 procedure_every_scan_replace_9
    initial : 0 :
  >> 
  >> 3 3 
@@ -4831,7 +5186,7 @@ k 3
 v 7
        30s : 5 : [0]30 [1]31 [2]32 [3]33 [4]34
        50s : 5 : [0]50 [1]51 [2]52 [3]53 [4]54
-#------------------------------------------ 849 procedure_record_every_replace_7
+#------------------------------------------ 852 procedure_record_every_replace_7
  ----> &null
 s := "abcd" ----> "abcd"
 s := "x" ----> "x"
@@ -5063,9 +5418,9 @@ bal('+','[','[',"[[2*x[+3[+[5*y[") ----> none
 bal('+','([','])',"([2*x)+3]+(5*y]") ----> 10
 bal(,,,"()+()") ----> 1
 bal(&cset,,,"()+()") ----> 1
-#------------------------------------------ 850 procedure_record_every_replace_1
+#------------------------------------------ 853 procedure_record_every_replace_1
 he runs.
-#-------------------------------------------- 851 procedure_every_scan_replace_5
+#-------------------------------------------- 854 procedure_every_scan_replace_5
 -2
 -2
 a. [0]
@@ -5118,7 +5473,7 @@ z. [18] 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29
 x. [9] 21 22 23 24 25 26 27 28 29
 y. [9] 41 42 43 44 45 46 47 48 49
 z. [18] 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78 79
-#------------------------------------------ 852 procedure_record_every_replace_3
+#------------------------------------------ 855 procedure_record_every_replace_3
 Enter states (1 character names): Enter input alphabet: Enter Final states (subset of states): What is the start state? enter delta(a,0) = enter delta(a,1) = enter delta(b,0) = enter delta(b,1) = enter delta(c,0) = enter delta(c,1) = enter delta(d,0) = enter delta(d,1) = enter delta(e,0) = enter delta(e,1) = enter delta(f,0) = enter delta(f,1) = enter delta(g,0) = enter delta(g,1) = enter delta(h,0) = enter delta(h,1) = 
 
 
@@ -5519,7 +5874,7 @@ where:
 	d(bf,0) = ag	d(bf,1) = ce
 	d(ce,0) = d	d(ce,1) = bf
 	d(d,0) = d	d(d,1) = ag
-#-------------------------------------------- 853 procedure_every_scan_replace_6
+#-------------------------------------------- 856 procedure_every_scan_replace_6
 1 metafile 1250 1000 0 0 0 init
 581 950 (A) text
 751 880 (B) text
@@ -5589,7 +5944,7 @@ where:
 125 249 line stroke 874 249 begin 58 587 line stroke
 255 255 255 color
 0 0 (16 players, 5 rounds, 20 matches) text
-#-------------------------------------------- 854 procedure_every_scan_replace_4
+#-------------------------------------------- 857 procedure_every_scan_replace_4
 testing entab/detab(s)
 testing entab/detab(s,5)
 testing entab/detab(s,8,12)
@@ -5601,7 +5956,7 @@ testing entab/detab(s,3)
 testing entab/detab(s,3,4)
 testing entab/detab(s,5)
 testing entab/detab(s,5,7,10)
-#------------------------------------------- 855 procedure_record_scan_replace_2
+#------------------------------------------- 858 procedure_record_scan_replace_2
 <!-- Created by HTPREP -->
 <html><head>
 <title>Off the Beaten Path</title>
