@@ -1,5 +1,28 @@
-0.
-1.
-0.
-0.841470984807896
-0.540302305868141
+
+
+
+TRIG.sno(22) : ERROR 248 -- attempted redefinition of system function
+TRIG.sno(22) : ERROR 248 -- attempted redefinition of system function
+
+
+
+
+
+
+
+in file              TRIG.sno
+in file              TRIG.sno
+in line              22
+in line              22
+in statement         7
+in statement         7
+stmts executed       3
+stmts executed       3
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  14592
+memory left (bytes)  1033976
+
+

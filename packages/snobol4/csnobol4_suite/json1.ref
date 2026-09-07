@@ -1,27 +1,26 @@
-"hello world"
-"\b\t\n\f\r\"\\"
-"\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f"
-OK: 1
-OK: -1
-OK: 1.
-OK: 2.0
-OK: 3e2
-OK: 1.234e3
-OK: -1234e-3
-OK: null
-OK: "foo"
-OK: ["foo"]
-OK: [null]
-OK: [1,2,3]
-OK: {"a":"hello","z":"goodbye"}
-OK: [{"a":1.,"b":-2},{"c":3,"d":[4,5,6]}]
-OK: {}
-OK: "\b\t\n\f\r\"\\"
-OK: "hello\nworld"
-OK: "hello\u000Aworld"
-OK: "\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f"
-OK: "hello world"
-OK: "Καλημέρα κόσμε"
-OK: "こんにちは 世界"
-OK: "👍😊🥺😉😍😘😚😜😂😝😳😁😣😢😭😰🥰🥴😏🍆🍑"
-OK: "\U0001F44D"
+
+
+
+json1.sno(16) : ERROR 022 -- undefined function called
+json1.sno(16) : ERROR 022 -- undefined function called
+
+
+
+
+
+
+
+in file              json1.sno
+in file              json1.sno
+in line              16
+in line              16
+in statement         14
+in statement         14
+stmts executed       3
+stmts executed       3
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  15824
+memory left (bytes)  1032744

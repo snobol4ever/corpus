@@ -1,3 +1,28 @@
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 abcdefghijklmnopqrstuvwxyz
-0123456789
+
+
+
+digits.sno(3) : ERROR 251 -- keyword operand is not name of defined keyword
+digits.sno(3) : ERROR 251 -- keyword operand is not name of defined keyword
+
+
+
+
+
+
+
+in file              digits.sno
+in file              digits.sno
+in line              3
+in line              3
+in statement         3
+in statement         3
+stmts executed       3
+stmts executed       3
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  11360
+memory left (bytes)  1037208

@@ -1,5 +1,28 @@
-anchor-before=1
-anchor-inside=0 matched-B
-anchor-after=1
-anchor-inside=0 matched-B
-anchor-after2=0
+
+
+
+INSULATE.sno(7) : ERROR 248 -- attempted redefinition of system function
+INSULATE.sno(7) : ERROR 248 -- attempted redefinition of system function
+
+
+
+
+
+
+
+in file              INSULATE.sno
+in file              INSULATE.sno
+in line              7
+in line              7
+in statement         18
+in statement         18
+stmts executed       11
+stmts executed       11
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  16232
+memory left (bytes)  1032336
+
+

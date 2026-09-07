@@ -1,10 +1,26 @@
-foo
-BAR
-TEST
-DEFINE
-BAR
-bar
-TEST
-test
-DEFINE
-define
+
+
+
+function.sno(2) : ERROR 022 -- undefined function called
+function.sno(2) : ERROR 022 -- undefined function called
+
+
+
+
+
+
+
+in file              function.sno
+in file              function.sno
+in line              2
+in line              2
+in statement         2
+in statement         2
+stmts executed       8
+stmts executed       8
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  14568
+memory left (bytes)  1034000

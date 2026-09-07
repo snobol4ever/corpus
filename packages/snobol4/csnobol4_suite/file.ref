@@ -1,8 +1,26 @@
-FILE .
-FILE file.sno
-FILE aa
-FILE /
-FILE_ISDIR .
-FILE_ISDIR aa
-FILE_ISDIR /
-FILE_ABSPATH /
+
+
+
+file.sno(9) : ERROR 022 -- undefined function called
+file.sno(9) : ERROR 022 -- undefined function called
+
+
+
+
+
+
+
+in file              file.sno
+in file              file.sno
+in line              9
+in line              9
+in statement         9
+in statement         9
+stmts executed       7
+stmts executed       7
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  12640
+memory left (bytes)  1035928

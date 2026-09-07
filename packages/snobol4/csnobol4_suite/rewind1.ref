@@ -1,4 +1,28 @@
 hello
 world
-hello
-world
+
+
+
+rewind1.sno(2) : ERROR 174 -- rewind file does not exist
+rewind1.sno(2) : ERROR 174 -- rewind file does not exist
+
+
+
+
+
+
+
+in file              rewind1.sno
+in file              rewind1.sno
+in line              2
+in line              2
+in statement         2
+in statement         2
+stmts executed       4
+stmts executed       4
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  11416
+memory left (bytes)  1037152

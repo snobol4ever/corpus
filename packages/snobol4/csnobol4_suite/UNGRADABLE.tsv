@@ -10,3 +10,26 @@ utf.sno	CONTAINER_OR_LIBRARY	oracle refuses standalone run: Error 32 "Missing EN
 bench.sno	NEEDS_INPUT	oracle exits rc=1 "NO FILENAME ON COMMAND LINE" with no argv. A general-purpose SIL-to-C translator tool (genc family) that reads its OWN source path from argv via HOST(2,HOST(3)); no fixture argv is shipped for it. Even if one were supplied, its output embeds DATE() (`OUTPUT = '/* generated from ' SILPATH ' by genc.sno on ' DATE ' */'`), so no run could ever be byte-reproducible against a stored ref.
 preload3.sno	NEEDS_INPUT	oracle exits rc=0 with EMPTY output when run exactly as tests.in registers it (`SNOBOL_PRELOAD_PATH=pa:pb preload3.sno`). "pa"/"pb" are not vendored anywhere in this corpus (unlike aa/, bb/, which ARE — see preload1.sno/preload2.sno in UNGRADED.tsv), so the preload path resolves to nothing. Empty output is a plausible correct answer for a path that resolves to nothing, but not one this census will mint a ref for absent a real pa/pb fixture (this suite's own precedent: never mint a vacuous empty ref, ALL.excluded.txt).
 preload4.sno	NEEDS_INPUT	oracle exits rc=0 with EMPTY output when run exactly as tests.in registers it (`SNOPATH=pa:pb preload4.sno`). Same missing pa/pb fixture as preload3.sno.
+8bit2.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: 
+base.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
+breakline.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
+conv2.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
+crlf.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
+diag1.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
+diag2.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: 
+func2.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
+hide.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
+include2.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
+include3.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
+include4.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
+k.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
+ndbm.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): CSNOBOL4 LOAD() module test
+noexec.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
+random.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): CSNOBOL4 LOAD() module test
+setexit5.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: 
+setexit6.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: 
+setexit.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: 
+sleep.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): CSNOBOL4 LOAD() module test
+space2.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
+space.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
+time.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): CSNOBOL4 LOAD() module test

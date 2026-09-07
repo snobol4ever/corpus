@@ -1,5 +1,26 @@
-OK
-OK
-OK
-OK
-OK
+
+
+
+ord.sno(3) : ERROR 022 -- undefined function called
+ord.sno(3) : ERROR 022 -- undefined function called
+
+
+
+
+
+
+
+in file              ord.sno
+in file              ord.sno
+in line              3
+in line              3
+in statement         3
+in statement         3
+stmts executed       5
+stmts executed       5
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  12600
+memory left (bytes)  1035968

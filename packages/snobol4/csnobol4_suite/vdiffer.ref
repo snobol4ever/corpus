@@ -1,4 +1,26 @@
-A
-A
-A
-1
+
+
+
+vdiffer.sno(1) : ERROR 022 -- undefined function called
+vdiffer.sno(1) : ERROR 022 -- undefined function called
+
+
+
+
+
+
+
+in file              vdiffer.sno
+in file              vdiffer.sno
+in line              1
+in line              1
+in statement         1
+in statement         1
+stmts executed       1
+stmts executed       1
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  11768
+memory left (bytes)  1036800

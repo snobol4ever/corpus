@@ -1,4 +1,26 @@
-	INPUT(.FOO,10,,"openi.sno")
 
-LOOP	OUTPUT = FOO			:S(LOOP)
-END
+
+
+openi.sno(1) : ERROR 116 -- inappropriate file specification for input
+openi.sno(1) : ERROR 116 -- inappropriate file specification for input
+
+
+
+
+
+
+
+in file              openi.sno
+in file              openi.sno
+in line              1
+in line              1
+in statement         1
+in statement         1
+stmts executed       1
+stmts executed       1
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  11408
+memory left (bytes)  1037160

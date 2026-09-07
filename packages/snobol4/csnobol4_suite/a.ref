@@ -1,31 +1,35 @@
-Dump of variables at termination
 
-Natural variables
 
-A = 1
-ABORT = PATTERN
-ARB = PATTERN
-BAL = PATTERN
-FAIL = PATTERN
-FENCE = PATTERN
-REM = PATTERN
-SUCCEED = PATTERN
 
-Unprotected keywords
+dump of natural variables
 
-&ABEND = 0
+a = 1
+
+
+dump of keyword values
+
 &ANCHOR = 0
-&CASE = 1
+&CASE = 0
 &CODE = 0
 &DUMP = 1
 &ERRLIMIT = 0
-&FATALLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'a.sno'
+&FNCLEVEL = 0
 &FTRACE = 0
-&FULLSCAN = 0
-&GTRACE = 0
+&FULLSCAN = 1
 &INPUT = 1
-&MAXLNGTH = xxx
+&LASTFILE = 'a.sno'
+&LASTLINE = 2
+&LASTNO = 2
+&LINE = 3
+&MAXLNGTH = 16777216
 &OUTPUT = 1
-&STLIMIT = -1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 3
+&STLIMIT = 2147483647
+&STNO = 3
 &TRACE = 0
-&TRIM = 0
+&TRIM = 1

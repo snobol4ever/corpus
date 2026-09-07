@@ -2,4 +2,29 @@
 0.2
 0.3
 1.
-OK
+
+
+
+float2.sno(13) : ERROR 101 -- eq first argument is not numeric
+float2.sno(13) : ERROR 101 -- eq first argument is not numeric
+
+
+
+
+
+
+
+in file              float2.sno
+in file              float2.sno
+in line              13
+in line              13
+in statement         12
+in statement         12
+stmts executed       10
+stmts executed       10
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  12520
+memory left (bytes)  1036048

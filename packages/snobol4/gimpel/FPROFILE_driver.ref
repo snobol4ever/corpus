@@ -1,2 +1,8 @@
 array size = 23
-total statements counted = 0
+stmt 9 executed 1 times
+stmt 10 executed 1 times
+stmt 11 executed 6 times
+stmt 12 executed 1 times
+stmt 13 executed 3 times
+stmt 14 executed 1 times
+total statements counted = 13

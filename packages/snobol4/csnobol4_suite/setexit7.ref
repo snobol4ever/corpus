@@ -1,3 +1,26 @@
-S4 Not in a SETEXIT handler (35)
-S10 Failure during goto evaluation (19)
-S15 Undefined or erroneous goto (24)
+
+
+
+setexit7.sno(1) : ERROR 251 -- keyword operand is not name of defined keyword
+setexit7.sno(1) : ERROR 251 -- keyword operand is not name of defined keyword
+
+
+
+
+
+
+
+in file              setexit7.sno
+in file              setexit7.sno
+in line              1
+in line              1
+in statement         1
+in statement         1
+stmts executed       1
+stmts executed       1
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  12800
+memory left (bytes)  1035768

@@ -1,2 +1,26 @@
-hello
-world
+
+
+
+openo2.sno(1) : ERROR 116 -- inappropriate file specification for input
+openo2.sno(1) : ERROR 116 -- inappropriate file specification for input
+
+
+
+
+
+
+
+in file              openo2.sno
+in file              openo2.sno
+in line              1
+in line              1
+in statement         1
+in statement         1
+stmts executed       1
+stmts executed       1
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  11408
+memory left (bytes)  1037160

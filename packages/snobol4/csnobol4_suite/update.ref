@@ -1,16 +1,26 @@
-hello
-world
-test1
-test2
------
-world
-test2
-test2
-test2
-world
-XXXXX
------
-Hello
-World
-XXXXX
-YYYYY
+
+
+
+update.sno(3) : ERROR 289 -- input channel currently in use
+update.sno(3) : ERROR 289 -- input channel currently in use
+
+
+
+
+
+
+
+in file              update.sno
+in file              update.sno
+in line              3
+in line              3
+in statement         2
+in statement         2
+stmts executed       2
+stmts executed       2
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  15904
+memory left (bytes)  1032664

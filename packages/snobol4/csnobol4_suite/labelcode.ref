@@ -1,2 +1,26 @@
-CODE
-HERE
+
+
+
+labelcode.sno(1) : ERROR 022 -- undefined function called
+labelcode.sno(1) : ERROR 022 -- undefined function called
+
+
+
+
+
+
+
+in file              labelcode.sno
+in file              labelcode.sno
+in line              1
+in line              1
+in statement         1
+in statement         1
+stmts executed       1
+stmts executed       1
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  11416
+memory left (bytes)  1037152

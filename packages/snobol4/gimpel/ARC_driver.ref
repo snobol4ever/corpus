@@ -1,9 +1,28 @@
-0.
-1.0471975511966
-1.5707963267949
-2.09439510239319
-3.14159265358979
--1.11022302462516e-15
-1.5707963267949
-0.785398163397448
-0.
+
+
+
+SQRT.sno(8) : ERROR 248 -- attempted redefinition of system function
+SQRT.sno(8) : ERROR 248 -- attempted redefinition of system function
+
+
+
+
+
+
+
+in file              SQRT.sno
+in file              SQRT.sno
+in line              8
+in line              8
+in statement         1
+in statement         1
+stmts executed       1
+stmts executed       1
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  15640
+memory left (bytes)  1032928
+
+

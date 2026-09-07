@@ -1,0 +1,26 @@
+
+
+
+openo.sno(1) : ERROR 160 -- inappropriate file specification for output
+openo.sno(1) : ERROR 160 -- inappropriate file specification for output
+
+
+
+
+
+
+
+in file              openo.sno
+in file              openo.sno
+in line              1
+in line              1
+in statement         1
+in statement         1
+stmts executed       1
+stmts executed       1
+execution time msec  0
+execution time msec  0
+REGENERATIONS        0
+REGENERATIONS        0
+memory used (bytes)  11520
+memory left (bytes)  1037048
