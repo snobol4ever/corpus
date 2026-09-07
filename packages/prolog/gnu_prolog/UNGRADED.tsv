@@ -1,1 +1,5 @@
-Pl2Wam/compat.pl	TIMEOUT	SCRIP hangs after a parse error on this file -- a real, already-filed defect in error recovery (row misc-single-witness-parser-crashes), not an oracle-side ruling; owed work, not a permanent exclusion
+# gnu_prolog UNGRADED -- owed work, one row per program: name<TAB>CLASS<TAB>reason.
+# EMPTY as of 2026-09-06 (hq_C, flip-gnu-Pl2Wam-compat.pl): the sole row, Pl2Wam/compat.pl TIMEOUT
+# ('SCRIP hangs after a parse error'), was CURED, not reclassified -- $ is now a graphic char in the
+# Prolog lexer (gprolog and swipl both lex =$= as one atom) and an unrecognised character is consumed
+# before the error token, so a lex error can no longer spin. compat.pl now grades three-way m3=m4=gprolog.
