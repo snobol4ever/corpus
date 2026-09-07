@@ -1,0 +1,18 @@
+*       a CODE-compiled body calls a function whose DEFINE ran at run time with a computed prototype (the DEXP idiom)
+*       flip-gimpel-TRIG_driver (cto 2026-09-07): the callee was registered with a pending entry and the call hit the undefined-function stub
+	DEFINE('DEXP(PROTO)NAME,ARGS')		:(DEXP_END)
+DEXP	PROTO   POS(0)  SPAN(' ')  =
+	PROTO   BREAK('(') . NAME  BAL . ARGS  =  NAME
+	CODE(NAME  ' '  PROTO  '		:S(RETURN)F(FRETURN)')
+	DEFINE(NAME  ARGS)			:(RETURN)
+DEXP_END
+	CODE('FOO FOO = A + 1	:(RETURN)')
+	N = 'FOO'
+	DEFINE(N '(A)')
+	DEXP('BAR(A) = FOO(A) + 10')
+	DEXP('BAZ(A) = BAR(A) + FOO(A)')
+	OUTPUT = FOO(2)
+	OUTPUT = BAR(2)
+	OUTPUT = BAZ(2)
+	OUTPUT = 'end'
+END
