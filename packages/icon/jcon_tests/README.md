@@ -38,3 +38,14 @@ loading — meaningless for a compile-once model) and `tpp1`-`tpp5` (JCON's own
 template-preprocessor test inputs, not standalone programs). Present for
 completeness/provenance; the runner excludes them from the graded set rather
 than inventing an oracle.
+
+## `.ref` and `.args` sidecars (ours, not upstream's)
+
+Upstream ships no `.std` for `link1.icn` (its `addtest` harness never ran it: it needs a
+two-file link and command-line arguments). `link1.ref` is the expected stdout WE cut from
+the shared icont/iconx oracle (`/home/resources/icon-master`, `icont link1.icn link2.icn`,
+run with the argv in `link1.args`); `link1.args` is that argv, one line, shell-split. The
+runner grades a program against its `.std` when upstream shipped one and against its `.ref`
+otherwise, and reads the modules a program `link`s from the program itself. A `.ref` is
+never cut from SCRIP's own output (THE PACKAGE LOCKDOWN, 2026-09-06). Cut by the cfo,
+2026-09-07.
