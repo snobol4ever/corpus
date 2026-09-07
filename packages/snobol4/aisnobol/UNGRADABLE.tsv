@@ -1,4 +1,4 @@
 # UNGRADABLE.tsv -- aisnobol: shipped, ruled UNGRADABLE by the ORACLE's own behavior, never ours.
 # Columns: name<TAB>CLASS<TAB>reason (lib_inventory.sh's documented, gate-tested shape).
 BUILDLIB.sno	ORACLE_REFUSES	sbl -bf has neither TELL() nor SET() (BUILDLIB.SPT line 14 onward); the only ground truth is the diskette's own SNOLIB.IDX / SPITLIB.IDX, which no oracle can re-cut
-SPITCORE.sno	MODULE	the SPITBOL core the SIR and TEST programs -INCLUDE (upstream SPITCORE.SPT with the two PROVENANCE adaptations); no main, never graded alone
+SPITCORE.sno	CONTAINER_OR_LIBRARY	the SPITBOL core the SIR and TEST programs -INCLUDE (upstream SPITCORE.SPT with the two PROVENANCE adaptations); no main, never graded alone
