@@ -5,6 +5,9 @@
 # from the debt permanently and silently, because nobody re-reads a closed ruling, while a wrong
 # UNGRADED only looks like unfinished work, which is what it will look like anyway.
 # name<TAB>CLASS<TAB>reason
-FRSORT_driver.sno	NEEDS_VENDORED_SOURCE	this driver's include chain requires stringout.sno, which exist nowhere in corpus, so sbl -bf rc=1 raises ERROR 285 include file cannot be opened and cannot build the program. UNMEASURED and it is the whole of what is owed: whether the Gimpel library ever shipped them. Vendor them and the entry becomes gradable; establish that upstream never had them and it becomes an ungradable ruling instead.
-TIMEGC_driver.sno	NEEDS_VENDORED_SOURCE	this driver's include chain requires resolution.sno and system.inc, which exist nowhere in corpus, so sbl -bf rc=1 raises ERROR 285 include file cannot be opened and cannot build the program. UNMEASURED and it is the whole of what is owed: whether the Gimpel library ever shipped them. Vendor them and the entry becomes gradable; establish that upstream never had them and it becomes an ungradable ruling instead.
-TIMER_driver.sno	NEEDS_VENDORED_SOURCE	this driver's include chain requires system.inc and resolution.sno, which exist nowhere in corpus, so sbl -bf rc=1 raises ERROR 285 include file cannot be opened and cannot build the program. UNMEASURED and it is the whole of what is owed: whether the Gimpel library ever shipped them. Vendor them and the entry becomes gradable; establish that upstream never had them and it becomes an ungradable ruling instead.
+# EMPTY ON PURPOSE, 2026-09-07 (cfo): the three rows were MEASURED. Upstream (/home/resources/gimpel/SPITBOL, CONTENTS.TXT)
+# ships STRINGOU.INC, RESOLUTI.INC and SYSTEM.INC; FRSORT.INC/TIMER.INC/TIMEGC.INC include them by their long names, which
+# DOS truncated to those 8-character files and Linux does not. Vendored the long names as byte-identical aliases
+# (stringout.sno; the other two only in a scratch copy, see UNGRADABLE.tsv). Then: FRSORT_driver builds under the oracle and is GRADED (ref cut,
+# ISPM / ABRCD; red in both SCRIP modes today); TIMER_driver and TIMEGC_driver build and print wall-clock timings that
+# differ run to run, ruled NONDETERMINISTIC in UNGRADABLE.tsv with the two-run evidence.
