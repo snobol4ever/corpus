@@ -1,0 +1,8 @@
+*       CONTROL ARM -- a function call in pattern position, which was already accepted
+        word = 'abc'
+        subject = '3'
+        subject SIZE(word)                                                      :F(nomatch)
+        OUTPUT = 'matched'                                                      :(done)
+nomatch OUTPUT = 'nomatch'
+done    OUTPUT = 'end'
+END

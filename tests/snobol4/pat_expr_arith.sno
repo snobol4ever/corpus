@@ -1,0 +1,8 @@
+*       an arithmetic expression in pattern position -- its VALUE is the pattern
+        counter = 1
+        subject = '2'
+        subject counter + 1                                                     :F(nomatch)
+        OUTPUT = 'matched'                                                      :(done)
+nomatch OUTPUT = 'nomatch'
+done    OUTPUT = 'end'
+END

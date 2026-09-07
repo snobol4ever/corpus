@@ -1,0 +1,10 @@
+*       unary ? composed with real pattern functions and a capture
+        DEFINE('side(tag)')                                                     :(side_end)
+side    OUTPUT = 'side ' tag                                                    :(RETURN)
+side_end
+        subject = 'abc123xyz'
+        subject SPAN('abc') ?side('mid') SPAN('123') . digits                   :F(nomatch)
+        OUTPUT = 'digits=' digits                                               :(done)
+nomatch OUTPUT = 'nomatch'
+done    OUTPUT = 'end'
+END

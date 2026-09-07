@@ -1,0 +1,10 @@
+*       unary ? (interrogate) in pattern position -- operands SUCCEED, evaluated left to right
+        DEFINE('side(tag)')                                                     :(side_end)
+side    OUTPUT = 'side ' tag                                                    :(RETURN)
+side_end
+        subject = ''
+        subject ?side('one') ?side('two')                                       :F(nomatch)
+        OUTPUT = 'matched'                                                      :(done)
+nomatch OUTPUT = 'nomatch'
+done    OUTPUT = 'end'
+END

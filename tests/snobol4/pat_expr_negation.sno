@@ -1,0 +1,10 @@
+*       unary ~ (negation) in pattern position -- same family as ?
+        DEFINE('failer()')                                                      :(failer_end)
+failer                                                                          :(FRETURN)
+failer_end
+        subject = ''
+        subject ~failer()                                                       :F(nomatch)
+        OUTPUT = 'matched'                                                      :(done)
+nomatch OUTPUT = 'nomatch'
+done    OUTPUT = 'end'
+END
