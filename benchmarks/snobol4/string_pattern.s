@@ -1034,7 +1034,17 @@ STRING_PATTERN_α:       sub              rsp, 64
                         mov              qword ptr [rsp + 56], rax
                         mov              qword ptr [r9 + 16], 0
                         mov              qword ptr [r9 + 24], 0
-.Ldefine_α_217_41:      mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+.Ldefine_α_217_41:      push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        add              dword ptr [rax + 0], 1
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rcx
+                        mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_217_230
                         push             rdi
@@ -1134,7 +1144,18 @@ STRING_PATTERN_γ:       mov              rdi, qword ptr [r9 + 0]              #
                         mov              qword ptr [r9 + 16], rax
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
-.Ldefine_α_217_110:     mov              rcx, qword ptr [rcx + 8]
+.Ldefine_α_217_110:     push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rcx
+                        mov              rcx, qword ptr [rcx + 8]
                         add              rsp, 64
                         mov              rax, rdi
                         mov              rdx, rsi;                            jmp   rcx
@@ -1158,7 +1179,18 @@ STRING_PATTERN_ω:       mov              rcx, qword ptr [rsp + 32]
                         mov              qword ptr [r9 + 16], rax
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
-.Ldefine_α_217_180:     mov              rcx, qword ptr [rcx + 16]
+.Ldefine_α_217_180:     push             rcx
+                        mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        mov              ecx, dword ptr [rax + 0]
+                        movsxd           rcx, ecx
+                        sub              rcx, 1
+                        mov              dword ptr [rax + 0], ecx
+                        sub              rcx, 1
+                        mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
+                        mov              qword ptr [rax + 0], rcx
+                        pop              rcx
+                        mov              rcx, qword ptr [rcx + 16]
                         add              rsp, 64
                         mov              eax, 104
                         xor              edx, edx;                            jmp   rcx
