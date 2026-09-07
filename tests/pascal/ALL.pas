@@ -83,10 +83,10 @@ begin
 end.
 {---------------------------------------------------------- 14 parser__for_loop}
 program forloop;
-var i: integer;
+var i, j: integer;
 begin
   for i := 1 to 10 do
-    i := i
+    j := i
 end.
 {-------------------------------------------------------- 15 program_writeln_11}
 program m4asg;
