@@ -24,6 +24,8 @@ main:
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
                         sub              rsp, 144
+                        mov              qword ptr [rsp + 136], rbp
+                        mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 1
@@ -42,8 +44,8 @@ n0_kw_icon_α:           mov              r11, 1
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    main_ω
-                        mov              qword ptr [rsp + 48], rax
-                        mov              qword ptr [rsp + 56], rdx;           jmp   n1_call_icon_α
+                        mov              qword ptr [rbp + 48], rax
+                        mov              qword ptr [rbp + 56], rdx;           jmp   n1_call_icon_α
 n0_kw_icon_β:           mov              r11, 1;                              jmp   main_ω
 .Lkw_icon_α_2_0:        .quad            .Lkw_icon_α_2_0_s
 .Lkw_icon_α_2_0_s:      .string          "&version"
@@ -52,16 +54,16 @@ n0_kw_icon_β:           mov              r11, 1;                              j
 n1_call_icon_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1_call_icon_α:         mov              r11, 2
-                        mov              rax, qword ptr [rsp + 48]
-                        mov              qword ptr [rsp + 16], rax
-                        mov              rax, qword ptr [rsp + 56]
-                        mov              qword ptr [rsp + 24], rax
+                        mov              rax, qword ptr [rbp + 48]
+                        mov              qword ptr [rbp + 16], rax
+                        mov              rax, qword ptr [rbp + 56]
+                        mov              qword ptr [rbp + 24], rax
                         .section         .rodata
 .Lcall_icon_α_rkfn4:    .string          "write"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lcall_icon_α_rkfn4]
-                        lea              rsi, [rsp + 16]
+                        lea              rsi, [rbp + 16]
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -71,8 +73,8 @@ n1_call_icon_α:         mov              r11, 2
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rsp + 0], rax
-                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rbp + 0], rax
+                        mov              qword ptr [rbp + 8], rdx
                         cmp              al, 104;                             je    main_ω
                                                                               jmp   main_ω
 n1_call_icon_β:         mov              r11, 2;                              jmp   main_ω
