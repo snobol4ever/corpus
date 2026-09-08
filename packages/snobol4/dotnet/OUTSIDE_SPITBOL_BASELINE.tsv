@@ -1,11 +1,20 @@
-# UNGRADABLE.tsv -- dotnet: the lockdown bucket. MIRRORS OUTSIDE_SPITBOL_BASELINE.tsv beside it ROW FOR
-# ROW; the runner compares the two every run and says so aloud when they drift. That file is THE RECORD and
-# carries the source check; this one keeps the four inventory numbers summing to shipped. Edit them together.
-# Rewritten coo 2026-09-08 from the record; the reasons were already oracle-side and are kept, with the
-# source check added.
-# ⛔ Every reason here is ORACLE-SIDE ONLY. lib_inventory.sh REFUSES a reason that names our own compiler,
-# and it reads the WHOLE FILE including comments, so even a rule cited by title can trip it.
-# Columns: name <TAB> REASON <TAB> evidence.
+# OUTSIDE_SPITBOL_BASELINE.tsv -- dotnet: programs the ONE ORACLE itself does not run, so they are OUTSIDE
+# the graded baseline and OUT OF THE DENOMINATOR. Lon 2026-09-08: the leaderboard divides by the programs
+# SPITBOL runs clean, and a program SPITBOL cannot run is recorded per program with SPITBOL's own error AND
+# a source check. Written coo 2026-09-08; test_snoflake_suite.sh is the shape.
+#
+# MEASURED, not declared: test_snobol4_dotnet_suite.sh decides UNSCR live each run from the oracle's own rc
+# and stream, and cross-checks this file against what it saw, saying STALE or UNRECORDED aloud. UNGRADABLE.tsv
+# mirrors this file row for row.
+#
+# ⭐ THREE DISTINCT REASONS THE ORACLE GIVES NO ANSWER, and they are not the same fact:
+#   a fatal listing at rc=0 -- the oracle compiled and then stopped; a diagnostic is not an answer.
+#   a BOM it cannot parse  -- the oracle never reached the program at all.
+#   more than one END      -- the file is not one program, so there is nothing single to grade.
+# Only the first is about the SNOBOL4 in the file. The other two are about the file.
+#
+# Oracle: /home/resources/x64/bin/sbl -bf. Columns: name <TAB> ORACLE_REFUSES|CONTAINER_OR_LIBRARY <TAB>
+# does not run in SPITBOL: <error, file(line)>; source checked <date> (<who>): stmt <line> <source> -- <why>
 1brc.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 121 -- len argument is negative or too large, 1brc.sno(56), a graceful fatal report at rc=0; source checked 2026-09-08 (coo): stmt 56 `fmt LEN(SIZE(v) - 1) . x REM . d = x '.' d          :(RETURN)` -- LEN is handed SIZE(v)-1, which is -1 when v is the empty string, and SPITBOL treats a negative LEN as fatal rather than as a pattern that simply fails.
 asgn1.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 038 -- goto undefined label, asgn1.sno(5), a graceful fatal report at rc=0; source checked 2026-09-08 (coo): stmt 5 `INPUT(.words, 3, "words.txt")                         :F(error)` -- the failure goto names label `error`, which the program never defines, so SPITBOL stops at the goto rather than at the INPUT.
 expr_parser_stub.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 248 -- attempted redefinition of system function, expr_parser_stub.sno(20), a graceful fatal report at rc=0; source checked 2026-09-08 (coo): stmt 20 `DEFINE('ITEM()')` -- the program defines a function named ITEM, which collides with a name SPITBOL already carries; the same collision class as the DATA-prototype accessors in spitbol_testpgms test6 and test7.
