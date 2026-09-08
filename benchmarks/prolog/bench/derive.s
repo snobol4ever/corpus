@@ -1,5 +1,7 @@
                         .intel_syntax    noprefix
                         .text
+                        .file            1 "/home/claude_cto/corpus/benchmarks/prolog/bench/derive.pl"
+                        .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__divide10$2F0:
                         sub              rsp, 1248

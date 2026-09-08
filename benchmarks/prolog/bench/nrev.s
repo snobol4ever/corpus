@@ -1,5 +1,7 @@
                         .intel_syntax    noprefix
                         .text
+                        .file            1 "/home/claude_cto/corpus/benchmarks/prolog/bench/nrev.pl"
+                        .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__reverse$2F2:
                         sub              rsp, 496

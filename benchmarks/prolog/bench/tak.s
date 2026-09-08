@@ -1,5 +1,7 @@
                         .intel_syntax    noprefix
                         .text
+                        .file            1 "/home/claude_cto/corpus/benchmarks/prolog/bench/tak.pl"
+                        .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__tak$2F4:
                         sub              rsp, 2608
