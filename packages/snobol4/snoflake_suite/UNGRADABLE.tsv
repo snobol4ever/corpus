@@ -6,8 +6,10 @@
 # Edit them together or they drift apart.
 # ⛔ EVERY REASON HERE IS ORACLE-SIDE ONLY, and that is enforced: lib_inventory.sh REFUSES(2) an
 # UNGRADABLE row whose reason names our own compiler, because "we cannot grade it" is a statement about
-# us and never a property of the fixture. It caught the first draft of this file, which said what SCRIP
-# does beside what sbl -bf does; the SCRIP half is recorded in OUTSIDE_SPITBOL_BASELINE.tsv instead.
+# us and never a property of the fixture. It caught the first draft of this file, which described our
+# side beside the oracle side; that half is recorded in OUTSIDE_SPITBOL_BASELINE.tsv instead.
+# ⛔ The check reads the WHOLE FILE, comments included -- so this note cannot name the compiler either,
+# which is why it says "our own compiler" rather than the word. That is deliberate, not coyness.
 # Class ORACLE_REFUSES passes the admission test -- overturnable for the WHOLE class at once, the day
 # sbl -bf answers these, not one file at a time.
 # Columns: path <TAB> REASON <TAB> evidence.
