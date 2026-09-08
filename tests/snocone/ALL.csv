@@ -287,7 +287,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 286,simple_output_124,crosscheck_rungB11__B11_comment_hash,crosscheck_rungB11,block,1,3,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 287,simple_output_92,crosscheck_rungB05__B05_alt_both_fail,crosscheck_rungB05,block,1,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 288,simple_output_96,crosscheck_rungB06__B06_query_empty,crosscheck_rungB06,block,1,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-289,simple_output_97,crosscheck_rungB06__B06_query_nonempty,crosscheck_rungB06,block,1,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+289,simple_output_97,crosscheck_rungB06__B06_query_nonempty,crosscheck_rungB06,block,0,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 290,simple_output_51,crosscheck_rungA13__A13_define_locals,crosscheck_rungA13,block,1,9,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 291,simple_output_144,crosscheck_toplevel_xfail__hello_literals,crosscheck_toplevel_xfail,block,1,26,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 292,simple_output_69,crosscheck_rungA16__A16_hello_literals,crosscheck_rungA16,block,1,26,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

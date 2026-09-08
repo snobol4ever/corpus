@@ -2001,7 +2001,7 @@ if (?x) {
 } else {
     OUTPUT = "no value";
 }
-/*------------------------------------------------ 289 simple_output_97 XFAIL */
+/*------------------------------------------------------ 289 simple_output_97 */
 // B06_query_nonempty: ?x succeeds when x is non-empty (DIFFER from "")
 x = "hello";
 if (?x) {
