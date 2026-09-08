@@ -1,12 +1,20 @@
-# UNGRADABLE.tsv -- spitbol_testpgms: the lockdown bucket. MIRRORS OUTSIDE_SPITBOL_BASELINE.tsv beside it
-# ROW FOR ROW; the runner compares the two every run and says so aloud when they drift. That file is THE
-# RECORD and carries the source check; this one is what keeps the four inventory numbers summing to shipped.
-# Edit them together. Written coo 2026-09-08.
-# ⛔ Every reason here is ORACLE-SIDE ONLY. lib_inventory.sh REFUSES(2) a reason that names our own compiler,
-# because being unable to grade something is a statement about us and never a property of the program -- and
-# it reads the WHOLE FILE, comments included, so even a rule cited by title can trip it if the title carries
-# that name. Cite such rules by description.
-# Columns: name <TAB> REASON <TAB> evidence.
+# OUTSIDE_SPITBOL_BASELINE.tsv -- spitbol_testpgms: programs the ONE ORACLE itself does not run, so they are
+# OUTSIDE the graded baseline and OUT OF THE DENOMINATOR. Lon 2026-09-08: the leaderboard divides by the
+# programs SPITBOL runs clean, and a program SPITBOL cannot run is recorded per program with SPITBOL's own
+# error AND a source check. Written coo 2026-09-08; test_snoflake_suite.sh is the shape.
+#
+# MEASURED, not declared: test_snobol4_spitbol_testpgms_suite.sh runs sbl -bf on every program each run and
+# cross-checks this file against what it saw, printing STALE (recorded here but sbl answered it cleanly) or
+# UNRECORDED (sbl refuses it and this file is silent). UNGRADABLE.tsv mirrors this file row for row and the
+# runner says so aloud when the two drift.
+#
+# THE SOURCE CHECK IS THE POINT, not decoration: each row quotes the exact statement at the line SPITBOL
+# names and says why SPITBOL declines it. Every one of these six is legal SNOBOL4 that SPITBOL refuses on
+# environment or on a name collision -- not a program that is wrong. That is what makes it a baseline
+# question rather than a defect.
+#
+# Oracle: /home/resources/x64/bin/sbl -bf, run 2026-09-08 in a scratch copy with the suite's own testpgms.in.
+# Columns: name <TAB> ORACLE_REFUSES <TAB> does not run in SPITBOL: <error, file(line)>; source checked <date> (<who>): stmt <line> <source> -- <why>
 test2.spt	ORACLE_REFUSES	does not run in SPITBOL: ERROR 214 -- bad label or misplaced continuation line, test2.spt(238); source checked 2026-09-08 (coo): stmt 238 `.                                                          ERROR()` -- a lone period in the label column as a continuation marker; SPITBOL reads column 1 as a label and rejects the line before the program runs. ⛔ NONDETERMINISTIC, and this row corrected itself the same hour: a direct sbl -bf run at 2026-09-08 gave ERROR 214 at line 238, so the first draft of this row claimed the refusal was deterministic -- the very next runner pass got rc=231 with no listing instead. One observation is not a determinism claim. Both paths refuse the program and both put it outside the baseline, which is why the classification is stable even though the symptom is not.
 test4.spt	ORACLE_REFUSES	does not run in SPITBOL: ERROR 116 -- inappropriate file specification for input, test4.spt(65); source checked 2026-09-08 (coo): stmt 65 `INPUT(.INPUT,,72)` -- a three-argument INPUT association with an EMPTY file specification and a record length; legal SNOBOL4, but SPITBOL requires a real file argument, so it refuses the association rather than the program's logic.
 test5.spt	ORACLE_REFUSES	does not run in SPITBOL: ERROR 116 -- inappropriate file specification for input, test5.spt(6); source checked 2026-09-08 (coo): stmt 6 `INPUT(.INPUT,,72)` -- the same empty-file-spec association as test4, at the top of the program. Previously graded against a second oracle under CEO-281 clause (2); CEO-391 retires that second oracle, so SPITBOL's refusal is now the whole answer.
