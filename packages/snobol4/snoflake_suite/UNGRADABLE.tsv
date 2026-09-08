@@ -1,0 +1,55 @@
+# UNGRADABLE.tsv -- snoflake_suite: shipped fixtures that CANNOT be graded, each named with the reason
+# MEASURED against the oracle. THE PACKAGE LOCKDOWN (Lon 2026-09-06). Written coo 2026-09-08.
+# ⛔ THIS FILE MIRRORS OUTSIDE_SPITBOL_BASELINE.tsv beside it, one row for one row, as the csnobol4
+# runner already does (test_snobol4_csnobol4_suite.sh line 53). That file says how the fixture was
+# classified; this one is the lockdown bucket that keeps the four inventory numbers summing to shipped.
+# Edit them together or they drift apart.
+# ⛔ EVERY REASON HERE IS ORACLE-SIDE ONLY, and that is enforced: lib_inventory.sh REFUSES(2) an
+# UNGRADABLE row whose reason names our own compiler, because "we cannot grade it" is a statement about
+# us and never a property of the fixture. It caught the first draft of this file, which said what SCRIP
+# does beside what sbl -bf does; the SCRIP half is recorded in OUTSIDE_SPITBOL_BASELINE.tsv instead.
+# Class ORACLE_REFUSES passes the admission test -- overturnable for the WHOLE class at once, the day
+# sbl -bf answers these, not one file at a time.
+# Columns: path <TAB> REASON <TAB> evidence.
+arbitrarily-long-integers.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+backspace-at-start.sno	ORACLE_REFUSES	@nonstandard fixture: sbl -bf exits rc=0 with implementation-defined output, so the oracle states no result to be right or wrong about
+bubble-sort.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+complex-multiplication-opsyn.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+eval-apply-opsyn.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-additional-string-functions.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-asm-machine-m.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-basic-string-functions.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-bnorm-inorm-image-line.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-crack-cata-functions.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-function-tracing.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-general-purpose-macro.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-generated-stack-functions.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-infinip-arithmetic.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-insulate-anchor.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-l-two-compiler.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-merge-tournament-sort-variants.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-numeric-random-functions.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-oneway-cipher.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-pattern-functions.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-print-width-functions.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-random-poem.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-random-story.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-random-string-functions.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-real-math-functions.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+gimpel-visit-structure-functions.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+load-failure-graceful.sno	ORACLE_REFUSES	@nonstandard fixture: sbl -bf exits rc=0 with implementation-defined output, so the oracle states no result to be right or wrong about
+lowercase-indirect-and-apply.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+math-functions.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+multiline-backtick-load.sno	ORACLE_REFUSES	@nonstandard fixture: sbl -bf exits rc=0 with implementation-defined output, so the oracle states no result to be right or wrong about
+numeric-keyword-values.sno	ORACLE_REFUSES	@nonstandard fixture: sbl -bf exits rc=0 with implementation-defined output, so the oracle states no result to be right or wrong about
+opsyn-case-fold.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+output-format-ignored.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+real-literal-out-of-range.sno	ORACLE_REFUSES	@nonstandard fixture: sbl -bf exits rc=0 with implementation-defined output, so the oracle states no result to be right or wrong about
+real-overflow-recoverable.sno	ORACLE_REFUSES	@nonstandard fixture: sbl -bf exits rc=0 with implementation-defined output, so the oracle states no result to be right or wrong about
+recursive-balanced-pattern.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+recursive-expression-recognizer.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+recursive-yz-pattern.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+stlimit-nonnegative.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+syntactic-recognizer.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+twelve-days.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared
+unload-builtin.sno	ORACLE_REFUSES	sbl -bf itself raises an error on this fixture, so the oracle emits an error listing and no runnable output stream; the listing text is implementation-specific and is not an answer that can be compared

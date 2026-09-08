@@ -1,0 +1,9 @@
+# UNGRADED.tsv -- snoflake_suite: shipped, GRADABLE, ref not cut yet. This file must reach zero rows.
+# THE PACKAGE LOCKDOWN (Lon 2026-09-06). Columns: path <TAB> CLASS <TAB> reason (never empty).
+# Written coo 2026-09-08 on the ceo ruling of 17:39: a package with NO UNGRADED.tsv reads UNKNOWN, not
+# zero, so the file is written even when the count is zero -- an absent file and an empty one are not
+# the same claim.
+# ZERO ROWS AS MEASURED: at SCRIP b2660262e every one of the 180 shipped fixtures is either graded
+# against sbl -bf (138) or named in OUTSIDE_SPITBOL_BASELINE.tsv / UNGRADABLE.tsv (42). Nothing is owed
+# a ref cut. The 39 FAIL+CRASH inside the 138 are DEFECTS, not ungraded work -- they are the live bug
+# population of row snobol4-snoflake-suite-180-to-100-percent-by-class.

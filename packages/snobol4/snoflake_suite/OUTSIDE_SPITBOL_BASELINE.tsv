@@ -1,0 +1,63 @@
+# OUTSIDE_SPITBOL_BASELINE.tsv -- snoflake_suite: shipped fixtures that are OUTSIDE the graded baseline
+# because the ONE SNOBOL4 ORACLE does not answer them. Written coo 2026-09-08 on the ceo ruling of
+# 17:39 CDT over Lon 2026-09-07 (one oracle, one feature set: SPITBOL, our x64 fork, sbl -bf) and the
+# FACT RULE NO COMPATIBILITY SWITCH FOR ANY SCRIP LANGUAGE (RULES sec Oracles, CEO-391): what the
+# oracle refuses, or only another implementation provides, is outside the baseline -- named here with
+# its reason, OUT OF THE DENOMINATOR, never hidden and never xfail.
+#
+# Census: the progress table at SCRIP b2660262e corpus c030d241f (coo run 2026-09-08 17:32 CDT), the
+# runner test_snoflake_suite.sh, per-program m3 rows. 180 shipped = 99 PASS + 38 FAIL + 1 CRASH + 42
+# here. With these 42 out, the suite row reads 99/138 and the 39 FAIL+CRASH are the live bug population.
+#
+# ERRNO  : sbl -bf ITSELF ERRORS on the fixture and SCRIP raises the SAME ERROR NUMBER; only the listing
+#          stream differs. The oracle does not produce a runnable answer to compare against, so the
+#          fixture cannot be graded by stream equality. These 36 are exactly the rows of NARROW.tsv --
+#          they were being counted inside graded_narrow, which lib_inventory.sh warns is a comparison
+#          narrower than the claim the percent makes. They are recorded in BOTH files on purpose:
+#          NARROW.tsv says how they were compared, this file says they are out of the denominator.
+# NSTD   : @nonstandard fixture -- implementation-defined output, rc=0 against sbl -bf, so there is no
+#          oracle answer to be right or wrong about.
+#
+# Columns: path <TAB> CLASS <TAB> reason (never empty).
+arbitrarily-long-integers.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+backspace-at-start.sno	NSTD	@nonstandard fixture, implementation-defined output, rc=0 against sbl -bf -- the oracle gives no answer to compare
+bubble-sort.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+complex-multiplication-opsyn.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+eval-apply-opsyn.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-additional-string-functions.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-asm-machine-m.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-basic-string-functions.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-bnorm-inorm-image-line.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-crack-cata-functions.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-function-tracing.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-general-purpose-macro.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-generated-stack-functions.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-infinip-arithmetic.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-insulate-anchor.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-l-two-compiler.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-merge-tournament-sort-variants.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-numeric-random-functions.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-oneway-cipher.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-pattern-functions.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-print-width-functions.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-random-poem.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-random-story.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-random-string-functions.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-real-math-functions.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+gimpel-visit-structure-functions.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+load-failure-graceful.sno	NSTD	@nonstandard fixture, implementation-defined output, rc=0 against sbl -bf -- the oracle gives no answer to compare
+lowercase-indirect-and-apply.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+math-functions.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+multiline-backtick-load.sno	NSTD	@nonstandard fixture, implementation-defined output, rc=0 against sbl -bf -- the oracle gives no answer to compare
+numeric-keyword-values.sno	NSTD	@nonstandard fixture, implementation-defined output, rc=0 against sbl -bf -- the oracle gives no answer to compare
+opsyn-case-fold.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+output-format-ignored.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+real-literal-out-of-range.sno	NSTD	@nonstandard fixture, implementation-defined output, rc=0 against sbl -bf -- the oracle gives no answer to compare
+real-overflow-recoverable.sno	NSTD	@nonstandard fixture, implementation-defined output, rc=0 against sbl -bf -- the oracle gives no answer to compare
+recursive-balanced-pattern.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+recursive-expression-recognizer.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+recursive-yz-pattern.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+stlimit-nonnegative.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+syntactic-recognizer.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+twelve-days.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
+unload-builtin.sno	ERRNO	sbl -bf itself errors here and SCRIP raises the same ERROR number; only the listing stream differs, so there is no oracle stream to grade against (recorded also in NARROW.tsv)
