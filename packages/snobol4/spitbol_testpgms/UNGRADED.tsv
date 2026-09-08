@@ -1,0 +1,10 @@
+# UNGRADED.tsv -- spitbol_testpgms: shipped, GRADABLE, ref not cut yet. This file must reach zero rows.
+# THE PACKAGE LOCKDOWN (Lon 2026-09-06). Columns: path <TAB> CLASS <TAB> reason (never empty).
+# Written coo 2026-09-08 on the ceo ruling of 17:39: a package with NO UNGRADED.tsv reads UNKNOWN, not
+# zero, so the file exists even when the count is zero -- an absent file and an empty one are not the
+# same claim.
+# ZERO ROWS AS MEASURED at SCRIP d406c4ab2 corpus 83ef45376: of 8 shipped, 2 are graded against sbl -bf
+# (test1, test3) and 6 are named in UNGRADABLE.tsv because sbl -bf refuses them. Nothing is owed a ref
+# cut. test1's remaining RED is not ungraded work either -- it is the VALUE() oracle quirk on the record
+# in RULES.md (QUIRK 1), tolerated by name on row
+# snobol4-testpgms-test1-traps-29-runtime-errors-under-spitbol-scrip-traps-3.

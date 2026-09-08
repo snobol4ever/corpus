@@ -1,7 +1,11 @@
 # UNGRADABLE.tsv -- spitbol_testpgms: shipped, ruled UNGRADABLE by the ORACLE's own behavior, never
 # ours. Columns: name<TAB>CLASS<TAB>reason (lib_inventory.sh's documented, gate-tested shape).
-# test5.spt and test8.spt are NOT here: CEO-281 clause (2) regrades them against CSNOBOL4 instead of
-# sbl, and both run to a real answer there -- they are GRADED, in graded_stream, per the runner itself.
+# ⛔ AMENDED coo 2026-09-08: test5.spt and test8.spt ARE here now. They were excluded because CEO-281
+# clause (2) regraded them against CSNOBOL4 instead of sbl, where both run to a real answer -- but
+# CEO-391 (RULES sec Oracles, FACT RULE NO COMPATIBILITY SWITCH FOR ANY SCRIP LANGUAGE, on Lon
+# 2026-09-07 "just one oracle and one feature set, being SPITBOL") retires that second oracle. With
+# sbl -bf the only grader, sbl's refusal is the whole answer for these two, so they join the class.
+# This is what moved the runner's UNSCORED count from 4 to 6 and made the inventory stop summing.
 # ⛔ THIS FILE IS A DECLARATION ABOUT sbl's KNOWN BEHAVIOR, NOT A FRESH INFERENCE PER RUN: the runner's
 # own live rc/diagnostic check still decides UNSCORED each run; if a future run of sbl answers one of
 # these four cleanly instead, the runner's SCORED count changes but this file does not, and
@@ -11,3 +15,5 @@ test2.spt	NONDETERMINISTIC	sbl -bf never completes this program, but the exact f
 test4.spt	ORACLE_REFUSES	sbl -bf halts at rc=0 with ERROR 116 plus a 9-line post-mortem block instead of a completed run; a graceful fatal report, not an answer
 test6.spt	ORACLE_REFUSES	sbl -bf halts at rc=0 with ERROR 248 plus a 37-line post-mortem block instead of a completed run; a graceful fatal report, not an answer
 test7.spt	ORACLE_REFUSES	sbl -bf halts at rc=0 with ERROR 248 plus a 9-line post-mortem block instead of a completed run; a graceful fatal report, not an answer
+test5.spt	ORACLE_REFUSES	sbl -bf halts at rc=0 with ERROR 116 plus a 9-line post-mortem block instead of a completed run; a graceful fatal report, not an answer (was graded vs csnobol4 -b under CEO-281 clause 2, retired by CEO-391)
+test8.spt	ORACLE_REFUSES	sbl -bf halts at rc=0 with ERROR 160 plus a 9-line post-mortem block instead of a completed run; a graceful fatal report, not an answer (was graded vs csnobol4 -b under CEO-281 clause 2, retired by CEO-391)
