@@ -1,0 +1,11 @@
+name	sbl	csnobol4	snoflake	sbl_note	csnobol4_note	snoflake_note
+ATN.sno	OK	OK	NO_ORACLE			
+BUILDLIB.sno	OK	ERR	NO_ORACLE		rc=1 BUILDLIB.sno:14: Error 24 in statement 4 at level 0	
+ENDING.sno	OK	ERR	NO_ORACLE		rc=1 ENDING.sno:110: Error 10 in statement 69 at level 0	
+HSORT.sno	OK	OK	NO_ORACLE			
+KALAH.sno	OK	OK	NO_ORACLE			
+SIR.sno	OK	OK	NO_ORACLE			
+SPITCORE.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 SPITCORE.sno:917: Error 32 in statement 0 at level 0	
+spitlib.spt	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 spitlib.spt:1504: Error 32 in statement 0 at level 0	
+TEST.sno	OK	OK	NO_ORACLE			
+WANG.sno	OK	ERR	NO_ORACLE		rc=1 WANG.sno:76: Error 10 in statement 44 at level 0	

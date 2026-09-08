@@ -1,0 +1,131 @@
+name	sbl	csnobol4	snoflake	sbl_note	csnobol4_note	snoflake_note
+100func.sno	OK	OK	NO_ORACLE			
+8bit2.sno	ERR	OK	NO_ORACLE	rc=1 8bit2.sno(1,2) : ERROR 230 -- syntax error: illegal character		
+8bit.sno	OK	OK	NO_ORACLE			
+aa.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 aa.sno:1: Error 32 in statement 0 at level 0	
+alis.sno	ERR	OK	NO_ORACLE	rc=231 alis.sno(57,14) : ERROR 230 -- syntax error: illegal character		
+alph.sno	OK	OK	NO_ORACLE			
+alt1.sno	OK	OK	NO_ORACLE			
+alt2.sno	OK	OK	NO_ORACLE			
+any.sno	OK	OK	NO_ORACLE			
+a.sno	OK	OK	NO_ORACLE			
+atn.sno	OK	OK	NO_ORACLE			
+bal.sno	OK	OK	NO_ORACLE			
+basename.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 basename.sno:13: Error 32 in statement 0 at level 0	
+base.sno	ERR	OK	NO_ORACLE	rc=1 No END statement found in source file(s).		
+bb.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 bb.sno:1: Error 32 in statement 0 at level 0	
+bench.sno	OK	ERR	NO_ORACLE		rc=1 NO FILENAME ON COMMAND LINE	
+breakline.sno	ERR	OK	NO_ORACLE	rc=1 No END statement found in source file(s).		
+breakx.sno	OK	OK	NO_ORACLE			
+case1.sno	OK	OK	NO_ORACLE			
+case2.sno	OK	OK	NO_ORACLE			
+cat.sno	OK	OK	NO_ORACLE			
+char.sno	OK	OK	NO_ORACLE			
+collect2.sno	OK	OK	NO_ORACLE			
+collect.sno	OK	OK	NO_ORACLE			
+comment.sno	OK	OK	NO_ORACLE			
+contin.sno	OK	OK	NO_ORACLE			
+conv2.sno	ERR	OK	NO_ORACLE	rc=1 No END statement found in source file(s).		
+convert.sno	OK	OK	NO_ORACLE			
+crlf.sno	ERR	OK	NO_ORACLE	rc=1 crlf.sno(1,30) : ERROR 230 -- syntax error: illegal character		
+diag1.sno	ERR	OK	NO_ORACLE	rc=1 No END statement found in source file(s).		
+diag2.sno	ERR	OK	NO_ORACLE	rc=1 242     .          error()		
+digits.sno	OK	OK	NO_ORACLE			
+dump.sno	OK	OK	NO_ORACLE			
+end.sno	OK	OK	NO_ORACLE			
+err.sno	OK	OK	NO_ORACLE			
+factor.sno	OK	OK	NO_ORACLE			
+fact.sno	OK	OK	NO_ORACLE			
+file.sno	OK	OK	NO_ORACLE			
+float2.sno	OK	OK	NO_ORACLE			
+float.sno	OK	OK	NO_ORACLE			
+ftrace.sno	OK	OK	NO_ORACLE			
+fun1.sno	OK	OK	NO_ORACLE			
+fun2.sno	OK	OK	NO_ORACLE			
+func2.sno	ERR	OK	NO_ORACLE	rc=1 No END statement found in source file(s).		
+function.sno	OK	OK	NO_ORACLE			
+genc.sno	ERR	ERR	NO_ORACLE	rc=1 NO FILENAME ON COMMAND LINE	rc=1 NO FILENAME ON COMMAND LINE	
+hello.sno	OK	OK	NO_ORACLE			
+hide.sno	ERR	OK	NO_ORACLE	rc=1 No END statement found in source file(s).		
+host.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 host.sno:516: Error 32 in statement 0 at level 0	
+include2.sno	ERR	OK	NO_ORACLE	rc=1 No END statement found in source file(s).		
+include3.sno	ERR	OK	NO_ORACLE	rc=1 No END statement found in source file(s).		
+include4.sno	ERR	OK	NO_ORACLE	rc=1 No END statement found in source file(s).		
+include.sno	OK	OK	NO_ORACLE			
+ind.sno	OK	OK	NO_ORACLE			
+intval.sno	OK	OK	NO_ORACLE			
+json1.sno	OK	OK	NO_ORACLE			
+json.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 json.sno:338: Error 32 in statement 0 at level 0	
+keytrace.sno	ERR	OK	NO_ORACLE	rc=231 keytrace.sno(15) : ERROR 014 -- division caused integer overflow		
+k.sno	ERR	OK	NO_ORACLE	rc=1 No END statement found in source file(s).		
+labelcode.sno	OK	OK	NO_ORACLE			
+label.sno	OK	OK	NO_ORACLE			
+len.sno	OK	OK	NO_ORACLE			
+lexcmp.sno	OK	OK	NO_ORACLE			
+lgt.sno	OK	OK	NO_ORACLE			
+line2.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 line2.sno:3: Error 32 in statement 0 at level 0	
+line.sno	OK	OK	NO_ORACLE			
+loaderr.sno	OK	OK	NO_ORACLE			
+local.sno	OK	OK	NO_ORACLE			
+longline.sno	OK	OK	NO_ORACLE			
+longrec.sno	OK	OK	NO_ORACLE			
+loop.sno	OK	OK	NO_ORACLE			
+match2.sno	OK	OK	NO_ORACLE			
+match3.sno	OK	OK	NO_ORACLE			
+match4.sno	OK	OK	NO_ORACLE			
+matchloop.sno	OK	OK	NO_ORACLE			
+match.sno	OK	OK	NO_ORACLE			
+maxint.sno	OK	OK	NO_ORACLE			
+ndbm.sno	ERR	ERR	NO_ORACLE	rc=1 ndbm.sno(25,10) : ERROR 285 -- include file cannot be opened	rc=1 ndbm.sno:25: Error 30 in statement 0 at level 0	
+noexec.sno	ERR	OK	NO_ORACLE	rc=1 No END statement found in source file(s).		
+nqueens.sno	OK	OK	NO_ORACLE			
+openi.sno	OK	OK	NO_ORACLE			
+openo2.sno	OK	OK	NO_ORACLE			
+openo.sno	OK	OK	NO_ORACLE			
+ops.sno	OK	OK	NO_ORACLE			
+ord.sno	OK	OK	NO_ORACLE			
+pad.sno	OK	OK	NO_ORACLE			
+popen2.sno	OK	OK	NO_ORACLE			
+popen.sno	OK	OK	NO_ORACLE			
+pow.sno	OK	OK	NO_ORACLE			
+preload1.sno	OK	OK	NO_ORACLE			
+preload2.sno	OK	OK	NO_ORACLE			
+preload3.sno	OK	OK	NO_ORACLE			
+preload4.sno	OK	OK	NO_ORACLE			
+punch.sno	OK	OK	NO_ORACLE			
+random.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 random.sno:2: Error 30 in statement 0 at level 0	
+repl.sno	OK	OK	NO_ORACLE			
+reverse.sno	OK	OK	NO_ORACLE			
+rewind1.sno	OK	ERR	NO_ORACLE		rc=1 rewind1.sno:2: Caught signal 11 in statement 2 at level 0	
+roman.sno	OK	OK	NO_ORACLE			
+scanerr.sno	ERR	OK	NO_ORACLE	rc=231 scanerr.sno(18) : ERROR 212 -- syntax error: value used where name is required		
+setexit2.sno	OK	OK	NO_ORACLE			
+setexit3.sno	OK	OK	NO_ORACLE			
+setexit4.sno	OK	OK	NO_ORACLE			
+setexit5.sno	ERR	OK	NO_ORACLE	rc=1 setexit5.sno(18) : ERROR 014 -- division caused integer overflow		
+setexit6.sno	ERR	ERR	NO_ORACLE	rc=1 setexit6.sno(13) : ERROR 014 -- division caused integer overflow	rc=1 cont: setexit6.sno:13 Error in arithmetic operation S8	
+setexit7.sno	OK	OK	NO_ORACLE			
+setexit.sno	ERR	ERR	NO_ORACLE	rc=1 setexit.sno(5) : ERROR 014 -- division caused integer overflow	rc=1 cont: setexit.sno:5 Error in arithmetic operation S4	
+sleep.sno	ERR	ERR	NO_ORACLE	rc=1 sleep.sno(1,10) : ERROR 285 -- include file cannot be opened	rc=1 sleep.sno:1: Error 30 in statement 0 at level 0	
+space2.sno	ERR	OK	NO_ORACLE	rc=1 No END statement found in source file(s).		
+space.sno	ERR	OK	NO_ORACLE	rc=1 No END statement found in source file(s).		
+spit.sno	OK	OK	NO_ORACLE			
+str.sno	OK	OK	NO_ORACLE			
+substr.sno	OK	OK	NO_ORACLE			
+sudoku.sno	OK	OK	NO_ORACLE			
+tab.sno	OK	ERR	NO_ORACLE		rc=1 tab.sno:18: Error 3 in statement 14 at level 0	
+time.sno	ERR	ERR	NO_ORACLE	rc=1 time.sno(1,10) : ERROR 285 -- include file cannot be opened	rc=1 time.sno:1: Error 30 in statement 0 at level 0	
+trace1.sno	OK	OK	NO_ORACLE			
+trace2.sno	OK	OK	NO_ORACLE			
+trfunc.sno	OK	OK	NO_ORACLE			
+trim0.sno	OK	OK	NO_ORACLE			
+trim1.sno	OK	OK	NO_ORACLE			
+t.sno	OK	OK	NO_ORACLE			
+uneval2.sno	OK	OK	NO_ORACLE			
+uneval.sno	OK	OK	NO_ORACLE			
+unsc.sno	OK	OK	NO_ORACLE			
+update.sno	OK	OK	NO_ORACLE			
+utf.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 utf.sno:217: Error 32 in statement 0 at level 0	
+vdiffer.sno	OK	OK	NO_ORACLE			
+words1.sno	OK	OK	NO_ORACLE			
+words.sno	OK	OK	NO_ORACLE			

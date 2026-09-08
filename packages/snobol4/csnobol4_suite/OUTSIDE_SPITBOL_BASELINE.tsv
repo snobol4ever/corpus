@@ -1,4 +1,5 @@
 8bit2.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: 
+alis.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07; the keytrace class, ceo 2026-09-08 17:38 applied by class by the cto, ORACLE_ACCEPTANCE census): sbl -bf answers with a fatal LISTING (alis.sno(57,14) ERROR 230 illegal character) -- RULING R5 forbids grading a listing; the sbl-cut .ref was that listing and is removed.
 base.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
 breakline.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
 conv2.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
@@ -6,14 +7,17 @@ crlf.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf r
 diag1.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
 diag2.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: 
 func2.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
+genc.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07; the keytrace class, ceo 2026-09-08 17:38 applied by class by the cto, ORACLE_ACCEPTANCE census): sbl -bf answers with a fatal LISTING (genc.sno(766) ERROR 038 goto undefined label) -- RULING R5 forbids grading a listing; the sbl-cut .ref was that listing and is removed.
 hide.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
 include2.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
 include3.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
 include4.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
+keytrace.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07; ceo 2026-09-08 17:38 on the trace class row): BREAKPOINT() is CSNOBOL4, not SPITBOL, and sbl -bf answers with a fatal LISTING (keytrace.sno(15) ERROR 014) -- RULING R5 forbids grading a listing; the sbl-cut keytrace.ref was that listing and is removed.
 k.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
 ndbm.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): CSNOBOL4 LOAD() module test
 noexec.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: No END statement found in source file(s).
 random.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): CSNOBOL4 LOAD() module test
+scanerr.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07; the keytrace class, ceo 2026-09-08 17:38 applied by class by the cto, ORACLE_ACCEPTANCE census): sbl -bf answers with a fatal LISTING (scanerr.sno(18) ERROR 212 value used where name is required) -- RULING R5 forbids grading a listing; the sbl-cut .ref was that listing and is removed.
 setexit5.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: 
 setexit6.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: 
 setexit.sno	ORACLE_REFUSES	outside the SPITBOL baseline (Lon 2026-09-07): sbl -bf rc=1: 

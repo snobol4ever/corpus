@@ -1,0 +1,9 @@
+name	sbl	csnobol4	snoflake	sbl_note	csnobol4_note	snoflake_note
+test1.spt	OK	ERR	NO_ORACLE		rc=1 ERRORS DETECTED IN SOURCE PROGRAM	
+test2.spt	ERR	OK	NO_ORACLE	rc=231 259     .                                                          ERROR()		
+test3.spt	OK	OK	NO_ORACLE			
+test4.spt	OK	OK	NO_ORACLE			
+test5.spt	OK	OK	NO_ORACLE			
+test6.spt	OK	OK	NO_ORACLE			
+test7.spt	OK	OK	NO_ORACLE			
+test8.spt	OK	OK	NO_ORACLE			

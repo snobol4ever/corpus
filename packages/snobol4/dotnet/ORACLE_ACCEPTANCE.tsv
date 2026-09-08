@@ -1,0 +1,15 @@
+name	sbl	csnobol4	snoflake	sbl_note	csnobol4_note	snoflake_note
+1brc.sno	OK	ERR	NO_ORACLE		rc=1 1brc.sno:3: Error 22 in statement 3 at level 0	
+asgn1.sno	OK	ERR	NO_ORACLE		rc=1 asgn1.sno:5: Error 24 in statement 2 at level 0	
+chap7.sno	OK	OK	NO_ORACLE			
+chap8_funcs.sno	OK	OK	NO_ORACLE			
+code.sno	OK	ERR	NO_ORACLE		rc=1 code.sno:34: Error 1 in statement 5 at level 0	
+expr_parser_stub.sno	OK	ERR	NO_ORACLE		rc=1 expr_parser_stub.sno:28: Error 5 in statement 9 at level 0	
+palin.sno	OK	OK	NO_ORACLE			
+pattern_demo.sno	OK	OK	NO_ORACLE			
+SourceLines001.sno	ERR	ERR	NO_ORACLE	rc=1 SourceLines001.sno(1) : ERROR 214 -- bad label or misplaced continuation line	rc=1 ERRORS DETECTED IN SOURCE PROGRAM	
+SourceLines002.sno	ERR	OK	NO_ORACLE	rc=231 SourceLines002.sno(1) : ERROR 214 -- bad label or misplaced continuation line		
+SourceLines003.sno	ERR	OK	NO_ORACLE	rc=231 SourceLines003.sno(1) : ERROR 214 -- bad label or misplaced continuation line		
+temp.sno	OK	OK	NO_ORACLE			
+Test2.sno	ERR	ERR	NO_ORACLE	rc=1 Test2.sno(1) : ERROR 214 -- bad label or misplaced continuation line	rc=1 Test2.sno:3: Error 24 in statement 3 at level 0	
+Test.sno	ERR	ERR	NO_ORACLE	rc=231 Test.sno(1) : ERROR 214 -- bad label or misplaced continuation line	rc=1 Test.sno:5: Error 35 in statement 5 at level 0	

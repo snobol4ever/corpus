@@ -1,0 +1,291 @@
+name	sbl	csnobol4	snoflake	sbl_note	csnobol4_note	snoflake_note
+AGT_driver.sno	OK	OK	NO_ORACLE			
+AGT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 AGT.sno:14: Error 32 in statement 0 at level 0	
+AI_driver.sno	OK	OK	NO_ORACLE			
+AI.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 AI.sno:13: Error 32 in statement 0 at level 0	
+AOPA_driver.sno	OK	OK	NO_ORACLE			
+AOPA.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 AOPA.sno:19: Error 32 in statement 0 at level 0	
+ARC_driver.sno	OK	OK	NO_ORACLE			
+ARC.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 ARC.sno:25: Error 32 in statement 0 at level 0	
+ASM360_driver.sno	OK	OK	NO_ORACLE			
+ASM360.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 ASM360.sno:28: Error 32 in statement 0 at level 0	
+ASM_driver.sno	OK	OK	NO_ORACLE			
+ASM.sno	OK	OK	NO_ORACLE			
+BAL_driver.sno	OK	OK	NO_ORACLE			
+BALREV_driver.sno	OK	OK	NO_ORACLE			
+BALREV.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 BALREV.sno:11: Error 32 in statement 0 at level 0	
+BAL.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 BAL.sno:13: Error 32 in statement 0 at level 0	
+BASE10_driver.sno	OK	OK	NO_ORACLE			
+BASE10.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 BASE10.sno:13: Error 32 in statement 0 at level 0	
+BASEB_driver.sno	OK	OK	NO_ORACLE			
+BASEB.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 BASEB.sno:13: Error 32 in statement 0 at level 0	
+BCD_EBCD_driver.sno	OK	OK	NO_ORACLE			
+BCD_EBCD.sno	OK	OK	NO_ORACLE			
+BLANKS_driver.sno	OK	OK	NO_ORACLE			
+BLANKS.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 BLANKS.sno:35: Error 32 in statement 0 at level 0	
+BLEND_driver.sno	OK	OK	NO_ORACLE			
+BLEND.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 BLEND.sno:23: Error 32 in statement 0 at level 0	
+BNORM_driver.sno	OK	OK	NO_ORACLE			
+BNORM.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 BNORM.sno:27: Error 32 in statement 0 at level 0	
+BREAKX_driver.sno	OK	OK	NO_ORACLE			
+BREAKX.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 BREAKX.sno:11: Error 32 in statement 0 at level 0	
+BRKREM_driver.sno	OK	OK	NO_ORACLE			
+BRKREM.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 BRKREM.sno:12: Error 32 in statement 0 at level 0	
+BSORT_driver.sno	OK	OK	NO_ORACLE			
+BSORT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 BSORT.sno:17: Error 32 in statement 0 at level 0	
+CARDPAK_driver.sno	OK	ERR	NO_ORACLE		rc=1 RANDOM.sno:5: Error 1 in statement 5 at level 3	
+CARDPAK.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 CARDPAK.sno:39: Error 32 in statement 0 at level 0	
+CATA_driver.sno	OK	OK	NO_ORACLE			
+CATA.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 CATA.sno:12: Error 32 in statement 0 at level 0	
+CH_driver.sno	OK	OK	NO_ORACLE			
+CH.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 CH.sno:12: Error 32 in statement 0 at level 0	
+COMB_driver.sno	OK	OK	NO_ORACLE			
+COMB.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 COMB.sno:7: Error 32 in statement 0 at level 0	
+COPYL_driver.sno	OK	OK	NO_ORACLE			
+COPYL.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 COPYL.sno:19: Error 32 in statement 0 at level 0	
+COUNT_driver.sno	OK	OK	NO_ORACLE			
+COUNT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 COUNT.sno:11: Error 32 in statement 0 at level 0	
+CRACK_driver.sno	OK	OK	NO_ORACLE			
+CRACK.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 CRACK.sno:14: Error 32 in statement 0 at level 0	
+DAY_driver.sno	OK	ERR	NO_ORACLE		rc=1 DAY.sno:23: Error 1 in statement 16 at level 1	
+DAY.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 DAY.sno:27: Error 32 in statement 0 at level 0	
+DECOMB_driver.sno	OK	OK	NO_ORACLE			
+DECOMB.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 DECOMB.sno:12: Error 32 in statement 0 at level 0	
+DEXP_driver.sno	OK	OK	NO_ORACLE			
+DEXP.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 DEXP.sno:10: Error 32 in statement 0 at level 0	
+DEXTERN_driver.sno	OK	OK	NO_ORACLE			
+DEXTERN.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 DEXTERN.sno:21: Error 32 in statement 0 at level 0	
+DIFF_driver.sno	OK	OK	NO_ORACLE			
+DIFF.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 DIFF.sno:10: Error 32 in statement 0 at level 0	
+FASTBAL_driver.sno	OK	OK	NO_ORACLE			
+FASTBAL.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 FASTBAL.sno:28: Error 32 in statement 0 at level 0	
+FIND_driver.sno	OK	OK	NO_ORACLE			
+FIND.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 FIND.sno:19: Error 32 in statement 0 at level 0	
+FLD_driver.sno	OK	OK	NO_ORACLE			
+FLD.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 FLD.sno:16: Error 32 in statement 0 at level 0	
+FLOOR_driver.sno	OK	OK	NO_ORACLE			
+FLOOR.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 FLOOR.sno:12: Error 32 in statement 0 at level 0	
+FORTPUT_driver.sno	OK	OK	NO_ORACLE			
+FORTPUT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 FORTPUT.sno:11: Error 32 in statement 0 at level 0	
+FORTREAD_driver.sno	OK	OK	NO_ORACLE			
+FORTREAD.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 FORTREAD.sno:14: Error 32 in statement 0 at level 0	
+FPROFILE_driver.sno	OK	OK	NO_ORACLE			
+FPROFILE.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 FPROFILE.sno:8: Error 32 in statement 0 at level 0	
+FRSORT_driver.sno	OK	OK	NO_ORACLE			
+FRSORT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 FRSORT.sno:17: Error 32 in statement 0 at level 0	
+FTRACE_driver.sno	OK	ERR	NO_ORACLE		rc=1 FTRACE_driver.sno:8: Error 25 in statement 10 at level 0	
+FTRACE.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 FTRACE.sno:10: Error 32 in statement 0 at level 0	
+GPM_driver.sno	OK	OK	NO_ORACLE			
+GPM.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 GPM.sno:39: Error 32 in statement 0 at level 0	
+HEX_driver.sno	OK	OK	NO_ORACLE			
+HEX.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 HEX.sno:12: Error 32 in statement 0 at level 0	
+HSORT_driver.sno	OK	OK	NO_ORACLE			
+HSORT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 HSORT.sno:21: Error 32 in statement 0 at level 0	
+HYPHENAT_driver.sno	OK	OK	NO_ORACLE			
+HYPHENAT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 HYPHENAT.sno:57: Error 32 in statement 0 at level 0	
+IMAGE_driver.sno	OK	OK	NO_ORACLE			
+IMAGE.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 IMAGE.sno:38: Error 32 in statement 0 at level 0	
+INFINIP_driver.sno	OK	OK	NO_ORACLE			
+INFINIP_lib_driver.sno	OK	OK	NO_ORACLE			
+INFINIP_lib.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 INFINIP_lib.sno:93: Error 32 in statement 0 at level 0	
+INFINIP.sno	OK	OK	NO_ORACLE			
+INORM_driver.sno	OK	OK	NO_ORACLE			
+INORM.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 INORM.sno:23: Error 32 in statement 0 at level 0	
+INSERTB_driver.sno	OK	OK	NO_ORACLE			
+INSERTB.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 INSERTB.sno:18: Error 32 in statement 0 at level 0	
+INSERT_driver.sno	OK	OK	NO_ORACLE			
+INSERT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 INSERT.sno:13: Error 32 in statement 0 at level 0	
+INSULATE_driver.sno	OK	OK	NO_ORACLE			
+INSULATE.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 INSULATE.sno:16: Error 32 in statement 0 at level 0	
+IP_driver.sno	OK	OK	NO_ORACLE			
+IP.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 IP.sno:16: Error 32 in statement 0 at level 0	
+LAST_driver.sno	OK	OK	NO_ORACLE			
+LAST.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 LAST.sno:10: Error 32 in statement 0 at level 0	
+LEXGT_driver.sno	OK	OK	NO_ORACLE			
+LEXGT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 LEXGT.sno:16: Error 32 in statement 0 at level 0	
+LIKE_driver.sno	OK	OK	NO_ORACLE			
+LIKE.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 LIKE.sno:17: Error 32 in statement 0 at level 0	
+LINEARIZ_driver.sno	OK	OK	NO_ORACLE			
+LINEARIZ.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 LINEARIZ.sno:15: Error 32 in statement 0 at level 0	
+LINE_driver.sno	OK	OK	NO_ORACLE			
+LINE.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 LINE.sno:71: Error 32 in statement 0 at level 0	
+LOG_driver.sno	OK	OK	NO_ORACLE			
+LOG.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 LOG.sno:36: Error 32 in statement 0 at level 0	
+L_ONE_driver.sno	OK	OK	NO_ORACLE			
+L_ONE.sno	OK	OK	NO_ORACLE			
+LPAD_driver.sno	OK	OK	NO_ORACLE			
+LPAD.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 LPAD.sno:14: Error 32 in statement 0 at level 0	
+LPERM_driver.sno	OK	OK	NO_ORACLE			
+LPERM.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 LPERM.sno:15: Error 32 in statement 0 at level 0	
+LPROG_driver.sno	OK	OK	NO_ORACLE			
+LPROG.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 LPROG.sno:7: Error 32 in statement 0 at level 0	
+LSORT_driver.sno	OK	OK	NO_ORACLE			
+LSORT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 LSORT.sno:36: Error 32 in statement 0 at level 0	
+L_TWO_driver.sno	OK	OK	NO_ORACLE			
+L_TWO.sno	OK	OK	NO_ORACLE			
+MDY_driver.sno	OK	OK	NO_ORACLE			
+MDY.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 MDY.sno:21: Error 32 in statement 0 at level 0	
+MFREAD_driver.sno	OK	OK	NO_ORACLE			
+MFREAD.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 MFREAD.sno:28: Error 32 in statement 0 at level 0	
+MINP_driver.sno	OK	OK	NO_ORACLE			
+MINP.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 MINP.sno:11: Error 32 in statement 0 at level 0	
+MSORT_driver.sno	OK	OK	NO_ORACLE			
+MSORT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 MSORT.sno:42: Error 32 in statement 0 at level 0	
+NOT_driver.sno	OK	OK	NO_ORACLE			
+NOT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 NOT.sno:9: Error 32 in statement 0 at level 0	
+ONCE_driver.sno	OK	OK	NO_ORACLE			
+ONCE.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 ONCE.sno:15: Error 32 in statement 0 at level 0	
+ONEWAY_driver.sno	OK	ERR	NO_ORACLE		rc=1 ONEWAY.sno:14: Error 1 in statement 56 at level 1	
+ONEWAY.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 ONEWAY.sno:23: Error 32 in statement 0 at level 0	
+ORBREAK_driver.sno	OK	OK	NO_ORACLE			
+ORBREAK.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 ORBREAK.sno:31: Error 32 in statement 0 at level 0	
+ORDER_driver.sno	OK	OK	NO_ORACLE			
+ORDER.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 ORDER.sno:9: Error 32 in statement 0 at level 0	
+OR_driver.sno	OK	OK	NO_ORACLE			
+OR.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 OR.sno:115: Error 32 in statement 0 at level 0	
+ORSORT_driver.sno	OK	OK	NO_ORACLE			
+ORSORT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 ORSORT.sno:37: Error 32 in statement 0 at level 0	
+ORVISUAL_driver.sno	OK	OK	NO_ORACLE			
+ORVISUAL.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 ORVISUAL.sno:69: Error 32 in statement 0 at level 0	
+PAD_driver.sno	OK	OK	NO_ORACLE			
+PAD.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 PAD.sno:27: Error 32 in statement 0 at level 0	
+PARAGRAP_driver.sno	OK	OK	NO_ORACLE			
+PARAGRAP.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 PARAGRAP.sno:17: Error 32 in statement 0 at level 0	
+PEEL_driver.sno	OK	OK	NO_ORACLE			
+PEEL.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 PEEL.sno:18: Error 32 in statement 0 at level 0	
+PERM_driver.sno	OK	OK	NO_ORACLE			
+PERMS_driver.sno	OK	OK	NO_ORACLE			
+PERM.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 PERM.sno:29: Error 32 in statement 0 at level 0	
+PERMS.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 PERMS.sno:27: Error 32 in statement 0 at level 0	
+PERMUTAT_driver.sno	OK	OK	NO_ORACLE			
+PERMUTAT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 PERMUTAT.sno:13: Error 32 in statement 0 at level 0	
+PHRASE_driver.sno	OK	TIMEOUT	NO_ORACLE			
+PHRASE.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 PHRASE.sno:9: Error 32 in statement 0 at level 0	
+PHRASES.sno	ERR	ERR	NO_ORACLE	rc=231 PHRASES.sno(1) : ERROR 214 -- bad label or misplaced continuation line	rc=1 ERRORS DETECTED IN SOURCE PROGRAM	
+PHYSICAL_driver.sno	OK	ERR	NO_ORACLE		rc=1 PHYSICAL.sno:14: Error 21 in statement 28 at level 210	
+PHYSICAL.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 PHYSICAL.sno:46: Error 32 in statement 0 at level 0	
+PLI_STMT_driver.sno	OK	OK	NO_ORACLE			
+PLI_STMT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 PLI_STMT.sno:9: Error 32 in statement 0 at level 0	
+POKER_driver.sno	OK	OK	NO_ORACLE			
+POKER.sno	OK	OK	NO_ORACLE			
+POKEV_driver.sno	OK	OK	NO_ORACLE			
+POKEV.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 POKEV.sno:53: Error 32 in statement 0 at level 0	
+POL_driver.sno	OK	OK	NO_ORACLE			
+POL.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 POL.sno:70: Error 32 in statement 0 at level 0	
+PUSH_driver.sno	OK	OK	NO_ORACLE			
+PUSH.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 PUSH.sno:17: Error 32 in statement 0 at level 0	
+PUT_driver.sno	OK	OK	NO_ORACLE			
+PUT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 PUT.sno:17: Error 32 in statement 0 at level 0	
+QUEST_driver.sno	OK	TIMEOUT	NO_ORACLE			
+QUEST.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 QUEST.sno:55: Error 32 in statement 0 at level 0	
+QUOTE_driver.sno	OK	OK	NO_ORACLE			
+QUOTE.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 QUOTE.sno:10: Error 32 in statement 0 at level 0	
+RAISE_driver.sno	OK	OK	NO_ORACLE			
+RAISE.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 RAISE.sno:24: Error 32 in statement 0 at level 0	
+RAMM_driver.sno	OK	ERR	NO_ORACLE		rc=1 RANDOM.sno:5: Error 1 in statement 4 at level 1	
+RAMM.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 RAMM.sno:16: Error 32 in statement 0 at level 0	
+RANDOM_driver.sno	OK	ERR	NO_ORACLE		rc=1 RANDOM.sno:5: Error 1 in statement 4 at level 1	
+RANDOM.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 RANDOM.sno:9: Error 32 in statement 0 at level 0	
+RCHAR_driver.sno	OK	ERR	NO_ORACLE		rc=1 RANDOM.sno:5: Error 1 in statement 4 at level 2	
+RCHAR.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 RCHAR.sno:33: Error 32 in statement 0 at level 0	
+READ_driver.sno	OK	OK	NO_ORACLE			
+READL_driver.sno	OK	OK	NO_ORACLE			
+READL.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 READL.sno:17: Error 32 in statement 0 at level 0	
+READRL_driver.sno	OK	OK	NO_ORACLE			
+READRL.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 READRL.sno:13: Error 32 in statement 0 at level 0	
+READ.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 READ.sno:16: Error 32 in statement 0 at level 0	
+REDEFINE_driver.sno	OK	OK	NO_ORACLE			
+REDEFINE.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 REDEFINE.sno:20: Error 32 in statement 0 at level 0	
+REORDER_driver.sno	OK	OK	NO_ORACLE			
+REORDER.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 REORDER.sno:15: Error 32 in statement 0 at level 0	
+REPL_driver.sno	OK	OK	NO_ORACLE			
+REPL.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 REPL.sno:18: Error 32 in statement 0 at level 0	
+RESOLUTI_driver.sno	OK	OK	NO_ORACLE			
+RESOLUTI.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 RESOLUTI.sno:8: Error 32 in statement 0 at level 0	
+REVERSE_driver.sno	OK	OK	NO_ORACLE			
+REVERSE.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 REVERSE.sno:18: Error 32 in statement 0 at level 0	
+REVL_driver.sno	OK	OK	NO_ORACLE			
+REVL.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 REVL.sno:14: Error 32 in statement 0 at level 0	
+ROMAN_driver.sno	OK	OK	NO_ORACLE			
+ROMAN.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 ROMAN.sno:10: Error 32 in statement 0 at level 0	
+ROTATER_driver.sno	OK	OK	NO_ORACLE			
+ROTATER.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 ROTATER.sno:11: Error 32 in statement 0 at level 0	
+RPAD_driver.sno	OK	OK	NO_ORACLE			
+RPAD.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 RPAD.sno:13: Error 32 in statement 0 at level 0	
+RPERMUTE_driver.sno	OK	ERR	NO_ORACLE		rc=1 RANDOM.sno:5: Error 1 in statement 4 at level 2	
+RPERMUTE.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 RPERMUTE.sno:9: Error 32 in statement 0 at level 0	
+RPOEM_driver.sno	OK	OK	NO_ORACLE			
+RPOEM.sno	OK	OK	NO_ORACLE			
+RSEASON_driver.sno	OK	OK	NO_ORACLE			
+RSEASON_lib_driver.sno	OK	ERR	NO_ORACLE		rc=1 RANDOM.sno:5: Error 1 in statement 4 at level 2	
+RSEASON_lib.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 RSEASON_lib.sno:45: Error 32 in statement 0 at level 0	
+RSEASON.sno	OK	OK	NO_ORACLE			
+RSELECT_driver.sno	OK	ERR	NO_ORACLE		rc=1 RANDOM.sno:5: Error 1 in statement 21 at level 2	
+RSELECT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 RSELECT.sno:33: Error 32 in statement 0 at level 0	
+RSENTENC_driver.sno	OK	ERR	NO_ORACLE		rc=1 RANDOM.sno:5: Error 1 in statement 33 at level 3	
+RSENTENC.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 RSENTENC.sno:29: Error 32 in statement 0 at level 0	
+RSTORY_driver.sno	OK	OK	NO_ORACLE			
+RSTORY.sno	OK	OK	NO_ORACLE			
+RWORD_driver.sno	OK	ERR	NO_ORACLE		rc=1 RANDOM.sno:5: Error 1 in statement 4 at level 3	
+RWORD.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 RWORD.sno:21: Error 32 in statement 0 at level 0	
+SEQ_driver.sno	OK	OK	NO_ORACLE			
+SEQ.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 SEQ.sno:16: Error 32 in statement 0 at level 0	
+SKIM_driver.sno	OK	OK	NO_ORACLE			
+SKIM.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 SKIM.sno:11: Error 32 in statement 0 at level 0	
+SNOPUT_driver.sno	OK	ERR	NO_ORACLE		rc=1 SNOPUT.sno:10: Error 24 in statement 40 at level 1	
+SNOPUT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 SNOPUT.sno:11: Error 32 in statement 0 at level 0	
+SNOREAD_driver.sno	OK	OK	NO_ORACLE			
+SNOREAD.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 SNOREAD.sno:21: Error 32 in statement 0 at level 0	
+SPACING_driver.sno	OK	OK	NO_ORACLE			
+SPACING.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 SPACING.sno:15: Error 32 in statement 0 at level 0	
+SPELL_driver.sno	OK	OK	NO_ORACLE			
+SPELL.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 SPELL.sno:29: Error 32 in statement 0 at level 0	
+SQRT_driver.sno	OK	OK	NO_ORACLE			
+SQRT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 SQRT.sno:24: Error 32 in statement 0 at level 0	
+SSORT_driver.sno	OK	OK	NO_ORACLE			
+SSORT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 SSORT.sno:11: Error 32 in statement 0 at level 0	
+STACK_driver.sno	OK	OK	NO_ORACLE			
+STACK.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 STACK.sno:20: Error 32 in statement 0 at level 0	
+STATEF_driver.sno	OK	OK	NO_ORACLE			
+STATEF.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 STATEF.sno:19: Error 32 in statement 0 at level 0	
+STONE_driver.sno	OK	OK	NO_ORACLE			
+STONE.sno	OK	OK	NO_ORACLE			
+STRINGOU_driver.sno	OK	OK	NO_ORACLE			
+STRINGOU.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 STRINGOU.sno:10: Error 32 in statement 0 at level 0	
+stringout.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 stringout.sno:10: Error 32 in statement 0 at level 0	
+SUBSTR_driver.sno	OK	OK	NO_ORACLE			
+SUBSTR.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 SUBSTR.sno:7: Error 32 in statement 0 at level 0	
+SWAP_driver.sno	OK	OK	NO_ORACLE			
+SWAP.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 SWAP.sno:9: Error 32 in statement 0 at level 0	
+SYSTEM_driver.sno	OK	OK	NO_ORACLE			
+SYSTEM.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 SYSTEM.sno:23: Error 32 in statement 0 at level 0	
+TEMP_driver.sno	OK	OK	NO_ORACLE			
+TEMP.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 TEMP.sno:7: Error 32 in statement 0 at level 0	
+TEST_driver.sno	OK	OK	NO_ORACLE			
+TEST.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 TEST.sno:14: Error 32 in statement 0 at level 0	
+TICTACTO_driver.sno	OK	OK	NO_ORACLE			
+TICTACTO.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 TICTACTO.sno:53: Error 32 in statement 0 at level 0	
+TIMEGC_driver.sno	ERR	ERR	NO_ORACLE	rc=1 TIMEGC.sno(6,10) : ERROR 285 -- include file cannot be opened	rc=1 TIMEGC.sno:6: Error 30 in statement 0 at level 0	
+TIMEGC.sno	ERR	ERR	NO_ORACLE	rc=1 TIMEGC.sno(6,10) : ERROR 285 -- include file cannot be opened	rc=1 TIMEGC.sno:6: Error 30 in statement 0 at level 0	
+TIMER_driver.sno	ERR	ERR	NO_ORACLE	rc=1 TIMER.sno(5,10) : ERROR 285 -- include file cannot be opened	rc=1 TIMER.sno:5: Error 30 in statement 0 at level 0	
+TIMER.sno	ERR	ERR	NO_ORACLE	rc=1 TIMER.sno(5,10) : ERROR 285 -- include file cannot be opened	rc=1 TIMER.sno:5: Error 30 in statement 0 at level 0	
+TPROFILE_driver.sno	OK	OK	NO_ORACLE			
+TPROFILE.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 TPROFILE.sno:17: Error 32 in statement 0 at level 0	
+TR_driver.sno	OK	OK	NO_ORACLE			
+TREE_driver.sno	OK	OK	NO_ORACLE			
+TREEREAD_driver.sno	OK	OK	NO_ORACLE			
+TREEREAD.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 TREEREAD.sno:18: Error 32 in statement 0 at level 0	
+TREE.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 TREE.sno:19: Error 32 in statement 0 at level 0	
+TRIG_driver.sno	OK	OK	NO_ORACLE			
+TRIG.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 TRIG.sno:35: Error 32 in statement 0 at level 0	
+TR.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 TR.sno:54: Error 32 in statement 0 at level 0	
+TRUNC_driver.sno	OK	OK	NO_ORACLE			
+TRUNC.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 TRUNC.sno:12: Error 32 in statement 0 at level 0	
+TSORT_driver.sno	OK	OK	NO_ORACLE			
+TSORT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 TSORT.sno:56: Error 32 in statement 0 at level 0	
+TUPLE_driver.sno	OK	OK	NO_ORACLE			
+TUPLE.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 TUPLE.sno:80: Error 32 in statement 0 at level 0	
+UPLO_driver.sno	OK	OK	NO_ORACLE			
+UPLO.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 UPLO.sno:10: Error 32 in statement 0 at level 0	
+VISIT_driver.sno	OK	OK	NO_ORACLE			
+VISIT.sno	ERR	ERR	NO_ORACLE	rc=1 No END statement found in source file(s).	rc=1 VISIT.sno:39: Error 32 in statement 0 at level 0	
