@@ -2,7 +2,7 @@
 # ours. Columns: name<TAB>CLASS<TAB>reason (lib_inventory.sh's documented, gate-tested shape).
 # ⛔ AMENDED coo 2026-09-08: test5.spt and test8.spt ARE here now. They were excluded because CEO-281
 # clause (2) regraded them against CSNOBOL4 instead of sbl, where both run to a real answer -- but
-# CEO-391 (RULES sec Oracles, FACT RULE NO COMPATIBILITY SWITCH FOR ANY SCRIP LANGUAGE, on Lon
+# CEO-391 (RULES sec Oracles, the FACT RULE retiring every compatibility switch, on Lon
 # 2026-09-07 "just one oracle and one feature set, being SPITBOL") retires that second oracle. With
 # sbl -bf the only grader, sbl's refusal is the whole answer for these two, so they join the class.
 # This is what moved the runner's UNSCORED count from 4 to 6 and made the inventory stop summing.
