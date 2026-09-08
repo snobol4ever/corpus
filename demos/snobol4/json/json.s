@@ -10071,8 +10071,11 @@ jutf8_α:                sub              rsp, 64
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jg    .Ldefine_α_1910_246
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_1910_230
-                        push             rdi
+.Ldefine_α_1910_246:    push             rdi
                         push             rsi
                         push             rdx
                         push             rcx
@@ -10119,8 +10122,11 @@ jutf8_γ:                mov              rdi, qword ptr [r9 + 0]              #
                         push             rdx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_1910_247
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_1910_235
-                        push             rdi
+.Ldefine_α_1910_247:    push             rdi
                         push             rsi
                         push             rcx
                         push             r8
@@ -10231,7 +10237,38 @@ jutf8_ω:                mov              rcx, qword ptr [rsp + 32]
                         mov              qword ptr [r9 + 16], rax
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 24], rax
-.Ldefine_α_1910_180:    push             rcx
+.Ldefine_α_1910_180:    mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_1910_248
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jle   .Ldefine_α_1910_249
+.Ldefine_α_1910_248:    push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r12
+                        push             rdi
+                        mov              rdi, qword ptr [rip + .Ldefine_α_1910_237]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_fail_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              rdi
+                        pop              r12
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+.Ldefine_α_1910_249:    push             rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -11795,8 +11832,11 @@ jdec_α:                 sub              rsp, 144
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jg    .Ldefine_α_2000_246
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2000_230
-                        push             rdi
+.Ldefine_α_2000_246:    push             rdi
                         push             rsi
                         push             rdx
                         push             rcx
@@ -11843,8 +11883,11 @@ jdec_γ:                 mov              rdi, qword ptr [r9 + 32]             #
                         push             rdx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2000_247
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2000_235
-                        push             rdi
+.Ldefine_α_2000_247:    push             rdi
                         push             rsi
                         push             rcx
                         push             r8
@@ -11995,7 +12038,38 @@ jdec_ω:                 mov              rcx, qword ptr [rsp + 112]
                         mov              qword ptr [r9 + 48], rax
                         mov              rax, qword ptr [rsp + 136]
                         mov              qword ptr [r9 + 56], rax
-.Ldefine_α_2000_180:    push             rcx
+.Ldefine_α_2000_180:    mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2000_248
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jle   .Ldefine_α_2000_249
+.Ldefine_α_2000_248:    push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r12
+                        push             rdi
+                        mov              rdi, qword ptr [rip + .Ldefine_α_2000_237]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_fail_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              rdi
+                        pop              r12
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+.Ldefine_α_2000_249:    push             rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -14902,8 +14976,11 @@ vpush_α:                sub              rsp, 64
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jg    .Ldefine_α_2176_246
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2176_230
-                        push             rdi
+.Ldefine_α_2176_246:    push             rdi
                         push             rsi
                         push             rdx
                         push             rcx
@@ -14950,8 +15027,11 @@ vpush_γ:                mov              rdi, qword ptr [r9 + 128]            #
                         push             rdx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2176_247
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2176_235
-                        push             rdi
+.Ldefine_α_2176_247:    push             rdi
                         push             rsi
                         push             rcx
                         push             r8
@@ -15062,7 +15142,38 @@ vpush_ω:                mov              rcx, qword ptr [rsp + 32]
                         mov              qword ptr [r9 + 144], rax
                         mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [r9 + 152], rax
-.Ldefine_α_2176_180:    push             rcx
+.Ldefine_α_2176_180:    mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2176_248
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jle   .Ldefine_α_2176_249
+.Ldefine_α_2176_248:    push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r12
+                        push             rdi
+                        mov              rdi, qword ptr [rip + .Ldefine_α_2176_237]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_fail_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              rdi
+                        pop              r12
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+.Ldefine_α_2176_249:    push             rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -15892,8 +16003,11 @@ pobj_α:                 sub              rsp, 48
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jg    .Ldefine_α_2236_246
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2236_230
-                        push             rdi
+.Ldefine_α_2236_246:    push             rdi
                         push             rsi
                         push             rdx
                         push             rcx
@@ -15940,8 +16054,11 @@ pobj_γ:                 mov              rdi, qword ptr [r9 + 160]
                         push             rdx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2236_247
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2236_235
-                        push             rdi
+.Ldefine_α_2236_247:    push             rdi
                         push             rsi
                         push             rcx
                         push             r8
@@ -16026,7 +16143,38 @@ pobj_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              qword ptr [r9 + 160], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 168], rax
+                        mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2236_248
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jle   .Ldefine_α_2236_249
+.Ldefine_α_2236_248:    push             rdi
+                        push             rsi
+                        push             rdx
                         push             rcx
+                        push             r8
+                        push             r9
+                        push             r12
+                        push             rdi
+                        mov              rdi, qword ptr [rip + .Ldefine_α_2236_237]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_fail_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              rdi
+                        pop              r12
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+.Ldefine_α_2236_249:    push             rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -17018,8 +17166,11 @@ parr_α:                 sub              rsp, 48
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jg    .Ldefine_α_2308_246
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2308_230
-                        push             rdi
+.Ldefine_α_2308_246:    push             rdi
                         push             rsi
                         push             rdx
                         push             rcx
@@ -17066,8 +17217,11 @@ parr_γ:                 mov              rdi, qword ptr [r9 + 176]
                         push             rdx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2308_247
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2308_235
-                        push             rdi
+.Ldefine_α_2308_247:    push             rdi
                         push             rsi
                         push             rcx
                         push             r8
@@ -17152,7 +17306,38 @@ parr_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              qword ptr [r9 + 176], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 184], rax
+                        mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2308_248
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jle   .Ldefine_α_2308_249
+.Ldefine_α_2308_248:    push             rdi
+                        push             rsi
+                        push             rdx
                         push             rcx
+                        push             r8
+                        push             r9
+                        push             r12
+                        push             rdi
+                        mov              rdi, qword ptr [rip + .Ldefine_α_2308_237]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_fail_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              rdi
+                        pop              r12
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+.Ldefine_α_2308_249:    push             rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -18144,8 +18329,11 @@ ekey_α:                 sub              rsp, 48
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jg    .Ldefine_α_2380_246
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2380_230
-                        push             rdi
+.Ldefine_α_2380_246:    push             rdi
                         push             rsi
                         push             rdx
                         push             rcx
@@ -18192,8 +18380,11 @@ ekey_γ:                 mov              rdi, qword ptr [r9 + 192]
                         push             rdx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2380_247
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2380_235
-                        push             rdi
+.Ldefine_α_2380_247:    push             rdi
                         push             rsi
                         push             rcx
                         push             r8
@@ -18278,7 +18469,38 @@ ekey_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              qword ptr [r9 + 192], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 200], rax
+                        mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2380_248
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jle   .Ldefine_α_2380_249
+.Ldefine_α_2380_248:    push             rdi
+                        push             rsi
+                        push             rdx
                         push             rcx
+                        push             r8
+                        push             r9
+                        push             r12
+                        push             rdi
+                        mov              rdi, qword ptr [rip + .Ldefine_α_2380_237]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_fail_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              rdi
+                        pop              r12
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+.Ldefine_α_2380_249:    push             rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -18906,8 +19128,11 @@ eobj_α:                 sub              rsp, 144
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jg    .Ldefine_α_2416_246
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2416_230
-                        push             rdi
+.Ldefine_α_2416_246:    push             rdi
                         push             rsi
                         push             rdx
                         push             rcx
@@ -18954,8 +19179,11 @@ eobj_γ:                 mov              rdi, qword ptr [r9 + 208]            #
                         push             rdx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2416_247
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2416_235
-                        push             rdi
+.Ldefine_α_2416_247:    push             rdi
                         push             rsi
                         push             rcx
                         push             r8
@@ -19196,7 +19424,38 @@ eobj_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              qword ptr [r9 + 288], rax
                         mov              rax, qword ptr [rsp + 136]
                         mov              qword ptr [r9 + 296], rax
-.Ldefine_α_2416_185:    push             rcx
+.Ldefine_α_2416_185:    mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2416_248
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jle   .Ldefine_α_2416_249
+.Ldefine_α_2416_248:    push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r12
+                        push             rdi
+                        mov              rdi, qword ptr [rip + .Ldefine_α_2416_237]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_fail_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              rdi
+                        pop              r12
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+.Ldefine_α_2416_249:    push             rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -21844,8 +22103,11 @@ earr_α:                 sub              rsp, 112
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jg    .Ldefine_α_2583_246
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2583_230
-                        push             rdi
+.Ldefine_α_2583_246:    push             rdi
                         push             rsi
                         push             rdx
                         push             rcx
@@ -21892,8 +22154,11 @@ earr_γ:                 mov              rdi, qword ptr [r9 + 304]            #
                         push             rdx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2583_247
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2583_235
-                        push             rdi
+.Ldefine_α_2583_247:    push             rdi
                         push             rsi
                         push             rcx
                         push             r8
@@ -22082,7 +22347,38 @@ earr_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              qword ptr [r9 + 288], rax
                         mov              rax, qword ptr [rsp + 104]
                         mov              qword ptr [r9 + 296], rax
-.Ldefine_α_2583_183:    push             rcx
+.Ldefine_α_2583_183:    mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2583_248
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jle   .Ldefine_α_2583_249
+.Ldefine_α_2583_248:    push             rdi
+                        push             rsi
+                        push             rdx
+                        push             rcx
+                        push             r8
+                        push             r9
+                        push             r12
+                        push             rdi
+                        mov              rdi, qword ptr [rip + .Ldefine_α_2583_237]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_fail_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              rdi
+                        pop              r12
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+.Ldefine_α_2583_249:    push             rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -24007,8 +24303,11 @@ estr_α:                 sub              rsp, 48
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jg    .Ldefine_α_2707_246
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2707_230
-                        push             rdi
+.Ldefine_α_2707_246:    push             rdi
                         push             rsi
                         push             rdx
                         push             rcx
@@ -24055,8 +24354,11 @@ estr_γ:                 mov              rdi, qword ptr [r9 + 336]
                         push             rdx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2707_247
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2707_235
-                        push             rdi
+.Ldefine_α_2707_247:    push             rdi
                         push             rsi
                         push             rcx
                         push             r8
@@ -24141,7 +24443,38 @@ estr_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              qword ptr [r9 + 336], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 344], rax
+                        mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2707_248
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jle   .Ldefine_α_2707_249
+.Ldefine_α_2707_248:    push             rdi
+                        push             rsi
+                        push             rdx
                         push             rcx
+                        push             r8
+                        push             r9
+                        push             r12
+                        push             rdi
+                        mov              rdi, qword ptr [rip + .Ldefine_α_2707_237]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_fail_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              rdi
+                        pop              r12
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+.Ldefine_α_2707_249:    push             rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -24683,8 +25016,11 @@ enum_α:                 sub              rsp, 48
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jg    .Ldefine_α_2742_246
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2742_230
-                        push             rdi
+.Ldefine_α_2742_246:    push             rdi
                         push             rsi
                         push             rdx
                         push             rcx
@@ -24731,8 +25067,11 @@ enum_γ:                 mov              rdi, qword ptr [r9 + 352]
                         push             rdx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2742_247
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2742_235
-                        push             rdi
+.Ldefine_α_2742_247:    push             rdi
                         push             rsi
                         push             rcx
                         push             r8
@@ -24817,7 +25156,38 @@ enum_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              qword ptr [r9 + 352], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 360], rax
+                        mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2742_248
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jle   .Ldefine_α_2742_249
+.Ldefine_α_2742_248:    push             rdi
+                        push             rsi
+                        push             rdx
                         push             rcx
+                        push             r8
+                        push             r9
+                        push             r12
+                        push             rdi
+                        mov              rdi, qword ptr [rip + .Ldefine_α_2742_237]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_fail_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              rdi
+                        pop              r12
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+.Ldefine_α_2742_249:    push             rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -25925,8 +26295,11 @@ etru_α:                 sub              rsp, 48
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jg    .Ldefine_α_2814_246
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2814_230
-                        push             rdi
+.Ldefine_α_2814_246:    push             rdi
                         push             rsi
                         push             rdx
                         push             rcx
@@ -25973,8 +26346,11 @@ etru_γ:                 mov              rdi, qword ptr [r9 + 368]
                         push             rdx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2814_247
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2814_235
-                        push             rdi
+.Ldefine_α_2814_247:    push             rdi
                         push             rsi
                         push             rcx
                         push             r8
@@ -26059,7 +26435,38 @@ etru_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              qword ptr [r9 + 368], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 376], rax
+                        mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2814_248
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jle   .Ldefine_α_2814_249
+.Ldefine_α_2814_248:    push             rdi
+                        push             rsi
+                        push             rdx
                         push             rcx
+                        push             r8
+                        push             r9
+                        push             r12
+                        push             rdi
+                        mov              rdi, qword ptr [rip + .Ldefine_α_2814_237]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_fail_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              rdi
+                        pop              r12
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+.Ldefine_α_2814_249:    push             rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -26565,8 +26972,11 @@ efal_α:                 sub              rsp, 48
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jg    .Ldefine_α_2847_246
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2847_230
-                        push             rdi
+.Ldefine_α_2847_246:    push             rdi
                         push             rsi
                         push             rdx
                         push             rcx
@@ -26613,8 +27023,11 @@ efal_γ:                 mov              rdi, qword ptr [r9 + 384]
                         push             rdx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2847_247
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2847_235
-                        push             rdi
+.Ldefine_α_2847_247:    push             rdi
                         push             rsi
                         push             rcx
                         push             r8
@@ -26699,7 +27112,38 @@ efal_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              qword ptr [r9 + 384], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 392], rax
+                        mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2847_248
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jle   .Ldefine_α_2847_249
+.Ldefine_α_2847_248:    push             rdi
+                        push             rsi
+                        push             rdx
                         push             rcx
+                        push             r8
+                        push             r9
+                        push             r12
+                        push             rdi
+                        mov              rdi, qword ptr [rip + .Ldefine_α_2847_237]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_fail_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              rdi
+                        pop              r12
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+.Ldefine_α_2847_249:    push             rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]
@@ -27205,8 +27649,11 @@ enul_α:                 sub              rsp, 48
                         pop              rcx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jg    .Ldefine_α_2880_246
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2880_230
-                        push             rdi
+.Ldefine_α_2880_246:    push             rdi
                         push             rsi
                         push             rdx
                         push             rcx
@@ -27253,8 +27700,11 @@ enul_γ:                 mov              rdi, qword ptr [r9 + 400]
                         push             rdx
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2880_247
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              jle   .Ldefine_α_2880_235
-                        push             rdi
+.Ldefine_α_2880_247:    push             rdi
                         push             rsi
                         push             rcx
                         push             r8
@@ -27339,7 +27789,38 @@ enul_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              qword ptr [r9 + 400], rax
                         mov              rax, qword ptr [rsp + 8]
                         mov              qword ptr [r9 + 408], rax
+                        mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jne   .Ldefine_α_2880_248
+                        mov              rax, qword ptr [rip + kw_ftrace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              jle   .Ldefine_α_2880_249
+.Ldefine_α_2880_248:    push             rdi
+                        push             rsi
+                        push             rdx
                         push             rcx
+                        push             r8
+                        push             r9
+                        push             r12
+                        push             rdi
+                        mov              rdi, qword ptr [rip + .Ldefine_α_2880_237]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_fail_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        pop              rdi
+                        pop              r12
+                        pop              r9
+                        pop              r8
+                        pop              rcx
+                        pop              rdx
+                        pop              rsi
+                        pop              rdi
+.Ldefine_α_2880_249:    push             rcx
                         mov              rax, qword ptr [rip + rt_k_level_p@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         mov              ecx, dword ptr [rax + 0]

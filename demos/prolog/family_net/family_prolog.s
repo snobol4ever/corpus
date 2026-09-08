@@ -1,5 +1,7 @@
                         .intel_syntax    noprefix
                         .text
+                        .file            1 "prolog/family_net/family_prolog.pl"
+                        .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__query_siblings$2F1:
                         sub              rsp, 672

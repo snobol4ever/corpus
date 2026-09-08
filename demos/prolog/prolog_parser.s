@@ -1,5 +1,7 @@
                         .intel_syntax    noprefix
                         .text
+                        .file            1 "prolog/prolog_parser.pl"
+                        .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__parse_arglist$2F3:
                         sub              rsp, 2304

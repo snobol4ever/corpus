@@ -1,5 +1,7 @@
                         .intel_syntax    noprefix
                         .text
+                        .file            1 "prolog/prolog_recognizer.pl"
+                        .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__nInc$2F0:
                         sub              rsp, 816
