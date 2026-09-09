@@ -17825,3 +17825,9 @@ END
         LINE = INPUT
         OUTPUT = "input disabled, LINE is [" LINE "]"
 END
+*--------------------------------------------------------------- 1894 keyword_31
+        &ERRLIMIT = 5
+        &STCOUNT = 999
+        OUTPUT = "errtype after protected write " &ERRTYPE
+        OUTPUT = "still running, errlimit left " &ERRLIMIT
+END
