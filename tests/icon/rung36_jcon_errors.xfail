@@ -1,10 +1,10 @@
-rc=134 SIGABRT — NOT an output mismatch.
-SIGNATURE: FATAL emit_drive IR_ASSIGN guard: nameless 2-operand assign (assign-through-lvalue-producer: !x/?x element-var).
-ROUTING:   Belongs to the EXISTING row icon-assign-nameless-emit-guard-var (see also icon-element-var-assign-fatal). Cure there, not here.
-
-RE-CLASSED 2026-09-03 (hq_B, row icon-every-xfail-fixed-as-a-faulty-test-or-cured-as-a-defect).
-The previous text read: 'exits rc=1 (stdout does not match .expected). Not further diagnosed.'
-That was measured stale IN THE DANGEROUS DIRECTION: it described a CRASH as a mild output mismatch,
-so anyone triaging by marker text would sort three crashes to the bottom of an output-diff pile.
-Lon 2026-09-03: there is no XFAIL. This marker is a ROUTING SLIP toward a named cure, not a resting
-place -- it is deleted when the row it names goes green.
+rc=139 SIGSEGV in BOTH modes at line 113 (`=[]`), AFTER the program compiles and runs 112 lines. NOT an output mismatch.
+SIGNATURE: memcmp in scan_match on a non-string &subject. The subject was poisoned at line 92: `[] ? []` installs a
+list as &subject and returns list_8(0) where icont raises 103 "string expected" BEFORE scanning; `(&subject := [])` at
+line 90 fails silently where icont raises 103. Cure the scan box's subject check (103 before install) and the &subject
+keyword store, and the crash goes with them.
+ALSO RED, both modes, builtin class: `seq("a")` returns 0 (icont: 101); `"|"(1,2)` reports error 22 "Undefined function
+called" (icont: 106 — string invocation of an operator name, hq_U's named class).
+HISTORY: the m4 compiler abort (FATAL emit_drive op=16 then op=122) was cured 2026-09-09 by the cto — `()` is &null,
+a literal side of :=: / <- / <-> raises 111 — see FINDING-2026-09-09-cto-the-empty-expression-and-a-literal-swap-operand-had-no-box-so-the-compiler-aborted-where-icon-raises-111-and-102.md.
+Lon 2026-09-03: there is no XFAIL. This marker is a ROUTING SLIP, deleted when the program passes.
