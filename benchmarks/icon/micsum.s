@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/micsum.icn"
+                        .file            1 "/home/claude_P/corpus/benchmarks/icon/micsum.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__dofile:
@@ -1248,6 +1248,10 @@ n60_binop_α:            mov              r11, 60
 .Lbinop_α_236_5:        movq             xmm1, rdi
 .Lbinop_α_236_6:        addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_236_0
                         mov              qword ptr [rbp + 1696], 5
                         mov              qword ptr [rbp + 1704], rax
 .Lbinop_α_236_7:                                                              jmp   n61_assign_α
@@ -1481,6 +1485,10 @@ n71_binop_α:            mov              r11, 71
 .Lbinop_α_253_5:        movq             xmm1, rdi
 .Lbinop_α_253_6:        addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_253_0
                         mov              qword ptr [rbp + 1504], 5
                         mov              qword ptr [rbp + 1512], rax
 .Lbinop_α_253_7:                                                              jmp   n72_call_icon_α
@@ -1820,6 +1828,10 @@ n89_binop_α:            mov              r11, 89
 .Lbinop_α_281_5:        movq             xmm1, rdi
 .Lbinop_α_281_6:        addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_281_0
                         mov              qword ptr [rbp + 1088], 5
                         mov              qword ptr [rbp + 1096], rax
 .Lbinop_α_281_7:                                                              jmp   n90_subscript_α
@@ -2152,6 +2164,10 @@ n00012_binop_α:           mov              r11, 107
 .Lbinop_α_309_5:        movq             xmm1, rdi
 .Lbinop_α_309_6:        addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_309_0
                         mov              qword ptr [rbp + 688], 5
                         mov              qword ptr [rbp + 696], rax
 .Lbinop_α_309_7:                                                              jmp   n00013_assign_α
@@ -2589,6 +2605,10 @@ n00030_binop_α:           mov              r11, 128
 .Lbinop_α_341_5:        movq             xmm1, rdi
 .Lbinop_α_341_6:        addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_341_0
                         mov              qword ptr [rbp + 368], 5
                         mov              qword ptr [rbp + 376], rax
 .Lbinop_α_341_7:                                                              jmp   n00031_call_icon_α

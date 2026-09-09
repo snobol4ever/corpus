@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+                        .file            1 "/home/claude_P/corpus/benchmarks/icon/geddump.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__event:
@@ -1962,6 +1962,10 @@ n00033_binop_α:           mov              r11, 76
 .Lbinop_α_285_5:        movq             xmm1, rdi
 .Lbinop_α_285_6:        addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_285_0
                         mov              qword ptr [rbp + 2080], 5
                         mov              qword ptr [rbp + 2088], rax
 .Lbinop_α_285_7:                                                              jmp   n00035_assign_α
@@ -3871,7 +3875,7 @@ n00131_assign_α:          mov              r11, 174
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_491_0]
                         .section         .rodata
-.Lassign_α_491_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_491_1_s:     .string          "/home/claude_P/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_491_1_s]
@@ -4858,6 +4862,10 @@ n00173_binop_α:           mov              r11, 212
 .Lbinop_α_553_5:        movq             xmm1, rdi
 .Lbinop_α_553_6:        addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_553_0
                         mov              qword ptr [rbp + 768], 5
                         mov              qword ptr [rbp + 776], rax
 .Lbinop_α_553_7:                                                              jmp   n00151_scan_tab_α
@@ -9350,7 +9358,7 @@ n00325_assign_α:          mov              r11, 367
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1093_0]
                         .section         .rodata
-.Lassign_α_1093_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_1093_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1093_1_s]
@@ -12076,7 +12084,7 @@ n00474_assign_α:         mov              r11, 514
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1474_0]
                         .section         .rodata
-.Lassign_α_1474_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_1474_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1474_1_s]
@@ -12587,6 +12595,10 @@ n00504_binop_α:          mov              r11, 544
 .Lbinop_α_1522_5:       movq             xmm1, rdi
 .Lbinop_α_1522_6:       addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_1522_0
                         mov              qword ptr [rbp + 4128], 5
                         mov              qword ptr [rbp + 4136], rax
 .Lbinop_α_1522_7:                                                             jmp   n00505_assign_α

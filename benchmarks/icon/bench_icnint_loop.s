@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/bench_icnint_loop.icn"
+                        .file            1 "/home/claude_P/corpus/benchmarks/icon/bench_icnint_loop.icn"
                         .file            2 "<included>"
                         .globl           main
 main:
@@ -228,6 +228,10 @@ n11_binop_α:            mov              r11, 12
 .Lbinop_α_33_5:         movq             xmm1, rdi
 .Lbinop_α_33_6:         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_33_0
                         mov              qword ptr [rbp + 192], 5
                         mov              qword ptr [rbp + 200], rax
 .Lbinop_α_33_7:                                                               jmp   n12_assign_α
