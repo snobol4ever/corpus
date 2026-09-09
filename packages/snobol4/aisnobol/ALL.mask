@@ -1,0 +1,19 @@
+# ALL.mask -- CEO-409 line masks, declared beside the data (RULES.md; ceo 2026-09-08).
+# FORMAT: entry<TAB>python-regex<TAB>reason.  A row with an empty reason is REFUSED by the harness.
+#
+# ⛔ EARNED BY MEASUREMENT, guardrail (1): the ORACLE'S OWN value must be shown to move between runs before a
+# line may be masked. Measured by the ceo 2026-09-08 20:4x CDT, three consecutive `sbl -bf ATN.sno < ATN.IN`
+# runs on SCRIP 5bf935dd5, first timing line each: 637271, 667138, 718133. It moves every run, so it is a
+# clock reading and not a value computed from the program's data.
+#
+# WHY ATN IS NOT OUTSIDE THE BASELINE: sbl -bf runs it perfectly and so do we -- 427 lines out, 427 lines back,
+# and the ONLY divergences in the whole stream are these two timing shapes. Excluding the program would drop
+# 415 lines of real graded semantics to dodge 12 lines of arithmetic. And it is not a permanent red either:
+# there is no defect in the other 415 lines and no cure could ever make a wall-clock reading match another
+# engine's, which is a criterion that cannot say YES.
+#
+# ⭐ THE PROGRAM'S OWN TEXT SAYS "milliseconds" AND BOTH ENGINES REPORT NANOSECONDS -- our x64 fork carries the
+# NSTIME enhancement and we match it. That mislabel is the AISNOBOL program's, inherited from 1970s SNOBOL4,
+# and it is not ours to correct in a vendored fixture.
+ATN	milliseconds compile time$	wall-clock: elapsed compile time of the ATN network, an implementation and machine measurement; oracle's own value moves run to run (637271/667138/718133, ceo 2026-09-08)
+ATN	milliseconds used$	wall-clock: elapsed run time per parse, same measurement and same provenance as the compile-time line above
