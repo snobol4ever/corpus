@@ -1,0 +1,9 @@
+#  break as the body of an every yields &null under icont, exactly as it does in
+#  a while body.  SCRIP yields FAILURE instead, so the alternation falls through
+#  to "none".  Found by the ablation sweep for the lower_while condition-break
+#  defect (SCRIP 6e427b9dc) and deliberately NOT folded into that cure: the two
+#  share a family but not a mechanism, and `while 1 do break` was already green.
+procedure main();
+    write(image(every 1 to 3 do break) | "none");
+    write("after");
+end
