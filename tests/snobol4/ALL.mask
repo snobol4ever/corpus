@@ -1,0 +1,40 @@
+# ALL.mask -- CEO-409 line masks for the SNOBOL4 MASTER suite, declared beside the data.
+# FORMAT: entry<TAB>python-regex<TAB>reason.  A row with an empty reason is REFUSED by the harness.
+# Read by corpus_suite_harness.py's own read_mask_sidecar()/masks_for(), so every reader agrees by
+# construction.  Landed under ceo CEO-428(a) as amended by CEO-441(5) option (i), hq_P 2026-09-09.
+#
+# ⭐ SCOPE, MEASURED, NOT GUESSED: exactly THREE of the master's 1930 entries pin SPITBOL's termination
+# block at all -- `grep -a 'memory used (bytes)' ALL.ref` gives simple_output_64, simple_output_62 and
+# user_function_arbno_rpos_1 -- and simple_output_64 is already OUTSIDE the baseline in ALL.outside.tsv.
+# So the two graded entries are named here, four rows, four lines masked.
+#
+# ⛔ WHY NAMED ENTRIES AND NOT THE `*` WILDCARD THE csnobol4 SIDECAR USES, WHICH IS THE OPPOSITE CHOICE:
+# the harness prints `CEO-409 MASKS ACTIVE: N of M entries ... (<every name>)` on every run.  Over
+# csnobol4's 124 entries that line is a measurement; over this master's 1930 it is 1930 names on one line,
+# which is noise a reader scrolls past -- and CEO-409 guardrail 3 asks for a PRINTED mask precisely so it
+# stays auditable.  The wildcard's advantage is that it cannot go stale when a new entry is absorbed; the
+# named form's staleness is bounded in the SAFE direction, because the failure of a name to cover a future
+# entry is that entry being GRADED on those two lines -- never exempted -- and the harness already REFUSES
+# rc=2 if a name here is not in the suite, so a row cannot rot silently.  Revisit if a fourth entry ever
+# pins the block: at that point the wildcard is the cheaper truth and the print line is the thing to fix.
+#
+# ⛔ THE OTHER SIX LINES OF THE TERMINATION BLOCK ARE NOT MASKED AND MUST NOT BE.  `in file`, `in line`,
+# `in statement`, `stmts executed`, `execution time msec` and `REGENERATIONS` are quantities we hold or can
+# hold honestly (CEO-418: g_file, g_line, g_stno, g_stcount and a clock), so they stay graded -- hq_R's
+# termination report lands against them.  A mask over the whole block would have hidden the very thing
+# that row exists to build.
+#
+# ⛔ THE CEILING BINDS: masked lines are COUNTED and PRINTED beside the board, and a fixture whose mask
+# would cover half its ref or more is UNGRADABLE and goes outside the baseline NAMED, never masked
+# (CEO-409 guardrail 4, enforced in classify()).  Both entries are 17-18 ref lines with 2 masked.
+#
+# ⭐ AND IT HIDES NOTHING TODAY, WHICH IS THE ONLY STATE A MASK MECHANISM SHOULD BE HANDED OVER IN:
+# measured on the landing tree, both entries are FAIL/FAIL in m3 and m4 WITH the mask and WITHOUT it,
+# masked_lines=2 each.  They keep their XFAIL markers (CEO-441(5): a marker drop rides the cure that makes
+# the entry pass, never a ref re-cut).  simple_output_62 is the input-open-failure row (SCRIP accepts the
+# open and prints nothing where the oracle raises ERROR 116); user_function_arbno_rpos_1 is the unknown-
+# keyword ERROR 251 row.  Both are hq_P's.
+simple_output_62	^memory used \(bytes\)  [0-9]+$	SPITBOL's own allocator arithmetic -- the engine's heap bookkeeping, not an answer to anything the program asked. Earned under CEO-420 clause (b), MEASURED not asserted (hq_P 2026-09-09, /home/resources/x64/bin/sbl -bf): two programs whose output is byte-identical on every other line -- `filler = 'a'` vs `filler = DUPL('a',50000)`, both then failing INPUT() on a missing file at the same line and the same statement -- read 11424 and 61472 in this field. Clause (a), nondeterminism, does NOT hold: three consecutive runs of this entry give one figure byte-identically. No correct implementation reaches SPITBOL's number by computing anything, only by transcribing it.
+simple_output_62	^memory left \(bytes\)  [0-9]+$	The same allocator arithmetic from the other side, same demonstration: 1037144 vs 987096 for the two byte-identical-output programs above. Masked with its twin or not at all -- masking one and grading the other would grade the arena size, which is neither engine's answer to anything. Second, independent reason this field is unreachable: user_function_arbno_rpos_1's stored ref carried 67096160 where the live oracle in this tree reads 1035872 on the same program, so the number tracks the oracle's own build and not the program at all.
+user_function_arbno_rpos_1	^memory used \(bytes\)  [0-9]+$	SPITBOL's own allocator arithmetic -- the engine's heap bookkeeping, not an answer to anything the program asked. Earned under CEO-420 clause (b), MEASURED not asserted (hq_P 2026-09-09, /home/resources/x64/bin/sbl -bf): two programs whose output is byte-identical on every other line -- `filler = 'a'` vs `filler = DUPL('a',50000)`, both then failing INPUT() on a missing file at the same line and the same statement -- read 11424 and 61472 in this field. Clause (a), nondeterminism, does NOT hold: three consecutive runs of this entry give one figure byte-identically. No correct implementation reaches SPITBOL's number by computing anything, only by transcribing it.
+user_function_arbno_rpos_1	^memory left \(bytes\)  [0-9]+$	The same allocator arithmetic from the other side, same demonstration: 1037144 vs 987096 for the two byte-identical-output programs above. Masked with its twin or not at all -- masking one and grading the other would grade the arena size, which is neither engine's answer to anything. Second, independent reason this field is unreachable: user_function_arbno_rpos_1's stored ref carried 67096160 where the live oracle in this tree reads 1035872 on the same program, so the number tracks the oracle's own build and not the program at all.
