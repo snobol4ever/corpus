@@ -7350,7 +7350,91 @@ procedure q5()
 procedure wf (v)
     writes(left(v,5)," ");
     end
-#-------------------------------------------- 854 procedure_every_scan_replace_9
+#----------------------------------------- 854 procedure_record_coexpr_replace_1
+#SRC: JCON
+
+#  test image(), serial(), *x, and explicit conversion functions
+
+record point(x,y)
+record circle(x, y, r)
+
+procedure main(args)
+   local c1, c2, c3, c4, s;
+
+   dump();
+   dump(047);
+   dump(3.14159);
+   dump('7121');
+   dump("asparagus");
+   dump(main);
+   dump(write);
+   dump(args);
+   dump([]);
+   dump([1,2,3,4,5]);
+   dump(set());
+   dump(insert(insert(insert(set(),1),2),3));
+   dump(table());
+   dump(insert(table(), 3, 4));
+   dump(point);
+   dump(circle);
+   dump(point(0));
+   dump(circle(0));
+   dump(point(1,2));
+   dump(point(3,4,5));
+   dump(circle(6,7));
+   dump(circle(4,5,6));
+
+   c1 := create 10 to 19;
+   c2 := create 20 to 29;
+   c3 := create 30 to 39;
+   every 1 to 7 do @c2 & @c3;
+   c4 := ^c3;
+   every 1 to 7 do @c2 & @c3;
+   dump(c1);
+   dump(c2);
+   dump(c3);
+   dump(c4);
+
+   write();
+   write("          x     integer(x)      real(x)   numeric(x)",
+   	"    string(x)      cset(x)");
+   every convert(0 | 0.0 | "0" | '0' | 7 | 7.315 | "7.315" | '7.315' | 
+   	"25e-2" | "25e-1" | " 4e+3 " | " 3.8e3  " |
+   	"" | " " | " -3 " | "  9  " | " +77" | "  4.7  ");
+
+   s := &cset[1:140] || &cset[250:256];
+   write();
+   write(image(s));
+   write();
+   write(image(cset(s)));
+   write();
+
+end
+
+
+procedure dump(x)
+   local n;
+
+   if n := serial(x) then
+      writes("#", n, "  ", "*", *x)
+   else if type(x) === ("string" | "cset" | "real" | "integer") then
+      writes("    *", *x);
+   write("\t", type(x), " : ", image(x));
+   return;
+end
+
+
+procedure convert(x)
+   write(pad(x), pad(integer(x) | &null), pad(real(x) | &null),
+      pad(numeric(x) | &null), pad(string(x) | &null), pad(cset(x) | &null));
+   return;
+end
+
+
+procedure pad(x)
+   return right(image(\x) | "---", 13);
+end
+#-------------------------------------------- 855 procedure_every_scan_replace_9
 #SRC: JCON
 
 # table test
@@ -7448,7 +7532,7 @@ procedure tdump(label, T)
    write();
    return;
 end
-#------------------------------------------ 855 procedure_record_every_replace_7
+#------------------------------------------ 856 procedure_record_every_replace_7
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -7580,7 +7664,243 @@ end
 
 global s
 
-#------------------------------------------ 856 procedure_record_every_replace_1
+#----------------------------------------- 857 procedure_record_every_replace_13
+#SRC: V9GEN
+
+record array(a,b,c,d,e,f,g)
+
+procedure p1()
+   write(" ----> ",image() | "none");
+   write("2 === +2 ----> ",image(2 === +2) | "none");
+   write("3 === *\"abc\" ----> ",image(3 === *"abc") | "none");
+   write("'abc' === ('abc' ++ '') ----> ",image('abc' === ('abc' ++ '')) | "none");
+   write("'a' ----> ",image('a') | "none");
+   write("'ab' ----> ",image('ab') | "none");
+   write("'\\xb9' ----> ",image('\xb9') | "none");
+   write("'\\xb8\\xb4' ----> ",image('\xb8\xb4') | "none");
+   write("'\\^d' ----> ",image('\^d') | "none");
+   write("'\\^a\\^d' ----> ",image('\^a\^d') | "none");
+end
+
+procedure p2()
+   write("\"a\" ----> ",image("a") | "none");
+   write("\"ab\" ----> ",image("ab") | "none");
+   write("\"\\xb9\" ----> ",image("\xb9") | "none");
+   write("\"\\xb8\\xb4\" ----> ",image("\xb8\xb4") | "none");
+   write("\"\\^d\" ----> ",image("\^d") | "none");
+   write("\"\\^a\\^d\" ----> ",image("\^a\^d") | "none");
+   write("*'a' ----> ",image(*'a') | "none");
+   write("*'ab' ----> ",image(*'ab') | "none");
+   write("*'\\xb9' ----> ",image(*'\xb9') | "none");
+   write("*'\\xb8\\xb4' ----> ",image(*'\xb8\xb4') | "none");
+   write("*'\\^d' ----> ",image(*'\^d') | "none");
+end
+
+procedure p3()
+   write("*'\\^a\\^d' ----> ",image(*'\^a\^d') | "none");
+   write("*\"a\" ----> ",image(*"a") | "none");
+   write("*\"ab\" ----> ",image(*"ab") | "none");
+   write("*\"\\xb9\" ----> ",image(*"\xb9") | "none");
+   write("*\"\\xb8\\xb4\" ----> ",image(*"\xb8\xb4") | "none");
+   write("*\"\\^d\" ----> ",image(*"\^d") | "none");
+   write("\"*\\^a\\^d\" ----> ",image("*\^a\^d") | "none");
+   write("every write(\"...\"(1,10,2)) ----> ",image(every write("..."(1,10,2))) | "none");
+   write("every write(\"image\"(write)) ----> ",image(every write("image"(write))) | "none");
+   write("\"[:]\"(\"abcdef\",3,5) ----> ",image("[:]"("abcdef",3,5)) | "none");
+   write("\"[]\"(&lcase,3) ----> ",image("[]"(&lcase,3)) | "none");
+end
+
+procedure p4()
+   write("image(proc(\"^\",1)) ----> ",image(image(proc("^",1))) | "none");
+   write("image(proc(\"^\",2)) ----> ",image(image(proc("^",2))) | "none");
+   write("proc(\"+\",2)(3,4) ----> ",image(proc("+",2)(3,4)) | "none");
+   write("proc(proc)(\"write\") ----> ",image(proc(proc)("write")) | "none");
+   write("proc(\"+\") ----> ",image(proc("+")) | "none");
+   write("?10 ----> ",image(?10) | "none");
+   write("?10 ----> ",image(?10) | "none");
+   write("?10 ----> ",image(?10) | "none");
+   write("?20 ----> ",image(?20) | "none");
+   write("?[1,2,3,4] ----> ",image(?[1,2,3,4]) | "none");
+   write("?[1,2,3,4] ----> ",image(?[1,2,3,4]) | "none");
+end
+
+procedure p5()
+   write("x := array(1,2,3,4,5,6,7) ----> ",image(x := array(1,2,3,4,5,6,7)) | "none");
+   write("?x ----> ",image(?x) | "none");
+   write("?x ----> ",image(?x) | "none");
+   write("?x ----> ",image(?x) | "none");
+   write("?x ----> ",image(?x) | "none");
+   write("?x ----> ",image(?x) | "none");
+   write("?x ----> ",image(?x) | "none");
+   write("?x ----> ",image(?x) | "none");
+   write("?x ----> ",image(?x) | "none");
+   write("every 1 to 10 do write(?10) ----> ",image(every 1 to 10 do write(?10)) | "none");
+   write("every 1 to 10 do write(?[1,2,3,4,5,6,7,8,9,10]) ----> ",image(every 1 to 10 do write(?[1,2,3,4,5,6,7,8,9,10])) | "none");
+end
+
+procedure p6()
+   write("every 1 to 10 do write(?\"abcdef\") ----> ",image(every 1 to 10 do write(?"abcdef")) | "none");
+   write("x := array(1,2,3,4,5,6,7) ----> ",image(x := array(1,2,3,4,5,6,7)) | "none");
+   write("every 1 to 10 do write(?x) ----> ",image(every 1 to 10 do write(?x)) | "none");
+   write("(1,2,3,4,5) ----> ",image((1,2,3,4,5)) | "none");
+   write("every write((1 to 5)(1,2,3,4,5)) ----> ",image(every write((1 to 5)(1,2,3,4,5))) | "none");
+   write("0(1,2) ----> ",image(0(1,2)) | "none");
+end
+
+procedure p7()
+   write("1(1) ----> ",image(1(1)) | "none");
+   write("2(1) ----> ",image(2(1)) | "none");
+   write("(-1)(1,2,3) ----> ",image((-1)(1,2,3)) | "none");
+   write("3(1,2,3,&fail) ----> ",image(3(1,2,3,&fail)) | "none");
+   write("every write(2(1 to 5,!\"abc\",1 to 2)) ----> ",image(every write(2(1 to 5,!"abc",1 to 2))) | "none");
+   write("x := 1 ----> ",image(x := 1) | "none");
+   write("y := 2 ----> ",image(y := 2) | "none");
+   write("(x := y) & &fail ----> ",image((x := y) & &fail) | "none");
+   write("every write(!\"abcdef\") ----> ",image(every write(!"abcdef")) | "none");
+   write("every write(![1,2,3,4,5]) ----> ",image(every write(![1,2,3,4,5])) | "none");
+   write("every write(!![1,2,3,4,5]) ----> ",image(every write(!![1,2,3,4,5])) | "none");
+end
+
+procedure p8()
+   write("every write(!![1,\"ab\",[1,2,3],34]) ----> ",image(every write(!![1,"ab",[1,2,3],34])) | "none");
+   write("every write(!([1,\"ab\",[1,2,3],34][1 to 4])) ----> ",image(every write(!([1,"ab",[1,2,3],34][1 to 4]))) | "none");
+   write("x := array(1,2,3,4,5) ----> ",image(x := array(1,2,3,4,5)) | "none");
+   write("every write(!x) ----> ",image(every write(!x)) | "none");
+   write("x := 1 ----> ",image(x := 1) | "none");
+   write("y := 2 ----> ",image(y := 2) | "none");
+   write("x <-> y ----> ",image(x <-> y) | "none");
+   write("y <-> x ----> ",image(y <-> x) | "none");
+   write("(x <-> y) & &fail ----> ",image((x <-> y) & &fail) | "none");
+   write("x ----> ",image(x) | "none");
+   write("y ----> ",image(y) | "none");
+end
+
+procedure p9()
+   write("*\"\" ----> ",image(*"") | "none");
+   write("*'' ----> ",image(*'') | "none");
+   write("*[] ----> ",image(*[]) | "none");
+   write("*table() ----> ",image(*table()) | "none");
+   write("*30 ----> ",image(*30) | "none");
+   write("!\"abc\" ----> ",image(!"abc") | "none");
+   write("![1,2,3] ----> ",image(![1,2,3]) | "none");
+   write("!&lcase ----> ",image(!&lcase) | "none");
+   write("!30 ----> ",image(!30) | "none");
+   write("!table() ----> ",image(!table()) | "none");
+   write("?\"abc\" ----> ",image(?"abc") | "none");
+end
+
+procedure p10()
+   write("?&lcase ----> ",image(?&lcase) | "none");
+   write("?[1,2,3] ----> ",image(?[1,2,3]) | "none");
+   write("?table() ----> ",image(?table()) | "none");
+   write("?30 ----> ",image(?30) | "none");
+   write(".x ----> ",image(.x) | "none");
+   write(".\"abc\" ----> ",image(."abc") | "none");
+   write(".[] ----> ",image(.[]) | "none");
+   write(".main ----> ",image(.main) | "none");
+   write("/main ----> ",image(/main) | "none");
+   write("/\"abc\" ----> ",image(/"abc") | "none");
+end
+
+procedure p11()
+   write("/&null ----> ",image(/&null) | "none");
+   write("/[] ----> ",image(/[]) | "none");
+   write("/&lcase ----> ",image(/&lcase) | "none");
+   write("\\main ----> ",image(\main) | "none");
+   write("\\\"abc\" ----> ",image(\"abc") | "none");
+   write("\\x ----> ",image(\x) | "none");
+   write("\\[] ----> ",image(\[]) | "none");
+   write("\\&null ----> ",image(\&null) | "none");
+   write("1 | 2 | 3 ----> ",image(1 | 2 | 3) | "none");
+   write("|(1 to 10) ----> ",image(|(1 to 10)) | "none");
+   write("||(1 to 10) ----> ",image(||(1 to 10)) | "none");
+end
+
+procedure p12()
+   write("|||(1 to 10) ----> ",image(|||(1 to 10)) | "none");
+   write("||||(1 to 10) ----> ",image(||||(1 to 10)) | "none");
+   write("|||||(1 to 10) ----> ",image(|||||(1 to 10)) | "none");
+   write("|||||||(1 to 10) ----> ",image(|||||||(1 to 10)) | "none");
+   write("2 \\ 2 ----> ",image(2 \ 2) | "none");
+   write("while 1 do break ----> ",image(while 1 do break) | "none");
+   write("while 1 do break \"hello\" ----> ",image(while 1 do break "hello") | "none");
+   write("while break ----> ",image(while break) | "none");
+   write("case 1 of {2:3; \"1\":4; 1: 4 to 10; default: \"whoa\"} ----> ",image(case 1 of {2:3; "1":4; 1: 4 to 10; default: "whoa"}) | "none");
+   write("not 1 ----> ",image(not 1) | "none");
+   write("not \\&null ----> ",image(not \&null) | "none");
+end
+
+procedure p13()
+   write("repeat break ----> ",image(repeat break) | "none");
+   write("until 1 do 2 ----> ",image(until 1 do 2) | "none");
+   write("if 1 then 2 else 3 ----> ",image(if 1 then 2 else 3) | "none");
+   write("every write(if 1 then 1 to 10 else 5) ----> ",image(every write(if 1 then 1 to 10 else 5)) | "none");
+   write("every write(if 1 = 0 then 1 to 10 else 10 to 1 by -1) ----> ",image(every write(if 1 = 0 then 1 to 10 else 10 to 1 by -1)) | "none");
+   write("if 1 then 2 ----> ",image(if 1 then 2) | "none");
+   write("if 1 = 0 then 2 ----> ",image(if 1 = 0 then 2) | "none");
+   write("x := 1 ----> ",image(x := 1) | "none");
+   write("y := 2 ----> ",image(y := 2) | "none");
+   write("z := 3 ----> ",image(z := 3) | "none");
+   write("x :=: y ----> ",image(x :=: y) | "none");
+end
+
+procedure p14()
+   write("y :=: x ----> ",image(y :=: x) | "none");
+   write("x ----> ",image(x) | "none");
+   write("y ----> ",image(y) | "none");
+   write("z ----> ",image(z) | "none");
+   write("x :=: y :=: z ----> ",image(x :=: y :=: z) | "none");
+   write("x ----> ",image(x) | "none");
+   write("y ----> ",image(y) | "none");
+   write("z ----> ",image(z) | "none");
+   write("x := 1 ----> ",image(x := 1) | "none");
+   write("y := 2 ----> ",image(y := 2) | "none");
+   write("z := 3 ----> ",image(z := 3) | "none");
+end
+
+procedure p15()
+   write("x <-> y ----> ",image(x <-> y) | "none");
+   write("y <-> x ----> ",image(y <-> x) | "none");
+   write("x ----> ",image(x) | "none");
+   write("y ----> ",image(y) | "none");
+   write("z ----> ",image(z) | "none");
+   write("x <-> y :=: z ----> ",image(x <-> y :=: z) | "none");
+   write("x ----> ",image(x) | "none");
+   write("y ----> ",image(y) | "none");
+   write("z ----> ",image(z) | "none");
+   write("1 & 2 & 3 & 4 ----> ",image(1 & 2 & 3 & 4) | "none");
+   write("(1 & 2 & 3 & x) := 3 ----> ",image((1 & 2 & 3 & x) := 3) | "none");
+end
+
+procedure p16()
+   write("x ----> ",image(x) | "none");
+   write("x := 1 ----> ",image(x := 1) | "none");
+   write("y := 2 ----> ",image(y := 2) | "none");
+   write("(x <- y) & &fail ----> ",image((x <- y) & &fail) | "none");
+   write("x ----> ",image(x) | "none");
+   write("y ----> ",image(y) | "none");
+end
+
+procedure main()
+   p1();
+   p2();
+   p3();
+   p4();
+   p5();
+   p6();
+   p7();
+   p8();
+   p9();
+   p10();
+   p11();
+   p12();
+   p13();
+   p14();
+   p15();
+   p16();
+end
+
+#------------------------------------------ 858 procedure_record_every_replace_1
 global defs, limit, tswitch
 record nonterm(name)
 record charset(chars)
@@ -7632,7 +7952,7 @@ procedure main()
    limit := 1000;
    gener("s");
 end
-#-------------------------------------------- 857 procedure_every_scan_replace_5
+#-------------------------------------------- 859 procedure_every_scan_replace_5
 #SRC: JCON
 
 procedure main()
@@ -7722,7 +8042,195 @@ procedure limage(label, lst)
    write();
    return;
 end
-#------------------------------------------ 858 procedure_record_every_replace_3
+#----------------------------------------- 860 procedure_record_every_replace_14
+#SRC: V9GEN
+
+record array(a,b,c,d,e,f,g)
+global F, f
+global w, t
+
+procedure p1()
+   write(" ----> ",image() | "none");
+   write("copy(1) ----> ",image(copy(1)) | "none");
+   write("copy(\"abc\") ----> ",image(copy("abc")) | "none");
+   write("copy('aabbcc') ----> ",image(copy('aabbcc')) | "none");
+   write("copy(main) ----> ",image(copy(main)) | "none");
+   write("copy([1,2,3]) ----> ",image(copy([1,2,3])) | "none");
+   write("copy(table(0)) ----> ",image(copy(table(0))) | "none");
+   write("copy() ----> ",image(copy()) | "none");
+   write("copy(&input) ----> ",image(copy(&input)) | "none");
+   write("w := copy(write) ----> ",image(w := copy(write)) | "none");
+end
+
+procedure p2()
+   write("w(image(w)) ----> ",image(w(image(w))) | "none");
+   write("copy(array()) ----> ",image(copy(array())) | "none");
+   write("copy := copy(copy) ----> ",image(copy := copy(copy)) | "none");
+   write("x := copy(array) ----> ",image(x := copy(array)) | "none");
+   write("x := x(1,2,3,4,5,6,7) ----> ",image(x := x(1,2,3,4,5,6,7)) | "none");
+   write("x[-4] ----> ",image(x[-4]) | "none");
+   write("v := copy(c) ----> ",image(v := copy(c)) | "none");
+   write("x := repl(\"123\",4) ----> ",image(x := repl("123",4)) | "none");
+   write("t := table() ----> ",image(t := table()) | "none");
+   write("every i := 1 to 100 do t[i] := i ----> ",image(every i := 1 to 100 do t[i] := i) | "none");
+end
+
+procedure p3()
+   write("x := sort(t) ----> ",image(x := sort(t)) | "none");
+   write("every write((!x)[2]) ----> ",image(every write((!x)[2])) | "none");
+   write("every write(center(\"abcdef\",1 to 20,\" \" | \"0\" | \"=-\")) ----> ",image(every write(center("abcdef",1 to 20," " | "0" | "=-"))) | "none");
+   write("every write(left(\"abcdef\",1 to 20,\" \" | \"0\" | \"=-\")) ----> ",image(every write(left("abcdef",1 to 20," " | "0" | "=-"))) | "none");
+   write("every write(right(\"abcdef\",1 to 20,\" \" | \"0\" | \"=-\")) ----> ",image(every write(right("abcdef",1 to 20," " | "0" | "=-"))) | "none");
+   write("center(\"\",20,repl(\"x.\",30)) ----> ",image(center("",20,repl("x.",30))) | "none");
+   write("left(\"\",20,repl(\"x.\",30)) ----> ",image(left("",20,repl("x.",30))) | "none");
+   write("right(\"\",20,repl(\"x.\",30)) ----> ",image(right("",20,repl("x.",30))) | "none");
+   write("every write(repl(\"a\" | \"ab\" | \"ba\",1 to 5)) ----> ",image(every write(repl("a" | "ab" | "ba",1 to 5))) | "none");
+   write("repl(\"\",0) ----> ",image(repl("",0)) | "none");
+   write("repl(&cset,0) ----> ",image(repl(&cset,0)) | "none");
+end
+
+procedure p4()
+   write("trim(&lcase) ----> ",image(trim(&lcase)) | "none");
+   write("trim(&lcase,&lcase) ----> ",image(trim(&lcase,&lcase)) | "none");
+   write("image(2) ----> ",image(image(2)) | "none");
+   write("image('cab') ----> ",image(image('cab')) | "none");
+   write("image(&lcase) ----> ",image(image(&lcase)) | "none");
+   write("image('abcdefghijklmnopqrstuvwxyz') ----> ",image(image('abcdefghijklmnopqrstuvwxyz')) | "none");
+   write("image(&input) ----> ",image(image(&input)) | "none");
+end
+
+procedure p5()
+   write("image() ----> ",image(image()) | "none");
+   write("image(&null) ----> ",image(image(&null)) | "none");
+   write("image([1,2,3]) ----> ",image(image([1,2,3])) | "none");
+   write("image([]) ----> ",image(image([])) | "none");
+   write("image([,]) ----> ",image(image([,])) | "none");
+   write("image(table()) ----> ",image(image(table())) | "none");
+   write("image(table(3)) ----> ",image(image(table(3))) | "none");
+   write("image(list(0)) ----> ",image(image(list(0))) | "none");
+   write("image(set()) ----> ",image(image(set())) | "none");
+   write("image(set([1,2,3,3,3,3,3,4])) ----> ",image(image(set([1,2,3,3,3,3,3,4]))) | "none");
+   write("image(repl) ----> ",image(image(repl)) | "none");
+end
+
+procedure p6()
+   write("image(main) ----> ",image(image(main)) | "none");
+   write("image(repl(&lcase,10)) ----> ",image(image(repl(&lcase,10))) | "none");
+   write("image(array) ----> ",image(image(array)) | "none");
+   write("image(a) ----> ",image(image(a)) | "none");
+   write("image(array) ----> ",image(image(array)) | "none");
+   write("image(image) ----> ",image(image(image)) | "none");
+   write("string(2) ----> ",image(string(2)) | "none");
+   write("string(\"2\") ----> ",image(string("2")) | "none");
+   write("string(\" 2\") ----> ",image(string(" 2")) | "none");
+end
+
+procedure p7()
+   write("string(\"2 \") ----> ",image(string("2 ")) | "none");
+   write("string(\"+2\") ----> ",image(string("+2")) | "none");
+   write("string(\"-2\") ----> ",image(string("-2")) | "none");
+   write("string(\"- 2\") ----> ",image(string("- 2")) | "none");
+   write("string(\" -    2 \") ----> ",image(string(" -    2 ")) | "none");
+   write("string(\"\") ----> ",image(string("")) | "none");
+   write("string(\"--2\") ----> ",image(string("--2")) | "none");
+   write("string(\" \") ----> ",image(string(" ")) | "none");
+   write("string(\"-\") ----> ",image(string("-")) | "none");
+   write("string(\"+\") ----> ",image(string("+")) | "none");
+end
+
+procedure p8()
+   write("string(\"22222222222222222222222222222222222222222222222222222222222\") ----> ",image(string("22222222222222222222222222222222222222222222222222222222222")) | "none");
+   write("string(\"7r4\") ----> ",image(string("7r4")) | "none");
+   write("string(\"4r7\") ----> ",image(string("4r7")) | "none");
+   write("string(\"4r 7\") ----> ",image(string("4r 7")) | "none");
+   write("string(\"7r 4\") ----> ",image(string("7r 4")) | "none");
+   write("string(\"16rff\") ----> ",image(string("16rff")) | "none");
+end
+
+procedure p9()
+   write("string(\"36rcat\") ----> ",image(string("36rcat")) | "none");
+   write("string(\"36Rcat\") ----> ",image(string("36Rcat")) | "none");
+   write("string(\"36rCAT\") ----> ",image(string("36rCAT")) | "none");
+   write("string(\"1r1\") ----> ",image(string("1r1")) | "none");
+   write("string(\"2r0\") ----> ",image(string("2r0")) | "none");
+   write("type(0) ----> ",image(type(0)) | "none");
+   write("type(\"abc\") ----> ",image(type("abc")) | "none");
+   write("type('aba') ----> ",image(type('aba')) | "none");
+   write("type() ----> ",image(type()) | "none");
+   write("type(&null) ----> ",image(type(&null)) | "none");
+end
+
+procedure p10()
+   write("type([]) ----> ",image(type([])) | "none");
+   write("type(table()) ----> ",image(type(table())) | "none");
+   write("type(main) ----> ",image(type(main)) | "none");
+   write("type(write) ----> ",image(type(write)) | "none");
+   write("type(array()) ----> ",image(type(array())) | "none");
+   write("type(array) ----> ",image(type(array)) | "none");
+   write("type(f) ----> ",image(type(f)) | "none");
+   write("cset(2) ----> ",image(cset(2)) | "none");
+end
+
+procedure p11()
+   write("cset(\"2\") ----> ",image(cset("2")) | "none");
+   write("cset(\" 2\") ----> ",image(cset(" 2")) | "none");
+   write("cset(\"2 \") ----> ",image(cset("2 ")) | "none");
+   write("cset(\"+2\") ----> ",image(cset("+2")) | "none");
+   write("cset(\"-2\") ----> ",image(cset("-2")) | "none");
+   write("cset(\"- 2\") ----> ",image(cset("- 2")) | "none");
+   write("cset(\" -    2 \") ----> ",image(cset(" -    2 ")) | "none");
+   write("cset(\"\") ----> ",image(cset("")) | "none");
+   write("cset(\"--2\") ----> ",image(cset("--2")) | "none");
+   write("cset(\" \") ----> ",image(cset(" ")) | "none");
+   write("cset(\"-\") ----> ",image(cset("-")) | "none");
+end
+
+procedure p12()
+   write("cset(\"+\") ----> ",image(cset("+")) | "none");
+   write("cset(\"22222222222222222222222222222222222222222222222222222222222\") ----> ",image(cset("22222222222222222222222222222222222222222222222222222222222")) | "none");
+   write("cset(\"7r4\") ----> ",image(cset("7r4")) | "none");
+   write("cset(\"4r7\") ----> ",image(cset("4r7")) | "none");
+   write("cset(\"4r 7\") ----> ",image(cset("4r 7")) | "none");
+end
+
+procedure p13()
+   write("cset(\"7r 4\") ----> ",image(cset("7r 4")) | "none");
+   write("cset(\"16rff\") ----> ",image(cset("16rff")) | "none");
+   write("cset(\"36rcat\") ----> ",image(cset("36rcat")) | "none");
+   write("cset(\"36Rcat\") ----> ",image(cset("36Rcat")) | "none");
+   write("cset(\"36rCAT\") ----> ",image(cset("36rCAT")) | "none");
+   write("cset(\"1r1\") ----> ",image(cset("1r1")) | "none");
+   write("cset(\"2r0\") ----> ",image(cset("2r0")) | "none");
+   write("every write(seq()) \\ 10 ----> ",image(every write(seq()) \ 10) | "none");
+   write("every write(seq(2)) \\ 10 ----> ",image(every write(seq(2)) \ 10) | "none");
+   write("every write(seq(-10)) \\ 10 ----> ",image(every write(seq(-10)) \ 10) | "none");
+   write("every write(seq(,3)) \\ 10 ----> ",image(every write(seq(,3)) \ 10) | "none");
+end
+
+procedure p14()
+end
+
+procedure main()
+   p1();
+   p2();
+   p3();
+   p4();
+   p5();
+   p6();
+   p7();
+   p8();
+   p9();
+   p10();
+   p11();
+   p12();
+   p13();
+   p14();
+end
+
+procedure wf (v)
+    writes(left(v,5)," ");
+    end
+#------------------------------------------ 861 procedure_record_every_replace_3
 #SRC: V9GEN
 
 ### mindfa -- minimize a DFA
@@ -7939,7 +8447,149 @@ local l,t1,t2;
    if *l = 0 then fail;
    return l;
 end
-#-------------------------------------------- 859 procedure_every_scan_replace_6
+#------------------------------------------- 862 procedure_every_scan_replace_13
+#SRC: V9GEN
+
+##    gener.icn -- test generation in parallel with inserts/deletes
+#
+#     This is a torture test for the set generation code.  Items are inserted
+#     in or deleted from the set while the set is being generated.  We check
+#     every item not inserted or deleted is generated exactly once, and every
+#     other item is generated no more than once.
+#
+#     If every line of output says '[ok]', the test has passed.  "gener -v"
+#     gives a little more information; in this case, the output is sensitive
+#     to the runtime system's configuration parameters.
+
+
+global verbose
+
+
+procedure main (args)
+   if args[1] == "-v" then
+      verbose := 1;
+   every tdel (41 | 619 | 991,  3 | 11 |  23);
+   every tins (40 | 103 | 233,  239 | 419 | 503,  3 | 11 | 23);
+   stale();
+   write ("[done]");
+   end
+
+
+##  tins (init, limit, n) -- test insertions
+#
+#   The initial set consists of the integers 1 through <init>.
+#   Then the set is generated, and <n> more integers are added
+#   for each element generated until the set reaches <limit>
+#   entries.
+
+procedure tins (init, limit, n)
+   writes ("test insert:",
+      right(init,6), ",", right(limit,5), ",", right(n,3));
+   s := set();
+   every insert (s, 1 to init);
+   s1 := copy (s);
+   l := list();
+   every put (l, e := !s) do
+      if *s < limit then
+         every 1 to n do
+            insert (s, *s + 1);
+   check (s1, s, l);
+   end
+
+
+##  tdel (limit, n) -- test deletions
+#
+#   The set initially contains the first <limit> integers.
+#   Then, for each one generated, n elements are deleted.
+
+procedure tdel (limit, n)
+   writes ("test delete:", right(limit,6), ",", right(n,5));
+   s := set();
+   every insert (s, 1 to limit);
+   s2 := copy(s);
+   l := list();
+   k := 0;
+   every put (l, !s) do
+      every 1 to n do 
+         delete (s, k +:= 1);
+   check (s, s2, l);
+   end
+
+
+
+##  check (s1, s2, l) -- check results of generation
+#
+#   s1	small set (before insertion / after deletion)
+#   s2  large set (after insertion / before deletion)
+#   l   generated list
+
+procedure check (s1, s2, l)
+   sg := set(l);
+   if \verbose then
+       writes ("  \tsizes ",right(*s1,5)," <=",right(*sg,5)," <=",right(*s2,5));
+   ok := "\t[ok]";
+
+   if *(s := (s1 -- sg)) > 0 then {
+      writes ("\n not generated:");
+      every writes (" ", !sort(s));
+      ok := &null;
+      }
+
+   if *(s := (sg -- s2)) > 0 then {
+      writes ("\n unknown values generated:");
+      every writes (" ", !sort(s));
+      ok := &null;
+      }
+
+   if *sg < *l then {
+      writes("\n generated twice:");
+      every e := !l do
+         delete(sg,member(sg,e)) | writes (" ", e);
+      ok := &null;
+   }
+
+   write (ok);
+   end
+
+
+
+##  check for generation of stale (already deleted) elements of sets and tables
+
+procedure stale()
+   local i, N, S, T;
+
+   N := 100;
+   T := table();
+   S := set();
+
+   write();
+   every i := 1 to N do {
+      T[i] := i;
+      insert(S, i);
+      }
+
+   write("checking !S:");
+   every i := !S do {
+      if not member(S, i) then write("S[", i, "] stale");
+      delete(S, ?N);
+      }
+
+   write("checking !T:");
+   every i := !T do {
+      if /T[i] then write("T[", i, "] stale");
+      delete(T, ?N);
+      }
+
+   write("checking key(T):");
+   every i := key(T) do {
+      if /T[i] then write("T[", i, "] stale");
+      delete(T, ?N);
+      }
+
+   write();
+   return;
+end
+#-------------------------------------------- 863 procedure_every_scan_replace_6
 #SRC: V9GEN
 
 ##  mffsol.icn -- show solution graphically in mff format
@@ -8056,7 +8706,7 @@ procedure newcolor()
 	if lum > 96 then return;
     }
     end
-#-------------------------------------------- 860 procedure_every_scan_replace_4
+#-------------------------------------------- 864 procedure_every_scan_replace_4
 #SRC: V9GEN
 #OPT: -fe
 
@@ -8207,7 +8857,213 @@ procedure setup (line);		# interpret and report a column spec line
    write (")");
    return p;
 end
-#------------------------------------------- 861 procedure_record_scan_replace_2
+#----------------------------------------- 865 procedure_record_every_replace_12
+#SRC: V9GEN
+#OPT: -fe
+
+record array(a,b,c,d,e,f,g)
+procedure p1()
+   write("seq(\"a\") | monitor(&line) ----> ",
+      image(seq("a") | monitor(&line)) | "none");
+   write("\"|\"(1,2) | monitor(&line) ----> ",
+      image("|"(1,2) | monitor(&line)) | "none");
+   write("member(x,x) | monitor(&line) ----> ",
+      image(member(x,x) | monitor(&line)) | "none");
+   write("(set([]) ++ 'a') | monitor(&line) ----> ",
+      image((set([]) ++ 'a') | monitor(&line)) | "none");
+   write("(every i := 1 to *a - 1 by 2 do write(image(a[i]),\" \",a[i + 1])) | monitor(&line) ----> ",
+      image((every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1])) | monitor(&line)) | "none");
+   write("(every i := 1 to *a - 1 by 2 do write(image(a[i]),\" \",a[i + 1])) | monitor(&line) ----> ",
+      image((every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1])) | monitor(&line)) | "none");
+   write("(c |||:= s) | monitor(&line) ----> ",
+      image((c |||:= s) | monitor(&line)) | "none");
+   write("?&null | monitor(&line) ----> ",
+      image(?&null | monitor(&line)) | "none");
+   write("c[1] | monitor(&line) ----> ",
+      image(c[1] | monitor(&line)) | "none");
+   write("(image + image) | monitor(&line) ----> ",
+      image((image + image) | monitor(&line)) | "none");
+   write(".1(s[1],s := &null) | monitor(&line) ----> ",
+      image(.1(s[1],s := &null) | monitor(&line)) | "none");
+end
+
+procedure p2()
+   write("display(,[]) | monitor(&line) ----> ",
+      image(display(,[]) | monitor(&line)) | "none");
+   write("([] ~== \"x\") | monitor(&line) ----> ",
+      image(([] ~== "x") | monitor(&line)) | "none");
+   write("(x + 1) | monitor(&line) ----> ",
+      image((x + 1) | monitor(&line)) | "none");
+   write("\"a\"(1,2,3) | monitor(&line) ----> ",
+      image("a"(1,2,3) | monitor(&line)) | "none");
+   write("(\"o\" + 0) | monitor(&line) ----> ",
+      image(("o" + 0) | monitor(&line)) | "none");
+   write("(&cset ++ []) | monitor(&line) ----> ",
+      image((&cset ++ []) | monitor(&line)) | "none");
+   write("(every 1 to \"a\") | monitor(&line) ----> ",
+      image((every 1 to "a") | monitor(&line)) | "none");
+   write("!image | monitor(&line) ----> ",
+      image(!image | monitor(&line)) | "none");
+end
+
+procedure p3()
+   write("(0 to 0 by 0) | monitor(&line) ----> ",
+      image((0 to 0 by 0) | monitor(&line)) | "none");
+   write("repl(\"b\",\"a\") | monitor(&line) ----> ",
+      image(repl("b","a") | monitor(&line)) | "none");
+   write("t(t) | monitor(&line) ----> ",
+      image(t(t) | monitor(&line)) | "none");
+   write("sort(&lcase) | monitor(&line) ----> ",
+      image(sort(&lcase) | monitor(&line)) | "none");
+   write("pull(&null) | monitor(&line) ----> ",
+      image(pull(&null) | monitor(&line)) | "none");
+   write("c[-4] | monitor(&line) ----> ",
+      image(c[-4] | monitor(&line)) | "none");
+   write("(type(type)(type)) | monitor(&line) ----> ",
+      image((type(type)(type)) | monitor(&line)) | "none");
+   write("r[r] | monitor(&line) ----> ",
+      image(r[r] | monitor(&line)) | "none");
+   write("([] ** \"abc\") | monitor(&line) ----> ",
+      image(([] ** "abc") | monitor(&line)) | "none");
+   write("('abc' ~= ('abc' ++ '')) | monitor(&line) ----> ",
+      image(('abc' ~= ('abc' ++ '')) | monitor(&line)) | "none");
+end
+
+procedure p4()
+   write("(&lcase || numeric) | monitor(&line) ----> ",
+      image((&lcase || numeric) | monitor(&line)) | "none");
+   write("x[\"a\"] | monitor(&line) ----> ",
+      image(x["a"] | monitor(&line)) | "none");
+   write("(100-()) | monitor(&line) ----> ",
+      image((100-()) | monitor(&line)) | "none");
+   write("((1 := y) & &fail) | monitor(&line) ----> ",
+      image(((1 := y) & &fail) | monitor(&line)) | "none");
+   write("(a[1:3] := a) | monitor(&line) ----> ",
+      image((a[1:3] := a) | monitor(&line)) | "none");
+   write("(a[3] :=: a3[&null]) | monitor(&line) ----> ",
+      image((a[3] :=: a3[&null]) | monitor(&line)) | "none");
+   write("a5[a5] | monitor(&line) ----> ",
+      image(a5[a5] | monitor(&line)) | "none");
+   write("pull[c] | monitor(&line) ----> ",
+      image(pull[c] | monitor(&line)) | "none");
+   write("(&subject := []) | monitor(&line) ----> ",
+      image((&subject := []) | monitor(&line)) | "none");
+   write("([] ? []) | monitor(&line) ----> ",
+      image(([] ? []) | monitor(&line)) | "none");
+   write("+\"a\" | monitor(&line) ----> ",
+      image(+"a" | monitor(&line)) | "none");
+end
+
+procedure p5()
+   write("(i <= []) | monitor(&line) ----> ",
+      image((i <= []) | monitor(&line)) | "none");
+   write("([] ^ i) | monitor(&line) ----> ",
+      image(([] ^ i) | monitor(&line)) | "none");
+   write("(s ?:= &subject[3]) | monitor(&line) ----> ",
+      image((s ?:= &subject[3]) | monitor(&line)) | "none");
+   write("(s >>:= 0) | monitor(&line) ----> ",
+      image((s >>:= 0) | monitor(&line)) | "none");
+   write("(s = 0) | monitor(&line) ----> ",
+      image((s = 0) | monitor(&line)) | "none");
+   write("put(s) | monitor(&line) ----> ",
+      image(put(s) | monitor(&line)) | "none");
+   write("('abc' = ('abc' ++ '')) | monitor(&line) ----> ",
+      image(('abc' = ('abc' ++ '')) | monitor(&line)) | "none");
+   write("=[] | monitor(&line) ----> ",
+      image(=[] | monitor(&line)) | "none");
+   write("((1 <-> y) & &fail) | monitor(&line) ----> ",
+      image(((1 <-> y) & &fail) | monitor(&line)) | "none");
+   write("!&null | monitor(&line) ----> ",
+      image(!&null | monitor(&line)) | "none");
+   write("(2 \\ \"a\") | monitor(&line) ----> ",
+      image((2 \ "a") | monitor(&line)) | "none");
+end
+
+procedure p6()
+   write("right(\"\",\"\") | monitor(&line) ----> ",
+      image(right("","") | monitor(&line)) | "none");
+   write("close(\"F\") | monitor(&line) ----> ",
+      image(close("F") | monitor(&line)) | "none");
+   write("trim(&lcase,[]) | monitor(&line) ----> ",
+      image(trim(&lcase,[]) | monitor(&line)) | "none");
+   write("list([]) | monitor(&line) ----> ",
+      image(list([]) | monitor(&line)) | "none");
+   write("reads(f,0) | monitor(&line) ----> ",
+      image(reads(f,0) | monitor(&line)) | "none");
+   write("read(\"f\") | monitor(&line) ----> ",
+      image(read("f") | monitor(&line)) | "none");
+   write("bal([],,,\"\") | monitor(&line) ----> ",
+      image(bal([],,,"") | monitor(&line)) | "none");
+   write("pos(\"a\") | monitor(&line) ----> ",
+      image(pos("a") | monitor(&line)) | "none");
+   write(("\"abcdef\" ? (tab(0) & (while write(move(\"a\"))))) | monitor(&line) ----> ",
+      image(("abcdef" ? (tab(0) & (while write(move("a")))))) | monitor(&line)) | "none");
+   write("(2 % \"a\") | monitor(&line) ----> ",
+      image((2 % "a") | monitor(&line)) | "none");
+end
+
+procedure p7()
+   write("(2 * \"a\") | monitor(&line) ----> ",
+      image((2 * "a") | monitor(&line)) | "none");
+   write("(2 / \"a\") | monitor(&line) ----> ",
+      image((2 / "a") | monitor(&line)) | "none");
+   write("(2 + \"a\") | monitor(&line) ----> ",
+      image((2 + "a") | monitor(&line)) | "none");
+   write("(-36 ^ -9) | monitor(&line) ----> ",
+      image((-36 ^ -9) | monitor(&line)) | "none");
+   write("(2 < \"a\") | monitor(&line) ----> ",
+      image((2 < "a") | monitor(&line)) | "none");
+   write("(0 > &null) | monitor(&line) ----> ",
+      image((0 > &null) | monitor(&line)) | "none");
+   write("(2 <= \"a\") | monitor(&line) ----> ",
+      image((2 <= "a") | monitor(&line)) | "none");
+   write("(2 > \"a\") | monitor(&line) ----> ",
+      image((2 > "a") | monitor(&line)) | "none");
+   write("(2 = \"a\") | monitor(&line) ----> ",
+      image((2 = "a") | monitor(&line)) | "none");
+   write("(2 ~= \"a\") | monitor(&line) ----> ",
+      image((2 ~= "a") | monitor(&line)) | "none");
+   write("(list(10)) ||| \"abc\" | monitor(&line) ----> ",
+      image((list(10)) ||| "abc" | monitor(&line)) | "none");
+end
+
+procedure p8()
+   write("(x :=: \"a\") | monitor(&line) ----> ",
+      image((x :=: "a") | monitor(&line)) | "none");
+   write("(x <-> \"b\") | monitor(&line) ----> ",
+      image((x <-> "b") | monitor(&line)) | "none");
+   write("((x & 2 & 3 & 4) := 3) | monitor(&line) ----> ",
+      image(((x & 2 & 3 & 4) := 3) | monitor(&line)) | "none");
+   write("((1 <- y) & &fail) | monitor(&line) ----> ",
+      image(((1 <- y) & &fail) | monitor(&line)) | "none");
+   write("(-36. ^ -9.) | monitor(&line) ----> ",
+      image((-36. ^ -9.) | monitor(&line)) | "none");
+end
+
+procedure main()
+   &error := -1;
+   p1();
+   p2();
+   p3();
+   p4();
+   p5();
+   p6();
+   p7();
+   p8();
+   write("stop(&output,'testing stop') | monitor(&line) ----> ",
+      image(stop(&output,'testing stop') | monitor(&line)) | "none");
+end
+
+procedure monitor(line)
+   write("\nerror in line ",line,":");
+   write("   &error = ",&error);
+   write("   &errornumber = ",&errornumber);
+   write("   &errortext = ",
+      image(&errortext));
+   write("   &errorvalue = ", image(&errorvalue));
+   return line;
+end
+#------------------------------------------- 866 procedure_record_scan_replace_2
 #SRC: IPL
 
 ############################################################################

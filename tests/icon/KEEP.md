@@ -147,13 +147,29 @@ surfaced that the gate's failure list itself was silently capped at 20, so nobod
 28 sitting in the "undeclared" count until now (`rung36_jcon_btrees.icn` was already an exception,
 named elsewhere in this file's own dependency note below — the other 28 were not named anywhere):
 `rung36_jcon_arith.icn` `rung36_jcon_case.icn` `rung36_jcon_checkfpx.icn` `rung36_jcon_ck.icn`
-`rung36_jcon_collate.icn` `rung36_jcon_errkwds.icn` `rung36_jcon_errors.icn` `rung36_jcon_evalx.icn`
-`rung36_jcon_fncs.icn` `rung36_jcon_geddump.icn` `rung36_jcon_gener.icn`
-`rung36_jcon_image.icn` `rung36_jcon_io.icn` `rung36_jcon_iobig.icn` `rung36_jcon_large.icn`
+`rung36_jcon_collate.icn` `rung36_jcon_errkwds.icn` `rung36_jcon_geddump.icn`
+`rung36_jcon_iobig.icn` `rung36_jcon_large.icn`
 `rung36_jcon_lgint.icn` `rung36_jcon_misc.icn` `rung36_jcon_nargs.icn` `rung36_jcon_others.icn`
 `rung36_jcon_prefix.icn` `rung36_jcon_profsum.icn` `rung36_jcon_radix.icn` `rung36_jcon_recent.icn`
 `rung36_jcon_sorting.icn` `rung36_jcon_struct.icn`
-— reason for all 28, uniformly: permanently `.xfail`-marked, genuinely fails today, individually
+
+⛔⭐ **SIX NAMES LEFT THIS BUCKET 2026-09-09 (hq_C, CEO-445 on Lon's "Switch to Icon completely"):
+`rung36_jcon_errors` `rung36_jcon_evalx` `rung36_jcon_fncs` `rung36_jcon_gener` `rung36_jcon_image`
+`rung36_jcon_io` are ABSORBED into the Icon master as ordinary graded entries with icont-cut refs.**
+⭐ The declaration above rested on a predicate that has now been retired, and it is worth naming why
+rather than just deleting the names: the reason read *"permanently `.xfail`-marked, genuinely fails
+today"* — **the marker was doing double duty as both the evidence and the excuse.** A red held out of
+every denominator is invisible to every board by construction (hq_I measured all 20 of these markers
+on 2026-09-08 and found the marker set and the master denominator are two DISJOINT sets), so
+"genuinely fails today" could stay true indefinitely without anyone being accountable for it. They
+are now IN the denominator and red, which is the honest form of the same fact.
+⛔ **`rung36_jcon_image` was never a real red at all** — the corpus copy of it carried ONE semicolon
+the upstream `jcon_tests/image.icn` does not (line 66, terminating the `then` branch of an
+`if/then/else`), which makes the ORACLE itself refuse the program: `icont` says *Line 67 # "else":
+invalid expression*. Upstream compiles clean. A fixture bug had been sitting behind an `.xfail`
+marker reading as a SCRIP defect; the semicolon is removed in the same commit and its ref is cut
+from `icont`. Same family as the stray-tab END card in the SNOBOL4 master's `user_function_arbno_rpos_1`.
+— reason for the remaining 19, uniformly: permanently `.xfail`-marked, genuinely fails today, individually
 re-verified against its own marker's claim (not merely inherited) by seat06's 2026-08-29 skeptical
 sweep of all 30 Icon `.xfail` files. No witness file touched by this declaration — it is a KEEP.md
 entry only, same as every other line in this file. (`rung36_jcon_toby.icn` was in this bucket as of
