@@ -17794,3 +17794,34 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
+*--------------------------------------------------------- 1891 keyword_branch_5
+        &ANCHOR = 0
+        "ABCFOO" "FOO"                          :S(UNFOUND)F(UNMISS)
+UNFOUND OUTPUT = "unanchored: FOO found away from the left end"   :(SETANC)
+UNMISS  OUTPUT = "unanchored: FOO not found"
+SETANC  &ANCHOR = 1
+        "ABCFOO" "FOO"                          :S(ANFOUND)F(ANMISS)
+ANFOUND OUTPUT = "anchored: FOO found"          :(SAME)
+ANMISS  OUTPUT = "anchored: same match now fails"
+SAME    "FOOABC" "FOO"                          :S(HEAD)F(NOHEAD)
+HEAD    OUTPUT = "anchored: FOO at the left end still matches"     :(END)
+NOHEAD  OUTPUT = "anchored: left-end match failed"
+END
+*-------------------------------------------------- 1892 user_function_keyword_1
+        OUTPUT = "stno " &STNO
+        OUTPUT = "line " &LINE
+        DEFINE("SHOW()")                        :(SHOWEND)
+SHOW    OUTPUT = "lastno inside " &LASTNO       :(RETURN)
+SHOWEND SHOW()
+        OUTPUT = "lastline " &LASTLINE
+END
+*--------------------------------------------------------------- 1893 keyword_30
+        OUTPUT = "output on"
+        &OUTPUT = 0
+        OUTPUT = "this line is suppressed"
+        &OUTPUT = 1
+        OUTPUT = "output back on"
+        &INPUT = 0
+        LINE = INPUT
+        OUTPUT = "input disabled, LINE is [" LINE "]"
+END
