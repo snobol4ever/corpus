@@ -122,6 +122,7 @@ file(sed 's/^/=()= /' io.icn)
 > =()= 	n := open("/dev/null" | stop("no /dev/null"), "w")];
 
 file(ls io.i?n io.d?t io.s?d)
+ls: cannot access 'io.s?d': No such file or directory
 > io.dat
 > io.icn
 
