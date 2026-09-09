@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/micsum.icn"
+                        .file            1 "/home/claude_cto/corpus/benchmarks/icon/micsum.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__dofile:
@@ -3153,7 +3153,6 @@ main:
                         sub              esi, 1
                         call             rt_main_args_stage@PLT
                         call             rt_main_args_bind@PLT
-                        mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                         xor              r14d, r14d

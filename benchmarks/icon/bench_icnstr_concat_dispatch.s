@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/bench_icnstr_concat_dispatch.icn"
+                        .file            1 "/home/claude_cto/corpus/benchmarks/icon/bench_icnstr_concat_dispatch.icn"
                         .file            2 "<included>"
                         .globl           main
 main:
@@ -13,7 +13,6 @@ main:
                         mov              esi, dword ptr [rsp + 8]
                         sub              esi, 1
                         call             rt_main_args_stage@PLT
-                        mov              r12, qword ptr [0x70000000]
                         call             rtcc_load_all@PLT
                         xor              esi, esi
                         xor              r14d, r14d
