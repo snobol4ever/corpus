@@ -8686,3 +8686,45 @@ procedure main()
    write("E:", L[2]);
    write("F:end");
 end
+#------------------------------------------------------- 873 procedure_write_263
+procedure main()
+   local t, a, i, out;
+   t := table();
+   t[1] := "int1";
+   t[2] := "int2";
+   t["hello"] := "str";
+   t[&cset] := "cset";
+   t[&output] := "file";
+   t[main] := "proc";
+   t[3.5] := "real";
+   out := "";
+   a := sort(t, 3);
+   every i := 1 to *a - 1 by 2 do
+      out ||:= type(a[i]) || "=" || a[i + 1] || " ";
+   write("A:", out);
+   write("B:", *a);
+   write("C:end");
+end
+#------------------------------------------------------- 874 procedure_write_264
+procedure g()
+   suspend 1;
+   suspend 2;
+end
+procedure main()
+   local x;
+   &trace := -1;
+   every x := g();
+   &trace := 0;
+   write("A:end");
+end
+#------------------------------------------------------- 875 procedure_write_265
+procedure g(n)
+   suspend 1 to n;
+end
+procedure main()
+   local x;
+   &trace := -1;
+   every x := g(2);
+   &trace := 0;
+   write("A:end");
+end

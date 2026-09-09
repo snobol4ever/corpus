@@ -6148,3 +6148,11 @@ C:Defaulted/Defaulted
 D:99/99
 E:99
 F:end
+#------------------------------------------------------- 873 procedure_write_263
+A:integer=int1 integer=int2 real=real string=str cset=cset file=file procedure=proc 
+B:14
+C:end
+#------------------------------------------------------- 874 procedure_write_264
+A:end
+#------------------------------------------------------- 875 procedure_write_265
+A:end
