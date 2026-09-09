@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
+                        .file            1 "/home/claude_cfo/corpus/benchmarks/icon/geddump.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__event:
@@ -3875,7 +3875,7 @@ n00131_assign_α:          mov              r11, 174
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_491_0]
                         .section         .rodata
-.Lassign_α_491_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_491_1_s:     .string          "/home/claude_cfo/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_491_1_s]
@@ -9358,7 +9358,7 @@ n00325_assign_α:          mov              r11, 367
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1093_0]
                         .section         .rodata
-.Lassign_α_1093_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_1093_1_s:    .string          "/home/claude_cfo/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1093_1_s]
@@ -12084,7 +12084,7 @@ n00474_assign_α:         mov              r11, 514
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1474_0]
                         .section         .rodata
-.Lassign_α_1474_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_1474_1_s:    .string          "/home/claude_cfo/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1474_1_s]
@@ -14419,19 +14419,10 @@ n00564_binop_test_α:     mov              r11, 603
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    n00563_proc_gen_β
-                        mov              rdi, qword ptr [rbp + 2432]
-                        mov              rsi, qword ptr [rbp + 2440]
-                        mov              rdx, qword ptr [rbp + 2464]
+                        mov              rcx, qword ptr [rbp + 2464]
+                        mov              qword ptr [rbp + 2416], rcx
                         mov              rcx, qword ptr [rbp + 2472]
-                        lea              r8, [rbp + 2416]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_relop_val_coerce@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00565_call_proc_staged_α
+                        mov              qword ptr [rbp + 2424], rcx;         jmp   n00565_call_proc_staged_α
                         .size            n00564_binop_test_bx, .-n00564_binop_test_bx
                         .type            n00565_call_proc_staged_bx, @function
 n00565_call_proc_staged_bx:
@@ -14701,19 +14692,10 @@ n00573_binop_test_α:     mov              r11, 612
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    n00572_proc_gen_β
-                        mov              rdi, qword ptr [rbp + 2160]
-                        mov              rsi, qword ptr [rbp + 2168]
-                        mov              rdx, qword ptr [rbp + 2192]
+                        mov              rcx, qword ptr [rbp + 2192]
+                        mov              qword ptr [rbp + 2144], rcx
                         mov              rcx, qword ptr [rbp + 2200]
-                        lea              r8, [rbp + 2144]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_relop_val_coerce@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00574_call_proc_staged_α
+                        mov              qword ptr [rbp + 2152], rcx;         jmp   n00574_call_proc_staged_α
                         .size            n00573_binop_test_bx, .-n00573_binop_test_bx
                         .type            n00574_call_proc_staged_bx, @function
 n00574_call_proc_staged_bx:
@@ -15999,19 +15981,10 @@ n00621_binop_test_α:     mov              r11, 661
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            jz    n00586_proc_gen_β
-                        mov              rdi, qword ptr [rbp + 1600]
-                        mov              rsi, qword ptr [rbp + 1608]
-                        mov              rdx, qword ptr [rbp + 1632]
+                        mov              rcx, qword ptr [rbp + 1632]
+                        mov              qword ptr [rbp + 1584], rcx
                         mov              rcx, qword ptr [rbp + 1640]
-                        lea              r8, [rbp + 1584]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_relop_val_coerce@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Ldisjunction_γ_1391_as
+                        mov              qword ptr [rbp + 1592], rcx;         jmp   .Ldisjunction_γ_1391_as
 n00621_binop_test_β:     mov              r11, 661;                            jmp   n00586_proc_gen_β
                         .size            n00621_binop_test_bx, .-n00621_binop_test_bx
                         .type            n00546_lit_string_bx, @function
