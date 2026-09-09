@@ -147,13 +147,32 @@ surfaced that the gate's failure list itself was silently capped at 20, so nobod
 28 sitting in the "undeclared" count until now (`rung36_jcon_btrees.icn` was already an exception,
 named elsewhere in this file's own dependency note below — the other 28 were not named anywhere):
 `rung36_jcon_arith.icn` `rung36_jcon_case.icn` `rung36_jcon_checkfpx.icn` `rung36_jcon_ck.icn`
-`rung36_jcon_collate.icn` `rung36_jcon_errkwds.icn` `rung36_jcon_errors.icn` `rung36_jcon_evalx.icn`
-`rung36_jcon_fncs.icn` `rung36_jcon_geddump.icn` `rung36_jcon_gener.icn`
-`rung36_jcon_image.icn` `rung36_jcon_io.icn` `rung36_jcon_iobig.icn` `rung36_jcon_large.icn`
+`rung36_jcon_collate.icn` `rung36_jcon_errkwds.icn` `rung36_jcon_geddump.icn`
+`rung36_jcon_io.icn` `rung36_jcon_iobig.icn` `rung36_jcon_large.icn`
 `rung36_jcon_lgint.icn` `rung36_jcon_misc.icn` `rung36_jcon_nargs.icn` `rung36_jcon_others.icn`
 `rung36_jcon_prefix.icn` `rung36_jcon_profsum.icn` `rung36_jcon_radix.icn` `rung36_jcon_recent.icn`
 `rung36_jcon_sorting.icn` `rung36_jcon_struct.icn`
-— reason for all 28, uniformly: permanently `.xfail`-marked, genuinely fails today, individually
+
+⛔⭐ **FIVE NAMES LEFT THIS BUCKET 2026-09-09 (hq_C, CEO-445 on Lon's "Switch to Icon completely"):
+`rung36_jcon_errors` `rung36_jcon_evalx` `rung36_jcon_fncs` `rung36_jcon_gener` `rung36_jcon_image`
+are ABSORBED into the Icon master as ordinary graded entries.** ⭐ The declaration above rested on a
+predicate that has been retired, and the *reason* is worth keeping: it read *"permanently
+`.xfail`-marked, genuinely fails today"* — **the marker was doing double duty as both the evidence and
+the excuse.** hq_I measured all 20 of these markers on 2026-09-08 and found the marker set and the
+master denominator are two DISJOINT sets, so a red held out of every denominator is invisible to every
+board *by construction*, and "genuinely fails today" could stay true indefinitely with nobody
+accountable for it. They are now IN the denominator, which is the honest form of the same fact.
+⭐ Their refs were verified FRESH before absorption, not assumed: each was re-run through
+`icont`/`iconx` on 2026-09-09 under the convention landed in `1409e998b` (the oracle compiles the
+UPSTREAM `jcon_tests` source, because our copies carry semicolons added for SCRIP's semicolon-required
+frontend and a `;` after a case clause — or before an `else` — is a syntax error for `icont`; a `.dat`
+is passed as argv[1] AND stdin, otherwise `/dev/null`). All five matched their stored `.expected`
+byte-for-byte.
+⛔ **`rung36_jcon_io` STAYS a keeper and is NOT absorbed**, for two independent reasons either of
+which alone suffices: the icon master format cannot yet carry a stdin sidecar, and its stored
+`.expected` is still a STARVED cut (50 diff lines against a fed oracle run) that `1409e998b`
+deliberately left alone because a `.dat`-fed ref is one the rung runner cannot match today.
+— reason for the remaining 20, uniformly: permanently `.xfail`-marked, genuinely fails today, individually
 re-verified against its own marker's claim (not merely inherited) by seat06's 2026-08-29 skeptical
 sweep of all 30 Icon `.xfail` files. No witness file touched by this declaration — it is a KEEP.md
 entry only, same as every other line in this file. (`rung36_jcon_toby.icn` was in this bucket as of
