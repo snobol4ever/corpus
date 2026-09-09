@@ -18217,7 +18217,7 @@ COPYL_END
         C2  =  COPYL(R1)
         OUTPUT = 'done'
 END
-*---------------------------- 1913 user_function_convert_indirect_branch_1 XFAIL
+*---------------------------- 1913 user_function_convert_indirect_branch_1
         DEFINE('ONCE(ID)NAME')                   :(ONCE_END)
 ONCE    ONCE  =  IDENT(ID,NULL)
 +       CONVERT('ONCE(' &STCOUNT ')' , 'EXPRESSION')  :S(RETURN)
