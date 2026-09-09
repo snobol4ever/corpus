@@ -1,0 +1,9 @@
+#  break resolves its loop by INDEX into the loop stack, and lower_while pushed
+#  this loop AFTER lowering its own condition -- so a break in the condition of a
+#  nested while indexed one loop too far out and left the OUTER loop.  At top
+#  level the index went negative and a fallback happened to name the right loop,
+#  so the outer case was correct BY ACCIDENT and only a nested witness sees it.
+procedure main();
+    while 1 do { write(image(while break) | "none"); break };
+    write("after");
+end

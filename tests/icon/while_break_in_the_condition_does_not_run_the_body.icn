@@ -1,0 +1,8 @@
+#  THE DISCRIMINATING WITNESS for the lower_while break defect: this does not
+#  merely hang, it prints "body" FOREVER -- a loop running the body that a break
+#  in its own condition had just left.  A bare hang cannot tell a stalled loop
+#  from a mis-wired one; this one names the destination the break was sent to.
+procedure main();
+    write(image(while break do write("body")) | "none");
+    write("after");
+end

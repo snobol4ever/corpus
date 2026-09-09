@@ -1,0 +1,7 @@
+#  break is legal as a while CONDITION, not only in the body: it leaves the loop
+#  at once and the loop yields &null.  SCRIP hung here -- lower_while patched the
+#  condition's own result node, overwriting the break goto's binding to the exit.
+procedure main();
+    write(image(while break) | "none");
+    write("after");
+end
