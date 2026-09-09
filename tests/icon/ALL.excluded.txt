@@ -164,10 +164,6 @@ repro_keyorder	ABSORBED 2026-09-07 (cto, row icon-table-key-iteration-order-*): 
 repro_table_key_order	KEEPER, declared in repro/KEEP.md -- never absorbed (deferral contract)
 reversible_exchange_on_locals_needs_a_varslot	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 roman	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung03_suspend_gen	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung03_suspend_gen_compose	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung03_suspend_gen_filter	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung03_suspend_return	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_all	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_arith	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_btrees	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)

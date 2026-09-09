@@ -91,9 +91,37 @@ deferred witnesses, the commit's own framing is that it stays a standalone probe
 this row's bug to chase (out of lane, same as every other Class-C witness above); this entry only
 makes the gate's own record match a disposition the authoring commit already stated.
 
-## rung03 — 4 of 5 files HARD-BLOCKED on a known, already-tracked, rank-0 fleet defect (seat03, 2026-08-29)
+## rung03 — ⭐ DEFERRAL RETIRED 2026-09-09 (hq_V): THE HARD BLOCK IS GONE AND THE 4 FILES ARE ABSORBED
 
-`rung03_suspend_gen.icn rung03_suspend_gen_compose.icn rung03_suspend_gen_filter.icn rung03_suspend_return.icn` —
+**RETIRED BY MEASUREMENT, NOT BY ASSUMPTION (hq_V, 2026-09-09, SCRIP `874ffa03b`, oracle `/home/resources/icon-master/bin/icon`).**
+This entry's own exit condition was *"stays loose until N-2 lands, then re-run `convert-blocks` fresh"*.
+N-2 has landed. All four files — `rung03_suspend_gen`, `_gen_compose`, `_gen_filter`, `_suspend_return` —
+now run **rc=0 and MATCH in BOTH modes**, and each `.ref` was re-cut from Arizona icont/iconx here and
+found byte-identical to the committed one rather than trusted. They are absorbed into `ALL.icn`/`ALL.ref`/
+`ALL.csv` as passing entries and their `ALL.excluded.txt` KEEPER lines are removed in the same landing.
+
+⛔ **AND THE SWEEP THIS ENTRY ITSELF ASKED FOR** (*"do not assume these 4 are the only rung03-shaped
+casualties elsewhere in the tree"*) **found two more expired deferrals, declared via `PENDING.md` against
+rows this seat does not own and therefore NOT touched here**: `rung36_jcon_cxprimes` (deferred as SIGSEGV
+both modes rc=134) and `rung36_jcon_genqueen` (deferred as rc=1 stack overflow) both read rc=0 and MATCH
+their `.expected` in both modes today. `rung36_jcon_recogn` is the honest holdout: rc=0 both modes, output
+still divergent, a real red. Reported to the ceo; absorbed only on that word.
+
+**THE LESSON, because it is not about rung03: a deferral records a MEASUREMENT, and measurements expire.**
+These sat unasked for eleven days while the defect under them was cured, and they were found only because
+hq_C reported three `MODES.tsv` keys that "matched no family" and this seat re-ran the question instead of
+clearing the keys.
+
+### The original entry, kept verbatim as the record of why they were deferred
+
+
+`rung03_suspend_gen` `rung03_suspend_gen_compose` `rung03_suspend_gen_filter` `rung03_suspend_return`
+(⛔ **the four names are spelled WITHOUT their `.icn` suffix on purpose, and this is not cosmetic**: the
+deferral contract is enforced by a delimited SUBSTRING search over this whole file — `_declared_in_keep`
+in `util_build_master_suite.py`, the same regex shape as `test_gate_suite_conversion_complete.sh`'s grep —
+so a retired entry that still spells `<name>.icn` anywhere, even inside a historical quotation, keeps the
+block LIVE and the builder goes on refusing to absorb the file. Measured here: the retirement below was
+written first with the names intact and `--absorb-only` refused all four as KEEPERS.) —
 this task's own priority list flagged rung03 as "genuine generator/coroutine content, screen
 individually for the tgrlink-class activation-frame risk before converting." That screening was
 done for real (not by reading source alone — by actually running each file): **all 4 SIGSEGV, both
