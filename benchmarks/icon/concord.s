@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_cto/corpus/benchmarks/icon/concord.icn"
+                        .file            1 "/home/claude_P/corpus/benchmarks/icon/concord.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__tabulate:
@@ -1574,43 +1574,43 @@ n00002_unop_α:            mov              r11, 72
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 160], rax
-                        mov              qword ptr [rbp + 168], rdx;          jmp   n00003_var_α
+                        mov              qword ptr [rbp + 168], rdx;          jmp   n00003_lit_integer_α
                         .size            n00002_unop_bx, .-n00002_unop_bx
-                        .type            n00003_var_bx, @function
-n00003_var_bx:
+                        .type            n00003_lit_integer_bx, @function
+n00003_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00003_var_α:             mov              r11, 73
+n00003_lit_integer_α:     mov              r11, 73
+                        mov              qword ptr [rbp + 224], 3             # result
+                        mov              rax, qword ptr [rip + .Llit_integer_α_226_0]
+                        mov              qword ptr [rbp + 232], rax;          jmp   n00004_var_α
+.Llit_integer_α_226_0:  .quad            2
+                        .size            n00003_lit_integer_bx, .-n00003_lit_integer_bx
+                        .type            n00004_var_bx, @function
+n00004_var_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n00004_var_α:             mov              r11, 74
                         mov              rax, qword ptr [r9 + 16]             # colmax
                         mov              rdx, qword ptr [r9 + 24]
-                        mov              qword ptr [rbp + 224], rax           # result
-                        mov              qword ptr [rbp + 232], rdx;          jmp   n00004_lit_integer_α
-                        .size            n00003_var_bx, .-n00003_var_bx
-                        .type            n00004_lit_integer_bx, @function
-n00004_lit_integer_bx:
-#-----------------------------------------------------------------------------------------------------------------------
-n00004_lit_integer_α:     mov              r11, 74
-                        mov              qword ptr [rbp + 240], 3             # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_227_0]
-                        mov              qword ptr [rbp + 248], rax;          jmp   n00005_coerce_numeric_α
-.Llit_integer_α_227_0:  .quad            2
-                        .size            n00004_lit_integer_bx, .-n00004_lit_integer_bx
+                        mov              qword ptr [rbp + 240], rax           # result
+                        mov              qword ptr [rbp + 248], rdx;          jmp   n00005_coerce_numeric_α
+                        .size            n00004_var_bx, .-n00004_var_bx
                         .type            n00005_coerce_numeric_bx, @function
 n00005_coerce_numeric_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00005_coerce_numeric_α:  mov              r11, 75
-                        mov              eax, dword ptr [rbp + 224]
+                        mov              eax, dword ptr [rbp + 240]
                         cmp              al, 5;                               je    .Lcoerce_numeric_α_229_1
                         cmp              al, 3;                               jne   .Lcoerce_numeric_α_229_0
-                        mov              eax, dword ptr [rbp + 240]
+                        mov              eax, dword ptr [rbp + 224]
                         cmp              al, 3;                               jne   .Lcoerce_numeric_α_229_0
 .Lcoerce_numeric_α_229_1:
-                        mov              rax, qword ptr [rbp + 224]
+                        mov              rax, qword ptr [rbp + 240]
                         mov              qword ptr [rbp + 208], rax
-                        mov              rax, qword ptr [rbp + 232]
+                        mov              rax, qword ptr [rbp + 248]
                         mov              qword ptr [rbp + 216], rax;          jmp   n00006_binop_α
 .Lcoerce_numeric_α_229_0:
-                        lea              rdi, [rbp + 224]
-                        lea              rsi, [rbp + 240]
+                        lea              rdi, [rbp + 240]
+                        lea              rsi, [rbp + 224]
                         lea              rdx, [rbp + 208]
                         mov              rcx, 16777318
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1659,8 +1659,8 @@ n00006_binop_α:           mov              r11, 76
 .Lbinop_α_230_7:                                                              jmp   n00008_binop_test_α
 .Lbinop_α_230_0:        mov              rdi, qword ptr [rbp + 208]
                         mov              rsi, qword ptr [rbp + 216]
-                        mov              rdx, qword ptr [rbp + 240]
-                        mov              rcx, qword ptr [rbp + 248]
+                        mov              rdx, qword ptr [rbp + 224]
+                        mov              rcx, qword ptr [rbp + 232]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1691,7 +1691,7 @@ n00008_binop_test_α:      mov              r11, 77
                         mov              rcx, qword ptr [rbp + 192]
                         mov              qword ptr [rbp + 144], rcx
                         mov              rcx, qword ptr [rbp + 200]
-                        mov              qword ptr [rbp + 152], rcx;          jmp   n00009_var_α
+                        mov              qword ptr [rbp + 152], rcx;          jmp   n00009_lit_integer_α
 .Lbinop_test_α_231_0:   mov              rdi, qword ptr [rbp + 160]
                         mov              rsi, qword ptr [rbp + 168]
                         mov              rdx, qword ptr [rbp + 192]
@@ -1708,7 +1708,7 @@ n00008_binop_test_α:      mov              r11, 77
                         mov              r11, qword ptr [rip + rtccb+64]
                         test             eax, eax;                            je    .Lbinop_test_α_231_1
                         cmp              eax, 1;                              je    n00007_var_α
-                                                                              jmp   n00009_var_α
+                                                                              jmp   n00009_lit_integer_α
 .Lbinop_test_α_231_2:   mov              rdi, qword ptr [rbp + 160]
                         mov              rsi, qword ptr [rbp + 168]
                         mov              rdx, qword ptr [rbp + 192]
@@ -1735,43 +1735,43 @@ n00008_binop_test_α:      mov              r11, 77
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00009_var_α
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00009_lit_integer_α
                         .size            n00008_binop_test_bx, .-n00008_binop_test_bx
-                        .type            n00009_var_bx, @function
-n00009_var_bx:
+                        .type            n00009_lit_integer_bx, @function
+n00009_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00009_var_α:             mov              r11, 78
+n00009_lit_integer_α:     mov              r11, 78
+                        mov              qword ptr [rbp + 880], 3             # result
+                        mov              rax, qword ptr [rip + .Llit_integer_α_232_0]
+                        mov              qword ptr [rbp + 888], rax;          jmp   n00010_var_α
+.Llit_integer_α_232_0:  .quad            2
+                        .size            n00009_lit_integer_bx, .-n00009_lit_integer_bx
+                        .type            n00010_var_bx, @function
+n00010_var_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n00010_var_α:             mov              r11, 79
                         mov              rax, qword ptr [r9 + 16]             # colmax
                         mov              rdx, qword ptr [r9 + 24]
-                        mov              qword ptr [rbp + 880], rax           # result
-                        mov              qword ptr [rbp + 888], rdx;          jmp   n00010_lit_integer_α
-                        .size            n00009_var_bx, .-n00009_var_bx
-                        .type            n00010_lit_integer_bx, @function
-n00010_lit_integer_bx:
-#-----------------------------------------------------------------------------------------------------------------------
-n00010_lit_integer_α:     mov              r11, 79
-                        mov              qword ptr [rbp + 896], 3             # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_233_0]
-                        mov              qword ptr [rbp + 904], rax;          jmp   n00011_coerce_numeric_α
-.Llit_integer_α_233_0:  .quad            2
-                        .size            n00010_lit_integer_bx, .-n00010_lit_integer_bx
+                        mov              qword ptr [rbp + 896], rax           # result
+                        mov              qword ptr [rbp + 904], rdx;          jmp   n00011_coerce_numeric_α
+                        .size            n00010_var_bx, .-n00010_var_bx
                         .type            n00011_coerce_numeric_bx, @function
 n00011_coerce_numeric_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00011_coerce_numeric_α:  mov              r11, 80
-                        mov              eax, dword ptr [rbp + 880]
+                        mov              eax, dword ptr [rbp + 896]
                         cmp              al, 5;                               je    .Lcoerce_numeric_α_235_1
                         cmp              al, 3;                               jne   .Lcoerce_numeric_α_235_0
-                        mov              eax, dword ptr [rbp + 896]
+                        mov              eax, dword ptr [rbp + 880]
                         cmp              al, 3;                               jne   .Lcoerce_numeric_α_235_0
 .Lcoerce_numeric_α_235_1:
-                        mov              rax, qword ptr [rbp + 880]
+                        mov              rax, qword ptr [rbp + 896]
                         mov              qword ptr [rbp + 864], rax
-                        mov              rax, qword ptr [rbp + 888]
+                        mov              rax, qword ptr [rbp + 904]
                         mov              qword ptr [rbp + 872], rax;          jmp   n00012_binop_α
 .Lcoerce_numeric_α_235_0:
-                        lea              rdi, [rbp + 880]
-                        lea              rsi, [rbp + 896]
+                        lea              rdi, [rbp + 896]
+                        lea              rsi, [rbp + 880]
                         lea              rdx, [rbp + 864]
                         mov              rcx, 16777318
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1820,8 +1820,8 @@ n00012_binop_α:           mov              r11, 81
 .Lbinop_α_236_7:                                                              jmp   n00014_assign_α
 .Lbinop_α_236_0:        mov              rdi, qword ptr [rbp + 864]
                         mov              rsi, qword ptr [rbp + 872]
-                        mov              rdx, qword ptr [rbp + 896]
-                        mov              rcx, qword ptr [rbp + 904]
+                        mov              rdx, qword ptr [rbp + 880]
+                        mov              rcx, qword ptr [rbp + 888]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2627,43 +2627,43 @@ n00049_assign_α:          mov              r11, 118
                         mov              rax, qword ptr [rbp + -1040]
                         mov              rdx, qword ptr [rbp + -1032]
                         mov              qword ptr [rbp + -160], rax
-                        mov              qword ptr [rbp + -152], rdx;         jmp   n00050_var_α
+                        mov              qword ptr [rbp + -152], rdx;         jmp   n00050_lit_integer_α
                         .size            n00049_assign_bx, .-n00049_assign_bx
-                        .type            n00050_var_bx, @function
-n00050_var_bx:
+                        .type            n00050_lit_integer_bx, @function
+n00050_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n00050_var_α:             mov              r11, 119
+n00050_lit_integer_α:     mov              r11, 119
+                        mov              qword ptr [rbp + -208], 3            # result
+                        mov              rax, qword ptr [rip + .Llit_integer_α_331_0]
+                        mov              qword ptr [rbp + -200], rax;         jmp   n00051_var_α
+.Llit_integer_α_331_0:  .quad            1
+                        .size            n00050_lit_integer_bx, .-n00050_lit_integer_bx
+                        .type            n00051_var_bx, @function
+n00051_var_bx:
+#-----------------------------------------------------------------------------------------------------------------------
+n00051_var_α:             mov              r11, 120
                         mov              rax, qword ptr [r9 + 48]             # lineno
                         mov              rdx, qword ptr [r9 + 56]
-                        mov              qword ptr [rbp + -208], rax          # result
-                        mov              qword ptr [rbp + -200], rdx;         jmp   n00051_lit_integer_α
-                        .size            n00050_var_bx, .-n00050_var_bx
-                        .type            n00051_lit_integer_bx, @function
-n00051_lit_integer_bx:
-#-----------------------------------------------------------------------------------------------------------------------
-n00051_lit_integer_α:     mov              r11, 120
-                        mov              qword ptr [rbp + -192], 3            # result
-                        mov              rax, qword ptr [rip + .Llit_integer_α_332_0]
-                        mov              qword ptr [rbp + -184], rax;         jmp   n00052_coerce_numeric_α
-.Llit_integer_α_332_0:  .quad            1
-                        .size            n00051_lit_integer_bx, .-n00051_lit_integer_bx
+                        mov              qword ptr [rbp + -192], rax          # result
+                        mov              qword ptr [rbp + -184], rdx;         jmp   n00052_coerce_numeric_α
+                        .size            n00051_var_bx, .-n00051_var_bx
                         .type            n00052_coerce_numeric_bx, @function
 n00052_coerce_numeric_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00052_coerce_numeric_α:  mov              r11, 121
-                        mov              eax, dword ptr [rbp + -208]
+                        mov              eax, dword ptr [rbp + -192]
                         cmp              al, 5;                               je    .Lcoerce_numeric_α_334_1
                         cmp              al, 3;                               jne   .Lcoerce_numeric_α_334_0
-                        mov              eax, dword ptr [rbp + -192]
+                        mov              eax, dword ptr [rbp + -208]
                         cmp              al, 3;                               jne   .Lcoerce_numeric_α_334_0
 .Lcoerce_numeric_α_334_1:
-                        mov              rax, qword ptr [rbp + -208]
+                        mov              rax, qword ptr [rbp + -192]
                         mov              qword ptr [rbp + -224], rax
-                        mov              rax, qword ptr [rbp + -200]
+                        mov              rax, qword ptr [rbp + -184]
                         mov              qword ptr [rbp + -216], rax;         jmp   n00053_binop_α
 .Lcoerce_numeric_α_334_0:
-                        lea              rdi, [rbp + -208]
-                        lea              rsi, [rbp + -192]
+                        lea              rdi, [rbp + -192]
+                        lea              rsi, [rbp + -208]
                         lea              rdx, [rbp + -224]
                         mov              rcx, 16777318
                         mov              qword ptr [rip + rtccb+40], r8
@@ -2712,8 +2712,8 @@ n00053_binop_α:           mov              r11, 122
 .Lbinop_α_335_7:                                                              jmp   n00055_assign_α
 .Lbinop_α_335_0:        mov              rdi, qword ptr [rbp + -224]
                         mov              rsi, qword ptr [rbp + -216]
-                        mov              rdx, qword ptr [rbp + -192]
-                        mov              rcx, qword ptr [rbp + -184]
+                        mov              rdx, qword ptr [rbp + -208]
+                        mov              rcx, qword ptr [rbp + -200]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2747,7 +2747,7 @@ n00055_assign_α:          mov              r11, 123
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_336_0]
                         .section         .rodata
-.Lassign_α_336_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_336_1_s:     .string          "/home/claude_P/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_336_1_s]
@@ -8766,7 +8766,7 @@ n00329_assign_α:          mov              r11, 399
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1018_0]
                         .section         .rodata
-.Lassign_α_1018_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1018_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1018_1_s]
@@ -8956,7 +8956,7 @@ n00336_assign_α:         mov              r11, 405
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1028_0]
                         .section         .rodata
-.Lassign_α_1028_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1028_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1028_1_s]
@@ -9013,7 +9013,7 @@ n00338_assign_α:         mov              r11, 407
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1030_0]
                         .section         .rodata
-.Lassign_α_1030_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1030_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1030_1_s]
@@ -9072,7 +9072,7 @@ n00340_assign_α:         mov              r11, 409
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1032_0]
                         .section         .rodata
-.Lassign_α_1032_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1032_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1032_1_s]
@@ -9120,7 +9120,7 @@ n00341_assign_α:         mov              r11, 410
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1033_0]
                         .section         .rodata
-.Lassign_α_1033_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1033_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1033_1_s]
@@ -9528,7 +9528,7 @@ n00354_assign_α:         mov              r11, 423
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1072_0]
                         .section         .rodata
-.Lassign_α_1072_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1072_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1072_1_s]
@@ -9587,7 +9587,7 @@ n00356_assign_α:         mov              r11, 425
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1074_0]
                         .section         .rodata
-.Lassign_α_1074_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1074_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1074_1_s]
@@ -10319,7 +10319,7 @@ n00383_assign_α:         mov              r11, 452
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1155_0]
                         .section         .rodata
-.Lassign_α_1155_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1155_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1155_1_s]
@@ -11129,7 +11129,7 @@ n00420_assign_α:         mov              r11, 489
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1249_0]
                         .section         .rodata
-.Lassign_α_1249_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1249_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1249_1_s]
@@ -12254,7 +12254,7 @@ n00464_assign_α:         mov              r11, 533
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1364_0]
                         .section         .rodata
-.Lassign_α_1364_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1364_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1364_1_s]
@@ -13045,7 +13045,7 @@ n00497_assign_α:         mov              r11, 567
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1429_0]
                         .section         .rodata
-.Lassign_α_1429_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1429_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1429_1_s]
@@ -13495,7 +13495,7 @@ n00507_assign_α:         mov              r11, 576
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1497_0]
                         .section         .rodata
-.Lassign_α_1497_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1497_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1497_1_s]
@@ -13577,7 +13577,7 @@ n00511_assign_α:         mov              r11, 578
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1500_0]
                         .section         .rodata
-.Lassign_α_1500_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1500_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1500_1_s]
@@ -13667,7 +13667,7 @@ n00516_assign_α:         mov              r11, 581
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1504_0]
                         .section         .rodata
-.Lassign_α_1504_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1504_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1504_1_s]
@@ -13724,7 +13724,7 @@ n00517_assign_α:         mov              r11, 583
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1506_0]
                         .section         .rodata
-.Lassign_α_1506_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1506_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1506_1_s]
