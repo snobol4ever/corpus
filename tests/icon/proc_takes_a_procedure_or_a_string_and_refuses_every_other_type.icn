@@ -1,0 +1,31 @@
+#  proc(x,i) takes a PROCEDURE unchanged (arity ignored -- icont accepts
+#  proc(write,99)) or a STRING to resolve by name, and FAILS for every other
+#  type.  SCRIP failed on every procedure-valued argument, which is what blocked
+#  jcon evalx at proc(proc)("write"), and it answered a spurious procedure for a
+#  list and for a record INSTANCE because the name path was reached by anything
+#  VARVAL_fn could name.  All fourteen types are here, not just the two that were
+#  wrong: a guard written against the known-bad forms passes the two you knew
+#  about and says nothing about the twelve you did not.
+record pt(x,y)
+procedure u(a)
+   return a;
+end
+procedure main();
+    local L, T, St, Cs, Co, F, R, s;
+    L := [1,2]; T := table(); St := set(); Cs := 'abc'; Co := create 1 to 3;
+    F := &input; R := pt(1,2); s := "write";
+    write("string   ----> ", image(proc(s))       | "none");
+    write("integer  ----> ", image(proc(42))      | "none");
+    write("real     ----> ", image(proc(1.5))     | "none");
+    write("cset     ----> ", image(proc(Cs))      | "none");
+    write("list     ----> ", image(proc(L))       | "none");
+    write("table    ----> ", image(proc(T))       | "none");
+    write("set      ----> ", image(proc(St))      | "none");
+    write("record   ----> ", image(proc(R))       | "none");
+    write("file     ----> ", image(proc(F))       | "none");
+    write("coexpr   ----> ", image(proc(Co))      | "none");
+    write("null     ----> ", image(proc(&null))   | "none");
+    write("procedure----> ", image(proc(u))       | "none");
+    write("recordctor->", image(proc(pt))         | "none");
+    write("builtin  ----> ", image(proc(write))   | "none");
+end

@@ -1,0 +1,14 @@
+string   ----> function write
+integer  ----> none
+real     ----> none
+cset     ----> none
+list     ----> none
+table    ----> none
+set      ----> none
+record   ----> none
+file     ----> none
+coexpr   ----> none
+null     ----> none
+procedure----> procedure u
+recordctor->record constructor pt
+builtin  ----> function write

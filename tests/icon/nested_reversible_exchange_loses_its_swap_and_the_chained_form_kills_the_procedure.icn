@@ -1,0 +1,27 @@
+#  RED ON ARRIVAL -- witness for a minted row, not a cure.  Two defects in the
+#  NESTED exchange, both invisible to a witness whose locals are uninitialised
+#  and both downstream-invisible without printing the state after every step.
+#  (1) (x <-> y) :=: z -- the RESULT is right in both, but the inner <-> leaves
+#      NO net swap: from x=2 y=1 z=3 icont reaches x=3 y=2 z=1, SCRIP x=3 y=1 z=2,
+#      which is what you get if the inner exchange never happened.
+#  (2) x <-> y :=: z (unparenthesised, the jcon evalx line) prints NOTHING and
+#      kills the enclosing procedure.  lower_icon.c TT_REVSWAP lowers any operand
+#      that is not a bare name to IR_FAIL; that failure is NOT an ordinary one --
+#      image(&fail) | "none" is caught and execution continues, so the control
+#      arm below proves the alternation works and this failure escapes it.
+procedure st(tag, x, y, z)
+   write(tag, ": x=", image(x), " y=", image(y), " z=", image(z));
+   return;
+end
+procedure main();
+    local x, y, z;
+    x := 1; y := 2; z := 3;
+    write("control image(&fail)|none -> ", image(&fail) | "none");
+    st("init", x, y, z);
+    write("  (x<->y):=:z  -> ", image((x <-> y) :=: z) | "none");
+    st("after (<->):=:", x, y, z);
+    x := 1; y := 2; z := 3;
+    write("  x<->y:=:z    -> ", image(x <-> y :=: z) | "none");
+    st("after <->:=:", x, y, z);
+    write("reached the end", "");
+end

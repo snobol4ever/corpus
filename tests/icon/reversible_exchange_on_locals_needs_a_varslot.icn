@@ -1,0 +1,28 @@
+#  x <-> y is Icon's REVERSIBLE exchange: it swaps, and restores both on
+#  backtracking.  SCRIP ABORTED THE EMITTER on it -- IR_REV_SWAP carries its two
+#  variable names as LITERALS on the node (lhs in IR_LIT, rhs on an IR_LIT_STRING
+#  operand), not as IR_VAR nodes, so the vslot discovery loop in zeta_storage.c,
+#  which looks at IR_ASSIGN / IR_REV_ASSIGN / IR_VAR / IR_VAR_REF, never saw them
+#  and neither local was granted a frame slot.  x :=: y was unaffected and green
+#  throughout, which is why no swap witness had ever caught it.
+#  ⛔ SCOPE: the SIMPLE form only.  A <-> NESTED as the operand of another
+#  exchange loses its swap, and the chained x <-> y :=: z kills the enclosing
+#  procedure outright -- both are the nested-exchange row, NOT cured here.
+#  ⭐ Every local is given a REAL VALUE on purpose.  An earlier draft of this
+#  witness left x, y and z uninitialised, so every answer was &null and it could
+#  only ever have caught a crash: two wrong VALUES were invisible until the
+#  locals carried values that could differ.
+procedure main();
+    local x, y, z;
+    x := 1; y := 2; z := 3;
+    write("x <-> y            ----> ", image(x <-> y) | "none");
+    write("x                  ----> ", image(x) | "none");
+    write("y                  ----> ", image(y) | "none");
+    write("z                  ----> ", image(z) | "none");
+    write("(x <-> y) & &fail  ----> ", image((x <-> y) & &fail) | "none");
+    write("x restored         ----> ", image(x) | "none");
+    write("y restored         ----> ", image(y) | "none");
+    write("x :=: y            ----> ", image(x :=: y) | "none");
+    write("x after :=:        ----> ", image(x) | "none");
+    write("y after :=:        ----> ", image(y) | "none");
+end
