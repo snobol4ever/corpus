@@ -46,3 +46,11 @@ alpha MAYBE
 gamma MAYBE
 alpha MAYBE
 omega MAYBE
+%---- ladder__rung14_fnclevel_rtntype total=4
+alpha F1
+gamma F1
+alpha F2
+omega F2
+%---- ladder__rung14_lastno_stno_line_file_lastline_lastfile total=2
+alpha SHOW
+gamma SHOW
