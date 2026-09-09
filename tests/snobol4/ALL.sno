@@ -17825,3 +17825,242 @@ END
         LINE = INPUT
         OUTPUT = "input disabled, LINE is [" LINE "]"
 END
+*--------------------------------------------- 1894 len_capture_replace_branch_4
+*   rung24 LEN(n) -- match exactly n characters, wherever the scan stands
+    subject = 'abcdefgh'
+    subject LEN(3) . prefix
+    OUTPUT = prefix
+    subject LEN(3) LEN(2) . middle
+    OUTPUT = middle
+    OUTPUT = IDENT(prefix,'abc') 'len picks three'
+    subject LEN(99) :S(toolong)F(short)
+short
+    OUTPUT = 'len past the end fails'
+toolong
+END
+*-------------------------------------------- 1895 tab_len_size_replace_branch_1
+*   rung24 TAB(n) -- match forward to absolute position n
+    subject = 'abcdefgh'
+    subject TAB(4) . head
+    OUTPUT = head
+    subject LEN(2) TAB(6) . span2to6
+    OUTPUT = span2to6
+    subject TAB(0) . empty
+    OUTPUT = SIZE(empty)
+    subject LEN(5) TAB(2) :S(went_back)F(no_backup)
+no_backup
+    OUTPUT = 'tab never scans backward'
+went_back
+END
+*---------------------------------------- 1896 rtab_len_capture_replace_branch_1
+*   rung24 RTAB(n) -- match forward until n characters remain
+    subject = 'abcdefgh'
+    subject RTAB(2) . head
+    OUTPUT = head
+    subject RTAB(0) . whole
+    OUTPUT = whole
+    subject LEN(3) RTAB(3) . middle
+    OUTPUT = middle
+    subject RTAB(99) :S(hit)F(miss)
+miss
+    OUTPUT = 'rtab past the left end fails'
+hit
+END
+*----------------------------------------- 1897 pos_len_capture_replace_branch_2
+*   rung24 POS(n) -- assert the absolute cursor is n, consuming nothing
+    subject = 'abcdefgh'
+    subject POS(0) LEN(3) . fromstart
+    OUTPUT = fromstart
+    subject LEN(2) POS(2) LEN(2) . after2
+    OUTPUT = after2
+*   POS does not anchor the SCAN: the start position still advances, so a bare
+*   POS(3) is reached by scanning forward to 3 rather than failing at 0.
+    subject POS(3) LEN(1) . atthree
+    OUTPUT = atthree
+*   a position past the subject cannot be reached from any start
+    subject POS(99) :S(reached)F(beyond)
+beyond
+    OUTPUT = 'pos beyond the subject fails from every start'
+reached
+END
+*------------------------------------------- 1898 rtab_rpos_len_replace_branch_1
+*   rung24 RPOS(n) -- assert n characters remain to the right, consuming nothing
+    subject = 'abcdefgh'
+    subject LEN(5) RPOS(3) LEN(3) . tail
+    OUTPUT = tail
+    subject RTAB(0) RPOS(0)
+    OUTPUT = 'rpos(0) is the right end'
+*   RPOS matches the NULL string, so a capture must bracket the element that
+*   actually consumes -- (LEN(1) RPOS(0)) . x, never LEN(1) RPOS(0) . x
+    subject (LEN(1) RPOS(0)) . lastchar
+    OUTPUT = lastchar
+*   a right-distance larger than the subject cannot be reached from any start
+    subject RPOS(99) :S(reached)F(beyond)
+beyond
+    OUTPUT = 'rpos beyond the subject fails from every start'
+reached
+END
+*-------------------------------------------- 1899 rtab_len_rem_replace_branch_1
+*   rung24 REM -- match everything left, always succeeds
+    subject = 'abcdefgh'
+    subject LEN(3) REM . tail
+    OUTPUT = tail
+    subject REM . whole
+    OUTPUT = whole
+    subject RTAB(0) REM . nothing
+    OUTPUT = SIZE(nothing)
+    subject LEN(8) REM :S(rem_at_end)F(never)
+rem_at_end
+    OUTPUT = 'rem succeeds on the null remainder'
+never
+END
+*----------------------------------------- 1900 any_len_capture_replace_branch_1
+*   rung24 ANY(cset) -- match ONE character drawn from the set
+    subject = 'abcdefgh'
+    subject ANY('xyzc') . picked
+    OUTPUT = picked
+    subject LEN(2) ANY('c') . atc
+    OUTPUT = atc
+    subject ANY('xyz') :S(found)F(nomember)
+nomember
+    OUTPUT = 'any with no member of the subject fails'
+found
+    'a' ANY('a') . single
+    OUTPUT = single
+END
+*-------------------------------------- 1901 notany_len_capture_replace_branch_1
+*   rung24 NOTANY(cset) -- match ONE character NOT in the set
+    subject = 'abcdefgh'
+    subject NOTANY('xyz') . first
+    OUTPUT = first
+    subject NOTANY('a') . skipped
+    OUTPUT = skipped
+    'a' NOTANY('a') :S(matched)F(excluded)
+excluded
+    OUTPUT = 'notany refuses the only character it is given'
+matched
+    subject LEN(3) NOTANY('abc') . afterthree
+    OUTPUT = afterthree
+END
+*-------------------------------------------- 1902 span_capture_replace_branch_2
+*   rung24 SPAN(cset) -- longest run of set members, at least one, never null
+    subject = 'aaabbbccc'
+    subject SPAN('a') . runofa
+    OUTPUT = runofa
+    subject SPAN('ab') . runofab
+    OUTPUT = runofab
+    subject SPAN('abc') . everything
+    OUTPUT = everything
+    subject SPAN('z') :S(found)F(needsone)
+needsone
+    OUTPUT = 'span needs at least one member'
+found
+END
+*-------------------------------------- 1903 break_size_capture_replace_branch_1
+*   rung24 BREAK(cset) -- everything up to, not including, the first set member
+    subject = 'abc,def,ghi'
+    subject BREAK(',') . field
+    OUTPUT = field
+    subject BREAK(',x') . tofirst
+    OUTPUT = tofirst
+    ',abc' BREAK(',') . nullbreak
+    OUTPUT = SIZE(nullbreak)
+    subject BREAK('z') :S(found)F(nostop)
+nostop
+    OUTPUT = 'break fails when no member is present'
+found
+END
+*--------------------------------------- 1904 break_pos_capture_replace_branch_1
+*   rung24 BREAKX(cset) -- BREAK that RETRIES, extending past each stop character
+*   in turn until the rest of the pattern matches.  Every match below starts at
+*   cursor 0, so what advances is BREAKX itself, not the scan start.
+    subject = 'abc,def,ghi'
+    subject POS(0) (BREAKX(',') ',' 'def') . toseconds
+    OUTPUT = toseconds
+    subject POS(0) (BREAKX(',') ',' 'ghi') . tothird
+    OUTPUT = tothird
+    subject POS(0) BREAKX(',') . firststop
+    OUTPUT = firststop
+*   the extension is bounded by the subject: no stop leaves 'zzz' reachable
+    subject POS(0) (BREAKX(',') ',' 'zzz') :S(reached)F(exhausted)
+exhausted
+    OUTPUT = 'breakx exhausts its stops and then fails'
+reached
+END
+*------------------------------------------- 1905 bal_pos_defer_replace_branch_1
+*   rung24 BAL -- match a non-empty string balanced with respect to parentheses
+    subject = '(a+b)*c'
+    subject POS(0) BAL . firstbal
+    OUTPUT = firstbal
+    '(a(b)c)d' POS(0) BAL . nested
+    OUTPUT = nested
+    'a+b' POS(0) BAL . plainword
+    OUTPUT = plainword
+*   an unbalanced subject has no balanced prefix at cursor 0
+    '(ab' POS(0) BAL :S(balanced)F(unbalanced)
+unbalanced
+    OUTPUT = 'bal refuses an unclosed parenthesis'
+balanced
+END
+*-------------------------------------------- 1906 arb_pos_size_replace_branch_1
+*   rung24 ARB -- match an arbitrary string, growing from null on each retry
+    subject = 'abcdefgh'
+    subject POS(0) ARB . shortest 'a'
+    OUTPUT = SIZE(shortest)
+    subject POS(0) (ARB 'de') . uptode
+    OUTPUT = uptode
+    subject POS(0) ARB . grown 'fgh'
+    OUTPUT = grown
+*   ARB grows only as far as the subject allows
+    subject POS(0) (ARB 'zzz') :S(reached)F(exhausted)
+exhausted
+    OUTPUT = 'arb exhausts its lengths and then fails'
+reached
+END
+*--------------------------------------------- 1907 pos_len_alt_replace_branch_1
+*   rung24 FAIL -- never matches; forces the pattern to retry alternatives
+    subject = 'abcdefgh'
+    subject POS(0) FAIL :S(matched)F(nevermatches)
+nevermatches
+    OUTPUT = 'fail never matches'
+matched
+*   FAIL after a successful element makes the whole match fail
+    subject POS(0) LEN(3) FAIL :S(kept)F(undone)
+undone
+    OUTPUT = 'fail undoes the elements before it'
+kept
+*   an alternative to the LEFT of FAIL is still tried, and still ends in failure
+    subject POS(0) ('abc' | 'abcd') FAIL :S(some)F(allalternatives)
+allalternatives
+    OUTPUT = 'fail exhausts every alternative'
+some
+END
+*---------------------------------------------------- 1908 arb_pos_len_replace_1
+*   rung24 SUCCEED -- always matches the null string, and offers itself again on
+*   every retry.  It must be bounded by something that eventually succeeds, or
+*   the match never terminates.
+    subject = 'abcdefgh'
+    subject POS(0) SUCCEED LEN(3) . three
+    OUTPUT = three
+    subject POS(0) SUCCEED . nullmatch
+    OUTPUT = SIZE(nullmatch)
+*   bounded by a literal that IS present, the retry source terminates
+    subject POS(0) SUCCEED ARB 'fgh' . reachedtail
+    OUTPUT = reachedtail
+END
+*--------------------------------------- 1909 pos_abort_capture_replace_branch_1
+*   rung24 ABORT -- fails the ENTIRE match at once, with no retry of anything
+    subject = 'abcdefgh'
+    subject POS(0) ABORT :S(matched)F(aborted)
+aborted
+    OUTPUT = 'abort fails the whole match'
+matched
+*   unlike FAIL, ABORT does not let an alternative be retried
+    subject POS(0) (ABORT | 'abc') :S(alternate)F(noretry)
+noretry
+    OUTPUT = 'abort refuses the alternative that fail would have tried'
+alternate
+*   the contrast, same shape with FAIL: the alternative IS taken
+    subject POS(0) (FAIL | 'abc') . viaalternate
+    OUTPUT = viaalternate
+END
