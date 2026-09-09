@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_cfo/corpus/benchmarks/icon/version.icn"
+                        .file            1 "/home/claude_R/corpus/benchmarks/icon/version.icn"
                         .file            2 "<included>"
                         .globl           main
 main:
