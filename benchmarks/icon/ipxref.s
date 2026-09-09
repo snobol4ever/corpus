@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+                        .file            1 "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__addword:
@@ -1498,7 +1498,7 @@ n00009_assign_α:          mov              r11, 74
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_339_0]
                         .section         .rodata
-.Lassign_α_339_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_339_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_339_1_s]
@@ -1687,7 +1687,7 @@ n00019_assign_α:          mov              r11, 81
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_351_0]
                         .section         .rodata
-.Lassign_α_351_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_351_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_351_1_s]
@@ -1744,7 +1744,7 @@ n00021_assign_α:          mov              r11, 83
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_353_0]
                         .section         .rodata
-.Lassign_α_353_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_353_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_353_1_s]
@@ -1891,7 +1891,7 @@ n00026_assign_α:          mov              r11, 88
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_359_0]
                         .section         .rodata
-.Lassign_α_359_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_359_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_359_1_s]
@@ -2107,7 +2107,7 @@ n00036_assign_α:          mov              r11, 97
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_370_0]
                         .section         .rodata
-.Lassign_α_370_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_370_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_370_1_s]
@@ -2235,7 +2235,7 @@ n00040_assign_α:          mov              r11, 102
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_375_0]
                         .section         .rodata
-.Lassign_α_375_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_375_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_375_1_s]
@@ -2502,7 +2502,7 @@ n00056_assign_α:          mov              r11, 114
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_391_0]
                         .section         .rodata
-.Lassign_α_391_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_391_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_391_1_s]
@@ -2791,7 +2791,7 @@ n00067_assign_α:          mov              r11, 127
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_406_0]
                         .section         .rodata
-.Lassign_α_406_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_406_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_406_1_s]
@@ -3112,7 +3112,7 @@ n00083_assign_α:          mov              r11, 144
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_426_0]
                         .section         .rodata
-.Lassign_α_426_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_426_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_426_1_s]
@@ -3411,7 +3411,7 @@ n00097_assign_α:          mov              r11, 156
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_442_0]
                         .section         .rodata
-.Lassign_α_442_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_442_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_442_1_s]
@@ -3642,7 +3642,7 @@ n00109_assign_α:          mov              r11, 168
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_456_0]
                         .section         .rodata
-.Lassign_α_456_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_456_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_456_1_s]
@@ -3731,7 +3731,7 @@ n00114_assign_α:          mov              r11, 171
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_460_0]
                         .section         .rodata
-.Lassign_α_460_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_460_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_460_1_s]
@@ -3876,7 +3876,7 @@ n00119_assign_α:          mov              r11, 176
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_466_0]
                         .section         .rodata
-.Lassign_α_466_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_466_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_466_1_s]
@@ -3954,7 +3954,7 @@ n00121_assign_α:          mov              r11, 178
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_469_0]
                         .section         .rodata
-.Lassign_α_469_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_469_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_469_1_s]
@@ -4265,7 +4265,7 @@ n00132_assign_α:          mov              r11, 191
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_485_0]
                         .section         .rodata
-.Lassign_α_485_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_485_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_485_1_s]
@@ -4441,7 +4441,7 @@ n00138_assign_α:          mov              r11, 197
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_493_0]
                         .section         .rodata
-.Lassign_α_493_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_493_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_493_1_s]
@@ -9549,7 +9549,7 @@ n00388_assign_α:         mov              r11, 454
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1129_0]
                         .section         .rodata
-.Lassign_α_1129_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1129_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1129_1_s]
@@ -9749,7 +9749,7 @@ n00396_assign_α:         mov              r11, 460
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1139_0]
                         .section         .rodata
-.Lassign_α_1139_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1139_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1139_1_s]
@@ -9816,7 +9816,7 @@ n00398_assign_α:         mov              r11, 462
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1141_0]
                         .section         .rodata
-.Lassign_α_1141_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1141_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1141_1_s]
@@ -9871,7 +9871,7 @@ n00399_assign_α:         mov              r11, 464
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1143_0]
                         .section         .rodata
-.Lassign_α_1143_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1143_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1143_1_s]
@@ -9929,7 +9929,7 @@ n00400_assign_α:         mov              r11, 465
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1144_0]
                         .section         .rodata
-.Lassign_α_1144_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1144_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1144_1_s]
@@ -10350,7 +10350,7 @@ n00413_assign_α:         mov              r11, 478
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1182_0]
                         .section         .rodata
-.Lassign_α_1182_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1182_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1182_1_s]
@@ -10415,7 +10415,7 @@ n00415_assign_α:         mov              r11, 480
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1184_0]
                         .section         .rodata
-.Lassign_α_1184_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1184_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1184_1_s]
@@ -11457,7 +11457,7 @@ n00460_assign_α:         mov              r11, 526
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1292_0]
                         .section         .rodata
-.Lassign_α_1292_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1292_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1292_1_s]
@@ -12249,7 +12249,7 @@ n00496_assign_α:         mov              r11, 562
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1384_0]
                         .section         .rodata
-.Lassign_α_1384_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1384_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1384_1_s]
@@ -13356,7 +13356,7 @@ n00539_assign_α:         mov              r11, 605
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1497_0]
                         .section         .rodata
-.Lassign_α_1497_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1497_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1497_1_s]
@@ -13813,7 +13813,7 @@ n00552_assign_α:         mov              r11, 618
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1531_0]
                         .section         .rodata
-.Lassign_α_1531_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1531_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1531_1_s]
@@ -14590,7 +14590,7 @@ n00584_assign_α:         mov              r11, 650
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1870_0]
                         .section         .rodata
-.Lassign_α_1870_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1870_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1870_1_s]
@@ -14647,7 +14647,7 @@ n00586_assign_α:         mov              r11, 652
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1872_0]
                         .section         .rodata
-.Lassign_α_1872_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1872_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1872_1_s]
@@ -14721,7 +14721,7 @@ n00589_assign_α:         mov              r11, 654
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1875_0]
                         .section         .rodata
-.Lassign_α_1875_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1875_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1875_1_s]
@@ -14812,7 +14812,7 @@ n00592_assign_α:         mov              r11, 658
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1881_0]
                         .section         .rodata
-.Lassign_α_1881_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1881_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1881_1_s]
@@ -14877,7 +14877,7 @@ n00594_assign_α:         mov              r11, 660
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1884_0]
                         .section         .rodata
-.Lassign_α_1884_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1884_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1884_1_s]
@@ -15018,7 +15018,7 @@ n00601_assign_α:         mov              r11, 666
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1890_0]
                         .section         .rodata
-.Lassign_α_1890_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1890_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1890_1_s]
@@ -15121,7 +15121,7 @@ n00605_assign_α:         mov              r11, 670
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1894_0]
                         .section         .rodata
-.Lassign_α_1894_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1894_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1894_1_s]
@@ -15359,7 +15359,7 @@ n00619_assign_α:         mov              r11, 682
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1911_0]
                         .section         .rodata
-.Lassign_α_1911_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1911_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1911_1_s]
@@ -15478,7 +15478,7 @@ n00625_assign_α:         mov              r11, 688
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1918_0]
                         .section         .rodata
-.Lassign_α_1918_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1918_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1918_1_s]
@@ -15597,7 +15597,7 @@ n00631_assign_α:         mov              r11, 694
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1925_0]
                         .section         .rodata
-.Lassign_α_1925_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1925_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1925_1_s]
@@ -15747,7 +15747,7 @@ n00638_assign_α:         mov              r11, 701
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1934_0]
                         .section         .rodata
-.Lassign_α_1934_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1934_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1934_1_s]
@@ -16535,7 +16535,7 @@ n00681_assign_α:         mov              r11, 740
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1993_0]
                         .section         .rodata
-.Lassign_α_1993_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_1993_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1993_1_s]
@@ -18822,7 +18822,7 @@ n00807_assign_α:         mov              r11, 870
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_2185_0]
                         .section         .rodata
-.Lassign_α_2185_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_2185_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_2185_1_s]
@@ -18882,7 +18882,7 @@ n00809_assign_α:         mov              r11, 872
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_2187_0]
                         .section         .rodata
-.Lassign_α_2187_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_2187_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_2187_1_s]
@@ -19630,7 +19630,7 @@ n00848_assign_α:         mov              r11, 913
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_2249_0]
                         .section         .rodata
-.Lassign_α_2249_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_2249_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_2249_1_s]
@@ -19762,7 +19762,7 @@ n00854_assign_α:         mov              r11, 920
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_2257_0]
                         .section         .rodata
-.Lassign_α_2257_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/ipxref.icn"
+.Lassign_α_2257_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/ipxref.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_2257_1_s]
