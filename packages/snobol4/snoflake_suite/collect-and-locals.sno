@@ -1,6 +1,7 @@
 * @title Storage regeneration and function-local variables
 * @attribution Griswold 1971, Chapter 11
 * @match substring
+* @mask-line ^FREE SPACE BEFORE:  :: COLLECT() returns the free space the IMPLEMENTATION has left, so its value belongs to SPITBOL's allocator and not to this program. MEASURED (hq_V 2026-09-08, sbl -bf, three runs each): a bare COLLECT() reads 129577 every time, and 129570 after the program allocates one 40-character string -- deterministic, and moving unit for unit with SPITBOL's own string space. Ours reports our heap and can never equal it. The remaining three lines are graded normally; this fixture's author had already ruled this line ungradable by leaving it out of @expect above, and CEO-409 restores that judgement.
 * @expect >>>
 * LOCALS ARE NULL: 
 * GLOBALS RESTORED: STAY STAY
