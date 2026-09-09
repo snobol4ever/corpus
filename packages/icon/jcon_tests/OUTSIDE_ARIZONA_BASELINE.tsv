@@ -22,10 +22,17 @@
 # four programs' rows, so they are NOT listed below as outside -- they are graded, red, and the reason is
 # written down.  A ref cut from the wrong stream would have hidden this behind a plausible mismatch.
 #
+# ⛔ tpp WAS IN THIS FILE AND HAS BEEN REMOVED, WHICH IS THE RECONCILE CEO-452 ASKED FOR (hq_P 2026-09-09).
+# It is already ruled in this package's UNGRADABLE.tsv as ORACLE_CONTRACT_NOT_IMPLEMENTED, and ONE PROGRAM
+# CARRIES ONE RULING: while it sat in both files the two disagreed about WHY (icont refuses to compile it
+# vs we have no preprocessor-only mode), and whichever a reader met first would decide whether anybody owes
+# work on it. Both statements are true, which is exactly the case lib_inventory.sh's arizona-tpp lesson
+# rules on: the sufficient half is stated on its own, and the row lives in one file. ⭐ If hq_T's own re-cut
+# adds geddump, htprep, prepro or tpp here, the first three are ALREADY BELOW, measured, and tpp belongs in
+# UNGRADABLE.tsv instead -- reconcile against this file rather than appending to it.
 geddump	ORACLE_REFUSES	icont refuses to compile it: "File geddump.icn; Line 139 # ";": invalid declaration". A jcon-dialect source Arizona Icon does not accept, so there is no ground truth for it under the one oracle.
 htprep	ORACLE_REFUSES	icont refuses to compile it: "File htprep.icn; Line 257 # ";": missing then". Same class as geddump: jcon-only surface.
 prepro	ORACLE_REFUSES	icont refuses to compile it: "File prepro.icn; Line 10 # $undef: too many arguments". JCON's preprocessor accepts a $undef form Arizona's does not; the program is a test OF that preprocessor.
-tpp	ORACLE_REFUSES	icont refuses to compile it: "File a.b.c; Line 12 # "abc": invalid declaration". Its body is deliberately-invalid Icon and its .std is jcon PREPROCESSOR TEXT, not program output -- already a named exclusion in test_icon_jcon_suite.sh:147, recorded here so the package's own inventory carries it too.
 lgint	ORACLE_DOES_NOT_TERMINATE	icont compiles it; the binary is still running at the 30 s cap (rc=124) having written 4224 bytes. No ground truth can be cut without an arbitrary truncation point, which would be our number and not the oracle's.
 toby	ORACLE_DOES_NOT_TERMINATE	icont compiles it; the binary is still running at the 30 s cap (rc=124) having written 505,208,301 bytes -- half a gigabyte of stdout in 30 s. Same reason as lgint, and re-cutting it would also put a half-gigabyte ref in the corpus.
 linking	NO_SOURCE	linking.std is an orphan: the package ships no linking.icn. Already known to the runner (its denominator is the loop's own count, never an `ls *.std` recount); recorded here so the inventory names it rather than leaving a reader to rediscover it.

@@ -8,6 +8,21 @@
 # Determinism is two runs ONE SECOND APART, never back-to-back: a back-to-back pair cannot detect clock dependence
 # (env.icn passes a back-to-back check and fails a 1s-apart one -- measured 2026-09-06 by hq_I).
 #
+#
+# ✅⭐ THE WHOLE-SUITE ORACLE RE-READ, 2026-09-09 (hq_P, ceo CEO-452, the same method applied to jcon_tests):
+# every one of the 90 shipped .std files was re-cut from the LIVE Arizona icont -- icont -s -o NAME NAME.icn,
+# then NAME < NAME.dat-if-present-else-/dev/null > out 2>&1, determinism checked as two runs ONE SECOND APART
+# per this header's own env.icn rule -- and ALL 90 AGREE BYTE FOR BYTE. Zero refused by the oracle, zero
+# non-terminating, zero nondeterministic, zero cut by another implementation. ⛔ THIS SUITE NEEDS NO RE-CUT,
+# which is worth writing down because the sister package did: jcon_tests carried 17 disagreements and 16 of
+# its .std were cut by jcon, one of them announcing "&version: Jcon Version 2.2".
+#
+# ⚠ AND THE ONE TRAP THE CENSUS HIT, because it is the same class as jcon's io and it reads as an oracle
+# disagreement: staged into a per-program directory, fncs1, io and recent showed 201, 3 and 137 differing
+# lines. All three read files that live BESIDE them -- fncs1 opens gc1.icn, recent opens concord.dat, io
+# lists and pipes its own companions including io.std. Re-run with the package directory intact, all three
+# diff to ZERO. ⭐ test_icon_arizona_suite.sh is right to `cd "$SUITE"` and run in place; a future isolating
+# rewrite of it would manufacture exactly these three failures and they would look like I/O defects.
 # ⛔ These stay IN the denominator (POPULATION LAW 2026-09-04): shipped, never graded, never counted as passed.
 # ⛔ "The oracle refuses it" is NOT written where OUR OWN vendoring edit is what the oracle refuses -- those rows
 #    say so and name the control (upstream's unmodified file compiles; see FINDING-2026-09-06-hq_I-...).
