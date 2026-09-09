@@ -1,0 +1,27 @@
+#  === and ~=== succeed with their RIGHT operand, whatever its type.  The
+#  result was routed through the numeric relop coercion that = and ~= use,
+#  so a &null result read as the integer 0 and a string "1" as the integer 1.
+#  Arizona's args.icn writes (proc("~===", 2))(1), which is 1 ~=== &null, and
+#  expects an empty line where SCRIP wrote 0.  Every line below is a shape
+#  where the right operand is not already an integer.
+procedure main()
+   local p, s, r;
+   write(image(1 ~=== &null));
+   write(image(&null === &null));
+   write(image("abc" ~=== "1"));
+   write(image("1" === "1"));
+   write(image(2.5 ~=== "3"));
+   s := "x";
+   write(image(1 ~=== s));
+   write(image(1 === 2) | "failed");
+   write(image(&null ~=== 1));
+   p := proc("~===", 2);
+   write(image(p(1)));
+   write(image(p ! [1]));
+   write(image(p("a", "b")));
+   write(image(proc("===", 2)(&null, &null)));
+   r := (1 ~=== &null);
+   write(type(r));
+   write(image(r));
+   every write(image(!["1", 2, 2.0, &null] ~=== "1"));
+end
