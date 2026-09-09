@@ -38,8 +38,8 @@ every write(!a1) ----> none
 sort(a1) ----> list_7(26)
 t := table() ----> table_3(0)
 every t[!&lcase] := 1 ----> none
-sort(t) ----> list_34(26)
-a := sort(t) ----> list_61(26)
+sort(t) ----> list_8(26)
+a := sort(t) ----> list_35(26)
 a
 b
 c
