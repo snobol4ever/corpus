@@ -1,0 +1,29 @@
+# ALL.outside.tsv -- entries OUTSIDE the SNOBOL4 master's baseline, declared beside the data.
+# FORMAT: name<TAB>CLASS<TAB>reason.  Read by corpus_suite_harness.py --outside: each named entry is
+# dropped from the GRADED DENOMINATOR and printed with this reason.  The harness REFUSES if a name here
+# is not in the suite, so a stale row cannot silently shrink anything.
+#
+# ⛔ THE RULE (ceo CEO-390/391 clause, applied to SNOBOL4 by CEO-423 and CEO-428): under ONE ORACLE, a
+# program the oracle itself REFUSES TO RUN is outside the baseline by definition.  It is not our red and
+# it is not our green -- there is no ground truth to grade against.  Every row below records the oracle's
+# OWN message, measured, never paraphrased.  Oracle: /home/resources/x64/bin/sbl -bf (mandatory -bf, s189).
+# Attributed as a CRITERION CHANGE and never as progress: this file REMOVES 8 entries from the denominator.
+#
+# ⭐ WHY FOUR OF THESE ARE NOT REWRITTEN, WHICH IS THE FINDING THAT PRODUCED THIS FILE (hq_P 2026-09-08).
+# CEO-428(b) rules that an entry whose & is an INCIDENTAL spelling drops the & and stays in; only an entry
+# whose ORIGIN probes keyword-namespace behaviour SPITBOL lacks goes outside.  Applying the rewrite to
+# arbno_pos_rpos_branch_53/_55 and arbno_span_pos_branch_9/_10 was MEASURED to collapse each of them onto
+# an ALREADY-EXISTING master entry -- _54, _54, _27 and _28 respectively -- byte-identical program text.
+# So the & was never incidental in these four: it was their ENTIRE distinguishing content, and their
+# pattern coverage (ARBNO/POS/RPOS/SPAN) is already carried by those bare twins, which stay green and in.
+# Rewriting them would have produced four exact duplicates contributing nothing while still counting in
+# the denominator -- a greener board measuring less, with nothing in the tree able to notice.
+#
+simple_output_64	ORACLE_REFUSES	sbl -bf: "ERROR 022 -- undefined function called". ORD() is a CSNOBOL4 extension SPITBOL does not implement, so the oracle cannot run this entry and there is no ground truth for it. Ruled OUTSIDE by ceo CEO-428(a). Measured 2026-09-08 (hq_P), oracle /home/resources/x64/bin/sbl -bf.
+keyword_1	ORACLE_REFUSES	sbl -bf: "ERROR 251 -- keyword operand is not name of defined keyword". Origin probe_cn__cn_namespace_split: the entry's whole subject is that &W and W are DISTINCT namespaces (it prints both), which is user-declared-constant behaviour SPITBOL does not have. Dropping the & would DELETE the test rather than correct it. Ruled OUTSIDE by ceo CEO-423 and CEO-428(b). Measured 2026-09-08 (hq_P).
+len_datatype_keyword_1	ORACLE_REFUSES	sbl -bf: "ERROR 251 -- keyword operand is not name of defined keyword". Origin probe_cn__cn_udc_reopen: the entry reads and writes &USER_DECLARED_CONSTANTS three times and then declares &Late, so it probes the UDC feature itself -- a keyword SPITBOL does not have at all. Classified OUTSIDE by its origin under ceo CEO-428(b), which left this entry to hq_P to name. Measured 2026-09-08 (hq_P).
+span_datatype_capture_branch_1	ORACLE_REFUSES	sbl -bf: "ERROR 251 -- keyword operand is not name of defined keyword". Origin probe_cn__cn_udc_declare: prints &USER_DECLARED_CONSTANTS on its first line and then declares &Word/&Num as constants. Same class as len_datatype_keyword_1 and NOT named in CEO-428(b) -- it is here because that ruling says CRITERION, NOT LIST, and the criterion reaches it. Measured 2026-09-08 (hq_P).
+arbno_pos_rpos_branch_53	ORACLE_REFUSES	sbl -bf: "ERROR 251 -- keyword operand is not name of defined keyword". Origin probe_cn__cn_const_compose_all. Rewriting it to bare names yields program text BYTE-IDENTICAL to arbno_pos_rpos_branch_54, which is already in the suite and green -- so the & is this entry's only content, not an incidental spelling. Measured 2026-09-08 (hq_P).
+arbno_pos_rpos_branch_55	ORACLE_REFUSES	sbl -bf: "ERROR 251 -- keyword operand is not name of defined keyword". Origin probe_cn__cn_const_compose_leaf. Rewriting it yields program text byte-identical to arbno_pos_rpos_branch_54, the same twin as _53 above; the composed-constant-at-the-leaf distinction it exists to draw is exactly the & we would be removing. Measured 2026-09-08 (hq_P).
+arbno_span_pos_branch_9	ORACLE_REFUSES	sbl -bf: "ERROR 251 -- keyword operand is not name of defined keyword". Origin probe_cn__cn_arbno_static. Rewriting it yields program text byte-identical to arbno_span_pos_branch_27, already in the suite and green. Measured 2026-09-08 (hq_P).
+arbno_span_pos_branch_10	ORACLE_REFUSES	sbl -bf: "ERROR 251 -- keyword operand is not name of defined keyword". Origin probe_cn__cn_const_chain. Rewriting it yields program text byte-identical to arbno_span_pos_branch_28, already in the suite and green. Measured 2026-09-08 (hq_P).
