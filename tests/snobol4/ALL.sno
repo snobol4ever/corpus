@@ -18064,3 +18064,268 @@ alternate
     subject POS(0) (FAIL | 'abc') . viaalternate
     OUTPUT = viaalternate
 END
+*-------------------------------------------------------- 1910 simple_output_186
+*   rung25 EQ(m,n) -- numeric equality predicate; succeeds returning null
+    OUTPUT = IDENT(EQ(2,2),) 'eq holds for two equal integers'
+    EQ(2,3) :S(equal)F(notequal)
+notequal
+    OUTPUT = 'eq fails for two different integers'
+equal
+    EQ(2.0,2) :S(mixedok)F(mixedno)
+mixedno
+    OUTPUT = 'eq refused a real against an integer'
+mixedok
+    OUTPUT = 'eq compares numerically across types'
+END
+*-------------------------------------------------------- 1911 simple_output_284
+*   rung25 NE(m,n) -- numeric inequality predicate
+    NE(2,3) :S(differs)F(same)
+same
+    OUTPUT = 'ne failed on two different integers'
+differs
+    OUTPUT = 'ne holds for two different integers'
+    NE(4,4) :S(wrong)F(equalrejected)
+equalrejected
+    OUTPUT = 'ne fails when the two are equal'
+wrong
+END
+*-------------------------------------------------------- 1912 simple_output_285
+*   rung25 LT(m,n) -- numeric less-than predicate
+    LT(2,3) :S(less)F(notless)
+notless
+    OUTPUT = 'lt failed on 2 < 3'
+less
+    OUTPUT = 'lt holds for 2 < 3'
+    LT(3,3) :S(wrong)F(strict)
+strict
+    OUTPUT = 'lt is strict: 3 < 3 fails'
+wrong
+    LT(-2,1) :S(negok)F(negno)
+negno
+    OUTPUT = 'lt mishandled a negative'
+negok
+    OUTPUT = 'lt holds for -2 < 1'
+END
+*-------------------------------------------------------- 1913 simple_output_286
+*   rung25 LE(m,n) -- numeric less-or-equal predicate
+    LE(2,3) :S(a)F(b)
+b
+    OUTPUT = 'le failed on 2 <= 3'
+a
+    OUTPUT = 'le holds for 2 <= 3'
+    LE(3,3) :S(eqok)F(eqno)
+eqno
+    OUTPUT = 'le rejected equality'
+eqok
+    OUTPUT = 'le admits equality'
+    LE(4,3) :S(wrong)F(greater)
+greater
+    OUTPUT = 'le fails for 4 <= 3'
+wrong
+END
+*-------------------------------------------------------- 1914 simple_output_287
+*   rung25 GT(m,n) -- numeric greater-than predicate
+    GT(3,2) :S(a)F(b)
+b
+    OUTPUT = 'gt failed on 3 > 2'
+a
+    OUTPUT = 'gt holds for 3 > 2'
+    GT(3,3) :S(wrong)F(strict)
+strict
+    OUTPUT = 'gt is strict: 3 > 3 fails'
+wrong
+END
+*-------------------------------------------------------- 1915 simple_output_288
+*   rung25 GE(m,n) -- numeric greater-or-equal predicate
+    GE(3,2) :S(a)F(b)
+b
+    OUTPUT = 'ge failed on 3 >= 2'
+a
+    OUTPUT = 'ge holds for 3 >= 2'
+    GE(3,3) :S(eqok)F(eqno)
+eqno
+    OUTPUT = 'ge rejected equality'
+eqok
+    OUTPUT = 'ge admits equality'
+    GE(2,3) :S(wrong)F(smaller)
+smaller
+    OUTPUT = 'ge fails for 2 >= 3'
+wrong
+END
+*-------------------------------------------------------- 1916 simple_output_289
+*   rung25 LGT(s1,s2) -- lexical greater-than, by character collating sequence
+    LGT('b','a') :S(a)F(b)
+b
+    OUTPUT = 'lgt failed on b > a'
+a
+    OUTPUT = 'lgt holds for b > a'
+    LGT('a','a') :S(wrong)F(strict)
+strict
+    OUTPUT = 'lgt is strict: a > a fails'
+wrong
+    LGT('abc','ab') :S(pfx)F(nopfx)
+nopfx
+    OUTPUT = 'lgt failed on a longer string with the same prefix'
+pfx
+    OUTPUT = 'lgt holds for abc > ab'
+END
+*-------------------------------------------------------- 1917 simple_output_290
+*   rung25 LLT(s1,s2) -- lexical less-than
+    LLT('a','b') :S(a)F(b)
+b
+    OUTPUT = 'llt failed on a < b'
+a
+    OUTPUT = 'llt holds for a < b'
+    LLT('a','a') :S(wrong)F(strict)
+strict
+    OUTPUT = 'llt is strict: a < a fails'
+wrong
+    LLT('A','a') :S(caseok)F(caseno)
+caseno
+    OUTPUT = 'llt did not order uppercase before lowercase'
+caseok
+    OUTPUT = 'llt orders A before a in the collating sequence'
+END
+*-------------------------------------------------------- 1918 simple_output_291
+*   rung25 LEQ(s1,s2) -- lexical equality, character by character
+    LEQ('abc','abc') :S(a)F(b)
+b
+    OUTPUT = 'leq failed on two identical strings'
+a
+    OUTPUT = 'leq holds for two identical strings'
+    LEQ('abc','abd') :S(wrong)F(different)
+different
+    OUTPUT = 'leq fails when one character differs'
+wrong
+    LEQ('ab','ab ') :S(padded)F(unpadded)
+unpadded
+    OUTPUT = 'leq counts a trailing blank as a difference'
+padded
+END
+*-------------------------------------------------------- 1919 simple_output_292
+*   rung25 LGE(s1,s2) -- lexical greater-or-equal
+    LGE('b','a') :S(a)F(b)
+b
+    OUTPUT = 'lge failed on b >= a'
+a
+    OUTPUT = 'lge holds for b >= a'
+    LGE('a','a') :S(eqok)F(eqno)
+eqno
+    OUTPUT = 'lge rejected equality'
+eqok
+    OUTPUT = 'lge admits equality'
+    LGE('a','b') :S(wrong)F(smaller)
+smaller
+    OUTPUT = 'lge fails for a >= b'
+wrong
+END
+*-------------------------------------------------------- 1920 simple_output_293
+*   rung25 LLE(s1,s2) -- lexical less-or-equal
+    LLE('a','b') :S(a)F(b)
+b
+    OUTPUT = 'lle failed on a <= b'
+a
+    OUTPUT = 'lle holds for a <= b'
+    LLE('a','a') :S(eqok)F(eqno)
+eqno
+    OUTPUT = 'lle rejected equality'
+eqok
+    OUTPUT = 'lle admits equality'
+    LLE('b','a') :S(wrong)F(greater)
+greater
+    OUTPUT = 'lle fails for b <= a'
+wrong
+END
+*-------------------------------------------------------- 1921 simple_output_294
+*   rung25 LNE(s1,s2) -- lexical inequality
+    LNE('abc','abd') :S(a)F(b)
+b
+    OUTPUT = 'lne failed on two different strings'
+a
+    OUTPUT = 'lne holds for two different strings'
+    LNE('abc','abc') :S(wrong)F(identical)
+identical
+    OUTPUT = 'lne fails when the strings are identical'
+wrong
+    LNE('ab','AB') :S(caseok)F(caseno)
+caseno
+    OUTPUT = 'lne treated ab and AB as the same string'
+caseok
+    OUTPUT = 'lne separates ab from AB'
+END
+*-------------------------------------------------------- 1922 simple_output_295
+*   rung25 IDENT(x,y) -- succeed when the two are the SAME object or same string
+    IDENT('abc','abc') :S(a)F(b)
+b
+    OUTPUT = 'ident failed on two equal strings'
+a
+    OUTPUT = 'ident holds for two equal strings'
+    IDENT('abc','abd') :S(wrong)F(different)
+different
+    OUTPUT = 'ident fails when they differ'
+wrong
+*   one argument defaults to the null string, so IDENT(x) tests emptiness
+    empty =
+    IDENT(empty) :S(isnull)F(notnull)
+notnull
+    OUTPUT = 'ident with one argument did not test for null'
+isnull
+    OUTPUT = 'ident with one argument tests against the null string'
+END
+*-------------------------------------------------------- 1923 simple_output_296
+*   rung25 DIFFER(x,y) -- the complement of IDENT
+    DIFFER('abc','abd') :S(a)F(b)
+b
+    OUTPUT = 'differ failed on two different strings'
+a
+    OUTPUT = 'differ holds for two different strings'
+    DIFFER('abc','abc') :S(wrong)F(same)
+same
+    OUTPUT = 'differ fails when the two are equal'
+wrong
+    filled = 'x'
+    DIFFER(filled) :S(nonnull)F(wasnull)
+wasnull
+    OUTPUT = 'differ with one argument did not test for non-null'
+nonnull
+    OUTPUT = 'differ with one argument tests against the null string'
+END
+*-------------------------------------------------------- 1924 simple_output_297
+*   rung25 INTEGER(x) -- succeed when x is an integer, or a string convertible
+*   to one (SPITBOL manual: "X is an integer or integer in string form")
+    INTEGER(42) :S(a)F(b)
+b
+    OUTPUT = 'integer failed on 42'
+a
+    OUTPUT = 'integer holds for 42'
+    INTEGER('42') :S(strok)F(strno)
+strno
+    OUTPUT = 'integer rejected the string form'
+strok
+    OUTPUT = 'integer accepts an integer in string form'
+    INTEGER(1.5) :S(wrong)F(notint)
+notint
+    OUTPUT = 'integer fails on a real'
+wrong
+    INTEGER('abc') :S(wrong2)F(notnum)
+notnum
+    OUTPUT = 'integer fails on a non-numeric string'
+wrong2
+END
+*-------------------------------------------------------- 1925 simple_output_298
+*   rung25 a predicate in the GOTO field -- the predicate returns null on success
+*   and fails otherwise, so :S()/:F() on it is the loop control of the language
+    count = 1
+countup
+    OUTPUT = count
+    count = count + 1
+    LE(count,3)                             :S(countup)
+    OUTPUT = 'loop ended when le stopped succeeding'
+*   the failure branch drives the other direction just as well
+    down = 3
+countdown
+    OUTPUT = down
+    down = down - 1
+    LT(down,1)                              :F(countdown)
+    OUTPUT = 'loop ended when lt started succeeding'
+END
