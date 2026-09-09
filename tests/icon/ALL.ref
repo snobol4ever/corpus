@@ -6135,3 +6135,16 @@ hello pop
 xyz
 B:z
 C:end
+#------------------------------------------------------- 871 procedure_write_261
+A:1 7 42 3.5 9.25 "ant" "bee" "zoo" '0AZ' 'q' 
+B:1 7 42 3.5 9.25 "ant" "bee" "zoo" '0AZ' 'q' 
+C:10
+D:1 7 42 3.5 9.25 "ant" "bee" "zoo" '0AZ' 'q' 
+E:end
+#------------------------------------------------------- 872 procedure_write_262
+A:Assigned/Assigned
+B:Reassigned/Reassigned
+C:Defaulted/Defaulted
+D:99/99
+E:99
+F:end

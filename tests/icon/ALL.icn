@@ -8656,3 +8656,33 @@ procedure main()
    write("B:", write ! message("x", "y", "z"));
    write("C:end");
 end
+#------------------------------------------------------- 871 procedure_write_261
+procedure main()
+   local L, S, x, out;
+   L := [7, 3.5, "bee", '0AZ', 1, "ant", 9.25, 'q', 42, "zoo"];
+   out := "";
+   every x := !sort(L) do out ||:= image(x) || " ";
+   write("A:", out);
+   S := set();
+   every insert(S, !L);
+   out := "";
+   every x := !sort(S) do out ||:= image(x) || " ";
+   write("B:", out);
+   write("C:", *S);
+   out := "";
+   every x := !sort(copy(L)) do out ||:= image(x) || " ";
+   write("D:", out);
+   write("E:end");
+end
+#------------------------------------------------------- 872 procedure_write_262
+procedure main()
+   local T, L;
+   T := table("Defaulted");
+   write("A:", T[], "/", T[] := "Assigned");
+   write("B:", T[], "/", T[] := "Reassigned");
+   write("C:", T[], "/", delete(T) & T[]);
+   L := [1, 2, 3];
+   write("D:", L[2], "/", L[2] := 99);
+   write("E:", L[2]);
+   write("F:end");
+end
