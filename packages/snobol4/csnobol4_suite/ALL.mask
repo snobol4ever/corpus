@@ -1,0 +1,35 @@
+# ALL.mask -- CEO-409 line masks for the csnobol4 (Budne) suite, declared beside the data.
+# FORMAT: entry<TAB>python-regex<TAB>reason.  A row with an empty reason is REFUSED by the harness.
+#
+# ⛔⛔ NOT YET IN EFFECT, AND SAYING SO IS THE POINT. The runner that grades this suite,
+# scripts/test_snobol4_csnobol4_suite.sh, DOES NOT READ A MASK SIDECAR -- corpus_suite_harness.py is the
+# only reader of ALL.mask in the tree (measured 2026-09-08, `grep -rln 'ALL\.mask' scripts/` returns one
+# file). So these two rows are EVIDENCE AND INTENT, inert until that runner is taught to read them, which
+# is an instrument change and not this file's to make. A mask file that silently does nothing is exactly
+# the false-green shape this project keeps finding, so it is named here rather than discovered later.
+#
+# ⭐ EARNED UNDER CEO-420 CLAUSE (b), NOT CLAUSE (a), AND CLAUSE (a) WAS MEASURED AND FAILED FIRST.
+# Clause (a), NONDETERMINISM -- the oracle's own value moves between runs -- DOES NOT HOLD here: five
+# consecutive `sbl -bf rewind1.sno < <its stdin>` runs give `memory used (bytes) 11416` and
+# `memory left (bytes) 1037152` byte-identically, and -s2m, -s8m and -m2m do not shift either number
+# (hq_R, 2026-09-08). Determinism is why this needed clause (b) and why the original earning condition
+# was amended: a number can be perfectly reproducible by ONE engine and unreachable by every other.
+#
+# ⭐ CLAUSE (b) DEMONSTRATION, IMPLEMENTATION-INTERNAL BY CONSTRUCTION, measured not asserted (hq_R,
+# 2026-09-08). Two programs whose PROGRAM OUTPUT is byte-identical -- both print exactly `same` -- and
+# whose values in this field differ:
+#     A:  OUTPUT = 'same' ; REWIND(13)                      -> memory used 11320 · memory left 1037248
+#     B:  JUNK = DUPL('x',5000) ; OUTPUT = 'same' ; REWIND(13) -> memory used 16456 · memory left 1032112
+# Same output, different field. The quantity therefore belongs to the ENGINE's bookkeeping and not to the
+# program's data, which is what clause (b) requires and what clause (4) of the ceiling requires it not to
+# violate. `sbl -bf`, /home/resources/x64/bin/sbl.
+#
+# ⛔ THE CEILING STILL BINDS AND IS NOT SATISFIED BY THIS FILE ALONE: masked lines are COUNTED AND PRINTED
+# beside the board, and if the masked lines are a MAJORITY of a fixture's divergence that fixture is
+# ungradable and goes outside the baseline instead, NAMED. For several of these programs the majority test
+# will decide against the mask on other grounds entirely -- the coo measured that the oracle refuses them
+# for its own reasons (ERROR 022 undefined function x7, ERROR 116/160 file specification x5, ERROR 251
+# undefined keyword x3) and that `digits` would have to REGRESS to go green, because SPITBOL has no
+# &DIGITS and we do. A mask is not a route around that; it only ever covers these two lines.
+*	^memory used \(bytes\)  [0-9]+$	SPITBOL's own allocator arithmetic: a quantity of the engine's heap bookkeeping, not of the program's data. Deterministic per program (five identical runs; unmoved by -s2m/-s8m/-m2m) and therefore earned under CEO-420 clause (b), not clause (a): two programs with byte-identical output read 11320 and 16456. No correct implementation can produce SPITBOL's figure by computing anything, only by transcribing it.
+*	^memory left \(bytes\)  [0-9]+$	The same allocator arithmetic from the other side, and the same demonstration: 1037248 vs 1032112 for two programs whose output is byte-identical. Masked with its twin or not at all -- masking one and grading the other would grade the arena size, which is neither engine's answer to anything the program asked.
