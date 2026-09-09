@@ -1,4 +1,11 @@
-# UNGRADABLE.tsv -- aisnobol: shipped, ruled UNGRADABLE by the ORACLE's own behavior, never ours.
-# Columns: name<TAB>CLASS<TAB>reason (lib_inventory.sh's documented, gate-tested shape).
-BUILDLIB.sno	ORACLE_REFUSES	sbl -bf has neither TELL() nor SET() (BUILDLIB.SPT line 14 onward); the only ground truth is the diskette's own SNOLIB.IDX / SPITLIB.IDX, which no oracle can re-cut
-SPITCORE.sno	CONTAINER_OR_LIBRARY	the SPITBOL core the SIR and TEST programs -INCLUDE (upstream SPITCORE.SPT with the two PROVENANCE adaptations); no main, never graded alone
+# UNGRADABLE.tsv -- aisnobol: the lockdown bucket. MIRRORS OUTSIDE_SPITBOL_BASELINE.tsv row for row; the
+# runner compares the two every run and says so aloud when they drift. That file is THE RECORD and carries the
+# source check; this one keeps the four inventory numbers summing to shipped. Edit them together.
+# Written coo 2026-09-08 from the live-measured record.
+# Every reason here is ORACLE-SIDE ONLY: lib_inventory.sh refuses a reason naming our own compiler, and it
+# reads the whole file including comments.
+# ⛔ A QUOTED SOURCE LINE MUST NOT CARRY A LITERAL TAB -- SNOBOL4 source is label<TAB>statement, and pasting it
+# raw into a TSV splits the row into four fields. Tabs in quoted source are collapsed to spaces here.
+# Columns: name <TAB> REASON <TAB> evidence.
+BUILDLIB.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 022 -- undefined function called, BUILDLIB.sno(21), a graceful fatal report at rc=0; source checked 2026-09-08 (coo): stmt 21 `LOOP FILE_POS = SET(1,0,1)` -- the program calls SET(), a function SPITBOL does not define. This is a feature another implementation provides and ours does not need to reproduce, so it is outside the baseline rather than a defect.
+SPITCORE.sno	CONTAINER_OR_LIBRARY	does not run in SPITBOL as a program: sbl -bf answers `No END statement found in source file(s).`, SPITCORE.sno; source checked 2026-09-08 (coo): the file is 917 lines opening `* SPITCORE.SPT - SPITBOL-68K VERSION` and carries no END statement anywhere -- it is a library core meant to be included, not a program meant to be run. Not an ORACLE_REFUSES: the oracle behaves correctly and the file simply is not a program.

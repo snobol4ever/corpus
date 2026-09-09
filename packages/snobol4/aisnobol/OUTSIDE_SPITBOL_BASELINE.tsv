@@ -1,0 +1,21 @@
+# OUTSIDE_SPITBOL_BASELINE.tsv -- aisnobol: programs the ONE ORACLE itself does not run, so they are OUTSIDE
+# the graded baseline and OUT OF THE DENOMINATOR. Lon 2026-09-08: the leaderboard divides by the programs
+# SPITBOL runs clean, and a program SPITBOL cannot run is recorded per program with SPITBOL's own error AND a
+# source check. Written coo 2026-09-08 on the ceo's ruling of 18:49.
+#
+# ⭐ MEASURED LIVE, AND THE CEO'S RULING IS WHY. This package also carries ORACLE_ACCEPTANCE.tsv, a WRITTEN
+# record of sbl OK/ERR per program, and the obvious shortcut was to declare the baseline from it. The ceo
+# refused that -- a cross-check that reads the same file it is checking proves nothing -- and the refusal was
+# right on the facts: ORACLE_ACCEPTANCE.tsv names SPITCORE.sno and spitlib.spt as the sbl failures, but a live
+# sbl -bf pass over all nine programs names SPITCORE and BUILDLIB. The written record was already stale.
+#
+# ⛔ AND ONE FALSE POSITIVE CAUGHT BEFORE IT WAS RECORDED: the first live pass also flagged HSORT with
+# ERROR 116, an inappropriate file specification. That was the measurement's fault, not the program's -- HSORT
+# carries HSORT.argv and the pass had not supplied it. Given its argv the oracle runs HSORT clean and prints a
+# sorted list. A per-program oracle pass MUST honour each program's own argv and stdin fixtures or it will
+# manufacture refusals and quietly shrink the denominator, which is the direction that flatters us.
+#
+# Oracle: /home/resources/x64/bin/sbl -bf, 2026-09-08, each program with its own .IN and .argv where present.
+# Columns: name <TAB> ORACLE_REFUSES|CONTAINER_OR_LIBRARY <TAB> does not run in SPITBOL: <error, file(line)>; source checked <date> (<who>): stmt <line> <source> -- <why>
+BUILDLIB.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 022 -- undefined function called, BUILDLIB.sno(21), a graceful fatal report at rc=0; source checked 2026-09-08 (coo): stmt 21 `LOOP FILE_POS = SET(1,0,1)` -- the program calls SET(), a function SPITBOL does not define. This is a feature another implementation provides and ours does not need to reproduce, so it is outside the baseline rather than a defect.
+SPITCORE.sno	CONTAINER_OR_LIBRARY	does not run in SPITBOL as a program: sbl -bf answers `No END statement found in source file(s).`, SPITCORE.sno; source checked 2026-09-08 (coo): the file is 917 lines opening `* SPITCORE.SPT - SPITBOL-68K VERSION` and carries no END statement anywhere -- it is a library core meant to be included, not a program meant to be run. Not an ORACLE_REFUSES: the oracle behaves correctly and the file simply is not a program.
