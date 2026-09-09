@@ -1,0 +1,7 @@
+global<->local: 2
+  ga=2 y=1
+global<->global: 2
+  ga=2 gb=1
+  recede: ga=2 gb=1
+  recede: ga=2 gb=1
+reached the end

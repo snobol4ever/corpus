@@ -1,0 +1,25 @@
+#  x <-> y on a GLOBAL.  SCRIP died at COMPILE time with the TE-4 abort, rc=134,
+#  so nothing ran at all -- not even the writes above the exchange.  The same box
+#  was cured for LOCALS at SCRIP cab8a9469; the global operand was simply never
+#  given a path, because LOWER deliberately withholds a varslot from a global
+#  (frame_layout.c:486) and the emitter read "no varslot" as "broken local".
+#  Cured in the ceo's ruled NV_PTR_fn shape (CEO-471): a plain operand with no
+#  LOWER-granted varslot is a global, and its DESCR_t* is fetched by name.  The
+#  runtime helpers, the save slots and the recede path are untouched.
+#  ⭐ THE LOAD-BEARING LINES ARE THE LAST TWO ARMS, not the first exchange:
+#  both-operands-global is the only path that parks a cell pointer across a
+#  second NV_PTR_fn lookup, and the `& &fail` arm is the only one that drives
+#  the RECEDE path, which carries its own label pair.  A witness with just the
+#  simple case would pass over both.
+global ga, gb
+procedure main();
+    local y;
+    ga := 1; y := 2;
+    write("global<->local: ", image(ga <-> y) | "none");
+    write("  ga=", image(ga), " y=", image(y));
+    ga := 1; gb := 2;
+    write("global<->global: ", image(ga <-> gb) | "none");
+    write("  ga=", image(ga), " gb=", image(gb));
+    every 1 to 2 do { if (ga <-> gb) & &fail then write("unreachable"); write("  recede: ga=", image(ga), " gb=", image(gb)); }
+    write("reached the end", "");
+end
