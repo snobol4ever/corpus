@@ -1,12 +1,15 @@
 # ALL.mask -- CEO-409 line masks for the csnobol4 (Budne) suite, declared beside the data.
 # FORMAT: entry<TAB>python-regex<TAB>reason.  A row with an empty reason is REFUSED by the harness.
 #
-# ⛔⛔ NOT YET IN EFFECT, AND SAYING SO IS THE POINT. The runner that grades this suite,
-# scripts/test_snobol4_csnobol4_suite.sh, DOES NOT READ A MASK SIDECAR -- corpus_suite_harness.py is the
-# only reader of ALL.mask in the tree (measured 2026-09-08, `grep -rln 'ALL\.mask' scripts/` returns one
-# file). So these two rows are EVIDENCE AND INTENT, inert until that runner is taught to read them, which
-# is an instrument change and not this file's to make. A mask file that silently does nothing is exactly
-# the false-green shape this project keeps finding, so it is named here rather than discovered later.
+# ✅ IN EFFECT SINCE 2026-09-08 (hq_T, ceo CEO-432 item 1). This header said NOT YET IN EFFECT and it was
+# right to: test_snobol4_csnobol4_suite.sh grades with its own loop and read no mask sidecar, so these two
+# rows were inert -- and saying so in the file is why the gap was closeable instead of discoverable. The
+# runner now reaches the harness's OWN reader through scripts/util_apply_ceo409_mask.py (one dialect, one
+# path rule, one refusal), and the `*` entry column is resolved by masks_for() so both readers agree by
+# construction. MEASURED ON THE LANDING RUN: 44 masked lines across 22 fixtures, two each -- and the board
+# did not move, 66 PASS / 21 FAIL / 6 REJECT both modes before and after, because those 22 are red for the
+# other reasons this header already named. The mechanism is live, audited, and hides nothing today, which
+# is the only state in which a mask mechanism should ever be handed over.
 #
 # ⭐ EARNED UNDER CEO-420 CLAUSE (b), NOT CLAUSE (a), AND CLAUSE (a) WAS MEASURED AND FAILED FIRST.
 # Clause (a), NONDETERMINISM -- the oracle's own value moves between runs -- DOES NOT HOLD here: five
