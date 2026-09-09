@@ -1,0 +1,4 @@
+suspend seq & const : 7 7 7 7 7 
+suspend (i:=seq) & i: 3 5 7 9 11 
+suspend 2 | (seq & i): 2 3 5 7 9 
+prime               : 2 3 5 7 11 

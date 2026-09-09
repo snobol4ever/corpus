@@ -1,0 +1,23 @@
+#  seq() is one of Icon's five function generators (bal find key seq upto).
+#  It was lowered as if it produced one value whenever it was not the
+#  rightmost operand of a conjunction, so the resume goto of an enclosing
+#  suspend was wired to FAIL instead of back to the generator.  seq() driven
+#  directly always worked, which is why this hid; every line below is a shape
+#  the master did not previously exercise.
+procedure drive(name, p)
+   local n, v, out;
+   n := 0; out := "";
+   every v := p() do { out ||:= v || " "; n +:= 1; if n >= 5 then break };
+   write(name, ": ", out);
+   return;
+end
+procedure main()
+   drive("suspend seq & const ", s1);
+   drive("suspend (i:=seq) & i", s2);
+   drive("suspend 2 | (seq & i)", s3);
+   drive("prime               ", prime);
+end
+procedure s1(); suspend seq(3,2) & 7; end
+procedure s2(); local i; suspend (i := seq(3,2)) & i; end
+procedure s3(); local i; suspend 2 | ((i := seq(3,2)) & i); end
+procedure prime(); local i, k; suspend 2 | ((i := seq(3, 2)) & (not(i = (k := (3 to sqrt(i) by 2)) * (i / k))) & i); end
