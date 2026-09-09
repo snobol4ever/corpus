@@ -8554,3 +8554,105 @@ procedure warn(a[])
    errors +:= 1;
    return;
 end
+#------------------------------------------------------- 863 procedure_write_253
+procedure main()
+   local f, g;
+   f := proc("~===", 2);
+   g := proc("===", 2);
+   write("A:", image(f(1)));
+   write("B:", image(f(1, 2)));
+   write("C:", image(g(&null)));
+   write("D:", image(p1()));
+   write("E:", image(p1(7)));
+   write(f(1));
+   write("G:end");
+end
+procedure p1(a)
+   return a;
+end
+#------------------------------------------------------- 864 procedure_write_254
+procedure main()
+   local f;
+   f := loadfunc("/home/resources/icon-build/bin/libcfunc.so", "bitcount");
+   write("A:", image(f));
+   write("B:", f(500));
+   write("C:", f(511));
+   write("D:", type(f));
+   write("E:end");
+end
+#------------------------------------------------------- 865 procedure_write_255
+procedure main()
+   every write("A:", "..."(1, 5, 2));
+   write("B:", "[:]"("abcdef", 3, 5));
+   write("C:", "[]"(&lcase, 3));
+   write("D:", "image"(write));
+   write("E:", "+"(3, 4));
+   write("F:", image(proc("^", 2)));
+   write("G:end");
+end
+#------------------------------------------------------- 866 procedure_write_256
+procedure main()
+   &error := -1;
+   write("A:", image(seq("a") | "converted"));
+   write("B:", &error);
+   write("C:", &errornumber, " ", image(&errortext), " ", image(&errorvalue));
+   write("D:", image(seq(1) | "converted"));
+   write("E:", &error);
+   write("F:end");
+end
+#------------------------------------------------------- 867 procedure_write_257
+record array(a,b,c)
+procedure main()
+   local x, y;
+   x := array(1,2,3);
+   y := copy(x);
+   write("A:", image(x));
+   write("B:", image(y));
+   write("C:", image(copy(copy)));
+   copy := copy(copy);
+   write("D:", image(copy));
+   write("E:end");
+end
+#------------------------------------------------------- 868 procedure_write_258
+procedure main()
+   local s, seen, x, missing, n;
+   s := set();
+   every insert(s, 1 to 40);
+   seen := set();
+   n := 0;
+   every x := !s do {
+      n +:= 1;
+      insert(seen, x);
+      delete(s, x);
+   }
+   missing := "";
+   every x := 1 to 40 do
+      if not member(seen, x) then missing ||:= " " || x;
+   write("A:", n);
+   write("B:", *seen);
+   write("C:", image(missing));
+   write("D:", *s);
+   write("E:end");
+end
+#------------------------------------------------------- 869 procedure_write_259
+procedure main()
+   local x, y;
+   x := "o";
+   write("A:", x, .x, x := "b");
+   y := 1;
+   write("B:", y, .y, y := 9);
+   write("C:", p(y, .y, y := 5));
+   write("D:end");
+end
+procedure p(a, b, c)
+   return a || "/" || b || "/" || c;
+end
+#------------------------------------------------------- 870 procedure_write_260
+record message(who,gap,what)
+procedure main()
+   write("A:", image(message("hello")));
+   write ! message("hello");
+   write ! message("hello", " ", "pop");
+   write("B:", write ! message("x", "y", "z"));
+   write("C:end");
+end

@@ -6080,3 +6080,58 @@ Barbecuing with Liquid Oxygen</a>
 <hr>
 <address><a href="http://www.cs.arizona.edu/~gmt">Gregg Townsend</a></address>
 </body></html>
+#------------------------------------------------------- 863 procedure_write_253
+A:&null
+B:2
+C:&null
+D:&null
+E:7
+
+G:end
+#------------------------------------------------------- 864 procedure_write_254
+A:function bitcount
+B:6
+C:9
+D:procedure
+E:end
+#------------------------------------------------------- 865 procedure_write_255
+A:1
+A:3
+A:5
+B:cd
+C:c
+D:function write
+E:7
+F:function ^
+G:end
+#------------------------------------------------------- 866 procedure_write_256
+A:"converted"
+B:-2
+C:101 "integer expected or out of range" "a"
+D:1
+E:-2
+F:end
+#------------------------------------------------------- 867 procedure_write_257
+A:record array_1(3)
+B:record array_2(3)
+C:function copy
+D:function copy
+E:end
+#------------------------------------------------------- 868 procedure_write_258
+A:40
+B:40
+C:""
+D:0
+E:end
+#------------------------------------------------------- 869 procedure_write_259
+A:bob
+B:919
+C:5/9/5
+D:end
+#------------------------------------------------------- 870 procedure_write_260
+A:record message_1(3)
+hello
+hello pop
+xyz
+B:z
+C:end
