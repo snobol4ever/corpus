@@ -9750,3 +9750,10 @@ procedure main();
    write("while:", image(while break));
    write("after:", image(until break));
 end
+#------------------------------------------------------- 885 procedure_write_268
+procedure main();
+   g();
+end
+procedure g();
+   every write(1 to 3 | 7);
+end
