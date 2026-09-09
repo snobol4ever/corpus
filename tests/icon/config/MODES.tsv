@@ -361,3 +361,4 @@ reversible_exchange_on_locals_needs_a_varslot	m3,m4	# stdout from icont (0 TT_* 
 proc_takes_a_procedure_or_a_string_and_refuses_every_other_type	m3,m4	# stdout from icont (0 TT_* lines); pins SCRIP 93a131a3a, all fourteen Icon types
 every_do_break_yields_null_not_failure	m3,m4	# stdout from icont (0 TT_* lines); RED, row icon-every-do-break-yields-failure-where-icont-yields-null
 nested_reversible_exchange_loses_its_swap_and_the_chained_form_kills_the_procedure	m3,m4	# stdout from icont (0 TT_* lines); RED, row icon-nested-reversible-exchange-loses-its-swap-and-the-chained-form-kills-the-procedure
+rung36_jcon_cxprimes	m3,m4	# .ref content is program stdout (0 TT_* lines, the sieve prints primes); graded by running, both modes -- declared 2026-09-09 by hq_V from the ref's measured shape, never from its name, when CEO-465 retired its PENDING deferral

@@ -25,7 +25,14 @@ cross-reference. Re-verified after resolving: gate shows `stale-deferral: 0`,
 `deferred-to-live-row: 3`, matching seat14's own reported numbers exactly.
 
 ## DEFERRED icon-coexpression-support-design
-- rung36_jcon_cxprimes.icn — **SIGSEGV both modes, rc=134 (was rc=139 pre-N-2 — shape drift, not a
+- ⭐ **`rung36_jcon_cxprimes` — DEFERRAL RETIRED 2026-09-09 (hq_V, CEO-465), ABSORBED AS A PASSING ENTRY.**
+  Re-asked rather than re-read: on SCRIP `874ffa03b` it is **rc=0 and byte-identical to the Arizona oracle
+  in BOTH modes**, oracle run twice and deterministic, and its `.expected` was checked against that oracle
+  and found identical rather than assumed. The condition below is gone. (⛔ The name is spelled WITHOUT its
+  `.icn` suffix on purpose: the deferral contract is a delimited SUBSTRING search over this whole file, so a
+  retired entry that still spells `<name>.icn` anywhere keeps the block LIVE — measured, see KEEP.md's own
+  rung03 retirement note.) The original entry follows as the record of why it was deferred:
+- rung36_jcon_cxprimes_dot_icn — **SIGSEGV both modes, rc=134 (was rc=139 pre-N-2 — shape drift, not a
   fix)**, `scrip_coexpr: activate of NULL coexpression (operand slot held garbage -- LOWER/driver
   wiring bug)` (`rt_coexpr.c:183`). Isolated to a minimal trigger (not the sieve algorithm's own
   specifics): reassigning a variable already holding a live coexpression to a NEW `create(...)`
@@ -65,6 +72,21 @@ reasoning as `cxprimes`/`scan2` pointing at their direct owners rather than the 
   mutual/multi-hop recursion is explicitly out of that mechanism's scope), not a bug hiding behind an
   unexplored code path. No further investigation needed on this witness; it converts when the design
   question is ruled on.
+
+  ⛔⭐ **CORRECTION 2026-09-09 (hq_V) — THE BULLET ABOVE BLAMES US FOR THE ORACLE'S OWN BEHAVIOUR, AND
+  THE MASTER ENTRY BUILT ON IT IS A PERMANENT FALSE RED.** Measured on SCRIP `874ffa03b`: given the same
+  EMPTY stdin the graded runner supplies, **the Arizona oracle also prints nothing** (0 bytes, rc=0), and
+  SCRIP's output is byte-identical to it. The program's second line is `while line := read()`; its 8-line
+  `.expected` was cut from a run fed the vendor's own `packages/icon/jcon_tests/recogn.dat`, and **with that
+  input the oracle reproduces those 8 lines exactly — and so does SCRIP, in BOTH modes.** So there is no
+  defect on this witness at all. ⛔ The consequence is bigger than this bullet: the ALREADY-ABSORBED master
+  entry for this program (`procedure_suspend_scan_replace_1`, origin `rung36_jcon_recogn__rung36_jcon_recogn`)
+  carries those 8 lines as its ref with **no `ALL.in` block**, so no run of the graded population can ever
+  produce it — the CEO-410 starved-ref class, sitting inside the denominator as a red that no cure can clear.
+  **The deferral is left LIVE here on purpose**: retiring it would invite absorbing the loose pair a second
+  time (measured — it produced a duplicate entry, which is worse). The cure is a stdin sidecar on the
+  EXISTING entry, and there is no per-entry tool that writes one — the same gap `util_add_ladder_witness.py`
+  names when it refuses a stdin-reading witness. Reported to the ceo and to hq_T, who owns the sidecar work.
 - rung36_jcon_genqueen.icn — aborts both modes, rc=134. Crash signature has drifted since
   2026-08-29: was a wild SIGSEGV under the armed N-2 mechanism, now a clean, intentional
   `N2_SELFREC_SLOTS`-bound refusal (`bb_call_proc_staged.cpp:733`) — a real change, not a
