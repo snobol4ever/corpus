@@ -18386,3 +18386,8 @@ END
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
 END
+*---------------------------------- 1930 input_record_truncates_at_the_default_1024_1
+	OUTPUT = SIZE(INPUT)
+	OUTPUT = SIZE(INPUT)
+	OUTPUT = "eof"
+END

@@ -1928,3 +1928,4 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1927,arbno_span_break_replace_branch_1,probe_fuzz__fz_hang_11,probe_fuzz,block,1,7,UNKNOWN,0,0,1,1,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,1,0,1,0
 1928,arbno_span_tab_replace_branch_1,probe_fuzz__fz_segv_02,probe_fuzz,block,1,7,UNKNOWN,0,0,1,1,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
 1929,arbno_fence_span_replace_branch_2,probe_fuzz__fz_min_nested_alt_red,probe_fuzz,block,1,9,UNKNOWN,1,0,1,0,1,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
+1930,input_record_truncates_at_the_default_1024_1,master__input_record_truncates_at_the_default_1024_1,master,block,0,4,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
