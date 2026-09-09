@@ -195,6 +195,11 @@ n5_define_β:            mov              r11, 6;                              j
                                                                               jmp   .Ldefine_α_103_245
 #-----------------------------------------------------------------------------------------------------------------------
 ROMAN_α:                sub              rsp, 80
+                        mov              rax, qword ptr [rip + rt_g_want_name@GOTPCREL]
+                        mov              edx, dword ptr [rax + 0]
+                        movsxd           rdx, edx
+                        mov              qword ptr [rsp + 56], rdx
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 32]             # UNITS
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 40]
@@ -402,6 +407,9 @@ ROMAN_γ:                mov              rdi, qword ptr [r9 + 0]              #
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rcx
+                        mov              rax, qword ptr [rip + rt_g_want_name@GOTPCREL]
+                        mov              rdx, qword ptr [rsp + 56]
+                        mov              dword ptr [rax + 0], edx
                         mov              rcx, qword ptr [rcx + 8]
                         add              rsp, 80
                         mov              rax, rdi
@@ -500,6 +508,9 @@ ROMAN_ω:                mov              rcx, qword ptr [rsp + 48]
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rcx
+                        mov              rax, qword ptr [rip + rt_g_want_name@GOTPCREL]
+                        mov              rdx, qword ptr [rsp + 56]
+                        mov              dword ptr [rax + 0], edx
                         mov              rcx, qword ptr [rcx + 16]
                         add              rsp, 80
                         mov              eax, 104
@@ -1351,6 +1362,11 @@ n42_define_β:           mov              r11, 43;                             j
                                                                               jmp   .Ldefine_α_164_245
 #-----------------------------------------------------------------------------------------------------------------------
 TEST_α:                 sub              rsp, 80
+                        mov              rax, qword ptr [rip + rt_g_want_name@GOTPCREL]
+                        mov              edx, dword ptr [rax + 0]
+                        movsxd           rdx, edx
+                        mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rax + 0], 0
                         mov              rax, qword ptr [r9 + 48]             # TEST
                         mov              qword ptr [rsp + 0], rax
                         mov              rax, qword ptr [r9 + 56]
@@ -1578,6 +1594,9 @@ TEST_γ:                 mov              rdi, qword ptr [r9 + 48]             #
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rcx
+                        mov              rax, qword ptr [rip + rt_g_want_name@GOTPCREL]
+                        mov              rdx, qword ptr [rsp + 40]
+                        mov              dword ptr [rax + 0], edx
                         mov              rcx, qword ptr [rcx + 8]
                         add              rsp, 80
                         mov              rax, rdi
@@ -1685,6 +1704,9 @@ TEST_ω:                 mov              rcx, qword ptr [rsp + 32]
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rcx
+                        mov              rax, qword ptr [rip + rt_g_want_name@GOTPCREL]
+                        mov              rdx, qword ptr [rsp + 40]
+                        mov              dword ptr [rax + 0], edx
                         mov              rcx, qword ptr [rcx + 16]
                         add              rsp, 80
                         mov              eax, 104
