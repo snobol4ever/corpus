@@ -4174,7 +4174,14 @@ xy
     ''   'x'   "x"   "x"   ---   "x"   ---   ---
     ''   '2'   "2"   "2"   ---   "2"   ---   ---
 #------------------------------------------ 831 procedure_suspend_scan_replace_1
-
+accepted
+rejected
+accepted
+accepted
+rejected
+rejected
+rejected
+rejected
 #------------------------------------------------------- 832 procedure_write_251
 record lab_5(1) -> l5
 record other_5(2) -> 5
