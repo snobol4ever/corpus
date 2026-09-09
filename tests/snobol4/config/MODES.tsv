@@ -5,8 +5,8 @@ benchmark_snobol4_calculator-1	m3,m4
 benchmark_snobol4_calculator-2	m3,m4
 benchmark_snobol4_claws5	m3,m4
 benchmark_snobol4_eval_fixed	m3,m4
-benchmark_snobol4_fib_recur	m3,m4
 benchmark_snobol4_fibonacci	m3,m4
+benchmark_snobol4_fib_recur	m3,m4
 benchmark_snobol4_func_call	m3,m4
 benchmark_snobol4_ident_call1	m3,m4
 benchmark_snobol4_ident_call2	m3,m4
@@ -37,6 +37,7 @@ demo_snobol4_roman	m3,m4
 demo_snobol4_treebank	m3,m4
 demo_snobol4_wordcount	m3,m4
 ladder	m3,m4	# hq_T 2026-09-03: test_snobol4_ladder.sh runs each ladder__rungNN_* entry ALONE in m3 and m4, stdout vs .ref, rc vs ALL.wantrc
+rewind_unopened_unit_raises_174	m3,m4
 scrip_test_snobol4_treebank-prepend	m3,m4
 snocone_ladder_snobol4_datatype.oracle_ref	m3,m4
 snocone_ladder_snobol4_lit_real.oracle_ref	m3,m4

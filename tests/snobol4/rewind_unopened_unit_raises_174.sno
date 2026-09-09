@@ -1,0 +1,23 @@
+*  REWIND(U) on a unit that was never OPENed raises ERROR 174; on an OPENed one it rewinds.
+*  Regression witness for SCRIP 3195f6435 -- _REWIND_ reached _io_chan_fp_or_std(), whose
+*  std fallback for units 5 and 6 made REWIND(5) silently rewind stdin. The csnobol4 program
+*  that found it (rewind1) is dead-pinned against SPITBOL's termination report and leaves the
+*  baseline, so this pair is the cure's only surviving protection (ceo audit 2026-09-08).
+*  SETEXIT is what keeps this witness LIVE: it turns the fatal 174 into ordinary output that
+*  both engines print identically, instead of a report only SPITBOL's allocator can produce.
+        OUTPUT(.W, 11, '/tmp/rewind_witness_fixture.txt')
+        W = 'alpha'
+        W = 'beta'
+        ENDFILE(11)
+        INPUT(.R, 12, '/tmp/rewind_witness_fixture.txt')
+        OUTPUT = 'open1 ' R
+        REWIND(12)
+        OUTPUT = 'open2 ' R
+        &ERRLIMIT = 1
+        SETEXIT(.CAUGHT)
+        REWIND(13)
+        OUTPUT = 'UNOPENED REWIND SILENTLY SUCCEEDED'      :(FIN)
+CAUGHT  OUTPUT = 'unopened ' &ERRTYPE
+        SETEXIT()                                          :(FIN)
+FIN     OUTPUT = 'done'
+END
