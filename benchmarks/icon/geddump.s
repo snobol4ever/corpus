@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_P/corpus/benchmarks/icon/geddump.icn"
+                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__event:
@@ -3875,7 +3875,7 @@ n00131_assign_α:          mov              r11, 174
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_491_0]
                         .section         .rodata
-.Lassign_α_491_1_s:     .string          "/home/claude_P/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_491_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_491_1_s]
@@ -9358,7 +9358,7 @@ n00325_assign_α:          mov              r11, 367
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1093_0]
                         .section         .rodata
-.Lassign_α_1093_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_1093_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1093_1_s]
@@ -12084,7 +12084,7 @@ n00474_assign_α:         mov              r11, 514
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1474_0]
                         .section         .rodata
-.Lassign_α_1474_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_1474_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1474_1_s]
