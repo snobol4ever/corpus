@@ -1,0 +1,68 @@
+# ORPHANED WITNESS PAIRS -- a correct <name><ext> + <name>.ref that NO denominator contains.
+# Regenerate: python3 SCRIP/scripts/util_orphaned_witness_census.py corpus > corpus/tests/ORPHANED-WITNESSES.tsv
+# Gated by SCRIP/scripts/test_gate_orphaned_witnesses_do_not_grow.sh -- the count may FALL, never rise.
+# ⛔ The cure is to ABSORB them into ALL.<ext> once they are green, NOT to delete them.
+#
+lang	name	path
+icon	icn_coexpr_int_control	tests/icon/icn_coexpr_int_control.icn
+icon	icn_generator_via_procvalue_witness	tests/icon/icn_generator_via_procvalue_witness.icn
+icon	icn_return_record_control	tests/icon/icn_return_record_control.icn
+icon	icn_suspend_list_control	tests/icon/icn_suspend_list_control.icn
+icon	icn_suspend_record_coexpr_witness	tests/icon/icn_suspend_record_coexpr_witness.icn
+icon	icn_suspend_record_field_witness	tests/icon/icn_suspend_record_field_witness.icn
+icon	icn_suspend_record_local_witness	tests/icon/icn_suspend_record_local_witness.icn
+icon	icn_suspend_record_multi_witness	tests/icon/icn_suspend_record_multi_witness.icn
+icon	icn_suspend_record_witness	tests/icon/icn_suspend_record_witness.icn
+icon	icon_display_builtin_unimplemented	tests/icon/icon_display_builtin_unimplemented.icn
+icon	icon_set_table_object_serial_numbering_diverges_from_oracle	tests/icon/icon_set_table_object_serial_numbering_diverges_from_oracle.icn
+icon	icon_sort_zero_field_record_undefined_function	tests/icon/icon_sort_zero_field_record_undefined_function.icn
+icon	icon_sortf_mixed_type_default_compare_undefined_function	tests/icon/icon_sortf_mixed_type_default_compare_undefined_function.icn
+icon	list_alt_elem1_control	tests/icon/list_alt_elem1_control.icn
+icon	list_alt_elem2_fail_witness	tests/icon/list_alt_elem2_fail_witness.icn
+icon	list_alt_elem2_witness	tests/icon/list_alt_elem2_witness.icn
+icon	list_alt_elem3_witness	tests/icon/list_alt_elem3_witness.icn
+icon	list_alt_nonalt_gen_control	tests/icon/list_alt_nonalt_gen_control.icn
+icon	list_alt_resume_witness	tests/icon/list_alt_resume_witness.icn
+snobol4	any_dyn_nullalt	tests/snobol4/any_dyn_nullalt.sno
+snobol4	break_dyn_nullalt	tests/snobol4/break_dyn_nullalt.sno
+snobol4	code_call_runtime_define_pending_entry	tests/snobol4/code_call_runtime_define_pending_entry.sno
+snobol4	dcap_repl_deferred_capture_into_global	tests/snobol4/dcap_repl_deferred_capture_into_global.sno
+snobol4	dcap_repl_deferred_capture_into_result	tests/snobol4/dcap_repl_deferred_capture_into_result.sno
+snobol4	dcap_repl_deferred_capture_then_return	tests/snobol4/dcap_repl_deferred_capture_then_return.sno
+snobol4	dcap_repl_deferred_pattern_built_by_function	tests/snobol4/dcap_repl_deferred_pattern_built_by_function.sno
+snobol4	define_redef_alt_entry	tests/snobol4/define_redef_alt_entry.sno
+snobol4	define_redef_three_way	tests/snobol4/define_redef_three_way.sno
+snobol4	define_redef_two_functions	tests/snobol4/define_redef_two_functions.sno
+snobol4	define_single_no_redef	tests/snobol4/define_single_no_redef.sno
+snobol4	fence0_dyn_operand_control	tests/snobol4/fence0_dyn_operand_control.sno
+snobol4	fence_body_dynamic_operand	tests/snobol4/fence_body_dynamic_operand.sno
+snobol4	lexcmp_nul_1	tests/snobol4/lexcmp_nul_1.sno
+snobol4	lexcmp_nul_2	tests/snobol4/lexcmp_nul_2.sno
+snobol4	nested_alt_span_breakx_rpos	tests/snobol4/nested_alt_span_breakx_rpos.sno
+snobol4	nested_arbno_rpos	tests/snobol4/nested_arbno_rpos.sno
+snobol4	notany_dyn_nullalt	tests/snobol4/notany_dyn_nullalt.sno
+snobol4	pat_expr_arith	tests/snobol4/pat_expr_arith.sno
+snobol4	pat_expr_fnc_control	tests/snobol4/pat_expr_fnc_control.sno
+snobol4	pat_expr_interrogate	tests/snobol4/pat_expr_interrogate.sno
+snobol4	pat_expr_interrogate_fail	tests/snobol4/pat_expr_interrogate_fail.sno
+snobol4	pat_expr_interrogate_mixed	tests/snobol4/pat_expr_interrogate_mixed.sno
+snobol4	pat_expr_negation	tests/snobol4/pat_expr_negation.sno
+snobol4	pos_dyn_inline	tests/snobol4/pos_dyn_inline.sno
+snobol4	pos_dyn_lit	tests/snobol4/pos_dyn_lit.sno
+snobol4	pos_dyn_noarbno	tests/snobol4/pos_dyn_noarbno.sno
+snobol4	pos_dyn_var	tests/snobol4/pos_dyn_var.sno
+snobol4	rpos_dyn_inline	tests/snobol4/rpos_dyn_inline.sno
+snobol4	rpos_dyn_lit	tests/snobol4/rpos_dyn_lit.sno
+snobol4	rpos_dyn_var	tests/snobol4/rpos_dyn_var.sno
+snobol4	rtdef_compiled_define_code_body	tests/snobol4/rtdef_compiled_define_code_body.sno
+snobol4	rtdef_control_compiled_define	tests/snobol4/rtdef_control_compiled_define.sno
+snobol4	rtdef_dexp_idiom	tests/snobol4/rtdef_dexp_idiom.sno
+snobol4	rtdef_runtime_proto_compiled_body	tests/snobol4/rtdef_runtime_proto_compiled_body.sno
+snobol4	span_dyn_altnonull	tests/snobol4/span_dyn_altnonull.sno
+snobol4	span_dyn_lit_nullalt	tests/snobol4/span_dyn_lit_nullalt.sno
+snobol4	span_dyn_noalt	tests/snobol4/span_dyn_noalt.sno
+snobol4	span_dyn_nullalt	tests/snobol4/span_dyn_nullalt.sno
+snocone	beauty_modules	tests/snocone/beauty_modules.sc
+#
+# TOTALS  icon=19/238  pascal=0/5  prolog=0/43  raku=0/97  rebus=0/3  snobol4=39/141  snocone=1/69
+# TOTAL ORPHANED PAIRS: 59
