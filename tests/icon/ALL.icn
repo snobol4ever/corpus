@@ -4968,7 +4968,6 @@ procedure main()
    write("D:", image(p1()));
    write("E:", image(p1(7)));
    write(f(1));
-   write("G:end");
 end
 procedure p1(a)
    return a;
@@ -9737,4 +9736,17 @@ procedure warn(a[])
    write ! a;
    errors +:= 1;
    return;
+end
+#------------------------------------------------------- 883 procedure_write_266
+procedure main();
+   write("until:", image(until break));
+   write("repeat:", image(repeat break));
+   write("every:", image(every break));
+   write("after:", image(until break));
+end
+#------------------------------------------------------- 884 procedure_write_267
+procedure main();
+   write("before:", image(repeat break));
+   write("while:", image(while break));
+   write("after:", image(until break));
 end

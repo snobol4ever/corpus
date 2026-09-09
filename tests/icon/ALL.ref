@@ -2701,7 +2701,6 @@ C:&null
 D:&null
 E:7
 
-G:end
 #------------------------------------------------ 777 procedure_every_elemgen_19
 110
 120
@@ -7600,3 +7599,12 @@ Barbecuing with Liquid Oxygen</a>
 <hr>
 <address><a href="http://www.cs.arizona.edu/~gmt">Gregg Townsend</a></address>
 </body></html>
+#------------------------------------------------------- 883 procedure_write_266
+until:&null
+repeat:&null
+every:&null
+after:&null
+#------------------------------------------------------- 884 procedure_write_267
+before:&null
+while:&null
+after:&null
