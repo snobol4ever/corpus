@@ -1,5 +1,5 @@
-# OUTSIDE_SPITBOL_BASELINE.tsv -- gimpel: the 17 drivers the ONE ORACLE does not answer, so they are OUTSIDE
-# the graded baseline and OUT OF THE DENOMINATOR (127 scored of 144 shipped). Lon 2026-09-08: the leaderboard
+# OUTSIDE_SPITBOL_BASELINE.tsv -- gimpel: the 28 drivers the ONE ORACLE does not answer, so they are OUTSIDE
+# the graded baseline and OUT OF THE DENOMINATOR (116 scored of 144 shipped). Lon 2026-09-08: the leaderboard
 # divides by the programs SPITBOL runs clean, and a program SPITBOL cannot run is recorded per program with
 # SPITBOL's own error AND a source check. Written coo 2026-09-08; test_snoflake_suite.sh is the shape.
 #
@@ -8,15 +8,33 @@
 #
 # ⛔ THIS FILE IS NOT MIRRORED ROW FOR ROW BY UNGRADABLE.tsv HERE, AND MUST NOT BE. In the other packages the
 # two files hold the same set, so the mirror keeps the inventory summing. Gimpel is shaped differently:
-# UNGRADABLE.tsv already holds 163 rows -- the 146 vendored LIBRARY sources that are not programs at all,
-# plus these 17 drivers -- and shipped 290 = graded 127 + ungradable 163 already balances. All 17 rows below
-# were verified to be present there before this file was written. Adding them again would double-count them
-# and break the sum. THE RECORD AND THE BUCKET ARE NOT THE SAME SET IN EVERY PACKAGE; check before mirroring.
+# UNGRADABLE.tsv holds 174 rows -- the 146 vendored LIBRARY sources that are not programs at all, plus these
+# 28 drivers -- and shipped 290 = graded 116 + ungradable 174 balances. Every row below was verified present
+# there. Adding them again would double-count them and break the sum. THE RECORD AND THE BUCKET ARE NOT THE
+# SAME SET IN EVERY PACKAGE; check before mirroring.
 #
-# ⭐ THE 17 ARE NOT ONE THING, AND FLATTENING THEM WOULD HIDE THE MOST USEFUL FACT IN THE SET: five drivers
-# fail at THE SAME LINE OF THE SAME INCLUDED FILE, BAL.sno(11), and two more at REDEFINE.sno(17). Those are
-# two shared library sources, not seven independent programs -- if either is ever brought inside the baseline
-# it moves five and two entries at once.
+# ⭐ THE 28 ARE NOT ONE THING, AND FLATTENING THEM WOULD HIDE THE MOST USEFUL FACT IN THE SET: SEVEN drivers
+# fail at THE SAME LINE OF THE SAME INCLUDED FILE, BAL.sno(11), and THREE more at REDEFINE.sno(17). Those are
+# two shared library sources, not ten independent programs -- if either is ever brought inside the baseline it
+# moves seven and three entries at once. ⛔ THE COUNTS IN THIS PARAGRAPH SAID five AND two WHEN THE FILE HELD
+# 17 ROWS, AND BOTH WERE UNDERCOUNTS FOR THE SAME REASON THE 11 BELOW WERE MISSING: GPM and PEEL die at
+# BAL.sno(11) and INFINIP_lib at REDEFINE.sno(17), and all three were being graded RED against a pin instead
+# of counted here. A shared-library group is exactly the fact a per-file census cannot see; count it, never
+# carry it forward.
+#
+# ⛔⭐ THE ELEVEN ROWS AT THE BOTTOM WERE ADDED 2026-09-08 (hq_B) AND THEY ARE THE INTERESTING HALF OF THIS
+# FILE'S HISTORY. They were not a new measurement -- the package's OWN ALL.excluded.txt already named all 28
+# drivers "oracle died: graceful fatal report -- no ground truth to grade against". Seventeen of the 28 had no
+# .ref and reached this file. The other ELEVEN carried a .ref that the 2026-09-07 recut (corpus fd77d6e45)
+# wrote FROM THAT VERY FATAL REPORT, so scorecard_snobol4.sh's run_one saw have_pin=1, never consulted its own
+# sbl_died liveness guard (which it applies only to the LIVE oracle run, never to a pin), and graded SCRIP
+# against SPITBOL's death dump -- eleven permanent reds. ⭐ THE DISCRIMINATOR BETWEEN THE TWO TREATMENTS WAS
+# NOT THE ORACLE'S ANSWER BUT WHETHER A PIN FILE HAPPENED TO EXIST: FTRACE_driver above and TRIG_driver below
+# draw the IDENTICAL ERROR 248 from the identical cause, and one was outside the baseline while the other was
+# a red. ⛔ AND THEY WERE UNWINNABLE ON THEIR FACE: a matching run would have had to reproduce SPITBOL's
+# termination block, including its own heap accounting ("memory used (bytes) 15640", "memory left (bytes)
+# 1032928"). NOBODY COULD HAVE PASSED THEM. The eleven pins are deleted; ALL.excluded.txt is the record of
+# why they must never be re-minted.
 #
 # ⛔ AND THE LAST TWO ARE A DIFFERENT KIND OF FACT ENTIRELY. TIMEGC and TIMER do not fail on SNOBOL4 the oracle
 # dislikes; they fail because an include they name IS NOT IN THE CORPUS. resolution.sno does not exist anywhere
@@ -27,12 +45,12 @@
 #
 # Columns: name <TAB> CLASS <TAB> does not run in SPITBOL: <error, file(line)>; source checked <date> (<who>): <why>
 BAL_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 042 -- attempt to change value of protected variable, BAL.sno(11), a graceful fatal report at rc=0; source checked 2026-09-08 (coo): the failure is in the INCLUDED library BAL.sno at line 11, not in the driver -- SPITBOL protects a variable this library assigns to.
-PHRASE_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 042 -- attempt to change value of protected variable, BAL.sno(11); source checked 2026-09-08 (coo): identical line and identical included file as BAL_driver -- one library source, five drivers.
+PHRASE_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 042 -- attempt to change value of protected variable, BAL.sno(11); source checked 2026-09-08 (coo): identical line and identical included file as BAL_driver -- one library source, SEVEN drivers (GPM_driver and PEEL_driver join this group below; the count read five while those two were being graded against a pin).
 QUEST_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 042 -- attempt to change value of protected variable, BAL.sno(11); source checked 2026-09-08 (coo): same shared library line as BAL_driver.
 RSENTENC_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 042 -- attempt to change value of protected variable, BAL.sno(11); source checked 2026-09-08 (coo): same shared library line as BAL_driver.
 SNOPUT_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 042 -- attempt to change value of protected variable, BAL.sno(11); source checked 2026-09-08 (coo): same shared library line as BAL_driver.
 INFINIP_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 156 -- opsyn first arg is not correct operator, REDEFINE.sno(17); source checked 2026-09-08 (coo): the failure is in the INCLUDED library REDEFINE.sno at line 17 -- an OPSYN whose first argument SPITBOL does not accept as an operator.
-PHYSICAL_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 156 -- opsyn first arg is not correct operator, REDEFINE.sno(17); source checked 2026-09-08 (coo): identical line and identical included file as INFINIP_driver -- one library source, two drivers.
+PHYSICAL_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 156 -- opsyn first arg is not correct operator, REDEFINE.sno(17); source checked 2026-09-08 (coo): identical line and identical included file as INFINIP_driver -- one library source, THREE drivers (INFINIP_lib_driver joins this group below).
 FTRACE_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 248 -- attempted redefinition of system function, FTRACE.sno(4); source checked 2026-09-08 (coo): the library redefines a name SPITBOL already carries, the same collision class as the DATA-prototype accessors in spitbol_testpgms.
 MFREAD_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 248 -- attempted redefinition of system function, MFREAD.sno(8); source checked 2026-09-08 (coo): same redefinition class as FTRACE, at a different name and line.
 POKER_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 116 -- inappropriate file specification for input, POKER.sno(4); source checked 2026-09-08 (coo): an INPUT association SPITBOL will not accept -- the same environment class as the empty file specs in spitbol_testpgms test4 and test5.
@@ -43,3 +61,14 @@ STONE_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 116 -- inappropri
 RSEASON_lib_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 041 -- field function argument is wrong datatype, RSEASON_lib.sno(29); source checked 2026-09-08 (coo): a DATA field accessor called on a value of the wrong type, which SPITBOL treats as fatal.
 TIMEGC_driver.sno	ORACLE_CONTRACT_NOT_IMPLEMENTED	does not run in SPITBOL: ERROR 285 -- include file cannot be opened, TIMEGC.sno(7,10), followed by No END statement found; source checked 2026-09-08 (coo): line 7 is -INCLUDE "system.inc" and line 10 -INCLUDE "resolution.sno". NOT a language refusal -- resolution.sno does not exist anywhere under corpus/, and system.inc exists only outside this package at corpus/programs/lon_cherryholmes/include/system.inc. This is our packaging gap; system.inc could be vendored, resolution.sno cannot be because we do not have it.
 TIMER_driver.sno	ORACLE_CONTRACT_NOT_IMPLEMENTED	does not run in SPITBOL: ERROR 285 -- include file cannot be opened, TIMER.sno(6,10), followed by No END statement found; source checked 2026-09-08 (coo): the same two missing includes as TIMEGC_driver, at lines 6 and 10. Our packaging gap, not SPITBOL's refusal.
+ARC_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 248 -- attempted redefinition of system function, SQRT.sno(8), a graceful fatal report at rc=0; source checked 2026-09-08 (hq_B): the driver -INCLUDEs ARC.sno which includes SQRT.sno, whose line 8 is DEFINE('SQRT(Y)T,ERR,SLOPE') -- SQRT is a SPITBOL system function and SPITBOL refuses to let a program redefine it. Identical cause and identical error to FTRACE_driver and MFREAD_driver above.
+SQRT_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 248 -- attempted redefinition of system function, SQRT.sno(8), a graceful fatal report at rc=0; source checked 2026-09-08 (hq_B): the same DEFINE('SQRT(Y)T,ERR,SLOPE') at SQRT.sno(8) as ARC_driver -- one library source, two drivers.
+TRIG_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 248 -- attempted redefinition of system function, TRIG.sno(22), a graceful fatal report at rc=0; source checked 2026-09-08 (hq_B): TRIG.sno(22) is DEFINE('SIN(A)K') -- SIN is a SPITBOL system function. Same redefinition class as FTRACE, at a different name and line.
+VISIT_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 248 -- attempted redefinition of system function, VISIT.sno(6), a graceful fatal report at rc=0; source checked 2026-09-08 (hq_B): VISIT.sno(6) is DEFINE('DATA(S)') -- DATA is a SPITBOL system function, and redefining it is refused before the program runs.
+TUPLE_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 248 -- attempted redefinition of system function, TUPLE.sno(31), a graceful fatal report at rc=0; source checked 2026-09-08 (hq_B): TUPLE.sno(31) is DEFINE('LOAD(LOC)') -- LOAD is a SPITBOL system function.
+L_TWO_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 248 -- attempted redefinition of system function, TUPLE.sno(31), a graceful fatal report at rc=0; source checked 2026-09-08 (hq_B): the same DEFINE('LOAD(LOC)') at TUPLE.sno(31) as TUPLE_driver -- one library source, two drivers.
+INSULATE_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 248 -- attempted redefinition of system function, INSULATE.sno(7), a graceful fatal report at rc=0; source checked 2026-09-08 (hq_B): INSULATE.sno(7) is OPSYN('DEFINE', 'INSULATE') -- the library renames the system function DEFINE itself, which is the strongest form of the redefinition class.
+GPM_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 042 -- attempt to change value of protected variable, BAL.sno(11), a graceful fatal report at rc=0; source checked 2026-09-08 (hq_B): the failure is in the INCLUDED library BAL.sno at line 11, BAL_3 BAL = GBAL ARBNO(GBAL) -- the same shared library line as BAL_driver, PHRASE_driver, QUEST_driver, RSENTENC_driver and SNOPUT_driver above. Seven drivers, one library line.
+PEEL_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 042 -- attempt to change value of protected variable, BAL.sno(11), a graceful fatal report at rc=0; source checked 2026-09-08 (hq_B): the same BAL.sno(11) assignment to the protected name BAL as GPM_driver and the five recorded above.
+INFINIP_lib_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 156 -- opsyn first arg is not correct operator name, REDEFINE.sno(17), a graceful fatal report at rc=0; source checked 2026-09-08 (hq_B): REDEFINE.sno(17) is OPSYN(NAME '.', OP, N) -- the same included library line as INFINIP_driver and PHYSICAL_driver above. Three drivers, one library line.
+ASM_driver.sno	ORACLE_REFUSES	does not run in SPITBOL: ERROR 160 -- inappropriate file specification for output, ASM.sno(26), a graceful fatal report at rc=0; source checked 2026-09-08 (hq_B): ASM.sno(26) is OUTPUT(.DISK,10,,'ASMTEMP') -- a SNOBOL4+ four-argument OUTPUT, which puts the file name FOURTH; Catspaw SPITBOL takes it THIRD (manual v3.7 p.12, p.224), so SPITBOL is handed an empty file spec and refuses. This is the OUTPUT twin of the ERROR 116 input-association class already recorded for POKER, RPOEM, RSEASON, RSTORY and STONE, and it is a DIALECT split, not a defect in either engine.
