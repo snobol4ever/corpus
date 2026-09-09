@@ -36109,6 +36109,13 @@ module_init:
                         lea              rdi, [rip + .Lclassspec0]
                         call             record_register@PLT
                         .section         .rodata
+.Lclassnm0:             .string          "jobj"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lclassnm0]
+                        xor              esi, esi
+                        call             dat_set_live@PLT
+                        .section         .rodata
 .Lstartup_pname0:       .string          "LBL__jutf8"
                         .align           8
 .Lstartup_prec0:
