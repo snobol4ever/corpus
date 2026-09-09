@@ -5,3 +5,10 @@
 # takes its argv from `link1.args` (a b c), and grades against `link1.ref`, cut from the shared icont/iconx
 # oracle (/home/resources/icon-master) with that argv: `{{ a }} / {{ b }} / {{ c }}` on three lines, rc=0,
 # byte-stable across two runs. Upstream ships no link1.std; `.ref` and `.args` are ours and say so in README.md.
+#
+# ⭐ FROM OUTSIDE_ARIZONA_BASELINE.tsv 2026-09-09 (hq_P, ceo CEO-470). TIMEOUT is WORK OWED, not a ruling:
+# Arizona icont compiles both and it is OUR 30-second cap the run does not fit inside, so a bigger cap or a
+# faster runtime brings them back. That is why they are here and not in UNGRADABLE.tsv -- the ceo's ruling
+# is explicit that they are TIMEOUT-class and NOT oracle-refused.
+lgint.icn	TIMEOUT	icont compiles it; the binary is still running at the 30 s cap (rc=124) having written 4224 bytes. No ground truth can be cut without an arbitrary truncation point, which would be our number and not the oracle's.
+toby.icn	TIMEOUT	icont compiles it; the binary is still running at the 30 s cap (rc=124) having written 505,208,301 bytes -- half a gigabyte of stdout in 30 s. Same reason as lgint, and re-cutting it would also put a half-gigabyte ref in the corpus.

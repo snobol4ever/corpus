@@ -30,10 +30,24 @@
 # rules on: the sufficient half is stated on its own, and the row lives in one file. ⭐ If hq_T's own re-cut
 # adds geddump, htprep, prepro or tpp here, the first three are ALREADY BELOW, measured, and tpp belongs in
 # UNGRADABLE.tsv instead -- reconcile against this file rather than appending to it.
+#
+# ⛔ CLASS NAMES ARE THE CLOSED VOCABULARY OF lib_inventory.sh, NOT PROSE (corrected 2026-09-09 after ceo
+# CEO-470): ORACLE_DOES_NOT_TERMINATE and ENVIRONMENT_DEPENDENT read well and are not classes anybody can
+# grep, so they became TIMEOUT and ENVIRONMENT_IDENTITY_IN_OUTPUT.  ⭐ The ceo's ruling is explicit that
+# lgint and toby are TIMEOUT-class and NOT oracle-refused -- icont compiles both; it is our 30s cap the run
+# does not fit inside, which is a statement about the cap and not about the program.
+# ⛔ linking's row is GONE and is a comment instead: linking.std is an orphan .std with no linking.icn, so
+# it is not in the shipped population at all and a row for it could only ever be a name the census cannot
+# reconcile.  Naming a non-program in a list of programs is how a denominator stops summing.
+#
+# ⭐ MIRRORED INTO THE INVENTORY FILES, which is what makes the totals add up (the same convention the
+# csnobol4 suite uses): geddump htprep prepro -> UNGRADABLE.tsv ORACLE_REFUSES · recent -> UNGRADABLE.tsv
+# ENVIRONMENT_IDENTITY_IN_OUTPUT · lgint toby -> UNGRADED.tsv TIMEOUT (work owed: a bigger cap or a faster
+# runtime brings them back).  test_icon_jcon_suite.sh reads THIS file to decide the denominator and prints
+# every name on it with its reason on every run.
 geddump	ORACLE_REFUSES	icont refuses to compile it: "File geddump.icn; Line 139 # ";": invalid declaration". A jcon-dialect source Arizona Icon does not accept, so there is no ground truth for it under the one oracle.
 htprep	ORACLE_REFUSES	icont refuses to compile it: "File htprep.icn; Line 257 # ";": missing then". Same class as geddump: jcon-only surface.
 prepro	ORACLE_REFUSES	icont refuses to compile it: "File prepro.icn; Line 10 # $undef: too many arguments". JCON's preprocessor accepts a $undef form Arizona's does not; the program is a test OF that preprocessor.
-lgint	ORACLE_DOES_NOT_TERMINATE	icont compiles it; the binary is still running at the 30 s cap (rc=124) having written 4224 bytes. No ground truth can be cut without an arbitrary truncation point, which would be our number and not the oracle's.
-toby	ORACLE_DOES_NOT_TERMINATE	icont compiles it; the binary is still running at the 30 s cap (rc=124) having written 505,208,301 bytes -- half a gigabyte of stdout in 30 s. Same reason as lgint, and re-cutting it would also put a half-gigabyte ref in the corpus.
-linking	NO_SOURCE	linking.std is an orphan: the package ships no linking.icn. Already known to the runner (its denominator is the loop's own count, never an `ls *.std` recount); recorded here so the inventory names it rather than leaving a reader to rediscover it.
-recent	ENVIRONMENT_DEPENDENT	Runs clean under icont and differs from the vendored .std by exactly two lines, both environment: the .std records `getenv(JCONT) = ../bin/jcont` (JCON's own build tree, unset anywhere else) and `found file: Makefile` (a listing of whatever directory the program is run from). Not re-cut: an icont-cut ref would pin THIS cutter's directory contents instead of the program's answer, which is the same defect one level over.
+lgint	TIMEOUT	icont compiles it; the binary is still running at the 30 s cap (rc=124) having written 4224 bytes. No ground truth can be cut without an arbitrary truncation point, which would be our number and not the oracle's.
+toby	TIMEOUT	icont compiles it; the binary is still running at the 30 s cap (rc=124) having written 505,208,301 bytes -- half a gigabyte of stdout in 30 s. Same reason as lgint, and re-cutting it would also put a half-gigabyte ref in the corpus.
+recent	ENVIRONMENT_IDENTITY_IN_OUTPUT	Runs clean under icont and differs from the vendored .std by exactly two lines, both environment: the .std records `getenv(JCONT) = ../bin/jcont` (JCON's own build tree, unset anywhere else) and `found file: Makefile` (a listing of whatever directory the program is run from). Not re-cut: an icont-cut ref would pin THIS cutter's directory contents instead of the program's answer, which is the same defect one level over.
