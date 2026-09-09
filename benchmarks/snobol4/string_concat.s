@@ -1529,6 +1529,10 @@ n63_binop_α:            sub              rsp, 16
 .Lbinop_α_197_4:        cvtsi2sd         xmm1, rdi
                         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_197_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_197_7:                                                              jmp   n64_assign_α
