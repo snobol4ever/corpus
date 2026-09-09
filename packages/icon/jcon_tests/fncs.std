@@ -19,7 +19,7 @@ v := copy(c) ----> &null
 x := repl("123",4) ----> "123123123123"
 t := table() ----> table_3(0)
 every i := 1 to 100 do t[i] := i ----> none
-x := sort(t) ----> list_103(100)
+x := sort(t) ----> list_3(100)
 1
 2
 3

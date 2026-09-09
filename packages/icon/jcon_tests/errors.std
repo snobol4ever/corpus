@@ -24,7 +24,7 @@ error in line 13:
    &error = -5
    &errornumber = 120
    &errortext = "two csets or two sets expected"
-   &errorvalue = 'a'
+   &errorvalue = set_1(0)
 (set([]) ++ 'a') | monitor(&line) ----> 13
 
 error in line 15:

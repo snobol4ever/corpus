@@ -1,0 +1,32 @@
+# OUTSIDE_ARIZONA_BASELINE.tsv -- jcon_tests: what ARIZONA icont/iconx does not answer, named beside the
+# package, so the graded denominator is the set the ONE ICON ORACLE can actually run.  ceo CEO-445, on Lon
+# 2026-09-09 09:0x CDT ("Switch to Icon completely ... Get 100% using oracle probes").  Written hq_P
+# 2026-09-09, MEASURED LIVE with /home/resources/icon-master/bin/icont (Icon v9.5.25a), each program
+# compiled `icont -s -o <name> <name>.icn` in a staged copy and run under the package's own .dat
+# convention (the companion fed BOTH as argv[1] and as stdin), 30 s run cap, 120 s compile cap.
+#
+# FORMAT: name<TAB>CLASS<TAB>reason (the oracle's OWN message, measured, never paraphrased).
+#
+# ⭐ WHY THIS FILE EXISTS AT ALL, AND IT IS THE FINDING OF THE SITTING: this package is JCON's test suite,
+# and its .std files were cut by JCON.  A census of all 83 .std against Arizona icont (hq_P 2026-09-09)
+# read 59 AGREE, 17 DIFFER, 4 the oracle REFUSES, 2 the oracle does not TERMINATE, 1 orphan.  `kwds.std`
+# carried `&version: Jcon Version 2.2` and `&features: Java` -- so for that program the vendored oracle
+# asked us to make SCRIP claim to BE Jcon.  Sixteen of the seventeen were re-cut from icont in the same
+# commit as this file; the rows below are what could not be.
+#
+# ⛔ THE STREAM GAP, NAMED HERE BECAUSE IT DECIDES FOUR ROWS AND IS NOT A DEFECT OF ANY PROGRAM:
+# cxtrace, loadfunc, traceback and tracing write their ENTIRE output to STDERR (icont's runtime error and
+# trace reports go there), and their .std files are stderr captures -- but test_icon_jcon_suite.sh:133
+# diffs STDOUT only.  Their refs are re-cut from icont's stderr, which is the honest ref; they cannot pass
+# until the runner grades the stream the ref was cut from.  That is an instrument row, not one of these
+# four programs' rows, so they are NOT listed below as outside -- they are graded, red, and the reason is
+# written down.  A ref cut from the wrong stream would have hidden this behind a plausible mismatch.
+#
+geddump	ORACLE_REFUSES	icont refuses to compile it: "File geddump.icn; Line 139 # ";": invalid declaration". A jcon-dialect source Arizona Icon does not accept, so there is no ground truth for it under the one oracle.
+htprep	ORACLE_REFUSES	icont refuses to compile it: "File htprep.icn; Line 257 # ";": missing then". Same class as geddump: jcon-only surface.
+prepro	ORACLE_REFUSES	icont refuses to compile it: "File prepro.icn; Line 10 # $undef: too many arguments". JCON's preprocessor accepts a $undef form Arizona's does not; the program is a test OF that preprocessor.
+tpp	ORACLE_REFUSES	icont refuses to compile it: "File a.b.c; Line 12 # "abc": invalid declaration". Its body is deliberately-invalid Icon and its .std is jcon PREPROCESSOR TEXT, not program output -- already a named exclusion in test_icon_jcon_suite.sh:147, recorded here so the package's own inventory carries it too.
+lgint	ORACLE_DOES_NOT_TERMINATE	icont compiles it; the binary is still running at the 30 s cap (rc=124) having written 4224 bytes. No ground truth can be cut without an arbitrary truncation point, which would be our number and not the oracle's.
+toby	ORACLE_DOES_NOT_TERMINATE	icont compiles it; the binary is still running at the 30 s cap (rc=124) having written 505,208,301 bytes -- half a gigabyte of stdout in 30 s. Same reason as lgint, and re-cutting it would also put a half-gigabyte ref in the corpus.
+linking	NO_SOURCE	linking.std is an orphan: the package ships no linking.icn. Already known to the runner (its denominator is the loop's own count, never an `ls *.std` recount); recorded here so the inventory names it rather than leaving a reader to rediscover it.
+recent	ENVIRONMENT_DEPENDENT	Runs clean under icont and differs from the vendored .std by exactly two lines, both environment: the .std records `getenv(JCONT) = ../bin/jcont` (JCON's own build tree, unset anywhere else) and `found file: Makefile` (a listing of whatever directory the program is run from). Not re-cut: an icont-cut ref would pin THIS cutter's directory contents instead of the program's answer, which is the same defect one level over.
