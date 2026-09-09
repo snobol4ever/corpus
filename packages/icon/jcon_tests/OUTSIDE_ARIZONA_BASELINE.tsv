@@ -40,6 +40,24 @@
 # it is not in the shipped population at all and a row for it could only ever be a name the census cannot
 # reconcile.  Naming a non-program in a list of programs is how a denominator stops summing.
 #
+# ⚠⭐ ONE BASELINE DIVERGENCE THAT DELIBERATELY HAS **NO ROW**, recorded here because the question will come
+# back and the answer is the interesting part (measured by hq_C 2026-09-09, routed as CEO-464c; written here
+# by hq_P, whose lane the inventories are).
+#   THE DIVERGENCE: proc() called with a STRING NAME naming a USER procedure that no expression in the
+#   program references returns null under iconx and returns the procedure under SCRIP. A program that then
+#   calls it only through proc RUNS under SCRIP where the oracle raises 106.
+#   THE MECHANISM, which is why it is not a semantics question at all: it is icont's LINKER, which links only
+#   REFERENCED procedures. hq_C's proof is two programs identical but for one line -- declare a procedure,
+#   reference it nowhere, and iconx gives none; add a branch that can NEVER EXECUTE (`if and-fail then
+#   show(1)`), and iconx gives the procedure. An UNREACHABLE reference flips the answer, so the decision is
+#   made at link time and nothing about Icon semantics is involved.
+#   ⛔ WHY NO ROW: this file lists PROGRAMS that leave the graded denominator, and a behaviour is not a
+#   program. A name here with no .icn behind it is exactly what stopped `linking` from having a row -- it
+#   cannot be reconciled by either census walk. SCOPE, measured across every .icn under
+#   corpus/packages/icon: ZERO programs exercise it; all 332 proc-by-name sites there name OPERATORS or
+#   BUILTINS, which the linker never drops. It costs no suite today and is written down so that when a
+#   future program does hit it, nobody spends an afternoon in the runtime looking for a semantics bug.
+#
 # ⭐ MIRRORED INTO THE INVENTORY FILES, which is what makes the totals add up (the same convention the
 # csnobol4 suite uses): geddump htprep prepro -> UNGRADABLE.tsv ORACLE_REFUSES · recent -> UNGRADABLE.tsv
 # ENVIRONMENT_IDENTITY_IN_OUTPUT · lgint toby -> UNGRADED.tsv TIMEOUT (work owed: a bigger cap or a faster
