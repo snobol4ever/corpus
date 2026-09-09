@@ -10080,3 +10080,65 @@ procedure warn(a[])
    errors +:= 1;
    return;
 end
+#----------------------------------- 906 procedure_record_every_replace_16
+#  ORACLE PROBE, minted BEFORE the cure (hq_V 2026-09-09, MODE NONET oracle-probe lane).
+#  ROOT behind TWO icon-master reds: procedure_write_257 and procedure_record_every_replace_14,
+#  both of which diverge on the FIRST copy() of a record and then stay one serial behind for the
+#  rest of the program, so the two entries show ~440 differing lines between them for one defect.
+#  THE LAW (Arizona icont 9.5.25a): image() of a structure carries a per-type serial minted at
+#  ALLOCATION, and copy() allocates.  So copy(r(1)) is r_2, and the next constructor call is r_3.
+#  OURS: copy() of a RECORD returns the SOURCE's serial (B below reads r_1, not r_2) and mints
+#  nothing, so the counter is permanently one behind (C reads r_2, not r_3).
+#  ⭐ THE CONTROL ARM IS THE POINT AND IT IS INSIDE THIS FILE: D-I copy a list, a set and a table
+#  and ALL SIX AGREE WITH THE ORACLE.  copy() mints correctly for every other structure type; the
+#  serial counter itself is sound.  The defect is in the RECORD path of copy() alone, which is one
+#  box, not the copy builtin and not image().  A cure that touches the shared serial mechanism is
+#  aimed at the wrong node and D-I will catch it.
+record r(a)
+procedure main()
+   local x, l, s, t;
+   x := r(1);
+   write("A:", image(x));
+   write("B:", image(copy(x)));
+   write("C:", image(r(2)));
+   l := [];
+   write("D:", image(l));
+   write("E:", image(copy(l)));
+   s := set();
+   write("F:", image(s));
+   write("G:", image(copy(s)));
+   t := table();
+   write("H:", image(t));
+   write("I:", image(copy(t)));
+end
+#----------------------------------- 907 procedure_every_elemgen_replace_9
+#  ORACLE PROBE, minted BEFORE the cure (hq_V 2026-09-09, MODE NONET oracle-probe lane).
+#  ROOT behind TWO icon-master reds: procedure_write_258 (reads A:20 B:20 for a 40-element set,
+#  EXACTLY HALF) and procedure_every_scan_replace_13 (which names the lost elements out loud:
+#  "not generated: 34 35 38 39 41").
+#  THE LAW (Arizona icont 9.5.25a): !s generates every element the set held when generation began;
+#  deleting the element just produced does not disturb the walk.  A-B below: all 10 are visited and
+#  the set ends empty.
+#  OURS: exactly half the elements are generated (A:5) and half survive (B:5) -- the shape of a
+#  cursor that advances by one while the collection it indexes shifts by one underneath it, so
+#  every second element is stepped over.  The halving is the diagnosis: it is not a lost element
+#  here and there, it is a stride of two.
+#  ⭐ THE CONTROL ARM IS THE POINT AND IT IS INSIDE THIS FILE: C-D run the SAME generation over the
+#  SAME set with NO deletion and read 10/10, agreeing with the oracle.  The element generator is
+#  sound; it is generation CONCURRENT WITH MUTATION that loses elements, so the cure belongs to the
+#  deletion/rehash path, not to !set.
+procedure main()
+   local s, n, x;
+   s := set();
+   every insert(s, 1 to 10);
+   n := 0;
+   every x := !s do { n +:= 1; delete(s, x); }
+   write("A:", n);
+   write("B:", *s);
+   s := set();
+   every insert(s, 1 to 10);
+   n := 0;
+   every x := !s do n +:= 1;
+   write("C:", n);
+   write("D:", *s);
+end

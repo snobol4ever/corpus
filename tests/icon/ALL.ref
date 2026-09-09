@@ -7764,3 +7764,18 @@ Barbecuing with Liquid Oxygen</a>
 <hr>
 <address><a href="http://www.cs.arizona.edu/~gmt">Gregg Townsend</a></address>
 </body></html>
+#----------------------------------- 906 procedure_record_every_replace_16
+A:record r_1(1)
+B:record r_2(1)
+C:record r_3(1)
+D:list_1(0)
+E:list_2(0)
+F:set_1(0)
+G:set_2(0)
+H:table_1(0)
+I:table_2(0)
+#----------------------------------- 907 procedure_every_elemgen_replace_9
+A:10
+B:0
+C:10
+D:10
