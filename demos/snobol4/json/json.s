@@ -9303,6 +9303,10 @@ n539_binop_α:           sub              rsp, 16
 .Lbinop_α_1862_4:       cvtsi2sd         xmm1, rdi
                         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_1862_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_1862_7:                                                             jmp   n540_assign_α
@@ -9611,6 +9615,10 @@ n554_binop_α:           sub              rsp, 16
 .Lbinop_α_1882_4:       cvtsi2sd         xmm1, rdi
                         subsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_1882_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_1882_7:                                                             jmp   n555_assign_var_α
@@ -9862,6 +9870,10 @@ n565_binop_α:           sub              rsp, 16
 .Lbinop_α_1897_4:       cvtsi2sd         xmm1, rdi
                         subsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_1897_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_1897_7:                                                             jmp   n566_assign_var_α
@@ -10798,6 +10810,10 @@ n597_binop_α:           sub              rsp, 16
 .Lbinop_α_1950_5:       movq             xmm1, rdi
 .Lbinop_α_1950_6:       addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_1950_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_1950_7:                                                             jmp   n598_call_α
@@ -10951,6 +10967,10 @@ n603_binop_α:           sub              rsp, 16
 .Lbinop_α_1957_5:       movq             xmm1, rdi
 .Lbinop_α_1957_6:       addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_1957_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_1957_7:                                                             jmp   n604_call_α
@@ -11181,6 +11201,10 @@ n613_binop_α:           sub              rsp, 16
 .Lbinop_α_1969_5:       movq             xmm1, rdi
 .Lbinop_α_1969_6:       addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_1969_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_1969_7:                                                             jmp   n614_call_α
@@ -11370,6 +11394,10 @@ n621_binop_α:           sub              rsp, 16
 .Lbinop_α_1978_5:       movq             xmm1, rdi
 .Lbinop_α_1978_6:       addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_1978_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_1978_7:                                                             jmp   n622_call_α
@@ -11545,6 +11573,10 @@ n628_binop_α:           sub              rsp, 16
 .Lbinop_α_1986_5:       movq             xmm1, rdi
 .Lbinop_α_1986_6:       addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_1986_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_1986_7:                                                             jmp   n629_call_α
@@ -13761,6 +13793,10 @@ n709_binop_α:           sub              rsp, 16
 .Lbinop_α_2109_4:       cvtsi2sd         xmm1, rdi
                         mulsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2109_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2109_7:                                                             jmp   n710_var_α
@@ -13945,6 +13981,10 @@ n717_binop_α:           sub              rsp, 16
 .Lbinop_α_2118_5:       movq             xmm1, rdi
 .Lbinop_α_2118_6:       addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2118_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2118_7:                                                             jmp   n718_lit_integer_α
@@ -14002,6 +14042,10 @@ n719_binop_α:           sub              rsp, 16
 .Lbinop_α_2120_4:       cvtsi2sd         xmm1, rdi
                         mulsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2120_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2120_7:                                                             jmp   n720_var_α
@@ -14186,6 +14230,10 @@ n727_binop_α:           sub              rsp, 16
 .Lbinop_α_2129_5:       movq             xmm1, rdi
 .Lbinop_α_2129_6:       addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2129_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2129_7:                                                             jmp   n728_lit_integer_α
@@ -14243,6 +14291,10 @@ n729_binop_α:           sub              rsp, 16
 .Lbinop_α_2131_4:       cvtsi2sd         xmm1, rdi
                         mulsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2131_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2131_7:                                                             jmp   n730_var_α
@@ -14427,6 +14479,10 @@ n737_binop_α:           sub              rsp, 16
 .Lbinop_α_2140_5:       movq             xmm1, rdi
 .Lbinop_α_2140_6:       addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2140_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2140_7:                                                             jmp   n738_assign_α
@@ -15282,6 +15338,10 @@ n765_binop_α:           sub              rsp, 16
 .Lbinop_α_2183_4:       cvtsi2sd         xmm1, rdi
                         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2183_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2183_7:                                                             jmp   n766_assign_α
@@ -16283,6 +16343,10 @@ n803_binop_α:           sub              rsp, 16
 .Lbinop_α_2243_4:       cvtsi2sd         xmm1, rdi
                         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2243_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2243_7:                                                             jmp   n804_assign_α
@@ -17446,6 +17510,10 @@ n849_binop_α:           sub              rsp, 16
 .Lbinop_α_2315_4:       cvtsi2sd         xmm1, rdi
                         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2315_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2315_7:                                                             jmp   n850_assign_α
@@ -18609,6 +18677,10 @@ n895_binop_α:           sub              rsp, 16
 .Lbinop_α_2387_4:       cvtsi2sd         xmm1, rdi
                         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2387_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2387_7:                                                             jmp   n896_assign_α
@@ -19846,6 +19918,10 @@ n931_binop_α:           sub              rsp, 16
 .Lbinop_α_2441_5:       movq             xmm1, rdi
 .Lbinop_α_2441_6:       subsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2441_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2441_7:                                                             jmp   n932_assign_α
@@ -20502,6 +20578,10 @@ n960_binop_α:           sub              rsp, 16
 .Lbinop_α_2486_4:       cvtsi2sd         xmm1, rdi
                         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2486_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2486_7:                                                             jmp   n961_assign_α
@@ -20679,6 +20759,10 @@ n969_binop_α:           sub              rsp, 16
 .Lbinop_α_2497_5:       movq             xmm1, rdi
 .Lbinop_α_2497_6:       addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2497_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2497_7:                                                             jmp   n970_subscript_α
@@ -20968,6 +21052,10 @@ n983_binop_α:           sub              rsp, 16
 .Lbinop_α_2514_5:       movq             xmm1, rdi
 .Lbinop_α_2514_6:       addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2514_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2514_7:                                                             jmp   n984_subscript_α
@@ -21437,6 +21525,10 @@ n1004_binop_α:          sub              rsp, 16
 .Lbinop_α_2545_4:       cvtsi2sd         xmm1, rdi
                         subsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2545_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2545_7:                                                             jmp   n1005_assign_α
@@ -21576,6 +21668,10 @@ n1010_binop_α:          sub              rsp, 16
 .Lbinop_α_2553_4:       cvtsi2sd         xmm1, rdi
                         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2553_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2553_7:                                                             jmp   n1011_assign_α
@@ -22633,6 +22729,10 @@ n1040_binop_α:          sub              rsp, 16
 .Lbinop_α_2599_5:       movq             xmm1, rdi
 .Lbinop_α_2599_6:       subsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2599_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2599_7:                                                             jmp   n1041_assign_α
@@ -23199,6 +23299,10 @@ n1065_binop_α:          sub              rsp, 16
 .Lbinop_α_2637_4:       cvtsi2sd         xmm1, rdi
                         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2637_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2637_7:                                                             jmp   n1066_assign_α
@@ -23378,6 +23482,10 @@ n1074_binop_α:          sub              rsp, 16
 .Lbinop_α_2648_5:       movq             xmm1, rdi
 .Lbinop_α_2648_6:       addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2648_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2648_7:                                                             jmp   n1075_subscript_α
@@ -23771,6 +23879,10 @@ n1091_binop_α:          sub              rsp, 16
 .Lbinop_α_2673_4:       cvtsi2sd         xmm1, rdi
                         subsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2673_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2673_7:                                                             jmp   n1092_assign_α
@@ -23910,6 +24022,10 @@ n1097_binop_α:          sub              rsp, 16
 .Lbinop_α_2681_4:       cvtsi2sd         xmm1, rdi
                         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2681_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2681_7:                                                             jmp   n1098_assign_α
@@ -24584,6 +24700,10 @@ n1117_binop_α:          sub              rsp, 16
 .Lbinop_α_2714_4:       cvtsi2sd         xmm1, rdi
                         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2714_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2714_7:                                                             jmp   n1118_assign_α
@@ -25452,6 +25572,10 @@ n1144_binop_α:          sub              rsp, 16
 .Lbinop_α_2760_4:       cvtsi2sd         xmm1, rdi
                         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2760_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2760_7:                                                             jmp   n1145_assign_α
@@ -25849,6 +25973,10 @@ n1161_binop_α:          sub              rsp, 16
 .Lbinop_α_2785_4:       cvtsi2sd         xmm1, rdi
                         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2785_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2785_7:                                                             jmp   n1162_assign_α
@@ -26576,6 +26704,10 @@ n1183_binop_α:          sub              rsp, 16
 .Lbinop_α_2821_4:       cvtsi2sd         xmm1, rdi
                         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2821_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2821_7:                                                             jmp   n1184_assign_α
@@ -27253,6 +27385,10 @@ n1203_binop_α:          sub              rsp, 16
 .Lbinop_α_2854_4:       cvtsi2sd         xmm1, rdi
                         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2854_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2854_7:                                                             jmp   n1204_assign_α
@@ -27930,6 +28066,10 @@ n1223_binop_α:          sub              rsp, 16
 .Lbinop_α_2887_4:       cvtsi2sd         xmm1, rdi
                         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_2887_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_2887_7:                                                             jmp   n1224_assign_α
@@ -35072,6 +35212,10 @@ n1514_binop_α:          sub              rsp, 16
 .Lbinop_α_3266_5:       movq             xmm1, rdi
 .Lbinop_α_3266_6:       subsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_3266_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_3266_7:                                                             jmp   n1515_lit_integer_α
@@ -35487,6 +35631,10 @@ n1532_binop_α:          sub              rsp, 16
 .Lbinop_α_3291_5:       movq             xmm1, rdi
 .Lbinop_α_3291_6:       subsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_3291_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_3291_7:                                                             jmp   n1533_lit_integer_α

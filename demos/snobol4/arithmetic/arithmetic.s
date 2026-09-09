@@ -260,6 +260,10 @@ n11_binop_α:            sub              rsp, 16
 .Lbinop_α_48_5:         movq             xmm1, rdi
 .Lbinop_α_48_6:         addsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_48_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_48_7:                                                               jmp   n12_assign_α
@@ -402,6 +406,10 @@ n17_binop_α:            sub              rsp, 16
 .Lbinop_α_56_5:         movq             xmm1, rdi
 .Lbinop_α_56_6:         subsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_56_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_56_7:                                                               jmp   n18_assign_α
@@ -544,6 +552,10 @@ n23_binop_α:            sub              rsp, 16
 .Lbinop_α_64_5:         movq             xmm1, rdi
 .Lbinop_α_64_6:         mulsd            xmm0, xmm1
                         movq             rax, xmm0
+                        mov              rdx, rax
+                        add              rdx, rdx
+                        movabs           rcx, 18437736874454810624
+                        cmp              rdx, rcx;                            jae   .Lbinop_α_64_0
                         mov              qword ptr [rsp + 0], 5               # result
                         mov              qword ptr [rsp + 8], rax
 .Lbinop_α_64_7:                                                               jmp   n24_assign_α
