@@ -3,8 +3,8 @@
                         .file            1 "snobol4/json/json-match.sno"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
-FN__EXPR$0:
-EXPR$0_α_body:
+FN__EXPR$0$jelement:
+EXPR$0$jelement_α_body:
                         .type            n0_define_bx, @function
 n0_define_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ n2_assign_bx:
 n2_assign_α:            mov              r11, 3
                         mov              rax, qword ptr [rsp + 0]             # var
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 176], rax            # EXPR$0
+                        mov              qword ptr [r9 + 176], rax            # EXPR$0$jelement
                         mov              qword ptr [r9 + 184], rdx
                         push             rax
                         push             rax
@@ -65,26 +65,26 @@ n2_assign_α:            mov              r11, 3
                         pop              rdi
                         pop              rax
                         pop              rax
-                        add              rsp, 16;                             jmp   EXPR$0_γ
+                        add              rsp, 16;                             jmp   EXPR$0$jelement_γ
 .Lassign_α_6_0:         .quad            .Lassign_α_6_0_s
-.Lassign_α_6_0_s:       .string          "EXPR$0"
+.Lassign_α_6_0_s:       .string          "EXPR$0$jelement"
                         .size            n2_assign_bx, .-n2_assign_bx
 #-----------------------------------------------------------------------------------------------------------------------
-EXPR$0_res:
+EXPR$0$jelement_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-EXPR$0_β:
-                                                                              jmp   EXPR$0_ω
+EXPR$0$jelement_β:
+                                                                              jmp   EXPR$0$jelement_ω
 #-----------------------------------------------------------------------------------------------------------------------
-EXPR$0_γ:
+EXPR$0$jelement_γ:
                                                                               jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-EXPR$0_ω:
+EXPR$0$jelement_ω:
                                                                               jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
-FN__EXPR$1:
-EXPR$1_α_body:
+FN__EXPR$1$jelement:
+EXPR$1$jelement_α_body:
                         .type            n7_define_bx, @function
 n7_define_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -106,7 +106,7 @@ n9_assign_bx:
 n9_assign_α:            mov              r11, 6
                         mov              rax, qword ptr [rsp + 0]             # var
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 192], rax            # EXPR$1
+                        mov              qword ptr [r9 + 192], rax            # EXPR$1$jelement
                         mov              qword ptr [r9 + 200], rdx
                         push             rax
                         push             rax
@@ -145,26 +145,26 @@ n9_assign_α:            mov              r11, 6
                         pop              rdi
                         pop              rax
                         pop              rax
-                        add              rsp, 16;                             jmp   EXPR$1_γ
+                        add              rsp, 16;                             jmp   EXPR$1$jelement_γ
 .Lassign_α_13_0:        .quad            .Lassign_α_13_0_s
-.Lassign_α_13_0_s:      .string          "EXPR$1"
+.Lassign_α_13_0_s:      .string          "EXPR$1$jelement"
                         .size            n9_assign_bx, .-n9_assign_bx
 #-----------------------------------------------------------------------------------------------------------------------
-EXPR$1_res:
+EXPR$1$jelement_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-EXPR$1_β:
-                                                                              jmp   EXPR$1_ω
+EXPR$1$jelement_β:
+                                                                              jmp   EXPR$1$jelement_ω
 #-----------------------------------------------------------------------------------------------------------------------
-EXPR$1_γ:
+EXPR$1$jelement_γ:
                                                                               jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-EXPR$1_ω:
+EXPR$1$jelement_ω:
                                                                               jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
-FN__EXPR$2:
-EXPR$2_α_body:
+FN__EXPR$2$jelement:
+EXPR$2$jelement_α_body:
                         .type            n14_define_bx, @function
 n14_define_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -186,7 +186,7 @@ n16_assign_bx:
 n16_assign_α:           mov              r11, 9
                         mov              rax, qword ptr [rsp + 0]             # var
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 208], rax            # EXPR$2
+                        mov              qword ptr [r9 + 208], rax            # EXPR$2$jelement
                         mov              qword ptr [r9 + 216], rdx
                         push             rax
                         push             rax
@@ -225,26 +225,26 @@ n16_assign_α:           mov              r11, 9
                         pop              rdi
                         pop              rax
                         pop              rax
-                        add              rsp, 16;                             jmp   EXPR$2_γ
+                        add              rsp, 16;                             jmp   EXPR$2$jelement_γ
 .Lassign_α_20_0:        .quad            .Lassign_α_20_0_s
-.Lassign_α_20_0_s:      .string          "EXPR$2"
+.Lassign_α_20_0_s:      .string          "EXPR$2$jelement"
                         .size            n16_assign_bx, .-n16_assign_bx
 #-----------------------------------------------------------------------------------------------------------------------
-EXPR$2_res:
+EXPR$2$jelement_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-EXPR$2_β:
-                                                                              jmp   EXPR$2_ω
+EXPR$2$jelement_β:
+                                                                              jmp   EXPR$2$jelement_ω
 #-----------------------------------------------------------------------------------------------------------------------
-EXPR$2_γ:
+EXPR$2$jelement_γ:
                                                                               jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-EXPR$2_ω:
+EXPR$2$jelement_ω:
                                                                               jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
-FN__EXPR$3:
-EXPR$3_α_body:
+FN__EXPR$3$jvalue:
+EXPR$3$jvalue_α_body:
                         .type            n21_define_bx, @function
 n21_define_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -266,7 +266,7 @@ n23_assign_bx:
 n23_assign_α:           mov              r11, 12
                         mov              rax, qword ptr [rsp + 0]             # var
                         mov              rdx, qword ptr [rsp + 8]
-                        mov              qword ptr [r9 + 224], rax            # EXPR$3
+                        mov              qword ptr [r9 + 224], rax            # EXPR$3$jvalue
                         mov              qword ptr [r9 + 232], rdx
                         push             rax
                         push             rax
@@ -305,22 +305,22 @@ n23_assign_α:           mov              r11, 12
                         pop              rdi
                         pop              rax
                         pop              rax
-                        add              rsp, 16;                             jmp   EXPR$3_γ
+                        add              rsp, 16;                             jmp   EXPR$3$jvalue_γ
 .Lassign_α_27_0:        .quad            .Lassign_α_27_0_s
-.Lassign_α_27_0_s:      .string          "EXPR$3"
+.Lassign_α_27_0_s:      .string          "EXPR$3$jvalue"
                         .size            n23_assign_bx, .-n23_assign_bx
 #-----------------------------------------------------------------------------------------------------------------------
-EXPR$3_res:
+EXPR$3$jvalue_res:
                         add              rsp, 8
                         pop              rsp
 #-----------------------------------------------------------------------------------------------------------------------
-EXPR$3_β:
-                                                                              jmp   EXPR$3_ω
+EXPR$3$jvalue_β:
+                                                                              jmp   EXPR$3$jvalue_ω
 #-----------------------------------------------------------------------------------------------------------------------
-EXPR$3_γ:
+EXPR$3$jvalue_γ:
                                                                               jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
-EXPR$3_ω:
+EXPR$3$jvalue_ω:
                                                                               jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 FN__PAT$0:
@@ -1904,10 +1904,10 @@ main:
 .Lgvan8:                .string          "jelement"
 .Lgvan9:                .string          "json"
 .Lgvan10:               .string          "src"
-.Lgvan11:               .string          "EXPR$0"
-.Lgvan12:               .string          "EXPR$1"
-.Lgvan13:               .string          "EXPR$2"
-.Lgvan14:               .string          "EXPR$3"
+.Lgvan11:               .string          "EXPR$0$jelement"
+.Lgvan12:               .string          "EXPR$1$jelement"
+.Lgvan13:               .string          "EXPR$2$jelement"
+.Lgvan14:               .string          "EXPR$3$jvalue"
 .Lgvan15:               .string          "PAT$2$V0"
 .Lgvan16:               .string          "PAT$2$V1"
 .Lgvan17:               .string          "PAT$2$V2"
@@ -3393,13 +3393,13 @@ n222_lit_string_bx:
 n222_lit_string_α:      sub              rsp, 16
                         mov              r11, 125
                         mov              qword ptr [rsp + 0], 2               # result
-                        mov              dword ptr [rsp + 4], 6
+                        mov              dword ptr [rsp + 4], 15
                         mov              rax, qword ptr [rip + .Llit_string_α_423_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n223_call_α
 n222_lit_string_β:      mov              r11, 125
                         add              rsp, 16;                             jmp   n221_binop_β
 .Llit_string_α_423_0:   .quad            .Llit_string_α_423_0_s
-.Llit_string_α_423_0_s: .string          "EXPR$0"
+.Llit_string_α_423_0_s: .string          "EXPR$0$jelement"
                         .size            n222_lit_string_bx, .-n222_lit_string_bx
                         .type            n223_call_bx, @function
 n223_call_bx:
@@ -3988,14 +3988,14 @@ n250_lit_string_bx:
 n250_lit_string_α:      sub              rsp, 16
                         mov              r11, 153
                         mov              qword ptr [rsp + 0], 2               # result
-                        mov              dword ptr [rsp + 4], 6
+                        mov              dword ptr [rsp + 4], 15
                         mov              rax, qword ptr [rip + .Llit_string_α_458_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n251_call_α
 n250_lit_string_β:      mov              r11, 153
                         add              rsp, 16
                         add              rsp, 16;                             jmp   n248_statement_begin_β
 .Llit_string_α_458_0:   .quad            .Llit_string_α_458_0_s
-.Llit_string_α_458_0_s: .string          "EXPR$1"
+.Llit_string_α_458_0_s: .string          "EXPR$1$jelement"
                         .size            n250_lit_string_bx, .-n250_lit_string_bx
                         .type            n251_call_bx, @function
 n251_call_bx:
@@ -4143,13 +4143,13 @@ n257_lit_string_bx:
 n257_lit_string_α:      sub              rsp, 16
                         mov              r11, 160
                         mov              qword ptr [rsp + 0], 2               # result
-                        mov              dword ptr [rsp + 4], 6
+                        mov              dword ptr [rsp + 4], 15
                         mov              rax, qword ptr [rip + .Llit_string_α_467_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n258_call_α
 n257_lit_string_β:      mov              r11, 160
                         add              rsp, 16;                             jmp   n256_binop_β
 .Llit_string_α_467_0:   .quad            .Llit_string_α_467_0_s
-.Llit_string_α_467_0_s: .string          "EXPR$2"
+.Llit_string_α_467_0_s: .string          "EXPR$2$jelement"
                         .size            n257_lit_string_bx, .-n257_lit_string_bx
                         .type            n258_call_bx, @function
 n258_call_bx:
@@ -4940,13 +4940,13 @@ n289_lit_string_bx:
 n289_lit_string_α:      sub              rsp, 16
                         mov              r11, 192
                         mov              qword ptr [rsp + 0], 2               # result
-                        mov              dword ptr [rsp + 4], 6
+                        mov              dword ptr [rsp + 4], 13
                         mov              rax, qword ptr [rip + .Llit_string_α_507_0]
                         mov              qword ptr [rsp + 8], rax;            jmp   n290_call_α
 n289_lit_string_β:      mov              r11, 192
                         add              rsp, 16;                             jmp   n288_deref_β
 .Llit_string_α_507_0:   .quad            .Llit_string_α_507_0_s
-.Llit_string_α_507_0_s: .string          "EXPR$3"
+.Llit_string_α_507_0_s: .string          "EXPR$3$jvalue"
                         .size            n289_lit_string_bx, .-n289_lit_string_bx
                         .type            n290_call_bx, @function
 n290_call_bx:
@@ -6058,14 +6058,14 @@ main_ω:
 module_init:
                         sub              rsp, 8
                         .section         .rodata
-.Lstartup_pname0:       .string          "EXPR$0"
+.Lstartup_pname0:       .string          "EXPR$0$jelement"
                         .align           8
 .Lstartup_pnames0:
                         .quad            0
                         .align           8
 .Lstartup_prec0:
                         .quad            .Lstartup_pname0
-                        .quad            FN__EXPR$0
+                        .quad            FN__EXPR$0$jelement
                         .quad            0
                         .quad            0
                         .quad            .Lstartup_pnames0
@@ -6080,14 +6080,14 @@ module_init:
                         lea              rdi, [rip + .Lstartup_prec0]
                         call             rt_proc_register_rec@PLT
                         .section         .rodata
-.Lstartup_pname1:       .string          "EXPR$1"
+.Lstartup_pname1:       .string          "EXPR$1$jelement"
                         .align           8
 .Lstartup_pnames1:
                         .quad            0
                         .align           8
 .Lstartup_prec1:
                         .quad            .Lstartup_pname1
-                        .quad            FN__EXPR$1
+                        .quad            FN__EXPR$1$jelement
                         .quad            0
                         .quad            0
                         .quad            .Lstartup_pnames1
@@ -6102,14 +6102,14 @@ module_init:
                         lea              rdi, [rip + .Lstartup_prec1]
                         call             rt_proc_register_rec@PLT
                         .section         .rodata
-.Lstartup_pname2:       .string          "EXPR$2"
+.Lstartup_pname2:       .string          "EXPR$2$jelement"
                         .align           8
 .Lstartup_pnames2:
                         .quad            0
                         .align           8
 .Lstartup_prec2:
                         .quad            .Lstartup_pname2
-                        .quad            FN__EXPR$2
+                        .quad            FN__EXPR$2$jelement
                         .quad            0
                         .quad            0
                         .quad            .Lstartup_pnames2
@@ -6124,14 +6124,14 @@ module_init:
                         lea              rdi, [rip + .Lstartup_prec2]
                         call             rt_proc_register_rec@PLT
                         .section         .rodata
-.Lstartup_pname3:       .string          "EXPR$3"
+.Lstartup_pname3:       .string          "EXPR$3$jvalue"
                         .align           8
 .Lstartup_pnames3:
                         .quad            0
                         .align           8
 .Lstartup_prec3:
                         .quad            .Lstartup_pname3
-                        .quad            FN__EXPR$3
+                        .quad            FN__EXPR$3$jvalue
                         .quad            0
                         .quad            0
                         .quad            .Lstartup_pnames3
