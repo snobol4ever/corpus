@@ -18091,7 +18091,7 @@ FEnd
         DEFINE('F(x)','F2')
         OUTPUT     =     F('b')
 END
-*------------------------------------------------- 1906 indirect_replace_1 XFAIL
+*------------------------------------------------- 1906 indirect_replace_1
 *  MINIMAL WITNESS (s186, batch B, from LINEARIZ.sno and READL.sno): an
 *  indirect store through the NAME OF A DATA FIELD -- P = .R(X) then $P = ...
 *  -- is a SILENT NO-OP in SCRIP; the field keeps its old value.  The same
@@ -18358,4 +18358,31 @@ END
           'aaa' *P RPOS(0)                          :S(OK)F(NO)
 OK        OUTPUT = 'match'                      :(END)
 NO        OUTPUT = 'nomatch'
+END
+*---------------------------------- 1928 convert_expression_is_deferred_and_reads_expression_1
+	NAME = 'RBAL.'
+	I = CONVERT(NAME,'EXPRESSION')
+	OUTPUT = DATATYPE(I)
+	EL = NOTANY('()') | '(' I ')'
+	$NAME = ARBNO(EL)
+	'(a(b)c)' POS(0) $NAME RPOS(0)	:S(OK)F(NO)
+OK	OUTPUT = 'match'	:(Z)
+NO	OUTPUT = 'nomatch'
+Z	V = 41
+	OUTPUT = EVAL(CONVERT('V','EXPRESSION'))
+	W = 1
+	OUTPUT = EVAL(CONVERT('V + W','EXPRESSION'))
+END
+*---------------------------------- 1929 opsyn_binary_operator_reaches_a_code_built_function_1
+	DATA('PAIR(HD,TL)')
+	CODE('MKP MKP = PAIR(S1,S2) :S(RETURN)F(FRETURN) ; ')
+	DEFINE('MKP(S1,S2)')
+	OPSYN("~",.MKP,2)
+	Q = 'x' ~ 'y'
+	OUTPUT = DATATYPE(Q)
+	OUTPUT = HD(Q) TL(Q)
+	CODE('MKS MKS = "<" T1 "," T2 ">" :S(RETURN)F(FRETURN) ; ')
+	DEFINE('MKS(T1,T2)')
+	OPSYN("%",.MKS,2)
+	OUTPUT = ('p' % 'q')
 END
