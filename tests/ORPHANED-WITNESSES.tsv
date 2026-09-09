@@ -64,5 +64,5 @@ snobol4	span_dyn_noalt	tests/snobol4/span_dyn_noalt.sno
 snobol4	span_dyn_nullalt	tests/snobol4/span_dyn_nullalt.sno
 snocone	beauty_modules	tests/snocone/beauty_modules.sc
 #
-# TOTALS  icon=19/237  pascal=0/5  prolog=0/43  raku=0/97  rebus=0/3  snobol4=39/142  snocone=1/69
+# TOTALS  icon=19/239  pascal=0/5  prolog=0/43  raku=0/97  rebus=0/3  snobol4=39/142  snocone=1/69
 # TOTAL ORPHANED PAIRS: 59

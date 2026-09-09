@@ -5117,7 +5117,30 @@ solution: 4
   -------------------------
   |   | Q |   |   |   |   |
   -------------------------
-#------------------------------------------ 867 procedure_record_every_replace_2
+#------------------------------------------------- 867 procedure_every_suspend_7
+r1 2
+r2 2
+r3 2
+r4 2
+r5 &null
+r6 2
+r7 1
+r8 1
+r9 1
+r10 2
+r11 2
+r12 2
+r13 2
+r14 12
+r15 "7" 2
+r16 7 2
+r17 7 2
+r18 "7" 3
+r19 "7" 2
+r20 3
+r20 4
+r20 1
+#------------------------------------------ 868 procedure_record_every_replace_2
  ----> &null
 f := open("foo.baz","w") ----> file(foo.baz)
 write(f,"hello world") ----> "hello world"
@@ -5292,7 +5315,7 @@ close(f) ----> file(fncs1.dat)
 5.75              1.398 1.089 0.861 -0.50 -0.59 2.397 314.1 1.749 1.592 
 6.0               1.405 1.107 0.960 -0.27 -0.29 2.449 403.4 1.791 1.630 
 6.25              1.412 1.123 0.999 -0.03 -0.03 2.5   518.0 1.832 1.668 
-#----------------------------------------- 868 procedure_record_coexpr_replace_1
+#----------------------------------------- 869 procedure_record_coexpr_replace_1
 	null : &null
     *2	integer : 47
     *7	real : 3.14159
@@ -5344,7 +5367,7 @@ close(f) ----> file(fncs1.dat)
 
 '\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\xf9\xfa\xfb\xfc\xfd\xfe'
 
-#-------------------------------------------- 869 procedure_every_scan_replace_9
+#-------------------------------------------- 870 procedure_every_scan_replace_9
    initial : 0 :
  >> 
  >> 3 3 
@@ -5363,7 +5386,7 @@ k 3
 v 7
        30s : 5 : [0]30 [1]31 [2]32 [3]33 [4]34
        50s : 5 : [0]50 [1]51 [2]52 [3]53 [4]54
-#------------------------------------------ 870 procedure_record_every_replace_7
+#------------------------------------------ 871 procedure_record_every_replace_7
  ----> &null
 s := "abcd" ----> "abcd"
 s := "x" ----> "x"
@@ -5595,7 +5618,7 @@ bal('+','[','[',"[[2*x[+3[+[5*y[") ----> none
 bal('+','([','])',"([2*x)+3]+(5*y]") ----> 10
 bal(,,,"()+()") ----> 1
 bal(&cset,,,"()+()") ----> 1
-#----------------------------------------- 871 procedure_record_every_replace_13
+#----------------------------------------- 872 procedure_record_every_replace_13
  ----> &null
 2 === +2 ----> 2
 3 === *"abc" ----> 3
@@ -5900,9 +5923,9 @@ y := 2 ----> 2
 (x <- y) & &fail ----> none
 x ----> 1
 y ----> 2
-#------------------------------------------ 872 procedure_record_every_replace_1
+#------------------------------------------ 873 procedure_record_every_replace_1
 he runs.
-#-------------------------------------------- 873 procedure_every_scan_replace_5
+#-------------------------------------------- 874 procedure_every_scan_replace_5
 -2
 -2
 a. [0]
@@ -5955,7 +5978,38 @@ z. [18] 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29
 x. [9] 21 22 23 24 25 26 27 28 29
 y. [9] 41 42 43 44 45 46 47 48 49
 z. [18] 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78 79
-#----------------------------------------- 874 procedure_record_every_replace_14
+#----------------------------------------- 875 procedure_record_every_replace_15
+c1 after 0
+"c1 done"
+c1 after 60
+"c1 done"
+five
+c1 after 5
+"c1 done"
+"x y"
+"x y"
+&null
+&null
+"dflt"
+f1 differ
+f1 same
+f1 differ
+f2 differ
+f3 differ
+f4 differ
+f4 body done
+f4 same
+f5 6
+f5 6
+f5 7
+f6 early
+f6 failed
+f6 late
+equiv failed
+list_16(2)
+equiv failed
+set_8(2)
+#----------------------------------------- 876 procedure_record_every_replace_14
  ----> &null
 copy(1) ----> 1
 copy("abc") ----> "abc"
@@ -6411,7 +6465,7 @@ every write(seq(-10)) \ 10 ----> none
 25
 28
 every write(seq(,3)) \ 10 ----> none
-#------------------------------------------ 875 procedure_record_every_replace_3
+#------------------------------------------ 877 procedure_record_every_replace_3
 Enter states (1 character names): Enter input alphabet: Enter Final states (subset of states): What is the start state? enter delta(a,0) = enter delta(a,1) = enter delta(b,0) = enter delta(b,1) = enter delta(c,0) = enter delta(c,1) = enter delta(d,0) = enter delta(d,1) = enter delta(e,0) = enter delta(e,1) = enter delta(f,0) = enter delta(f,1) = enter delta(g,0) = enter delta(g,1) = enter delta(h,0) = enter delta(h,1) = 
 
 
@@ -6812,7 +6866,7 @@ where:
 	d(bf,0) = ag	d(bf,1) = ce
 	d(ce,0) = d	d(ce,1) = bf
 	d(d,0) = d	d(d,1) = ag
-#------------------------------------------- 876 procedure_every_scan_replace_13
+#------------------------------------------- 878 procedure_every_scan_replace_13
 test delete:    41,    3	[ok]
 test delete:    41,   11	[ok]
 test delete:    41,   23	[ok]
@@ -6855,7 +6909,7 @@ checking !T:
 checking key(T):
 
 [done]
-#-------------------------------------------- 877 procedure_every_scan_replace_6
+#-------------------------------------------- 879 procedure_every_scan_replace_6
 1 metafile 1250 1000 0 0 0 init
 581 950 (A) text
 751 880 (B) text
@@ -6925,7 +6979,7 @@ checking key(T):
 125 249 line stroke 874 249 begin 58 587 line stroke
 255 255 255 color
 0 0 (16 players, 5 rounds, 20 matches) text
-#-------------------------------------------- 878 procedure_every_scan_replace_4
+#-------------------------------------------- 880 procedure_every_scan_replace_4
 testing entab/detab(s)
 testing entab/detab(s,5)
 testing entab/detab(s,8,12)
@@ -6937,7 +6991,7 @@ testing entab/detab(s,3)
 testing entab/detab(s,3,4)
 testing entab/detab(s,5)
 testing entab/detab(s,5,7,10)
-#----------------------------------------- 879 procedure_record_every_replace_12
+#----------------------------------------- 881 procedure_record_every_replace_12
 
 error in line 7:
    &error = -2
@@ -7471,7 +7525,7 @@ error in line 180:
    &errortext = "negative first argument to real exponentiation"
 (-36. ^ -9.) | monitor(&line) ----> 180
  eginopst
-#------------------------------------------- 880 procedure_record_scan_replace_2
+#------------------------------------------- 882 procedure_record_scan_replace_2
 <!-- Created by HTPREP -->
 <html><head>
 <title>Off the Beaten Path</title>

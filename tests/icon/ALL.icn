@@ -7476,7 +7476,45 @@ procedure show()
       }
    write();
 end
-#------------------------------------------ 867 procedure_record_every_replace_2
+#------------------------------------------------- 867 procedure_every_suspend_7
+#  x <- e enters e through its alpha port like x := e does.  The lvalue's
+#  success edge was routed to the right side's BETA (resume) port whenever
+#  the right side was a generator, so x <- 2 | 3 skipped the first
+#  alternative (3), x <- 2 | 3 | 4 also gave 3 (resumed once, not exhausted),
+#  and x <- g() for a suspending g resumed a frame that was never created
+#  and crashed.  IPL DateLineToSec reads its year with `year <- integer(...)
+#  | &null` and so read every date as this year.
+procedure g()
+   suspend 2;
+   write("g resumed");
+   suspend 3;
+   write("g exhausted");
+end
+procedure main()
+   local x, s;
+   x := 1; x <- 2; write("r1 ", image(x));
+   x := 1; x <- 2 | 3; write("r2 ", image(x));
+   x := 1; x <- 2 | 3 | 4; write("r3 ", image(x));
+   x := 1; x <- integer("2") | &null; write("r4 ", image(x));
+   x := 1; x <- integer("q") | &null; write("r5 ", image(x));
+   x := 1; (x <- 2) & 5; write("r6 ", image(x));
+   x := 1; x <- 2 & &fail; write("r7 ", image(x));
+   x := 1; every x <- 2 | 3; write("r8 ", image(x));
+   x := 1; x <- 1 to 3; write("r9 ", image(x));
+   x := 1; x <- g(); write("r10 ", image(x));
+   x := 1; x := g(); write("r11 ", image(x));
+   x := 1; { x <- 2 | 3 }; write("r12 ", image(x));
+   x := 1; if x <- 2 | 3 then write("r13 ", image(x));
+   x := 1; x <- 2 | 3; x := x + 10; write("r14 ", image(x));
+   s := "7 8";
+   s ? { x <- tab(many(&digits)) | &null; write("r15 ", image(x), " ", &pos) };
+   s ? { x <- integer(tab(many(&digits))) | &null; write("r16 ", image(x), " ", &pos) };
+   s ? { x <- integer(tab(many(&digits))); write("r17 ", image(x), " ", &pos) };
+   s ? { x <- 1(tab(many(&digits)), tab(many(' '))) | &null; write("r18 ", image(x), " ", &pos) };
+   s ? { x <- (tab(many(&digits)) | &null) & pos(0) | write("r19 ", image(x), " ", &pos) };
+   x := 1; every write("r20 ", (x <- 2 | 3) + 1); write("r20 ", image(x));
+end
+#------------------------------------------ 868 procedure_record_every_replace_2
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -7552,7 +7590,7 @@ procedure q5()
 procedure wf (v)
     writes(left(v,5)," ");
     end
-#----------------------------------------- 868 procedure_record_coexpr_replace_1
+#----------------------------------------- 869 procedure_record_coexpr_replace_1
 #SRC: JCON
 
 #  test image(), serial(), *x, and explicit conversion functions
@@ -7636,7 +7674,7 @@ end
 procedure pad(x)
    return right(image(\x) | "---", 13);
 end
-#-------------------------------------------- 869 procedure_every_scan_replace_9
+#-------------------------------------------- 870 procedure_every_scan_replace_9
 #SRC: JCON
 
 # table test
@@ -7734,7 +7772,7 @@ procedure tdump(label, T)
    write();
    return;
 end
-#------------------------------------------ 870 procedure_record_every_replace_7
+#------------------------------------------ 871 procedure_record_every_replace_7
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -7866,7 +7904,7 @@ end
 
 global s
 
-#----------------------------------------- 871 procedure_record_every_replace_13
+#----------------------------------------- 872 procedure_record_every_replace_13
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -8102,7 +8140,7 @@ procedure main()
    p16();
 end
 
-#------------------------------------------ 872 procedure_record_every_replace_1
+#------------------------------------------ 873 procedure_record_every_replace_1
 global defs, limit, tswitch
 record nonterm(name)
 record charset(chars)
@@ -8154,7 +8192,7 @@ procedure main()
    limit := 1000;
    gener("s");
 end
-#-------------------------------------------- 873 procedure_every_scan_replace_5
+#-------------------------------------------- 874 procedure_every_scan_replace_5
 #SRC: JCON
 
 procedure main()
@@ -8244,7 +8282,123 @@ procedure limage(label, lst)
    write();
    return;
 end
-#----------------------------------------- 874 procedure_record_every_replace_14
+#----------------------------------------- 875 procedure_record_every_replace_15
+#  A case arm's body runs to its end and only then becomes the case value.
+#  The lowering rewired the arm's ENTRY node to the result assignment after
+#  the fact: an arm whose body was `every ... do if ... then fail` lost its
+#  whole body (IPL equiv succeeded on unequal lists, so lclose returned the
+#  list unchanged), and an arm whose body was the empty compound `{}` was
+#  never wired at all and fell out of the procedure with the case value
+#  (IPL saytime returned 0).
+procedure c1(min)
+   case min of {
+       0: {};
+      60: min = 0;
+       5: write("five")
+      };
+   write("c1 after ", image(min));
+   return "c1 done";
+end
+procedure c2(min)
+   local out;
+   out := "x";
+   case min of {
+       0: {};
+      60: min = 0
+      };
+   out ||:= " y";
+   return out;
+end
+procedure c3(x)
+   return case x of {
+      1: {}
+      2: { }
+      default: "dflt"
+      };
+end
+procedure f1(x1, x2)
+   local i;
+   case type(x1) of {
+      "list": every i := 1 to *x1 do if x1[i] ~= x2[i] then fail;
+      default: fail
+      };
+   return "f1 same";
+end
+procedure f2(x1, x2)
+   local i;
+   case type(x1) of {
+      "list": if x1[1] ~= x2[1] then fail;
+      default: fail
+      };
+   return "f2 same";
+end
+procedure f3(x1, x2)
+   local i;
+   case type(x1) of {
+      "list": every i := 1 to *x1 do if not (x1[i] = x2[i]) then fail;
+      default: fail
+      };
+   return "f3 same";
+end
+procedure f4(x1, x2)
+   local i;
+   case type(x1) of {
+      "list": { every i := 1 to *x1 do if x1[i] ~= x2[i] then fail; write("f4 body done") }
+      default: fail
+      };
+   return "f4 same";
+end
+procedure f5(x)
+   local i, n;
+   n := 0;
+   case x of {
+      "loop": every i := 1 to 3 do n +:= i;
+      "while": while n < 5 do n +:= 2;
+      default: every n := 7
+      };
+   return "f5 " || n;
+end
+procedure f6(x)
+   case x of {
+      1: return "f6 early";
+      2: fail
+      };
+   return "f6 late";
+end
+procedure equiv(x1,x2,done)
+   local code, i;
+   if x1 === x2 then return x2;
+   if type(x1) ~== type(x2) then fail;
+   if *x1 ~= *x2 then fail;
+   /done := table();
+   (/done[x1] := set()) | (if member(done[x1],x2) then return x2);
+   image(x1) ? (code := (="record" | type(x1)));
+   case code of {
+      "list" | "record":
+         every i := 1 to *x1 do
+            if not equiv(x1[i],x2[i],done) then fail;
+      "table": if not equiv(sort(x1,3),sort(x2,3),done) then fail;
+      "set":   if not equiv(sort(x1),sort(x2),done) then fail;
+      default: fail
+      };
+   insert(done[x1],x2);
+   return x2;
+end
+procedure main()
+   write(image(c1(0))); write(image(c1(60))); write(image(c1(5)));
+   write(image(c2(0))); write(image(c2(60)));
+   write(image(c3(1))); write(image(c3(2))); write(image(c3(3)));
+   write(f1([1,2],[2,1]) | "f1 differ"); write(f1([1,2],[1,2]) | "f1 differ"); write(f1(1,2) | "f1 differ");
+   write(f2([1,2],[2,1]) | "f2 differ"); write(f3([1,2],[2,1]) | "f3 differ");
+   write(f4([1,2],[2,1]) | "f4 differ"); write(f4([1,2],[1,2]) | "f4 differ");
+   write(f5("loop") | "f5 failed"); write(f5("while") | "f5 failed"); write(f5("other") | "f5 failed");
+   write(f6(1) | "f6 failed"); write(f6(2) | "f6 failed"); write(f6(3) | "f6 failed");
+   write(image(equiv([3,1,4,1],[1,4,1,3])) | "equiv failed");
+   write(image(equiv([1,2],[1,2])) | "equiv failed");
+   write(image(equiv([1,[2,3]],[1,[2,4]])) | "equiv failed");
+   write(image(equiv(set([1,2]),set([2,1]))) | "equiv failed");
+end
+#----------------------------------------- 876 procedure_record_every_replace_14
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -8432,7 +8586,7 @@ end
 procedure wf (v)
     writes(left(v,5)," ");
     end
-#------------------------------------------ 875 procedure_record_every_replace_3
+#------------------------------------------ 877 procedure_record_every_replace_3
 #SRC: V9GEN
 
 ### mindfa -- minimize a DFA
@@ -8649,7 +8803,7 @@ local l,t1,t2;
    if *l = 0 then fail;
    return l;
 end
-#------------------------------------------- 876 procedure_every_scan_replace_13
+#------------------------------------------- 878 procedure_every_scan_replace_13
 #SRC: V9GEN
 
 ##    gener.icn -- test generation in parallel with inserts/deletes
@@ -8791,7 +8945,7 @@ procedure stale()
    write();
    return;
 end
-#-------------------------------------------- 877 procedure_every_scan_replace_6
+#-------------------------------------------- 879 procedure_every_scan_replace_6
 #SRC: V9GEN
 
 ##  mffsol.icn -- show solution graphically in mff format
@@ -8908,7 +9062,7 @@ procedure newcolor()
 	if lum > 96 then return;
     }
     end
-#-------------------------------------------- 878 procedure_every_scan_replace_4
+#-------------------------------------------- 880 procedure_every_scan_replace_4
 #SRC: V9GEN
 #OPT: -fe
 
@@ -9059,7 +9213,7 @@ procedure setup (line);		# interpret and report a column spec line
    write (")");
    return p;
 end
-#----------------------------------------- 879 procedure_record_every_replace_12
+#----------------------------------------- 881 procedure_record_every_replace_12
 #SRC: V9GEN
 #OPT: -fe
 
@@ -9265,7 +9419,7 @@ procedure monitor(line)
    write("   &errorvalue = ", image(&errorvalue));
    return line;
 end
-#------------------------------------------- 880 procedure_record_scan_replace_2
+#------------------------------------------- 882 procedure_record_scan_replace_2
 #SRC: IPL
 
 ############################################################################

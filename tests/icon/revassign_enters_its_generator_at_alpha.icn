@@ -1,0 +1,37 @@
+#  x <- e enters e through its alpha port like x := e does.  The lvalue's
+#  success edge was routed to the right side's BETA (resume) port whenever
+#  the right side was a generator, so x <- 2 | 3 skipped the first
+#  alternative (3), x <- 2 | 3 | 4 also gave 3 (resumed once, not exhausted),
+#  and x <- g() for a suspending g resumed a frame that was never created
+#  and crashed.  IPL DateLineToSec reads its year with `year <- integer(...)
+#  | &null` and so read every date as this year.
+procedure g()
+   suspend 2;
+   write("g resumed");
+   suspend 3;
+   write("g exhausted");
+end
+procedure main()
+   local x, s;
+   x := 1; x <- 2; write("r1 ", image(x));
+   x := 1; x <- 2 | 3; write("r2 ", image(x));
+   x := 1; x <- 2 | 3 | 4; write("r3 ", image(x));
+   x := 1; x <- integer("2") | &null; write("r4 ", image(x));
+   x := 1; x <- integer("q") | &null; write("r5 ", image(x));
+   x := 1; (x <- 2) & 5; write("r6 ", image(x));
+   x := 1; x <- 2 & &fail; write("r7 ", image(x));
+   x := 1; every x <- 2 | 3; write("r8 ", image(x));
+   x := 1; x <- 1 to 3; write("r9 ", image(x));
+   x := 1; x <- g(); write("r10 ", image(x));
+   x := 1; x := g(); write("r11 ", image(x));
+   x := 1; { x <- 2 | 3 }; write("r12 ", image(x));
+   x := 1; if x <- 2 | 3 then write("r13 ", image(x));
+   x := 1; x <- 2 | 3; x := x + 10; write("r14 ", image(x));
+   s := "7 8";
+   s ? { x <- tab(many(&digits)) | &null; write("r15 ", image(x), " ", &pos) };
+   s ? { x <- integer(tab(many(&digits))) | &null; write("r16 ", image(x), " ", &pos) };
+   s ? { x <- integer(tab(many(&digits))); write("r17 ", image(x), " ", &pos) };
+   s ? { x <- 1(tab(many(&digits)), tab(many(' '))) | &null; write("r18 ", image(x), " ", &pos) };
+   s ? { x <- (tab(many(&digits)) | &null) & pos(0) | write("r19 ", image(x), " ", &pos) };
+   x := 1; every write("r20 ", (x <- 2 | 3) + 1); write("r20 ", image(x));
+end

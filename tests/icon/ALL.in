@@ -108,7 +108,7 @@ sexual characters. Blind beetles, which cannot, of course, behold each
 other's beauty, never, as I hear from Mr. Waterhouse, Jr., exhibit bright
 colors, though they often have polished coats; but the explanation of their
 obscurity may be that they generally inhabit caves and other obscure stations.
-#------------------------------------------ 875 procedure_record_every_replace_3
+#------------------------------------------ 877 procedure_record_every_replace_3
 abcdefgh
 01
 d
@@ -129,14 +129,14 @@ f
 g
 g
 d
-#-------------------------------------------- 877 procedure_every_scan_replace_6
+#-------------------------------------------- 879 procedure_every_scan_replace_6
 [ constructed by hand ]
 ABCD EFGH IJKL MNOP
 AEIM BFJN CGKO DHLP
 AHKN BGLM CFIP DEJO
 AFLO BEKP CHJM DGIN
 AGJP BHIO CELN DFKM
-#-------------------------------------------- 878 procedure_every_scan_replace_4
+#-------------------------------------------- 880 procedure_every_scan_replace_4
 ##  test data for entab/detab tester; see driver program's comments for details
 #
 #   Remember that the characters --> "!.$" <-- are metacharacters, and cannot
@@ -395,7 +395,7 @@ abc\b!.de\b!..fghij\b!...k
 !...!.!..\n!...!.!..\r!...!.!..\n\r!...!.!..\r\n!...!.!..
 !...\a!.\a!..\a!..
 !...\b\b\b\b!...\b\a\b\a!.!.!..\n\n\n  \t!.!..\n
-#------------------------------------------- 880 procedure_record_scan_replace_2
+#------------------------------------------- 882 procedure_record_scan_replace_2
 {html{head
     {title Off the Beaten Path}
 }{body bgcolor="#EEEEEE"
