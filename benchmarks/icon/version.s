@@ -1,5 +1,7 @@
                         .intel_syntax    noprefix
                         .text
+                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/version.icn"
+                        .file            2 "<included>"
                         .globl           main
 main:
                         sub              rsp, 65544
@@ -84,11 +86,61 @@ main_β:
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
+                        push             rax
+                        push             rdx
+                        push             rbx
+                        mov              rbx, rsp
+                        and              rsp, -16
+                        mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              je    .Lmain_α_3_248
+                        .section         .rodata
+.Licn_trace_nm5:        .string          "main"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Licn_trace_nm5]
+                        mov              rsi, qword ptr [rbx + 16]
+                        mov              rdx, qword ptr [rbx + 8]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_return_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+.Lmain_α_3_248:         mov              rsp, rbx
+                        pop              rbx
+                        pop              rdx
+                        pop              rax
                         and              rsp, -16
                         xor              edi, edi
                         call             exit@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
+                        push             rax
+                        push             rdx
+                        push             rbx
+                        mov              rbx, rsp
+                        and              rsp, -16
+                        mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              je    .Lmain_α_3_249
+                        .section         .rodata
+.Licn_trace_nm6:        .string          "main"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Licn_trace_nm6]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_fail_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+.Lmain_α_3_249:         mov              rsp, rbx
+                        pop              rbx
+                        pop              rdx
+                        pop              rax
                         and              rsp, -16
                         xor              edi, edi
                         call             exit@PLT

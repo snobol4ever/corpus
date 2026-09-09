@@ -1,5 +1,7 @@
                         .intel_syntax    noprefix
                         .text
+                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/bench_icnsub_table_miss_semantics.icn"
+                        .file            2 "<included>"
                         .globl           main
 main:
                         sub              rsp, 65544
@@ -1425,7 +1427,7 @@ n95_binop_α:            mov              r11, 96
                         cmp              dl, 3;                               jne   .Lbinop_α_242_2
                         mov              rax, qword ptr [rbp + 536]
                         mov              rdx, qword ptr [rbp + 520]
-                        add              rax, rdx;                            jo    .Lbinop_α_242_2
+                        add              rax, rdx;                            jo    .Lbinop_α_242_0
                         mov              qword ptr [rbp + 496], 3
                         mov              qword ptr [rbp + 504], rax;          jmp   .Lbinop_α_242_7
 .Lbinop_α_242_2:        and              edx, 1;                              jz    .Lbinop_α_242_0
@@ -1713,7 +1715,7 @@ n00015_binop_α:           mov              r11, 113
                         cmp              dl, 3;                               jne   .Lbinop_α_269_2
                         mov              rax, qword ptr [rbp + 232]
                         mov              rdx, qword ptr [rbp + 216]
-                        add              rax, rdx;                            jo    .Lbinop_α_269_2
+                        add              rax, rdx;                            jo    .Lbinop_α_269_0
                         mov              qword ptr [rbp + 192], 3
                         mov              qword ptr [rbp + 200], rax;          jmp   .Lbinop_α_269_7
 .Lbinop_α_269_2:        and              edx, 1;                              jz    .Lbinop_α_269_0
@@ -1803,11 +1805,61 @@ main_β:
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
+                        push             rax
+                        push             rdx
+                        push             rbx
+                        mov              rbx, rsp
+                        and              rsp, -16
+                        mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              je    .Lmain_α_275_248
+                        .section         .rodata
+.Licn_trace_nm277:      .string          "main"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Licn_trace_nm277]
+                        mov              rsi, qword ptr [rbx + 16]
+                        mov              rdx, qword ptr [rbx + 8]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_return_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+.Lmain_α_275_248:       mov              rsp, rbx
+                        pop              rbx
+                        pop              rdx
+                        pop              rax
                         and              rsp, -16
                         xor              edi, edi
                         call             exit@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
+                        push             rax
+                        push             rdx
+                        push             rbx
+                        mov              rbx, rsp
+                        and              rsp, -16
+                        mov              rax, qword ptr [rip + g_trace@GOTPCREL]
+                        mov              rax, qword ptr [rax + 0]
+                        cmp              rax, 0;                              je    .Lmain_α_275_249
+                        .section         .rodata
+.Licn_trace_nm278:      .string          "main"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Licn_trace_nm278]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_fail_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+.Lmain_α_275_249:       mov              rsp, rbx
+                        pop              rbx
+                        pop              rdx
+                        pop              rax
                         and              rsp, -16
                         xor              edi, edi
                         call             exit@PLT
