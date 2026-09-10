@@ -31,4 +31,13 @@ tpp.icn	ORACLE_CONTRACT_NOT_IMPLEMENTED	Graded by a PREPROCESSOR-ONLY contract, 
 # ⭐ MIRRORED FROM OUTSIDE_ARIZONA_BASELINE.tsv 2026-09-09 (hq_P, ceo CEO-470), which is what makes the
 # inventory sum once test_icon_jcon_suite.sh takes these out of the graded denominator: the outside list
 # decides the DENOMINATOR, these rows are the same facts in the bucket the inventory reads.
-kwds.icn	ENVIRONMENT_IDENTITY_IN_OUTPUT	⭐ hq_V 2026-09-10 on ceo CEO-514, mirroring this program's OUTSIDE_ARIZONA_BASELINE.tsv row into the lockdown bucket so the inventory gap split can see it (hq_P measured the refusal: 77+3+10=90 against shipped 91, delta 1, and it was THIS program in neither bucket). UNGRADABLE rather than UNGRADED because the distinction is work-owed versus ruling: a timeout is work someone can finish, and this is a ruling with no cure that closes it. ⛔ STATED ON THE ORACLE SIDE ALONE, which this arm is right to insist on: THE SHIPPED kwds.std WAS CUT BY JCON, NOT BY ARIZONA ICONT -- it records &version: Jcon Version 2.2 and &features: Java, so it is not the Arizona oracle's answer to this program and cannot be graded as though it were. AND NO ARIZONA-CUT EXPECTATION CAN REPLACE IT, which is why this is a ruling and not a re-cut: the program prints &version, &features, &allocated and &storage, and those four are the identity and allocator internals OF WHATEVER IMPLEMENTATION RUNS IT -- Arizona icont answers Icon Version 9.5 and lists dynamic loading and external values where Jcon does not, and its allocator byte counts are its own. An expectation cut from any one implementation pins that implementation's identity rather than the program's answer, which is the same defect one level over (compare recent, whose .std pins ITS cutter's directory contents). This file's own header has recorded kwds since 09-09 as the ONE of seventeen that could not be re-cut.
+# ⛔⭐ kwds.icn's ROW IS REMOVED AND THE PROGRAM IS GRADED AND GREEN (hq_V 2026-09-10, ceo CEO-532).  I wrote
+# that row on 09-10 as the mirror of an OUTSIDE_ARIZONA_BASELINE.tsv row, and BOTH carried the same false
+# evidence sentence -- "THE SHIPPED kwds.std WAS CUT BY JCON ... &version: Jcon Version 2.2 and &features:
+# Java".  True of the file before corpus 5951c0703; false of the file on disk a day later, when kwds was in
+# that commit's OWN re-cut list and the seventeenth was recent.  ⛔ MIRRORING A ROW IS NOT MEASURING IT: the
+# gap split the mirror was written to satisfy (77+3+10=90 against shipped 91) is arithmetic about a NAME, and
+# it balanced just as well with the name in the wrong bucket -- an inventory that only has to SUM cannot tell
+# a correct ruling from a stale one, so the sum came out right and the program stayed excluded for a day.
+# The full reversal, the cure and hq_T's ruling on the class are recorded in OUTSIDE_ARIZONA_BASELINE.tsv,
+# which is where this row's twin lived; ONE PROGRAM CARRIES ONE RULING, and kwds now carries none.

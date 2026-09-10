@@ -13,6 +13,10 @@
 # carried `&version: Jcon Version 2.2` and `&features: Java` -- so for that program the vendored oracle
 # asked us to make SCRIP claim to BE Jcon.  Sixteen of the seventeen were re-cut from icont in the same
 # commit as this file; the rows below are what could not be.
+# ⛔ READ THAT SENTENCE CAREFULLY -- kwds IS ONE OF THE SIXTEEN, NOT THE EXCEPTION TO THEM (hq_V 2026-09-10).
+# It names kwds as the SMOKING GUN that motivated the census; the one that could not be re-cut was recent.
+# I read it as the exception and wrote kwds a row on that reading without opening the file, and the program
+# sat outside the denominator for a day.  See the kwds block below, where the row used to be.
 #
 # ⛔ THE STREAM GAP, NAMED HERE BECAUSE IT DECIDES FOUR ROWS AND IS NOT A DEFECT OF ANY PROGRAM:
 # cxtrace, loadfunc, traceback and tracing write their ENTIRE output to STDERR (icont's runtime error and
@@ -134,4 +138,35 @@ prepro	NEEDS_VENDORED_SOURCE	⛔ OURS TOO, WHICH CORRECTS CEO-487's RULING THAT 
 # BYTE-FOR-BYTE in BOTH modes (m3 and m4, zero diff lines) -- the exclusion, not the compiler, was the red.
 # ⛔ The mirror row in UNGRADABLE.tsv is removed in the same commit; one program carries one ruling, and now
 # it carries none.
-kwds	ENVIRONMENT_IDENTITY_IN_OUTPUT	⭐ THE SEVENTEENTH, AND IT IS NOW RE-CUT (hq_V 2026-09-10, ceo CEO-514). The header above records kwds.std as the one of seventeen that could not be re-cut because it asked us to make SCRIP claim to BE Jcon; the master entry it became (tests/icon ALL.icn procedure_every_alt_replace_4, origin rung36_jcon_kwds) still carried that Jcon-cut ref until this landing. FOUR VALUES ARE OUTSIDE THE BASELINE AND ONLY FOUR: &version, &features, &allocated, &storage -- implementation identity and allocator internals, which no two Icon implementations can agree on (icont says Icon Version 9.5 and lists dynamic loading and external values; SCRIP says Jcon Version 2.2 and does not). ⛔ NOT CEO-409, RULED: a line mask is earned by the ORACLE'S OWN VALUE MOVING BETWEEN RUNS, and icont measured three times is byte-stable here -- these move between IMPLEMENTATIONS, not between runs. CURED INSTEAD BY THE ORIGIN AUTHOR'S OWN TECHNIQUE, the one he used on &clock, &date and &time: the entry now prints type() of the four, so EXISTENCE AND TYPE stay graded (integer, integer, string, string, and the generator arities 4 and 3 agree) while the values themselves are named here. &features is printed once rather than per feature because the SIZE of the feature list is itself implementation identity. The ref is re-cut from icont under the entry own master name; what remains red is the six that are OURS -- &col &row &window &x &y must FAIL under no-graphics as icont does and SCRIP answers 0 or null, and &progname must echo the argv it was handed where SCRIP synthesises a dot-slash stem.
+# ⛔⭐⭐ kwds's ROW IS GONE AND kwds IS GRADED AND GREEN (hq_V 2026-09-10, ceo CEO-532) -- the same reversal
+# shape as recent above, geddump/htprep/prepro before it, and the fourth time on this file that a closed
+# ruling was the red.  ⛔ THE ROW I WROTE ON 09-10 CARRIED A FALSE EVIDENCE SENTENCE AND IT IS MINE, NOT
+# hq_P's: it said "THE SHIPPED kwds.std WAS CUT BY JCON ... it records &version: Jcon Version 2.2 and
+# &features: Java" (the UNGRADABLE.tsv mirror said it too).  That was true of the file BEFORE corpus
+# 5951c0703 and false of the file on disk when I wrote it a day later.  kwds is IN that commit's own re-cut
+# list ("from stdout  checkfpx ck errors fncs io kwds lists nargs profsum struct substring var"), and the
+# seventeenth -- the one that could not be re-cut -- was recent, not kwds.  The header sentence above names
+# kwds as the SMOKING GUN that motivated the census, not as the exception to it, and I read it as the
+# exception without opening the file.  MEASURED HERE BEFORE ANYTHING WAS TOUCHED: the shipped kwds.std is
+# BYTE-IDENTICAL to a fresh cut of the shipped source under /home/resources/icon-master/bin/icont.
+# ⭐ THE CURE IS THE CEO-514 SHAPE THIS SEAT ALREADY LANDED ON THE MASTER ENTRY, applied to this copy:
+# &allocated, &storage and &version print type() and &features prints type() ONCE rather than per feature
+# (the SIZE of the feature list is itself implementation identity), so EXISTENCE, TYPE and the generator
+# arities 4 and 3 stay graded while the values themselves stop being graded at all.  The ref is re-cut from
+# icont as `icon kwds.icn` -- the oracle's own source-invocation, which is the shape the runner hands US --
+# and cut TWICE in two different directories, byte-identical (the control recent's reversal established).
+# ⛔ THE SIXTEENTH LINE WAS &progname AND IT WAS NEVER THIS CLASS: ours reads kwds.icn in BOTH modes and
+# the old ref read ./kwds, which is the CUTTER's `icont -o kwds` invocation and not the program's answer --
+# the very defect 5951c0703's own message warns about two paragraphs on ("my first cut used `prog` and
+# kwds.std came back reading &progname: ./prog").  Under `icon kwds.icn` the oracle answers kwds.icn and we
+# already agreed.  GRADED AND GREEN: SCRIP 2bdee91cc matches this ref BYTE-FOR-BYTE in BOTH modes, zero diff
+# lines, and the denominator RISES by one because the exclusion was carrying the program, not the compiler.
+# ⭐ hq_T's RULING, IN ITS OWN WORDS, KEPT HERE BECAUSE IT OUTLIVES THIS ROW (hq_T → hq_V 2026-09-10,
+# declining a second vocabulary class and keeping the sharper half): A ROW WHOSE OUTPUT CANNOT BE MADE TO
+# AGREE BY ANY ENVIRONMENT IS CATEGORICALLY DIFFERENT FROM ONE THAT CAN, BECAUSE THE FIRST IS A PERMANENT
+# RULING AND THE SECOND IS DEFERRED WORK WEARING A RULING'S CLOTHES.  It was to go in kwds's reason column;
+# the row is gone, so it goes here, where the next reader of this file meets it.  ⛔ AND THIS PROGRAM IS THE
+# WORKED EXAMPLE OF THE SENTENCE, IN THE DIRECTION THAT COSTS: &version/&features/&allocated/&storage ARE
+# permanent -- no environment reconciles two implementations' identity -- and that permanence is exactly
+# what made the ruling look safe to close.  It was still deferred work, because the program was free to
+# stop printing them.  A permanent ruling about a VALUE is not a permanent ruling about a PROGRAM.
