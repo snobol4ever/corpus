@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_R/corpus/benchmarks/icon/tgrlink.icn"
+                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__loadfile:
@@ -99,7 +99,7 @@ n2_assign_α:            mov              r11, 2
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_93_0]
                         .section         .rodata
-.Lassign_α_93_1_s:      .string          "/home/claude_R/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_93_1_s:      .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_93_1_s]
@@ -1674,13 +1674,13 @@ loadfile_dcα:
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__kgen:
-                        lea              rax, [rsp + -928]
+                        lea              rax, [rsp + -936]
                         mov              qword ptr [rax + 880], rbp
                         mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rax + 888], rcx
                         mov              rcx, qword ptr [rsp + 8]
                         mov              qword ptr [rax + 896], rcx
-                        lea              rcx, [rsp + 48]
+                        lea              rcx, [rsp + 40]
                         mov              qword ptr [rax + 904], rcx
                         lea              rbp, [rax + 880]
                         mov              rsp, rax
@@ -2398,7 +2398,7 @@ n00041_assign_α:          mov              r11, 130
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_364_0]
                         .section         .rodata
-.Lassign_α_364_1_s:     .string          "/home/claude_R/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_364_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_364_1_s]
@@ -2450,8 +2450,7 @@ n00042_proc_gen_α:        mov              r11, 132
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8
-                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lproc_gen_α_368_7]      # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        lea              rcx, [rip + .Lproc_gen_α_368_7]      # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_368_1
                         sub              rsp, 8
@@ -2480,7 +2479,7 @@ n00042_proc_gen_α:        mov              r11, 132
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_368_2
 .Lproc_gen_α_368_5:     call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_368_2
 .Lproc_gen_α_368_4:     add              rsp, 16
-                        add              rsp, 16
+                        add              rsp, 8
                         mov              rax, qword ptr [rbp + 144]
                         test             rax, rax;                            jne   .Lproc_gen_α_368_6
                         mov              qword ptr [rbp + 144], 1
@@ -3300,13 +3299,13 @@ dumpcode_dcα:
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
 FN__aseq:
-                        lea              rax, [rsp + -848]
+                        lea              rax, [rsp + -856]
                         mov              qword ptr [rax + 800], rbp
                         mov              rcx, qword ptr [rsp + 0]
                         mov              qword ptr [rax + 808], rcx
                         mov              rcx, qword ptr [rsp + 8]
                         mov              qword ptr [rax + 816], rcx
-                        lea              rcx, [rsp + 48]
+                        lea              rcx, [rsp + 40]
                         mov              qword ptr [rax + 824], rcx
                         lea              rbp, [rax + 800]
                         mov              rsp, rax
@@ -3841,6 +3840,17 @@ n00106_to_α:              mov              r11, 195
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            jz    n00101_lit_integer_α
+                        mov              rdi, qword ptr [rbp + -528]
+                        mov              rsi, qword ptr [rbp + -520]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             core_icn_to_int_check@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
@@ -3848,6 +3858,17 @@ n00106_to_α:              mov              r11, 195
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + -528], 3
                         mov              qword ptr [rbp + -520], rax
+                        mov              rdi, qword ptr [rbp + -464]
+                        mov              rsi, qword ptr [rbp + -456]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            jz    n00101_lit_integer_α
                         mov              rdi, qword ptr [rbp + -464]
                         mov              rsi, qword ptr [rbp + -456]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -3997,6 +4018,17 @@ n00113_to_α:              mov              r11, 202
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            jz    n00112_var_α
+                        mov              rdi, qword ptr [rbp + -640]
+                        mov              rsi, qword ptr [rbp + -632]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             core_icn_to_int_check@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
@@ -4004,6 +4036,17 @@ n00113_to_α:              mov              r11, 202
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + -640], 3
                         mov              qword ptr [rbp + -632], rax
+                        mov              rdi, qword ptr [rbp + -624]
+                        mov              rsi, qword ptr [rbp + -616]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            jz    n00112_var_α
                         mov              rdi, qword ptr [rbp + -624]
                         mov              rsi, qword ptr [rbp + -616]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4153,6 +4196,17 @@ n00119_to_α:              mov              r11, 209
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            jz    aseq_ω
+                        mov              rdi, qword ptr [rbp + -752]
+                        mov              rsi, qword ptr [rbp + -744]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             core_icn_to_int_check@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
@@ -4160,6 +4214,17 @@ n00119_to_α:              mov              r11, 209
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + -752], 3
                         mov              qword ptr [rbp + -744], rax
+                        mov              rdi, qword ptr [rbp + -688]
+                        mov              rsi, qword ptr [rbp + -680]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            jz    aseq_ω
                         mov              rdi, qword ptr [rbp + -688]
                         mov              rsi, qword ptr [rbp + -680]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -4786,7 +4851,7 @@ n00147_assign_α:          mov              r11, 236
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_759_0]
                         .section         .rodata
-.Lassign_α_759_1_s:     .string          "/home/claude_R/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_759_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_759_1_s]
@@ -4851,7 +4916,7 @@ n00149_assign_α:          mov              r11, 238
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_762_0]
                         .section         .rodata
-.Lassign_α_762_1_s:     .string          "/home/claude_R/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_762_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_762_1_s]
@@ -10774,6 +10839,17 @@ n00419_to_α:             mov              r11, 508
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            jz    n00420_return_α
+                        mov              rdi, qword ptr [rbp + 64]
+                        mov              rsi, qword ptr [rbp + 72]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             core_icn_to_int_check@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
@@ -10781,6 +10857,17 @@ n00419_to_α:             mov              r11, 508
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], 3
                         mov              qword ptr [rbp + 72], rax
+                        mov              rdi, qword ptr [rbp + 80]
+                        mov              rsi, qword ptr [rbp + 88]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            jz    n00420_return_α
                         mov              rdi, qword ptr [rbp + 80]
                         mov              rsi, qword ptr [rbp + 88]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -15466,7 +15553,7 @@ n00643_assign_α:         mov              r11, 732
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1988_0]
                         .section         .rodata
-.Lassign_α_1988_1_s:    .string          "/home/claude_R/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_1988_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1988_1_s]
@@ -23877,7 +23964,7 @@ n01022_assign_α:         mov              r11, 1112
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_2909_0]
                         .section         .rodata
-.Lassign_α_2909_1_s:    .string          "/home/claude_R/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_2909_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_2909_1_s]
@@ -24088,7 +24175,7 @@ n01030_assign_α:         mov              r11, 1119
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_2919_0]
                         .section         .rodata
-.Lassign_α_2919_1_s:    .string          "/home/claude_R/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_2919_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_2919_1_s]
@@ -24170,7 +24257,7 @@ n01034_assign_α:         mov              r11, 1121
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_2922_0]
                         .section         .rodata
-.Lassign_α_2922_1_s:    .string          "/home/claude_R/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_2922_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_2922_1_s]
@@ -24308,7 +24395,7 @@ n01043_assign_α:         mov              r11, 1125
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_2928_0]
                         .section         .rodata
-.Lassign_α_2928_1_s:    .string          "/home/claude_R/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_2928_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_2928_1_s]
@@ -24493,7 +24580,7 @@ n01048_assign_α:         mov              r11, 1131
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_2936_0]
                         .section         .rodata
-.Lassign_α_2936_1_s:    .string          "/home/claude_R/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_2936_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_2936_1_s]
@@ -25562,7 +25649,7 @@ n01103_assign_α:         mov              r11, 1184
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_3010_0]
                         .section         .rodata
-.Lassign_α_3010_1_s:    .string          "/home/claude_R/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_3010_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3010_1_s]
@@ -25802,8 +25889,7 @@ n01112_proc_gen_α:       mov              r11, 1194
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8
-                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
-                        lea              rcx, [rip + .Lproc_gen_α_3027_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        lea              rcx, [rip + .Lproc_gen_α_3027_7]     # CEO-483 (hq_U): NO PAD IN THE GENERATOR REGIME. The pad above is caller-side transient bookkeeping that had drifted into the callee ENTRY FRAME as a sixth word, and hq_U FINDING-2026-09-09 measured that NOTHING READS IT -- an injected 0x5EEDFACE store into [entry rsp+32] left parse byte-identical while the same store into [entry rsp+0] SIGSEGVd, so the experiment had a positive control and the slot is padding. The comment that used to sit here named a `selfrec depth` reader at [entry rsp+32]; `selfrec` occurred exactly once in the whole tree -- in that sentence. The 8 bytes are NOT deleted, they MOVE ACROSS THE CALL into the callee`s own carve (emit.cpp: carve gains 8, ANCHOR lea rsp+48 -> rsp+40), so the callee body still lands 0 mod 16. Dropping the pad WITHOUT that move was measured on 2026-09-10 and SIGSEGVs patchu -- the crash is parity, never a lost datum. Entry frame in the generator regime is now FIVE words: [rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=N-2 ABI word, ANCHOR=[rsp+40]. rt_genp_spine_enter_n2 (rt.c) is the hand-written twin of this block and was shrunk by the same word in the same landing.
                         push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_3027_1
                         sub              rsp, 8
@@ -25832,7 +25918,7 @@ n01112_proc_gen_α:       mov              r11, 1194
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_3027_2
 .Lproc_gen_α_3027_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_3027_2
 .Lproc_gen_α_3027_4:    add              rsp, 16
-                        add              rsp, 16
+                        add              rsp, 8
                         mov              rax, qword ptr [rbp + 112]
                         test             rax, rax;                            jne   .Lproc_gen_α_3027_6
                         mov              qword ptr [rbp + 112], 1

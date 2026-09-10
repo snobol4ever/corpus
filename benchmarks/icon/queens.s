@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__q:
@@ -385,7 +385,7 @@ n15_assign_α:           mov              r11, 15
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_132_0]
                         .section         .rodata
-.Lassign_α_132_1_s:     .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_132_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_132_1_s]
@@ -661,7 +661,7 @@ n25_assign_α:           mov              r11, 25
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_145_0]
                         .section         .rodata
-.Lassign_α_145_1_s:     .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_145_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_145_1_s]
@@ -781,7 +781,7 @@ n30_assign_α:           mov              r11, 30
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_152_0]
                         .section         .rodata
-.Lassign_α_152_1_s:     .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_152_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_152_1_s]
@@ -863,6 +863,17 @@ n36_to_α:               mov              r11, 36
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            jz    q_ω
+                        mov              rdi, qword ptr [rbp + 672]
+                        mov              rsi, qword ptr [rbp + 680]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             core_icn_to_int_check@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
@@ -870,6 +881,17 @@ n36_to_α:               mov              r11, 36
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 672], 3
                         mov              qword ptr [rbp + 680], rax
+                        mov              rdi, qword ptr [rbp + 688]
+                        mov              rsi, qword ptr [rbp + 696]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            jz    q_ω
                         mov              rdi, qword ptr [rbp + 688]
                         mov              rsi, qword ptr [rbp + 696]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -3059,7 +3081,7 @@ n00021_assign_α:          mov              r11, 119
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_345_0]
                         .section         .rodata
-.Lassign_α_345_1_s:     .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_345_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_345_1_s]
@@ -3209,7 +3231,7 @@ n00029_assign_α:          mov              r11, 126
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_354_0]
                         .section         .rodata
-.Lassign_α_354_1_s:     .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_354_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_354_1_s]
@@ -3361,7 +3383,7 @@ n00035_assign_α:          mov              r11, 133
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_363_0]
                         .section         .rodata
-.Lassign_α_363_1_s:     .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_363_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_363_1_s]
@@ -3529,7 +3551,7 @@ n00042_assign_α:          mov              r11, 140
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_371_0]
                         .section         .rodata
-.Lassign_α_371_1_s:     .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_371_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_371_1_s]
@@ -9534,7 +9556,7 @@ n00315_assign_α:         mov              r11, 414
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1050_0]
                         .section         .rodata
-.Lassign_α_1050_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_1050_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1050_1_s]
@@ -9724,7 +9746,7 @@ n00322_assign_α:         mov              r11, 420
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1060_0]
                         .section         .rodata
-.Lassign_α_1060_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_1060_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1060_1_s]
@@ -9781,7 +9803,7 @@ n00324_assign_α:         mov              r11, 422
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1062_0]
                         .section         .rodata
-.Lassign_α_1062_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_1062_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1062_1_s]
@@ -9840,7 +9862,7 @@ n00326_assign_α:         mov              r11, 424
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1064_0]
                         .section         .rodata
-.Lassign_α_1064_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_1064_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1064_1_s]
@@ -9888,7 +9910,7 @@ n00327_assign_α:         mov              r11, 425
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1065_0]
                         .section         .rodata
-.Lassign_α_1065_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_1065_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1065_1_s]
@@ -10296,7 +10318,7 @@ n00340_assign_α:         mov              r11, 438
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1104_0]
                         .section         .rodata
-.Lassign_α_1104_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_1104_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1104_1_s]
@@ -10355,7 +10377,7 @@ n00342_assign_α:         mov              r11, 440
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1106_0]
                         .section         .rodata
-.Lassign_α_1106_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_1106_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1106_1_s]
@@ -11087,7 +11109,7 @@ n00369_assign_α:         mov              r11, 467
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1187_0]
                         .section         .rodata
-.Lassign_α_1187_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_1187_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1187_1_s]
@@ -11201,6 +11223,17 @@ n00374_to_α:             mov              r11, 473
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            jz    n00375_return_α
+                        mov              rdi, qword ptr [rbp + 64]
+                        mov              rsi, qword ptr [rbp + 72]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             core_icn_to_int_check@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
@@ -11208,6 +11241,17 @@ n00374_to_α:             mov              r11, 473
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], 3
                         mov              qword ptr [rbp + 72], rax
+                        mov              rdi, qword ptr [rbp + 80]
+                        mov              rsi, qword ptr [rbp + 88]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            jz    n00375_return_α
                         mov              rdi, qword ptr [rbp + 80]
                         mov              rsi, qword ptr [rbp + 88]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -11897,7 +11941,7 @@ n00406_assign_α:         mov              r11, 504
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1281_0]
                         .section         .rodata
-.Lassign_α_1281_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_1281_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1281_1_s]
@@ -12011,6 +12055,17 @@ n00411_to_α:             mov              r11, 510
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            jz    n00412_return_α
+                        mov              rdi, qword ptr [rbp + 64]
+                        mov              rsi, qword ptr [rbp + 72]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             core_icn_to_int_check@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
@@ -12018,6 +12073,17 @@ n00411_to_α:             mov              r11, 510
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], 3
                         mov              qword ptr [rbp + 72], rax
+                        mov              rdi, qword ptr [rbp + 80]
+                        mov              rsi, qword ptr [rbp + 88]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            jz    n00412_return_α
                         mov              rdi, qword ptr [rbp + 80]
                         mov              rsi, qword ptr [rbp + 88]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -13022,7 +13088,7 @@ n00450_assign_α:         mov              r11, 548
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1396_0]
                         .section         .rodata
-.Lassign_α_1396_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_1396_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1396_1_s]
@@ -13136,6 +13202,17 @@ n00455_to_α:             mov              r11, 554
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            jz    n00456_return_α
+                        mov              rdi, qword ptr [rbp + 64]
+                        mov              rsi, qword ptr [rbp + 72]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
                         call             core_icn_to_int_check@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
@@ -13143,6 +13220,17 @@ n00455_to_α:             mov              r11, 554
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], 3
                         mov              qword ptr [rbp + 72], rax
+                        mov              rdi, qword ptr [rbp + 80]
+                        mov              rsi, qword ptr [rbp + 88]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            jz    n00456_return_α
                         mov              rdi, qword ptr [rbp + 80]
                         mov              rsi, qword ptr [rbp + 88]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -13813,7 +13901,7 @@ n00483_assign_α:         mov              r11, 582
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1461_0]
                         .section         .rodata
-.Lassign_α_1461_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_1461_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1461_1_s]
@@ -14308,7 +14396,7 @@ n00492_assign_α:         mov              r11, 590
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1507_0]
                         .section         .rodata
-.Lassign_α_1507_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_1507_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1507_1_s]
@@ -14563,7 +14651,7 @@ n00504_assign_α:         mov              r11, 600
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1521_0]
                         .section         .rodata
-.Lassign_α_1521_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/queens.icn"
+.Lassign_α_1521_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/queens.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1521_1_s]
