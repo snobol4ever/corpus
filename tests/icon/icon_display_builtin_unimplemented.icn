@@ -1,5 +1,0 @@
-procedure main();
-   local x;
-   x := 42;
-   display(1, &output)
-end

@@ -5,10 +5,7 @@
 #
 lang	name	path
 icon	a_builtin_used_as_a_subscript_base_is_a_function_value	tests/icon/a_builtin_used_as_a_subscript_base_is_a_function_value.icn
-icon	a_section_of_the_null_value_raises_string_or_list_expected	tests/icon/a_section_of_the_null_value_raises_string_or_list_expected.icn
 icon	assigning_the_scan_keywords_a_wrong_type_raises_103_and_101_with_the_value	tests/icon/assigning_the_scan_keywords_a_wrong_type_raises_103_and_101_with_the_value.icn
-icon	display_prints_the_frames_locals_and_the_globals	tests/icon/display_prints_the_frames_locals_and_the_globals.icn
-icon	icon_display_builtin_unimplemented	tests/icon/icon_display_builtin_unimplemented.icn
 icon	list_and_reads_check_their_size_argument_and_real_exponentiation_reports_no_value	tests/icon/list_and_reads_check_their_size_argument_and_real_exponentiation_reports_no_value.icn
 icon	stop_writes_to_a_leading_file_argument_and_ends_its_line	tests/icon/stop_writes_to_a_leading_file_argument_and_ends_its_line.icn
 snobol4	any_dyn_nullalt	tests/snobol4/any_dyn_nullalt.sno
@@ -52,5 +49,5 @@ snobol4	span_dyn_noalt	tests/snobol4/span_dyn_noalt.sno
 snobol4	span_dyn_nullalt	tests/snobol4/span_dyn_nullalt.sno
 snocone	beauty_modules	tests/snocone/beauty_modules.sc
 #
-# TOTALS  icon=7/225  pascal=0/5  prolog=0/43  raku=0/97  rebus=0/3  snobol4=39/142  snocone=1/69
-# TOTAL ORPHANED PAIRS: 47
+# TOTALS  icon=4/223  pascal=0/5  prolog=0/43  raku=0/97  rebus=0/3  snobol4=39/142  snocone=1/69
+# TOTAL ORPHANED PAIRS: 44

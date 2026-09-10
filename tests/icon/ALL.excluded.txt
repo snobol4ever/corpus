@@ -1,5 +1,6 @@
 a_generator_frame_appears_in_the_traceback_like_an_ordinary_call	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 a_nul_bearing_subject_keeps_its_length_across_a_nested_scan_and_a_suspend	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+an_ordinary_call_chain_prints_every_frame_in_the_traceback	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 coexpr_gc_stack_witness	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 cset_membership_is_a_bit_test_not_a_name_lookup	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 element_generation_and_the_structure_builtins_raise_icons_own_errors	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
