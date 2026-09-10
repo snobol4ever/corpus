@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_U/corpus/benchmarks/icon/geddump.icn"
+                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__event:
@@ -62,7 +62,7 @@ n1_line_mark_α:         mov              r11, 1
                         mov              rcx, qword ptr [rip + .Lline_mark_α_43_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n2_line_mark_α
 .Lline_mark_α_43_0:     .quad            .Lline_mark_α_43_0_s
-.Lline_mark_α_43_0_s:   .string          "/home/claude_U/corpus/benchmarks/icon/geddump.icn"
+.Lline_mark_α_43_0_s:   .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .size            n1_line_mark_bx, .-n1_line_mark_bx
                         .type            n2_line_mark_bx, @function
 n2_line_mark_bx:
@@ -997,7 +997,7 @@ n00001_line_mark_α:       mov              r11, 42
                         mov              rcx, qword ptr [rip + .Lline_mark_α_125_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00002_lit_string_α
 .Lline_mark_α_125_0:    .quad            .Lline_mark_α_125_0_s
-.Lline_mark_α_125_0_s:  .string          "/home/claude_U/corpus/benchmarks/icon/geddump.icn"
+.Lline_mark_α_125_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .size            n00001_line_mark_bx, .-n00001_line_mark_bx
                         .type            n00002_lit_string_bx, @function
 n00002_lit_string_bx:
@@ -1473,7 +1473,7 @@ n00019_line_mark_α:       mov              r11, 60
                         mov              rcx, qword ptr [rip + .Lline_mark_α_161_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00020_var_ref_α
 .Lline_mark_α_161_0:    .quad            .Lline_mark_α_161_0_s
-.Lline_mark_α_161_0_s:  .string          "/home/claude_U/corpus/benchmarks/icon/geddump.icn"
+.Lline_mark_α_161_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .size            n00019_line_mark_bx, .-n00019_line_mark_bx
                         .type            n00020_var_ref_bx, @function
 n00020_var_ref_bx:
@@ -1760,7 +1760,7 @@ n00025_line_mark_α:       mov              r11, 66
                         mov              rcx, qword ptr [rip + .Lline_mark_α_327_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00026_line_mark_α
 .Lline_mark_α_327_0:    .quad            .Lline_mark_α_327_0_s
-.Lline_mark_α_327_0_s:  .string          "/home/claude_U/corpus/benchmarks/icon/geddump.icn"
+.Lline_mark_α_327_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .size            n00025_line_mark_bx, .-n00025_line_mark_bx
                         .type            n00026_line_mark_bx, @function
 n00026_line_mark_bx:
@@ -4333,7 +4333,7 @@ n00177_line_mark_α:       mov              r11, 218
                         mov              rcx, qword ptr [rip + .Lline_mark_α_631_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00178_line_mark_α
 .Lline_mark_α_631_0:    .quad            .Lline_mark_α_631_0_s
-.Lline_mark_α_631_0_s:  .string          "/home/claude_U/corpus/benchmarks/icon/geddump.icn"
+.Lline_mark_α_631_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .size            n00177_line_mark_bx, .-n00177_line_mark_bx
                         .type            n00178_line_mark_bx, @function
 n00178_line_mark_bx:
@@ -4574,7 +4574,7 @@ n00191_assign_α:          mov              r11, 231
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_648_0]
                         .section         .rodata
-.Lassign_α_648_1_s:     .string          "/home/claude_U/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_648_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_648_1_s]
@@ -6058,7 +6058,7 @@ n00248_line_mark_α:       mov              r11, 288
                         mov              rcx, qword ptr [rip + .Lline_mark_α_754_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00249_disjunction_α
 .Lline_mark_α_754_0:    .quad            .Lline_mark_α_754_0_s
-.Lline_mark_α_754_0_s:  .string          "/home/claude_U/corpus/benchmarks/icon/geddump.icn"
+.Lline_mark_α_754_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .size            n00248_line_mark_bx, .-n00248_line_mark_bx
                         .type            n00249_disjunction_bx, @function
 n00249_disjunction_bx:
@@ -6375,7 +6375,7 @@ n00257_line_mark_α:       mov              r11, 297
                         mov              rcx, qword ptr [rip + .Lline_mark_α_806_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00258_line_mark_α
 .Lline_mark_α_806_0:    .quad            .Lline_mark_α_806_0_s
-.Lline_mark_α_806_0_s:  .string          "/home/claude_U/corpus/benchmarks/icon/geddump.icn"
+.Lline_mark_α_806_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .size            n00257_line_mark_bx, .-n00257_line_mark_bx
                         .type            n00258_line_mark_bx, @function
 n00258_line_mark_bx:
@@ -7083,7 +7083,7 @@ n00291_line_mark_α:       mov              r11, 331
                         mov              rcx, qword ptr [rip + .Lline_mark_α_869_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00292_lit_string_α
 .Lline_mark_α_869_0:    .quad            .Lline_mark_α_869_0_s
-.Lline_mark_α_869_0_s:  .string          "/home/claude_U/corpus/benchmarks/icon/geddump.icn"
+.Lline_mark_α_869_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .size            n00291_line_mark_bx, .-n00291_line_mark_bx
                         .type            n00292_lit_string_bx, @function
 n00292_lit_string_bx:
@@ -7310,7 +7310,7 @@ n00297_line_mark_α:       mov              r11, 337
                         mov              rcx, qword ptr [rip + .Lline_mark_α_887_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00298_lit_string_α
 .Lline_mark_α_887_0:    .quad            .Lline_mark_α_887_0_s
-.Lline_mark_α_887_0_s:  .string          "/home/claude_U/corpus/benchmarks/icon/geddump.icn"
+.Lline_mark_α_887_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .size            n00297_line_mark_bx, .-n00297_line_mark_bx
                         .type            n00298_lit_string_bx, @function
 n00298_lit_string_bx:
@@ -7573,7 +7573,7 @@ n00303_line_mark_α:       mov              r11, 344
                         mov              rcx, qword ptr [rip + .Lline_mark_α_962_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00304_line_mark_α
 .Lline_mark_α_962_0:    .quad            .Lline_mark_α_962_0_s
-.Lline_mark_α_962_0_s:  .string          "/home/claude_U/corpus/benchmarks/icon/geddump.icn"
+.Lline_mark_α_962_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .size            n00303_line_mark_bx, .-n00303_line_mark_bx
                         .type            n00304_line_mark_bx, @function
 n00304_line_mark_bx:
@@ -9082,7 +9082,7 @@ n00365_line_mark_α:      mov              r11, 406
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1118_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00366_line_mark_α
 .Lline_mark_α_1118_0:   .quad            .Lline_mark_α_1118_0_s
-.Lline_mark_α_1118_0_s: .string          "/home/claude_U/corpus/benchmarks/icon/geddump.icn"
+.Lline_mark_α_1118_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .size            n00365_line_mark_bx, .-n00365_line_mark_bx
                         .type            n00366_line_mark_bx, @function
 n00366_line_mark_bx:
@@ -10446,7 +10446,7 @@ n00420_line_mark_α:      mov              r11, 461
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1382_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00421_line_mark_α
 .Lline_mark_α_1382_0:   .quad            .Lline_mark_α_1382_0_s
-.Lline_mark_α_1382_0_s: .string          "/home/claude_U/corpus/benchmarks/icon/geddump.icn"
+.Lline_mark_α_1382_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .size            n00420_line_mark_bx, .-n00420_line_mark_bx
                         .type            n00421_line_mark_bx, @function
 n00421_line_mark_bx:
@@ -10603,7 +10603,7 @@ n00432_assign_α:         mov              r11, 471
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1398_0]
                         .section         .rodata
-.Lassign_α_1398_1_s:    .string          "/home/claude_U/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_1398_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1398_1_s]
@@ -13316,7 +13316,7 @@ n00593_line_mark_α:      mov              r11, 634
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1859_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00594_line_mark_α
 .Lline_mark_α_1859_0:   .quad            .Lline_mark_α_1859_0_s
-.Lline_mark_α_1859_0_s: .string          "/home/claude_U/corpus/benchmarks/icon/geddump.icn"
+.Lline_mark_α_1859_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .size            n00593_line_mark_bx, .-n00593_line_mark_bx
                         .type            n00594_line_mark_bx, @function
 n00594_line_mark_bx:
@@ -13591,7 +13591,7 @@ n00614_assign_α:         mov              r11, 651
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1888_0]
                         .section         .rodata
-.Lassign_α_1888_1_s:    .string          "/home/claude_U/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_1888_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1888_1_s]
