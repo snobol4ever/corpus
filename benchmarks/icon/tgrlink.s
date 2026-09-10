@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_I/corpus/benchmarks/icon/tgrlink.icn"
+                        .file            1 "/home/claude_P/corpus/benchmarks/icon/tgrlink.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__loadfile:
@@ -99,7 +99,7 @@ n2_assign_α:            mov              r11, 2
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_93_0]
                         .section         .rodata
-.Lassign_α_93_1_s:      .string          "/home/claude_I/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_93_1_s:      .string          "/home/claude_P/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_93_1_s]
@@ -2398,7 +2398,7 @@ n00041_assign_α:          mov              r11, 130
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_364_0]
                         .section         .rodata
-.Lassign_α_364_1_s:     .string          "/home/claude_I/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_364_1_s:     .string          "/home/claude_P/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_364_1_s]
@@ -2439,10 +2439,6 @@ n00042_proc_gen_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00042_proc_gen_α:        mov              r11, 132
                         mov              qword ptr [rbp + 144], 0
-                        sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_368_7]      # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
                         mov              edi, 3
                         mov              esi, 0
                         mov              qword ptr [rip + rtccb+40], r8
@@ -2453,6 +2449,10 @@ n00042_proc_gen_α:        mov              r11, 132
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_368_7]      # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_368_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_368_4]
@@ -4786,7 +4786,7 @@ n00147_assign_α:          mov              r11, 236
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_759_0]
                         .section         .rodata
-.Lassign_α_759_1_s:     .string          "/home/claude_I/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_759_1_s:     .string          "/home/claude_P/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_759_1_s]
@@ -4851,7 +4851,7 @@ n00149_assign_α:          mov              r11, 238
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_762_0]
                         .section         .rodata
-.Lassign_α_762_1_s:     .string          "/home/claude_I/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_762_1_s:     .string          "/home/claude_P/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_762_1_s]
@@ -15466,7 +15466,7 @@ n00643_assign_α:         mov              r11, 732
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1988_0]
                         .section         .rodata
-.Lassign_α_1988_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_1988_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1988_1_s]
@@ -23877,7 +23877,7 @@ n01022_assign_α:         mov              r11, 1112
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_2909_0]
                         .section         .rodata
-.Lassign_α_2909_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_2909_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_2909_1_s]
@@ -24088,7 +24088,7 @@ n01030_assign_α:         mov              r11, 1119
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_2919_0]
                         .section         .rodata
-.Lassign_α_2919_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_2919_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_2919_1_s]
@@ -24170,7 +24170,7 @@ n01034_assign_α:         mov              r11, 1121
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_2922_0]
                         .section         .rodata
-.Lassign_α_2922_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_2922_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_2922_1_s]
@@ -24308,7 +24308,7 @@ n01043_assign_α:         mov              r11, 1125
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_2928_0]
                         .section         .rodata
-.Lassign_α_2928_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_2928_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_2928_1_s]
@@ -24493,7 +24493,7 @@ n01048_assign_α:         mov              r11, 1131
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_2936_0]
                         .section         .rodata
-.Lassign_α_2936_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_2936_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_2936_1_s]
@@ -25562,7 +25562,7 @@ n01103_assign_α:         mov              r11, 1184
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_3010_0]
                         .section         .rodata
-.Lassign_α_3010_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_3010_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3010_1_s]
@@ -25791,11 +25791,7 @@ n01112_proc_gen_α:       mov              r11, 1194
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_3027_201:  sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_3027_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 1
+.Lproc_gen_α_3027_201:  mov              edi, 1
                         mov              esi, 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -25805,6 +25801,10 @@ n01112_proc_gen_α:       mov              r11, 1194
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_3027_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_3027_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_3027_4]

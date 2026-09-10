@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_I/corpus/benchmarks/icon/geddump.icn"
+                        .file            1 "/home/claude_P/corpus/benchmarks/icon/geddump.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__event:
@@ -258,11 +258,7 @@ n11_proc_gen_α:         mov              r11, 11
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_51_203:    sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_51_7]       # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 7
+.Lproc_gen_α_51_203:    mov              edi, 7
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -272,6 +268,10 @@ n11_proc_gen_α:         mov              r11, 11
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_51_7]       # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_51_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_51_4]
@@ -3528,11 +3528,7 @@ n00123_proc_gen_α:        mov              r11, 167
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_437_201:   sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_437_7]      # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 5
+.Lproc_gen_α_437_201:   mov              edi, 5
                         mov              esi, 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -3542,6 +3538,10 @@ n00123_proc_gen_α:        mov              r11, 167
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_437_7]      # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_437_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_437_4]
@@ -4327,7 +4327,7 @@ n00155_assign_α:          mov              r11, 199
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_545_0]
                         .section         .rodata
-.Lassign_α_545_1_s:     .string          "/home/claude_I/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_545_1_s:     .string          "/home/claude_P/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_545_1_s]
@@ -5909,11 +5909,7 @@ n00207_proc_gen_α:        mov              r11, 254
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_644_201:   sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_644_7]      # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 5
+.Lproc_gen_α_644_201:   mov              edi, 5
                         mov              esi, 1
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -5923,6 +5919,10 @@ n00207_proc_gen_α:        mov              r11, 254
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_644_7]      # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_644_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_644_4]
@@ -8161,11 +8161,7 @@ n00299_proc_gen_α:        mov              r11, 340
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_878_203:   sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_878_7]      # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 7
+.Lproc_gen_α_878_203:   mov              edi, 7
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -8175,6 +8171,10 @@ n00299_proc_gen_α:        mov              r11, 340
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_878_7]      # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_878_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_878_4]
@@ -8404,11 +8404,7 @@ n00256_proc_gen_α:        mov              r11, 349
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_890_203:   sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_890_7]      # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 7
+.Lproc_gen_α_890_203:   mov              edi, 7
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -8418,6 +8414,10 @@ n00256_proc_gen_α:        mov              r11, 349
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_890_7]      # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_890_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_890_4]
@@ -9448,11 +9448,7 @@ n00345_proc_gen_α:        mov              r11, 386
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_997_203:   sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_997_7]      # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 7
+.Lproc_gen_α_997_203:   mov              edi, 7
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -9462,6 +9458,10 @@ n00345_proc_gen_α:        mov              r11, 386
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_997_7]      # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_997_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_997_4]
@@ -9692,11 +9692,7 @@ n00309_proc_gen_α:        mov              r11, 395
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_1009_203:  sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_1009_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 7
+.Lproc_gen_α_1009_203:  mov              edi, 7
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -9706,6 +9702,10 @@ n00309_proc_gen_α:        mov              r11, 395
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_1009_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1009_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_1009_4]
@@ -10112,7 +10112,7 @@ n00360_assign_α:         mov              r11, 403
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1171_0]
                         .section         .rodata
-.Lassign_α_1171_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_1171_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1171_1_s]
@@ -12336,11 +12336,7 @@ n00448_proc_gen_α:       mov              r11, 540
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_1347_203:  sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_1347_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 7
+.Lproc_gen_α_1347_203:  mov              edi, 7
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -12350,6 +12346,10 @@ n00448_proc_gen_α:       mov              r11, 540
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_1347_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1347_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_1347_4]
@@ -12909,7 +12909,7 @@ n00513_assign_α:         mov              r11, 554
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1581_0]
                         .section         .rodata
-.Lassign_α_1581_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_1581_1_s:    .string          "/home/claude_P/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1581_1_s]
@@ -13948,11 +13948,7 @@ n00571_proc_gen_α:       mov              r11, 611
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_1667_203:  sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_1667_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 8
+.Lproc_gen_α_1667_203:  mov              edi, 8
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -13962,6 +13958,10 @@ n00571_proc_gen_α:       mov              r11, 611
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_1667_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1667_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_1667_4]
@@ -14147,11 +14147,7 @@ n00578_proc_gen_α:       mov              r11, 617
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_1675_203:  sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_1675_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 8
+.Lproc_gen_α_1675_203:  mov              edi, 8
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -14161,6 +14157,10 @@ n00578_proc_gen_α:       mov              r11, 617
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_1675_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1675_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_1675_4]
@@ -14376,11 +14376,7 @@ n00567_proc_gen_α:       mov              r11, 623
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_1684_203:  sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_1684_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 8
+.Lproc_gen_α_1684_203:  mov              edi, 8
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -14390,6 +14386,10 @@ n00567_proc_gen_α:       mov              r11, 623
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_1684_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1684_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_1684_4]
@@ -14636,11 +14636,7 @@ n00590_proc_gen_α:       mov              r11, 631
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_1695_203:  sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_1695_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 6
+.Lproc_gen_α_1695_203:  mov              edi, 6
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -14650,6 +14646,10 @@ n00590_proc_gen_α:       mov              r11, 631
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_1695_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1695_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_1695_4]
@@ -14891,11 +14891,7 @@ n00598_proc_gen_α:       mov              r11, 639
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_1706_203:  sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_1706_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 8
+.Lproc_gen_α_1706_203:  mov              edi, 8
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -14905,6 +14901,10 @@ n00598_proc_gen_α:       mov              r11, 639
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_1706_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1706_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_1706_4]
@@ -15096,11 +15096,7 @@ n00606_proc_gen_α:       mov              r11, 646
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_1716_203:  sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_1716_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 6
+.Lproc_gen_α_1716_203:  mov              edi, 6
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -15110,6 +15106,10 @@ n00606_proc_gen_α:       mov              r11, 646
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_1716_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1716_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_1716_4]
@@ -15364,11 +15364,7 @@ n00615_proc_gen_α:       mov              r11, 655
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_1729_203:  sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_1729_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 8
+.Lproc_gen_α_1729_203:  mov              edi, 8
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -15378,6 +15374,10 @@ n00615_proc_gen_α:       mov              r11, 655
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_1729_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1729_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_1729_4]
@@ -15655,11 +15655,7 @@ n00625_proc_gen_α:       mov              r11, 665
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_1743_203:  sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_1743_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 8
+.Lproc_gen_α_1743_203:  mov              edi, 8
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -15669,6 +15665,10 @@ n00625_proc_gen_α:       mov              r11, 665
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_1743_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1743_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_1743_4]
@@ -16072,11 +16072,7 @@ n00644_proc_gen_α:       mov              r11, 681
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_1768_203:  sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_1768_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 8
+.Lproc_gen_α_1768_203:  mov              edi, 8
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -16086,6 +16082,10 @@ n00644_proc_gen_α:       mov              r11, 681
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_1768_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1768_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_1768_4]
@@ -16681,11 +16681,7 @@ n00650_proc_gen_α:       mov              r11, 710
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_1811_203:  sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_1811_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 7
+.Lproc_gen_α_1811_203:  mov              edi, 7
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -16695,6 +16691,10 @@ n00650_proc_gen_α:       mov              r11, 710
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_1811_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1811_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_1811_4]
@@ -16866,11 +16866,7 @@ n00677_proc_gen_α:       mov              r11, 715
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_1819_203:  sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_1819_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 8
+.Lproc_gen_α_1819_203:  mov              edi, 8
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -16880,6 +16876,10 @@ n00677_proc_gen_α:       mov              r11, 715
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_1819_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1819_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_1819_4]
@@ -17083,11 +17083,7 @@ n00640_proc_gen_α:       mov              r11, 722
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_1829_203:  sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_1829_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 8
+.Lproc_gen_α_1829_203:  mov              edi, 8
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -17097,6 +17093,10 @@ n00640_proc_gen_α:       mov              r11, 722
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_1829_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1829_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_1829_4]
@@ -17318,11 +17318,7 @@ n00688_proc_gen_α:       mov              r11, 729
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lproc_gen_α_1838_203:  sub              rsp, 8
-                        sub              rsp, 8                               # N-2 ABI WORD (row icon-generator-call-path-enters-every-runtime-helper-8-bytes-off-the-sysv-abi, hq_I root-caused, hq_B authored): the REGION HAND-OFF push below is a LONE 8B word and therefore PARITY-FLIPPING, so the armed call site pushed 40 bytes (pad+L7+region+wire pair) where the unarmed one pushes 32. The callee body then ran at rsp0-40 = 8 mod 16 and EVERY call it made entered a helper at 0 mod 16 -- latent until some callee reached an aligned SSE store, which is why it read as a record bug (suspend a list, nothing; suspend a RECORD and dat_construct -> rt_fire_buildplan_tweak -> snprintf -> movaps -> dead). This word is pushed FIRST, above the pad, ON PURPOSE: every documented entry offset ([rsp+0]=gamma [rsp+8]=omega [rsp+16]=REGION [rsp+24]=L7 [rsp+32]=pad) is UNCHANGED, and only the caller pre-pad rsp0 moves from [rsp+40] to [rsp+48] -- one constant in the alpha's ANCHOR lea and one in the beta re-creation. Placing it between L7 and the region instead would keep the region at +16 and silently move the pad, which is the slot the selfrec depth is read from at [entry rsp+32].
-                        lea              rax, [rip + .Lproc_gen_α_1838_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
-                        push             rax
-                        mov              edi, 6
+.Lproc_gen_α_1838_203:  mov              edi, 6
                         mov              esi, 2
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -17332,6 +17328,10 @@ n00688_proc_gen_α:       mov              r11, 729
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 8
+                        sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
+                        lea              rcx, [rip + .Lproc_gen_α_1838_7]     # PL-CALL-ALIGN: pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
+                        push             rcx
                         test             rax, rax;                            je    .Lproc_gen_α_1838_1
                         sub              rsp, 8
                         lea              rcx, [rip + .Lproc_gen_α_1838_4]
