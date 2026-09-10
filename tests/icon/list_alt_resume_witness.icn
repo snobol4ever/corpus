@@ -1,4 +1,0 @@
-procedure main()
-   local L;
-   every L := [7 | 8, 3 | 4] do { every writes(!L); write() };
-end

@@ -1,5 +1,0 @@
-procedure main()
-   local L;
-   L := [1, 7 | 9, 2];
-   every write(!L);
-end

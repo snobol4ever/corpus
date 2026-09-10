@@ -198,6 +198,7 @@ rung37_proc_lookup	KEEPER, declared in KEEP.md -- never absorbed (deferral contr
 rung37_subscript_genproc	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 samples_meander	KEEPER, declared in samples/KEEP.md -- never absorbed (deferral contract)
 sieve	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+the_co_expression_activation_trace_event_names_its_enclosing_procedure_and_its_own_line	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 trace_call_line_prints_every_parameter_and_images_a_list	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 unresolved_jcon_audit_53_section	KEEPER, declared in unresolved/KEEP.md -- never absorbed (deferral contract)
 unresolved_jcon_audit_54_section_plus	KEEPER, declared in unresolved/KEEP.md -- never absorbed (deferral contract)
