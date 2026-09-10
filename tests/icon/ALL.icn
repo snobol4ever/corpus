@@ -950,7 +950,7 @@ procedure main()
 end
 #---------------------------------------------------- 213 procedure_case_write_6
 procedure main()
-  write(case "b" of { "a": 1; "b": 2; "c": 3; default: 0; });
+  write(case "b" of { "a": 1; "b": 2; "c": 3; default: 0 });
 end
 #---------------------------------------------------- 214 procedure_case_write_8
 procedure main()
@@ -1076,8 +1076,8 @@ procedure main()
 end
 #---------------------------------------------------- 243 procedure_case_write_4
 procedure main()
-  write(case 2 of { 1: "one"; 2: "two"; 3: "three"; default: "other"; });
-  write(case 5 of { 1: "one"; 2: "two"; 3: "three"; default: "other"; });
+  write(case 2 of { 1: "one"; 2: "two"; 3: "three"; default: "other" });
+  write(case 5 of { 1: "one"; 2: "two"; 3: "three"; default: "other" });
 end
 #-------------------------------------------------------- 244 procedure_static_1
 procedure main()
@@ -1201,7 +1201,7 @@ procedure main()
 end
 #-------------------------------------------------------- 268 procedure_write_35
 procedure main()
-  x := (1; 2; 3);
+  x := {1; 2; 3};
   write(x);
 end
 #-------------------------------------------------------- 269 procedure_write_38
@@ -1285,9 +1285,9 @@ procedure main()
 end
 #---------------------------------------------------- 284 procedure_case_write_2
 procedure main()
-  write(case 1 of { 1: 1*10; 2: 2*20; default: 99*100; });
-  write(case 2 of { 1: 1*10; 2: 2*20; default: 99*100; });
-  write(case 7 of { 1: 1*10; 2: 2*20; default: 7*100; });
+  write(case 1 of { 1: 1*10; 2: 2*20; default: 99*100 });
+  write(case 2 of { 1: 1*10; 2: 2*20; default: 99*100 });
+  write(case 7 of { 1: 1*10; 2: 2*20; default: 7*100 });
 end
 #---------------------------------------------------- 285 procedure_find_write_1
 # rung08 t01: find(s1,s2) — one-shot first match
@@ -1376,7 +1376,7 @@ end
 #-------------------------------------------------------- 299 procedure_write_36
 procedure main()
   x := 0;
-  y := (x := x + 1; x := x + 1; x);
+  y := {x := x + 1; x := x + 1; x};
   write(y);
 end
 #-------------------------------------------------------- 300 procedure_write_50
@@ -1883,7 +1883,7 @@ procedure main()
 end
 #---------------------------------------------------- 373 procedure_case_write_5
 procedure main()
-  x := case 3 of { 1: 10; 2: 20; 3: 30; };
+  x := case 3 of { 1: 10; 2: 20; 3: 30 };
   write(x);
 end
 #---------------------------------------------------- 374 procedure_every_find_1
@@ -2808,7 +2808,7 @@ procedure classify(n)
   return case n of {
     1: "one";
     2: "two";
-    default: "many";
+    default: "many"
   };
 end
 procedure main()
@@ -3925,7 +3925,7 @@ end
 # rung16 A5: generative seq-expr (side-effect; alternate) as direct every generator
 procedure main()
   x := 0;
-  every (x := x + 10; "a" | "b" | "c");
+  every {x := x + 10; "a" | "b" | "c"};
   write(x);
 end
 #------------------------------------------------- 668 procedure_every_elemgen_1
@@ -4164,7 +4164,7 @@ procedure main()
   t := table();
   insert(t, "a", 42);
   if member(t, "a") then write("found");
-  if member(t, "b") then write("bad"); else write("absent");
+  if member(t, "b") then write("bad") else write("absent");
   write(member(t, "a"));
 end
 #------------------------------------------- 700 procedure_table_write_replace_7
@@ -4834,7 +4834,7 @@ procedure main()
   insert(t, "k2", 2);
   delete(t, "k1");
   write(*t);
-  if member(t, "k1") then write("bad"); else write("deleted");
+  if member(t, "k1") then write("bad") else write("deleted");
   write(t["k2"]);
 end
 #------------------------------------------- 768 procedure_table_write_replace_6
@@ -6776,7 +6776,7 @@ procedure sm_foo(c)
    local r
    static arr, visited
    initial { arr := list(n_test, 0); visited := list(n_test, 0) }
-   every 0 = arr[r := 1 to n_test] & arr[r] <- 1 do { visited[c] := r; if c < 3 then sm_foo(c + 1); else write(visited[1], ",", visited[2], ",", r) }
+   every 0 = arr[r := 1 to n_test] & arr[r] <- 1 do { visited[c] := r; if c < 3 then sm_foo(c + 1) else write(visited[1], ",", visited[2], ",", r) }
 end
 
 procedure test_queens_pattern()
@@ -6791,7 +6791,7 @@ procedure q(c)
    local r
    static up, down, rows
    initial { up := list(2*qn-1, 0); down := list(2*qn-1, 0); rows := list(qn, 0) }
-   every 0 = rows[r := 1 to qn] = up[qn+r-c] = down[r+c-1] & rows[r] <- up[qn+r-c] <- down[r+c-1] <- 1 do { qsol[c] := r; if c = qn then write("sol:", qsol[1], qsol[2], qsol[3], qsol[4]); else q(c + 1) }
+   every 0 = rows[r := 1 to qn] = up[qn+r-c] = down[r+c-1] & rows[r] <- up[qn+r-c] <- down[r+c-1] <- 1 do { qsol[c] := r; if c = qn then write("sol:", qsol[1], qsol[2], qsol[3], qsol[4]) else q(c + 1) }
 end
 #---------------------------------------------------- 865 procedure_every_scan_2
 #SRC: JCON
@@ -7668,7 +7668,7 @@ procedure kw(label, value)
    case type(value) of {
       "string":  s := value;
       "cset":    s := image(value) || "  [size " || *value || "]";
-      default:   s := image(value);
+      default:   s := image(value)
       }
    write(right("&" || label, 12), ": ", s);
    prev := label;
@@ -7734,7 +7734,7 @@ procedure meander(alpha,n)
    t := n-1;
    result := repl(alpha[ 1 ],t);
    while c := alpha[ i ] do { 
-      if find(result[ -t:0 ] || c,result);
+      if find(result[ -t:0 ] || c,result)
       then i -:= 1
       else { result ||:= c; i := k }
        }
@@ -8080,7 +8080,7 @@ procedure dump(x)
    local n;
 
    if n := serial(x) then
-      writes("#", n, "  ", "*", *x);
+      writes("#", n, "  ", "*", *x)
    else if type(x) === ("string" | "cset" | "real" | "integer") then
       writes("    *", *x);
    write("\t", type(x), " : ", image(x));
@@ -9527,11 +9527,11 @@ procedure ferr (err, func, args)
    val := val[1:-1];
    msg := "oops -- " || image(func) || "(" || val || ") ";
    &error := 1;
-   if func ! args;
+   if func ! args
       then write (msg, "succeeded")
-   else if &error ~= 0;
+   else if &error ~= 0
       then write (msg, "failed but no error")
-   else if &errornumber ~= err;
+   else if &errornumber ~= err
       then write (msg, "got error ",&errornumber," instead of ",err);
    &error := 0;
    return;
@@ -9604,7 +9604,7 @@ procedure escape (line);		# interpret escape sequences and trim one '$'
             "n": "\n";
             "r": "\r";
             "t": "\t";
-            default: "\\" || c;
+            default: "\\" || c
          });
       }
    return s;
