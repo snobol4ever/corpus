@@ -1,0 +1,14 @@
+procedure main()
+   &error := 20;
+   write(image(&subject := []) | "none", " A ", &errornumber, " ", image(&errorvalue), " ", &errortext);
+   write(image(&subject := 5) | "none", " B ", &errornumber, " ", image(&subject));
+   write(image(&subject := &null) | "none", " C ", &errornumber, " ", image(&errorvalue));
+   write(image(&subject := table()) | "none", " D ", &errornumber, " ", image(&errorvalue));
+   write(image(&subject := 'cba') | "none", " E ", image(&subject), " ", *&subject);
+   write(image(&pos := "x") | "none", " F ", &errornumber, " ", image(&errorvalue), " ", &errortext);
+   write(image(&pos := 2) | "none", " G ", &pos);
+   write(image(&pos := 99) | "none", " H ", &pos, " ", &errornumber);
+   write(image(&pos := "2") | "none", " I ", &pos);
+   &subject := "ab" || char(0) || "c";
+   write(*&subject, " J ", image(&subject));
+end

@@ -1,0 +1,5 @@
+function pull function write procedure main
+none A 114 function pull invalid type to subscript operation
+none B 114 function write
+none C 114 procedure main
+none D 110 function pull string or list expected
