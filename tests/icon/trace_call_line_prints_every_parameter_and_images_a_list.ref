@@ -1,0 +1,49 @@
+es_a_list.icn:   13  | f(1,&null,&null)
+2
+es_a_list.icn:    5  | f returned 1
+es_a_list.icn:   14  | f(1,2,&null)
+2
+es_a_list.icn:    5  | f returned 1
+es_a_list.icn:   15  | f("x",2.5,&null)
+2
+es_a_list.icn:    5  | f returned "x"
+es_a_list.icn:   17  | f(1,&null,&null)
+2
+es_a_list.icn:    5  | f returned 1
+es_a_list.icn:   18  | f(1,2,3)
+2
+es_a_list.icn:    5  | f returned 1
+es_a_list.icn:   19  | g(list_3 = [1,list_1(2),"a\"b",record pt_1(2)])
+es_a_list.icn:    8  | g returned list_3 = [1,list_1(2),"a\"b",record pt_1(2)]
+es_a_list.icn:   21  | g(list_4 = [1,2,3,...,28,29,30])
+es_a_list.icn:    8  | g returned list_4 = [1,2,3,...,28,29,30]
+es_a_list.icn:   22  | g(list_5 = [1,2,3,4,5,6])
+es_a_list.icn:    8  | g returned list_5 = [1,2,3,4,5,6]
+es_a_list.icn:   23  | g(list_6 = [1,2,3,...,5,6,7])
+es_a_list.icn:    8  | g returned list_6 = [1,2,3,...,5,6,7]
+es_a_list.icn:   24  | g(list_7 = [])
+es_a_list.icn:    8  | g returned list_7 = []
+es_a_list.icn:   26  | g(table_1(1))
+es_a_list.icn:    8  | g returned table_1(1)
+es_a_list.icn:   27  | g(set_1(1))
+es_a_list.icn:    8  | g returned set_1(1)
+es_a_list.icn:   28  | g(record pt_3(record pt_2(2),list_9(1)))
+es_a_list.icn:    8  | g returned record pt_3(record pt_2(2),list_9(1))
+es_a_list.icn:   29  | g(record pt_4(&null,&null))
+es_a_list.icn:    8  | g returned record pt_4(&null,&null)
+es_a_list.icn:   30  | g(record e_1())
+es_a_list.icn:    8  | g returned record e_1()
+es_a_list.icn:   31  | g(list_11 = [record pt_5(2),record e_2(),list_10 = [],"s",1])
+es_a_list.icn:    8  | g returned list_11 = [record pt_5(2),record e_2(),list_10 = [],"s",1]
+es_a_list.icn:   32  | g(record pt_6(list_12 = [],record e_3()))
+es_a_list.icn:    8  | g returned record pt_6(list_12 = [],record e_3())
+es_a_list.icn:   33  | g('ab')
+es_a_list.icn:    8  | g returned 'ab'
+es_a_list.icn:   34  | g(&null)
+es_a_list.icn:    8  | g returned &null
+es_a_list.icn:   35  | g(procedure main)
+es_a_list.icn:    8  | g returned procedure main
+es_a_list.icn:   36  | g(function write)
+es_a_list.icn:    8  | g returned function write
+1
+es_a_list.icn:   38  main failed

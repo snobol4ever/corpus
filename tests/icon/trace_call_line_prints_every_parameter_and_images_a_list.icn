@@ -1,0 +1,38 @@
+record pt(x, y)
+record e()
+procedure f(a, b, c)
+   write(&level);
+   return a;
+end
+procedure g(a)
+   return a;
+end
+procedure main()
+   local p, L, T, i;
+   &trace := -1;
+   f(1);
+   f(1, 2);
+   f("x", 2.5, &null);
+   p := f;
+   p(1);
+   p(1, 2, 3);
+   g([1, [2, 3], "a\"b", pt([9], 2)]);
+   L := []; every i := 1 to 30 do put(L, i);
+   g(L);
+   g([1,2,3,4,5,6]);
+   g([1,2,3,4,5,6,7]);
+   g([]);
+   T := table(); T["k"] := 1;
+   g(T);
+   g(set([1]));
+   g(pt(pt(1, 2), [3]));
+   g(pt());
+   g(e());
+   g([pt(), e(), [], "s", 1]);
+   g(pt([], e()));
+   g('ab');
+   g(&null);
+   g(main);
+   g(write);
+   write(&level);
+end
