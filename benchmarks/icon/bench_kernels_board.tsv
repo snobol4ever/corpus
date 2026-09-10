@@ -1,0 +1,20 @@
+kernel	verdict	iconx_Ir	m3_Ir	m4_Ir	iconx_WORK_Ir	m4_WORK_Ir	basis_Ir	m4_x_vs_iconx_Ir	iconx_wall_ms	jcont_wall_ms	m3_wall_ms	m4_wall_ms	iconx_spread_pct	jcont_spread_pct	m3_spread_pct	m4_spread_pct	iconx_WORK_wall	jcont_WORK_wall	m4_WORK_wall	basis_wall	m4_x_vs_jcont_wall	m4_A1_runs_s	m4_A2_runs_s	jcont_A1_runs_s	jcont_A2_runs_s	crossprove
+bench_icnint_loop	PASS	1500321544	174009168	168953120	1500003298	166018730	WORK	9.035x	90	140	10	10	25	15	0	0	90	70	10	TOTAL	TOTAL:14.000x	52.00	66.72	4.50	7.14	OK
+bench_icnint_mod_isolate	PASS	1566321374	243360463	234953641	1566003128	232019251	WORK	6.749x	110	170	20	20	44	69	0	50	110	100	20	WORK	5.000x	31.00	50.26	5.00	5.82	VOID
+bench_icnstr_concat_dispatch	PASS	1606391766	75067257	70952791	1606073520	68018401	WORK	23.612x	110	150	10	10	30	43	100	0	110	80	10	WORK	8.000x	50.00	64.27	5.50	7.11	OK
+bench_icnstr_concat_int_dispatch	PASS	2313225976	2140032162	2127396785	2312907730	2124462395	WORK	1.089x	130	170	160	140	8	25	7	14	130	100	140	WORK	0.714x	4.00	6.56	5.50	6.05	VOID
+bench_icnstr_concat_intvar	PASS	2006402358	2115446293	2106963216	2006084112	2104028826	WORK	0.953x	150	260	180	190	7	130	24	17	150	190	190	WORK	1.000x	5.50	5.22	3.50	4.37	OK
+bench_icnstr_concat_strvar	PASS	1680393558	603477615	594959443	1680075312	592025053	WORK	2.838x	150	240	60	70	33	33	60	125	150	170	70	WORK	2.429x	8.00	13.60	3.00	3.77	VOID
+bench_icnstr_concat_table	PASS	4385992311	REFUSED(rc=139)	REFUSED(rc=139)	4385674065	NA	-	 - 	290	130	240	220	26	58	69	94	290	60	220	TOTAL	TOTAL:0.591x	2.50	3.74	4.00	6.68	VOID
+bench_icnsub_list_dispatch	PASS	2634322381	763447428	744967306	2634004135	742032916	WORK	3.550x	160	180	60	60	12	6	33	117	160	110	60	WORK	1.833x	13.50	16.55	5.00	5.39	OK
+bench_icnsub_table_miss_dispatch	PASS	1846547237	980437983	966966098	1846228991	964031708	WORK	1.915x	110	150	80	80	9	23	25	29	110	80	80	WORK	1.000x	11.50	12.35	5.50	6.36	OK
+bench_icnsub_table_miss_semantics	PASS	27135062	46423548	27562633	26816816	24628243	WORK	1.089x	0	130	10	0	0	33	0	0	0	60	0	-	<1 tick	120.00	148.36	6.00	7.48	OK
+# ICON KERNEL SET -- tree=SCRIP 3bbdfc8c7 corpus dd661ede8 RT_OPT=-O0 date=2026-09-10 kernels=10 reps=7 warmup=2 loadavg_at_start=5.99 9.40 10.93
+# SHARED BOX: instrument A (Ir) is immune to load and reproduced byte-identically across three runs; instrument B (wall/cpu) is NOT. Read every ms column against its spread.
+# instrument A: callgrind Ir, ONE rep, deterministic -- byte-identical for a FIXED argv+environment (measured 3/3), ~0.0001% residue when path or env length changes. iconx, m3, m4. Ir REFUSES for jcont (JIT, ~35% spread, CEO-494).
+# instrument B: WALL/CPU ms from /usr/bin/time, median of 7 after 2 warm-ups -- all four engines. Spread%=(max-min)/min on wall.
+# basis: two-number. OVERHEAD = empty Icon program per engine PER INSTRUMENT. WORK = total - OVERHEAD. CEO-173: OVERHEAD >= 50% of an arm => basis=TOTAL.
+# OVERHEAD wall/cpu ms: iconx 0/0 jcont 70/100 m3 0/0 m4 0/0   OVERHEAD Ir: iconx 318246 m3 5039137 m4 2934390 (jcont REFUSED)
+# multiple = rival WORK / SCRIP m4 WORK on the SAME instrument (FASTER axis, >1 = SCRIP ahead). x_vs_iconx is Ir; x_vs_jcont is WALL. NO multiple crosses instruments.
+# three angles on B: A1 fixed 2s budget -> runs/s; A2 fixed 15 runs -> runs/s; A3 wrapper median (the ms columns). crossprove OK = A1 and A2 within 35%; VOID = refused.
+# verdict: stdout byte-compared against an iconx cut taken AT RUN TIME. A wrong answer gets no multiple.
