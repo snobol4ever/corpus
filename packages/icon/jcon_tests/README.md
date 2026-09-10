@@ -49,3 +49,27 @@ runner grades a program against its `.std` when upstream shipped one and against
 otherwise, and reads the modules a program `link`s from the program itself. A `.ref` is
 never cut from SCRIP's own output (THE PACKAGE LOCKDOWN, 2026-09-06). Cut by the cfo,
 2026-09-07.
+
+## REF PROVENANCE — which oracle cut each ref, and the two that Arizona cannot
+
+Every `.std` in this directory was cut by **JCON**, not by Arizona `icont`/`iconx`; that is what
+"vendored, verbatim" above means. hq_P's standing lane re-cuts each one from Arizona icont so the
+suite grades against the ONE Icon oracle (83 `.std` censused 2026-09-09: 59 agree, 17 re-cut, 4
+refused, 2 non-terminating, 1 orphan). **Two cannot be re-cut, and they are graded anyway against
+their JCON refs, with the reason named here** (ceo CEO-491 on Lon's order, 2026-09-10):
+
+- **`lgint.std` — JCON-provenance, ORACLE TIMEOUT.** Arizona `iconx` is still running at `rc=124`
+  after 600 s having written 4224 bytes. An hour-long run may yet supersede this.
+- **`toby.std` — JCON-provenance, ORACLE DEFECT.** Arizona's `to` wraps past `9223372036854775807`
+  to `-9223372036854775766` and never stops — 8333 lines in the first 200 KB — where the language
+  and jcon both stop at 48 lines. ⛔ The oracle here is not slow, it is **wrong**, and that is why
+  the two reasons may never be summed: a timeout cap reports an oracle defect and an oracle that
+  merely needs longer with the identical symptom, and only one of them has an answer waiting.
+
+Both are **RED until cured** (hq_I holds them). A red with a named owner is worth more than a
+silence: they previously sat in `OUTSIDE_ARIZONA_BASELINE.tsv` as `TIMEOUT`, outside the
+denominator, on the unstated assumption that the only admissible ref is one we cut ourselves.
+**A ref with a named provenance beats no ref at all.**
+
+`link1.ref` remains the one ref cut from Arizona (see above) — and no `.ref` or `.std` here is ever
+cut from SCRIP's own output (THE PACKAGE LOCKDOWN, 2026-09-06).

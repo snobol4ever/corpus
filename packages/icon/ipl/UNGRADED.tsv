@@ -149,6 +149,13 @@ gprogs/rows2blp.icn	NEEDS_STDIN_FIXTURE	stdin-driven filter: rows2blp.icn:30-38 
 # links a procs/ helper -- which is this library's NORMAL SHAPE -- fails to compile, and that failure was
 # recorded as the oracle's verdict on the program. Re-asked with IPATH set, 91 of the 92 compile. The one
 # that still refuses is progs/qei.icn, whose reason was hand-re-measured the same morning; it stays put.
+# ⛔ AND "IT STAYS PUT" LASTED ONE DAY -- qei JOINED THEM 2026-09-10, one row below, by the SAME defect wearing
+# the other face. The 91 were re-asked of the oracle with the environment fixed; qei was re-asked correctly and
+# still refused, so the row read as confirmed -- but nobody asked the oracle the OTHER question, whether the
+# file it refused was the file upstream ships. It is not: ours carries our conversion's semicolons and upstream
+# compiles rc=0. ⭐ A RE-MEASUREMENT THAT REPEATS THE ORIGINAL QUESTION CAN ONLY EVER CONFIRM; the control that
+# breaks the tie is a DIFFERENT question (diff against upstream), which is the same lesson as the `-I` control
+# two paragraphs down, one level up.
 # ⛔ THE DIRECTION IS WHAT MAKES IT SERIOUS: an over-broad ORACLE_REFUSES moves OUR reds out of the
 # denominator under the oracle's name, which is exactly the failure the POPULATION LAW exists to prevent.
 # 26 of the 91 run CLEAN under a bare driver and 5 of those already produce output -- there is ground truth
@@ -259,3 +266,8 @@ progs/verse.icn	ORACLE_FAIL	the oracle compiles it and the run fails under a no-
 progs/when.icn	ORACLE_FAIL	the oracle compiles it and the run fails under a no-argv /dev/null-stdin driver (runtime error) [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 progs/wshfdemo.icn	ORACLE_FAIL	the oracle compiles it and the run fails under a no-argv /dev/null-stdin driver (runtime error) -- the oracle's own first words:                          Weighted Shuffl [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
 progs/yahtz.icn	ORACLE_FAIL	the oracle compiles it and the run fails under a no-argv /dev/null-stdin driver (exit 1) -- the oracle's own first words: getentry:  I can't access your termcap file.  Read iolib.icn [re-classified 2026-09-09 by hq_P, CEO-452: this row said ORACLE_REFUSES and the oracle does not refuse it]
+# ⛔⭐ 2026-09-10 hq_P: progs/qei.icn ARRIVED HERE FROM UNGRADABLE.tsv/ORACLE_REFUSES, hq_P's own row of the day
+# before. An oracle's refusal is evidence about THE FILE YOU HANDED IT, never about the program upstream shipped, and
+# the two are the same file only if somebody checked. Nobody had. See jcon_tests/OUTSIDE_ARIZONA_BASELINE.tsv header
+# THE CONTROL ARM for the class and the rule now standing over every ORACLE_REFUSES row in an Icon package.
+progs/qei.icn	NEEDS_VENDORED_SOURCE	⛔ NOT AN ORACLE REFUSAL -- OUR VENDORING, and this row REPLACES hq_P's own 2026-09-09 ORACLE_REFUSES ruling on the same program (corrected hq_P 2026-09-10 by the control arm ceo CEO-487 forced on the three jcon rows). That ruling quoted icont correctly -- "File qei.icn; Line 185 # \";\": extraneous arguments on $else/$endif" -- and then said the semicolon was one "which the implementation this package came from accepted". FALSE, measured: upstream /home/resources/icon-master/ipl/progs/qei.icn compiles rc=0 under the same icont v9.5.25a, and our copy differs from it by semicolons and whitespace ALONE (12 residual diff lines, every one a tab or a comment, after stripping a trailing `;`). The `$else;` at line 185 is OUR 826-file conversion's, not the IPL's. Work owed: re-vendor the semicolons out of the preprocessor-directive lines; the ruling that "can only ever be revisited one program at a time" is withdrawn -- it is one class with hq_B's jcon repair.

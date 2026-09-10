@@ -31,6 +31,27 @@
 # adds geddump, htprep, prepro or tpp here, the first three are ALREADY BELOW, measured, and tpp belongs in
 # UNGRADABLE.tsv instead -- reconcile against this file rather than appending to it.
 #
+# ⛔⭐⭐ THE CONTROL ARM THESE THREE ROWS LACKED, AND IT REVERSED ALL THREE (hq_P 2026-09-10, on ceo CEO-487;
+# the ceo measured geddump and htprep, hq_P measured prepro and found it the same class rather than the
+# exception the ruling made of it).  geddump, htprep and prepro were ruled ORACLE_REFUSES on a real, correctly
+# quoted icont refusal -- and the refusal was OF OUR OWN FILE.  Each differs from its /home/resources/jcon-master
+# upstream ONLY by semicolons our 826-file conversion appended; upstream compiles rc=0 under the same icont,
+# runs clean, and its output matches the vendored .std BYTE-FOR-BYTE.  So all three leave UNGRADABLE (a ruling
+# nobody owes work on) for UNGRADED/NEEDS_VENDORED_SOURCE (work owed), and they return to the graded
+# denominator the moment the source is re-vendored -- no .std re-cut is owed for any of them.
+# ⭐ THE DISCRIMINATOR IS ONE COMMAND AND THE tpp ROWS ALREADY CARRIED IT: `diff ours upstream`, stated in the
+# row.  tpp1-5 say "byte-identical to arizona_tests ... upstream does not compile standalone either -- NOT our
+# vendoring edit", and that sentence is exactly what turns "the oracle refused" into "the oracle refused THE
+# PACKAGE'S OWN PROGRAM".  Without it an ORACLE_REFUSES row cannot tell those two apart, and they have opposite
+# owners.  ⛔ AN ORACLE'S REFUSAL IS EVIDENCE ABOUT THE FILE YOU HANDED IT, NEVER ABOUT THE PROGRAM UPSTREAM
+# SHIPPED, AND THE TWO ARE ONLY THE SAME FILE IF SOMEBODY CHECKED.  ⛔ The asymmetry lib_inventory.sh's tie-break
+# names is what made this expensive: a wrong UNGRADABLE hides work FOREVER, because nobody re-reads a closed
+# ruling -- these three sat closed while the repair was one sed wide.  ⭐ NO ORACLE_REFUSES ROW MAY BE WRITTEN
+# IN ANY ICON PACKAGE WITHOUT AN UPSTREAM CONTROL IN ITS REASON COLUMN.  Swept the same sitting: the only other
+# ORACLE_REFUSES row keyed on a semicolon anywhere under corpus/packages/icon is ipl/progs/qei.icn, hq_P's own
+# 2026-09-09 row, and it fell to the identical control (upstream icon-master/ipl/progs/qei.icn compiles rc=0;
+# ours differs by semicolons and whitespace alone) -- it moved to ipl/UNGRADED.tsv NEEDS_VENDORED_SOURCE.
+#
 # ⛔ CLASS NAMES ARE THE CLOSED VOCABULARY OF lib_inventory.sh, NOT PROSE (corrected 2026-09-09 after ceo
 # CEO-470): ORACLE_DOES_NOT_TERMINATE and ENVIRONMENT_DEPENDENT read well and are not classes anybody can
 # grep, so they became TIMEOUT and ENVIRONMENT_IDENTITY_IN_OUTPUT.  ⭐ The ceo's ruling is explicit that
@@ -59,13 +80,25 @@
 #   future program does hit it, nobody spends an afternoon in the runtime looking for a semantics bug.
 #
 # ⭐ MIRRORED INTO THE INVENTORY FILES, which is what makes the totals add up (the same convention the
-# csnobol4 suite uses): geddump htprep prepro -> UNGRADABLE.tsv ORACLE_REFUSES · recent -> UNGRADABLE.tsv
-# ENVIRONMENT_IDENTITY_IN_OUTPUT · lgint toby -> UNGRADED.tsv TIMEOUT (work owed: a bigger cap or a faster
-# runtime brings them back).  test_icon_jcon_suite.sh reads THIS file to decide the denominator and prints
+# csnobol4 suite uses): geddump htprep prepro -> UNGRADED.tsv NEEDS_VENDORED_SOURCE (⛔ was UNGRADABLE.tsv
+# ORACLE_REFUSES until 2026-09-10; see THE CONTROL ARM below) · recent -> UNGRADABLE.tsv
+# ENVIRONMENT_IDENTITY_IN_OUTPUT.
+#
+# ⛔⭐⭐ lgint AND toby ARE GONE FROM THIS FILE AND ARE GRADED (ceo CEO-491 on Lon's order, 2026-09-10; hq_P).
+# They stood here as TIMEOUT -- "no ground truth can be cut without an arbitrary truncation point, which would
+# be our number and not the oracle's" -- and that sentence quietly assumed the only admissible ref is one WE cut
+# from Arizona icont.  Both already SHIP a ref: lgint.std and toby.std, cut by JCON.  ⭐ THE RULING IS THAT A
+# REF WITH A NAMED PROVENANCE BEATS NO REF AT ALL, so they re-enter the graded population with their JCON
+# provenance written down (README.md § REF PROVENANCE) and they are RED until hq_I cures them -- a red with an
+# owner, where this file gave a silence with none.  ⛔ Their two reasons are DIFFERENT and may never be summed
+# with the icont-refuses class above: lgint is an ORACLE TIMEOUT (iconx rc=124 at 600 s, 4224 bytes written; a
+# one-hour run in flight may supersede it), while toby is an ORACLE DEFECT -- Arizona's `to` wraps past
+# 9223372036854775807 to -9223372036854775766 and never stops (8333 lines in the first 200 KB) where the
+# language and jcon both stop at 48 lines.  ⭐ THE SECOND IS THE ONE TO REMEMBER: the oracle was not slow, it
+# was WRONG, and a 30 s cap reported that as our inability to wait.  A TIMEOUT class is where an oracle defect
+# hides, because both look identical from outside the cap.  test_icon_jcon_suite.sh reads THIS file to decide the denominator and prints
 # every name on it with its reason on every run.
-geddump	ORACLE_REFUSES	icont refuses to compile it: "File geddump.icn; Line 139 # ";": invalid declaration". A jcon-dialect source Arizona Icon does not accept, so there is no ground truth for it under the one oracle.
-htprep	ORACLE_REFUSES	icont refuses to compile it: "File htprep.icn; Line 257 # ";": missing then". Same class as geddump: jcon-only surface.
-prepro	ORACLE_REFUSES	icont refuses to compile it: "File prepro.icn; Line 10 # $undef: too many arguments". JCON's preprocessor accepts a $undef form Arizona's does not; the program is a test OF that preprocessor.
-lgint	TIMEOUT	icont compiles it; the binary is still running at the 30 s cap (rc=124) having written 4224 bytes. No ground truth can be cut without an arbitrary truncation point, which would be our number and not the oracle's.
-toby	TIMEOUT	icont compiles it; the binary is still running at the 30 s cap (rc=124) having written 505,208,301 bytes -- half a gigabyte of stdout in 30 s. Same reason as lgint, and re-cutting it would also put a half-gigabyte ref in the corpus.
+geddump	NEEDS_VENDORED_SOURCE	⛔ NOT AN ORACLE REFUSAL -- OUR VENDORING (corrected hq_P 2026-09-10 on ceo CEO-487, measured against /home/resources/jcon-master/test/geddump.icn). Our copy differs from upstream ONLY by the semicolons our 826-file conversion appended: ZERO residual lines after stripping a trailing `;`. Upstream compiles rc=0 under `icont -s` and, run against the shipped geddump.dat, its stdout MATCHES the vendored geddump.std BYTE-FOR-BYTE -- so ground truth exists, no .std re-cut is owed, and the only work is re-vendoring the semicolons out of the positions BOTH dialects reject. The row this replaces read ORACLE_REFUSES "a jcon-dialect source Arizona Icon does not accept" and was false because upstream was never asked.
+htprep	NEEDS_VENDORED_SOURCE	⛔ NOT AN ORACLE REFUSAL -- OUR VENDORING, same measurement as geddump (hq_P 2026-09-10): zero residual lines against /home/resources/jcon-master/test/htprep.icn after stripping a trailing `;`, upstream compiles rc=0 under `icont -s`, and its run against htprep.dat MATCHES the vendored htprep.std byte-for-byte. Our three refusals (Line 257 "missing then", 266 and 286 "missing right parenthesis") are semicolons the conversion put INSIDE an if condition and inside parenthesised continuations -- invalid in Arizona Icon AND in ours.
+prepro	NEEDS_VENDORED_SOURCE	⛔ OURS TOO, WHICH CORRECTS CEO-487's RULING THAT IT STAYS OUTSIDE (measured hq_P 2026-09-10). `$undef ghi` with ONE argument is ordinary Arizona Icon, not a jcon extension: upstream test/prepro.icn compiles rc=0 and runs clean under icont once its shipped prepro.dat companion sits beside it -- a bare staged copy fails "prepro.dat: cannot open", which is the STAGING and not the preprocessor, and that is the error CEO-487 read as a refusal. Our "$undef: too many arguments" IS the `;` the conversion appended to 17 directive lines in prepro.icn and 2 in prepro.dat. PROVEN BY REPAIR: strip only those 19 semicolons and icont compiles rc=0, runs rc=0, and the output matches the vendored prepro.std byte-for-byte.
 recent	ENVIRONMENT_IDENTITY_IN_OUTPUT	Runs clean under icont and differs from the vendored .std by exactly two lines, both environment: the .std records `getenv(JCONT) = ../bin/jcont` (JCON's own build tree, unset anywhere else) and `found file: Makefile` (a listing of whatever directory the program is run from). Not re-cut: an icont-cut ref would pin THIS cutter's directory contents instead of the program's answer, which is the same defect one level over.
