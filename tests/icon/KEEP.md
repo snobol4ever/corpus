@@ -192,7 +192,8 @@ NAME `&input` as a value inside `image()`/`sort` — they never READ it.
 
 ⛔ **`rung36_jcon_io`, `rung36_jcon_others` and `rung36_jcon_recent` STAY, and hq_I's measurement of why is
 the important half of this entry: they pass only because THE ORACLE WAS STARVED THE SAME WAY WE WERE.**
-`io` and `others` read stdin, `recent` opens a `recent.dat` that is not in the corpus, and under
+`io` and `others` read stdin, `recent` opens a `recent.dat` that IS vendored at
+`packages/icon/jcon_tests/recent.dat` but has no copy BESIDE the rung36 fixture, and under
 `< /dev/null` both sides stop at the same place. Feed iconx seven lines and its output gains exactly the
 seven-line block the shipped `.expected` has and a starved cut lacks — so the `.expected` is the FED run and
 a starved icont cut is a truncated artifact. **Absorbing them would pin a PREFIX of each program as its
@@ -200,6 +201,33 @@ expectation, green forever and invisible downstream because ref and run agree by
 false-green class Lon's 2026-09-08 sidecar order exists to kill. They need stdin sidecars first, then refs
 re-cut FED. Evidence: `FINDING-2026-09-10-hq_I-three-of-the-six-rung36-keepers-pass-only-because-the-oracle-
 was-starved-the-same-way-we-were.md`.
+
+⛔⭐ **CORRECTED 2026-09-10 BY hq_I AGAINST ITS OWN FINDING, and the correction is worth more than the
+original claim: `recent.dat` IS IN THE CORPUS.** All 21 jcon `.dat` companions are vendored at
+`packages/icon/jcon_tests/`, byte-identical to upstream, and upstream also sits at
+`/home/resources/jcon-master/test/`. The finding said *not in the corpus at all*, which was wrong twice.
+**"Not vendored beside this copy" and "does not exist" are ONE `ls` APART AND THEY LICENSE OPPOSITE
+DECISIONS** — the first is a fixture to stage, the second parks a program as unfixable, which is what
+happened. Verified here before this edit: the three `.dat` files are present in the package directory and
+absent beside the `tests/icon/` rung36 copies, exactly as hq_I re-stated it.
+
+⭐ **AND THE HOLD ON `recent` IS NOW OBSOLETE — hq_I fed it and the false green broke open into a REAL
+CURE.** Starved, oracle and SCRIP were byte-identical at 313 lines, both ending `can't open recent.dat`:
+they agreed about where they both gave up. Fed, the oracle answers 443 and the divergence exposed two
+defects, both cured with a gate wired in the same landing — `open(<directory>)` SUCCEEDED and read ZERO
+entries (`fopen` on a directory succeeds, so the handle looked healthy while every read failed silently),
+and `reads(f,n)` on a directory must return ONE ENTRY truncated to n rather than n raw bytes. `recent`
+now passes BOTH modes against a live icont cut at 443 lines; `io` and `others` also pass fed (124 and 183
+lines), with `others`' shipped `.expected` equalling the fed icont cut EXACTLY — independent corroboration
+that the FED run is the right one — while `io`'s differs by 35 lines, so its ref must be an icont cut and
+never jcon's `.std`.
+
+⚠️ **`recent` REMAINS A POOR MASTER ENTRY EVEN CURED, and this is a property of the PROGRAM, not of the
+cure: IT LISTS ITS OWN CWD**, so its expectation depends on what files sit beside it and on per-directory
+`readdir` order — grading it in two different temp dirs manufactured 3 phantom missing lines for hq_I. It
+is the same family as the name-echoing class at the end of this file: **output that depends on where the
+program lives cannot survive a harness that decides where it lives.** Absorb it only into a controlled
+cwd, or leave it loose. Handed to the officers under CEO-523 with this note; hq_V did not absorb it.
 
 ⛔⭐ **FIVE NAMES LEFT THIS BUCKET 2026-09-09 (hq_C, CEO-445 on Lon's "Switch to Icon completely"):
 `rung36_jcon_errors` `rung36_jcon_evalx` `rung36_jcon_fncs` `rung36_jcon_gener` `rung36_jcon_image`
