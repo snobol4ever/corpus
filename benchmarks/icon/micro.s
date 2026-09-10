@@ -16560,7 +16560,7 @@ FN__susproc:
                         mov              qword ptr [rax + 216], rcx
                         lea              rbp, [rax + 192]
                         mov              rsp, rax
-                        mov              rdi, rax
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 0
                         mov              qword ptr [rip + rtccb+40], r8

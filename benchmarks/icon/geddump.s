@@ -6126,7 +6126,7 @@ FN__gedwalk:
                         mov              qword ptr [rax + 360], rcx
                         lea              rbp, [rax + 336]
                         mov              rsp, rax
-                        mov              rdi, rax
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -6467,7 +6467,12 @@ FN__gedsub:
                         mov              qword ptr [rax + 984], rcx
                         lea              rbp, [rax + 960]
                         mov              rsp, rax
-                        mov              rdi, rax
+                        mov              rdi, rsp
+                        add              rdi, 800
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 2
                         mov              edx, 3
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7199,7 +7204,7 @@ FN__gedval:
                         mov              qword ptr [rax + 312], rcx
                         lea              rbp, [rax + 288]
                         mov              rsp, rax
-                        mov              rdi, rax
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7450,7 +7455,7 @@ FN__gedref:
                         mov              qword ptr [rax + 328], rcx
                         lea              rbp, [rax + 304]
                         mov              rsp, rax
-                        mov              rdi, rax
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 1
                         mov              qword ptr [rip + rtccb+40], r8

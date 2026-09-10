@@ -2766,7 +2766,12 @@ FN__item:
                         mov              qword ptr [rax + 1224], rcx
                         lea              rbp, [rax + 1200]
                         mov              rsp, rax
-                        mov              rdi, rax
+                        mov              rdi, rsp
+                        add              rdi, 1040
+                        xor              eax, eax
+                        mov              ecx, 48
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 4
                         mov              qword ptr [rip + rtccb+40], r8

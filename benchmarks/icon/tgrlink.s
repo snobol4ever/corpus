@@ -1764,7 +1764,12 @@ FN__kgen:
                         mov              qword ptr [rax + 1000], rcx
                         lea              rbp, [rax + 976]
                         mov              rsp, rax
-                        mov              rdi, rax
+                        mov              rdi, rsp
+                        add              rdi, 848
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
@@ -3504,7 +3509,12 @@ FN__aseq:
                         mov              qword ptr [rax + 968], rcx
                         lea              rbp, [rax + 944]
                         mov              rsp, rax
-                        mov              rdi, rax
+                        mov              rdi, rsp
+                        add              rdi, 832
+                        xor              eax, eax
+                        mov              ecx, 32
+                        rep              stosb
+                        mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 2
                         mov              qword ptr [rip + rtccb+40], r8
