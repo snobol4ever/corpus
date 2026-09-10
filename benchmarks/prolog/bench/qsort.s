@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_coo/corpus/benchmarks/prolog/bench/qsort.pl"
+                        .file            1 "/home/claude_cto/corpus/benchmarks/prolog/bench/qsort.pl"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__partition$2F4:

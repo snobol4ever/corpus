@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_coo/corpus/benchmarks/prolog/bench/deriv.pl"
+                        .file            1 "/home/claude_cto/corpus/benchmarks/prolog/bench/deriv.pl"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__d$2F3:
