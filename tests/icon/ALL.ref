@@ -3799,7 +3799,14 @@ iters=3 (expect 3)
 f:A/112/C
 A 112 C
 A112C
-#----------------------------------------- 851 procedure_record_every_replace_10
+#------------------------------------------------------- 851 procedure_write_276
+procedure UnixMsg
+a3b
+xy
+loc
+dir
+A:end
+#----------------------------------------- 852 procedure_record_every_replace_10
 22
 42
 10
@@ -3816,7 +3823,7 @@ abXde
 40
 50
 i
-#----------------------------------------- 852 procedure_record_every_replace_16
+#----------------------------------------- 853 procedure_record_every_replace_16
 A:record r_1(1)
 B:record r_2(1)
 C:record r_3(1)
@@ -3826,7 +3833,7 @@ F:set_1(0)
 G:set_2(0)
 H:table_1(0)
 I:table_2(0)
-#----------------------------------------- 853 procedure_every_elemgen_replace_4
+#----------------------------------------- 854 procedure_every_elemgen_replace_4
 A. a
 B. a
 B. b
@@ -4195,11 +4202,11 @@ P a3de
 Q f4ij
 Q k5mno
 Q k6mno
-#-------------------------------------------- 854 procedure_scan_while_replace_2
+#-------------------------------------------- 855 procedure_scan_while_replace_2
 9
-#-------------------------------------------- 855 procedure_scan_while_replace_3
+#-------------------------------------------- 856 procedure_scan_while_replace_3
 9
-#------------------------------------------------------- 856 procedure_write_270
+#------------------------------------------------------- 857 procedure_write_270
  3 3 3
  7 7 7 7
  3 3 3
@@ -4209,20 +4216,20 @@ Q k6mno
  0 0 0 0 0
  1 1 1
  4 4 4
-#------------------------------------------------------- 857 procedure_write_261
+#------------------------------------------------------- 858 procedure_write_261
 A:1 7 42 3.5 9.25 "ant" "bee" "zoo" '0AZ' 'q' 
 B:1 7 42 3.5 9.25 "ant" "bee" "zoo" '0AZ' 'q' 
 C:10
 D:1 7 42 3.5 9.25 "ant" "bee" "zoo" '0AZ' 'q' 
 E:end
-#---------------------------------------------------- 858 procedure_scan_while_1
+#---------------------------------------------------- 859 procedure_scan_while_1
 dash
 flist size=0
-#------------------------------------------------------- 859 procedure_write_263
+#------------------------------------------------------- 860 procedure_write_263
 A:integer=int1 integer=int2 real=real string=str cset=cset file=file procedure=proc 
 B:14
 C:end
-#---------------------------------------------------- 860 procedure_every_alt_47
+#---------------------------------------------------- 861 procedure_every_alt_47
 214748364721474836472147483647
 small
 -214748364721474836472147483647
@@ -4233,14 +4240,14 @@ int-flat
 big-grew
 4
 -1
-#----------------------------------------- 861 procedure_record_every_replace_11
+#----------------------------------------- 862 procedure_record_every_replace_11
 5 17
 42
 17 42
 103 4 105 60
 7
 aXcd!
-#-------------------------------------------- 862 procedure_every_alt_replace_11
+#-------------------------------------------- 863 procedure_every_alt_replace_11
 &null
 &null
 "1"
@@ -4258,7 +4265,7 @@ null
 "1"
 "1"
 "1"
-#--------------------------------------------- 863 procedure_every_alt_replace_6
+#--------------------------------------------- 864 procedure_every_alt_replace_6
 function sqrt(0.0) = 0.0
 function sqrt(0.25) = 0.5
 function sqrt(1.0) = 1.0
@@ -4338,7 +4345,7 @@ function atan(0.0, 1.0) = 0.0
 function atan(1.0, -1.0) = 2.356
 function atan(1.0, 0.0) = 1.571
 function atan(1.0, 1.0) = 0.785
-#---------------------------------------------------- 864 procedure_every_alt_20
+#---------------------------------------------------- 865 procedure_every_alt_20
 simple_mutual:
 1,4
 1,5
@@ -4374,7 +4381,7 @@ static_mutual:
 queens_4:
 sol:2413
 sol:3142
-#---------------------------------------------------- 865 procedure_every_scan_2
+#---------------------------------------------------- 866 procedure_every_scan_2
 19683
 1
 -2
@@ -4386,7 +4393,7 @@ sol:3142
 2
 3
 xy
-#--------------------------------------------- 866 procedure_every_alt_replace_5
+#--------------------------------------------- 867 procedure_every_alt_replace_5
     s1    s2    <<   <<=    ==   ~==   >>=    >>
     ""    ""   ---    ""    ""   ---    ""   ---
     ""   "a"   "a"   "a"   ---   "a"   ---   ---
@@ -4423,7 +4430,7 @@ xy
     ''   "c"   "c"   "c"   ---   "c"   ---   ---
     ''   'x'   "x"   "x"   ---   "x"   ---   ---
     ''   '2'   "2"   "2"   ---   "2"   ---   ---
-#---------------------------------------------------- 867 procedure_every_alt_46
+#---------------------------------------------------- 868 procedure_every_alt_46
 x <-> y            ----> 2
 x                  ----> 2
 y                  ----> 1
@@ -4434,12 +4441,12 @@ y restored         ----> 1
 x :=: y            ----> 1
 x after :=:        ----> 1
 y after :=:        ----> 2
-#----------------------------------------- 868 procedure_every_elemgen_replace_9
+#----------------------------------------- 869 procedure_every_elemgen_replace_9
 A:10
 B:0
 C:10
 D:10
-#------------------------------------------ 869 procedure_suspend_scan_replace_1
+#------------------------------------------ 870 procedure_suspend_scan_replace_1
 accepted
 rejected
 accepted
@@ -4448,7 +4455,7 @@ rejected
 rejected
 rejected
 rejected
-#------------------------------------------------------- 870 procedure_write_251
+#------------------------------------------------------- 871 procedure_write_251
 record lab_5(1) -> l5
 record other_5(2) -> 5
 record lab_26(1) -> l26
@@ -4532,13 +4539,13 @@ set_1(1) -> 1
 list_6(1) -> 5
 table_6(0) -> 4
 list_11(1) -> 10
-#------------------------------------------------------- 871 procedure_write_258
+#------------------------------------------------------- 872 procedure_write_258
 A:40
 B:40
 C:""
 D:0
 E:end
-#-------------------------------------------- 872 procedure_every_alt_replace_13
+#-------------------------------------------- 873 procedure_every_alt_replace_13
 global<->local: 2
   ga=2 y=1
 global<->global: 2
@@ -4546,7 +4553,7 @@ global<->global: 2
   recede: ga=2 gb=1
   recede: ga=2 gb=1
 reached the end
-#-------------------------------------------- 873 procedure_every_alt_replace_12
+#-------------------------------------------- 874 procedure_every_alt_replace_12
 control image(&fail)|none -> none
 init: x=1 y=2 z=3
   (x<->y):=:z  -> 3
@@ -4554,7 +4561,7 @@ after (<->):=:: x=3 y=1 z=2
   x<->y:=:z    -> 3
 after <->:=:: x=3 y=1 z=2
 reached the end
-#------------------------------------------------------- 874 procedure_write_269
+#------------------------------------------------------- 875 procedure_write_269
  3 2 1
  5 4
 procedure lrev
@@ -4563,14 +4570,14 @@ ababab
 procedure thrice
 qqq qqq
 zzz
-#-------------------------------------------- 875 procedure_every_scan_replace_1
+#-------------------------------------------- 876 procedure_every_scan_replace_1
 c="n" optstring="n+" find=1
-#----------------------------------------- 876 procedure_every_suspend_replace_2
+#----------------------------------------- 877 procedure_every_suspend_replace_2
 suspend seq & const : 7 7 7 7 7 
 suspend (i:=seq) & i: 3 5 7 9 11 
 suspend 2 | (seq & i): 2 3 5 7 9 
 prime               : 2 3 5 7 11 
-#------------------------------------------- 877 procedure_every_scan_replace_12
+#------------------------------------------- 878 procedure_every_scan_replace_12
 a
 c
 e
@@ -4582,7 +4589,7 @@ i
 3
 
 abcde
-#------------------------------------------ 878 procedure_record_every_replace_6
+#------------------------------------------ 879 procedure_record_every_replace_6
 1 2
 3 4
 5 6
@@ -4598,7 +4605,7 @@ abcde
 3
 7
  11 22 73 74 
-#-------------------------------------------- 879 procedure_every_scan_replace_7
+#-------------------------------------------- 880 procedure_every_scan_replace_7
 type string
 *s  5
 s:  abcde
@@ -4636,7 +4643,7 @@ c3: "b"
 c4: "cdef"
 c5: "3.14159"
 c6: "abcdef"
-#-------------------------------------------- 880 procedure_every_scan_replace_8
+#-------------------------------------------- 881 procedure_every_scan_replace_8
   &pos=1   &subject=""
 
 s :=      "cat"         &pos=1   &subject="cat"
@@ -4699,9 +4706,9 @@ p :=          4 FAILED  &pos=2   &subject="x"
 &pos=3 x=3
 &pos=1 x=3
 &pos=1 x=2
-#----------------------------------------- 881 procedure_every_elemgen_replace_3
+#----------------------------------------- 882 procedure_every_elemgen_replace_3
 There are 168 primes in the first 1000 integers.
-#----------------------------------------- 882 procedure_record_coexpr_replace_2
+#----------------------------------------- 883 procedure_record_coexpr_replace_2
 string   ----> function write
 integer  ----> none
 real     ----> none
@@ -4716,7 +4723,47 @@ null     ----> none
 procedure----> procedure u
 recordctor->record constructor pt
 builtin  ----> function write
-#--------------------------------------------- 883 procedure_every_alt_replace_1
+#----------------------------------------- 884 procedure_every_suspend_replace_3
+starseq 
+starseq a
+starseq b
+starseq aa
+starseq ab
+starseq ba
+starseq bb
+starseq aaa
+starseq aab
+starseq aba
+starseq abb
+starseq baa
+starseq bab
+return aaa
+return aab
+return 2 aa
+local aaa
+local aab
+local 2 aa
+param aaa
+param aab
+param aa
+global aaa
+global aab
+global aa
+static aaa
+static aab
+static aa
+list aaa
+list aab
+list aa
+augment aaxa
+augment aaxb
+augment aax
+inline aaa
+inline aab
+inline aa
+chain aaac
+chain aabc
+#--------------------------------------------- 885 procedure_every_alt_replace_1
 6-Queens:
 solution 1:
   -------------------------
@@ -4775,7 +4822,7 @@ solution 4:
   |   | Q |   |   |   |   |
   -------------------------
 4 solutions total.
-#--------------------------------------------- 884 procedure_every_alt_replace_8
+#--------------------------------------------- 886 procedure_every_alt_replace_8
 6-Queens:
 solution 1:
   -------------------------
@@ -4834,7 +4881,7 @@ solution 4:
   |   | Q |   |   |   |   |
   -------------------------
 4 solutions total.
-#------------------------------------------ 885 procedure_record_every_replace_5
+#------------------------------------------ 887 procedure_record_every_replace_5
 
          0  i  2114
  453816694  i  4124
@@ -4900,7 +4947,7 @@ solution 4:
 1380138031  L  20
  425567097  R  2
  407906811  R  2
-#-------------------------------------------- 886 procedure_every_scan_replace_2
+#-------------------------------------------- 888 procedure_every_scan_replace_2
 +x          1     2     3     9
 -x         -1    -2    -3    -9
 *x          1     1     1     1
@@ -4955,7 +5002,7 @@ x ** y      2     1     2     2           2     1           x     2     2     x
 
   12578  .13459  ainorz  
   12345  678.9  cnost  
-#-------------------------------------------- 887 procedure_every_scan_replace_3
+#-------------------------------------------- 889 procedure_every_scan_replace_3
 The
 There
 are
@@ -4982,7 +5029,7 @@ sort
 the
 to
 write
-#----------------------------------------- 888 procedure_record_every_replace_17
+#----------------------------------------- 890 procedure_record_every_replace_17
 6
 8
 10
@@ -4995,7 +5042,7 @@ cba
   gen 3
   field m
 procedure dbl
-#--------------------------------------------- 889 procedure_every_alt_replace_4
+#--------------------------------------------- 891 procedure_every_alt_replace_4
   &allocated: 0
   &allocated: 0
   &allocated: 0
@@ -5072,7 +5119,7 @@ procedure dbl
      &window: &null
           &x: 0
           &y: 0
-#----------------------------------------- 890 procedure_every_elemgen_replace_2
+#----------------------------------------- 892 procedure_every_elemgen_replace_2
 XIII
 IV
 VI
@@ -5081,11 +5128,11 @@ cannot convert
 XXXIX
 MMMCMXCIX
 cannot convert
-#-------------------------------------------- 891 procedure_scan_while_replace_1
+#-------------------------------------------- 893 procedure_scan_while_replace_1
 accbcabbaa
 14434241332312211
 AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABABAAAA
-#------------------------------------------- 892 procedure_every_scan_replace_10
+#------------------------------------------- 894 procedure_every_scan_replace_10
 A                   2
 B                   1
 D                   1
@@ -5139,7 +5186,7 @@ write               1
 writes              1
 x                   3
 y                   4
-#---------------------------------------------- 893 procedure_to_while_replace_1
+#---------------------------------------------- 895 procedure_to_while_replace_1
      1  Order, Coleoptera, (Beetles). Many beetles are colored so as
      2  to resemble the surfaces which they habitually frequent, and they thus
      3  escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
@@ -5268,7 +5315,7 @@ well             : 13
 which            : 2, 4, 13, 14
 with             : 4, 9
 worm             : 8
-#------------------------------------------ 894 procedure_record_every_replace_4
+#------------------------------------------ 896 procedure_record_every_replace_4
 6-Queens:
 solution: 1
   -------------------------
@@ -5329,7 +5376,7 @@ solution: 4
   -------------------------
   |   | Q |   |   |   |   |
   -------------------------
-#------------------------------------------------- 895 procedure_every_suspend_7
+#------------------------------------------------- 897 procedure_every_suspend_7
 r1 2
 r2 2
 r3 2
@@ -5352,7 +5399,7 @@ r19 "7" 2
 r20 3
 r20 4
 r20 1
-#------------------------------------------ 896 procedure_record_every_replace_2
+#------------------------------------------ 898 procedure_record_every_replace_2
  ----> &null
 f := open("foo.baz","w") ----> file(foo.baz)
 write(f,"hello world") ----> "hello world"
@@ -5527,7 +5574,7 @@ close(f) ----> file(fncs1.dat)
 5.75              1.398 1.089 0.861 -0.50 -0.59 2.397 314.1 1.749 1.592 
 6.0               1.405 1.107 0.960 -0.27 -0.29 2.449 403.4 1.791 1.630 
 6.25              1.412 1.123 0.999 -0.03 -0.03 2.5   518.0 1.832 1.668 
-#----------------------------------------- 897 procedure_record_coexpr_replace_1
+#----------------------------------------- 899 procedure_record_coexpr_replace_1
 	null : &null
     *2	integer : 47
     *7	real : 3.14159
@@ -5579,7 +5626,7 @@ close(f) ----> file(fncs1.dat)
 
 '\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\xf9\xfa\xfb\xfc\xfd\xfe'
 
-#-------------------------------------------- 898 procedure_every_scan_replace_9
+#-------------------------------------------- 900 procedure_every_scan_replace_9
    initial : 0 :
  >> 
  >> 3 3 
@@ -5598,7 +5645,7 @@ k 3
 v 7
        30s : 5 : [0]30 [1]31 [2]32 [3]33 [4]34
        50s : 5 : [0]50 [1]51 [2]52 [3]53 [4]54
-#------------------------------------------ 899 procedure_record_every_replace_7
+#------------------------------------------ 901 procedure_record_every_replace_7
  ----> &null
 s := "abcd" ----> "abcd"
 s := "x" ----> "x"
@@ -5830,7 +5877,7 @@ bal('+','[','[',"[[2*x[+3[+[5*y[") ----> none
 bal('+','([','])',"([2*x)+3]+(5*y]") ----> 10
 bal(,,,"()+()") ----> 1
 bal(&cset,,,"()+()") ----> 1
-#----------------------------------------- 900 procedure_record_every_replace_13
+#----------------------------------------- 902 procedure_record_every_replace_13
  ----> &null
 2 === +2 ----> 2
 3 === *"abc" ----> 3
@@ -6135,9 +6182,9 @@ y := 2 ----> 2
 (x <- y) & &fail ----> none
 x ----> 1
 y ----> 2
-#------------------------------------------ 901 procedure_record_every_replace_1
+#------------------------------------------ 903 procedure_record_every_replace_1
 he runs.
-#-------------------------------------------- 902 procedure_every_scan_replace_5
+#-------------------------------------------- 904 procedure_every_scan_replace_5
 -2
 -2
 a. [0]
@@ -6190,7 +6237,7 @@ z. [18] 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29
 x. [9] 21 22 23 24 25 26 27 28 29
 y. [9] 41 42 43 44 45 46 47 48 49
 z. [18] 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78 79
-#----------------------------------------- 903 procedure_record_every_replace_15
+#----------------------------------------- 905 procedure_record_every_replace_15
 c1 after 0
 "c1 done"
 c1 after 60
@@ -6221,7 +6268,7 @@ equiv failed
 list_16(2)
 equiv failed
 set_8(2)
-#----------------------------------------- 904 procedure_record_every_replace_14
+#----------------------------------------- 906 procedure_record_every_replace_14
  ----> &null
 copy(1) ----> 1
 copy("abc") ----> "abc"
@@ -6677,7 +6724,7 @@ every write(seq(-10)) \ 10 ----> none
 25
 28
 every write(seq(,3)) \ 10 ----> none
-#------------------------------------------ 905 procedure_record_every_replace_3
+#------------------------------------------ 907 procedure_record_every_replace_3
 Enter states (1 character names): Enter input alphabet: Enter Final states (subset of states): What is the start state? enter delta(a,0) = enter delta(a,1) = enter delta(b,0) = enter delta(b,1) = enter delta(c,0) = enter delta(c,1) = enter delta(d,0) = enter delta(d,1) = enter delta(e,0) = enter delta(e,1) = enter delta(f,0) = enter delta(f,1) = enter delta(g,0) = enter delta(g,1) = enter delta(h,0) = enter delta(h,1) = 
 
 
@@ -7078,7 +7125,7 @@ where:
 	d(bf,0) = ag	d(bf,1) = ce
 	d(ce,0) = d	d(ce,1) = bf
 	d(d,0) = d	d(d,1) = ag
-#------------------------------------------- 906 procedure_every_scan_replace_13
+#------------------------------------------- 908 procedure_every_scan_replace_13
 test delete:    41,    3	[ok]
 test delete:    41,   11	[ok]
 test delete:    41,   23	[ok]
@@ -7121,7 +7168,7 @@ checking !T:
 checking key(T):
 
 [done]
-#-------------------------------------------- 907 procedure_every_scan_replace_6
+#-------------------------------------------- 909 procedure_every_scan_replace_6
 1 metafile 1250 1000 0 0 0 init
 581 950 (A) text
 751 880 (B) text
@@ -7191,7 +7238,7 @@ checking key(T):
 125 249 line stroke 874 249 begin 58 587 line stroke
 255 255 255 color
 0 0 (16 players, 5 rounds, 20 matches) text
-#-------------------------------------------- 908 procedure_every_scan_replace_4
+#-------------------------------------------- 910 procedure_every_scan_replace_4
 testing entab/detab(s)
 testing entab/detab(s,5)
 testing entab/detab(s,8,12)
@@ -7203,7 +7250,7 @@ testing entab/detab(s,3)
 testing entab/detab(s,3,4)
 testing entab/detab(s,5)
 testing entab/detab(s,5,7,10)
-#----------------------------------------- 909 procedure_record_every_replace_12
+#----------------------------------------- 911 procedure_record_every_replace_12
 
 error in line 7:
    &error = -2
@@ -7737,7 +7784,7 @@ error in line 180:
    &errortext = "negative first argument to real exponentiation"
 (-36. ^ -9.) | monitor(&line) ----> 180
  eginopst
-#------------------------------------------- 910 procedure_record_scan_replace_2
+#------------------------------------------- 912 procedure_record_scan_replace_2
 <!-- Created by HTPREP -->
 <html><head>
 <title>Off the Beaten Path</title>
@@ -7812,10 +7859,3 @@ Barbecuing with Liquid Oxygen</a>
 <hr>
 <address><a href="http://www.cs.arizona.edu/~gmt">Gregg Townsend</a></address>
 </body></html>
-#------------------------------------------------------- 911 procedure_write_276
-procedure UnixMsg
-a3b
-xy
-loc
-dir
-A:end
