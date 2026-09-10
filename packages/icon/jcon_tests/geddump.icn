@@ -136,7 +136,7 @@ record gednode(
    parent,	# parent node in tree
    ref,		# referenced node, if any
    sub		# sub-entry list
-);
+)
 
 $define WHITESPACE ' \t\n\r'
 

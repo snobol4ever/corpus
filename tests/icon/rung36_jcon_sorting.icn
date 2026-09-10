@@ -104,7 +104,7 @@ procedure randval()
       1:  ?999;					# 000 - 999
       2:  ?99 / 10.0;				# 0.0 - 9.9
       3:  ?&letters || ?&letters || ?&letters;	# "AAA" - "ZZZ"
-      4:  ?&digits ++ ?&letters ++ ?&letters;	# '0AA' - '9ZZ'
+      4:  ?&digits ++ ?&letters ++ ?&letters	# '0AA' - '9ZZ'
       }
 end
 
@@ -127,7 +127,7 @@ procedure check(a, b)
          case type(ai) of {
 	    "integer":	d := (ai1 > ai) | &null;
 	    "real":	d := (ai1 > ai) | &null;
-	    "string":	d := (ai1 >> ai) | &null;
+	    "string":	d := (ai1 >> ai) | &null
 	    }
 	 stop("element ", i, " out of order: ", image(\d));
          }

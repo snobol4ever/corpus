@@ -43,7 +43,7 @@
 #
 ############################################################################
 
-$define SIGNATURE "<!-- Created by HTPREP -->";
+$define SIGNATURE "<!-- Created by HTPREP -->"
 $define WSPACE ' \t'		# whitespace cset
 
 

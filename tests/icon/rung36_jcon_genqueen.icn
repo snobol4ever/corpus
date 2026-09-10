@@ -46,7 +46,7 @@ global
    n,                           # Number of rows/columns
    rw,                          # List of queens in each row
    dd,                          # List of queens in each down diagonal
-   ud;                           # List of queens in each up diagonal
+   ud                           # List of queens in each up diagonal
 
 procedure main (args);           # Program arguments
    n := integer (args [1]) | 6;

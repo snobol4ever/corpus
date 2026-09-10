@@ -24,7 +24,7 @@ procedure main(args)
 	r:        "r";
 	c:        "c";
 	L:        "L";
-        default:  "default";
+        default:  "default"
         }
       write(right(s, 10), " : " , image(x));
       }

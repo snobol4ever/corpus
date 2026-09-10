@@ -124,11 +124,11 @@ procedure expr4()
    while e1 do next;
    case e of {
      x:   fail;
-     (i > j) | 1    :  return;
+     (i > j) | 1    :  return
      }
    case size(s) of {
      1:   1;
-     default:  fail;
+     default:  fail
      }
    if e1 then e2;
    if e1 then e2 else e3;

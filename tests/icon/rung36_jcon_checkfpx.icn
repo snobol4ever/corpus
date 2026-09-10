@@ -104,7 +104,7 @@ procedure Image(x)
    if type(x) ~== "real" then return image(x)
    else {
       x ? {
-         if head := tab(upto('e'));
+         if head := tab(upto('e'))
          then {
             tail := tab(0);
             head ? return (tab(span | 0) || tail);

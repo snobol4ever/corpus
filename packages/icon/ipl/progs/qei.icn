@@ -182,7 +182,7 @@ procedure main()
 
 $ifdef _MS_WINDOWS
       sc :=  system("wicont -s qei_.icn " || atos(incfiles, " "));
-$else;
+$else
       sc :=  system("icont -s qei_.icn " || atos(incfiles, " "));
 $endif
       if sc = 0 then rc := system("qei_");
