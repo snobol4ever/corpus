@@ -1,0 +1,15 @@
+_own_line.icn:    7  | main; co-expression_1 : &null @ co-expression_3
+_own_line.icn:    6  | sink()
+_own_line.icn:   18  | | sink; co-expression_3 : &null @ co-expression_2
+_own_line.icn:    5  | | feed()
+_own_line.icn:   12  | | | feed; co-expression_2 : 1 @ co-expression_3
+1
+_own_line.icn:   18  | | | sink; co-expression_3 : &null @ co-expression_2
+_own_line.icn:   13  | | | feed; co-expression_2 : 2 @ co-expression_3
+2
+_own_line.icn:   18  | | | sink; co-expression_3 : &null @ co-expression_2
+_own_line.icn:   14  | | | feed; co-expression_2 : 3 @ co-expression_3
+3
+_own_line.icn:   19  | | | sink; co-expression_3 : &null @ co-expression_1
+done
+_own_line.icn:    9  | | main failed
