@@ -9,32 +9,32 @@ procedure spell(n)
          9nine,10ten,11eleven,12twelve," ? {
             tab(find(n));
             move(*n);
-            tab(upto(","));
+            tab(upto(","))
             }
       }
    else if n <= 19 then return {
       spell(n[2] || "0") ?
-         (if ="for" then "four" else tab(find("ty"))) || "teen";
+         (if ="for" then "four" else tab(find("ty"))) || "teen"
       }
    else if n <= 99 then return {
       "2twen,3thir,4for,5fif,6six,7seven,8eigh,9nine," ? {
          tab(upto(n[1]));
          move(1);
          tab(upto(",")) || "ty" ||
-            if n[2] ~= 0 then "-" || spell(n[2]);
+            if n[2] ~= 0 then "-" || spell(n[2])
          }
       }
    else if n <= 999 then return {
       spell(n[1]) || " hundred" ||
-         (if (m := n[2:0]) ~= 0 then " and " || spell(m) else "");
+         (if (m := n[2:0]) ~= 0 then " and " || spell(m) else "")
       }
    else if n <= 999999 then return {
       spell(n[1:-3]) || " thousand" ||
-         (if (m := n[2:0]) ~= 0 then " and " || spell(m) else "");
+         (if (m := n[2:0]) ~= 0 then " and " || spell(m) else "")
       }
    else if n <= 999999999 then return {
       spell(n[1:-6]) || " million" ||
-         (if (m := n[2:0]) ~= 0 then " and " || spell(m) else "");
+         (if (m := n[2:0]) ~= 0 then " and " || spell(m) else "")
       }
    else fail;
 end
