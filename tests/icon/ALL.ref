@@ -5390,7 +5390,23 @@ r19 "7" 2
 r20 3
 r20 4
 r20 1
-#------------------------------------------ 898 procedure_record_every_replace_2
+#------------------------------------------- 898 procedure_every_scan_replace_14
+The quick brown fox jumps over lazy dogs tab here end 
+digits 13
+ucase T
+e|ui|o|o|u|o|e|a|o|a|e|e|e|
+blanks 11
+consonant runs 20
+'xyz' 3
+&cset 256 128 52
+T
+'\t !,13;Tabcdefghijklmnopqrstuvwxyz' 34
+33
+a
+b
+c
+ dehlorw
+#------------------------------------------ 899 procedure_record_every_replace_2
  ----> &null
 f := open("foo.baz","w") ----> file(foo.baz)
 write(f,"hello world") ----> "hello world"
@@ -5565,7 +5581,7 @@ close(f) ----> file(fncs1.dat)
 5.75              1.398 1.089 0.861 -0.50 -0.59 2.397 314.1 1.749 1.592 
 6.0               1.405 1.107 0.960 -0.27 -0.29 2.449 403.4 1.791 1.630 
 6.25              1.412 1.123 0.999 -0.03 -0.03 2.5   518.0 1.832 1.668 
-#----------------------------------------- 899 procedure_record_coexpr_replace_1
+#----------------------------------------- 900 procedure_record_coexpr_replace_1
 	null : &null
     *2	integer : 47
     *7	real : 3.14159
@@ -5617,7 +5633,7 @@ close(f) ----> file(fncs1.dat)
 
 '\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\xf9\xfa\xfb\xfc\xfd\xfe'
 
-#-------------------------------------------- 900 procedure_every_scan_replace_9
+#-------------------------------------------- 901 procedure_every_scan_replace_9
    initial : 0 :
  >> 
  >> 3 3 
@@ -5636,7 +5652,7 @@ k 3
 v 7
        30s : 5 : [0]30 [1]31 [2]32 [3]33 [4]34
        50s : 5 : [0]50 [1]51 [2]52 [3]53 [4]54
-#------------------------------------------ 901 procedure_record_every_replace_7
+#------------------------------------------ 902 procedure_record_every_replace_7
  ----> &null
 s := "abcd" ----> "abcd"
 s := "x" ----> "x"
@@ -5868,7 +5884,7 @@ bal('+','[','[',"[[2*x[+3[+[5*y[") ----> none
 bal('+','([','])',"([2*x)+3]+(5*y]") ----> 10
 bal(,,,"()+()") ----> 1
 bal(&cset,,,"()+()") ----> 1
-#----------------------------------------- 902 procedure_record_every_replace_13
+#----------------------------------------- 903 procedure_record_every_replace_13
  ----> &null
 2 === +2 ----> 2
 3 === *"abc" ----> 3
@@ -6173,9 +6189,9 @@ y := 2 ----> 2
 (x <- y) & &fail ----> none
 x ----> 1
 y ----> 2
-#------------------------------------------ 903 procedure_record_every_replace_1
+#------------------------------------------ 904 procedure_record_every_replace_1
 he runs.
-#-------------------------------------------- 904 procedure_every_scan_replace_5
+#-------------------------------------------- 905 procedure_every_scan_replace_5
 -2
 -2
 a. [0]
@@ -6228,7 +6244,7 @@ z. [18] 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29
 x. [9] 21 22 23 24 25 26 27 28 29
 y. [9] 41 42 43 44 45 46 47 48 49
 z. [18] 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78 79
-#----------------------------------------- 905 procedure_record_every_replace_15
+#----------------------------------------- 906 procedure_record_every_replace_15
 c1 after 0
 "c1 done"
 c1 after 60
@@ -6259,7 +6275,7 @@ equiv failed
 list_16(2)
 equiv failed
 set_8(2)
-#----------------------------------------- 906 procedure_record_every_replace_14
+#----------------------------------------- 907 procedure_record_every_replace_14
  ----> &null
 copy(1) ----> 1
 copy("abc") ----> "abc"
@@ -6715,7 +6731,88 @@ every write(seq(-10)) \ 10 ----> none
 25
 28
 every write(seq(,3)) \ 10 ----> none
-#------------------------------------------ 907 procedure_record_every_replace_3
+#----------------------------------------- 908 procedure_record_every_replace_18
+2
+3
+b
+c
+e
+f
+g
+h
+ijk
+23skidoo
+bob
+hello!
+mom!
+hello!
+mom!
+hello!
+mom!
+hello!
+mom!
+hello
+hello pop
+i=-4: failed
+i=-3: a
+i=-2: b
+i=-1: c
+i=0: failed
+i=1: a
+i=2: b
+i=3: c
+i=4: failed
+1
+2
+3
+4
+5
+6
+1
+5
+9
+10
+30
+50
+1 11
+2 22
+3 33
+4 44
+5 55
+6 66
+7 77
+8 88
+9 99
+repl: xxxxyzxyzxyzxyz
+reverse: xba54321
+char: @ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+proc: 
+   function write
+   function write
+   function write
+   function write
+   procedure args
+   function args
+  >procedure main
+  >0
+   function args
+   function args
+argument evaluation test
+11
+33
+33
+qq
+wqwerty
+33
+77
+88
+&null
+&null
+record constructor recordAsVariable
+3
+OK to get here
+done
+#------------------------------------------ 909 procedure_record_every_replace_3
 Enter states (1 character names): Enter input alphabet: Enter Final states (subset of states): What is the start state? enter delta(a,0) = enter delta(a,1) = enter delta(b,0) = enter delta(b,1) = enter delta(c,0) = enter delta(c,1) = enter delta(d,0) = enter delta(d,1) = enter delta(e,0) = enter delta(e,1) = enter delta(f,0) = enter delta(f,1) = enter delta(g,0) = enter delta(g,1) = enter delta(h,0) = enter delta(h,1) = 
 
 
@@ -7116,7 +7213,7 @@ where:
 	d(bf,0) = ag	d(bf,1) = ce
 	d(ce,0) = d	d(ce,1) = bf
 	d(d,0) = d	d(d,1) = ag
-#------------------------------------------- 908 procedure_every_scan_replace_13
+#------------------------------------------- 910 procedure_every_scan_replace_13
 test delete:    41,    3	[ok]
 test delete:    41,   11	[ok]
 test delete:    41,   23	[ok]
@@ -7159,7 +7256,7 @@ checking !T:
 checking key(T):
 
 [done]
-#-------------------------------------------- 909 procedure_every_scan_replace_6
+#-------------------------------------------- 911 procedure_every_scan_replace_6
 1 metafile 1250 1000 0 0 0 init
 581 950 (A) text
 751 880 (B) text
@@ -7229,7 +7326,7 @@ checking key(T):
 125 249 line stroke 874 249 begin 58 587 line stroke
 255 255 255 color
 0 0 (16 players, 5 rounds, 20 matches) text
-#-------------------------------------------- 910 procedure_every_scan_replace_4
+#-------------------------------------------- 912 procedure_every_scan_replace_4
 testing entab/detab(s)
 testing entab/detab(s,5)
 testing entab/detab(s,8,12)
@@ -7241,7 +7338,871 @@ testing entab/detab(s,3)
 testing entab/detab(s,3,4)
 testing entab/detab(s,5)
 testing entab/detab(s,5,7,10)
-#----------------------------------------- 911 procedure_record_every_replace_12
+#----------------------------------------- 913 procedure_record_every_replace_19
+ ----> &null
+list(0) ----> list_1(0)
+list(0,1) ----> list_2(0)
+list(1,1) ----> list_3(1)
+list(100,"a") ----> list_4(100)
+table() ----> table_1(0)
+table(0) ----> table_2(0)
+a := [] ----> list_5(0)
+every put(a,!&lcase) ----> none
+a1 := sort(a) ----> list_6(26)
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+every write(!a1) ----> none
+sort(a1) ----> list_7(26)
+t := table() ----> table_3(0)
+every t[!&lcase] := 1 ----> none
+sort(t) ----> list_8(26)
+a := sort(t) ----> list_35(26)
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+every write((!a)[1]) ----> none
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+every write((!a)[2]) ----> none
+set([1,0,1,0,1,0,1,0]) ----> set_1(2)
+set([]) ----> set_2(0)
+s := set([1,2,3,4,5,6,7,8,9,10]) ----> set_3(10)
+*s ----> 10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+every write(!sort(s)) ----> none
+*copy(s) ----> 10
+image(s) ----> "set_3(10)"
+type(s) ----> "set"
+member(s,8) ----> 8
+member(s,"8") ----> none
+s := set([]) ----> set_5(0)
+every insert(s,1 to 100) ----> none
+*s ----> 100
+every delete(s,15 to 30) ----> none
+*s ----> 84
+every s1 := insert(set([]),!&lcase) ----> none
+s2 := set(["a","aa","ab","b",1,2,3,4]) ----> set_7(8)
+s3 := s1 ++ s2 ----> set_8(32)
+s4 := s1 ** s2 ----> set_9(2)
+s5 := s1 -- s2 ----> set_10(24)
+*s3 ----> 32
+*s4 ----> 2
+*s5 ----> 24
+t := table() ----> table_4(0)
+every t[1 | &output | &cset | [] | "hello" | main | 2 | table()] := ?100 ----> none
+a := sort(t,3) ----> list_70(16)
+1 22
+2 8
+"hello" 43
+&cset 32
+&output 42
+procedure main 31
+list_69(0) 52
+table_5(0) 74
+every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1]) ----> none
+a := sort(t,4) ----> list_71(16)
+2 8
+1 22
+procedure main 31
+&cset 32
+&output 42
+"hello" 43
+list_69(0) 52
+table_5(0) 74
+every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1]) ----> none
+t := table() ----> table_6(0)
+every t[1 | &output | &cset | [] | "hello" | main | 2 | table()] := ?100 ----> none
+a := sort(t,3) ----> list_73(16)
+1 6
+2 58
+"hello" 54
+&cset 14
+&output 72
+procedure main 63
+list_72(0) 34
+table_7(0) 71
+every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1]) ----> none
+a := sort(t,4) ----> list_74(16)
+1 6
+&cset 14
+list_72(0) 34
+"hello" 54
+2 58
+procedure main 63
+table_7(0) 71
+&output 72
+every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1]) ----> none
+x := [array(),table(),write,[],&input,1,"abc",'aa',&null] ----> list_76(9)
+x := sort(x) ----> list_77(9)
+&null
+1
+"abc"
+'a'
+&input
+function write
+list_75(0)
+table_8(0)
+record array_1(7)
+every write(image(!x)) ----> none
+t := table(table()) ----> table_10(0)
+table_10(1)
+table_10(2)
+table_10(3)
+table_10(4)
+table_10(5)
+table_10(6)
+table_10(7)
+table_10(8)
+table_10(9)
+table_10(10)
+every t[1 to 10] := 1 do write(image(t)) ----> none
+t := table() ----> table_11(0)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+every t[1 to 10] := 1 do write(*t) ----> none
+t[] := 6 ----> 6
+t[] ----> 6
+*t ----> 11
+t[&null] := 7 ----> 7
+t[] ----> 7
+*t ----> 11
+x := [] ----> list_78(0)
+*x ----> 0
+every push(x,1 to 10) ----> none
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+every 1 to 10 do write(pop(x)) ----> none
+*x ----> 0
+pop(x) ----> none
+pull(x) ----> none
+get(x) ----> none
+every put(x,1 to 10) ----> none
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+every 1 to 10 do write(get(x)) ----> none
+every push(x,1 to 10) ----> none
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+every 1 to 10 do write(pull(x)) ----> none
+x := [1,2,3,4,5,6,7,8,9,0] ----> list_79(10)
+list_80(10)
+list_81(9)
+list_82(8)
+list_83(7)
+list_84(6)
+list_85(5)
+list_86(4)
+list_87(3)
+list_88(2)
+list_89(1)
+list_90(0)
+every write(image(x[1:0 to -20 by -1])) ----> none
+a := [1,2,3,4,5,6,7,8] ----> list_91(8)
+a1 := a[2:4] ----> list_92(2)
+a2 := a[7:2] ----> list_93(5)
+a3 := a[2+:3] ----> list_94(3)
+a4 := a[-1-:3] ----> list_95(3)
+a1[1] ----> 2
+a2[1] ----> 2
+a3[1] ----> 2
+a4[1] ----> 5
+a4[1] := a ----> list_91(8)
+a := [1,2,3,4] ----> list_96(4)
+a1 := a[1:2] ----> list_97(1)
+1
+every write(!a1) ----> none
+a2 := a[3:0] ----> list_98(2)
+3
+4
+every write(!a2) ----> none
+a4 := a[2:2] ----> list_99(0)
+every write(!a4) ----> none
+a5 := a[0-:2] ----> list_100(2)
+3
+4
+every write(!a5) ----> none
+a3 := a[0:3] ----> list_101(2)
+3
+4
+every write(!a3) ----> none
+a := "abcd" ----> "abcd"
+a1 := a[1:2] ----> "a"
+a
+every write(!a1) ----> none
+a2 := a[3:0] ----> "cd"
+c
+d
+every write(!a2) ----> none
+a3 := a[0:3] ----> "cd"
+c
+d
+every write(!a3) ----> none
+a4 := a[2:2] ----> ""
+every write(!a4) ----> none
+a5 := a[0-:2] ----> "cd"
+c
+d
+every write(!a5) ----> none
+[] ||| [] ----> list_104(0)
+[1,2,3] ||| [] ----> list_107(3)
+[] ||| [1,2,3] ----> list_110(3)
+r := array(1,2,3,4,5,6,7,8,9) ----> record array_2(7)
+r.a ----> 1
+r.b ----> 2
+r.c ----> 3
+r.d ----> 4
+r.e ----> 5
+r.f ----> 6
+type(r) ----> "array"
+image(r) ----> "record array_2(7)"
+r.a +:= 0 ----> 1
+r.b +:= 0 ----> 2
+r.c +:= 0 ----> 3
+r.d +:= 0 ----> 4
+r.e +:= 0 ----> 5
+r.f +:= 0 ----> 6
+r.a ----> 1
+r.b ----> 2
+r.c ----> 3
+r.d ----> 4
+r.e ----> 5
+r.f ----> 6
+r := array("a",2,array(),r,main) ----> record array_4(7)
+"a"
+2
+3.5
+record array_3(7)
+record array_2(7)
+procedure main
+&null
+every write(image(!r)) ----> none
+r[1] :=: r.d ----> record array_3(7)
+record array_3(7)
+2
+3.5
+"a"
+record array_2(7)
+procedure main
+&null
+every write(image(!r)) ----> none
+ a: -2035912587 847198497 
+#----------------------------------------- 914 procedure_record_coexpr_replace_3
+0:
+1:
+2:
+3:
+4:
+5:
+6:
+7:
+8:
+9:
+10:
+23:
+47:
+91:
+
+0:
+0:
+1:  12
+2:   2   5
+5:   1   2   3   7   8
+5:   1   1   3   4   6
+5:   a   d   e   p   t
+5:   a   d   e   p   t
+
+ 10 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 10 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 10 2 a 9 d 0 e 7 h 4 i 5 n 3 o 8 r 6 s 1 t 
+ 20 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 20 2 a 9 d 0 e 7 h 4 i 5 n 3 o 8 r 6 s 1 t 
+ 10 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 10 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 10 2 a 9 d 0 e 7 h 4 i 5 n 3 o 8 r 6 s 1 t 
+ 20 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 20 2 a 9 d 0 e 7 h 4 i 5 n 3 o 8 r 6 s 1 t 
+
+ L1: list_164(4) 1 2 3 
+ L2: list_164(4) 1 2 4 
+ S1: 1 2 3 set_57(4) 
+ S2: 1 3 5 set_57(4) 
+ T1: 2 "j" 5 "c" 8 "n" 15 table_3(4) 
+ T2: 2 "j" 8 "n" 11 "t" 15 table_3(4) 
+ R1: record r5_6(5) 1 4 5 7 9 
+ R2: record r5_7(5) 1 3 5 6 9 
+
+
+&null
+&null
+&null
+&null
+&null
+&null
+-36472996377170786403
+-36472996377170786403
+-27368747340080916343
+-27368747340080916343
+1
+1
+2
+2
+3
+3
+4
+4
+5
+5
+37252902984619140625
+37252902984619140625
+61159090448414546291
+61159090448414546291
+1.1
+1.1
+2.2
+2.2
+3.3
+3.3
+4.4
+4.4
+5.5
+5.5
+""
+""
+"a"
+"a"
+"alpha"
+"alpha"
+"beta"
+"beta"
+"delta"
+"delta"
+"epsilon"
+"epsilon"
+"epsilons"
+"epsilons"
+"gamma"
+"gamma"
+"gamma"
+"gamma"
+''
+''
+'0cs'
+'0cs'
+'1234cs'
+'1234cs'
+'123cs'
+'123cs'
+'XYZcs'
+'XYZcs'
+&errout
+&errout
+&input
+&input
+&output
+&output
+co-expression_2(0)
+co-expression_2(0)
+co-expression_3(0)
+co-expression_3(0)
+co-expression_4(0)
+co-expression_4(0)
+procedure check
+procedure check
+function image
+function image
+function integer
+function integer
+procedure listtest
+procedure listtest
+procedure main
+procedure main
+procedure messtest
+procedure messtest
+function push
+function push
+record constructor r0
+record constructor r0
+record constructor r1
+record constructor r1
+record constructor r2
+record constructor r2
+record constructor r5
+record constructor r5
+function read
+function read
+function reverse
+function reverse
+function right
+function right
+function serial
+function serial
+function table
+function table
+procedure wlist
+procedure wlist
+function write
+function write
+list_173(0)
+list_174(2)
+list_175(0)
+list_177(3)
+list_179(152)
+list_181(0)
+list_182(2)
+list_183(0)
+list_184(3)
+list_185(151)
+set_59(0)
+set_60(2)
+set_61(3)
+set_62(0)
+set_63(2)
+set_64(3)
+table_5(0)
+table_6(1)
+table_7(0)
+table_8(0)
+table_9(1)
+table_10(0)
+record r0_4(0)
+record r0_5(0)
+record r0_6(0)
+record r0_7(0)
+record r1_2(1)
+record r1_3(1)
+record r1_4(1)
+record r1_5(1)
+record r2_2(2)
+record r2_3(2)
+record r2_4(2)
+record r2_5(2)
+record r5_8(5)
+record r5_9(5)
+record r5_10(5)
+record r5_11(5)
+record r5_12(5)
+record r5_13(5)
+record r5_14(5)
+record r5_15(5)
+
+&null
+&null
+&null
+&null
+&null
+&null
+-36472996377170786403
+-36472996377170786403
+-27368747340080916343
+-27368747340080916343
+1
+1
+2
+2
+3
+3
+4
+4
+5
+5
+37252902984619140625
+37252902984619140625
+61159090448414546291
+61159090448414546291
+1.1
+1.1
+2.2
+2.2
+3.3
+3.3
+4.4
+4.4
+5.5
+5.5
+""
+""
+"a"
+"a"
+"alpha"
+"alpha"
+"beta"
+"beta"
+"delta"
+"delta"
+"epsilon"
+"epsilon"
+"epsilons"
+"epsilons"
+"gamma"
+"gamma"
+"gamma"
+"gamma"
+''
+''
+'0cs'
+'0cs'
+'1234cs'
+'1234cs'
+'123cs'
+'123cs'
+'XYZcs'
+'XYZcs'
+&errout
+&errout
+&input
+&input
+&output
+&output
+co-expression_2(0)
+co-expression_2(0)
+co-expression_3(0)
+co-expression_3(0)
+co-expression_4(0)
+co-expression_4(0)
+procedure check
+procedure check
+function image
+function image
+function integer
+function integer
+procedure listtest
+procedure listtest
+procedure main
+procedure main
+procedure messtest
+procedure messtest
+function push
+function push
+record constructor r0
+record constructor r0
+record constructor r1
+record constructor r1
+record constructor r2
+record constructor r2
+record constructor r5
+record constructor r5
+function read
+function read
+function reverse
+function reverse
+function right
+function right
+function serial
+function serial
+function table
+function table
+procedure wlist
+procedure wlist
+function write
+function write
+list_173(0)
+list_175(0)
+list_181(0)
+list_183(0)
+key=2 list_177(3)
+key=2 list_184(3)
+key=4 list_174(2)
+key=4 list_182(2)
+key='0cs' list_179(152)
+key='0cs' list_185(151)
+set_59(0)
+set_60(2)
+set_61(3)
+set_62(0)
+set_63(2)
+set_64(3)
+table_5(0)
+table_6(1)
+table_7(0)
+table_8(0)
+table_9(1)
+table_10(0)
+record r0_4(0)
+record r0_5(0)
+record r0_6(0)
+record r0_7(0)
+record r1_2(1)
+record r1_3(1)
+record r1_4(1)
+record r1_5(1)
+key=2 record r2_3(2)
+key=2 record r2_5(2)
+key=2 record r5_10(5)
+key=2 record r5_14(5)
+key=5 record r5_11(5)
+key=5 record r5_15(5)
+key=6 record r2_2(2)
+key=6 record r2_4(2)
+key=8 record r5_9(5)
+key=8 record r5_13(5)
+key=23 record r5_8(5)
+key=23 record r5_12(5)
+
+&null
+&null
+&null
+&null
+&null
+&null
+-36472996377170786403
+-36472996377170786403
+-27368747340080916343
+-27368747340080916343
+1
+1
+2
+2
+3
+3
+4
+4
+5
+5
+37252902984619140625
+37252902984619140625
+61159090448414546291
+61159090448414546291
+1.1
+1.1
+2.2
+2.2
+3.3
+3.3
+4.4
+4.4
+5.5
+5.5
+""
+""
+"a"
+"a"
+"alpha"
+"alpha"
+"beta"
+"beta"
+"delta"
+"delta"
+"epsilon"
+"epsilon"
+"epsilons"
+"epsilons"
+"gamma"
+"gamma"
+"gamma"
+"gamma"
+''
+''
+'0cs'
+'0cs'
+'1234cs'
+'1234cs'
+'123cs'
+'123cs'
+'XYZcs'
+'XYZcs'
+&errout
+&errout
+&input
+&input
+&output
+&output
+co-expression_2(0)
+co-expression_2(0)
+co-expression_3(0)
+co-expression_3(0)
+co-expression_4(0)
+co-expression_4(0)
+procedure check
+procedure check
+function image
+function image
+function integer
+function integer
+procedure listtest
+procedure listtest
+procedure main
+procedure main
+procedure messtest
+procedure messtest
+function push
+function push
+record constructor r0
+record constructor r0
+record constructor r1
+record constructor r1
+record constructor r2
+record constructor r2
+record constructor r5
+record constructor r5
+function read
+function read
+function reverse
+function reverse
+function right
+function right
+function serial
+function serial
+function table
+function table
+procedure wlist
+procedure wlist
+function write
+function write
+list_173(0)
+list_175(0)
+list_181(0)
+list_183(0)
+key=3 list_177(3)
+key=3 list_184(3)
+key=3 list_185(151)
+key=4 list_174(2)
+key=4 list_182(2)
+key=list_185(151) list_179(152)
+set_59(0)
+set_60(2)
+set_61(3)
+set_62(0)
+set_63(2)
+set_64(3)
+table_5(0)
+table_6(1)
+table_7(0)
+table_8(0)
+table_9(1)
+table_10(0)
+record r0_4(0)
+record r0_5(0)
+record r0_6(0)
+record r0_7(0)
+key=&null record r5_8(5)
+key=&null record r5_9(5)
+key=&null record r5_10(5)
+key=&null record r5_12(5)
+key=&null record r5_13(5)
+key=&null record r5_14(5)
+key=1 record r1_2(1)
+key=1 record r1_4(1)
+key=2 record r2_3(2)
+key=2 record r2_5(2)
+key=5 record r1_3(1)
+key=5 record r1_5(1)
+key=6 record r2_2(2)
+key=6 record r2_4(2)
+key=8 record r5_11(5)
+key=8 record r5_15(5)
+#----------------------------------------- 915 procedure_record_every_replace_12
 
 error in line 7:
    &error = -2
@@ -7775,7 +8736,7 @@ error in line 180:
    &errortext = "negative first argument to real exponentiation"
 (-36. ^ -9.) | monitor(&line) ----> 180
  eginopst
-#------------------------------------------- 912 procedure_record_scan_replace_2
+#------------------------------------------- 916 procedure_record_scan_replace_2
 <!-- Created by HTPREP -->
 <html><head>
 <title>Off the Beaten Path</title>

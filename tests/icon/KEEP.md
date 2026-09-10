@@ -177,9 +177,29 @@ named elsewhere in this file's own dependency note below — the other 28 were n
 `rung36_jcon_arith.icn` `rung36_jcon_case.icn` `rung36_jcon_checkfpx.icn` `rung36_jcon_ck.icn`
 `rung36_jcon_collate.icn` `rung36_jcon_errkwds.icn` `rung36_jcon_geddump.icn`
 `rung36_jcon_io.icn` `rung36_jcon_iobig.icn` `rung36_jcon_large.icn`
-`rung36_jcon_lgint.icn` `rung36_jcon_misc.icn` `rung36_jcon_nargs.icn` `rung36_jcon_others.icn`
+`rung36_jcon_lgint.icn` `rung36_jcon_nargs.icn` `rung36_jcon_others.icn`
 `rung36_jcon_prefix.icn` `rung36_jcon_profsum.icn` `rung36_jcon_radix.icn` `rung36_jcon_recent.icn`
-`rung36_jcon_sorting.icn` `rung36_jcon_struct.icn`
+
+⛔⭐ **THREE MORE NAMES LEFT THIS BUCKET 2026-09-10 (hq_V, ceo CEO-516, from hq_I's verified batch under
+CEO-512): `rung36_jcon_misc` `rung36_jcon_sorting` `rung36_jcon_struct` are ABSORBED into the Icon master
+as ordinary graded entries**, and their three KEEPER lines come out of `ALL.excluded.txt` in the same
+landing — a witness in no denominator is an orphan, and `orphaned_witnesses_do_not_grow` was already at
+icon 21 against floor 19 while this was decided. **Each was RE-VERIFIED HERE before absorption rather than
+taken on the handing seat's word: GREEN in m3 AND m4, and the shipped `.expected` equals the ORACLE'S RUN
+OUTPUT byte for byte**, so no re-cut is owed. They are input-independent, which is the whole of why these
+three moved and the other three did not: `misc` touches no input at all, and `sorting` and `struct` only
+NAME `&input` as a value inside `image()`/`sort` — they never READ it.
+
+⛔ **`rung36_jcon_io`, `rung36_jcon_others` and `rung36_jcon_recent` STAY, and hq_I's measurement of why is
+the important half of this entry: they pass only because THE ORACLE WAS STARVED THE SAME WAY WE WERE.**
+`io` and `others` read stdin, `recent` opens a `recent.dat` that is not in the corpus, and under
+`< /dev/null` both sides stop at the same place. Feed iconx seven lines and its output gains exactly the
+seven-line block the shipped `.expected` has and a starved cut lacks — so the `.expected` is the FED run and
+a starved icont cut is a truncated artifact. **Absorbing them would pin a PREFIX of each program as its
+expectation, green forever and invisible downstream because ref and run agree by construction** — the
+false-green class Lon's 2026-09-08 sidecar order exists to kill. They need stdin sidecars first, then refs
+re-cut FED. Evidence: `FINDING-2026-09-10-hq_I-three-of-the-six-rung36-keepers-pass-only-because-the-oracle-
+was-starved-the-same-way-we-were.md`.
 
 ⛔⭐ **FIVE NAMES LEFT THIS BUCKET 2026-09-09 (hq_C, CEO-445 on Lon's "Switch to Icon completely"):
 `rung36_jcon_errors` `rung36_jcon_evalx` `rung36_jcon_fncs` `rung36_jcon_gener` `rung36_jcon_image`

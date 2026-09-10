@@ -764,7 +764,7 @@ end
 procedure main()
   if not (1 = 2) then {
     write("a");
-    write("b");
+    write("b")
   }
 end
 #--------------------------------------------------------- 176 procedure_write_5
@@ -778,7 +778,7 @@ end
 procedure main()
   if x > 0 then {
     write("a");
-    write("b");
+    write("b")
   };
 end
 #-------------------------------------------------------- 178 procedure_write_86
@@ -806,9 +806,9 @@ end
 procedure main()
   if x > 0 then {
     write("pos");
-    write("ok");
+    write("ok")
   } else {
-    write("neg");
+    write("neg")
   };
 end
 #------------------------------------------------- 182 procedure_write_replace_5
@@ -1034,7 +1034,7 @@ procedure main()
 end
 #-------------------------------------------------------- 234 procedure_write_94
 procedure try(c, n)
-    if c > n then { write("done"); return; };
+    if c > n then { write("done"); return };
 end
 #-------------------------------------------------------- 235 procedure_write_96
 procedure main()
@@ -1554,7 +1554,7 @@ procedure main()
   x := 5;
   if x > 3 then {
     write("big");
-    write(x);
+    write(x)
   };
 end
 #-------------------------------------------------------- 325 procedure_write_61
@@ -1570,7 +1570,7 @@ procedure main()
   x := 5;
   if x > 3 then {
     write("big");
-    write(x);
+    write(x)
   };
 end
 #-------------------------------------------------------- 327 procedure_write_72
@@ -1578,7 +1578,7 @@ procedure main()
     x := 1;
     {
         write(x);
-        write(x + 1);
+        write(x + 1)
     };
 end
 #--------------------------------------------------- 328 procedure_limit_write_3
@@ -1632,20 +1632,20 @@ end
 procedure main()
   x := 2;
   if x > 3 then {
-    write("big");
+    write("big")
   } else {
     write("small");
-    write(x);
+    write(x)
   };
 end
 #-------------------------------------------------------- 334 procedure_write_65
 procedure main()
   x := 2;
   if x > 3 then {
-    write("big");
+    write("big")
   } else {
     write("small");
-    write(x);
+    write(x)
   };
 end
 #------------------------------------------------------- 335 procedure_write_243
@@ -2286,7 +2286,7 @@ end
 procedure main()
   while x > 0 do {
     x := x - 1;
-    write(x);
+    write(x)
   };
 end
 #-------------------------------------------------------- 445 procedure_write_10
@@ -2554,7 +2554,7 @@ end
 #  sites (emit.cpp:1230/1231/1236).  many/any/upto/find/bal/pos are all clean.
 #  Oracle: A4C
 procedure main()
-   "112 xy" ? { write("A", match("112"), "C"); };
+   "112 xy" ? { write("A", match("112"), "C") };
 end
 #--------------------------------------------------- 480 procedure_table_write_1
 procedure main()
@@ -3316,21 +3316,21 @@ end
 procedure main()
   "hello" ? {
     move(2);
-    write(&pos);
+    write(&pos)
   }
 end
 #----------------------------------------------------- 583 procedure_every_to_19
 procedure main()
   every x := 1 to 3 do {
     y := x * 2;
-    write(y);
+    write(y)
   };
 end
 #----------------------------------------------------- 584 procedure_every_to_50
 procedure main()
   every x := 1 to 3 do {
     y := x * 2;
-    write(y);
+    write(y)
   };
 end
 #---------------------------------------------------- 585 procedure_scan_write_3
@@ -3452,7 +3452,7 @@ procedure main()
   i := 1;
   while i <= 3 do {
     write(i);
-    i +:= 1;
+    i +:= 1
   };
 end
 #--------------------------------------------------- 601 procedure_while_write_9
@@ -3460,7 +3460,7 @@ procedure main()
   i := 1;
   while i <= 3 do {
     write(i);
-    i +:= 1;
+    i +:= 1
   };
 end
 #------------------------------------------------------- 602 procedure_write_247
@@ -3511,8 +3511,8 @@ end
 #  Line 1 oracle: ABC112D   (only "C", the immediate predecessor, is lost)
 #  Line 2 oracle: A1B12     (two carves, two victims)
 procedure main()
-   "112 xy" ? { write("A", "B", "C", tab(4), "D"); };
-   "112 xy" ? { write("A", tab(2), "B", tab(4)); };
+   "112 xy" ? { write("A", "B", "C", tab(4), "D") };
+   "112 xy" ? { write("A", tab(2), "B", tab(4)) };
 end
 #-------------------------------------------------- 608 procedure_table_write_10
 procedure main()
@@ -3567,7 +3567,7 @@ end
 #  Slots are handed out in sequential 16B units, so the victim is deterministic.
 #  Oracle: A112C
 procedure main()
-   "112 xy" ? { write("A", tab(4), "C"); };
+   "112 xy" ? { write("A", tab(4), "C") };
 end
 #-------------------------------------------------- 614 procedure_table_write_18
 procedure main()
@@ -4002,8 +4002,8 @@ end
 procedure main()
    local s;
    s := "-n10";
-   s ? { if ="-" then write("blk1 matched"); };
-   s ? { write("blk2 *subj=", *&subject, " subj=[", &subject, "]"); };
+   s ? { if ="-" then write("blk1 matched") };
+   s ? { write("blk2 *subj=", *&subject, " subj=[", &subject, "]") };
 end
 #--------------------------------------------------- 679 procedure_scan_write_11
 # rung06 t05: cset stored in variable, used in any()
@@ -4107,7 +4107,7 @@ end
 procedure main()
   total := 0;
   every x := 1 to 3 do {
-    total +:= x;
+    total +:= x
   };
   write(total);
 end
@@ -4115,7 +4115,7 @@ end
 procedure main()
   total := 0;
   every x := 1 to 3 do {
-    total +:= x;
+    total +:= x
   };
   write(total);
 end
@@ -4124,7 +4124,7 @@ procedure show(n)
     local i;
     every i := 1 to n do {
         write(i);
-        write(i * 2);
+        write(i * 2)
     };
 end
 #--------------------------------------------------- 695 procedure_scan_write_10
@@ -4379,13 +4379,13 @@ procedure main()
    local s;
    s := "-n10";
    s ? {
-      write("first *subj=", *&subject, " subj=[", &subject, "]");
+      write("first *subj=", *&subject, " subj=[", &subject, "]")
    };
    s ? {
-      if ="-" then write("blk1 matched");
+      if ="-" then write("blk1 matched")
    };
    s ? {
-      write("second *subj=", *&subject, " subj=[", &subject, "]");
+      write("second *subj=", *&subject, " subj=[", &subject, "]")
    };
 end
 #----------------------------------------- 722 ladder_rung41_rt_flush_seek_where
@@ -4545,13 +4545,13 @@ procedure precheck (v, s, p)
       if /v then
 	 write ("error: no predefined symbol for ", s)
       else if \p then 
-	 write ("found feature: ", s);
+	 write ("found feature: ", s)
       }
    else {
       if \v then
 	 write ("error: unexpected predefined symbol for ", s)
       else if \p then 
-	 write ("no feature:    ", s);
+	 write ("no feature:    ", s)
       }
 end
 #----------------------------------------------------- 726 procedure_coexpr_to_2
@@ -4658,15 +4658,15 @@ end
 procedure main()
    local s;
    s := "-n10";
-   s ? { tab(2); };
+   s ? { tab(2) };
    write("s=[", s, "] *s=", *s);
 end
 #---------------------------------------------------- 747 procedure_scan_write_2
 procedure main()
    local s;
    s := "-n10";
-   s ? { if ="-" then write("A match"); };
-   s ? { write("B &pos=", &pos, " pos(1)=", if pos(1) then "Y" else "N", " pos(0)=", if pos(0) then "Y" else "N", " pos(5)=", if pos(5) then "Y" else "N"); };
+   s ? { if ="-" then write("A match") };
+   s ? { write("B &pos=", &pos, " pos(1)=", if pos(1) then "Y" else "N", " pos(0)=", if pos(0) then "Y" else "N", " pos(5)=", if pos(5) then "Y" else "N") };
 end
 #------------------------------------------------------- 748 procedure_write_209
 procedure gen()
@@ -5001,7 +5001,7 @@ procedure main()
    every i := 2 to 100 do {
       if i % (2 to i - 1) = 0 then
          next;
-      write(i);
+      write(i)
    };
 end
 #------------------------------------------------------- 783 procedure_write_222
@@ -5069,17 +5069,17 @@ procedure main()
   L := [10, 20, 30];
   every v := !L do {
     w := v + 100;
-    write(w);
+    write(w)
   };
   write("break");
   every v := !L do {
     if v = 20 then break;
-    write(v);
+    write(v)
   };
   write("next");
   every v := !L do {
     if v = 20 then next;
-    write(v);
+    write(v)
   };
 end
 #------------------------------------------------- 788 procedure_every_elemgen_9
@@ -5087,17 +5087,17 @@ procedure main()
   L := [10, 20, 30];
   every v := !L do {
     w := v + 100;
-    write(w);
+    write(w)
   };
   write("break");
   every v := !L do {
     if v = 20 then break;
-    write(v);
+    write(v)
   };
   write("next");
   every v := !L do {
     if v = 20 then next;
-    write(v);
+    write(v)
   };
 end
 #------------------------------------------ 789 procedure_record_every_replace_8
@@ -5133,7 +5133,7 @@ procedure main()
     every i := 2 to limit do
         if sieve[i] = 1 then {
             if *out > 0 then out ||:= " ";
-            out ||:= i;
+            out ||:= i
         };
     write(out);
 end
@@ -5152,7 +5152,7 @@ procedure main()
     every i := 2 to limit do
         if sieve[i] = 1 then {
             if *out > 0 then out ||:= " ";
-            out ||:= i;
+            out ||:= i
         };
     write(out);
 end
@@ -5185,7 +5185,7 @@ procedure palindrome(s)
     while i < j do {
         if s[i] ~== s[j] then return "no";
         i +:= 1;
-        j -:= 1;
+        j -:= 1
     };
     return "yes";
 end
@@ -5205,7 +5205,7 @@ procedure palindrome(s)
     while i < j do {
         if s[i] ~== s[j] then return "no";
         i +:= 1;
-        j -:= 1;
+        j -:= 1
     };
     return "yes";
 end
@@ -5525,7 +5525,7 @@ end
 procedure main()
    local s;
    s := "-n10";
-   s ? { tab(match("-")); };
+   s ? { tab(match("-")) };
    write("s=[", s, "] *s=", *s);
 end
 #------------------------------------------------------- 805 procedure_write_242
@@ -5557,7 +5557,7 @@ procedure main()
   n := 0; ok := 1;
   every f := &features do {
     n +:= 1;
-    if type(f) ~== "string" then ok := 0;
+    if type(f) ~== "string" then ok := 0
   }
   write(n > 0, " ", ok);
 end
@@ -5671,8 +5671,8 @@ procedure roman(n)
     every i := 1 to *vals do {
         while n >= vals[i] do {
             result ||:= syms[i];
-            n -:= vals[i];
-        };
+            n -:= vals[i]
+        }
     };
     return result;
 end
@@ -5692,8 +5692,8 @@ procedure roman(n)
     every i := 1 to *vals do {
         while n >= vals[i] do {
             result ||:= syms[i];
-            n -:= vals[i];
-        };
+            n -:= vals[i]
+        }
     };
     return result;
 end
@@ -5712,49 +5712,49 @@ procedure main()
    "123456" ? {
       &pos := 3; x := 4;
       &pos :=: x;
-      write("kw_lhs swap: &pos=", &pos, " x=", x);
+      write("kw_lhs swap: &pos=", &pos, " x=", x)
    };
 
    # kw_is_lhs: &pos :=: var, var value OOB -> nothing written (probe blocks)
    "123456" ? {
       &pos := 3; x := 9;
       if &pos :=: x then write("kw_lhs oob: wrote") else write("kw_lhs oob: blocked");
-      write("kw_lhs oob state: &pos=", &pos, " x=", x);
+      write("kw_lhs oob state: &pos=", &pos, " x=", x)
    };
 
    # kw_is_rhs: var :=: &pos, both values in range -> full swap
    "123456" ? {
       &pos := 3; x := 4;
       x :=: &pos;
-      write("kw_rhs swap: &pos=", &pos, " x=", x);
+      write("kw_rhs swap: &pos=", &pos, " x=", x)
    };
 
    # kw_is_rhs: var :=: &pos, var value OOB for keyword -> var committed, keyword unchanged
    "123456" ? {
       &pos := 3; x := 9;
       x :=: &pos;
-      write("kw_rhs oob: &pos=", &pos, " x=", x);
+      write("kw_rhs oob: &pos=", &pos, " x=", x)
    };
 
    # Reversible swap <-> inside every with write body (no subject mutation)
    "123456" ? {
       &pos := 3; x := 9;
       every &pos <-> x do write("rev tick: &pos=", &pos, " x=", x);
-      write("after rev &pos<->x: &pos=", &pos, " x=", x);
+      write("after rev &pos<->x: &pos=", &pos, " x=", x)
    };
 
    # Reversible swap -- body mutates &subject; lhs revert OOBs -> neither reverts
    "123456" ? {
       &pos := 3; x := 2;
       every &pos <-> x do &subject := "A";
-      write("subj_mut &pos<->x: &pos=", &pos, " x=", x);
+      write("subj_mut &pos<->x: &pos=", &pos, " x=", x)
    };
 
    # Reversible swap -- body mutates &subject; lhs (x) reverts OK, rhs (&pos) OOBs -> only x reverts
    "123456" ? {
       &pos := 3; x := 2;
       every x <-> &pos do &subject := "A";
-      write("subj_mut x<->&pos: &pos=", &pos, " x=", x);
+      write("subj_mut x<->&pos: &pos=", &pos, " x=", x)
    };
 end
 #-------------------------------------------- 820 procedure_record_alt_replace_1
@@ -5961,7 +5961,7 @@ procedure main()
   s ? {
     write(tab(bal(',', '[', ']')));
     move(1);
-    write(tab(0));
+    write(tab(0))
   }
 end
 #--------------------------------------------- 824 procedure_alt_while_replace_1
@@ -6051,11 +6051,11 @@ procedure main()
   s ? {
     write(tab(bal(',')));
     move(1);
-    write(tab(0));
+    write(tab(0))
   }
   s := "(a,b)";
   s ? {
-    if tab(bal(',')) then write("matched") else write("failed");
+    if tab(bal(',')) then write("matched") else write("failed")
   }
 end
 #---------------------------------------------------- 832 procedure_record_alt_1
@@ -6100,7 +6100,7 @@ procedure t(p,q,r,s)
    write("entry:       p=",image(p)," q=",image(q)," r=",image(r)," s=",image(s));
    p ? {
       if ="-" then
-         write("after match: p=",image(p)," q=",image(q)," r=",image(r)," s=",image(s));
+         write("after match: p=",image(p)," q=",image(q)," r=",image(r)," s=",image(s))
    };
 end
 procedure main()
@@ -6138,7 +6138,7 @@ procedure main()
    s := create (2 to 100);
    while (x := @s) do {
       write(x);
-      s := create sieve(x, s);
+      s := create sieve(x, s)
    };
 end
 
@@ -6146,7 +6146,7 @@ procedure sieve(x, s)
    local t;
 
    while t := @s do {
-      if t % x ~= 0 then suspend t;
+      if t % x ~= 0 then suspend t
    };
 end
 #---------------------------------------------- 837 procedure_every_to_replace_2
@@ -6165,7 +6165,7 @@ procedure main()
    while line := read() do { 
       write();
       j := upto(':',line);
-      cross(line[ 1:j ],line[ j+1:0 ]);
+      cross(line[ 1:j ],line[ j+1:0 ])
        };
 end
 
@@ -6314,7 +6314,7 @@ procedure main()
    local s, str;
    s := ".coord";
    s ? {
-      if (str <- ="." & str ||:= tab(many(&digits))) then write("NUM") else write("pos=", &pos);
+      if (str <- ="." & str ||:= tab(many(&digits))) then write("NUM") else write("pos=", &pos)
       };
 end
 #------------------------------------------ 843 ladder_rung36_sets_delete_member
@@ -6353,7 +6353,7 @@ procedure main()
     write(find(","));
     write(tab(bal(",")));
     move(1);
-    write(tab(0));
+    write(tab(0))
   }
 end
 #------------------------------------------------------- 847 procedure_write_250
@@ -6374,13 +6374,13 @@ procedure main()
    local s, str;
    s := ".abc";
    s ? {
-      if str <- ="." & str ||:= tab(many(&digits)) then write("A REAL") else write("A pos=", &pos);
+      if str <- ="." & str ||:= tab(many(&digits)) then write("A REAL") else write("A pos=", &pos)
       };
    s ? {
-      if ="." & tab(many(&digits)) then write("B REAL") else write("B pos=", &pos);
+      if ="." & tab(many(&digits)) then write("B REAL") else write("B pos=", &pos)
       };
    s ? {
-      if ="." & ="9" then write("C REAL") else write("C pos=", &pos);
+      if ="." & ="9" then write("C REAL") else write("C pos=", &pos)
       };
 end
 #------------------------------------------------------ 849 procedure_alt_case_1
@@ -6416,10 +6416,10 @@ procedure f(a, b, c)
 end
 procedure main()
    local L, v, x;
-   "112 xy" ? { f("A", tab(4), "C"); };
-   "112 xy" ? { L := ["A", tab(4), "C"]; write(L[1], " ", L[2], " ", L[3]); };
+   "112 xy" ? { f("A", tab(4), "C") };
+   "112 xy" ? { L := ["A", tab(4), "C"]; write(L[1], " ", L[2], " ", L[3]) };
    v := "A";
-   "112 xy" ? { x := tab(4); write(v, x, "C"); };
+   "112 xy" ? { x := tab(4); write(v, x, "C") };
 end
 #------------------------------------------------------- 851 procedure_write_276
 global Msg
@@ -6525,7 +6525,7 @@ procedure main()
       if s[i] := t[i] then
          write("J ", i, ". ", s)
       else
-         write("J ", i, ". --");
+         write("J ", i, ". --")
       }
 
    every i := 1 to 6 do {
@@ -6535,7 +6535,7 @@ procedure main()
 	 if s[i:j] := "(*)" then
 	    write(s)
 	 else
-	    write(s, " [failed]");
+	    write(s, " [failed]")
          }
       }
 
@@ -6547,7 +6547,7 @@ procedure main()
 	    if s[i:j][k:2] := "(*)" then
 	       write(s)
 	    else
-	       write(s, " [failed]");
+	       write(s, " [failed]")
 	    }
          }
       }
@@ -6572,7 +6572,7 @@ procedure main()
     s ? {
         while tab(upto(&letters)) do {
             tab(many(&letters));
-            count +:= 1;
+            count +:= 1
         }
     };
     write(count);
@@ -6586,7 +6586,7 @@ procedure main()
     s ? {
         while tab(upto(&letters)) do {
             tab(many(&letters));
-            count +:= 1;
+            count +:= 1
         }
     };
     write(count);
@@ -6639,7 +6639,7 @@ procedure opt2(arg)
    while x := get(arg) do
       x ? {
          if ="-" & not pos(0) then {
-            write("dash");
+            write("dash")
             }
          else put(flist,x)
          };
@@ -6856,7 +6856,7 @@ procedure main()
       wr(s ~== t | &null);
       wr(s >>= t | &null);
       wr(s >> t  | &null);
-      write();
+      write()
       };
    end
 
@@ -6914,7 +6914,7 @@ procedure main()
    s := set();
    every insert(s, 1 to 10);
    n := 0;
-   every x := !s do { n +:= 1; delete(s, x); }
+   every x := !s do { n +:= 1; delete(s, x) }
    write("A:", n);
    write("B:", *s);
    s := set();
@@ -6983,7 +6983,7 @@ procedure main()
    every x := !s do {
       n +:= 1;
       insert(seen, x);
-      delete(s, x);
+      delete(s, x)
    }
    missing := "";
    every x := 1 to 40 do
@@ -7017,7 +7017,7 @@ procedure main();
     ga := 1; gb := 2;
     write("global<->global: ", image(ga <-> gb) | "none");
     write("  ga=", image(ga), " gb=", image(gb));
-    every 1 to 2 do { if (ga <-> gb) & &fail then write("unreachable"); write("  recede: ga=", image(ga), " gb=", image(gb)); }
+    every 1 to 2 do { if (ga <-> gb) & &fail then write("unreachable"); write("  recede: ga=", image(ga), " gb=", image(gb)) }
     write("reached the end", "");
 end
 #-------------------------------------------- 874 procedure_every_alt_replace_12
@@ -7097,8 +7097,8 @@ procedure opts(arg,optstring)
       if ="-" then {
          while c := move(1) do
             write("c=",image(c)," optstring=",image(optstring),
-                  " find=",image(find(c,optstring)));
-      };
+                  " find=",image(find(c,optstring)))
+      }
    };
 end
 procedure main()
@@ -7274,9 +7274,9 @@ procedure main()
       "inner" ? {
          ws();
          &pos := 2;
-         ws();
+         ws()
          }
-      ws();
+      ws()
       }
 
    "123456" ? {
@@ -7308,7 +7308,7 @@ procedure main()
       &pos := 3;
       x := 2;
       every x <-> &pos do &subject := "A";
-      write("&pos=", &pos, " x=", x);
+      write("&pos=", &pos, " x=", x)
    }
 end
 
@@ -7462,21 +7462,21 @@ procedure show()
         write("  ", sep);
         line := repl("|   ", n) || "|";
         line[4*(placed[col]-1)+3] := "Q";
-        write("  ", line);
+        write("  ", line)
     };
     write("  ", sep);
 end
 
 procedure try_col(c)
     local r;
-    if c > n then { show(); return; };
+    if c > n then { show(); return };
     every r := 1 to n do {
         if safe(c, r) then {
             placed[c] := r;
             rows[r] := 1; up[n+r-c] := 1; down[r+c-1] := 1;
             try_col(c + 1);
-            rows[r] := 0; up[n+r-c] := 0; down[r+c-1] := 0;
-        };
+            rows[r] := 0; up[n+r-c] := 0; down[r+c-1] := 0
+        }
     };
 end
 
@@ -7514,21 +7514,21 @@ procedure show()
         write("  ", sep);
         line := repl("|   ", n) || "|";
         line[4*(placed[col]-1)+3] := "Q";
-        write("  ", line);
+        write("  ", line)
     };
     write("  ", sep);
 end
 
 procedure try_col(c)
     local r;
-    if c > n then { show(); return; };
+    if c > n then { show(); return };
     every r := 1 to n do {
         if safe(c, r) then {
             placed[c] := r;
             rows[r] := 1; up[n+r-c] := 1; down[r+c-1] := 1;
             try_col(c + 1);
-            rows[r] := 0; up[n+r-c] := 0; down[r+c-1] := 0;
-        };
+            rows[r] := 0; up[n+r-c] := 0; down[r+c-1] := 0
+        }
     };
 end
 
@@ -7579,9 +7579,9 @@ procedure rtest()
       T := table();
       every i := 1 to 100 do {
          put(L, i);
-	 T[i] := -i;
+	 T[i] := -i
       }
-      S := set(L);
+      S := set(L)
    }
 
    write();
@@ -7889,10 +7889,10 @@ procedure main()
       line ? if { 
          alpha := tab(upto(':')) &
          move(1) &
-         n := integer(tab(0));
+         n := integer(tab(0))
           }
          then write(meander(alpha,n))
-         else stop("*** erroneous input ***");
+         else stop("*** erroneous input ***")
        }
 end
 
@@ -7956,7 +7956,7 @@ procedure main()
          maxword <:= *word;			# keep track of longest word
 						# if it's a new word, start set
          if *words[word] = 0 then words[word] := set([lineno])
-         else insert(words[word],lineno);	# else add the line number
+         else insert(words[word],lineno)	# else add the line number
          }
       }
    write();
@@ -7966,7 +7966,7 @@ procedure main()
       lines := "";				# build up line numbers
       numbers := sort(wordlist[i][2]);
       while lines ||:= get(numbers) || ", ";
-      write(left(word,maxword + 2),": ",lines[1:-2]);
+      write(left(word,maxword + 2),": ",lines[1:-2])
       }
 end
 #------------------------------------------ 896 procedure_record_every_replace_4
@@ -8041,13 +8041,13 @@ procedure q(c)
    initial {
       up := list(2*n-1,0);
       down := list(2*n-1,0);
-      rows := list(n,0);
+      rows := list(n,0)
       }
    every 0 = rows[r := 1 to n] = up[n+r-c] = down[r+c-1] &
       rows[r] <- up[n+r-c] <- down[r+c-1] <- 1        do {
          solution[c] := r;	# record placement.
          if c = n then show()
-         else q(c + 1);		# try to place next queen.
+         else q(c + 1)		# try to place next queen.
          }
 end
 
@@ -8058,13 +8058,13 @@ procedure show()
    initial {
       count := 0;
       line := repl("|   ",n) || "|";
-      border := repl("----",n) || "-";
+      border := repl("----",n) || "-"
       }
    write("solution: ", count+:=1);
    write("  ", border);
    every line[4*(!solution - 1) + 3] <- "Q" do {
       write("  ", line);
-      write("  ", border);
+      write("  ", border)
       }
    write();
 end
@@ -8106,7 +8106,31 @@ procedure main()
    s ? { x <- (tab(many(&digits)) | &null) & pos(0) | write("r19 ", image(x), " ", &pos) };
    x := 1; every write("r20 ", (x <- 2 | 3) + 1); write("r20 ", image(x));
 end
-#------------------------------------------ 898 procedure_record_every_replace_2
+#------------------------------------------- 898 procedure_every_scan_replace_14
+procedure main()
+   local s, c, w, n;
+   s := "The quick brown fox, jumps over 13 lazy dogs! tab\there; end";
+   s ? { while tab(upto(&letters)) do { w := tab(many(&letters)); writes(w, " ") } };
+   write();
+   s ? { while tab(upto(&digits)) do write("digits ", tab(many(&digits))) };
+   s ? { while tab(upto(&ucase)) do write("ucase ", tab(many(&ucase))) };
+   s ? { while tab(upto('aeiou')) do { writes(tab(many('aeiou')), "|") } };
+   write();
+   s ? { n := 0; while tab(upto(' \t')) do { tab(many(' \t')); n +:= 1 }; write("blanks ", n) };
+   c := &letters ++ &digits;
+   s ? { while tab(upto(c)) do { w := tab(many(c)); if *w > 5 then write("long ", w) } };
+   c := &lcase -- 'aeiou';
+   s ? { n := 0; while tab(upto(c)) do { tab(many(c)); n +:= 1 }; write("consonant runs ", n) };
+   c := cset("zyx") ** cset("xyz");
+   write(image(c), " ", *c);
+   write(image(&cset), " ", *&cset, " ", *&ascii, " ", *&letters);
+   s ? { while tab(any(&ucase)) do writes(&subject[&pos - 1]); write() };
+   write(image(cset(s)), " ", *cset(s));
+   s ? { tab(upto(&digits)); write(bal(&digits, "(", ")")) };
+   every write(!cset("cba"));
+   write(string(cset("hello world")));
+end
+#------------------------------------------ 899 procedure_record_every_replace_2
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -8175,14 +8199,14 @@ procedure q5()
 	every wf ((cos | sin | tan) (v));
 	every wf ((sqrt | exp | log) (v));
 	wf (log(v,3));
-	write ();
+	write ()
     }
     end
 
 procedure wf (v)
     writes(left(v,5)," ");
     end
-#----------------------------------------- 899 procedure_record_coexpr_replace_1
+#----------------------------------------- 900 procedure_record_coexpr_replace_1
 #SRC: JCON
 
 #  test image(), serial(), *x, and explicit conversion functions
@@ -8266,7 +8290,7 @@ end
 procedure pad(x)
    return right(image(\x) | "---", 13);
 end
-#-------------------------------------------- 900 procedure_every_scan_replace_9
+#-------------------------------------------- 901 procedure_every_scan_replace_9
 #SRC: JCON
 
 # table test
@@ -8356,15 +8380,15 @@ procedure tdump(label, T)
    every x := &null | (0 to 9) | !"abcde" do
       if x === key(T) then {
          writes(" [", image(x), "]", image(T[x]));
-	 member(T, x) | writes(":NONMEMBER");
+	 member(T, x) | writes(":NONMEMBER")
          }
       else {
-	 member(T, x) & writes(" MEMBER:", image(x));
+	 member(T, x) & writes(" MEMBER:", image(x))
          };
    write();
    return;
 end
-#------------------------------------------ 901 procedure_record_every_replace_7
+#------------------------------------------ 902 procedure_record_every_replace_7
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -8496,7 +8520,7 @@ end
 
 global s
 
-#----------------------------------------- 902 procedure_record_every_replace_13
+#----------------------------------------- 903 procedure_record_every_replace_13
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -8732,7 +8756,7 @@ procedure main()
    p16();
 end
 
-#------------------------------------------ 903 procedure_record_every_replace_1
+#------------------------------------------ 904 procedure_record_every_replace_1
 global defs, limit, tswitch
 record nonterm(name)
 record charset(chars)
@@ -8784,7 +8808,7 @@ procedure main()
    limit := 1000;
    gener("s");
 end
-#-------------------------------------------- 904 procedure_every_scan_replace_5
+#-------------------------------------------- 905 procedure_every_scan_replace_5
 #SRC: JCON
 
 procedure main()
@@ -8874,7 +8898,7 @@ procedure limage(label, lst)
    write();
    return;
 end
-#----------------------------------------- 905 procedure_record_every_replace_15
+#----------------------------------------- 906 procedure_record_every_replace_15
 #  A case arm's body runs to its end and only then becomes the case value.
 #  The lowering rewired the arm's ENTRY node to the result assignment after
 #  the fact: an arm whose body was `every ... do if ... then fail` lost its
@@ -8990,7 +9014,7 @@ procedure main()
    write(image(equiv([1,[2,3]],[1,[2,4]])) | "equiv failed");
    write(image(equiv(set([1,2]),set([2,1]))) | "equiv failed");
 end
-#----------------------------------------- 906 procedure_record_every_replace_14
+#----------------------------------------- 907 procedure_record_every_replace_14
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -9178,7 +9202,136 @@ end
 procedure wf (v)
     writes(left(v,5)," ");
     end
-#------------------------------------------ 907 procedure_record_every_replace_3
+#----------------------------------------- 908 procedure_record_every_replace_18
+#SRC: JCON
+
+record message(who,gap,what)
+record recordAsVariable()
+
+procedure main()
+   local i, x;
+
+   x := 1;
+   x +:= |1;		# tickled optimizer bug.
+   write(x);
+
+   x := table(3);
+   write(x[]);
+
+   x := "o";
+   write("a" & "b");
+   write("c" | "d");
+   write(\"e");
+   write(!"f");
+   write(\&null | "g");
+   write(/&null & "h");
+   write("i" || "jk");
+   write(23 || "skidoo");
+   write(x, .x, x := "b");
+
+   every (write|"write")( (1|2)("hello", "mom"), "!");
+   every (write|"write")! [ (1|2) ! ["hello", "mom"], "!"];
+   write ! message("hello");
+   write ! message("hello", " ", "pop");
+   every i := -4 to 4 do
+      write("i=", i, ": ", i("a","b","c") | "failed");
+
+   every write(seq() \ 3);
+   every write(seq(4) \ 3);
+   every write(seq(,4) \ 3);
+   every write(seq(10,20) \ 3);
+
+   pairs { 1 to 100, 11 to 99 by 11 }
+
+   write("repl: ", repl("",5), repl("x",3), repl("foo",0), repl("xyz",4));
+   write("reverse: ", reverse(""), reverse("x"), reverse("ab"), reverse(12345));
+   every i := 0 to 255 do
+      if (ord(char(i)) ~= i) then write("char/ord oops ", i);
+   writes("char: "); 
+   every writes(char((64 to 126) | 10));
+
+   write("proc: ");
+   write("   ", image(proc("write")));
+   write("   ", image(proc("write",)));
+   write("   ", image(proc("write",0)));
+   write("   ", image(proc("write",1)));
+   write("   ", image(proc("args")));
+   write("   ", image(proc("args",0)));
+   write("  >", args(main));
+   args := proc("args", 0);
+   write("  >", args(main));
+   write("   ", image(proc("args")));
+   write("   ", image(proc("args",0)));
+
+   # the following should all be harmless, at least
+   every collect(&null | (0 to 3), &null | 0 | 1 | 100 | 1000);
+
+   evaluation("1234567890", "abcdefghi");
+
+   every write(image(nullsuspend()));
+
+   write(image(recordAsVariable));
+   recordAsVariable := 3;
+   write(image(recordAsVariable));
+
+   every write(tstreturn());
+
+   write("done");
+   exit();
+   write("oops!");
+   dummy();
+end
+
+procedure tstreturn()
+   return fn();
+end
+
+procedure fn()
+   suspend "OK to get here";
+   write("Should not get here when called from a 'return'");
+end
+
+# test Icon's (odd) two-pass argument evaluation process.
+procedure evaluation(a,b)
+     local x,y;
+
+     write("argument evaluation test");
+     write(x, x:=1);
+     write(x:=2, x:=3);
+     write(a, a := 3);
+     write(b[2], b[2] := "q");
+     write(b[2:3], b[1:4] := "qwerty");
+     y := [1,2,3,4];
+     write(y[1], y[1] := 3);
+     x := 7;
+     write(x[2], y[2] := 3);
+     y := table(0);
+     write(y[3], y[3] := 7);
+     x := y;
+     write(x[5], y[5] := 8);
+end
+
+procedure dummy()
+   image(every 1) | 2;	# this triggered a problem once upon a time.
+end
+
+procedure args(x[]);	# later replaced by proc("args",0)
+   local s;
+   s := "";
+   every s ||:= image(!x) do
+      s ||:= " ";
+   return s[1:-1] | "";
+end
+
+procedure pairs(e)
+   while write(@e[1], " ", @e[2]);
+end
+
+procedure nullsuspend()
+   suspend;
+   suspend;
+end
+#------------------------------------------ 909 procedure_record_every_replace_3
 #SRC: V9GEN
 
 ### mindfa -- minimize a DFA
@@ -9207,7 +9360,7 @@ local q,a;
    d := table();
    every q := !Q & a := !S do {
       writes("enter delta(",q,",",a,") = ");
-      d[q||":"||a] := read();
+      d[q||":"||a] := read()
       }
    return dfa(Q,S,d,q0,F);
 
@@ -9245,7 +9398,7 @@ local q,a;
    write("\tDelta: ");
    every q := !D.Q do {
       every writes("\td(",q,",",a := !D.S,") = ",D.d[q||":"||a]);
-      write();
+      write()
       }
    return D;
 
@@ -9279,7 +9432,7 @@ local p,q,a,cs;
           (p := !QF & q := !QF)) & p ~== q do
       if \distab[cset(D.d[p||":"||(a:=!D.S)]||D.d[q||":"||a])] then {
          distab[cset(p||q)] := "X";
-         marklists(dlists[cset(p||q)]);
+         marklists(dlists[cset(p||q)])
          }
       else
          every a := !D.S do
@@ -9287,7 +9440,7 @@ local p,q,a,cs;
                cs := cset(D.d[p||":"||a]||D.d[q||":"||a]);
                if cs == cset(p||q) then next;
                /dlists[cs] := [];
-               put(dlists[cs],cset(p||q));
+               put(dlists[cs],cset(p||q))
                }
 
    return makemdfa(D,distab);
@@ -9302,7 +9455,7 @@ local e;
    if /l then return;
    every e := !l do {
       distab[e] := "X";
-      marklists(dlists[e]);
+      marklists(dlists[e])
       }
    return;
 
@@ -9321,9 +9474,9 @@ local p, q, Delta, q0;
       plike := equiv(p,etab) | cset(p);
       every q := !diff(D.Q,qset) & p ~== q do
          if /distab[cset(p||q)] then {
-            plike ++:= equiv(q,etab) | q;
+            plike ++:= equiv(q,etab) | q
             }
-      etab[plike] := plike;
+      etab[plike] := plike
       }
    tlist := [];
    elist := [];
@@ -9340,7 +9493,7 @@ local p, q, Delta, q0;
          if /echeck[Delta[q||":"||a]] then {
             echeck[Delta[q||":"||a]] := Delta[q||":"||a];
             put(tlist,Delta[q||":"||a]);
-            put(elist,Delta[q||":"||a]);
+            put(elist,Delta[q||":"||a])
             }
          }
 
@@ -9395,7 +9548,7 @@ local l,t1,t2;
    if *l = 0 then fail;
    return l;
 end
-#------------------------------------------- 908 procedure_every_scan_replace_13
+#------------------------------------------- 910 procedure_every_scan_replace_13
 #SRC: V9GEN
 
 ##    gener.icn -- test generation in parallel with inserts/deletes
@@ -9480,20 +9633,20 @@ procedure check (s1, s2, l)
    if *(s := (s1 -- sg)) > 0 then {
       writes ("\n not generated:");
       every writes (" ", !sort(s));
-      ok := &null;
+      ok := &null
       }
 
    if *(s := (sg -- s2)) > 0 then {
       writes ("\n unknown values generated:");
       every writes (" ", !sort(s));
-      ok := &null;
+      ok := &null
       }
 
    if *sg < *l then {
       writes("\n generated twice:");
       every e := !l do
          delete(sg,member(sg,e)) | writes (" ", e);
-      ok := &null;
+      ok := &null
    }
 
    write (ok);
@@ -9513,31 +9666,31 @@ procedure stale()
    write();
    every i := 1 to N do {
       T[i] := i;
-      insert(S, i);
+      insert(S, i)
       }
 
    write("checking !S:");
    every i := !S do {
       if not member(S, i) then write("S[", i, "] stale");
-      delete(S, ?N);
+      delete(S, ?N)
       }
 
    write("checking !T:");
    every i := !T do {
       if /T[i] then write("T[", i, "] stale");
-      delete(T, ?N);
+      delete(T, ?N)
       }
 
    write("checking key(T):");
    every i := key(T) do {
       if /T[i] then write("T[", i, "] stale");
-      delete(T, ?N);
+      delete(T, ?N)
       }
 
    write();
    return;
 end
-#-------------------------------------------- 909 procedure_every_scan_replace_6
+#-------------------------------------------- 911 procedure_every_scan_replace_6
 #SRC: V9GEN
 
 ##  mffsol.icn -- show solution graphically in mff format
@@ -9571,7 +9724,7 @@ procedure main (args)
 		c := move(1);
 		if not any(pset,c) then { # if first appearance of new player
 		    pset ++:= c;		# add to set of players
-		    plist ||:= c;	# add at end of list
+		    plist ||:= c	# add at end of list
 		}
 	    }
 	}
@@ -9589,7 +9742,7 @@ procedure main (args)
 	angle[c] := theta;
 	cart(47, theta, -1, -1);
 	write("(",c,") text");
-	theta -:= dtheta;
+	theta -:= dtheta
     }
 
     # draw each round in a different color
@@ -9613,10 +9766,10 @@ procedure main (args)
 	    cart (45, angle[match[3]], 0, 0);  writes ("line stroke ");
 	    cart (45, angle[match[2]], 0, 0);  writes ("begin ");
 	    cart (45, angle[match[4]], 0, 0);  write  ("line stroke");
-	    nmatches +:= 1;
+	    nmatches +:= 1
 	}
 	n +:= 1;
-	newcolor();
+	newcolor()
     }
 
     # write some final statistics
@@ -9651,10 +9804,10 @@ procedure newcolor()
 	green := (green + 211) % 256;
 	blue := (blue + 71) % 256;
 	lum := 0.30 * red + 0.59 * green + 0.11 * blue;
-	if lum > 96 then return;
+	if lum > 96 then return
     }
     end
-#-------------------------------------------- 910 procedure_every_scan_replace_4
+#-------------------------------------------- 912 procedure_every_scan_replace_4
 #SRC: V9GEN
 #OPT: -fe
 
@@ -9740,7 +9893,7 @@ procedure endetab1 ()
          t := entab ! params;		# run entab
          if t ~== interp (line) then {	# check results
             write ("entab error: ", map(line,"\t\r\n\b\007","!RNBA"));
-            write ("   returned: ", map(t,   "\t\r\n\b\007","!RNBA"));
+            write ("   returned: ", map(t,   "\t\r\n\b\007","!RNBA"))
          } else {
             if upto ('\t', s) then	# detab input if it had a tab
                s := detab ! params;
@@ -9748,7 +9901,7 @@ procedure endetab1 ()
             t := detab ! params;		# detab the result of the entab
             if t ~== s then {		# compare results
                write ("detab error: ", map(line,"\t\r\n\b\007","!RNBA"));
-               write ("   returned: ", map(t,   "\t\r\n\b\007","!RNBA"));
+               write ("   returned: ", map(t,   "\t\r\n\b\007","!RNBA"))
                }
             }
          }
@@ -9773,7 +9926,7 @@ procedure escape (line);		# interpret escape sequences and trim one '$'
             "r": "\r";
             "t": "\t";
             default: "\\" || c
-         });
+         })
       }
    return s;
 end
@@ -9787,7 +9940,7 @@ procedure interp (pattern);	# interpret metacharacters '!.'
    pattern ? 
       while not pos (0) do {
          tab (many ('.'));
-         s ||:= tab (upto ('.') | 0);
+         s ||:= tab (upto ('.') | 0)
       }
    return map (s, "!", "\t");
 end
@@ -9805,7 +9958,447 @@ procedure setup (line);		# interpret and report a column spec line
    write (")");
    return p;
 end
-#----------------------------------------- 911 procedure_record_every_replace_12
+#----------------------------------------- 913 procedure_record_every_replace_19
+#SRC: V9GEN
+
+record array(a,b,c,d,e,f,g)
+
+procedure p1()
+   write(" ----> ",image() | "none");
+   write("list(0) ----> ",image(list(0)) | "none");
+   write("list(0,1) ----> ",image(list(0,1)) | "none");
+   write("list(1,1) ----> ",image(list(1,1)) | "none");
+   write("list(100,\"a\") ----> ",image(list(100,"a")) | "none");
+   write("table() ----> ",image(table()) | "none");
+   write("table(0) ----> ",image(table(0)) | "none");
+   write("a := [] ----> ",image(a := []) | "none");
+   write("every put(a,!&lcase) ----> ",image(every put(a,!&lcase)) | "none");
+   write("a1 := sort(a) ----> ",image(a1 := sort(a)) | "none");
+   write("every write(!a1) ----> ",image(every write(!a1)) | "none");
+end
+
+procedure p2()
+   write("sort(a1) ----> ",image(sort(a1)) | "none");
+   write("t := table() ----> ",image(t := table()) | "none");
+   write("every t[!&lcase] := 1 ----> ",image(every t[!&lcase] := 1) | "none");
+   write("sort(t) ----> ",image(sort(t)) | "none");
+   write("a := sort(t) ----> ",image(a := sort(t)) | "none");
+   write("every write((!a)[1]) ----> ",image(every write((!a)[1])) | "none");
+   write("every write((!a)[2]) ----> ",image(every write((!a)[2])) | "none");
+   write("set([1,0,1,0,1,0,1,0]) ----> ",image(set([1,0,1,0,1,0,1,0])) | "none");
+   write("set([]) ----> ",image(set([])) | "none");
+   write("s := set([1,2,3,4,5,6,7,8,9,10]) ----> ",image(s := set([1,2,3,4,5,6,7,8,9,10])) | "none");
+   write("*s ----> ",image(*s) | "none");
+end
+
+procedure p3()
+   write("every write(!sort(s)) ----> ",image(every write(!sort(s))) | "none");
+   write("*copy(s) ----> ",image(*copy(s)) | "none");
+   write("image(s) ----> ",image(image(s)) | "none");
+   write("type(s) ----> ",image(type(s)) | "none");
+   write("member(s,8) ----> ",image(member(s,8)) | "none");
+   write("member(s,\"8\") ----> ",image(member(s,"8")) | "none");
+   write("s := set([]) ----> ",image(s := set([])) | "none");
+   write("every insert(s,1 to 100) ----> ",image(every insert(s,1 to 100)) | "none");
+   write("*s ----> ",image(*s) | "none");
+   write("every delete(s,15 to 30) ----> ",image(every delete(s,15 to 30)) | "none");
+   write("*s ----> ",image(*s) | "none");
+end
+
+procedure p4()
+   write("every s1 := insert(set([]),!&lcase) ----> ",image(every s1 := insert(set([]),!&lcase)) | "none");
+   write("s2 := set([\"a\",\"aa\",\"ab\",\"b\",1,2,3,4]) ----> ",image(s2 := set(["a","aa","ab","b",1,2,3,4])) | "none");
+   write("s3 := s1 ++ s2 ----> ",image(s3 := s1 ++ s2) | "none");
+   write("s4 := s1 ** s2 ----> ",image(s4 := s1 ** s2) | "none");
+   write("s5 := s1 -- s2 ----> ",image(s5 := s1 -- s2) | "none");
+   write("*s3 ----> ",image(*s3) | "none");
+   write("*s4 ----> ",image(*s4) | "none");
+   write("*s5 ----> ",image(*s5) | "none");
+   write("t := table() ----> ",image(t := table()) | "none");
+   write("every t[1 | &output | &cset | [] | \"hello\" | main | 2 | table()] := ?100 ----> ",image(every t[1 | &output | &cset | [] | "hello" | main | 2 | table()] := ?100) | "none");
+   write("a := sort(t,3) ----> ",image(a := sort(t,3)) | "none");
+end
+
+procedure p5()
+   write("every i := 1 to *a - 1 by 2 do write(image(a[i]),\" \",a[i + 1]) ----> ",image(every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1])) | "none");
+   write("a := sort(t,4) ----> ",image(a := sort(t,4)) | "none");
+   write("every i := 1 to *a - 1 by 2 do write(image(a[i]),\" \",a[i + 1]) ----> ",image(every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1])) | "none");
+   write("t := table() ----> ",image(t := table()) | "none");
+   write("every t[1 | &output | &cset | [] | \"hello\" | main | 2 | table()] := ?100 ----> ",image(every t[1 | &output | &cset | [] | "hello" | main | 2 | table()] := ?100) | "none");
+   write("a := sort(t,3) ----> ",image(a := sort(t,3)) | "none");
+   write("every i := 1 to *a - 1 by 2 do write(image(a[i]),\" \",a[i + 1]) ----> ",image(every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1])) | "none");
+   write("a := sort(t,4) ----> ",image(a := sort(t,4)) | "none");
+   write("every i := 1 to *a - 1 by 2 do write(image(a[i]),\" \",a[i + 1]) ----> ",image(every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1])) | "none");
+   write("x := [array(),table(),write,[],&input,1,\"abc\",'aa',&null] ----> ",image(x := [array(),table(),write,[],&input,1,"abc",'aa',&null]) | "none");
+   write("x := sort(x) ----> ",image(x := sort(x)) | "none");
+end
+
+procedure p6()
+   write("every write(image(!x)) ----> ",image(every write(image(!x))) | "none");
+   write("t := table(table()) ----> ",image(t := table(table())) | "none");
+   write("every t[1 to 10] := 1 do write(image(t)) ----> ",image(every t[1 to 10] := 1 do write(image(t))) | "none");
+   write("t := table() ----> ",image(t := table()) | "none");
+   write("every t[1 to 10] := 1 do write(*t) ----> ",image(every t[1 to 10] := 1 do write(*t)) | "none");
+   write("t[] := 6 ----> ",image(t[] := 6) | "none");
+   write("t[] ----> ",image(t[]) | "none");
+   write("*t ----> ",image(*t) | "none");
+   write("t[&null] := 7 ----> ",image(t[&null] := 7) | "none");
+   write("t[] ----> ",image(t[]) | "none");
+   write("*t ----> ",image(*t) | "none");
+end
+
+procedure p7()
+   write("x := [] ----> ",image(x := []) | "none");
+   write("*x ----> ",image(*x) | "none");
+   write("every push(x,1 to 10) ----> ",image(every push(x,1 to 10)) | "none");
+   write("every 1 to 10 do write(pop(x)) ----> ",image(every 1 to 10 do write(pop(x))) | "none");
+   write("*x ----> ",image(*x) | "none");
+   write("pop(x) ----> ",image(pop(x)) | "none");
+   write("pull(x) ----> ",image(pull(x)) | "none");
+   write("get(x) ----> ",image(get(x)) | "none");
+   write("every put(x,1 to 10) ----> ",image(every put(x,1 to 10)) | "none");
+   write("every 1 to 10 do write(get(x)) ----> ",image(every 1 to 10 do write(get(x))) | "none");
+   write("every push(x,1 to 10) ----> ",image(every push(x,1 to 10)) | "none");
+end
+
+procedure p8()
+   write("every 1 to 10 do write(pull(x)) ----> ",image(every 1 to 10 do write(pull(x))) | "none");
+   write("x := [1,2,3,4,5,6,7,8,9,0] ----> ",image(x := [1,2,3,4,5,6,7,8,9,0]) | "none");
+   write("every write(image(x[1:0 to -20 by -1])) ----> ",image(every write(image(x[1:0 to -20 by -1]))) | "none");
+   write("a := [1,2,3,4,5,6,7,8] ----> ",image(a := [1,2,3,4,5,6,7,8]) | "none");
+   write("a1 := a[2:4] ----> ",image(a1 := a[2:4]) | "none");
+   write("a2 := a[7:2] ----> ",image(a2 := a[7:2]) | "none");
+   write("a3 := a[2+:3] ----> ",image(a3 := a[2+:3]) | "none");
+   write("a4 := a[-1-:3] ----> ",image(a4 := a[-1-:3]) | "none");
+   write("a1[1] ----> ",image(a1[1]) | "none");
+   write("a2[1] ----> ",image(a2[1]) | "none");
+   write("a3[1] ----> ",image(a3[1]) | "none");
+end
+
+procedure p9()
+   write("a4[1] ----> ",image(a4[1]) | "none");
+   write("a4[1] := a ----> ",image(a4[1] := a) | "none");
+   write("a := [1,2,3,4] ----> ",image(a := [1,2,3,4]) | "none");
+   write("a1 := a[1:2] ----> ",image(a1 := a[1:2]) | "none");
+   write("every write(!a1) ----> ",image(every write(!a1)) | "none");
+   write("a2 := a[3:0] ----> ",image(a2 := a[3:0]) | "none");
+   write("every write(!a2) ----> ",image(every write(!a2)) | "none");
+   write("a4 := a[2:2] ----> ",image(a4 := a[2:2]) | "none");
+   write("every write(!a4) ----> ",image(every write(!a4)) | "none");
+   write("a5 := a[0-:2] ----> ",image(a5 := a[0-:2]) | "none");
+   write("every write(!a5) ----> ",image(every write(!a5)) | "none");
+end
+
+procedure p10()
+   write("a3 := a[0:3] ----> ",image(a3 := a[0:3]) | "none");
+   write("every write(!a3) ----> ",image(every write(!a3)) | "none");
+   write("a := \"abcd\" ----> ",image(a := "abcd") | "none");
+   write("a1 := a[1:2] ----> ",image(a1 := a[1:2]) | "none");
+   write("every write(!a1) ----> ",image(every write(!a1)) | "none");
+   write("a2 := a[3:0] ----> ",image(a2 := a[3:0]) | "none");
+   write("every write(!a2) ----> ",image(every write(!a2)) | "none");
+   write("a3 := a[0:3] ----> ",image(a3 := a[0:3]) | "none");
+   write("every write(!a3) ----> ",image(every write(!a3)) | "none");
+   write("a4 := a[2:2] ----> ",image(a4 := a[2:2]) | "none");
+   write("every write(!a4) ----> ",image(every write(!a4)) | "none");
+end
+
+procedure p11()
+   write("a5 := a[0-:2] ----> ",image(a5 := a[0-:2]) | "none");
+   write("every write(!a5) ----> ",image(every write(!a5)) | "none");
+   write("[] ||| [] ----> ",image([] ||| []) | "none");
+   write("[1,2,3] ||| [] ----> ",image([1,2,3] ||| []) | "none");
+   write("[] ||| [1,2,3] ----> ",image([] ||| [1,2,3]) | "none");
+   write("r := array(1,2,3,4,5,6,7,8,9) ----> ",image(r := array(1,2,3,4,5,6,7,8,9)) | "none");
+   write("r.a ----> ",image(r.a) | "none");
+   write("r.b ----> ",image(r.b) | "none");
+   write("r.c ----> ",image(r.c) | "none");
+   write("r.d ----> ",image(r.d) | "none");
+   write("r.e ----> ",image(r.e) | "none");
+end
+
+procedure p12()
+   write("r.f ----> ",image(r.f) | "none");
+   write("type(r) ----> ",image(type(r)) | "none");
+   write("image(r) ----> ",image(image(r)) | "none");
+   write("r.a +:= 0 ----> ",image(r.a +:= 0) | "none");
+   write("r.b +:= 0 ----> ",image(r.b +:= 0) | "none");
+   write("r.c +:= 0 ----> ",image(r.c +:= 0) | "none");
+   write("r.d +:= 0 ----> ",image(r.d +:= 0) | "none");
+   write("r.e +:= 0 ----> ",image(r.e +:= 0) | "none");
+   write("r.f +:= 0 ----> ",image(r.f +:= 0) | "none");
+   write("r.a ----> ",image(r.a) | "none");
+   write("r.b ----> ",image(r.b) | "none");
+end
+
+procedure p13()
+   write("r.c ----> ",image(r.c) | "none");
+   write("r.d ----> ",image(r.d) | "none");
+   write("r.e ----> ",image(r.e) | "none");
+   write("r.f ----> ",image(r.f) | "none");
+   write("r := array(\"a\",2,array(),r,main) ----> ",image(r := array("a",2,3.5,array(),r,main)) | "none");
+   write("every write(image(!r)) ----> ",image(every write(image(!r))) | "none");
+   write("r[1] :=: r.d ----> ",image(r[1] :=: r.d) | "none");
+   write("every write(image(!r)) ----> ",image(every write(image(!r))) | "none");
+   # test that overflow is not ignored when comparing integers
+   a := [847198497, -2035912587];
+   every writes(" ", "a:" | !sort(a) | "\n");
+end
+
+procedure main()
+   p1();
+   p2();
+   p3();
+   p4();
+   p5();
+   p6();
+   p7();
+   p8();
+   p9();
+   p10();
+   p11();
+   p12();
+   p13();
+end
+
+global s, t, x, r
+global a, a1, a2, a3, a4
+#----------------------------------------- 914 procedure_record_coexpr_replace_3
+#SRC: JCON
+
+# test sorting and copying
+
+procedure main(args)
+   listtest();
+   rectest();
+   tbltest();
+   copytest();
+   messtest();
+end
+
+
+
+#  listtest() -- test sorting of lists and sets
+
+procedure listtest()
+   local n, x, S, L1, L2, L3;
+
+   every n := (0 to 10) | 23 | 47 | 91 do {
+
+      write(n, ":");
+      S := set();
+      while *S < n do
+         insert(S, randval());
+
+      L1 := list();
+      every put (L1, !S);
+
+      L2 := sort(L1);
+      L3 := sort(set(L1));
+
+      check(L2, L3);
+
+      L2 := sort(copy(L1));
+      L3 := sort(copy(set(L1)));
+      check(L2, L3)
+
+   }
+end
+
+
+#  rectest() -- test sorting of records
+
+record r0()
+record r1(a)
+record r2(a,b)
+record r5(a,b,c,d,e)
+
+procedure rectest()
+   write();
+   wlist(sort(r0()));
+   wlist(sort(copy(r0()),));
+   wlist(sort(r1(12)));
+   wlist(sort(r2(5,2)));
+   wlist(sort(r5(2,7,1,8,3)));
+   wlist(sort(r5(3,1,4,1,6)));
+   wlist(sort(r5("t","e","p","a","d")));
+   wlist(sort(copy(r5("t","e","p","a","d"))));
+   return;
+end
+
+
+
+#  tbltest() -- test sorting of tables
+
+procedure tbltest()
+   local T, L;
+
+   T := table();
+   T[7] := "h";
+   T[2] := "a";
+   T[8] := "r";
+   T[0] := "e";
+   T[3] := "o";
+   T[6] := "s";
+   T[5] := "n";
+   T[1] := "t";
+   T[4] := "i";
+   T[9] := "d";
+
+   write();
+   L := sort(T);    every writes(" ", *L | !!L | "\n");
+   L := sort(T, 1); every writes(" ", *L | !!L | "\n");
+   L := sort(T, 2); every writes(" ", *L | !!L | "\n");
+   L := sort(T, 3); every writes(" ", *L |  !L | "\n");
+   L := sort(T, 4); every writes(" ", *L |  !L | "\n");
+
+   T := copy(T);
+   L := sort(T);    every writes(" ", *L | !!L | "\n");
+   L := sort(T, 1); every writes(" ", *L | !!L | "\n");
+   L := sort(T, 2); every writes(" ", *L | !!L | "\n");
+   L := sort(T, 3); every writes(" ", *L |  !L | "\n");
+   L := sort(T, 4); every writes(" ", *L |  !L | "\n");
+   return;
+end
+
+
+
+#  randval() -- return random integer, real, string, or cset value
+
+procedure randval()
+   return case ?4 of {
+      1:  ?999;					# 000 - 999
+      2:  ?99 / 10.0;				# 0.0 - 9.9
+      3:  ?&letters || ?&letters || ?&letters;	# "AAA" - "ZZZ"
+      4:  ?&digits ++ ?&letters ++ ?&letters	# '0AA' - '9ZZ'
+      }
+end
+
+
+#  check that two lists have identical components
+#  and that they are in ascending order
+
+procedure check(a, b)
+   local i, ai, ai1, bi, d;
+
+   if *a ~= *b then
+      stop("different sizes: ", image(a), " / ", image(b));
+   every i := 1 to *a do {
+      ai := a[i];
+      bi := b[i];
+      ai1 := a[i-1] | &null;
+      if ai ~=== bi then
+         stop("element ", i, " differs");
+      if type(ai) === type(ai1) then {
+         case type(ai) of {
+	    "integer":	d := (ai1 > ai) | &null;
+	    "real":	d := (ai1 > ai) | &null;
+	    "string":	d := (ai1 >> ai) | &null
+	    }
+	 stop("element ", i, " out of order: ", image(\d))
+         }
+      }
+   return;
+end
+
+
+#  write list
+
+procedure wlist(L)
+   writes(*L, ":");
+   every writes(right(!L, 4) | "\n");
+   return;
+end
+
+
+
+#  test copy(), especially that copies are really distinct
+
+procedure copytest()
+   local L1, L2, S1, S2, T1, T2, R1, R2;
+
+   write();
+
+   L1 := [1,2,3];
+   push(L1, L1);
+   L2 := copy(L1);
+   pull(L2);
+   put(L2, 4);
+   every writes(" ", "L1:" | image(!L1) | "\n");
+   every writes(" ", "L2:" | image(!L2) | "\n");
+
+   S1 := set([1,2,3]);
+   insert(S1, S1);
+   S2 := copy(S1);
+   delete(S2, 2);
+   insert(S2, 5);
+   every writes(" ", "S1:" | image(!sort(S1)) | "\n");
+   every writes(" ", "S2:" | image(!sort(S2)) | "\n");
+
+   T1 := table();
+   T1[2] := "j";
+   T1[5] := "c";
+   T1[8] := "n";
+   T1[15] := T1;
+   T2 := copy(T1);
+   delete(T2, 5);
+   insert(T2, 11, "t");
+   every writes(" ", "T1:" | image(!sort(T1,3)) | "\n");
+   every writes(" ", "T2:" | image(!sort(T2,3)) | "\n");
+
+   R1 := r5(1,3,5,7,9);
+   R2 := copy(R1);
+   R1.b := 4;
+   R2.d := 6;
+   every writes(" ", "R1:" | image(R1) | image(!sort(R1)) | "\n");
+   every writes(" ", "R2:" | image(R2) | image(!sort(R2)) | "\n");
+
+   return;
+end
+
+
+
+#  sort different types together
+
+procedure messtest()
+   local L1, L2, L3;
+
+   write();
+   L1 := [
+      '', '0cs', 4.4, set(), 2.2, "a", &null, integer, wlist, "epsilons",
+      r0, "delta", push, "beta", table(5), [], write, '123cs', [3,4], -3^41,
+      image, insert(table(3),4,7), &input, 3.3, reverse, r1(1), [], table(4),
+      r5, r5(1,23), &null, create 1 | 2, 5.5, set([5,6]), "", r2(5,6), -7^23,
+      "epsilon", [1,2,3], r5(7,8,9), r2, &output, 4, , set([0,1,2]), 1,
+      r5(1,2,3), r1, check, create 3 | 4, serial, 'XYZcs', 1.1, r1(5), 5^28,
+      '1234cs', 5, r0(), read, "gamma", r5(4,5,6,7,8), 2, create 5 to 7,
+      table, r2(1,2), right, r0(), "alpha", messtest, &errout, 11^19,
+      listtest, "gamma", main, 3];
+   put(L1, L1);
+   L2 := copy(L1);
+   every put(L1, copy(!L2));
+
+   write();
+   every write(image(!sort(L1)));
+
+   wsortf(L1, 2);
+   wsortf(L1, -1);
+   return;
+end
+
+procedure wsortf(L, n)
+   local e, s;
+
+   write();
+   every e := !sortf(L,n) do {
+      s := image(e);
+      if (s ? =("list" | "record")) & not (s ?= "record constructor") then
+         writes("key=", image(e[n]), " ");	# may fail
+      write(s)
+      }
+   return;
+end
+#----------------------------------------- 915 procedure_record_every_replace_12
 #SRC: V9GEN
 #OPT: -fe
 
@@ -10011,7 +10604,7 @@ procedure monitor(line)
    write("   &errorvalue = ", image(&errorvalue));
    return line;
 end
-#------------------------------------------- 912 procedure_record_scan_replace_2
+#------------------------------------------- 916 procedure_record_scan_replace_2
 #SRC: IPL
 
 ############################################################################
@@ -10100,7 +10693,7 @@ procedure main(args)
    while line := in() do {
       lineno +:= 1;
       line := braces(line);
-      out(line);
+      out(line)
       }
 
    while t := pop(tagstack) do
@@ -10130,13 +10723,13 @@ procedure braces(line)
                if t.label == "!" then
                   s ||:= "-->"
                else
-                  s ||:= "</" || t.label || ">";
+                  s ||:= "</" || t.label || ">"
                }
             else
-               lwarn("tag stack underflow");
+               lwarn("tag stack underflow")
             }
          }
-      return s ||:= tab(0);
+      return s ||:= tab(0)
       }
 end
 
@@ -10151,7 +10744,7 @@ procedure newtag()
       return "";
    if ="!" then {
       push(tagstack, tag("!", lineno));
-      return "<!--";
+      return "<!--"
       }
 
    if c := tab(any('@:')) then {
@@ -10160,11 +10753,11 @@ procedure newtag()
          s := "<a href="
       else
          s := "<a name=";
-      s ||:= attval();
+      s ||:= attval()
       }
    else {
       label := tab(many(idset)) | (lwarn("unlabeled tag") & "noname");
-      s := "<" || label;
+      s := "<" || label
       }
 
    if \cmdtable[map(label)] then
@@ -10210,7 +10803,7 @@ procedure docommand(label)
       tab(many(WSPACE));
       id := tab(many(idset));
       move(2);
-      atts[id] := tab(-1);
+      atts[id] := tab(-1)
       }
    while tab(many(WSPACE)) & (s := tab(bal(' }', '{', '}'))) do
       put(words, s);
@@ -10241,9 +10834,9 @@ procedure in()
          if any(&ascii) then
             s ||:= "\\" || char(128 + ord(move(1)))
          else
-            s ||:= move(1);
+            s ||:= move(1)
          }
-      return s ||:= tab(0);
+      return s ||:= tab(0)
       }
    fail;
 end
@@ -10263,7 +10856,7 @@ procedure divert(atts, words)
 
    if *words ~= 1 then {
       lwarn("usage: {divert filename}");
-      fail;
+      fail
       }
 
    fname := get(words);
@@ -10271,18 +10864,18 @@ procedure divert(atts, words)
       if read(f) ~== SIGNATURE then {
          lwarn("divert: won't overwrite non-htprep file ", fname);
          close(f);
-         fail;
+         fail
          }
-      close(f);
+      close(f)
       }
 
    if outfile := open(fname, "w") then {
       out(SIGNATURE);
-      return "";
+      return ""
       }
    else {
       lwarn("divert: can't open ", fname);
-      fail;
+      fail
       }
 end
 
@@ -10302,9 +10895,9 @@ procedure out(s)
    s ? {
       while writes(outfile, tab(upto('\\'))) do {
          move(1);
-         writes(outfile, char(iand(127, ord(move(1)))));
+         writes(outfile, char(iand(127, ord(move(1)))))
          }
-      write(outfile, tab(0));
+      write(outfile, tab(0))
       }
    return;
 end
