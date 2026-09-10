@@ -472,3 +472,38 @@ accepting a `;` inside parens that real Icon rejects. Not filed as a defect row 
 brace/semicolon dialect law (2026-09-04, row `icon-dialect-procedure-braces-no-end-...`) is about to
 re-decide exactly what `;` means in SCRIP Icon, so the correct expectation for these two is a
 question for that row, not a bug to fix underneath it. Re-check both when the dialect lands.
+
+## 1 file — THE NAME-ECHOING CLASS: a program whose OWN OUTPUT ENCODES ITS FILENAME cannot be absorbed (hq_V, 2026-09-10)
+
+`trace_call_line_prints_every_parameter_and_images_a_list.icn`
+
+The cfo cut this pair from `icont`+`iconx` (49 lines, corpus `dacee8c98`) and handed it for absorption
+into the master. **It is GREEN on this tree as a loose pair, in BOTH modes, and its ref re-cut from the
+oracle here came back BYTE-IDENTICAL to the handed one** — so it is a good test and nothing is wrong
+with it. It still must never enter `ALL.icn`, and the reason is structural, not a defect in the file.
+
+⛔ **THE PROGRAM SETS `&trace`, SO EVERY ONE OF ITS 43 TRACE LINES BEGINS WITH ITS OWN FILE NAME,
+TRUNCATED BY `iconx` TO THE LAST 13 CHARACTERS** — here `es_a_list.icn:`, the tail of
+`...images_a_list.icn`. The master builder does not keep a loose file's name: `descriptive_name()`
+derives an entry name from construct flags, and `run_suite_entry()` then writes the entry to a scratch
+dir as `<entry name>.icn`. So the absorbed program runs under a DIFFERENT name than the one its ref was
+cut under, and every trace line's prefix changes with it.
+
+⭐ **MEASURED, NOT PREDICTED (hq_V 2026-09-10, SCRIP `3bbdfc8c7`).** The builder was run for this family
+and assigned the entry name `procedure_record_every_replace_18`. Extracted from the master it had just
+written and run under that name, SCRIP prints `eplace_18.icn:` where the absorbed ref carries
+`es_a_list.icn:` — **86 differing lines, a guaranteed red, with the compiler behaving perfectly.** A
+control on the same program under its own loose name is byte-identical to the ref in both modes: the
+red is created by the rename alone.
+
+This is the same class the builder already recognises for `EXCLUDE_DIRS` ("an entry runs ALONE in a
+scratch dir, so a test needing sibling files would grade a DIFFERENT program") — a test that encodes
+its own file name is grading a different program the moment it is renamed, for the same reason. Nor is
+re-cutting the ref under the assigned name a fix: entry names and seq numbers SHIFT on later rebuilds
+(the builder's own header records 694 of 1726 entries moving in one re-sort), so a ref pinned to one
+assigned name is a red waiting for the next rebuild.
+
+⭐ Master entry `procedure_every_alt_replace_4` (seq 891) is the SAME CLASS already inside the master —
+it prints `&progname`. It stays graded on the ceo's word (CEO-503) and its honest icont-cut ref is in
+`ALL.ref` as of this landing; whether a name-echoing entry belongs in the master at all is a question
+for the ceo, routed 2026-09-10, not something this file decides.

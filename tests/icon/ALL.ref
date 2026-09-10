@@ -5045,11 +5045,11 @@ procedure dbl
 #--------------------------------------------- 891 procedure_every_alt_replace_4
   &allocated: 0
   &allocated: 0
-  &allocated: 0
+  &allocated: 46
   &allocated: 0
       &ascii: &ascii  [size 128]
       &clock: nn:nn:nn
-        &col: 0
+        &col: [failed]
 &collections: 0
 &collections: 0
 &collections: 0
@@ -5069,15 +5069,15 @@ procedure dbl
      &errout: &errout
        &fail: [failed]
    &features: UNIX
-   &features: Java
    &features: ASCII
    &features: co-expressions
    &features: dynamic loading
    &features: environment variables
+   &features: external values
+   &features: keyboard functions
    &features: large integers
    &features: pipes
    &features: system function
-   &features: graphics
       &input: &input
    &interval: [failed]
       &lcase: &lcase  [size 26]
@@ -5096,29 +5096,29 @@ procedure dbl
         &phi: 1.618033989
          &pi: 3.141592654
         &pos: 1
-   &progname: procedure_every_alt_replace_4
+   &progname: procedure_every_alt_replace_4.icn
      &random: 0
       &rdrag: -9
     &regions: 0
-    &regions: 0
-    &regions: 0
+    &regions: 500000
+    &regions: 500000
      &resize: -10
-        &row: 0
+        &row: [failed]
      &rpress: -3
    &rrelease: -6
       &shift: [failed]
      &source: co-expression_1(1)
     &storage: 0
-    &storage: 0
-    &storage: 0
+    &storage: 1552
+    &storage: 48
     &subject: 
        &time: nnnn
       &trace: 0
       &ucase: &ucase  [size 26]
-    &version: Jcon Version 2.2
-     &window: &null
-          &x: 0
-          &y: 0
+    &version: Icon Version 9.5
+     &window: [failed]
+          &x: [failed]
+          &y: [failed]
 #----------------------------------------- 892 procedure_every_elemgen_replace_2
 XIII
 IV
