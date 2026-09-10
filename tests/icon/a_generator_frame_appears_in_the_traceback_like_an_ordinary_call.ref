@@ -1,0 +1,9 @@
+
+Run-time error 201
+File a_generator_frame_appears_in_the_traceback_like_an_ordinary_call.icn; Line 15
+division by zero
+Traceback:
+main()
+f() from line 8 in a_generator_frame_appears_in_the_traceback_like_an_ordinary_call.icn
+g() from line 11 in a_generator_frame_appears_in_the_traceback_like_an_ordinary_call.icn
+{1 / 0} from line 15 in a_generator_frame_appears_in_the_traceback_like_an_ordinary_call.icn

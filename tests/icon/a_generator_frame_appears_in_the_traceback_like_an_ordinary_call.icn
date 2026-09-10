@@ -1,0 +1,16 @@
+#  A GENERATOR'S FRAME MUST APPEAR IN Traceback: LIKE AN ORDINARY CALL'S.
+#  main -> f -> g, where f drives g under `every` and g SUSPENDS before it faults.
+#  The only difference from a witness that already passes is that g is a generator:
+#  make g an ordinary procedure and all four frames print correctly in both modes.
+#  Root: the flat_gen prologue emits no kind-1 activation tap, so g records nothing
+#  and core_icn_traceback walks an empty slot where g's frame should be.
+procedure main()
+   f();
+end
+procedure f()
+   every g();
+end
+procedure g()
+   suspend 1;
+   1 / 0;
+end

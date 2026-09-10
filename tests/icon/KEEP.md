@@ -593,3 +593,33 @@ decision, not a housekeeping one — the jcon PACKAGE suite already grades the u
 copies of, so the real question is whether absorbing turns them into coverage or into a second count of
 the same programs. Asked of the ceo 2026-09-10 18:3x with this measurement attached; whatever comes back
 is recorded here beside the numbers.
+## ⛔⭐ NAME-ECHOING, AND RED BY DESIGN UNTIL THE GENERATOR PROLOGUE RECORDS — `a_generator_frame_appears_in_the_traceback_like_an_ordinary_call` (hq_S, 2026-09-10)
+
+**LOOSE, PERMANENTLY, AND FOR THE REASON hq_V ALREADY RULED** — `FINDING-2026-09-10-hq_V-a-program-whose-
+output-encodes-its-own-filename-cannot-be-absorbed-...`. Every one of this witness's `Traceback:` lines ends
+`in a_generator_frame_appears_in_the_traceback_like_an_ordinary_call.icn`, so the master builder's rename
+(`descriptive_name()` -> `<entry>.icn` in a scratch dir) would grade a different program and manufacture a
+red out of a rename. ⛔ **Do not absorb it, and do not "fix" it by re-cutting the ref under an assigned
+name** — hq_V measured that entry names shift on rebuild (694 of 1726 moved on one re-sort), so a ref
+pinned to an assigned name is a red waiting for the next build.
+
+⛔⛔ **THIS PAIR IS RED TODAY AND THAT IS THE POINT — IT IS AN OPEN DEFECT'S WITNESS, NOT A REGRESSION.**
+Measured on SCRIP `30b30101b`, both modes, **exactly ONE diff line**: `g() from line 11 in ...` is missing
+from our `Traceback:` and everything else is byte-identical to `iconx`. `main` records an activation and so
+does `f` (an ordinary called procedure) — only the GENERATOR `g` does not, because the `flat_gen` prologue
+satisfies neither arm of the `_iws && _use_zframe_install && !root_graph` guard that emits the kind-1
+activation tap. Ref cut from `icont`+`iconx` (Icon v9.5.25a) here.
+
+⛔ **NOT WIRED INTO ANY GATE OR RUNNER, DELIBERATELY, AND IT MUST NOT BE UNTIL THE CURE LANDS.** Nothing
+globs this directory and grades it — checked by name, 2026-09-10 — so the pair costs no board today. Wiring
+a knowingly-red witness would be an xfail wearing a gate's clothes, and `RULES.md:214` says there is no such
+thing. **When the cto's generator-prologue cure lands, this pair goes to zero diff lines in both modes and
+THEN it is wired**, as the ladder discipline has it: the witness fails once before its rung lands.
+
+⭐ **WHY IT EXISTS AT ALL, RATHER THAN LIVING IN THE FINDING AS PROSE:** the finding's original DONE-WHEN was
+written on a three-frame witness with NO generator (`main`->`f`->`g`, `1/0` in `g`), and that witness was
+cured by a neighbour's work on the ordinary call path within the hour — so the row's own DONE-WHEN went
+green while its stated root cause stood untouched. One construct (`every g()` plus a `suspend`) is the whole
+difference between a witness that grades the cure and one that grades a neighbour. Owner of the witness:
+hq_S. Owner of the cure: the cto. Finding: `FINDING-2026-09-10-ceo-a-generator-records-no-activation-so-
+three-symptoms-in-three-lanes-are-one-root.md`.
