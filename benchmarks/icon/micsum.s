@@ -220,6 +220,7 @@ n14_scan_enter_α:       mov              r11, 14
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        test             rax, rax;                            je    n9_var_ref_α
                         mov              r13, rax
                         mov              r15, rdx
                         mov              r14, 0;                              jmp   n15_line_mark_α
@@ -284,6 +285,18 @@ n17_scan_many_β:        mov              r11, 17;                             j
 n18_scan_tab_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n18_scan_tab_α:         mov              r11, 18
+                        mov              rdi, qword ptr [rbp + 3440]
+                        mov              rsi, qword ptr [rbp + 3448]
+                        sub              rsp, 8
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        add              rsp, 8
+                        test             eax, eax;                            jz    n19_line_mark_α
                         mov              rdi, qword ptr [rbp + 3440]
                         mov              rsi, qword ptr [rbp + 3448]
                         sub              rsp, 8
@@ -382,6 +395,18 @@ n21_scan_many_β:        mov              r11, 21;                             j
 n22_scan_tab_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n22_scan_tab_α:         mov              r11, 22
+                        mov              rdi, qword ptr [rbp + 3344]
+                        mov              rsi, qword ptr [rbp + 3352]
+                        sub              rsp, 8
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        add              rsp, 8
+                        test             eax, eax;                            jz    n25_line_mark_α
                         mov              rdi, qword ptr [rbp + 3344]
                         mov              rsi, qword ptr [rbp + 3352]
                         sub              rsp, 8
@@ -518,6 +543,18 @@ n27_scan_many_β:        mov              r11, 27;                             j
 n28_scan_tab_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n28_scan_tab_α:         mov              r11, 28
+                        mov              rdi, qword ptr [rbp + 3200]
+                        mov              rsi, qword ptr [rbp + 3208]
+                        sub              rsp, 8
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        add              rsp, 8
+                        test             eax, eax;                            jz    n29_line_mark_α
                         mov              rdi, qword ptr [rbp + 3200]
                         mov              rsi, qword ptr [rbp + 3208]
                         sub              rsp, 8
@@ -2569,7 +2606,7 @@ n00045_binop_test_α:      mov              r11, 142
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             eax, eax;                            je    .Lbinop_test_α_401_1
+                        test             eax, eax;                            je    .Lbinop_test_α_401_2
                         cmp              eax, 1;                              je    .Ldisjunction_ω_132_af
                                                                               jmp   n00046_lit_integer_α
 .Lbinop_test_α_401_2:   mov              rdi, qword ptr [rbp + 3648]
@@ -3868,7 +3905,7 @@ n00107_binop_test_α:      mov              r11, 206
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             eax, eax;                            je    .Lbinop_test_α_542_1
+                        test             eax, eax;                            je    .Lbinop_test_α_542_2
                         cmp              eax, 1;                              je    .Ldisjunction_ω_460_af
                                                                               jmp   n00108_kw_icon_α
 .Lbinop_test_α_542_2:   mov              rdi, qword ptr [rbp + 208]
