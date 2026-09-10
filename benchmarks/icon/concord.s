@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/concord.icn"
+                        .file            1 "/home/claude_I/corpus/benchmarks/icon/concord.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__tabulate:
@@ -2783,7 +2783,7 @@ n00057_assign_α:          mov              r11, 125
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_340_0]
                         .section         .rodata
-.Lassign_α_340_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_340_1_s:     .string          "/home/claude_I/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_340_1_s]
@@ -8827,7 +8827,7 @@ n00333_assign_α:         mov              r11, 403
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1027_0]
                         .section         .rodata
-.Lassign_α_1027_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1027_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1027_1_s]
@@ -9017,7 +9017,7 @@ n00340_assign_α:         mov              r11, 409
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1037_0]
                         .section         .rodata
-.Lassign_α_1037_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1037_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1037_1_s]
@@ -9074,7 +9074,7 @@ n00342_assign_α:         mov              r11, 411
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1039_0]
                         .section         .rodata
-.Lassign_α_1039_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1039_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1039_1_s]
@@ -9133,7 +9133,7 @@ n00344_assign_α:         mov              r11, 413
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1041_0]
                         .section         .rodata
-.Lassign_α_1041_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1041_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1041_1_s]
@@ -9181,7 +9181,7 @@ n00345_assign_α:         mov              r11, 414
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1042_0]
                         .section         .rodata
-.Lassign_α_1042_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1042_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1042_1_s]
@@ -9589,7 +9589,7 @@ n00358_assign_α:         mov              r11, 427
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1081_0]
                         .section         .rodata
-.Lassign_α_1081_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1081_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1081_1_s]
@@ -9648,7 +9648,7 @@ n00360_assign_α:         mov              r11, 429
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1083_0]
                         .section         .rodata
-.Lassign_α_1083_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1083_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1083_1_s]
@@ -10380,7 +10380,7 @@ n00387_assign_α:         mov              r11, 456
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1164_0]
                         .section         .rodata
-.Lassign_α_1164_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1164_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1164_1_s]
@@ -11190,7 +11190,7 @@ n00424_assign_α:         mov              r11, 493
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1258_0]
                         .section         .rodata
-.Lassign_α_1258_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1258_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1258_1_s]
@@ -12315,7 +12315,7 @@ n00468_assign_α:         mov              r11, 537
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1373_0]
                         .section         .rodata
-.Lassign_α_1373_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1373_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1373_1_s]
@@ -13106,7 +13106,7 @@ n00501_assign_α:         mov              r11, 571
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1438_0]
                         .section         .rodata
-.Lassign_α_1438_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1438_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1438_1_s]
@@ -13560,7 +13560,7 @@ n00511_assign_α:         mov              r11, 580
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1506_0]
                         .section         .rodata
-.Lassign_α_1506_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1506_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1506_1_s]
@@ -13642,7 +13642,7 @@ n00515_assign_α:         mov              r11, 582
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1509_0]
                         .section         .rodata
-.Lassign_α_1509_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1509_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1509_1_s]
@@ -13732,7 +13732,7 @@ n00520_assign_α:         mov              r11, 585
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1513_0]
                         .section         .rodata
-.Lassign_α_1513_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1513_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1513_1_s]
@@ -13789,7 +13789,7 @@ n00521_assign_α:         mov              r11, 587
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1515_0]
                         .section         .rodata
-.Lassign_α_1515_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/concord.icn"
+.Lassign_α_1515_1_s:    .string          "/home/claude_I/corpus/benchmarks/icon/concord.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1515_1_s]
