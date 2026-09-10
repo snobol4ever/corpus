@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+                        .file            1 "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__loadfile:
@@ -70,7 +70,7 @@ n2_lit_string_α:        mov              r11, 2
                         mov              rax, qword ptr [rip + .Llit_string_α_105_0]
                         mov              qword ptr [rbp + 2008], rax;         jmp   n3_call_α
 .Llit_string_α_105_0:   .quad            .Llit_string_α_105_0_s
-.Llit_string_α_105_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+.Llit_string_α_105_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .size            n2_lit_string_bx, .-n2_lit_string_bx
                         .type            n3_call_bx, @function
 n3_call_bx:
@@ -160,7 +160,7 @@ n6_assign_α:            mov              r11, 6
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_111_0]
                         .section         .rodata
-.Lassign_α_111_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_111_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_111_1_s]
@@ -1841,7 +1841,7 @@ n00007_lit_string_α:      mov              r11, 105
                         mov              rax, qword ptr [rip + .Llit_string_α_302_0]
                         mov              qword ptr [rbp + -168], rax;         jmp   n00008_call_α
 .Llit_string_α_302_0:   .quad            .Llit_string_α_302_0_s
-.Llit_string_α_302_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+.Llit_string_α_302_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .size            n00007_lit_string_bx, .-n00007_lit_string_bx
                         .type            n00008_call_bx, @function
 n00008_call_bx:
@@ -2518,7 +2518,7 @@ n00047_lit_string_α:      mov              r11, 146
                         mov              rax, qword ptr [rip + .Llit_string_α_421_0]
                         mov              qword ptr [rbp + 1240], rax;         jmp   n00048_call_α
 .Llit_string_α_421_0:   .quad            .Llit_string_α_421_0_s
-.Llit_string_α_421_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+.Llit_string_α_421_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .size            n00047_lit_string_bx, .-n00047_lit_string_bx
                         .type            n00048_call_bx, @function
 n00048_call_bx:
@@ -2680,7 +2680,7 @@ n00058_assign_α:          mov              r11, 156
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_436_0]
                         .section         .rodata
-.Lassign_α_436_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_436_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_436_1_s]
@@ -3644,7 +3644,7 @@ n00103_lit_string_α:      mov              r11, 201
                         mov              rax, qword ptr [rip + .Llit_string_α_560_0]
                         mov              qword ptr [rbp + -152], rax;         jmp   n00104_call_α
 .Llit_string_α_560_0:   .quad            .Llit_string_α_560_0_s
-.Llit_string_α_560_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+.Llit_string_α_560_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .size            n00103_lit_string_bx, .-n00103_lit_string_bx
                         .type            n00104_call_bx, @function
 n00104_call_bx:
@@ -4789,7 +4789,7 @@ n00153_lit_string_α:      mov              r11, 252
                         mov              rax, qword ptr [rip + .Llit_string_α_861_0]
                         mov              qword ptr [rbp + 4248], rax;         jmp   n00154_call_α
 .Llit_string_α_861_0:   .quad            .Llit_string_α_861_0_s
-.Llit_string_α_861_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+.Llit_string_α_861_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .size            n00153_lit_string_bx, .-n00153_lit_string_bx
                         .type            n00154_call_bx, @function
 n00154_call_bx:
@@ -5370,7 +5370,7 @@ n00188_assign_α:          mov              r11, 286
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_918_0]
                         .section         .rodata
-.Lassign_α_918_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_918_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_918_1_s]
@@ -5442,7 +5442,7 @@ n00191_assign_α:          mov              r11, 289
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_923_0]
                         .section         .rodata
-.Lassign_α_923_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_923_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_923_1_s]
@@ -9062,7 +9062,7 @@ n00371_lit_string_α:     mov              r11, 470
                         mov              qword ptr [rbp + 1912], rax;         jmp   n00372_call_α
 .Llit_string_α_1293_0:  .quad            .Llit_string_α_1293_0_s
 .Llit_string_α_1293_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .size            n00371_lit_string_bx, .-n00371_lit_string_bx
                         .type            n00372_call_bx, @function
 n00372_call_bx:
@@ -10791,7 +10791,7 @@ n00451_lit_string_α:     mov              r11, 550
                         mov              qword ptr [rbp + 3480], rax;         jmp   n00452_call_α
 .Llit_string_α_1629_0:  .quad            .Llit_string_α_1629_0_s
 .Llit_string_α_1629_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .size            n00451_lit_string_bx, .-n00451_lit_string_bx
                         .type            n00452_call_bx, @function
 n00452_call_bx:
@@ -14940,7 +14940,7 @@ n00660_lit_string_α:     mov              r11, 759
                         mov              qword ptr [rbp + 1656], rax;         jmp   n00661_call_α
 .Llit_string_α_2035_0:  .quad            .Llit_string_α_2035_0_s
 .Llit_string_α_2035_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .size            n00660_lit_string_bx, .-n00660_lit_string_bx
                         .type            n00661_call_bx, @function
 n00661_call_bx:
@@ -16528,7 +16528,7 @@ n00745_lit_string_α:     mov              r11, 844
                         mov              qword ptr [rbp + 3112], rax;         jmp   n00746_call_α
 .Llit_string_α_2329_0:  .quad            .Llit_string_α_2329_0_s
 .Llit_string_α_2329_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .size            n00745_lit_string_bx, .-n00745_lit_string_bx
                         .type            n00746_call_bx, @function
 n00746_call_bx:
@@ -16714,7 +16714,7 @@ n00756_assign_α:         mov              r11, 854
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_2344_0]
                         .section         .rodata
-.Lassign_α_2344_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_2344_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_2344_1_s]
@@ -19972,7 +19972,7 @@ n00909_lit_string_α:     mov              r11, 1008
                         mov              qword ptr [rbp + 6072], rax;         jmp   n00910_call_α
 .Llit_string_α_2844_0:  .quad            .Llit_string_α_2844_0_s
 .Llit_string_α_2844_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .size            n00909_lit_string_bx, .-n00909_lit_string_bx
                         .type            n00910_call_bx, @function
 n00910_call_bx:
@@ -25439,7 +25439,7 @@ n01175_assign_α:         mov              r11, 1274
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_3379_0]
                         .section         .rodata
-.Lassign_α_3379_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_3379_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3379_1_s]
@@ -25671,7 +25671,7 @@ n01186_assign_α:         mov              r11, 1284
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_3395_0]
                         .section         .rodata
-.Lassign_α_3395_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_3395_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3395_1_s]
@@ -25760,7 +25760,7 @@ n01191_assign_α:         mov              r11, 1287
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_3400_0]
                         .section         .rodata
-.Lassign_α_3400_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_3400_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3400_1_s]
@@ -25905,7 +25905,7 @@ n01201_assign_α:         mov              r11, 1292
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_3408_0]
                         .section         .rodata
-.Lassign_α_3408_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_3408_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3408_1_s]
@@ -26090,7 +26090,7 @@ n01206_assign_α:         mov              r11, 1298
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_3416_0]
                         .section         .rodata
-.Lassign_α_3416_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_3416_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3416_1_s]
@@ -27194,7 +27194,7 @@ n01266_assign_α:         mov              r11, 1356
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_3500_0]
                         .section         .rodata
-.Lassign_α_3500_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/tgrlink.icn"
+.Lassign_α_3500_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/tgrlink.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3500_1_s]

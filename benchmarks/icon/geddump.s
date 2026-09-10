@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+                        .file            1 "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__event:
@@ -70,7 +70,7 @@ n2_lit_string_α:        mov              r11, 2
                         mov              rax, qword ptr [rip + .Llit_string_α_45_0]
                         mov              qword ptr [rbp + 1192], rax;         jmp   n3_call_α
 .Llit_string_α_45_0:    .quad            .Llit_string_α_45_0_s
-.Llit_string_α_45_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+.Llit_string_α_45_0_s:  .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
                         .size            n2_lit_string_bx, .-n2_lit_string_bx
                         .type            n3_call_bx, @function
 n3_call_bx:
@@ -1047,7 +1047,7 @@ n00002_lit_string_α:      mov              r11, 45
                         mov              rax, qword ptr [rip + .Llit_string_α_130_0]
                         mov              qword ptr [rbp + 568], rax;          jmp   n00003_call_α
 .Llit_string_α_130_0:   .quad            .Llit_string_α_130_0_s
-.Llit_string_α_130_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+.Llit_string_α_130_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
                         .size            n00002_lit_string_bx, .-n00002_lit_string_bx
                         .type            n00003_call_bx, @function
 n00003_call_bx:
@@ -1565,7 +1565,7 @@ n00022_lit_string_α:      mov              r11, 65
                         mov              rax, qword ptr [rip + .Llit_string_α_169_0]
                         mov              qword ptr [rbp + 232], rax;          jmp   n00023_call_α
 .Llit_string_α_169_0:   .quad            .Llit_string_α_169_0_s
-.Llit_string_α_169_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+.Llit_string_α_169_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
                         .size            n00022_lit_string_bx, .-n00022_lit_string_bx
                         .type            n00023_call_bx, @function
 n00023_call_bx:
@@ -1894,7 +1894,7 @@ n00030_lit_string_α:      mov              r11, 73
                         mov              rax, qword ptr [rip + .Llit_string_α_338_0]
                         mov              qword ptr [rbp + 3256], rax;         jmp   n00031_call_α
 .Llit_string_α_338_0:   .quad            .Llit_string_α_338_0_s
-.Llit_string_α_338_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+.Llit_string_α_338_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
                         .size            n00030_lit_string_bx, .-n00030_lit_string_bx
                         .type            n00031_call_bx, @function
 n00031_call_bx:
@@ -4509,7 +4509,7 @@ n00184_lit_string_α:      mov              r11, 227
                         mov              rax, qword ptr [rip + .Llit_string_α_644_0]
                         mov              qword ptr [rbp + 1672], rax;         jmp   n00185_call_α
 .Llit_string_α_644_0:   .quad            .Llit_string_α_644_0_s
-.Llit_string_α_644_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+.Llit_string_α_644_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
                         .size            n00184_lit_string_bx, .-n00184_lit_string_bx
                         .type            n00185_call_bx, @function
 n00185_call_bx:
@@ -4784,7 +4784,7 @@ n00199_assign_α:          mov              r11, 241
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_662_0]
                         .section         .rodata
-.Lassign_α_662_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_662_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_662_1_s]
@@ -6305,7 +6305,7 @@ n00256_lit_string_α:      mov              r11, 298
                         mov              rax, qword ptr [rip + .Llit_string_α_768_0]
                         mov              qword ptr [rbp + -120], rax;         jmp   n00257_call_α
 .Llit_string_α_768_0:   .quad            .Llit_string_α_768_0_s
-.Llit_string_α_768_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+.Llit_string_α_768_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
                         .size            n00256_lit_string_bx, .-n00256_lit_string_bx
                         .type            n00257_call_bx, @function
 n00257_call_bx:
@@ -6664,7 +6664,7 @@ n00267_lit_string_α:      mov              r11, 309
                         mov              rax, qword ptr [rip + .Llit_string_α_823_0]
                         mov              qword ptr [rbp + -200], rax;         jmp   n00268_call_α
 .Llit_string_α_823_0:   .quad            .Llit_string_α_823_0_s
-.Llit_string_α_823_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+.Llit_string_α_823_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
                         .size            n00267_lit_string_bx, .-n00267_lit_string_bx
                         .type            n00268_call_bx, @function
 n00268_call_bx:
@@ -7169,7 +7169,6 @@ n00287_call_value_α:      mov              r11, 338
                         mov              qword ptr [rbp + -736], 0
                         mov              rdi, qword ptr [rbp + -800]
                         mov              rsi, qword ptr [rbp + -792]
-                        sub              rsp, 8
                         mov              rdx, qword ptr [rbp + -752]
                         mov              rcx, qword ptr [rbp + -744]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7180,7 +7179,6 @@ n00287_call_value_α:      mov              r11, 338
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        add              rsp, 8
                         test             rax, rax;                            je    .Lcall_value_α_869_7
                         lea              rcx, [rip + .Lcall_value_α_869_4]
                         push             rcx
@@ -7216,7 +7214,6 @@ n00287_call_value_α:      mov              r11, 338
 .Lcall_value_α_869_6:   call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_869_2
 .Lcall_value_α_869_7:   mov              rdi, qword ptr [rbp + -800]
                         mov              rsi, qword ptr [rbp + -792]
-                        sub              rsp, 8
                         mov              rdx, qword ptr [rbp + -752]
                         mov              rcx, qword ptr [rbp + -744]
                         lea              r8, [rbp + -736]
@@ -7228,7 +7225,6 @@ n00287_call_value_α:      mov              r11, 338
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        add              rsp, 8
 .Lcall_value_α_869_2:   mov              qword ptr [rbp + -768], rax
                         mov              qword ptr [rbp + -760], rdx
                         cmp              al, 104;                             je    n00281_unmark_α
@@ -7418,7 +7414,7 @@ n00303_lit_string_α:      mov              r11, 345
                         mov              rax, qword ptr [rip + .Llit_string_α_889_0]
                         mov              qword ptr [rbp + -120], rax;         jmp   n00304_call_α
 .Llit_string_α_889_0:   .quad            .Llit_string_α_889_0_s
-.Llit_string_α_889_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+.Llit_string_α_889_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
                         .size            n00303_lit_string_bx, .-n00303_lit_string_bx
                         .type            n00304_call_bx, @function
 n00304_call_bx:
@@ -7485,7 +7481,6 @@ n00307_call_value_α:      mov              r11, 349
                         mov              qword ptr [rbp + -256], 0
                         mov              rdi, qword ptr [rbp + -320]
                         mov              rsi, qword ptr [rbp + -312]
-                        sub              rsp, 8
                         mov              rdx, qword ptr [rbp + -272]
                         mov              rcx, qword ptr [rbp + -264]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7496,7 +7491,6 @@ n00307_call_value_α:      mov              r11, 349
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        add              rsp, 8
                         test             rax, rax;                            je    .Lcall_value_α_895_7
                         lea              rcx, [rip + .Lcall_value_α_895_4]
                         push             rcx
@@ -7532,7 +7526,6 @@ n00307_call_value_α:      mov              r11, 349
 .Lcall_value_α_895_6:   call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_895_2
 .Lcall_value_α_895_7:   mov              rdi, qword ptr [rbp + -320]
                         mov              rsi, qword ptr [rbp + -312]
-                        sub              rsp, 8
                         mov              rdx, qword ptr [rbp + -272]
                         mov              rcx, qword ptr [rbp + -264]
                         lea              r8, [rbp + -256]
@@ -7544,7 +7537,6 @@ n00307_call_value_α:      mov              r11, 349
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        add              rsp, 8
 .Lcall_value_α_895_2:   mov              qword ptr [rbp + -288], rax
                         mov              qword ptr [rbp + -280], rdx
                         cmp              al, 104;                             je    gedval_ω
@@ -7691,7 +7683,7 @@ n00311_lit_string_α:      mov              r11, 353
                         mov              rax, qword ptr [rip + .Llit_string_α_910_0]
                         mov              qword ptr [rbp + -120], rax;         jmp   n00312_call_α
 .Llit_string_α_910_0:   .quad            .Llit_string_α_910_0_s
-.Llit_string_α_910_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+.Llit_string_α_910_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
                         .size            n00311_lit_string_bx, .-n00311_lit_string_bx
                         .type            n00312_call_bx, @function
 n00312_call_bx:
@@ -7758,7 +7750,6 @@ n00315_call_value_α:      mov              r11, 357
                         mov              qword ptr [rbp + -256], 0
                         mov              rdi, qword ptr [rbp + -320]
                         mov              rsi, qword ptr [rbp + -312]
-                        sub              rsp, 8
                         mov              rdx, qword ptr [rbp + -272]
                         mov              rcx, qword ptr [rbp + -264]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7769,7 +7760,6 @@ n00315_call_value_α:      mov              r11, 357
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        add              rsp, 8
                         test             rax, rax;                            je    .Lcall_value_α_916_7
                         lea              rcx, [rip + .Lcall_value_α_916_4]
                         push             rcx
@@ -7805,7 +7795,6 @@ n00315_call_value_α:      mov              r11, 357
 .Lcall_value_α_916_6:   call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_916_2
 .Lcall_value_α_916_7:   mov              rdi, qword ptr [rbp + -320]
                         mov              rsi, qword ptr [rbp + -312]
-                        sub              rsp, 8
                         mov              rdx, qword ptr [rbp + -272]
                         mov              rcx, qword ptr [rbp + -264]
                         lea              r8, [rbp + -256]
@@ -7817,7 +7806,6 @@ n00315_call_value_α:      mov              r11, 357
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        add              rsp, 8
 .Lcall_value_α_916_2:   mov              qword ptr [rbp + -288], rax
                         mov              qword ptr [rbp + -280], rdx
                         cmp              al, 104;                             je    gedref_ω
@@ -8000,7 +7988,7 @@ n00319_lit_string_α:      mov              r11, 362
                         mov              rax, qword ptr [rip + .Llit_string_α_987_0]
                         mov              qword ptr [rbp + 1480], rax;         jmp   n00320_call_α
 .Llit_string_α_987_0:   .quad            .Llit_string_α_987_0_s
-.Llit_string_α_987_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+.Llit_string_α_987_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
                         .size            n00319_lit_string_bx, .-n00319_lit_string_bx
                         .type            n00320_call_bx, @function
 n00320_call_bx:
@@ -9551,7 +9539,7 @@ n00382_lit_string_α:     mov              r11, 425
                         mov              qword ptr [rbp + 1336], rax;         jmp   n00383_call_α
 .Llit_string_α_1143_0:  .quad            .Llit_string_α_1143_0_s
 .Llit_string_α_1143_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
                         .size            n00382_lit_string_bx, .-n00382_lit_string_bx
                         .type            n00383_call_bx, @function
 n00383_call_bx:
@@ -10955,7 +10943,7 @@ n00438_lit_string_α:     mov              r11, 481
                         mov              qword ptr [rbp + 3752], rax;         jmp   n00439_call_α
 .Llit_string_α_1408_0:  .quad            .Llit_string_α_1408_0_s
 .Llit_string_α_1408_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
                         .size            n00438_lit_string_bx, .-n00438_lit_string_bx
                         .type            n00439_call_bx, @function
 n00439_call_bx:
@@ -11146,7 +11134,7 @@ n00451_assign_α:         mov              r11, 492
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1425_0]
                         .section         .rodata
-.Lassign_α_1425_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_1425_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1425_1_s]
@@ -13884,7 +13872,7 @@ n00613_lit_string_α:     mov              r11, 656
                         mov              qword ptr [rbp + 6184], rax;         jmp   n00614_call_α
 .Llit_string_α_1888_0:  .quad            .Llit_string_α_1888_0_s
 .Llit_string_α_1888_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
                         .size            n00613_lit_string_bx, .-n00613_lit_string_bx
                         .type            n00614_call_bx, @function
 n00614_call_bx:
@@ -14193,7 +14181,7 @@ n00635_assign_α:         mov              r11, 674
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_1918_0]
                         .section         .rodata
-.Lassign_α_1918_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/geddump.icn"
+.Lassign_α_1918_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/geddump.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1918_1_s]

@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .file            1 "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__report:
@@ -70,7 +70,7 @@ n2_lit_string_α:        mov              r11, 2
                         mov              rax, qword ptr [rip + .Llit_string_α_31_0]
                         mov              qword ptr [rbp + 808], rax;          jmp   n3_call_α
 .Llit_string_α_31_0:    .quad            .Llit_string_α_31_0_s
-.Llit_string_α_31_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Llit_string_α_31_0_s:  .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n2_lit_string_bx, .-n2_lit_string_bx
                         .type            n3_call_bx, @function
 n3_call_bx:
@@ -830,7 +830,7 @@ n79_lit_string_α:       mov              r11, 31
                         mov              rax, qword ptr [rip + .Llit_string_α_192_0]
                         mov              qword ptr [rbp + 2152], rax;         jmp   n80_call_α
 .Llit_string_α_192_0:   .quad            .Llit_string_α_192_0_s
-.Llit_string_α_192_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Llit_string_α_192_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n79_lit_string_bx, .-n79_lit_string_bx
                         .type            n80_call_bx, @function
 n80_call_bx:
@@ -3254,7 +3254,7 @@ n00093_lit_string_α:      mov              r11, 144
                         mov              rax, qword ptr [rip + .Llit_string_α_392_0]
                         mov              qword ptr [rbp + 328], rax;          jmp   n00094_call_α
 .Llit_string_α_392_0:   .quad            .Llit_string_α_392_0_s
-.Llit_string_α_392_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Llit_string_α_392_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00093_lit_string_bx, .-n00093_lit_string_bx
                         .type            n00094_call_bx, @function
 n00094_call_bx:
@@ -3631,7 +3631,7 @@ n00107_lit_string_α:      mov              r11, 158
                         mov              rax, qword ptr [rip + .Llit_string_α_431_0]
                         mov              qword ptr [rbp + 328], rax;          jmp   n00108_call_α
 .Llit_string_α_431_0:   .quad            .Llit_string_α_431_0_s
-.Llit_string_α_431_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Llit_string_α_431_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00107_lit_string_bx, .-n00107_lit_string_bx
                         .type            n00108_call_bx, @function
 n00108_call_bx:
@@ -4008,7 +4008,7 @@ n00121_lit_string_α:      mov              r11, 172
                         mov              rax, qword ptr [rip + .Llit_string_α_470_0]
                         mov              qword ptr [rbp + 328], rax;          jmp   n00122_call_α
 .Llit_string_α_470_0:   .quad            .Llit_string_α_470_0_s
-.Llit_string_α_470_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Llit_string_α_470_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00121_lit_string_bx, .-n00121_lit_string_bx
                         .type            n00122_call_bx, @function
 n00122_call_bx:
@@ -4385,7 +4385,7 @@ n00135_lit_string_α:      mov              r11, 186
                         mov              rax, qword ptr [rip + .Llit_string_α_511_0]
                         mov              qword ptr [rbp + 392], rax;          jmp   n00136_call_α
 .Llit_string_α_511_0:   .quad            .Llit_string_α_511_0_s
-.Llit_string_α_511_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Llit_string_α_511_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00135_lit_string_bx, .-n00135_lit_string_bx
                         .type            n00136_call_bx, @function
 n00136_call_bx:
@@ -4801,7 +4801,7 @@ n00151_lit_string_α:      mov              r11, 202
                         mov              rax, qword ptr [rip + .Llit_string_α_556_0]
                         mov              qword ptr [rbp + 376], rax;          jmp   n00152_call_α
 .Llit_string_α_556_0:   .quad            .Llit_string_α_556_0_s
-.Llit_string_α_556_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Llit_string_α_556_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00151_lit_string_bx, .-n00151_lit_string_bx
                         .type            n00152_call_bx, @function
 n00152_call_bx:
@@ -5216,7 +5216,7 @@ n00168_lit_string_α:      mov              r11, 219
                         mov              rax, qword ptr [rip + .Llit_string_α_601_0]
                         mov              qword ptr [rbp + 376], rax;          jmp   n00169_call_α
 .Llit_string_α_601_0:   .quad            .Llit_string_α_601_0_s
-.Llit_string_α_601_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Llit_string_α_601_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00168_lit_string_bx, .-n00168_lit_string_bx
                         .type            n00169_call_bx, @function
 n00169_call_bx:
@@ -5675,7 +5675,7 @@ n00185_lit_string_α:      mov              r11, 236
                         mov              rax, qword ptr [rip + .Llit_string_α_646_0]
                         mov              qword ptr [rbp + 376], rax;          jmp   n00186_call_α
 .Llit_string_α_646_0:   .quad            .Llit_string_α_646_0_s
-.Llit_string_α_646_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Llit_string_α_646_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00185_lit_string_bx, .-n00185_lit_string_bx
                         .type            n00186_call_bx, @function
 n00186_call_bx:
@@ -6090,7 +6090,7 @@ n00202_lit_string_α:      mov              r11, 253
                         mov              rax, qword ptr [rip + .Llit_string_α_691_0]
                         mov              qword ptr [rbp + 376], rax;          jmp   n00203_call_α
 .Llit_string_α_691_0:   .quad            .Llit_string_α_691_0_s
-.Llit_string_α_691_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Llit_string_α_691_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00202_lit_string_bx, .-n00202_lit_string_bx
                         .type            n00203_call_bx, @function
 n00203_call_bx:
@@ -6517,7 +6517,7 @@ n00219_lit_string_α:      mov              r11, 270
                         mov              rax, qword ptr [rip + .Llit_string_α_735_0]
                         mov              qword ptr [rbp + 392], rax;          jmp   n00220_call_α
 .Llit_string_α_735_0:   .quad            .Llit_string_α_735_0_s
-.Llit_string_α_735_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Llit_string_α_735_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00219_lit_string_bx, .-n00219_lit_string_bx
                         .type            n00220_call_bx, @function
 n00220_call_bx:
@@ -6933,7 +6933,7 @@ n00235_lit_string_α:      mov              r11, 286
                         mov              rax, qword ptr [rip + .Llit_string_α_779_0]
                         mov              qword ptr [rbp + 392], rax;          jmp   n00236_call_α
 .Llit_string_α_779_0:   .quad            .Llit_string_α_779_0_s
-.Llit_string_α_779_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Llit_string_α_779_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00235_lit_string_bx, .-n00235_lit_string_bx
                         .type            n00236_call_bx, @function
 n00236_call_bx:
@@ -7349,7 +7349,7 @@ n00251_lit_string_α:      mov              r11, 302
                         mov              rax, qword ptr [rip + .Llit_string_α_824_0]
                         mov              qword ptr [rbp + 424], rax;          jmp   n00252_call_α
 .Llit_string_α_824_0:   .quad            .Llit_string_α_824_0_s
-.Llit_string_α_824_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Llit_string_α_824_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00251_lit_string_bx, .-n00251_lit_string_bx
                         .type            n00252_call_bx, @function
 n00252_call_bx:
@@ -7778,7 +7778,7 @@ n00268_lit_string_α:      mov              r11, 319
                         mov              rax, qword ptr [rip + .Llit_string_α_868_0]
                         mov              qword ptr [rbp + 360], rax;          jmp   n00269_call_α
 .Llit_string_α_868_0:   .quad            .Llit_string_α_868_0_s
-.Llit_string_α_868_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Llit_string_α_868_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00268_lit_string_bx, .-n00268_lit_string_bx
                         .type            n00269_call_bx, @function
 n00269_call_bx:
@@ -8340,7 +8340,7 @@ n00283_lit_string_α:      mov              r11, 334
                         mov              rax, qword ptr [rip + .Llit_string_α_925_0]
                         mov              qword ptr [rbp + 616], rax;          jmp   n00284_call_α
 .Llit_string_α_925_0:   .quad            .Llit_string_α_925_0_s
-.Llit_string_α_925_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Llit_string_α_925_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00283_lit_string_bx, .-n00283_lit_string_bx
                         .type            n00284_call_bx, @function
 n00284_call_bx:
@@ -8781,7 +8781,7 @@ n00307_assign_α:          mov              r11, 358
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_962_0]
                         .section         .rodata
-.Lassign_α_962_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_962_1_s:     .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_962_1_s]
@@ -8993,7 +8993,7 @@ n00309_lit_string_α:      mov              r11, 360
                         mov              rax, qword ptr [rip + .Llit_string_α_985_0]
                         mov              qword ptr [rbp + 424], rax;          jmp   n00310_call_α
 .Llit_string_α_985_0:   .quad            .Llit_string_α_985_0_s
-.Llit_string_α_985_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Llit_string_α_985_0_s: .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00309_lit_string_bx, .-n00309_lit_string_bx
                         .type            n00310_call_bx, @function
 n00310_call_bx:
@@ -9429,7 +9429,7 @@ n00326_lit_string_α:     mov              r11, 377
                         mov              qword ptr [rbp + 200], rax;          jmp   n00327_call_α
 .Llit_string_α_1023_0:  .quad            .Llit_string_α_1023_0_s
 .Llit_string_α_1023_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00326_lit_string_bx, .-n00326_lit_string_bx
                         .type            n00327_call_bx, @function
 n00327_call_bx:
@@ -9799,7 +9799,7 @@ n00335_lit_string_α:     mov              r11, 386
                         mov              qword ptr [rbp + 392], rax;          jmp   n00336_call_α
 .Llit_string_α_1056_0:  .quad            .Llit_string_α_1056_0_s
 .Llit_string_α_1056_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00335_lit_string_bx, .-n00335_lit_string_bx
                         .type            n00336_call_bx, @function
 n00336_call_bx:
@@ -10228,7 +10228,7 @@ n00351_lit_string_α:     mov              r11, 402
                         mov              qword ptr [rbp + 392], rax;          jmp   n00352_call_α
 .Llit_string_α_1100_0:  .quad            .Llit_string_α_1100_0_s
 .Llit_string_α_1100_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00351_lit_string_bx, .-n00351_lit_string_bx
                         .type            n00352_call_bx, @function
 n00352_call_bx:
@@ -10657,7 +10657,7 @@ n00367_lit_string_α:     mov              r11, 418
                         mov              qword ptr [rbp + 376], rax;          jmp   n00368_call_α
 .Llit_string_α_1147_0:  .quad            .Llit_string_α_1147_0_s
 .Llit_string_α_1147_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00367_lit_string_bx, .-n00367_lit_string_bx
                         .type            n00368_call_bx, @function
 n00368_call_bx:
@@ -11271,7 +11271,7 @@ n00386_lit_string_α:     mov              r11, 437
                         mov              qword ptr [rbp + 392], rax;          jmp   n00387_call_α
 .Llit_string_α_1194_0:  .quad            .Llit_string_α_1194_0_s
 .Llit_string_α_1194_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00386_lit_string_bx, .-n00386_lit_string_bx
                         .type            n00387_call_bx, @function
 n00387_call_bx:
@@ -11700,7 +11700,7 @@ n00402_lit_string_α:     mov              r11, 453
                         mov              qword ptr [rbp + 472], rax;          jmp   n00403_call_α
 .Llit_string_α_1245_0:  .quad            .Llit_string_α_1245_0_s
 .Llit_string_α_1245_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00402_lit_string_bx, .-n00402_lit_string_bx
                         .type            n00403_call_bx, @function
 n00403_call_bx:
@@ -12445,7 +12445,7 @@ n00425_lit_string_α:     mov              r11, 476
                         mov              qword ptr [rbp + 888], rax;          jmp   n00426_call_α
 .Llit_string_α_1328_0:  .quad            .Llit_string_α_1328_0_s
 .Llit_string_α_1328_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00425_lit_string_bx, .-n00425_lit_string_bx
                         .type            n00426_call_bx, @function
 n00426_call_bx:
@@ -13452,7 +13452,7 @@ n00471_lit_string_α:     mov              r11, 522
                         mov              qword ptr [rbp + 392], rax;          jmp   n00472_call_α
 .Llit_string_α_1419_0:  .quad            .Llit_string_α_1419_0_s
 .Llit_string_α_1419_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00471_lit_string_bx, .-n00471_lit_string_bx
                         .type            n00472_call_bx, @function
 n00472_call_bx:
@@ -13884,7 +13884,7 @@ n00488_lit_string_α:     mov              r11, 539
                         mov              qword ptr [rbp + 776], rax;          jmp   n00489_call_α
 .Llit_string_α_1482_0:  .quad            .Llit_string_α_1482_0_s
 .Llit_string_α_1482_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00488_lit_string_bx, .-n00488_lit_string_bx
                         .type            n00489_call_bx, @function
 n00489_call_bx:
@@ -14546,7 +14546,7 @@ n00522_lit_string_α:     mov              r11, 573
                         mov              qword ptr [rbp + 360], rax;          jmp   n00523_call_α
 .Llit_string_α_1548_0:  .quad            .Llit_string_α_1548_0_s
 .Llit_string_α_1548_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00522_lit_string_bx, .-n00522_lit_string_bx
                         .type            n00523_call_bx, @function
 n00523_call_bx:
@@ -14949,7 +14949,7 @@ n00538_lit_string_α:     mov              r11, 589
                         mov              qword ptr [rbp + 408], rax;          jmp   n00539_call_α
 .Llit_string_α_1591_0:  .quad            .Llit_string_α_1591_0_s
 .Llit_string_α_1591_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00538_lit_string_bx, .-n00538_lit_string_bx
                         .type            n00539_call_bx, @function
 n00539_call_bx:
@@ -15373,7 +15373,7 @@ n00554_lit_string_α:     mov              r11, 605
                         mov              qword ptr [rbp + 408], rax;          jmp   n00555_call_α
 .Llit_string_α_1635_0:  .quad            .Llit_string_α_1635_0_s
 .Llit_string_α_1635_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00554_lit_string_bx, .-n00554_lit_string_bx
                         .type            n00555_call_bx, @function
 n00555_call_bx:
@@ -15797,7 +15797,7 @@ n00570_lit_string_α:     mov              r11, 621
                         mov              qword ptr [rbp + 568], rax;          jmp   n00571_call_α
 .Llit_string_α_1684_0:  .quad            .Llit_string_α_1684_0_s
 .Llit_string_α_1684_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00570_lit_string_bx, .-n00570_lit_string_bx
                         .type            n00571_call_bx, @function
 n00571_call_bx:
@@ -16339,7 +16339,7 @@ n00591_lit_string_α:     mov              r11, 642
                         mov              qword ptr [rbp + 360], rax;          jmp   n00592_call_α
 .Llit_string_α_1733_0:  .quad            .Llit_string_α_1733_0_s
 .Llit_string_α_1733_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00591_lit_string_bx, .-n00591_lit_string_bx
                         .type            n00592_call_bx, @function
 n00592_call_bx:
@@ -16740,7 +16740,7 @@ n00607_lit_string_α:     mov              r11, 658
                         mov              qword ptr [rbp + 440], rax;          jmp   n00608_call_α
 .Llit_string_α_1780_0:  .quad            .Llit_string_α_1780_0_s
 .Llit_string_α_1780_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00607_lit_string_bx, .-n00607_lit_string_bx
                         .type            n00608_call_bx, @function
 n00608_call_bx:
@@ -17227,7 +17227,7 @@ n00627_lit_string_α:     mov              r11, 678
                         mov              qword ptr [rbp + 392], rax;          jmp   n00628_call_α
 .Llit_string_α_1829_0:  .quad            .Llit_string_α_1829_0_s
 .Llit_string_α_1829_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00627_lit_string_bx, .-n00627_lit_string_bx
                         .type            n00628_call_bx, @function
 n00628_call_bx:
@@ -17688,7 +17688,7 @@ n00644_lit_string_α:     mov              r11, 695
                         mov              qword ptr [rbp + 312], rax;          jmp   n00645_call_α
 .Llit_string_α_1870_0:  .quad            .Llit_string_α_1870_0_s
 .Llit_string_α_1870_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00644_lit_string_bx, .-n00644_lit_string_bx
                         .type            n00645_call_bx, @function
 n00645_call_bx:
@@ -18106,7 +18106,7 @@ n00657_lit_string_α:     mov              r11, 707
                         mov              qword ptr [rbp + -104], rax;         jmp   n00658_call_α
 .Llit_string_α_1897_0:  .quad            .Llit_string_α_1897_0_s
 .Llit_string_α_1897_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00657_lit_string_bx, .-n00657_lit_string_bx
                         .type            n00658_call_bx, @function
 n00658_call_bx:
@@ -18343,7 +18343,7 @@ n00663_lit_string_α:     mov              r11, 714
                         mov              qword ptr [rbp + 392], rax;          jmp   n00664_call_α
 .Llit_string_α_1926_0:  .quad            .Llit_string_α_1926_0_s
 .Llit_string_α_1926_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00663_lit_string_bx, .-n00663_lit_string_bx
                         .type            n00664_call_bx, @function
 n00664_call_bx:
@@ -18786,7 +18786,7 @@ n00680_lit_string_α:     mov              r11, 731
                         mov              qword ptr [rbp + 392], rax;          jmp   n00681_call_α
 .Llit_string_α_1972_0:  .quad            .Llit_string_α_1972_0_s
 .Llit_string_α_1972_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00680_lit_string_bx, .-n00680_lit_string_bx
                         .type            n00681_call_bx, @function
 n00681_call_bx:
@@ -19230,7 +19230,7 @@ n00697_lit_string_α:     mov              r11, 748
                         mov              qword ptr [rbp + 360], rax;          jmp   n00698_call_α
 .Llit_string_α_2017_0:  .quad            .Llit_string_α_2017_0_s
 .Llit_string_α_2017_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00697_lit_string_bx, .-n00697_lit_string_bx
                         .type            n00698_call_bx, @function
 n00698_call_bx:
@@ -19639,7 +19639,7 @@ n00713_lit_string_α:     mov              r11, 764
                         mov              qword ptr [rbp + 360], rax;          jmp   n00714_call_α
 .Llit_string_α_2060_0:  .quad            .Llit_string_α_2060_0_s
 .Llit_string_α_2060_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00713_lit_string_bx, .-n00713_lit_string_bx
                         .type            n00714_call_bx, @function
 n00714_call_bx:
@@ -20049,7 +20049,7 @@ n00729_lit_string_α:     mov              r11, 780
                         mov              qword ptr [rbp + 408], rax;          jmp   n00730_call_α
 .Llit_string_α_2103_0:  .quad            .Llit_string_α_2103_0_s
 .Llit_string_α_2103_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00729_lit_string_bx, .-n00729_lit_string_bx
                         .type            n00730_call_bx, @function
 n00730_call_bx:
@@ -20473,7 +20473,7 @@ n00745_lit_string_α:     mov              r11, 796
                         mov              qword ptr [rbp + 408], rax;          jmp   n00746_call_α
 .Llit_string_α_2147_0:  .quad            .Llit_string_α_2147_0_s
 .Llit_string_α_2147_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00745_lit_string_bx, .-n00745_lit_string_bx
                         .type            n00746_call_bx, @function
 n00746_call_bx:
@@ -20897,7 +20897,7 @@ n00761_lit_string_α:     mov              r11, 812
                         mov              qword ptr [rbp + 392], rax;          jmp   n00762_call_α
 .Llit_string_α_2191_0:  .quad            .Llit_string_α_2191_0_s
 .Llit_string_α_2191_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00761_lit_string_bx, .-n00761_lit_string_bx
                         .type            n00762_call_bx, @function
 n00762_call_bx:
@@ -21318,7 +21318,7 @@ n00777_lit_string_α:     mov              r11, 828
                         mov              qword ptr [rbp + 392], rax;          jmp   n00778_call_α
 .Llit_string_α_2235_0:  .quad            .Llit_string_α_2235_0_s
 .Llit_string_α_2235_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00777_lit_string_bx, .-n00777_lit_string_bx
                         .type            n00778_call_bx, @function
 n00778_call_bx:
@@ -21739,7 +21739,7 @@ n00793_lit_string_α:     mov              r11, 844
                         mov              qword ptr [rbp + 408], rax;          jmp   n00794_call_α
 .Llit_string_α_2279_0:  .quad            .Llit_string_α_2279_0_s
 .Llit_string_α_2279_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00793_lit_string_bx, .-n00793_lit_string_bx
                         .type            n00794_call_bx, @function
 n00794_call_bx:
@@ -22163,7 +22163,7 @@ n00809_lit_string_α:     mov              r11, 860
                         mov              qword ptr [rbp + 392], rax;          jmp   n00810_call_α
 .Llit_string_α_2323_0:  .quad            .Llit_string_α_2323_0_s
 .Llit_string_α_2323_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00809_lit_string_bx, .-n00809_lit_string_bx
                         .type            n00810_call_bx, @function
 n00810_call_bx:
@@ -22584,7 +22584,7 @@ n00825_lit_string_α:     mov              r11, 876
                         mov              qword ptr [rbp + 408], rax;          jmp   n00826_call_α
 .Llit_string_α_2367_0:  .quad            .Llit_string_α_2367_0_s
 .Llit_string_α_2367_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00825_lit_string_bx, .-n00825_lit_string_bx
                         .type            n00826_call_bx, @function
 n00826_call_bx:
@@ -23008,7 +23008,7 @@ n00841_lit_string_α:     mov              r11, 892
                         mov              qword ptr [rbp + 376], rax;          jmp   n00842_call_α
 .Llit_string_α_2411_0:  .quad            .Llit_string_α_2411_0_s
 .Llit_string_α_2411_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00841_lit_string_bx, .-n00841_lit_string_bx
                         .type            n00842_call_bx, @function
 n00842_call_bx:
@@ -23419,7 +23419,7 @@ n00857_lit_string_α:     mov              r11, 908
                         mov              qword ptr [rbp + 328], rax;          jmp   n00858_call_α
 .Llit_string_α_2452_0:  .quad            .Llit_string_α_2452_0_s
 .Llit_string_α_2452_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00857_lit_string_bx, .-n00857_lit_string_bx
                         .type            n00858_call_bx, @function
 n00858_call_bx:
@@ -23801,7 +23801,7 @@ n00871_lit_string_α:     mov              r11, 922
                         mov              qword ptr [rbp + 392], rax;          jmp   n00872_call_α
 .Llit_string_α_2494_0:  .quad            .Llit_string_α_2494_0_s
 .Llit_string_α_2494_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00871_lit_string_bx, .-n00871_lit_string_bx
                         .type            n00872_call_bx, @function
 n00872_call_bx:
@@ -24231,7 +24231,7 @@ n00888_lit_string_α:     mov              r11, 939
                         mov              qword ptr [rbp + 392], rax;          jmp   n00889_call_α
 .Llit_string_α_2538_0:  .quad            .Llit_string_α_2538_0_s
 .Llit_string_α_2538_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00888_lit_string_bx, .-n00888_lit_string_bx
                         .type            n00889_call_bx, @function
 n00889_call_bx:
@@ -24648,7 +24648,7 @@ n00904_lit_string_α:     mov              r11, 955
                         mov              qword ptr [rbp + 408], rax;          jmp   n00905_call_α
 .Llit_string_α_2584_0:  .quad            .Llit_string_α_2584_0_s
 .Llit_string_α_2584_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00904_lit_string_bx, .-n00904_lit_string_bx
                         .type            n00905_call_bx, @function
 n00905_call_bx:
@@ -25089,7 +25089,7 @@ n00922_lit_string_α:     mov              r11, 973
                         mov              qword ptr [rbp + 408], rax;          jmp   n00923_call_α
 .Llit_string_α_2631_0:  .quad            .Llit_string_α_2631_0_s
 .Llit_string_α_2631_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00922_lit_string_bx, .-n00922_lit_string_bx
                         .type            n00923_call_bx, @function
 n00923_call_bx:
@@ -25528,7 +25528,7 @@ n00940_lit_string_α:     mov              r11, 991
                         mov              qword ptr [rbp + 488], rax;          jmp   n00941_call_α
 .Llit_string_α_2682_0:  .quad            .Llit_string_α_2682_0_s
 .Llit_string_α_2682_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00940_lit_string_bx, .-n00940_lit_string_bx
                         .type            n00941_call_bx, @function
 n00941_call_bx:
@@ -26012,7 +26012,7 @@ n00962_lit_string_α:     mov              r11, 1013
                         mov              qword ptr [rbp + 408], rax;          jmp   n00963_call_α
 .Llit_string_α_2733_0:  .quad            .Llit_string_α_2733_0_s
 .Llit_string_α_2733_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00962_lit_string_bx, .-n00962_lit_string_bx
                         .type            n00963_call_bx, @function
 n00963_call_bx:
@@ -26449,7 +26449,7 @@ n00979_lit_string_α:     mov              r11, 1030
                         mov              qword ptr [rbp + 408], rax;          jmp   n00980_call_α
 .Llit_string_α_2778_0:  .quad            .Llit_string_α_2778_0_s
 .Llit_string_α_2778_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00979_lit_string_bx, .-n00979_lit_string_bx
                         .type            n00980_call_bx, @function
 n00980_call_bx:
@@ -26878,7 +26878,7 @@ n00996_lit_string_α:     mov              r11, 1047
                         mov              qword ptr [rbp + 440], rax;          jmp   n00997_call_α
 .Llit_string_α_2823_0:  .quad            .Llit_string_α_2823_0_s
 .Llit_string_α_2823_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n00996_lit_string_bx, .-n00996_lit_string_bx
                         .type            n00997_call_bx, @function
 n00997_call_bx:
@@ -27315,7 +27315,7 @@ n01013_lit_string_α:     mov              r11, 1064
                         mov              qword ptr [rbp + 408], rax;          jmp   n01014_call_α
 .Llit_string_α_2868_0:  .quad            .Llit_string_α_2868_0_s
 .Llit_string_α_2868_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01013_lit_string_bx, .-n01013_lit_string_bx
                         .type            n01014_call_bx, @function
 n01014_call_bx:
@@ -27739,7 +27739,7 @@ n01029_lit_string_α:     mov              r11, 1080
                         mov              qword ptr [rbp + 440], rax;          jmp   n01030_call_α
 .Llit_string_α_2913_0:  .quad            .Llit_string_α_2913_0_s
 .Llit_string_α_2913_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01029_lit_string_bx, .-n01029_lit_string_bx
                         .type            n01030_call_bx, @function
 n01030_call_bx:
@@ -28176,7 +28176,7 @@ n01046_lit_string_α:     mov              r11, 1097
                         mov              qword ptr [rbp + 440], rax;          jmp   n01047_call_α
 .Llit_string_α_2959_0:  .quad            .Llit_string_α_2959_0_s
 .Llit_string_α_2959_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01046_lit_string_bx, .-n01046_lit_string_bx
                         .type            n01047_call_bx, @function
 n01047_call_bx:
@@ -28613,7 +28613,7 @@ n01063_lit_string_α:     mov              r11, 1114
                         mov              qword ptr [rbp + 440], rax;          jmp   n01064_call_α
 .Llit_string_α_3005_0:  .quad            .Llit_string_α_3005_0_s
 .Llit_string_α_3005_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01063_lit_string_bx, .-n01063_lit_string_bx
                         .type            n01064_call_bx, @function
 n01064_call_bx:
@@ -29050,7 +29050,7 @@ n01080_lit_string_α:     mov              r11, 1131
                         mov              qword ptr [rbp + 408], rax;          jmp   n01081_call_α
 .Llit_string_α_3050_0:  .quad            .Llit_string_α_3050_0_s
 .Llit_string_α_3050_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01080_lit_string_bx, .-n01080_lit_string_bx
                         .type            n01081_call_bx, @function
 n01081_call_bx:
@@ -29474,7 +29474,7 @@ n01096_lit_string_α:     mov              r11, 1147
                         mov              qword ptr [rbp + 408], rax;          jmp   n01097_call_α
 .Llit_string_α_3094_0:  .quad            .Llit_string_α_3094_0_s
 .Llit_string_α_3094_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01096_lit_string_bx, .-n01096_lit_string_bx
                         .type            n01097_call_bx, @function
 n01097_call_bx:
@@ -29898,7 +29898,7 @@ n01112_lit_string_α:     mov              r11, 1163
                         mov              qword ptr [rbp + 408], rax;          jmp   n01113_call_α
 .Llit_string_α_3138_0:  .quad            .Llit_string_α_3138_0_s
 .Llit_string_α_3138_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01112_lit_string_bx, .-n01112_lit_string_bx
                         .type            n01113_call_bx, @function
 n01113_call_bx:
@@ -30322,7 +30322,7 @@ n01128_lit_string_α:     mov              r11, 1179
                         mov              qword ptr [rbp + 504], rax;          jmp   n01129_call_α
 .Llit_string_α_3184_0:  .quad            .Llit_string_α_3184_0_s
 .Llit_string_α_3184_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01128_lit_string_bx, .-n01128_lit_string_bx
                         .type            n01129_call_bx, @function
 n01129_call_bx:
@@ -30778,7 +30778,7 @@ n01146_lit_string_α:     mov              r11, 1197
                         mov              qword ptr [rbp + 504], rax;          jmp   n01147_call_α
 .Llit_string_α_3232_0:  .quad            .Llit_string_α_3232_0_s
 .Llit_string_α_3232_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01146_lit_string_bx, .-n01146_lit_string_bx
                         .type            n01147_call_bx, @function
 n01147_call_bx:
@@ -31234,7 +31234,7 @@ n01164_lit_string_α:     mov              r11, 1215
                         mov              qword ptr [rbp + 696], rax;          jmp   n01165_call_α
 .Llit_string_α_3285_0:  .quad            .Llit_string_α_3285_0_s
 .Llit_string_α_3285_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01164_lit_string_bx, .-n01164_lit_string_bx
                         .type            n01165_call_bx, @function
 n01165_call_bx:
@@ -31774,7 +31774,7 @@ n01187_lit_string_α:     mov              r11, 1238
                         mov              qword ptr [rbp + 872], rax;          jmp   n01188_call_α
 .Llit_string_α_3362_0:  .quad            .Llit_string_α_3362_0_s
 .Llit_string_α_3362_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01187_lit_string_bx, .-n01187_lit_string_bx
                         .type            n01188_call_bx, @function
 n01188_call_bx:
@@ -31958,7 +31958,7 @@ n01199_assign_α:         mov              r11, 1248
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_3377_0]
                         .section         .rodata
-.Lassign_α_3377_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_3377_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3377_1_s]
@@ -32567,7 +32567,7 @@ n01228_lit_string_α:     mov              r11, 1279
                         mov              qword ptr [rbp + 1048], rax;         jmp   n01229_call_α
 .Llit_string_α_3470_0:  .quad            .Llit_string_α_3470_0_s
 .Llit_string_α_3470_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01228_lit_string_bx, .-n01228_lit_string_bx
                         .type            n01229_call_bx, @function
 n01229_call_bx:
@@ -32764,7 +32764,7 @@ n01241_assign_α:         mov              r11, 1290
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_3486_0]
                         .section         .rodata
-.Lassign_α_3486_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_3486_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3486_1_s]
@@ -33463,7 +33463,7 @@ n01273_lit_string_α:     mov              r11, 1324
                         mov              qword ptr [rbp + 456], rax;          jmp   n01274_call_α
 .Llit_string_α_3558_0:  .quad            .Llit_string_α_3558_0_s
 .Llit_string_α_3558_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01273_lit_string_bx, .-n01273_lit_string_bx
                         .type            n01274_call_bx, @function
 n01274_call_bx:
@@ -33910,7 +33910,7 @@ n01291_lit_string_α:     mov              r11, 1342
                         mov              qword ptr [rbp + 472], rax;          jmp   n01292_call_α
 .Llit_string_α_3608_0:  .quad            .Llit_string_α_3608_0_s
 .Llit_string_α_3608_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01291_lit_string_bx, .-n01291_lit_string_bx
                         .type            n01292_call_bx, @function
 n01292_call_bx:
@@ -34385,7 +34385,7 @@ n01310_lit_string_α:     mov              r11, 1361
                         mov              qword ptr [rbp + 536], rax;          jmp   n01311_call_α
 .Llit_string_α_3663_0:  .quad            .Llit_string_α_3663_0_s
 .Llit_string_α_3663_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01310_lit_string_bx, .-n01310_lit_string_bx
                         .type            n01311_call_bx, @function
 n01311_call_bx:
@@ -34911,7 +34911,7 @@ n01332_lit_string_α:     mov              r11, 1383
                         mov              qword ptr [rbp + 632], rax;          jmp   n01333_call_α
 .Llit_string_α_3728_0:  .quad            .Llit_string_α_3728_0_s
 .Llit_string_α_3728_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01332_lit_string_bx, .-n01332_lit_string_bx
                         .type            n01333_call_bx, @function
 n01333_call_bx:
@@ -35591,7 +35591,7 @@ n01360_lit_string_α:     mov              r11, 1411
                         mov              qword ptr [rbp + 472], rax;          jmp   n01361_call_α
 .Llit_string_α_3790_0:  .quad            .Llit_string_α_3790_0_s
 .Llit_string_α_3790_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01360_lit_string_bx, .-n01360_lit_string_bx
                         .type            n01361_call_bx, @function
 n01361_call_bx:
@@ -36067,7 +36067,7 @@ n01379_lit_string_α:     mov              r11, 1430
                         mov              qword ptr [rbp + 488], rax;          jmp   n01380_call_α
 .Llit_string_α_3842_0:  .quad            .Llit_string_α_3842_0_s
 .Llit_string_α_3842_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01379_lit_string_bx, .-n01379_lit_string_bx
                         .type            n01380_call_bx, @function
 n01380_call_bx:
@@ -36543,7 +36543,7 @@ n01398_lit_string_α:     mov              r11, 1449
                         mov              qword ptr [rbp + 520], rax;          jmp   n01399_call_α
 .Llit_string_α_3895_0:  .quad            .Llit_string_α_3895_0_s
 .Llit_string_α_3895_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01398_lit_string_bx, .-n01398_lit_string_bx
                         .type            n01399_call_bx, @function
 n01399_call_bx:
@@ -37063,7 +37063,7 @@ n01418_lit_string_α:     mov              r11, 1469
                         mov              qword ptr [rbp + 456], rax;          jmp   n01419_call_α
 .Llit_string_α_3949_0:  .quad            .Llit_string_α_3949_0_s
 .Llit_string_α_3949_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01418_lit_string_bx, .-n01418_lit_string_bx
                         .type            n01419_call_bx, @function
 n01419_call_bx:
@@ -37524,7 +37524,7 @@ n01437_lit_string_α:     mov              r11, 1488
                         mov              qword ptr [rbp + 472], rax;          jmp   n01438_call_α
 .Llit_string_α_4001_0:  .quad            .Llit_string_α_4001_0_s
 .Llit_string_α_4001_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01437_lit_string_bx, .-n01437_lit_string_bx
                         .type            n01438_call_bx, @function
 n01438_call_bx:
@@ -38011,7 +38011,7 @@ n01456_lit_string_α:     mov              r11, 1507
                         mov              qword ptr [rbp + 472], rax;          jmp   n01457_call_α
 .Llit_string_α_4053_0:  .quad            .Llit_string_α_4053_0_s
 .Llit_string_α_4053_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01456_lit_string_bx, .-n01456_lit_string_bx
                         .type            n01457_call_bx, @function
 n01457_call_bx:
@@ -38503,7 +38503,7 @@ n01475_lit_string_α:     mov              r11, 1526
                         mov              qword ptr [rbp + 488], rax;          jmp   n01476_call_α
 .Llit_string_α_4105_0:  .quad            .Llit_string_α_4105_0_s
 .Llit_string_α_4105_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01475_lit_string_bx, .-n01475_lit_string_bx
                         .type            n01476_call_bx, @function
 n01476_call_bx:
@@ -38995,7 +38995,7 @@ n01494_lit_string_α:     mov              r11, 1545
                         mov              qword ptr [rbp + 488], rax;          jmp   n01495_call_α
 .Llit_string_α_4157_0:  .quad            .Llit_string_α_4157_0_s
 .Llit_string_α_4157_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01494_lit_string_bx, .-n01494_lit_string_bx
                         .type            n01495_call_bx, @function
 n01495_call_bx:
@@ -39464,7 +39464,7 @@ n01513_lit_string_α:     mov              r11, 1564
                         mov              qword ptr [rbp + 488], rax;          jmp   n01514_call_α
 .Llit_string_α_4209_0:  .quad            .Llit_string_α_4209_0_s
 .Llit_string_α_4209_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01513_lit_string_bx, .-n01513_lit_string_bx
                         .type            n01514_call_bx, @function
 n01514_call_bx:
@@ -39956,7 +39956,7 @@ n01532_lit_string_α:     mov              r11, 1583
                         mov              qword ptr [rbp + 376], rax;          jmp   n01533_call_α
 .Llit_string_α_4258_0:  .quad            .Llit_string_α_4258_0_s
 .Llit_string_α_4258_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01532_lit_string_bx, .-n01532_lit_string_bx
                         .type            n01533_call_bx, @function
 n01533_call_bx:
@@ -40381,7 +40381,7 @@ n01548_lit_string_α:     mov              r11, 1599
                         mov              qword ptr [rbp + 376], rax;          jmp   n01549_call_α
 .Llit_string_α_4301_0:  .quad            .Llit_string_α_4301_0_s
 .Llit_string_α_4301_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01548_lit_string_bx, .-n01548_lit_string_bx
                         .type            n01549_call_bx, @function
 n01549_call_bx:
@@ -40806,7 +40806,7 @@ n01564_lit_string_α:     mov              r11, 1615
                         mov              qword ptr [rbp + 424], rax;          jmp   n01565_call_α
 .Llit_string_α_4345_0:  .quad            .Llit_string_α_4345_0_s
 .Llit_string_α_4345_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01564_lit_string_bx, .-n01564_lit_string_bx
                         .type            n01565_call_bx, @function
 n01565_call_bx:
@@ -41245,7 +41245,7 @@ n01581_lit_string_α:     mov              r11, 1632
                         mov              qword ptr [rbp + 536], rax;          jmp   n01582_call_α
 .Llit_string_α_4396_0:  .quad            .Llit_string_α_4396_0_s
 .Llit_string_α_4396_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01581_lit_string_bx, .-n01581_lit_string_bx
                         .type            n01582_call_bx, @function
 n01582_call_bx:
@@ -41725,7 +41725,7 @@ n01603_lit_string_α:     mov              r11, 1654
                         mov              qword ptr [rbp + 712], rax;          jmp   n01604_call_α
 .Llit_string_α_4461_0:  .quad            .Llit_string_α_4461_0_s
 .Llit_string_α_4461_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01603_lit_string_bx, .-n01603_lit_string_bx
                         .type            n01604_call_bx, @function
 n01604_call_bx:
@@ -42167,7 +42167,7 @@ n01631_assign_α:         mov              r11, 1682
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_4502_0]
                         .section         .rodata
-.Lassign_α_4502_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_4502_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4502_1_s]
@@ -42380,7 +42380,7 @@ n01633_lit_string_α:     mov              r11, 1684
                         mov              qword ptr [rbp + 712], rax;          jmp   n01634_call_α
 .Llit_string_α_4538_0:  .quad            .Llit_string_α_4538_0_s
 .Llit_string_α_4538_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01633_lit_string_bx, .-n01633_lit_string_bx
                         .type            n01634_call_bx, @function
 n01634_call_bx:
@@ -42822,7 +42822,7 @@ n01661_assign_α:         mov              r11, 1712
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_4579_0]
                         .section         .rodata
-.Lassign_α_4579_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_4579_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4579_1_s]
@@ -43035,7 +43035,7 @@ n01663_lit_string_α:     mov              r11, 1714
                         mov              qword ptr [rbp + 680], rax;          jmp   n01664_call_α
 .Llit_string_α_4615_0:  .quad            .Llit_string_α_4615_0_s
 .Llit_string_α_4615_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01663_lit_string_bx, .-n01663_lit_string_bx
                         .type            n01664_call_bx, @function
 n01664_call_bx:
@@ -43464,7 +43464,7 @@ n01691_assign_α:         mov              r11, 1742
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_4655_0]
                         .section         .rodata
-.Lassign_α_4655_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_4655_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4655_1_s]
@@ -43677,7 +43677,7 @@ n01693_lit_string_α:     mov              r11, 1744
                         mov              qword ptr [rbp + 696], rax;          jmp   n01694_call_α
 .Llit_string_α_4692_0:  .quad            .Llit_string_α_4692_0_s
 .Llit_string_α_4692_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01693_lit_string_bx, .-n01693_lit_string_bx
                         .type            n01694_call_bx, @function
 n01694_call_bx:
@@ -44125,7 +44125,7 @@ n01722_assign_α:         mov              r11, 1773
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_4734_0]
                         .section         .rodata
-.Lassign_α_4734_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_4734_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4734_1_s]
@@ -44338,7 +44338,7 @@ n01724_lit_string_α:     mov              r11, 1775
                         mov              qword ptr [rbp + 712], rax;          jmp   n01725_call_α
 .Llit_string_α_4772_0:  .quad            .Llit_string_α_4772_0_s
 .Llit_string_α_4772_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01724_lit_string_bx, .-n01724_lit_string_bx
                         .type            n01725_call_bx, @function
 n01725_call_bx:
@@ -44797,7 +44797,7 @@ n01754_assign_α:         mov              r11, 1805
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_4815_0]
                         .section         .rodata
-.Lassign_α_4815_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_4815_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4815_1_s]
@@ -45010,7 +45010,7 @@ n01756_lit_string_α:     mov              r11, 1807
                         mov              qword ptr [rbp + 696], rax;          jmp   n01757_call_α
 .Llit_string_α_4851_0:  .quad            .Llit_string_α_4851_0_s
 .Llit_string_α_4851_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01756_lit_string_bx, .-n01756_lit_string_bx
                         .type            n01757_call_bx, @function
 n01757_call_bx:
@@ -45445,7 +45445,7 @@ n01784_assign_α:         mov              r11, 1835
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_4892_0]
                         .section         .rodata
-.Lassign_α_4892_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_4892_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4892_1_s]
@@ -45658,7 +45658,7 @@ n01786_lit_string_α:     mov              r11, 1837
                         mov              qword ptr [rbp + 632], rax;          jmp   n01787_call_α
 .Llit_string_α_4925_0:  .quad            .Llit_string_α_4925_0_s
 .Llit_string_α_4925_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01786_lit_string_bx, .-n01786_lit_string_bx
                         .type            n01787_call_bx, @function
 n01787_call_bx:
@@ -46078,7 +46078,7 @@ n01811_assign_α:         mov              r11, 1862
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_4964_0]
                         .section         .rodata
-.Lassign_α_4964_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_4964_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4964_1_s]
@@ -46291,7 +46291,7 @@ n01813_lit_string_α:     mov              r11, 1864
                         mov              qword ptr [rbp + 760], rax;          jmp   n01814_call_α
 .Llit_string_α_5002_0:  .quad            .Llit_string_α_5002_0_s
 .Llit_string_α_5002_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01813_lit_string_bx, .-n01813_lit_string_bx
                         .type            n01814_call_bx, @function
 n01814_call_bx:
@@ -46782,7 +46782,7 @@ n01843_assign_α:         mov              r11, 1894
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5047_0]
                         .section         .rodata
-.Lassign_α_5047_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5047_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5047_1_s]
@@ -46995,7 +46995,7 @@ n01845_lit_string_α:     mov              r11, 1896
                         mov              qword ptr [rbp + 856], rax;          jmp   n01846_call_α
 .Llit_string_α_5088_0:  .quad            .Llit_string_α_5088_0_s
 .Llit_string_α_5088_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01845_lit_string_bx, .-n01845_lit_string_bx
                         .type            n01846_call_bx, @function
 n01846_call_bx:
@@ -47538,7 +47538,7 @@ n01878_assign_α:         mov              r11, 1929
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5137_0]
                         .section         .rodata
-.Lassign_α_5137_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5137_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5137_1_s]
@@ -47751,7 +47751,7 @@ n01880_lit_string_α:     mov              r11, 1931
                         mov              qword ptr [rbp + 952], rax;          jmp   n01881_call_α
 .Llit_string_α_5181_0:  .quad            .Llit_string_α_5181_0_s
 .Llit_string_α_5181_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01880_lit_string_bx, .-n01880_lit_string_bx
                         .type            n01881_call_bx, @function
 n01881_call_bx:
@@ -48346,7 +48346,7 @@ n01916_assign_α:         mov              r11, 1967
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5234_0]
                         .section         .rodata
-.Lassign_α_5234_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5234_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5234_1_s]
@@ -48559,7 +48559,7 @@ n01918_lit_string_α:     mov              r11, 1969
                         mov              qword ptr [rbp + 632], rax;          jmp   n01919_call_α
 .Llit_string_α_5267_0:  .quad            .Llit_string_α_5267_0_s
 .Llit_string_α_5267_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01918_lit_string_bx, .-n01918_lit_string_bx
                         .type            n01919_call_bx, @function
 n01919_call_bx:
@@ -48979,7 +48979,7 @@ n01943_assign_α:         mov              r11, 1994
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5306_0]
                         .section         .rodata
-.Lassign_α_5306_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5306_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5306_1_s]
@@ -49192,7 +49192,7 @@ n01945_lit_string_α:     mov              r11, 1996
                         mov              qword ptr [rbp + 1016], rax;         jmp   n01946_call_α
 .Llit_string_α_5351_0:  .quad            .Llit_string_α_5351_0_s
 .Llit_string_α_5351_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01945_lit_string_bx, .-n01945_lit_string_bx
                         .type            n01946_call_bx, @function
 n01946_call_bx:
@@ -49768,7 +49768,7 @@ n01982_assign_α:         mov              r11, 2033
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5402_0]
                         .section         .rodata
-.Lassign_α_5402_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5402_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5402_1_s]
@@ -49981,7 +49981,7 @@ n01984_lit_string_α:     mov              r11, 2035
                         mov              qword ptr [rbp + 1016], rax;         jmp   n01985_call_α
 .Llit_string_α_5447_0:  .quad            .Llit_string_α_5447_0_s
 .Llit_string_α_5447_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n01984_lit_string_bx, .-n01984_lit_string_bx
                         .type            n01985_call_bx, @function
 n01985_call_bx:
@@ -50557,7 +50557,7 @@ n02021_assign_α:         mov              r11, 2072
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5498_0]
                         .section         .rodata
-.Lassign_α_5498_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5498_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5498_1_s]
@@ -50770,7 +50770,7 @@ n02023_lit_string_α:     mov              r11, 2074
                         mov              qword ptr [rbp + 360], rax;          jmp   n02024_call_α
 .Llit_string_α_5519_0:  .quad            .Llit_string_α_5519_0_s
 .Llit_string_α_5519_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02023_lit_string_bx, .-n02023_lit_string_bx
                         .type            n02024_call_bx, @function
 n02024_call_bx:
@@ -51178,7 +51178,7 @@ n02038_lit_string_α:     mov              r11, 2089
                         mov              qword ptr [rbp + 648], rax;          jmp   n02039_call_α
 .Llit_string_α_5573_0:  .quad            .Llit_string_α_5573_0_s
 .Llit_string_α_5573_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02038_lit_string_bx, .-n02038_lit_string_bx
                         .type            n02039_call_bx, @function
 n02039_call_bx:
@@ -51357,7 +51357,7 @@ n02048_assign_α:         mov              r11, 2098
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5586_0]
                         .section         .rodata
-.Lassign_α_5586_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5586_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5586_1_s]
@@ -51819,7 +51819,7 @@ n02065_lit_string_α:     mov              r11, 2116
                         mov              qword ptr [rbp + 680], rax;          jmp   n02066_call_α
 .Llit_string_α_5646_0:  .quad            .Llit_string_α_5646_0_s
 .Llit_string_α_5646_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02065_lit_string_bx, .-n02065_lit_string_bx
                         .type            n02066_call_bx, @function
 n02066_call_bx:
@@ -51998,7 +51998,7 @@ n02075_assign_α:         mov              r11, 2125
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5659_0]
                         .section         .rodata
-.Lassign_α_5659_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5659_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5659_1_s]
@@ -52473,7 +52473,7 @@ n02093_lit_string_α:     mov              r11, 2144
                         mov              qword ptr [rbp + 680], rax;          jmp   n02094_call_α
 .Llit_string_α_5720_0:  .quad            .Llit_string_α_5720_0_s
 .Llit_string_α_5720_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02093_lit_string_bx, .-n02093_lit_string_bx
                         .type            n02094_call_bx, @function
 n02094_call_bx:
@@ -52652,7 +52652,7 @@ n02103_assign_α:         mov              r11, 2153
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5733_0]
                         .section         .rodata
-.Lassign_α_5733_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5733_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5733_1_s]
@@ -53127,7 +53127,7 @@ n02121_lit_string_α:     mov              r11, 2172
                         mov              qword ptr [rbp + 680], rax;          jmp   n02122_call_α
 .Llit_string_α_5794_0:  .quad            .Llit_string_α_5794_0_s
 .Llit_string_α_5794_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02121_lit_string_bx, .-n02121_lit_string_bx
                         .type            n02122_call_bx, @function
 n02122_call_bx:
@@ -53306,7 +53306,7 @@ n02131_assign_α:         mov              r11, 2181
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5807_0]
                         .section         .rodata
-.Lassign_α_5807_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5807_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5807_1_s]
@@ -53782,7 +53782,7 @@ n02149_lit_string_α:     mov              r11, 2200
                         mov              qword ptr [rbp + 632], rax;          jmp   n02150_call_α
 .Llit_string_α_5868_0:  .quad            .Llit_string_α_5868_0_s
 .Llit_string_α_5868_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02149_lit_string_bx, .-n02149_lit_string_bx
                         .type            n02150_call_bx, @function
 n02150_call_bx:
@@ -53961,7 +53961,7 @@ n02159_assign_α:         mov              r11, 2209
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5881_0]
                         .section         .rodata
-.Lassign_α_5881_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5881_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5881_1_s]
@@ -54434,7 +54434,7 @@ n02177_lit_string_α:     mov              r11, 2228
                         mov              qword ptr [rbp + 696], rax;          jmp   n02178_call_α
 .Llit_string_α_5944_0:  .quad            .Llit_string_α_5944_0_s
 .Llit_string_α_5944_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02177_lit_string_bx, .-n02177_lit_string_bx
                         .type            n02178_call_bx, @function
 n02178_call_bx:
@@ -54623,7 +54623,7 @@ n02188_assign_α:         mov              r11, 2238
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5959_0]
                         .section         .rodata
-.Lassign_α_5959_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5959_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5959_1_s]
@@ -55148,7 +55148,7 @@ n02207_lit_string_α:     mov              r11, 2258
                         mov              qword ptr [rbp + 360], rax;          jmp   n02208_call_α
 .Llit_string_α_6009_0:  .quad            .Llit_string_α_6009_0_s
 .Llit_string_α_6009_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02207_lit_string_bx, .-n02207_lit_string_bx
                         .type            n02208_call_bx, @function
 n02208_call_bx:
@@ -55556,7 +55556,7 @@ n02222_lit_string_α:     mov              r11, 2273
                         mov              qword ptr [rbp + 648], rax;          jmp   n02223_call_α
 .Llit_string_α_6068_0:  .quad            .Llit_string_α_6068_0_s
 .Llit_string_α_6068_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02222_lit_string_bx, .-n02222_lit_string_bx
                         .type            n02223_call_bx, @function
 n02223_call_bx:
@@ -55735,7 +55735,7 @@ n02232_assign_α:         mov              r11, 2282
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6081_0]
                         .section         .rodata
-.Lassign_α_6081_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6081_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6081_1_s]
@@ -56241,7 +56241,7 @@ n02254_lit_string_α:     mov              r11, 2305
                         mov              qword ptr [rbp + 632], rax;          jmp   n02255_call_α
 .Llit_string_α_6148_0:  .quad            .Llit_string_α_6148_0_s
 .Llit_string_α_6148_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02254_lit_string_bx, .-n02254_lit_string_bx
                         .type            n02255_call_bx, @function
 n02255_call_bx:
@@ -56420,7 +56420,7 @@ n02264_assign_α:         mov              r11, 2314
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6161_0]
                         .section         .rodata
-.Lassign_α_6161_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6161_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6161_1_s]
@@ -56915,7 +56915,7 @@ n02285_lit_string_α:     mov              r11, 2336
                         mov              qword ptr [rbp + 424], rax;          jmp   n02286_call_α
 .Llit_string_α_6213_0:  .quad            .Llit_string_α_6213_0_s
 .Llit_string_α_6213_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02285_lit_string_bx, .-n02285_lit_string_bx
                         .type            n02286_call_bx, @function
 n02286_call_bx:
@@ -57349,7 +57349,7 @@ n02302_lit_string_α:     mov              r11, 2353
                         mov              qword ptr [rbp + 632], rax;          jmp   n02303_call_α
 .Llit_string_α_6269_0:  .quad            .Llit_string_α_6269_0_s
 .Llit_string_α_6269_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02302_lit_string_bx, .-n02302_lit_string_bx
                         .type            n02303_call_bx, @function
 n02303_call_bx:
@@ -57554,7 +57554,7 @@ n02314_assign_α:         mov              r11, 2364
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6284_0]
                         .section         .rodata
-.Lassign_α_6284_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6284_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6284_1_s]
@@ -57974,7 +57974,7 @@ n02329_lit_string_α:     mov              r11, 2380
                         mov              qword ptr [rbp + 600], rax;          jmp   n02330_call_α
 .Llit_string_α_6340_0:  .quad            .Llit_string_α_6340_0_s
 .Llit_string_α_6340_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02329_lit_string_bx, .-n02329_lit_string_bx
                         .type            n02330_call_bx, @function
 n02330_call_bx:
@@ -58179,7 +58179,7 @@ n02341_assign_α:         mov              r11, 2391
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6355_0]
                         .section         .rodata
-.Lassign_α_6355_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6355_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6355_1_s]
@@ -58590,7 +58590,7 @@ n02356_lit_string_α:     mov              r11, 2407
                         mov              qword ptr [rbp + 536], rax;          jmp   n02357_call_α
 .Llit_string_α_6408_0:  .quad            .Llit_string_α_6408_0_s
 .Llit_string_α_6408_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02356_lit_string_bx, .-n02356_lit_string_bx
                         .type            n02357_call_bx, @function
 n02357_call_bx:
@@ -58769,7 +58769,7 @@ n02366_assign_α:         mov              r11, 2416
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6421_0]
                         .section         .rodata
-.Lassign_α_6421_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6421_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6421_1_s]
@@ -59180,7 +59180,7 @@ n02381_lit_string_α:     mov              r11, 2432
                         mov              qword ptr [rbp + 360], rax;          jmp   n02382_call_α
 .Llit_string_α_6465_0:  .quad            .Llit_string_α_6465_0_s
 .Llit_string_α_6465_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02381_lit_string_bx, .-n02381_lit_string_bx
                         .type            n02382_call_bx, @function
 n02382_call_bx:
@@ -59360,7 +59360,7 @@ n02391_assign_α:         mov              r11, 2441
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6479_0]
                         .section         .rodata
-.Lassign_α_6479_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6479_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6479_1_s]
@@ -59624,7 +59624,7 @@ n02397_lit_string_α:     mov              r11, 2448
                         mov              qword ptr [rbp + 376], rax;          jmp   n02398_call_α
 .Llit_string_α_6509_0:  .quad            .Llit_string_α_6509_0_s
 .Llit_string_α_6509_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02397_lit_string_bx, .-n02397_lit_string_bx
                         .type            n02398_call_bx, @function
 n02398_call_bx:
@@ -60031,7 +60031,7 @@ n02414_lit_string_α:     mov              r11, 2465
                         mov              qword ptr [rbp + 376], rax;          jmp   n02415_call_α
 .Llit_string_α_6555_0:  .quad            .Llit_string_α_6555_0_s
 .Llit_string_α_6555_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02414_lit_string_bx, .-n02414_lit_string_bx
                         .type            n02415_call_bx, @function
 n02415_call_bx:
@@ -60218,7 +60218,7 @@ n02425_assign_α:         mov              r11, 2475
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6571_0]
                         .section         .rodata
-.Lassign_α_6571_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6571_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6571_1_s]
@@ -60477,7 +60477,7 @@ n02431_lit_string_α:     mov              r11, 2482
                         mov              qword ptr [rbp + 696], rax;          jmp   n02432_call_α
 .Llit_string_α_6612_0:  .quad            .Llit_string_α_6612_0_s
 .Llit_string_α_6612_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02431_lit_string_bx, .-n02431_lit_string_bx
                         .type            n02432_call_bx, @function
 n02432_call_bx:
@@ -60688,7 +60688,7 @@ n02443_assign_α:         mov              r11, 2493
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6627_0]
                         .section         .rodata
-.Lassign_α_6627_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6627_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6627_1_s]
@@ -61121,7 +61121,7 @@ n02459_lit_string_α:     mov              r11, 2510
                         mov              qword ptr [rbp + 456], rax;          jmp   n02460_call_α
 .Llit_string_α_6675_0:  .quad            .Llit_string_α_6675_0_s
 .Llit_string_α_6675_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02459_lit_string_bx, .-n02459_lit_string_bx
                         .type            n02460_call_bx, @function
 n02460_call_bx:
@@ -61576,7 +61576,7 @@ n02477_lit_string_α:     mov              r11, 2528
                         mov              qword ptr [rbp + 616], rax;          jmp   n02478_call_α
 .Llit_string_α_6733_0:  .quad            .Llit_string_α_6733_0_s
 .Llit_string_α_6733_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02477_lit_string_bx, .-n02477_lit_string_bx
                         .type            n02478_call_bx, @function
 n02478_call_bx:
@@ -61979,7 +61979,7 @@ n02502_assign_α:         mov              r11, 2553
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6771_0]
                         .section         .rodata
-.Lassign_α_6771_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6771_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6771_1_s]
@@ -62192,7 +62192,7 @@ n02504_lit_string_α:     mov              r11, 2555
                         mov              qword ptr [rbp + 472], rax;          jmp   n02505_call_α
 .Llit_string_α_6796_0:  .quad            .Llit_string_α_6796_0_s
 .Llit_string_α_6796_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02504_lit_string_bx, .-n02504_lit_string_bx
                         .type            n02505_call_bx, @function
 n02505_call_bx:
@@ -62663,7 +62663,7 @@ n02523_lit_string_α:     mov              r11, 2574
                         mov              qword ptr [rbp + 648], rax;          jmp   n02524_call_α
 .Llit_string_α_6861_0:  .quad            .Llit_string_α_6861_0_s
 .Llit_string_α_6861_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02523_lit_string_bx, .-n02523_lit_string_bx
                         .type            n02524_call_bx, @function
 n02524_call_bx:
@@ -63039,7 +63039,7 @@ n02547_assign_α:         mov              r11, 2597
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6897_0]
                         .section         .rodata
-.Lassign_α_6897_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6897_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6897_1_s]
@@ -63448,7 +63448,7 @@ n02552_lit_string_α:     mov              r11, 2603
                         mov              qword ptr [rbp + 11256], rax;        jmp   n02553_call_α
 .Llit_string_α_7344_0:  .quad            .Llit_string_α_7344_0_s
 .Llit_string_α_7344_0_s:
-                        .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .size            n02552_lit_string_bx, .-n02552_lit_string_bx
                         .type            n02553_call_bx, @function
 n02553_call_bx:
@@ -63664,7 +63664,7 @@ n02563_assign_α:         mov              r11, 2611
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_7356_0]
                         .section         .rodata
-.Lassign_α_7356_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_7356_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_7356_1_s]
@@ -63777,7 +63777,7 @@ n02568_assign_α:         mov              r11, 2616
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_7363_0]
                         .section         .rodata
-.Lassign_α_7363_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_7363_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_7363_1_s]
@@ -64711,7 +64711,7 @@ n02617_assign_α:         mov              r11, 2665
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_7437_0]
                         .section         .rodata
-.Lassign_α_7437_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_7437_1_s:    .string          "/home/claude_cto/corpus/benchmarks/icon/micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_7437_1_s]

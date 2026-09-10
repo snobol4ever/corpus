@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/bench_icnsub_list_dispatch.icn"
+                        .file            1 "/home/claude_cto/corpus/benchmarks/icon/bench_icnsub_list_dispatch.icn"
                         .file            2 "<included>"
                         .globl           main
 main:
@@ -55,7 +55,7 @@ n1_lit_string_α:        mov              r11, 2
                         mov              rax, qword ptr [rip + .Llit_string_α_37_0]
                         mov              qword ptr [rbp + 760], rax;          jmp   n2_call_α
 .Llit_string_α_37_0:    .quad            .Llit_string_α_37_0_s
-.Llit_string_α_37_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/bench_icnsub_list_dispatch.icn"
+.Llit_string_α_37_0_s:  .string          "/home/claude_cto/corpus/benchmarks/icon/bench_icnsub_list_dispatch.icn"
                         .size            n1_lit_string_bx, .-n1_lit_string_bx
                         .type            n2_call_bx, @function
 n2_call_bx:
