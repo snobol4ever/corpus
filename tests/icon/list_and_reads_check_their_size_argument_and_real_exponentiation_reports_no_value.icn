@@ -1,0 +1,15 @@
+procedure main()
+   local f;
+   &error := 30;
+   write(image(list([])) | "none", " A ", &errornumber, " ", image(&errorvalue), " ", &errortext);
+   write(image(list("x")) | "none", " B ", &errornumber, " ", image(&errorvalue));
+   write(image(list(-1)) | "none", " C ", &errornumber, " ", image(&errorvalue), " ", &errortext);
+   write(image(list("2")) | "none", " D ", &errornumber);
+   f := open("/dev/null");
+   write(image(reads(f,0)) | "none", " E ", &errornumber, " ", image(&errorvalue), " ", &errortext);
+   write(image(reads(f,-1)) | "none", " F ", &errornumber, " ", image(&errorvalue));
+   write(image(reads(f,"x")) | "none", " G ", &errornumber, " ", image(&errorvalue), " ", &errortext);
+   write(image(reads(f,[])) | "none", " H ", &errornumber, " ", image(&errorvalue));
+   write(image(-36. ^ -9.) | "none", " I ", &errornumber, " ", &errortext);
+   write("J ", image(&errorvalue) | "no value");
+end
