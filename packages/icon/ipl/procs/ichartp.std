@@ -1,0 +1,6 @@
+S(NP(DET(the),NP(N(nurse))),VP(IV(travels)))
+S(NP(he),VP(TV(see),NP(DET(a),NP(N(book)))))
+S(NP(DET(the),ADJ(silly),NP(N(nurse))),VP(IV(travels),PP(P(on),NP(DET(a),NP(N(book))))))
+S(NP(DET(the),NP(ADJ(silly),NP(N(nurse)))),VP(IV(travels),PP(P(on),NP(DET(a),NP(N(book))))))
+S(S(NP(he),VP(IV(travels))),CONJ(and),S(NP(they),VP(IV(travel))))
+can't parse the book travels that he see a book
