@@ -1,0 +1,7 @@
+none A 110 &null string or list expected
+none B 114 &null invalid type to subscript operation
+"4" C 114 &null invalid type to subscript operation
+"" D
+"bc" E
+"aZZd" F
+list_2(2) G
