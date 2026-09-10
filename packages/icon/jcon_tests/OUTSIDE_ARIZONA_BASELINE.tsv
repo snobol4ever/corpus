@@ -117,9 +117,6 @@
 lgint:bigexp(3 ^ 41)	ROW_OUTSIDE_ORACLE_REACH	⛔ A ROW, NOT A PROGRAM -- lgint itself is GRADED and PASSES. |base|>=2 with a positive huge exponent: iconx does not terminate (recorded before as rc=124 at 600 s), so no Arizona ground truth exists for this row alone. Ours raises error 203 and the shipped jcon ref agrees, so the row keeps its JCON provenance untouched (lgint.std lines 143/147 are byte-identical before and after the CEO-516 re-cut). ceo CEO-516 on hq_I's measurement.
 lgint:bigexp(6 ^ 25)	ROW_OUTSIDE_ORACLE_REACH	⛔ A ROW, NOT A PROGRAM -- same arm and same reason as 3 ^ 41: iconx does not terminate, ours raises error 203, jcon agrees, the row stays on jcon's authority. ceo CEO-516.
 lgint:bigexp(-7 ^ 23)	ROW_OUTSIDE_ORACLE_REACH	⛔ A ROW, NOT A PROGRAM -- same arm and same reason as 3 ^ 41: iconx does not terminate, ours raises error 203, jcon agrees, the row stays on jcon's authority. ceo CEO-516.
-geddump	NEEDS_VENDORED_SOURCE	⛔ NOT AN ORACLE REFUSAL -- OUR VENDORING (corrected hq_P 2026-09-10 on ceo CEO-487, measured against /home/resources/jcon-master/test/geddump.icn). Our copy differs from upstream ONLY by the semicolons our 826-file conversion appended: ZERO residual lines after stripping a trailing `;`. Upstream compiles rc=0 under `icont -s` and, run against the shipped geddump.dat, its stdout MATCHES the vendored geddump.std BYTE-FOR-BYTE -- so ground truth exists, no .std re-cut is owed, and the only work is re-vendoring the semicolons out of the positions BOTH dialects reject. The row this replaces read ORACLE_REFUSES "a jcon-dialect source Arizona Icon does not accept" and was false because upstream was never asked.
-htprep	NEEDS_VENDORED_SOURCE	⛔ NOT AN ORACLE REFUSAL -- OUR VENDORING, same measurement as geddump (hq_P 2026-09-10): zero residual lines against /home/resources/jcon-master/test/htprep.icn after stripping a trailing `;`, upstream compiles rc=0 under `icont -s`, and its run against htprep.dat MATCHES the vendored htprep.std byte-for-byte. Our three refusals (Line 257 "missing then", 266 and 286 "missing right parenthesis") are semicolons the conversion put INSIDE an if condition and inside parenthesised continuations -- invalid in Arizona Icon AND in ours.
-prepro	NEEDS_VENDORED_SOURCE	⛔ OURS TOO, WHICH CORRECTS CEO-487's RULING THAT IT STAYS OUTSIDE (measured hq_P 2026-09-10). `$undef ghi` with ONE argument is ordinary Arizona Icon, not a jcon extension: upstream test/prepro.icn compiles rc=0 and runs clean under icont once its shipped prepro.dat companion sits beside it -- a bare staged copy fails "prepro.dat: cannot open", which is the STAGING and not the preprocessor, and that is the error CEO-487 read as a refusal. Our "$undef: too many arguments" IS the `;` the conversion appended to 17 directive lines in prepro.icn and 2 in prepro.dat. PROVEN BY REPAIR: strip only those 19 semicolons and icont compiles rc=0, runs rc=0, and the output matches the vendored prepro.std byte-for-byte.
 # ⛔⭐⭐ recent's ROW IS GONE AND recent IS GRADED (coo 2026-09-10, ceo CEO-523; the same reversal shape as
 # geddump/htprep/prepro above, and the discriminator is again ONE COMMAND).  Its row read ENVIRONMENT_IDENTITY_
 # IN_OUTPUT: "an icont-cut ref would pin THIS cutter's directory contents instead of the program's answer."
@@ -170,3 +167,22 @@ prepro	NEEDS_VENDORED_SOURCE	⛔ OURS TOO, WHICH CORRECTS CEO-487's RULING THAT 
 # permanent -- no environment reconciles two implementations' identity -- and that permanence is exactly
 # what made the ruling look safe to close.  It was still deferred work, because the program was free to
 # stop printing them.  A permanent ruling about a VALUE is not a permanent ruling about a PROGRAM.
+# ⛔⭐⭐ geddump, htprep AND prepro ARE GRADED AND ALL THREE PASS (coo 2026-09-10, on Lon's word: "There is no
+# reason not to have ALL and EVERY program graded"). Their rows read NEEDS_VENDORED_SOURCE -- "the only work is
+# re-vendoring the semicolons out of the positions BOTH dialects reject" -- and that sentence is TRUE ABOUT THE
+# SOURCE AND IRRELEVANT TO THE GRADE, which is why they sat here for a day owing work nobody needed to do.
+# ⭐ THE MEASUREMENT NOBODY TOOK: run OUR copy, exactly as test_icon_jcon_suite.sh:run_one runs every entry --
+# the .dat companion fed as argv[1] AND as stdin, streams combined -- and diff against the shipped .std.
+#     geddump  313 lines, rc=0, ZERO differing lines      htprep  74 lines, rc=0, ZERO
+#     prepro     7 lines, rc=0, ZERO differing lines
+# THREE PROGRAMS THAT PASS BYTE-FOR-BYTE WERE CARRYING ZEROS. The vendoring row asked whether ICONT can compile
+# OUR file; the grading question is whether OUR compiler reproduces the ORACLE'S ANSWER, and hq_P had already
+# established the ground truth for that on 2026-09-10 -- upstream compiles rc=0 under icont and its run matches
+# the vendored .std BYTE-FOR-BYTE. So the answer existed, we match it, and nothing was owed.
+# ⛔ THE SEMICOLONS ARE NOT A VENDORING ACCIDENT AND THE ROW'S CURE WOULD HAVE MADE THINGS WORSE, MEASURED:
+# our Icon frontend REQUIRES them. Handed upstream's semicolon-free text it answers "expected ; (got IDENT)" --
+# geddump line 22, htprep line 72, prepro line 44 -- and across ALL 91 upstream jcon sources our frontend
+# rejects SEVENTY-NINE for exactly that and compiles three. So "re-vendor the semicolons out" trades an icont
+# refusal for a SCRIP refusal, one exclusion for another. The real row is the parser: Icon's grammar makes the
+# semicolon optional and ours does not. That is a compiler row, not a corpus row, and it is written down here
+# because the NEEDS_VENDORED_SOURCE class MISFILED it as vendoring work for three programs that never needed any.
