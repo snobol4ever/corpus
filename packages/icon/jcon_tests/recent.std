@@ -335,13 +335,11 @@ oops -- function ord("antidisestablishmentarianism")
 oops -- function ord(47) 
 oops -- function ord(&output) 
 oops -- function ord(table_1(0)) 
-getenv(JCONT) = ../bin/jcont
+getenv(JCONT) = [FAILED]
 getenv(NOPE!) = [FAILED]
 found file: .
 found file: ..
-found file: Makefile
 found file: recent.icn
-found file: recogn.dat
 &ascii
 &cset
 &digits
