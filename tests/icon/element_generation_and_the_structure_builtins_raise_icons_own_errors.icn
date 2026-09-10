@@ -1,0 +1,16 @@
+procedure main()
+   local n
+   &error := 40;
+   every writes(image(!image), " "); write("A ", &errornumber, " ", image(&errorvalue), " ", &errortext);
+   n := 0; every !&cset do n +:= 1; write("cset elements ", n);
+   every writes(image(!1), " "); write("B ", &errornumber, " ", image(&errorvalue));
+   every writes(image(!&null), " "); write("C ", &errornumber, " ", image(&errorvalue), " ", &errortext);
+   write(image(sort(&cset)) | "none", " D ", &errornumber, " ", image(&errorvalue), " ", &errortext);
+   write(image(sort(1)) | "none", " E ", &errornumber, " ", image(&errorvalue));
+   write(image(pull(&null)) | "none", " F ", &errornumber, " ", image(&errorvalue), " ", &errortext);
+   write(image(push(&null, 1)) | "none", " G ", &errornumber, " ", image(&errorvalue));
+   write(image(get(1)) | "none", " H ", &errornumber, " ", image(&errorvalue));
+   write(image(put(1, 2)) | "none", " I ", &errornumber, " ", image(&errorvalue));
+   write(image(pop("x")) | "none", " J ", &errornumber, " ", image(&errorvalue));
+   write(image(*image) | "none", " K ", &errornumber, " ", image(&errorvalue), " ", &errortext);
+end
