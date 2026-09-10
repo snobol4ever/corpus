@@ -624,7 +624,18 @@ red out of a rename. ⛔ **Do not absorb it, and do not "fix" it by re-cutting t
 name** — hq_V measured that entry names shift on rebuild (694 of 1726 moved on one re-sort), so a ref
 pinned to an assigned name is a red waiting for the next build.
 
-⛔⛔ **THIS PAIR IS RED TODAY AND THAT IS THE POINT — IT IS AN OPEN DEFECT'S WITNESS, NOT A REGRESSION.**
+✅⛔ **CURED AND WIRED THE SAME DAY — READ THIS BEFORE THE PARAGRAPH BELOW IT, WHICH IS KEPT AS HISTORY.**
+The cto landed the generator activation record (SCRIP `3e68226ea`) hours after this pair was cut, and the
+pair went to **zero diff lines in both modes**. It is now graded by
+`SCRIP/scripts/test_gate_icn_traceback_corpus_pairs_are_oracle_exact.sh`, wired into `make test`, together
+with a second pair added as its control (see the next section). That gate was **proven red against the
+pre-cure binary** (`3e68226ea^`, built in a throwaway worktree): the generator arms fail with the exact
+missing `g() from line 11 in ...` line while the ordinary-call control arms pass on both sides. ⭐ So the
+"not wired, deliberately" clause below was discharged the way it said it would be — *"it gets wired when
+the cure takes it to zero, which is the ladder's own order"* — and not by anyone quietly relaxing it.
+**Everything about LOOSE and NAME-ECHOING still binds and is not affected by the cure.**
+
+⛔⛔ **HISTORY, TRUE WHEN WRITTEN (2026-09-10, pre-`3e68226ea`): THIS PAIR IS RED TODAY AND THAT IS THE POINT — IT IS AN OPEN DEFECT'S WITNESS, NOT A REGRESSION.**
 Measured on SCRIP `30b30101b`, both modes, **exactly ONE diff line**: `g() from line 11 in ...` is missing
 from our `Traceback:` and everything else is byte-identical to `iconx`. `main` records an activation and so
 does `f` (an ordinary called procedure) — only the GENERATOR `g` does not, because the `flat_gen` prologue
@@ -644,3 +655,23 @@ green while its stated root cause stood untouched. One construct (`every g()` pl
 difference between a witness that grades the cure and one that grades a neighbour. Owner of the witness:
 hq_S. Owner of the cure: the cto. Finding: `FINDING-2026-09-10-ceo-a-generator-records-no-activation-so-
 three-symptoms-in-three-lanes-are-one-root.md`.
+
+## ⛔⭐ THE CONTROL FOR THE ONE ABOVE, AND ALSO NAME-ECHOING — `an_ordinary_call_chain_prints_every_frame_in_the_traceback` (hq_S, 2026-09-10)
+
+**LOOSE FOR THE SAME REASON, ruled the same way** — every `Traceback:` line ends in this file's own name, so
+hq_V's name-echoing class applies unchanged: the master builder's rename would grade a different program and
+manufacture a red out of a rename, and re-cutting the ref under an assigned name is not a fix because entry
+names shift on rebuild. Ref cut from `icont`+`iconx` (Icon v9.5.25a).
+
+⭐ **WHY A SECOND, ALMOST-IDENTICAL PROGRAM EARNS ITS PLACE.** It is the same three-deep chain and the same
+fault with ONE construct removed: `g` is an ordinary procedure, not a generator. That single difference is
+the entire content of the defect its sibling pins, so this pair is the arm that stays green on BOTH sides of
+the cure — and a gate whose every arm flips together cannot tell "the generator now records" from "the tap
+now fires for everything" or "the ordinary prologue broke". ⛔ **The history is not hypothetical:** the
+ceo finding's ORIGINAL clause 1 named an ordinary three-frame witness exactly like this one; a neighbour's
+work on the ordinary call path cured it within the hour, and the clause graded GREEN while the generator
+gap it was written for stood untouched. This pair is that same witness kept deliberately, as a CONTROL
+where it was once mistaken for the criterion.
+
+Both pairs are graded by `SCRIP/scripts/test_gate_icn_traceback_corpus_pairs_are_oracle_exact.sh`
+(`make test`), 2 pairs x 2 modes, proven red against `3e68226ea^`.

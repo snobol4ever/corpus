@@ -1,0 +1,15 @@
+#  THE CONTROL FOR a_generator_frame_appears_in_the_traceback_like_an_ordinary_call.
+#  Same three-deep chain, same fault, but g is an ORDINARY procedure -- no `every`,
+#  no `suspend`. This path recorded its activations before the generator cure and must
+#  still record them after it: the cure adds a record-only tap for the flat_gen
+#  prologue, so a regression that made the tap fire for everything, or that disturbed
+#  the ordinary prologue, shows up HERE and nowhere else in this pair.
+procedure main()
+   f();
+end
+procedure f()
+   g();
+end
+procedure g()
+   1 / 0;
+end

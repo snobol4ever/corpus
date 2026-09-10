@@ -1,0 +1,9 @@
+
+Run-time error 201
+File an_ordinary_call_chain_prints_every_frame_in_the_traceback.icn; Line 14
+division by zero
+Traceback:
+main()
+f() from line 8 in an_ordinary_call_chain_prints_every_frame_in_the_traceback.icn
+g() from line 11 in an_ordinary_call_chain_prints_every_frame_in_the_traceback.icn
+{1 / 0} from line 14 in an_ordinary_call_chain_prints_every_frame_in_the_traceback.icn
