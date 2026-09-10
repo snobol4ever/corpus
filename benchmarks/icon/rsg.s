@@ -21317,6 +21317,10 @@ main:
                         push             rsi
                         call             core_lib_init@PLT
                         call             module_init
+                        lea              rdi, [rip + .Lgvan21]
+                        call             rt_note_reassigned_builtin@PLT
+                        lea              rdi, [rip + .Lgvan22]
+                        call             rt_note_reassigned_builtin@PLT
                         mov              edi, 23
                         call             rt_gva_island@PLT
                         mov              rsi, rax
