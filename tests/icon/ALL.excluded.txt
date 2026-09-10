@@ -1,3 +1,4 @@
+a_generator_frame_appears_in_the_traceback_like_an_ordinary_call	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 a_nul_bearing_subject_keeps_its_length_across_a_nested_scan_and_a_suspend	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 coexpr_gc_stack_witness	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 cset_membership_is_a_bit_test_not_a_name_lookup	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
@@ -168,27 +169,16 @@ repro_table_key_order	KEEPER, declared in repro/KEEP.md -- never absorbed (defer
 reversible_exchange_on_locals_needs_a_varslot	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 roman	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_all	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung36_jcon_arith	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_btrees	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung36_jcon_case	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung36_jcon_checkfpx	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung36_jcon_ck	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung36_jcon_collate	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_cxprimes	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-rung36_jcon_errkwds	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_geddump	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_genqueen	DEFERRED (row icn-recogn-genqueen-suspend-shape: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
 rung36_jcon_io	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung36_jcon_iobig	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung36_jcon_large	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung36_jcon_lgint	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_misc	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-rung36_jcon_nargs	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_others	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_prefix	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_profsum	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_proto	DEFERRED (row icon-v9gen-augmented-assign-and-unary-refresh-plus-two-emitter-gaps: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
-rung36_jcon_radix	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_recent	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_recogn	DEFERRED (row icn-recogn-genqueen-suspend-shape: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
 rung36_jcon_sorting	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry

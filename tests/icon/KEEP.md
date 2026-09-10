@@ -174,11 +174,11 @@ does.** This was invisible until
 surfaced that the gate's failure list itself was silently capped at 20, so nobody had seen these
 28 sitting in the "undeclared" count until now (`rung36_jcon_btrees.icn` was already an exception,
 named elsewhere in this file's own dependency note below — the other 28 were not named anywhere):
-`rung36_jcon_arith.icn` `rung36_jcon_case.icn` `rung36_jcon_checkfpx.icn` `rung36_jcon_ck.icn`
-`rung36_jcon_collate.icn` `rung36_jcon_errkwds.icn` `rung36_jcon_geddump.icn`
-`rung36_jcon_io.icn` `rung36_jcon_iobig.icn` `rung36_jcon_large.icn`
-`rung36_jcon_lgint.icn` `rung36_jcon_nargs.icn` `rung36_jcon_others.icn`
-`rung36_jcon_prefix.icn` `rung36_jcon_profsum.icn` `rung36_jcon_radix.icn` `rung36_jcon_recent.icn`
+`rung36_jcon_geddump.icn` `rung36_jcon_io.icn` `rung36_jcon_others.icn`
+`rung36_jcon_prefix.icn` `rung36_jcon_profsum.icn` `rung36_jcon_recent.icn`
+
+⛔⭐ **ELEVEN MORE NAMES LEFT THIS BUCKET 2026-09-10 (hq_V, ceo CEO-541)** — see the section below. The
+six above are what remains of it; the bucket's original count is history, not a live inventory.
 
 ⛔⭐ **THREE MORE NAMES LEFT THIS BUCKET 2026-09-10 (hq_V, ceo CEO-516, from hq_I's verified batch under
 CEO-512): `rung36_jcon_misc` `rung36_jcon_sorting` `rung36_jcon_struct` are ABSORBED into the Icon master
@@ -577,22 +577,43 @@ it prints `&progname`. It stays graded on the ceo's word (CEO-503) and its hones
 `ALL.ref` as of this landing; whether a name-echoing entry belongs in the master at all is a question
 for the ceo, routed 2026-09-10, not something this file decides.
 
-## THE ELEVEN INPUT-INDEPENDENT `rung36_jcon_*` KEEPERS ARE ALL THREE-WAY GREEN TODAY (hq_V, 2026-09-10) — ASKED, NOT ACTED ON
+## ⛔⭐ THE ELEVEN INPUT-INDEPENDENT `rung36_jcon_*` KEEPERS ARE ABSORBED — CEO-541, hq_V 2026-09-10
 
-`rung36_jcon_{arith,case,checkfpx,ck,collate,errkwds,iobig,large,lgint,nargs,radix}`
+`rung36_jcon_{arith,case,checkfpx,ck,collate,errkwds,iobig,large,lgint,nargs,radix}` are **ABSORBED into
+the Icon master as ordinary graded entries**, their eleven KEEPER lines came out of `ALL.excluded.txt` in
+the same landing, and their loose pairs were deleted by the builder's own verified `--delete-absorbed`.
 
-Measured on SCRIP `b84976b17`, each one three ways: **SCRIP m3 == SCRIP m4 == a fresh `icont -s` cut on
-this tree == the shipped `.expected`, byte for byte, rc=0 throughout**; none reads stdin (`&input`/`read`/
-`reads` count 0 in each source); none echoes its own name (`.icn` and own-stem count 0 in each
-`.expected`). That is exactly the bar CEO-516 set when `misc`, `sorting` and `struct` left this file:
-green both modes, expectation equal to the oracle's own run, input-independent.
+⭐ **RE-MEASURED AT ABSORB TIME, NOT ON THE 18:3x MEASUREMENT THAT PROMPTED THE ASK.** Verified on SCRIP
+`2a8d0f9fc` (a later tree than the `b84976b17` the ask carried): each one **SCRIP m3 == SCRIP m4 == a fresh
+`icont -s` cut here == the shipped `.expected`, byte for byte, rc=0 throughout**; `&input`/`read`/`reads`
+count 0 in each source; own-stem count 0 in each `.expected`. The ceo's condition was that any of the eleven
+failing the three-way AT ABSORB TIME stays out and is named — **none did, so none is named**, and the arm is
+recorded here so that a later reader can tell a re-measure from a repeated citation.
 
-⛔ **NOT ABSORBED ON THAT MATCH ALONE, AND THE DIFFERENCE MATTERS:** those three moved on the ceo's word,
-by name. Eleven keeper declarations coming out of this file at one seat's discretion is a denominator
-decision, not a housekeeping one — the jcon PACKAGE suite already grades the upstream originals these are
-copies of, so the real question is whether absorbing turns them into coverage or into a second count of
-the same programs. Asked of the ceo 2026-09-10 18:3x with this measurement attached; whatever comes back
-is recorded here beside the numbers.
+⭐ **THE RULING, because the reason outlives the eleven** (ceo CEO-541, verbatim in substance): *leaving
+proven-green programs OUT of the master understates the denominator while flattering the pass rate, which
+is the opposite of what the board is for.* And the double-count worry this file raised is answered rather
+than waved off: **the jcon PACKAGE suite grading the upstream originals is not double counting — Arizona
+and Jcon already ship the same programs under two oracles and we grade both, deliberately.** So a copy in
+the master and an original in a package suite are two measurements, not one measurement twice.
+
+⛔ **AND THE BUILDER CANNOT RETRACT AN EXCLUSION BY ITSELF — THE ELEVEN `ALL.excluded.txt` LINES WERE
+REMOVED BY HAND, DELIBERATELY.** That sidecar is written by a MERGE (`_excl_existing.update(...)`), so a
+family's line survives forever once written: absorb the family, delete its loose pair, and the line still
+reads *"KEEPER, declared in KEEP.md -- never absorbed"* about a file that no longer exists and a
+declaration that no longer does either. Absorbing in the same call that deletes is what makes it stale —
+the previous batch (CEO-516) only looked self-healing because a later pass re-classified those three while
+their files were still on disk. **This is the same shape as the closed exclusion that carried jcon `kwds`
+for four cycles: a wrong exclusion is invisible by construction, because a name that is excluded cannot be
+red, so nobody looks.** The rule for the next absorb: after `--delete-absorbed`, READ `ALL.excluded.txt`
+and delete the lines for what you just absorbed. The builder will not, and it will not warn you.
+
+⛔ **WHAT DOES NOT GENERALISE FROM THIS.** The bar is CEO-516's and it is a MEASUREMENT, not a category:
+three-way byte-identical, input-independent, no name echo. `rung36_jcon_io`, `_others` and `_recent` still
+fail the input-independence arm for the reason recorded above (their `.expected` is a FED run; a starved
+cut is a truncated artifact), `_geddump`, `_prefix` and `_profsum` keep their own declarations, and nothing
+here licenses absorbing a keeper because it happens to be green today.
+
 ## ⛔⭐ NAME-ECHOING, AND RED BY DESIGN UNTIL THE GENERATOR PROLOGUE RECORDS — `a_generator_frame_appears_in_the_traceback_like_an_ordinary_call` (hq_S, 2026-09-10)
 
 **LOOSE, PERMANENTLY, AND FOR THE REASON hq_V ALREADY RULED** — `FINDING-2026-09-10-hq_V-a-program-whose-

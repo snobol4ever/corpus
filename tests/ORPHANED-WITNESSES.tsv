@@ -4,28 +4,13 @@
 # ⛔ The cure is to ABSORB them into ALL.<ext> once they are green, NOT to delete them.
 #
 lang	name	path
+icon	a_builtin_used_as_a_subscript_base_is_a_function_value	tests/icon/a_builtin_used_as_a_subscript_base_is_a_function_value.icn
+icon	a_section_of_the_null_value_raises_string_or_list_expected	tests/icon/a_section_of_the_null_value_raises_string_or_list_expected.icn
+icon	assigning_the_scan_keywords_a_wrong_type_raises_103_and_101_with_the_value	tests/icon/assigning_the_scan_keywords_a_wrong_type_raises_103_and_101_with_the_value.icn
 icon	display_prints_the_frames_locals_and_the_globals	tests/icon/display_prints_the_frames_locals_and_the_globals.icn
-icon	element_generation_and_the_structure_builtins_raise_icons_own_errors	tests/icon/element_generation_and_the_structure_builtins_raise_icons_own_errors.icn
-icon	icn_coexpr_int_control	tests/icon/icn_coexpr_int_control.icn
-icon	icn_generator_via_procvalue_witness	tests/icon/icn_generator_via_procvalue_witness.icn
-icon	icn_return_record_control	tests/icon/icn_return_record_control.icn
-icon	icn_suspend_list_control	tests/icon/icn_suspend_list_control.icn
-icon	icn_suspend_record_coexpr_witness	tests/icon/icn_suspend_record_coexpr_witness.icn
-icon	icn_suspend_record_field_witness	tests/icon/icn_suspend_record_field_witness.icn
-icon	icn_suspend_record_local_witness	tests/icon/icn_suspend_record_local_witness.icn
-icon	icn_suspend_record_multi_witness	tests/icon/icn_suspend_record_multi_witness.icn
-icon	icn_suspend_record_witness	tests/icon/icn_suspend_record_witness.icn
 icon	icon_display_builtin_unimplemented	tests/icon/icon_display_builtin_unimplemented.icn
-icon	icon_set_table_object_serial_numbering_diverges_from_oracle	tests/icon/icon_set_table_object_serial_numbering_diverges_from_oracle.icn
-icon	icon_sort_zero_field_record_undefined_function	tests/icon/icon_sort_zero_field_record_undefined_function.icn
-icon	icon_sortf_mixed_type_default_compare_undefined_function	tests/icon/icon_sortf_mixed_type_default_compare_undefined_function.icn
-icon	list_alt_elem1_control	tests/icon/list_alt_elem1_control.icn
-icon	list_alt_elem2_fail_witness	tests/icon/list_alt_elem2_fail_witness.icn
-icon	list_alt_elem2_witness	tests/icon/list_alt_elem2_witness.icn
-icon	list_alt_elem3_witness	tests/icon/list_alt_elem3_witness.icn
-icon	list_alt_nonalt_gen_control	tests/icon/list_alt_nonalt_gen_control.icn
-icon	list_alt_resume_witness	tests/icon/list_alt_resume_witness.icn
-icon	the_co_expression_activation_trace_event_names_its_enclosing_procedure_and_its_own_line	tests/icon/the_co_expression_activation_trace_event_names_its_enclosing_procedure_and_its_own_line.icn
+icon	list_and_reads_check_their_size_argument_and_real_exponentiation_reports_no_value	tests/icon/list_and_reads_check_their_size_argument_and_real_exponentiation_reports_no_value.icn
+icon	stop_writes_to_a_leading_file_argument_and_ends_its_line	tests/icon/stop_writes_to_a_leading_file_argument_and_ends_its_line.icn
 snobol4	any_dyn_nullalt	tests/snobol4/any_dyn_nullalt.sno
 snobol4	break_dyn_nullalt	tests/snobol4/break_dyn_nullalt.sno
 snobol4	code_call_runtime_define_pending_entry	tests/snobol4/code_call_runtime_define_pending_entry.sno
@@ -67,5 +52,5 @@ snobol4	span_dyn_noalt	tests/snobol4/span_dyn_noalt.sno
 snobol4	span_dyn_nullalt	tests/snobol4/span_dyn_nullalt.sno
 snocone	beauty_modules	tests/snocone/beauty_modules.sc
 #
-# TOTALS  icon=22/247  pascal=0/5  prolog=0/43  raku=0/97  rebus=0/3  snobol4=39/142  snocone=1/69
-# TOTAL ORPHANED PAIRS: 62
+# TOTALS  icon=7/225  pascal=0/5  prolog=0/43  raku=0/97  rebus=0/3  snobol4=39/142  snocone=1/69
+# TOTAL ORPHANED PAIRS: 47
