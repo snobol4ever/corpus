@@ -1,0 +1,89 @@
+# OUTSIDE_ARIZONA_BASELINE.tsv -- arizona_tests: what the ONE ICON ORACLE answers only from INSIDE ITS OWN
+# IMPLEMENTATION, named beside the package so the graded denominator is the set a second implementation of
+# the Icon LANGUAGE could ever reach.  ceo CEO-527 (2026-09-10), on the cfo's measurement; written and
+# re-measured by hq_T 2026-09-10 under CEO-532.  Format and reader are the sister package's
+# (jcon_tests/OUTSIDE_ARIZONA_BASELINE.tsv, hq_P) -- ONE shape, never a second one.
+#
+# FORMAT: name<TAB>CLASS<TAB>reason.  ⛔ NAME IS THE PACKAGE-RELATIVE PATH WITHOUT THE EXTENSION
+# (`general/cfuncs`), never a bare basename: this package ships TWO subdirectories and UNGRADABLE.tsv's own
+# header already rules a bare name ambiguous here.  That is the ONE divergence from the jcon file, which is
+# flat and keys by basename; the reader in test_icon_arizona_suite.sh matches the runner's own `$sub/$name`
+# identity, so the key and the census agree by construction rather than by convention.
+#
+# ⛔⭐⭐ WHY THESE TWO ROWS ARE NOT THE USUAL SHAPE, AND IT IS THE POINT OF THE FILE.  Every other OUTSIDE row
+# in this repo says THE ORACLE CANNOT ANSWER (it refuses to compile, or never terminates).  Arizona icont
+# answers both of these perfectly -- and that is exactly the problem, because it answers them out of a C
+# shared library that ships in ITS OWN bin and out of ITS OWN runtime descriptor layout.  ⭐ THE GROUND TRUTH
+# FOR THESE TWO .std FILES IS NOT THE ICON LANGUAGE; IT IS THE CONTENTS OF ONE IMPLEMENTATION'S libcfunc.so.
+# A ref like that cannot be matched by implementing Icon, only by embedding iconx, so it grades the wrong
+# thing forever -- the SELF-PIN/ORACLE-DIFF distinction one level further out: an oracle-cut ref is still
+# only as portable as the thing the oracle reached for to produce it.
+#
+# THE MEASUREMENT, taken 2026-09-10 by hq_T at SCRIP 2bdee91cc, corpus 9e9319641 (every number here is one
+# command a reader can repeat):
+#   1. THE TWO FEATURE WORDS.  `every write(&features)` under /home/resources/icon-master/bin/icont prints
+#      ten lines including `dynamic loading` and `external values`; the same program under ./scrip --run
+#      prints eight -- the SAME LIST MINUS THOSE TWO WORDS, and nothing else differs.  So the divergence is
+#      not incidental to these programs: the oracle DECLARES the two capabilities they are named for, and we
+#      DECLARE that we do not have them.  &features is the language's own way of saying this, and it is
+#      already answering the question correctly on both sides.
+#   2. WHAT CURING WOULD MEAN, and it is why nobody owes work here.  `nm -D --undefined-only
+#      /home/resources/icon-master/bin/libcfunc.so` leaves 15 symbols unresolved, of which NINE are iconx's
+#      own runtime: alcexternal alcfile alcreal alcstr cnv_c_str cnv_int cnv_real cnv_str getdbl (plus
+#      nulldesc, palnum, rgbkey).  iconx resolves them at dlopen time from itself.  For SCRIP to run these
+#      two programs it would have to dlopen ANOTHER IMPLEMENTATION'S library and stand behind ITS allocator,
+#      ITS converters and ITS `struct descrip` layout -- embedding iconx's runtime, not implementing Icon.
+#      ⭐ The `external` type in extlvals.std is the same fact wearing its user-visible face: `external_1(0)`,
+#      `xstr_3(00324:bite)` and `xreal_7(111.1)` are images of C structs allocated by that library.
+#   3. WHAT WE PRINT TODAY, which is the honest answer and not a defect: both programs die on line 1 with
+#      `cannot find "libcfunc.so" on path ". ."` -- our pathload looked, said so, and stopped.  m3 rc=1 for
+#      both.  ⛔ AND FINDING THE FILE WOULD NOT HELP: it is on this box, at the path in (2), and loading it
+#      is step (2)'s problem, not a search-path fix.  A reader who cures only the diagnostic will believe
+#      they are one FPATH away from green.
+#   4. THE COST OF THE EXCLUSION, stated so it can be checked rather than trusted: 61 differing lines leave
+#      the board, cfuncs 20 and extlvals 41, MEASURED per program against its own .std, not apportioned from
+#      a total.  Two programs leave the graded denominator; the PASS counts do not move.
+#
+# ⛔ MIRRORED INTO THE LOCKDOWN BUCKETS, which is what keeps the population summing: both rows also sit in
+# UNGRADABLE.tsv as ORACLE_CONTRACT_NOT_IMPLEMENTED with the SAME reason -- a ruling, nobody owes work.  ONE
+# PROGRAM CARRIES ONE RULING and the two files may never disagree about WHY (jcon's tpp paid for that once).
+# The class is the closed vocabulary's (lib_inventory.sh), and it is the right member by that file's own
+# admission test -- COULD THIS RULING BE OVERTURNED FOR THE WHOLE CLASS AT ONCE? -- because one decision
+# about dynamic loading moves both programs together, and any third that links cfunc with it.
+#
+# ⭐ THE PRECEDENT IS ALREADY IN THIS PACKAGE AND IT IS THE SAME TWO WORDS: general/features.icn was ruled
+# ORACLE_CONTRACT_NOT_IMPLEMENTED long before CEO-527, because its output "enumerates the ORACLE build
+# (co-expressions, dynamic loading, external values, ...) [and] a different implementation legitimately prints
+# a different set, so diffing it would grade the BUILD, not the language."  cfuncs and extlvals are that exact
+# ruling applied to the programs that USE the two features instead of the one that PRINTS them -- so this is
+# not a new principle admitted for two reds; it is an existing ruling reaching the rest of its own class.
+# ⛔ Note upstream's own harness agrees about features.icn (Test-icon runs it as a banner and never diffs it)
+# and does NOT agree about these two: upstream diffs them, because for upstream the build IS the oracle.
+# That asymmetry is the whole content of the ruling and is why it had to be made rather than inherited.
+#
+# ⛔⭐⭐ THE OBJECTION THIS FILE HAS TO ANSWER, WRITTEN DOWN RATHER THAN LEFT FOR THE NEXT READER TO RAISE.
+# lib_inventory.sh carries an arm whose whole purpose is to stop exactly this direction of motion, and its
+# wording points straight at these two rows: "If the oracle grades it and we do not, it is GRADED and RED."
+# It was earned -- hq_C measured 240 prolog exclusions, every one individually honest, composing into a
+# denominator that could not fall.  ⭐ THE DISCRIMINATOR THAT SEPARATES THESE ROWS FROM THAT CASE IS NOT
+# "the reason is better written": it is that THE RULING WOULD STAND UNCHANGED IF SCRIP WERE PERFECT AT
+# EVERYTHING ELSE.  No amount of implementing the Icon LANGUAGE reaches these two .std files, because what
+# they encode is one implementation's C library and one implementation's descriptor layout -- so the red
+# they contribute can never fall by the work this project exists to do, and a denominator that includes
+# them is measuring something nobody is building.  The 240-row case fails that test exactly: every one of
+# those would have gone green the day the compiler improved.
+# ⛔ APPLY THE TEST, NOT THE PRECEDENT.  A future row here that would go green if we simply got better at
+# Icon belongs in the graded denominator, red, with an owner -- however well its reason reads.
+#
+# ⛔ THE STALENESS ARM IS NOT icont -s -c HERE, AND THE DIFFERENCE MATTERS.  Re-proving that the ORACLE still
+# refuses is the jcon file's check and it is vacuous for this class: the oracle never refused.  The fact that
+# can change is OURS -- so the runner re-reads SCRIP's OWN &features every run and REFUSES the exclusion the
+# day both words appear in it.  An exclusion list that can only ever lower a number is not a correction; this
+# one can raise it, automatically, on the first run after the capability lands.
+#
+# ⚠ NAMED, NOT OWED: general/ALL.icn (our generated container, graded by no runner today) carries both
+# programs as entries 7 and 24 of ALL.csv.  Nothing reads that container's refs at present, so no board
+# double-counts these two -- but whoever wires it must apply this file there too, or the exclusion holds in
+# one instrument and not the other.
+general/cfuncs	ORACLE_CONTRACT_NOT_IMPLEMENTED	DYNAMIC LOADING -- the feature word is icont's own: `&features` under /home/resources/icon-master/bin/icont lists `dynamic loading`, ours does not (measured 2026-09-10, ten lines vs eight, that word and `external values` the only difference). The program is `link cfunc` plus 18 lines of calls; ipl/cfuncs/cfunc.icn is a stub file whose every procedure is `return(NAME:=pathload("libcfunc.so","NAME"))!a`, so its whole content is dynamic loading and its .std (bitcount/vword/lgconv/unpack/pack) is the output of C in iconx's bin. ⛔ NOT AN ORACLE REFUSAL and NOT OUR VENDORING: icont compiles and runs it clean and its .std was re-cut from the live oracle 2026-09-09 (UNGRADABLE.tsv's whole-suite re-read, 90/90 agree). CURING IT MEANS EMBEDDING iconx: nm -D on that libcfunc.so leaves alcexternal alcfile alcreal alcstr cnv_c_str cnv_int cnv_real cnv_str getdbl undefined, resolved from iconx itself at dlopen. We print `cannot find "libcfunc.so" on path ". ."`, rc=1, 20 differing lines. ceo CEO-527.
+general/extlvals	ORACLE_CONTRACT_NOT_IMPLEMENTED	EXTERNAL VALUES -- the second feature word, same source and same measurement: icont's `&features` lists `external values`, ours does not. Same `link cfunc` dependency as general/cfuncs (extxmin, extxstr, extxreal are pathload stubs in the same file), and one step worse for a second implementation: the .std does not merely need the library's ANSWERS, it pins the IMAGES of C structs that library allocates -- `external: external_1(0)`, `xstr: xstr_3(00324:bite)`, `xreal: xreal_7(111.1)`, their `===` identity, and their position under `sort()` among a record. That is iconx's `struct descrip` layout and its external-block numbering as ground truth, which no implementation of the Icon language can reproduce except by adopting it. We print `cannot find "libcfunc.so" on path ". ."`, rc=1, 41 differing lines. ceo CEO-527.
