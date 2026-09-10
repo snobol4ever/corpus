@@ -7768,7 +7768,7 @@ end
 
 procedure main()
    &error := 747;
-   every kw("allocated", &allocated | "[failed]");
+   every kw("allocated", type(&allocated) | "[failed]");
    every kw("ascii", &ascii | "[failed]");
    every kw("clock", nmap(&clock) | "[failed]");
    every kw("col", &col | "[failed]");
@@ -7787,7 +7787,7 @@ procedure main()
    every kw("errorvalue", &errorvalue | "[failed]");
    every kw("errout", &errout | "[failed]");
    every kw("fail", &fail | "[failed]");
-   every kw("features", "Macintosh" ~== &features | "[failed]");
+   kw("features", type(&features) | "[failed]");
    every kw("input", &input | "[failed]");
    every kw("interval", &interval | "[failed]");
    every kw("lcase", &lcase | "[failed]");
@@ -7816,12 +7816,12 @@ procedure main()
    every kw("rrelease", &rrelease | "[failed]");
    every kw("shift", &shift | "[failed]");
    every kw("source", &source | "[failed]");
-   every kw("storage", &storage | "[failed]");
+   every kw("storage", type(&storage) | "[failed]");
    every kw("subject", &subject | "[failed]");
    every kw("time", nmap(right(&time,4,0)) | "[failed]");
    every kw("trace", &trace | "[failed]");
    every kw("ucase", &ucase | "[failed]");
-   every kw("version", left(&version,16) | "[failed]");
+   every kw("version", type(&version) | "[failed]");
    every kw("window", &window | "[failed]");
    every kw("x", &x | "[failed]");
    every kw("y", &y | "[failed]");

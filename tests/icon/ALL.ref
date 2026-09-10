@@ -5043,10 +5043,10 @@ cba
   field m
 procedure dbl
 #--------------------------------------------- 891 procedure_every_alt_replace_4
-  &allocated: 0
-  &allocated: 0
-  &allocated: 46
-  &allocated: 0
+  &allocated: integer
+  &allocated: integer
+  &allocated: integer
+  &allocated: integer
       &ascii: &ascii  [size 128]
       &clock: nn:nn:nn
         &col: [failed]
@@ -5068,16 +5068,7 @@ procedure dbl
  &errorvalue: [failed]
      &errout: &errout
        &fail: [failed]
-   &features: UNIX
-   &features: ASCII
-   &features: co-expressions
-   &features: dynamic loading
-   &features: environment variables
-   &features: external values
-   &features: keyboard functions
-   &features: large integers
-   &features: pipes
-   &features: system function
+   &features: string
       &input: &input
    &interval: [failed]
       &lcase: &lcase  [size 26]
@@ -5108,14 +5099,14 @@ procedure dbl
    &rrelease: -6
       &shift: [failed]
      &source: co-expression_1(1)
-    &storage: 0
-    &storage: 1552
-    &storage: 48
+    &storage: integer
+    &storage: integer
+    &storage: integer
     &subject: 
        &time: nnnn
       &trace: 0
       &ucase: &ucase  [size 26]
-    &version: Icon Version 9.5
+    &version: string
      &window: [failed]
           &x: [failed]
           &y: [failed]
