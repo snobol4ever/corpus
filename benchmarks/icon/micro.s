@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+                        .file            1 "micro.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__report:
@@ -62,7 +62,7 @@ n1_line_mark_α:         mov              r11, 1
                         mov              rcx, qword ptr [rip + .Lline_mark_α_29_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n2_line_mark_α
 .Lline_mark_α_29_0:     .quad            .Lline_mark_α_29_0_s
-.Lline_mark_α_29_0_s:   .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_29_0_s:   .string          "micro.icn"
                         .size            n1_line_mark_bx, .-n1_line_mark_bx
                         .type            n2_line_mark_bx, @function
 n2_line_mark_bx:
@@ -780,7 +780,7 @@ n75_line_mark_α:        mov              r11, 28
                         mov              rcx, qword ptr [rip + .Lline_mark_α_187_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n76_line_mark_α
 .Lline_mark_α_187_0:    .quad            .Lline_mark_α_187_0_s
-.Lline_mark_α_187_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_187_0_s:  .string          "micro.icn"
                         .size            n75_line_mark_bx, .-n75_line_mark_bx
                         .type            n76_line_mark_bx, @function
 n76_line_mark_bx:
@@ -3162,7 +3162,7 @@ n00087_line_mark_α:       mov              r11, 139
                         mov              rcx, qword ptr [rip + .Lline_mark_α_384_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00088_disjunction_α
 .Lline_mark_α_384_0:    .quad            .Lline_mark_α_384_0_s
-.Lline_mark_α_384_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_384_0_s:  .string          "micro.icn"
                         .size            n00087_line_mark_bx, .-n00087_line_mark_bx
                         .type            n00088_disjunction_bx, @function
 n00088_disjunction_bx:
@@ -3497,7 +3497,7 @@ n00099_line_mark_α:       mov              r11, 151
                         mov              rcx, qword ptr [rip + .Lline_mark_α_420_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00100_disjunction_α
 .Lline_mark_α_420_0:    .quad            .Lline_mark_α_420_0_s
-.Lline_mark_α_420_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_420_0_s:  .string          "micro.icn"
                         .size            n00099_line_mark_bx, .-n00099_line_mark_bx
                         .type            n00100_disjunction_bx, @function
 n00100_disjunction_bx:
@@ -3832,7 +3832,7 @@ n00111_line_mark_α:       mov              r11, 163
                         mov              rcx, qword ptr [rip + .Lline_mark_α_456_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00112_disjunction_α
 .Lline_mark_α_456_0:    .quad            .Lline_mark_α_456_0_s
-.Lline_mark_α_456_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_456_0_s:  .string          "micro.icn"
                         .size            n00111_line_mark_bx, .-n00111_line_mark_bx
                         .type            n00112_disjunction_bx, @function
 n00112_disjunction_bx:
@@ -4167,7 +4167,7 @@ n00123_line_mark_α:       mov              r11, 175
                         mov              rcx, qword ptr [rip + .Lline_mark_α_494_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00124_disjunction_α
 .Lline_mark_α_494_0:    .quad            .Lline_mark_α_494_0_s
-.Lline_mark_α_494_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_494_0_s:  .string          "micro.icn"
                         .size            n00123_line_mark_bx, .-n00123_line_mark_bx
                         .type            n00124_disjunction_bx, @function
 n00124_disjunction_bx:
@@ -4541,7 +4541,7 @@ n00137_line_mark_α:       mov              r11, 189
                         mov              rcx, qword ptr [rip + .Lline_mark_α_536_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00138_disjunction_α
 .Lline_mark_α_536_0:    .quad            .Lline_mark_α_536_0_s
-.Lline_mark_α_536_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_536_0_s:  .string          "micro.icn"
                         .size            n00137_line_mark_bx, .-n00137_line_mark_bx
                         .type            n00138_disjunction_bx, @function
 n00138_disjunction_bx:
@@ -4914,7 +4914,7 @@ n00152_line_mark_α:       mov              r11, 204
                         mov              rcx, qword ptr [rip + .Lline_mark_α_578_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00153_disjunction_α
 .Lline_mark_α_578_0:    .quad            .Lline_mark_α_578_0_s
-.Lline_mark_α_578_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_578_0_s:  .string          "micro.icn"
                         .size            n00152_line_mark_bx, .-n00152_line_mark_bx
                         .type            n00153_disjunction_bx, @function
 n00153_disjunction_bx:
@@ -5331,7 +5331,7 @@ n00167_line_mark_α:       mov              r11, 219
                         mov              rcx, qword ptr [rip + .Lline_mark_α_620_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00168_disjunction_α
 .Lline_mark_α_620_0:    .quad            .Lline_mark_α_620_0_s
-.Lline_mark_α_620_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_620_0_s:  .string          "micro.icn"
                         .size            n00167_line_mark_bx, .-n00167_line_mark_bx
                         .type            n00168_disjunction_bx, @function
 n00168_disjunction_bx:
@@ -5704,7 +5704,7 @@ n00182_line_mark_α:       mov              r11, 234
                         mov              rcx, qword ptr [rip + .Lline_mark_α_662_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00183_disjunction_α
 .Lline_mark_α_662_0:    .quad            .Lline_mark_α_662_0_s
-.Lline_mark_α_662_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_662_0_s:  .string          "micro.icn"
                         .size            n00182_line_mark_bx, .-n00182_line_mark_bx
                         .type            n00183_disjunction_bx, @function
 n00183_disjunction_bx:
@@ -6089,7 +6089,7 @@ n00197_line_mark_α:       mov              r11, 249
                         mov              rcx, qword ptr [rip + .Lline_mark_α_703_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00198_disjunction_α
 .Lline_mark_α_703_0:    .quad            .Lline_mark_α_703_0_s
-.Lline_mark_α_703_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_703_0_s:  .string          "micro.icn"
                         .size            n00197_line_mark_bx, .-n00197_line_mark_bx
                         .type            n00198_disjunction_bx, @function
 n00198_disjunction_bx:
@@ -6463,7 +6463,7 @@ n00211_line_mark_α:       mov              r11, 263
                         mov              rcx, qword ptr [rip + .Lline_mark_α_744_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00212_disjunction_α
 .Lline_mark_α_744_0:    .quad            .Lline_mark_α_744_0_s
-.Lline_mark_α_744_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_744_0_s:  .string          "micro.icn"
                         .size            n00211_line_mark_bx, .-n00211_line_mark_bx
                         .type            n00212_disjunction_bx, @function
 n00212_disjunction_bx:
@@ -6837,7 +6837,7 @@ n00225_line_mark_α:       mov              r11, 277
                         mov              rcx, qword ptr [rip + .Lline_mark_α_786_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00226_disjunction_α
 .Lline_mark_α_786_0:    .quad            .Lline_mark_α_786_0_s
-.Lline_mark_α_786_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_786_0_s:  .string          "micro.icn"
                         .size            n00225_line_mark_bx, .-n00225_line_mark_bx
                         .type            n00226_disjunction_bx, @function
 n00226_disjunction_bx:
@@ -7224,7 +7224,7 @@ n00240_line_mark_α:       mov              r11, 292
                         mov              rcx, qword ptr [rip + .Lline_mark_α_827_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00241_disjunction_α
 .Lline_mark_α_827_0:    .quad            .Lline_mark_α_827_0_s
-.Lline_mark_α_827_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_827_0_s:  .string          "micro.icn"
                         .size            n00240_line_mark_bx, .-n00240_line_mark_bx
                         .type            n00241_disjunction_bx, @function
 n00241_disjunction_bx:
@@ -7744,7 +7744,7 @@ n00253_line_mark_α:       mov              r11, 305
                         mov              rcx, qword ptr [rip + .Lline_mark_α_881_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00254_line_mark_α
 .Lline_mark_α_881_0:    .quad            .Lline_mark_α_881_0_s
-.Lline_mark_α_881_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_881_0_s:  .string          "micro.icn"
                         .size            n00253_line_mark_bx, .-n00253_line_mark_bx
                         .type            n00254_line_mark_bx, @function
 n00254_line_mark_bx:
@@ -8151,7 +8151,7 @@ n00276_assign_α:          mov              r11, 328
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_917_0]
                         .section         .rodata
-.Lassign_α_917_1_s:     .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_917_1_s:     .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_917_1_s]
@@ -8355,7 +8355,7 @@ n00277_line_mark_α:       mov              r11, 329
                         mov              rcx, qword ptr [rip + .Lline_mark_α_938_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00278_disjunction_α
 .Lline_mark_α_938_0:    .quad            .Lline_mark_α_938_0_s
-.Lline_mark_α_938_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_938_0_s:  .string          "micro.icn"
                         .size            n00277_line_mark_bx, .-n00277_line_mark_bx
                         .type            n00278_disjunction_bx, @function
 n00278_disjunction_bx:
@@ -8745,7 +8745,7 @@ n00292_line_mark_α:       mov              r11, 344
                         mov              rcx, qword ptr [rip + .Lline_mark_α_973_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00293_var_α
 .Lline_mark_α_973_0:    .quad            .Lline_mark_α_973_0_s
-.Lline_mark_α_973_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_973_0_s:  .string          "micro.icn"
                         .size            n00292_line_mark_bx, .-n00292_line_mark_bx
                         .type            n00293_var_bx, @function
 n00293_var_bx:
@@ -9070,7 +9070,7 @@ n00299_line_mark_α:       mov              r11, 351
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1003_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00300_disjunction_α
 .Lline_mark_α_1003_0:   .quad            .Lline_mark_α_1003_0_s
-.Lline_mark_α_1003_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1003_0_s: .string          "micro.icn"
                         .size            n00299_line_mark_bx, .-n00299_line_mark_bx
                         .type            n00300_disjunction_bx, @function
 n00300_disjunction_bx:
@@ -9453,7 +9453,7 @@ n00313_line_mark_α:      mov              r11, 365
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1044_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00314_disjunction_α
 .Lline_mark_α_1044_0:   .quad            .Lline_mark_α_1044_0_s
-.Lline_mark_α_1044_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1044_0_s: .string          "micro.icn"
                         .size            n00313_line_mark_bx, .-n00313_line_mark_bx
                         .type            n00314_disjunction_bx, @function
 n00314_disjunction_bx:
@@ -9839,7 +9839,7 @@ n00327_line_mark_α:      mov              r11, 379
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1088_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00328_disjunction_α
 .Lline_mark_α_1088_0:   .quad            .Lline_mark_α_1088_0_s
-.Lline_mark_α_1088_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1088_0_s: .string          "micro.icn"
                         .size            n00327_line_mark_bx, .-n00327_line_mark_bx
                         .type            n00328_disjunction_bx, @function
 n00328_disjunction_bx:
@@ -10410,7 +10410,7 @@ n00344_line_mark_α:      mov              r11, 396
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1132_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00345_disjunction_α
 .Lline_mark_α_1132_0:   .quad            .Lline_mark_α_1132_0_s
-.Lline_mark_α_1132_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1132_0_s: .string          "micro.icn"
                         .size            n00344_line_mark_bx, .-n00344_line_mark_bx
                         .type            n00345_disjunction_bx, @function
 n00345_disjunction_bx:
@@ -10796,7 +10796,7 @@ n00358_line_mark_α:      mov              r11, 410
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1180_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00359_disjunction_α
 .Lline_mark_α_1180_0:   .quad            .Lline_mark_α_1180_0_s
-.Lline_mark_α_1180_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1180_0_s: .string          "micro.icn"
                         .size            n00358_line_mark_bx, .-n00358_line_mark_bx
                         .type            n00359_disjunction_bx, @function
 n00359_disjunction_bx:
@@ -11498,7 +11498,7 @@ n00379_line_mark_α:      mov              r11, 431
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1260_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00380_line_mark_α
 .Lline_mark_α_1260_0:   .quad            .Lline_mark_α_1260_0_s
-.Lline_mark_α_1260_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1260_0_s: .string          "micro.icn"
                         .size            n00379_line_mark_bx, .-n00379_line_mark_bx
                         .type            n00380_line_mark_bx, @function
 n00380_line_mark_bx:
@@ -12462,7 +12462,7 @@ n00423_line_mark_α:      mov              r11, 475
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1348_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00424_disjunction_α
 .Lline_mark_α_1348_0:   .quad            .Lline_mark_α_1348_0_s
-.Lline_mark_α_1348_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1348_0_s: .string          "micro.icn"
                         .size            n00423_line_mark_bx, .-n00423_line_mark_bx
                         .type            n00424_disjunction_bx, @function
 n00424_disjunction_bx:
@@ -12851,7 +12851,7 @@ n00438_line_mark_α:      mov              r11, 490
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1408_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00439_disjunction_α
 .Lline_mark_α_1408_0:   .quad            .Lline_mark_α_1408_0_s
-.Lline_mark_α_1408_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1408_0_s: .string          "micro.icn"
                         .size            n00438_line_mark_bx, .-n00438_line_mark_bx
                         .type            n00439_disjunction_bx, @function
 n00439_disjunction_bx:
@@ -13470,7 +13470,7 @@ n00470_line_mark_α:      mov              r11, 522
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1471_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00471_disjunction_α
 .Lline_mark_α_1471_0:   .quad            .Lline_mark_α_1471_0_s
-.Lline_mark_α_1471_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1471_0_s: .string          "micro.icn"
                         .size            n00470_line_mark_bx, .-n00470_line_mark_bx
                         .type            n00471_disjunction_bx, @function
 n00471_disjunction_bx:
@@ -13830,7 +13830,7 @@ n00484_line_mark_α:      mov              r11, 536
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1511_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00485_disjunction_α
 .Lline_mark_α_1511_0:   .quad            .Lline_mark_α_1511_0_s
-.Lline_mark_α_1511_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1511_0_s: .string          "micro.icn"
                         .size            n00484_line_mark_bx, .-n00484_line_mark_bx
                         .type            n00485_disjunction_bx, @function
 n00485_disjunction_bx:
@@ -14211,7 +14211,7 @@ n00498_line_mark_α:      mov              r11, 550
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1552_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00499_disjunction_α
 .Lline_mark_α_1552_0:   .quad            .Lline_mark_α_1552_0_s
-.Lline_mark_α_1552_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1552_0_s: .string          "micro.icn"
                         .size            n00498_line_mark_bx, .-n00498_line_mark_bx
                         .type            n00499_disjunction_bx, @function
 n00499_disjunction_bx:
@@ -14592,7 +14592,7 @@ n00512_line_mark_α:      mov              r11, 564
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1598_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00513_disjunction_α
 .Lline_mark_α_1598_0:   .quad            .Lline_mark_α_1598_0_s
-.Lline_mark_α_1598_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1598_0_s: .string          "micro.icn"
                         .size            n00512_line_mark_bx, .-n00512_line_mark_bx
                         .type            n00513_disjunction_bx, @function
 n00513_disjunction_bx:
@@ -15091,7 +15091,7 @@ n00531_line_mark_α:      mov              r11, 583
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1644_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00532_disjunction_α
 .Lline_mark_α_1644_0:   .quad            .Lline_mark_α_1644_0_s
-.Lline_mark_α_1644_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1644_0_s: .string          "micro.icn"
                         .size            n00531_line_mark_bx, .-n00531_line_mark_bx
                         .type            n00532_disjunction_bx, @function
 n00532_disjunction_bx:
@@ -15449,7 +15449,7 @@ n00545_line_mark_α:      mov              r11, 597
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1688_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00546_disjunction_α
 .Lline_mark_α_1688_0:   .quad            .Lline_mark_α_1688_0_s
-.Lline_mark_α_1688_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1688_0_s: .string          "micro.icn"
                         .size            n00545_line_mark_bx, .-n00545_line_mark_bx
                         .type            n00546_disjunction_bx, @function
 n00546_disjunction_bx:
@@ -15893,7 +15893,7 @@ n00563_line_mark_α:      mov              r11, 615
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1734_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00564_disjunction_α
 .Lline_mark_α_1734_0:   .quad            .Lline_mark_α_1734_0_s
-.Lline_mark_α_1734_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1734_0_s: .string          "micro.icn"
                         .size            n00563_line_mark_bx, .-n00563_line_mark_bx
                         .type            n00564_disjunction_bx, @function
 n00564_disjunction_bx:
@@ -16311,7 +16311,7 @@ n00578_line_mark_α:      mov              r11, 630
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1772_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00579_disjunction_α
 .Lline_mark_α_1772_0:   .quad            .Lline_mark_α_1772_0_s
-.Lline_mark_α_1772_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1772_0_s: .string          "micro.icn"
                         .size            n00578_line_mark_bx, .-n00578_line_mark_bx
                         .type            n00579_disjunction_bx, @function
 n00579_disjunction_bx:
@@ -16686,7 +16686,7 @@ n00589_line_mark_α:      mov              r11, 640
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1796_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00590_lit_integer_α
 .Lline_mark_α_1796_0:   .quad            .Lline_mark_α_1796_0_s
-.Lline_mark_α_1796_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1796_0_s: .string          "micro.icn"
                         .size            n00589_line_mark_bx, .-n00589_line_mark_bx
                         .type            n00590_lit_integer_bx, @function
 n00590_lit_integer_bx:
@@ -16880,7 +16880,7 @@ n00593_line_mark_α:      mov              r11, 645
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1822_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00594_disjunction_α
 .Lline_mark_α_1822_0:   .quad            .Lline_mark_α_1822_0_s
-.Lline_mark_α_1822_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1822_0_s: .string          "micro.icn"
                         .size            n00593_line_mark_bx, .-n00593_line_mark_bx
                         .type            n00594_disjunction_bx, @function
 n00594_disjunction_bx:
@@ -17280,7 +17280,7 @@ n00608_line_mark_α:      mov              r11, 660
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1865_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00609_disjunction_α
 .Lline_mark_α_1865_0:   .quad            .Lline_mark_α_1865_0_s
-.Lline_mark_α_1865_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1865_0_s: .string          "micro.icn"
                         .size            n00608_line_mark_bx, .-n00608_line_mark_bx
                         .type            n00609_disjunction_bx, @function
 n00609_disjunction_bx:
@@ -17681,7 +17681,7 @@ n00623_line_mark_α:      mov              r11, 675
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1907_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00624_disjunction_α
 .Lline_mark_α_1907_0:   .quad            .Lline_mark_α_1907_0_s
-.Lline_mark_α_1907_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1907_0_s: .string          "micro.icn"
                         .size            n00623_line_mark_bx, .-n00623_line_mark_bx
                         .type            n00624_disjunction_bx, @function
 n00624_disjunction_bx:
@@ -18047,7 +18047,7 @@ n00637_line_mark_α:      mov              r11, 689
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1947_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00638_disjunction_α
 .Lline_mark_α_1947_0:   .quad            .Lline_mark_α_1947_0_s
-.Lline_mark_α_1947_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1947_0_s: .string          "micro.icn"
                         .size            n00637_line_mark_bx, .-n00637_line_mark_bx
                         .type            n00638_disjunction_bx, @function
 n00638_disjunction_bx:
@@ -18414,7 +18414,7 @@ n00651_line_mark_α:      mov              r11, 703
                         mov              rcx, qword ptr [rip + .Lline_mark_α_1987_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00652_disjunction_α
 .Lline_mark_α_1987_0:   .quad            .Lline_mark_α_1987_0_s
-.Lline_mark_α_1987_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_1987_0_s: .string          "micro.icn"
                         .size            n00651_line_mark_bx, .-n00651_line_mark_bx
                         .type            n00652_disjunction_bx, @function
 n00652_disjunction_bx:
@@ -18795,7 +18795,7 @@ n00665_line_mark_α:      mov              r11, 717
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2028_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00666_disjunction_α
 .Lline_mark_α_2028_0:   .quad            .Lline_mark_α_2028_0_s
-.Lline_mark_α_2028_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2028_0_s: .string          "micro.icn"
                         .size            n00665_line_mark_bx, .-n00665_line_mark_bx
                         .type            n00666_disjunction_bx, @function
 n00666_disjunction_bx:
@@ -19176,7 +19176,7 @@ n00679_line_mark_α:      mov              r11, 731
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2069_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00680_disjunction_α
 .Lline_mark_α_2069_0:   .quad            .Lline_mark_α_2069_0_s
-.Lline_mark_α_2069_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2069_0_s: .string          "micro.icn"
                         .size            n00679_line_mark_bx, .-n00679_line_mark_bx
                         .type            n00680_disjunction_bx, @function
 n00680_disjunction_bx:
@@ -19554,7 +19554,7 @@ n00693_line_mark_α:      mov              r11, 745
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2110_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00694_disjunction_α
 .Lline_mark_α_2110_0:   .quad            .Lline_mark_α_2110_0_s
-.Lline_mark_α_2110_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2110_0_s: .string          "micro.icn"
                         .size            n00693_line_mark_bx, .-n00693_line_mark_bx
                         .type            n00694_disjunction_bx, @function
 n00694_disjunction_bx:
@@ -19932,7 +19932,7 @@ n00707_line_mark_α:      mov              r11, 759
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2151_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00708_disjunction_α
 .Lline_mark_α_2151_0:   .quad            .Lline_mark_α_2151_0_s
-.Lline_mark_α_2151_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2151_0_s: .string          "micro.icn"
                         .size            n00707_line_mark_bx, .-n00707_line_mark_bx
                         .type            n00708_disjunction_bx, @function
 n00708_disjunction_bx:
@@ -20313,7 +20313,7 @@ n00721_line_mark_α:      mov              r11, 773
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2192_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00722_disjunction_α
 .Lline_mark_α_2192_0:   .quad            .Lline_mark_α_2192_0_s
-.Lline_mark_α_2192_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2192_0_s: .string          "micro.icn"
                         .size            n00721_line_mark_bx, .-n00721_line_mark_bx
                         .type            n00722_disjunction_bx, @function
 n00722_disjunction_bx:
@@ -20691,7 +20691,7 @@ n00735_line_mark_α:      mov              r11, 787
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2233_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00736_disjunction_α
 .Lline_mark_α_2233_0:   .quad            .Lline_mark_α_2233_0_s
-.Lline_mark_α_2233_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2233_0_s: .string          "micro.icn"
                         .size            n00735_line_mark_bx, .-n00735_line_mark_bx
                         .type            n00736_disjunction_bx, @function
 n00736_disjunction_bx:
@@ -21072,7 +21072,7 @@ n00749_line_mark_α:      mov              r11, 801
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2274_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00750_disjunction_α
 .Lline_mark_α_2274_0:   .quad            .Lline_mark_α_2274_0_s
-.Lline_mark_α_2274_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2274_0_s: .string          "micro.icn"
                         .size            n00749_line_mark_bx, .-n00749_line_mark_bx
                         .type            n00750_disjunction_bx, @function
 n00750_disjunction_bx:
@@ -21440,7 +21440,7 @@ n00763_line_mark_α:      mov              r11, 815
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2312_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00764_disjunction_α
 .Lline_mark_α_2312_0:   .quad            .Lline_mark_α_2312_0_s
-.Lline_mark_α_2312_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2312_0_s: .string          "micro.icn"
                         .size            n00763_line_mark_bx, .-n00763_line_mark_bx
                         .type            n00764_disjunction_bx, @function
 n00764_disjunction_bx:
@@ -21779,7 +21779,7 @@ n00775_line_mark_α:      mov              r11, 827
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2351_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00776_disjunction_α
 .Lline_mark_α_2351_0:   .quad            .Lline_mark_α_2351_0_s
-.Lline_mark_α_2351_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2351_0_s: .string          "micro.icn"
                         .size            n00775_line_mark_bx, .-n00775_line_mark_bx
                         .type            n00776_disjunction_bx, @function
 n00776_disjunction_bx:
@@ -22166,7 +22166,7 @@ n00790_line_mark_α:      mov              r11, 842
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2392_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00791_disjunction_α
 .Lline_mark_α_2392_0:   .quad            .Lline_mark_α_2392_0_s
-.Lline_mark_α_2392_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2392_0_s: .string          "micro.icn"
                         .size            n00790_line_mark_bx, .-n00790_line_mark_bx
                         .type            n00791_disjunction_bx, @function
 n00791_disjunction_bx:
@@ -22540,7 +22540,7 @@ n00804_line_mark_α:      mov              r11, 856
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2435_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00805_disjunction_α
 .Lline_mark_α_2435_0:   .quad            .Lline_mark_α_2435_0_s
-.Lline_mark_α_2435_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2435_0_s: .string          "micro.icn"
                         .size            n00804_line_mark_bx, .-n00804_line_mark_bx
                         .type            n00805_disjunction_bx, @function
 n00805_disjunction_bx:
@@ -22938,7 +22938,7 @@ n00820_line_mark_α:      mov              r11, 872
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2479_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00821_disjunction_α
 .Lline_mark_α_2479_0:   .quad            .Lline_mark_α_2479_0_s
-.Lline_mark_α_2479_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2479_0_s: .string          "micro.icn"
                         .size            n00820_line_mark_bx, .-n00820_line_mark_bx
                         .type            n00821_disjunction_bx, @function
 n00821_disjunction_bx:
@@ -23334,7 +23334,7 @@ n00836_line_mark_α:      mov              r11, 888
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2527_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00837_line_mark_α
 .Lline_mark_α_2527_0:   .quad            .Lline_mark_α_2527_0_s
-.Lline_mark_α_2527_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2527_0_s: .string          "micro.icn"
                         .size            n00836_line_mark_bx, .-n00836_line_mark_bx
                         .type            n00837_line_mark_bx, @function
 n00837_line_mark_bx:
@@ -23775,7 +23775,7 @@ n00856_line_mark_α:      mov              r11, 908
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2575_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00857_disjunction_α
 .Lline_mark_α_2575_0:   .quad            .Lline_mark_α_2575_0_s
-.Lline_mark_α_2575_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2575_0_s: .string          "micro.icn"
                         .size            n00856_line_mark_bx, .-n00856_line_mark_bx
                         .type            n00857_disjunction_bx, @function
 n00857_disjunction_bx:
@@ -24169,7 +24169,7 @@ n00871_line_mark_α:      mov              r11, 923
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2617_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00872_disjunction_α
 .Lline_mark_α_2617_0:   .quad            .Lline_mark_α_2617_0_s
-.Lline_mark_α_2617_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2617_0_s: .string          "micro.icn"
                         .size            n00871_line_mark_bx, .-n00871_line_mark_bx
                         .type            n00872_disjunction_bx, @function
 n00872_disjunction_bx:
@@ -24555,7 +24555,7 @@ n00886_line_mark_α:      mov              r11, 938
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2659_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00887_disjunction_α
 .Lline_mark_α_2659_0:   .quad            .Lline_mark_α_2659_0_s
-.Lline_mark_α_2659_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2659_0_s: .string          "micro.icn"
                         .size            n00886_line_mark_bx, .-n00886_line_mark_bx
                         .type            n00887_disjunction_bx, @function
 n00887_disjunction_bx:
@@ -24949,7 +24949,7 @@ n00901_line_mark_α:      mov              r11, 953
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2701_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00902_disjunction_α
 .Lline_mark_α_2701_0:   .quad            .Lline_mark_α_2701_0_s
-.Lline_mark_α_2701_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2701_0_s: .string          "micro.icn"
                         .size            n00901_line_mark_bx, .-n00901_line_mark_bx
                         .type            n00902_disjunction_bx, @function
 n00902_disjunction_bx:
@@ -25330,7 +25330,7 @@ n00915_line_mark_α:      mov              r11, 967
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2743_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00916_disjunction_α
 .Lline_mark_α_2743_0:   .quad            .Lline_mark_α_2743_0_s
-.Lline_mark_α_2743_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2743_0_s: .string          "micro.icn"
                         .size            n00915_line_mark_bx, .-n00915_line_mark_bx
                         .type            n00916_disjunction_bx, @function
 n00916_disjunction_bx:
@@ -25724,7 +25724,7 @@ n00930_line_mark_α:      mov              r11, 982
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2786_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00931_disjunction_α
 .Lline_mark_α_2786_0:   .quad            .Lline_mark_α_2786_0_s
-.Lline_mark_α_2786_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2786_0_s: .string          "micro.icn"
                         .size            n00930_line_mark_bx, .-n00930_line_mark_bx
                         .type            n00931_disjunction_bx, @function
 n00931_disjunction_bx:
@@ -26118,7 +26118,7 @@ n00945_line_mark_α:      mov              r11, 997
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2829_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00946_disjunction_α
 .Lline_mark_α_2829_0:   .quad            .Lline_mark_α_2829_0_s
-.Lline_mark_α_2829_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2829_0_s: .string          "micro.icn"
                         .size            n00945_line_mark_bx, .-n00945_line_mark_bx
                         .type            n00946_disjunction_bx, @function
 n00946_disjunction_bx:
@@ -26512,7 +26512,7 @@ n00960_line_mark_α:      mov              r11, 1012
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2871_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00961_disjunction_α
 .Lline_mark_α_2871_0:   .quad            .Lline_mark_α_2871_0_s
-.Lline_mark_α_2871_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2871_0_s: .string          "micro.icn"
                         .size            n00960_line_mark_bx, .-n00960_line_mark_bx
                         .type            n00961_disjunction_bx, @function
 n00961_disjunction_bx:
@@ -26893,7 +26893,7 @@ n00974_line_mark_α:      mov              r11, 1026
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2912_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00975_disjunction_α
 .Lline_mark_α_2912_0:   .quad            .Lline_mark_α_2912_0_s
-.Lline_mark_α_2912_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2912_0_s: .string          "micro.icn"
                         .size            n00974_line_mark_bx, .-n00974_line_mark_bx
                         .type            n00975_disjunction_bx, @function
 n00975_disjunction_bx:
@@ -27274,7 +27274,7 @@ n00988_line_mark_α:      mov              r11, 1040
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2953_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00989_disjunction_α
 .Lline_mark_α_2953_0:   .quad            .Lline_mark_α_2953_0_s
-.Lline_mark_α_2953_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2953_0_s: .string          "micro.icn"
                         .size            n00988_line_mark_bx, .-n00988_line_mark_bx
                         .type            n00989_disjunction_bx, @function
 n00989_disjunction_bx:
@@ -27655,7 +27655,7 @@ n01002_line_mark_α:      mov              r11, 1054
                         mov              rcx, qword ptr [rip + .Lline_mark_α_2996_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01003_disjunction_α
 .Lline_mark_α_2996_0:   .quad            .Lline_mark_α_2996_0_s
-.Lline_mark_α_2996_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_2996_0_s: .string          "micro.icn"
                         .size            n01002_line_mark_bx, .-n01002_line_mark_bx
                         .type            n01003_disjunction_bx, @function
 n01003_disjunction_bx:
@@ -28068,7 +28068,7 @@ n01018_line_mark_α:      mov              r11, 1070
                         mov              rcx, qword ptr [rip + .Lline_mark_α_3041_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01019_disjunction_α
 .Lline_mark_α_3041_0:   .quad            .Lline_mark_α_3041_0_s
-.Lline_mark_α_3041_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_3041_0_s: .string          "micro.icn"
                         .size            n01018_line_mark_bx, .-n01018_line_mark_bx
                         .type            n01019_disjunction_bx, @function
 n01019_disjunction_bx:
@@ -28481,7 +28481,7 @@ n01034_line_mark_α:      mov              r11, 1086
                         mov              rcx, qword ptr [rip + .Lline_mark_α_3091_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01035_disjunction_α
 .Lline_mark_α_3091_0:   .quad            .Lline_mark_α_3091_0_s
-.Lline_mark_α_3091_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_3091_0_s: .string          "micro.icn"
                         .size            n01034_line_mark_bx, .-n01034_line_mark_bx
                         .type            n01035_disjunction_bx, @function
 n01035_disjunction_bx:
@@ -28978,7 +28978,7 @@ n01055_line_mark_α:      mov              r11, 1107
                         mov              rcx, qword ptr [rip + .Lline_mark_α_3165_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01056_line_mark_α
 .Lline_mark_α_3165_0:   .quad            .Lline_mark_α_3165_0_s
-.Lline_mark_α_3165_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_3165_0_s: .string          "micro.icn"
                         .size            n01055_line_mark_bx, .-n01055_line_mark_bx
                         .type            n01056_line_mark_bx, @function
 n01056_line_mark_bx:
@@ -29128,7 +29128,7 @@ n01066_assign_α:         mov              r11, 1116
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_3179_0]
                         .section         .rodata
-.Lassign_α_3179_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_3179_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3179_1_s]
@@ -29728,7 +29728,7 @@ n01094_line_mark_α:      mov              r11, 1146
                         mov              rcx, qword ptr [rip + .Lline_mark_α_3270_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01095_line_mark_α
 .Lline_mark_α_3270_0:   .quad            .Lline_mark_α_3270_0_s
-.Lline_mark_α_3270_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_3270_0_s: .string          "micro.icn"
                         .size            n01094_line_mark_bx, .-n01094_line_mark_bx
                         .type            n01095_line_mark_bx, @function
 n01095_line_mark_bx:
@@ -29891,7 +29891,7 @@ n01106_assign_α:         mov              r11, 1156
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_3285_0]
                         .section         .rodata
-.Lassign_α_3285_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_3285_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3285_1_s]
@@ -30581,7 +30581,7 @@ n01137_line_mark_α:      mov              r11, 1189
                         mov              rcx, qword ptr [rip + .Lline_mark_α_3355_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01138_disjunction_α
 .Lline_mark_α_3355_0:   .quad            .Lline_mark_α_3355_0_s
-.Lline_mark_α_3355_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_3355_0_s: .string          "micro.icn"
                         .size            n01137_line_mark_bx, .-n01137_line_mark_bx
                         .type            n01138_disjunction_bx, @function
 n01138_disjunction_bx:
@@ -30985,7 +30985,7 @@ n01153_line_mark_α:      mov              r11, 1205
                         mov              rcx, qword ptr [rip + .Lline_mark_α_3402_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01154_disjunction_α
 .Lline_mark_α_3402_0:   .quad            .Lline_mark_α_3402_0_s
-.Lline_mark_α_3402_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_3402_0_s: .string          "micro.icn"
                         .size            n01153_line_mark_bx, .-n01153_line_mark_bx
                         .type            n01154_disjunction_bx, @function
 n01154_disjunction_bx:
@@ -31417,7 +31417,7 @@ n01170_line_mark_α:      mov              r11, 1222
                         mov              rcx, qword ptr [rip + .Lline_mark_α_3454_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01171_disjunction_α
 .Lline_mark_α_3454_0:   .quad            .Lline_mark_α_3454_0_s
-.Lline_mark_α_3454_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_3454_0_s: .string          "micro.icn"
                         .size            n01170_line_mark_bx, .-n01170_line_mark_bx
                         .type            n01171_disjunction_bx, @function
 n01171_disjunction_bx:
@@ -31900,7 +31900,7 @@ n01190_line_mark_α:      mov              r11, 1242
                         mov              rcx, qword ptr [rip + .Lline_mark_α_3516_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01191_disjunction_α
 .Lline_mark_α_3516_0:   .quad            .Lline_mark_α_3516_0_s
-.Lline_mark_α_3516_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_3516_0_s: .string          "micro.icn"
                         .size            n01190_line_mark_bx, .-n01190_line_mark_bx
                         .type            n01191_disjunction_bx, @function
 n01191_disjunction_bx:
@@ -32537,7 +32537,7 @@ n01216_line_mark_α:      mov              r11, 1268
                         mov              rcx, qword ptr [rip + .Lline_mark_α_3575_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01217_disjunction_α
 .Lline_mark_α_3575_0:   .quad            .Lline_mark_α_3575_0_s
-.Lline_mark_α_3575_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_3575_0_s: .string          "micro.icn"
                         .size            n01216_line_mark_bx, .-n01216_line_mark_bx
                         .type            n01217_disjunction_bx, @function
 n01217_disjunction_bx:
@@ -32970,7 +32970,7 @@ n01233_line_mark_α:      mov              r11, 1285
                         mov              rcx, qword ptr [rip + .Lline_mark_α_3624_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01234_disjunction_α
 .Lline_mark_α_3624_0:   .quad            .Lline_mark_α_3624_0_s
-.Lline_mark_α_3624_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_3624_0_s: .string          "micro.icn"
                         .size            n01233_line_mark_bx, .-n01233_line_mark_bx
                         .type            n01234_disjunction_bx, @function
 n01234_disjunction_bx:
@@ -33403,7 +33403,7 @@ n01250_line_mark_α:      mov              r11, 1302
                         mov              rcx, qword ptr [rip + .Lline_mark_α_3674_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01251_disjunction_α
 .Lline_mark_α_3674_0:   .quad            .Lline_mark_α_3674_0_s
-.Lline_mark_α_3674_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_3674_0_s: .string          "micro.icn"
                         .size            n01250_line_mark_bx, .-n01250_line_mark_bx
                         .type            n01251_disjunction_bx, @function
 n01251_disjunction_bx:
@@ -33880,7 +33880,7 @@ n01268_line_mark_α:      mov              r11, 1320
                         mov              rcx, qword ptr [rip + .Lline_mark_α_3725_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01269_disjunction_α
 .Lline_mark_α_3725_0:   .quad            .Lline_mark_α_3725_0_s
-.Lline_mark_α_3725_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_3725_0_s: .string          "micro.icn"
                         .size            n01268_line_mark_bx, .-n01268_line_mark_bx
                         .type            n01269_disjunction_bx, @function
 n01269_disjunction_bx:
@@ -34298,7 +34298,7 @@ n01285_line_mark_α:      mov              r11, 1337
                         mov              rcx, qword ptr [rip + .Lline_mark_α_3774_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01286_disjunction_α
 .Lline_mark_α_3774_0:   .quad            .Lline_mark_α_3774_0_s
-.Lline_mark_α_3774_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_3774_0_s: .string          "micro.icn"
                         .size            n01285_line_mark_bx, .-n01285_line_mark_bx
                         .type            n01286_disjunction_bx, @function
 n01286_disjunction_bx:
@@ -34742,7 +34742,7 @@ n01302_line_mark_α:      mov              r11, 1354
                         mov              rcx, qword ptr [rip + .Lline_mark_α_3823_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01303_disjunction_α
 .Lline_mark_α_3823_0:   .quad            .Lline_mark_α_3823_0_s
-.Lline_mark_α_3823_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_3823_0_s: .string          "micro.icn"
                         .size            n01302_line_mark_bx, .-n01302_line_mark_bx
                         .type            n01303_disjunction_bx, @function
 n01303_disjunction_bx:
@@ -35183,7 +35183,7 @@ n01319_line_mark_α:      mov              r11, 1371
                         mov              rcx, qword ptr [rip + .Lline_mark_α_3872_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01320_disjunction_α
 .Lline_mark_α_3872_0:   .quad            .Lline_mark_α_3872_0_s
-.Lline_mark_α_3872_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_3872_0_s: .string          "micro.icn"
                         .size            n01319_line_mark_bx, .-n01319_line_mark_bx
                         .type            n01320_disjunction_bx, @function
 n01320_disjunction_bx:
@@ -35624,7 +35624,7 @@ n01336_line_mark_α:      mov              r11, 1388
                         mov              rcx, qword ptr [rip + .Lline_mark_α_3921_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01337_disjunction_α
 .Lline_mark_α_3921_0:   .quad            .Lline_mark_α_3921_0_s
-.Lline_mark_α_3921_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_3921_0_s: .string          "micro.icn"
                         .size            n01336_line_mark_bx, .-n01336_line_mark_bx
                         .type            n01337_disjunction_bx, @function
 n01337_disjunction_bx:
@@ -36050,7 +36050,7 @@ n01353_line_mark_α:      mov              r11, 1405
                         mov              rcx, qword ptr [rip + .Lline_mark_α_3970_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01354_disjunction_α
 .Lline_mark_α_3970_0:   .quad            .Lline_mark_α_3970_0_s
-.Lline_mark_α_3970_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_3970_0_s: .string          "micro.icn"
                         .size            n01353_line_mark_bx, .-n01353_line_mark_bx
                         .type            n01354_disjunction_bx, @function
 n01354_disjunction_bx:
@@ -36491,7 +36491,7 @@ n01370_line_mark_α:      mov              r11, 1422
                         mov              rcx, qword ptr [rip + .Lline_mark_α_4016_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01371_disjunction_α
 .Lline_mark_α_4016_0:   .quad            .Lline_mark_α_4016_0_s
-.Lline_mark_α_4016_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_4016_0_s: .string          "micro.icn"
                         .size            n01370_line_mark_bx, .-n01370_line_mark_bx
                         .type            n01371_disjunction_bx, @function
 n01371_disjunction_bx:
@@ -36873,7 +36873,7 @@ n01384_line_mark_α:      mov              r11, 1436
                         mov              rcx, qword ptr [rip + .Lline_mark_α_4056_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01385_disjunction_α
 .Lline_mark_α_4056_0:   .quad            .Lline_mark_α_4056_0_s
-.Lline_mark_α_4056_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_4056_0_s: .string          "micro.icn"
                         .size            n01384_line_mark_bx, .-n01384_line_mark_bx
                         .type            n01385_disjunction_bx, @function
 n01385_disjunction_bx:
@@ -37255,7 +37255,7 @@ n01398_line_mark_α:      mov              r11, 1450
                         mov              rcx, qword ptr [rip + .Lline_mark_α_4097_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01399_disjunction_α
 .Lline_mark_α_4097_0:   .quad            .Lline_mark_α_4097_0_s
-.Lline_mark_α_4097_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_4097_0_s: .string          "micro.icn"
                         .size            n01398_line_mark_bx, .-n01398_line_mark_bx
                         .type            n01399_disjunction_bx, @function
 n01399_disjunction_bx:
@@ -37651,7 +37651,7 @@ n01413_line_mark_α:      mov              r11, 1465
                         mov              rcx, qword ptr [rip + .Lline_mark_α_4145_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01414_line_mark_α
 .Lline_mark_α_4145_0:   .quad            .Lline_mark_α_4145_0_s
-.Lline_mark_α_4145_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_4145_0_s: .string          "micro.icn"
                         .size            n01413_line_mark_bx, .-n01413_line_mark_bx
                         .type            n01414_line_mark_bx, @function
 n01414_line_mark_bx:
@@ -38088,7 +38088,7 @@ n01433_line_mark_α:      mov              r11, 1485
                         mov              rcx, qword ptr [rip + .Lline_mark_α_4207_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01434_line_mark_α
 .Lline_mark_α_4207_0:   .quad            .Lline_mark_α_4207_0_s
-.Lline_mark_α_4207_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_4207_0_s: .string          "micro.icn"
                         .size            n01433_line_mark_bx, .-n01433_line_mark_bx
                         .type            n01434_line_mark_bx, @function
 n01434_line_mark_bx:
@@ -38496,7 +38496,7 @@ n01460_assign_α:         mov              r11, 1512
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_4247_0]
                         .section         .rodata
-.Lassign_α_4247_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_4247_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4247_1_s]
@@ -38700,7 +38700,7 @@ n01461_line_mark_α:      mov              r11, 1513
                         mov              rcx, qword ptr [rip + .Lline_mark_α_4281_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01462_line_mark_α
 .Lline_mark_α_4281_0:   .quad            .Lline_mark_α_4281_0_s
-.Lline_mark_α_4281_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_4281_0_s: .string          "micro.icn"
                         .size            n01461_line_mark_bx, .-n01461_line_mark_bx
                         .type            n01462_line_mark_bx, @function
 n01462_line_mark_bx:
@@ -39108,7 +39108,7 @@ n01488_assign_α:         mov              r11, 1540
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_4321_0]
                         .section         .rodata
-.Lassign_α_4321_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_4321_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4321_1_s]
@@ -39312,7 +39312,7 @@ n01489_line_mark_α:      mov              r11, 1541
                         mov              rcx, qword ptr [rip + .Lline_mark_α_4355_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01490_line_mark_α
 .Lline_mark_α_4355_0:   .quad            .Lline_mark_α_4355_0_s
-.Lline_mark_α_4355_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_4355_0_s: .string          "micro.icn"
                         .size            n01489_line_mark_bx, .-n01489_line_mark_bx
                         .type            n01490_line_mark_bx, @function
 n01490_line_mark_bx:
@@ -39707,7 +39707,7 @@ n01516_assign_α:         mov              r11, 1568
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_4394_0]
                         .section         .rodata
-.Lassign_α_4394_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_4394_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4394_1_s]
@@ -39911,7 +39911,7 @@ n01517_line_mark_α:      mov              r11, 1569
                         mov              rcx, qword ptr [rip + .Lline_mark_α_4429_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01518_line_mark_α
 .Lline_mark_α_4429_0:   .quad            .Lline_mark_α_4429_0_s
-.Lline_mark_α_4429_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_4429_0_s: .string          "micro.icn"
                         .size            n01517_line_mark_bx, .-n01517_line_mark_bx
                         .type            n01518_line_mark_bx, @function
 n01518_line_mark_bx:
@@ -40325,7 +40325,7 @@ n01545_assign_α:         mov              r11, 1597
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_4470_0]
                         .section         .rodata
-.Lassign_α_4470_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_4470_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4470_1_s]
@@ -40529,7 +40529,7 @@ n01546_line_mark_α:      mov              r11, 1598
                         mov              rcx, qword ptr [rip + .Lline_mark_α_4506_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01547_line_mark_α
 .Lline_mark_α_4506_0:   .quad            .Lline_mark_α_4506_0_s
-.Lline_mark_α_4506_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_4506_0_s: .string          "micro.icn"
                         .size            n01546_line_mark_bx, .-n01546_line_mark_bx
                         .type            n01547_line_mark_bx, @function
 n01547_line_mark_bx:
@@ -40954,7 +40954,7 @@ n01575_assign_α:         mov              r11, 1627
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_4548_0]
                         .section         .rodata
-.Lassign_α_4548_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_4548_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4548_1_s]
@@ -41158,7 +41158,7 @@ n01576_line_mark_α:      mov              r11, 1628
                         mov              rcx, qword ptr [rip + .Lline_mark_α_4582_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01577_line_mark_α
 .Lline_mark_α_4582_0:   .quad            .Lline_mark_α_4582_0_s
-.Lline_mark_α_4582_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_4582_0_s: .string          "micro.icn"
                         .size            n01576_line_mark_bx, .-n01576_line_mark_bx
                         .type            n01577_line_mark_bx, @function
 n01577_line_mark_bx:
@@ -41559,7 +41559,7 @@ n01603_assign_α:         mov              r11, 1655
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_4622_0]
                         .section         .rodata
-.Lassign_α_4622_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_4622_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4622_1_s]
@@ -41763,7 +41763,7 @@ n01604_line_mark_α:      mov              r11, 1656
                         mov              rcx, qword ptr [rip + .Lline_mark_α_4653_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01605_line_mark_α
 .Lline_mark_α_4653_0:   .quad            .Lline_mark_α_4653_0_s
-.Lline_mark_α_4653_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_4653_0_s: .string          "micro.icn"
                         .size            n01604_line_mark_bx, .-n01604_line_mark_bx
                         .type            n01605_line_mark_bx, @function
 n01605_line_mark_bx:
@@ -42149,7 +42149,7 @@ n01628_assign_α:         mov              r11, 1680
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_4691_0]
                         .section         .rodata
-.Lassign_α_4691_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_4691_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4691_1_s]
@@ -42353,7 +42353,7 @@ n01629_line_mark_α:      mov              r11, 1681
                         mov              rcx, qword ptr [rip + .Lline_mark_α_4727_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01630_line_mark_α
 .Lline_mark_α_4727_0:   .quad            .Lline_mark_α_4727_0_s
-.Lline_mark_α_4727_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_4727_0_s: .string          "micro.icn"
                         .size            n01629_line_mark_bx, .-n01629_line_mark_bx
                         .type            n01630_line_mark_bx, @function
 n01630_line_mark_bx:
@@ -42810,7 +42810,7 @@ n01658_assign_α:         mov              r11, 1710
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_4771_0]
                         .section         .rodata
-.Lassign_α_4771_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_4771_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4771_1_s]
@@ -43014,7 +43014,7 @@ n01659_line_mark_α:      mov              r11, 1711
                         mov              rcx, qword ptr [rip + .Lline_mark_α_4810_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01660_line_mark_α
 .Lline_mark_α_4810_0:   .quad            .Lline_mark_α_4810_0_s
-.Lline_mark_α_4810_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_4810_0_s: .string          "micro.icn"
                         .size            n01659_line_mark_bx, .-n01659_line_mark_bx
                         .type            n01660_line_mark_bx, @function
 n01660_line_mark_bx:
@@ -43523,7 +43523,7 @@ n01691_assign_α:         mov              r11, 1743
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_4858_0]
                         .section         .rodata
-.Lassign_α_4858_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_4858_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4858_1_s]
@@ -43727,7 +43727,7 @@ n01692_line_mark_α:      mov              r11, 1744
                         mov              rcx, qword ptr [rip + .Lline_mark_α_4900_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01693_line_mark_α
 .Lline_mark_α_4900_0:   .quad            .Lline_mark_α_4900_0_s
-.Lline_mark_α_4900_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_4900_0_s: .string          "micro.icn"
                         .size            n01692_line_mark_bx, .-n01692_line_mark_bx
                         .type            n01693_line_mark_bx, @function
 n01693_line_mark_bx:
@@ -44288,7 +44288,7 @@ n01727_assign_α:         mov              r11, 1779
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_4952_0]
                         .section         .rodata
-.Lassign_α_4952_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_4952_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4952_1_s]
@@ -44492,7 +44492,7 @@ n01728_line_mark_α:      mov              r11, 1780
                         mov              rcx, qword ptr [rip + .Lline_mark_α_4983_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01729_line_mark_α
 .Lline_mark_α_4983_0:   .quad            .Lline_mark_α_4983_0_s
-.Lline_mark_α_4983_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_4983_0_s: .string          "micro.icn"
                         .size            n01728_line_mark_bx, .-n01728_line_mark_bx
                         .type            n01729_line_mark_bx, @function
 n01729_line_mark_bx:
@@ -44878,7 +44878,7 @@ n01752_assign_α:         mov              r11, 1804
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5021_0]
                         .section         .rodata
-.Lassign_α_5021_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5021_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5021_1_s]
@@ -45082,7 +45082,7 @@ n01753_line_mark_α:      mov              r11, 1805
                         mov              rcx, qword ptr [rip + .Lline_mark_α_5064_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01754_line_mark_α
 .Lline_mark_α_5064_0:   .quad            .Lline_mark_α_5064_0_s
-.Lline_mark_α_5064_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_5064_0_s: .string          "micro.icn"
                         .size            n01753_line_mark_bx, .-n01753_line_mark_bx
                         .type            n01754_line_mark_bx, @function
 n01754_line_mark_bx:
@@ -45624,7 +45624,7 @@ n01789_assign_α:         mov              r11, 1841
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5114_0]
                         .section         .rodata
-.Lassign_α_5114_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5114_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5114_1_s]
@@ -45828,7 +45828,7 @@ n01790_line_mark_α:      mov              r11, 1842
                         mov              rcx, qword ptr [rip + .Lline_mark_α_5157_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01791_line_mark_α
 .Lline_mark_α_5157_0:   .quad            .Lline_mark_α_5157_0_s
-.Lline_mark_α_5157_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_5157_0_s: .string          "micro.icn"
                         .size            n01790_line_mark_bx, .-n01790_line_mark_bx
                         .type            n01791_line_mark_bx, @function
 n01791_line_mark_bx:
@@ -46370,7 +46370,7 @@ n01826_assign_α:         mov              r11, 1878
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5207_0]
                         .section         .rodata
-.Lassign_α_5207_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5207_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5207_1_s]
@@ -46574,7 +46574,7 @@ n01827_line_mark_α:      mov              r11, 1879
                         mov              rcx, qword ptr [rip + .Lline_mark_α_5226_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01828_disjunction_α
 .Lline_mark_α_5226_0:   .quad            .Lline_mark_α_5226_0_s
-.Lline_mark_α_5226_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_5226_0_s: .string          "micro.icn"
                         .size            n01827_line_mark_bx, .-n01827_line_mark_bx
                         .type            n01828_disjunction_bx, @function
 n01828_disjunction_bx:
@@ -46939,7 +46939,7 @@ n01840_line_mark_α:      mov              r11, 1892
                         mov              rcx, qword ptr [rip + .Lline_mark_α_5277_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01841_line_mark_α
 .Lline_mark_α_5277_0:   .quad            .Lline_mark_α_5277_0_s
-.Lline_mark_α_5277_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_5277_0_s: .string          "micro.icn"
                         .size            n01840_line_mark_bx, .-n01840_line_mark_bx
                         .type            n01841_line_mark_bx, @function
 n01841_line_mark_bx:
@@ -47084,7 +47084,7 @@ n01849_assign_α:         mov              r11, 1900
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5289_0]
                         .section         .rodata
-.Lassign_α_5289_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5289_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5289_1_s]
@@ -47537,7 +47537,7 @@ n01865_line_mark_α:      mov              r11, 1917
                         mov              rcx, qword ptr [rip + .Lline_mark_α_5347_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01866_line_mark_α
 .Lline_mark_α_5347_0:   .quad            .Lline_mark_α_5347_0_s
-.Lline_mark_α_5347_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_5347_0_s: .string          "micro.icn"
                         .size            n01865_line_mark_bx, .-n01865_line_mark_bx
                         .type            n01866_line_mark_bx, @function
 n01866_line_mark_bx:
@@ -47682,7 +47682,7 @@ n01874_assign_α:         mov              r11, 1925
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5359_0]
                         .section         .rodata
-.Lassign_α_5359_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5359_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5359_1_s]
@@ -48148,7 +48148,7 @@ n01891_line_mark_α:      mov              r11, 1943
                         mov              rcx, qword ptr [rip + .Lline_mark_α_5418_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01892_line_mark_α
 .Lline_mark_α_5418_0:   .quad            .Lline_mark_α_5418_0_s
-.Lline_mark_α_5418_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_5418_0_s: .string          "micro.icn"
                         .size            n01891_line_mark_bx, .-n01891_line_mark_bx
                         .type            n01892_line_mark_bx, @function
 n01892_line_mark_bx:
@@ -48293,7 +48293,7 @@ n01900_assign_α:         mov              r11, 1951
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5430_0]
                         .section         .rodata
-.Lassign_α_5430_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5430_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5430_1_s]
@@ -48759,7 +48759,7 @@ n01917_line_mark_α:      mov              r11, 1969
                         mov              rcx, qword ptr [rip + .Lline_mark_α_5489_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01918_line_mark_α
 .Lline_mark_α_5489_0:   .quad            .Lline_mark_α_5489_0_s
-.Lline_mark_α_5489_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_5489_0_s: .string          "micro.icn"
                         .size            n01917_line_mark_bx, .-n01917_line_mark_bx
                         .type            n01918_line_mark_bx, @function
 n01918_line_mark_bx:
@@ -48904,7 +48904,7 @@ n01926_assign_α:         mov              r11, 1977
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5501_0]
                         .section         .rodata
-.Lassign_α_5501_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5501_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5501_1_s]
@@ -49371,7 +49371,7 @@ n01943_line_mark_α:      mov              r11, 1995
                         mov              rcx, qword ptr [rip + .Lline_mark_α_5560_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01944_line_mark_α
 .Lline_mark_α_5560_0:   .quad            .Lline_mark_α_5560_0_s
-.Lline_mark_α_5560_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_5560_0_s: .string          "micro.icn"
                         .size            n01943_line_mark_bx, .-n01943_line_mark_bx
                         .type            n01944_line_mark_bx, @function
 n01944_line_mark_bx:
@@ -49516,7 +49516,7 @@ n01952_assign_α:         mov              r11, 2003
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5572_0]
                         .section         .rodata
-.Lassign_α_5572_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5572_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5572_1_s]
@@ -49980,7 +49980,7 @@ n01969_line_mark_α:      mov              r11, 2021
                         mov              rcx, qword ptr [rip + .Lline_mark_α_5633_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01970_line_mark_α
 .Lline_mark_α_5633_0:   .quad            .Lline_mark_α_5633_0_s
-.Lline_mark_α_5633_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_5633_0_s: .string          "micro.icn"
                         .size            n01969_line_mark_bx, .-n01969_line_mark_bx
                         .type            n01970_line_mark_bx, @function
 n01970_line_mark_bx:
@@ -50135,7 +50135,7 @@ n01979_assign_α:         mov              r11, 2030
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5647_0]
                         .section         .rodata
-.Lassign_α_5647_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5647_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5647_1_s]
@@ -50651,7 +50651,7 @@ n01997_line_mark_α:      mov              r11, 2049
                         mov              rcx, qword ptr [rip + .Lline_mark_α_5695_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n01998_disjunction_α
 .Lline_mark_α_5695_0:   .quad            .Lline_mark_α_5695_0_s
-.Lline_mark_α_5695_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_5695_0_s: .string          "micro.icn"
                         .size            n01997_line_mark_bx, .-n01997_line_mark_bx
                         .type            n01998_disjunction_bx, @function
 n01998_disjunction_bx:
@@ -51016,7 +51016,7 @@ n02010_line_mark_α:      mov              r11, 2062
                         mov              rcx, qword ptr [rip + .Lline_mark_α_5751_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n02011_line_mark_α
 .Lline_mark_α_5751_0:   .quad            .Lline_mark_α_5751_0_s
-.Lline_mark_α_5751_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_5751_0_s: .string          "micro.icn"
                         .size            n02010_line_mark_bx, .-n02010_line_mark_bx
                         .type            n02011_line_mark_bx, @function
 n02011_line_mark_bx:
@@ -51161,7 +51161,7 @@ n02019_assign_α:         mov              r11, 2070
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5763_0]
                         .section         .rodata
-.Lassign_α_5763_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5763_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5763_1_s]
@@ -51658,7 +51658,7 @@ n02040_line_mark_α:      mov              r11, 2092
                         mov              rcx, qword ptr [rip + .Lline_mark_α_5828_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n02041_line_mark_α
 .Lline_mark_α_5828_0:   .quad            .Lline_mark_α_5828_0_s
-.Lline_mark_α_5828_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_5828_0_s: .string          "micro.icn"
                         .size            n02040_line_mark_bx, .-n02040_line_mark_bx
                         .type            n02041_line_mark_bx, @function
 n02041_line_mark_bx:
@@ -51803,7 +51803,7 @@ n02049_assign_α:         mov              r11, 2100
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5840_0]
                         .section         .rodata
-.Lassign_α_5840_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5840_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5840_1_s]
@@ -52289,7 +52289,7 @@ n02069_line_mark_α:      mov              r11, 2121
                         mov              rcx, qword ptr [rip + .Lline_mark_α_5890_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n02070_disjunction_α
 .Lline_mark_α_5890_0:   .quad            .Lline_mark_α_5890_0_s
-.Lline_mark_α_5890_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_5890_0_s: .string          "micro.icn"
                         .size            n02069_line_mark_bx, .-n02069_line_mark_bx
                         .type            n02070_disjunction_bx, @function
 n02070_disjunction_bx:
@@ -52680,7 +52680,7 @@ n02084_line_mark_α:      mov              r11, 2136
                         mov              rcx, qword ptr [rip + .Lline_mark_α_5943_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n02085_line_mark_α
 .Lline_mark_α_5943_0:   .quad            .Lline_mark_α_5943_0_s
-.Lline_mark_α_5943_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_5943_0_s: .string          "micro.icn"
                         .size            n02084_line_mark_bx, .-n02084_line_mark_bx
                         .type            n02085_line_mark_bx, @function
 n02085_line_mark_bx:
@@ -52851,7 +52851,7 @@ n02095_assign_α:         mov              r11, 2146
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_5957_0]
                         .section         .rodata
-.Lassign_α_5957_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_5957_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5957_1_s]
@@ -53262,7 +53262,7 @@ n02109_line_mark_α:      mov              r11, 2161
                         mov              rcx, qword ptr [rip + .Lline_mark_α_6011_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n02110_line_mark_α
 .Lline_mark_α_6011_0:   .quad            .Lline_mark_α_6011_0_s
-.Lline_mark_α_6011_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_6011_0_s: .string          "micro.icn"
                         .size            n02109_line_mark_bx, .-n02109_line_mark_bx
                         .type            n02110_line_mark_bx, @function
 n02110_line_mark_bx:
@@ -53433,7 +53433,7 @@ n02120_assign_α:         mov              r11, 2171
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6025_0]
                         .section         .rodata
-.Lassign_α_6025_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6025_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6025_1_s]
@@ -53835,7 +53835,7 @@ n02134_line_mark_α:      mov              r11, 2186
                         mov              rcx, qword ptr [rip + .Lline_mark_α_6076_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n02135_line_mark_α
 .Lline_mark_α_6076_0:   .quad            .Lline_mark_α_6076_0_s
-.Lline_mark_α_6076_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_6076_0_s: .string          "micro.icn"
                         .size            n02134_line_mark_bx, .-n02134_line_mark_bx
                         .type            n02135_line_mark_bx, @function
 n02135_line_mark_bx:
@@ -53980,7 +53980,7 @@ n02143_assign_α:         mov              r11, 2194
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6088_0]
                         .section         .rodata
-.Lassign_α_6088_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6088_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6088_1_s]
@@ -54382,7 +54382,7 @@ n02157_line_mark_α:      mov              r11, 2209
                         mov              rcx, qword ptr [rip + .Lline_mark_α_6130_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n02158_disjunction_α
 .Lline_mark_α_6130_0:   .quad            .Lline_mark_α_6130_0_s
-.Lline_mark_α_6130_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_6130_0_s: .string          "micro.icn"
                         .size            n02157_line_mark_bx, .-n02157_line_mark_bx
                         .type            n02158_disjunction_bx, @function
 n02158_disjunction_bx:
@@ -54528,7 +54528,7 @@ n02166_assign_α:         mov              r11, 2217
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6143_0]
                         .section         .rodata
-.Lassign_α_6143_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6143_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6143_1_s]
@@ -54783,7 +54783,7 @@ n02171_line_mark_α:      mov              r11, 2223
                         mov              rcx, qword ptr [rip + .Lline_mark_α_6171_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n02172_line_mark_α
 .Lline_mark_α_6171_0:   .quad            .Lline_mark_α_6171_0_s
-.Lline_mark_α_6171_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_6171_0_s: .string          "micro.icn"
                         .size            n02171_line_mark_bx, .-n02171_line_mark_bx
                         .type            n02172_line_mark_bx, @function
 n02172_line_mark_bx:
@@ -55147,7 +55147,7 @@ n02186_line_mark_α:      mov              r11, 2238
                         mov              rcx, qword ptr [rip + .Lline_mark_α_6214_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n02187_line_mark_α
 .Lline_mark_α_6214_0:   .quad            .Lline_mark_α_6214_0_s
-.Lline_mark_α_6214_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_6214_0_s: .string          "micro.icn"
                         .size            n02186_line_mark_bx, .-n02186_line_mark_bx
                         .type            n02187_line_mark_bx, @function
 n02187_line_mark_bx:
@@ -55300,7 +55300,7 @@ n02196_assign_α:         mov              r11, 2247
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6229_0]
                         .section         .rodata
-.Lassign_α_6229_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6229_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6229_1_s]
@@ -55550,7 +55550,7 @@ n02201_line_mark_α:      mov              r11, 2253
                         mov              rcx, qword ptr [rip + .Lline_mark_α_6268_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n02202_line_mark_α
 .Lline_mark_α_6268_0:   .quad            .Lline_mark_α_6268_0_s
-.Lline_mark_α_6268_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_6268_0_s: .string          "micro.icn"
                         .size            n02201_line_mark_bx, .-n02201_line_mark_bx
                         .type            n02202_line_mark_bx, @function
 n02202_line_mark_bx:
@@ -55727,7 +55727,7 @@ n02212_assign_α:         mov              r11, 2263
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6282_0]
                         .section         .rodata
-.Lassign_α_6282_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6282_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6282_1_s]
@@ -56151,7 +56151,7 @@ n02227_line_mark_α:      mov              r11, 2279
                         mov              rcx, qword ptr [rip + .Lline_mark_α_6328_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n02228_disjunction_α
 .Lline_mark_α_6328_0:   .quad            .Lline_mark_α_6328_0_s
-.Lline_mark_α_6328_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_6328_0_s: .string          "micro.icn"
                         .size            n02227_line_mark_bx, .-n02227_line_mark_bx
                         .type            n02228_disjunction_bx, @function
 n02228_disjunction_bx:
@@ -56563,7 +56563,7 @@ n02243_line_mark_α:      mov              r11, 2295
                         mov              rcx, qword ptr [rip + .Lline_mark_α_6383_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n02244_line_mark_α
 .Lline_mark_α_6383_0:   .quad            .Lline_mark_α_6383_0_s
-.Lline_mark_α_6383_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_6383_0_s: .string          "micro.icn"
                         .size            n02243_line_mark_bx, .-n02243_line_mark_bx
                         .type            n02244_line_mark_bx, @function
 n02244_line_mark_bx:
@@ -56932,7 +56932,7 @@ n02267_assign_α:         mov              r11, 2319
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6420_0]
                         .section         .rodata
-.Lassign_α_6420_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6420_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6420_1_s]
@@ -57136,7 +57136,7 @@ n02268_line_mark_α:      mov              r11, 2320
                         mov              rcx, qword ptr [rip + .Lline_mark_α_6443_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n02269_disjunction_α
 .Lline_mark_α_6443_0:   .quad            .Lline_mark_α_6443_0_s
-.Lline_mark_α_6443_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_6443_0_s: .string          "micro.icn"
                         .size            n02268_line_mark_bx, .-n02268_line_mark_bx
                         .type            n02269_disjunction_bx, @function
 n02269_disjunction_bx:
@@ -57564,7 +57564,7 @@ n02285_line_mark_α:      mov              r11, 2337
                         mov              rcx, qword ptr [rip + .Lline_mark_α_6505_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n02286_line_mark_α
 .Lline_mark_α_6505_0:   .quad            .Lline_mark_α_6505_0_s
-.Lline_mark_α_6505_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_6505_0_s: .string          "micro.icn"
                         .size            n02285_line_mark_bx, .-n02285_line_mark_bx
                         .type            n02286_line_mark_bx, @function
 n02286_line_mark_bx:
@@ -57906,7 +57906,7 @@ n02308_assign_α:         mov              r11, 2359
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6540_0]
                         .section         .rodata
-.Lassign_α_6540_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6540_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6540_1_s]
@@ -58306,7 +58306,7 @@ n02312_line_mark_α:      mov              r11, 2364
                         mov              rcx, qword ptr [rip + .Lline_mark_α_6985_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n02313_line_mark_α
 .Lline_mark_α_6985_0:   .quad            .Lline_mark_α_6985_0_s
-.Lline_mark_α_6985_0_s: .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lline_mark_α_6985_0_s: .string          "micro.icn"
                         .size            n02312_line_mark_bx, .-n02312_line_mark_bx
                         .type            n02313_line_mark_bx, @function
 n02313_line_mark_bx:
@@ -58488,7 +58488,7 @@ n02322_assign_α:         mov              r11, 2371
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_6996_0]
                         .section         .rodata
-.Lassign_α_6996_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_6996_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6996_1_s]
@@ -58601,7 +58601,7 @@ n02327_assign_α:         mov              r11, 2376
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_7003_0]
                         .section         .rodata
-.Lassign_α_7003_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_7003_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_7003_1_s]
@@ -59535,7 +59535,7 @@ n02376_assign_α:         mov              r11, 2425
                         mov              rsi, rax
                         mov              rdi, qword ptr [rip + .Lassign_α_7077_0]
                         .section         .rodata
-.Lassign_α_7077_1_s:    .string          "/home/claude_coo/corpus/benchmarks/icon/micro.icn"
+.Lassign_α_7077_1_s:    .string          "micro.icn"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_7077_1_s]

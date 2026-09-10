@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/micsum.icn"
+                        .file            1 "micsum.icn"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__dofile:
@@ -61,7 +61,7 @@ n1_line_mark_α:         mov              r11, 1
                         mov              rcx, qword ptr [rip + .Lline_mark_α_175_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n2_line_mark_α
 .Lline_mark_α_175_0:    .quad            .Lline_mark_α_175_0_s
-.Lline_mark_α_175_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micsum.icn"
+.Lline_mark_α_175_0_s:  .string          "micsum.icn"
                         .size            n1_line_mark_bx, .-n1_line_mark_bx
                         .type            n2_line_mark_bx, @function
 n2_line_mark_bx:
@@ -3332,7 +3332,7 @@ n00075_line_mark_α:       mov              r11, 174
                         mov              rcx, qword ptr [rip + .Lline_mark_α_491_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n00076_line_mark_α
 .Lline_mark_α_491_0:    .quad            .Lline_mark_α_491_0_s
-.Lline_mark_α_491_0_s:  .string          "/home/claude_coo/corpus/benchmarks/icon/micsum.icn"
+.Lline_mark_α_491_0_s:  .string          "micsum.icn"
                         .size            n00075_line_mark_bx, .-n00075_line_mark_bx
                         .type            n00076_line_mark_bx, @function
 n00076_line_mark_bx:

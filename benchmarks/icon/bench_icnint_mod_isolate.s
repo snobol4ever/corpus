@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_coo/corpus/benchmarks/icon/bench_icnint_mod_isolate.icn"
+                        .file            1 "bench_icnint_mod_isolate.icn"
                         .file            2 "<included>"
                         .globl           main
 main:
@@ -47,7 +47,7 @@ n0_line_mark_α:         mov              r11, 1
                         mov              rcx, qword ptr [rip + .Lline_mark_α_18_0]
                         mov              qword ptr [rax + 0], rcx;            jmp   n1_line_mark_α
 .Lline_mark_α_18_0:     .quad            .Lline_mark_α_18_0_s
-.Lline_mark_α_18_0_s:   .string          "/home/claude_coo/corpus/benchmarks/icon/bench_icnint_mod_isolate.icn"
+.Lline_mark_α_18_0_s:   .string          "bench_icnint_mod_isolate.icn"
                         .size            n0_line_mark_bx, .-n0_line_mark_bx
                         .type            n1_line_mark_bx, @function
 n1_line_mark_bx:
