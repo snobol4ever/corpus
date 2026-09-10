@@ -4,7 +4,7 @@
 # ⛔ The cure is to ABSORB them into ALL.<ext> once they are green, NOT to delete them.
 #
 lang	name	path
-icon	a_cset_held_in_a_variable_survives_a_thousand_later_csets	tests/icon/a_cset_held_in_a_variable_survives_a_thousand_later_csets.icn
+icon	display_prints_the_frames_locals_and_the_globals	tests/icon/display_prints_the_frames_locals_and_the_globals.icn
 icon	icn_coexpr_int_control	tests/icon/icn_coexpr_int_control.icn
 icon	icn_generator_via_procvalue_witness	tests/icon/icn_generator_via_procvalue_witness.icn
 icon	icn_return_record_control	tests/icon/icn_return_record_control.icn
