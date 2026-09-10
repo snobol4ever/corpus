@@ -255,6 +255,18 @@ entry only, same as every other line in this file. (`rung36_jcon_toby.icn` was i
 seat09's pass; moved to its own bullet below, 2026-08-30 — its `.xfail` reason is qualitatively
 different from "genuinely fails.")
 
+⛔⛔ **THAT ENTRY IS STALE AS OF 2026-09-10 AND THE MEASUREMENT IS THE CORRECTION (hq_V, SCRIP `b84976b17`).
+BIGNUM EXISTS NOW.** Re-asked rather than re-read, because a keeper rationale naming a MISSING FEATURE is
+exactly the kind of line that outlives the gap it describes: `rung36_jcon_large` and `rung36_jcon_radix`
+both run rc=0 here and their output is BYTE-IDENTICAL to the shipped `.expected` AND to a fresh
+`icont -s` cut of the same source on this tree, in m3 AND m4. The wrapped 64-bit answer the entry below
+quotes (`9223372036854775807 + 9223372036854775807 = -2`) is not what this runtime produces any more.
+⭐ **WHY THIS IS WORTH THE INK RATHER THAN A QUIET DELETE:** the note did its job — it stopped seats from
+chasing a feature gap as a bug — and then it kept doing that job after the feature landed, which is the
+failure mode a keeper file has and a board does not. **A rationale that names a missing capability needs a
+re-measure date, not just an author date.** The two files stay listed here for now because their absorption
+is a denominator question (below), not because of bignum.
+
 ⭐ **`rung36_jcon_large` and `rung36_jcon_radix` are a DIFFERENT class from an ordinary bug, found
 2026-08-30 (seat01): they need arbitrary-precision (bignum) integer arithmetic, which does not exist
 anywhere in this runtime** (checked, not assumed — `grep -rl bignum\|BIGNUM\|bigint src/` finds nothing
@@ -564,3 +576,20 @@ assigned name is a red waiting for the next rebuild.
 it prints `&progname`. It stays graded on the ceo's word (CEO-503) and its honest icont-cut ref is in
 `ALL.ref` as of this landing; whether a name-echoing entry belongs in the master at all is a question
 for the ceo, routed 2026-09-10, not something this file decides.
+
+## THE ELEVEN INPUT-INDEPENDENT `rung36_jcon_*` KEEPERS ARE ALL THREE-WAY GREEN TODAY (hq_V, 2026-09-10) — ASKED, NOT ACTED ON
+
+`rung36_jcon_{arith,case,checkfpx,ck,collate,errkwds,iobig,large,lgint,nargs,radix}`
+
+Measured on SCRIP `b84976b17`, each one three ways: **SCRIP m3 == SCRIP m4 == a fresh `icont -s` cut on
+this tree == the shipped `.expected`, byte for byte, rc=0 throughout**; none reads stdin (`&input`/`read`/
+`reads` count 0 in each source); none echoes its own name (`.icn` and own-stem count 0 in each
+`.expected`). That is exactly the bar CEO-516 set when `misc`, `sorting` and `struct` left this file:
+green both modes, expectation equal to the oracle's own run, input-independent.
+
+⛔ **NOT ABSORBED ON THAT MATCH ALONE, AND THE DIFFERENCE MATTERS:** those three moved on the ceo's word,
+by name. Eleven keeper declarations coming out of this file at one seat's discretion is a denominator
+decision, not a housekeeping one — the jcon PACKAGE suite already grades the upstream originals these are
+copies of, so the real question is whether absorbing turns them into coverage or into a second count of
+the same programs. Asked of the ceo 2026-09-10 18:3x with this measurement attached; whatever comes back
+is recorded here beside the numbers.
