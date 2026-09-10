@@ -2,6 +2,6 @@ procedure main()
   case x of {
     1: write("one");
     2: write("two");
-    default: write("other");
+    default: write("other")
   }
 end

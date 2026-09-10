@@ -1030,7 +1030,7 @@ procedure main()
 end
 #-------------------------------------------------------- 233 procedure_write_85
 procedure main()
-  write((x := 1; x))
+  write({x := 1; x})
 end
 #-------------------------------------------------------- 234 procedure_write_94
 procedure try(c, n)
@@ -1506,7 +1506,7 @@ procedure main()
   case x of {
     1: write("one");
     2: write("two");
-    default: write("other");
+    default: write("other")
   }
 end
 #---------------------------------------------------- 319 procedure_fail_write_1
