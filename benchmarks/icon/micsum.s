@@ -4077,14 +4077,129 @@ main_ω:
 module_init:
                         sub              rsp, 8
                         .section         .rodata
+.Lstartup_ign0:         .string          "main"
+.Lstartup_ign1:         .string          "dofile"
+.Lstartup_ign2:         .string          "get"
+.Lstartup_ign3:         .string          "open"
+.Lstartup_ign4:         .string          "stop"
+.Lstartup_ign5:         .string          "write"
+.Lstartup_ign6:         .string          "writes"
+.Lstartup_ign7:         .string          "right"
+.Lstartup_ign8:         .string          "integer"
+.Lstartup_ign9:         .string          "log"
+.Lstartup_ign10:        .string          "sort"
+.Lstartup_ign11:        .string          "sqrt"
+.Lstartup_ign12:        .string          "read"
+.Lstartup_ign13:        .string          "put"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_ign0]
+                        call             rt_icn_global_note@PLT
+                        lea              rdi, [rip + .Lstartup_ign1]
+                        call             rt_icn_global_note@PLT
+                        lea              rdi, [rip + .Lstartup_ign2]
+                        call             rt_icn_global_note@PLT
+                        lea              rdi, [rip + .Lstartup_ign3]
+                        call             rt_icn_global_note@PLT
+                        lea              rdi, [rip + .Lstartup_ign4]
+                        call             rt_icn_global_note@PLT
+                        lea              rdi, [rip + .Lstartup_ign5]
+                        call             rt_icn_global_note@PLT
+                        lea              rdi, [rip + .Lstartup_ign6]
+                        call             rt_icn_global_note@PLT
+                        lea              rdi, [rip + .Lstartup_ign7]
+                        call             rt_icn_global_note@PLT
+                        lea              rdi, [rip + .Lstartup_ign8]
+                        call             rt_icn_global_note@PLT
+                        lea              rdi, [rip + .Lstartup_ign9]
+                        call             rt_icn_global_note@PLT
+                        lea              rdi, [rip + .Lstartup_ign10]
+                        call             rt_icn_global_note@PLT
+                        lea              rdi, [rip + .Lstartup_ign11]
+                        call             rt_icn_global_note@PLT
+                        lea              rdi, [rip + .Lstartup_ign12]
+                        call             rt_icn_global_note@PLT
+                        lea              rdi, [rip + .Lstartup_ign13]
+                        call             rt_icn_global_note@PLT
+                        .section         .rodata
+.Lstartup_rootnm:       .string          "main"
+.Lstartup_ipp00111_0:    .string          "args"
+                        .align           8
+.Lstartup_ipnames9000:
+                        .quad            .Lstartup_ipp00111_0
+                        .quad            0
+.Lstartup_iln00111_0:    .string          "a"
+.Lstartup_iln00111_1:    .string          "f"
+.Lstartup_iln00111_2:    .string          "&input"
+                        .align           8
+.Lstartup_ilnames9000:
+                        .quad            .Lstartup_iln00111_0
+                        .quad            .Lstartup_iln00111_1
+                        .quad            .Lstartup_iln00111_2
+                        .quad            0
+                        .align           4
+.Lstartup_iloffs9000:
+                        .long            928
+                        .long            944
+                        .long            -1
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_rootnm]
+                        lea              rsi, [rip + .Lstartup_ilnames9000]
+                        mov              edx, 3
+                        call             rt_proc_set_locals@PLT
+                        lea              rdi, [rip + .Lstartup_rootnm]
+                        lea              rsi, [rip + .Lstartup_iloffs9000]
+                        mov              edx, 3
+                        call             rt_proc_set_local_offs@PLT
+                        .section         .rodata
 .Lstartup_pname0:       .string          "dofile"
+.Lstartup_ipp0_0:       .string          "f"
+.Lstartup_ipp0_1:       .string          "name"
+                        .align           8
+.Lstartup_ipnames0:
+                        .quad            .Lstartup_ipp0_0
+                        .quad            .Lstartup_ipp0_1
+                        .quad            0
+.Lstartup_iln0_0:       .string          "line"
+.Lstartup_iln0_1:       .string          "label"
+.Lstartup_iln0_2:       .string          "overhead"
+.Lstartup_iln0_3:       .string          "nothings"
+.Lstartup_iln0_4:       .string          "others"
+.Lstartup_iln0_5:       .string          "n"
+.Lstartup_iln0_6:       .string          "t"
+.Lstartup_iln0_7:       .string          "v"
+.Lstartup_iln0_8:       .string          "&e"
+                        .align           8
+.Lstartup_ilnames0:
+                        .quad            .Lstartup_iln0_0
+                        .quad            .Lstartup_iln0_1
+                        .quad            .Lstartup_iln0_2
+                        .quad            .Lstartup_iln0_3
+                        .quad            .Lstartup_iln0_4
+                        .quad            .Lstartup_iln0_5
+                        .quad            .Lstartup_iln0_6
+                        .quad            .Lstartup_iln0_7
+                        .quad            .Lstartup_iln0_8
+                        .quad            0
+                        .align           4
+.Lstartup_iloffs0:
+                        .long            3696
+                        .long            3728
+                        .long            3680
+                        .long            3664
+                        .long            3632
+                        .long            3712
+                        .long            3616
+                        .long            3648
+                        .long            -1
                         .align           8
 .Lstartup_prec0:
                         .quad            .Lstartup_pname0
                         .quad            FN__dofile
                         .quad            dofile_dcα
                         .quad            0
-                        .quad            0
+                        .quad            .Lstartup_ipnames0
                         .long            2
                         .long            0
                         .long            3760
@@ -4095,6 +4210,14 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec0]
                         call             rt_proc_register_rec@PLT
+                        lea              rdi, [rip + .Lstartup_pname0]
+                        lea              rsi, [rip + .Lstartup_ilnames0]
+                        mov              edx, 9
+                        call             rt_proc_set_locals@PLT
+                        lea              rdi, [rip + .Lstartup_pname0]
+                        lea              rsi, [rip + .Lstartup_iloffs0]
+                        mov              edx, 9
+                        call             rt_proc_set_local_offs@PLT
                         add              rsp, 8
                         ret
                         .section         .note.GNU-stack,"",@progbits

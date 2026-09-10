@@ -8,6 +8,7 @@ main:
                         push             rdi
                         push             rsi
                         call             core_lib_init@PLT
+                        call             module_init
                         mov              rdi, qword ptr [rsp]
                         add              rdi, 8
                         mov              esi, dword ptr [rsp + 8]
@@ -371,4 +372,43 @@ main_ω:
                         and              rsp, -16
                         xor              edi, edi
                         call             exit@PLT
+module_init:
+                        sub              rsp, 8
+                        .section         .rodata
+.Lstartup_ign0:         .string          "main"
+.Lstartup_ign1:         .string          "write"
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_ign0]
+                        call             rt_icn_global_note@PLT
+                        lea              rdi, [rip + .Lstartup_ign1]
+                        call             rt_icn_global_note@PLT
+                        .section         .rodata
+.Lstartup_rootnm:       .string          "main"
+.Lstartup_iln00001_0:    .string          "i"
+.Lstartup_iln00001_1:    .string          "t"
+.Lstartup_iln00001_2:    .string          "n"
+                        .align           8
+.Lstartup_ilnames9000:
+                        .quad            .Lstartup_iln00001_0
+                        .quad            .Lstartup_iln00001_1
+                        .quad            .Lstartup_iln00001_2
+                        .quad            0
+                        .align           4
+.Lstartup_iloffs9000:
+                        .long            368
+                        .long            352
+                        .long            384
+                        .section         .text
+                        .intel_syntax    noprefix
+                        lea              rdi, [rip + .Lstartup_rootnm]
+                        lea              rsi, [rip + .Lstartup_ilnames9000]
+                        mov              edx, 3
+                        call             rt_proc_set_locals@PLT
+                        lea              rdi, [rip + .Lstartup_rootnm]
+                        lea              rsi, [rip + .Lstartup_iloffs9000]
+                        mov              edx, 3
+                        call             rt_proc_set_local_offs@PLT
+                        add              rsp, 8
+                        ret
                         .section         .note.GNU-stack,"",@progbits
