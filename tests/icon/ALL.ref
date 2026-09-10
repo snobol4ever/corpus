@@ -5150,7 +5150,20 @@ procedure dbl
      &window: [failed]
           &x: [failed]
           &y: [failed]
-#----------------------------------------- 894 procedure_every_elemgen_replace_2
+#------------------------------------------------ 894 procedure_every_elemgen_20
+A 116 function image invalid type to element generator
+cset elements 256
+"1" B 116 function image
+C 116 &null invalid type to element generator
+none D 115 &cset structure expected
+none E 115 1
+none F 108 &null list expected
+none G 108 &null
+none H 108 1
+none I 108 1
+none J 108 "x"
+none K 112 function image invalid type to size operation
+#----------------------------------------- 895 procedure_every_elemgen_replace_2
 XIII
 IV
 VI
@@ -5159,11 +5172,11 @@ cannot convert
 XXXIX
 MMMCMXCIX
 cannot convert
-#-------------------------------------------- 895 procedure_scan_while_replace_1
+#-------------------------------------------- 896 procedure_scan_while_replace_1
 accbcabbaa
 14434241332312211
 AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABABAAAA
-#------------------------------------------- 896 procedure_every_scan_replace_10
+#------------------------------------------- 897 procedure_every_scan_replace_10
 A                   2
 B                   1
 D                   1
@@ -5217,7 +5230,7 @@ write               1
 writes              1
 x                   3
 y                   4
-#---------------------------------------------- 897 procedure_to_while_replace_1
+#---------------------------------------------- 898 procedure_to_while_replace_1
      1  Order, Coleoptera, (Beetles). Many beetles are colored so as
      2  to resemble the surfaces which they habitually frequent, and they thus
      3  escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
@@ -5346,7 +5359,7 @@ well             : 13
 which            : 2, 4, 13, 14
 with             : 4, 9
 worm             : 8
-#------------------------------------------ 898 procedure_record_every_replace_4
+#------------------------------------------ 899 procedure_record_every_replace_4
 6-Queens:
 solution: 1
   -------------------------
@@ -5407,7 +5420,7 @@ solution: 4
   -------------------------
   |   | Q |   |   |   |   |
   -------------------------
-#------------------------------------------------- 899 procedure_every_suspend_7
+#------------------------------------------------- 900 procedure_every_suspend_7
 r1 2
 r2 2
 r3 2
@@ -5430,7 +5443,7 @@ r19 "7" 2
 r20 3
 r20 4
 r20 1
-#----------------------------------------- 900 procedure_every_suspend_replace_4
+#----------------------------------------- 901 procedure_every_suspend_replace_4
 1 2 2 3 1 2
 "a\x00b" "a\x00"
 3 "\x00" 3 2
@@ -5439,7 +5452,14 @@ r20 1
 "<S>"
 16 " <S> <CONJ> <S>\x00"
 " <S> <CONJ> <S>\x00" 16 " <S> <CONJ> "
-#------------------------------------------- 901 procedure_every_scan_replace_14
+#----------------------------------------- 902 procedure_every_suspend_replace_5
+"<S>"
+"<CONJ>"
+"<S>"
+2 3 4 
+4 4 4 4
+"<CONJ>"
+#------------------------------------------- 903 procedure_every_scan_replace_14
 The quick brown fox jumps over lazy dogs tab here end 
 digits 13
 ucase T
@@ -5455,7 +5475,7 @@ a
 b
 c
  dehlorw
-#------------------------------------------ 902 procedure_record_every_replace_2
+#------------------------------------------ 904 procedure_record_every_replace_2
  ----> &null
 f := open("foo.baz","w") ----> file(foo.baz)
 write(f,"hello world") ----> "hello world"
@@ -5630,7 +5650,7 @@ close(f) ----> file(fncs1.dat)
 5.75              1.398 1.089 0.861 -0.50 -0.59 2.397 314.1 1.749 1.592 
 6.0               1.405 1.107 0.960 -0.27 -0.29 2.449 403.4 1.791 1.630 
 6.25              1.412 1.123 0.999 -0.03 -0.03 2.5   518.0 1.832 1.668 
-#----------------------------------------- 903 procedure_record_coexpr_replace_1
+#----------------------------------------- 905 procedure_record_coexpr_replace_1
 	null : &null
     *2	integer : 47
     *7	real : 3.14159
@@ -5682,7 +5702,7 @@ close(f) ----> file(fncs1.dat)
 
 '\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\xf9\xfa\xfb\xfc\xfd\xfe'
 
-#-------------------------------------------- 904 procedure_every_scan_replace_9
+#-------------------------------------------- 906 procedure_every_scan_replace_9
    initial : 0 :
  >> 
  >> 3 3 
@@ -5701,7 +5721,7 @@ k 3
 v 7
        30s : 5 : [0]30 [1]31 [2]32 [3]33 [4]34
        50s : 5 : [0]50 [1]51 [2]52 [3]53 [4]54
-#------------------------------------------ 905 procedure_record_every_replace_7
+#------------------------------------------ 907 procedure_record_every_replace_7
  ----> &null
 s := "abcd" ----> "abcd"
 s := "x" ----> "x"
@@ -5933,7 +5953,7 @@ bal('+','[','[',"[[2*x[+3[+[5*y[") ----> none
 bal('+','([','])',"([2*x)+3]+(5*y]") ----> 10
 bal(,,,"()+()") ----> 1
 bal(&cset,,,"()+()") ----> 1
-#----------------------------------------- 906 procedure_record_every_replace_13
+#----------------------------------------- 908 procedure_record_every_replace_13
  ----> &null
 2 === +2 ----> 2
 3 === *"abc" ----> 3
@@ -6238,9 +6258,9 @@ y := 2 ----> 2
 (x <- y) & &fail ----> none
 x ----> 1
 y ----> 2
-#------------------------------------------ 907 procedure_record_every_replace_1
+#------------------------------------------ 909 procedure_record_every_replace_1
 he runs.
-#-------------------------------------------- 908 procedure_every_scan_replace_5
+#-------------------------------------------- 910 procedure_every_scan_replace_5
 -2
 -2
 a. [0]
@@ -6293,7 +6313,7 @@ z. [18] 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29
 x. [9] 21 22 23 24 25 26 27 28 29
 y. [9] 41 42 43 44 45 46 47 48 49
 z. [18] 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78 79
-#----------------------------------------- 909 procedure_record_every_replace_15
+#----------------------------------------- 911 procedure_record_every_replace_15
 c1 after 0
 "c1 done"
 c1 after 60
@@ -6324,7 +6344,7 @@ equiv failed
 list_16(2)
 equiv failed
 set_8(2)
-#----------------------------------------- 910 procedure_record_every_replace_14
+#----------------------------------------- 912 procedure_record_every_replace_14
  ----> &null
 copy(1) ----> 1
 copy("abc") ----> "abc"
@@ -6780,7 +6800,7 @@ every write(seq(-10)) \ 10 ----> none
 25
 28
 every write(seq(,3)) \ 10 ----> none
-#----------------------------------------- 911 procedure_record_every_replace_18
+#----------------------------------------- 913 procedure_record_every_replace_18
 2
 3
 b
@@ -6861,7 +6881,7 @@ record constructor recordAsVariable
 3
 OK to get here
 done
-#------------------------------------------ 912 procedure_record_every_replace_3
+#------------------------------------------ 914 procedure_record_every_replace_3
 Enter states (1 character names): Enter input alphabet: Enter Final states (subset of states): What is the start state? enter delta(a,0) = enter delta(a,1) = enter delta(b,0) = enter delta(b,1) = enter delta(c,0) = enter delta(c,1) = enter delta(d,0) = enter delta(d,1) = enter delta(e,0) = enter delta(e,1) = enter delta(f,0) = enter delta(f,1) = enter delta(g,0) = enter delta(g,1) = enter delta(h,0) = enter delta(h,1) = 
 
 
@@ -7262,7 +7282,7 @@ where:
 	d(bf,0) = ag	d(bf,1) = ce
 	d(ce,0) = d	d(ce,1) = bf
 	d(d,0) = d	d(d,1) = ag
-#------------------------------------------- 913 procedure_every_scan_replace_13
+#------------------------------------------- 915 procedure_every_scan_replace_13
 test delete:    41,    3	[ok]
 test delete:    41,   11	[ok]
 test delete:    41,   23	[ok]
@@ -7305,7 +7325,7 @@ checking !T:
 checking key(T):
 
 [done]
-#-------------------------------------------- 914 procedure_every_scan_replace_6
+#-------------------------------------------- 916 procedure_every_scan_replace_6
 1 metafile 1250 1000 0 0 0 init
 581 950 (A) text
 751 880 (B) text
@@ -7375,7 +7395,7 @@ checking key(T):
 125 249 line stroke 874 249 begin 58 587 line stroke
 255 255 255 color
 0 0 (16 players, 5 rounds, 20 matches) text
-#-------------------------------------------- 915 procedure_every_scan_replace_4
+#-------------------------------------------- 917 procedure_every_scan_replace_4
 testing entab/detab(s)
 testing entab/detab(s,5)
 testing entab/detab(s,8,12)
@@ -7387,7 +7407,7 @@ testing entab/detab(s,3)
 testing entab/detab(s,3,4)
 testing entab/detab(s,5)
 testing entab/detab(s,5,7,10)
-#----------------------------------------- 916 procedure_record_every_replace_19
+#----------------------------------------- 918 procedure_record_every_replace_19
  ----> &null
 list(0) ----> list_1(0)
 list(0,1) ----> list_2(0)
@@ -7747,7 +7767,7 @@ procedure main
 &null
 every write(image(!r)) ----> none
  a: -2035912587 847198497 
-#----------------------------------------- 917 procedure_record_coexpr_replace_3
+#----------------------------------------- 919 procedure_record_coexpr_replace_3
 0:
 1:
 2:
@@ -8251,7 +8271,7 @@ key=6 record r2_2(2)
 key=6 record r2_4(2)
 key=8 record r5_11(5)
 key=8 record r5_15(5)
-#----------------------------------------- 918 procedure_record_every_replace_12
+#----------------------------------------- 920 procedure_record_every_replace_12
 
 error in line 7:
    &error = -2
@@ -8785,7 +8805,7 @@ error in line 180:
    &errortext = "negative first argument to real exponentiation"
 (-36. ^ -9.) | monitor(&line) ----> 180
  eginopst
-#------------------------------------------- 919 procedure_record_scan_replace_2
+#------------------------------------------- 921 procedure_record_scan_replace_2
 <!-- Created by HTPREP -->
 <html><head>
 <title>Off the Beaten Path</title>

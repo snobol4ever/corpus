@@ -1,5 +1,7 @@
+a_nul_bearing_subject_keeps_its_length_across_a_nested_scan_and_a_suspend	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 coexpr_gc_stack_witness	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 cset_membership_is_a_bit_test_not_a_name_lookup	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+element_generation_and_the_structure_builtins_raise_icons_own_errors	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 every_do_break_yields_null_not_failure	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 hello	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 meander	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)

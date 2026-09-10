@@ -7882,7 +7882,24 @@ end
 procedure nmap(s)
    return map(s, "0123456789", "nnnnnnnnnn");
 end
-#----------------------------------------- 894 procedure_every_elemgen_replace_2
+#------------------------------------------------ 894 procedure_every_elemgen_20
+procedure main()
+   local n
+   &error := 40;
+   every writes(image(!image), " "); write("A ", &errornumber, " ", image(&errorvalue), " ", &errortext);
+   n := 0; every !&cset do n +:= 1; write("cset elements ", n);
+   every writes(image(!1), " "); write("B ", &errornumber, " ", image(&errorvalue));
+   every writes(image(!&null), " "); write("C ", &errornumber, " ", image(&errorvalue), " ", &errortext);
+   write(image(sort(&cset)) | "none", " D ", &errornumber, " ", image(&errorvalue), " ", &errortext);
+   write(image(sort(1)) | "none", " E ", &errornumber, " ", image(&errorvalue));
+   write(image(pull(&null)) | "none", " F ", &errornumber, " ", image(&errorvalue), " ", &errortext);
+   write(image(push(&null, 1)) | "none", " G ", &errornumber, " ", image(&errorvalue));
+   write(image(get(1)) | "none", " H ", &errornumber, " ", image(&errorvalue));
+   write(image(put(1, 2)) | "none", " I ", &errornumber, " ", image(&errorvalue));
+   write(image(pop("x")) | "none", " J ", &errornumber, " ", image(&errorvalue));
+   write(image(*image) | "none", " K ", &errornumber, " ", image(&errorvalue), " ", &errortext);
+end
+#----------------------------------------- 895 procedure_every_elemgen_replace_2
 #SRC: V9SAM
 
 #
@@ -7908,7 +7925,7 @@ procedure roman(n)
       result := map(result,"IVXLCDM","XLCDM**") || equiv[ arabic+1 ];
    if find("*",result) then fail else return result;
 end
-#-------------------------------------------- 895 procedure_scan_while_replace_1
+#-------------------------------------------- 896 procedure_scan_while_replace_1
 #SRC: V9SAM
 
 #
@@ -7944,7 +7961,7 @@ procedure meander(alpha,n)
        }
    return result;
 end
-#------------------------------------------- 896 procedure_every_scan_replace_10
+#------------------------------------------- 897 procedure_every_scan_replace_10
 #SRC: V9SAM
 
 #
@@ -7971,7 +7988,7 @@ procedure wordcount(n)
    every i := 1 to *x - 1 by 2 do
       write(left(x[ i ],n),x[ i + 1 ]);
 end
-#---------------------------------------------- 897 procedure_to_while_replace_1
+#---------------------------------------------- 898 procedure_to_while_replace_1
 #SRC: V9GEN
 
 procedure main()
@@ -8005,7 +8022,7 @@ procedure main()
       write(left(word,maxword + 2),": ",lines[1:-2])
       }
 end
-#------------------------------------------ 898 procedure_record_every_replace_4
+#------------------------------------------ 899 procedure_record_every_replace_4
 #SRC: IPL
 
 ############################################################################
@@ -8104,7 +8121,7 @@ procedure show()
       }
    write();
 end
-#------------------------------------------------- 899 procedure_every_suspend_7
+#------------------------------------------------- 900 procedure_every_suspend_7
 #  x <- e enters e through its alpha port like x := e does.  The lvalue's
 #  success edge was routed to the right side's BETA (resume) port whenever
 #  the right side was a generator, so x <- 2 | 3 skipped the first
@@ -8142,7 +8159,7 @@ procedure main()
    s ? { x <- (tab(many(&digits)) | &null) & pos(0) | write("r19 ", image(x), " ", &pos) };
    x := 1; every write("r20 ", (x <- 2 | 3) + 1); write("r20 ", image(x));
 end
-#----------------------------------------- 900 procedure_every_suspend_replace_4
+#----------------------------------------- 901 procedure_every_suspend_replace_4
 procedure bal(s)
    local all, chr, count, POS;
    all := &cset ++ '<' ++ '>';
@@ -8170,7 +8187,44 @@ procedure main()
    write(*s, " ", image(s));
    s ? { tab(13); write(image(&subject), " ", *&subject, " ", image("" ~== tab(bal(&subject[13:0])))) };
 end
-#------------------------------------------- 901 procedure_every_scan_replace_14
+#----------------------------------------- 902 procedure_every_suspend_replace_5
+procedure bal(s, i, j)
+   local all, chr, count, POS;
+   all := &cset ++ '<' ++ '>';
+   /s := &subject;
+   /i := &pos;
+   /j := *s + 1;
+   count := 0; POS := i - 1;
+   s[i:j] ? {
+      while tab(upto(all)) do {
+         chr := move(1);
+         if any(&cset, chr) & count = 0 then suspend POS + .&pos - 1;
+         if any('<', chr) then { count +:= 1 } else if any('>', chr) & count > 0 then { count -:= 1 };
+      }
+   }
+end
+procedure moves(s)
+   s ? { while move(1) do { suspend .&pos } };
+end
+procedure subjlen()
+   "xy" ? &pos;
+   return *&subject;
+end
+procedure main()
+   local s, t;
+   s := " <S> <CONJ> <S>" || char(0);
+   s ? {
+      tab(2);  write(image("" ~== tab(bal())));
+      tab(6);  write(image("" ~== tab(bal())));
+      tab(13); write(image("" ~== tab(bal())));
+   }
+   every writes(moves("ab" || char(0)), " ");
+   write();
+   t := "abc" || char(0);
+   t ? { write(subjlen(), " ", *&subject, " ", subjlen(), " ", *&subject) };
+   ("<CONJ>" || char(0)) ? { write(image("" ~== tab(bal()))) };
+end
+#------------------------------------------- 903 procedure_every_scan_replace_14
 procedure main()
    local s, c, w, n;
    s := "The quick brown fox, jumps over 13 lazy dogs! tab\there; end";
@@ -8194,7 +8248,7 @@ procedure main()
    every write(!cset("cba"));
    write(string(cset("hello world")));
 end
-#------------------------------------------ 902 procedure_record_every_replace_2
+#------------------------------------------ 904 procedure_record_every_replace_2
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -8270,7 +8324,7 @@ procedure q5()
 procedure wf (v)
     writes(left(v,5)," ");
     end
-#----------------------------------------- 903 procedure_record_coexpr_replace_1
+#----------------------------------------- 905 procedure_record_coexpr_replace_1
 #SRC: JCON
 
 #  test image(), serial(), *x, and explicit conversion functions
@@ -8354,7 +8408,7 @@ end
 procedure pad(x)
    return right(image(\x) | "---", 13);
 end
-#-------------------------------------------- 904 procedure_every_scan_replace_9
+#-------------------------------------------- 906 procedure_every_scan_replace_9
 #SRC: JCON
 
 # table test
@@ -8452,7 +8506,7 @@ procedure tdump(label, T)
    write();
    return;
 end
-#------------------------------------------ 905 procedure_record_every_replace_7
+#------------------------------------------ 907 procedure_record_every_replace_7
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -8584,7 +8638,7 @@ end
 
 global s
 
-#----------------------------------------- 906 procedure_record_every_replace_13
+#----------------------------------------- 908 procedure_record_every_replace_13
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -8820,7 +8874,7 @@ procedure main()
    p16();
 end
 
-#------------------------------------------ 907 procedure_record_every_replace_1
+#------------------------------------------ 909 procedure_record_every_replace_1
 global defs, limit, tswitch
 record nonterm(name)
 record charset(chars)
@@ -8872,7 +8926,7 @@ procedure main()
    limit := 1000;
    gener("s");
 end
-#-------------------------------------------- 908 procedure_every_scan_replace_5
+#-------------------------------------------- 910 procedure_every_scan_replace_5
 #SRC: JCON
 
 procedure main()
@@ -8962,7 +9016,7 @@ procedure limage(label, lst)
    write();
    return;
 end
-#----------------------------------------- 909 procedure_record_every_replace_15
+#----------------------------------------- 911 procedure_record_every_replace_15
 #  A case arm's body runs to its end and only then becomes the case value.
 #  The lowering rewired the arm's ENTRY node to the result assignment after
 #  the fact: an arm whose body was `every ... do if ... then fail` lost its
@@ -9078,7 +9132,7 @@ procedure main()
    write(image(equiv([1,[2,3]],[1,[2,4]])) | "equiv failed");
    write(image(equiv(set([1,2]),set([2,1]))) | "equiv failed");
 end
-#----------------------------------------- 910 procedure_record_every_replace_14
+#----------------------------------------- 912 procedure_record_every_replace_14
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -9266,7 +9320,7 @@ end
 procedure wf (v)
     writes(left(v,5)," ");
     end
-#----------------------------------------- 911 procedure_record_every_replace_18
+#----------------------------------------- 913 procedure_record_every_replace_18
 #SRC: JCON
 
 record message(who,gap,what)
@@ -9395,7 +9449,7 @@ procedure nullsuspend()
    suspend;
    suspend;
 end
-#------------------------------------------ 912 procedure_record_every_replace_3
+#------------------------------------------ 914 procedure_record_every_replace_3
 #SRC: V9GEN
 
 ### mindfa -- minimize a DFA
@@ -9612,7 +9666,7 @@ local l,t1,t2;
    if *l = 0 then fail;
    return l;
 end
-#------------------------------------------- 913 procedure_every_scan_replace_13
+#------------------------------------------- 915 procedure_every_scan_replace_13
 #SRC: V9GEN
 
 ##    gener.icn -- test generation in parallel with inserts/deletes
@@ -9754,7 +9808,7 @@ procedure stale()
    write();
    return;
 end
-#-------------------------------------------- 914 procedure_every_scan_replace_6
+#-------------------------------------------- 916 procedure_every_scan_replace_6
 #SRC: V9GEN
 
 ##  mffsol.icn -- show solution graphically in mff format
@@ -9871,7 +9925,7 @@ procedure newcolor()
 	if lum > 96 then return
     }
     end
-#-------------------------------------------- 915 procedure_every_scan_replace_4
+#-------------------------------------------- 917 procedure_every_scan_replace_4
 #SRC: V9GEN
 #OPT: -fe
 
@@ -10022,7 +10076,7 @@ procedure setup (line);		# interpret and report a column spec line
    write (")");
    return p;
 end
-#----------------------------------------- 916 procedure_record_every_replace_19
+#----------------------------------------- 918 procedure_record_every_replace_19
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -10227,7 +10281,7 @@ end
 
 global s, t, x, r
 global a, a1, a2, a3, a4
-#----------------------------------------- 917 procedure_record_coexpr_replace_3
+#----------------------------------------- 919 procedure_record_coexpr_replace_3
 #SRC: JCON
 
 # test sorting and copying
@@ -10462,7 +10516,7 @@ procedure wsortf(L, n)
       }
    return;
 end
-#----------------------------------------- 918 procedure_record_every_replace_12
+#----------------------------------------- 920 procedure_record_every_replace_12
 #SRC: V9GEN
 #OPT: -fe
 
@@ -10668,7 +10722,7 @@ procedure monitor(line)
    write("   &errorvalue = ", image(&errorvalue));
    return line;
 end
-#------------------------------------------- 919 procedure_record_scan_replace_2
+#------------------------------------------- 921 procedure_record_scan_replace_2
 #SRC: IPL
 
 ############################################################################

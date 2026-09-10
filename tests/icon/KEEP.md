@@ -521,9 +521,18 @@ brace/semicolon dialect law (2026-09-04, row `icon-dialect-procedure-braces-no-e
 re-decide exactly what `;` means in SCRIP Icon, so the correct expectation for these two is a
 question for that row, not a bug to fix underneath it. Re-check both when the dialect lands.
 
-## 1 file — THE NAME-ECHOING CLASS: a program whose OWN OUTPUT ENCODES ITS FILENAME cannot be absorbed (hq_V, 2026-09-10)
+## 2 files — THE NAME-ECHOING CLASS: a program whose OWN OUTPUT ENCODES ITS FILENAME cannot be absorbed (hq_V, 2026-09-10)
 
 `trace_call_line_prints_every_parameter_and_images_a_list.icn`
+`the_co_expression_activation_trace_event_names_its_enclosing_procedure_and_its_own_line.icn`
+
+⛔ **THE SECOND FILE JOINED THIS SECTION 2026-09-10 (hq_V), MEASURED THE SAME WAY AND BEFORE ANY ABSORB WAS ATTEMPTED:**
+the cto's co-expression trace witness (the flip of SCRIP `b84976b17`, the activation event naming its enclosing
+procedure) sets `&trace`, so **11 of its 15 ref lines begin `_own_line.icn:`** — the last 13 characters of its own
+file name, exactly the truncation `iconx` applies. It is a GOOD test and it is green as a loose pair; it simply
+cannot survive `descriptive_name()`. Absorbing it would have produced 11 red lines that read as a tracer defect
+and would have been chased as one. The rule that catches both files in one `grep`: **before absorbing any witness,
+count occurrences of its own stem in its ref — a nonzero count is a keeper, not a candidate.**
 
 The cfo cut this pair from `icont`+`iconx` (49 lines, corpus `dacee8c98`) and handed it for absorption
 into the master. **It is GREEN on this tree as a loose pair, in BOTH modes, and its ref re-cut from the
