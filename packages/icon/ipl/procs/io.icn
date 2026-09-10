@@ -361,7 +361,7 @@ procedure components(s,separator);	#: get components of file name
       "": [];
 # C. Shartsis:  4/23/95 - fix for MS-DOS
 #      default: components(head)
-      default: components(head, separator);
+      default: components(head, separator)
       } ||| ([&null ~=== x[2]] | []);
 end
 
