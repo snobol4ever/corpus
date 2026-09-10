@@ -1,0 +1,13 @@
+# ICON CLASSIC SET -- tree=SCRIP 38820e736 corpus 223c9755e RT_OPT=-O0 date=2026-09-10 reps=5 warmup=2
+# instrument: WALL ms and CPU ms (user+sys), MEDIAN of 5 runs after 2 discarded warm-ups. Spread%=(max-min)/min on wall.
+# basis: two-number. OVERHEAD = empty Icon program per engine (wall/cpu ms): iconx 0/0 jcont 90/140 m3 0/0 m4 0/0. WORK = median - OVERHEAD.
+# multiple = rival WORK / SCRIP m4 WORK on the SAME instrument (FASTER axis, >1 = SCRIP ahead). CEO-173: OVERHEAD >= 50% of an arm => basis=TOTAL.
+# ⛔ callgrind Ir REFUSES for the jcont arm (ceo CEO-494): a JVM Ir varies ~35% run to run. No multiple crosses instruments.
+# verdict: output byte-compared against an iconx cut taken AT RUN TIME. A wrong answer gets no multiple.
+program	verdict	iconx_wall_ms	iconx_cpu_ms	iconx_spread_pct	jcont_wall_ms	jcont_cpu_ms	jcont_spread_pct	m3_wall_ms	m3_cpu_ms	m3_spread_pct	m4_wall_ms	m4_cpu_ms	m4_spread_pct	iconx_WORK_wall	jcont_WORK_wall	m4_WORK_wall	basis	m4_x_vs_iconx	m4_x_vs_jcont
+concord	PASS/CUT	30	30	0	210	570	5	90	90	33	90	80	25	30	120	90	WORK	QNT:0.333x	QNT:1.333x
+deal	PASS/CUT	20	10	0	220	510	10	400	400	13	400	390	17	20	130	400	WORK	QNT:0.050x	QNT:0.325x
+ipxref	PASS/CUT	20	20	50	230	680	24	90	80	11	60	50	20	20	140	60	WORK	QNT:0.333x	QNT:2.333x
+queens	PASS/CUT	40	40	25	170	320	13	40	30	25	20	20	50	40	80	20	WORK	QNT:2.000x	QNT:TOTAL:8.500x
+rsg	PASS/CUT	10	10	0	180	370	11	60	50	40	30	20	50	10	90	30	WORK	QNT:0.333x	QNT:TOTAL:6.000x
+geddump	RED/RAW	170	170	6	520	2730	26	NA	NA	-	NA	NA	-	170	430	NA	-	(m3 rc=139 m4 rc=139)	-
