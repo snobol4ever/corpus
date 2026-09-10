@@ -15,7 +15,7 @@ procedure main(args)
     t := table(0);
     every i := 1 to 10000 do {
       s := s || "x";
-      t["k" || (i % 97)] := i;
+      t["k" || (i % 97)] := i
     }
   }
   n := 0;
@@ -25,9 +25,9 @@ procedure main(args)
     t := table(0);
     every i := 1 to 10000 do {
       s := s || "x";
-      t["k" || (i % 97)] := i;
+      t["k" || (i % 97)] := i
     }
-    n +:= 1;
+    n +:= 1
   }
   t1 := &time;
   write(n, " ", t1 - t0, " ", *s);

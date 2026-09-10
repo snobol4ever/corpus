@@ -4,7 +4,7 @@ procedure main()
    acc := 0;
    t0 := &time;
    every i := 1 to 40000000 do {
-      acc +:= s + 1;
+      acc +:= s + 1
       };
    write("ms: ", &time - t0);
    write("acc: ", acc);

@@ -21,7 +21,7 @@ procedure main ()
          word (ixor (i, j));
          word (ishift (i, j));
          word (ishift (i, -j));
-         write ();
+         write ()
          }
       }
 
@@ -78,7 +78,7 @@ procedure main ()
       c := char (i);
       n := ord (c);
       if n ~= i | c ~== s[i+1] then
-	 write ("oops -- ord/char failure at ",i);
+	 write ("oops -- ord/char failure at ",i)
    }
    if char("47") ~== char(47) then
       write ("oops -- type conversion failed in char()");
@@ -101,7 +101,7 @@ procedure main ()
    # try three kinds of reading in rotation
    while insert(fset, read(f)) do {
       insert(fset, !f);			# note just one per loop pass
-      insert(fset, reads(f, 25));	# assumes no name longer than 25
+      insert(fset, reads(f, 25))	# assumes no name longer than 25
       }
    every s := ![".", "..", "Makefile", "recent.icn", "recogn.dat", "nope"] do
       if member(fset, s) then
@@ -278,7 +278,7 @@ procedure dump (s, l)
        if (type(e) == ("r1" | "r3" | "list")) then
 	  every writes (" ", image(e[(1 to 5) | (95 to 100)]) | "\n")
        else
-	  write (" ", image(e));
+	  write (" ", image(e))
        }
     return;
     end

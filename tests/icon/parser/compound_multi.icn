@@ -2,6 +2,6 @@ procedure main()
     x := 1;
     {
         write(x);
-        write(x + 1);
+        write(x + 1)
     };
 end

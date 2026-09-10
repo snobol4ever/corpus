@@ -1,5 +1,5 @@
 procedure main()
   local i, t;
-  every i := 1 to 2000000 do { t := i % 97; }
+  every i := 1 to 2000000 do { t := i % 97 }
   write(t);
 end

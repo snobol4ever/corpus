@@ -34,7 +34,7 @@ procedure listtest()
 
       L2 := sort(copy(L1));
       L3 := sort(copy(set(L1)));
-      check(L2, L3);
+      check(L2, L3)
 
    }
 end
@@ -129,7 +129,7 @@ procedure check(a, b)
 	    "real":	d := (ai1 > ai) | &null;
 	    "string":	d := (ai1 >> ai) | &null
 	    }
-	 stop("element ", i, " out of order: ", image(\d));
+	 stop("element ", i, " out of order: ", image(\d))
          }
       }
    return;
@@ -228,7 +228,7 @@ procedure wsortf(L, n)
       s := image(e);
       if (s ? =("list" | "record")) & not (s ?= "record constructor") then
          writes("key=", image(e[n]), " ");	# may fail
-      write(s);
+      write(s)
       }
    return;
 end

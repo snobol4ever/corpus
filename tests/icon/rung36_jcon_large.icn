@@ -26,7 +26,7 @@ procedure main ()
    every i := 10 | 30 | 70 | 100 do {
       write(2 ^ i);
       write(2 ^ i || ":" || image(2 ^ i));
-      foo(2 ^ i);
+      foo(2 ^ i)
       };
 end
 

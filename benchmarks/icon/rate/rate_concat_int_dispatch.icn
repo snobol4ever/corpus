@@ -11,13 +11,13 @@ procedure main(args)
   budget := integer(args[2]) | 2000;
   t0 := &time;
   while &time - t0 < warm do {
-    every i := 1 to 20000 do { t := "abcdefgh" || (i % 97); }
+    every i := 1 to 20000 do { t := "abcdefgh" || (i % 97) }
   }
   n := 0;
   t0 := &time;
   while &time - t0 < budget do {
-    every i := 1 to 20000 do { t := "abcdefgh" || (i % 97); }
-    n +:= 1;
+    every i := 1 to 20000 do { t := "abcdefgh" || (i % 97) }
+    n +:= 1
   }
   t1 := &time;
   write(n, " ", t1 - t0, " ", *t);

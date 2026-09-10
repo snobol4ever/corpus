@@ -17,7 +17,7 @@ procedure main()
       write("tree walk");
       every write(walk(tree));
       write("leaves");
-      every write(leaves(tree));
+      every write(leaves(tree))
        }
 end
 
@@ -29,7 +29,7 @@ procedure tform(s)
       left := tab(bal(','));
       move(1);
       right := tab(bal(')'));
-      return node(value,tform(left),tform(right));
+      return node(value,tform(left),tform(right))
        }
       else return node(s);
 end

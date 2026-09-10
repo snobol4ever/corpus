@@ -104,14 +104,14 @@ procedure wfile(name, mode, s)
       tab(many(' '));
       while not pos(0) do {
 	 write(f, tab(upto(' ') | 0));
-	 tab(many(' '));
+	 tab(many(' '))
          }
       write(" : ", where(f));
       flush(f);
-      close(f);
+      close(f)
       }
    else {
-      write("can't open");
+      write("can't open")
       }
    return;
 end
@@ -126,7 +126,7 @@ procedure rfile(name)
    writes("read  ", name, ":\t");
    if not (f := open(name, "r")) then {
       write(" can't open");
-      fail;
+      fail
       }
 
    # read()

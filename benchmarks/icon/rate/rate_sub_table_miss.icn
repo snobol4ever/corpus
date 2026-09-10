@@ -13,15 +13,15 @@ procedure main(args)
   while &time - t0 < warm do {
     t := table(0);
     t["seed"] := 1;
-    every i := 1 to 20000 do { x := t["absent"]; }
+    every i := 1 to 20000 do { x := t["absent"] }
   }
   n := 0;
   t0 := &time;
   while &time - t0 < budget do {
     t := table(0);
     t["seed"] := 1;
-    every i := 1 to 20000 do { x := t["absent"]; }
-    n +:= 1;
+    every i := 1 to 20000 do { x := t["absent"] }
+    n +:= 1
   }
   t1 := &time;
   write(n, " ", t1 - t0, " ", x);

@@ -26,7 +26,7 @@ procedure main()
    alist := [];
    while *alist < 14 do {
        every write((!plist) ! alist);
-       put(alist, *alist + 1);
+       put(alist, *alist + 1)
    };
 end
 
@@ -391,7 +391,7 @@ procedure main()
          maxword <:= *word;			# keep track of longest word
 						# if it's a new word, start set
          if *words[word] = 0 then words[word] := set([lineno])
-         else insert(words[word],lineno);	# else add the line number
+         else insert(words[word],lineno)	# else add the line number
          }
       }
    write();
@@ -401,7 +401,7 @@ procedure main()
       lines := "";				# build up line numbers
       numbers := sort(wordlist[i][2]);
       while lines ||:= get(numbers) || ", ";
-      write(left(word,maxword + 2),": ",lines[1:-2]);
+      write(left(word,maxword + 2),": ",lines[1:-2])
       }
 end
 #-------------------------------------------------------- 6 rung36_jcon_diffwrds
@@ -507,7 +507,7 @@ procedure endetab1 ()
          t := entab ! params;		# run entab
          if t ~== interp (line) then {	# check results
             write ("entab error: ", map(line,"\t\r\n\b\007","!RNBA"));
-            write ("   returned: ", map(t,   "\t\r\n\b\007","!RNBA"));
+            write ("   returned: ", map(t,   "\t\r\n\b\007","!RNBA"))
          } else {
             if upto ('\t', s) then	# detab input if it had a tab
                s := detab ! params;
@@ -515,7 +515,7 @@ procedure endetab1 ()
             t := detab ! params;		# detab the result of the entab
             if t ~== s then {		# compare results
                write ("detab error: ", map(line,"\t\r\n\b\007","!RNBA"));
-               write ("   returned: ", map(t,   "\t\r\n\b\007","!RNBA"));
+               write ("   returned: ", map(t,   "\t\r\n\b\007","!RNBA"))
                }
             }
          }
@@ -539,8 +539,8 @@ procedure escape (line);		# interpret escape sequences and trim one '$'
             "n": "\n";
             "r": "\r";
             "t": "\t";
-            default: "\\" || c;
-         });
+            default: "\\" || c
+         })
       }
    return s;
 end
@@ -554,7 +554,7 @@ procedure interp (pattern);	# interpret metacharacters '!.'
    pattern ? 
       while not pos (0) do {
          tab (many ('.'));
-         s ||:= tab (upto ('.') | 0);
+         s ||:= tab (upto ('.') | 0)
       }
    return map (s, "!", "\t");
 end
@@ -676,7 +676,7 @@ procedure q5()
 	every wf ((cos | sin | tan) (v));
 	every wf ((sqrt | exp | log) (v));
 	wf (log(v,3));
-	write ();
+	write ()
     }
     end
 
@@ -772,7 +772,7 @@ procedure main(args)
    while line := in() do {
       lineno +:= 1;
       line := braces(line);
-      out(line);
+      out(line)
       }
 
    while t := pop(tagstack) do
@@ -802,13 +802,13 @@ procedure braces(line)
                if t.label == "!" then
                   s ||:= "-->"
                else
-                  s ||:= "</" || t.label || ">";
+                  s ||:= "</" || t.label || ">"
                }
             else
-               lwarn("tag stack underflow");
+               lwarn("tag stack underflow")
             }
          }
-      return s ||:= tab(0);
+      return s ||:= tab(0)
       }
 end
 
@@ -823,7 +823,7 @@ procedure newtag()
       return "";
    if ="!" then {
       push(tagstack, tag("!", lineno));
-      return "<!--";
+      return "<!--"
       }
 
    if c := tab(any('@:')) then {
@@ -832,11 +832,11 @@ procedure newtag()
          s := "<a href="
       else
          s := "<a name=";
-      s ||:= attval();
+      s ||:= attval()
       }
    else {
       label := tab(many(idset)) | (lwarn("unlabeled tag") & "noname");
-      s := "<" || label;
+      s := "<" || label
       }
 
    if \cmdtable[map(label)] then
@@ -882,7 +882,7 @@ procedure docommand(label)
       tab(many(WSPACE));
       id := tab(many(idset));
       move(2);
-      atts[id] := tab(-1);
+      atts[id] := tab(-1)
       }
    while tab(many(WSPACE)) & (s := tab(bal(' }', '{', '}'))) do
       put(words, s);
@@ -913,9 +913,9 @@ procedure in()
          if any(&ascii) then
             s ||:= "\\" || char(128 + ord(move(1)))
          else
-            s ||:= move(1);
+            s ||:= move(1)
          }
-      return s ||:= tab(0);
+      return s ||:= tab(0)
       }
    fail;
 end
@@ -935,7 +935,7 @@ procedure divert(atts, words)
 
    if *words ~= 1 then {
       lwarn("usage: {divert filename}");
-      fail;
+      fail
       }
 
    fname := get(words);
@@ -943,18 +943,18 @@ procedure divert(atts, words)
       if read(f) ~== SIGNATURE then {
          lwarn("divert: won't overwrite non-htprep file ", fname);
          close(f);
-         fail;
+         fail
          }
-      close(f);
+      close(f)
       }
 
    if outfile := open(fname, "w") then {
       out(SIGNATURE);
-      return "";
+      return ""
       }
    else {
       lwarn("divert: can't open ", fname);
-      fail;
+      fail
       }
 end
 
@@ -974,9 +974,9 @@ procedure out(s)
    s ? {
       while writes(outfile, tab(upto('\\'))) do {
          move(1);
-         writes(outfile, char(iand(127, ord(move(1)))));
+         writes(outfile, char(iand(127, ord(move(1)))))
          }
-      write(outfile, tab(0));
+      write(outfile, tab(0))
       }
    return;
 end
@@ -1018,7 +1018,7 @@ procedure main()
    while line := read() do { 
       write();
       j := upto(':',line);
-      cross(line[ 1:j ],line[ j+1:0 ]);
+      cross(line[ 1:j ],line[ j+1:0 ])
        };
 end
 
@@ -1110,7 +1110,7 @@ procedure kw(label, value)
    case type(value) of {
       "string":  s := value;
       "cset":    s := image(value) || "  [size " || *value || "]";
-      default:   s := image(value);
+      default:   s := image(value)
       }
    write(right("&" || label, 12), ": ", s);
    prev := label;
@@ -1172,7 +1172,7 @@ procedure main()
       wr(s ~== t | &null);
       wr(s >>= t | &null);
       wr(s >> t  | &null);
-      write();
+      write()
       };
    end
 
@@ -1339,10 +1339,10 @@ procedure main()
       line ? if { 
          alpha := tab(upto(':')) &
          move(1) &
-         n := integer(tab(0));
+         n := integer(tab(0))
           }
          then write(meander(alpha,n))
-         else stop("*** erroneous input ***");
+         else stop("*** erroneous input ***")
        }
 end
 
@@ -1392,7 +1392,7 @@ procedure main (args)
 		c := move(1);
 		if not any(pset,c) then { # if first appearance of new player
 		    pset ++:= c;		# add to set of players
-		    plist ||:= c;	# add at end of list
+		    plist ||:= c	# add at end of list
 		}
 	    }
 	}
@@ -1410,7 +1410,7 @@ procedure main (args)
 	angle[c] := theta;
 	cart(47, theta, -1, -1);
 	write("(",c,") text");
-	theta -:= dtheta;
+	theta -:= dtheta
     }
 
     # draw each round in a different color
@@ -1434,10 +1434,10 @@ procedure main (args)
 	    cart (45, angle[match[3]], 0, 0);  writes ("line stroke ");
 	    cart (45, angle[match[2]], 0, 0);  writes ("begin ");
 	    cart (45, angle[match[4]], 0, 0);  write  ("line stroke");
-	    nmatches +:= 1;
+	    nmatches +:= 1
 	}
 	n +:= 1;
-	newcolor();
+	newcolor()
     }
 
     # write some final statistics
@@ -1472,7 +1472,7 @@ procedure newcolor()
 	green := (green + 211) % 256;
 	blue := (blue + 71) % 256;
 	lum := 0.30 * red + 0.59 * green + 0.11 * blue;
-	if lum > 96 then return;
+	if lum > 96 then return
     }
     end
 #--------------------------------------------------------- 20 rung36_jcon_mindfa
@@ -1504,7 +1504,7 @@ local q,a;
    d := table();
    every q := !Q & a := !S do {
       writes("enter delta(",q,",",a,") = ");
-      d[q||":"||a] := read();
+      d[q||":"||a] := read()
       }
    return dfa(Q,S,d,q0,F);
 
@@ -1542,7 +1542,7 @@ local q,a;
    write("\tDelta: ");
    every q := !D.Q do {
       every writes("\td(",q,",",a := !D.S,") = ",D.d[q||":"||a]);
-      write();
+      write()
       }
    return D;
 
@@ -1576,7 +1576,7 @@ local p,q,a,cs;
           (p := !QF & q := !QF)) & p ~== q do
       if \distab[cset(D.d[p||":"||(a:=!D.S)]||D.d[q||":"||a])] then {
          distab[cset(p||q)] := "X";
-         marklists(dlists[cset(p||q)]);
+         marklists(dlists[cset(p||q)])
          }
       else
          every a := !D.S do
@@ -1584,7 +1584,7 @@ local p,q,a,cs;
                cs := cset(D.d[p||":"||a]||D.d[q||":"||a]);
                if cs == cset(p||q) then next;
                /dlists[cs] := [];
-               put(dlists[cs],cset(p||q));
+               put(dlists[cs],cset(p||q))
                }
 
    return makemdfa(D,distab);
@@ -1599,7 +1599,7 @@ local e;
    if /l then return;
    every e := !l do {
       distab[e] := "X";
-      marklists(dlists[e]);
+      marklists(dlists[e])
       }
    return;
 
@@ -1618,9 +1618,9 @@ local p, q, Delta, q0;
       plike := equiv(p,etab) | cset(p);
       every q := !diff(D.Q,qset) & p ~== q do
          if /distab[cset(p||q)] then {
-            plike ++:= equiv(q,etab) | q;
+            plike ++:= equiv(q,etab) | q
             }
-      etab[plike] := plike;
+      etab[plike] := plike
       }
    tlist := [];
    elist := [];
@@ -1637,7 +1637,7 @@ local p, q, Delta, q0;
          if /echeck[Delta[q||":"||a]] then {
             echeck[Delta[q||":"||a]] := Delta[q||":"||a];
             put(tlist,Delta[q||":"||a]);
-            put(elist,Delta[q||":"||a]);
+            put(elist,Delta[q||":"||a])
             }
          }
 
@@ -2009,13 +2009,13 @@ procedure precheck (v, s, p)
       if /v then
 	 write ("error: no predefined symbol for ", s)
       else if \p then 
-	 write ("found feature: ", s);
+	 write ("found feature: ", s)
       }
    else {
       if \v then
 	 write ("error: unexpected predefined symbol for ", s)
       else if \p then 
-	 write ("no feature:    ", s);
+	 write ("no feature:    ", s)
       }
 end
 #--------------------------------------------------------- 24 rung36_jcon_primes
@@ -2028,7 +2028,7 @@ procedure main()
    every i := 2 to 100 do {
       if i % (2 to i - 1) = 0 then
          next;
-      write(i);
+      write(i)
    };
 end
 #--------------------------------------------------------- 25 rung36_jcon_queens
@@ -2103,13 +2103,13 @@ procedure q(c)
    initial {
       up := list(2*n-1,0);
       down := list(2*n-1,0);
-      rows := list(n,0);
+      rows := list(n,0)
       }
    every 0 = rows[r := 1 to n] = up[n+r-c] = down[r+c-1] &
       rows[r] <- up[n+r-c] <- down[r+c-1] <- 1        do {
          solution[c] := r;	# record placement.
          if c = n then show()
-         else q(c + 1);		# try to place next queen.
+         else q(c + 1)		# try to place next queen.
          }
 end
 
@@ -2120,13 +2120,13 @@ procedure show()
    initial {
       count := 0;
       line := repl("|   ",n) || "|";
-      border := repl("----",n) || "-";
+      border := repl("----",n) || "-"
       }
    write("solution: ", count+:=1);
    write("  ", border);
    every line[4*(!solution - 1) + 3] <- "Q" do {
       write("  ", line);
-      write("  ", border);
+      write("  ", border)
       }
    write();
 end
@@ -2166,9 +2166,9 @@ procedure rtest()
       T := table();
       every i := 1 to 100 do {
          put(L, i);
-	 T[i] := -i;
+	 T[i] := -i
       }
-      S := set(L);
+      S := set(L)
    }
 
    write();
@@ -2331,8 +2331,8 @@ procedure main()
    write();
 
    "123456" ? write(tab(1), " ", tab(2));
-   "123456" ? { write(tab(2)); write(tab(4)); write(tab(-1)); write(tab(0)); };
-   "123456" ? { write(tab(4)); write(tab(1)); write(tab(3)); };
+   "123456" ? { write(tab(2)); write(tab(4)); write(tab(-1)); write(tab(0)) };
+   "123456" ? { write(tab(4)); write(tab(1)); write(tab(3)) };
    write();
 
    every write("-35" ? bal('-'));
@@ -2340,7 +2340,7 @@ procedure main()
    every write("[+,[2,3]],[*,[5,10]]" ? bal(',', '[', ']'));
    write();
 
-   "12345" ? { write(pos(1)); write(pos(-5)); write(pos(3)|"fail"); };
+   "12345" ? { write(pos(1)); write(pos(-5)); write(pos(3)|"fail") };
    write();
 
    "12345" ? { write(="123" | "fail") };
@@ -2354,27 +2354,27 @@ procedure main()
    uppers := &cset -- &ascii;
    &ascii ? {
       every writes(" ", "ascii?skips" | upto(skips) | "\n");
-      every writes(" ", "ascii?vowls" | upto(vowels) | "\n");
+      every writes(" ", "ascii?vowls" | upto(vowels) | "\n")
       };
    &letters ? {
       every writes(" ", "letts?skips" | upto(skips) | "\n");
-      every writes(" ", "letts?vowls" | upto(vowels) | "\n");
+      every writes(" ", "letts?vowls" | upto(vowels) | "\n")
       };
    vowels ? {
       every writes(" ", "vowls?skips" | upto(skips) | "\n");
       every writes(" ", "vowls?letts" | upto(&letters) | "\n");
-      every writes(" ", "vowls?ascii" | upto(&ascii) | "\n");
+      every writes(" ", "vowls?ascii" | upto(&ascii) | "\n")
       };
    skips ? {
       every writes(" ", "skips?vowls" | upto(vowels) | "\n");
       every writes(" ", "skips?letts" | upto(&letters) | "\n");
       every writes(" ", "skips?ascii" | upto(&ascii) | "\n");
       every writes(" ", "skips?upprs" | upto(uppers) | "\n");
-      every writes(" ", "skips?skips" | upto(skips) | "\n");
+      every writes(" ", "skips?skips" | upto(skips) | "\n")
       };
    uppers ? {
       every writes(" ", "upprs?ascii" | upto(&ascii) | "\n");
-      every writes(" ", "upprs?skips" | upto(skips) | "\n");
+      every writes(" ", "upprs?skips" | upto(skips) | "\n")
       };
 end
 #----------------------------------------------------------- 31 rung36_jcon_sets
@@ -2717,9 +2717,9 @@ procedure main()
       "inner" ? {
          ws();
          &pos := 2;
-         ws();
+         ws()
          }
-      ws();
+      ws()
       }
 
    "123456" ? {
@@ -2751,7 +2751,7 @@ procedure main()
       &pos := 3;
       x := 2;
       every x <-> &pos do &subject := "A";
-      write("&pos=", &pos, " x=", x);
+      write("&pos=", &pos, " x=", x)
    }
 end
 
@@ -2807,7 +2807,7 @@ procedure main()
       if s[i] := t[i] then
          write("J ", i, ". ", s)
       else
-         write("J ", i, ". --");
+         write("J ", i, ". --")
       }
 
    every i := 1 to 6 do {
@@ -2817,7 +2817,7 @@ procedure main()
 	 if s[i:j] := "(*)" then
 	    write(s)
 	 else
-	    write(s, " [failed]");
+	    write(s, " [failed]")
          }
       }
 
@@ -2829,7 +2829,7 @@ procedure main()
 	    if s[i:j][k:2] := "(*)" then
 	       write(s)
 	    else
-	       write(s, " [failed]");
+	       write(s, " [failed]")
 	    }
          }
       }
@@ -2935,10 +2935,10 @@ procedure tdump(label, T)
    every x := &null | (0 to 9) | !"abcde" do
       if x === key(T) then {
          writes(" [", image(x), "]", image(T[x]));
-	 member(T, x) | writes(":NONMEMBER");
+	 member(T, x) | writes(":NONMEMBER")
          }
       else {
-	 member(T, x) & writes(" MEMBER:", image(x));
+	 member(T, x) & writes(" MEMBER:", image(x))
          };
    write();
    return;
@@ -3057,7 +3057,7 @@ procedure main()
 	"fghjkl" ? {
 		write(tab(3));
 		write(&pos);
-		write(tab(5));
+		write(tab(5))
 	};
 	write("nested");
 	"123456" ? {
@@ -3065,10 +3065,10 @@ procedure main()
 		"abcdef" ? {
 			write(tab(3));
 			write(&pos);
-			write(tab(5));
+			write(tab(5))
 		};
 		write(&pos);
-		write(tab(5));
+		write(tab(5))
 	};
 
 	write("break");
@@ -3082,15 +3082,15 @@ procedure main()
 
 	write("non-local");
 	"qwerty" ? {
-		every write(foo()) do write(move(1));
+		every write(foo()) do write(move(1))
 	};
 
 	"abcdef" ? {
 	    write(&pos);
 	    every ="abc" do {
-	        write(&pos);
+	        write(&pos)
 	    };
-	    write(&pos);
+	    write(&pos)
 	};
 end
 

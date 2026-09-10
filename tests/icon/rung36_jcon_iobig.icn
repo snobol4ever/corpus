@@ -21,7 +21,7 @@ procedure testio(fname, mode, rfunc, wfunc, datagen);	#: test one file
    while s := @datagen do {
       n +:= 1;
       t := rfunc(f, if rfunc === reads then *s else &null);
-      if s ~== t then stop("mismatch on item ", n);
+      if s ~== t then stop("mismatch on item ", n)
       };
 
    if rfunc(f) then stop("read extra data beyond expected EOF");

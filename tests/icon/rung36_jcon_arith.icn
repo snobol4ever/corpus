@@ -103,7 +103,7 @@ procedure shifttest()
       wr25(ishift(1, n));
       wr25(ishift(1703, n));
       wr25(ishift(-251, n));
-      write();
+      write()
    }
 end
 
@@ -123,7 +123,7 @@ procedure pow(m, n)
       if v > 0 then
 	 v := integer(v * 1000 + 0.5) / 1000.0
       else
-	 v := integer(v * 1000 - 0.5) / 1000.0;
+	 v := integer(v * 1000 - 0.5) / 1000.0
       }
    write(right(m, 5), " ^ ", left(n, 5), "=", right(v, 7));
    return;

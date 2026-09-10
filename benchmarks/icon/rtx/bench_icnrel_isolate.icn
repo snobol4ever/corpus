@@ -54,7 +54,7 @@ procedure main()
       if lo  << hi  then c := c + 4;
       if hi  >> lo  then c := c + 8;
       if eqa ~== ne then c := c + 16;
-      if lo  <<= hi then c := c + 32;
+      if lo  <<= hi then c := c + 32
    };
 
    write("chk: ", c);

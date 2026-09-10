@@ -12,14 +12,14 @@ procedure main(args)
   t0 := &time;
   while &time - t0 < warm do {
     s := "ijklmnop";
-    every i := 1 to 20000 do { t := "abcdefgh" || s; }
+    every i := 1 to 20000 do { t := "abcdefgh" || s }
   }
   n := 0;
   t0 := &time;
   while &time - t0 < budget do {
     s := "ijklmnop";
-    every i := 1 to 20000 do { t := "abcdefgh" || s; }
-    n +:= 1;
+    every i := 1 to 20000 do { t := "abcdefgh" || s }
+    n +:= 1
   }
   t1 := &time;
   write(n, " ", t1 - t0, " ", *t);

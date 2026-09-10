@@ -37,7 +37,7 @@ procedure form(s,k)
    s ? { 
       a1 := tab(k);
       op := move(1);
-      a2 := tab(0);
+      a2 := tab(0)
        };
    return op || "(" || prefix(a1) || "," || prefix(a2) || ")";
 end

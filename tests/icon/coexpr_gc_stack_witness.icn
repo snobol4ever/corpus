@@ -18,7 +18,7 @@ procedure build(depth)
    if depth > 0 then {
       put(kids, node("X", []));
       put(kids, build(depth - 1));
-      put(kids, node("Y", []));
+      put(kids, node("Y", []))
    }
    return node("T" || depth, kids);
 end

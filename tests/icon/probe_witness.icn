@@ -4,8 +4,8 @@
 #  Line 1 oracle: ABC112D   (only "C", the immediate predecessor, is lost)
 #  Line 2 oracle: A1B12     (two carves, two victims)
 procedure main()
-   "112 xy" ? { write("A", "B", "C", tab(4), "D"); };
-   "112 xy" ? { write("A", tab(2), "B", tab(4)); };
+   "112 xy" ? { write("A", "B", "C", tab(4), "D") };
+   "112 xy" ? { write("A", tab(2), "B", tab(4)) };
 end
 #----------------------------------------- 2 witness_icn_argslot_collision_match
 #  Same collision via match() -- a POSITION-RETURNER, not a cursor-mover.  This
@@ -14,7 +14,7 @@ end
 #  sites (emit.cpp:1230/1231/1236).  many/any/upto/find/bal/pos are all clean.
 #  Oracle: A4C
 procedure main()
-   "112 xy" ? { write("A", match("112"), "C"); };
+   "112 xy" ? { write("A", match("112"), "C") };
 end
 #-------------------------------------- 3 witness_icn_argslot_collision_nonwrite
 #  Not write()-specific and not literal-specific: a user-defined procedure loses
@@ -32,10 +32,10 @@ procedure f(a, b, c)
 end
 procedure main()
    local L, v, x;
-   "112 xy" ? { f("A", tab(4), "C"); };
-   "112 xy" ? { L := ["A", tab(4), "C"]; write(L[1], " ", L[2], " ", L[3]); };
+   "112 xy" ? { f("A", tab(4), "C") };
+   "112 xy" ? { L := ["A", tab(4), "C"]; write(L[1], " ", L[2], " ", L[3]) };
    v := "A";
-   "112 xy" ? { x := tab(4); write(v, x, "C"); };
+   "112 xy" ? { x := tab(4); write(v, x, "C") };
 end
 #------------------------------------------- 4 witness_icn_argslot_collision_tab
 #  The operand immediately preceding a scan-family call in an argument list is
@@ -45,27 +45,27 @@ end
 #  Slots are handed out in sequential 16B units, so the victim is deterministic.
 #  Oracle: A112C
 procedure main()
-   "112 xy" ? { write("A", tab(4), "C"); };
+   "112 xy" ? { write("A", tab(4), "C") };
 end
 #------------------------------------------------ 5 witness_icn_carve_leak_lucky
 procedure main()
    local s;
    s := "-n10";
-   s ? { tab(2); };
+   s ? { tab(2) };
    write("s=[", s, "] *s=", *s);
 end
 #---------------------------------------------- 6 witness_icn_carve_leak_subject
 procedure main()
    local s;
    s := "-n10";
-   s ? { if ="-" then write("blk1 matched"); };
-   s ? { write("blk2 *subj=", *&subject, " subj=[", &subject, "]"); };
+   s ? { if ="-" then write("blk1 matched") };
+   s ? { write("blk2 *subj=", *&subject, " subj=[", &subject, "]") };
 end
 #-------------------------------------------------- 7 witness_icn_carve_leak_var
 procedure main()
    local s;
    s := "-n10";
-   s ? { tab(match("-")); };
+   s ? { tab(match("-")) };
    write("s=[", s, "] *s=", *s);
 end
 #----------------------------------------- 8 witness_icn_frameslot_shift_options
@@ -81,8 +81,8 @@ procedure opts(arg,optstring)
       if ="-" then {
          while c := move(1) do
             write("c=",image(c)," optstring=",image(optstring),
-                  " find=",image(find(c,optstring)));
-      };
+                  " find=",image(find(c,optstring)))
+      }
    };
 end
 procedure main()
@@ -99,7 +99,7 @@ procedure t(p,q,r,s)
    write("entry:       p=",image(p)," q=",image(q)," r=",image(r)," s=",image(s));
    p ? {
       if ="-" then
-         write("after match: p=",image(p)," q=",image(q)," r=",image(r)," s=",image(s));
+         write("after match: p=",image(p)," q=",image(q)," r=",image(r)," s=",image(s))
    };
 end
 procedure main()
@@ -118,7 +118,7 @@ procedure opt2(arg)
    while x := get(arg) do
       x ? {
          if ="-" & not pos(0) then {
-            write("dash");
+            write("dash")
             }
          else put(flist,x)
          };
@@ -128,6 +128,6 @@ end
 procedure main()
    local s;
    s := "-n10";
-   s ? { if ="-" then write("A match"); };
-   s ? { write("B &pos=", &pos, " pos(1)=", if pos(1) then "Y" else "N", " pos(0)=", if pos(0) then "Y" else "N", " pos(5)=", if pos(5) then "Y" else "N"); };
+   s ? { if ="-" then write("A match") };
+   s ? { write("B &pos=", &pos, " pos(1)=", if pos(1) then "Y" else "N", " pos(0)=", if pos(0) then "Y" else "N", " pos(5)=", if pos(5) then "Y" else "N") };
 end

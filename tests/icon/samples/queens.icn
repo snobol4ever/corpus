@@ -20,21 +20,21 @@ procedure show()
         write("  ", sep);
         line := repl("|   ", n) || "|";
         line[4*(placed[col]-1)+3] := "Q";
-        write("  ", line);
+        write("  ", line)
     };
     write("  ", sep);
 end
 
 procedure try_col(c)
     local r;
-    if c > n then { show(); return; };
+    if c > n then { show(); return };
     every r := 1 to n do {
         if safe(c, r) then {
             placed[c] := r;
             rows[r] := 1; up[n+r-c] := 1; down[r+c-1] := 1;
             try_col(c + 1);
-            rows[r] := 0; up[n+r-c] := 0; down[r+c-1] := 0;
-        };
+            rows[r] := 0; up[n+r-c] := 0; down[r+c-1] := 0
+        }
     };
 end
 

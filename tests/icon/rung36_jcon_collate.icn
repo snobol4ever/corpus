@@ -25,15 +25,15 @@ procedure collate(s1,s2)
     llabels := ltemp;
     rlabels := rtemp;
     blabels := string(&cset);
-    half := *llabels;
+    half := *llabels
     }
    if *s1 > *s2 then {
       t := s1[*s2+1:0];
-      s1 := s1[1:*s2+1];
+      s1 := s1[1:*s2+1]
       }
    else if *s2 > *s1 then {
       t := s2[*s1+1:0];
-      s2 := s2[1:*s1+1];
+      s2 := s2[1:*s1+1]
       }
    else t := "";
   length := *s1;
@@ -51,7 +51,7 @@ procedure decollate(s,n)
    initial {
       image := collate(&cset[2:0],repl(&cset[1],*&cset-1));
       object := string(&cset);
-      dsize := *image;
+      dsize := *image
       }
    n %:= 2;
    ssize := *s;
@@ -75,6 +75,6 @@ procedure permute(s)
       x := s[i];
       t := s;
       t[i] := "";
-      suspend x || permute(t);
+      suspend x || permute(t)
       }
 end

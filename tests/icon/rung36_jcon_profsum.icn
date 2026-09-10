@@ -34,7 +34,7 @@ procedure main(args)
           next;
       if not any(&digits) then
           break;
-      accumulate();
+      accumulate()
       }
 
    l := [];
@@ -43,7 +43,7 @@ procedure main(args)
       p.tlocal := p.tself - p.tcalled;
       if p.tlocal > 0 then
          ttotal +:= p.tlocal;
-      put(l, p);
+      put(l, p)
    }
 
    # !ptab's own iteration order is per-implementation hash, not a language guarantee, so sort by an
@@ -74,7 +74,7 @@ procedure main(args)
 	 pad(p.tlocal, (if pcttotal = 100 then 6 else 7)), " ",
          pad(pctlocal, 2), "%",
 	 "  ",
-	 p.name);
+	 p.name)
       }
 
 end
@@ -125,7 +125,7 @@ procedure fixname(s)
    s ? {
       # strip "meaningless" prefix
       ="jcon/" | (="java/" & tab(upto('/') + 1)) | (="p_l$" & tab(upto('$')));
-      return tab(0);
+      return tab(0)
    }
 end
 

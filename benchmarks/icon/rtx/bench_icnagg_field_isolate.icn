@@ -57,7 +57,7 @@ procedure main()
       c := c + r.f01 + r.f02 + r.f03 + r.f04 + r.f05;
       c := c + r.f06 + r.f07 + r.f08 + r.f09 + r.f10;
       c := c + r.f08 + r.f09 + r.f10;
-      c := c + r.f08 + r.f09 + r.f10;
+      c := c + r.f08 + r.f09 + r.f10
    };
 
    write("chk: ", c);

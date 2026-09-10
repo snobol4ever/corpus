@@ -7,7 +7,7 @@ procedure palindrome(s)
     while i < j do {
         if s[i] ~== s[j] then return "no";
         i +:= 1;
-        j -:= 1;
+        j -:= 1
     };
     return "yes";
 end

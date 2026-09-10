@@ -152,7 +152,7 @@ procedure optim_def_use(p, uses, defs)
 
     "ir_Unreachable":{ };
 
-    default :   { runerr(500, p); }
+    default :   { runerr(500, p) }
     };
 end
 
@@ -180,22 +180,22 @@ procedure optim_rewrite(p, rename)
     "ir_IndirectGoto" :  { };
     "ir_Var" :   { p.lhs := optim_rename(\p.lhs, rename) };
     "ir_Key" :   { p.lhs := optim_rename(\p.lhs, rename); 
-            p.failLabel := optim_rename(\p.failLabel, rename);
+            p.failLabel := optim_rename(\p.failLabel, rename)
 	    };
     "ir_IntLit" :    { p.lhs := optim_rename(\p.lhs, rename) };
     "ir_RealLit" :   { p.lhs := optim_rename(\p.lhs, rename) };
     "ir_StrLit" :    { p.lhs := optim_rename(\p.lhs, rename) };
     "ir_CsetLit" :   { p.lhs := optim_rename(\p.lhs, rename) };
     "ir_Succeed" :   { p.expr := optim_rename(p.expr, rename);
-            p.resumeLabel := optim_rename(\p.resumeLabel, rename); };
+            p.resumeLabel := optim_rename(\p.resumeLabel, rename) };
     "ir_Fail" :  { };
     "ir_ResumeValue" :    { p.value := optim_rename(p.value, rename);
             p.failLabel := optim_rename(\p.failLabel, rename);
-            p.lhs := optim_rename(\p.lhs, rename); };
+            p.lhs := optim_rename(\p.lhs, rename) };
     "ir_MakeList" :  { p.lhs := optim_rename(\p.lhs, rename);
             every i := 1 to *p.valueList do {
                 p.valueList[i] := optim_rename(p.valueList[i],
-                                  rename); }
+                                  rename) }
             };
     "ir_Field" : { p.lhs := optim_rename(\p.lhs, rename);
             p.expr := optim_rename(p.expr, rename);
@@ -204,20 +204,20 @@ procedure optim_rewrite(p, rename)
     "ir_Call" |
     "ir_OpFunction":{p.lhs := optim_rename(\p.lhs, rename);
             every i := 1 to *p.argList do {
-                p.argList[i] := optim_rename(p.argList[i], rename);
+                p.argList[i] := optim_rename(p.argList[i], rename)
 	    };
-            p.failLabel := optim_rename(\p.failLabel, rename);
+            p.failLabel := optim_rename(\p.failLabel, rename)
             };
     "ir_Create" :    {
             p.lhs := optim_rename(\p.lhs, rename);
-	    p.coexpLabel := optim_rename(p.coexpLabel, rename); };
+	    p.coexpLabel := optim_rename(p.coexpLabel, rename) };
     "ir_CoRet" : { p.value := optim_rename(p.value, rename);
-            p.resumeLabel := optim_rename(p.resumeLabel, rename);};
+            p.resumeLabel := optim_rename(p.resumeLabel, rename)};
     "ir_CoFail" :    { };
     "ir_Unreachable":{ };
     "ir_EnterInit" : { p.startLabel := optim_rename(p.startLabel, rename) };
 
-    default :   { runerr(500,p); }
+    default :   { runerr(500,p) }
     };
     return p;
 end

@@ -6,7 +6,7 @@ procedure main()
     s ? {
         while tab(upto(&letters)) do {
             tab(many(&letters));
-            count +:= 1;
+            count +:= 1
         }
     };
     write(count);

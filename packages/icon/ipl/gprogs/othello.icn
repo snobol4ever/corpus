@@ -552,7 +552,7 @@ end
 
 procedure opposite(c);			# map(c,"bw","wb")
    static opp;
-   initial { opp := table(); opp["b"] := "w"; opp["w"] := "b"; };
+   initial { opp := table(); opp["b"] := "w"; opp["w"] := "b" };
    return \opp[c];
 end
 

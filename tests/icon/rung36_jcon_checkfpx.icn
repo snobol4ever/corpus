@@ -107,7 +107,7 @@ procedure Image(x)
          if head := tab(upto('e'))
          then {
             tail := tab(0);
-            head ? return (tab(span | 0) || tail);
+            head ? return (tab(span | 0) || tail)
             }
          else {
             head := tab(span - 1 | 0);
@@ -121,7 +121,7 @@ procedure Image(x)
             else {
                if head[-1] == "." then
                   head ||:= (move(1) | "0");
-               return head;
+               return head
                }
             }
          }

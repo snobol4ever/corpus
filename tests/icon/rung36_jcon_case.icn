@@ -26,7 +26,7 @@ procedure main(args)
 	L:        "L";
         default:  "default"
         }
-      write(right(s, 10), " : " , image(x));
+      write(right(s, 10), " : " , image(x))
       }
 end
 

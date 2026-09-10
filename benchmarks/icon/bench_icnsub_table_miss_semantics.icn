@@ -14,9 +14,9 @@ procedure main()
   t["alpha"] := 111;
   write(t["alpha"], " ", t["beta"], " ", t[7], " ", t[-3], " ", t[0], " ", t["missing"], " ", t[12345]);
   s := 0;
-  every i := 1 to 5000 do { t[string(i)] := i; };
-  every i := 1 to 5000 do { s +:= t[string(i)]; };
+  every i := 1 to 5000 do { t[string(i)] := i };
+  every i := 1 to 5000 do { s +:= t[string(i)] };
   write(s);
-  every i := 1 to 5000 do { s +:= t[i]; };
+  every i := 1 to 5000 do { s +:= t[i] };
   write(s);
 end

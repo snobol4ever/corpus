@@ -7,8 +7,8 @@ procedure roman(n)
     every i := 1 to *vals do {
         while n >= vals[i] do {
             result ||:= syms[i];
-            n -:= vals[i];
-        };
+            n -:= vals[i]
+        }
     };
     return result;
 end

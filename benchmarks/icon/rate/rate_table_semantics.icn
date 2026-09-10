@@ -13,19 +13,19 @@ procedure main(args)
   while &time - t0 < warm do {
     t := table(0);
     s := 0;
-    every i := 1 to 5000 do { t[string(i)] := i; }
-    every i := 1 to 5000 do { s +:= t[string(i)]; }
-    every i := 1 to 5000 do { s +:= t[i]; }
+    every i := 1 to 5000 do { t[string(i)] := i }
+    every i := 1 to 5000 do { s +:= t[string(i)] }
+    every i := 1 to 5000 do { s +:= t[i] }
   }
   n := 0;
   t0 := &time;
   while &time - t0 < budget do {
     t := table(0);
     s := 0;
-    every i := 1 to 5000 do { t[string(i)] := i; }
-    every i := 1 to 5000 do { s +:= t[string(i)]; }
-    every i := 1 to 5000 do { s +:= t[i]; }
-    n +:= 1;
+    every i := 1 to 5000 do { t[string(i)] := i }
+    every i := 1 to 5000 do { s +:= t[string(i)] }
+    every i := 1 to 5000 do { s +:= t[i] }
+    n +:= 1
   }
   t1 := &time;
   write(n, " ", t1 - t0, " ", s);

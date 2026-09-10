@@ -14,10 +14,10 @@ procedure main()
       line ? if { 
          alpha := tab(upto(':')) &
          move(1) &
-         n := integer(tab(0));
+         n := integer(tab(0))
           }
          then write(meander(alpha,n))
-         else stop("*** erroneous input ***");
+         else stop("*** erroneous input ***")
        }
 end
 

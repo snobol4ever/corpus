@@ -852,7 +852,7 @@ procedure bc_gen(s, p)
     "ir_EnterInit" : return bc_gen_ir_EnterInit(s, p);
     "ir_Field" : return bc_gen_ir_Field(s, p);
     "ir_Call" : return bc_gen_ir_Call(s, p);
-    default : { runerr(500, p); }
+    default : { runerr(500, p) }
     };
 end
 

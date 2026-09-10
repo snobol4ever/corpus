@@ -586,12 +586,12 @@ procedure cdl_setval(v, x);		# set value in response to slider motion
    if /recurse then {			# if not a recursive call
       recurse := 1;  # note to prevent recursion
       case v.id of {
-         "r":  { cdl_data.r := x; cdl_sethsv(); };
-         "g":  { cdl_data.g := x; cdl_sethsv(); };
-         "b":  { cdl_data.b := x; cdl_sethsv(); };
-         "h":  { cdl_data.h := x; cdl_setrgb(); };
-         "s":  { cdl_data.s := x; cdl_setrgb(); };
-         "v":  { cdl_data.v := x; cdl_setrgb(); }
+         "r":  { cdl_data.r := x; cdl_sethsv() };
+         "g":  { cdl_data.g := x; cdl_sethsv() };
+         "b":  { cdl_data.b := x; cdl_sethsv() };
+         "h":  { cdl_data.h := x; cdl_setrgb() };
+         "s":  { cdl_data.s := x; cdl_setrgb() };
+         "v":  { cdl_data.v := x; cdl_setrgb() }
          };
       recurse := &null
       };

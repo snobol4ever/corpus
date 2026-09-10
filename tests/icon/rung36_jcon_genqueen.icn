@@ -72,7 +72,7 @@ procedure solvequeen (c);        # Column for next queen placement
    if (c > n) then {
       # Have placed all required queens.  Write the board, and resume search.
       writeboard ();
-      fail;
+      fail
       }
    suspend placequeen (c) & solvequeen (c+1);
    fail;
@@ -92,7 +92,7 @@ procedure writeboard ()
       row := repl ("| ", n) || "|";
       row [2*c] := "Q";
       write (row);
-      write (repl ("--", n), "-");
+      write (repl ("--", n), "-")
       }
    write ();
    end # procedure writeboard

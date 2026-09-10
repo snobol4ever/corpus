@@ -22,7 +22,7 @@ procedure fibs(limit)
     a := 0; b := 1;
     while a <= limit do {
         suspend a;
-        tmp := a + b; a := b; b := tmp;
+        tmp := a + b; a := b; b := tmp
     };
 end
 
@@ -33,7 +33,7 @@ procedure perfect(limit)
         s := 0;
         every s +:= divisors(n);
         s -:= n;                        # exclude n itself (proper divisors only)
-        if s = n then suspend n;
+        if s = n then suspend n
     };
 end
 
