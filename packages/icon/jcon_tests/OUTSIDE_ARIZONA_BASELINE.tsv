@@ -183,6 +183,14 @@ lgint:bigexp(-7 ^ 23)	ROW_OUTSIDE_ORACLE_REACH	⛔ A ROW, NOT A PROGRAM -- same 
 # our Icon frontend REQUIRES them. Handed upstream's semicolon-free text it answers "expected ; (got IDENT)" --
 # geddump line 22, htprep line 72, prepro line 44 -- and across ALL 91 upstream jcon sources our frontend
 # rejects SEVENTY-NINE for exactly that and compiles three. So "re-vendor the semicolons out" trades an icont
-# refusal for a SCRIP refusal, one exclusion for another. The real row is the parser: Icon's grammar makes the
-# semicolon optional and ours does not. That is a compiler row, not a corpus row, and it is written down here
-# because the NEEDS_VENDORED_SOURCE class MISFILED it as vendoring work for three programs that never needed any.
+# refusal for a SCRIP refusal, one exclusion for another -- which is the whole reason these three rows were
+# never worth working, and it stands on its own measurement.
+# ⛔⭐ AND THE QUESTION OF WHETHER THE FRONTEND SHOULD CHANGE IS CLOSED, BY LON, AND IS NOT REOPENED HERE
+# (ceo CEO-544, withdrawing CEO-543 in full the same hour): VENDORED ICON SOURCES ARE CONVERTED ON THE WAY IN
+# AND CHECKED IN CONVERTED. That is the procedure. RULES.md § ICON SEMICOLON-REQUIRED stands as written,
+# including zero newline processing in src/parsers/icon. An earlier draft of this note recommended curing the
+# parser and vendoring the corpus verbatim; that recommendation is WITHDRAWN and is recorded here only so a
+# future reader who re-derives the 79-of-91 number -- it is a true and useful number about OUR frontend --
+# does not mistake it for an open row. It is not one. The three programs below needed no compiler change of
+# any kind, which is the actual point: the NEEDS_VENDORED_SOURCE class MISFILED a grading question as
+# vendoring work, and the grade was already green.
