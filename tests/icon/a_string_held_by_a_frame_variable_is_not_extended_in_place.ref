@@ -1,0 +1,39 @@
+starseq 
+starseq a
+starseq b
+starseq aa
+starseq ab
+starseq ba
+starseq bb
+starseq aaa
+starseq aab
+starseq aba
+starseq abb
+starseq baa
+starseq bab
+return aaa
+return aab
+return 2 aa
+local aaa
+local aab
+local 2 aa
+param aaa
+param aab
+param aa
+global aaa
+global aab
+global aa
+static aaa
+static aab
+static aa
+list aaa
+list aab
+list aa
+augment aaxa
+augment aaxb
+augment aax
+inline aaa
+inline aab
+inline aa
+chain aaac
+chain aabc
