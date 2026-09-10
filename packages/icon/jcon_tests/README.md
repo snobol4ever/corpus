@@ -58,13 +58,22 @@ suite grades against the ONE Icon oracle (83 `.std` censused 2026-09-09: 59 agre
 refused, 2 non-terminating, 1 orphan). **Two cannot be re-cut, and they are graded anyway against
 their JCON refs, with the reason named here** (ceo CEO-491 on Lon's order, 2026-09-10):
 
-- **`lgint.std` — JCON-provenance, ORACLE TIMEOUT.** Arizona `iconx` is still running at `rc=124`
-  after 600 s having written 4224 bytes. An hour-long run may yet supersede this.
+- **`lgint.std` — JCON-provenance, ORACLE DEFECT (was recorded as a timeout).** Arizona `iconx` is
+  still running at `rc=124` after 600 s having written 4224 bytes — and the cap was never the point:
+  it stalls on **one line**, `-2 ^ 36472996377170786403` in `bigexp`, where jcon raises error 203
+  (ceo CEO-492, 2026-09-10). The exponentiation is unbounded, not long.
 - **`toby.std` — JCON-provenance, ORACLE DEFECT.** Arizona's `to` wraps past `9223372036854775807`
   to `-9223372036854775766` and never stops — 8333 lines in the first 200 KB — where the language
   and jcon both stop at 48 lines. ⛔ The oracle here is not slow, it is **wrong**, and that is why
   the two reasons may never be summed: a timeout cap reports an oracle defect and an oracle that
   merely needs longer with the identical symptom, and only one of them has an answer waiting.
+
+⭐ **Both turned out to be defects, and that is the lesson worth more than either row.** They entered
+the record together as `TIMEOUT` — the one class whose evidence is *the absence of an answer within N
+seconds*, which is exactly what an unbounded loop and a slow program both produce. Raising the cap
+would have re-confirmed both forever. What separated them was asking a different question: **what is
+it doing at the moment the cap fires** — `-2 ^ 36472996377170786403` for `lgint`, `to` wrapping past
+`9223372036854775807` for `toby`. A cap measures our patience; only the trace measures the oracle.
 
 Both are **RED until cured** (hq_I holds them). A red with a named owner is worth more than a
 silence: they previously sat in `OUTSIDE_ARIZONA_BASELINE.tsv` as `TIMEOUT`, outside the

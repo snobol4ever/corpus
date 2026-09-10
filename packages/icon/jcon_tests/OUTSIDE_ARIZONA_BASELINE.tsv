@@ -91,8 +91,9 @@
 # REF WITH A NAMED PROVENANCE BEATS NO REF AT ALL, so they re-enter the graded population with their JCON
 # provenance written down (README.md § REF PROVENANCE) and they are RED until hq_I cures them -- a red with an
 # owner, where this file gave a silence with none.  ⛔ Their two reasons are DIFFERENT and may never be summed
-# with the icont-refuses class above: lgint is an ORACLE TIMEOUT (iconx rc=124 at 600 s, 4224 bytes written; a
-# one-hour run in flight may supersede it), while toby is an ORACLE DEFECT -- Arizona's `to` wraps past
+# with the icont-refuses class above: lgint is an ORACLE DEFECT TOO (recorded as a timeout, iconx rc=124 at
+# 600 s, 4224 bytes written -- but it stalls on ONE LINE, `-2 ^ 36472996377170786403` in bigexp, where jcon
+# raises error 203; ceo CEO-492), while toby is the other -- Arizona's `to` wraps past
 # 9223372036854775807 to -9223372036854775766 and never stops (8333 lines in the first 200 KB) where the
 # language and jcon both stop at 48 lines.  ⭐ THE SECOND IS THE ONE TO REMEMBER: the oracle was not slow, it
 # was WRONG, and a 30 s cap reported that as our inability to wait.  A TIMEOUT class is where an oracle defect
