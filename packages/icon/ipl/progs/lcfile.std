@@ -1,0 +1,4 @@
+mv: cannot stat 'ReadMe.TXT': No such file or directory
+mv: cannot stat 'Makefile': No such file or directory
+mv: cannot stat 'SRC/Main.ICN': No such file or directory
+mv: cannot stat 'Doc/Guide.Html': No such file or directory

@@ -20,7 +20,6 @@ progs/adllist.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- 
 progs/adlsort.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/c2icn.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/calc.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-progs/chars.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/choose.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/chop.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/compare.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
@@ -30,7 +29,6 @@ progs/countlst.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin --
 progs/csgen.icn	NONDETERMINISTIC	CONFIRMED empirically (seat07 2026-09-05): fed a valid grammar via stdin (its own header's worked example), calls randomize() (real entropy, not a fixed default) before generating sentences -- two runs with identical input produced different sentences (verified: 2/5 lines differed). Genuinely random by design, not a missing-input problem; the original ORACLE_FAIL reason (no stdin supplied) was a symptom, not the cause.
 progs/diffsort.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/diffsum.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-progs/diffword.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/duplproc.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/evaluate.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/farb.icn	NONDETERMINISTIC	DETERMINISM: calls randomize() (clock-seeded) by design -- program purpose is "a randomly selected farberism", not a bug
@@ -71,13 +69,10 @@ progs/itab.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- alm
 progs/itrcfltr.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/iundecl.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/iversion.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-progs/iwriter.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/kross.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/kwic.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-progs/la.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/labels.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/latexidx.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-progs/lcfile.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/lcn.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/limitf.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/link2url.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
@@ -94,10 +89,8 @@ progs/nim.icn	TIMEOUT	interactive game (Nim) -- read()-driven move loop with y/n
 progs/noise.icn	TIMEOUT	DETERMINISM + unbounded: "generate random noise" -- repeat-loop writes random transliterations indefinitely with no natural stop; also random by design (matches seat03's original 8.7GB-RSS incident finding)
 progs/normalize.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/pack.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-progs/paginate.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/parens.icn	NONDETERMINISTIC	DETERMINISM: calls randomize() (clock-seeded) by design, same shape as farb.icn
 progs/pbkdump.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-progs/pdecomp.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/polydemo.icn	TIMEOUT	interactive menu (polynomial library demo) -- option := choice(read()) loop, needs a real menu-choice transcript
 progs/press.icn	NEEDS_ARGV_FIXTURE	rc=1 with no arguments and the program printed its OWN usage banner, so it refused the argv it was given: Usage: | prior reason kept as provenance: STILL OPEN (seat07 2026-09-05): a 896-line custom LZW archiver (compr/archive/extract/print/list/delete operations via Options(arg), magic bytes "\^p\^r\^e\^s\^s\^i\^c\^n"). No time/random calls spotted near main() on a 
 progs/pretrim.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
@@ -106,8 +99,6 @@ progs/proto.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- al
 progs/pt.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/puzz.icn	NONDETERMINISTIC	DETERMINISM: seeds &random from &clock (source line 50) -- genuinely random by design
 progs/repeats.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-progs/revfile.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-progs/revsort.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/rsg.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/sample.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/scale.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
@@ -120,7 +111,6 @@ progs/solit.icn	NONDETERMINISTIC	DETERMINISM: seeds &random from &clock (source 
 progs/sortname.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/splitlit.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/spread.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-progs/strimlen.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/strpsgml.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/tabexten.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/tablc.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
@@ -129,7 +119,6 @@ progs/tabulate.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin --
 progs/trim.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/ttt.icn	TIMEOUT	interactive game (tic-tac-toe) -- repeat-loop calls read() for each move, needs a real input transcript
 progs/unclog.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
-progs/unique.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/unpack.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/upper.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
 progs/url2link.icn	NEEDS_STDIN_FIXTURE	rc=0, zero bytes under /dev/null stdin -- almost certainly a stdin-driven filter/utility; needs a .in with representative input, not yet authored
