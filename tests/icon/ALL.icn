@@ -10261,3 +10261,24 @@ procedure warn(a[])
    errors +:= 1;
    return;
 end
+#------------------------------------------------------- 911 procedure_write_276
+global Msg
+procedure main()
+  local p;
+  Msg := UnixMsg;
+  write(image(Msg));
+  Error("a", 3, "b");
+  Msg!["x", "y"];
+  p := UnixMsg;
+  p!["l", "o", "c"];
+  Msg("d", "i", "r");
+  write("A:end");
+end
+procedure UnixMsg(s[])
+  every writes(!s);
+  write();
+  return;
+end
+procedure Error(s[])
+  return Msg!s;
+end
