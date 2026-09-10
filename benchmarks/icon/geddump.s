@@ -5443,6 +5443,7 @@ n00238_scan_bx:
 n00238_scan_α:            mov              r11, 271
                         mov              rdi, qword ptr [rbp + 48]
                         mov              rsi, qword ptr [rbp + 56]
+                        mov              rdx, qword ptr [rbp + 64]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -8012,6 +8013,7 @@ n00332_scan_α:            mov              r11, 362
                         mov              qword ptr [rbp + 632], rax
                         mov              rdi, qword ptr [rbp + 592]
                         mov              rsi, qword ptr [rbp + 600]
+                        mov              rdx, qword ptr [rbp + 608]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -8155,6 +8157,7 @@ n00333_scan_bx:
 n00333_scan_α:            mov              r11, 368
                         mov              rdi, qword ptr [rbp + 592]
                         mov              rsi, qword ptr [rbp + 600]
+                        mov              rdx, qword ptr [rbp + 608]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -9016,6 +9019,7 @@ n00329_scan_bx:
 n00329_scan_α:            mov              r11, 405
                         mov              rdi, qword ptr [rbp + 592]
                         mov              rsi, qword ptr [rbp + 600]
+                        mov              rdx, qword ptr [rbp + 608]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -9569,6 +9573,7 @@ n00394_scan_α:           mov              r11, 424
                         mov              qword ptr [rbp + 488], rax
                         mov              rdi, qword ptr [rbp + 448]
                         mov              rsi, qword ptr [rbp + 456]
+                        mov              rdx, qword ptr [rbp + 464]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -9712,6 +9717,7 @@ n00395_scan_bx:
 n00395_scan_α:           mov              r11, 430
                         mov              rdi, qword ptr [rbp + 448]
                         mov              rsi, qword ptr [rbp + 456]
+                        mov              rdx, qword ptr [rbp + 464]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -10417,6 +10423,7 @@ n00391_scan_bx:
 n00391_scan_α:           mov              r11, 460
                         mov              rdi, qword ptr [rbp + 448]
                         mov              rsi, qword ptr [rbp + 456]
+                        mov              rdx, qword ptr [rbp + 464]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -12792,6 +12799,7 @@ n00549_scan_bx:
 n00549_scan_α:           mov              r11, 611
                         mov              rdi, qword ptr [rbp + 336]
                         mov              rsi, qword ptr [rbp + 344]
+                        mov              rdx, qword ptr [rbp + 352]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11

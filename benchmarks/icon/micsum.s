@@ -701,6 +701,7 @@ n35_scan_α:             mov              r11, 35
                         mov              qword ptr [rbp + 2584], rax
                         mov              rdi, qword ptr [rbp + 2544]
                         mov              rsi, qword ptr [rbp + 2552]
+                        mov              rdx, qword ptr [rbp + 2560]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1060,6 +1061,7 @@ n55_scan_bx:
 n55_scan_α:             mov              r11, 55
                         mov              rdi, qword ptr [rbp + 2544]
                         mov              rsi, qword ptr [rbp + 2552]
+                        mov              rdx, qword ptr [rbp + 2560]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
