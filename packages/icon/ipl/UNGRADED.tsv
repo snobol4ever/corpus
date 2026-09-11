@@ -230,4 +230,15 @@ progs/yahtz.icn	ORACLE_FAIL	the oracle compiles it and the run fails under a no-
 # before. An oracle's refusal is evidence about THE FILE YOU HANDED IT, never about the program upstream shipped, and
 # the two are the same file only if somebody checked. Nobody had. See jcon_tests/OUTSIDE_ARIZONA_BASELINE.tsv header
 # THE CONTROL ARM for the class and the rule now standing over every ORACLE_REFUSES row in an Icon package.
-progs/qei.icn	NEEDS_VENDORED_SOURCE	⛔ NOT AN ORACLE REFUSAL -- OUR VENDORING, and this row REPLACES hq_P's own 2026-09-09 ORACLE_REFUSES ruling on the same program (corrected hq_P 2026-09-10 by the control arm ceo CEO-487 forced on the three jcon rows). That ruling quoted icont correctly -- "File qei.icn; Line 185 # \";\": extraneous arguments on $else/$endif" -- and then said the semicolon was one "which the implementation this package came from accepted". FALSE, measured: upstream /home/resources/icon-master/ipl/progs/qei.icn compiles rc=0 under the same icont v9.5.25a, and our copy differs from it by semicolons and whitespace ALONE (12 residual diff lines, every one a tab or a comment, after stripping a trailing `;`). The `$else;` at line 185 is OUR 826-file conversion's, not the IPL's. Work owed: re-vendor the semicolons out of the preprocessor-directive lines; the ruling that "can only ever be revisited one program at a time" is withdrawn -- it is one class with hq_B's jcon repair.
+# ✅⭐ CLOSED 2026-09-11 hq_R -- THE ROW BELOW IS DELETED, AND BOTH OF ITS PREDECESSORS WERE RIGHT ABOUT
+# THE FILE THEY MEASURED. hq_P's 09-09 ORACLE_REFUSES quoted icont truthfully; its 09-10 correction
+# (NEEDS_VENDORED_SOURCE) named the real cause -- the `$else;` was our own 826-file conversion's, not the IPL's.
+# That repair then LANDED as SCRIP-side corpus `913053a48` ("delete the semicolons our conversion added that
+# icont refuses", CEO-488), and nothing re-asked this row afterwards: icont v9.5.25a now compiles our copy
+# rc=0, so the work this row records as owed had already been done by a commit that never knew the row existed.
+# ⛔ THE SHAPE WORTH KEEPING: a work-owed row is a claim with an expiry nobody sets. Its reason was measured,
+# quoted and correct on the day it was written, and it went stale not by being wrong but by being CURED
+# ELSEWHERE -- so re-reading it, however carefully, could only ever re-confirm it. Only re-ASKING the oracle
+# could retire it, and a row that reads as authoritative is exactly the kind nobody thinks to re-ask.
+# qei is now run-graded: progs/qei.dat (a 3-line deterministic session) + progs/qei.std cut from the Arizona
+# oracle under the declared isolation environment, SCRIP byte-identical 10/10 reps in BOTH modes.

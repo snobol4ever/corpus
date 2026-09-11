@@ -1,0 +1,4 @@
+Icon Expression Evaluator, Version 1.2, type :? for help
+>    r1_ := 3  (integer)
+>    r2_ := "abcd"  (string)
+> 
