@@ -1,1100 +1,2498 @@
-sh: 1: icont: not found
 adlcheck
    locals
-cannot open .u1 file for "adlcheck.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 adlcount
    locals
-cannot open .u1 file for "adlcount.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 adlfiltr
    locals
-cannot open .u1 file for "adlfiltr.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 adlfirst
    locals
-cannot open .u1 file for "adlfirst.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 adllist
    locals
-cannot open .u1 file for "adllist.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 adlsort
    locals
-cannot open .u1 file for "adlsort.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 animal
    locals
-cannot open .u1 file for "animal.icn"
-sh: 1: icont: not found
+	main
+	Game
+	Confirm
+	Ask
+	Article
+	Save
+	Output
+	Get
+	Input
+	List
+	Show
+   globals
+
 applyfnc
    locals
-cannot open .u1 file for "applyfnc.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 banner
    locals
-cannot open .u1 file for "banner.icn"
-sh: 1: icont: not found
+	main
+	banner
+   globals
+
 based
    locals
-cannot open .u1 file for "based.icn"
-sh: 1: icont: not found
+	main
+	quit
+	load
+	save
+	resave
+	basread
+	baswrite
+	merge
+	dir
+	del
+	new
+	search
+	compile
+	build
+	run
+	print
+	proc_list
+	renum
+	help
+	entry
+	shell
+	parse
+	last
+   globals
+		potential global conflict: name
+
 bfd
    locals
-cannot open .u1 file for "bfd.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	bestfit
+   globals
+
 bj
    locals
-cannot open .u1 file for "bj.icn"
-sh: 1: icont: not found
+	main
+	first
+	second
+	display_score
+	value
+	display_user
+	display_host
+	display
+	xshuffle
+	parse
+	input
+	screen
+	at
+   globals
+
 blnk2tab
    locals
-cannot open .u1 file for "blnk2tab.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 c2icn
    locals
-cannot open .u1 file for "c2icn.icn"
-sh: 1: icont: not found
+	main
+	Out
+   globals
+
 calc
    locals
-cannot open .u1 file for "calc.icn"
-sh: 1: icont: not found
+	main
+	command
+	operation
+	value
+   globals
+
 catlines
    locals
-cannot open .u1 file for "catlines.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 chars
    locals
-cannot open .u1 file for "chars.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 chkhtml
    locals
-cannot open .u1 file for "chkhtml.icn"
-sh: 1: icont: not found
+	Usage
+	Init
+	main
+	CheckHTML
+	CheckHRefs
+	CheckStack
+	ProcessTag
+	ProcessATag
+	CheckTag
+	ScanAttrs
+	CheckContext
+	ProcessEscape
+	GiveAdvice
+	SetMsg
+	UnixMsg
+	MPWMsg
+	Error
+	Space
+	Up
+   globals
+
 choose
    locals
-cannot open .u1 file for "choose.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	dofile
+   globals
+
 chop
    locals
-cannot open .u1 file for "chop.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 colm
    locals
-cannot open .u1 file for "colm.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 comfiles
    locals
-cannot open .u1 file for "comfiles.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 compare
    locals
-cannot open .u1 file for "compare.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 comply83
    locals
-cannot open .u1 file for "comply83.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 concord
    locals
-cannot open .u1 file for "concord.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: name
+	tabulate
+		potential local conflict: name
+	format
+	item
+   globals
+
 conman
    locals
-cannot open .u1 file for "conman.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	windup
+	process
+	parse
+	conman
+	isare
+	stack
+	eval
+	init
+	prompt
+	load
+	save
+	zlist
+	first
+	second
+	butfirst
+	singular
+   globals
+
 countlst
    locals
-cannot open .u1 file for "countlst.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 cross
    locals
-cannot open .u1 file for "cross.icn"
-sh: 1: icont: not found
+	main
+	kross
+	fit
+		potential local conflict: where
+	tstv
+	tsth
+	gen
+	putvert
+	puthoriz
+		potential local conflict: left
+		potential local conflict: right
+	Print
+   globals
+
 crypt
    locals
-cannot open .u1 file for "crypt.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 csgen
    locals
-cannot open .u1 file for "csgen.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	subst
+	xpairs
+   globals
+
 cstrings
    locals
-cannot open .u1 file for "cstrings.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 cwd
    locals
-cannot open .u1 file for "cwd.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 datmerge
    locals
-cannot open .u1 file for "datmerge.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	merge
+	minimum
+	maximum
+	mean
+	median
+	nsubset
+   globals
+
 daystil
    locals
-cannot open .u1 file for "daystil.icn"
-sh: 1: icont: not found
+	NumberOfDays
+	CaselessMatch
+	Usage
+	main
+   globals
+
 ddfdump
    locals
-cannot open .u1 file for "ddfdump.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	dofile
+	img
+   globals
+
 deal
    locals
-cannot open .u1 file for "deal.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	disphand
+	show
+	arrange
+   globals
+
 declchck
    locals
-cannot open .u1 file for "declchck.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: name
+		potential local conflict: proc
+   globals
+
 delamc
    locals
-cannot open .u1 file for "delamc.icn"
-sh: 1: icont: not found
+	main
+	delamrc
+	doutfyls
+	llu
+   globals
+
 delam
    locals
-cannot open .u1 file for "delam.icn"
-sh: 1: icont: not found
+	main
+	delamr
+	doutfyls
+	fldecode
+	llu
+	str2lst
+   globals
+
 dellines
    locals
-cannot open .u1 file for "dellines.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 delta
    locals
-cannot open .u1 file for "delta.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 diffn
    locals
-cannot open .u1 file for "diffn.icn"
-sh: 1: icont: not found
+	main
+	listrange
+	myread
+   globals
+
 diffsort
    locals
-cannot open .u1 file for "diffsort.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	dofile
+   globals
+
 diffsum
    locals
-cannot open .u1 file for "diffsum.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	report
+	only
+   globals
+
 diffu
    locals
-cannot open .u1 file for "diffu.icn"
-sh: 1: icont: not found
+	main
+	zot
+   globals
+
 diffword
    locals
-cannot open .u1 file for "diffword.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 digcol
    locals
-cannot open .u1 file for "digcol.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 diskpack
    locals
-cannot open .u1 file for "diskpack.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 duplfile
    locals
-cannot open .u1 file for "duplfile.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: name
+	fix
+   globals
+
 duplproc
    locals
-cannot open .u1 file for "duplproc.icn"
-sh: 1: icont: not found
+	main
+	getlibpaths
+	fixup_path
+	get_procedures
+	take_out_comments
+	get_icn_filenames
+	set_getdir_by_os
+	msdos_get_dir
+	get_dos_tempname
+	unix_get_dir
+   globals
+
 edscript
    locals
-cannot open .u1 file for "edscript.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: image
+		potential local conflict: char
+	insert
+	error
+	xform
+   globals
+
 empg
    locals
-cannot open .u1 file for "empg.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	declare
+	evaluate
+	timeloop
+   globals
+
 envelope
    locals
-cannot open .u1 file for "envelope.icn"
-sh: 1: icont: not found
+	main
+	address
+	barcode
+	clean
+   globals
+
 evaluate
    locals
-cannot open .u1 file for "evaluate.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 extweave
    locals
-cannot open .u1 file for "extweave.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: name
+	decol
+   globals
+
 farb2
    locals
-cannot open .u1 file for "farb2.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 farb
    locals
-cannot open .u1 file for "farb.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 filecnvt
    locals
-cannot open .u1 file for "filecnvt.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	eoln
+   globals
+
 filehtml
    locals
-cannot open .u1 file for "filehtml.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 fileprep
    locals
-cannot open .u1 file for "fileprep.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 fileprnt
    locals
-cannot open .u1 file for "fileprnt.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 filerepl
    locals
-cannot open .u1 file for "filerepl.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 filesect
    locals
-cannot open .u1 file for "filesect.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 filexref
    locals
-cannot open .u1 file for "filexref.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 filtskel
    locals
-cannot open .u1 file for "filtskel.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 findstr
    locals
-cannot open .u1 file for "findstr.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 findtext
    locals
-cannot open .u1 file for "findtext.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 fixhqx
    locals
-cannot open .u1 file for "fixhqx.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 fixpath
    locals
-cannot open .u1 file for "fixpath.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 fnctab
    locals
-cannot open .u1 file for "fnctab.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: name
+   globals
+
 fnctmpl
    locals
-cannot open .u1 file for "fnctmpl.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: name
+   globals
+
 format
    locals
-cannot open .u1 file for "format.icn"
-sh: 1: icont: not found
+	main
+	justify
+   globals
+
 former
    locals
-cannot open .u1 file for "former.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 fract
    locals
-cannot open .u1 file for "fract.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 fset
    locals
-cannot open .u1 file for "fset.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	Exp
+	Factor
+	Name
+	Non
+	Op
+	Term
+	bldfset
+	exec
+	exec2
+	mkfset
+	parse
+	sdiff
+	setops
+	sinter
+	str2set
+	sunion
+   globals
+
 fuzz
    locals
-cannot open .u1 file for "fuzz.icn"
-sh: 1: icont: not found
+	main
+	rank
+	fuzz_value_1
+	fuzz_match_1
+	fuzz_value_2
+	fuzz_match_2
+	fuzz_value_3
+	fuzz_match_3
+	fuzz_self_3
+   globals
+
 gcomp
    locals
-cannot open .u1 file for "gcomp.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 geddump
    locals
-cannot open .u1 file for "geddump.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	event
+	refto
+	sortkey
+   globals
+
 gediff
    locals
-cannot open .u1 file for "gediff.icn"
-sh: 1: icont: not found
+	Options
+	main
+   globals
+
 gener
    locals
-cannot open .u1 file for "gener.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 genfile
    locals
-cannot open .u1 file for "genfile.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 genqueen
    locals
-cannot open .u1 file for "genqueen.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	placequeen
+	solvequeen
+	writeboard
+   globals
+
 getcol
    locals
-cannot open .u1 file for "getcol.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 getlines
    locals
-cannot open .u1 file for "getlines.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 gftrace
    locals
-cannot open .u1 file for "gftrace.icn"
-sh: 1: icont: not found
+	main
+	header
+   globals
+
 graphdem
    locals
-cannot open .u1 file for "graphdem.icn"
-sh: 1: icont: not found
+	main
+	countdemo
+	frequ_count
+	fibodemo
+	fibo
+	graph
+   globals
+
 grpsort
    locals
-cannot open .u1 file for "grpsort.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	enter
+	eorec
+	getline
+	lmany
+	printord
+	printrecs
+   globals
+
 hcal4unx
    locals
-cannot open .u1 file for "hcal4unx.icn"
-sh: 1: icont: not found
+	main
+	display_startup_screen
+	banner
+	get_paths
+	instructions
+	clear
+	initialize_list
+	initialize_variables
+	initialize
+	get_current_year
+	cleanup
+	Strip
+	checkstr
+	process
+	how_many_can_fit
+	cyr_augment
+	header
+	write_a_month
+	status_line
+	boldface
+	normal
+	make_a_line
+	mth_table
+	d_augment
+	augment
+	is_31
+	isleap
+	j_augment
+	always_29
+	jyr_augment
+	establish_jyr
+	isin1
+	isin2
+	isin3
+	isin4
+	isin5
+	isin6
+	no_lunar_yr
+	get_rh
+   globals
+
 headicon
    locals
-cannot open .u1 file for "headicon.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: name
+   globals
+
 hebcalen
    locals
-cannot open .u1 file for "hebcalen.icn"
-sh: 1: icont: not found
+	main
+	banner
+	instructions
+	clear
+	initialize_list
+	initialize_variables
+	initialize
+	cleanup
+	checkstr
+	process
+	cyr_augment
+	header
+	write_a_month
+	status_line
+	make_a_line
+	mth_table
+	d_augment
+	augment
+	is_31
+	isleap
+	j_augment
+	always_29
+	jyr_augment
+	establish_jyr
+	isin1
+	isin2
+	isin3
+	isin4
+	isin5
+	isin6
+	no_lunar_yr
+	get_rh
+   globals
+
 hebeng
    locals
-cannot open .u1 file for "hebeng.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 hotedit
    locals
-cannot open .u1 file for "hotedit.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 hr
    locals
-cannot open .u1 file for "hr.icn"
-sh: 1: icont: not found
+	main
+	ready
+	get_players
+	get_horse
+	get_bet
+	pay
+	race
+	display
+	accident
+	draw_track
+	mktrack
+	done
+	pick1
+	pick2
+	pick3
+	pick4
+	pick5
+	pick6
+	banner
+	at
+	wait
+	input
+	parse
+   globals
+
 htget
    locals
-cannot open .u1 file for "htget.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 htprep
    locals
-cannot open .u1 file for "htprep.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	braces
+	newtag
+	attrib
+	attval
+	aquote
+	docommand
+	in
+	divert
+	out
+	lwarn
+	warn
+   globals
+
 huffstuf
    locals
-cannot open .u1 file for "huffstuf.icn"
-sh: 1: icont: not found
+	main
+	count_chars_in_s
+	initialize_heap
+	reshuffle_heap
+	heap_2_tree
+	hash_codes
+	collect_bits
+	put_tree
+	get_tree
+	encode_string
+	decode_rest_of_file
+	quitprog
+   globals
+
 hufftab
    locals
-cannot open .u1 file for "hufftab.icn"
-sh: 1: icont: not found
+	main
+	bit
+	out
+   globals
+
 ibar
    locals
-cannot open .u1 file for "ibar.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 ibrow
    locals
-cannot open .u1 file for "ibrow.icn"
-sh: 1: icont: not found
+	main
+	help
+   globals
+
 icalc
    locals
-cannot open .u1 file for "icalc.icn"
-sh: 1: icont: not found
+	main
+	getbs
+	checkbal
+	more
+	parse
+	Statement
+	Compound
+	Statement_list
+	If
+	While
+	Expr
+	R
+	X
+	T
+	F
+	E
+	L
+	Func
+	Arglist
+	Id
+	Const
+	digitseq
+	String
+	litmat
+	keymat
+		potential local conflict: key
+	ws
+	binary
+	samelop
+	save
+	restore
+	process
+   globals
+
 icalls
    locals
-cannot open .u1 file for "icalls.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: name
+		potential local conflict: args
+   globals
+
 icn2c
    locals
-cannot open .u1 file for "icn2c.icn"
-sh: 1: icont: not found
+	main
+	Out
+   globals
+
 icontent
    locals
-cannot open .u1 file for "icontent.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 icvt
    locals
-cannot open .u1 file for "icvt.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	standard
+	inquote
+   globals
+
 idepth
    locals
-cannot open .u1 file for "idepth.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 idxtext
    locals
-cannot open .u1 file for "idxtext.icn"
-sh: 1: icont: not found
+	main
+	write_index
+   globals
+
 ifilter
    locals
-cannot open .u1 file for "ifilter.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 ifncsgen
    locals
-cannot open .u1 file for "ifncsgen.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: name
+		potential local conflict: args
+	arglist
+		potential local conflict: name
+   globals
+
 igrep
    locals
-cannot open .u1 file for "igrep.icn"
-sh: 1: icont: not found
+	Usage
+	main
+	Options
+	GetPattern
+	ScanFiles
+	istring
+	istring_radix
+   globals
+
 iheader
    locals
-cannot open .u1 file for "iheader.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 ihelp
    locals
-cannot open .u1 file for "ihelp.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 iidecode
    locals
-cannot open .u1 file for "iidecode.icn"
-sh: 1: icont: not found
+	main
+	decode
+	repack
+   globals
+
 iiencode
    locals
-cannot open .u1 file for "iiencode.icn"
-sh: 1: icont: not found
+	main
+	Usage
+	encode
+	unpack
+   globals
+
 ilnkxref
    locals
-cannot open .u1 file for "ilnkxref.icn"
-sh: 1: icont: not found
+	main
+	popproc
+   globals
+
 ilump
    locals
-cannot open .u1 file for "ilump.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	newfile
+	dofile
+   globals
+
 imagetyp
    locals
-cannot open .u1 file for "imagetyp.icn"
-sh: 1: icont: not found
+	main
+	imagetyp
+		potential local conflict: type
+   globals
+
 indxcomp
    locals
-cannot open .u1 file for "indxcomp.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 ineeds
    locals
-cannot open .u1 file for "ineeds.icn"
-sh: 1: icont: not found
+	main
+	PathDirs
+   globals
+
 inter
    locals
-cannot open .u1 file for "inter.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 interpe
    locals
-cannot open .u1 file for "interpe.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 interpp
    locals
-cannot open .u1 file for "interpp.icn"
-sh: 1: icont: not found
+	main
+	execprog
+	seqprog
+	readprog
+	writeprog
+	delprog
+	listprog
+	helpprog
+	quitprog
+   globals
+
 ipatch
    locals
-cannot open .u1 file for "ipatch.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 ipldoc
    locals
-cannot open .u1 file for "ipldoc.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 iplindex
    locals
-cannot open .u1 file for "iplindex.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	indexer
+	lcword
+		potential local conflict: name
+	filter
+   globals
+
 iplkwic
    locals
-cannot open .u1 file for "iplkwic.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	kwic
+	lcword
+		potential local conflict: name
+	position
+	filter
+   globals
+
 iplweb
    locals
-cannot open .u1 file for "iplweb.icn"
-sh: 1: icont: not found
+	main
+	errorproc
+	Build_HTML_Files
+	Init_Dir_Index
+	Index_Dir
+	Close_Dir_Index
+	Init_File_Index
+	Index_File
+	Close_File_Index
+	ProcessFileInfo
+	strip_file
+   globals
+
 ipower
    locals
-cannot open .u1 file for "ipower.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: stop
+   globals
+
 ipp
    locals
-cannot open .u1 file for "ipp.icn"
-sh: 1: icont: not found
+	main
+	conditional
+	const_expr
+	decoded
+	def_opt
+		potential local conflict: name
+	define
+		potential local conflict: args
+		potential local conflict: name
+	dump
+	error
+	eval
+	false_cond
+	find_file
+	func
+	get_args
+	get_cmd
+	get_formals
+	get_line
+	get_name
+	get_opt_ws
+	get_text
+	if_cond
+	ifdef
+		potential local conflict: name
+	ifndef
+		potential local conflict: name
+	in_text
+		potential local conflict: name
+	include
+	init
+	lassoc
+	line
+	macro_call
+		potential local conflict: args
+	no_endif_error
+	parse
+	process_cmd
+	process_macro
+		potential local conflict: name
+		potential local conflict: args
+	process_options
+		potential local conflict: args
+	process_text
+	put_linedir
+	rassoc
+	skip_to
+	true_cond
+	unary
+	undefine
+		potential local conflict: name
+	warning
+   globals
+
 iprint
    locals
-cannot open .u1 file for "iprint.icn"
-sh: 1: icont: not found
+	main
+	expand
+	dumpgroup
+	endgroup
+	printhead
+	detab
+   globals
+
 iprofile
    locals
-cannot open .u1 file for "iprofile.icn"
-sh: 1: icont: not found
+	main
+	display_stats
+	sort_table
+	write_list
+	setup_screen
+	goodbye
+	stop_profile
+   globals
+
 iprofl
    locals
-cannot open .u1 file for "iprofl.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	parse
+	nofile
+	listfile
+	showline
+   globals
+
 ipsort
    locals
-cannot open .u1 file for "ipsort.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 ipsplit
    locals
-cannot open .u1 file for "ipsplit.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 ipxref
    locals
-cannot open .u1 file for "ipxref.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	addword
+		potential local conflict: proc
+	getword
+	format
+   globals
+
 irsort
    locals
-cannot open .u1 file for "irsort.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 irunerr
    locals
-cannot open .u1 file for "irunerr.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 iseq
    locals
-cannot open .u1 file for "iseq.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: stop
+   globals
+
 isize
    locals
-cannot open .u1 file for "isize.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 isrcline
    locals
-cannot open .u1 file for "isrcline.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 istrip
    locals
-cannot open .u1 file for "istrip.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 itab
    locals
-cannot open .u1 file for "itab.icn"
-sh: 1: icont: not found
+	main
+	itab
+	readx
+   globals
+
 itags
    locals
-cannot open .u1 file for "itags.icn"
-sh: 1: icont: not found
+	main
+	Tags
+	Index
+	VGrind
+   globals
+
 itrbksum
    locals
-cannot open .u1 file for "itrbksum.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 itrcfltr
    locals
-cannot open .u1 file for "itrcfltr.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: name
+   globals
+
 itrcsum
    locals
-cannot open .u1 file for "itrcsum.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 iundecl
    locals
-cannot open .u1 file for "iundecl.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 iversion
    locals
-cannot open .u1 file for "iversion.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: name
+   globals
+
 iwriter
    locals
-cannot open .u1 file for "iwriter.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 knapsack
    locals
-cannot open .u1 file for "knapsack.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	trynext
+   globals
+
 krieg
    locals
-cannot open .u1 file for "krieg.icn"
-sh: 1: icont: not found
+	automov
+	chksqrs
+	fr2s
+	gamend
+	init
+	kstop
+	logboard
+	main
+	movgen
+	movlegal
+	movmake
+	movtry
+	myany
+	myboard
+	myend
+	myhelp
+	mymessage
+	myremind
+	mytry
+	p2c
+	pc2p
+	s2f
+	s2r
+	s2sn
+	saycheck
+	sn2s
+	sqratks
+	sqrcap
+	tokens
+	yrany
+	yrend
+	yrmessage
+	yrtry
+   globals
+
 kross
    locals
-cannot open .u1 file for "kross.icn"
-sh: 1: icont: not found
+	main
+	kross
+	xprint
+   globals
+
 kwic
    locals
-cannot open .u1 file for "kwic.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	kwic
+	lcword
+	position
+   globals
+
 kwicprep
    locals
-cannot open .u1 file for "kwicprep.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 labels
    locals
-cannot open .u1 file for "labels.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	nextlbl
+	format
+	error
+		potential local conflict: name
+		potential local conflict: type
+	nonneg
+   globals
+
 la
    locals
-cannot open .u1 file for "la.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 lam
    locals
-cannot open .u1 file for "lam.icn"
-sh: 1: icont: not found
+	main
+	lamr
+		potential local conflict: args
+   globals
+
 latexidx
    locals
-cannot open .u1 file for "latexidx.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: key
+	reform
+   globals
+
 lcfile
    locals
-cannot open .u1 file for "lcfile.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: name
+   globals
+
 lc
    locals
-cannot open .u1 file for "lc.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 lcn
    locals
-cannot open .u1 file for "lcn.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: name
+   globals
+
 limitf
    locals
-cannot open .u1 file for "limitf.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 lindcode
    locals
-cannot open .u1 file for "lindcode.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: name
+   globals
+
 lindsys
    locals
-cannot open .u1 file for "lindsys.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 lineseq
    locals
-cannot open .u1 file for "lineseq.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 link2url
    locals
-cannot open .u1 file for "link2url.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 lisp
    locals
-cannot open .u1 file for "lisp.icn"
-sh: 1: icont: not found
+	main
+	EVAL
+	apply
+	evlis
+	initialize
+	CAR
+	CDR
+	CONS
+	SET
+	ATOM
+	NULL
+	EQ
+	PRINT
+	COND
+	TRACE
+	UNTRACE
+	glist
+	DEFINE
+	define_fn
+	lambda
+	getbs
+	checkbal
+	more
+	balstr
+	bstol
+	ltos
+	strip
+	Map
+	HELP
+   globals
+
 lister
    locals
-cannot open .u1 file for "lister.icn"
-sh: 1: icont: not found
+	main
+	righe
+	dainome
+	lpag
+	margs
+	numriga
+	compresso
+	trasforma
+	sceglinumero
+	cambiadir
+	copiafile
+	stampa
+	dimmelo
+	cerca
+	faivedere
+   globals
+
 listhtml
    locals
-cannot open .u1 file for "listhtml.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 listviz
    locals
-cannot open .u1 file for "listviz.icn"
-sh: 1: icont: not found
+	main
+	righe
+	dainome
+	lpag
+	margs
+	numriga
+	compresso
+	trasforma
+	sceglinumero
+	cambiadir
+	copiafile
+	stampa
+	dimmelo
+	cerca
+	faivedere
+   globals
+
 literat
    locals
-cannot open .u1 file for "literat.icn"
-sh: 1: icont: not found
+	newkey
+	locate
+	last
+		potential local conflict: string
+	remword
+		potential local conflict: string
+	stat_line
+	line
+	edit_field
+		potential local conflict: string
+	show_field
+		potential local conflict: string
+	edit_item
+	brightwrite
+		potential local conflict: string
+	findlist
+	menue
+	in_itemm
+	turn_over
+	del
+	alpha
+	m_adress
+	query
+	main
+   globals
+
 ll
    locals
-cannot open .u1 file for "ll.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 loadmap
    locals
-cannot open .u1 file for "loadmap.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	show
+	area
+   globals
+
 longest
    locals
-cannot open .u1 file for "longest.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 lower
    locals
-cannot open .u1 file for "lower.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 lssum
    locals
-cannot open .u1 file for "lssum.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 lsysmap
    locals
-cannot open .u1 file for "lsysmap.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 maccvt
    locals
-cannot open .u1 file for "maccvt.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 makepuzz
    locals
-cannot open .u1 file for "makepuzz.icn"
-sh: 1: icont: not found
+	main
+	sort_words
+	blind_luck_insert
+	brute_force_insert
+	insert_word
+   globals
+
 mapcolrs
    locals
-cannot open .u1 file for "mapcolrs.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: map
+   globals
+
 midisig
    locals
-cannot open .u1 file for "midisig.icn"
-sh: 1: icont: not found
+	main
+	get_time
+   globals
+
 missile
    locals
-cannot open .u1 file for "missile.icn"
-sh: 1: icont: not found
+	main
+	infrastructure
+	draw_base
+	enemy_launch
+	friendly_fire
+	animate
+	sense_status
+	banner
+	at
+	wait
+	parse
+	input
+   globals
+
 miu
    locals
-cannot open .u1 file for "miu.icn"
-sh: 1: icont: not found
+	main
+	show
+	nextgen
+	apply
+   globals
+
 mkpasswd
    locals
-cannot open .u1 file for "mkpasswd.icn"
-sh: 1: icont: not found
+	main
+	genpasswd
+   globals
+
 monkeys
    locals
-cannot open .u1 file for "monkeys.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 morse
    locals
-cannot open .u1 file for "morse.icn"
-sh: 1: icont: not found
+	main
+	morse
+	unmorse
+   globals
+
 mr
    locals
-cannot open .u1 file for "mr.icn"
-sh: 1: icont: not found
+	main
+	readin
+	headers
+	quit
+	save
+		potential local conflict: where
+	pipeto
+	print
+	reply
+	send
+		potential local conflict: where
+	forward
+	newmail
+	showart
+	help
+	query
+	inc
+	more
+	clear_line
+   globals
+
 mszip
    locals
-cannot open .u1 file for "mszip.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	popen
+	census
+	msname
+	isoname
+	inspect
+	ftype
+	count
+	report
+	summary
+	r5
+   globals
+
 mtf3
    locals
-cannot open .u1 file for "mtf3.icn"
-sh: 1: icont: not found
+	main
+	open_input_file
+	readin_old_map_report
+	make_table_of_filenames
+	output_mapped_headers_and_texts
+	trim_str
+	tab_nxt_hdr
+	fixpath
+	mappiece
+	readtarhdr
+	map_filenams
+	exbase10
+	get_checksum
+	write_report
+   globals
+
 newicon
    locals
-cannot open .u1 file for "newicon.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: name
+   globals
+
 newsrc
    locals
-cannot open .u1 file for "newsrc.icn"
-sh: 1: icont: not found
+	main
+	process
+	ask
+   globals
+
 nim
    locals
-cannot open .u1 file for "nim.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	theirturn
+		potential local conflict: args
+	myturn
+		potential local conflict: args
+	dispile
+	algorpick
+	thinkpick
+	learn
+	comp
+	quit
+		potential local conflict: args
+   globals
+
 nocr
    locals
-cannot open .u1 file for "nocr.icn"
-sh: 1: icont: not found
+	main
+	er_out
+	basename
+	pathname
+   globals
+
 noise
    locals
-cannot open .u1 file for "noise.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 normalize
    locals
-cannot open .u1 file for "normalize.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 oldicon
    locals
-cannot open .u1 file for "oldicon.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: name
+   globals
+
 pack
    locals
-cannot open .u1 file for "pack.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: name
+   globals
+
 paginate
    locals
-cannot open .u1 file for "paginate.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 papply
    locals
-cannot open .u1 file for "papply.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 parens
    locals
-cannot open .u1 file for "parens.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: string
+	Open
+	Close
+	probClose
+   globals
+
 pargen
    locals
-cannot open .u1 file for "pargen.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	transprod
+	transalts
+	transseq
+	transsym
+	error
+   globals
+
 parse
    locals
-cannot open .u1 file for "parse.icn"
-sh: 1: icont: not found
+	main
+	get_tok
+	prog
+	stmt
+	expr
+	term
+	factor
+	err
+   globals
+
 parsex
    locals
-cannot open .u1 file for "parsex.icn"
-sh: 1: icont: not found
+	main
+	parse
+		potential local conflict: exp
+	expr
+		potential local conflict: exp
+	term
+	fact
+	part
+	const
+   globals
+
 patchu
    locals
-cannot open .u1 file for "patchu.icn"
-sh: 1: icont: not found
+	main
+	get_diff
+	get_edit
+	zot
+   globals
+
 pbkdump
    locals
-cannot open .u1 file for "pbkdump.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 pdecomp
    locals
-cannot open .u1 file for "pdecomp.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 polydemo
    locals
-cannot open .u1 file for "polydemo.icn"
-sh: 1: icont: not found
+	main
+	SetUpDisplay
+	ShowHelp
+	ShowInUse
+	is_lower
+	choice
+	PRead
+	PWrite
+	PCalc
+	PEval
+	PClear
+   globals
+
 post
    locals
-cannot open .u1 file for "post.icn"
-sh: 1: icont: not found
+	main
+	reply_headers
+	req_headers
+	tempname
+	pipe
+	lookup
+	query
+	validate
+		potential local conflict: where
+   globals
+
 press
    locals
-cannot open .u1 file for "press.icn"
-sh: 1: icont: not found
+	Usage
+	MoreHelp
+	main
+	Options
+	Archive
+	Extract
+	List
+	Delete
+	OpenReadArchive
+	FilesNotFound
+	Stats
+	FinalStats
+	WriteInteger
+	ReadInteger
+	WriteString
+	ReadString
+	CopyFile
+	Percent
+	R
+	W
+	Tail
+	Root
+	DefaultSuffix
+	Compress
+	Compress_output
+	Decompress
+	Decompress_read_code
+	whole_wild_match
+	not_wild_match
+   globals
+
 pretrim
    locals
-cannot open .u1 file for "pretrim.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 procprep
    locals
-cannot open .u1 file for "procprep.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 procwrap
    locals
-cannot open .u1 file for "procwrap.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 proto
    locals
-cannot open .u1 file for "proto.icn"
-sh: 1: icont: not found
+	main
+	expr1
+	expr2
+	expr3
+	expr4
+	expr5
+   globals
+
 psrsplit
    locals
-cannot open .u1 file for "psrsplit.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 pt
    locals
-cannot open .u1 file for "pt.icn"
-sh: 1: icont: not found
+	main
+	get_productions
+	get_firsts
+	fill_firsts
+	buildgraph
+	closure
+	addnode
+	closed_loop
+	finish_firsts
+	state0
+	item_num
+	prod_equal
+	state_closure
+	new_item
+	all_firsts
+	gotos
+	moved_item
+	exists_I_Set
+	set_equal
+	write_item
+	write_state
+	write_tbl_list
+	write_prods
+	write_NTs
+	write_Ts
+	write_firsts
+	write_needs
+	p_table
+	outline
+	border
+	outstate
+   globals
+
 puzz
    locals
-cannot open .u1 file for "puzz.icn"
-sh: 1: icont: not found
+	main
+	place
+	parse
+   globals
+
 qei
    locals
-cannot open .u1 file for "qei.icn"
-sh: 1: icont: not found
+	main
+	WriteWR
+	Help
+	Edit
+	atos
+	replace
+	split
+	shut_down
+   globals
+
 qt
    locals
-cannot open .u1 file for "qt.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 queens
    locals
-cannot open .u1 file for "queens.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	q
+	show
+   globals
+
 ranstars
    locals
-cannot open .u1 file for "ranstars.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	clear
+	home
+	place
+   globals
+
 rcat
    locals
-cannot open .u1 file for "rcat.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 recgen
    locals
-cannot open .u1 file for "recgen.icn"
-sh: 1: icont: not found
+	main
+	transprod
+	transalts
+	transseq
+	transsym
+	error
+   globals
+
 repeats
    locals
-cannot open .u1 file for "repeats.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 reply
    locals
-cannot open .u1 file for "reply.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 repro
    locals
-cannot open .u1 file for "repro.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 revfile
    locals
-cannot open .u1 file for "revfile.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 revsort
    locals
-cannot open .u1 file for "revsort.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 roffcmds
    locals
-cannot open .u1 file for "roffcmds.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 rsg
    locals
-cannot open .u1 file for "rsg.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	alts
+	comment
+	define
+	defnon
+		potential local conflict: name
+	error
+	gener
+	generate
+	getrhs
+	grammar
+		potential local conflict: name
+	listimage
+	prompter
+	pwrite
+		potential local conflict: name
+	source
+	symimage
+	syms
+   globals
+
 ruler
    locals
-cannot open .u1 file for "ruler.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 sample
    locals
-cannot open .u1 file for "sample.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 scale
    locals
-cannot open .u1 file for "scale.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 scramble
    locals
-cannot open .u1 file for "scramble.icn"
-sh: 1: icont: not found
+	main
+	parse
+	input
+   globals
+
 setmerge
    locals
-cannot open .u1 file for "setmerge.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 shar
    locals
-cannot open .u1 file for "shar.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 shortest
    locals
-cannot open .u1 file for "shortest.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 shuffile
    locals
-cannot open .u1 file for "shuffile.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 shuffle
    locals
-cannot open .u1 file for "shuffle.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 sing
    locals
-cannot open .u1 file for "sing.icn"
-sh: 1: icont: not found
+	sing
+	main
+   globals
+
 slice
    locals
-cannot open .u1 file for "slice.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 snake
    locals
-cannot open .u1 file for "snake.icn"
-sh: 1: icont: not found
+	main
+	findnext
+	different
+	Null
+	display
+	makenew
+	the_same
+	done_yet
+	Kludge
+   globals
+
 solit
    locals
-cannot open .u1 file for "solit.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	movecard
+	deck2run
+	deck2ace
+	run2ace
+	run2run
+	chk2run
+	finish
+	autopilot
+	display
+	plural
+	thumb
+	shuffle
+	face
+	getvalue
+	getsuite
+	getcolor
+	cardsleft
+	movecursor
+	whoops
+	disphelp
+	disprules
+   globals
+
 sortname
    locals
-cannot open .u1 file for "sortname.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 splitlit
    locals
-cannot open .u1 file for "splitlit.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 spread
    locals
-cannot open .u1 file for "spread.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 streamer
    locals
-cannot open .u1 file for "streamer.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 strimlen
    locals
-cannot open .u1 file for "strimlen.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 strpsgml
    locals
-cannot open .u1 file for "strpsgml.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 tabexten
    locals
-cannot open .u1 file for "tabexten.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 tablc
    locals
-cannot open .u1 file for "tablc.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 tablw
    locals
-cannot open .u1 file for "tablw.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	words
+   globals
+
 tabulate
    locals
-cannot open .u1 file for "tabulate.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 textcnt
    locals
-cannot open .u1 file for "textcnt.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: name
+   globals
+
 textcvt
    locals
-cannot open .u1 file for "textcvt.icn"
-sh: 1: icont: not found
+	Usage
+	Options
+	main
+	ConvertText
+   globals
+
 toktab
    locals
-cannot open .u1 file for "toktab.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	index
+   globals
+
 trim
    locals
-cannot open .u1 file for "trim.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 ttt
    locals
-cannot open .u1 file for "ttt.icn"
-sh: 1: icont: not found
+	main
+	display
+	get_your_move
+	done_yet
+	input
+	at
+	graf
+	uhalf
+	lhalf
+	high
+	normal
+	dim
+	under
+	blink
+	cls
+	chop
+	beep
+	init
+   globals
+
 turing
    locals
-cannot open .u1 file for "turing.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	dumptape
+	transit
+	rdmach
+	mkact
+	warn
+   globals
+
 unclog
    locals
-cannot open .u1 file for "unclog.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	same
+   globals
+
 unique
    locals
-cannot open .u1 file for "unique.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 unpack
    locals
-cannot open .u1 file for "unpack.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 upper
    locals
-cannot open .u1 file for "upper.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 url2link
    locals
-cannot open .u1 file for "url2link.icn"
-sh: 1: icont: not found
+	main
+   globals
+
 utrim
    locals
-cannot open .u1 file for "utrim.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: name
+	scan1
+		potential local conflict: name
+	dependencies
+	report
+		potential local conflict: name
+	filter1
+	filter2
+		potential local conflict: name
+		potential local conflict: args
+   globals
+
 verse
    locals
-cannot open .u1 file for "verse.icn"
-sh: 1: icont: not found
+	main
+	aoran
+	clrvdu
+	gerund
+	title
+	form1
+	form2
+	form3
+	form4
+	form5
+	form6
+	form7
+	form8
+	form9
+	form10
+	form11
+	form12
+	form13
+	form14
+	form15
+	form16
+	form17
+	form18
+	form19
+	parse
+	loadrest
+   globals
+		potential global conflict: name
+
 versum
    locals
-cannot open .u1 file for "versum.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: name
+   globals
+
 vnq
    locals
-cannot open .u1 file for "vnq.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	q
+	show
+	helpmesg
+	movexy
+	clearscreen
+	clearline
+   globals
+
 vrepl
    locals
-cannot open .u1 file for "vrepl.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+   globals
+
 weblinks
    locals
-cannot open .u1 file for "weblinks.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+	setroot
+	sethome
+	setprune
+	setbounds
+	setfrom
+	wheader
+	try
+	check
+	report
+	addref
+	register
+	pad
+   globals
+
 what
    locals
-cannot open .u1 file for "what.icn"
-sh: 1: icont: not found
+	main
+		potential local conflict: args
+		potential local conflict: key
+   globals
+
 when
    locals
-cannot open .u1 file for "when.icn"
-sh: 1: icont: not found
+	main
+	show_age
+	before
+	since
+	calc_today
+	directory
+	hhmm
+	parse
+   globals
+
 wshfdemo
    locals
-cannot open .u1 file for "wshfdemo.icn"
-sh: 1: icont: not found
+	main
+	DisplayList
+   globals
+
 xtable
    locals
-cannot open .u1 file for "xtable.icn"
-sh: 1: icont: not found
+	main
+	help
+	init
+	ASCII
+	ASCIICtrl
+	EBCDIC
+	convert
+	octstring
+   globals
+
 yahtz
    locals
-cannot open .u1 file for "yahtz.icn"
-sh: 1: icont: not found
+	main
+	paint
+	summarize
+	assign_players
+	play
+		potential local conflict: name
+	depict
+	tally
+		potential local conflict: name
+	obtain
+	score
+		potential local conflict: name
+	cls
+	chop
+	uhalf
+	lhalf
+	clip
+	high
+	inverse
+	under
+	blink
+	norm
+	graf
+	nograf
+	at
+	parse
+	input
+   globals
+
 yescr
    locals
-cannot open .u1 file for "yescr.icn"
-sh: 1: icont: not found
+	main
+	er_out
+	basename
+	pathname
+   globals
+
 zipsort
    locals
-cannot open .u1 file for "zipsort.icn"
+	main
+		potential local conflict: args
+   globals
+
