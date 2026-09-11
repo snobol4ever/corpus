@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_B/corpus/benchmarks/prolog/bench/meta_qsort.pl"
+                        .file            1 "/home/claude_coo/corpus/benchmarks/prolog/bench/meta_qsort.pl"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__interpret$2F1:
@@ -1064,7 +1064,7 @@ n67_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n67_move_label_α:       mov              r11, 45
                         lea              rax, [rip + n74_indirect_goto_α]
-                        mov              qword ptr [rbp + 320], rax;          jmp   interpret$2F2_γ
+                        mov              qword ptr [rbp + 320], rax;          jmp   interpret$2F2_ret1
                         .size            n67_move_label_bx, .-n67_move_label_bx
                         .type            n68_unmark_bx, @function
 n68_unmark_bx:
@@ -1225,7 +1225,7 @@ n72_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n72_move_label_α:       mov              r11, 50
                         lea              rax, [rip + n71_call_proc_staged_β]
-                        mov              qword ptr [rbp + 320], rax;          jmp   interpret$2F2_γ
+                        mov              qword ptr [rbp + 320], rax;          jmp   interpret$2F2_ret1
                         .size            n72_move_label_bx, .-n72_move_label_bx
                         .type            n73_unmark_bx, @function
 n73_unmark_bx:
@@ -9292,7 +9292,7 @@ n1040_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1040_move_label_α:     mov              r11, 455
                         lea              rax, [rip + n1047_indirect_goto_α]
-                        mov              qword ptr [rbp + 80], rax;           jmp   interpret_disjunction$2F3_γ
+                        mov              qword ptr [rbp + 80], rax;           jmp   interpret_disjunction$2F3_ret0
                         .size            n1040_move_label_bx, .-n1040_move_label_bx
                         .type            n1041_unmark_bx, @function
 n1041_unmark_bx:
@@ -9455,7 +9455,7 @@ n1045_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1045_move_label_α:     mov              r11, 460
                         lea              rax, [rip + n1044_call_proc_staged_β]
-                        mov              qword ptr [rbp + 80], rax;           jmp   interpret_disjunction$2F3_γ
+                        mov              qword ptr [rbp + 80], rax;           jmp   interpret_disjunction$2F3_ret0
                         .size            n1045_move_label_bx, .-n1045_move_label_bx
                         .type            n1046_unmark_bx, @function
 n1046_unmark_bx:
@@ -12673,7 +12673,7 @@ n1445_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1445_move_label_α:     mov              r11, 604
                         lea              rax, [rip + n1444_call_value_β]
-                        mov              qword ptr [rbp + 64], rax;           jmp   $3B$2F2_γ
+                        mov              qword ptr [rbp + 64], rax;           jmp   $3B$2F2_ret0
                         .size            n1445_move_label_bx, .-n1445_move_label_bx
                         .type            n1446_unmark_bx, @function
 n1446_unmark_bx:
@@ -12777,7 +12777,7 @@ n1449_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1449_move_label_α:     mov              r11, 608
                         lea              rax, [rip + n1448_call_value_β]
-                        mov              qword ptr [rbp + 64], rax;           jmp   $3B$2F2_γ
+                        mov              qword ptr [rbp + 64], rax;           jmp   $3B$2F2_ret0
                         .size            n1449_move_label_bx, .-n1449_move_label_bx
                         .type            n1450_unmark_bx, @function
 n1450_unmark_bx:
@@ -13195,7 +13195,7 @@ n1472_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1472_move_label_α:     mov              r11, 631
                         lea              rax, [rip + n1471_call_value_β]
-                        mov              qword ptr [rbp + 800], rax;          jmp   $3B$2F2_γ
+                        mov              qword ptr [rbp + 800], rax;          jmp   $3B$2F2_ret1
                         .size            n1472_move_label_bx, .-n1472_move_label_bx
                         .type            n1473_unmark_bx, @function
 n1473_unmark_bx:
@@ -13305,7 +13305,7 @@ n1477_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1477_move_label_α:     mov              r11, 636
                         lea              rax, [rip + n1476_call_value_β]
-                        mov              qword ptr [rbp + 800], rax;          jmp   $3B$2F2_γ
+                        mov              qword ptr [rbp + 800], rax;          jmp   $3B$2F2_ret1
                         .size            n1477_move_label_bx, .-n1477_move_label_bx
                         .type            n1478_unmark_bx, @function
 n1478_unmark_bx:

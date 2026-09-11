@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_B/corpus/benchmarks/prolog/bench/query.pl"
+                        .file            1 "/home/claude_coo/corpus/benchmarks/prolog/bench/query.pl"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__area$2F2:
@@ -8713,7 +8713,7 @@ n1123_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1123_move_label_α:     mov              r11, 479
                         lea              rax, [rip + n1122_call_value_β]
-                        mov              qword ptr [rbp + 64], rax;           jmp   $3B$2F2_γ
+                        mov              qword ptr [rbp + 64], rax;           jmp   $3B$2F2_ret0
                         .size            n1123_move_label_bx, .-n1123_move_label_bx
                         .type            n1124_unmark_bx, @function
 n1124_unmark_bx:
@@ -8817,7 +8817,7 @@ n1127_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1127_move_label_α:     mov              r11, 483
                         lea              rax, [rip + n1126_call_value_β]
-                        mov              qword ptr [rbp + 64], rax;           jmp   $3B$2F2_γ
+                        mov              qword ptr [rbp + 64], rax;           jmp   $3B$2F2_ret0
                         .size            n1127_move_label_bx, .-n1127_move_label_bx
                         .type            n1128_unmark_bx, @function
 n1128_unmark_bx:
@@ -9235,7 +9235,7 @@ n1150_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1150_move_label_α:     mov              r11, 506
                         lea              rax, [rip + n1149_call_value_β]
-                        mov              qword ptr [rbp + 800], rax;          jmp   $3B$2F2_γ
+                        mov              qword ptr [rbp + 800], rax;          jmp   $3B$2F2_ret1
                         .size            n1150_move_label_bx, .-n1150_move_label_bx
                         .type            n1151_unmark_bx, @function
 n1151_unmark_bx:
@@ -9345,7 +9345,7 @@ n1155_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1155_move_label_α:     mov              r11, 511
                         lea              rax, [rip + n1154_call_value_β]
-                        mov              qword ptr [rbp + 800], rax;          jmp   $3B$2F2_γ
+                        mov              qword ptr [rbp + 800], rax;          jmp   $3B$2F2_ret1
                         .size            n1155_move_label_bx, .-n1155_move_label_bx
                         .type            n1156_unmark_bx, @function
 n1156_unmark_bx:
