@@ -186,7 +186,6 @@ rung36_jcon_geddump	KEEPER, declared in KEEP.md -- never absorbed (deferral cont
 rung36_jcon_genqueen	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 rung36_jcon_io	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_misc	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-rung36_jcon_others	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_prefix	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_profsum	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_proto	DEFERRED (row icon-v9gen-augmented-assign-and-unary-refresh-plus-two-emitter-gaps: LIVE), declared in PENDING.md -- never absorbed (deferral contract)

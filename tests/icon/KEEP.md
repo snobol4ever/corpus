@@ -254,7 +254,7 @@ does.** This was invisible until
 surfaced that the gate's failure list itself was silently capped at 20, so nobody had seen these
 28 sitting in the "undeclared" count until now (`rung36_jcon_btrees.icn` was already an exception,
 named elsewhere in this file's own dependency note below — the other 28 were not named anywhere):
-`rung36_jcon_geddump.icn` `rung36_jcon_io.icn` `rung36_jcon_others.icn`
+`rung36_jcon_geddump.icn` `rung36_jcon_io.icn`
 `rung36_jcon_prefix.icn` `rung36_jcon_profsum.icn` `rung36_jcon_recent.icn`
 
 ⛔⭐ **ELEVEN MORE NAMES LEFT THIS BUCKET 2026-09-10 (hq_V, ceo CEO-541)** — see the section below. The
@@ -269,6 +269,26 @@ taken on the handing seat's word: GREEN in m3 AND m4, and the shipped `.expected
 OUTPUT byte for byte**, so no re-cut is owed. They are input-independent, which is the whole of why these
 three moved and the other three did not: `misc` touches no input at all, and `sorting` and `struct` only
 NAME `&input` as a value inside `image()`/`sort` — they never READ it.
+
+⛔⭐ **`rung36_jcon_others` LEFT THIS BUCKET 2026-09-11 (hq_V) AND IS ABSORBED — THE HOLD WAS ON A CAPABILITY
+THAT HAD SINCE LANDED, WHICH IS THE CLASS THIS FILE ALREADY NAMES IN ITS OWN WORDS.** The bullet below is
+kept verbatim because its REASONING was right: absorbing a stdin-reading program unfed pins a PREFIX of it as
+its expectation, green forever and invisible downstream. What expired is the premise — the builder excluded
+every stdin-bearing plain program with *"stays as files until the stdin-sections format extension lands"*, and
+that extension HAS landed: the master pair ships `ALL.in`, and **this master was already grading 20 stdin-fed
+entries while that park went on turning the eighth away.** *A rationale that names a MISSING CAPABILITY needs
+a RE-MEASURE date, not just an author date* — the second time this month, in this file.
+**FOUR CELLS MEASURED BEFORE THE DECLARATION WAS WRITTEN, not after:** the shipped `.expected` IS the FED
+Arizona icont run, byte for byte, at 183 lines; a STARVED oracle run gives 130 and loses 53 lines; and scrip
+FED reproduces the ref EXACTLY in m3 AND m4. **AND THE ABSORBED ENTRY WAS PROVED FED THROUGH THE MASTER'S OWN
+MECHANISM, BOTH WAYS:** graded from `ALL.in` it is PASS/PASS, and with that sidecar removed it is FAIL/FAIL —
+so the bullet's fear was real and carrying the input is the cure for it, not refusing the program. Control arm
+on the rebuilt pair, body to body and not by name count (the double-count trap recorded above): `ALL.icn`,
+`ALL.ref` and `ALL.in` each gained EXACTLY this one entry, **zero bodies changed, nothing removed**, and the
+new body and ref are byte-identical to no existing entry. It grades as `procedure_every_scan_replace_16`.
+**`io` and `recent` are NOT released by this** — `io`'s two stdin companions DIFFER, so the grader refuses and
+the choice is with the ceo; `recent` lists its own cwd, which is a property of the program and not of any
+capability. Their bullet stands.
 
 ⛔ **`rung36_jcon_io`, `rung36_jcon_others` and `rung36_jcon_recent` STAY, and hq_I's measurement of why is
 the important half of this entry: they pass only because THE ORACLE WAS STARVED THE SAME WAY WE WERE.**
