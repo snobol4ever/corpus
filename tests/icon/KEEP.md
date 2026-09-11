@@ -5,25 +5,105 @@ files sitting directly in `tests/icon/` that are not part of a `rungNN_*` family
 resolved by a pending ruling. Re-derive before trusting this table blind, per this project's
 standing rule that a fast-moving tree makes yesterday's board stale within hours.
 
-## 8 files — NO ORACLE EXISTS, not a "too risky to touch" case
+## ⛔⭐ RETIRED 2026-09-11 (hq_V) — THE "NO ORACLE EXISTS" REASON WAS FALSE TWICE OVER
 
-`generators.icn hello.icn meander.icn palindrome.icn queens.icn roman.icn sieve.icn wordcount.icn`
+**THE STATED REASON WAS PRECISE, WHICH IS WHY ITS EXPIRY IS PROVABLE.** This entry said, verbatim below:
+*"none of them has an `.expected` file, and never did ... there is no pinned expected output to carry into
+a suite pair."* Two independent measurements on SCRIP `c0f6a747a` say otherwise.
+
+⭐ **(1) AN ORACLE EXISTS AND AGREES WITH US ON ALL EIGHT.** The project's own cutter
+(`corpus_suite_harness.py capture-oracle-refs --lang icon`) against `/home/resources/icon-master/bin/icon`
+reports **8 of 8 GREEN, m3=AGREE and m4=AGREE**, and minted a `.ref` for every one. Each was also
+**RENAME-TESTED rather than grep-tested**: `generators.ref` contains the word `generators`, in the literal
+heading `Primes to 50 (trial division by generators):` — an English word, not a filename echo. A stem grep
+says "name-echoing, do not absorb" and is WRONG. Run it under another filename instead: all 8 are
+byte-identical under a rename in BOTH modes. **The grep is a finding aid; the rename is the test.**
+⛔ **THIS IS THE MISSING-CAPABILITY RATIONALE AGAIN** — the class this file already records on the
+`rung36_jcon_large`/`_radix` bignum note. *A rationale that names a MISSING CAPABILITY needs a RE-MEASURE
+date, not just an author date.* "No oracle exists" was a statement about 2026-08-28 and went on turning
+seats away for two weeks after it stopped being true.
+
+⛔⛔ **(2) AND SIX OF THE EIGHT WERE ALREADY IN THE MASTER THE WHOLE TIME — THE SECOND HALF, AND THE ONE
+THAT NEARLY COST A FALSE DENOMINATOR.** `hello` `palindrome` `queens` `roman` `sieve` `wordcount` are
+already graded as `procedure_write_1`, `procedure_every_alt_replace_1`, `procedure_every_to_replace_1`,
+`procedure_every_to_replace_5`, `procedure_scan_while_replace_2` and `procedure_scan_while_replace_2`'s
+siblings — absorbed in an earlier pass under the OLD `family__stem` origin spelling (`hello__hello`).
+**Their loose root copies were never deleted, so this file went on calling converted programs unconverted.**
+
+⛔⭐ **THE TRAP, MEASURED THE HARD WAY: THE BUILDER'S "ALREADY IN THE MASTER" GUARD IS KEYED ON THE ORIGIN
+STRING, NOT ON CONTENT.** Absorbing the root copies produced FIVE NEW ENTRIES (957 → 962) whose bodies AND
+refs are byte-identical to entries already present — a pure double count — because the origin key had been
+re-spelled `hello__hello` → `hello` by a builder change between the two passes, so the guard could not
+match. ⛔ **`util_master_content_diff.py` DOES NOT CATCH THIS EITHER**: it compares by NAME, reported
+*"gained 5, changed 0"*, and is right by its own contract. Only an explicit body-to-body comparison found
+it. **The absorb was REVERTED and the five root copies are DELETED as duplicates instead**, each verified
+byte-identical (body and ref) to its existing master entry first. The denominator gains nothing here,
+because there was nothing to gain — which is the honest answer this section previously obscured.
+
+⛔ **STILL KEPT, AND EACH FOR A LIVE REASON THAT REPLACES THE EXPIRED ONE:**
+- **`palindrome.icn`** — a duplicate of an absorbed entry like the other five, but it is read DIRECTLY by
+  path by `test_gate_icn_zk5_gva.sh:59`, which is `[ -f ]`-guarded and **SKIPS SILENTLY** if the file is
+  missing. Deleting it would fail nothing and quietly shrink that gate's witness set: the false-green class.
+- **`generators.icn`** — NOT in the master, and read by `test_gate_bb_block_label_prefix.sh:78`, which also
+  skips silently on a missing witness. `generators.ref` is kept beside it as the pinned oracle cut that
+  closes hq_C's row `icon-generator-comma-conjunction-in-an-every-operand-resumes-once`.
+- **`meander.icn`** — NOT in the master, and held by a LIVE BUILDER RULE, not by a judgement of mine.
+  `ALL.excluded.txt` computes it: *"stdin sidecar (.in/.input) -- stays as files until the stdin-sections
+  format extension lands"*. It is oracle-green with `meander.in` fed (m3=AGREE, m4=AGREE), so the ONLY thing
+  between it and the denominator is that format extension.
+  ⛔ **EXIT CONDITION, STATED SO THIS NOTE CANNOT OUTLIVE THE RULE IT IS QUOTING:** when the suite format can
+  carry a stdin sidecar, DELETE this bullet and re-run the builder — `meander` will absorb on its own. Do not
+  re-justify it; re-measure the RULE by reading `ALL.excluded.txt`'s own line for `meander`, which is the
+  authority. ⚠ **AND NAMING IT HERE HAS A MEASURED COST**, recorded because I paid it both ways in one
+  sitting: with the `.icn` suffix present the builder re-labels it *KEEPER, declared in KEEP.md* and
+  **overwrites its own true reason** in `ALL.excluded.txt`; without the suffix the sidecar keeps the true
+  reason but `test_gate_suite_conversion_complete.sh` — which reads only KEEP.md and PENDING.md — counts the
+  file as undeclared and goes red. **Neither spelling is free.** The suffix is kept because a red gate is
+  noise for every seat while an exit condition is the sanctioned cure for a note that could decay, and the
+  quoted reason above is what a re-measure checks. ⭐ ROUTED TO hq_T as an instrument improvement rather than
+  taken unilaterally: that gate could accept a reasoned line in `ALL.excluded.txt` as a third declaration
+  source, which is newly SAFE because CEO-545's digest now makes an invented exclusion line impossible to
+  add by hand. A second copy with its own ref lives at `samples/meander.*` under that directory's own KEEP.md.
+
+⭐ The 2026-08-28 dependency census below named `palindrome` and did NOT know about `generators`, whose
+consumer was added later. **A dependency census expires exactly like a capability claim.** The route to
+absorbing these is named and routed to hq_T: teach those two gates to materialize their witness from the
+master (`lib_master_extract.sh`) instead of reading a loose path.
+
+⚠ **THE PLACEMENT QUESTION IS NOT SETTLED HERE AND IS NOT MINE.** Five of the eight self-label as DEMO in
+their own headers and all eight carry a `.s` sibling, which RULES.md restricts to `benchmarks/` and
+`demo/`. Routed to the ceo with the measurement attached; nothing here forecloses a move.
+
+### The original entry, kept verbatim below — ⛔ WITH THE SIX ABSORBED NAMES DE-SUFFIXED, DELIBERATELY
+
+⛔ **THE `.icn` IS STRIPPED FROM THE SIX ABSORBED NAMES EVERYWHERE BELOW, INCLUDING INSIDE THE HISTORICAL
+PROSE, AND THAT IS LOAD-BEARING RATHER THAN COSMETIC** — the same mechanism `rung03` records above. The
+deferral contract is a delimited SUBSTRING search over this WHOLE FILE, so a retired entry that still
+spells `<name>.icn` anywhere, even inside a quotation kept for the record, goes on declaring the file a
+keeper and the builder goes on refusing to absorb it. Measured here before the strip: the six carried
+13 such spellings between them, every one of them in text that had already been retired.
+⭐ `generators.icn` and `palindrome.icn` KEEP their suffixes below, because they are still keepers and
+their declaration must still bite. Same file, two spellings, opposite intent — stated so the next reader
+does not "tidy" either one.
+
+
+`generators.icn hello meander palindrome.icn queens roman sieve wordcount`
 
 ⛔ **CORRECTING A CLAIM THAT STOOD ACROSS 3 SESSIONS (seat01/seat03/seat06's NEXT blocks, this
-task's history): "each referenced by dozens of smoke/bench/gate scripts (e.g. hello.icn alone:
+task's history): "each referenced by dozens of smoke/bench/gate scripts (e.g. hello alone:
 50+ scripts)" DOES NOT HOLD UP UNDER MEASUREMENT.** `grep -rl` for each of the 8 names across
 `SCRIP/scripts/*.sh` and `*.py` (2026-08-28, this session) finds a combined total of **6 files**
 mentioning any of the 8 names at all, and tracing each hit to what it actually reads narrows this
 further:
-- `test_smoke_compile_hello_all_langs.sh` — generates its OWN `hello.icn` in `$TMP`, never reads
+- `test_smoke_compile_hello_all_langs.sh` — generates its OWN `hello` in `$TMP`, never reads
   this corpus file. Not a dependency.
 - `test_monitor_inproc_all_langs.sh`, `test_smoke_unified_broker.sh` — read
-  `$ROOT/test/icon/hello.icn` / `palindrome.icn`, where `$ROOT` is **`SCRIP/`**, not `corpus/` —
+  `$ROOT/test/icon/hello` / `palindrome.icn`, where `$ROOT` is **`SCRIP/`**, not `corpus/` —
   `SCRIP/test/icon/` is a real, separate, pre-existing fixture directory. Confirmed these two
   scripts never touch `corpus/tests/icon/` for this purpose. Not a dependency on THIS file.
-- `util_zframe_ab.sh` — references `rung36_jcon_sieve.icn` (a different file under `rung36/`'s
-  naming), not this directory's `sieve.icn`. Not a dependency.
-- `test_gate_icn_rbp_census_ratchet.sh` — mentions `queens.icn`'s line count in a **comment**,
+- `util_zframe_ab.sh` — references `rung36_jcon_sieve` (a different file under `rung36/`'s
+  naming), not this directory's `sieve`. Not a dependency.
+- `test_gate_icn_rbp_census_ratchet.sh` — mentions `queens`'s line count in a **comment**,
   never opens the file. Not a dependency.
 - `test_gate_icn_zk5_gva.sh` — **the one real, confirmed dependency**: reads
   `$CORPUS/tests/icon/palindrome.icn` directly (line 57-58), the correct path, a genuine
@@ -38,7 +118,7 @@ nothing here that fits the shape this task converts."
 
 ⭐ **Secondary finding, flagged not fixed (not this row's job — corpus reclassification is a
 bigger call than housecleaning):** several of the 8 self-label as DEMO content in their own
-header comments (`wordcount.icn`: `# SCRIP DEMO2 -- Word Count (Icon section)`), and **all 8**
+header comments (`wordcount`: `# SCRIP DEMO2 -- Word Count (Icon section)`), and **all 8**
 carry a `.s` sibling — an artifact class RULES.md restricts to `corpus/benchmarks/` and
 `corpus/demo/` ("`.s` artifacts exist ONLY beside benchmarks and demos... Test-tree artifacts...
 are abolished"). Their presence in `tests/icon/` with live `.s` files is itself evidence these may

@@ -1,0 +1,9 @@
+Fibs to 100:
+ 0 1 1 2 3 5 8 13 21 34 55 89
+Perfect numbers to 10000:
+  6
+  28
+  496
+  8128
+Primes to 50 (trial division by generators):
+ 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47

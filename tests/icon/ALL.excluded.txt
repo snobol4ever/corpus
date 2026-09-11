@@ -7,6 +7,7 @@ cset_membership_is_a_bit_test_not_a_name_lookup	already in the master (1 of 1 or
 element_generation_and_the_structure_builtins_raise_icons_own_errors	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 eqv_result_is_the_right_operand_untouched	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 every_do_break_yields_null_not_failure	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+generators	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 hello	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 limit_over_a_conjunction_resumes_the_generator	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 meander	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
@@ -209,4 +210,4 @@ while_break_in_a_nested_condition_leaves_the_inner_loop	already in the master (1
 while_break_in_the_condition_does_not_run_the_body	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 while_break_in_the_condition_leaves_the_loop	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 wordcount	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-# builder-digest: 74d8dc44a46135c70ef580712d3be04e54f6f5937167f2a3d2c426b45ffd6533
+# builder-digest: 602f4fa63074c6e79a6e9aa8cf6cf7200f0d88374cb52a95890499733b29a20f
