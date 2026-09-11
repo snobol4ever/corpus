@@ -1,0 +1,11 @@
+# MODES.tsv — WHICH INSTRUMENT GRADES AN ENTRY IN THIS PACKAGE. name<TAB>modes<TAB># the MEASUREMENT that put it here.
+# modes is m3, m4, or m3,m4. An entry not named here is graded in BOTH modes: this file is opt-in, and a
+# missing row is never a guess. ⛔ A ROW IS NOT AN EXCLUSION. A declared entry stays in SHIPPED and in
+# GRADED and keeps its place in the published denominator; the declaration says only which arm can answer
+# the question, and test_icon_jcon_suite.sh NAMES every not-graded cell on its board so a smaller per-mode
+# TOTAL can never read as a silent drop. ⛔ A ROW NAMING NO SHIPPED PROGRAM REFUSES THE RUNNER rc=2: a
+# declaration that outlives the file it declares is the decay class this fleet keeps paying for.
+# ⛔ CARRY THE MEASUREMENT, NEVER JUST THE MODE (ceo CEO-561, adopting this seat's standing practice: a wrong
+# exclusion costs more than a wrong cure, because a red stays visible and an excluded name cannot be red).
+# A future seat reading a bare "m3" will try to "fix" it back to m3,m4 and re-open a settled question.
+kwds	m3	# ceo CEO-561 (2026-09-11), on hq_B's FINDING-2026-09-11-hq_B-no-single-ref-can-be-right-for-both-modes-on-a-program-that-prints-progname.md and re-measured here by hq_V on SCRIP be70abfd9: this program PRINTS &progname, so its output is A FUNCTION OF ITS INVOCATION, and BOTH shipped .std files are correct oracle output cut under DIFFERENT invocations. jcon's kwds.std is a ONE-STEP cut and line 45 reads `&progname: kwds.icn`. Measured here, one diff line and only one: m3 PASS byte-identical; m4 prints `&progname: ./kwds_bin` because a mode-4 binary IS the program and reports its own argv[0] (hq_B's CEO-545 landing, SCRIP 65ec9921c, made &progname honest -- the old green was an ACCIDENT of baking the source basename at compile time). No better ref and no pinned name can fix m4 against a one-step ref, and this runner builds its m4 binary into a mktemp dir, so its argv[0] is not even stable across runs. m3 is the instrument that can grade this entry; m4 is not, and saying so is the honest statement, not a shrug.
