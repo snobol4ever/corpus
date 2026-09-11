@@ -1,0 +1,18 @@
+*	a second DATA over an existing type name REDEFINES it: the new definition governs every
+*	instance built after it, and instances built before it keep their own field layout --
+*	measured against sbl -bf, which allows the redefinition and re-registers the new field.
+*	flip-gimpel-VISIT_driver (hq_C 2026-09-11): DEFDAT_fn returned early on an existing name,
+*	so the second DATA was dropped whole and its added field never became a field function.
+	DATA('NODE(L,R)')
+	A = NODE(1,2)
+	DATA('NODE(L,R,MARK)')
+	B = NODE(3,4,5)
+	OUTPUT = 'AL=' L(A)
+	OUTPUT = 'BM=' MARK(B)
+	OUTPUT = 'BL=' L(B)
+	DATA('NODE(L,R)')
+	C = NODE(7,8)
+	OUTPUT = 'CL=' L(C)
+	OUTPUT = 'BM2=' MARK(B)
+	OUTPUT = 'end'
+END
