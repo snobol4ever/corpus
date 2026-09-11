@@ -1559,7 +1559,7 @@ n99_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n99_move_label_α:       mov              r11, 54
                         lea              rax, [rip + n127_indirect_goto_α]
-                        mov              qword ptr [rbp + 256], rax;          jmp   join_lines$2F2_γ
+                        mov              qword ptr [rbp + 256], rax;          jmp   join_lines$2F2_ret1
                         .size            n99_move_label_bx, .-n99_move_label_bx
                         .type            n100_unmark_bx, @function
 n100_unmark_bx:
@@ -2015,7 +2015,7 @@ n125_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n125_move_label_α:      mov              r11, 80
                         lea              rax, [rip + n123_to_β]
-                        mov              qword ptr [rbp + 256], rax;          jmp   join_lines$2F2_γ
+                        mov              qword ptr [rbp + 256], rax;          jmp   join_lines$2F2_ret1
                         .size            n125_move_label_bx, .-n125_move_label_bx
                         .type            n126_unmark_bx, @function
 n126_unmark_bx:
@@ -6110,7 +6110,7 @@ n568_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n568_move_label_α:      mov              r11, 238
                         lea              rax, [rip + n569_indirect_goto_α]
-                        mov              qword ptr [rbp + 64], rax;           jmp   sibling$2F2_γ
+                        mov              qword ptr [rbp + 64], rax;           jmp   sibling$2F2_ret0
                         .size            n568_move_label_bx, .-n568_move_label_bx
                         .type            n569_indirect_goto_bx, @function
 n569_indirect_goto_bx:
@@ -6966,7 +6966,7 @@ n648_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n648_move_label_α:      mov              r11, 271
                         lea              rax, [rip + n649_indirect_goto_α]
-                        mov              qword ptr [rbp + 64], rax;           jmp   cousin$2F2_γ
+                        mov              qword ptr [rbp + 64], rax;           jmp   cousin$2F2_ret0
                         .size            n648_move_label_bx, .-n648_move_label_bx
                         .type            n649_indirect_goto_bx, @function
 n649_indirect_goto_bx:
@@ -15930,7 +15930,7 @@ n1517_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1517_move_label_α:     mov              r11, 605
                         lea              rax, [rip + n1518_indirect_goto_α]
-                        mov              qword ptr [rbp + 64], rax;           jmp   generation$2F2_γ
+                        mov              qword ptr [rbp + 64], rax;           jmp   generation$2F2_ret0
                         .size            n1517_move_label_bx, .-n1517_move_label_bx
                         .type            n1518_indirect_goto_bx, @function
 n1518_indirect_goto_bx:
@@ -18377,7 +18377,7 @@ n1805_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1805_move_label_α:     mov              r11, 718
                         lea              rax, [rip + n1804_call_value_β]
-                        mov              qword ptr [rbp + 64], rax;           jmp   $3B$2F2_γ
+                        mov              qword ptr [rbp + 64], rax;           jmp   $3B$2F2_ret0
                         .size            n1805_move_label_bx, .-n1805_move_label_bx
                         .type            n1806_unmark_bx, @function
 n1806_unmark_bx:
@@ -18481,7 +18481,7 @@ n1809_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1809_move_label_α:     mov              r11, 722
                         lea              rax, [rip + n1808_call_value_β]
-                        mov              qword ptr [rbp + 64], rax;           jmp   $3B$2F2_γ
+                        mov              qword ptr [rbp + 64], rax;           jmp   $3B$2F2_ret0
                         .size            n1809_move_label_bx, .-n1809_move_label_bx
                         .type            n1810_unmark_bx, @function
 n1810_unmark_bx:
@@ -18899,7 +18899,7 @@ n1832_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1832_move_label_α:     mov              r11, 745
                         lea              rax, [rip + n1831_call_value_β]
-                        mov              qword ptr [rbp + 800], rax;          jmp   $3B$2F2_γ
+                        mov              qword ptr [rbp + 800], rax;          jmp   $3B$2F2_ret1
                         .size            n1832_move_label_bx, .-n1832_move_label_bx
                         .type            n1833_unmark_bx, @function
 n1833_unmark_bx:
@@ -19009,7 +19009,7 @@ n1837_move_label_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1837_move_label_α:     mov              r11, 750
                         lea              rax, [rip + n1836_call_value_β]
-                        mov              qword ptr [rbp + 800], rax;          jmp   $3B$2F2_γ
+                        mov              qword ptr [rbp + 800], rax;          jmp   $3B$2F2_ret1
                         .size            n1837_move_label_bx, .-n1837_move_label_bx
                         .type            n1838_unmark_bx, @function
 n1838_unmark_bx:
