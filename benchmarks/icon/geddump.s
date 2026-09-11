@@ -6216,8 +6216,46 @@ n00247_suspend_α:         mov              r11, 290
                         mov              rax, qword ptr [rbp + -288]
                         mov              qword ptr [rbp + -336], rax
                         mov              rax, qword ptr [rbp + -280]
-                        mov              qword ptr [rbp + -328], rax;         jmp   gedwalk_γ
-n00247_suspend_β:         mov              r11, 290;                            jmp   n00249_disjunction_β
+                        mov              qword ptr [rbp + -328], rax
+                        push             rax
+                        push             rdx
+                        push             rbx
+                        mov              rbx, rsp
+                        and              rsp, -16
+                        lea              rdi, [rip + .S0]
+                        mov              rsi, qword ptr [rbp + -336]
+                        mov              rdx, qword ptr [rbp + -328]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_suspend_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rsp, rbx
+                        pop              rbx
+                        pop              rdx
+                        pop              rax;                                 jmp   gedwalk_γ
+n00247_suspend_β:         mov              r11, 290
+                        push             rax
+                        push             rdx
+                        push             rbx
+                        mov              rbx, rsp
+                        and              rsp, -16
+                        lea              rdi, [rip + .S0]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_resume_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rsp, rbx
+                        pop              rbx
+                        pop              rdx
+                        pop              rax;                                 jmp   n00249_disjunction_β
                         .size            n00247_suspend_bx, .-n00247_suspend_bx
                         .type            n00252_var_bx, @function
 n00252_var_bx:
@@ -6778,8 +6816,46 @@ n00256_suspend_α:         mov              r11, 314
                         mov              rax, qword ptr [rbp + -416]
                         mov              qword ptr [rbp + -960], rax
                         mov              rax, qword ptr [rbp + -408]
-                        mov              qword ptr [rbp + -952], rax;         jmp   gedsub_γ
-n00256_suspend_β:         mov              r11, 314;                            jmp   n00271_disjunction_β
+                        mov              qword ptr [rbp + -952], rax
+                        push             rax
+                        push             rdx
+                        push             rbx
+                        mov              rbx, rsp
+                        and              rsp, -16
+                        lea              rdi, [rip + .S1]
+                        mov              rsi, qword ptr [rbp + -960]
+                        mov              rdx, qword ptr [rbp + -952]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_suspend_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rsp, rbx
+                        pop              rbx
+                        pop              rdx
+                        pop              rax;                                 jmp   gedsub_γ
+n00256_suspend_β:         mov              r11, 314
+                        push             rax
+                        push             rdx
+                        push             rbx
+                        mov              rbx, rsp
+                        and              rsp, -16
+                        lea              rdi, [rip + .S1]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_resume_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rsp, rbx
+                        pop              rbx
+                        pop              rdx
+                        pop              rax;                                 jmp   n00271_disjunction_β
                         .size            n00256_suspend_bx, .-n00256_suspend_bx
                         .type            n00275_var_bx, @function
 n00275_var_bx:
@@ -7079,8 +7155,46 @@ n00287_suspend_α:         mov              r11, 326
                         mov              rax, qword ptr [rbp + -688]
                         mov              qword ptr [rbp + -960], rax
                         mov              rax, qword ptr [rbp + -680]
-                        mov              qword ptr [rbp + -952], rax;         jmp   gedsub_γ
-n00287_suspend_β:         mov              r11, 326;                            jmp   n00276_call_value_β
+                        mov              qword ptr [rbp + -952], rax
+                        push             rax
+                        push             rdx
+                        push             rbx
+                        mov              rbx, rsp
+                        and              rsp, -16
+                        lea              rdi, [rip + .S1]
+                        mov              rsi, qword ptr [rbp + -960]
+                        mov              rdx, qword ptr [rbp + -952]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_suspend_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rsp, rbx
+                        pop              rbx
+                        pop              rdx
+                        pop              rax;                                 jmp   gedsub_γ
+n00287_suspend_β:         mov              r11, 326
+                        push             rax
+                        push             rdx
+                        push             rbx
+                        mov              rbx, rsp
+                        and              rsp, -16
+                        lea              rdi, [rip + .S1]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_resume_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rsp, rbx
+                        pop              rbx
+                        pop              rdx
+                        pop              rax;                                 jmp   n00276_call_value_β
                         .size            n00287_suspend_bx, .-n00287_suspend_bx
                         .type            n00270_unmark_bx, @function
 n00270_unmark_bx:
@@ -7394,8 +7508,46 @@ n00290_suspend_α:         mov              r11, 336
                         mov              rax, qword ptr [rbp + -256]
                         mov              qword ptr [rbp + -288], rax
                         mov              rax, qword ptr [rbp + -248]
-                        mov              qword ptr [rbp + -280], rax;         jmp   gedval_γ
-n00290_suspend_β:         mov              r11, 336;                            jmp   n00294_call_value_β
+                        mov              qword ptr [rbp + -280], rax
+                        push             rax
+                        push             rdx
+                        push             rbx
+                        mov              rbx, rsp
+                        and              rsp, -16
+                        lea              rdi, [rip + .S2]
+                        mov              rsi, qword ptr [rbp + -288]
+                        mov              rdx, qword ptr [rbp + -280]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_suspend_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rsp, rbx
+                        pop              rbx
+                        pop              rdx
+                        pop              rax;                                 jmp   gedval_γ
+n00290_suspend_β:         mov              r11, 336
+                        push             rax
+                        push             rdx
+                        push             rbx
+                        mov              rbx, rsp
+                        and              rsp, -16
+                        lea              rdi, [rip + .S2]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_resume_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rsp, rbx
+                        pop              rbx
+                        pop              rdx
+                        pop              rax;                                 jmp   n00294_call_value_β
                         .size            n00290_suspend_bx, .-n00290_suspend_bx
 #-----------------------------------------------------------------------------------------------------------------------
 gedval_res:
@@ -7657,8 +7809,46 @@ n00296_suspend_α:         mov              r11, 343
                         mov              rax, qword ptr [rbp + -272]
                         mov              qword ptr [rbp + -304], rax
                         mov              rax, qword ptr [rbp + -264]
-                        mov              qword ptr [rbp + -296], rax;         jmp   gedref_γ
-n00296_suspend_β:         mov              r11, 343;                            jmp   n00300_call_value_β
+                        mov              qword ptr [rbp + -296], rax
+                        push             rax
+                        push             rdx
+                        push             rbx
+                        mov              rbx, rsp
+                        and              rsp, -16
+                        lea              rdi, [rip + .S3]
+                        mov              rsi, qword ptr [rbp + -304]
+                        mov              rdx, qword ptr [rbp + -296]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_suspend_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rsp, rbx
+                        pop              rbx
+                        pop              rdx
+                        pop              rax;                                 jmp   gedref_γ
+n00296_suspend_β:         mov              r11, 343
+                        push             rax
+                        push             rdx
+                        push             rbx
+                        mov              rbx, rsp
+                        and              rsp, -16
+                        lea              rdi, [rip + .S3]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_resume_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rsp, rbx
+                        pop              rbx
+                        pop              rdx
+                        pop              rax;                                 jmp   n00300_call_value_β
                         .size            n00296_suspend_bx, .-n00296_suspend_bx
 #-----------------------------------------------------------------------------------------------------------------------
 gedref_res:
@@ -19169,6 +19359,10 @@ module_init:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_rootnm]
+                        lea              rsi, [rip + .Lstartup_ipnames9000]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
+                        lea              rdi, [rip + .Lstartup_rootnm]
                         lea              rsi, [rip + .Lstartup_ilnames9000]
                         mov              edx, 13
                         call             rt_proc_set_locals@PLT
@@ -19214,6 +19408,10 @@ module_init:
                         lea              rdi, [rip + .Lstartup_prec0]
                         call             rt_proc_register_rec@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
+                        lea              rsi, [rip + .Lstartup_ipnames0]
+                        mov              edx, 2
+                        call             rt_proc_set_loc_params@PLT
+                        lea              rdi, [rip + .Lstartup_pname0]
                         lea              rsi, [rip + .Lstartup_ilnames0]
                         mov              edx, 2
                         call             rt_proc_set_locals@PLT
@@ -19256,6 +19454,10 @@ module_init:
                         lea              rdi, [rip + .Lstartup_prec1]
                         call             rt_proc_register_rec@PLT
                         lea              rdi, [rip + .Lstartup_pname1]
+                        lea              rsi, [rip + .Lstartup_ipnames1]
+                        mov              edx, 2
+                        call             rt_proc_set_loc_params@PLT
+                        lea              rdi, [rip + .Lstartup_pname1]
                         lea              rsi, [rip + .Lstartup_ilnames1]
                         mov              edx, 1
                         call             rt_proc_set_locals@PLT
@@ -19287,6 +19489,10 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec2]
                         call             rt_proc_register_rec@PLT
+                        lea              rdi, [rip + .Lstartup_pname2]
+                        lea              rsi, [rip + .Lstartup_ipnames2]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
                         .section         .rodata
 .Lstartup_pname3:       .string          "gedload"
 .Lstartup_ipp3_0:       .string          "f"
@@ -19365,6 +19571,10 @@ module_init:
                         lea              rdi, [rip + .Lstartup_prec3]
                         call             rt_proc_register_rec@PLT
                         lea              rdi, [rip + .Lstartup_pname3]
+                        lea              rsi, [rip + .Lstartup_ipnames3]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
+                        lea              rdi, [rip + .Lstartup_pname3]
                         lea              rsi, [rip + .Lstartup_ilnames3]
                         mov              edx, 16
                         call             rt_proc_set_locals@PLT
@@ -19420,6 +19630,10 @@ module_init:
                         lea              rdi, [rip + .Lstartup_prec4]
                         call             rt_proc_register_rec@PLT
                         lea              rdi, [rip + .Lstartup_pname4]
+                        lea              rsi, [rip + .Lstartup_ipnames4]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
+                        lea              rdi, [rip + .Lstartup_pname4]
                         lea              rsi, [rip + .Lstartup_ilnames4]
                         mov              edx, 6
                         call             rt_proc_set_locals@PLT
@@ -19459,6 +19673,10 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec5]
                         call             rt_proc_register_rec@PLT
+                        lea              rdi, [rip + .Lstartup_pname5]
+                        lea              rsi, [rip + .Lstartup_ipnames5]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
                         lea              rdi, [rip + .Lstartup_pname5]
                         lea              rsi, [rip + .Lstartup_ilnames5]
                         mov              edx, 1
@@ -19511,6 +19729,10 @@ module_init:
                         lea              rdi, [rip + .Lstartup_prec6]
                         call             rt_proc_register_rec@PLT
                         lea              rdi, [rip + .Lstartup_pname6]
+                        lea              rsi, [rip + .Lstartup_ipnames6]
+                        mov              edx, 2
+                        call             rt_proc_set_loc_params@PLT
+                        lea              rdi, [rip + .Lstartup_pname6]
                         lea              rsi, [rip + .Lstartup_ilnames6]
                         mov              edx, 3
                         call             rt_proc_set_locals@PLT
@@ -19554,6 +19776,10 @@ module_init:
                         lea              rdi, [rip + .Lstartup_prec7]
                         call             rt_proc_register_rec@PLT
                         lea              rdi, [rip + .Lstartup_pname7]
+                        lea              rsi, [rip + .Lstartup_ipnames7]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
+                        lea              rdi, [rip + .Lstartup_pname7]
                         lea              rsi, [rip + .Lstartup_ilnames7]
                         mov              edx, 1
                         call             rt_proc_set_locals@PLT
@@ -19596,6 +19822,10 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec8]
                         call             rt_proc_register_rec@PLT
+                        lea              rdi, [rip + .Lstartup_pname8]
+                        lea              rsi, [rip + .Lstartup_ipnames8]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
                         lea              rdi, [rip + .Lstartup_pname8]
                         lea              rsi, [rip + .Lstartup_ilnames8]
                         mov              edx, 1
@@ -19646,6 +19876,10 @@ module_init:
                         lea              rdi, [rip + .Lstartup_prec9]
                         call             rt_proc_register_rec@PLT
                         lea              rdi, [rip + .Lstartup_pname9]
+                        lea              rsi, [rip + .Lstartup_ipnames9]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
+                        lea              rdi, [rip + .Lstartup_pname9]
                         lea              rsi, [rip + .Lstartup_ilnames9]
                         mov              edx, 3
                         call             rt_proc_set_locals@PLT
@@ -19691,6 +19925,10 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec10]
                         call             rt_proc_register_rec@PLT
+                        lea              rdi, [rip + .Lstartup_pname10]
+                        lea              rsi, [rip + .Lstartup_ipnames10]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
                         lea              rdi, [rip + .Lstartup_pname10]
                         lea              rsi, [rip + .Lstartup_ilnames10]
                         mov              edx, 3
@@ -19738,6 +19976,10 @@ module_init:
                         lea              rdi, [rip + .Lstartup_prec11]
                         call             rt_proc_register_rec@PLT
                         lea              rdi, [rip + .Lstartup_pname11]
+                        lea              rsi, [rip + .Lstartup_ipnames11]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
+                        lea              rdi, [rip + .Lstartup_pname11]
                         lea              rsi, [rip + .Lstartup_ilnames11]
                         mov              edx, 3
                         call             rt_proc_set_locals@PLT
@@ -19747,4 +19989,10 @@ module_init:
                         call             rt_proc_set_local_offs@PLT
                         add              rsp, 8
                         ret
+                        .section         .rodata
+.S0:                    .string          "gedwalk"
+.S1:                    .string          "gedsub"
+.S2:                    .string          "gedval"
+.S3:                    .string          "gedref"
+                        .text
                         .section         .note.GNU-stack,"",@progbits

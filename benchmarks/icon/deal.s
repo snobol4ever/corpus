@@ -16314,6 +16314,10 @@ module_init:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_rootnm]
+                        lea              rsi, [rip + .Lstartup_ipnames9000]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
+                        lea              rdi, [rip + .Lstartup_rootnm]
                         lea              rsi, [rip + .Lstartup_ilnames9000]
                         mov              edx, 5
                         call             rt_proc_set_locals@PLT
@@ -16383,6 +16387,10 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec1]
                         call             rt_proc_register_rec@PLT
+                        lea              rdi, [rip + .Lstartup_pname1]
+                        lea              rsi, [rip + .Lstartup_ipnames1]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
                         .section         .rodata
 .Lstartup_pname2:       .string          "arrange"
 .Lstartup_ipp2_0:       .string          "hand"
@@ -16409,6 +16417,10 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec2]
                         call             rt_proc_register_rec@PLT
+                        lea              rdi, [rip + .Lstartup_pname2]
+                        lea              rsi, [rip + .Lstartup_ipnames2]
+                        mov              edx, 2
+                        call             rt_proc_set_loc_params@PLT
                         .section         .rodata
 .Lstartup_pname3:       .string          "options"
 .Lstartup_ipp3_0:       .string          "arg"
@@ -16494,6 +16506,10 @@ module_init:
                         lea              rdi, [rip + .Lstartup_prec3]
                         call             rt_proc_register_rec@PLT
                         lea              rdi, [rip + .Lstartup_pname3]
+                        lea              rsi, [rip + .Lstartup_ipnames3]
+                        mov              edx, 3
+                        call             rt_proc_set_loc_params@PLT
+                        lea              rdi, [rip + .Lstartup_pname3]
                         lea              rsi, [rip + .Lstartup_ilnames3]
                         mov              edx, 17
                         call             rt_proc_set_locals@PLT
@@ -16525,6 +16541,10 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec4]
                         call             rt_proc_register_rec@PLT
+                        lea              rdi, [rip + .Lstartup_pname4]
+                        lea              rsi, [rip + .Lstartup_ipnames4]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
                         .section         .rodata
 .Lstartup_pname5:       .string          "Term__"
                         .align           8
@@ -16767,6 +16787,10 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec11]
                         call             rt_proc_register_rec@PLT
+                        lea              rdi, [rip + .Lstartup_pname11]
+                        lea              rsi, [rip + .Lstartup_ipnames11]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
                         add              rsp, 8
                         ret
                         .section         .note.GNU-stack,"",@progbits

@@ -3690,8 +3690,46 @@ n00056_suspend_α:         mov              r11, 180
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00103_scan_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        push             rax
+                        push             rdx
+                        push             rbx
+                        mov              rbx, rsp
+                        and              rsp, -16
+                        lea              rdi, [rip + .S0]
+                        mov              rsi, qword ptr [rbp + -1200]
+                        mov              rdx, qword ptr [rbp + -1192]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_suspend_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rsp, rbx
+                        pop              rbx
+                        pop              rdx
+                        pop              rax;                                 jmp   n00103_scan_α
 n00056_suspend_β:         mov              r11, 180
+                        push             rax
+                        push             rdx
+                        push             rbx
+                        mov              rbx, rsp
+                        and              rsp, -16
+                        lea              rdi, [rip + .S0]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_trace_resume_hook@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rsp, rbx
+                        pop              rbx
+                        pop              rdx
+                        pop              rax
                         push             rax
                         push             rdx
                         mov              qword ptr [rip + rtccb+40], r8
@@ -15932,6 +15970,10 @@ module_init:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_rootnm]
+                        lea              rsi, [rip + .Lstartup_ipnames9000]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
+                        lea              rdi, [rip + .Lstartup_rootnm]
                         lea              rsi, [rip + .Lstartup_ilnames9000]
                         mov              edx, 4
                         call             rt_proc_set_locals@PLT
@@ -15983,6 +16025,10 @@ module_init:
                         lea              rdi, [rip + .Lstartup_prec0]
                         call             rt_proc_register_rec@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
+                        lea              rsi, [rip + .Lstartup_ipnames0]
+                        mov              edx, 2
+                        call             rt_proc_set_loc_params@PLT
+                        lea              rdi, [rip + .Lstartup_pname0]
                         lea              rsi, [rip + .Lstartup_ilnames0]
                         mov              edx, 4
                         call             rt_proc_set_locals@PLT
@@ -16022,6 +16068,10 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec1]
                         call             rt_proc_register_rec@PLT
+                        lea              rdi, [rip + .Lstartup_pname1]
+                        lea              rsi, [rip + .Lstartup_ipnames1]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
                         lea              rdi, [rip + .Lstartup_pname1]
                         lea              rsi, [rip + .Lstartup_ilnames1]
                         mov              edx, 1
@@ -16162,6 +16212,10 @@ module_init:
                         lea              rdi, [rip + .Lstartup_prec3]
                         call             rt_proc_register_rec@PLT
                         lea              rdi, [rip + .Lstartup_pname3]
+                        lea              rsi, [rip + .Lstartup_ipnames3]
+                        mov              edx, 3
+                        call             rt_proc_set_loc_params@PLT
+                        lea              rdi, [rip + .Lstartup_pname3]
                         lea              rsi, [rip + .Lstartup_ilnames3]
                         mov              edx, 17
                         call             rt_proc_set_locals@PLT
@@ -16193,6 +16247,10 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec4]
                         call             rt_proc_register_rec@PLT
+                        lea              rdi, [rip + .Lstartup_pname4]
+                        lea              rsi, [rip + .Lstartup_ipnames4]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
                         .section         .rodata
 .Lstartup_pname5:       .string          "Term__"
                         .align           8
@@ -16413,4 +16471,7 @@ module_init:
                         call             rt_proc_set_local_offs@PLT
                         add              rsp, 8
                         ret
+                        .section         .rodata
+.S0:                    .string          "item"
+                        .text
                         .section         .note.GNU-stack,"",@progbits

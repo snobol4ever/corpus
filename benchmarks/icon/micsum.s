@@ -4138,6 +4138,10 @@ module_init:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_rootnm]
+                        lea              rsi, [rip + .Lstartup_ipnames9000]
+                        mov              edx, 1
+                        call             rt_proc_set_loc_params@PLT
+                        lea              rdi, [rip + .Lstartup_rootnm]
                         lea              rsi, [rip + .Lstartup_ilnames9000]
                         mov              edx, 3
                         call             rt_proc_set_locals@PLT
@@ -4203,6 +4207,10 @@ module_init:
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Lstartup_prec0]
                         call             rt_proc_register_rec@PLT
+                        lea              rdi, [rip + .Lstartup_pname0]
+                        lea              rsi, [rip + .Lstartup_ipnames0]
+                        mov              edx, 2
+                        call             rt_proc_set_loc_params@PLT
                         lea              rdi, [rip + .Lstartup_pname0]
                         lea              rsi, [rip + .Lstartup_ilnames0]
                         mov              edx, 9
