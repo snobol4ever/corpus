@@ -656,7 +656,20 @@ difference between a witness that grades the cure and one that grades a neighbou
 hq_S. Owner of the cure: the cto. Finding: `FINDING-2026-09-10-ceo-a-generator-records-no-activation-so-
 three-symptoms-in-three-lanes-are-one-root.md`.
 
-## ⛔⭐ THE CONTROL FOR THE ONE ABOVE, AND ALSO NAME-ECHOING — `an_ordinary_call_chain_prints_every_frame_in_the_traceback` (hq_S, 2026-09-10)
+## ⛔⭐ THE CONTROL FOR THE ONE ABOVE, AND ALSO NAME-ECHOING — `an_ordinary_call_chain_prints_every_frame_in_the_traceback.icn` (hq_S, 2026-09-10)
+
+⛔⭐ **THE `.icn` IN THE HEADING ABOVE IS LOAD-BEARING AND WAS MISSING UNTIL 2026-09-10 19:xx (hq_V).**
+This declaration was spelled WITHOUT the suffix, and the deferral contract is a delimited SUBSTRING search
+for the file's BASENAME — `_declared_in_keep` in `util_build_master_suite.py`, the same shape as
+`test_gate_suite_conversion_complete.sh`'s grep. A bare name matches NOTHING, so **the builder did not see
+this declaration and would have ABSORBED the file**, whose ref carries its own name on 4 lines — a red
+manufactured out of a rename, which is the exact outcome this entry exists to prevent. MEASURED, two arms
+in a scratch tree: with the name bare, `--absorb-only` ABSORBED it (956 entries); with `.icn` added, the
+same command REFUSED it *"KEEPER, declared in KEEP.md"*. ⛔ **A DECLARATION THAT READS CORRECTLY TO A HUMAN
+AND TO NOTHING ELSE IS NOT A DECLARATION**, and it fails in the direction nobody re-checks: the file simply
+sits there looking declared. ⭐ Note the EXACT OPPOSITE convention is deliberate for `rung03` above, where
+the names are bare ON PURPOSE so a RETIRED entry stops holding the block live — same mechanism, opposite
+intent, and the only way to tell them apart is to know which way the entry is pointing.
 
 **LOOSE FOR THE SAME REASON, ruled the same way** — every `Traceback:` line ends in this file's own name, so
 hq_V's name-echoing class applies unchanged: the master builder's rename would grade a different program and
@@ -675,3 +688,24 @@ where it was once mistaken for the criterion.
 
 Both pairs are graded by `SCRIP/scripts/test_gate_icn_traceback_corpus_pairs_are_oracle_exact.sh`
 (`make test`), 2 pairs x 2 modes, proven red against `3e68226ea^`.
+
+## ⛔ THE TWO FIXTURE-DIRECTORY SOURCES ARE COMPANIONS OF DECLARED KEEPERS — `rung36_jcon_io.fixtures/io.icn`, `rung36_jcon_recent.fixtures/recent.icn` (hq_V, 2026-09-10)
+
+**NEVER ABSORBED, BECAUSE THEY ARE NOT WITNESSES — THEY ARE THE FIXTURE HALF OF ONE.** `rung36_jcon_io`
+and `rung36_jcon_recent` stay loose for the reason recorded above: their `.expected` is a FED run, and a
+starved cut is a truncated artifact, so absorbing either would pin a PREFIX of the program as its
+expectation, green forever and invisible because ref and run agree by construction. Each keeps a
+`<name>.fixtures/` directory holding the program beside the data it opens (`io.dat`/`io.std`;
+`recent.dat`, `recogn.dat`, `Makefile`) so the fed run can be reproduced at all.
+
+⭐ **THE COPY INSIDE THE FIXTURE DIR IS AN INPUT, NOT A TEST**, and the distinction is what the conversion
+gate cannot see on its own: the gate counts loose `.icn` files, and a program that exists so another
+program's run can be set up looks identical to a witness nobody converted. Absorbing it would enter the
+SAME program twice under two names and grade the copy in a scratch dir WITHOUT the data files beside it,
+which is the companion-dependent class the master builder already refuses by directory.
+
+⛔ Declared here with their PATHS rather than their basenames on purpose: `io.icn` and `recent.icn` are
+basenames a future file elsewhere in this tree could collide with, and `_declared_in_keep` only falls back
+to a bare basename when that basename is UNIQUE among loose candidates. A path declaration cannot go
+ambiguous later. These two leave this file only when `rung36_jcon_io` and `rung36_jcon_recent` themselves
+do — they have no independent life.

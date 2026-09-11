@@ -1,8 +1,0 @@
-#  CONTROL ARM, and it passed before the cure as well as after.  lower_until has
-#  always routed its condition through a dedicated entry node instead of patching
-#  the condition's result, so it never had the defect its while twin had.  The
-#  asymmetry between the two functions WAS the bug; this pins the correct half.
-procedure main();
-    write(image(until break) | "none");
-    write("after");
-end

@@ -1,9 +1,0 @@
-procedure main()
-   local c;
-   &error := 20; c := 1;
-   write(image(pull), " ", image(write), " ", image(main));
-   write(image(pull[c]) | "none", " A ", &errornumber, " ", image(&errorvalue), " ", &errortext);
-   write(image(write[1]) | "none", " B ", &errornumber, " ", image(&errorvalue));
-   write(image(main[1]) | "none", " C ", &errornumber, " ", image(&errorvalue));
-   write(image(pull[1:2]) | "none", " D ", &errornumber, " ", image(&errorvalue), " ", &errortext);
-end
