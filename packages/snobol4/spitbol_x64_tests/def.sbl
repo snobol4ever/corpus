@@ -1,13 +1,13 @@
 *   generate enum for list of SPITBOL accessible values
-    tab = char(9)
+    TAB = CHAR(9)
 loop
-    lname = trim(input)     :f(end)
-    uname = replace(lname,
+    lname = TRIM(INPUT)     :f(END)
+    uname = REPLACE(lname,
 +       'abcdeefghijklmnopqrstuvwxyz$',
 +       'ABCDEEFGHIJKLMNOPQRSTUVWXYZ_')
-    output = tab 'global' tab uname
-    output =  '%define' tab lname  tab uname  :(loop)
-end
+    OUTPUT = TAB 'global' TAB uname
+    OUTPUT =  '%define' TAB lname  TAB uname  :(loop)
+END
 b$efc
 b$icl
 b$rcl

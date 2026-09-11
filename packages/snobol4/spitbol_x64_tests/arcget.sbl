@@ -1,24 +1,24 @@
 * extract archive from standard input
 
-    &anchor = 1
-    &stlimit = 1200000
-    &dump = 2
+    &ANCHOR = 1
+    &STLIMIT = 1200000
+    &DUMP = 2
     files = 0
 loop
-    line = trim(input)          :f(atend)
-    line '!@#$'             :f(copy)
-    line len(4) rem . filename
-    filename = trim(filename)
-    terminal = 'extracting ' filename
+    LINE = TRIM(INPUT)          :f(atend)
+    LINE '!@#$'             :f(COPY)
+    LINE LEN(4) REM . filename
+    filename = TRIM(filename)
+    TERMINAL = 'extracting ' filename
     files = files + 1
-    eq(files,1)             :s(first)
-    endfile(1)
+    EQ(files,1)             :s(first)
+    ENDFILE(1)
 first
-    output(.file, 1, filename)      :(loop)
-copy
-    file = trim(line)                         :(loop)
+    OUTPUT(.FILE, 1, filename)      :(loop)
+COPY
+    FILE = TRIM(LINE)                         :(loop)
 done
-    endfile(1)                                :(loop)
+    ENDFILE(1)                                :(loop)
 atend
-    &dump = 0
-end
+    &DUMP = 0
+END

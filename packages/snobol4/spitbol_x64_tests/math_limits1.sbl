@@ -1,29 +1,29 @@
 * Find floating point limits
-    define('LIMITS(lower,upper,maxdigit)')              :(LIMITS.end)
+    DEFINE('LIMITS(lower,upper,maxdigit)')              :(LIMITS.end)
 
 LIMITS
     cursor = 1
-    output = 'Find limits to ' maxdigit ' digits'
+    OUTPUT = 'Find limits to ' maxdigit ' digits'
 
 nextcursor
     testnum = lower
     cursor = cursor + 1
-    gt(cursor,maxdigit)                                 :s(report)
+    GT(cursor,maxdigit)                                 :s(report)
     i = 0
 
 nexti
-    testnum pos(cursor) len(1) = i
-    result = eval(testnum)
-    result pos(0) '0.' rpos(0)                          :f(saveupper)
+    testnum POS(cursor) LEN(1) = i
+    result = EVAL(testnum)
+    result POS(0) '0.' RPOS(0)                          :f(saveupper)
     lower = testnum
-    le(i = i + 1, 9)                                    :s(nexti)f(nextcursor)
+    LE(i = i + 1, 9)                                    :s(nexti)f(nextcursor)
 
 saveupper
     upper = testnum                                     :(nextcursor)
 
 report
-    output = 'lower: ' lower ' = ' eval(lower)
-    output = 'upper: ' upper ' = ' eval(upper)                                                     :(return)
+    OUTPUT = 'lower: ' lower ' = ' EVAL(lower)
+    OUTPUT = 'upper: ' upper ' = ' EVAL(upper)                                                     :(RETURN)
 
 LIMITS.end
 

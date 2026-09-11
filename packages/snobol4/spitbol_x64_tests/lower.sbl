@@ -1,7 +1,7 @@
 * translate lower to upper case to lower
-     &trim = &anchor = 1
+     &TRIM = &ANCHOR = 1
 loop
-    output = replace(input,
+    OUTPUT = REPLACE(INPUT,
 +               'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
 +               'abcdefghijklmnopqrstuvwxyz') :s(loop)
-end
+END

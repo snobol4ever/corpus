@@ -4,16 +4,16 @@
 * will create ch.arc with a copy of all the .c and
 * .h files in the current directory
 
-    &trim = 1
-    &stlimit = 1200000
+    &TRIM = 1
+    &STLIMIT = 1200000
 loop
-    filename = input            :f(end)
-    output = '!@#$' filename
-    terminal = 'archiving ' filename
-    input(.file, 1, filename)
-copy
-    line = file             :f(done)
-    output = trim(line)         :(copy)
+    filename = INPUT            :f(END)
+    OUTPUT = '!@#$' filename
+    TERMINAL = 'archiving ' filename
+    INPUT(.FILE, 1, filename)
+COPY
+    LINE = FILE             :f(done)
+    OUTPUT = TRIM(LINE)         :(COPY)
 done
-    endfile(1)              :(loop)
-end
+    ENDFILE(1)              :(loop)
+END

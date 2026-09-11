@@ -1,7 +1,7 @@
- define('chk(expr,val)')        :(chk.end)
+ DEFINE('chk(expr,val)')        :(chk.end)
 chk
-        output = rpad(expr,16) "expect " val
-                                :(return)
+        OUTPUT = RPAD(expr,16) "expect " val
+                                :(RETURN)
 chk.end
  r2 = 2.0
  r3 = 3.0
@@ -10,11 +10,11 @@ chk.end
  chk(r2 * r3,   "6.")
  chk(r2 / r3,   "0.666..")
  chk(-r2,       "-2.")
- chk(sqrt(r2),  "sqrt(2)")
- chk(sin(r2),   "sin(2)")
-end
- output = r2 - r3
+ chk(SQRT(r2),  "sqrt(2)")
+ chk(SIN(r2),   "sin(2)")
+END
+ OUTPUT = r2 - r3
 * output = r2 - r3
 * output = r3 - r2
 * output = sin(r2)
-end
+END

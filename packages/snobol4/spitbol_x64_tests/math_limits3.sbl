@@ -1,34 +1,34 @@
 * Find floating point limits
-    define('LIMITS(lower,upper,maxdigit)')              :(LIMITS.end)
+    DEFINE('LIMITS(lower,upper,maxdigit)')              :(LIMITS.end)
 
 LIMITS
     cursor = 2
-    output = 'Find limits to ' maxdigit ' digits'
+    OUTPUT = 'Find limits to ' maxdigit ' digits'
 
 nextcursor
     testnum = lower
     cursor = cursor + 1
-    gt(cursor,maxdigit + 1)                             :s(report)
+    GT(cursor,maxdigit + 1)                             :s(report)
     i = 0
 
 nexti
-    testnum pos(cursor) len(1) = i
-    result = eval(testnum)                              :s(print)
+    testnum POS(cursor) LEN(1) = i
+    result = EVAL(testnum)                              :s(print)
     result = "***"
 
 print
     testnum ' = ' result
-    result pos(0) '***' rpos(0)                         :s(saveupper)
+    result POS(0) '***' RPOS(0)                         :s(saveupper)
     lower = testnum
-    le(i = i + 1, 9)                                    :s(nexti)f(nextcursor)
+    LE(i = i + 1, 9)                                    :s(nexti)f(nextcursor)
 
 saveupper
     upper = testnum                                     :(nextcursor)
 
 report
-    output = 'lower: ' lower ' = ' eval(lower)
-    output = 'upper: ' upper ' = ' '***'
-                                                        :(return)
+    OUTPUT = 'lower: ' lower ' = ' EVAL(lower)
+    OUTPUT = 'upper: ' upper ' = ' '***'
+                                                        :(RETURN)
 LIMITS.end
 
     LIMITS('-1.000000000E+308' ,             '-2.000000000E+308', 10)

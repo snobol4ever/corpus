@@ -15,13 +15,13 @@
 *     You should have received a copy of the GNU General Public License
 *     along with Macro SPITBOL.  If not, see <http://www.gnu.org/licenses/>.
 *
-    &trim = 1
-    &dump = 0
+    &TRIM = 1
+    &DUMP = 0
     isglobal = 0
     int0 = INTEGER(CHAR('0'))
-    define('intof(off)val,i,str,c')
-    define('global_init()')
-    digits = table()
+    DEFINE('intof(off)val,i,str,c')
+    DEFINE('global_init()')
+    digits = TABLE()
     digits['0'] = 0
     digits['1'] = 1
     digits['2'] = 2
@@ -42,16 +42,16 @@
     global_init()
 
 loop
-    line = input            :f(finis)
-    ne(size(line),24)       :s(loop)
-    line LEN(16) . offset  ' '  ANY('dD')
-+       ' ' rem . name  :f(loop)
+    LINE = INPUT            :f(finis)
+    NE(SIZE(LINE),24)       :s(loop)
+    LINE LEN(16) . offset  ' '  ANY('dD')
++       ' ' REM . name  :f(loop)
     IDENT(global_index_table[name]) :s(loop)
     ioffset = intof(offset)
     base = IDENT(name, 'C_AAA') ioffset
-    output = NE(REMDR(ioffset,4)) 'not aligned ' name
+    OUTPUT = NE(REMDR(ioffset,4)) 'not aligned ' name
 *   output  = IDENT(name, 'C_AAA') 'base ' ioffset
-    output = name ' ' (ioffset - base)
+    OUTPUT = name ' ' (ioffset - base)
     last_name = name
     DIFFER(name,'W_YYY')        :s(loop)
 *   output = 'last name ' last_name
@@ -65,11 +65,11 @@ intof
     str = off
 *   output = 'intof arg ' off
 intof.1
-    gt(i = i + 1, 16)       :s(return)
+    GT(i = i + 1, 16)       :s(RETURN)
     c = SUBSTR(str,i,1)
     intof = intof * 16 + digits[c]
                     :(intof.1)
-    intof = intof - base        :(return)
+    intof = intof - base        :(RETURN)
 global_init
     global_index_table = TABLE(600)
     global_name_table = TABLE(600)
@@ -139,21 +139,21 @@ global_init
 +    'SCNIL SCNPT SCNRS SCNSE SCNTP STAGE STBAS STXOC STXOF '
 +    'TIMSX TIMUP XSOFS W_YYY '
 g.loop
-    s break(' ') . name ' ' =   :f(g.loop.end)
+    s BREAK(' ') . name ' ' =   :f(g.loop.end)
     global_count = global_count + 1
     global_name_table[global_count] = name
     global_index_table[name] = global_count
-    global_names = array(global_count)
+    global_names = ARRAY(global_count)
                     :(g.loop)
 g.loop.end
     i = 0
 gg.loop
-    gt(i = I = 1, global_count) :s(gg.loop.end)
+    GT(i = I = 1, global_count) :s(gg.loop.end)
     global_names[i] = name
 gg.loop.end
 
-                    :(return)
+                    :(RETURN)
 finis
-    &dump = 0
-end
+    &DUMP = 0
+END
 
