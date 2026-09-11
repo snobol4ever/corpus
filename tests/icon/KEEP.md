@@ -789,3 +789,43 @@ basenames a future file elsewhere in this tree could collide with, and `_declare
 to a bare basename when that basename is UNIQUE among loose candidates. A path declaration cannot go
 ambiguous later. These two leave this file only when `rung36_jcon_io` and `rung36_jcon_recent` themselves
 do — they have no independent life.
+
+## ⛔⭐ `rung36_jcon_recogn.icn` STAYS LOOSE THOUGH IT IS ALREADY IN THE MASTER — TWO GATES READ IT BY PATH AND A REBUILD WOULD MINT A RED DUPLICATE OF A GREEN ENTRY (hq_V, 2026-09-11)
+
+This pair is **already absorbed**: master entry **900 `procedure_suspend_scan_replace_1`**, origin
+`rung36_jcon_recogn__rung36_jcon_recogn`, fed from `ALL.in` and graded m3+m4 on every IcnM board. The loose
+`rung36_jcon_recogn.icn` body is **BYTE-IDENTICAL** to that entry's body, and `rung36_jcon_recogn.expected`
+is byte-identical both to that entry's ref and to the vendor's own `packages/icon/jcon_tests/recogn.std`.
+The ordinary cure for a duplicate beside its absorbed entry is DELETE (that is what this lane did for
+eighteen of them on 2026-09-10). **It is the wrong cure here, and the two reasons are live rules a reader
+can re-check, not a policy note:**
+
+⛔ **(1) TWO INSTRUMENTS READ THIS FILE BY PATH, AND BOTH GO QUIETLY SMALLER IF IT GOES.**
+`SCRIP/scripts/test_gate_icn_rundir_contract.sh` DISCOVERS its witnesses by scanning `tests/icon/*.icn` for a
+run-directory declaration and refuses only when the set is EMPTY — so deleting this file takes its witness
+count 8 → 7 with no message, and its `contract_floor` pin of 8 lines for `rung36_jcon_recogn` becomes dead
+code. `SCRIP/scripts/test_icon_ir_rung_36.sh` runs it FED from `config/rung36_jcon_recogn.stdin`, and its
+`run()` prints `SKIP (no .expected)` and returns success when the file is gone. A silent skip and a pass are
+the same exit code there; that is the false-green this tree keeps paying for.
+
+⛔ **(2) A REBUILD WOULD ABSORB IT AGAIN, UNFED, AND STAMP IT XFAIL — MEASURED, NOT FEARED.**
+`util_build_master_suite.py --lang icon --write` on a scratch copy of this tree TODAY produces **959** entries:
+entry **959 `procedure_suspend_scan_replace_2`, origin `rung36_jcon_recogn`, xfail=1** beside the existing
+green entry 900. Two spellings of one origin (`rung36_jcon_recogn` vs `rung36_jcon_recogn__rung36_jcon_recogn`)
+walk straight past the builder's already-in-the-master guard, which is keyed on the origin STRING; and the new
+copy is graded UNFED, because the builder's stdin guard checks `.in`/`.input` beside the source and in
+`config/` but **not the `.stdin` spelling this tree actually uses** (8 of 8 icon stdin companions are
+`config/*.stdin`). Unfed, the program hits EOF on `read()` before any `suspend`, prints nothing against its
+own 8-line fed ref, and the auto-XFAIL-by-source-verdict path marks the duplicate as a documented red.
+**THERE IS NO XFAIL** (RULES.md): that entry would count as a FAIL on every board, for a program that is
+green when fed. The deferral that used to block this (`PENDING.md`, row `icn-recogn-genqueen-suspend-shape`)
+EXPIRED when that row reached DONE, which is what re-opened the hole.
+
+⭐ **THE EXIT CONDITION, because an unconditioned keeper note is what decays:** this declaration is owed only
+until the builder's already-in-the-master guard compares CONTENT rather than an origin spelling, or its stdin
+guard asks `corpus_suite_harness.loose_stdin_companion()` (which knows all three spellings and both
+locations) instead of its own list. Re-run the scratch-build arm above: the day it produces 958 and not 959,
+this section is dead and the pair is an ordinary duplicate to delete with its
+`config/rung36_jcon_recogn.stdin` and this gate's floor pin. Both defects are recorded in
+`.github/FINDING-2026-09-11-hq_V-a-keeper-that-cannot-be-recorded-and-a-stdin-spelling-the-builder-does-not-know.md`
+and routed to hq_T, who holds the master builder.

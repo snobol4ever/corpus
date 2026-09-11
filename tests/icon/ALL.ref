@@ -6296,7 +6296,64 @@ procedure dbl
      &window: [failed]
           &x: [failed]
           &y: [failed]
-#---------------------------------------------- 925 procedure_scan_alt_replace_1
+#----------------------------------------- 925 procedure_every_suspend_replace_8
+-------------
+| | | |Q| | |
+-------------
+|Q| | | | | |
+-------------
+| | | | |Q| |
+-------------
+| |Q| | | | |
+-------------
+| | | | | |Q|
+-------------
+| | |Q| | | |
+-------------
+
+-------------
+| | | | |Q| |
+-------------
+| | |Q| | | |
+-------------
+|Q| | | | | |
+-------------
+| | | | | |Q|
+-------------
+| | | |Q| | |
+-------------
+| |Q| | | | |
+-------------
+
+-------------
+| |Q| | | | |
+-------------
+| | | |Q| | |
+-------------
+| | | | | |Q|
+-------------
+|Q| | | | | |
+-------------
+| | |Q| | | |
+-------------
+| | | | |Q| |
+-------------
+
+-------------
+| | |Q| | | |
+-------------
+| | | | | |Q|
+-------------
+| |Q| | | | |
+-------------
+| | | | |Q| |
+-------------
+|Q| | | | | |
+-------------
+| | | |Q| | |
+-------------
+
+#---------------------------------------------- 926 procedure_scan_alt_replace_1
 This test of floating-point arithmetic is likely to show
 differences from platform to platform because of differences
 in floating-point precision and details of the routines that
@@ -6441,7 +6498,7 @@ abs(-3.0) ----> 3.0
 36. ^ 9. ----> 1.015599e+14
 -36. ^ 9 ----> -1.01559e+14
 -36. ^ -9 ----> -9.84640e-15
-#------------------------------------------------ 926 procedure_every_elemgen_20
+#------------------------------------------------ 927 procedure_every_elemgen_20
 A 116 function image invalid type to element generator
 cset elements 256
 "1" B 116 function image
@@ -6454,7 +6511,7 @@ none H 108 1
 none I 108 1
 none J 108 "x"
 none K 112 function image invalid type to size operation
-#----------------------------------------- 927 procedure_every_elemgen_replace_2
+#----------------------------------------- 928 procedure_every_elemgen_replace_2
 XIII
 IV
 VI
@@ -6463,11 +6520,11 @@ cannot convert
 XXXIX
 MMMCMXCIX
 cannot convert
-#-------------------------------------------- 928 procedure_scan_while_replace_1
+#-------------------------------------------- 929 procedure_scan_while_replace_1
 accbcabbaa
 14434241332312211
 AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABABAAAA
-#------------------------------------------- 929 procedure_every_scan_replace_10
+#------------------------------------------- 930 procedure_every_scan_replace_10
 A                   2
 B                   1
 D                   1
@@ -6521,7 +6578,7 @@ write               1
 writes              1
 x                   3
 y                   4
-#---------------------------------------------- 930 procedure_to_while_replace_1
+#---------------------------------------------- 931 procedure_to_while_replace_1
      1  Order, Coleoptera, (Beetles). Many beetles are colored so as
      2  to resemble the surfaces which they habitually frequent, and they thus
      3  escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
@@ -6650,7 +6707,7 @@ well             : 13
 which            : 2, 4, 13, 14
 with             : 4, 9
 worm             : 8
-#---------------------------------------- 931 procedure_coexpr_suspend_replace_3
+#---------------------------------------- 932 procedure_coexpr_suspend_replace_3
 writing file(tmp3)
 reading file(tmp3)
 closing file(tmp3)
@@ -6658,7 +6715,7 @@ writing file(tmp4)
 reading file(tmp4)
 closing file(tmp4)
 no problems found
-#----------------------------------------- 932 procedure_every_suspend_replace_7
+#----------------------------------------- 933 procedure_every_suspend_replace_7
 "\xfd\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xff\xfe"
 "\xfd\x01\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xff\x01"
 "\x02\x01\xff\xfe\xfd\xfc\xfb\xfa\xf9\xf8\xf7\xf6\xf5\xf4\xf3\xf2\xf1\xf0\xef\xee\xed\xec\xeb\xea\xe9\xe8\xe7\xe6\xe5\xe4\xe3\xe2\xe1\xe0\xdf\xde\xdd\xdc\xdb\xda\xd9\xd8\xd7\xd6\xd5\xd4\xd3\xd2\xd1\xd0\xcf\xce\xcd\xcc\xcb\xca\xc9\xc8\xc7\xc6\xc5\xc4\xc3\xc2\xc1\xc0\xbf\xbe\xbd\xbc\xbb\xba\xb9\xb8\xb7\xb6\xb5\xb4\xb3\xb2\xb1\xb0\xaf\xae\xad\xac\xab\xaa\xa9\xa8\xa7\xa6\xa5\xa4\xa3\xa2\xa1\xa0\x9f\x9e\x9d\x9c\x9b\x9a\x99\x98\x97\x96\x95\x94\x93\x92\x91\x90\x8f\x8e\x8d\x8c\x8b\x8a\x89\x88\x87\x86\x85\x84\x83\x82\x81\x80\d~}|{zyxwvutsrqponmlkjihgfedcba`_^]\\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#\"! \x1f\x1e\x1d\x1c\e\x1a\x19\x18\x17\x16\x15\x14\x13\x12\x11\x10\x0f\x0e\r\f\v\n\t\b\x07\x06\x05\x04\x00\x01"
@@ -6783,7 +6840,7 @@ rogam
 rogma
 romag
 romga
-#------------------------------------------ 933 procedure_record_every_replace_4
+#------------------------------------------ 934 procedure_record_every_replace_4
 6-Queens:
 solution: 1
   -------------------------
@@ -6844,7 +6901,7 @@ solution: 4
   -------------------------
   |   | Q |   |   |   |   |
   -------------------------
-#------------------------------------------------- 934 procedure_every_suspend_7
+#------------------------------------------------- 935 procedure_every_suspend_7
 r1 2
 r2 2
 r3 2
@@ -6867,7 +6924,7 @@ r19 "7" 2
 r20 3
 r20 4
 r20 1
-#----------------------------------------- 935 procedure_every_suspend_replace_4
+#----------------------------------------- 936 procedure_every_suspend_replace_4
 1 2 2 3 1 2
 "a\x00b" "a\x00"
 3 "\x00" 3 2
@@ -6876,14 +6933,14 @@ r20 1
 "<S>"
 16 " <S> <CONJ> <S>\x00"
 " <S> <CONJ> <S>\x00" 16 " <S> <CONJ> "
-#----------------------------------------- 936 procedure_every_suspend_replace_5
+#----------------------------------------- 937 procedure_every_suspend_replace_5
 "<S>"
 "<CONJ>"
 "<S>"
 2 3 4 
 4 4 4 4
 "<CONJ>"
-#------------------------------------------- 937 procedure_every_scan_replace_15
+#------------------------------------------- 938 procedure_every_scan_replace_15
 This test of floating-point arithmetic is likely to show
 differences from platform to platform because of differences
 in floating-point precision and details of the routines that
@@ -7167,7 +7224,7 @@ copy(1.0) ----> 1.0
 trim(3.14159,58) ----> "3.14159"
 Image(2e13) ----> "2e+13"
 Image(0.0006) ----> "0.0006"
-#---------------------------------------- 938 procedure_every_elemgen_replace_17
+#---------------------------------------- 939 procedure_every_elemgen_replace_17
 
     a =  1618033988749894848204586834365638117720309
     b = -2718281828459045235360287471352662497757247
@@ -7581,7 +7638,7 @@ b:  37252902984619140625  48661191875666868481  < <= ~=
     +-   85914094860286009106  -11408288891047727856
     */%  1812770660060154962576925754547119140625  0  37252902984619140625
     &|!  36914950757738881025  48999144102547128081  12084193344808247056
-#------------------------------------------- 939 procedure_every_scan_replace_14
+#------------------------------------------- 940 procedure_every_scan_replace_14
 The quick brown fox jumps over lazy dogs tab here end 
 digits 13
 ucase T
@@ -7597,7 +7654,7 @@ a
 b
 c
  dehlorw
-#------------------------------------------ 940 procedure_record_every_replace_2
+#------------------------------------------ 941 procedure_record_every_replace_2
  ----> &null
 f := open("foo.baz","w") ----> file(foo.baz)
 write(f,"hello world") ----> "hello world"
@@ -7772,7 +7829,7 @@ close(f) ----> file(fncs1.dat)
 5.75              1.398 1.089 0.861 -0.50 -0.59 2.397 314.1 1.749 1.592 
 6.0               1.405 1.107 0.960 -0.27 -0.29 2.449 403.4 1.791 1.630 
 6.25              1.412 1.123 0.999 -0.03 -0.03 2.5   518.0 1.832 1.668 
-#----------------------------------------- 941 procedure_record_coexpr_replace_1
+#----------------------------------------- 942 procedure_record_coexpr_replace_1
 	null : &null
     *2	integer : 47
     *7	real : 3.14159
@@ -7824,7 +7881,7 @@ close(f) ----> file(fncs1.dat)
 
 '\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\xf9\xfa\xfb\xfc\xfd\xfe'
 
-#-------------------------------------------- 942 procedure_every_scan_replace_9
+#-------------------------------------------- 943 procedure_every_scan_replace_9
    initial : 0 :
  >> 
  >> 3 3 
@@ -7843,7 +7900,7 @@ k 3
 v 7
        30s : 5 : [0]30 [1]31 [2]32 [3]33 [4]34
        50s : 5 : [0]50 [1]51 [2]52 [3]53 [4]54
-#------------------------------------------ 943 procedure_record_every_replace_7
+#------------------------------------------ 944 procedure_record_every_replace_7
  ----> &null
 s := "abcd" ----> "abcd"
 s := "x" ----> "x"
@@ -8075,7 +8132,7 @@ bal('+','[','[',"[[2*x[+3[+[5*y[") ----> none
 bal('+','([','])',"([2*x)+3]+(5*y]") ----> 10
 bal(,,,"()+()") ----> 1
 bal(&cset,,,"()+()") ----> 1
-#----------------------------------------- 944 procedure_record_every_replace_13
+#----------------------------------------- 945 procedure_record_every_replace_13
  ----> &null
 2 === +2 ----> 2
 3 === *"abc" ----> 3
@@ -8380,9 +8437,9 @@ y := 2 ----> 2
 (x <- y) & &fail ----> none
 x ----> 1
 y ----> 2
-#------------------------------------------ 945 procedure_record_every_replace_1
+#------------------------------------------ 946 procedure_record_every_replace_1
 he runs.
-#-------------------------------------------- 946 procedure_every_scan_replace_5
+#-------------------------------------------- 947 procedure_every_scan_replace_5
 -2
 -2
 a. [0]
@@ -8435,7 +8492,7 @@ z. [18] 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29
 x. [9] 21 22 23 24 25 26 27 28 29
 y. [9] 41 42 43 44 45 46 47 48 49
 z. [18] 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78 79
-#----------------------------------------- 947 procedure_record_every_replace_15
+#----------------------------------------- 948 procedure_record_every_replace_15
 c1 after 0
 "c1 done"
 c1 after 60
@@ -8466,7 +8523,7 @@ equiv failed
 list_16(2)
 equiv failed
 set_8(2)
-#----------------------------------------- 948 procedure_record_every_replace_14
+#----------------------------------------- 949 procedure_record_every_replace_14
  ----> &null
 copy(1) ----> 1
 copy("abc") ----> "abc"
@@ -8922,7 +8979,7 @@ every write(seq(-10)) \ 10 ----> none
 25
 28
 every write(seq(,3)) \ 10 ----> none
-#----------------------------------------- 949 procedure_record_every_replace_18
+#----------------------------------------- 950 procedure_record_every_replace_18
 2
 3
 b
@@ -9003,7 +9060,7 @@ record constructor recordAsVariable
 3
 OK to get here
 done
-#------------------------------------------ 950 procedure_record_every_replace_3
+#------------------------------------------ 951 procedure_record_every_replace_3
 Enter states (1 character names): Enter input alphabet: Enter Final states (subset of states): What is the start state? enter delta(a,0) = enter delta(a,1) = enter delta(b,0) = enter delta(b,1) = enter delta(c,0) = enter delta(c,1) = enter delta(d,0) = enter delta(d,1) = enter delta(e,0) = enter delta(e,1) = enter delta(f,0) = enter delta(f,1) = enter delta(g,0) = enter delta(g,1) = enter delta(h,0) = enter delta(h,1) = 
 
 
@@ -9404,7 +9461,7 @@ where:
 	d(bf,0) = ag	d(bf,1) = ce
 	d(ce,0) = d	d(ce,1) = bf
 	d(d,0) = d	d(d,1) = ag
-#------------------------------------------- 951 procedure_every_scan_replace_13
+#------------------------------------------- 952 procedure_every_scan_replace_13
 test delete:    41,    3	[ok]
 test delete:    41,   11	[ok]
 test delete:    41,   23	[ok]
@@ -9447,7 +9504,7 @@ checking !T:
 checking key(T):
 
 [done]
-#-------------------------------------------- 952 procedure_every_scan_replace_6
+#-------------------------------------------- 953 procedure_every_scan_replace_6
 1 metafile 1250 1000 0 0 0 init
 581 950 (A) text
 751 880 (B) text
@@ -9517,7 +9574,7 @@ checking key(T):
 125 249 line stroke 874 249 begin 58 587 line stroke
 255 255 255 color
 0 0 (16 players, 5 rounds, 20 matches) text
-#-------------------------------------------- 953 procedure_every_scan_replace_4
+#-------------------------------------------- 954 procedure_every_scan_replace_4
 testing entab/detab(s)
 testing entab/detab(s,5)
 testing entab/detab(s,8,12)
@@ -9529,7 +9586,7 @@ testing entab/detab(s,3)
 testing entab/detab(s,3,4)
 testing entab/detab(s,5)
 testing entab/detab(s,5,7,10)
-#----------------------------------------- 954 procedure_record_every_replace_19
+#----------------------------------------- 955 procedure_record_every_replace_19
  ----> &null
 list(0) ----> list_1(0)
 list(0,1) ----> list_2(0)
@@ -9889,7 +9946,7 @@ procedure main
 &null
 every write(image(!r)) ----> none
  a: -2035912587 847198497 
-#----------------------------------------- 955 procedure_record_coexpr_replace_3
+#----------------------------------------- 956 procedure_record_coexpr_replace_3
 0:
 1:
 2:
@@ -10393,7 +10450,7 @@ key=6 record r2_2(2)
 key=6 record r2_4(2)
 key=8 record r5_11(5)
 key=8 record r5_15(5)
-#----------------------------------------- 956 procedure_record_every_replace_12
+#----------------------------------------- 957 procedure_record_every_replace_12
 
 error in line 7:
    &error = -2
@@ -10927,7 +10984,7 @@ error in line 180:
    &errortext = "negative first argument to real exponentiation"
 (-36. ^ -9.) | monitor(&line) ----> 180
  eginopst
-#------------------------------------------- 957 procedure_record_scan_replace_2
+#------------------------------------------- 958 procedure_record_scan_replace_2
 <!-- Created by HTPREP -->
 <html><head>
 <title>Off the Beaten Path</title>
