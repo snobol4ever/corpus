@@ -849,6 +849,9 @@ main:
                         mov              esi, 2
                         call             rt_label_table_install@PLT
                         mov              rdi, qword ptr [rsp]
+                        mov              rdi, qword ptr [rdi]
+                        call             rt_main_progname_stage@PLT
+                        mov              rdi, qword ptr [rsp]
                         add              rdi, 8
                         mov              esi, dword ptr [rsp + 8]
                         sub              esi, 1
