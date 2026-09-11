@@ -1,6 +1,6 @@
-* STONE.SNO - Plays a simple game of taking stones from a pile.
+* STONE.spt - Plays a simple game of taking stones from a pile.
 *
-	INPUT(.INPUT,5,,'phrases.in')		:S(STONE_0)
+	INPUT(.INPUT,5,'phrases.in')		:S(STONE_0)
 	OUTPUT = "Could not open phrases.in data file" :(END)
 STONE_0
 -INCLUDE "PHRASE.sno"
@@ -19,7 +19,7 @@ SDA_3	J  =  J + 1  LT(J,MAX)			:F(SDA_2)
 	SDA<I,P>  =  J				:(SDA_2)
 SDA_END
 	ENDFILE(5)
-	INPUT(.INPUT,5,,'CON:')
+	INPUT(.INPUT,5,' -f0')
 	QUEST('Do you want the rules?/(NO)NEWG|(no)NEWG|(N)NEWG|(n)NEWG|'
 +		'(YES)|(yes)|(Y)|(y)') :S($LABEL)
 STONE_1	OUTPUT = 'There are N stones in a pile (where N is odd) and let each'

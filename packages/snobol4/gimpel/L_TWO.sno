@@ -1,4 +1,4 @@
-* L_TWO.SNO - This is a compiler for the language L2 (Gimpel, p. 422).
+* L_TWO.spt - This is a compiler for the language L2 (Gimpel, p. 422).
 *	      It produces output in the form of assembly language
 *	      (accepted by ASM) for machine M (Gimpel, p. 407).
 *
@@ -19,9 +19,6 @@
 * Sample input:
 *   if x > y then x = x + a(i+1) + z else y = x - y / z
 *
-
-	&FULLSCAN = 1
-
 -INCLUDE "POL.sno"
 -INCLUDE "TR.sno"
 -INCLUDE "TUPLE.sno"
@@ -30,7 +27,7 @@ READ	S  =  TRIM(INPUT)			:F(END)
 *
 * Convert input to Polish form.
 *
-	S STMT				:F(ERR)
+	S ? STMT				:F(ERR)
 	POLISH = POP() ","
 *
 * Convert Polish to 4-tuples
@@ -39,8 +36,8 @@ READ	S  =  TRIM(INPUT)			:F(END)
 *
 * Convert 4-tuples to machine code
 *
-GENLOOP	T POS(0) (BREAKX('/') '//') . TUP =	:F(READ)
-	TUP BREAK(',') . OP ','
+GENLOOP	T ? POS(0) (BREAKX('/') '//') . TUP =	:F(READ)
+	TUP ? BREAK(',') . OP ','
 +	((BREAK(',') . ARG1 ',' BREAK(',') . ARG2 ','
 +	  BREAKX('/') . ARG3) |
 +	(BREAK('/') . ARG1 "" . ARG2 "" . ARG3)) '//'

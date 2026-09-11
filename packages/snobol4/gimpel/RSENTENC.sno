@@ -1,9 +1,18 @@
--MODULE RSENTENCE
--INCLUDE "BAL.sno"
+* RSENTENC.inc - RSENTENCE(STACK) will generate and return a
+*		 random sentence according to a grammatical
+*		 description read in during initialization
+*		 from the INPUT variable.  The argument STACK
+*		 represents a string possibly containing
+*		 syntactic variables which are expanded according
+*		 to the grammar.
+*
+*	See Gimpel, p. 354-357 for additional information.
+*
+-INCLUDE "BALX.sno"
 -INCLUDE "RSELECT.sno"
 	DEFINE('RSENTENCE(STACK)VAR,EXP,S,TEXT')
 	SYN.VAR  = POS(0)   '<'  ARB . VAR  '>'
-	SNOBAL.EXP =  POS(0) '(' BAL('(<>)','"' "'") . EXP ')'
+	SNOBAL.EXP =  POS(0) '(' BALX('(<>)','"' "'") . EXP ')'
 	ASGN.VAR  =  POS(0)  '='  ARB . VAR  '='
 	LITERAL.TEXT    =  BREAK('<=(') . TEXT
 	RSENT_TBL  =  TABLE()

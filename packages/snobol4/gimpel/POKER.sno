@@ -1,7 +1,7 @@
-* POKER.SNO - Plays cold-hand, five-card poker between two players
+* POKER.spt - Plays cold-hand, five-card poker between two players
 *	      with nothing wild.
 
-	INPUT(.INPUT,5,,'phrases.in')		:S(POKE1)
+	INPUT(.INPUT,5,'phrases.in')		:S(POKE1)
 	TERMINAL = "Could not open phrases.in data file" :(END)
 POKE1
 -INCLUDE "PHRASE.sno"
@@ -39,11 +39,12 @@ BET	BET  =  CONVERT(POT * L, 'INTEGER')
 	BET  =  GT(BET,HIM)  HIM
 	GT(BET,0)				:S(RETURN)F(FRETURN)
 BET_END
-	INPUT(.INPUT,5,,'CON:')
+	ENDFILE(5)
+	INPUT(.INPUT,5,' -f0')
 	OUTPUT  =  'Welcome to Cold-hand Poker'
 	QUEST('Would you like to know the rules? /'
 +	'(YES)|(Y)|(y)|(NO)INIT|(N)INIT|(n)INIT') :S($LABEL)
-	INPUT(.RULES,1,,'poker.in')		:F(INIT)
+	INPUT(.RULES,1,'poker.in')		:F(INIT)
 PLOOP	OUTPUT  =  TRIM(RULES)			:S(PLOOP)
 	ENDFILE(1)
 INIT

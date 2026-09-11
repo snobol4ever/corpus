@@ -1,15 +1,22 @@
--MODULE TUPLE
+* TUPLE.inc - TUPLE(OP,ARG1,ARG2,ARG3) will expand a 4-tuple (as
+*	      produced by TR.inc into reasonable optimized
+*	      machine code.
+*
+* CAUTION - The original program defined a function LOAD, which is
+*	    here changed to LOAD. to avoid conflict with the
+*	    built-in function with the same name.
+*
 	DEFINE('TUPLE(OP,ARG1,ARG2,ARG3)R')	:(TUPLE_END)
 TUPLE						:($('TU_' OP))
 
 TU_ADD	;TU_FADD ;TU_SUB ;TU_FSUB
 TU_MUL	;TU_FMUL ;TU_DIV ;TU_FDIV
-	R  =  LOAD(ARG1)
+	R  =  LOAD.(ARG1)
 	OUTPUT  =  ' ' OP ' ' R ','  ADDR(ARG2)
 	DEASSOC(R)
 	STORE(R,ARG3)				:(RETURN)
 
-TU_ASGN	R  =  LOAD(ARG1)
+TU_ASGN	R  =  LOAD.(ARG1)
 	STORE(R,ARG3)				:(RETURN)
 
 TU_MNS	R  =  REG()
@@ -20,7 +27,7 @@ TU_BR	ARG3  =  INDEX(ARG3)
 	OUTPUT  =  ' BR '  ARG3			:(RETURN)
 
 TU_BRGT	;TU_BRGE ;TU_BRLT ;TU_BRLE ;TU_BREQ ;TU_BRNE
-	R  =  LOAD(ARG1)
+	R  =  LOAD.(ARG1)
 	OUTPUT  =  ' SUB ' R ',' ADDR(ARG2)
 	FREE(R)
 	OUTPUT  =  ' ' OP ' ' R ',' ARG3	:(RETURN)
@@ -28,12 +35,12 @@ TU_BRGT	;TU_BRGE ;TU_BRLT ;TU_BRLE ;TU_BREQ ;TU_BRNE
 TU_LBL	OUTPUT  =  ARG1
 	REG_LIST  =  ','			:(RETURN)
 TUPLE_END
-	DEFINE('LOAD(LOC)')			:(LOAD_END)
-LOAD	LOAD  =  ISREG(LOC)			:S(RETURN)
+	DEFINE('LOAD.(LOC)')			:(LOAD_END)
+LOAD.	LOAD.  =  ISREG(LOC)			:S(RETURN)
 	LOC  =  ADDR(LOC)
-	LOAD  =  REG()
-	ASSOC(LOC,LOAD)
-	OUTPUT  =  ' LOAD ' LOAD ',' LOC	:(RETURN)
+	LOAD.  =  REG()
+	ASSOC(LOC,LOAD.)
+	OUTPUT  =  ' LOAD ' LOAD. ',' LOC	:(RETURN)
 LOAD_END
 	DEFINE('STORE(REG,LOC)')		:(STORE_END)
 STORE	LOC  =  INDEX(LOC)
@@ -51,7 +58,7 @@ ADDR	ADDR  =  LOC
 ADDR_END
 	DEFINE('INDEX(LOC)S')			:(INDEX_END)
 INDEX	INDEX  =  LOC
-	INDEX  '('  BREAK(')') . S  =  '('  LOAD(S)  :(RETURN)
+	INDEX  '('  BREAK(')') . S  =  '('  LOAD.(S)  :(RETURN)
 INDEX_END
 	DEFINE('REG()LOC')
 	DEFINE('FREE(REG)')

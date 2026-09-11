@@ -1,4 +1,4 @@
-* RSEASON.SNO - Simulates baseball seasons, producing the number
+* RSEASON.spt - Simulates baseball seasons, producing the number
 *		of runs scored in a season of N games.
 *
 *	Player statistics and batting order obtained from file
@@ -26,14 +26,14 @@
 *	By reordering lines in the data file, other lineups can
 *	be tried.
 *
-	&STLIMIT = -1
-	TERMINAL = ~INPUT(.INPUT,5,,"rseason.in")
+	&STLIMIT = 5000000
+	TERMINAL = ~INPUT(.INPUT,5,"rseason.in")
 +			"Could not open file rseason.in"  :S(END)
--INCLUDE "RSEASON_lib.sno"
+-INCLUDE "RSEASON.sno"
 	SEASONS = 10
 	GAMES = 154
-	SUM = 0.0
-	ERROR = 0.0
+	SUM = 0
+	ERROR = 0
 	N = 1
 	OUTPUT = "Playing " SEASONS " seasons of " GAMES " games each."
 	OUTPUT = "This will take a while, why don't you hit the snack bar?"
@@ -41,10 +41,9 @@
 	OUTPUT = "Total runs per season"
 	OUTPUT = "---------------------"
 
-RSEAS_1	RUNS = RSEASON(GAMES)
-	OUTPUT = RUNS
+RSEAS_1	OUTPUT = RUNS = RSEASON(GAMES)
 	SUM = SUM + RUNS
-	ERROR = ERROR + CONVERT(RUNS,"REAL") ** 2
+	ERROR = ERROR + RUNS ** 2
 	N = NE(N,SEASONS) N + 1			:S(RSEAS_1)
 *
 * Compute some statistics

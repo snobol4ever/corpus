@@ -1,7 +1,6 @@
-* Use RSTORY.IN as sample input file:
-*	SNOBOL4 RSTORY <RSTORY.IN
+* RSTORY.spt - Generate stories using RSTORY.in as sample input file:
 *
-	TERMINAL = ~INPUT(.INPUT,5,,'rstory.in')
+	TERMINAL = ~INPUT(.INPUT,5,'rstory.in')
 +		   "Could not open input file, rstory.in"  :S(END)
 -INCLUDE "RSENTENC.sno"
 	ACTIONS  =  TABLE()

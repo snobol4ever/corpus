@@ -1,4 +1,4 @@
-* ASM.SNO - Assembler for machine M described in chapter 18 of
+* ASM.spt - Assembler for machine M described in chapter 18 of
 *	    "Algorithms in SNOBOL4."  A discussion of the
 *	    assembler is beyond the scope of these comments;
 *	    consult the book for information.
@@ -9,7 +9,6 @@
 *	    to variable PUNCH, which can be I/O associated
 *	    if capturing that result is desired.
 *
--MODULE ASM
 -INCLUDE "RPAD.sno"
 -INCLUDE "BASEB.sno"
 	LIST  =  'LOAD 21,STORE 22,ADD 31,FADD 71,SUB 32,'
@@ -23,7 +22,7 @@ OPS_INIT	LIST  BREAK(' ') . OP ' ' BREAK(',') . CODE ',' =
 INIT1	SYMS  =  TABLE()
 	LABEL.L  =  BREAK(' ') . L SPAN(' ')
 	LOC  =  0
-	OUTPUT(.DISK,10,,'ASMTEMP')
+	OUTPUT(.DISK,10,'asmtemp')
 PASS1	X  =  INPUT  ' '			:F(INIT2)
 	DISK  =  X
 	X  LABEL.L  =
@@ -31,7 +30,8 @@ PASS1	X  =  INPUT  ' '			:F(INIT2)
 	LOC  =  DIFFER(X)  LOC + 1		:(PASS1)
 INIT2	REWIND(10)
 	DETACH(.DISK)
-	INPUT(.DISK,10,,'ASMTEMP')
+	ENDFILE(10)
+	INPUT(.DISK,10,'asmtemp')
 	NO_OP  =  POS(0)  BREAK(' ')  SPAN(' ')  RPOS(0)
 	P.OP.AC.A.X  =  NULL $ OP $ AC $ A $ X   NULL . CAUSE
 +	POS(0)   BREAK(' ')   SPAN(' ')

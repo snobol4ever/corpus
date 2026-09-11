@@ -1,4 +1,4 @@
-* L_ONE.SNO - This is a compiler for the language L1 (Gimpel, p. 411).
+* L_ONE.spt - This is a compiler for the language L1 (Gimpel, p. 411).
 *	      It produces output in the form of assembly language
 *	      (accepted by ASM) for machine M (Gimpel, p. 407).
 *
@@ -13,7 +13,6 @@
 * Sample input:
 *   A = (B - C * D) / 10
 *
--MODULE L_ONE
 -INCLUDE "PUSH.sno"
 -INCLUDE "TEMP.sno"
 	DEFINE('S(NAME)')
@@ -39,15 +38,13 @@ S_END
 	INTEGER  =  SPAN(DIGITS) . *PUSH()
 	PRIMARY  =  IDEN | INTEGER | '(' *E ')'
 	FACTOR  =  PRIMARY  |  '-' PRIMARY  S('NEG')
-* Catspaw modification:
-* Eliminate left recursion in TERM and E as presented in book.
 	TERM  =  FACTOR '*' *TERM S('MUL')  |
-+	FACTOR '/' *TERM S('DIV')  |  FACTOR
-	E   =   TERM '+' *E S('ADD')  |
-+	TERM '-' *E S('SUB')  |  TERM
++	FACTOR  '/' *TERM S('DIV')  |  FACTOR
+	E   =   TERM '+' *E  S('ADD')  |
++	TERM '-' *E  S('SUB')  |  TERM
 	STMT  =  POS(0)  IDEN  '='  *E  S('ASGN')  RPOS(0)
 READ	S  =  TRIM(INPUT)			:F(END)
-REMOVE_BLANKS	S  ANY(' ' CHAR(9))  =			:S(REMOVE_BLANKS)
+REMOVE_BLANKS	S  ANY(' ' CHAR(9))  =		:S(REMOVE_BLANKS)
 	TEMP_NO    =  0
 	S   STMT				:S(READ)
 	OUTPUT  =  '***  ERROR IN '   S		:(READ)
