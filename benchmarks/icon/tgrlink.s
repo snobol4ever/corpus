@@ -2323,7 +2323,10 @@ n00040_subscript_α:       mov              r11, 137
                         .size            n00040_subscript_bx, .-n00040_subscript_bx
                         .type            n00003_suspend_bx, @function
 n00003_suspend_bx:
+#=======================================================================================================================
+# suspend
 #-----------------------------------------------------------------------------------------------------------------------
+                        .loc             1 185 0
 n00003_suspend_α:         mov              r11, 138
                         lea              rax, [rip + n00003_suspend_β]
                         mov              qword ptr [rbp + -144], rax
@@ -2339,6 +2342,7 @@ n00003_suspend_α:         mov              r11, 138
                         lea              rdi, [rip + .S0]
                         mov              rsi, qword ptr [rbp + -976]
                         mov              rdx, qword ptr [rbp + -968]
+                        mov              rcx, 185
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2619,7 +2623,7 @@ n00052_assign_α:          mov              r11, 150
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_428_1_s]
-                        mov              r8, 0
+                        mov              r8, 185
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -3906,7 +3910,10 @@ n00112_var_α:             mov              r11, 210
                         .size            n00112_var_bx, .-n00112_var_bx
                         .type            n00095_suspend_bx, @function
 n00095_suspend_bx:
+#=======================================================================================================================
+# suspend
 #-----------------------------------------------------------------------------------------------------------------------
+                        .loc             1 219 0
 n00095_suspend_α:         mov              r11, 211
                         lea              rax, [rip + n00095_suspend_β]
                         mov              qword ptr [rbp + -128], rax
@@ -3922,6 +3929,7 @@ n00095_suspend_α:         mov              r11, 211
                         lea              rdi, [rip + .S1]
                         mov              rsi, qword ptr [rbp + -944]
                         mov              rdx, qword ptr [rbp + -936]
+                        mov              rcx, 219
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -3972,7 +3980,10 @@ n00114_var_α:             mov              r11, 213
                         .size            n00114_var_bx, .-n00114_var_bx
                         .type            n00115_suspend_bx, @function
 n00115_suspend_bx:
+#=======================================================================================================================
+# suspend
 #-----------------------------------------------------------------------------------------------------------------------
+                        .loc             1 220 0
 n00115_suspend_α:         mov              r11, 214
                         lea              rax, [rip + n00115_suspend_β]
                         mov              qword ptr [rbp + -128], rax
@@ -3988,6 +3999,7 @@ n00115_suspend_α:         mov              r11, 214
                         lea              rdi, [rip + .S1]
                         mov              rsi, qword ptr [rbp + -944]
                         mov              rdx, qword ptr [rbp + -936]
+                        mov              rcx, 220
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -4284,7 +4296,10 @@ n00126_to_β:              mov              r11, 224
                         .size            n00126_to_bx, .-n00126_to_bx
                         .type            n00127_suspend_bx, @function
 n00127_suspend_bx:
+#=======================================================================================================================
+# suspend
 #-----------------------------------------------------------------------------------------------------------------------
+                        .loc             1 221 0
 n00127_suspend_α:         mov              r11, 225
                         lea              rax, [rip + n00127_suspend_β]
                         mov              qword ptr [rbp + -128], rax
@@ -4300,6 +4315,7 @@ n00127_suspend_α:         mov              r11, 225
                         lea              rdi, [rip + .S1]
                         mov              rsi, qword ptr [rbp + -944]
                         mov              rdx, qword ptr [rbp + -936]
+                        mov              rcx, 221
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -4508,7 +4524,10 @@ n00134_to_β:              mov              r11, 232
                         .size            n00134_to_bx, .-n00134_to_bx
                         .type            n00135_suspend_bx, @function
 n00135_suspend_bx:
+#=======================================================================================================================
+# suspend
 #-----------------------------------------------------------------------------------------------------------------------
+                        .loc             1 222 0
 n00135_suspend_α:         mov              r11, 233
                         lea              rax, [rip + n00135_suspend_β]
                         mov              qword ptr [rbp + -128], rax
@@ -4524,6 +4543,7 @@ n00135_suspend_α:         mov              r11, 233
                         lea              rdi, [rip + .S1]
                         mov              rsi, qword ptr [rbp + -944]
                         mov              rdx, qword ptr [rbp + -936]
+                        mov              rcx, 222
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -4732,7 +4752,10 @@ n00142_to_β:              mov              r11, 240
                         .size            n00142_to_bx, .-n00142_to_bx
                         .type            n00143_suspend_bx, @function
 n00143_suspend_bx:
+#=======================================================================================================================
+# suspend
 #-----------------------------------------------------------------------------------------------------------------------
+                        .loc             1 223 0
 n00143_suspend_α:         mov              r11, 241
                         lea              rax, [rip + n00143_suspend_β]
                         mov              qword ptr [rbp + -128], rax
@@ -4748,6 +4771,7 @@ n00143_suspend_α:         mov              r11, 241
                         lea              rdi, [rip + .S1]
                         mov              rsi, qword ptr [rbp + -944]
                         mov              rdx, qword ptr [rbp + -936]
+                        mov              rcx, 223
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -5444,7 +5468,7 @@ n00178_assign_α:          mov              r11, 276
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_905_1_s]
-                        mov              r8, 0
+                        mov              r8, 223
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -5516,7 +5540,7 @@ n00181_assign_α:          mov              r11, 279
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_910_1_s]
-                        mov              r8, 0
+                        mov              r8, 223
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -16607,7 +16631,7 @@ n00738_assign_α:         mov              r11, 836
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_2319_1_s]
-                        mov              r8, 0
+                        mov              r8, 223
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -25568,7 +25592,7 @@ n01164_assign_α:         mov              r11, 1263
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3379_1_s]
-                        mov              r8, 0
+                        mov              r8, 223
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -25800,7 +25824,7 @@ n01175_assign_α:         mov              r11, 1273
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3395_1_s]
-                        mov              r8, 0
+                        mov              r8, 223
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -25889,7 +25913,7 @@ n01180_assign_α:         mov              r11, 1276
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3400_1_s]
-                        mov              r8, 0
+                        mov              r8, 223
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -26034,7 +26058,7 @@ n01190_assign_α:         mov              r11, 1281
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3408_1_s]
-                        mov              r8, 0
+                        mov              r8, 223
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -26219,7 +26243,7 @@ n01195_assign_α:         mov              r11, 1287
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3416_1_s]
-                        mov              r8, 0
+                        mov              r8, 223
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -27323,7 +27347,7 @@ n01255_assign_α:         mov              r11, 1345
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3500_1_s]
-                        mov              r8, 0
+                        mov              r8, 223
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10

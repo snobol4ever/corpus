@@ -16691,7 +16691,10 @@ n00592_to_β:             mov              r11, 643
                         .size            n00592_to_bx, .-n00592_to_bx
                         .type            n00588_suspend_bx, @function
 n00588_suspend_bx:
+#=======================================================================================================================
+# suspend
 #-----------------------------------------------------------------------------------------------------------------------
+                        .loc             1 443 0
 n00588_suspend_α:        mov              r11, 644
                         lea              rax, [rip + n00588_suspend_β]
                         mov              qword ptr [rbp + -80], rax
@@ -16707,6 +16710,7 @@ n00588_suspend_α:        mov              r11, 644
                         lea              rdi, [rip + .S0]
                         mov              rsi, qword ptr [rbp + -192]
                         mov              rdx, qword ptr [rbp + -184]
+                        mov              rcx, 443
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -28996,7 +29000,7 @@ n01066_assign_α:         mov              r11, 1116
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3180_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -29756,7 +29760,7 @@ n01106_assign_α:         mov              r11, 1156
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_3286_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -38346,7 +38350,7 @@ n01460_assign_α:         mov              r11, 1512
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4248_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -38955,7 +38959,7 @@ n01488_assign_α:         mov              r11, 1540
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4322_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -39551,7 +39555,7 @@ n01516_assign_α:         mov              r11, 1568
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4395_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -40166,7 +40170,7 @@ n01545_assign_α:         mov              r11, 1597
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4471_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -40792,7 +40796,7 @@ n01575_assign_α:         mov              r11, 1627
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4549_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -41394,7 +41398,7 @@ n01603_assign_α:         mov              r11, 1655
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4623_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -41981,7 +41985,7 @@ n01628_assign_α:         mov              r11, 1680
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4692_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -42639,7 +42643,7 @@ n01658_assign_α:         mov              r11, 1710
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4772_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -43349,7 +43353,7 @@ n01691_assign_α:         mov              r11, 1743
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4859_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -44111,7 +44115,7 @@ n01727_assign_α:         mov              r11, 1779
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_4953_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -44698,7 +44702,7 @@ n01752_assign_α:         mov              r11, 1804
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5022_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -45441,7 +45445,7 @@ n01789_assign_α:         mov              r11, 1841
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5115_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -46184,7 +46188,7 @@ n01826_assign_α:         mov              r11, 1878
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5208_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -46892,7 +46896,7 @@ n01849_assign_α:         mov              r11, 1900
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5290_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -47487,7 +47491,7 @@ n01874_assign_α:         mov              r11, 1925
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5360_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -48095,7 +48099,7 @@ n01900_assign_α:         mov              r11, 1951
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5431_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -48703,7 +48707,7 @@ n01926_assign_α:         mov              r11, 1977
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5502_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -49312,7 +49316,7 @@ n01952_assign_α:         mov              r11, 2003
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5573_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -49928,7 +49932,7 @@ n01979_assign_α:         mov              r11, 2030
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5648_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -50948,7 +50952,7 @@ n02019_assign_α:         mov              r11, 2070
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5764_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -51587,7 +51591,7 @@ n02049_assign_α:         mov              r11, 2100
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5841_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -52629,7 +52633,7 @@ n02095_assign_α:         mov              r11, 2146
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_5958_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -53208,7 +53212,7 @@ n02120_assign_α:         mov              r11, 2171
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6026_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -53752,7 +53756,7 @@ n02143_assign_α:         mov              r11, 2194
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6089_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -54297,7 +54301,7 @@ n02166_assign_α:         mov              r11, 2217
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6144_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -55063,7 +55067,7 @@ n02196_assign_α:         mov              r11, 2247
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6230_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -55487,7 +55491,7 @@ n02212_assign_α:         mov              r11, 2263
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6283_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -56686,7 +56690,7 @@ n02267_assign_α:         mov              r11, 2319
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6421_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -57656,7 +57660,7 @@ n02308_assign_α:         mov              r11, 2359
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6541_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -58262,7 +58266,7 @@ n02322_assign_α:         mov              r11, 2371
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_6998_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -58375,7 +58379,7 @@ n02327_assign_α:         mov              r11, 2376
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_7005_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -59309,7 +59313,7 @@ n02376_assign_α:         mov              r11, 2425
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_7079_1_s]
-                        mov              r8, 0
+                        mov              r8, 443
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10

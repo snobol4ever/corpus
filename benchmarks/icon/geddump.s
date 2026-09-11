@@ -6209,7 +6209,10 @@ n00249_disjunction_β:     mov              r11, 289
                         .size            n00249_disjunction_bx, .-n00249_disjunction_bx
                         .type            n00247_suspend_bx, @function
 n00247_suspend_bx:
+#=======================================================================================================================
+# suspend
 #-----------------------------------------------------------------------------------------------------------------------
+                        .loc             1 215 0
 n00247_suspend_α:         mov              r11, 290
                         lea              rax, [rip + n00247_suspend_β]
                         mov              qword ptr [rbp + -96], rax
@@ -6225,6 +6228,7 @@ n00247_suspend_α:         mov              r11, 290
                         lea              rdi, [rip + .S0]
                         mov              rsi, qword ptr [rbp + -336]
                         mov              rdx, qword ptr [rbp + -328]
+                        mov              rcx, 215
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -6809,7 +6813,10 @@ n00277_var_β:             mov              r11, 313;                           
                         .size            n00277_var_bx, .-n00277_var_bx
                         .type            n00256_suspend_bx, @function
 n00256_suspend_bx:
+#=======================================================================================================================
+# suspend
 #-----------------------------------------------------------------------------------------------------------------------
+                        .loc             1 234 0
 n00256_suspend_α:         mov              r11, 314
                         lea              rax, [rip + n00256_suspend_β]
                         mov              qword ptr [rbp + -176], rax
@@ -6825,6 +6832,7 @@ n00256_suspend_α:         mov              r11, 314
                         lea              rdi, [rip + .S1]
                         mov              rsi, qword ptr [rbp + -960]
                         mov              rdx, qword ptr [rbp + -952]
+                        mov              rcx, 234
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -7148,7 +7156,10 @@ n00276_call_value_β:      mov              r11, 325
                         .size            n00276_call_value_bx, .-n00276_call_value_bx
                         .type            n00287_suspend_bx, @function
 n00287_suspend_bx:
+#=======================================================================================================================
+# suspend
 #-----------------------------------------------------------------------------------------------------------------------
+                        .loc             1 232 0
 n00287_suspend_α:         mov              r11, 326
                         lea              rax, [rip + n00287_suspend_β]
                         mov              qword ptr [rbp + -176], rax
@@ -7164,6 +7175,7 @@ n00287_suspend_α:         mov              r11, 326
                         lea              rdi, [rip + .S1]
                         mov              rsi, qword ptr [rbp + -960]
                         mov              rdx, qword ptr [rbp + -952]
+                        mov              rcx, 232
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -7501,7 +7513,10 @@ n00295_field_get_α:       mov              r11, 335
                         .size            n00295_field_get_bx, .-n00295_field_get_bx
                         .type            n00290_suspend_bx, @function
 n00290_suspend_bx:
+#=======================================================================================================================
+# suspend
 #-----------------------------------------------------------------------------------------------------------------------
+                        .loc             1 239 0
 n00290_suspend_α:         mov              r11, 336
                         lea              rax, [rip + n00290_suspend_β]
                         mov              qword ptr [rbp + -96], rax
@@ -7517,6 +7532,7 @@ n00290_suspend_α:         mov              r11, 336
                         lea              rdi, [rip + .S2]
                         mov              rsi, qword ptr [rbp + -288]
                         mov              rdx, qword ptr [rbp + -280]
+                        mov              rcx, 239
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -7802,7 +7818,10 @@ n00302_unop_test_α:       mov              r11, 342
                         .size            n00302_unop_test_bx, .-n00302_unop_test_bx
                         .type            n00296_suspend_bx, @function
 n00296_suspend_bx:
+#=======================================================================================================================
+# suspend
 #-----------------------------------------------------------------------------------------------------------------------
+                        .loc             1 243 0
 n00296_suspend_α:         mov              r11, 343
                         lea              rax, [rip + n00296_suspend_β]
                         mov              qword ptr [rbp + -96], rax
@@ -7818,6 +7837,7 @@ n00296_suspend_α:         mov              r11, 343
                         lea              rdi, [rip + .S3]
                         mov              rsi, qword ptr [rbp + -304]
                         mov              rdx, qword ptr [rbp + -296]
+                        mov              rcx, 243
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -11067,7 +11087,7 @@ n00432_assign_α:         mov              r11, 471
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1402_1_s]
-                        mov              r8, 0
+                        mov              r8, 243
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -14107,7 +14127,7 @@ n00614_assign_α:         mov              r11, 651
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rcx, [rip + .Lassign_α_1893_1_s]
-                        mov              r8, 0
+                        mov              r8, 243
                         mov              r9, 0
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
