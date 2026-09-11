@@ -1,0 +1,59 @@
+# OUTSIDE_ARIZONA_BASELINE.tsv -- arizona_tests: what the ONE ICON ORACLE does not answer AS A LANGUAGE, named
+# beside the package so the graded denominator is the set Arizona Icon itself can decide.  ceo CEO-527, landed
+# CEO-578 by hq_T 2026-09-11.  Sister file: jcon_tests/OUTSIDE_ARIZONA_BASELINE.tsv (read its header too -- its
+# four reversals are the reason every row here carries a control arm and not just a reason).
+#
+# ORACLE: icont/iconx 9.5.25a, /home/resources/icon-master/bin.  CONTRACT: upstream's own tests/general/Test-icon,
+# the same one test_icon_arizona_suite.sh reproduces -- icont -s -o NAME NAME.icn ; ./NAME < NAME.dat-if-present-
+# else-/dev/null 2>&1 ; diff NAME.std.
+#
+# FORMAT: package-relative path<TAB>CLASS<TAB>reason (measured, with its control arm, never paraphrased).
+# ⛔ THE KEY IS THE PACKAGE-RELATIVE PATH WITH ITS EXTENSION (general/cfuncs.icn), NOT A BARE BASENAME as the
+# jcon copy uses: this package ships TWO subdirectories, so a bare name is ambiguous -- UNGRADABLE.tsv's header
+# already rules that for the same reason, and the mirror check in the runner greps these files with ONE key.
+# ⛔ THE CLASS WORD IS THE SAME IN THIS FILE AND IN THE MIRROR ROW.  A program carries ONE ruling (the tpp
+# lesson in the jcon header): if this file said one class and UNGRADED.tsv another, whichever a reader met
+# first would decide who owes the work.
+#
+# ⛔⭐⭐ WHY THESE TWO ROWS ARE NOT "THE ORACLE REFUSES THEM" -- ARIZONA ANSWERS BOTH, AND THAT IS THE POINT.
+# The oracle's answer is produced by a COMPILED BINARY OF THE ARIZONA DISTRIBUTION, not by the Icon language and
+# not by anything this corpus ships.  Measured 2026-09-11 by hq_T, every arm below run from a staged scratch copy:
+#   1. THE ORACLE RUNS THEM.  icont -s -o NAME NAME.icn rc=0; ./cfuncs rc=0, 18 lines; ./extlvals rc=0, 39 lines.
+#   2. THE CONTROL THAT NAMES THE CAUSE -- copy icont and iconx into a directory WITHOUT libcfunc.so and run the
+#      same icode: both die rc=1 with ZERO output lines, `cannot find "libcfunc.so" on path ". <thatdir>"`.  So
+#      the oracle's answer is a function of what sits in iconx's OWN bin: /home/resources/icon-master/bin holds
+#      icon icont iconx AND libcfunc.so (ceo's verification, CEO-578).
+#   3. THE MECHANISM, measured rather than assumed -- iconx EXPORTS ITS OWN BIN INTO THE PROGRAM'S ENVIRONMENT.
+#      A two-line probe (write(getenv("FPATH"))) under iconx prints `FPATH=. /home/resources/icon-master/bin`;
+#      under scrip --run it prints [unset in env], and the shell had no FPATH either.  Both programs `link cfunc`,
+#      whose every stub is `pathload("libcfunc.so", "<entry>")`, and IPL pathload (io_lib.icn:700-704) reads
+#      `getenv("FPATH") | "."`.  ⭐ THE ORACLE PLANTS THE SEARCH PATH THAT FINDS THE ORACLE'S OWN LIBRARY: no
+#      ref cut from a better invocation, and no environment we can declare, changes that -- the library is not
+#      in this corpus at all (`find corpus -name 'libcfunc*'` -> nothing).
+#   4. WHAT THAT LIBRARY IS, and why "just put it on our path" is not the cure: libcfunc.so has 42 undefined
+#      symbols, of which twelve are not libc -- alcexternal alcfile alcreal alcstr cnv_c_str cnv_int cnv_real
+#      cnv_str getdbl nulldesc palnum rgbkey -- and ALL TWELVE are exported by the iconx executable itself.  It
+#      is not a standalone library; it is a plug-in bound to Arizona's own allocator and descriptor-conversion
+#      API, resolved at dlopen time by the interpreter that loaded it.
+# ⛔⭐ AND THE ARM THAT DECIDES THE CLASS, because a wrong exclusion costs more than a wrong cure (hq_V, standing
+# since 09-10): LEND US THE ORACLE'S OWN libcfunc.so and grade what happens.  Copied into the run directory
+# (our pathload path is "."), SCRIP m3 loads it and gets REAL ANSWERS -- cfuncs prints all fourteen bitcount
+# lines correctly (16 of 19 ref lines) and then dies `Run-time error 101 ... offending value: &null` at vword;
+# extlvals dies `Run-time error 216 external function not found` at extxmin.  So the remaining distance is a
+# REAL, NAMED GAP in our external-value and loadfunc support, not a mystery -- which is why these rows mirror
+# into UNGRADED.tsv (WORK OWED) and never into UNGRADABLE.tsv (a ruling nobody owes work on).  ⭐ The tie-break
+# in lib_inventory.sh is explicit about the direction that costs: a wrong UNGRADABLE hides work FOREVER because
+# nobody re-reads a closed ruling.  Ten of the twelve symbols above ALREADY EXIST in out/libscrip_rt.so
+# (missing: palnum, rgbkey -- and those live only in ppm.c, which neither program touches), so the cure is
+# within reach and must stay visible.
+# ⛔ THE MEASUREMENT DOES NOT LICENSE GRADING THEM ON THE LENT LIBRARY.  libcfunc.so is compiled against
+# ARIZONA's descriptor layout; where our run agreed it agreed by ABI coincidence, and a cell resting on that is
+# a green resting on another implementation's binary -- the same defect as a .std cut by jcon.  The cure is to
+# vendor ipl/cfuncs and build the library against OUR runtime (see the UNGRADED rows), after which these two
+# programs RE-ENTER the graded denominator and this file loses both rows.
+#
+# ⛔ WHAT THIS FILE IS NOT: `general/cfunc.icn` -- the LINK TARGET both programs use -- is NOT listed here.  It
+# is already ruled in UNGRADABLE.tsv as CONTAINER_OR_LIBRARY (no procedure main), and ONE PROGRAM CARRIES ONE
+# RULING.  A second row for it here would put two different answers in front of the next reader.
+general/cfuncs.icn	NEEDS_VENDORED_SOURCE	FEATURE WORDS: DYNAMIC LOADING (pathload/loadfunc of a C function library).  The .std is the output of C code in libcfunc.so, a compiled artifact of the Arizona distribution's own bin, reached because iconx exports FPATH=". /home/resources/icon-master/bin" into the program's environment (measured: getenv("FPATH") probe, iconx vs scrip).  CONTROL: icont+iconx copied to a bin WITHOUT libcfunc.so run the same icode at rc=1 with zero output, `cannot find "libcfunc.so" on path ". <thatdir>"` -- so the ground truth is the distribution's, not the language's.  OUR SIDE, measured: scrip m3 and m4 both emit that identical pathload diagnostic at rc=1 (our path is "."; we set no FPATH), i.e. we implement the call and lack the library.  LENT-LIBRARY ARM: with the oracle's own libcfunc.so in the run directory, m3 prints all 14 bitcount lines correctly (16 of 19 ref lines) then Run-time error 101 "integer expected or out of range, offending value: &null" at vword.  WORK OWED (mirrored in UNGRADED.tsv): vendor /home/resources/icon-master/ipl/cfuncs (bitcount.c internal.c lgconv.c pack.c + icall.h) and build a libcfunc.so against out/libscrip_rt.so, which already exports 10 of the 12 iconx internals the library binds (palnum and rgbkey are ppm.c graphics only, untouched here).  hq_T 2026-09-11, ceo CEO-527/CEO-578.
+general/extlvals.icn	NEEDS_VENDORED_SOURCE	FEATURE WORDS: EXTERNAL VALUES (the `external` type, created and imaged by dynamically loaded C).  Same cause as general/cfuncs.icn and the same controls -- and stronger here, because the .std does not merely depend on the oracle's library, it is PRINTED BY IT: `xstr_3(00324:bite)`, `xreal_7(111.1)`, `external_1(0)` are image strings formatted inside external.c, so the ref text is the Arizona distribution's own output in the most literal sense.  OUR SIDE, measured: scrip m3 and m4 both rc=1, zero output, `cannot find "libcfunc.so" on path ". ."`.  LENT-LIBRARY ARM: with the oracle's libcfunc.so in the run directory, m3 dies at the FIRST call -- Run-time error 216 "external function not found" at extxmin -- so unlike cfuncs nothing here is close by accident, and 45 ref lines are outstanding.  WORK OWED (mirrored in UNGRADED.tsv): vendor ipl/cfuncs/external.c with the rest and build it against our runtime (alcexternal, alcstr, alcreal, cnv_* are already exported by out/libscrip_rt.so); the image serials are assigned by the library, so they come with it.  hq_T 2026-09-11, ceo CEO-527/CEO-578.

@@ -1,3 +1,12 @@
-# UNGRADED.tsv -- arizona_tests: shipped, GRADABLE, ref not cut yet. This file must reach zero rows.
-# THE PACKAGE LOCKDOWN (Lon 2026-09-06). Columns: path<TAB>CLASS<TAB>what is owed (lib_inventory.sh's own
+# UNGRADED.tsv -- arizona_tests: shipped, GRADABLE, not graded yet -- WORK OWED, and this file must reach zero
+# rows. THE PACKAGE LOCKDOWN (Lon 2026-09-06). Columns: path<TAB>CLASS<TAB>what is owed (lib_inventory.sh's own
 # documented and gate-tested shape).
+# ⛔ "ref not cut yet" WAS THIS HEADER'S WHOLE DESCRIPTION AND IT IS TOO NARROW (hq_T 2026-09-11, ceo CEO-578):
+# the two rows below SHIP a ref the oracle cut, and what is missing is a LIBRARY the ref's answers come out of.
+# The file's question is "what is owed", not "which refs are uncut" -- the second is one answer to the first.
+# ⛔ BOTH ROWS ARE ALSO NAMED IN OUTSIDE_ARIZONA_BASELINE.tsv, WITH THE SAME CLASS WORD, and that file carries
+# the measurement and its control arms. They are out of the graded denominator AND owed: those are not in
+# tension, they are the two halves hq_V's practice asks for -- an excluded name cannot be red, so it must stay
+# visible as work. ⛔ THE DAY libcfunc.so IS BUILT AGAINST OUR RUNTIME, BOTH FILES LOSE BOTH ROWS TOGETHER.
+general/cfuncs.icn	NEEDS_VENDORED_SOURCE	DYNAMIC LOADING. Vendor /home/resources/icon-master/ipl/cfuncs (bitcount.c internal.c lgconv.c pack.c + icall.h, and see external.c on the extlvals row) into this package and build a libcfunc.so against out/libscrip_rt.so, which already exports 10 of the 12 iconx internals the upstream library binds (alcexternal alcfile alcreal alcstr cnv_c_str cnv_int cnv_real cnv_str getdbl nulldesc; the missing palnum and rgbkey are ppm.c graphics only and neither program touches them). Then teach the runner to put it on pathload's path (iconx does this by exporting FPATH=". <its own bin>"; we set no FPATH and pathload falls back to "."). MEASURED DISTANCE, with the oracle's own library lent to us: m3 prints 16 of 19 ref lines -- all 14 bitcount lines correct -- and dies Run-time error 101 at vword. Full measurement and controls in OUTSIDE_ARIZONA_BASELINE.tsv. hq_T 2026-09-11, ceo CEO-527/CEO-578.
+general/extlvals.icn	NEEDS_VENDORED_SOURCE	EXTERNAL VALUES. Same vendoring as general/cfuncs.icn, centred on ipl/cfuncs/external.c (extxmin extxstr extxreal), whose C code also FORMATS the image strings this program's ref pins -- external_1(0), xstr_3(00324:bite), xreal_7(111.1) -- so the serials arrive with the library rather than needing to be invented. MEASURED DISTANCE, with the oracle's own library lent to us: m3 dies at the first call, Run-time error 216 "external function not found" at extxmin, 45 ref lines outstanding -- nothing here is nearly-right by accident. Full measurement and controls in OUTSIDE_ARIZONA_BASELINE.tsv. hq_T 2026-09-11, ceo CEO-527/CEO-578.
