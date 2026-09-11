@@ -1,5 +1,0 @@
-procedure main()
-   write("one");
-   every write(1 to 400);
-   stop(&output, "three ", 4, " ", 5.5, " ", 'testing stop');
-end
