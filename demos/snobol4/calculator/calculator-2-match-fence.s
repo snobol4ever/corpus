@@ -583,9 +583,7 @@ n23_match_defer_α:      mov              r11, 11
 .Lmatch_defer_α_29_6:   add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n22_match_any_β
-n23_match_defer_β:      mov              r11, 11
-                        mov              rsp, rbp
-                        pop              rbp;                                 jmp   n22_match_any_β
+n23_match_defer_β:      mov              r11, 11;                             jmp   n22_match_any_β
                         .size            n23_match_defer_bx, .-n23_match_defer_bx
                         .type            n24_match_defer_bx, @function
 n24_match_defer_bx:

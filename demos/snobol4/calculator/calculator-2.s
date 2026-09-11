@@ -680,9 +680,7 @@ n38_match_defer_α:      mov              r11, 18
 .Lmatch_defer_α_51_6:   add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n37_match_assign_save_β
-n38_match_defer_β:      mov              r11, 18
-                        mov              rsp, rbp
-                        pop              rbp;                                 jmp   n37_match_assign_save_β
+n38_match_defer_β:      mov              r11, 18;                             jmp   n37_match_assign_save_β
                         .size            n38_match_defer_bx, .-n38_match_defer_bx
                         .type            n39_match_assign_cond_bx, @function
 n39_match_assign_cond_bx:

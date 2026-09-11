@@ -249,9 +249,7 @@ n8_match_defer_α:       mov              r11, 5
 .Lmatch_defer_α_16_6:   add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n7_match_lit_β
-n8_match_defer_β:       mov              r11, 5
-                        mov              rsp, rbp
-                        pop              rbp;                                 jmp   n7_match_lit_β
+n8_match_defer_β:       mov              r11, 5;                              jmp   n7_match_lit_β
                         .size            n8_match_defer_bx, .-n8_match_defer_bx
                         .type            n9_match_lit_bx, @function
 n9_match_lit_bx:
@@ -658,9 +656,7 @@ n24_match_defer_α:      mov              r11, 12
 .Lmatch_defer_α_32_6:   add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n23_match_lit_β
-n24_match_defer_β:      mov              r11, 12
-                        mov              rsp, rbp
-                        pop              rbp;                                 jmp   n23_match_lit_β
+n24_match_defer_β:      mov              r11, 12;                             jmp   n23_match_lit_β
                         .size            n24_match_defer_bx, .-n24_match_defer_bx
                         .type            n25_match_lit_bx, @function
 n25_match_lit_bx:
@@ -748,9 +744,7 @@ n26_match_defer_α:      mov              r11, 14
 .Lmatch_defer_α_35_6:   add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n25_match_lit_β
-n26_match_defer_β:      mov              r11, 14
-                        mov              rsp, rbp
-                        pop              rbp;                                 jmp   n25_match_lit_β
+n26_match_defer_β:      mov              r11, 14;                             jmp   n25_match_lit_β
                         .size            n26_match_defer_bx, .-n26_match_defer_bx
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$3_res:
@@ -1068,9 +1062,7 @@ n40_match_defer_α:      mov              r11, 19
 .Lmatch_defer_α_50_6:   add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n39_match_lit_β
-n40_match_defer_β:      mov              r11, 19
-                        mov              rsp, rbp
-                        pop              rbp;                                 jmp   n39_match_lit_β
+n40_match_defer_β:      mov              r11, 19;                             jmp   n39_match_lit_β
                         .size            n40_match_defer_bx, .-n40_match_defer_bx
                         .type            n41_match_defer_bx, @function
 n41_match_defer_bx:
@@ -1233,9 +1225,7 @@ n43_match_defer_α:      mov              r11, 22
 .Lmatch_defer_α_54_6:   add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n42_match_lit_β
-n43_match_defer_β:      mov              r11, 22
-                        mov              rsp, rbp
-                        pop              rbp;                                 jmp   n42_match_lit_β
+n43_match_defer_β:      mov              r11, 22;                             jmp   n42_match_lit_β
                         .size            n43_match_defer_bx, .-n43_match_defer_bx
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$4_res:
@@ -1553,9 +1543,7 @@ n59_match_defer_α:      mov              r11, 27
 .Lmatch_defer_α_69_6:   add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n58_match_lit_β
-n59_match_defer_β:      mov              r11, 27
-                        mov              rsp, rbp
-                        pop              rbp;                                 jmp   n58_match_lit_β
+n59_match_defer_β:      mov              r11, 27;                             jmp   n58_match_lit_β
                         .size            n59_match_defer_bx, .-n59_match_defer_bx
                         .type            n60_match_defer_bx, @function
 n60_match_defer_bx:
@@ -1718,9 +1706,7 @@ n62_match_defer_α:      mov              r11, 30
 .Lmatch_defer_α_73_6:   add              rsp, 8
                         pop              rax
                         mov              r14d, eax;                           jmp   n61_match_lit_β
-n62_match_defer_β:      mov              r11, 30
-                        mov              rsp, rbp
-                        pop              rbp;                                 jmp   n61_match_lit_β
+n62_match_defer_β:      mov              r11, 30;                             jmp   n61_match_lit_β
                         .size            n62_match_defer_bx, .-n62_match_defer_bx
 #-----------------------------------------------------------------------------------------------------------------------
 PAT$5_res:
