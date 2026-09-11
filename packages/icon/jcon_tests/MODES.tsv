@@ -8,4 +8,14 @@
 # ⛔ CARRY THE MEASUREMENT, NEVER JUST THE MODE (ceo CEO-561, adopting this seat's standing practice: a wrong
 # exclusion costs more than a wrong cure, because a red stays visible and an excluded name cannot be red).
 # A future seat reading a bare "m3" will try to "fix" it back to m3,m4 and re-open a settled question.
-kwds	m3	# ceo CEO-561 (2026-09-11), on hq_B's FINDING-2026-09-11-hq_B-no-single-ref-can-be-right-for-both-modes-on-a-program-that-prints-progname.md and re-measured here by hq_V on SCRIP be70abfd9: this program PRINTS &progname, so its output is A FUNCTION OF ITS INVOCATION, and BOTH shipped .std files are correct oracle output cut under DIFFERENT invocations. jcon's kwds.std is a ONE-STEP cut and line 45 reads `&progname: kwds.icn`. Measured here, one diff line and only one: m3 PASS byte-identical; m4 prints `&progname: ./kwds_bin` because a mode-4 binary IS the program and reports its own argv[0] (hq_B's CEO-545 landing, SCRIP 65ec9921c, made &progname honest -- the old green was an ACCIDENT of baking the source basename at compile time). No better ref and no pinned name can fix m4 against a one-step ref, and this runner builds its m4 binary into a mktemp dir, so its argv[0] is not even stable across runs. m3 is the instrument that can grade this entry; m4 is not, and saying so is the honest statement, not a shrug.
+# ⛔⭐ THE kwds ROW IS RETIRED, 2026-09-11, hq_V, ON A MEASUREMENT AND NOT ON A PREFERENCE (ceo CEO-581).
+# It read: kwds m3 -- "no better ref and no pinned name can fix m4 against a one-step ref", CEO-561's own words
+# and TRUE OF THE REF MODEL AS IT STOOD. Two things changed under it. (1) The m4 invocation is now PINNED to a
+# stated name (./kwds, hq_V 2026-09-11), so the answer no longer changes between runs and a ref can be cut from
+# it at all. (2) CEO-581 ruled the REF MODEL itself: MODES MAY DIVERGE has been law since 2026-08-28 and each
+# mode is graded against the oracle INDEPENDENTLY, so a line whose value the INVOCATION determines gets ONE REF
+# PER MODE -- see kwds.moderef, whose receipt carries the oracle run under both invocations. MEASURED HERE
+# BEFORE THE ROW WAS REMOVED, on a one-program scratch corpus, both arms: with kwds.moderef m3 PASS and m4 PASS;
+# without it m3 PASS and m4 FAIL. The entry is graded in BOTH arms again, which is a cell given BACK to the
+# denominator -- the opposite of the direction a declaration file usually moves. This file is now empty of rows
+# and that is the correct state: it is opt-in, and nothing in this package needs it today.
