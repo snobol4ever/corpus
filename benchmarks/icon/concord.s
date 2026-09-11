@@ -3979,21 +3979,22 @@ item_ω:
                         and              rsp, -16
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
-                        cmp              rax, 0;                              je    .Litem_α_518_249
+                        cmp              rax, 0;                              je    .Litem_α_518_240
                         .section         .rodata
 .Licn_trace_nm519:      .string          "item"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm519]
+                        mov              rsi, rbp
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_trace_fail_hook@PLT
+                        call             rt_trace_gen_fail_hook@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Litem_α_518_249:       mov              rsp, rbx
+.Litem_α_518_240:       mov              rsp, rbx
                         pop              rbx
                         pop              rdx
                         pop              rax

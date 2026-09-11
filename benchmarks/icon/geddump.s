@@ -6727,21 +6727,22 @@ gedwalk_ω:
                         and              rsp, -16
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
-                        cmp              rax, 0;                              je    .Lgedwalk_α_878_249
+                        cmp              rax, 0;                              je    .Lgedwalk_α_878_240
                         .section         .rodata
 .Licn_trace_nm879:      .string          "gedwalk"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm879]
+                        mov              rsi, rbp
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_trace_fail_hook@PLT
+                        call             rt_trace_gen_fail_hook@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedwalk_α_878_249:    mov              rsp, rbx
+.Lgedwalk_α_878_240:    mov              rsp, rbx
                         pop              rbx
                         pop              rdx
                         pop              rax
@@ -7562,21 +7563,22 @@ gedsub_ω:
                         and              rsp, -16
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
-                        cmp              rax, 0;                              je    .Lgedsub_α_975_249
+                        cmp              rax, 0;                              je    .Lgedsub_α_975_240
                         .section         .rodata
 .Licn_trace_nm977:      .string          "gedsub"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm977]
+                        mov              rsi, rbp
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_trace_fail_hook@PLT
+                        call             rt_trace_gen_fail_hook@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedsub_α_975_249:     mov              rsp, rbx
+.Lgedsub_α_975_240:     mov              rsp, rbx
                         pop              rbx
                         pop              rdx
                         pop              rax
@@ -7855,21 +7857,22 @@ gedval_ω:
                         and              rsp, -16
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
-                        cmp              rax, 0;                              je    .Lgedval_α_994_249
+                        cmp              rax, 0;                              je    .Lgedval_α_994_240
                         .section         .rodata
 .Licn_trace_nm995:      .string          "gedval"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm995]
+                        mov              rsi, rbp
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_trace_fail_hook@PLT
+                        call             rt_trace_gen_fail_hook@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedval_α_994_249:     mov              rsp, rbx
+.Lgedval_α_994_240:     mov              rsp, rbx
                         pop              rbx
                         pop              rdx
                         pop              rax
@@ -8161,21 +8164,22 @@ gedref_ω:
                         and              rsp, -16
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
-                        cmp              rax, 0;                              je    .Lgedref_α_1014_249
+                        cmp              rax, 0;                              je    .Lgedref_α_1014_240
                         .section         .rodata
 .Licn_trace_nm1015:     .string          "gedref"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm1015]
+                        mov              rsi, rbp
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_trace_fail_hook@PLT
+                        call             rt_trace_gen_fail_hook@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedref_α_1014_249:    mov              rsp, rbx
+.Lgedref_α_1014_240:    mov              rsp, rbx
                         pop              rbx
                         pop              rdx
                         pop              rax

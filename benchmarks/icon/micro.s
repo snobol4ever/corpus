@@ -16953,21 +16953,22 @@ susproc_ω:
                         and              rsp, -16
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
-                        cmp              rax, 0;                              je    .Lsusproc_α_1882_249
+                        cmp              rax, 0;                              je    .Lsusproc_α_1882_240
                         .section         .rodata
 .Licn_trace_nm1883:     .string          "susproc"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm1883]
+                        mov              rsi, rbp
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_trace_fail_hook@PLT
+                        call             rt_trace_gen_fail_hook@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lsusproc_α_1882_249:   mov              rsp, rbx
+.Lsusproc_α_1882_240:   mov              rsp, rbx
                         pop              rbx
                         pop              rdx
                         pop              rax
