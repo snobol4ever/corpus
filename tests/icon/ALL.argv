@@ -1,0 +1,17 @@
+# ALL.argv — PROGRAM ARGUMENTS, declared per entry: name<TAB>arg<TAB>arg… (read_argv_sidecar).
+# Tab-separated with NO quoting language: an argument may contain spaces, quotes or backslashes and reaches
+# the program byte-for-byte. ⛔ EVERY FIELD AFTER THE NAME IS AN ARGUMENT — there is no trailing-comment
+# column, so a receipt goes on its own '#' line ABOVE its row and never at the end of it (a '# …' appended to
+# a row is handed to the program as argv[2], silently). ⛔ A NAME WITH NO ARGUMENTS IS REFUSED: no arguments
+# is already the default, so an empty declaration is a no-op a later reader takes for something meaningful.
+# ⛔ AN ARGUMENT IS DECLARED FROM WHAT THE PROGRAM TAKES, NEVER FROM WHAT MAKES A GATE GREEN.
+#
+# procedure_every_suspend_replace_8 (entry 925, origin rung36_jcon_genqueen) — ORACLE-MEASURED hq_V
+# 2026-09-11 18:32 CDT, Arizona Icon 9.5.25a, on the entry's origin corpus/packages/icon/jcon_tests/
+# genqueen.icn under THREE invocations: NO ARGUMENTS gave output byte-identical to the shipped genqueen.std
+# (so the ref was cut argument-free); the argument 6 gave output byte-identical to that; the argument 4 gave
+# 20 lines against 56, so args[1] IS LIVE and the default was merely being taken. The program reads
+# n := integer(args[1]) | 6 — the exact shape read_argv_sidecar was written for: with no declaration the
+# entry scored PASS while the argument handling it exists to exercise never executed, which is a green that
+# documents nothing. Declaring 6 changes no expected byte and makes that path actually run.
+procedure_every_suspend_replace_8	6
