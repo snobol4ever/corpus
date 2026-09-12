@@ -1,0 +1,36 @@
+# NARROW.tsv -- graded, but by a comparison NARROWER than the claim the percent makes.
+# name<TAB>NARROWING<TAB>reason.  lib_inventory.sh: "AN UNEXPLAINED BUCKET IS JUST A SMALLER LIE" (hq_P).
+# ⭐ WHAT THE INSTRUMENT SEES.  These programs self-check: math_chks.inc's chks(expression,expected) EVALs
+# the expression, compares it against the expected value, and prints its own verdict -- " pass: <expr>
+# Obs[..] Exp[..]" or "*FAIL: ... (exception)".  test_snobol4_spitbol_x64_suite.sh grades them by reading
+# those lines: SCRIP must print zero "*FAIL:" and exactly as many " pass:" as the oracle printed on the
+# same program in the same run.  Any wrong arithmetic result makes the program itself say *FAIL:, so the
+# instrument's sensitivity is NOT below the effect it exists to detect.
+# ⛔ WHAT IT DOES NOT SEE, which is why these are narrow and not stream: the Obs[] and Exp[] TEXT.  Two
+# engines that agree to 1e-12 (chks's own tolerance) but print 0.263083649990256e-307 against
+# 2.6308364999025599e-308 both print " pass:", and this instrument cannot tell them apart.  That
+# insensitivity is deliberate -- the row asks for it, because a byte diff would call a float formatting
+# difference a defect -- but a reader of the percent is owed the fact that it is there.
+# ⭐ THE SET IS MEASURED, NOT LISTED: the runner picks the arm from whether the ORACLE's own run printed
+# verdict lines, and cross-checks this file against what it measured, both directions, every run.  It said
+# so on the spot -- this file was written with 8 entries and the very next run, on the tree where hq_C's
+# case-conversion row had landed, printed "⚠ NARROW.tsv UNRECORDED ... math_atan.sbl math_chop.sbl ..." and
+# the inventory REFUSED(2) on graded_narrow=17 against 8 declared.  The nine below were added on that
+# measurement.  ⛔ Nothing here may be inferred at run time; the runner may only disagree out loud.
+math_diff.sbl	SELF_CHECK_VERDICT_LINES	15376 chks() assertions; graded on " pass:"/"*FAIL:" counts against the oracle's own run, not on the Obs[]/Exp[] text
+math_div.sbl	SELF_CHECK_VERDICT_LINES	15376 chks() assertions; graded on " pass:"/"*FAIL:" counts against the oracle's own run, not on the Obs[]/Exp[] text
+math_minus.sbl	SELF_CHECK_VERDICT_LINES	1232 chks() assertions; graded on " pass:"/"*FAIL:" counts against the oracle's own run, not on the Obs[]/Exp[] text
+math_plus.sbl	SELF_CHECK_VERDICT_LINES	1232 chks() assertions; graded on " pass:"/"*FAIL:" counts against the oracle's own run, not on the Obs[]/Exp[] text
+math_pow.sbl	SELF_CHECK_VERDICT_LINES	3600 chks() assertions; graded on " pass:"/"*FAIL:" counts against the oracle's own run, not on the Obs[]/Exp[] text
+math_prod.sbl	SELF_CHECK_VERDICT_LINES	14400 chks() assertions; graded on " pass:"/"*FAIL:" counts against the oracle's own run, not on the Obs[]/Exp[] text
+math_remdr.sbl	SELF_CHECK_VERDICT_LINES	4560 chks() assertions; graded on " pass:"/"*FAIL:" counts against the oracle's own run, not on the Obs[]/Exp[] text
+math_sum.sbl	SELF_CHECK_VERDICT_LINES	15376 chks() assertions; graded on " pass:"/"*FAIL:" counts against the oracle's own run, not on the Obs[]/Exp[] text
+math_atan.sbl	SELF_CHECK_VERDICT_LINES	616 chks() assertions; graded on " pass:"/"*FAIL:" counts against the oracle's own run, not on the Obs[]/Exp[] text
+math_chop.sbl	SELF_CHECK_VERDICT_LINES	1232 chks() assertions; graded on " pass:"/"*FAIL:" counts against the oracle's own run, not on the Obs[]/Exp[] text
+math_cos.sbl	SELF_CHECK_VERDICT_LINES	1016 chks() assertions; graded on " pass:"/"*FAIL:" counts against the oracle's own run, not on the Obs[]/Exp[] text
+math_exp.sbl	SELF_CHECK_VERDICT_LINES	1470 chks() assertions; graded on " pass:"/"*FAIL:" counts against the oracle's own run, not on the Obs[]/Exp[] text
+math_ln.sbl	SELF_CHECK_VERDICT_LINES	627 chks() assertions; graded on " pass:"/"*FAIL:" counts against the oracle's own run, not on the Obs[]/Exp[] text
+math_read.sbl	SELF_CHECK_VERDICT_LINES	633 chks() assertions; graded on " pass:"/"*FAIL:" counts against the oracle's own run, not on the Obs[]/Exp[] text
+math_sin.sbl	SELF_CHECK_VERDICT_LINES	1016 chks() assertions; graded on " pass:"/"*FAIL:" counts against the oracle's own run, not on the Obs[]/Exp[] text
+math_sqrt.sbl	SELF_CHECK_VERDICT_LINES	1232 chks() assertions; graded on " pass:"/"*FAIL:" counts against the oracle's own run, not on the Obs[]/Exp[] text
+math_tan.sbl	SELF_CHECK_VERDICT_LINES	616 chks() assertions; graded on " pass:"/"*FAIL:" counts against the oracle's own run, not on the Obs[]/Exp[] text

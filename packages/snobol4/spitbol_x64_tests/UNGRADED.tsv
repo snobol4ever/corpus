@@ -1,0 +1,14 @@
+# UNGRADED.tsv -- work owed, name<TAB>CLASS<TAB>reason.  Class vocabulary: lib_inventory.sh INV_CLASS_UNGRADED.
+# ⛔ A DECLARATION, NEVER AN INFERENCE (lib_inventory.sh).  test_snobol4_spitbol_x64_suite.sh MEASURES the same
+# set live on every run and says STALE / UNRECORDED aloud when this file and the oracle disagree, so the file
+# is re-asked rather than trusted -- keep it even while it is empty, because an ABSENT declaration and an
+# EMPTY one are different statements and only the second one says "we looked".
+#
+# ⭐ EMPTY AS OF 2026-09-12 (hq_U), AND THE CROSS-CHECK IS WHY IT IS EMPTY RATHER THAN WRONG.  This file
+# carried twelve rows for the programs our mandated `sbl -bf` could not read: eleven still ending in
+# lowercase `end` and module.sbl calling a name that lives inside an EVAL'd string.  hq_C cured all twelve on
+# the sibling row (snobol4-twelve-spitbol-tests-hold-code-inside-evaluated-string-literals, SCRIP 602e51f7a,
+# gate test_gate_spitbol_x64_case_conversion_is_oracle_equivalent.sh reading 36 of 36) while this runner was
+# being written, and the very next run printed:
+#     ⚠ UNGRADED.tsv STALE -- ... they are graded now, so delete their rows: gcbuster.sbl math_atan.sbl ...
+# The rows were deleted on that measurement.  36 of 36 shipped are graded.
