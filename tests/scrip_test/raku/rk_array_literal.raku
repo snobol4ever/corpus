@@ -18,3 +18,4 @@ sub main() {
     my @d = "a", "b", "c";
     for @d -> $s { say($s); }
 }
+main();

@@ -21,3 +21,4 @@ sub main() {
     say(classify(0));
     say(classify(-1));
 }
+main();

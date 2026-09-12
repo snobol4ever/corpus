@@ -4331,3 +4331,225 @@ my $s = $d.trans(   ['"',  '\\',   "\b", "\f", "\n", "\r", "\t"]
 my $t1 = wall_us(); my $m1 = wall_ms();
 say $s.chars;
 note("BENCH kernel=string-escape work_us=" ~ ($t1 - $t0) ~ " work_ms=" ~ ($m1 - $m0));
+#---------------------------------------------- 1018 scrip_test_rk_array_literal
+# rk_array_literal.raku — comma-list array initializer `my @a = e1, e2, ...`
+sub main() {
+    # bare comma-list init, then iterate
+    my @a = 10, 20, 30;
+    for @a -> $i { say($i); }
+
+    # comma-init feeding reverse
+    my @b = 1, 2, 3, 4;
+    my @r = reverse(@b);
+    for @r -> $x { say($x); }
+
+    # comma-init feeding sum and join
+    my @c = 5, 5, 10;
+    say(sum(@c));
+    say(join("+", @c));
+
+    # mixed-type comma-init
+    my @d = "a", "b", "c";
+    for @d -> $s { say($s); }
+}
+main();
+#------------------------------------------------------ 1019 scrip_test_rk_given
+# rk_given.raku — RK-13: given/when scalar smart-match
+# given $x { when val { } ... default { } } lowers to nested AST_IF chain.
+# Numeric when: AST_EQ comparison. String when: AST_LEQ comparison.
+
+sub day_type($d) {
+    given $d {
+        when 1 { say('Mon: weekday'); }
+        when 2 { say('Tue: weekday'); }
+        when 6 { say('Sat: weekend'); }
+        when 7 { say('Sun: weekend'); }
+        default { say('weekday');     }
+    }
+}
+
+sub season($s) {
+    given $s {
+        when 'spring' { say('warm');  }
+        when 'summer' { say('hot');   }
+        when 'autumn' { say('cool');  }
+        when 'winter' { say('cold');  }
+        default       { say('unknown'); }
+    }
+}
+
+sub main() {
+    day_type(1);
+    day_type(6);
+    day_type(3);
+    season('summer');
+    season('winter');
+    season('monsoon');
+}
+main();
+#---------------------------------------------------- 1020 scrip_test_rk_given18
+# rk_given18.raku — RK-18: given/when extended coverage
+# Tests: nested given/when, given in a loop, default fallthrough,
+# mixed numeric and string when-arms.
+
+sub classify($n) {
+    given $n {
+        when 0 { say('zero');     }
+        when 1 { say('one');      }
+        when 2 { say('two');      }
+        default { say('many');    }
+    }
+}
+
+sub grade($s) {
+    given $s {
+        when 'A' { say('excellent'); }
+        when 'B' { say('good');      }
+        when 'C' { say('average');   }
+        default  { say('other');     }
+    }
+}
+
+sub nested($n) {
+    given $n {
+        when 1 {
+            given 'A' {
+                when 'A' { say('one-A'); }
+                default  { say('one-?'); }
+            }
+        }
+        default { say('not-one'); }
+    }
+}
+
+sub in_loop() {
+    my @vals = '';
+    push(@vals, 1);
+    push(@vals, 2);
+    push(@vals, 3);
+    push(@vals, 4);
+    for @vals -> $v {
+        given $v {
+            when 1 { say('got-one');   }
+            when 2 { say('got-two');   }
+            default { say('got-other'); }
+        }
+    }
+}
+
+sub main() {
+    classify(0);
+    classify(1);
+    classify(5);
+    grade('A');
+    grade('C');
+    grade('F');
+    nested(1);
+    nested(2);
+    in_loop();
+}
+main();
+#------------------------------------------------------- 1021 scrip_test_rk_join
+# rk_join.raku — RK-BB-5.2: join() as a list Seq consumer
+sub main() {
+    say(join(",", 1, 2, 3));
+    say(join("-", "a", "b", "c"));
+    say(join("", 4, 5, 6));
+    # compose with reverse: join the reversed list
+    say(join(",", reverse(1, 2, 3)));
+}
+main();
+#------------------------------------------ 1022 scrip_test_rk_seq_consumers_arr
+# rk_seq_consumers_arr.raku — RK-BB-5.x: reverse/unique/sum/join on @array args
+sub main() {
+    my @a = "";
+    push(@a, 3); push(@a, 1); push(@a, 2); push(@a, 1);
+
+    # reverse an array variable
+    my @r = reverse(@a);
+    for @r -> $i { say($i); }
+
+    # unique an array variable
+    my @u = unique(@a);
+    for @u -> $x { say($x); }
+
+    # sum an array variable
+    say(sum(@a));
+
+    # join an array variable
+    say(join("-", @a));
+}
+main();
+#------------------------------------------------------ 1023 scrip_test_rk_str22
+# rk_str22.raku — RK-22: substr/index/rindex/uc/lc/trim/chars
+sub main() {
+    my $s = 'Hello, World!';
+
+    # substr: 0-based
+    say(substr($s, 0, 5));
+    say(substr($s, 7, 5));
+    say(substr($s, 7));
+
+    # index: 0-based, -1 if not found
+    say(index($s, 'World'));
+    say(index($s, 'xyz'));
+    say(index($s, 'l'));
+
+    # rindex: last occurrence, 0-based
+    say(rindex($s, 'l'));
+    say(rindex($s, 'xyz'));
+
+    # uc / lc
+    say(uc('hello'));
+    say(lc('WORLD'));
+
+    # trim: strip both ends
+    my $padded = '  hello  ';
+    say(trim($padded));
+
+    # chars / length
+    say(chars('hello'));
+}
+main();
+#------------------------------------------------------- 1024 scrip_test_rk_subs
+# rk_subs.raku — sub definitions, single/multi params, return values
+sub double($n) {
+    return $n * 2;
+}
+sub greet($name) {
+    say('hello ' ~ $name);
+}
+sub add($a, $b) {
+    return $a + $b;
+}
+sub classify($n) {
+    if ($n < 0)  { return 'negative'; }
+    if ($n == 0) { return 'zero';     }
+    return 'positive';
+}
+sub main() {
+    say(double(7));
+    greet('raku');
+    say(add(3, 4));
+    say(classify(5));
+    say(classify(0));
+    say(classify(-1));
+}
+main();
+#------------------------------------------------- 1025 scrip_test_rk_unique_sum
+# rk_unique_sum.raku — RK-BB-5.1: unique() and sum() as list Seq consumers
+sub main() {
+    # unique: dedup preserving first occurrence
+    for unique(1, 2, 2, 3, 3, 3, 1) -> $i { say($i); }
+
+    # unique into an array, then iterate (strings)
+    my @u = unique('a', 'b', 'a', 'c', 'b');
+    for @u -> $x { say($x); }
+
+    # sum: integer fold
+    say(sum(1, 2, 3, 4, 5));
+
+    # sum: real fold (mixed int/real promotes to real)
+    say(sum(1.5, 2.5, 3));
+}
+main();

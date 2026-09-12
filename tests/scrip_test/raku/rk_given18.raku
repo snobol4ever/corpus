@@ -58,3 +58,4 @@ sub main() {
     nested(2);
     in_loop();
 }
+main();

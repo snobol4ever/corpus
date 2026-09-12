@@ -26,3 +26,4 @@ sub main() {
     my @nsorted = sort @unsorted;
     for @nsorted -> $n { say($n); }
 }
+main();

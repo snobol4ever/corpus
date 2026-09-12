@@ -6,3 +6,4 @@ sub main() {
     # compose with reverse: join the reversed list
     say(join(",", reverse(1, 2, 3)));
 }
+main();

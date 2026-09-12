@@ -27,3 +27,4 @@ sub main() {
     # chars / length
     say(chars('hello'));
 }
+main();

@@ -13,3 +13,4 @@ sub main() {
     # sum: real fold (mixed int/real promotes to real)
     say(sum(1.5, 2.5, 3));
 }
+main();

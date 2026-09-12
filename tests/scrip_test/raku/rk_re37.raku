@@ -24,3 +24,4 @@ sub main() {
 
     say('rk_re37 ok');
 }
+main();

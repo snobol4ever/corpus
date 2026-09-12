@@ -12,3 +12,4 @@ sub main() {
     raku_nfa_compile('^x$');
     say('rk_re32 ok');
 }
+main();

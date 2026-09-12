@@ -1016,3 +1016,11 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,sub,multi,my,our,say,print,giv
 1015,benchmark_send-more-money-loops,benchmark_raku_send-more-money-loops__send-more-money-loops,benchmark_raku_send-more-money-loops,block,0,80,"m3,m4",0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 1016,benchmark_spinner,benchmark_raku_spinner__spinner,benchmark_raku_spinner,block,0,14,"m3,m4",1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0
 1017,benchmark_string-escape,benchmark_raku_string-escape__string-escape,benchmark_raku_string-escape,block,0,15,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
+1018,scrip_test_rk_array_literal,scrip_test_raku_rk_array_literal__rk_array_literal,scrip_test_raku_rk_array_literal,block,0,21,"m3,m4",1,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,0,0,1,0,0,0,0,1,0
+1019,scrip_test_rk_given,scrip_test_raku_rk_given__rk_given,scrip_test_raku_rk_given,block,0,33,"m3,m4",1,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0
+1020,scrip_test_rk_given18,scrip_test_raku_rk_given18__rk_given18,scrip_test_raku_rk_given18,block,0,61,"m3,m4",1,0,1,0,1,0,1,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0
+1021,scrip_test_rk_join,scrip_test_raku_rk_join__rk_join,scrip_test_raku_rk_join,block,0,9,"m3,m4",1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1022,scrip_test_rk_seq_consumers_arr,scrip_test_raku_rk_seq_consumers_arr__rk_seq_consumers_arr,scrip_test_raku_rk_seq_consumers_arr,block,0,20,"m3,m4",1,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0
+1023,scrip_test_rk_str22,scrip_test_raku_rk_str22__rk_str22,scrip_test_raku_rk_str22,block,0,30,"m3,m4",1,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+1024,scrip_test_rk_subs,scrip_test_raku_rk_subs__rk_subs,scrip_test_raku_rk_subs,block,0,24,"m3,m4",1,1,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0
+1025,scrip_test_rk_unique_sum,scrip_test_raku_rk_unique_sum__rk_unique_sum,scrip_test_raku_rk_unique_sum,block,0,16,"m3,m4",1,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0

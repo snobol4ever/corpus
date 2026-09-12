@@ -10,3 +10,4 @@ sub main() {
 
     say('rk_stdio39 ok');
 }
+main();

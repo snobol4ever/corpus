@@ -30,3 +30,4 @@ sub main() {
     season('winter');
     season('monsoon');
 }
+main();

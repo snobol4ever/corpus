@@ -31,6 +31,14 @@ parser_gather_take_lit	ast
 parser_gather_take_var	ast
 parser_raku_new	ast
 parser_take_in_loop	ast
+scrip_test_raku_rk_array_literal	m3,m4
+scrip_test_raku_rk_given	m3,m4
+scrip_test_raku_rk_given18	m3,m4
+scrip_test_raku_rk_join	m3,m4
+scrip_test_raku_rk_seq_consumers_arr	m3,m4
+scrip_test_raku_rk_str22	m3,m4
+scrip_test_raku_rk_subs	m3,m4
+scrip_test_raku_rk_unique_sum	m3,m4
 scrip_test_rk_arith	m3,m4
 scrip_test_rk_arrays	m3,m4
 scrip_test_rk_class26	m3,m4

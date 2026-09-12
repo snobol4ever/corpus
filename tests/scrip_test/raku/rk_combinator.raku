@@ -124,3 +124,4 @@ sub main() {
     if ($result == 1) { say('ok'); }
     if ($result != 1) { say('fail'); }
 }
+main();

@@ -17,3 +17,4 @@ sub main() {
     # join an array variable
     say(join("-", @a));
 }
+main();
