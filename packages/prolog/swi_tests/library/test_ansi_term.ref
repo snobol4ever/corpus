@@ -1,0 +1,5 @@
+PASS ansi_term:absolute_position_output
+PASS ansi_term:absolute_position_input
+PASS ansi_term:multi_position_output
+PASS ansi_term:single_nonlist_argument
+PASS ansi_term:multi_arguments

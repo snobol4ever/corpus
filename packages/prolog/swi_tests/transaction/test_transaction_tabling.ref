@@ -1,0 +1,3 @@
+PASS tr_incremental_tabling:assert
+PASS tr_incremental_tabling:tmp_assert
+PASS tr_incremental_tabling:retract

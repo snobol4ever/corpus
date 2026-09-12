@@ -1,0 +1,15 @@
+PASS qualified_calls:colon
+PASS qualified_calls:colonc
+PASS qualified_calls:colonv
+PASS qualified_calls:coloncv
+PASS qualified_calls:at
+PASS qualified_calls:vat
+PASS qualified_calls:atv
+PASS qualified_calls:atvv
+PASS qualified_calls:atvvv
+PASS qualified_calls:atvvv
+PASS qualified_calls:localv
+PASS qualified_calls:localv
+PASS qualified_calls:local_argvar
+PASS qualified_calls:local_argvar
+PASS qualified_calls:lproc

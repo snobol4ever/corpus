@@ -1,0 +1,8 @@
+PASS expand:cond_dcg
+PASS expand:make_dcg
+PASS expand:chained_term_expansion
+PASS expand:meta_arg
+PASS expand:goal_expansion_local_pred
+PASS expand:expand_once
+PASS expand:ssu_body
+PASS expand:ssu_guard

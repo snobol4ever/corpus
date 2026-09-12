@@ -1,0 +1,11 @@
+PASS current_op:plus
+PASS current_op:no_atom
+PASS current_op:no_atom
+PASS current_op:bad_type
+PASS current_op:bad_precedence
+PASS current_op:bad_precedence
+PASS current_op:inherit
+PASS op_syntax:parse
+PASS op_syntax:parse
+PASS op_syntax:parse
+PASS op_syntax:parse

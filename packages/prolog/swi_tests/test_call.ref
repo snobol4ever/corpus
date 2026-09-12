@@ -1,9 +1,0 @@
-PASS call1
-PASS apply
-PASS callN
-PASS cross_module_call
-PASS at2
-PASS snip
-PASS no_autoload
-PASS setup_call_cleanup
-FAIL catch

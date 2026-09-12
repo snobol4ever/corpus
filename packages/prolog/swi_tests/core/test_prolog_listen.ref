@@ -1,0 +1,6 @@
+PASS prolog_listen:at_exit_option
+PASS prolog_listen:local_at_exit_event
+PASS prolog_listen:global_at_exit_event
+PASS prolog_listen:erase_clause
+PASS prolog_listen:erase_record
+PASS prolog_listen:update

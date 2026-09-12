@@ -1,0 +1,7 @@
+FAIL bomb_arith:arith
+FAIL bomb_vars:singleton
+FAIL bomb_vars:multiton
+FAIL bomb_numbervars:numbervars
+FAIL bomb_compiler:conj
+BLOCKED bomb_compiler:call
+FAIL bomb_compiler:arg

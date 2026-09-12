@@ -1,0 +1,2 @@
+PASS tmp_module:nqueens
+PASS tmp_module:current_op

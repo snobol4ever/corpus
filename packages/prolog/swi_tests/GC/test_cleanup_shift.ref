@@ -1,0 +1,12 @@
+PASS cleanup_shift:gtrue
+PASS cleanup_shift:ltrue
+PASS cleanup_shift:ttrue
+PASS cleanup_shift:gfalse
+PASS cleanup_shift:lfalse
+PASS cleanup_shift:tfalse
+PASS cleanup_shift:gcut
+PASS cleanup_shift:lcut
+PASS cleanup_shift:tcut
+PASS cleanup_shift:gexcept
+PASS cleanup_shift:lexcept
+PASS cleanup_shift:texcept

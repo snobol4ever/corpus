@@ -1,0 +1,14 @@
+PASS answer:simple
+PASS answer:simple
+PASS answer:separated
+PASS answer:same
+PASS answer:same
+PASS answer:cycle
+PASS answer:cycle
+PASS answer:double_cycle
+PASS answer:freeze
+PASS answer:hidden1
+PASS answer:hidden2
+PASS answer:hidden3
+PASS answer:name_var
+FAIL answer:name_var

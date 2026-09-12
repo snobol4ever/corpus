@@ -1,0 +1,7 @@
+PASS assert2:bound
+PASS assert2:erase
+PASS assert2:double_erase
+PASS assert2:retract_erase
+PASS recorded:erase
+PASS recorded:double_erase
+PASS recorded:recorded_vt

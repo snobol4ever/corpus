@@ -1,0 +1,7 @@
+PASS resource_error:local
+PASS resource_error:global
+PASS resource_error:string
+PASS resource_error:string
+PASS resource_error:length
+PASS resource_error:tight_stacks
+PASS resource_error:cleanup_handler

@@ -1,0 +1,4 @@
+PASS pipe:pwd
+PASS pipe:cat1
+PASS pipe:cat2
+PASS pipe:timeout

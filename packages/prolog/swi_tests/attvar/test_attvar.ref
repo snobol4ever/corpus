@@ -1,0 +1,8 @@
+PASS attvar:s_list
+PASS attvar:true_ndet
+PASS freeze:freeze_and
+PASS freeze:freeze_memberchk
+PASS freeze:freeze_memberchk
+PASS freeze:freeze_memberchk
+PASS freeze:freeze_memberchk
+PASS attvar_with_occurs_check:occurs_check

@@ -1,0 +1,17 @@
+PASS signal_api:pending
+PASS signal_api:pending
+PASS signal_api:remove
+PASS signal_api:remove
+PASS signal_api:remove
+PASS signal_api:remove
+PASS signal_api:remove
+PASS signal_api:remove
+PASS signal_api:backtrack
+PASS signal_catch:recover
+PASS signal_catch:atomic
+PASS signal_catch:cleanup
+PASS signal_catch:signal
+PASS signal_nested:nested_likely
+PASS signal_nested:nested_sure
+PASS signal_nested:nested_atomic
+PASS signal_exceptions:chained

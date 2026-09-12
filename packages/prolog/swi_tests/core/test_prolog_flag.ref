@@ -1,0 +1,15 @@
+FAIL prolog_flags:type
+PASS prolog_flags:invalid
+PASS prolog_flags:preset_bool
+FAIL prolog_flags:preset_new_flag
+FAIL prolog_flags:preset_to_bool
+FAIL prolog_flags:preset_to_float
+FAIL prolog_flags:preset_oneof_1
+FAIL prolog_flags:preset_oneof_2
+FAIL prolog_flags:preset_oneof_3
+FAIL prolog_flags:preset_atom_to_int
+FAIL prolog_flags:preset_bool_to_term
+FAIL thread_prolog_flags:create_local_in_thread
+FAIL thread_prolog_flags:set_local_in_thread
+PASS thread_prolog_flags:set_global_in_thread
+FAIL thread_prolog_flags:set_global_in_thread_2

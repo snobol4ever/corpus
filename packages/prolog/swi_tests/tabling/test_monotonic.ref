@@ -1,0 +1,10 @@
+PASS monotonic_tabling:pa1
+PASS monotonic_tabling:pa2
+PASS monotonic_tabling:pb
+PASS monotonic_tabling:closure
+PASS monotonic_tabling:closure2
+PASS monotonic_tabling:incr_mono
+PASS monotonic_tabling:incr_mono
+PASS monotonic_tabling:nested_reeval_mono
+PASS monotonic_tabling_2:twice_invalid
+PASS monotonic_tabling_3:incr_propagate

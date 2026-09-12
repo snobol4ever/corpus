@@ -1,0 +1,32 @@
+PASS sequence:@(sequence//2 ground list,[[],[],[]])
+PASS sequence:@(sequence//2 ground list,[[97],[a],[]])
+PASS sequence:@(sequence//2 ground list,[[97,97,97],[a,a,a],[]])
+PASS sequence:@(sequence//2 ground list,[[97,97,97,120],[a,a,a],[120]])
+PASS sequence:@(sequence//2 ground list,[[97,120],[a],[120]])
+PASS sequence:@(sequence//2 ground list,[[120],[],[120]])
+PASS sequence:sequence//2 order of solutions
+PASS sequence:@(sequence//2 det element,[[97],[a],[]])
+PASS sequence:@(sequence//2 det element,[[97,97,97],[a,a,a],[]])
+PASS sequence:@(sequence//2 det element,[[97,97,97,120],[a,a,a],[120]])
+PASS sequence:@(sequence//2 det element,[[97,120],[a],[120]])
+PASS sequence:@(sequence//2 det element,[[120],[],[120]])
+PASS sequence:sequence//2 nondet element
+PASS sequence:sequence//2 nondet element and rest
+PASS sequence:@(sequence//3 det element,[[],[],[]])
+PASS sequence:@(sequence//3 det element,[[97],[a],[]])
+PASS sequence:@(sequence//3 det element,[[97,44,97,44,97],[a,a,a],[]])
+PASS sequence:@(sequence//3 det element,[[97,44,97,44,97,120],[a,a,a],[120]])
+PASS sequence:@(sequence//3 det element,[[97,120],[a],[120]])
+PASS sequence:@(sequence//3 det element,[[120],[],[120]])
+PASS sequence:sequence//3 det element trailing sep
+PASS sequence:sequence//3 det element trailing sep consumed silently
+PASS sequence:sequence//3 separator only
+PASS sequence:sequence//3 nondet element
+PASS sequence:@(sequence//5 det element,[[40,41],[],[]])
+PASS sequence:@(sequence//5 det element,[[40,41,120],[],[120]])
+PASS sequence:@(sequence//5 det element,[[40,97,41],[a],[]])
+PASS sequence:@(sequence//5 det element,[[40,97,44,97,41],[a,a],[]])
+PASS sequence:@(sequence//5 det element,[[40,97,44,97,41,120],[a,a],[120]])
+PASS sequence:sequence//5 det element trailing sep
+PASS sequence:sequence//5 sep only
+PASS sequence:sequence//5 nondet element

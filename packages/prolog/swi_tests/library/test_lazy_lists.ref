@@ -1,0 +1,2 @@
+PASS lazy_lists:list
+PASS lazy_lists:state

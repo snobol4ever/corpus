@@ -1,0 +1,15 @@
+PASS gc_leak:det_freeze_no_space
+PASS gc_leak:early_reset
+PASS gc_leak:throw_gc
+PASS gc_reset:deep_reset
+PASS gc_crash:b_string
+PASS gc_crash:wakeup_two
+PASS gc_crash:cut
+PASS gc_crash:c_cut
+PASS gc_crash:cleanup_shift
+PASS gc_crash2:cleanup
+PASS gc_mark:s_list
+PASS gc_mark:s_fredo
+PASS gc_mark:c_ifthen
+PASS gc_mark:b_neq_vv
+PASS agc:usercall

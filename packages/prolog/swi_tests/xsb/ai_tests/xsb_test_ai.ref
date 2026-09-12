@@ -1,0 +1,11 @@
+PASS xsb_ai_tests:cs_o
+PASS xsb_ai_tests:cs_r
+PASS xsb_ai_tests:disj
+PASS xsb_ai_tests:gabriel
+PASS xsb_ai_tests:kalah
+PASS xsb_ai_tests:peep
+PASS xsb_ai_tests:pg
+PASS xsb_ai_tests:plan
+PASS xsb_ai_tests:qsort
+PASS xsb_ai_tests:queens
+PASS xsb_ai_tests:read

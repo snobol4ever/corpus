@@ -1,0 +1,10 @@
+PASS unify_with_occurs_check:simple_1
+PASS unify_with_occurs_check:simple_2
+PASS unify_with_occurs_check:attvar_1
+PASS unify_with_occurs_check:attvar_2
+PASS unify_with_occurs_check:attvar_3
+PASS unify_with_occurs_check:attvar_4
+FAIL occurs_check_fail:unify
+FAIL occurs_check_fail:unify
+FAIL occurs_check_fail:unifiable
+EMPTY occurs_check_error

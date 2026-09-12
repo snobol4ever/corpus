@@ -1,0 +1,13 @@
+UNGRADABLE string oracle process exited rc=134 with no verdict (crash or abort)
+PASS string_bytes:aap
+PASS string_bytes:aap
+PASS string_bytes:aap
+PASS string_bytes:aap
+PASS string_bytes:aap
+PASS string_bytes:aap
+PASS string_bytes:hello
+PASS string_bytes:hello
+PASS string_bytes:hello
+PASS string_bytes:hello
+PASS string_bytes:hello
+PASS string_bytes:hello

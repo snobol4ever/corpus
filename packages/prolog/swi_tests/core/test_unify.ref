@@ -1,0 +1,12 @@
+PASS unify:blam
+PASS unify:unify_self
+PASS unify:unify_fv
+PASS unify:unify_arity_0
+PASS unify:cycle_1
+PASS unify:cycle_2
+PASS can_compare:ground
+PASS can_compare:ground
+PASS can_compare:ground
+PASS unifiable:unifiable_1
+PASS unifiable:unifiable_2
+PASS unifiable:gc_1

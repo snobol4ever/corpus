@@ -1,0 +1,4 @@
+PASS bags:nsols
+PASS bags:nsols_nested
+PASS bags:nsols_commit
+PASS bags:agc

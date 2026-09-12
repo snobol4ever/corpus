@@ -1,0 +1,12 @@
+PASS moved_unify_ubody:h_list_ff
+PASS moved_decompile:decom1
+PASS moved_decompile:decomp2
+PASS moved_decompile:decomp3
+PASS moved_decompile:decomp4
+PASS moved_decompile:decomp5
+PASS moved_decompile:decomp6
+PASS moved_decompile:decomp7
+PASS moved_decompile:decomp8
+FAIL moved_decompile:decomp9
+FAIL moved_decompile:run9
+FAIL moved_decompile:decomp9

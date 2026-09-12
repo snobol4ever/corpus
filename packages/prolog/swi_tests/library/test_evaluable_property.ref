@@ -1,0 +1,7 @@
+FAIL evaluable_property:consistency
+FAIL evaluable_property:consistency
+FAIL evaluable_property:det
+FAIL evaluable_property:ndet
+FAIL evaluable_property:templ
+FAIL evaluable_property:iso
+FAIL evaluable_property:error

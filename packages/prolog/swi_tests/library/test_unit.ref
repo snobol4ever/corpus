@@ -1,0 +1,3 @@
+PASS expand_unit:foo1
+PASS expand_unit:foo2
+PASS expand_unit:expand

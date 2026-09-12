@@ -1,0 +1,5 @@
+FAIL cmpr:compare_modes
+FAIL cmpr:compare_corners
+FAIL cmpr:realerrors
+FAIL cmpr:neg
+FAIL maxminr:realmaxmin

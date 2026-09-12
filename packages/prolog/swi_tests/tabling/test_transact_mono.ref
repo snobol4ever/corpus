@@ -1,0 +1,7 @@
+PASS test_transact_mono_1:commit
+PASS test_transact_mono_1:rollback
+PASS test_transact_mono_1:snapshot
+PASS test_transact_mono_1:snapshot
+PASS test_transact_mono_1:snapshot
+PASS test_transact_mono_1:snapshot
+PASS test_transact_mono_2:retract

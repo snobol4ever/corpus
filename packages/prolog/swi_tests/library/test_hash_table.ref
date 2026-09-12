@@ -1,0 +1,8 @@
+PASS hashtable:rfill
+PASS hashtable:rdel
+PASS hashtable:empty
+PASS hashtable:empty
+PASS hashtable:size
+PASS hashtable:put5
+PASS hashtable:put5
+PASS hashtable:wc

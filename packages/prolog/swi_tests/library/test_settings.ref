@@ -1,0 +1,5 @@
+PASS settings:get
+PASS settings:ch_default
+PASS settings:save_default
+PASS settings:restore_default
+PASS settings:arith

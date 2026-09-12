@@ -1,0 +1,13 @@
+PASS test_transact_mono_lazy_1:commit
+PASS test_transact_mono_lazy_1:rollback
+PASS test_transact_mono_lazy_1:snapshot
+PASS test_transact_mono_lazy_1:snapshot
+PASS test_transact_mono_lazy_1:snapshot
+PASS test_transact_mono_lazy_1:snapshot
+PASS test_transact_mono_lazy_2:retract
+PASS test_transact_mono_lazy_2:outside_assert
+PASS test_transact_mono_lazy_2:mixed_assert
+PASS test_transact_mono_lazy_3:outside_assert
+PASS test_transact_mono_lazy_4:new_dependencies
+PASS test_transact_mono_lazy_5:already_forced_1
+PASS test_transact_mono_lazy_5:already_forced_2

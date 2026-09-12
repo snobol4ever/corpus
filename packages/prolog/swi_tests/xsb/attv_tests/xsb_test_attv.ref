@@ -1,0 +1,7 @@
+FAIL xsb_attv_tests:attv_test
+PASS xsb_attv_tests:copyterm_attv
+FAIL xsb_attv_tests:fd1
+PASS xsb_attv_tests:findall_attv
+FAIL xsb_attv_tests:general
+FAIL xsb_attv_tests:interrupt1
+FAIL xsb_attv_tests:ret_attv

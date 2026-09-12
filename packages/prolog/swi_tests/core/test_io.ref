@@ -1,0 +1,11 @@
+PASS io:eof_dom
+PASS io:eof2
+PASS io:set_after_close
+PASS io:double_close
+PASS io:current_io_non_existing
+PASS io:current_io_closed
+PASS io:input_is_not_output
+PASS io:reuse_alias
+PASS stream_pair:single
+PASS stream_pair:single
+PASS stream_pair:close

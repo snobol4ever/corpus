@@ -1,0 +1,11 @@
+PASS copy_term:share
+PASS copy_term:cycle
+PASS copy_term_4:share
+PASS copy_term_4:share
+PASS copy_term_4:attvar
+PASS copy_term_4:attvar
+PASS copy_term_4:attvar
+PASS copy_term_4:attvar
+PASS copy_term_4:cycle
+PASS copy_term_nat_4:attvar
+PASS copy_term_nat_4:attvar

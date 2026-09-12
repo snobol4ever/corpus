@@ -1,0 +1,16 @@
+PASS assoc:wirth_85
+PASS assoc:unbalanced_1
+PASS assoc:unbalanced_2
+PASS assoc:unbalanced_3
+PASS assoc:unordered_1
+PASS assoc:unordered_2
+PASS assoc:unordered_3
+PASS assoc:bad_structure_1
+PASS assoc:bad_structure_2
+PASS assoc:bad_structure_keys_not_ground
+PASS assoc:del_max_min
+PASS assoc:wirth_del
+PASS assoc:random_min
+PASS assoc:random_max
+PASS assoc:del_empty
+PASS assoc:del_no_member

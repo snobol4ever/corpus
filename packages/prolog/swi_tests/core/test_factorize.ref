@@ -1,0 +1,9 @@
+PASS factorize:simple
+PASS factorize:simple
+PASS factorize:cyclic
+PASS factorize:double
+PASS factorize:double_cyclic
+PASS factorize:double_cyclic
+PASS factorize:double_cyclic
+PASS factorize:double_cyclic
+PASS factorize:fumo

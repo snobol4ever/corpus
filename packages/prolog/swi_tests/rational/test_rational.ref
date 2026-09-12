@@ -1,0 +1,15 @@
+PASS rational:filters
+PASS rational:construct
+PASS rational:compare
+PASS rational:keep_precision
+PASS rational:conversion
+PASS rational:int_to_rat
+PASS rational:rat_to_rat
+PASS rational:pow_special
+PASS rational:other_arith
+PASS rational:strings
+PASS rational:io
+PASS rational:syntax_fail
+PASS rationalize:trip
+PASS rationalize:roundtrip_rational
+PASS rationalize:roundtrip_rationalize

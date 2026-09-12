@@ -1,0 +1,12 @@
+PASS scan_options:process
+PASS scan_options:implicit_true
+PASS scan_options:no_option
+PASS scan_options:bad_value_type
+PASS scan_options:bad_type
+PASS scan_options:bad_type
+PASS scan_options:instantiation
+PASS scan_options:instantiation
+PASS scan_options:instantiation
+PASS dict_option:process
+PASS dict_option:bad_value_type
+PASS dict_option:no_option

@@ -1,0 +1,15 @@
+PASS xsb_test_incremental:incremental
+PASS xsb_test_incremental:incremental1
+PASS xsb_test_incremental:inc_trie_dyn
+PASS xsb_test_incremental:incremental_rule
+PASS xsb_test_incremental:incremental_rule_alt
+PASS xsb_test_incremental:test_incr_depends
+PASS xsb_test_incremental:test_incr_depends_2
+PASS xsb_test_incremental:test_inc_switch
+PASS xsb_test_incremental:test_sound_updates
+PASS xsb_test_incremental:test_wfs_update
+PASS xsb_test_incremental:incr_test_romero
+PASS xsb_test_incremental:test_abolish_nonincremental
+PASS xsb_test_incremental:inc_atc
+PASS xsb_test_incremental:inc_atc_gc
+PASS xsb_test_incremental:inc_atc_gc_tricky

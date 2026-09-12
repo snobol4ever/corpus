@@ -1,0 +1,9 @@
+PASS xsb_test_nonmt:test_iso_basic
+PASS xsb_test_nonmt:test_iso_mult_visit
+PASS xsb_test_nonmt:test_iso_hash
+PASS xsb_test_nonmt:test_iso_undef
+PASS xsb_test_nonmt:test_lazy
+PASS xsb_test_nonmt:test_introspection
+PASS xsb_test_nonmt:test_invalidate
+PASS xsb_test_nonmt:cmu_sei_0050
+PASS xsb_test_nonmt:test_recomputable

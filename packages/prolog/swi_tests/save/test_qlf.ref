@@ -1,0 +1,7 @@
+PASS qlf:unicode
+PASS qlf:h_integer
+PASS qlf:b_integer
+PASS qlf:expr
+PASS qlf:cmp
+PASS qlf:add_fc
+PASS qlf:rat

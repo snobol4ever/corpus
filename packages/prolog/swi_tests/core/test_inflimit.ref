@@ -1,0 +1,2 @@
+FAIL call_with_inference_limit:nesting
+PASS call_with_inference_limit:retry

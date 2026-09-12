@@ -1,6 +1,0 @@
-PASS expand_goal
-FAIL phrase
-PASS rule_expansions
-PASS dcg_rule_expansions
-PASS steadfastness
-PASS context

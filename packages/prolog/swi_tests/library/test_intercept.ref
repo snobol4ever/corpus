@@ -1,0 +1,6 @@
+PASS intercept:assign
+PASS intercept:assign
+PASS intercept:no_univ
+PASS intercept:all
+PASS intercept:all_empty
+PASS intercept:all_nb

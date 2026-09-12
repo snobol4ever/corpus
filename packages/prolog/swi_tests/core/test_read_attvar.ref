@@ -1,0 +1,9 @@
+FAIL test_read_attvar:attr
+FAIL test_read_attvar:attr
+FAIL test_read_attvar:attr
+FAIL test_read_attvar:attr
+FAIL test_read_labeled:label
+FAIL test_read_labeled:label
+FAIL test_read_labeled:label
+FAIL test_read_failure:fail
+FAIL test_read_failure:fail

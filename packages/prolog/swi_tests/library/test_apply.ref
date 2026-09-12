@@ -1,0 +1,12 @@
+PASS foldl:foldl empty, starter is atom
+PASS foldl:foldl empty, starter is unbound
+PASS foldl:foldl construction to verify order of arguments, 1 list
+PASS foldl:foldl construction to verify order of arguments, 2 lists
+PASS foldl:foldl construction to verify order of arguments, 3 lists
+PASS foldl:foldl construction to verify order of arguments, 4 lists
+PASS foldl:foldl construction, unifying unbound variables
+PASS foldl:foldl building sequence of monotonically increasing ints
+PASS foldl:foldl building sequence of monotonically increasing ints, just verify
+PASS foldl:foldl breakoff with failure
+PASS foldl:foldl breakoff with exception
+PASS foldl:foldl on list that is initially an unbound variable

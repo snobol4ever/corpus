@@ -1,0 +1,8 @@
+PASS arithmetic_function:func
+PASS arithmetic_function:func
+PASS arithmetic_function:func
+PASS arithmetic_function:euler
+PASS arithmetic_function:fail
+PASS arithmetic_function:except
+PASS arithmetic_function:fac
+PASS arithmetic_function:idiv

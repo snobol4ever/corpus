@@ -1,0 +1,12 @@
+PASS coroutining:frozen
+PASS coroutining:frozen_diff
+PASS coroutining:frozen_clpfd
+PASS coroutining:when1
+PASS coroutining:when2
+PASS coroutining:when3
+PASS coroutining:when4_inf
+PASS coroutining:when5_r
+PASS coroutining:when6
+PASS coroutining:when7
+PASS coroutining:when8
+PASS coroutining:when8

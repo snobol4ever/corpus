@@ -1,0 +1,8 @@
+PASS varprops:simple
+PASS varprops:not
+PASS varprops:not
+PASS varprops:disjunct
+PASS varprops:disjunct
+PASS varprops:disjunct
+PASS varprops:disjunct
+PASS varprops:disjunct

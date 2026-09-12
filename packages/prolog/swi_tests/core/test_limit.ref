@@ -1,0 +1,8 @@
+PASS program_space:fetch
+PASS program_space:fetch
+PASS program_space:too_low
+PASS program_space:retract
+PASS program_space:abolish
+PASS program_space:assert
+PASS program_space:overflow
+PASS program_space:repeat

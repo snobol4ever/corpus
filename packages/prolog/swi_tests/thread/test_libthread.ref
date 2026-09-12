@@ -1,0 +1,5 @@
+PASS concurrent_and:basic
+PASS concurrent_and:select
+PASS concurrent_and:cut
+PASS concurrent_and:error
+PASS concurrent_and:gen_error

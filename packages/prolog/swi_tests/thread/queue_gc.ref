@@ -1,0 +1,8 @@
+PASS queue_gc:exists
+PASS queue_gc:exists
+PASS queue_gc:exists
+PASS queue_gc:alias
+PASS queue_gc:new
+PASS queue_gc:destroy
+PASS queue_gc:gc
+PASS queue_gc:gc

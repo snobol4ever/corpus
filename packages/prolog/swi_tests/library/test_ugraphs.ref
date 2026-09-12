@@ -1,0 +1,6 @@
+PASS top_sort:linear
+FAIL top_sort:linear
+FAIL top_sort:multi
+FAIL top_sort:multi
+FAIL top_sort:disconnected
+FAIL top_sort:cyclic

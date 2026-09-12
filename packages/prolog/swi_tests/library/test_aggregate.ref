@@ -1,0 +1,17 @@
+PASS foreach:forall
+PASS foreach:forall
+PASS foreach:dif1
+PASS foreach:dif1
+PASS foreach:member
+PASS foreach:ht
+PASS aggregate:aggregate_sum
+PASS aggregate:aggregate_count
+PASS aggregate:aggregate_term
+PASS aggregate:aggregate_term_bag
+PASS aggregate:aggregate_term0
+PASS aggregate:aggregate_age
+PASS aggregate:aggregate_age_disc
+PASS aggregate:max_density
+PASS aggregate:density_range
+PASS aggregate:aggregate_all
+PASS aggregate:e_vars

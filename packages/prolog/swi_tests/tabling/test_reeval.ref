@@ -1,0 +1,8 @@
+PASS tabling_reeval:mutal_dependent
+PASS tabling_reeval:multiple_dependents
+PASS tabling_reeval_merged:only
+PASS dynamic_tabled:wfs
+PASS dynamic_tabled2:wfs
+PASS dynamic_tabled2:wfs2
+PASS dynamic_tabled3:wfs
+PASS dynamic_tabled4:wfs

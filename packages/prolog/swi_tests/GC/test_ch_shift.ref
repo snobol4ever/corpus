@@ -1,0 +1,2 @@
+PASS ch_shift:local_stack_expansion_many_chp
+PASS ch_shift:local_stack_expansion_pending_chp
