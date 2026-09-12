@@ -100,3 +100,43 @@ scripts are the live consumers" — a future reorg could add or retire one. Re-r
 `bash SCRIP/scripts/test_prolog_swi_suite.sh --file test_call` before trusting the 0%-regression
 note above; if the silent `--run` failure is fixed, re-measure the real coverage number rather than
 assuming the old 100% baseline still holds.
+
+## Three `rung15_abolish` ladder witnesses that contradict BOTH ISO oracles, so no ref can be cut
+
+- `rung15_abolish_abolish_existing.pl`
+- `rung15_abolish_abolish_one_of_two.pl`
+- `rung15_abolish_abolish_then_query_fail.pl`
+
+⛔ The three names above are written out in full and one per line ON PURPOSE: the declaration is matched
+by a delimited substring search for the exact basename (`_delim_match` in `util_build_master_suite.py`,
+the same regex shape `test_gate_suite_conversion_complete.sh` greps with). A brace-expanded heading like
+`rung15_abolish_abolish_{existing,one_of_two,then_query_fail}.pl` reads perfectly to a human and declares
+NOTHING — measured here, 2026-09-12: the builder went on treating all three as absorbable.
+
+**Stays loose on purpose. Not deferred — deferral says "this converts once a row unblocks", and no row
+unblocks this: the witnesses are wrong about Prolog, not blocked on SCRIP.**
+
+Each asserts that after `abolish(F/1)` a later `F(_)` **fails**, so the program writes `gone` / `cat_gone` /
+`no`. MEASURED 2026-09-12 (hq_C), both ISO oracles by absolute path:
+
+| oracle | what it actually does |
+|---|---|
+| `/usr/bin/swipl -q` | raises `existence_error` — `Unknown procedure: fact/1` — on **stderr**; stdout is EMPTY, rc=0 |
+| `/usr/bin/gprolog --consult-file` | ignores the `:- assertz(...)` setup entirely (`warning: unknown directive assertz/1 - directive ignored`), so the fixture never exists to be abolished |
+
+ISO `abolish/1` removes the predicate, so the subsequent call is a call to an unknown procedure — the
+witnesses encode the opposite belief. Their `.expected` files have been **0 bytes since 2026-09-01**, which is
+the same fact wearing a different hat: nobody could cut a ref then either.
+
+⛔ **A REF CANNOT BE CUT, AND THE GUARD AGAINST CUTTING ONE IS ONLY ON ONE OF THE TWO PATHS.**
+`corpus_suite_harness.py cmd_capture_oracle_refs` refuses to mint a ref when every arm agrees on empty
+("agreement on nothing is not agreement") — but the loose-pair path in `util_build_master_suite.py` has no
+such guard, and on 2026-09-12 it absorbed all three into `ALL.pl` with **empty refs** before this section
+existed. They were dropped again with `--allow-drop-origin`. That is why this is a KEEP and not simply a
+habit of not running the builder.
+
+⭐ **SCRIP IS NOT AT FAULT HERE AND THE SHAPE MATTERS:** `scrip --run` also prints nothing for all three, so
+on stdout it agrees with `swipl`. The divergence that remains is `swipl` raising to stderr where SCRIP is
+silent — a raise-vs-fail question that belongs to a Prolog defect row with a witness that can actually be
+graded, not to these three. ⛔ **Do not "fix" these by making them print something**: an edit that makes a
+witness gradeable also decides what it asserts, and these three would then be testing the edit.

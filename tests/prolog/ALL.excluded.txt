@@ -37,6 +37,7 @@ poly_10[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than 
 polyglot_tri_rules[scrip_test]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 prelude_gplc[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 prelude_swipl[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
+probe_loose_plz_test_pl_zeta_1	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 prolog_parser[demos]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 prolog_recognizer[demos]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=0
 prover[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
@@ -56,6 +57,9 @@ rung11_findall_findall_arith	DEFERRED (row tests-consolidate-prolog-pz4-blocked-
 rung11_findall_findall_filter	DEFERRED (row tests-consolidate-prolog-pz4-blocked-33: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
 rung14_retract_retract_basic	DEFERRED (row prolog-backtracking-yields-first-solution-only: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
 rung14_retract_retract_mixed	DEFERRED (row prolog-backtracking-yields-first-solution-only: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
+rung15_abolish_abolish_existing	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung15_abolish_abolish_one_of_two	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
+rung15_abolish_abolish_then_query_fail	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung15_abolish_abolish_then_reassert	DEFERRED (row prolog-backtracking-yields-first-solution-only: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
 rung44_setof_group	DEFERRED (row prolog-backtracking-yields-first-solution-only: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
 rung45_reflect_clause_facts	DEFERRED (row prolog-backtracking-yields-first-solution-only: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
@@ -75,3 +79,4 @@ tak_gvar[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than
 times10[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 unify[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 zebra[benchmarks]	over budget (m3/m4 exceeded 3.0s)
+# builder-digest: f4e5b53efe4839e36d6dd9ff536429a905296c9296c8c72ea8476e348048a6ea
