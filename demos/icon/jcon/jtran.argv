@@ -1,0 +1,8 @@
+# jtran.argv -- the declared argv sidecar (lib_icon_ipl_isolation.sh:ipl_argv_read, THE one reader).
+# ⛔ CONVERTED FROM jtran.args (hq_V 2026-09-12, CEO-609). That file held the same four words in an
+# UNDECLARED format that NO reader in the tree looks for -- grepped: zero hits for jtran.args in SCRIP/
+# and .github/ -- so the argv this demo needs was written down beside it and armed nothing. Measured: with
+# these four arguments Arizona iconx runs jtran clean (rc=0, 73 bytes, stable); with none it dies at
+# Run-time error 118. A third spelling of an existing sidecar is how the two-instruments-one-question
+# defect gets in, so this is the .argv name and format the shared reader already defines, not a new one.
+jtran	preproc	inputs/hello.icn	:	stdout
