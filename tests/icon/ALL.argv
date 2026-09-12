@@ -15,3 +15,16 @@
 # entry scored PASS while the argument handling it exists to exercise never executed, which is a green that
 # documents nothing. Declaring 6 changes no expected byte and makes that path actually run.
 procedure_every_suspend_replace_8	6
+# ceo 2026-09-12 (CEO-636): the eight run-graded entries the sidecar census named. Four declare the value their
+# `integer(args[1]) | N` default already takes, so no expected byte changes and the argument path actually runs.
+procedure_every_elemgen_replace_3	1000
+procedure_every_alt_replace_1	6
+procedure_every_alt_replace_8	6
+procedure_record_every_replace_4	6
+# One takes a real argument and its ref was RE-CUT from icont under it: dump(args) with one element.
+procedure_record_coexpr_replace_1	x
+# Three stay NAMED DEBT in the census rather than declared: procedure_every_scan_replace_6 and
+# procedure_record_scan_replace_2 open args[1] as a FILE the master cannot supply; procedure_every_scan_replace_13's
+# only argument, -v, prints set sizes that depend on the order `!S` generates a set being deleted from -- an order
+# Icon leaves unspecified (measured 2026-09-12: icont and SCRIP agree on every ?N sequence and on plain set
+# insert/delete counts, and differ only under -v), and a ref must never pin an unspecified order.

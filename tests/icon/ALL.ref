@@ -7837,7 +7837,7 @@ close(f) ----> file(fncs1.dat)
     *9	string : "asparagus"
 	procedure : procedure main
 	procedure : function write
-#1  *0	list : list_1(0)
+#1  *1	list : list_1(1)
 #2  *0	list : list_2(0)
 #3  *5	list : list_3(5)
 #1  *0	set : set_1(0)
