@@ -1,0 +1,355 @@
+#------------------------------------------------------------- 1 a01_scan_nested
+procedure main()
+   local s, t;
+   s := "alpha beta gamma";
+   s ? {
+      tab(upto(' ')); move(1);
+      write(&pos, " ", &subject[&pos:0]);
+      "inner x y" ? { tab(upto(' ')); write("in ", &pos, " ", &subject); };
+      write("back ", &pos, " ", tab(0));
+      };
+   write(image(&subject), " ", &pos);
+   t := "abc";
+   t ? { if tab(find("zz")) then write("no") else write("restore ", &pos); move(2); write(move(-1)); write(pos(-1) | "np"); };
+   every write("a.b.c" ? tab(upto('.') | 0)) \ 2;
+   write("q" ? (move(1) & &pos));
+   write(&subject == "q" | "subject reverted");
+end
+#-------------------------------------------------------------- 2 a02_generators
+procedure main()
+   local i, j, x;
+   write(1 to 3);
+   every write((1 to 2) & (5 to 6));
+   every i := 1 to 3 do every j := i to 3 do writes(i, j, " ");
+   write();
+   every writes(!"abc" || !"xy", " ");
+   write();
+   x := 1 to 3;
+   write(x);
+   every write((1 to 3) \ 2 | 9);
+   every writes(seq(10, -3) \ 4, " ");
+   write();
+   every writes((1 | 2 | 3) * (10 | 100), " ");
+   write();
+   write(if 3 > 2 then "y" else "n", " ", (if 1 > 2 then "y") | "fails");
+   every writes(!123, " ");
+   write();
+end
+#------------------------------------------------------------------ 3 a03_coexpr
+procedure gen()
+   suspend 1 to 3;
+end
+procedure main()
+   local e, f, v;
+   e := create gen();
+   every writes(@e, " "); write();
+   write(image(@e) | "exhausted");
+   e := ^e;
+   write(@e, " ", @e);
+   f := create |(v := @&source);
+   write(7 @ f, " ", 8 @ f);
+   write(image(&current) == image(&main));
+   e := create !"xyz";
+   write(*e, " ", @e, " ", *e);
+   write(image(create 1)[1:13]);
+end
+#-------------------------------------------------------------- 4 a04_reversible
+procedure main()
+   local a, b, L, i;
+   a := 1; b := 2;
+   a :=: b; write(a, " ", b);
+   if (a <- 10) & (b <- 20) & (a > 100) then write("never") else write(a, " ", b);
+   every (a <- 5) & write(a); write(a);
+   a := "p"; b := "q";
+   if (a <-> b) & 1 > 2 then write("never") else write(a, b);
+   L := [1, 2, 3];
+   every i := 1 to 3 do L[i] +:= 10;
+   every L[1 to 3] *:= 2;
+   write(L[1], " ", L[2], " ", L[3]);
+   a := "ab"; a ||:= "cd"; a[2:3] := "XYZ"; write(a);
+   a := 5; a ^:= 2; a %:= 7; write(a);
+   write(a <- 1 | "fails", " ", a);
+end
+#---------------------------------------------------------- 5 a05_records_tables
+record pt(x, y)
+procedure main()
+   local p, q, t, s, L, k;
+   p := pt(1, 2); q := copy(p); q.x := 9;
+   write(p.x, " ", q.x, " ", type(p), " ", image(pt), " ", *p);
+   t := table(0); t["a"] +:= 1; t["a"] +:= 1; t["b"] := 5;
+   write(t["zz"], " ", *t, " ", t["a"]);
+   t := table("dflt"); write(t[1], " ", \t[1] | "null-ish");
+   s := set([1, 2, 2, 3]); write(*s, " ", member(s, 2) | "no", " ", image(member(s, 9)) | "nomember");
+   insert(s, 4); delete(s, 1); write(*s);
+   L := sort(table("x") | [3, 1, 2]);
+   every writes(!sort([3, "a", 2.5, &null, "b", 1]), " "); write();
+   t := table(); t[[1]] := "list-key"; write(\t[[1]] | "identity");
+   every k := key(t) do writes("k"); write();
+   L := sort(table()); write(*L, " ", type(L));
+   t := table(); t[1] := "one"; t[2] := "two"; L := sort(t, 3); write(*L, " ", L[1], L[2], L[3], L[4]);
+   write(image(p)[1:9], " ", image(t)[1:6], " ", image(s)[1:4]);
+end
+#-------------------------------------------------------------- 6 a06_string_ops
+procedure main()
+   write(repl("ab", 3), " ", center("x", 7, "-="), " ", left("abc", 6, "."), "|", right("abc", 6, "."), "|");
+   write(center("abcdef", 3), " ", left("abc", 2), " ", right("abc", 2));
+   write(map("hello", "lo", "01"), " ", map("ABC"), " ", map("abc", &lcase, &ucase));
+   write(trim("abc  "), "|", trim("xxabcxx", 'x'), "|", trim("abc", ''), "|");
+   write(reverse("hello"), " ", string('zyxa'), " ", *cset("hello"));
+   write(ord("A"), " ", char(97), " ", ord(char(255)), " ", image(char(0)), " ", image(char(10)));
+   write("abc" == "abc ", "|", "abc" << "abd", "|", "b" >> "abc");
+   write("10" < "9" | "no", " ", "10" < 9 | "no2", " ", "10" < "9" & "str-lt");
+   write(integer("16r1f"), " ", integer("2r101"), " ", real(".5e2"), " ", numeric("  12  "), " ", integer(" -7 "));
+   write(integer("abc") | "fail", " ", integer("1e3") | "fail2", " ", real("1e3"), " ", integer(2.9), " ", integer(-2.9));
+   write(*repl("", 5), " ", repl("x", 0), "|", "" || "", "|", *"");
+   write(string(12), string(1.5), string(1e10), " ", 1e10, " ", 0.1 + 0.2, " ", 1.0 / 3);
+   write(detab("a\tb\tc"), "|", entab("a       b"), "|", *detab("\t"), " ", *entab("        x"));
+end
+#----------------------------------------------------------------- 7 a07_numeric
+procedure main()
+   write(2 ^ 70, " ", 2 ^ 70 - 1, " ", (2 ^ 70) / 3, " ", (2 ^ 70) % 1000, " ", -(2 ^ 65));
+   write(2 ^ 3 ^ 2, " ", -2 ^ 2, " ", (-2) ^ 2, " ", 7 / 2, " ", -7 / 2, " ", 7 % 3, " ", -7 % 3, " ", 7 % -3);
+   write(1 = 1.0, " ", 1 === 1.0 | "not identical", " ", 3.0, " ", 3.5 * 2, " ", 10 / 4.0, " ", 2 ^ 0.5);
+   write(iand(12, 10), " ", ior(12, 10), " ", ixor(12, 10), " ", ishift(1, 10), " ", ishift(-8, -1), " ", icom(0), " ", iand(-1, 255));
+   write(9223372036854775807 + 1, " ", -9223372036854775807 - 2, " ", 3037000500 * 3037000500);
+   write(abs(-5), " ", abs(-2.5), " ", -0.0);
+   &error := -1; write(1e300 * 1e10 | "overflow?"); write("e", &errornumber); &error := 0;
+   write(integer(1e18), " ", integer("9999999999999999999999"), " ", 12345678901234567890 * 10);
+   write(5 % 0.5 | "x", " ", 2.5 % 1, " ", 1.5 * 2 = 3, " ", 100000000000000000000.0);
+   write(sqrt(16), " ", exp(0), " ", log(1), " ", log(8, 2), " ", sin(0), " ", atan(1) * 4);
+   write(1 <= 2 <= 3, " ", (1 < 2) + 1, " ", 3 > 2 > 1 | "chain fails");
+end
+#----------------------------------------------------------------- 8 a08_control
+procedure main()
+   local i, v, n;
+   v := every i := 1 to 5 do if i = 3 then break i * 10;
+   write(image(v));
+   v := repeat { n := (\n + 1) | 1; if n > 4 then break "done" || n };
+   write(v);
+   n := 0; v := while n < 3 do n +:= 1; write(image(v), " ", n);
+   n := 0; until n >= 2 do n +:= 1; write(n);
+   every i := 1 to 6 do { if i % 2 = 0 then next; writes(i) }; write();
+   every i := 1 to 3 do case i of { 1 | 3: writes("odd") ; 2: writes("even") ; default: writes("?") }; write();
+   write(case 5 of { 1 to 4: "low"; 5 to 9: "mid"; default: "hi" });
+   write(if not (1 > 2) then "not-ok");
+   v := &null; write(/v & "isnull", " ", \v | "still null");
+   v := 1; write(\v & "nonnull", " ", /v | "not null");
+   write(image((1 > 2) | "alt"), " ", 1 > 2 & "never" | "conj-alt");
+   i := 0; every 1 to 3 do i +:= 1; write(i);
+   write(&fail | "fail-alt");
+end
+#------------------------------------------------------------------- 9 a09_procs
+procedure va(a[])
+   return *a || ":" || (image(a[1]) | "none");
+end
+procedure dflt(x)
+   /x := "d";
+   return x;
+end
+procedure cnt()
+   static n;
+   initial n := 0;
+   n +:= 1;
+   return n;
+end
+procedure susp()
+   suspend 1 | 2 do write("resumed");
+   return "end";
+end
+procedure isodd(n)
+   return if n = 0 then fail else iseven(n - 1);
+end
+procedure iseven(n)
+   return if n = 0 then "even" else isodd(n - 1);
+end
+procedure noval()
+   return;
+end
+procedure main()
+   local p, x;
+   write(va(), " ", va(1, 2, 3), " ", va(&null));
+   write(dflt(), " ", dflt("given"));
+   every 1 to 3 do cnt(); write(cnt());
+   every x := susp() do write(x);
+   write(iseven(4), " ", iseven(3) | "odd");
+   p := write; p("via value");
+   write(image(noval()), " ", args(va), " ", args(main), " ", args(write));
+   p := proc("repl"); write(p("z", 3), " ", image(proc("va", 1)) | "no-proc", " ", image(proc("+", 2)));
+   write("repl"("y", 2) | "string-invocation-fails");
+end
+#------------------------------------------------------------------ 10 a10_lists
+procedure main()
+   local L, M, s;
+   L := [1, 2, 3, 4, 5];
+   write(L[-1], " ", L[-5], " ", image(L[6]) | "oob", " ", *L[2:4], " ", L[4:2][1], " ", *L[3:3]);
+   M := L[2+:2]; write(M[1], M[2], " ", L[5-:2][1]);
+   push(L, 0); put(L, 6); write(get(L), pop(L), pull(L), " ", *L);
+   L := list(3, "x"); L[1] := "y"; write(L[1], L[2], L[3]);
+   L := list(2, []); put(L[1], 1); write(*L[2]);
+   L := [1] ||| [2, 3] ||| []; write(*L, " ", L[3]);
+   s := "hello"; s[2:4] := "EL"; write(s); s[1] := ""; write(s, " ", *s);
+   s := "abc"; write(s[2:1], " ", s[0:1] | "s0", " ", image(s[4]) | "s4-fail", " ", s[4:4], "|");
+   every writes((!sort([[2, "b"], [1, "z"], [1, "a"]], 1))[2], " "); write();
+   L := sort([[2, "b"], [1, "z"], [1, "a"]], 2); write(L[1][2], L[2][2], L[3][2]);
+   write(image([]), " ", image([1]), " ", *list(0));
+   L := [3, 1, 2]; M := sort(L); write(L[1], M[1], " ", image(L) == image(M) | "different-lists");
+end
+#----------------------------------------------------------------- 11 a11_errors
+procedure main()
+   local x;
+   &error := 1;
+   x := 1 + "a";
+   write(&errornumber, " ", &errortext, " ", image(&errorvalue), " ", &error);
+   &error := 5;
+   x := "abc"[9];
+   write(&errornumber, " ", &error);
+   x := [1][3];
+   write(&errornumber, " ", &error, " ", image(&errorvalue));
+   errorclear(); write(image(&errornumber), " ", image(&errortext), " ", image(&errorvalue));
+   &error := 1; runerr(700, "custom"); write(&errornumber, " ", &errortext, " ", &errorvalue);
+   &error := 1; x := 1 / 0; write(&errornumber);
+   &error := 1; x := repl("x", -1); write(&errornumber);
+   &error := 1; x := table()[1][2]; write(&errornumber);
+   &error := 1; x := &null.f; write(&errornumber);
+   &error := 1; x := "3" + "x" | 7; write(&errornumber, " ", x);
+end
+#--------------------------------------------------------------- 12 a12_keywords
+procedure main()
+   write(*&letters, " ", *&digits, " ", *&ascii, " ", *&cset, " ", *&lcase, " ", &letters[1:4]);
+   write(image(&null), " ", image(&fail) | "fail-fails", " ", &level, " ", image(&current)[1:13]);
+   &random := 1; writes(?100, " ", ?100, " ", ?100); write();
+   &random := 1; write(?100, " ", ?"abc", " ", ?[10, 20], " ", image(?1.0)[1:3]);
+   write(&pos, " ", image(&subject), " ", &host ~== "" | "host?", " ", &progname ~== "" | "?", " ", &digits ** '13579');
+   write(image(&e)[1:4], " ", image(&pi)[1:6], " ", image(&phi)[1:4]);
+   write(&null === &null, " ", &fail | "f", " ", image(&errout)[1:6], " ", image(&output)[1:6], " ", image(&input)[1:6]);
+   write((&ascii == string(&ascii), "ascii-eq"), " ", *string(&cset), " ", (&cset == cset(string(&cset)), "cset-eq"));
+end
+#-------------------------------------------------------------- 13 a13_scanfuncs
+procedure main()
+   local s;
+   s := "the cat sat on the mat";
+   every writes(find("at", s), " "); write();
+   write(find("the", s, 2), " ", find("the", s, 1, 5) | "none", " ", find("", s), " ", find("x", s) | "nox");
+   write(upto('aeiou', s), " ", upto('aeiou', s, 5), " ", many('the', s), " ", any('t', s), " ", any('x', s) | "noany");
+   write(match("the", s), " ", match("cat", s, 5), " ", match("cat", s) | "nomatch", " ", match("", s, 3));
+   every writes(bal('+-', '(', ')', "(a+b)+c-(d)"), " "); write();
+   write(bal(), " ", bal('x') | "nobal");
+   s ? { tab(find("cat")); write(move(3), " ", &pos, " ", tab(-1) | "t-1", " ", &pos); };
+   s ? { write(tab(0)[1:4], " ", &pos, " ", tab(1), " ", &pos); };
+   s ? { every writes(tab(upto(' ') + 1), "|"); write(tab(0)); };
+   write(find("a", "banana", -3), " ", upto('n', "banana", -4, 0), " ", many('an', "banana", 2, -1));
+   s ? { move(4); write(&subject[1:&pos], "|", tab(many(&letters)), "|", &pos); };
+   write("abc" ? (tab(2) || tab(0)), " ", "xyz" ? (move(2), &pos), " ", "q" ? tab(0));
+end
+#------------------------------------------------------------- 14 a14_conversion
+procedure main()
+   write("1" + "2", " ", "3.0" * 2, " ", " 12 " + 1, " ", "1e2" + 0, " ", "+5" + 0, " ", "-.5" + 0);
+   write(numeric("0x10") | "nohex", " ", integer("0x10") | "nohex2", " ", "0x10" == "0x10", " ", numeric("16r10"));
+   write(type(1), type(1.0), type("s"), type('c'), type([]), type(table()), type(set()), type(&null), type(main), type(write), type(create 1));
+   write(string(1.5), " ", string(2.0), " ", 2.0, " ", 1e5, " ", 1e-5, " ", 123456789.0, " ", 1234567890123.0, " ", 0.000001);
+   write(1.0e6, " ", 1.0e7, " ", 123.456e10, " ", 1/3.0, " ", 2/3.0, " ", 1e100, " ", -1e-100);
+   write(integer("  +12  "), " ", integer("1_000") | "nounder", " ", real("1."), " ", real(".1"), " ", real("1.e2") | "x");
+   write(cset("aab") === 'ab', " ", "ab" === 'ab' | "diff", " ", 'ab' == "ab", " ", "1" = 1, " ", "1.0" = 1);
+   write(image("a\"b"), " ", image("\\"), " ", image("\n\t\e\001\377"), " ", image('a\'b'), " ", image(""), " ", image(''));
+   write(image(1), " ", image(1.5), " ", image(-0.5), " ", image(2 ^ 65), " ", image(main)[1:10], " ", image(write));
+   &error := -1; write(string(&null) | "nullstr"); write("e", &errornumber); write("" || &null | "cat-null"); write("e", &errornumber); write(*&null | "size-null"); write("e", &errornumber); write(integer(&null) | "int-null"); write("e", &errornumber); &error := 0;
+   write(numeric("1e400") | "range", " ", integer("99999999999999999999") + 1, " ", real(2 ^ 62), " ", 2 ^ 62 * 4.0);
+end
+#--------------------------------------------------------------- 15 a15_strindex
+procedure main()
+   local s, i;
+   s := "abcdef";
+   write(s[1], s[6], s[-1], s[-6], " ", s[2:4], " ", s[4:2], " ", s[3:3], "|", s[0:0], "|", s[7:7], "|");
+   write(s[2+:3], " ", s[5-:2], " ", s[1:-1], " ", s[-2:0], " ", s[0], " ", s[-0] | "x", " ", image(s[7]) | "s7");
+   s[2:3] := "XYZ"; write(s); s[1:1] := "<"; write(s); s[-1:0] := ">"; write(s); s[2:5] := ""; write(s);
+   s := "hello"; every i := 1 to *s do s[i] := map(s[i], &lcase, &ucase); write(s);
+   s := "abc"; write(s[1:2] || s[3], " ", s[2:2] == "", " ", *s[1:0]);
+   write("abcdef"[2:4][2], " ", "xyz"[1:0][2:3], " ", ("ab" || "cd")[3]);
+   i := 2; s := "wxyz"; write(s[i:i+2], " ", s[i+:1], " ", s[-i:0]);
+   write(image("abc"[2:9]) | "range9", " ", image("abc"[0:2]) | "range0", " ", image("abc"[4:5]) | "range45", " ", "abc"[4:4], "|");
+end
+#------------------------------------------------------------------- 16 a16_cset
+procedure main()
+   local c;
+   write('abc' ++ 'cd', " ", 'abcd' -- 'bd', " ", 'abc' ** 'bcd', " ", *'aab', " ", 'ba' == 'ab', " ", image('ba'));
+   write((~'a' == (&cset -- 'a'), "compl-eq"), " ", *~'', " ", (string(~&ascii)[1:1] == "", "empty"), " ", *(~'a'));
+   write(cset("hello"), " ", string(cset("zyxzyx")), " ", cset(123), " ", cset(1.5), " ", *cset(""));
+   write(&ucase -- 'AEIOU', " ", "abc" ? tab(upto(~'ab')), " ", 'a' ++ "b");
+   &error := -1; write('a' < 'b' | "csetlt"); write("e", &errornumber); write('a' ++ "b" ++ 1); write("e", &errornumber); &error := 0;
+   c := 'aeiou'; write(upto(c, "xyz") | "none", " ", many(c, "aeioux"), " ", 'a' === 'a', " ", cset('a') === 'a');
+   write(image(cset("\n\t")), " ", *&cset, " ", ord(string(&cset)[256]), " ", string('c' ++ 'a' ++ 'b'));
+   every writes(!'cba', ","); write();
+   write(type('a'), " ", 'a' || 'b', " ", type('a' || 'b'), " ", *('abc' ** ''), " ", '' == '');
+end
+#------------------------------------------------------------------- 17 a17_deep
+procedure depth(n)
+   return if n = 0 then 0 else 1 + depth(n - 1);
+end
+procedure gen(n)
+   if n > 0 then suspend gen(n - 1);
+   suspend n;
+end
+procedure ack(m, n)
+   return if m = 0 then n + 1 else if n = 0 then ack(m - 1, 1) else ack(m - 1, ack(m, n - 1));
+end
+procedure main()
+   local L, i, t;
+   write(depth(200));
+   write(depth(300));
+   i := 0; every gen(300) do i +:= 1; write(i);
+   write(ack(2, 3), " ", ack(3, 3));
+   L := []; every i := 1 to 100000 do put(L, i); write(*L, " ", L[-1], " ", L[50000]);
+   t := table(); every i := 1 to 20000 do t["k" || i] := i; write(*t, " ", t["k19999"], " ", t["k0"] | "none");
+   write(*repl("ab", 100000), " ", *reverse(repl("xy", 50000)), " ", left("a", 200000)[200000] == " ");
+end
+#------------------------------------------------------------- 18 a18_gen_lvalue
+procedure two()
+   suspend 1 | 2;
+end
+procedure main()
+   local a, b, L, t, i;
+   every (a | b) := 5; write(a, b);
+   L := [0, 0, 0]; every L[two()] := 7; write(L[1], L[2], L[3]);
+   t := table(0); every t[!"aba"] +:= 1; write(t["a"], t["b"]);
+   every (L[1] | L[3]) +:= 1; write(L[1], L[3]);
+   every i := two() do every L[i] := i; write(L[1], L[2]);
+   a := "x"; every (a | a) ||:= "y"; write(a);
+   every (L[1] | L[2]) :=: (L[3] | L[3]); write(L[1], L[2], L[3]);
+   every write(two() | two());
+   every i := (1 to 2) do every writes((i | -i)); write();
+   write(image((a := 1 to 3) & a > 1 & a));
+end
+#----------------------------------------------------------- 19 a19_suspend_scan
+procedure words(s)
+   local L;
+   L := [];
+   s ? while tab(upto(&letters)) do put(L, tab(many(&letters)));
+   suspend !L;
+end
+procedure firsts(s)
+   s ? suspend (tab(upto(&letters)) & move(1));
+end
+procedure main()
+   local w;
+   every writes(words("the quick, brown fox!"), "|"); write();
+   every writes(firsts("ab cd"), "|"); write();
+   "outer scan" ? { tab(7); every w := words("in ner") do writes(w, &pos, " "); write(tab(0)); };
+   write("xy" ? (every writes(words("a b")), &pos));
+   every writes(("p q r" ? words(&subject)), ","); write();
+   w := create words("one two"); write(@w, " ", "zz" ? (@w || &subject));
+end
+#------------------------------------------------------------------- 20 a20_misc
+procedure main()
+   local L, s, x;
+   write(1 | 2, " ", (1 | 2)[1] | "idx-fails", " ", ((1 | 2) > 1), " ", (1 to 5 > 3));
+   write("a" || 1 || 2.5, " ", 1 || "", " ", *(1 || 2 || 3));
+   &error := -1; write("a" || &null | "null-cat"); write("e", &errornumber); &error := 0;
+   L := [1, 2, 3]; write(image(L[2:2]), " ", *L[1:1], " ", L[1:4][3], " ", image(L[0:1]) | "l0");
+   s := ""; every s ||:= !"abc" || "-"; write(s);
+   write(copy(1), " ", copy("s"), " ", copy(&null) | "cnull", " ", image(copy([1])) ~== image([1]));
+   x := [1, [2, 3]]; write(x[2][2], " ", image(copy(x)[2] === x[2]));
+   write(("abc" | "de")[2], " ", "abc"[1 | 3], " ", (1 to 3) + (10 | 20));
+   write(ord(char(0) << char(1)), " ", "" << "a", " ", "a" << "aa", " ", "Z" << "a", " ", "10" << "9");
+   write(&null | 1, " ", (&null & 2) | 3, " ", not &null, " ", (not 1) | "not1-fails");
+   &error := -1; write(10 > 9 > 8 > 7 | "gt-fails"); write("e", &errornumber); write("b" >> "a" >> "" | "ss-fails"); write("e", &errornumber); write(1 ~= 2 ~= 1 | "ne"); write("e", &errornumber); &error := 0;
+end

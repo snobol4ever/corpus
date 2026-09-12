@@ -1,0 +1,241 @@
+#------------------------------------------------------------- 1 a01_scan_nested
+7 beta gamma
+in 6 inner x y
+back 17 beta gamma
+"" 1
+restore 1
+b
+np
+a
+a.b
+1
+subject reverted
+#-------------------------------------------------------------- 2 a02_generators
+1
+5
+6
+5
+6
+11 12 13 22 23 33 
+ax ay bx by cx cy 
+1
+1
+2
+9
+10 7 4 1 
+10 100 20 200 30 300 
+y fails
+1 2 3 
+#------------------------------------------------------------------ 3 a03_coexpr
+1 
+2
+1 2
+ 8
+co-expression_1(1)
+0 x 1
+co-expressio
+#-------------------------------------------------------------- 4 a04_reversible
+2 1
+2 1
+5
+2
+pq
+22 24 26
+aXYZcd
+4
+1 1
+#---------------------------------------------------------- 5 a05_records_tables
+1 9 pt record constructor pt 2
+0 2 2
+dflt dflt
+3 2 nomember
+3
+ 1 3 2.5 a b 
+identity
+k
+0 list
+4 1one2two
+record p table set
+#-------------------------------------------------------------- 6 a06_string_ops
+ababab -=-x=-= abc...|...abc|
+cde ab bc
+he001 abc ABC
+abc|xxabc|abc|
+olleh axyz 4
+65 a 255 "\x00" "\n"
+31 5 50.0 12 -7
+fail 1000 1000.0 2 -2
+0 ||0
+121.51e+10 1e+10 0.3 0.3333333333
+a       b       c|a	b|8 2
+#----------------------------------------------------------------- 7 a07_numeric
+1180591620717411303424 1180591620717411303423 393530540239137101141 424 -36893488147419103232
+512 4 4 3 -3 1 -1 1
+1.0 not identical 3.0 7.0 2.5 1.414213562
+8 14 6 1024 -4 -1 255
+9223372036854775808 -9223372036854775809 9223372037000250000
+5 2.5 0.0
+overflow?
+e204
+1000000000000000000 9999999999999999999999 123456789012345678900
+0.0 0.5 3.0 1e+20
+4.0 1.0 0.0 3.0 0.0 3.141592654
+3 3 1
+#----------------------------------------------------------------- 8 a08_control
+30
+done5
+"done5" 3
+2
+135
+oddevenodd
+mid
+not-ok
+isnull still null
+nonnull not null
+3
+fail-alt
+#------------------------------------------------------------------- 9 a09_procs
+0:none 3:1 1:&null
+d given
+4
+1
+resumed
+2
+resumed
+end
+even odd
+via value
+&null -1 0 -1
+zzz procedure va function +
+yy
+#------------------------------------------------------------------ 10 a10_lists
+5 1 oob 2 2 0
+23 3
+016 4
+yxx
+1
+3 3
+hELlo
+ELlo 4
+a abc s4-fail |
+b z a 
+bza
+list_25(0) list_26(1) 0
+31 different-lists
+#----------------------------------------------------------------- 11 a11_errors
+102 numeric expected "a" 0
+102 5
+102 5 "a"
+700  custom
+201
+205
+114
+107
+102 7
+#--------------------------------------------------------------- 12 a12_keywords
+52 10 128 256 26 ABC
+&null fail-fails 1 co-expressio
+73 94 32
+1 ""   13579
+2.7 3.141 1.6
+ f &erro &outp &inpu
+ascii-eq 256 cset-eq
+#-------------------------------------------------------------- 13 a13_scanfuncs
+6 10 21 
+16 1 1 nox
+3 6 4 2 noany
+4 8 nomatch 3
+6 8 
+cat 22  sat on the ma 22
+the 1 the cat sat on the mat 1
+the |the cat |the cat sat |the cat sat on |the cat sat on the |the cat sat on the mat
+4 3 6
+the |cat|8
+abc 1 q
+#------------------------------------------------------------- 14 a14_conversion
+3 6.0 13 100.0 5 -0.5
+nohex nohex2 0x10 16
+integerrealstringcsetlisttablesetnullprocedureprocedureco-expression
+1.5 2.0 2.0 100000.0 1e-05 123456789.0 1.23456789e+12 1e-06
+1000000.0 10000000.0 1.23456e+12 0.3333333333 0.6666666667 1e+100 -1e-100
+12 nounder 1.0 0.1 100.0
+ab diff ab 1 1.0
+"a\"b" "\\" "\n\t\e\x01\xff" '\'ab' "" ''
+1 1.5 -0.5 36893488147419103232 procedure function write
+nullstr
+cat-null
+e103
+size-null
+e112
+int-null
+e112
+range 100000000000000000000 4.611686018e+18 1.844674407e+19
+#--------------------------------------------------------------- 15 a15_strindex
+affa bc bc |||
+aXYZcdef
+<aXYZcdef
+<aXYZcde>
+<Zcde>
+HELLO
+ac  3
+c y c
+xy x yz
+range9 "bc" range45 |
+#------------------------------------------------------------------- 16 a16_cset
+abcd ac bc 2 ab 'ab'
+compl-eq 256 empty 255
+ehlo xyz 123 .15 0
+BCDFGHJKLMNPQRSTVWXYZ ab ab
+csetlt
+e102
+1ab
+e102
+none 6 a a
+'\t\n' 256 255 abc
+a,b,c,
+cset ab string 0 
+#------------------------------------------------------------------- 17 a17_deep
+200
+300
+301
+9 61
+100000 100000 50000
+20000 19999 
+200000 100000  
+#------------------------------------------------------------- 18 a18_gen_lvalue
+55
+770
+21
+81
+12
+xyy
+121
+1
+2
+1
+2
+1-12-2
+2
+#----------------------------------------------------------- 19 a19_suspend_scan
+the|quick|brown|fox|
+a|b|c|d|
+in7 ner7 scan
+abp,q,r,
+one twozz
+#------------------------------------------------------------------- 20 a20_misc
+1 1 1 1
+a12.5 1 3
+null-cat
+e103
+list_2(0) 0 3 list_5(3)
+a-b-c-
+1 s  list_8(1)
+3 list_9(2)
+b a 11
+1 a aa a 9
+7
+e103
+
+e103
+1
+e103
