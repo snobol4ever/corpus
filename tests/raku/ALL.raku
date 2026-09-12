@@ -3619,3 +3619,715 @@ class Animal { has $.size; }
 class Dog is Animal { }
 multi sub infix:<<>(Animal $a, Animal $b) { return $a.size + $b.size; }
  my $d1 = Dog.new(size => 10); my $d2 = Dog.new(size => 20); say($d1 < $d2); 
+#---------------------------------------------------------- 918 test_bare_module
+module A { } say "hi";
+#----------------------------------------------------------- 919 test_colon_call
+my $x = "hi"; say $x.substr: 1;
+#---------------------------------------------------------- 920 test_kebab_ident
+my $s-address = 5; say $s-address;
+#------------------------------------------------------------- 921 test_our_decl
+our $a = 1; say $a;
+#------------------------------------------------------- 922 test_qualified_term
+my $x = IO::Spec::Unix; say $x;
+#--------------------------------------------------------------- 923 test_seq_op
+my @list = (1 ... 10); say @list;
+#--------------------------------------------------------- 924 test_use_revision
+use v6.e.PREVIEW; say "hi";
+#------------------------------------------------- 925 test_stmt_ctrl_CATCH_free
+CATCH { say "caught"; }
+#--------------------------------------------------- 926 test_stmt_ctrl_loop_inf
+loop { say "tick"; }
+#------------------------------------------------- 927 test_stmt_ctrl_loop_three
+my $i = 0;
+loop ($i = 0; $i < 3; $i = $i + 1) { say $i; }
+#-------------------------------------------------------- 928 test_stmt_ctrl_use
+use v6;
+#------------------------------------------------------- 929 test_stmt_pfx_BEGIN
+BEGIN { say("setup"); }
+#------------------------------------------------------- 930 test_stmt_pfx_CHECK
+CHECK { say("check"); }
+#--------------------------------------------------------- 931 test_stmt_pfx_END
+END { say("teardown"); }
+#------------------------------------------------------- 932 test_stmt_pfx_ENTER
+my $x = 1;
+ENTER { say("enter"); }
+say($x);
+#------------------------------------------------------- 933 test_stmt_pfx_FIRST
+for 1..3 -> $i {
+    FIRST { say("first"); }
+    say($i);
+}
+#-------------------------------------------------------- 934 test_stmt_pfx_INIT
+INIT { say("init"); }
+#-------------------------------------------------------- 935 test_stmt_pfx_KEEP
+my $x = 1;
+KEEP { say("keep"); }
+say($x);
+#-------------------------------------------------------- 936 test_stmt_pfx_LAST
+for 1..3 -> $i {
+    LAST { say("last"); }
+    say($i);
+}
+#------------------------------------------------------- 937 test_stmt_pfx_LEAVE
+my $x = 1;
+LEAVE { say("leave"); }
+say($x);
+#-------------------------------------------------------- 938 test_stmt_pfx_NEXT
+for 1..3 -> $i {
+    NEXT { say("next"); }
+    say($i);
+}
+#-------------------------------------------------------- 939 test_stmt_pfx_POST
+my $x = 5;
+POST { say("post"); }
+say($x);
+#--------------------------------------------------------- 940 test_stmt_pfx_PRE
+my $x = 5;
+PRE { say("pre"); }
+say($x);
+#-------------------------------------------------------- 941 test_stmt_pfx_TEMP
+my $x = 1;
+TEMP { say("temp"); }
+say($x);
+#-------------------------------------------------------- 942 test_stmt_pfx_UNDO
+my $x = 1;
+UNDO { say("undo"); }
+say($x);
+#---------------------------------------------------------- 943 test_stmt_pfx_do
+my $x = 1;
+do { say($x); };
+#------------------------------------------------------- 944 test_stmt_pfx_eager
+eager @a;
+#------------------------------------------------------- 945 test_stmt_pfx_hyper
+hyper @a;
+#-------------------------------------------------------- 946 test_stmt_pfx_lazy
+lazy @a;
+#-------------------------------------------------------- 947 test_stmt_pfx_once
+once { say("once"); }
+#----------------------------------------------------- 948 test_stmt_pfx_quietly
+quietly { say("quiet"); }
+#-------------------------------------------------------- 949 test_stmt_pfx_race
+race @a;
+#------------------------------------------------------- 950 test_stmt_pfx_react
+react { say("react"); }
+#------------------------------------------------------------ 951 test_arith_add
+my $x = 1 + 2;
+#---------------------------------------------------------- 952 test_arith_chain
+my $x = 1 + 2 + 3;
+#------------------------------------------------------------ 953 test_arith_mul
+my $x = 6 * 7;
+#----------------------------------------------------------- 954 test_arith_prec
+my $x = 1 + 2 * 3;
+#---------------------------------------------------------- 955 test_assign_bare
+$x = 5;
+#----------------------------------------------------------- 956 test_atom_array
+@a;
+#------------------------------------------------------------ 957 test_atom_hash
+%h;
+#------------------------------------------------------------- 958 test_atom_int
+42;
+#---------------------------------------------------------- 959 test_atom_scalar
+$x;
+#------------------------------------------------------------- 960 test_atom_str
+"hello";
+#------------------------------------------------------- 961 test_bare_ident_arg
+say(x);
+#------------------------------------------------------ 962 test_bare_ident_expr
+my $r = foo + 1;
+say($r);
+#------------------------------------------------------------ 963 test_call_expr
+say(add(1, 2));
+#----------------------------------------------------------- 964 test_decl_array
+my @a = 7;
+#------------------------------------------------------------ 965 test_decl_hash
+my %h = 9;
+#------------------------------------------------------ 966 test_decl_scalar_int
+my $x = 5;
+#------------------------------------------------------ 967 test_decl_scalar_str
+my $s = "hello";
+#-------------------------------------------------------- 968 test_handle_stderr
+my $e = $*STDERR;
+say($e);
+#--------------------------------------------------------- 969 test_handle_stdin
+my $line = $*STDIN;
+say($line);
+#-------------------------------------------------------- 970 test_handle_stdout
+my $x = $*STDOUT;
+say($x);
+#------------------------------------------------------------- 971 test_if_basic
+my $c = 1;
+if ($c) { say($c); }
+#------------------------------------------------------------ 972 test_if_cmp_eq
+my $n = 42;
+if ($n == 42) { say($n); }
+#-------------------------------------------------------------- 973 test_if_else
+my $x = 5;
+if ($x < 10) { say($x); } else { say(0); }
+#--------------------------------------------------- 974 test_interp_leading_var
+my $x = "world";
+say "$x there";
+#----------------------------------------------------- 975 test_interp_multi_var
+my $a = "foo";
+my $b = "bar";
+say "start $a middle $b end";
+#------------------------------------------------------ 976 test_interp_only_var
+my $x = "hi";
+say "$x";
+#-------------------------------------------------------- 977 test_interp_simple
+my $name = "world";
+say "hello $name";
+#-------------------------------------------------- 978 test_interp_trailing_lit
+my $a = "foo";
+say "val=$a!";
+#----------------------------------------------------------- 979 test_lines_file
+my @lines = lines("/tmp/test.txt");
+say(@lines);
+#---------------------------------------------------- 980 test_nested_call_arith
+my $x = add(foo(), bar()) + 1;
+say($x);
+#--------------------------------------------------------- 981 test_nested_calls
+my $n = length(trim($s));
+say($n);
+#------------------------------------------------------ 982 test_nested_if_while
+my $i = 0;
+if ($i == 0) {
+    while ($i < 3) { $i = $i + 1; }
+}
+say($i);
+#---------------------------------------------------------- 983 test_print_basic
+my $x = "hello";
+print "$x\n";
+#----------------------------------------------------------- 984 test_print_expr
+my $a = 1;
+my $b = 2;
+print $a + $b;
+#--------------------------------------------------------- 985 test_print_stderr
+print($*STDERR, "error");
+#------------------------------------------------------------ 986 test_print_str
+print "world\n";
+#-------------------------------------------------------------- 987 test_say_int
+say 5;
+#----------------------------------------------------------- 988 test_say_stdout
+say($*STDOUT, "hello");
+#-------------------------------------------------------------- 989 test_say_str
+say "hi";
+#-------------------------------------------------------------- 990 test_say_var
+say $x;
+#----------------------------------------------------------- 991 test_slurp_file
+my $content = slurp("/tmp/test.txt");
+say($content);
+#----------------------------------------------------------- 992 test_spurt_file
+spurt("/tmp/out.txt", "hello");
+#--------------------------------------------------- 993 test_triple_nested_call
+my $r = abs(int(sqrt($x)));
+say($r);
+#------------------------------------------------------------ 994 test_try_basic
+try { say "safe"; }
+#------------------------------------------------------------ 995 test_try_catch
+try { die "oops"; } CATCH { say "caught"; }
+#------------------------------------------------------ 996 test_try_catch_lower
+try { die "boom"; } catch { say "handled"; }
+#---------------------------------------------------------- 997 test_try_die_msg
+my $msg = "bad";
+try { die $msg; } CATCH { say "error"; }
+#----------------------------------------------------------- 998 test_try_nested
+my $x = 1;
+if ($x == 1) { try { say "try"; } CATCH { say "catch"; } }
+#---------------------------------------------------------- 999 test_while_basic
+my $i = 0;
+while ($i < 3) { say($i); $i = $i + 1; }
+#---------------------------------------------------------- 1000 test_while_incr
+my $i = 0;
+while ($i < 5) { $i = $i + 1; }
+say($i);
+#--------------------------------------------- 1001 benchmark_divide-and-conquer
+my \SCALE = 10;
+my \FANOUT = 2;
+
+sub divide-and-conquer($n, $depth) {
+    say "$depth: $n" if 0;
+    $depth <= 0 ?? $n !! [+] await do for ^FANOUT {
+        start { divide-and-conquer($n / FANOUT, $depth - 1) }
+    }
+}
+
+say divide-and-conquer(1.0, SCALE);
+#------------------------------------------------- 1002 benchmark_insertion-sort
+use v6;
+# SCRIP corpus import: input made deterministic IN-PROGRAM (fixed-seed LCG below) rather than via
+# the runtime's rand()/srand() -- output must be comparable across implementations with different
+# PRNG algorithms, and only the input needs to vary, not the PRNG that produced it (FINDING
+# 2026-08-30-seat14-raku-benchmark-refs-depend-on-prng-algorithm-match.md; ruled by hq_P).
+
+sub insertion-sort(@a) {
+    for 1 .. @a.end -> $j {
+        my $key = @a[$j];
+        # Insert @a[$j] into the sorted sequence @a[0..$j-1]
+        my $i   = $j - 1;
+        while $i >= 0 && @a[$i] > $key  {
+            @a[$i+1] = @a[$i];
+            $i-=1;
+        }
+        @a[$i+1] = $key;
+    }
+}
+
+my \SCALE = 500;
+my $lcg = 42;
+my @ints = 0 xx SCALE;
+for 1..SCALE -> $i { $lcg = ($lcg * 75 + 74) % 65537; @ints[$i-1] = $lcg % 500; }
+@ints = 0 unless SCALE;
+insertion-sort @ints;
+say @ints[0];
+#----------------------------------------------------- 1003 benchmark_merge-sort
+use v6;
+# SCRIP corpus import: input made deterministic IN-PROGRAM (fixed-seed LCG below) rather than via
+# the runtime's rand()/srand() -- output must be comparable across implementations with different
+# PRNG algorithms, and only the input needs to vary, not the PRNG that produced it (FINDING
+# 2026-08-30-seat14-raku-benchmark-refs-depend-on-prng-algorithm-match.md; ruled by hq_P;
+# identical pattern to insertion-sort.raku, fixed together per hq_P's ruling).
+
+sub merge(@a, \p, \z, \r) {
+    my @l = @a[p   .. z].Slip, Inf;
+    my @r = @a[z+1 .. r].Slip, Inf;
+    my $i = 0;
+    my $j = 0;
+
+    for p..r -> \k {
+        if @l[$i] <= @r[$j] {
+            @a[k] = @l[$i];
+            $i++;
+        } else {
+            @a[k] = @r[$j] ;
+            $j++;
+        }
+    }
+
+}
+
+
+sub merge-sort(@a, \p = 0, \r = @a.end) {
+    if p < r {
+        my \z = (p + r) div 2;
+        merge-sort(@a, p, z);
+        merge-sort(@a, z+1, r);
+        merge(@a, p, z, r);
+    }
+}
+
+my \SCALE = 500;
+my $lcg = 42;
+my @a = 0 xx SCALE;
+for 1..SCALE -> $i { $lcg = ($lcg * 75 + 74) % 65537; @a[$i-1] = $lcg % 500; }
+@a = 0 unless SCALE;
+merge-sort @a;
+say @a[0];
+#---------------------------------------- 1004 benchmark_pi-sequential-iteration
+# pi_sequential_iteration.rb port
+
+use v6;
+
+my \SCALE = 1000000;
+
+if SCALE == 0 {
+    say "0";
+    exit 0;
+}
+
+my $delta = 1.0 / SCALE;
+my $sum = 0.0;
+my Int $i = 1;
+
+while ( $i <=  SCALE ) {
+  my $x = ( $i - 0.5 ) * $delta;
+  $sum += 1.0 / ( 1.0 + $x * $x );
+  $i++;
+}
+
+my $pi = 4.0 * $delta * $sum;
+say $pi;
+
+# vim: set ft=perl6
+#------------------------------------------------ 1005 benchmark_point_class_add
+# Point Class Benchmarks
+
+# Here's the runtime for the point class in seconds (YMMV). Lower is better:
+# 0.22   Lua table      LuaJIT 2.0 git HEAD -O+sink
+# 6600+  Perl6 class    Rakudo/MoarVM
+
+# see point_class_add_README (in README.md) for more information
+# SCRIP corpus import: iteration count reduced from upstream's 100_000_000 (see README.md)
+
+use v6;
+
+class Point {
+    has num $.x;
+    has num $.y;
+
+    method add(Point $b) {
+       return Point.new(:x($!x + $b.x), :y($!y + $b.y));
+    }
+}
+
+# ⛔⭐ SELF-TIMED ON THE TWO-NUMBER BASIS (Lon 2026-08-30, RULES.md § THE TWO-NUMBER BENCHMARK BASIS).
+# The bracket encloses the 1_000_000-iteration method-call loop -- the WORK. The class declaration and
+# the two constructing .new calls are setup and sit outside it, as does the final print. Timestamps go
+# to STDERR (note) so stdout stays byte-comparable and point_class_add.ref verifies unchanged. wall_us()/wall_ms()
+# are SCRIP builtins; Rakudo gets them from prelude_rakudo.rakumod via -M, so this file is byte-identical
+# on every engine.
+my $t0 = wall_us(); my $m0 = wall_ms();
+my int $i = 0;
+my Point $a = Point.new(:x(1.5e0), :y(2.5e0));
+my Point $b = Point.new(:x(3.25e0), :y(4.75e0));
+
+while $i < 1000000 {
+    $a = $a.add($b).add($b);
+    $i = $i + 1;
+}
+
+my $t1 = wall_us(); my $m1 = wall_ms();
+print $a.x, ' ', $a.y;
+note("BENCH kernel=point_class_add work_us=" ~ ($t1 - $t0) ~ " work_ms=" ~ ($m1 - $m0));
+#----------------------------------------------- 1006 benchmark_point_class_add1
+# Point Class Benchmarks
+
+# Here's the runtime for the point class in seconds (YMMV). Lower is better:
+# 0.22   Lua table      LuaJIT 2.0 git HEAD -O+sink
+# 2500+  Perl6 class    Rakudo/MoarVM
+
+# see point_class_add_README (in README.md) for more information
+# SCRIP corpus import: iteration count reduced from upstream's 100_000_000 (see README.md)
+
+use v6;
+
+class Point {
+    has num $.x;
+    has num $.y;
+
+    submethod BUILD(num :$x, num :$y ) {
+        $!x = $x;
+        $!y = $y;
+    }
+
+    method add(Point $b) {
+       return self.bless(:x($!x + $b.x), :y($!y + $b.y));
+    }
+}
+
+# ⛔⭐ SELF-TIMED ON THE TWO-NUMBER BASIS (Lon 2026-08-30, RULES.md § THE TWO-NUMBER BENCHMARK BASIS).
+# The bracket encloses the 1_000_000-iteration method-call loop -- the WORK. The class declaration and
+# the two constructing .new calls are setup and sit outside it, as does the final print. Timestamps go
+# to STDERR (note) so stdout stays byte-comparable and point_class_add1.ref verifies unchanged. wall_us()/wall_ms()
+# are SCRIP builtins; Rakudo gets them from prelude_rakudo.rakumod via -M, so this file is byte-identical
+# on every engine.
+my $t0 = wall_us(); my $m0 = wall_ms();
+my int $i = 0;
+my Point $a = Point.new(:x(1.5e0), :y(2.5e0));
+my Point $b = Point.new(:x(3.25e0), :y(4.75e0));
+
+while $i < 1000000 {
+    $a = $a.add($b).add($b);
+    $i = $i + 1;
+}
+
+my $t1 = wall_us(); my $m1 = wall_ms();
+print $a.x, ' ', $a.y;
+note("BENCH kernel=point_class_add1 work_us=" ~ ($t1 - $t0) ~ " work_ms=" ~ ($m1 - $m0));
+#----------------------------------------------- 1007 benchmark_point_class_add2
+# Point Class Benchmarks
+
+# Here's the runtime for the point class in seconds (YMMV). Lower is better:
+# 0.22   Lua table      LuaJIT 2.0 git HEAD -O+sink
+# 420+   Perl6 class    Rakudo/MoarVM
+
+# see point_class_add_README (in README.md) for more information
+# SCRIP corpus import: iteration count reduced from upstream's 100_000_000, and
+# 'use nqp;' added -- upstream no longer compiles on current Rakudo without it
+# (see README.md)
+
+use v6;
+use nqp;
+
+class Point {
+    has num $.x;
+    has num $.y;
+    method new(num $x, num $y) {
+        my Point $self := nqp::create(self);
+        nqp::bindattr_n($self, Point, '$!x', $x);
+        nqp::bindattr_n($self, Point, '$!y', $y);
+
+        $self;
+    }
+
+    method add(Point $b) {
+        Point.new($!x + $b.x, $!y + $b.y);
+    }
+}
+my int $i = 0;
+my Point $a = Point.new(1.5e0, 2.5e0);
+my Point $b = Point.new(3.25e0, 4.75e0);
+
+while $i < 1000000 {
+    $a = $a.add($b).add($b);
+    $i = $i + 1;
+}
+
+print $a.x, ' ', $a.y;
+#--------------------------------------------- 1008 benchmark_rc-9-billion-names
+my @todo = $[1];
+my @sums = 0;
+sub nextrow($n) {
+    for +@todo .. $n -> $l {
+        @sums[$l] = 0;
+        # print $l,"\r" if $l < $n;
+        my $r = [];
+        for reverse ^$l -> $x {
+            my @x := @todo[$x];
+            if @x {
+                $r.push: @sums[$x] += @x.shift;
+            }
+            else {
+                $r.push: @sums[$x];
+            }
+        }
+        @todo.push($r);
+    }
+    @todo[$n];
+}
+
+my $n = 15;
+say $n, "\t", [+] nextrow($n)[];
+#------------------------------------------------ 1009 benchmark_rc-dragon-curve
+say "<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN'
+'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg width='100%' height='100%' version='1.1'
+xmlns='http://www.w3.org/2000/svg'>";
+
+my $order = 6; # akin to number of recursion steps
+my $d_size = 1000; # size in pixels
+my $turn_angle = pi/2; # turn angle of each segment, 90 degrees for the canonical dragon
+
+my $angle = pi - ($order * (pi/4)); # starting angle
+my $len = ($d_size/1.5) / sqrt(2)**$order; # size of each segment
+my ($x, $y) = ($d_size*5/6, $d_size*1/3); # starting point
+
+for 0..2**$order-1 -> $i {
+    # find which side to turn based on the iteration
+    $angle += ((($i +& -$i) +< 1) +& $i) ?? -$turn_angle !! $turn_angle;
+
+    my ($dx, $dy) = ($x + $len * $angle.sin, $y - $len * $angle.cos);
+    say "<line x1='$x' y1='$y' x2='$dx' y2='$dy' style='stroke:rgb(0,0,0);stroke-width:1'/>";
+    ($x, $y) = ($dx, $dy);
+}
+
+say "</svg>";
+#--------------------------------------- 1010 benchmark_rc-forest-fire-stringify
+sub MAIN($w = 20, $h = 20, $steps = 5) {
+    my $RED   = "\e[1;31m";
+    my $GREEN = "\e[0;32m";
+    my $CLEAR = "\e[0m";
+
+    enum Cell-State <Empty Tree Burning>;
+    my @show  = '  ', $GREEN ~ '木' ~ $CLEAR, $RED ~ '火' ~ $CLEAR;
+    my @grid  = [ flat (Empty, Tree, Burning) xx $w ] xx $h;
+
+    sub stringify(@grid) {
+        join '', gather for ^@grid -> $i {
+            take @show[@grid[$i].list], "\n";
+        }
+    }
+
+    my $chars = 0;
+    for ^$steps {
+        my $grid = stringify(@grid);
+        $chars += $grid.chars;
+    }
+    say $chars;
+}
+#--------------------------------------------- 1011 benchmark_rc-man-or-boy-test
+sub A ($k is copy, $x1, $x2, $x3, $x4, $x5) {
+    my $B := { A(--$k, $B, $x1, $x2, $x3, $x4) };
+    $k <= 0 ?? $x4() + $x5() !! $B();
+}
+
+say A(10, {1}, {-1}, {-1}, {1}, {0});
+#-------------------------------------------------- 1012 benchmark_rc-mandelbrot
+constant SQUISH = 1.5;
+
+sub MAIN(Int $w = 31, Int $max_iterations = 50) {
+    my $h = round($w / SQUISH);
+
+    my ($re_min, $re_max) = (-2,   1/2);
+    my ($im_min, $im_max) = (-5/4, 5/4);
+
+    my $re_step = ($re_max - $re_min) / ($w - 1);
+    my $im_step = ($im_max - $im_min) / ($h - 1);
+
+    # Allow SCALE == 0 for compile time testing
+    exit(0) if $w < 2;
+
+    my @color_map = ' ', < . , ; * $ # @ >;
+
+    my sub mandelbrot($c) {
+        my $z = $c;
+        for 1 .. $max_iterations {
+            $z = $z * $z + $c;
+            return $_ if abs($z) > 2;
+        }
+        0;
+    }
+
+    loop (my $y = $im_max; $y >= $im_min; $y -= $im_step) {
+        loop (my $x = $re_min; $x <= $re_max; $x += $re_step) {
+            my $iter = mandelbrot($x + $y * i);
+            print @color_map[$iter % @color_map];
+        }
+        print "\n"
+    }
+}
+#--------------------------------------------- 1013 benchmark_rc-perfect-shuffle
+use v6;
+
+sub perfect-shuffle (@deck) {
+    my $mid = +@deck div 2;
+    flat map { @deck[$_, $_ + $mid] }, 0..($mid - 1)
+}
+
+sub shuffles_needed ($decksize) {
+    my @shuffled = my @deck = ^$decksize;
+    my $n;
+    loop { $n++; @shuffled = perfect-shuffle @shuffled;
+           last if @shuffled eqv @deck; }
+    return $n
+}
+
+say shuffles_needed(52);
+#------------------------------------- 1014 benchmark_rc-self-describing-numbers
+sub is_selfdesc($n) {
+    my $s = $n.Str;
+    my $chars = $s.chars;
+    my @a = +«$s.comb;
+    my @b;
+    for @a -> $i {
+	return False if $i >= $chars;
+	++@b[$i];
+    }
+    @b[$_] //= 0 for ^$chars;
+    @a eqv @b;
+}
+
+# check all numbers from 0 to SCALE
+.say if is_selfdesc($_) for 0 .. 5000;
+#------------------------------------------ 1015 benchmark_send-more-money-loops
+# ⛔⭐ SELF-TIMED ON THE TWO-NUMBER BASIS (Lon 2026-08-30, RULES.md § THE TWO-NUMBER BENCHMARK BASIS).
+# The bracket encloses the loop nest -- the WORK. The single `say` that fires once inside it is left where
+# upstream put it (moving it would change the algorithm); one line of output inside a 10^8-comparison
+# search is not a measurable share. Timestamps go to STDERR (note) so stdout stays byte-comparable and
+# send-more-money-loops.ref verifies unchanged. wall_us()/wall_ms() are SCRIP builtins; Rakudo gets them
+# from prelude_rakudo.rakumod via -M, so this file is byte-identical on every engine.
+my $t0 = wall_us(); my $m0 = wall_ms();
+my int $s = -1;
+while ++$s <= 9 {
+    next if $s == 0;
+
+    my int $e = -1;
+    while ++$e <= 9 {
+        next if $e == $s;
+
+        my int $n = -1;
+        while ++$n <= 9 {
+            next if $n == $s;
+            next if $n == $e;
+
+            my int $d = -1;
+            while ++$d <= 9 {
+                next if $d == $s;
+                next if $d == $e;
+                next if $d == $n;
+
+                my int $send = $s*1000 + $e*100 + $n*10 + $d;
+
+                my int $m = -1;
+                while ++$m <= 9 {
+                    next if $m == 0;
+                    next if $m == $s;
+                    next if $m == $e;
+                    next if $m == $n;
+                    next if $m == $d;
+
+                    my int $o = -1;
+                    while ++$o <= 9 {
+                        next if $o == $s;
+                        next if $o == $e;
+                        next if $o == $n;
+                        next if $o == $d;
+                        next if $o == $m;
+
+                        my int $r = -1;
+                        while ++$r <= 9 {
+                            next if $r == $s;
+                            next if $r == $e;
+                            next if $r == $n;
+                            next if $r == $d;
+                            next if $r == $m;
+                            next if $r == $o;
+
+                            my int $more = $m*1000 + $o*100 + $r*10 + $e;
+
+                            my int $y = -1;
+                            while ++$y <= 9 {
+                                next if $y == $s;
+                                next if $y == $e;
+                                next if $y == $n;
+                                next if $y == $d;
+                                next if $y == $m;
+                                next if $y == $o;
+                                next if $y == $r;
+
+                                my int $money =
+                                    $m*10000 + $o*1000 + $n*100 + $e*10 + $y;
+                                next unless $send + $more == $money;
+
+                                say "$send + $more == $money";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+my $t1 = wall_us(); my $m1 = wall_ms();
+note("BENCH kernel=send-more-money-loops work_us=" ~ ($t1 - $t0) ~ " work_ms=" ~ ($m1 - $m0));
+#-------------------------------------------------------- 1016 benchmark_spinner
+sub MAIN(Int $h = 64, Int $w = 64, Int $spins = 64) {
+    my @spinner = < | / - \\ >;
+
+    for ^$h {
+        for ^$w {
+            print ".";
+            for ^$spins {
+                print "\b@spinner[$_ % @spinner]";
+            }
+            print "\b.";
+        }
+        print ".\n";
+    }
+}
+#-------------------------------------------------- 1017 benchmark_string-escape
+use v6;
+# ⛔⭐ SELF-TIMED ON THE TWO-NUMBER BASIS (Lon 2026-08-30, RULES.md § THE TWO-NUMBER BENCHMARK BASIS).
+# The bracket encloses the WORK ONLY -- not startup, not the write. Published multiples are work-on-work;
+# startup/finish OVERHEAD is a separate per-engine number the harness derives as (external total - work).
+# ⛔ TIMESTAMPS GO TO STDERR (note) SO stdout STAYS BYTE-COMPARABLE and string-escape.ref still verifies unchanged.
+# ⭐ BOTH UNITS ON PURPOSE (see prelude_rakudo.rakumod): work_us is the measurement, work_ms is the cross-check.
+# wall_us()/wall_ms() are SCRIP builtins; the Rakudo arm gets them from prelude_rakudo.rakumod via -M, so
+# this file is byte-identical on every engine. Mirrors corpus/benchmarks/prolog/bench/fib.pl.
+my $t0 = wall_us(); my $m0 = wall_ms();
+my $d = "\n" x 1000;
+my $s = $d.trans(   ['"',  '\\',   "\b", "\f", "\n", "\r", "\t"]
+                 => ['\"', '\\\\', '\b', '\f', '\n', '\r', '\t']);
+my $t1 = wall_us(); my $m1 = wall_ms();
+say $s.chars;
+note("BENCH kernel=string-escape work_us=" ~ ($t1 - $t0) ~ " work_ms=" ~ ($m1 - $m0));
