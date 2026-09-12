@@ -1,17 +1,8 @@
 a_generator_frame_appears_in_the_traceback_like_an_ordinary_call	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-a_nul_bearing_subject_keeps_its_length_across_a_nested_scan_and_a_suspend	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 an_ordinary_call_chain_prints_every_frame_in_the_traceback	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-case_arm_body_is_lowered_onto_its_result	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 coexpr_gc_stack_witness	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-cset_membership_is_a_bit_test_not_a_name_lookup	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-element_generation_and_the_structure_builtins_raise_icons_own_errors	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-eqv_result_is_the_right_operand_untouched	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-every_do_break_yields_null_not_failure	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 generators	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-hello	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-limit_over_a_conjunction_resumes_the_generator	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 meander	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-nested_reversible_exchange_loses_its_swap_and_the_chained_form_kills_the_procedure	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 palindrome	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 parser_alt_arith	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
 parser_alt_in_call	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
@@ -167,46 +158,25 @@ parser_write_int	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral 
 parser_write_str	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
 parser_write_var	KEEPER, declared in parser/KEEP.md -- never absorbed (deferral contract)
 probe_witness	already in the master (11 of 11 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-proc_takes_a_procedure_or_a_string_and_refuses_every_other_type	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-queens	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-record_positional_subscript_is_a_variable	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 repro_keyorder	ABSORBED 2026-09-07 (cto, row icon-table-key-iteration-order-*): the same 15 lines are master entry procedure_write_252 (origin ladder__rung13_table_key_order_repro_keyorder, ref cut from iconx by util_add_ladder_witness); the loose file stays as the sibling row's named witness
 repro_table_key_order	KEEPER, declared in repro/KEEP.md -- never absorbed (deferral contract)
-revassign_enters_its_generator_at_alpha	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-reversible_exchange_on_locals_needs_a_varslot	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-roman	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung03_suspend_gen	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-rung03_suspend_gen_compose	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-rung03_suspend_gen_filter	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-rung03_suspend_return	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 rung36_all	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_btrees	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung36_jcon_cxprimes	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 rung36_jcon_geddump	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung36_jcon_genqueen	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 rung36_jcon_io	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung36_jcon_misc	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
+rung36_jcon_others	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 rung36_jcon_prefix	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_profsum	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_proto	DEFERRED (row icon-v9gen-augmented-assign-and-unary-refresh-plus-two-emitter-gaps: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
 rung36_jcon_recent	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung36_jcon_recogn	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung36_jcon_sorting	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-rung36_jcon_struct	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 rung36_jcon_var	DEFERRED (row icon-assign-nameless-emit-guard-var: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
 rung37_proc_lookup	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 rung37_subscript_genproc	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 samples_meander	KEEPER, declared in samples/KEEP.md -- never absorbed (deferral contract)
-seq_resumes_inside_a_conjunction	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-sieve	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 the_co_expression_activation_trace_event_names_its_enclosing_procedure_and_its_own_line	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 trace_call_line_prints_every_parameter_and_images_a_list	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
 unresolved_jcon_audit_53_section	KEEPER, declared in unresolved/KEEP.md -- never absorbed (deferral contract)
 unresolved_jcon_audit_54_section_plus	KEEPER, declared in unresolved/KEEP.md -- never absorbed (deferral contract)
 unresolved_jcon_audit_88_swap_lv	KEEPER, declared in unresolved/KEEP.md -- never absorbed (deferral contract)
-until_break_in_the_condition_control	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-while_break_in_a_nested_condition_leaves_the_inner_loop	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-while_break_in_the_condition_does_not_run_the_body	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-while_break_in_the_condition_leaves_the_loop	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
-wordcount	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-# builder-digest: 6fe4275d692814b218adc087826633658e58fefeaec8df0f6ffe3522d1d3de37
+# builder-digest: 84444f1b2a905a7a95258d8d98052d51bb2361ef64147413639fdbe5eba70838
