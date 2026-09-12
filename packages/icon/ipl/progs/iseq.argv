@@ -1,0 +1,2 @@
+# iseq -e 10: the integers 1..10; without -e the sequence is unbounded (ceo 2026-09-12)
+iseq	-e	10
