@@ -18250,7 +18250,7 @@ skip3	Command        =  'x'
 	Src *&Parse5 RPOS(0)
 	OUTPUT         =  "depth=" depth
 END
-*------------------------------ 1916 user_function_table_datatype_branch_1 XFAIL
+*------------------------------ 1916 user_function_table_datatype_branch_1
         DEFINE('COPYL(L)T');   DATA('LINK(NEXT,VALUE)')     :(COPYL_END)
 COPYL   DEFINE('COPYL(L)', 'COPYL_1');   T  =  TABLE(100)
         COPYL  =  COPYL(L);   DEFINE('COPYL(L)T')            :(RETURN)
