@@ -101,42 +101,22 @@ scripts are the live consumers" — a future reorg could add or retire one. Re-r
 note above; if the silent `--run` failure is fixed, re-measure the real coverage number rather than
 assuming the old 100% baseline still holds.
 
-## Three `rung15_abolish` ladder witnesses that contradict BOTH ISO oracles, so no ref can be cut
+## ⛔ THE THREE rung15 abolish WITNESSES ARE NO LONGER KEEPERS — AND THEIR NAMES CANNOT BE WRITTEN HERE
 
-- `rung15_abolish_abolish_existing.pl`
-- `rung15_abolish_abolish_one_of_two.pl`
-- `rung15_abolish_abolish_then_query_fail.pl`
+⭐ **THE HISTORY OF THIS SECTION LIVES IN THE FINDING AND THE BATON, NOT IN THIS FILE, AND THAT IS FORCED.**
+A KEEP.md declaration is a **delimited substring match over the WHOLE FILE** (`_delim_match` in
+`util_build_master_suite.py`), so **a paragraph explaining that a file stopped being a keeper re-declares it
+as one** — the retraction and the declaration are the same string to the matcher. There is no "former
+keepers" section that can exist here. Spelling any of those three basenames anywhere in this file, in any
+tone, silently keeps all three out of the master.
 
-⛔ The three names above are written out in full and one per line ON PURPOSE: the declaration is matched
-by a delimited substring search for the exact basename (`_delim_match` in `util_build_master_suite.py`,
-the same regex shape `test_gate_suite_conversion_complete.sh` greps with). A brace-expanded heading like
-`rung15_abolish_abolish_{existing,one_of_two,then_query_fail}.pl` reads perfectly to a human and declares
-NOTHING — measured here, 2026-09-12: the builder went on treating all three as absorbable.
+They were declared here on 2026-09-12 as *"contradict BOTH ISO oracles, so no ref can be cut"*. **CEO-607
+overruled that the same day:** *"kept loose is not the answer — under no-XFAIL a faulty test is FIXED
+AGAINST ITS ORACLE."* They were wrong about Prolog (ISO `abolish/1` leaves the predicate unknown, so the
+later call raises `existence_error` under the default `unknown=error`), and a faulty test gets fixed, not
+filed. Rewritten against the oracle, refs re-cut from `swipl -q`, absorbed into the master, and the gprolog
+half — load-time `:- assertz(...)` directives being ignored — cured as the **fixture fault** it was, by
+moving the setup into the `initialization/1` goal.
 
-**Stays loose on purpose. Not deferred — deferral says "this converts once a row unblocks", and no row
-unblocks this: the witnesses are wrong about Prolog, not blocked on SCRIP.**
-
-Each asserts that after `abolish(F/1)` a later `F(_)` **fails**, so the program writes `gone` / `cat_gone` /
-`no`. MEASURED 2026-09-12 (hq_C), both ISO oracles by absolute path:
-
-| oracle | what it actually does |
-|---|---|
-| `/usr/bin/swipl -q` | raises `existence_error` — `Unknown procedure: fact/1` — on **stderr**; stdout is EMPTY, rc=0 |
-| `/usr/bin/gprolog --consult-file` | ignores the `:- assertz(...)` setup entirely (`warning: unknown directive assertz/1 - directive ignored`), so the fixture never exists to be abolished |
-
-ISO `abolish/1` removes the predicate, so the subsequent call is a call to an unknown procedure — the
-witnesses encode the opposite belief. Their `.expected` files have been **0 bytes since 2026-09-01**, which is
-the same fact wearing a different hat: nobody could cut a ref then either.
-
-⛔ **A REF CANNOT BE CUT, AND THE GUARD AGAINST CUTTING ONE IS ONLY ON ONE OF THE TWO PATHS.**
-`corpus_suite_harness.py cmd_capture_oracle_refs` refuses to mint a ref when every arm agrees on empty
-("agreement on nothing is not agreement") — but the loose-pair path in `util_build_master_suite.py` has no
-such guard, and on 2026-09-12 it absorbed all three into `ALL.pl` with **empty refs** before this section
-existed. They were dropped again with `--allow-drop-origin`. That is why this is a KEEP and not simply a
-habit of not running the builder.
-
-⭐ **SCRIP IS NOT AT FAULT HERE AND THE SHAPE MATTERS:** `scrip --run` also prints nothing for all three, so
-on stdout it agrees with `swipl`. The divergence that remains is `swipl` raising to stderr where SCRIP is
-silent — a raise-vs-fail question that belongs to a Prolog defect row with a witness that can actually be
-graded, not to these three. ⛔ **Do not "fix" these by making them print something**: an edit that makes a
-witness gradeable also decides what it asserts, and these three would then be testing the edit.
+Record: `FINDING-2026-09-12-hq_C-a-keep-md-retraction-re-declares-the-very-files-it-retracts.md`, and the
+baton `prolog-absorb-every-owed-source-into-the-one-master-unabsorbed-census-reads-zero`.
