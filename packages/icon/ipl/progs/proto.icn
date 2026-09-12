@@ -195,10 +195,10 @@ procedure expr4()
    X_;
    &cset;
    &null;
-   "abc"
+   "abc";
    "abc_
     cde";
-   'abc'
+   'abc';
    'abc_
     cde';
    "\n";

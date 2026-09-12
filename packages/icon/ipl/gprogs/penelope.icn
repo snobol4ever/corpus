@@ -614,7 +614,7 @@ procedure icons()
       4210fc214210fc214210fc217fffffff421087e1421087e142_
       1087e1421087e17fffffff7e10fc217e10fc217e10fc217e10_
       fc217fffffff7e10843f7e10843f7e10843f7e10843f7fffff_
-      ff00000000")					# Penelope logo;;
+      ff00000000");					# Penelope logo
 
    FillRectangle(pixmap, 0, 0, 32, 32);
 

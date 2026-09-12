@@ -1319,7 +1319,7 @@ procedure dms(n, s1, s2)
    else
       s1 := s2;
 
-   n +:= 1 / 7200.				# rounding
+   n +:= 1 / 7200.;				# rounding
    deg := integer(n);  n := (n - deg) * 60;
    min := integer(n);  n := (n - min) * 60;
    sec := integer(n);
