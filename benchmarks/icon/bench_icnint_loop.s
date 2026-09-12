@@ -397,7 +397,7 @@ n22_call_icon_α:        mov              r11, 22
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327852
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]

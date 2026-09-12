@@ -669,7 +669,7 @@ n32_call_icon_α:        mov              r11, 32
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327852
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -843,7 +843,7 @@ n45_call_icon_α:        mov              r11, 45
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327852
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -1117,7 +1117,7 @@ n00007_subscript_α:       mov              r11, 54
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -1348,7 +1348,7 @@ n00020_call_icon_α:       mov              r11, 66
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327852
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -1678,7 +1678,7 @@ n00029_call_icon_α:       mov              r11, 76
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 196743
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -2070,7 +2070,7 @@ n00048_call_α:            mov              r11, 94
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 458752
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -2130,7 +2130,7 @@ n00052_call_icon_α:       mov              r11, 99
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327847
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -2276,7 +2276,7 @@ n00065_call_icon_α:       mov              r11, 111
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 262295
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -2343,7 +2343,7 @@ n00068_call_icon_α:       mov              r11, 114
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 262312
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -2571,7 +2571,7 @@ n00085_assign_var_α:      mov              r11, 128
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -2645,7 +2645,7 @@ n00090_assign_var_α:      mov              r11, 133
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -2936,7 +2936,7 @@ n00107_call_icon_α:       mov              r11, 150
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 196758
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3004,7 +3004,7 @@ n00112_assign_var_α:      mov              r11, 155
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3107,7 +3107,7 @@ n00121_subscript_α:       mov              r11, 164
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3136,7 +3136,7 @@ n00123_assign_var_α:      mov              r11, 166
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3216,7 +3216,7 @@ n00127_call_builtin_α:    mov              r11, 171
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 589859
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3311,7 +3311,7 @@ n00134_call_icon_α:       mov              r11, 177
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 196758
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3365,7 +3365,7 @@ n00137_call_builtin_α:    mov              r11, 180
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 589859
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3460,7 +3460,7 @@ n00143_call_icon_α:       mov              r11, 186
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 196758
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -3758,7 +3758,7 @@ n00163_call_icon_α:       mov              r11, 207
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327852
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -4155,7 +4155,7 @@ n00182_subscript_α:       mov              r11, 227
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -4193,7 +4193,7 @@ n00184_assign_var_α:      mov              r11, 229
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -4361,7 +4361,7 @@ n00194_call_α:            mov              r11, 241
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 393216
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -4650,7 +4650,7 @@ n00204_assign_var_α:      mov              r11, 250
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -4722,7 +4722,7 @@ n00207_binop_α:           mov              r11, 253
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_cunion@PLT
+                        call             rt_cunion_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -4768,7 +4768,7 @@ n00209_binop_α:           mov              r11, 255
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_cunion@PLT
+                        call             rt_cunion_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -5737,7 +5737,7 @@ n00266_call_α:            mov              r11, 305
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 458752
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -7440,7 +7440,7 @@ n00324_call_icon_α:       mov              r11, 368
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 262293
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -7655,7 +7655,7 @@ n00328_call_icon_α:       mov              r11, 375
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 196728
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -9077,7 +9077,7 @@ n00382_call_icon_α:      mov              r11, 425
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 262312
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -10740,7 +10740,7 @@ n00455_call_icon_α:      mov              r11, 498
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 262312
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -11633,7 +11633,7 @@ n00489_assign_var_α:     mov              r11, 535
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -11671,7 +11671,7 @@ n00492_call_icon_α:      mov              r11, 538
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327847
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -11769,7 +11769,7 @@ n00497_subscript_α:      mov              r11, 543
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -11801,7 +11801,7 @@ n00500_assign_var_α:     mov              r11, 545
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -11849,7 +11849,7 @@ n00503_subscript_α:      mov              r11, 549
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -11881,7 +11881,7 @@ n00506_assign_var_α:     mov              r11, 551
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -11929,7 +11929,7 @@ n00509_subscript_α:      mov              r11, 555
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -11961,7 +11961,7 @@ n00512_assign_var_α:     mov              r11, 557
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12009,7 +12009,7 @@ n00515_subscript_α:      mov              r11, 561
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12041,7 +12041,7 @@ n00518_assign_var_α:     mov              r11, 563
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12089,7 +12089,7 @@ n00521_subscript_α:      mov              r11, 567
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12121,7 +12121,7 @@ n00524_assign_var_α:     mov              r11, 569
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12169,7 +12169,7 @@ n00527_subscript_α:      mov              r11, 573
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12201,7 +12201,7 @@ n00530_assign_var_α:     mov              r11, 575
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12249,7 +12249,7 @@ n00533_subscript_α:      mov              r11, 579
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12281,7 +12281,7 @@ n00536_assign_var_α:     mov              r11, 581
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12329,7 +12329,7 @@ n00539_subscript_α:      mov              r11, 585
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12361,7 +12361,7 @@ n00542_assign_var_α:     mov              r11, 587
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12409,7 +12409,7 @@ n00545_subscript_α:      mov              r11, 591
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12441,7 +12441,7 @@ n00548_assign_var_α:     mov              r11, 593
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12489,7 +12489,7 @@ n00551_subscript_α:      mov              r11, 597
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12521,7 +12521,7 @@ n00554_assign_var_α:     mov              r11, 599
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12569,7 +12569,7 @@ n00557_subscript_α:      mov              r11, 603
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12601,7 +12601,7 @@ n00560_assign_var_α:     mov              r11, 605
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12649,7 +12649,7 @@ n00563_subscript_α:      mov              r11, 609
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12681,7 +12681,7 @@ n00566_assign_var_α:     mov              r11, 611
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12729,7 +12729,7 @@ n00569_subscript_α:      mov              r11, 615
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12761,7 +12761,7 @@ n00572_assign_var_α:     mov              r11, 617
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12809,7 +12809,7 @@ n00575_subscript_α:      mov              r11, 621
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12841,7 +12841,7 @@ n00578_assign_var_α:     mov              r11, 623
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12889,7 +12889,7 @@ n00581_subscript_α:      mov              r11, 627
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12921,7 +12921,7 @@ n00584_assign_var_α:     mov              r11, 629
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -12969,7 +12969,7 @@ n00587_subscript_α:      mov              r11, 633
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -13001,7 +13001,7 @@ n00590_assign_var_α:     mov              r11, 635
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -13049,7 +13049,7 @@ n00593_subscript_α:      mov              r11, 639
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -13081,7 +13081,7 @@ n00595_assign_var_α:     mov              r11, 641
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -13651,7 +13651,7 @@ n00637_subscript_α:      mov              r11, 677
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -13881,7 +13881,7 @@ n00647_call_icon_α:      mov              r11, 691
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327837
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -14041,7 +14041,7 @@ n00655_subscript_α:      mov              r11, 700
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             subscript_get2@PLT
+                        call             subscript_get2_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -14318,7 +14318,7 @@ n00663_call_icon_α:      mov              r11, 710
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 262312
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -14754,7 +14754,7 @@ n00682_call_icon_α:      mov              r11, 725
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327791
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -14827,7 +14827,7 @@ n00687_call_icon_α:      mov              r11, 731
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327847
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -14999,7 +14999,7 @@ n00699_subscript_α:      mov              r11, 742
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -15168,7 +15168,7 @@ n00710_call_α:           mov              r11, 752
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 393216
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -15190,7 +15190,7 @@ n00711_assign_var_α:     mov              r11, 753
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -15247,7 +15247,7 @@ n00714_call_icon_α:      mov              r11, 756
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 196758
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -15337,7 +15337,7 @@ n00720_call_icon_α:      mov              r11, 763
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327842
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -15561,7 +15561,7 @@ n00734_assign_var_α:     mov              r11, 777
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_assign_var@PLT
+                        call             rt_assign_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -15653,7 +15653,7 @@ n00741_call_icon_α:      mov              r11, 785
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327852
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -15892,7 +15892,7 @@ n00756_call_icon_α:      mov              r11, 799
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327852
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -18389,7 +18389,7 @@ n00862_call_icon_α:      mov              r11, 904
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 327852
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -18765,7 +18765,7 @@ n00884_call_builtin_α:   mov              r11, 919
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 589859
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -18923,7 +18923,7 @@ n00894_call_builtin_α:   mov              r11, 928
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 589859
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -20406,7 +20406,7 @@ n00948_subscript_α:      mov              r11, 994
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -20463,7 +20463,7 @@ n00951_call_icon_α:      mov              r11, 997
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 262308
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -20504,7 +20504,7 @@ n00953_subscript_α:      mov              r11, 1000
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_subscript_var@PLT
+                        call             rt_subscript_var_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -20557,7 +20557,7 @@ n00956_call_icon_α:      mov              r11, 1003
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         mov              ecx, 262287
-                        call             rt_call_arr_bl@PLT
+                        call             rt_call_arr_bl_strict@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
