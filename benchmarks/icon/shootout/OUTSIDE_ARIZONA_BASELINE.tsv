@@ -1,0 +1,16 @@
+# OUTSIDE_ARIZONA_BASELINE.tsv -- benchmarks/icon/shootout: what the ONE ICON ORACLE (Arizona icont/iconx 9.5)
+# does not answer AS A LANGUAGE, named beside the kernels so the graded set is the set Arizona Icon itself can
+# decide. Same shape and same law as packages/icon/arizona_tests/OUTSIDE_ARIZONA_BASELINE.tsv (CEO-527/CEO-578):
+# a row is a statement about the ORACLE, never about us, and it quotes the oracle's OWN message, measured.
+# FORMAT: name<TAB>CLASS<TAB>reason. CLASS is the closed vocabulary of scripts/lib_inventory.sh.
+# CONTROL ARM: scripts/test_gate_icon_shootout_is_ceo567_conforming.sh re-runs the oracle on every row here and
+# REFUSES if the oracle no longer dies with the quoted `Run-time error NNN` -- a row cannot outlive its reason.
+#
+# ⭐ BOTH ROWS ARE THE SAME CLASS: the upstream entries were written for UNICON (uniconproject/unicon tests/bench),
+# and each calls ONE builtin that Unicon added and Icon 9.5 never had. icont COMPILES both (an unknown function
+# is a run-time &null under Icon, never a compile error), so the refusal is at run time and is the oracle's.
+# SCRIP dies with the SAME error number at the SAME line on both (measured 2026-09-12, SCRIP 12971dfc9+cure),
+# which is the correct answer for an Icon compiler and is why neither is a SCRIP defect.
+# Measured 2026-09-12 08:0x CDT by cfo, /home/resources/icon-master/bin/icont -s -o X X.icn; ./X <args>, IPATH=icon-master/lib.
+fannkuch	ORACLE_CONTRACT_NOT_IMPLEMENTED	iconx rc=1 at N=7: `Run-time error 122` `File fannkuch.icn; Line 58` `set or table expected` `offending value: list_2 = [1,2,3,4,5,6]` -- line 58 is `insert(perm1, r + 1, perm0)`: the three-argument insert on a LIST is Unicon's extension; Icon 9.5's insert takes a set or a table (ceo measured the same error 2026-09-11; diagnosed here). CONTROL: the gate re-runs iconx and requires this exact error; SCRIP prints the same 122 at line 58.
+reverse-complement	ORACLE_CONTRACT_NOT_IMPLEMENTED	iconx rc=1 on reverse-complement.fasta: `Run-time error 106` `File reverse-complement.icn; Line 49` `procedure or integer expected` `offending value: &null` -- line 49 is `str := reads(fin, stat(argv[1]).size)`: stat() is a Unicon builtin and is an undefined (&null) identifier under Icon 9.5, so the call site dies before the file is read. CONTROL: the gate re-runs iconx and requires this exact error; SCRIP prints the same 106 at line 49. The .fasta fixture and .argv stay so the control arm measures THIS death and not a missing input.
