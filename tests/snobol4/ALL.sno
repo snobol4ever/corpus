@@ -18136,7 +18136,7 @@ END
 	INPUT(.holder, 10, , "input_eof_hang.dat")
 loop	OUTPUT = holder			:S(loop)
 END
-*-------------------------------------------- 1909 user_function_replace_4 XFAIL
+*-------------------------------------------- 1909 user_function_replace_4
 * AB-0 witness: re-DEFINE repoints the fn cell; DEFINE(s,name) alt entry label (p.219).
 	DEFINE('F()')			:(E1)
 F	F = 'first'			:(RETURN)
@@ -18145,7 +18145,7 @@ E1	OUTPUT = F()
 G	F = 'second-via-alt-entry'	:(RETURN)
 E2	OUTPUT = F()
 END
-*-------------------------------------------- 1910 user_function_replace_7 XFAIL
+*-------------------------------------------- 1910 user_function_replace_7
 *  M1-R4b witness 2: redefinition must be LAST-WINS -- the second DEFINE
 *  re-points the same function name at a different body label.
         DEFINE('F(x)','F1')                                                                  :(FEnd)
