@@ -1,0 +1,20 @@
+   a := reverse
+
+"abc"                    1
+
+   helper
+
+                         1
+
+   write
+
+a, map(a)                1
+
+procedure helper
+
+                         2
+
+procedure main
+
+                         1
+

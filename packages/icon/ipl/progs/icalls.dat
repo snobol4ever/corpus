@@ -1,0 +1,13 @@
+link options
+procedure main()
+   local a
+   a := reverse("abc")
+   write(a, map(a))
+   helper()
+end
+procedure helper()
+   return 1
+end
+procedure helper()
+   return 2
+end
