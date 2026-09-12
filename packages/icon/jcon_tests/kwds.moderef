@@ -1,6 +1,0 @@
-# kwds.moderef — CEO-581 PER-MODE REF for kwds. entry<TAB>mode<TAB>ref-line<TAB>mode-line<TAB>receipt.
-# The ref-line is the line AS SHIPPED IN kwds.std (verbatim); the mode-line is what the ORACLE prints for that
-# mode's invocation. Nothing is hidden — the line is graded in full, against the answer that invocation
-# actually produces. ⛔ THE RECEIPT IS THE ORACLE RUN UNDER BOTH INVOCATIONS AND IT IS MANDATORY; a ref cut
-# because a mode disagreed and nobody knew why is a FAIL, not a ref (CEO-581's guard).
-kwds	m4	   &progname: kwds.icn	   &progname: ./kwds	ORACLE-MEASURED hq_V 2026-09-11 18:10 CDT, Arizona Icon 9.5.25a (/home/resources/icon-master/bin/icont), on THIS PACKAGE OWN kwds.icn under BOTH invocations: "icon kwds.icn" answered line 45 "   &progname: kwds.icn" (byte-identical to the shipped kwds.std, which is a one-step cut) and "icont -s kwds.icn" then "./kwds" answered line 45 "   &progname: ./kwds". Only that line moved; the other 100+ lines were unchanged between the two runs, which is what makes the pair MINIMAL. &progname is argv[0] VERBATIM, so a mode-4 binary can never print the .icn form and a mode-3 run handed a SOURCE can never print the ./ form. This retires the m3-only row this file carried in MODES.tsv (CEO-561): the entry is gradable in BOTH arms again.

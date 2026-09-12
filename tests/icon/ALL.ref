@@ -6273,7 +6273,7 @@ procedure dbl
         &phi: 1.618033989
          &pi: 3.141592654
         &pos: 1
-   &progname: procedure_every_alt_replace_4.icn
+   &progname: procedure_every_alt_replace_4
      &random: 0
       &rdrag: -9
     &regions: 0
