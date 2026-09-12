@@ -1,0 +1,2 @@
+# compare x1.txt x2.txt b.txt: x1 and x2 are identical, b differs; all three in compare.fixtures/ (ceo 2026-09-12)
+compare	x1.txt	x2.txt	b.txt

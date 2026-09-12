@@ -1,0 +1,2 @@
+# adlcheck -a: check state, ZIP and country of every address on stdin (ceo 2026-09-12)
+adlcheck	-a

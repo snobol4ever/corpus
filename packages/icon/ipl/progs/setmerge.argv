@@ -1,0 +1,2 @@
+# setmerge a.txt + b.txt: the sorted union of the two fixture sets in setmerge.fixtures/ (ceo 2026-09-12)
+setmerge	a.txt	+	b.txt

@@ -1,0 +1,19 @@
+############################################################################
+#
+#	File:     sample.icn
+#
+#	Subject:  Program to say hello
+#
+#	Author:   Fixture for iheader
+#
+#	Date:     September 12, 2026
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+
+procedure main()
+   write("hello");
+end
