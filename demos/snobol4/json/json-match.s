@@ -690,8 +690,7 @@ n57_match_arbno_β:      mov              r11, 24
                         mov              qword ptr [rbp + -64], rax
                         mov              rax, qword ptr [rcx + 40]
                         mov              qword ptr [rbp + -56], rax
-                        lea              rsp, [rcx + 48]
-                        mov              r12, qword ptr [rdx + 8];            jmp   n60_match_defer_β
+                        lea              rsp, [rcx + 48];                     jmp   n60_match_defer_β
 .Lmatch_arbno_β_65_3:   lea              rsp, [rcx + 48];                     jmp   n56_match_defer_β
                         .size            n57_match_arbno_bx, .-n57_match_arbno_bx
                         .type            n58_match_lit_bx, @function

@@ -1905,8 +1905,7 @@ n120_match_arbno_β:     mov              r11, 46
                         mov              qword ptr [rbp + -64], rax
                         mov              rax, qword ptr [rcx + 56]
                         mov              qword ptr [rbp + -56], rax
-                        lea              rsp, [rcx + 64]
-                        mov              r12, qword ptr [rdx + 8];            jmp   n124_match_defer_β
+                        lea              rsp, [rcx + 64];                     jmp   n124_match_defer_β
 .Lmatch_arbno_β_128_3:  lea              rsp, [rcx + 64];                     jmp   n119_match_pos_β
                         .size            n120_match_arbno_bx, .-n120_match_arbno_bx
                         .type            n121_match_rpos_bx, @function
