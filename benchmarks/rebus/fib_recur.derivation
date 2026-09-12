@@ -1,0 +1,20 @@
+# DERIVED REF -- corpus/benchmarks/rebus/fib_recur.reb
+# Rebus has NO INDEPENDENT RIVAL IMPLEMENTATION (fib_recur.reb says so in its own header), so this
+# kernel's .ref cannot be cut from an oracle of its own language.  CEO-607 (2026-09-12, option (a)): a
+# no-rival language's runtime ref is DERIVED and the derivation is RECORDED BESIDE IT, and the strongest
+# derivation is a CROSS-LANGUAGE COMPUTATION of the same kernel under a real oracle -- not a hand sum.
+# Both witnesses are recorded below; the FIRST is the authority.  SCRIP's own output is a CHECK against
+# this file, never the source of it.
+#
+# WITNESS 1 (authority) -- THE RIVAL PROGRAM AND ITS ORACLE'S OUTPUT
+#   rival     SCRIP/scripts/fixtures/rebus_derivation/fib_recur.sno   (the same kernel, transliterated:
+#             naive double recursion, same base case n<2, same argument 24)
+#   oracle    /home/resources/x64/bin/sbl -bf fib_recur.sno < /dev/null   (SPITBOL, the SNOBOL4
+#             correctness oracle -- resolved through lib_oracle_flags.sh, never a hand-built path)
+#   output    46368
+# WITNESS 2 (second witness) -- HAND ARITHMETIC
+#   fib(24) = 46368, computed iteratively (1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181
+#   6765 10946 17711 28657 46368 with fib(0)=0, fib(1)=1)
+#
+# RE-PROVED ON EVERY RUN, NEVER TRUSTED AS A STATIC RECORD:
+#   bash SCRIP/scripts/test_gate_rebus_derived_refs_match_their_rival_oracle.sh
