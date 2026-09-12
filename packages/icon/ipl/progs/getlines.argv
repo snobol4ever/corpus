@@ -1,0 +1,2 @@
+# getlines 1 3 5: extract lines 1, 3 and 5 of stdin (ceo 2026-09-12)
+getlines	1	3	5

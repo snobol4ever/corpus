@@ -1,0 +1,2 @@
+# dellines 2 4: delete lines 2 and 4 of stdin (ceo 2026-09-12)
+dellines	2	4

@@ -1,0 +1,2 @@
+# applyfnc reverse: apply the function reverse to every line of stdin (ceo 2026-09-12)
+applyfnc	reverse
