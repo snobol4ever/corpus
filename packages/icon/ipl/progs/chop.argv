@@ -1,0 +1,2 @@
+# chop 5: clamp every value on stdin to at most 5 (ceo 2026-09-12)
+chop	5
