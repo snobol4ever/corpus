@@ -1,5 +1,18 @@
+file: "a.txt" occurs in the following directories
+	"./inter.fixtures"
+	"./setmerge.fixtures"
+
+file: "b.txt" occurs in the following directories
+	"./compare.fixtures"
+	"./inter.fixtures"
+	"./setmerge.fixtures"
+
 file: "fixture.txt" occurs in the following directories
 	"./filecnvt.fixtures"
 	"./huffstuf.fixtures"
 	"./iiencode.fixtures"
+
+file: "sample.icn" occurs in the following directories
+	"."
+	"./iheader.fixtures"
 
