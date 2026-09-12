@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_B/corpus/benchmarks/prolog/bench/divide10.pl"
+                        .file            1 "/home/claude_cto/corpus/benchmarks/prolog/bench/divide10.pl"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__divide10$2F0:
