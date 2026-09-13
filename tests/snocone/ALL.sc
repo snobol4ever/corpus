@@ -2484,3 +2484,30 @@ if (startswith('foobar', 'bar')) {
 }
 OUTPUT = index('foobar', 'oba');
 OUTPUT = index('foobar', 'xyz');
+/*----------------------------------------------------- 321 simple_output_224 */
+/* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment, so the twin is the desugaring this dialect declares, x = x + e, and a disagreement would have been a real red rather than a ref to adjust. It is applied TWICE on purpose: one application proves only that something was added, while two prove the variable is UPDATED IN PLACE and accumulates (15 then 20) instead of being recomputed from its initial value each time. */
+x = 10;
+x += 5;
+OUTPUT = x;
+x += 5;
+OUTPUT = x;
+/*----------------------------------------------------- 322 simple_output_225 */
+/* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment; the twin is the desugaring x = x - e. OPERAND ORDER is what this ref grades: 10 reduced by 3 is 7, where the reversed reading would give -7, so a lowering that swapped the operands could not pass this ref even though it would still look like subtraction. */
+x = 10;
+x -= 3;
+OUTPUT = x;
+/*----------------------------------------------------- 323 simple_output_226 */
+/* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment; the twin is the desugaring x = x * e. Multiplication is commutative so operand order cannot be graded here, and what the ref distinguishes is the OPERATOR itself: on this input the five augmented forms give 20, 12, 8, 5 and 100 respectively, no two alike, so 20 can only be produced by multiplication. */
+x = 10;
+x *= 2;
+OUTPUT = x;
+/*----------------------------------------------------- 324 simple_output_227 */
+/* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment; the twin is the desugaring x = x / e. Two properties in one ref. Operand order (10 divided by 4 is 2, where the reversed reading gives 0) and INTEGER TRUNCATION (2, not 2.5) -- division here is integer division, so a lowering that promoted to a real would print 2.5 and red. The inputs were chosen so the quotient is inexact; an exact one would have graded neither property. */
+x = 10;
+x /= 4;
+OUTPUT = x;
+/*----------------------------------------------------- 325 simple_output_228 */
+/* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment; the twin is the desugaring x = x ^ e. Operand order is the whole point: 3 raised to 2 is 9 where the reversed reading gives 8, and those are precisely the two answers a wrong lowering would choose between. That SPITBOL accepts the same caret spelling as this dialect was verified directly against the oracle rather than assumed. */
+x = 3;
+x ^= 2;
+OUTPUT = x;
