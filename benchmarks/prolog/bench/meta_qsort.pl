@@ -1,8 +1,14 @@
 % meta_qsort — a meta-interpreter running the Warren qsort benchmark (van Roy suite).
 % Bottleneck: clause/call indirection through interpret/1-2 (meta-level dispatch).
 % Source: SWI-Prolog/bench (meta_qsort, Ralph M. Haygood). Prints ok on success.
+% *BENCH kernel=meta_qsort -- PRISTINE KERNEL (CEO-567): the computation and nothing else.
+% The work is bench_work/1; the timing bracket and the iteration loop are GENERATED around
+% this source by scripts/bench_prolog_wrap.sh and never live in it.  main/0 makes the file a
+% real standalone program whose stdout is graded byte-for-byte against meta_qsort.expected (oracle-cut).
 :- initialization(main).
-main :- (meta_qsort -> write(ok) ; write(failed)), nl.
+bench_work(Res) :-
+    ( meta_qsort -> Res = ok ; Res = failed ).
+main :- bench_work(Res), write(Res), nl.
 meta_qsort :- interpret(qsort).
 interpret(Goal) :- interpret(Goal, Rest), ( nonvar(Rest), !, interpret(Rest) ; true ).
 interpret(G, _) :- var(G), !, fail.

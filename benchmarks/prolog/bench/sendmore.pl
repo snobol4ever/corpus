@@ -1,20 +1,13 @@
 % sendmore — SEND+MORE=MONEY cryptoaddition (van Roy suite). Arithmetic constraint search.
 % Source: SWI-Prolog/bench (sendmore). Prints the digit assignment.
+% *BENCH kernel=sendmore -- PRISTINE KERNEL (CEO-567): the computation and nothing else.
+% The work is bench_work/1; the timing bracket and the iteration loop are GENERATED around
+% this source by scripts/bench_prolog_wrap.sh and never live in it.  main/0 makes the file a
+% real standalone program whose stdout is graded byte-for-byte against sendmore.expected (oracle-cut).
 :- initialization(main).
-% ⛔⭐ SELF-TIMED ON THE TWO-NUMBER BASIS (Lon 2026-08-30, RULES.md § THE TWO-NUMBER BENCHMARK BASIS).
-% Bracket encloses the WORK ONLY. Timestamps to user_error so stdout stays byte-comparable and
-% sendmore.expected still verifies. Both units: work_us is the real measurement, work_ms is kept because
-% the rival preludes are millisecond sources so the cross-engine floor genuinely is 1 ms.
-% ⛔ RESULT VARIABLE IS `Res`, NOT `R`: this kernel's own answer list is [S,E,N,D,M,O,R,Y] and R is one of
-% its solution variables -- reusing it would silently bind the answer to the wrong thing while still
-% printing something plausible. Naming it Res costs nothing and removes the whole class.
-main :-
-    wall_us(T0), wall_ms(M0),
-    ( solve(S,E,N,D,M,O,R,Y) -> Res = [S,E,N,D,M,O,R,Y] ; Res = none ),
-    wall_us(T1), wall_ms(M1),
-    write(Res), nl,
-    W is T1 - T0, WM is M1 - M0,
-    format(user_error, "BENCH kernel=sendmore work_us=~w work_ms=~w~n", [W, WM]).
+bench_work(Res) :-
+    ( solve(S,E,N,D,M,O,R,Y) -> Res = [S,E,N,D,M,O,R,Y] ; Res = none ).
+main :- bench_work(Res), write(Res), nl.
 solve(S,E,N,D,M,O,R,Y):-
         digit(D), digit(E), D=\=E,
         sumdigit(0, D, E, Y, C1),

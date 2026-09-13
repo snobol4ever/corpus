@@ -1,8 +1,14 @@
 % zebra — the zebra puzzle (van Roy suite, Claude Sammut). Pure unification constraint.
 % Bottleneck: nondeterministic search via unification only; no arithmetic.
 % Source: SWI-Prolog/bench (zebra). Prints the solved Houses list.
+% *BENCH kernel=zebra -- PRISTINE KERNEL (CEO-567): the computation and nothing else.
+% The work is bench_work/1; the timing bracket and the iteration loop are GENERATED around
+% this source by scripts/bench_prolog_wrap.sh and never live in it.  main/0 makes the file a
+% real standalone program whose stdout is graded byte-for-byte against zebra.expected (oracle-cut).
 :- initialization(main).
-main :- zebra(Houses), write(Houses), nl.
+bench_work(Houses) :-
+    zebra(Houses).
+main :- bench_work(Res), write(Res), nl.
 zebra(Houses) :-
         houses(Houses),
         my_member(house(red, english, _, _, _), Houses),

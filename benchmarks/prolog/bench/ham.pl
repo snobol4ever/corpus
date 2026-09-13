@@ -1,5 +1,11 @@
+% *BENCH kernel=ham -- PRISTINE KERNEL (CEO-567): the computation and nothing else.
+% The work is bench_work/1; the timing bracket and the iteration loop are GENERATED around
+% this source by scripts/bench_prolog_wrap.sh and never live in it.  main/0 makes the file a
+% real standalone program whose stdout is graded byte-for-byte against ham.expected (oracle-cut).
 :- initialization(main).
-main :- ham1(X), write(X), nl.
+bench_work(X) :-
+    ham1(X).
+main :- bench_work(Res), write(Res), nl.
 ham1(X):- cycle_ham([a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t],X).
 cycle_ham([X|Y],[X,T|L]):- chain_ham([X|Y],[],[T|L]), edge(T,X).
 chain_ham([X],L,[X|L]).

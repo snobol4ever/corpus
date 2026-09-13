@@ -1,8 +1,14 @@
 % queens_8 — place 8 non-attacking queens (van Roy suite).
 % Bottleneck: nondeterministic search, backtracking, list permutation.
 % Source: SWI-Prolog/bench. Prints the first solution.
+% *BENCH kernel=queens_8 -- PRISTINE KERNEL (CEO-567): the computation and nothing else.
+% The work is bench_work/1; the timing bracket and the iteration loop are GENERATED around
+% this source by scripts/bench_prolog_wrap.sh and never live in it.  main/0 makes the file a
+% real standalone program whose stdout is graded byte-for-byte against queens_8.expected (oracle-cut).
 :- initialization(main).
-main :- queens([1,2,3,4,5,6,7,8], Qs), write(Qs), nl.
+bench_work(Qs) :-
+    queens([1,2,3,4,5,6,7,8], Qs).
+main :- bench_work(Res), write(Res), nl.
 queens(Data, Out) :- queens_2(Data, [], Out).
 queens_2([], Acc, Acc).
 queens_2([H|T], History, Out) :-

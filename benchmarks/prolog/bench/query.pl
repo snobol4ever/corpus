@@ -2,8 +2,14 @@
 % Bottleneck: fact-base lookup (25-clause pop/2 + area/2) + integer arithmetic (//)
 % + generate-and-test. The 25-clause predicates exercise the >16 clause-choice path.
 % Source: SWI-Prolog/bench (query). Prints the first matching country-density pair.
+% *BENCH kernel=query -- PRISTINE KERNEL (CEO-567): the computation and nothing else.
+% The work is bench_work/1; the timing bracket and the iteration loop are GENERATED around
+% this source by scripts/bench_prolog_wrap.sh and never live in it.  main/0 makes the file a
+% real standalone program whose stdout is graded byte-for-byte against query.expected (oracle-cut).
 :- initialization(main).
-main :- (query([C1,_,C2,_]) -> write([C1,C2]) ; write(none)), nl.
+bench_work(Res) :-
+    ( query([C1,_,C2,_]) -> Res = [C1,C2] ; Res = none ).
+main :- bench_work(Res), write(Res), nl.
 query([C1,D1,C2,D2]) :- density(C1,D1), density(C2,D2), D1 > D2, T1 is 20*D1, T2 is 21*D2, T1 < T2.
 density(C,D) :- pop(C,P), area(C,A), D is (P*100)//A.
 pop(china, 8250). pop(india, 5863). pop(ussr, 2521). pop(usa, 2119). pop(indonesia, 1276).

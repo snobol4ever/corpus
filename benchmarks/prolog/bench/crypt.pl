@@ -1,7 +1,13 @@
 % crypt — cryptomultiplication (van Roy suite, Peter Van Roy). Arithmetic + generate-and-test.
 % Source: SWI-Prolog/bench (crypt). Prints the found digit assignment.
+% *BENCH kernel=crypt -- PRISTINE KERNEL (CEO-567): the computation and nothing else.
+% The work is bench_work/1; the timing bracket and the iteration loop are GENERATED around
+% this source by scripts/bench_prolog_wrap.sh and never live in it.  main/0 makes the file a
+% real standalone program whose stdout is graded byte-for-byte against crypt.expected (oracle-cut).
 :- initialization(main).
-main :- top(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P), write([A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P]), nl.
+bench_work([A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P]) :-
+    top(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P).
+main :- bench_work(Res), write(Res), nl.
 top(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P):-
         odd(A), even(B), even(C), even(E),
         mult([C,B,A], E, [I,H,G,F|X]),

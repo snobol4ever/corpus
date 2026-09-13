@@ -3,8 +3,14 @@
 % recursive list generator (range/3 with a clause cut), selection (sel/3), and
 % arithmetic disequality guards (=\=). Source: gprolog examples/ExamplesPl.
 % Prints the first solution as the deterministic result signature.
+% *BENCH kernel=queens -- PRISTINE KERNEL (CEO-567): the computation and nothing else.
+% The work is bench_work/1; the timing bracket and the iteration loop are GENERATED around
+% this source by scripts/bench_prolog_wrap.sh and never live in it.  main/0 makes the file a
+% real standalone program whose stdout is graded byte-for-byte against queens.expected (oracle-cut).
 :- initialization(main).
-main :- queens(16, R), write(R), nl.
+bench_work(R) :-
+    queens(16, R).
+main :- bench_work(Res), write(Res), nl.
 queens(N, Qs) :- range(1, N, Ns), queens(Ns, [], Qs).
 queens([], Qs, Qs).
 queens(UnplacedQs, SafeQs, Qs) :-

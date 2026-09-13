@@ -9,8 +9,14 @@
 % Measured effect of the rename: GNU per-iter 0.0072ms -> 0.0219ms, so the old
 % file reported SCRIP at 19.94x GNU when the honest engine-vs-engine ratio is
 % 6.68x. Do NOT restore the name append/3 here. See s145 FINDING (PL-SINK-3).
+% *BENCH kernel=nrev -- PRISTINE KERNEL (CEO-567): the computation and nothing else.
+% The work is bench_work/1; the timing bracket and the iteration loop are GENERATED around
+% this source by scripts/bench_prolog_wrap.sh and never live in it.  main/0 makes the file a
+% real standalone program whose stdout is graded byte-for-byte against nrev.expected (oracle-cut).
 :- initialization(main).
-main :- data(L), nrev(L, R), write(R), nl.
+bench_work(R) :-
+    data(L), nrev(L, R).
+main :- bench_work(Res), write(Res), nl.
 nrev([], []).
 nrev([X|Rest], Ans) :- nrev(Rest, L), app(L, [X], Ans).
 app([], L, L).

@@ -1,22 +1,14 @@
 % tak — (almost) Takeuchi function, recursive integer arithmetic.
 % Bottleneck: deep recursion + is/2 + arithmetic comparison; no list/struct.
 % Source: SWI-Prolog/bench (Evan Tick, from Gabriel's Lisp tak). Prints A.
+% *BENCH kernel=tak -- PRISTINE KERNEL (CEO-567): the computation and nothing else.
+% The work is bench_work/1; the timing bracket and the iteration loop are GENERATED around
+% this source by scripts/bench_prolog_wrap.sh and never live in it.  main/0 makes the file a
+% real standalone program whose stdout is graded byte-for-byte against tak.expected (oracle-cut).
 :- initialization(main).
-% ⛔⭐ SELF-TIMED ON THE TWO-NUMBER BASIS (Lon 2026-08-30, RULES.md § THE TWO-NUMBER BENCHMARK BASIS).
-% Bracket encloses the WORK ONLY -- not startup, not the write. Multiples publish on work; startup/finish
-% OVERHEAD is a separate per-engine number the harness derives as (external total - work).
-% ⛔ Timestamps go to user_error so stdout stays BYTE-COMPARABLE and tak.expected still verifies.
-% ⭐ Both units: work_us is the real measurement (integer ms quantizes these kernels -- a 3 ms kernel is
-% three ticks); work_ms is kept because the rival preludes are millisecond sources, so the cross-engine
-% floor genuinely is 1 ms. Reporting both keeps a us numerator from being divided by a ms denominator
-% silently. Per-engine precision floors are stated in the basis line, never papered over.
-main :-
-    wall_us(T0), wall_ms(M0),
-    tak(18,12,6,A),
-    wall_us(T1), wall_ms(M1),
-    write(A), nl,
-    W is T1 - T0, WM is M1 - M0,
-    format(user_error, "BENCH kernel=tak work_us=~w work_ms=~w~n", [W, WM]).
+bench_work(A) :-
+    tak(18,12,6,A).
+main :- bench_work(Res), write(Res), nl.
 tak(X,Y,Z,A) :- X =< Y, Z = A.
 tak(X,Y,Z,A) :-
         X > Y,
