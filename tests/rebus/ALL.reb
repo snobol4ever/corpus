@@ -38,54 +38,54 @@ end
 function main()
 OUTPUT := 'hello world'
 end
-#----------------------------------------------------------- 34 simple_output_10
+#----------------------------------------------------------- 11 simple_output_10
 function main()
 OUTPUT := "hello world"
 end
-#----------------------------------------------------------- 35 simple_output_11
+#----------------------------------------------------------- 12 simple_output_11
 function main()
 OUTPUT := 2 + 3
 end
-#----------------------------------------------------------- 36 simple_output_12
+#----------------------------------------------------------- 13 simple_output_12
 function main()
 OUTPUT := 2 + 3 * 4
 end
-#----------------------------------------------------------- 72 simple_output_13
+#----------------------------------------------------------- 14 simple_output_13
 function main()
 x := 7
 OUTPUT := x
 end
-#------------------------------------------------------------- 79 assign_aug_add
+#------------------------------------------------------------- 15 assign_aug_add
 function main()
 x := 5
 x +:= 3
 OUTPUT := x
 end
-#------------------------------------------------------------- 80 assign_aug_sub
+#------------------------------------------------------------- 16 assign_aug_sub
 function main()
 x := 5
 x -:= 3
 OUTPUT := x
 end
-#----------------------------------------------------------- 81 simple_output_14
+#----------------------------------------------------------- 17 simple_output_14
 function main()
 x := 1
 x := x + 9
 OUTPUT := x
 end
-#----------------------------------------------------------- 82 simple_output_28
+#----------------------------------------------------------- 18 simple_output_28
 function main()
 s := "hello world"
 s ? "world" <- "there"
 OUTPUT := s
 end
-#----------------------------------------------------------- 83 simple_output_29
+#----------------------------------------------------------- 19 simple_output_29
 function main()
 s := "hello world"
 s ? "xyz" <- "there"
 OUTPUT := s
 end
-#------------------------------------------------------------ 84 assign_exchange
+#------------------------------------------------------------ 20 assign_exchange
 function main()
 OUTPUT := "before"
 x := 1
@@ -94,14 +94,14 @@ x :=: y
 OUTPUT := x
 OUTPUT := y
 end
-#----------------------------------------------------------- 90 simple_output_16
+#----------------------------------------------------------- 21 simple_output_16
 function main()
 x := 1
 if x = 1 then {
 OUTPUT := "yes"
 }
 end
-#----------------------------------------------------------- 98 simple_output_15
+#----------------------------------------------------------- 22 simple_output_15
 function main()
 x := 0
 if x = 1 then {
@@ -109,7 +109,7 @@ OUTPUT := "yes"
 }
 OUTPUT := "done"
 end
-#----------------------------------------------------------- 99 simple_output_19
+#----------------------------------------------------------- 23 simple_output_19
 function double(n)
 return n * 2
 end
@@ -117,7 +117,7 @@ end
 function main()
 OUTPUT := double(21)
 end
-#---------------------------------------------------------- 100 simple_output_20
+#----------------------------------------------------------- 24 simple_output_20
 function add(a, b)
 return a + b
 end
@@ -125,7 +125,7 @@ end
 function main()
 OUTPUT := add(15, 30)
 end
-#---------------------------------------------------------- 101 simple_output_23
+#----------------------------------------------------------- 25 simple_output_23
 record point(x, y)
 
 function main()
@@ -133,7 +133,7 @@ p := point(3, 4)
 OUTPUT := x(p)
 OUTPUT := y(p)
 end
-#---------------------------------------------------------- 102 simple_output_27
+#----------------------------------------------------------- 26 simple_output_27
 function main()
 x := 1
 x := 2
@@ -141,7 +141,7 @@ x := 3
 OUTPUT := x
 OUTPUT := 99
 end
-#---------------------------------------------------------- 106 simple_output_22
+#----------------------------------------------------------- 27 simple_output_22
 function try(n)
 if n > 0 then return n
 fail
@@ -151,7 +151,7 @@ function main()
 if try(5) then OUTPUT := "yes" else OUTPUT := "no"
 if try(-1) then OUTPUT := "yes" else OUTPUT := "no"
 end
-#---------------------------------------------------------- 108 simple_output_17
+#----------------------------------------------------------- 28 simple_output_17
 function main()
 local n, count
 n := 10
@@ -162,7 +162,7 @@ count := count + 1
 }
 OUTPUT := count
 end
-#---------------------------------------------------------- 109 simple_output_18
+#----------------------------------------------------------- 29 simple_output_18
 function main()
 local i, sum
 i := 1
@@ -173,7 +173,7 @@ i := i + 1
 }
 OUTPUT := sum
 end
-#---------------------------------------------------------- 110 simple_output_21
+#----------------------------------------------------------- 30 simple_output_21
 function greet(silent)
 if silent = 1 then return
 OUTPUT := "hello"
@@ -184,7 +184,7 @@ function main()
 greet(1)
 greet(0)
 end
-#---------------------------------------------------------- 111 simple_output_24
+#----------------------------------------------------------- 31 simple_output_24
 record point(x, y)
 
 function main()
@@ -195,7 +195,7 @@ OUTPUT := x(q)
 OUTPUT := y(p)
 OUTPUT := y(q)
 end
-#---------------------------------------------------------- 112 simple_output_26
+#----------------------------------------------------------- 32 simple_output_26
 function try(n)
 if n > 0 then return n
 fail
@@ -206,66 +206,66 @@ OUTPUT := "start"
 OUTPUT := try(-1)
 OUTPUT := "end"
 end
-#------------------------------------------------------------- 125 alt_replace_1
+#-------------------------------------------------------------- 33 alt_replace_1
 function main()
 if "cat" ? ("cat" | "category") then OUTPUT := "matched" else OUTPUT := "no match"
 if "category" ? ("cat" | "category") then OUTPUT := "matched" else OUTPUT := "no match"
 end
-#------------------------------------------------------------- 126 alt_replace_2
+#-------------------------------------------------------------- 34 alt_replace_2
 function main()
 if "banana" ? ("apple" | "banana" | "cherry") then OUTPUT := "matched" else OUTPUT := "no match"
 if "kiwi" ? ("apple" | "banana" | "cherry") then OUTPUT := "matched" else OUTPUT := "no match"
 end
-#--------------------------------------------------------- 129 assign_aug_concat
+#---------------------------------------------------------- 35 assign_aug_concat
 function main()
 x := "ab"
 x ||:= "cd"
 OUTPUT := x
 end
-#------------------------------------------------------------- 132 len_capture_2
+#-------------------------------------------------------------- 36 len_capture_2
 function main()
 "hello world" ? (LEN(5) . w)
 OUTPUT := w
 end
-#------------------------------------------------------- 133 break_rem_capture_1
+#-------------------------------------------------------- 37 break_rem_capture_1
 function main()
 "key=value" ? (BREAK("=") . k & "=" & REM . v)
 OUTPUT := k
 OUTPUT := v
 end
-#------------------------------------------------------- 134 break_rem_capture_2
+#-------------------------------------------------------- 38 break_rem_capture_2
 function main()
 s := "key=value"
 s ? (BREAK("=") . k & "=" & REM . v) <- (k & ":" & v)
 OUTPUT := s
 end
-#----------------------------------------------------------- 135 arb_break_rem_1
+#------------------------------------------------------------ 39 arb_break_rem_1
 function main()
 "foo(bar)baz" ? (BREAK("(") . pre & "(" & ARB . inner & ")" & REM . post)
 OUTPUT := pre
 OUTPUT := inner
 OUTPUT := post
 end
-#---------------------------------------------------------- 136 simple_output_25
+#----------------------------------------------------------- 40 simple_output_25
 record point(x, y)
 
 function main()
 OUTPUT := "before"
 OUTPUT := x(5)
 end
-#------------------------------------------------------------- 137 alt_replace_3
+#-------------------------------------------------------------- 41 alt_replace_3
 function main()
 OUTPUT := "before"
 if (1 | 2 | 3) = 2 then OUTPUT := "matched"
 end
-#--------------------------------------------------------------------- 138 len_1
+#---------------------------------------------------------------------- 42 len_1
 function main()
 OUTPUT := "before"
 s := "hello"
 s ? LEN("abc") <- "X"
 OUTPUT := s
 end
-#------------------------------------------------------------- 139 len_capture_1
+#-------------------------------------------------------------- 43 len_capture_1
 function main()
 OUTPUT := "before"
 "hello" ? (LEN("abc") . w)
