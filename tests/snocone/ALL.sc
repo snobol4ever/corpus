@@ -2506,3 +2506,17 @@ OUTPUT = x;
 x = 3;
 x ^= 2;
 OUTPUT = x;
+/*----------------------------------------------------- 325 simple_output_104 */
+i = 2; j = 3;
+OUTPUT = (LT(i, j) 'first', GT(i, j) 'second', 'third');
+/*----------------------------------------------------- 326 simple_output_229 */
+i = 5; j = 3;
+OUTPUT = (LT(i, j) 'first', GT(i, j) 'second', 'third');
+/*----------------------------------------------------- 327 simple_output_230 */
+i = 3; j = 3;
+OUTPUT = (LT(i, j) 'first', GT(i, j) 'second', 'third');
+/*----------------------------------------------------- 328 simple_output_231 */
+i = 3; j = 3;
+x = 'untouched';
+x = (LT(i, j) 'first', GT(i, j) 'second');
+OUTPUT = x;
