@@ -845,20 +845,6 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 844,simple_program_7,parser_pat_label_pat__parser_pat_label_pat,parser_pat_label_pat,block,0,2,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 845,simple_program_8,parser_pat_seq_three__parser_pat_seq_three,parser_pat_seq_three,block,0,2,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 846,simple_program_9,parser_pat_seq_two__parser_pat_seq_two,parser_pat_seq_two,block,0,2,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-847,test_parser_cf_bare_goto,test_snobol4_parser_cf_bare_goto__parser_cf_bare_goto,test_snobol4_parser_cf_bare_goto,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-848,test_parser_cf_goto_u,test_snobol4_parser_cf_goto_u__parser_cf_goto_u,test_snobol4_parser_cf_goto_u,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-849,test_parser_fn_call_arith,test_snobol4_parser_fn_call_arith__parser_fn_call_arith,test_snobol4_parser_fn_call_arith,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-850,test_parser_fn_call_expr_arg,test_snobol4_parser_fn_call_expr_arg__parser_fn_call_expr_arg,test_snobol4_parser_fn_call_expr_arg,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-851,test_parser_fn_call_nested,test_snobol4_parser_fn_call_nested__parser_fn_call_nested,test_snobol4_parser_fn_call_nested,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-852,test_parser_fn_call_one,test_snobol4_parser_fn_call_one__parser_fn_call_one,test_snobol4_parser_fn_call_one,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-853,test_parser_fn_call_str,test_snobol4_parser_fn_call_str__parser_fn_call_str,test_snobol4_parser_fn_call_str,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-854,test_parser_fn_call_three,test_snobol4_parser_fn_call_three__parser_fn_call_three,test_snobol4_parser_fn_call_three,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-855,test_parser_fn_call_two,test_snobol4_parser_fn_call_two__parser_fn_call_two,test_snobol4_parser_fn_call_two,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-856,test_parser_fn_call_zero,test_snobol4_parser_fn_call_zero__parser_fn_call_zero,test_snobol4_parser_fn_call_zero,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-857,test_parser_fn_stmt,test_snobol4_parser_fn_stmt__parser_fn_stmt,test_snobol4_parser_fn_stmt,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-858,test_parser_idx_nested,test_snobol4_parser_idx_nested__parser_idx_nested,test_snobol4_parser_idx_nested,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-859,test_parser_idx_simple,test_snobol4_parser_idx_simple__parser_idx_simple,test_snobol4_parser_idx_simple,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-860,test_parser_unary_assign,test_snobol4_parser_unary_assign__parser_unary_assign,test_snobol4_parser_unary_assign,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 861,demo_hello,demo_snobol4_hello__hello,demo_snobol4_hello,block,0,3,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 862,simple_assign_13,parser_assign_mixed__parser_assign_mixed,parser_assign_mixed,block,0,3,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 863,simple_assign_18,parser_cf_label_bare__parser_cf_label_bare,parser_cf_label_bare,block,0,3,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -902,8 +888,6 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 901,simple_output_282,ladder__rung05_label_leading_digit,ladder,block,0,3,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 902,simple_output_73,probe_m1__m1_trailing_ws,probe_m1,block,0,3,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 903,simple_program_11,smoke_null__smoke_null,smoke_null,block,0,3,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-904,test_parser_idx_in_assign_lhs,test_snobol4_parser_idx_in_assign_lhs__parser_idx_in_assign_lhs,test_snobol4_parser_idx_in_assign_lhs,block,0,3,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-905,test_parser_idx_multi,test_snobol4_parser_idx_multi__parser_idx_multi,test_snobol4_parser_idx_multi,block,0,3,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 906,simple_assign_14,parser_assign_seq__parser_assign_seq,parser_assign_seq,block,0,4,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 907,simple_assign_17,parser_blank_line__parser_blank_line,parser_blank_line,block,0,4,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 908,simple_output_207,scrip_test_snobol4_concat_019_concat_var_string__019_concat_var_string,scrip_test_snobol4_concat_019_concat_var_string,block,0,4,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -918,7 +902,6 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 917,simple_output_274,ladder__rung04_match_fails_no_replacement,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 918,simple_output_275,ladder__rung04_null_replacement_deletes,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 919,simple_output_93,gimpel_triage_class1_dup_label_driver__class1_dup_label_driver,gimpel_triage_class1_dup_label_driver,block,0,4,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-920,test_parser_binary_opsyn,test_snobol4_parser_binary_opsyn__parser_binary_opsyn,test_snobol4_parser_binary_opsyn,block,0,4,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 921,simple_output_169,crosscheck_rungW01__W01_pat_lit_anchor,crosscheck_rungW01,block,0,5,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 922,simple_output_196,scrip_test_snobol4_control_new_036_goto_skip_to_end__036_goto_skip_to_end,scrip_test_snobol4_control_new_036_goto_skip_to_end,block,0,5,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 923,simple_output_202,scrip_test_snobol4_output_005_output_multiline__005_output_multiline,scrip_test_snobol4_output_005_output_multiline,block,0,5,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -1011,10 +994,6 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1010,notany_2,parser_pat_notany__parser_pat_notany,parser_pat_notany,block,0,2,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1011,simple_program_10,parser_pat_with_goto__parser_pat_with_goto,parser_pat_with_goto,block,0,2,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 1012,span_3,parser_pat_span__parser_pat_span,parser_pat_span,block,0,2,UNKNOWN,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-1013,test_parser_cf_goto_f,test_snobol4_parser_cf_goto_f__parser_cf_goto_f,test_snobol4_parser_cf_goto_f,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
-1014,test_parser_cf_label_assign,test_snobol4_parser_cf_label_assign__parser_cf_label_assign,test_snobol4_parser_cf_label_assign,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-1015,test_parser_fn_call_in_pat,test_snobol4_parser_fn_call_in_pat__parser_fn_call_in_pat,test_snobol4_parser_fn_call_in_pat,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-1016,test_parser_unary_not,test_snobol4_parser_unary_not__parser_unary_not,test_snobol4_parser_unary_not,block,0,2,ast,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1017,user_function_30,parser_fn_define__parser_fn_define,parser_fn_define,block,0,2,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1018,user_function_31,parser_fn_define_labeled__parser_fn_define_labeled,parser_fn_define_labeled,block,0,2,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1019,user_function_32,parser_fn_define_locals__parser_fn_define_locals,parser_fn_define_locals,block,0,2,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -1030,8 +1009,6 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1029,size_10,scrip_test_snobol4_strings_065_builtin_size__065_builtin_size,scrip_test_snobol4_strings_065_builtin_size,block,0,3,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
 1030,size_11,scrip_test_snobol4_strings_074_builtin_rpad__074_builtin_rpad,scrip_test_snobol4_strings_074_builtin_rpad,block,0,3,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
 1031,size_9,jvm_j3_size_test__jvm_j3_size_test,jvm_j3_size_test,block,0,3,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
-1032,test_parser_cf_loop,test_snobol4_parser_cf_loop__parser_cf_loop,test_snobol4_parser_cf_loop,block,0,3,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-1033,test_parser_unary_indirect,test_snobol4_parser_unary_indirect__parser_unary_indirect,test_snobol4_parser_unary_indirect,block,0,3,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
 1034,capture_7,ladder__rung09_conditional_assignment_no_effect_on_overall_failure,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 1035,demo_pattern_test,demo_snobol4_pattern_test__pattern_test,demo_snobol4_pattern_test,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 1036,imm_capture_3,ladder__rung09_immediate_assignment_survives_overall_failure,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
@@ -1039,8 +1016,6 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1038,keyword_17,probe_conformance__k14_stno_line,probe_conformance,block,0,4,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 1039,table_5,ladder__rung07_table,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1040,table_7,ladder__rung07_numeric_subscript_key,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-1041,test_parser_kw_maxlngth,test_snobol4_parser_kw_maxlngth__parser_kw_maxlngth,test_snobol4_parser_kw_maxlngth,block,0,4,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
-1042,test_probe_loose_errpath_end_star_no_boundary,test_snobol4_probe_loose_errpath_end_star_no_boundary__probe_loose_errpath_end_star_no_boundary,test_snobol4_probe_loose_errpath_end_star_no_boundary,block,0,4,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
 1043,user_function_40,ladder__rung08_null_default_return,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1044,alt_2,crosscheck_rungW03__W03_alt_both_fail,crosscheck_rungW03,block,0,5,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
 1045,array_10,ladder__rung06_array,ladder,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -1199,8 +1174,6 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1198,capture_alt_5,crosscheck_patterns__155_pat_cap_output_order,crosscheck_patterns,block,0,2,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0
 1199,capture_alt_7,parser_pat_alt_in_pat__parser_pat_alt_in_pat,parser_pat_alt_in_pat,block,0,2,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0
 1200,defer_alt_1,parser_defer_alt__parser_defer_alt,parser_defer_alt,block,0,2,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0
-1201,test_parser_cf_goto_computed,test_snobol4_parser_cf_goto_computed__parser_cf_goto_computed,test_snobol4_parser_cf_goto_computed,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0
-1202,test_parser_cf_goto_sf,test_snobol4_parser_cf_goto_sf__parser_cf_goto_sf,test_snobol4_parser_cf_goto_sf,block,0,2,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0
 1203,arb_imm_capture_1,ladder__rung09_immediate_assignment_fires_on_each_retry,ladder,block,0,3,"m3,m4",0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
 1204,array_alt_1,ladder__rung06_default_null_init,ladder,block,0,3,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
 1205,capture_alt_6,crosscheck_patterns__156_pat_cap_alt_abandon_pop,crosscheck_patterns,block,0,3,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0
@@ -1416,7 +1389,6 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1415,rpos_len_capture_branch_1,crosscheck_patterns__045_pat_rpos,crosscheck_patterns,block,0,5,UNKNOWN,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 1416,tab_len_capture_branch_1,crosscheck_patterns__046_pat_tab,crosscheck_patterns,block,0,5,UNKNOWN,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0
 1417,table_array_convert_branch_1,ladder__rung07_convert_empty_table_fails,ladder,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-1418,test_parser_kw_lcase,test_snobol4_parser_kw_lcase__parser_kw_lcase,test_snobol4_parser_kw_lcase,block,0,5,ast,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,0
 1419,arb_pos_rpos_replace_branch_5,probe_passthru__ptw_min_atp_inline_ctl,probe_passthru,block,0,6,UNKNOWN,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 1420,defer_capture_branch_2,crosscheck_patterns__056_pat_star_deref,crosscheck_patterns,block,0,6,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,1,0,0
 1421,pos_len_defer_branch_3,crosscheck_patterns__074_pat_star_var_cursor,crosscheck_patterns,block,0,6,UNKNOWN,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0

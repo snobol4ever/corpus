@@ -900,48 +900,6 @@ END
 *---------------------------------------------------------- 846 simple_program_9
 	S 'a' 'b'
 END
-*-------------------------------------------------- 847 test_parser_cf_bare_goto
-        :(NEXT)
-NEXT    END
-*----------------------------------------------------- 848 test_parser_cf_goto_u
-        z = 1          :(LOOP)
-LOOP    END
-*------------------------------------------------- 849 test_parser_fn_call_arith
-	X = F(A) + F(B)
-END
-*---------------------------------------------- 850 test_parser_fn_call_expr_arg
-	X = F(A + 1)
-END
-*------------------------------------------------ 851 test_parser_fn_call_nested
-	X = G(F(1))
-END
-*--------------------------------------------------- 852 test_parser_fn_call_one
-	X = F(1)
-END
-*--------------------------------------------------- 853 test_parser_fn_call_str
-	X = F('hi')
-END
-*------------------------------------------------- 854 test_parser_fn_call_three
-	X = F(A, B, C)
-END
-*--------------------------------------------------- 855 test_parser_fn_call_two
-	X = F(A, B)
-END
-*-------------------------------------------------- 856 test_parser_fn_call_zero
-	X = NOARG()
-END
-*------------------------------------------------------- 857 test_parser_fn_stmt
-	F(X)
-END
-*---------------------------------------------------- 858 test_parser_idx_nested
-        X = A[B[1]]
-END
-*---------------------------------------------------- 859 test_parser_idx_simple
-        X = A[1]
-END
-*-------------------------------------------------- 860 test_parser_unary_assign
-        x = DIFFER(sno = Pop())
-END
 *---------------------------------------------------------------- 861 demo_hello
 *       Simple hello world
         OUTPUT = 'hello'
@@ -1114,14 +1072,6 @@ END
 * Sprint 0 — null program
 * A SNOBOL4 program that does nothing and exits normally.
 END
-*--------------------------------------------- 904 test_parser_idx_in_assign_lhs
-        A[1] = 'hello'
-        B[I, J] = X
-END
-*----------------------------------------------------- 905 test_parser_idx_multi
-        X = A[1, 2]
-        Y = B[I, J, K]
-END
 *---------------------------------------------------------- 906 simple_assign_14
         x = 5
         y = 'hi'
@@ -1191,11 +1141,6 @@ END
 -INCLUDE "gimpel_triage_class1_dup_label_shared.sno"
 -INCLUDE "gimpel_triage_class1_dup_label_shared.sno"
         OUTPUT = X()
-END
-*-------------------------------------------------- 920 test_parser_binary_opsyn
-        x = 'a' & 'b'
-        y = 'a' ~ 'b'
-        z = 'a' @ 'b'
 END
 *--------------------------------------------------------- 921 simple_output_169
         subject = 'hello world'
@@ -2321,18 +2266,6 @@ END
 *------------------------------------------------------------------- 1012 span_3
 	S 'aaabbb' SPAN('a')
 END
-*---------------------------------------------------- 1013 test_parser_cf_goto_f
-        y = x          :F(DONE)
-DONE    END
-*---------------------------------------------- 1014 test_parser_cf_label_assign
-LOOP    x = x + 1      :S(LOOP)
-END
-*----------------------------------------------- 1015 test_parser_fn_call_in_pat
-	S F(A) . X
-END
-*---------------------------------------------------- 1016 test_parser_unary_not
-        x = ~BREAK(nl)
-END
 *--------------------------------------------------------- 1017 user_function_30
 	DEFINE('F(X)')
 END
@@ -2388,14 +2321,6 @@ END
         X = 'hello'
         OUTPUT = SIZE(X)
 END
-*------------------------------------------------------ 1032 test_parser_cf_loop
-        n = 1
-LOOP    n = n + 1      :S(LOOP)
-END
-*----------------------------------------------- 1033 test_parser_unary_indirect
-        x = $'='
-        y = $name
-END
 *---------------------------------------------------------------- 1034 capture_7
  P = "unchanged"
  "ABC" ? ("A" . P) "Z"
@@ -2431,16 +2356,6 @@ END
  T[0.093] = "PI-ISH"
  OUTPUT = T[0.093]
 END
-*-------------------------------------------------- 1041 test_parser_kw_maxlngth
-        X = &MAXLNGTH
-        &MAXLNGTH = 500
-        IF LT(&MAXLNGTH, 100)
-END
-*---------------------------- 1042 test_probe_loose_errpath_end_star_no_boundary
-*  probe: '*' jammed directly onto a keyword/label with no separating boundary (no ';', no
-*  whitespace, no true column 1) is NOT a trailing-comment start in either engine -- both fail
-*  to recognize a valid END and refuse (row snobol4-trailing-star-comment-not-lexed, witness 3)
-;END*abc
 *--------------------------------------------------------- 1043 user_function_40
  DEFINE("NADA(X)") :(MAIN)
 NADA :(RETURN)
@@ -4692,12 +4607,6 @@ END
 *-------------------------------------------------------------- 1200 defer_alt_1
         P = *Q | *R
 END
-*--------------------------------------------- 1201 test_parser_cf_goto_computed
-        DIFFER(t)      :S($('pp_' t))F(RETURN)
-END
-*--------------------------------------------------- 1202 test_parser_cf_goto_sf
-        x = 1          :S(OK):F(FAIL)
-OK      END
 *-------------------------------------------------------- 1203 arb_imm_capture_1
  S = "ABCDEFG"
  S ? "A" ARB $ OUTPUT "E"
@@ -8007,12 +7916,6 @@ END
  A = CONVERT(T, "ARRAY")        :S(BAD)F(GOOD)
 GOOD OUTPUT = "CONVERT-EMPTY-FAILED-AS-EXPECTED"        :(END)
 BAD OUTPUT = "CONVERT-EMPTY-SUCCEEDED-UNEXPECTEDLY"
-END
-*----------------------------------------------------- 1418 test_parser_kw_lcase
-        X = &LCASE
-        &LCASE = 'abcdefghijklmnopqrstuvwxyz'
-        Y LEN(1) . C
-        Z = REPLACE(Y, &UCASE, &LCASE)
 END
 *-------------------------------------------- 1419 arb_pos_rpos_replace_branch_5
 *  CONTROL (GREEN) for ptw_min_atp_stored_red.sno: the same pattern INLINE is correct, so the

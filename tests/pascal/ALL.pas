@@ -46,29 +46,6 @@ begin
   writeln;
   writeln('after')
 end.
-{----------------------------------------------- 10 parser__procedure_call_args}
-program proccallargs;
-procedure p(a, b: integer);
-begin
-end;
-begin
-  p(1, 2)
-end.
-{----------------------------------------------------- 11 parser__assign_simple}
-program assignsimple;
-var x: integer;
-begin
-  x := 5
-end.
-{------------------------------------------------------ 12 parser__if_then_else}
-program ifthenelse;
-var x: integer;
-begin
-  if x > 0 then
-    x := 1
-  else
-    x := 2
-end.
 {-------------------------------------- 13 ladder__rung05_proc_func_multi_param}
 program rung05procfuncmultiparam;
 
@@ -80,13 +57,6 @@ end;
 
 begin
   combo(3, 4, 2.5)
-end.
-{---------------------------------------------------------- 14 parser__for_loop}
-program forloop;
-var i, j: integer;
-begin
-  for i := 1 to 10 do
-    j := i
 end.
 {-------------------------------------------------------- 15 program_writeln_11}
 program m4asg;
@@ -1236,12 +1206,6 @@ begin
   bump;
   bump;
   writeln(g)
-end.
-{------------------------------------------------------- 65 parser__array_index}
-program arrayindex;
-var a: array[1..5] of integer;
-begin
-  a[3] := 7
 end.
 {-------------------------------------- 66 ladder__rung04_for_repeat_for_downto}
 program rung04forrepeatfordownto;

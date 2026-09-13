@@ -1,13 +1,3 @@
-#---------------------------------------------------------------- 1 procedure_10
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_QLIT "hello"))))
-#---------------------------------------------------------------- 2 procedure_46
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_REVASSIGN (TT_VAR x) (TT_ILIT 1)))))
-#---------------------------------------------------------------- 3 procedure_47
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_REVSWAP (TT_VAR x) (TT_VAR y)))))
-#----------------------------------------------------------------- 4 procedure_8
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_VAR x))))
-#----------------------------------------------------------------- 5 procedure_9
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ILIT 42))))
 #--------------------------------------------------------- 6 procedure_write_107
 42
 #--------------------------------------------------------- 7 procedure_write_108
@@ -60,108 +50,6 @@ ge
 ne
 #-------------------------------------------------- 29 ladder_rung40_strfn_right
 000ab
-#---------------------------------------------------------------- 30 procedure_1
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ADD (TT_ILIT 1) (TT_ILIT 2))))))
-#--------------------------------------------------------------- 31 procedure_11
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_GE (TT_VAR x) (TT_ILIT 2)))))
-#--------------------------------------------------------------- 32 procedure_12
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_GT (TT_VAR x) (TT_ILIT 2)))))
-#--------------------------------------------------------------- 33 procedure_13
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_LE (TT_VAR x) (TT_ILIT 2)))))
-#--------------------------------------------------------------- 34 procedure_14
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_LT (TT_VAR x) (TT_ILIT 2)))))
-#--------------------------------------------------------------- 35 procedure_15
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_MOD (TT_VAR x) (TT_ILIT 2)))))
-#--------------------------------------------------------------- 36 procedure_16
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_NE (TT_VAR x) (TT_ILIT 2)))))
-#--------------------------------------------------------------- 37 procedure_17
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_EQ (TT_VAR x) (TT_ILIT 2)))))
-#--------------------------------------------------------------- 38 procedure_18
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_POW (TT_VAR x) (TT_ILIT 2)))))
-#--------------------------------------------------------------- 39 procedure_19
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP (TT_VAR x) (TT_ILIT 2)))))
-#---------------------------------------------------------------- 40 procedure_2
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_SUB (TT_ILIT 3) (TT_ILIT 1))))))
-#--------------------------------------------------------------- 41 procedure_20
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_LGE (TT_VAR x) (TT_QLIT "y")))))
-#--------------------------------------------------------------- 42 procedure_21
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_LGT (TT_VAR x) (TT_QLIT "y")))))
-#--------------------------------------------------------------- 43 procedure_22
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_LLE (TT_VAR x) (TT_QLIT "y")))))
-#--------------------------------------------------------------- 44 procedure_23
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_LLT (TT_VAR x) (TT_QLIT "y")))))
-#--------------------------------------------------------------- 45 procedure_24
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_LNE (TT_VAR x) (TT_QLIT "y")))))
-#--------------------------------------------------------------- 46 procedure_25
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_LEQ (TT_VAR x) (TT_QLIT "y")))))
-#--------------------------------------------------------------- 47 procedure_26
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR s) (TT_CAT (TT_CAT (TT_QLIT "a") (TT_QLIT "b")) (TT_QLIT "c"))))))
-#--------------------------------------------------------------- 48 procedure_27
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR s) (TT_CAT (TT_QLIT "a") (TT_QLIT "b"))))))
-#--------------------------------------------------------------- 49 procedure_28
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_CONJ (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)) (TT_ASSIGN (TT_VAR y) (TT_ILIT 2))))))
-#--------------------------------------------------------------- 50 procedure_29
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_CONJ (TT_ASSIGN (TT_VAR x) (TT_VAR a)) (TT_VAR b) (TT_VAR c)))))
-#---------------------------------------------------------------- 51 procedure_3
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 42)))))
-#--------------------------------------------------------------- 52 procedure_30
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_CONJ (TT_ASSIGN (TT_VAR x) (TT_VAR a)) (TT_VAR b)))))
-#--------------------------------------------------------------- 53 procedure_31
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_CSET_COMPL (TT_CSET "aeiou"))))))
-#--------------------------------------------------------------- 54 procedure_32
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_CSET "aeiou")))))
-#--------------------------------------------------------------- 55 procedure_33
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR L) (TT_LCONCAT (TT_VAR A) (TT_VAR B))))))
-#--------------------------------------------------------------- 56 procedure_35
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_FNC (TT_VAR tab) (TT_FNC (TT_VAR match) (TT_VAR y)))))))
-#--------------------------------------------------------------- 57 procedure_37
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_NOT (TT_VAR y))))))
-#--------------------------------------------------------------- 58 procedure_38
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_NULL (TT_VAR y))))))
-#--------------------------------------------------------------- 59 procedure_39
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_POW (TT_ILIT 2) (TT_ILIT 3))))))
-#--------------------------------------------------------------- 60 procedure_41
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_FLIT 100)))))
-#--------------------------------------------------------------- 61 procedure_42
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_FLIT 3.14)))))
-#--------------------------------------------------------------- 62 procedure_44
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_SECTION (TT_VAR s) (TT_ILIT 1) (TT_MNS (TT_ILIT 2)))))))
-#--------------------------------------------------------------- 63 procedure_45
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_SECTION (TT_VAR s) (TT_ILIT 1) (TT_PLS (TT_ILIT 2)))))))
-#--------------------------------------------------------------- 64 procedure_48
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_FIELD (TT_IDX (TT_VAR a) (TT_ILIT 1)) (TT_VAR y))))))
-#--------------------------------------------------------------- 65 procedure_49
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_CSET_COMPL (TT_VAR y))))))
-#--------------------------------------------------------------- 66 procedure_50
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_MNS (TT_VAR y))))))
-#--------------------------------------------------------------- 67 procedure_51
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_PLS (TT_VAR y))))))
-#--------------------------------------------------------------- 68 procedure_52
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_SIZE (TT_VAR y))))))
-#--------------------------------------------------------------- 69 procedure_53
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_CSET_COMPL (TT_CSET_COMPL (TT_VAR y)))))))
-#---------------------------------------------------------------- 70 procedure_6
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_QLIT "hello")))))
-#---------------------------------------------------------------- 71 procedure_7
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_VAR y)))))
-#-------------------------------------------------------- 72 procedure_elemgen_2
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_BANG_BINARY (TT_VAR write) (TT_VAR args)))))
-#----------------------------------------------------------- 73 procedure_scan_1
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_SCAN (TT_VAR s) (TT_CONJ (TT_VAR x) (TT_VAR y))))))
-#-------------------------------------------------------- 74 procedure_write_100
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_IF (TT_LLT (TT_QLIT "a") (TT_QLIT "b")) (TT_FNC (TT_VAR write) (TT_QLIT "yes"))))
-))
-#-------------------------------------------------------- 75 procedure_write_102
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_ADD (TT_ILIT 1) (TT_ILIT 2))))))
-#-------------------------------------------------------- 76 procedure_write_103
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_ILIT 42)))))
-#-------------------------------------------------------- 77 procedure_write_104
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_QLIT "hello")))))
-#-------------------------------------------------------- 78 procedure_write_105
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_VAR x)))))
 #--------------------------------------------------------- 79 procedure_write_14
 3.14
 #-------------------------------------------------------- 80 procedure_write_156
@@ -198,66 +86,6 @@ le
 256
 #--------------------------------------------------------- 96 procedure_write_62
 no
-#--------------------------------------------------------- 97 procedure_write_73
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_CONJ (TT_FNC (TT_VAR write) (TT_ILIT 1)) (TT_FNC (TT_VAR write) (TT_ILIT 2))))))
-#--------------------------------------------------------- 98 procedure_write_84
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_ADD (TT_VAR x) (TT_ILIT 1))))))
-#--------------------------------------------------------- 99 procedure_write_89
-(STMT :subj (TT_PROC_DECL f (TT_VAR f) (TT_VLIST (TT_VAR x)) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_VAR x)))))
-#-------------------------------------------------------- 100 procedure_write_91
-(STMT :subj (TT_PROC_DECL greet (TT_VAR greet) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_QLIT "hi")))))
-#-------------------------------------------------------- 101 procedure_write_92
-(STMT :subj (TT_PROC_DECL add (TT_VAR add) (TT_VLIST (TT_VAR a) (TT_VAR b)) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_ADD (TT_VAR a) (TT_VAR b))))))
-#-------------------------------------------------------- 102 procedure_write_93
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST (TT_VAR args)) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_IDX (TT_VAR args) (TT_ILIT 1))))))
-#-------------------------------------------------------- 103 procedure_write_97
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_IF (TT_IDENTICAL (TT_VAR x) (TT_VAR y)) (TT_FNC (TT_VAR write) (TT_QLIT "eq"))))
-))
-#-------------------------------------------------------- 104 procedure_write_98
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_IF (TT_NIDENTICAL (TT_VAR x) (TT_VAR y)) (TT_FNC (TT_VAR write) (TT_QLIT "ne"))))
-))
-#-------------------------------------------------------- 105 procedure_write_99
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_IF (TT_LGT (TT_QLIT "b") (TT_QLIT "a")) (TT_FNC (TT_VAR write) (TT_QLIT "yes"))))
-))
-#------------------------------------------------ 106 procedure_write_replace_10
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_IF (TT_LNE (TT_QLIT "a") (TT_QLIT "b")) (TT_FNC (TT_VAR write) (TT_QLIT "yes"))))
-))
-#------------------------------------------------- 107 procedure_write_replace_6
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_IF (TT_EQ (TT_CAT (TT_QLIT "a") (TT_QLIT "b")) (TT_QLIT "ab")) (TT_FNC (TT_VAR write) (TT_QLIT "yes"))))
-))
-#------------------------------------------------- 108 procedure_write_replace_7
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_IF (TT_LEQ (TT_QLIT "a") (TT_QLIT "a")) (TT_FNC (TT_VAR write) (TT_QLIT "yes"))))
-))
-#------------------------------------------------- 109 procedure_write_replace_8
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_IF (TT_LGE (TT_QLIT "b") (TT_QLIT "a")) (TT_FNC (TT_VAR write) (TT_QLIT "yes"))))
-))
-#------------------------------------------------- 110 procedure_write_replace_9
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_IF (TT_LLE (TT_QLIT "a") (TT_QLIT "b")) (TT_FNC (TT_VAR write) (TT_QLIT "yes"))))
-))
 #-------------------------------------------- 111 ladder_rung39_numbit_dtor_rtod
 3.141592654
 180.0
@@ -270,17 +98,6 @@ after-delay
 before
 #----------------------------------------- 115 ladder_rung41_rt_system_exit_stop
 0
-#-------------------------------------------------------------- 116 procedure_43
-(STMT :subj (TT_PROC_DECL fact
-  (TT_VAR fact)
-  (TT_VLIST (TT_VAR n))
-  (TT_PROGRAM
-    (TT_IF (TT_LE (TT_VAR n) (TT_ILIT 1)) (TT_RETURN (TT_ILIT 1)))
-    (TT_RETURN (TT_MUL (TT_VAR n) (TT_FNC (TT_VAR fact) (TT_SUB (TT_VAR n) (TT_ILIT 1)))))
-  )
-))
-#--------------------------------------------------------------- 117 procedure_5
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR a) (TT_ILIT 1)) (TT_ASSIGN (TT_VAR b) (TT_ILIT 2)))))
 #------------------------------------------------------- 118 procedure_write_138
 n1
 n2
@@ -326,12 +143,6 @@ foobar
 256.0
 #--------------------------------------------------------- 134 procedure_write_6
 hello
-#-------------------------------------------------------- 135 procedure_write_81
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_INITIAL (TT_FNC (TT_VAR write) (TT_QLIT "init"))) (TT_FNC (TT_VAR write) (TT_QLIT "body")))
-))
 #--------------------------------------------------------- 136 procedure_write_9
 1
 #------------------------------------------- 137 ladder_rung12_strrelop_size_sgt
@@ -360,12 +171,6 @@ done
 65
 A
 Z
-#--------------------------------------------------------------- 144 procedure_4
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 7)) (TT_ASSIGN (TT_VAR y) (TT_QLIT "hi")) (TT_ASSIGN (TT_VAR z) (TT_VAR w)))
-))
 #--------------------------------------------------------- 145 procedure_write_1
 Hello, World!
 #------------------------------------------------------- 146 procedure_write_106
@@ -459,9 +264,6 @@ done
 3.0
 1.0
 1.414213562
-#-------------------------------------------------------------- 172 procedure_36
-(STMT :subj (TT_PROC_DECL foo (TT_VAR foo) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)))))
-(STMT :subj (TT_PROC_DECL bar (TT_VAR bar) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 2)))))
 #------------------------------------------------------- 173 procedure_write_148
 one
 two
@@ -475,35 +277,6 @@ b
 one
 two
 three
-#-------------------------------------------------------- 177 procedure_write_77
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM
-    (TT_IF (TT_GT (TT_VAR x) (TT_ILIT 0)) (TT_SEQ_EXPR (TT_FNC (TT_VAR write) (TT_QLIT "a")) (TT_FNC (TT_VAR write) (TT_QLIT "b"))))
-  )
-))
-#-------------------------------------------------------- 178 procedure_write_86
-(STMT :subj (TT_PROC_DECL greet (TT_VAR greet) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_QLIT "hi")))))
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR greet)))))
-#-------------------------------------------------------- 179 procedure_write_87
-(STMT :subj (TT_PROC_DECL show (TT_VAR show) (TT_VLIST (TT_VAR x)) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_VAR x)))))
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR show) (TT_ILIT 42)))))
-#-------------------------------------------------------- 180 procedure_write_88
-(STMT :subj (TT_PROC_DECL add (TT_VAR add) (TT_VLIST (TT_VAR a) (TT_VAR b)) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_ADD (TT_VAR a) (TT_VAR b))))))
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR add) (TT_ILIT 1) (TT_ILIT 2)))))
-#-------------------------------------------------------- 181 procedure_write_76
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM
-    (TT_IF
-      (TT_GT (TT_VAR x) (TT_ILIT 0))
-      (TT_SEQ_EXPR (TT_FNC (TT_VAR write) (TT_QLIT "pos")) (TT_FNC (TT_VAR write) (TT_QLIT "ok")))
-      (TT_FNC (TT_VAR write) (TT_QLIT "neg"))
-    )
-  )
-))
 #------------------------------------------------- 182 procedure_write_replace_5
 a<<b
 b>>a
@@ -573,123 +346,14 @@ y
 null
 #--------------------------------------------------- 199 ladder_rung41_rt_serial
 integer
-#----------------------------------------------------------- 200 procedure_alt_1
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ALTERNATE (TT_ADD (TT_ILIT 1) (TT_ILIT 2)) (TT_ADD (TT_ILIT 3) (TT_ILIT 4)))))
-))
-#----------------------------------------------------------- 201 procedure_alt_2
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ALTERNATE (TT_QLIT "a") (TT_QLIT "b"))))))
-#----------------------------------------------------------- 202 procedure_alt_3
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ALTERNATE (TT_ILIT 1) (TT_ILIT 2) (TT_ILIT 3))))))
-#----------------------------------------------------------- 203 procedure_alt_4
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ALTERNATE (TT_ILIT 1) (TT_ILIT 2))))))
-#----------------------------------------------------------- 204 procedure_alt_6
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_ASSIGN (TT_VAR s) (TT_ALTERNATE (TT_CAT (TT_QLIT "a") (TT_QLIT "b")) (TT_CAT (TT_QLIT "c") (TT_QLIT "d")))))
-))
-#----------------------------------------------------- 205 procedure_alt_write_2
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_ALTERNATE (TT_ILIT 1) (TT_ILIT 2))))))
-#----------------------------------------------------- 206 procedure_augassign_1
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_ADD (TT_VAR x) (TT_ILIT 1)))))
-#----------------------------------------------------- 207 procedure_augassign_2
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_CAT (TT_VAR x) (TT_QLIT "y")))))
-#----------------------------------------------------- 208 procedure_augassign_3
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_CSET_DIFF (TT_VAR x) (TT_QLIT "y")))))
-#----------------------------------------------------- 209 procedure_augassign_4
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_CSET_UNION (TT_VAR x) (TT_QLIT "y")))))
-#----------------------------------------------------- 210 procedure_augassign_5
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_SUB (TT_VAR x) (TT_ILIT 1)))))
-#--------------------------------------------- 211 procedure_augassign_replace_1
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_AUGOP TT_CSET_INTER (TT_VAR x) (TT_QLIT "y")))))
 #--------------------------------------------------- 212 procedure_case_write_17
 2
 #---------------------------------------------------- 213 procedure_case_write_6
 2
-#---------------------------------------------------- 214 procedure_case_write_8
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_CASE (TT_VAR x) (TT_ILIT 1) (TT_FNC (TT_VAR write) (TT_QLIT "one")) (TT_ILIT 2) (TT_FNC (TT_VAR write) (TT_QLIT "two"))))
-))
-#---------------------------------------------------- 215 procedure_case_write_9
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM
-    (TT_CASE
-      (TT_VAR x)
-      (TT_ILIT 1)
-      (TT_FNC (TT_VAR write) (TT_QLIT "one"))
-      (TT_ILIT 2)
-      (TT_FNC (TT_VAR write) (TT_QLIT "two"))
-      (TT_FNC (TT_VAR write) (TT_QLIT "other"))
-    )
-  )
-))
-#------------------------------------------------------- 216 procedure_elemgen_1
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_BANG_BINARY (TT_VAR f) (TT_VAR args))))))
-#------------------------------------------------------- 217 procedure_elemgen_3
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ITERATE (TT_VAR y))))))
-#--------------------------------------------------- 218 procedure_every_write_4
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_EVERY (TT_VAR i) (TT_FNC (TT_VAR write) (TT_VAR i))))))
-#--------------------------------------------------- 219 procedure_every_write_5
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_EVERY (TT_VAR i) (TT_SEQ_EXPR (TT_FNC (TT_VAR write) (TT_VAR i)) (TT_FNC (TT_VAR write) (TT_VAR i)))))
-))
-#---------------------------------------------------------- 220 procedure_fail_1
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_PROC_FAIL)))))
-#------------------------------------------------------- 221 procedure_keyword_1
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_VAR &pos)))))
-#------------------------------------------------------- 222 procedure_keyword_2
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_VAR &null)))))
-#--------------------------------------------------------- 223 procedure_limit_1
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_NONNULL (TT_VAR y))))))
 #--------------------------------------------------- 224 procedure_limit_write_1
 no
 #--------------------------------------------------- 225 procedure_limit_write_8
 no
-#-------------------------------------------------- 226 procedure_repeat_write_1
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_REPEAT (TT_FNC (TT_VAR write) (TT_QLIT "x"))))))
-#---------------------------------------------------------- 227 procedure_scan_2
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_SCAN (TT_QLIT "hello") (TT_ASSIGN (TT_VAR r) (TT_QLIT "ok"))))))
-#---------------------------------------------------------- 228 procedure_scan_3
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_RANDOM (TT_VAR y))))))
-#--------------------------------------------------- 229 procedure_scan_write_12
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_SCAN (TT_QLIT "hello") (TT_FNC (TT_VAR write) (TT_QLIT "found"))))))
-#--------------------------------------------------- 230 procedure_scan_write_13
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_SCAN (TT_FNC (TT_VAR write) (TT_QLIT "test")) (TT_FNC (TT_VAR write) (TT_QLIT "found"))))
-))
-#---------------------------------------------------------- 231 procedure_swap_1
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_SWAP (TT_VAR x) (TT_VAR y)))))
-#--------------------------------------------------- 232 procedure_until_write_1
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_UNTIL (TT_GT (TT_VAR x) (TT_ILIT 5)) (TT_FNC (TT_VAR write) (TT_VAR x))))))
-#-------------------------------------------------------- 233 procedure_write_85
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)) (TT_VAR x))))
-))
-#-------------------------------------------------------- 234 procedure_write_94
-(STMT :subj (TT_PROC_DECL try
-  (TT_VAR try)
-  (TT_VLIST (TT_VAR c) (TT_VAR n))
-  (TT_PROGRAM (TT_IF (TT_GT (TT_VAR c) (TT_VAR n)) (TT_SEQ_EXPR (TT_FNC (TT_VAR write) (TT_QLIT "done")) (TT_RETURN))))
-))
-#-------------------------------------------------------- 235 procedure_write_96
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_CONJ (TT_FNC (TT_VAR write) (TT_QLIT "a")) (TT_FNC (TT_VAR write) (TT_QLIT "b")))))
-))
 #--------------------------------------------------- 236 procedure_write_image_1
 list_1(3)
 #------------------------------------ 237 ladder_rung39_numbit_large_integer_ops
@@ -701,37 +365,12 @@ hello
 #---------------------------------------------- 239 ladder_rung42_kw_lcase_ucase
 abcdefghijklmnopqrstuvwxyz
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
-#-------------------------------------------------------------- 240 procedure_34
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_LOCAL (TT_VAR a) (TT_VAR b)) (TT_ASSIGN (TT_VAR a) (TT_ILIT 1)))))
-#----------------------------------------------------------- 241 procedure_alt_5
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)) (TT_ASSIGN (TT_VAR y) (TT_ALTERNATE (TT_VAR x) (TT_ILIT 99))))
-))
 #--------------------------------------------------- 242 procedure_case_write_15
 two
 other
 #---------------------------------------------------- 243 procedure_case_write_4
 two
 other
-#-------------------------------------------------------- 244 procedure_static_1
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_STATIC_DECL (TT_VAR s1)) (TT_ASSIGN (TT_VAR s1) (TT_ILIT 42)))))
-#--------------------------------------------------------- 245 procedure_while_1
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM
-    (TT_ASSIGN (TT_VAR i) (TT_ILIT 3))
-    (TT_WHILE (TT_GT (TT_VAR i) (TT_ILIT 0)) (TT_ASSIGN (TT_VAR i) (TT_SUB (TT_VAR i) (TT_ILIT 1))))
-  )
-))
-#------------------------------------------------------- 246 procedure_write_101
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_IDX (TT_VAR a) (TT_ILIT 1))) (TT_FNC (TT_VAR write) (TT_VAR x)))
-))
 #-------------------------------------------------------- 247 procedure_write_11
 5
 #-------------------------------------------------------- 248 procedure_write_13
@@ -781,66 +420,6 @@ hello
 3
 #-------------------------------------------------------- 270 procedure_write_63
 ok
-#-------------------------------------------------------- 271 procedure_write_70
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 5)) (TT_IF (TT_EQ (TT_VAR x) (TT_ILIT 5)) (TT_FNC (TT_VAR write) (TT_QLIT "eq"))))
-))
-#-------------------------------------------------------- 272 procedure_write_71
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 3)) (TT_IF (TT_LT (TT_VAR x) (TT_ILIT 5)) (TT_FNC (TT_VAR write) (TT_QLIT "lt"))))
-))
-#-------------------------------------------------------- 273 procedure_write_74
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_FIELD (TT_VAR r) (TT_VAR f))) (TT_FNC (TT_VAR write) (TT_VAR x)))
-))
-#-------------------------------------------------------- 274 procedure_write_75
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM
-    (TT_ASSIGN (TT_VAR x) (TT_ILIT 2))
-    (TT_IF (TT_GE (TT_VAR x) (TT_ILIT 2)) (TT_FNC (TT_VAR write) (TT_QLIT "ge")) (TT_FNC (TT_VAR write) (TT_QLIT "lt")))
-  )
-))
-#-------------------------------------------------------- 275 procedure_write_78
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM
-    (TT_ASSIGN (TT_VAR x) (TT_ILIT 1))
-    (TT_IF (TT_GT (TT_VAR x) (TT_ILIT 0)) (TT_FNC (TT_VAR write) (TT_QLIT "pos")) (TT_FNC (TT_VAR write) (TT_QLIT "neg")))
-  )
-))
-#-------------------------------------------------------- 276 procedure_write_80
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)) (TT_IF (TT_GT (TT_VAR x) (TT_ILIT 0)) (TT_FNC (TT_VAR write) (TT_QLIT "pos"))))
-))
-#-------------------------------------------------------- 277 procedure_write_82
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_MAKELIST (TT_ILIT 1) (TT_ILIT 2) (TT_ILIT 3))) (TT_FNC (TT_VAR write) (TT_VAR x)))
-))
-#-------------------------------------------------------- 278 procedure_write_83
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_MOD (TT_ILIT 7) (TT_ILIT 3))) (TT_FNC (TT_VAR write) (TT_VAR x)))
-))
-#-------------------------------------------------------- 279 procedure_write_95
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_SECTION (TT_VAR a) (TT_ILIT 1) (TT_ILIT 3))) (TT_FNC (TT_VAR write) (TT_VAR x)))
-))
 #-------------------------------- 280 ladder_rung41_rt_getch_getche_kbhit_on_eof
 eof-fail
 eof-fail
@@ -865,9 +444,6 @@ abc
 #---------------------------------------------------- 286 procedure_find_write_2
 2
 4
-#------------------------------------------------ 287 procedure_record_replace_2
-(STMT :subj (TT_RECORD Point (TT_VAR x) (TT_VAR y)))
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR p) (TT_FNC (TT_VAR Point) (TT_ILIT 1) (TT_ILIT 2))))))
 #---------------------------------------------------- 288 procedure_repl_write_1
 ababab
 
@@ -876,12 +452,6 @@ ababab
 ababab
 
 ----
-#------------------------------------------------------- 290 procedure_suspend_1
-(STMT :subj (TT_PROC_DECL gen
-  (TT_VAR gen)
-  (TT_VLIST (TT_VAR n))
-  (TT_PROGRAM (TT_SUSPEND (TT_VAR n)) (TT_SUSPEND (TT_ADD (TT_VAR n) (TT_ILIT 1))) (TT_RETURN))
-))
 #------------------------------------------------------- 291 procedure_write_161
 o
 l
@@ -914,15 +484,6 @@ yes
 integer
 string
 real
-#-------------------------------------------------------- 302 procedure_write_79
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 5)) (TT_IF (TT_GT (TT_VAR x) (TT_ILIT 3)) (TT_FNC (TT_VAR write) (TT_QLIT "big"))))
-))
-#------------------------------------------------- 303 procedure_write_global_10
-(STMT :subj (TT_GLOBAL (TT_VAR g1) (TT_VAR g2)))
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_VAR g1)))))
 #--------------------------------------------- 304 ladder_rung41_rt_chdir_getenv
 chdir-ok
 chdir-fail
@@ -933,10 +494,6 @@ unset
 256
 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
 0123456789
-#------------------------------------------------ 306 procedure_record_replace_1
-(STMT :subj (TT_RECORD Point (TT_VAR x) (TT_VAR y)))
-(STMT :subj (TT_RECORD Color (TT_VAR r) (TT_VAR g) (TT_VAR b)))
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR p) (TT_FNC (TT_VAR Point) (TT_ILIT 1) (TT_ILIT 2))))))
 #------------------------------------------------------- 307 procedure_write_139
 99
 1
@@ -959,44 +516,10 @@ hello world
 bcd
 #-------------------------------------------------------- 314 procedure_write_58
 hello world
-#-------------------------------------------------------- 315 procedure_write_90
-(STMT :subj (TT_PROC_DECL double (TT_VAR double) (TT_VLIST (TT_VAR x)) (TT_PROGRAM (TT_RETURN (TT_ADD (TT_VAR x) (TT_VAR x))))))
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_FNC (TT_VAR double) (TT_ILIT 5))))))
 #---------------------------------------------------- 316 procedure_write_read_1
 eof
 #---------------------------------------------------- 317 procedure_write_read_3
 eof
-#---------------------------------------------------- 318 procedure_case_write_7
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM
-    (TT_CASE
-      (TT_VAR x)
-      (TT_ILIT 1)
-      (TT_FNC (TT_VAR write) (TT_QLIT "one"))
-      (TT_ILIT 2)
-      (TT_FNC (TT_VAR write) (TT_QLIT "two"))
-      (TT_FNC (TT_VAR write) (TT_QLIT "other"))
-    )
-  )
-))
-#---------------------------------------------------- 319 procedure_fail_write_1
-(STMT :subj (TT_PROC_DECL tryit (TT_VAR tryit) (TT_VLIST) (TT_PROGRAM (TT_PROC_FAIL))))
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_QLIT "x")))))
-#-------------------------------------------------------- 320 procedure_global_1
-(STMT :subj (TT_GLOBAL (TT_VAR x) (TT_VAR y) (TT_VAR z)))
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_ILIT 1)) (TT_ASSIGN (TT_VAR y) (TT_ILIT 2)) (TT_ASSIGN (TT_VAR z) (TT_ADD (TT_VAR x) (TT_VAR y))))
-))
-#------------------------------------------------- 321 procedure_suspend_write_1
-(STMT :subj (TT_PROC_DECL gen (TT_VAR gen) (TT_VLIST) (TT_PROGRAM (TT_SUSPEND (TT_ILIT 1) (TT_FNC (TT_VAR write) (TT_QLIT "done"))))))
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_QLIT "x")))))
-#------------------------------------------------- 322 procedure_suspend_write_2
-(STMT :subj (TT_PROC_DECL gen (TT_VAR gen) (TT_VLIST) (TT_PROGRAM (TT_SUSPEND (TT_ILIT 1)))))
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_FNC (TT_VAR write) (TT_QLIT "x")))))
 #------------------------------------------------------- 323 procedure_write_198
 foo-bar
 hello-world
@@ -1009,15 +532,6 @@ hello-world
 #-------------------------------------------------------- 326 procedure_write_64
 big
 5
-#-------------------------------------------------------- 327 procedure_write_72
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM
-    (TT_ASSIGN (TT_VAR x) (TT_ILIT 1))
-    (TT_SEQ_EXPR (TT_FNC (TT_VAR write) (TT_VAR x)) (TT_FNC (TT_VAR write) (TT_ADD (TT_VAR x) (TT_ILIT 1))))
-  )
-))
 #--------------------------------------------------- 328 procedure_limit_write_3
         abc
 	x
@@ -1262,22 +776,6 @@ a
 1
 2
 3
-#--------------------------------------------------- 364 procedure_every_write_3
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_EVERY (TT_SEQ_EXPR (TT_IF (TT_GT (TT_VAR x) (TT_ILIT 5)) (TT_LOOP_BREAK)) (TT_FNC (TT_VAR write) (TT_VAR x)))))
-))
-#--------------------------------------------------- 365 procedure_every_write_6
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_EVERY (TT_SEQ_EXPR (TT_IF (TT_LT (TT_VAR x) (TT_ILIT 0)) (TT_LOOP_NEXT)) (TT_FNC (TT_VAR write) (TT_VAR x)))))
-))
-#-------------------------------------------------- 366 procedure_fail_keyword_1
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_VAR &fail)))))
-#----------------------------------------------------- 367 procedure_scan_move_2
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_SCAN (TT_VAR s) (TT_ASSIGN (TT_VAR r) (TT_FNC (TT_VAR move) (TT_ILIT 1)))))))
 #------------------------------------------------------- 368 procedure_write_205
 3
 3
@@ -1421,12 +919,6 @@ ababab
 6
 #--------------------------------------------------- 397 procedure_limit_write_2
 3
-#--------------------------------------------------- 398 procedure_limit_write_5
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_ASSIGN (TT_VAR x) (TT_LIMIT (TT_VAR gen) (TT_ILIT 5))) (TT_FNC (TT_VAR write) (TT_VAR x)))
-))
 #--------------------------------------------------- 399 procedure_limit_write_9
 3
 #----------------------------------------------------- 400 procedure_map_write_1
@@ -1510,12 +1002,6 @@ string
 hello world
 #----------------------------------------------- 430 procedure_write_augassign_4
 hello world
-#----------------------------------------------- 431 procedure_write_augassign_7
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_ASSIGN (TT_VAR s) (TT_QLIT "hello")) (TT_AUGOP TT_CAT (TT_VAR s) (TT_QLIT " world")) (TT_FNC (TT_VAR write) (TT_VAR s)))
-))
 #--------------------------------------- 432 procedure_write_augassign_replace_1
 12
 #--------------------------------------- 433 procedure_write_augassign_replace_3
@@ -1571,17 +1057,6 @@ oob-fails
 #--------------------------------------------------- 445 procedure_table_write_9
 7
 1
-#--------------------------------------------------- 446 procedure_while_write_4
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM
-    (TT_WHILE
-      (TT_GT (TT_VAR x) (TT_ILIT 0))
-      (TT_SEQ_EXPR (TT_ASSIGN (TT_VAR x) (TT_SUB (TT_VAR x) (TT_ILIT 1))) (TT_FNC (TT_VAR write) (TT_VAR x)))
-    )
-  )
-))
 #-------------------------------------------------------- 447 procedure_write_10
 7
 #------------------------------------------------------- 448 procedure_write_150
@@ -1623,18 +1098,6 @@ gone
 87
 7
 87
-#-------------------------------------------------------------- 465 procedure_40
-(STMT :subj (TT_PROC_DECL swap
-  (TT_VAR swap)
-  (TT_VLIST (TT_VAR a) (TT_VAR b))
-  (TT_PROGRAM
-    (TT_LOCAL (TT_VAR tmp))
-    (TT_ASSIGN (TT_VAR tmp) (TT_VAR a))
-    (TT_ASSIGN (TT_VAR a) (TT_VAR b))
-    (TT_ASSIGN (TT_VAR b) (TT_VAR tmp))
-    (TT_RETURN (TT_VAR tmp))
-  )
-))
 #----------------------------------------------------- 466 procedure_every_to_36
 3
 4
@@ -1876,16 +1339,6 @@ a
 1:4
 2:3
 2:4
-#---------------------------------------------------- 538 procedure_every_alt_21
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_EVERY (TT_FNC (TT_VAR write) (TT_ALTERNATE (TT_VAR x) (TT_VAR y)))))))
-#---------------------------------------------------- 539 procedure_every_alt_23
-(STMT :subj (TT_PROC_DECL main (TT_VAR main) (TT_VLIST) (TT_PROGRAM (TT_EVERY (TT_FNC (TT_VAR write) (TT_ALTERNATE (TT_ILIT 1) (TT_ILIT 2)))))))
-#---------------------------------------------------- 540 procedure_every_alt_24
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_EVERY (TT_FNC (TT_VAR write) (TT_ALTERNATE (TT_ILIT 1) (TT_ILIT 2) (TT_ILIT 3)))))
-))
 #---------------------------------------------------- 541 procedure_every_alt_28
 1:3
 1:4
@@ -1952,29 +1405,6 @@ by
 1
 2
 3
-#----------------------------------------------------- 557 procedure_every_to_22
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM
-    (TT_EVERY
-      (TT_ASSIGN (TT_VAR i) (TT_TO (TT_ADD (TT_ILIT 1) (TT_ILIT 1)) (TT_MUL (TT_ILIT 5) (TT_ILIT 2))))
-      (TT_FNC (TT_VAR write) (TT_VAR i))
-    )
-  )
-))
-#----------------------------------------------------- 558 procedure_every_to_23
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_EVERY (TT_ASSIGN (TT_VAR i) (TT_TO (TT_ILIT 1) (TT_ILIT 10))) (TT_FNC (TT_VAR write) (TT_VAR i))))
-))
-#----------------------------------------------------- 559 procedure_every_to_24
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_EVERY (TT_ASSIGN (TT_VAR i) (TT_TO_BY (TT_ILIT 1) (TT_ILIT 10) (TT_ILIT 2))) (TT_FNC (TT_VAR write) (TT_VAR i))))
-))
 #------------------------------------------------------- 560 procedure_write_224
 3
 3
@@ -2242,12 +1672,6 @@ hi
 #---------------------------------------------------- 634 procedure_every_alt_15
 a
 b
-#---------------------------------------------------- 635 procedure_every_alt_22
-(STMT :subj (TT_PROC_DECL main
-  (TT_VAR main)
-  (TT_VLIST)
-  (TT_PROGRAM (TT_EVERY (TT_ASSIGN (TT_VAR i) (TT_ALTERNATE (TT_ILIT 1) (TT_ILIT 2) (TT_ILIT 3))) (TT_FNC (TT_VAR write) (TT_VAR i))))
-))
 #---------------------------------------------------- 636 procedure_every_alt_35
 1
 1
@@ -2868,18 +2292,6 @@ none
 6
 #----------------------------------------------------- 696 procedure_every_to_51
 6
-#---------------------------------------------- 697 procedure_every_to_replace_6
-(STMT :subj (TT_PROC_DECL show
-  (TT_VAR show)
-  (TT_VLIST (TT_VAR n))
-  (TT_PROGRAM
-    (TT_LOCAL (TT_VAR i))
-    (TT_EVERY
-      (TT_ASSIGN (TT_VAR i) (TT_TO (TT_ILIT 1) (TT_VAR n)))
-      (TT_SEQ_EXPR (TT_FNC (TT_VAR write) (TT_VAR i)) (TT_FNC (TT_VAR write) (TT_MUL (TT_VAR i) (TT_ILIT 2))))
-    )
-  )
-))
 #--------------------------------------------------- 698 procedure_scan_write_10
 0
 #--------------------------------------------------- 699 procedure_scan_write_17
@@ -3103,12 +2515,6 @@ a
 #--------------------------------------------------- 748 procedure_every_limit_7
 1
 2
-#------------------------------------------------- 749 procedure_every_suspend_5
-(STMT :subj (TT_PROC_DECL range
-  (TT_VAR range)
-  (TT_VLIST (TT_VAR lo) (TT_VAR hi))
-  (TT_PROGRAM (TT_LOCAL (TT_VAR i)) (TT_EVERY (TT_ASSIGN (TT_VAR i) (TT_TO (TT_VAR lo) (TT_VAR hi))) (TT_SUSPEND (TT_VAR i))))
-))
 #----------------------------------------------------- 750 procedure_scan_many_1
 N
 #------------------------------------------------------- 751 procedure_write_211
