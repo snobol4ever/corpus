@@ -1,0 +1,39 @@
+# fixed-iter-n.tsv -- committed N per Prolog kernel for angle 2 (scripts/bench_prolog_fixed_iter.sh), the
+# historical counterpart to angle 1's live doubling search (scripts/test_bench_prolog_timed.sh). The two
+# angles must derive N from INDEPENDENT sources or their agreement proves nothing; this file is angle 2's.
+#
+# ⭐ PROVENANCE (hq_P 2026-09-13, row bench-kernels-are-not-pristine-and-carry-no-refs-ceo-567-conversion):
+#   these 21 numbers are LIFTED VERBATIM, by execution, from the `main :- l__(N).` line frozen into each
+#   retired corpus/benchmarks/prolog/vanroy/<kernel>.pl. Retiring that directory (CEO-567: the iteration
+#   count may not live inside the artifact under measurement) must not silently re-calibrate the board, so
+#   the N values carried over unchanged and only their HOME moved -- out of generated source, into a table.
+#   The wrapper itself is now generated on demand by scripts/bench_prolog_wrap.sh --mode=iter --n=<N>.
+#
+# ⛔ THE ROW NAMES A KERNEL IN corpus/benchmarks/prolog/bench/; a row whose bench/<kernel>.pl does not
+#   exist is an orphan denominator entry and the harness REFUSES rc=2 rather than printing a smaller board.
+# ⛔ queens N=1 IS CARRIED FORWARD UNDER PROTEST AND IS NOT A SLOPE. An iteration count of one means that
+#   row has no loop at all, so its "iterations/s" is a single-shot TOTAL wearing a rate's units and carries
+#   startup (RULES.md apples-to-apples: a SLOPE is not a TOTAL). It is kept here so the retirement changes
+#   no published number; re-calibrating it is its own row with its own before/after board.
+kernel	N
+cal	65536
+crypt	1024
+derive	65536
+deriv	65536
+divide10	65536
+fib	64
+ham	16
+log10	65536
+meta_qsort	1024
+mu	16384
+nreverse	16384
+nrev	65536
+ops8	65536
+qsort	16384
+queens	1
+queens_8	256
+query	16384
+sendmore	256
+tak	16
+times10	65536
+zebra	256
