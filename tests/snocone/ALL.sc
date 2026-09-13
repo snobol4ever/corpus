@@ -2578,3 +2578,12 @@ OUTPUT = 3.5;
 OUTPUT = "double";
 /*----------------------------------------------------- 375 simple_output_211 */
 OUTPUT = 'single';
+/*----------------------------------------------------- 376 simple_output_212 */
+/* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: while+break over LT(i,10) with EQ(i,4) exit; twin is the idiomatic SPITBOL goto form (FIN label shares its line with the real OUTPUT='done' statement, per rung12/13 D5 fallback) */
+i = 0;
+while (LT(i, 10)) { i = i + 1; if (EQ(i, 4)) { break; } OUTPUT = i; }
+OUTPUT = 'done';
+/*----------------------------------------------------- 377 simple_output_213 */
+/* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: while+continue over LT(i,5) skipping EQ(i,3); twin is the idiomatic SPITBOL goto form with a BARE trailing FIN label before END (rung13's proven side-effect-free fallback -- a trailing OUTPUT='' would emit a spurious blank line the .sc program does not) */
+i = 0;
+while (LT(i, 5)) { i = i + 1; if (EQ(i, 3)) { continue; } OUTPUT = i; }
