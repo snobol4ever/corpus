@@ -306,7 +306,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 305,simple_output_124,crosscheck_rungB11__B11_comment_hash,crosscheck_rungB11,block,1,3,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 306,simple_output_92,crosscheck_rungB05__B05_alt_both_fail,crosscheck_rungB05,block,1,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 307,simple_output_96,crosscheck_rungB06__B06_query_empty,crosscheck_rungB06,block,1,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-308,simple_output_51,crosscheck_rungA13__A13_define_locals,crosscheck_rungA13,block,1,9,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+308,simple_output_51,crosscheck_rungA13__A13_define_locals,crosscheck_rungA13,block,0,9,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 309,simple_output_144,crosscheck_toplevel_xfail__hello_literals,crosscheck_toplevel_xfail,block,1,26,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 310,simple_output_69,crosscheck_rungA16__A16_hello_literals,crosscheck_rungA16,block,1,26,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 311,capture_replace_1,crosscheck_rungB05__B05_alt_assign,crosscheck_rungB05,block,1,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
@@ -316,8 +316,8 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 315,datatype_replace_1,crosscheck_rungB08__B08_struct_datatype,crosscheck_rungB08,block,1,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 316,array_replace_1,crosscheck_rungA05__A05_array_create,crosscheck_rungA05,block,1,8,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 317,array_replace_2,crosscheck_rungA05__A05_array_loop,crosscheck_rungA05,block,1,12,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-318,trim_keyword_replace_1,crosscheck_rungA15__A15_lib_math,crosscheck_rungA15,block,1,45,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0
-319,break_len_rem_replace_2,crosscheck_rungA15__A15_lib_stack,crosscheck_rungA15,block,1,81,"m3,m4",0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0
+318,trim_keyword_replace_1,crosscheck_rungA15__A15_lib_math,crosscheck_rungA15,block,0,45,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+319,break_len_rem_replace_2,crosscheck_rungA15__A15_lib_stack,crosscheck_rungA15,block,0,81,"m3,m4",0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,0
 320,break_any_pos_replace_1,crosscheck_rungA15__A15_lib_string,crosscheck_rungA15,block,1,89,"m3,m4",0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,0,0,1,0,0,0,0,0
 321,simple_output_224,ladder__rung20_augmented_assignment_plus_equals,ladder,block,0,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 322,simple_output_225,ladder__rung20_augmented_assignment_minus_equals,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

@@ -2150,9 +2150,9 @@ if (?x) {
 } else {
     OUTPUT = "no value";
 }
-/*------------------------------------------------ 308 simple_output_51 XFAIL */
+/*------------------------------------------------------ 308 simple_output_51 */
 // A13_define_locals.sc — function with local variable
-function swap(a, b)(tmp) {
+function swap(a, b) tmp {
     tmp = a;
     a = b;
     b = tmp;
@@ -2206,9 +2206,9 @@ OUTPUT = '"Quote of the day"';
 OUTPUT = '' + '';
 OUTPUT = '' + 1;
 OUTPUT = 1 + '';
-OUTPUT = ('A', 'Z');
-OUTPUT = ('A', 'Z');
-OUTPUT = ('A', 'Z');
+OUTPUT = ('', '');
+OUTPUT = ('', 'Z');
+OUTPUT = ('A', '');
 OUTPUT = ('A', 'Z');
 OUTPUT = 1 + 2;
 OUTPUT = 1 + 2 * 3;
@@ -2266,7 +2266,7 @@ while (LE(i, 5)) {
     OUTPUT = arr<i>;
     i = i + 1;
 }
-/*------------------------------------------ 318 trim_keyword_replace_1 XFAIL */
+/*------------------------------------------------ 318 trim_keyword_replace_1 */
 // A15_lib_math.sc — numeric utility functions: max, min, abs, sign, gcd, lcm
 // Snocone translation of crosscheck/library/test_math.sno + lib/math.sno
 &TRIM = 1;
@@ -2288,7 +2288,7 @@ function sign(n) {
     if (GT(n, 0)) { return 1; }
     return 0;
 }
-function gcd(a, b)(r) {
+function gcd(a, b) r {
     while (DIFFER(b, 0)) {
         r = REMDR(a, b);
         a = b;
@@ -2296,7 +2296,7 @@ function gcd(a, b)(r) {
     }
     return a;
 }
-function lcm(a, b)(g) {
+function lcm(a, b) g {
     g = gcd(a, b);
     return (a / g) * b;
 }
@@ -2312,7 +2312,7 @@ OUTPUT = sign(-3);
 OUTPUT = gcd(12, 8);
 OUTPUT = gcd(100, 75);
 OUTPUT = lcm(4, 6);
-/*----------------------------------------- 319 break_len_rem_replace_2 XFAIL */
+/*----------------------------------------------- 319 break_len_rem_replace_2 */
 // A15_lib_stack.sc — general-purpose stack: push, pop, peek, depth
 // Snocone translation of crosscheck/library/test_stack.sno + lib/stack.sno
 &TRIM = 1;
@@ -2328,7 +2328,7 @@ function stack_push(x) {
     stk = slink(stk, x);
     return;
 }
-function stack_pop()(val) {
+function stack_pop() val {
     if (DIFFER(stk)) {
         val = sval(stk);
         stk = snext(stk);
@@ -2340,7 +2340,7 @@ function stack_peek() {
     if (DIFFER(stk)) { return sval(stk); }
     freturn;
 }
-function stack_depth()(sd, n) {
+function stack_depth() sd, n {
     n = 0;
     sd = stk;
     while (DIFFER(sd)) {
@@ -2410,7 +2410,7 @@ function pad_right(s, n, c) {
     if (GE(SIZE(s), n)) { return s; }
     return s   DUPL(c, n - SIZE(s));
 }
-function ltrim(s)(ws) {
+function ltrim(s) ws {
     ws = ' ';
     while (GT(SIZE(s), 0)) {
         if (SUBSTR(s, 1, 1) ? ANY(ws)) {
@@ -2421,7 +2421,7 @@ function ltrim(s)(ws) {
     }
     return s;
 }
-function rtrim(s)(ws, i, ch) {
+function rtrim(s) ws, i, ch {
     ws = ' ';
     i = SIZE(s);
     while (GT(i, 0)) {
@@ -2449,7 +2449,7 @@ function startswith(s, t) {
 function endswith(s, t) {
     if (s ? t   RPOS(0)) { return; } else { freturn; }
 }
-function index(s, t)(ix) {
+function index(s, t) ix {
     ix = s;
     if (ix ? BREAK(t) . ix) { return SIZE(ix) + 1; }
     return 0;
