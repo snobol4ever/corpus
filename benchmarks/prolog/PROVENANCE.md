@@ -104,6 +104,18 @@ brief: not chasing a download to populate `swipl-devel-master/bench` as part of 
 
 ## 4. Content-diff — `src/` reference copies vs. graded `bench/`+`vanroy/` working sets
 
+> ⛔⭐ **RETIREMENT NOTE (hq_P, 2026-09-13, CEO-567) — `vanroy/` NO LONGER EXISTS.** Everything this
+> section says about it remains true **as a record of what was imported and graded at the time**, and is
+> deliberately left unedited; only this note is added, because rewriting a provenance document to match
+> today's tree destroys the very thing it is for. What changed: `vanroy/` held 21 files that were each
+> `bench/<k>.pl` with a generated loop wrapper and the iteration count `main :- l__(N).` frozen in — the
+> count living inside the artifact under measurement, which CEO-567 forbids. It was proven to be wholly
+> derived content (21 twins, 0 not-twins, diffed against the pre-conversion `bench/` sources) and deleted.
+> Its two durable pieces both survive: the 21 **names** and their 21 **N values** are now
+> `benchmarks/prolog/fixed-iter-n.tsv`, lifted verbatim by execution so nothing was re-calibrated, and the
+> wrapped form itself is GENERATED on demand by `SCRIP/scripts/bench_prolog_wrap.sh --mode=iter --n=<N>`.
+> The `src/swi-vanroy/` upstream reference copy this section compares against is untouched and still here.
+
 Every filename present in both a `src/*` reference tree and its corresponding graded
 tree was `diff`'d to confirm nothing silently drifted (dedup-by-content, not just by name,
 per this row's own `## NEXT`).
