@@ -18559,3 +18559,146 @@ END
         :(L)
 DONE    OUTPUT = 'done'
 END
+*-------------------------------------------------- 1949 user_function_keyword_2
+	&FTRACE = 100
+	DEFINE('SHIFT(S,N)')	:(START)
+SHIFT	SHIFT = S N	:(RETURN)
+START	OUTPUT = SHIFT('SKYBLUE', 3)
+	OUTPUT = 'done'
+END
+*-------------------------------------------------- 1950 user_function_keyword_3
+	&FTRACE = 2
+	DEFINE('F(X)')	:(START)
+F	F = X	:(RETURN)
+START	OUTPUT = F(1)
+	OUTPUT = F(2)
+	OUTPUT = F(3)
+	OUTPUT = 'done ' &FTRACE
+END
+*-------------------------------------------------- 1951 user_function_keyword_4
+	&FTRACE = 100
+	DEFINE('A(X)')
+	DEFINE('B(Y)')
+	DEFINE('C(Z)')	:(START)
+A	A = B(X)	:(RETURN)
+B	B = C(Y)	:(RETURN)
+C	C = Z + 1	:(RETURN)
+START	OUTPUT = A(1)
+	OUTPUT = 'done'
+END
+*------------------------------------------- 1952 user_function_keyword_branch_4
+	&FTRACE = 100
+	DEFINE('R(X)')
+	DEFINE('NM(Y)')
+	DEFINE('FL(Z)')	:(START)
+R	R = X	:(RETURN)
+NM	NM = .M	:(NRETURN)
+FL		:(FRETURN)
+START	OUTPUT = R(1)
+	NM() = 7
+	FL(2)	:F(NEXT)
+NEXT	OUTPUT = 'done ' M
+END
+*-------------------------------------------------- 1953 user_function_keyword_5
+	&TRACE = 100
+	DEFINE('F(X)')
+	DEFINE('G(Y)')	:(START)
+F	F = X + 1	:(RETURN)
+G	G = Y * 2	:(RETURN)
+START	TRACE('F', 'CALL')
+	TRACE('G', 'C')
+	OUTPUT = F(3)
+	OUTPUT = G(4)
+	OUTPUT = 'done'
+END
+*-------------------------------------------------- 1954 user_function_keyword_6
+	&TRACE = 100
+	DEFINE('F(X)')
+	DEFINE('G(Y)')	:(START)
+F	F = X + 1	:(RETURN)
+G	G = Y * 2	:(RETURN)
+START	TRACE('F', 'RETURN')
+	TRACE('G', 'R')
+	OUTPUT = F(3)
+	OUTPUT = G(4)
+	OUTPUT = 'done'
+END
+*-------------------------------------------------- 1955 user_function_keyword_7
+	&TRACE = 100
+	DEFINE('F(X)')
+	DEFINE('G(Y)')	:(START)
+F	F = X + 1	:(RETURN)
+G	G = Y * 2	:(RETURN)
+START	TRACE('F', 'FUNCTION')
+	TRACE('G', 'F')
+	OUTPUT = F(3)
+	OUTPUT = G(4)
+	OUTPUT = 'done'
+END
+*--------------------------------------------------------------- 1956 keyword_32
+	&TRACE = 100
+	TRACE('LBL', 'LABEL')
+	OUTPUT = 'before'	:(LBL)
+LBL	OUTPUT = 'at lbl'
+	OUTPUT = 'done ' &TRACE
+END
+*--------------------------------------------------------------- 1957 keyword_33
+	&TRACE = 100
+	TRACE('LBL', 'L')
+	OUTPUT = 'before'	:(LBL)
+LBL	OUTPUT = 'at lbl'
+	OUTPUT = 'done ' &TRACE
+END
+*--------------------------------------------------------------- 1958 keyword_34
+	&TRACE = 100
+	TRACE('LBL', 'LABEL')
+	OUTPUT = 'before'
+LBL	OUTPUT = 'at lbl'
+	OUTPUT = 'done ' &TRACE
+END
+*-------------------------------------------------- 1959 user_function_keyword_8
+	&TRACE = 100
+	DEFINE('F(X)')	:(START)
+F	F = X + 1	:(RETURN)
+START	TRACE('F', 'LABEL')
+	OUTPUT = F(3)
+	OUTPUT = 'done ' &TRACE
+END
+*-------------------------------------------------- 1960 user_function_keyword_9
+	&TRACE = 100
+	DEFINE('F(X)')	:(START)
+F	F = X + 1	:(RETURN)
+START	TRACE('FNCLEVEL', 'KEYWORD')
+	OUTPUT = F(3)
+	OUTPUT = 'done ' &TRACE
+END
+*--------------------------------------------------------------- 1961 keyword_35
+	&TRACE = 100
+	TRACE('STCOUNT', 'KEYWORD')
+	OUTPUT = 'a'
+	OUTPUT = 'b'
+	OUTPUT = 'done'
+END
+*------------------------------------------------- 1962 user_function_keyword_10
+	&TRACE = 100
+	DEFINE('F(X)')	:(START)
+F	F = X + 1	:(RETURN)
+START	TRACE('FNCLEVEL', 'K')
+	OUTPUT = F(3)
+	OUTPUT = 'done ' &TRACE
+END
+*------------------------------------------------- 1963 user_function_keyword_11
+	&TRACE = 100
+	DEFINE('MYFUN(NAME,TAG)')	:(START)
+MYFUN	OUTPUT = 'tf ' NAME ' ' TAG	:(RETURN)
+START	TRACE('STCOUNT', 'KEYWORD', 'tg', .MYFUN)
+	OUTPUT = 'a'
+	OUTPUT = 'done'
+END
+*--------------------------------------------------------------- 1964 keyword_36
+	&TRACE = 100
+	&STLIMIT = -1
+	TRACE('STCOUNT', 'KEYWORD')
+	OUTPUT = 'a'
+	OUTPUT = 'done ' &TRACE
+END
