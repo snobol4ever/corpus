@@ -359,12 +359,14 @@ s := "hello world"
 s ? "xyz" <- "there"
 OUTPUT := s
 end
-#-------------------------------------------------- 84 assign_exchange_undefined
+#------------------------------------------------------------ 84 assign_exchange
 function main()
 OUTPUT := "before"
 x := 1
 y := 2
 x :=: y
+OUTPUT := x
+OUTPUT := y
 end
 #----------------------------------------------------------- 85 simple_assign_34
 function add(a, b)

@@ -82,7 +82,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 81,simple_output_14,ladder__rung02_reassign__ladder__rung02_reassign,ladder,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 82,simple_output_28,ladder__rung11_replace_literal__ladder__rung11_replace_literal,ladder,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 83,simple_output_29,ladder__rung11_replace_no_match_unchanged__ladder__rung11_replace_no_match_unchanged,ladder,block,0,5,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-84,assign_exchange_undefined,ladder__rung02_assign_exchange,ladder,block,0,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+84,assign_exchange,ladder__rung02_assign_exchange,ladder,block,0,8,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 85,simple_assign_34,parser_func_args__parser_func_args,parser_func_args,block,0,6,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 86,simple_assign_36,parser_func_one_arg__parser_func_one_arg,parser_func_one_arg,block,0,6,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 87,simple_assign_37,parser_func_two__parser_func_two,parser_func_two,block,0,6,ast,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

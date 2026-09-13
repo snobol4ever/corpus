@@ -778,8 +778,10 @@ hello world
 hello there
 #----------------------------------------------------------- 83 simple_output_29
 hello world
-#-------------------------------------------------- 84 assign_exchange_undefined
+#------------------------------------------------------------ 84 assign_exchange
 before
+2
+1
 #----------------------------------------------------------- 85 simple_assign_34
 (STMT :subj (TT_FNC DEFINE (TT_QLIT "ADD(A,B)")))
 (STMT :go rb_1)
