@@ -18757,3 +18757,112 @@ END
 	X = N
 	OUTPUT = 'trace=' &TRACE
 END
+*---------- 1958 ladder__rung22_access_traces_a_reference_on_the_right_hand_side
+	&TRACE = 10
+	N = 5
+	TRACE('N', 'ACCESS')
+	X = N
+	OUTPUT = 'x=' X ' trace=' &TRACE
+END
+*------------------- 1959 ladder__rung22_access_both_spellings_trace_a_reference
+	&TRACE = 10
+	A = 1
+	B = 2
+	TRACE('A', 'A')
+	TRACE('B', 'ACCESS')
+	X = A
+	Y = B
+	OUTPUT = 'trace=' &TRACE
+END
+*-------- 1960 ladder__rung22_access_name_as_a_string_or_the_unary_name_operator
+	&TRACE = 10
+	N = 5
+	M = 6
+	TRACE('N', 'ACCESS')
+	TRACE(.M, 'ACCESS')
+	X = N
+	Y = M
+	OUTPUT = 'trace=' &TRACE
+END
+*---- 1961 ladder__rung22_access_fires_once_per_reference_not_once_per_statement
+	&TRACE = 10
+	N = 5
+	TRACE('N', 'ACCESS')
+	X = N N
+	OUTPUT = 'x=' X ' trace=' &TRACE
+END
+*------------- 1962 ladder__rung22_access_is_silent_on_an_assignment_to_the_name
+	&TRACE = 10
+	N = 5
+	TRACE('N', 'ACCESS')
+	N = 9
+	OUTPUT = 'trace=' &TRACE
+END
+*--- 1963 ladder__rung22_access_banner_carries_the_referencing_statements_number
+	&TRACE = 10
+	N = 5
+	TRACE('N', 'ACCESS')
+	OUTPUT = 'before'
+	X = N
+	OUTPUT = 'after'
+END
+*------- 1964 ladder__rung22_access_decrements_the_trace_budget_by_one_per_trace
+	&TRACE = 3
+	N = 5
+	TRACE('N', 'ACCESS')
+	X = N
+	OUTPUT = 'trace=' &TRACE
+	Y = N
+	OUTPUT = 'trace=' &TRACE
+END
+*----------------- 1965 ladder__rung22_access_stops_when_the_budget_reaches_zero
+	&TRACE = 1
+	N = 5
+	TRACE('N', 'ACCESS')
+	X = N
+	Y = N
+	Z = N
+	OUTPUT = 'trace=' &TRACE
+END
+*------------------- 1966 ladder__rung22_access_requires_a_nonzero_trace_keyword
+	&TRACE = 0
+	N = 5
+	TRACE('N', 'ACCESS')
+	X = N
+	OUTPUT = 'x=' X ' trace=' &TRACE
+END
+*------------------------------- 1967 ladder__rung22_stoptr_ends_an_access_trace
+	&TRACE = 10
+	N = 5
+	TRACE('N', 'ACCESS')
+	X = N
+	STOPTR('N', 'ACCESS')
+	Y = N
+	OUTPUT = 'trace=' &TRACE
+END
+*- 1968 ladder__rung22_access_type_is_never_implicit_because_an_omitted_type_means_value
+	&TRACE = 10
+	N = 5
+	TRACE('N')
+	X = N
+	N = 9
+	OUTPUT = 'trace=' &TRACE
+END
+*- 1969 ladder__rung22_access_calls_a_program_defined_trace_function_with_the_name_and_the_tag
+	&TRACE = 10
+	DEFINE('TRFUN(NAME,TAG)')	:(TRFUN_END)
+TRFUN	OUTPUT = TAG ' read ' NAME	:(RETURN)
+TRFUN_END	N = 5
+	TRACE(.N, 'ACCESS', 'Variable N', .TRFUN)
+	X = N
+	OUTPUT = 'trace=' &TRACE
+END
+*-- 1970 ladder__rung22_access_nesting_depth_prints_an_i_per_function_call_level
+	&TRACE = 10
+	DEFINE('F(Y)')	:(START)
+F	F = N + Y	:(RETURN)
+START	N = 5
+	TRACE('N', 'ACCESS')
+	X = F(1)
+	OUTPUT = 'x=' X
+END
