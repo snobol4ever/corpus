@@ -327,3 +327,5 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 326,simple_output_229,ladder__rung21_alternative_evaluation_middle_arm_succeeds,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 327,simple_output_230,ladder__rung21_alternative_evaluation_last_arm_fall_through,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 328,simple_output_231,ladder__rung21_alternative_evaluation_all_arms_fail_statement_fails,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+329,ladder__rung22_datatype_function_uppercase_type_name_query,ladder__rung22_datatype_function_uppercase_type_name_query,ladder,block,0,9,"m3,m4",0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+330,ladder__rung22_datatype_function_name_operator_yields_name,ladder__rung22_datatype_function_name_operator_yields_name,ladder,block,0,3,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

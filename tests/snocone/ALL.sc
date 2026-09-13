@@ -2520,3 +2520,17 @@ i = 3; j = 3;
 x = 'untouched';
 x = (LT(i, j) 'first', GT(i, j) 'second');
 OUTPUT = x;
+/*------------ 329 ladder__rung22_datatype_function_uppercase_type_name_query */
+t = TABLE();
+a = ARRAY('3');
+p = LEN(1);
+OUTPUT = DATATYPE('hello');
+OUTPUT = DATATYPE(42);
+OUTPUT = DATATYPE(3.14);
+OUTPUT = DATATYPE(p);
+OUTPUT = DATATYPE(t);
+OUTPUT = DATATYPE(a);
+/*------------ 330 ladder__rung22_datatype_function_name_operator_yields_name */
+x = 'hi';
+OUTPUT = DATATYPE(.x);
+OUTPUT = DATATYPE(x);

@@ -991,3 +991,13 @@ second
 third
 /*----------------------------------------------------- 328 simple_output_231 */
 untouched
+/*------------ 329 ladder__rung22_datatype_function_uppercase_type_name_query */
+STRING
+INTEGER
+REAL
+PATTERN
+TABLE
+ARRAY
+/*------------ 330 ladder__rung22_datatype_function_name_operator_yields_name */
+NAME
+STRING
