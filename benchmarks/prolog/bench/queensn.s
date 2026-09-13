@@ -8653,6 +8653,8 @@ n872_var_α:             mov              r11, 359
 n873_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n873_call_value_α:      mov              r11, 360
+                        mov              rax, qword ptr [rbp + 128]
+                        test             rax, rax;                            je    .Lcall_value_α_914_22
                         lea              rdi, [rbp + 128]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -8661,7 +8663,7 @@ n873_call_value_α:      mov              r11, 360
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 136], 0
+.Lcall_value_α_914_22:  mov              qword ptr [rbp + 136], 0
                         mov              rdi, qword ptr [rbp + 160]
                         mov              rsi, qword ptr [rbp + 168]
                         lea              rdx, [rbp + 128]
@@ -8758,6 +8760,8 @@ n875_var_α:             mov              r11, 362
 n876_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n876_call_value_α:      mov              r11, 363
+                        mov              rax, qword ptr [rbp + 64]
+                        test             rax, rax;                            je    .Lcall_value_α_920_22
                         lea              rdi, [rbp + 64]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -8766,7 +8770,7 @@ n876_call_value_α:      mov              r11, 363
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 72], 0
+.Lcall_value_α_920_22:  mov              qword ptr [rbp + 72], 0
                         mov              rdi, qword ptr [rbp + 96]
                         mov              rsi, qword ptr [rbp + 104]
                         lea              rdx, [rbp + 64]
@@ -8943,6 +8947,8 @@ n883_var_α:             mov              r11, 370
 n884_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n884_call_value_α:      mov              r11, 371
+                        mov              rax, qword ptr [rbp + 640]
+                        test             rax, rax;                            je    .Lcall_value_α_934_22
                         lea              rdi, [rbp + 640]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -8951,7 +8957,7 @@ n884_call_value_α:      mov              r11, 371
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 648], 0
+.Lcall_value_α_934_22:  mov              qword ptr [rbp + 648], 0
                         mov              rdi, qword ptr [rbp + 672]
                         mov              rsi, qword ptr [rbp + 680]
                         lea              rdx, [rbp + 640]
@@ -9038,6 +9044,8 @@ n885_var_α:             mov              r11, 372
 n886_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n886_call_value_α:      mov              r11, 373
+                        mov              rax, qword ptr [rbp + 576]
+                        test             rax, rax;                            je    .Lcall_value_α_938_22
                         lea              rdi, [rbp + 576]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -9046,7 +9054,7 @@ n886_call_value_α:      mov              r11, 373
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 584], 0
+.Lcall_value_α_938_22:  mov              qword ptr [rbp + 584], 0
                         mov              rdi, qword ptr [rbp + 608]
                         mov              rsi, qword ptr [rbp + 616]
                         lea              rdx, [rbp + 576]
@@ -9442,6 +9450,8 @@ n953_var_α:             mov              r11, 388
 n954_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n954_call_value_α:      mov              r11, 389
+                        mov              rax, qword ptr [rbp + 288]
+                        test             rax, rax;                            je    .Lcall_value_α_1065_22
                         lea              rdi, [rbp + 288]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -9450,7 +9460,7 @@ n954_call_value_α:      mov              r11, 389
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 296], 0
+.Lcall_value_α_1065_22: mov              qword ptr [rbp + 296], 0
                         mov              rdi, qword ptr [rbp + 320]
                         mov              rsi, qword ptr [rbp + 328]
                         lea              rdx, [rbp + 288]
@@ -9537,6 +9547,8 @@ n955_var_α:             mov              r11, 390
 n956_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n956_call_value_α:      mov              r11, 391
+                        mov              rax, qword ptr [rbp + 160]
+                        test             rax, rax;                            je    .Lcall_value_α_1069_22
                         lea              rdi, [rbp + 160]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -9545,7 +9557,7 @@ n956_call_value_α:      mov              r11, 391
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 168], 0
+.Lcall_value_α_1069_22: mov              qword ptr [rbp + 168], 0
                         mov              rdi, qword ptr [rbp + 192]
                         mov              rsi, qword ptr [rbp + 200]
                         lea              rdx, [rbp + 160]
@@ -9647,6 +9659,8 @@ n959_var_α:             mov              r11, 394
 n960_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n960_call_value_α:      mov              r11, 395
+                        mov              rax, qword ptr [rbp + 224]
+                        test             rax, rax;                            je    .Lcall_value_α_1077_22
                         lea              rdi, [rbp + 224]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -9655,7 +9669,7 @@ n960_call_value_α:      mov              r11, 395
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 232], 0
+.Lcall_value_α_1077_22: mov              qword ptr [rbp + 232], 0
                         mov              rdi, qword ptr [rbp + 256]
                         mov              rsi, qword ptr [rbp + 264]
                         lea              rdx, [rbp + 224]
@@ -9979,6 +9993,8 @@ n979_var_α:             mov              r11, 414
 n980_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n980_call_value_α:      mov              r11, 415
+                        mov              rax, qword ptr [rbp + 816]
+                        test             rax, rax;                            je    .Lcall_value_α_1112_22
                         lea              rdi, [rbp + 816]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -9987,7 +10003,7 @@ n980_call_value_α:      mov              r11, 415
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 824], 0
+.Lcall_value_α_1112_22: mov              qword ptr [rbp + 824], 0
                         mov              rdi, qword ptr [rbp + 848]
                         mov              rsi, qword ptr [rbp + 856]
                         lea              rdx, [rbp + 816]
@@ -10080,6 +10096,8 @@ n982_var_α:             mov              r11, 417
 n983_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n983_call_value_α:      mov              r11, 418
+                        mov              rax, qword ptr [rbp + 880]
+                        test             rax, rax;                            je    .Lcall_value_α_1118_22
                         lea              rdi, [rbp + 880]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -10088,7 +10106,7 @@ n983_call_value_α:      mov              r11, 418
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 888], 0
+.Lcall_value_α_1118_22: mov              qword ptr [rbp + 888], 0
                         mov              rdi, qword ptr [rbp + 912]
                         mov              rsi, qword ptr [rbp + 920]
                         lea              rdx, [rbp + 880]
@@ -10200,6 +10218,8 @@ n987_var_α:             mov              r11, 422
 n988_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n988_call_value_α:      mov              r11, 423
+                        mov              rax, qword ptr [rbp + 944]
+                        test             rax, rax;                            je    .Lcall_value_α_1128_22
                         lea              rdi, [rbp + 944]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -10208,7 +10228,7 @@ n988_call_value_α:      mov              r11, 423
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 952], 0
+.Lcall_value_α_1128_22: mov              qword ptr [rbp + 952], 0
                         mov              rdi, qword ptr [rbp + 976]
                         mov              rsi, qword ptr [rbp + 984]
                         lea              rdx, [rbp + 944]
@@ -10585,6 +10605,8 @@ n1002_var_α:            mov              r11, 437
 n1003_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1003_call_value_α:     mov              r11, 438
+                        mov              rax, qword ptr [rbp + 1408]
+                        test             rax, rax;                            je    .Lcall_value_α_1156_22
                         lea              rdi, [rbp + 1408]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -10593,7 +10615,7 @@ n1003_call_value_α:     mov              r11, 438
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 1416], 0
+.Lcall_value_α_1156_22: mov              qword ptr [rbp + 1416], 0
                         mov              rdi, qword ptr [rbp + 1440]
                         mov              rsi, qword ptr [rbp + 1448]
                         lea              rdx, [rbp + 1408]
@@ -10690,6 +10712,8 @@ n1005_var_α:            mov              r11, 440
 n1006_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1006_call_value_α:     mov              r11, 441
+                        mov              rax, qword ptr [rbp + 1344]
+                        test             rax, rax;                            je    .Lcall_value_α_1162_22
                         lea              rdi, [rbp + 1344]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -10698,7 +10722,7 @@ n1006_call_value_α:     mov              r11, 441
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 1352], 0
+.Lcall_value_α_1162_22: mov              qword ptr [rbp + 1352], 0
                         mov              rdi, qword ptr [rbp + 1376]
                         mov              rsi, qword ptr [rbp + 1384]
                         lea              rdx, [rbp + 1344]
@@ -10875,6 +10899,8 @@ n1013_var_α:            mov              r11, 448
 n1014_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1014_call_value_α:     mov              r11, 449
+                        mov              rax, qword ptr [rbp + 1760]
+                        test             rax, rax;                            je    .Lcall_value_α_1176_22
                         lea              rdi, [rbp + 1760]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -10883,7 +10909,7 @@ n1014_call_value_α:     mov              r11, 449
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 1768], 0
+.Lcall_value_α_1176_22: mov              qword ptr [rbp + 1768], 0
                         mov              rdi, qword ptr [rbp + 1792]
                         mov              rsi, qword ptr [rbp + 1800]
                         lea              rdx, [rbp + 1760]
@@ -11245,6 +11271,8 @@ n1026_var_α:            mov              r11, 461
 n1027_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1027_call_value_α:     mov              r11, 462
+                        mov              rax, qword ptr [rbp + 2048]
+                        test             rax, rax;                            je    .Lcall_value_α_1200_22
                         lea              rdi, [rbp + 2048]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -11253,7 +11281,7 @@ n1027_call_value_α:     mov              r11, 462
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 2056], 0
+.Lcall_value_α_1200_22: mov              qword ptr [rbp + 2056], 0
                         mov              rdi, qword ptr [rbp + 2080]
                         mov              rsi, qword ptr [rbp + 2088]
                         lea              rdx, [rbp + 2048]
@@ -11350,6 +11378,8 @@ n1029_var_α:            mov              r11, 464
 n1030_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1030_call_value_α:     mov              r11, 465
+                        mov              rax, qword ptr [rbp + 1984]
+                        test             rax, rax;                            je    .Lcall_value_α_1206_22
                         lea              rdi, [rbp + 1984]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -11358,7 +11388,7 @@ n1030_call_value_α:     mov              r11, 465
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 1992], 0
+.Lcall_value_α_1206_22: mov              qword ptr [rbp + 1992], 0
                         mov              rdi, qword ptr [rbp + 2016]
                         mov              rsi, qword ptr [rbp + 2024]
                         lea              rdx, [rbp + 1984]
@@ -11535,6 +11565,8 @@ n1037_var_α:            mov              r11, 472
 n1038_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1038_call_value_α:     mov              r11, 473
+                        mov              rax, qword ptr [rbp + 2400]
+                        test             rax, rax;                            je    .Lcall_value_α_1220_22
                         lea              rdi, [rbp + 2400]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -11543,7 +11575,7 @@ n1038_call_value_α:     mov              r11, 473
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 2408], 0
+.Lcall_value_α_1220_22: mov              qword ptr [rbp + 2408], 0
                         mov              rdi, qword ptr [rbp + 2432]
                         mov              rsi, qword ptr [rbp + 2440]
                         lea              rdx, [rbp + 2400]
@@ -11867,6 +11899,8 @@ n1227_var_α:            mov              r11, 480
 n1228_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1228_call_value_α:     mov              r11, 481
+                        mov              rax, qword ptr [rbp + 128]
+                        test             rax, rax;                            je    .Lcall_value_α_1245_22
                         lea              rdi, [rbp + 128]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -11875,7 +11909,7 @@ n1228_call_value_α:     mov              r11, 481
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 136], 0
+.Lcall_value_α_1245_22: mov              qword ptr [rbp + 136], 0
                         mov              rdi, qword ptr [rbp + 160]
                         mov              rsi, qword ptr [rbp + 168]
                         lea              rdx, [rbp + 128]
@@ -11972,6 +12006,8 @@ n1230_var_α:            mov              r11, 483
 n1231_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1231_call_value_α:     mov              r11, 484
+                        mov              rax, qword ptr [rbp + 64]
+                        test             rax, rax;                            je    .Lcall_value_α_1251_22
                         lea              rdi, [rbp + 64]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -11980,7 +12016,7 @@ n1231_call_value_α:     mov              r11, 484
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 72], 0
+.Lcall_value_α_1251_22: mov              qword ptr [rbp + 72], 0
                         mov              rdi, qword ptr [rbp + 96]
                         mov              rsi, qword ptr [rbp + 104]
                         lea              rdx, [rbp + 64]
@@ -12239,6 +12275,8 @@ n1258_var_α:            mov              r11, 491
 n1259_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1259_call_value_α:     mov              r11, 492
+                        mov              rax, qword ptr [rbp + 128]
+                        test             rax, rax;                            je    .Lcall_value_α_1275_22
                         lea              rdi, [rbp + 128]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -12247,7 +12285,7 @@ n1259_call_value_α:     mov              r11, 492
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 136], 0
+.Lcall_value_α_1275_22: mov              qword ptr [rbp + 136], 0
                         mov              rdi, qword ptr [rbp + 160]
                         mov              rsi, qword ptr [rbp + 168]
                         lea              rdx, [rbp + 128]
@@ -12334,6 +12372,8 @@ n1260_var_α:            mov              r11, 493
 n1261_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1261_call_value_α:     mov              r11, 494
+                        mov              rax, qword ptr [rbp + 64]
+                        test             rax, rax;                            je    .Lcall_value_α_1279_22
                         lea              rdi, [rbp + 64]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -12342,7 +12382,7 @@ n1261_call_value_α:     mov              r11, 494
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 72], 0
+.Lcall_value_α_1279_22: mov              qword ptr [rbp + 72], 0
                         mov              rdi, qword ptr [rbp + 96]
                         mov              rsi, qword ptr [rbp + 104]
                         lea              rdx, [rbp + 64]
@@ -12661,6 +12701,8 @@ n1291_var_α:            mov              r11, 506
 n1292_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1292_call_value_α:     mov              r11, 507
+                        mov              rax, qword ptr [rbp + 208]
+                        test             rax, rax;                            je    .Lcall_value_α_1326_22
                         lea              rdi, [rbp + 208]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -12669,7 +12711,7 @@ n1292_call_value_α:     mov              r11, 507
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 216], 0
+.Lcall_value_α_1326_22: mov              qword ptr [rbp + 216], 0
                         mov              rdi, qword ptr [rbp + 240]
                         mov              rsi, qword ptr [rbp + 248]
                         lea              rdx, [rbp + 208]
@@ -12762,6 +12804,8 @@ n1294_var_α:            mov              r11, 509
 n1295_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1295_call_value_α:     mov              r11, 510
+                        mov              rax, qword ptr [rbp + 272]
+                        test             rax, rax;                            je    .Lcall_value_α_1332_22
                         lea              rdi, [rbp + 272]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -12770,7 +12814,7 @@ n1295_call_value_α:     mov              r11, 510
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 280], 0
+.Lcall_value_α_1332_22: mov              qword ptr [rbp + 280], 0
                         mov              rdi, qword ptr [rbp + 304]
                         mov              rsi, qword ptr [rbp + 312]
                         lea              rdx, [rbp + 272]
@@ -12882,6 +12926,8 @@ n1299_var_α:            mov              r11, 514
 n1300_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1300_call_value_α:     mov              r11, 515
+                        mov              rax, qword ptr [rbp + 336]
+                        test             rax, rax;                            je    .Lcall_value_α_1342_22
                         lea              rdi, [rbp + 336]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -12890,7 +12936,7 @@ n1300_call_value_α:     mov              r11, 515
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 344], 0
+.Lcall_value_α_1342_22: mov              qword ptr [rbp + 344], 0
                         mov              rdi, qword ptr [rbp + 368]
                         mov              rsi, qword ptr [rbp + 376]
                         lea              rdx, [rbp + 336]
