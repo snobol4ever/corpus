@@ -4553,3 +4553,30 @@ class Animal { has $.size; }
 class Dog is Animal { }
 multi sub infix:<<>(Animal $a, Animal $b) { return $a.size + $b.size; }
  my $d1 = Dog.new(size => 10); my $d2 = Dog.new(size => 20); say($d1 < $d2); 
+#---------------------------------------------------- 1026 ladder__rung15_blocks
+my $b = { 1 };
+say $b();
+#------------------------------------------- 1027 ladder__rung15_blocks_anon_sub
+my $f = sub { 1 };
+say $f();
+#---------------------------------- 1028 ladder__rung15_blocks_anon_sub_with_arg
+my $f = sub ($arg) { 1 + $arg };
+say $f(3);
+#--------------------------------------------- 1029 ladder__rung15_blocks_pointy
+my $p = -> $x { $x * 2 };
+say $p(5);
+#---------------------------------------------- 1030 ladder__rung15_blocks_topic
+my $b = { $_ * 2 };
+say $b(5);
+#--------------------------------------- 1031 ladder__rung15_blocks_placeholders
+my $add = { $^a + $^b };
+say $add(2, 3);
+#------------------------------------------------ 1032 ladder__rung15_blocks_map
+my @n = (1, 2, 3, 4);
+say @n.map({ $_ * 2 });
+#----------------------------------------------- 1033 ladder__rung15_blocks_grep
+my @n = (1, 2, 3, 4);
+say @n.grep({ $_ > 2 });
+#---------------------------------------------- 1034 ladder__rung15_blocks_first
+my @n = (1, 2, 3, 4);
+say @n.first({ $^a == 4 });
