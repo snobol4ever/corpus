@@ -18791,3 +18791,66 @@ END
 	N = 1
 	OUTPUT = 'survived n=' N
 END
+*--------------------------------------------------------------- 1976 keyword_44
+	&TRACE = 10
+	TRACE('N', 'VALUE')
+	N = 'first'
+	N = 2 + 3
+END
+*--------------------------------------------------------------- 1977 keyword_45
+	&TRACE = 10
+	TRACE('A', 'V')
+	TRACE('B', 'VALUE')
+	A = 1
+	B = 2
+END
+*-------------------------------------------------------- 1978 capture_keyword_1
+	&TRACE = 10
+	TRACE('N', 'VALUE')
+	'ABCD' 'BC' . N
+END
+*---------------------------------------------------- 1979 imm_capture_keyword_1
+	&TRACE = 10
+	TRACE('N', 'VALUE')
+	'ABCD' 'BC' $ N
+END
+*--------------------------------------------------------------- 1980 keyword_46
+	&TRACE = 10
+	TRACE('N', 'VALUE')
+	N = 'ABC'
+	N 'B' = 'X'
+END
+*------------------------------------------------------- 1981 indirect_keyword_4
+	&TRACE = 10
+	TRACE('N', 'VALUE')
+	$'N' = 8
+	V = .N
+	$V = 9
+END
+*------------------------------------------------- 1982 user_function_keyword_13
+	&TRACE = 10
+	DEFINE('H(Z)')	:(START)
+H	H = .M	:(NRETURN)
+START	TRACE('M', 'VALUE')
+	H() = 7
+END
+*-------------------------------------------------------- 1983 capture_keyword_2
+	&TRACE = 10
+	TRACE('N', 'VALUE')
+	N = 1
+	'ABCD' 'B' . N
+	$'N' = 8
+END
+*-------------------------------------------- 1984 capture_imm_capture_keyword_1
+	&TRACE = 10
+	TRACE('N', 'VALUE')
+	'ABCDEF' 'BC' . N
+	'ABCDEF' 'E' $ N
+END
+*--------------------------------------------------------------- 1985 keyword_47
+	&TRACE = 10
+	TRACE('N', 'VALUE')
+	N = 'seen'
+	X = N
+	OUTPUT = 'trace=' &TRACE
+END
