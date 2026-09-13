@@ -18156,7 +18156,7 @@ FEnd
         DEFINE('F(x)','F2')
         OUTPUT     =     F('b')
 END
-*--------------------------------------------- 1911 array_replace_branch_2 XFAIL
+*--------------------------------------------------- 1911 array_replace_branch_2
 -INCLUDE "gimpel_triage_class8_sig6_perm_module.sno"
         A  =  ARRAY(2)
         A<1>  =  'x'
