@@ -2495,3 +2495,13 @@ True
 #--------------------------------------- 907 ladder__rung17_compare_ops_variable
 More
 Less
+#---------------------------------------------- 908 ladder__rung18_two_arg_block
+(3 2 1)
+#---------------------------------- 909 ladder__rung18_two_arg_block_sort_string
+(pear kiwi fig)
+#----------------------------------- 910 ladder__rung18_two_arg_block_reduce_add
+6
+#----------------------------------- 911 ladder__rung18_two_arg_block_reduce_mul
+24
+#-------------------------------- 912 ladder__rung18_two_arg_block_reduce_concat
+abbc

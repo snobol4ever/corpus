@@ -4218,3 +4218,18 @@ my $o = (5 <=> 2);
 say $o;
 my $p = ("a" leg "b");
 say $p;
+#---------------------------------------------- 908 ladder__rung18_two_arg_block
+my @n = (3,1,2);
+say @n.sort({ $^b <=> $^a });
+#---------------------------------- 909 ladder__rung18_two_arg_block_sort_string
+my @w = ("pear","fig","kiwi");
+say @w.sort({ $^b leg $^a });
+#----------------------------------- 910 ladder__rung18_two_arg_block_reduce_add
+my @n = (1,2,3);
+say @n.reduce({ $^a + $^b });
+#----------------------------------- 911 ladder__rung18_two_arg_block_reduce_mul
+my @n = (1,2,3,4);
+say @n.reduce({ $^a * $^b });
+#-------------------------------- 912 ladder__rung18_two_arg_block_reduce_concat
+my @w = ("a","bb","c");
+say @w.reduce({ $^a ~ $^b });
