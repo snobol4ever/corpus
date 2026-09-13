@@ -896,3 +896,8 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,sub,multi,my,our,say,print,giv
 1032,ladder__rung15_blocks_map,ladder__rung15_blocks_map,ladder,block,0,2,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0
 1033,ladder__rung15_blocks_grep,ladder__rung15_blocks_grep,ladder,block,0,2,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0
 1034,ladder__rung15_blocks_first,ladder__rung15_blocks_first,ladder,block,0,2,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
+1035,ladder__rung16_bool_relops,ladder__rung16_bool_relops,ladder,block,0,4,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1036,ladder__rung16_bool_relops_string,ladder__rung16_bool_relops_string,ladder,block,0,3,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1037,ladder__rung16_bool_relops_so,ladder__rung16_bool_relops_so,ladder,block,0,3,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1038,ladder__rung16_bool_relops_numeric_context,ladder__rung16_bool_relops_numeric_context,ladder,block,0,3,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+1039,ladder__rung16_bool_relops_interpolated,ladder__rung16_bool_relops_interpolated,ladder,block,0,3,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
