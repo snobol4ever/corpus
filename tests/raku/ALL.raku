@@ -4197,3 +4197,24 @@ say $b + 0;
 my $b = 3 > 1;
 my $c = 3 < 1;
 say "b=$b c=$c";
+#------------------------------------------------ 903 ladder__rung17_compare_ops
+say (3 <=> 1);
+say (1 <=> 3);
+say (2 <=> 2);
+#-------------------------------------------- 904 ladder__rung17_compare_ops_leg
+say ("abc" leg "abd");
+say ("b" leg "a");
+say ("x" leg "x");
+#-------------------------------------------- 905 ladder__rung17_compare_ops_cmp
+say (10 cmp 9);
+say (1 cmp 2);
+say ("b" cmp "b");
+#---------------------------------------- 906 ladder__rung17_compare_ops_numeric
+say ((1 <=> 3) == -1);
+say ((2 <=> 2) == 0);
+say ((5 <=> 2) == 1);
+#--------------------------------------- 907 ladder__rung17_compare_ops_variable
+my $o = (5 <=> 2);
+say $o;
+my $p = ("a" leg "b");
+say $p;

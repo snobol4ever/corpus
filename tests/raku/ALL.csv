@@ -901,3 +901,8 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,sub,multi,my,our,say,print,giv
 1037,ladder__rung16_bool_relops_so,ladder__rung16_bool_relops_so,ladder,block,0,3,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 1038,ladder__rung16_bool_relops_numeric_context,ladder__rung16_bool_relops_numeric_context,ladder,block,0,3,"m3,m4",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 1039,ladder__rung16_bool_relops_interpolated,ladder__rung16_bool_relops_interpolated,ladder,block,0,3,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+1040,ladder__rung17_compare_ops,ladder__rung17_compare_ops,ladder,block,0,3,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1041,ladder__rung17_compare_ops_leg,ladder__rung17_compare_ops_leg,ladder,block,0,3,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1042,ladder__rung17_compare_ops_cmp,ladder__rung17_compare_ops_cmp,ladder,block,0,3,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1043,ladder__rung17_compare_ops_numeric,ladder__rung17_compare_ops_numeric,ladder,block,0,3,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1044,ladder__rung17_compare_ops_variable,ladder__rung17_compare_ops_variable,ladder,block,0,4,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0

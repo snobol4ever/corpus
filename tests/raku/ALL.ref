@@ -2476,3 +2476,22 @@ True
 1
 #----------------------------------- 902 ladder__rung16_bool_relops_interpolated
 b=True c=False
+#------------------------------------------------ 903 ladder__rung17_compare_ops
+More
+Less
+Same
+#-------------------------------------------- 904 ladder__rung17_compare_ops_leg
+Less
+More
+Same
+#-------------------------------------------- 905 ladder__rung17_compare_ops_cmp
+More
+Less
+Same
+#---------------------------------------- 906 ladder__rung17_compare_ops_numeric
+True
+True
+True
+#--------------------------------------- 907 ladder__rung17_compare_ops_variable
+More
+Less
