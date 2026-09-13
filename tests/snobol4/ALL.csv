@@ -1963,3 +1963,14 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1962,user_function_keyword_10,ladder__rung21_keyword_spelling_k,ladder,block,0,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 1963,user_function_keyword_11,ladder__rung21_keyword_stcount_calls_the_trace_function_before_every_statement,ladder,block,0,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 1964,keyword_36,ladder__rung21_keyword_stcount_is_not_traceable_when_stlimit_is_negative,ladder,block,0,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+1965,keyword_37,ladder__rung17_trace_requires_nonzero_trace_keyword,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+1966,keyword_38,ladder__rung17_trace_name_by_string_or_name_operator,ladder,block,0,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+1967,keyword_39,ladder__rung17_trace_type_omitted_defaults_to_value,ladder,block,0,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+1968,user_function_keyword_12,ladder__rung17_trace_types_all,ladder,block,0,13,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+1969,keyword_40,ladder__rung17_trace_budget_decrements,ladder,block,0,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+1970,keyword_branch_6,ladder__rung17_trace_budget_stops_at_zero,ladder,block,0,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0
+1971,keyword_41,ladder__rung17_trace_stoptr,ladder,block,0,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+1972,keyword_42,ladder__rung17_trace_banner_statement_number_and_value,ladder,block,0,4,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+1973,table_array_keyword_1,ladder__rung17_trace_banner_spells_an_object_with_its_prototype_and_serial,ladder,block,0,11,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+1974,user_function_indirect_keyword_1,ladder__rung17_trace_function_tag,ladder,block,0,7,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0
+1975,keyword_43,ladder__rung17_only_the_seven_trace_types_are_accepted,ladder,block,0,6,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0

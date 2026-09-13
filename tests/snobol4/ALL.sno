@@ -18702,3 +18702,92 @@ END
 	OUTPUT = 'a'
 	OUTPUT = 'done ' &TRACE
 END
+*--------------------------------------------------------------- 1965 keyword_37
+	TRACE('N', 'VALUE')
+	N = 1
+	OUTPUT = 'trace=' &TRACE ' n=' N
+END
+*--------------------------------------------------------------- 1966 keyword_38
+	&TRACE = 100
+	TRACE('A', 'VALUE')
+	TRACE(.B, 'VALUE')
+	A = 'by string'
+	B = 'by name operator'
+	OUTPUT = 'done ' A ' / ' B
+END
+*--------------------------------------------------------------- 1967 keyword_39
+	&TRACE = 100
+	TRACE('N')
+	N = 7
+	X = N
+	OUTPUT = 'x=' X ' trace=' &TRACE
+END
+*------------------------------------------------- 1968 user_function_keyword_12
+	DEFINE('F(X)')	:(START)
+F	F = X	:(RETURN)
+START	TRACE('V1', 'A')	;	TRACE('V2', 'ACCESS')
+	TRACE('V3', 'V')	;	TRACE('V4', 'VALUE')
+	TRACE('FNCLEVEL', 'K')	;	TRACE('ERRTYPE', 'KEYWORD')
+	TRACE('L1', 'L')	;	TRACE('L2', 'LABEL')
+	TRACE('F', 'C')	;	TRACE('F', 'CALL')
+	TRACE('F', 'R')	;	TRACE('F', 'RETURN')
+	TRACE('F', 'F')	;	TRACE('F', 'FUNCTION')
+	OUTPUT = 'all fourteen spellings accepted, trace=' &TRACE	:(L1)
+L1	OUTPUT = 'at l1'	:(L2)
+L2	OUTPUT = 'at l2'
+END
+*--------------------------------------------------------------- 1969 keyword_40
+	&TRACE = 100
+	TRACE('N', 'VALUE')
+	N = 1
+	N = 2
+	N = 3
+	OUTPUT = 'three traces left ' &TRACE ' of 100'
+END
+*--------------------------------------------------------- 1970 keyword_branch_6
+	&TRACE = 2
+	TRACE('N', 'VALUE')
+	N = 0
+LOOP	N = LT(N, 5) N + 1	:S(LOOP)
+	OUTPUT = 'n=' N ' trace=' &TRACE
+END
+*--------------------------------------------------------------- 1971 keyword_41
+	&TRACE = 100
+	TRACE('N', 'VALUE')
+	N = 1
+	STOPTR('N', 'VALUE')
+	N = 2
+	OUTPUT = 'n=' N ' trace=' &TRACE
+END
+*--------------------------------------------------------------- 1972 keyword_42
+	&TRACE = 1000
+	TRACE('SENTENCE', 'VALUE')
+	SENTENCE = 'Nancy ran to town.'
+END
+*---------------------------------------------------- 1973 table_array_keyword_1
+	&TRACE = 100
+	DATA('NODE(L,R)')
+	TRACE('N', 'VALUE')
+	N = ARRAY(3)
+	N = ARRAY('2:4')
+	N = ARRAY('2,3')
+	N = TABLE()
+	N = TABLE(7,3)
+	N = NODE(1,2)
+	OUTPUT = 'trace=' &TRACE
+END
+*----------------------------------------- 1974 user_function_indirect_keyword_1
+	&TRACE = 10000
+	DEFINE('TRFUN(NAME,TAG)')	:(TRFUN_END)
+TRFUN	OUTPUT = TAG ' ' NAME ' is now ' $NAME	:(RETURN)
+TRFUN_END	TRACE(.COUNT, 'VALUE', 'Variable COUNT', .TRFUN)
+	COUNT = 4
+	COUNT = 5
+END
+*--------------------------------------------------------------- 1975 keyword_43
+	&ERRLIMIT = 10
+	&TRACE = 100
+	TRACE('N', 'Z')
+	N = 1
+	OUTPUT = 'survived n=' N
+END
