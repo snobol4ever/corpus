@@ -1,6 +1,6 @@
                         .intel_syntax    noprefix
                         .text
-                        .file            1 "/home/claude_U/corpus/benchmarks/prolog/bench/ops8.pl"
+                        .file            1 "/home/claude_cto/corpus/benchmarks/prolog/bench/ops8.pl"
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$db_decl$2F0:
@@ -575,16 +575,15 @@ n47_call_α:             mov              r11, 28
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
                         cmp              al, 104;                             je    n54_unmark_α
-                                                                              jmp   n48_move_label_α
+                                                                              jmp   n48_gate_arm_α
 n47_call_β:             mov              r11, 28;                             jmp   n54_unmark_α
                         .size            n47_call_bx, .-n47_call_bx
-                        .type            n48_move_label_bx, @function
-n48_move_label_bx:
+                        .type            n48_gate_arm_bx, @function
+n48_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n48_move_label_α:       mov              r11, 29
-                        lea              rax, [rip + n55_indirect_goto_α]
-                        mov              qword ptr [rbp + 48], rax;           jmp   bench_work$2F1_ret0
-                        .size            n48_move_label_bx, .-n48_move_label_bx
+n48_gate_arm_α:         mov              r11, 29
+                        mov              dword ptr [rbp + 48], 0;             jmp   bench_work$2F1_ret0
+                        .size            n48_gate_arm_bx, .-n48_gate_arm_bx
                         .type            n49_unmark_bx, @function
 n49_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -637,16 +636,15 @@ n52_call_α:             mov              r11, 33
                         mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         cmp              al, 104;                             je    n54_unmark_α
-                                                                              jmp   n53_move_label_α
+                                                                              jmp   n53_gate_arm_α
 n52_call_β:             mov              r11, 33;                             jmp   n54_unmark_α
                         .size            n52_call_bx, .-n52_call_bx
-                        .type            n53_move_label_bx, @function
-n53_move_label_bx:
+                        .type            n53_gate_arm_bx, @function
+n53_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n53_move_label_α:       mov              r11, 34
-                        lea              rax, [rip + n55_indirect_goto_α]
-                        mov              qword ptr [rbp + 48], rax;           jmp   bench_work$2F1_ret0
-                        .size            n53_move_label_bx, .-n53_move_label_bx
+n53_gate_arm_α:         mov              r11, 34
+                        mov              dword ptr [rbp + 48], 1;             jmp   bench_work$2F1_ret0
+                        .size            n53_gate_arm_bx, .-n53_gate_arm_bx
                         .type            n54_unmark_bx, @function
 n54_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -654,17 +652,21 @@ n54_unmark_α:           mov              r11, 35
                         mov              rdi, qword ptr [rbp + 64]
                         call             rt_pl_tr_unwind@PLT
                         test             r15, r15;                            jne   bench_work$2F1_step
-                                                                              jmp   n55_indirect_goto_α
+                                                                              jmp   n55_gate_α
                         .size            n54_unmark_bx, .-n54_unmark_bx
-                        .type            n55_indirect_goto_bx, @function
-n55_indirect_goto_bx:
+                        .type            n55_gate_bx, @function
+n55_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n55_indirect_goto_α:    mov              r11, 36;                             jmp   bench_work$2F1_step
-n55_indirect_goto_β:    mov              r11, 36;                             jmp   qword ptr [rbp + 48]
-                        .size            n55_indirect_goto_bx, .-n55_indirect_goto_bx
+n55_gate_α:             mov              r11, 36;                             jmp   bench_work$2F1_step
+n55_gate_β:             mov              r11, 36
+                        mov              eax, dword ptr [rbp + 48]
+                        cmp              eax, 0;                              je    n55_gate_α
+                        cmp              eax, 1;                              je    n55_gate_α
+                                                                              jmp   bench_work$2F1_step
+                        .size            n55_gate_bx, .-n55_gate_bx
 #-----------------------------------------------------------------------------------------------------------------------
 bench_work$2F1_ret0:
-                        lea              rcx, [rip + n55_indirect_goto_β]
+                        lea              rcx, [rip + n55_gate_β]
                         mov              qword ptr [rbp + 464], rcx
                         mov              eax, 3
                         mov              edx, 1
@@ -8916,7 +8918,14 @@ n952_var_α:             mov              r11, 383
 n953_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n953_call_value_α:      mov              r11, 384
-                        mov              qword ptr [rbp + 128], 0
+                        lea              rdi, [rbp + 128]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 136], 0
                         mov              rdi, qword ptr [rbp + 160]
                         mov              rsi, qword ptr [rbp + 168]
@@ -9014,7 +9023,14 @@ n955_var_α:             mov              r11, 386
 n956_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n956_call_value_α:      mov              r11, 387
-                        mov              qword ptr [rbp + 64], 0
+                        lea              rdi, [rbp + 64]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 72], 0
                         mov              rdi, qword ptr [rbp + 96]
                         mov              rsi, qword ptr [rbp + 104]
@@ -9192,7 +9208,14 @@ n963_var_α:             mov              r11, 394
 n964_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n964_call_value_α:      mov              r11, 395
-                        mov              qword ptr [rbp + 640], 0
+                        lea              rdi, [rbp + 640]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 648], 0
                         mov              rdi, qword ptr [rbp + 672]
                         mov              rsi, qword ptr [rbp + 680]
@@ -9280,7 +9303,14 @@ n965_var_α:             mov              r11, 396
 n966_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n966_call_value_α:      mov              r11, 397
-                        mov              qword ptr [rbp + 576], 0
+                        lea              rdi, [rbp + 576]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 584], 0
                         mov              rdi, qword ptr [rbp + 608]
                         mov              rsi, qword ptr [rbp + 616]
@@ -9677,7 +9707,14 @@ n1033_var_α:            mov              r11, 412
 n1034_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1034_call_value_α:     mov              r11, 413
-                        mov              qword ptr [rbp + 288], 0
+                        lea              rdi, [rbp + 288]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 296], 0
                         mov              rdi, qword ptr [rbp + 320]
                         mov              rsi, qword ptr [rbp + 328]
@@ -9765,7 +9802,14 @@ n1035_var_α:            mov              r11, 414
 n1036_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1036_call_value_α:     mov              r11, 415
-                        mov              qword ptr [rbp + 160], 0
+                        lea              rdi, [rbp + 160]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 168], 0
                         mov              rdi, qword ptr [rbp + 192]
                         mov              rsi, qword ptr [rbp + 200]
@@ -9812,7 +9856,7 @@ n1036_call_value_α:     mov              r11, 415
 .Lcall_value_α_1149_2:  mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         cmp              al, 104;                             je    n1042_unmark_α
-                                                                              jmp   n1037_move_label_α
+                                                                              jmp   n1037_gate_arm_α
 n1036_call_value_β:     mov              r11, 415
                         test             r15, r15;                            jne   .Lcall_value_β_1149_12
                         mov              rax, qword ptr [rbp + 160]
@@ -9832,21 +9876,20 @@ n1036_call_value_β:     mov              r11, 415
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    n1042_unmark_α
                         mov              qword ptr [rbp + 144], rax
-                        mov              qword ptr [rbp + 152], rdx;          jmp   n1037_move_label_α
+                        mov              qword ptr [rbp + 152], rdx;          jmp   n1037_gate_arm_α
 .Lcall_value_α_1149_11: add              rsp, 8
                         mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         cmp              al, 104;                             je    n1042_unmark_α
-                                                                              jmp   n1037_move_label_α
+                                                                              jmp   n1037_gate_arm_α
                                                                               jmp   n1042_unmark_α
                         .size            n1036_call_value_bx, .-n1036_call_value_bx
-                        .type            n1037_move_label_bx, @function
-n1037_move_label_bx:
+                        .type            n1037_gate_arm_bx, @function
+n1037_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1037_move_label_α:     mov              r11, 416
-                        lea              rax, [rip + n1036_call_value_β]
-                        mov              qword ptr [rbp + 64], rax;           jmp   $3B$2F2_ret0
-                        .size            n1037_move_label_bx, .-n1037_move_label_bx
+n1037_gate_arm_α:       mov              r11, 416
+                        mov              dword ptr [rbp + 64], 0;             jmp   $3B$2F2_ret0
+                        .size            n1037_gate_arm_bx, .-n1037_gate_arm_bx
                         .type            n1038_unmark_bx, @function
 n1038_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9869,7 +9912,14 @@ n1039_var_α:            mov              r11, 418
 n1040_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1040_call_value_α:     mov              r11, 419
-                        mov              qword ptr [rbp + 224], 0
+                        lea              rdi, [rbp + 224]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 232], 0
                         mov              rdi, qword ptr [rbp + 256]
                         mov              rsi, qword ptr [rbp + 264]
@@ -9916,7 +9966,7 @@ n1040_call_value_α:     mov              r11, 419
 .Lcall_value_α_1157_2:  mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         cmp              al, 104;                             je    n1042_unmark_α
-                                                                              jmp   n1041_move_label_α
+                                                                              jmp   n1041_gate_arm_α
 n1040_call_value_β:     mov              r11, 419
                         test             r15, r15;                            jne   .Lcall_value_β_1157_12
                         mov              rax, qword ptr [rbp + 224]
@@ -9936,21 +9986,20 @@ n1040_call_value_β:     mov              r11, 419
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    n1042_unmark_α
                         mov              qword ptr [rbp + 208], rax
-                        mov              qword ptr [rbp + 216], rdx;          jmp   n1041_move_label_α
+                        mov              qword ptr [rbp + 216], rdx;          jmp   n1041_gate_arm_α
 .Lcall_value_α_1157_11: add              rsp, 8
                         mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         cmp              al, 104;                             je    n1042_unmark_α
-                                                                              jmp   n1041_move_label_α
+                                                                              jmp   n1041_gate_arm_α
                                                                               jmp   n1042_unmark_α
                         .size            n1040_call_value_bx, .-n1040_call_value_bx
-                        .type            n1041_move_label_bx, @function
-n1041_move_label_bx:
+                        .type            n1041_gate_arm_bx, @function
+n1041_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1041_move_label_α:     mov              r11, 420
-                        lea              rax, [rip + n1040_call_value_β]
-                        mov              qword ptr [rbp + 64], rax;           jmp   $3B$2F2_ret0
-                        .size            n1041_move_label_bx, .-n1041_move_label_bx
+n1041_gate_arm_α:       mov              r11, 420
+                        mov              dword ptr [rbp + 64], 1;             jmp   $3B$2F2_ret0
+                        .size            n1041_gate_arm_bx, .-n1041_gate_arm_bx
                         .type            n1042_unmark_bx, @function
 n1042_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9958,14 +10007,18 @@ n1042_unmark_α:         mov              r11, 421
                         mov              rdi, qword ptr [rbp + 80]
                         call             rt_pl_tr_unwind@PLT
                         test             r15, r15;                            jne   $3B$2F2_step
-                                                                              jmp   n1043_indirect_goto_α
+                                                                              jmp   n1043_gate_α
                         .size            n1042_unmark_bx, .-n1042_unmark_bx
-                        .type            n1043_indirect_goto_bx, @function
-n1043_indirect_goto_bx:
+                        .type            n1043_gate_bx, @function
+n1043_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1043_indirect_goto_α:  mov              r11, 422;                            jmp   $3B$2F2_ω
-n1043_indirect_goto_β:  mov              r11, 422;                            jmp   qword ptr [rbp + 64]
-                        .size            n1043_indirect_goto_bx, .-n1043_indirect_goto_bx
+n1043_gate_α:           mov              r11, 422;                            jmp   $3B$2F2_ω
+n1043_gate_β:           mov              r11, 422
+                        mov              eax, dword ptr [rbp + 64]
+                        cmp              eax, 0;                              je    n1036_call_value_β
+                        cmp              eax, 1;                              je    n1040_call_value_β
+                                                                              jmp   $3B$2F2_ω
+                        .size            n1043_gate_bx, .-n1043_gate_bx
                         .type            n1044_var_ref_bx, @function
 n1044_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10170,15 +10223,14 @@ n1057_bound_α:          mov              r11, 436
                         mov              qword ptr [rbp + 736], r12
                         lea              rdi, [rbp + 2704]
                         mov              rsi, rbp
-                        call             rt_pl_disj_open@PLT;                 jmp   n1058_move_label_α
+                        call             rt_pl_disj_open@PLT;                 jmp   n1058_gate_arm_α
                         .size            n1057_bound_bx, .-n1057_bound_bx
-                        .type            n1058_move_label_bx, @function
-n1058_move_label_bx:
+                        .type            n1058_gate_arm_bx, @function
+n1058_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1058_move_label_α:     mov              r11, 437
-                        lea              rax, [rip + n1067_var_α]
-                        mov              qword ptr [rbp + 720], rax;          jmp   n1059_var_α
-                        .size            n1058_move_label_bx, .-n1058_move_label_bx
+n1058_gate_arm_α:       mov              r11, 437
+                        mov              dword ptr [rbp + 720], 0;            jmp   n1059_var_α
+                        .size            n1058_gate_arm_bx, .-n1058_gate_arm_bx
                         .type            n1059_var_bx, @function
 n1059_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10192,7 +10244,14 @@ n1059_var_α:            mov              r11, 438
 n1060_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1060_call_value_α:     mov              r11, 439
-                        mov              qword ptr [rbp + 816], 0
+                        lea              rdi, [rbp + 816]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 824], 0
                         mov              rdi, qword ptr [rbp + 848]
                         mov              rsi, qword ptr [rbp + 856]
@@ -10239,7 +10298,7 @@ n1060_call_value_α:     mov              r11, 439
 .Lcall_value_α_1192_2:  mov              qword ptr [rbp + 800], rax
                         mov              qword ptr [rbp + 808], rdx
                         cmp              al, 104;                             je    n1065_unmark_α
-                                                                              jmp   n1061_move_label_α
+                                                                              jmp   n1061_gate_arm_α
 n1060_call_value_β:     mov              r11, 439
                         test             r15, r15;                            jne   .Lcall_value_β_1192_12
                         mov              rax, qword ptr [rbp + 816]
@@ -10259,21 +10318,20 @@ n1060_call_value_β:     mov              r11, 439
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    n1065_unmark_α
                         mov              qword ptr [rbp + 800], rax
-                        mov              qword ptr [rbp + 808], rdx;          jmp   n1061_move_label_α
+                        mov              qword ptr [rbp + 808], rdx;          jmp   n1061_gate_arm_α
 .Lcall_value_α_1192_11: add              rsp, 8
                         mov              qword ptr [rbp + 800], rax
                         mov              qword ptr [rbp + 808], rdx
                         cmp              al, 104;                             je    n1065_unmark_α
-                                                                              jmp   n1061_move_label_α
+                                                                              jmp   n1061_gate_arm_α
                                                                               jmp   n1065_unmark_α
                         .size            n1060_call_value_bx, .-n1060_call_value_bx
-                        .type            n1061_move_label_bx, @function
-n1061_move_label_bx:
+                        .type            n1061_gate_arm_bx, @function
+n1061_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1061_move_label_α:     mov              r11, 440
-                        lea              rax, [rip + n1066_indirect_goto_α]
-                        mov              qword ptr [rbp + 720], rax;          jmp   n1062_var_α
-                        .size            n1061_move_label_bx, .-n1061_move_label_bx
+n1061_gate_arm_α:       mov              r11, 440
+                        mov              dword ptr [rbp + 720], 1;            jmp   n1062_var_α
+                        .size            n1061_gate_arm_bx, .-n1061_gate_arm_bx
                         .type            n1062_var_bx, @function
 n1062_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10287,7 +10345,14 @@ n1062_var_α:            mov              r11, 441
 n1063_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1063_call_value_α:     mov              r11, 442
-                        mov              qword ptr [rbp + 880], 0
+                        lea              rdi, [rbp + 880]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 888], 0
                         mov              rdi, qword ptr [rbp + 912]
                         mov              rsi, qword ptr [rbp + 920]
@@ -10334,7 +10399,7 @@ n1063_call_value_α:     mov              r11, 442
 .Lcall_value_α_1198_2:  mov              qword ptr [rbp + 864], rax
                         mov              qword ptr [rbp + 872], rdx
                         cmp              al, 104;                             je    n1060_call_value_β
-                                                                              jmp   n1064_move_label_α
+                                                                              jmp   n1064_gate_arm_α
 n1063_call_value_β:     mov              r11, 442
                         test             r15, r15;                            jne   .Lcall_value_β_1198_12
                         mov              rax, qword ptr [rbp + 880]
@@ -10354,36 +10419,39 @@ n1063_call_value_β:     mov              r11, 442
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    n1060_call_value_β
                         mov              qword ptr [rbp + 864], rax
-                        mov              qword ptr [rbp + 872], rdx;          jmp   n1064_move_label_α
+                        mov              qword ptr [rbp + 872], rdx;          jmp   n1064_gate_arm_α
 .Lcall_value_α_1198_11: add              rsp, 8
                         mov              qword ptr [rbp + 864], rax
                         mov              qword ptr [rbp + 872], rdx
                         cmp              al, 104;                             je    n1060_call_value_β
-                                                                              jmp   n1064_move_label_α
+                                                                              jmp   n1064_gate_arm_α
                                                                               jmp   n1060_call_value_β
                         .size            n1063_call_value_bx, .-n1063_call_value_bx
-                        .type            n1064_move_label_bx, @function
-n1064_move_label_bx:
+                        .type            n1064_gate_arm_bx, @function
+n1064_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1064_move_label_α:     mov              r11, 443
-                        lea              rax, [rip + n1063_call_value_β]
-                        mov              qword ptr [rbp + 688], rax;          jmp   $3B$2F2_ret1
-                        .size            n1064_move_label_bx, .-n1064_move_label_bx
+n1064_gate_arm_α:       mov              r11, 443
+                        mov              dword ptr [rbp + 688], 1;            jmp   $3B$2F2_ret1
+                        .size            n1064_gate_arm_bx, .-n1064_gate_arm_bx
                         .type            n1065_unmark_bx, @function
 n1065_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1065_unmark_α:         mov              r11, 444
                         mov              rdi, qword ptr [rbp + 736]
                         call             rt_pl_tr_unwind@PLT
-                        test             r15, r15;                            jne   n1071_indirect_goto_α
-                                                                              jmp   n1066_indirect_goto_β
+                        test             r15, r15;                            jne   n1071_gate_α
+                                                                              jmp   n1066_gate_β
                         .size            n1065_unmark_bx, .-n1065_unmark_bx
-                        .type            n1066_indirect_goto_bx, @function
-n1066_indirect_goto_bx:
+                        .type            n1066_gate_bx, @function
+n1066_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1066_indirect_goto_α:  mov              r11, 445;                            jmp   n1071_indirect_goto_α
-n1066_indirect_goto_β:  mov              r11, 445;                            jmp   qword ptr [rbp + 720]
-                        .size            n1066_indirect_goto_bx, .-n1066_indirect_goto_bx
+n1066_gate_α:           mov              r11, 445;                            jmp   n1071_gate_α
+n1066_gate_β:           mov              r11, 445
+                        mov              eax, dword ptr [rbp + 720]
+                        cmp              eax, 0;                              je    n1067_var_α
+                        cmp              eax, 1;                              je    n1066_gate_α
+                                                                              jmp   n1071_gate_α
+                        .size            n1066_gate_bx, .-n1066_gate_bx
                         .type            n1067_var_bx, @function
 n1067_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10397,7 +10465,14 @@ n1067_var_α:            mov              r11, 446
 n1068_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1068_call_value_α:     mov              r11, 447
-                        mov              qword ptr [rbp + 944], 0
+                        lea              rdi, [rbp + 944]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 952], 0
                         mov              rdi, qword ptr [rbp + 976]
                         mov              rsi, qword ptr [rbp + 984]
@@ -10444,7 +10519,7 @@ n1068_call_value_α:     mov              r11, 447
 .Lcall_value_α_1208_2:  mov              qword ptr [rbp + 928], rax
                         mov              qword ptr [rbp + 936], rdx
                         cmp              al, 104;                             je    n1070_unmark_α
-                                                                              jmp   n1069_move_label_α
+                                                                              jmp   n1069_gate_arm_α
 n1068_call_value_β:     mov              r11, 447
                         test             r15, r15;                            jne   .Lcall_value_β_1208_12
                         mov              rax, qword ptr [rbp + 944]
@@ -10464,36 +10539,39 @@ n1068_call_value_β:     mov              r11, 447
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    n1070_unmark_α
                         mov              qword ptr [rbp + 928], rax
-                        mov              qword ptr [rbp + 936], rdx;          jmp   n1069_move_label_α
+                        mov              qword ptr [rbp + 936], rdx;          jmp   n1069_gate_arm_α
 .Lcall_value_α_1208_11: add              rsp, 8
                         mov              qword ptr [rbp + 928], rax
                         mov              qword ptr [rbp + 936], rdx
                         cmp              al, 104;                             je    n1070_unmark_α
-                                                                              jmp   n1069_move_label_α
+                                                                              jmp   n1069_gate_arm_α
                                                                               jmp   n1070_unmark_α
                         .size            n1068_call_value_bx, .-n1068_call_value_bx
-                        .type            n1069_move_label_bx, @function
-n1069_move_label_bx:
+                        .type            n1069_gate_arm_bx, @function
+n1069_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1069_move_label_α:     mov              r11, 448
-                        lea              rax, [rip + n1068_call_value_β]
-                        mov              qword ptr [rbp + 688], rax;          jmp   $3B$2F2_ret1
-                        .size            n1069_move_label_bx, .-n1069_move_label_bx
+n1069_gate_arm_α:       mov              r11, 448
+                        mov              dword ptr [rbp + 688], 0;            jmp   $3B$2F2_ret1
+                        .size            n1069_gate_arm_bx, .-n1069_gate_arm_bx
                         .type            n1070_unmark_bx, @function
 n1070_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1070_unmark_α:         mov              r11, 449
                         mov              rdi, qword ptr [rbp + 736]
                         call             rt_pl_tr_unwind@PLT
-                        test             r15, r15;                            jne   n1071_indirect_goto_α
-                                                                              jmp   n1071_indirect_goto_α
+                        test             r15, r15;                            jne   n1071_gate_α
+                                                                              jmp   n1071_gate_α
                         .size            n1070_unmark_bx, .-n1070_unmark_bx
-                        .type            n1071_indirect_goto_bx, @function
-n1071_indirect_goto_bx:
+                        .type            n1071_gate_bx, @function
+n1071_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1071_indirect_goto_α:  mov              r11, 450;                            jmp   $3B$2F2_ω
-n1071_indirect_goto_β:  mov              r11, 450;                            jmp   qword ptr [rbp + 688]
-                        .size            n1071_indirect_goto_bx, .-n1071_indirect_goto_bx
+n1071_gate_α:           mov              r11, 450;                            jmp   $3B$2F2_ω
+n1071_gate_β:           mov              r11, 450
+                        mov              eax, dword ptr [rbp + 688]
+                        cmp              eax, 0;                              je    n1068_call_value_β
+                        cmp              eax, 1;                              je    n1063_call_value_β
+                                                                              jmp   $3B$2F2_ω
+                        .size            n1071_gate_bx, .-n1071_gate_bx
                         .type            n1072_var_ref_bx, @function
 n1072_var_ref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -10772,7 +10850,14 @@ n1082_var_α:            mov              r11, 461
 n1083_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1083_call_value_α:     mov              r11, 462
-                        mov              qword ptr [rbp + 1408], 0
+                        lea              rdi, [rbp + 1408]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1416], 0
                         mov              rdi, qword ptr [rbp + 1440]
                         mov              rsi, qword ptr [rbp + 1448]
@@ -10870,7 +10955,14 @@ n1085_var_α:            mov              r11, 464
 n1086_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1086_call_value_α:     mov              r11, 465
-                        mov              qword ptr [rbp + 1344], 0
+                        lea              rdi, [rbp + 1344]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1352], 0
                         mov              rdi, qword ptr [rbp + 1376]
                         mov              rsi, qword ptr [rbp + 1384]
@@ -11048,7 +11140,14 @@ n1093_var_α:            mov              r11, 472
 n1094_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1094_call_value_α:     mov              r11, 473
-                        mov              qword ptr [rbp + 1760], 0
+                        lea              rdi, [rbp + 1760]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1768], 0
                         mov              rdi, qword ptr [rbp + 1792]
                         mov              rsi, qword ptr [rbp + 1800]
@@ -11411,7 +11510,14 @@ n1106_var_α:            mov              r11, 485
 n1107_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1107_call_value_α:     mov              r11, 486
-                        mov              qword ptr [rbp + 2048], 0
+                        lea              rdi, [rbp + 2048]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2056], 0
                         mov              rdi, qword ptr [rbp + 2080]
                         mov              rsi, qword ptr [rbp + 2088]
@@ -11509,7 +11615,14 @@ n1109_var_α:            mov              r11, 488
 n1110_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1110_call_value_α:     mov              r11, 489
-                        mov              qword ptr [rbp + 1984], 0
+                        lea              rdi, [rbp + 1984]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1992], 0
                         mov              rdi, qword ptr [rbp + 2016]
                         mov              rsi, qword ptr [rbp + 2024]
@@ -11687,7 +11800,14 @@ n1117_var_α:            mov              r11, 496
 n1118_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1118_call_value_α:     mov              r11, 497
-                        mov              qword ptr [rbp + 2400], 0
+                        lea              rdi, [rbp + 2400]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2408], 0
                         mov              rdi, qword ptr [rbp + 2432]
                         mov              rsi, qword ptr [rbp + 2440]
@@ -11764,14 +11884,14 @@ n1118_call_value_β:     mov              r11, 497
                         .size            n1118_call_value_bx, .-n1118_call_value_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $3B$2F2_ret0:
-                        lea              rcx, [rip + n1043_indirect_goto_β]
+                        lea              rcx, [rip + n1043_gate_β]
                         mov              qword ptr [rbp + 2720], rcx
                         mov              eax, 3
                         mov              edx, 1
                                                                               jmp   $3B$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 $3B$2F2_ret1:
-                        lea              rcx, [rip + n1071_indirect_goto_β]
+                        lea              rcx, [rip + n1071_gate_β]
                         mov              qword ptr [rbp + 2720], rcx
                         mov              eax, 3
                         mov              edx, 1
@@ -12012,7 +12132,14 @@ n1307_var_α:            mov              r11, 504
 n1308_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1308_call_value_α:     mov              r11, 505
-                        mov              qword ptr [rbp + 128], 0
+                        lea              rdi, [rbp + 128]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 136], 0
                         mov              rdi, qword ptr [rbp + 160]
                         mov              rsi, qword ptr [rbp + 168]
@@ -12110,7 +12237,14 @@ n1310_var_α:            mov              r11, 507
 n1311_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1311_call_value_α:     mov              r11, 508
-                        mov              qword ptr [rbp + 64], 0
+                        lea              rdi, [rbp + 64]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 72], 0
                         mov              rdi, qword ptr [rbp + 96]
                         mov              rsi, qword ptr [rbp + 104]
@@ -12370,7 +12504,14 @@ n1338_var_α:            mov              r11, 515
 n1339_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1339_call_value_α:     mov              r11, 516
-                        mov              qword ptr [rbp + 128], 0
+                        lea              rdi, [rbp + 128]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 136], 0
                         mov              rdi, qword ptr [rbp + 160]
                         mov              rsi, qword ptr [rbp + 168]
@@ -12458,7 +12599,14 @@ n1340_var_α:            mov              r11, 517
 n1341_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1341_call_value_α:     mov              r11, 518
-                        mov              qword ptr [rbp + 64], 0
+                        lea              rdi, [rbp + 64]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 72], 0
                         mov              rdi, qword ptr [rbp + 96]
                         mov              rsi, qword ptr [rbp + 104]
@@ -12757,15 +12905,14 @@ n1369_bound_α:          mov              r11, 528
                         mov              qword ptr [rbp + 128], r12
                         lea              rdi, [rbp + 704]
                         mov              rsi, rbp
-                        call             rt_pl_disj_open@PLT;                 jmp   n1370_move_label_α
+                        call             rt_pl_disj_open@PLT;                 jmp   n1370_gate_arm_α
                         .size            n1369_bound_bx, .-n1369_bound_bx
-                        .type            n1370_move_label_bx, @function
-n1370_move_label_bx:
+                        .type            n1370_gate_arm_bx, @function
+n1370_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1370_move_label_α:     mov              r11, 529
-                        lea              rax, [rip + n1379_var_α]
-                        mov              qword ptr [rbp + 112], rax;          jmp   n1371_var_α
-                        .size            n1370_move_label_bx, .-n1370_move_label_bx
+n1370_gate_arm_α:       mov              r11, 529
+                        mov              dword ptr [rbp + 112], 0;            jmp   n1371_var_α
+                        .size            n1370_gate_arm_bx, .-n1370_gate_arm_bx
                         .type            n1371_var_bx, @function
 n1371_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12779,7 +12926,14 @@ n1371_var_α:            mov              r11, 530
 n1372_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1372_call_value_α:     mov              r11, 531
-                        mov              qword ptr [rbp + 208], 0
+                        lea              rdi, [rbp + 208]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 216], 0
                         mov              rdi, qword ptr [rbp + 240]
                         mov              rsi, qword ptr [rbp + 248]
@@ -12826,7 +12980,7 @@ n1372_call_value_α:     mov              r11, 531
 .Lcall_value_α_1406_2:  mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                         cmp              al, 104;                             je    n1377_unmark_α
-                                                                              jmp   n1373_move_label_α
+                                                                              jmp   n1373_gate_arm_α
 n1372_call_value_β:     mov              r11, 531
                         test             r15, r15;                            jne   .Lcall_value_β_1406_12
                         mov              rax, qword ptr [rbp + 208]
@@ -12846,21 +13000,20 @@ n1372_call_value_β:     mov              r11, 531
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    n1377_unmark_α
                         mov              qword ptr [rbp + 192], rax
-                        mov              qword ptr [rbp + 200], rdx;          jmp   n1373_move_label_α
+                        mov              qword ptr [rbp + 200], rdx;          jmp   n1373_gate_arm_α
 .Lcall_value_α_1406_11: add              rsp, 8
                         mov              qword ptr [rbp + 192], rax
                         mov              qword ptr [rbp + 200], rdx
                         cmp              al, 104;                             je    n1377_unmark_α
-                                                                              jmp   n1373_move_label_α
+                                                                              jmp   n1373_gate_arm_α
                                                                               jmp   n1377_unmark_α
                         .size            n1372_call_value_bx, .-n1372_call_value_bx
-                        .type            n1373_move_label_bx, @function
-n1373_move_label_bx:
+                        .type            n1373_gate_arm_bx, @function
+n1373_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1373_move_label_α:     mov              r11, 532
-                        lea              rax, [rip + n1378_indirect_goto_α]
-                        mov              qword ptr [rbp + 112], rax;          jmp   n1374_var_α
-                        .size            n1373_move_label_bx, .-n1373_move_label_bx
+n1373_gate_arm_α:       mov              r11, 532
+                        mov              dword ptr [rbp + 112], 1;            jmp   n1374_var_α
+                        .size            n1373_gate_arm_bx, .-n1373_gate_arm_bx
                         .type            n1374_var_bx, @function
 n1374_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12874,7 +13027,14 @@ n1374_var_α:            mov              r11, 533
 n1375_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1375_call_value_α:     mov              r11, 534
-                        mov              qword ptr [rbp + 272], 0
+                        lea              rdi, [rbp + 272]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 280], 0
                         mov              rdi, qword ptr [rbp + 304]
                         mov              rsi, qword ptr [rbp + 312]
@@ -12921,7 +13081,7 @@ n1375_call_value_α:     mov              r11, 534
 .Lcall_value_α_1412_2:  mov              qword ptr [rbp + 256], rax
                         mov              qword ptr [rbp + 264], rdx
                         cmp              al, 104;                             je    n1372_call_value_β
-                                                                              jmp   n1376_move_label_α
+                                                                              jmp   n1376_gate_arm_α
 n1375_call_value_β:     mov              r11, 534
                         test             r15, r15;                            jne   .Lcall_value_β_1412_12
                         mov              rax, qword ptr [rbp + 272]
@@ -12941,36 +13101,39 @@ n1375_call_value_β:     mov              r11, 534
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    n1372_call_value_β
                         mov              qword ptr [rbp + 256], rax
-                        mov              qword ptr [rbp + 264], rdx;          jmp   n1376_move_label_α
+                        mov              qword ptr [rbp + 264], rdx;          jmp   n1376_gate_arm_α
 .Lcall_value_α_1412_11: add              rsp, 8
                         mov              qword ptr [rbp + 256], rax
                         mov              qword ptr [rbp + 264], rdx
                         cmp              al, 104;                             je    n1372_call_value_β
-                                                                              jmp   n1376_move_label_α
+                                                                              jmp   n1376_gate_arm_α
                                                                               jmp   n1372_call_value_β
                         .size            n1375_call_value_bx, .-n1375_call_value_bx
-                        .type            n1376_move_label_bx, @function
-n1376_move_label_bx:
+                        .type            n1376_gate_arm_bx, @function
+n1376_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1376_move_label_α:     mov              r11, 535
-                        lea              rax, [rip + n1375_call_value_β]
-                        mov              qword ptr [rbp + 80], rax;           jmp   if$2F3_ret0
-                        .size            n1376_move_label_bx, .-n1376_move_label_bx
+n1376_gate_arm_α:       mov              r11, 535
+                        mov              dword ptr [rbp + 80], 1;             jmp   if$2F3_ret0
+                        .size            n1376_gate_arm_bx, .-n1376_gate_arm_bx
                         .type            n1377_unmark_bx, @function
 n1377_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1377_unmark_α:         mov              r11, 536
                         mov              rdi, qword ptr [rbp + 128]
                         call             rt_pl_tr_unwind@PLT
-                        test             r15, r15;                            jne   n1383_indirect_goto_α
-                                                                              jmp   n1378_indirect_goto_β
+                        test             r15, r15;                            jne   n1383_gate_α
+                                                                              jmp   n1378_gate_β
                         .size            n1377_unmark_bx, .-n1377_unmark_bx
-                        .type            n1378_indirect_goto_bx, @function
-n1378_indirect_goto_bx:
+                        .type            n1378_gate_bx, @function
+n1378_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1378_indirect_goto_α:  mov              r11, 537;                            jmp   n1383_indirect_goto_α
-n1378_indirect_goto_β:  mov              r11, 537;                            jmp   qword ptr [rbp + 112]
-                        .size            n1378_indirect_goto_bx, .-n1378_indirect_goto_bx
+n1378_gate_α:           mov              r11, 537;                            jmp   n1383_gate_α
+n1378_gate_β:           mov              r11, 537
+                        mov              eax, dword ptr [rbp + 112]
+                        cmp              eax, 0;                              je    n1379_var_α
+                        cmp              eax, 1;                              je    n1378_gate_α
+                                                                              jmp   n1383_gate_α
+                        .size            n1378_gate_bx, .-n1378_gate_bx
                         .type            n1379_var_bx, @function
 n1379_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12984,7 +13147,14 @@ n1379_var_α:            mov              r11, 538
 n1380_call_value_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1380_call_value_α:     mov              r11, 539
-                        mov              qword ptr [rbp + 336], 0
+                        lea              rdi, [rbp + 336]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_proc_drop_frame_h@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 344], 0
                         mov              rdi, qword ptr [rbp + 368]
                         mov              rsi, qword ptr [rbp + 376]
@@ -13031,7 +13201,7 @@ n1380_call_value_α:     mov              r11, 539
 .Lcall_value_α_1422_2:  mov              qword ptr [rbp + 320], rax
                         mov              qword ptr [rbp + 328], rdx
                         cmp              al, 104;                             je    n1382_unmark_α
-                                                                              jmp   n1381_move_label_α
+                                                                              jmp   n1381_gate_arm_α
 n1380_call_value_β:     mov              r11, 539
                         test             r15, r15;                            jne   .Lcall_value_β_1422_12
                         mov              rax, qword ptr [rbp + 336]
@@ -13051,39 +13221,42 @@ n1380_call_value_β:     mov              r11, 539
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    n1382_unmark_α
                         mov              qword ptr [rbp + 320], rax
-                        mov              qword ptr [rbp + 328], rdx;          jmp   n1381_move_label_α
+                        mov              qword ptr [rbp + 328], rdx;          jmp   n1381_gate_arm_α
 .Lcall_value_α_1422_11: add              rsp, 8
                         mov              qword ptr [rbp + 320], rax
                         mov              qword ptr [rbp + 328], rdx
                         cmp              al, 104;                             je    n1382_unmark_α
-                                                                              jmp   n1381_move_label_α
+                                                                              jmp   n1381_gate_arm_α
                                                                               jmp   n1382_unmark_α
                         .size            n1380_call_value_bx, .-n1380_call_value_bx
-                        .type            n1381_move_label_bx, @function
-n1381_move_label_bx:
+                        .type            n1381_gate_arm_bx, @function
+n1381_gate_arm_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1381_move_label_α:     mov              r11, 540
-                        lea              rax, [rip + n1380_call_value_β]
-                        mov              qword ptr [rbp + 80], rax;           jmp   if$2F3_ret0
-                        .size            n1381_move_label_bx, .-n1381_move_label_bx
+n1381_gate_arm_α:       mov              r11, 540
+                        mov              dword ptr [rbp + 80], 0;             jmp   if$2F3_ret0
+                        .size            n1381_gate_arm_bx, .-n1381_gate_arm_bx
                         .type            n1382_unmark_bx, @function
 n1382_unmark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n1382_unmark_α:         mov              r11, 541
                         mov              rdi, qword ptr [rbp + 128]
                         call             rt_pl_tr_unwind@PLT
-                        test             r15, r15;                            jne   n1383_indirect_goto_α
-                                                                              jmp   n1383_indirect_goto_α
+                        test             r15, r15;                            jne   n1383_gate_α
+                                                                              jmp   n1383_gate_α
                         .size            n1382_unmark_bx, .-n1382_unmark_bx
-                        .type            n1383_indirect_goto_bx, @function
-n1383_indirect_goto_bx:
+                        .type            n1383_gate_bx, @function
+n1383_gate_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n1383_indirect_goto_α:  mov              r11, 542;                            jmp   if$2F3_step
-n1383_indirect_goto_β:  mov              r11, 542;                            jmp   qword ptr [rbp + 80]
-                        .size            n1383_indirect_goto_bx, .-n1383_indirect_goto_bx
+n1383_gate_α:           mov              r11, 542;                            jmp   if$2F3_step
+n1383_gate_β:           mov              r11, 542
+                        mov              eax, dword ptr [rbp + 80]
+                        cmp              eax, 0;                              je    n1380_call_value_β
+                        cmp              eax, 1;                              je    n1375_call_value_β
+                                                                              jmp   if$2F3_step
+                        .size            n1383_gate_bx, .-n1383_gate_bx
 #-----------------------------------------------------------------------------------------------------------------------
 if$2F3_ret0:
-                        lea              rcx, [rip + n1383_indirect_goto_β]
+                        lea              rcx, [rip + n1383_gate_β]
                         mov              qword ptr [rbp + 720], rcx
                         mov              eax, 3
                         mov              edx, 1
