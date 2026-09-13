@@ -2587,3 +2587,22 @@ OUTPUT = 'done';
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: while+continue over LT(i,5) skipping EQ(i,3); twin is the idiomatic SPITBOL goto form with a BARE trailing FIN label before END (rung13's proven side-effect-free fallback -- a trailing OUTPUT='' would emit a spurious blank line the .sc program does not) */
 i = 0;
 while (LT(i, 5)) { i = i + 1; if (EQ(i, 3)) { continue; } OUTPUT = i; }
+/*----------------------------------------------------- 378 simple_output_214 */
+/* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: switch(x) with x=2 matching the MIDDLE of three cases plus a default. The twin is the IDENT-chain lowering ARCH-LANGUAGES.md:657 names, with every case arm jumping to the ESAC label to encode the 'no fall-through; implicit break at end of each case' rule at ARCH-LANGUAGES.md:629. The trailing OUTPUT='after' is load-bearing: it proves control resumes AFTER the switch and did not fall into default. NOTE: this prose deliberately avoids spelling the success-goto operator, because a twin-equivalence comment is absorbed into the graded block and IS scanned by the feature-flag deriver. */
+x = 2;
+switch (x) {
+  case 1: { OUTPUT = 'one'; }
+  case 2: { OUTPUT = 'two'; }
+  case 3: { OUTPUT = 'three'; }
+  default: { OUTPUT = 'other'; }
+}
+OUTPUT = 'after';
+/*----------------------------------------------------- 379 simple_output_215 */
+/* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: switch(x) with x=9 matching NO case, so the default arm runs; same IDENT-chain lowering and same ESAC no-fall-through encoding as the switch_case form. Trailing OUTPUT='after' proves resumption after the switch. */
+x = 9;
+switch (x) {
+  case 1: { OUTPUT = 'one'; }
+  case 2: { OUTPUT = 'two'; }
+  default: { OUTPUT = 'fell-through'; }
+}
+OUTPUT = 'after';
