@@ -551,6 +551,11 @@ n27_define_α:           mov              r11, 28
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$ADD1:         .quad            LBL__ADD1
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__ADD1]
                         mov              rcx, qword ptr [rip + body_cell$ADD1@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n28_statement_end_α
@@ -658,11 +663,6 @@ ADD1_α:                 sub              rsp, 64
                         lea              rax, [rip + ADD1_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$ADD1:         .quad            LBL__ADD1
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$ADD1@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 ADD1_γ:                 mov              rdi, qword ptr [r9 + 0]              # ADD1
@@ -1324,6 +1324,12 @@ n51_define_α:           mov              r11, 52
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$INDIRECT_DISPATCH:
+                        .quad            LBL__INDIRECT_DISPATCH
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__INDIRECT_DISPATCH]
                         mov              rcx, qword ptr [rip + body_cell$INDIRECT_DISPATCH@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n52_statement_end_α
@@ -1431,12 +1437,6 @@ INDIRECT_DISPATCH_α:    sub              rsp, 64
                         lea              rax, [rip + INDIRECT_DISPATCH_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$INDIRECT_DISPATCH:
-                        .quad            LBL__INDIRECT_DISPATCH
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$INDIRECT_DISPATCH@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 INDIRECT_DISPATCH_γ:    mov              rdi, qword ptr [r9 + 32]             # INDIRECT_DISPATCH
@@ -3515,7 +3515,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            2592
+                        .long            2256
                         .long            16
                         .long            0
                         .long            0
@@ -3534,7 +3534,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            2592
+                        .long            2256
                         .long            16
                         .long            0
                         .long            0

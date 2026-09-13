@@ -551,6 +551,11 @@ n27_define_α:           mov              r11, 28
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$FIB:          .quad            LBL__FIB
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__FIB]
                         mov              rcx, qword ptr [rip + body_cell$FIB@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n28_statement_end_α
@@ -658,11 +663,6 @@ FIB_α:                  sub              rsp, 64
                         lea              rax, [rip + FIB_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$FIB:          .quad            LBL__FIB
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$FIB@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 FIB_γ:                  mov              rdi, qword ptr [r9 + 0]              # FIB
@@ -1635,6 +1635,11 @@ n62_define_α:           mov              r11, 63
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$FIBONACCI:    .quad            LBL__FIBONACCI
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__FIBONACCI]
                         mov              rcx, qword ptr [rip + body_cell$FIBONACCI@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n63_statement_end_α
@@ -1742,11 +1747,6 @@ FIBONACCI_α:            sub              rsp, 64
                         lea              rax, [rip + FIBONACCI_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$FIBONACCI:    .quad            LBL__FIBONACCI
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$FIBONACCI@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 FIBONACCI_γ:            mov              rdi, qword ptr [r9 + 32]             # FIBONACCI
@@ -3468,31 +3468,31 @@ n136_statement_end_α:   mov              r11, 137
 n137_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n137_lit_integer_α:     mov              r11, 138
-                        mov              qword ptr [rsp + 64], 3              # result
+                        mov              qword ptr [rsp + 48], 3              # result
                         mov              rax, qword ptr [rip + .Llit_integer_α_353_0]
-                        mov              qword ptr [rsp + 72], rax;           jmp   n138_lit_integer_α
+                        mov              qword ptr [rsp + 56], rax;           jmp   n138_lit_integer_α
 .Llit_integer_α_353_0:  .quad            17
                         .size            n137_lit_integer_bx, .-n137_lit_integer_bx
                         .type            n138_lit_integer_bx, @function
 n138_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n138_lit_integer_α:     mov              r11, 139
-                        mov              qword ptr [rsp + 80], 3              # result
+                        mov              qword ptr [rsp + 64], 3              # result
                         mov              rax, qword ptr [rip + .Llit_integer_α_354_0]
-                        mov              qword ptr [rsp + 88], rax;           jmp   n139_call_α
+                        mov              qword ptr [rsp + 72], rax;           jmp   n139_call_α
 .Llit_integer_α_354_0:  .quad            21
                         .size            n138_lit_integer_bx, .-n138_lit_integer_bx
                         .type            n139_call_bx, @function
 n139_call_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n139_call_α:            mov              r11, 140
-                        mov              rax, qword ptr [rsp + 80]
-                        mov              qword ptr [rsp + 32], rax
-                        mov              rax, qword ptr [rsp + 88]
-                        mov              qword ptr [rsp + 40], rax
                         mov              rax, qword ptr [rsp + 64]
-                        mov              qword ptr [rsp + 16], rax
+                        mov              qword ptr [rsp + 32], rax
                         mov              rax, qword ptr [rsp + 72]
+                        mov              qword ptr [rsp + 40], rax
+                        mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [rsp + 16], rax
+                        mov              rax, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 24], rax
                         .section         .rodata
 .Lcall_α_rkfn356:       .string          "SNO$STMT"
@@ -3720,7 +3720,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            2656
+                        .long            2320
                         .long            16
                         .long            0
                         .long            0
@@ -3739,7 +3739,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            2656
+                        .long            2320
                         .long            16
                         .long            0
                         .long            0

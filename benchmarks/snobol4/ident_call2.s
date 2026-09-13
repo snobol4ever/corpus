@@ -541,6 +541,11 @@ n27_define_α:           mov              r11, 28
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$IDENT_CALL2:  .quad            LBL__IDENT_CALL2
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__IDENT_CALL2]
                         mov              rcx, qword ptr [rip + body_cell$IDENT_CALL2@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n28_statement_end_α
@@ -648,11 +653,6 @@ IDENT_CALL2_α:          sub              rsp, 64
                         lea              rax, [rip + IDENT_CALL2_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$IDENT_CALL2:  .quad            LBL__IDENT_CALL2
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$IDENT_CALL2@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 IDENT_CALL2_γ:          mov              rdi, qword ptr [r9 + 0]              # IDENT_CALL2
@@ -2316,7 +2316,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            1808
+                        .long            1584
                         .long            16
                         .long            0
                         .long            0

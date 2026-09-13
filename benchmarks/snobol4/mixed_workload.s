@@ -665,6 +665,11 @@ n39_define_α:           mov              r11, 32
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$RSUM:         .quad            LBL__RSUM
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__RSUM]
                         mov              rcx, qword ptr [rip + body_cell$RSUM@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n40_statement_end_α
@@ -772,11 +777,6 @@ RSUM_α:                 sub              rsp, 64
                         lea              rax, [rip + RSUM_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$RSUM:         .quad            LBL__RSUM
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$RSUM@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 RSUM_γ:                 mov              rdi, qword ptr [r9 + 0]              # RSUM
@@ -1825,6 +1825,12 @@ n79_define_α:           mov              r11, 72
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$MIXED_WORKLOAD:
+                        .quad            LBL__MIXED_WORKLOAD
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__MIXED_WORKLOAD]
                         mov              rcx, qword ptr [rip + body_cell$MIXED_WORKLOAD@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n80_statement_end_α
@@ -1932,12 +1938,6 @@ MIXED_WORKLOAD_α:       sub              rsp, 64
                         lea              rax, [rip + MIXED_WORKLOAD_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$MIXED_WORKLOAD:
-                        .quad            LBL__MIXED_WORKLOAD
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$MIXED_WORKLOAD@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 MIXED_WORKLOAD_γ:       mov              rdi, qword ptr [r9 + 32]             # MIXED_WORKLOAD
@@ -6209,7 +6209,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4528
+                        .long            3952
                         .long            16
                         .long            0
                         .long            0
@@ -6228,7 +6228,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4528
+                        .long            3952
                         .long            16
                         .long            0
                         .long            0

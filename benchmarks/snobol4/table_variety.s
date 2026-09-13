@@ -561,6 +561,12 @@ n27_define_α:           mov              r11, 28
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$TABLE_VARIETY:
+                        .quad            LBL__TABLE_VARIETY
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__TABLE_VARIETY]
                         mov              rcx, qword ptr [rip + body_cell$TABLE_VARIETY@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n28_statement_end_α
@@ -668,12 +674,6 @@ TABLE_VARIETY_α:        sub              rsp, 64
                         lea              rax, [rip + TABLE_VARIETY_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$TABLE_VARIETY:
-                        .quad            LBL__TABLE_VARIETY
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$TABLE_VARIETY@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 TABLE_VARIETY_γ:        mov              rdi, qword ptr [r9 + 0]              # TABLE_VARIETY
@@ -10012,7 +10012,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            7824
+                        .long            7056
                         .long            16
                         .long            0
                         .long            0

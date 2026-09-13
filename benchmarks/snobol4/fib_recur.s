@@ -185,6 +185,11 @@ n6_define_α:            mov              r11, 7
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$FIB:          .quad            LBL__FIB
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__FIB]
                         mov              rcx, qword ptr [rip + body_cell$FIB@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n7_statement_end_α
@@ -292,11 +297,6 @@ FIB_α:                  sub              rsp, 64
                         lea              rax, [rip + FIB_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$FIB:          .quad            LBL__FIB
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$FIB@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 FIB_γ:                  mov              rdi, qword ptr [r9 + 0]              # FIB
@@ -1268,7 +1268,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            544
+                        .long            480
                         .long            16
                         .long            0
                         .long            0

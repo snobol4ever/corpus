@@ -1066,6 +1066,11 @@ n66_define_α:           mov              r11, 51
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$PATTERN_BT:   .quad            LBL__PATTERN_BT
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__PATTERN_BT]
                         mov              rcx, qword ptr [rip + body_cell$PATTERN_BT@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n67_statement_end_α
@@ -1173,11 +1178,6 @@ PATTERN_BT_α:           sub              rsp, 64
                         lea              rax, [rip + PATTERN_BT_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$PATTERN_BT:   .quad            LBL__PATTERN_BT
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$PATTERN_BT@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 PATTERN_BT_γ:           mov              rdi, qword ptr [r9 + 0]              # PATTERN_BT
@@ -2907,7 +2907,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            2064
+                        .long            1808
                         .long            16
                         .long            0
                         .long            0

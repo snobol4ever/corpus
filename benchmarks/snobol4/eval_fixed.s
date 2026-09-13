@@ -679,6 +679,11 @@ n34_define_α:           mov              r11, 35
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$EVAL_FIXED:   .quad            LBL__EVAL_FIXED
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__EVAL_FIXED]
                         mov              rcx, qword ptr [rip + body_cell$EVAL_FIXED@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n35_statement_end_α
@@ -786,11 +791,6 @@ EVAL_FIXED_α:           sub              rsp, 64
                         lea              rax, [rip + EVAL_FIXED_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$EVAL_FIXED:   .quad            LBL__EVAL_FIXED
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$EVAL_FIXED@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 EVAL_FIXED_γ:           mov              rdi, qword ptr [r9 + 0]              # EVAL_FIXED
@@ -2354,7 +2354,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            1824
+                        .long            1584
                         .long            16
                         .long            0
                         .long            0
