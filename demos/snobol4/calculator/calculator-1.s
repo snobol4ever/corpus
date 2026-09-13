@@ -2380,6 +2380,11 @@ n142_define_α:          mov              r11, 58
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$EMIT:         .quad            LBL__EMIT
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__EMIT]
                         mov              rcx, qword ptr [rip + body_cell$EMIT@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n143_statement_end_α
@@ -2470,11 +2475,6 @@ EMIT_α:                 sub              rsp, 48
                         lea              rax, [rip + EMIT_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$EMIT:         .quad            LBL__EMIT
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$EMIT@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 EMIT_γ:                 mov              rdi, qword ptr [r9 + 0]
@@ -2712,6 +2712,11 @@ n146_define_α:          mov              r11, 62
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$PSH:          .quad            LBL__PSH
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__PSH]
                         mov              rcx, qword ptr [rip + body_cell$PSH@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n147_statement_end_α
@@ -2802,11 +2807,6 @@ PSH_α:                  sub              rsp, 48
                         lea              rax, [rip + PSH_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$PSH:          .quad            LBL__PSH
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$PSH@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 PSH_γ:                  mov              rdi, qword ptr [r9 + 16]
@@ -3043,6 +3043,11 @@ n150_define_α:          mov              r11, 66
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$DRF:          .quad            LBL__DRF
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__DRF]
                         mov              rcx, qword ptr [rip + body_cell$DRF@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n151_statement_end_α
@@ -3150,11 +3155,6 @@ DRF_α:                  sub              rsp, 64
                         lea              rax, [rip + DRF_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$DRF:          .quad            LBL__DRF
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$DRF@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 DRF_γ:                  mov              rdi, qword ptr [r9 + 32]             # DRF
@@ -3417,6 +3417,11 @@ n154_define_α:          mov              r11, 70
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$ADD:          .quad            LBL__ADD
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__ADD]
                         mov              rcx, qword ptr [rip + body_cell$ADD@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n155_statement_end_α
@@ -3507,11 +3512,6 @@ ADD_α:                  sub              rsp, 48
                         lea              rax, [rip + ADD_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$ADD:          .quad            LBL__ADD
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$ADD@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 ADD_γ:                  mov              rdi, qword ptr [r9 + 64]
@@ -3748,6 +3748,11 @@ n158_define_α:          mov              r11, 74
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$SUB:          .quad            LBL__SUB
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__SUB]
                         mov              rcx, qword ptr [rip + body_cell$SUB@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n159_statement_end_α
@@ -3838,11 +3843,6 @@ SUB_α:                  sub              rsp, 48
                         lea              rax, [rip + SUB_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$SUB:          .quad            LBL__SUB
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$SUB@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 SUB_γ:                  mov              rdi, qword ptr [r9 + 80]
@@ -4079,6 +4079,11 @@ n162_define_α:          mov              r11, 78
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$MUL:          .quad            LBL__MUL
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__MUL]
                         mov              rcx, qword ptr [rip + body_cell$MUL@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n163_statement_end_α
@@ -4169,11 +4174,6 @@ MUL_α:                  sub              rsp, 48
                         lea              rax, [rip + MUL_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$MUL:          .quad            LBL__MUL
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$MUL@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 MUL_γ:                  mov              rdi, qword ptr [r9 + 96]
@@ -4410,6 +4410,11 @@ n166_define_α:          mov              r11, 82
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$DIV:          .quad            LBL__DIV
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__DIV]
                         mov              rcx, qword ptr [rip + body_cell$DIV@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n167_statement_end_α
@@ -4500,11 +4505,6 @@ DIV_α:                  sub              rsp, 48
                         lea              rax, [rip + DIV_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$DIV:          .quad            LBL__DIV
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$DIV@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 DIV_γ:                  mov              rdi, qword ptr [r9 + 112]
@@ -4741,6 +4741,11 @@ n170_define_α:          mov              r11, 86
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$NEG:          .quad            LBL__NEG
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__NEG]
                         mov              rcx, qword ptr [rip + body_cell$NEG@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n171_statement_end_α
@@ -4831,11 +4836,6 @@ NEG_α:                  sub              rsp, 48
                         lea              rax, [rip + NEG_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$NEG:          .quad            LBL__NEG
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$NEG@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 NEG_γ:                  mov              rdi, qword ptr [r9 + 128]
@@ -12614,7 +12614,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4480
+                        .long            4048
                         .long            16
                         .long            0
                         .long            0
@@ -12633,7 +12633,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4480
+                        .long            4048
                         .long            16
                         .long            0
                         .long            0
@@ -12652,7 +12652,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4480
+                        .long            4048
                         .long            16
                         .long            0
                         .long            0
@@ -12671,7 +12671,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4480
+                        .long            4048
                         .long            16
                         .long            0
                         .long            0
@@ -12690,7 +12690,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4480
+                        .long            4048
                         .long            16
                         .long            0
                         .long            0
@@ -12709,7 +12709,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4480
+                        .long            4048
                         .long            16
                         .long            0
                         .long            0
@@ -12728,7 +12728,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4480
+                        .long            4048
                         .long            16
                         .long            0
                         .long            0
@@ -12747,7 +12747,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            4480
+                        .long            4048
                         .long            16
                         .long            0
                         .long            0

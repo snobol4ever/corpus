@@ -689,6 +689,11 @@ n66_define_α:           mov              r11, 28
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        .section         .data
+                        .align           8
+body_cell$token:        .quad            LBL__token
+                        .section         .text
+                        .intel_syntax    noprefix
                         lea              rax, [rip + LBL__token]
                         mov              rcx, qword ptr [rip + body_cell$token@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n67_statement_end_α
@@ -779,11 +784,6 @@ token_α:                sub              rsp, 48
                         lea              rax, [rip + token_ω]
                         push             rax
                         push             rcx
-                        .section         .data
-                        .align           8
-body_cell$token:        .quad            LBL__token
-                        .section         .text
-                        .intel_syntax    noprefix
                         mov              rax, qword ptr [rip + body_cell$token@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 token_γ:                mov              rdi, qword ptr [r9 + 0]
@@ -3879,7 +3879,7 @@ module_init:
                         .quad            0
                         .long            0
                         .long            0
-                        .long            2032
+                        .long            1904
                         .long            16
                         .long            0
                         .long            0
