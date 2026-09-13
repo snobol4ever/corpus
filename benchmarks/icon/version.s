@@ -28,8 +28,8 @@ main:
                         ud2
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
-                        sub              rsp, 176
-                        mov              qword ptr [rsp + 168], rbp
+                        sub              rsp, 160
+                        mov              qword ptr [rsp + 152], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 0
@@ -84,8 +84,8 @@ n2_kw_icon_α:           mov              r11, 2
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    main_ω
-                        mov              qword ptr [rbp + 64], rax
-                        mov              qword ptr [rbp + 72], rdx;           jmp   n3_line_mark_α
+                        mov              qword ptr [rbp + 48], rax
+                        mov              qword ptr [rbp + 56], rdx;           jmp   n3_line_mark_α
 n2_kw_icon_β:           mov              r11, 2;                              jmp   main_ω
 .Lkw_icon_α_7_0:        .quad            .Lkw_icon_α_7_0_s
 .Lkw_icon_α_7_0_s:      .string          "&version"
@@ -101,9 +101,9 @@ n3_line_mark_α:         mov              r11, 3
 n4_call_icon_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n4_call_icon_α:         mov              r11, 4
-                        mov              rax, qword ptr [rbp + 64]
+                        mov              rax, qword ptr [rbp + 48]
                         mov              qword ptr [rbp + 16], rax
-                        mov              rax, qword ptr [rbp + 72]
+                        mov              rax, qword ptr [rbp + 56]
                         mov              qword ptr [rbp + 24], rax
                         .section         .rodata
 .Lcall_icon_α_rkfn11:   .string          "write"
