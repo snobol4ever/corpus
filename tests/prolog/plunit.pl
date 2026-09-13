@@ -98,6 +98,10 @@ pj_has_error([error(E)|_],E). pj_has_error([_|T],E) :- pj_has_error(T,E). pj_has
 pj_has_throws([throws(T)|_],T). pj_has_throws([_|T2],T) :- pj_has_throws(T2,T). pj_has_throws(throws(T),T).
 pj_has_true([true(E)|_],E). pj_has_true([_|T],E) :- pj_has_true(T,E).
 pj_has_all([all(E)|_],E).   pj_has_all([_|T],E) :- pj_has_all(T,E).
+pj_has_forall([forall(G)|_],G). pj_has_forall([_|T],G) :- pj_has_forall(T,G).
+pj_del_forall([],[]).
+pj_del_forall([forall(_)|T],R) :- !, pj_del_forall(T,R).
+pj_del_forall([H|T],[H|R]) :- pj_del_forall(T,R).
 /* pj_skip_cond — pattern-match the condition shape so we can dispatch
  * literal goals (sidesteps the Var-bound-goal limitation in scrip's \+/call).
  * Recognised shapes (only what the SWI suites actually use):
@@ -115,6 +119,9 @@ pj_cond_fails(current_prolog_flag(F,V)) :- !, \+ current_prolog_flag(F,V).
 pj_cond_fails(_) :- true.    /* unknown / undefined: assume fails => skip */
 
 
+pj_run_one(Suite,Name,Opts,Goal) :- pj_has_forall(Opts,Gen), !,
+    pj_del_forall(Opts,Rest),
+    forall(Gen, once(pj_run_one(Suite,Name,Rest,Goal))).
 pj_run_one(Suite,Name,Opts,_) :- pj_has_sto(Opts), !,
     pj_inc_skip, format('  skip: ~w:~w  [sto]~n',[Suite,Name]).
 pj_run_one(Suite,Name,Opts,_) :- pj_skip_cond(Opts), !,
