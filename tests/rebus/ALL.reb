@@ -246,26 +246,26 @@ OUTPUT := pre
 OUTPUT := inner
 OUTPUT := post
 end
-#---------------------------------------------------- 136 simple_output_25 XFAIL
+#---------------------------------------------------------- 136 simple_output_25
 record point(x, y)
 
 function main()
 OUTPUT := "before"
 OUTPUT := x(5)
 end
-#------------------------------------------------------- 137 alt_replace_3 XFAIL
+#------------------------------------------------------------- 137 alt_replace_3
 function main()
 OUTPUT := "before"
 if (1 | 2 | 3) = 2 then OUTPUT := "matched"
 end
-#--------------------------------------------------------------- 138 len_1 XFAIL
+#--------------------------------------------------------------------- 138 len_1
 function main()
 OUTPUT := "before"
 s := "hello"
 s ? LEN("abc") <- "X"
 OUTPUT := s
 end
-#------------------------------------------------------- 139 len_capture_1 XFAIL
+#------------------------------------------------------------- 139 len_capture_1
 function main()
 OUTPUT := "before"
 "hello" ? (LEN("abc") . w)
