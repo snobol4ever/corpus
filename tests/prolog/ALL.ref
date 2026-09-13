@@ -555,7 +555,7 @@ some_atom
 %----------------------------------------------- 220 write_canonical_directive_4
 +(1,2)
 %----------------------------------------------- 221 write_canonical_directive_5
-[a,b]
+'.'(a,'.'(b,[]))
 %--------------------------------------------------------- 222 write_family_nl_1
 a
 b
@@ -1744,7 +1744,7 @@ yes
 hello world
 'hello world'
 foo
-[a,b]
+'.'(a,'.'(b,[]))
 done
    x
 alpha beta 42
