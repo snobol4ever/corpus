@@ -1,0 +1,2 @@
+scrip_sm_lower	KEEPER, declared in scrip/KEEP.md -- never absorbed (deferral contract)
+# builder-digest: e9ba75aae639db47f8fc1ab75c52c3584604668871993c189dc9cdda219cdc20
