@@ -4,3 +4,4 @@
 # ⛔ DECLARED, NEVER INFERRED: classify() refuses to call a nonzero-rc run a PASS unless the
 # entry declares that exit code here, so an undeclared nonzero rc is a FAIL and not a silent pass.
 ladder__rung23_keyword_and_system_variables_code_exit_value	4
+ladder__rung23_keyword_and_system_variables_stlimit_halts_a_loop_body	1

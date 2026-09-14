@@ -2567,3 +2567,28 @@ OUTPUT = &STCOUNT - b;
 OUTPUT = "first";
 &CODE = 4;
 OUTPUT = "second";
+/*-- 336 ladder__rung23_keyword_and_system_variables_stcount_counts_loop_body */
+/* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: the ref is cut from the oracle running the SPITBOL twin, a goto loop over the same two trip counts. The witness reads &STCOUNT around a 3-trip and an 8-trip
+   loop of IDENTICAL top-level shape and compares the two deltas, so the per-iteration count is isolated from the top-level overhead and no magic statement number is pinned -- the Snocone report calls the
+   count 'only approximate' because it counts SNOBOL4 statements, so the property to pin is that a loop body counts AT ALL, never an exact total. Before CEO-727 both deltas were equal and this printed the
+   'not counted' arm in BOTH modes: statement hooks were minted per TOP-LEVEL statement only, so a structured body's statements were never counted. */
+a = &STCOUNT;
+i = 0;
+while (LT(i, 3)) { i = i + 1; }
+b = &STCOUNT;
+j = 0;
+while (LT(j, 8)) { j = j + 1; }
+c = &STCOUNT;
+if (GT((c - b) - (b - a), 0)) {
+    OUTPUT = 'loop body counted';
+} else {
+    OUTPUT = 'loop body not counted';
+}
+/*- 337 ladder__rung23_keyword_and_system_variables_stlimit_halts_a_loop_body */
+/* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: &STLIMIT must halt a runaway loop whose trips are INSIDE a structured body, which is the dangerous direction -- before CEO-727 this ran to completion and
+   printed 'after' at rc=0 while the oracle's twin halts at ERROR 244. The declared rc=1 in ALL.wantrc is half the witness: stdout alone cannot tell a halt from a silent completion. */
+&STLIMIT = 20;
+n = 0;
+OUTPUT = 'before';
+while (LT(n, 100000)) { n = n + 1; }
+OUTPUT = 'after';

@@ -1019,3 +1019,7 @@ no
 /*----------- 335 ladder__rung23_keyword_and_system_variables_code_exit_value */
 first
 second
+/*-- 336 ladder__rung23_keyword_and_system_variables_stcount_counts_loop_body */
+loop body counted
+/*- 337 ladder__rung23_keyword_and_system_variables_stlimit_halts_a_loop_body */
+before
