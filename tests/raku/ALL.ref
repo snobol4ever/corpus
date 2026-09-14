@@ -2505,3 +2505,15 @@ Less
 24
 #-------------------------------- 912 ladder__rung18_two_arg_block_reduce_concat
 abbc
+#--------------------------------------------- 913 ladder__rung19_block_methcall
+(A B)
+#--------------------------------------- 914 ladder__rung19_block_methcall_topic
+(o a)
+#--------------------------------- 915 ladder__rung19_block_methcall_sort_by_key
+(b aa ccc)
+#------------------------------------- 916 ladder__rung19_block_methcall_chained
+(1 1)
+#------------------------------------ 917 ladder__rung19_block_methcall_sub_body
+AB
+#---------------------------------------- 918 ladder__rung19_block_methcall_grep
+(a)

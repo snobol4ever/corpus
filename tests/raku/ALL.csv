@@ -911,3 +911,9 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,sub,multi,my,our,say,print,giv
 1047,ladder__rung18_two_arg_block_reduce_add,ladder__rung18_two_arg_block_reduce_add,ladder,block,0,2,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
 1048,ladder__rung18_two_arg_block_reduce_mul,ladder__rung18_two_arg_block_reduce_mul,ladder,block,0,2,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
 1049,ladder__rung18_two_arg_block_reduce_concat,ladder__rung18_two_arg_block_reduce_concat,ladder,block,0,2,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0
+1050,ladder__rung19_block_methcall,ladder__rung19_block_methcall,ladder,block,0,1,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1051,ladder__rung19_block_methcall_topic,ladder__rung19_block_methcall_topic,ladder,block,0,1,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+1052,ladder__rung19_block_methcall_sort_by_key,ladder__rung19_block_methcall_sort_by_key,ladder,block,0,2,"m3,m4",0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
+1053,ladder__rung19_block_methcall_chained,ladder__rung19_block_methcall_chained,ladder,block,0,1,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1054,ladder__rung19_block_methcall_sub_body,ladder__rung19_block_methcall_sub_body,ladder,block,0,2,"m3,m4",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+1055,ladder__rung19_block_methcall_grep,ladder__rung19_block_methcall_grep,ladder,block,0,1,"m3,m4",0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

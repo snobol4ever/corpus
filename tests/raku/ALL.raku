@@ -4233,3 +4233,17 @@ say @n.reduce({ $^a * $^b });
 #-------------------------------- 912 ladder__rung18_two_arg_block_reduce_concat
 my @w = ("a","bb","c");
 say @w.reduce({ $^a ~ $^b });
+#--------------------------------------------- 913 ladder__rung19_block_methcall
+say ("a","b").map({ $^a.uc });
+#--------------------------------------- 914 ladder__rung19_block_methcall_topic
+say ("foo","bar").map({ $_.substr(1,1) });
+#--------------------------------- 915 ladder__rung19_block_methcall_sort_by_key
+my @w = <aa b ccc>;
+say @w.sort({ $^a.chars <=> $^b.chars });
+#------------------------------------- 916 ladder__rung19_block_methcall_chained
+say (1,2).map({ $^a.Str.chars });
+#------------------------------------ 917 ladder__rung19_block_methcall_sub_body
+sub f($x) { $x.uc }
+say f("ab");
+#---------------------------------------- 918 ladder__rung19_block_methcall_grep
+say ("a","b").grep({ $^a.uc eq "A" });
