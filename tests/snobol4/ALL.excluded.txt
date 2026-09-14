@@ -26,6 +26,7 @@ config_probe_loose_fwctx_fwctx_suite_malformed	plain body carries suite-format m
 counter[demos]	already in the master (origin demo_snobol4_counter__counter) -- not re-appended
 coverage_sno_nodes[scrip_test]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=231
 coverage_sno_nodes[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=231
+data_redefinition_adds_field_to_existing_type	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 demos/scrip/family_net/family_snobol4.sno	cross-language demo module -- IMPORTs family_prolog and EXPORTs parse_csv for family_icon.icn via Scrip ABI linkage; not a standalone runnable program, same polyglot family-tree demo as demos/scrip/family_snobol4.sno
 demos/scrip/family_snobol4.sno	cross-language demo module -- IMPORTs family_prolog via Scrip ABI linkage (ARCH-scrip-abi.md), reads shared family.csv; not a standalone runnable program, assembled with its Prolog/Icon counterparts elsewhere (see tests/scrip_test/polyglot_tri_main.sno)
 eval_fixed[benchmarks]	already in the master (origin benchmark_snobol4_eval_fixed__eval_fixed) -- not re-appended
@@ -148,7 +149,6 @@ probe_loose_table_nested_ident_guard_d1	scratch-escaping relative reference (../
 probe_loose_table_nested_value_type_tbl	scratch-escaping relative reference (../) -- semantics cannot survive isolated-entry grading; stays as files
 probe_loose_unload_un_self_exec[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 regress_deferred_nonname_capture_target_fails[tests]	already in the master (origin test_snobol4_regress_deferred_nonname_capture_target_fails__regress_deferred_nonname_capture_target_fails) -- not re-appended
-rewind_unopened_unit_raises_174	already in the master (1 of 1 origins present) -- rebuild of an existing entry, not a new one; NOT re-appended to the output, ELIGIBLE for deletion below once its content re-verifies against the existing entry
 roman[benchmarks]	already in the master (origin benchmark_snobol4_roman__roman) -- not re-appended
 roman[demos]	already in the master (origin demo_snobol4_roman__roman) -- not re-appended
 rtx_func_11_inc[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
@@ -176,3 +176,4 @@ treebank-match[demos]	committed .ref disagrees with a fresh oracle run -- re-con
 treebank[demos]	already in the master (origin demo_snobol4_treebank__treebank) -- not re-appended
 var_access[benchmarks]	already in the master (origin benchmark_snobol4_var_access__var_access) -- not re-appended
 wordcount[demos]	already in the master (origin demo_snobol4_wordcount__wordcount) -- not re-appended
+# builder-digest: b0a2c8bc48eb61bfa9bbb74f841f5ce081445bc89b892863a1f07c9aa0b0b5d5

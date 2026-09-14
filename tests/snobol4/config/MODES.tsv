@@ -26,6 +26,7 @@ benchmark_snobol4_table_access	m3,m4
 benchmark_snobol4_table_variety	m3,m4
 benchmark_snobol4_test_icon	m3,m4
 benchmark_snobol4_var_access	m3,m4
+data_redefinition_adds_field_to_existing_type	m3,m4
 demo_snobol4_arithmetic	m3,m4
 demo_snobol4_claws5	m3,m4
 demo_snobol4_counter	m3,m4
