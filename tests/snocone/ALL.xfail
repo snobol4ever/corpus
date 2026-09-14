@@ -1,52 +1,52 @@
-/*----------------------------------------------- 305 simple_output_124 XFAIL */
+/*----------------------------------------------- 304 simple_output_124 XFAIL */
 DEFECT (frontend, hq_I lane) -- CLASS 'hash-comment': `#` is not lexed as a line-comment
 introducer. `# B11_comment_hash: ...` on line 1 is a hard parse error, rc=1, both modes.
 report.md documents `#` alongside `//`; snocone_lex.c implements `//` only.
 Measured 2026-09-13 by hq_I. 1 entry in this class.
-/*------------------------------------------------ 306 simple_output_92 XFAIL */
+/*------------------------------------------------ 305 simple_output_92 XFAIL */
 DEFECT (lowering) -- CLASS 'nested-paren alternation'. `S ? (("xyz", "abc"))` aborts with
 FATAL lower_snobol4 (GZ#5 subset): pattern element not in the SN4-PAT subset, rc=1, both modes.
 Top-level, no procedure involved. 5 entries in this class (this + capture_replace_1..4).
 SHARED-NODE SUSPECT: the FATAL is raised in lower_snobol4.c, which SNOBOL4 also reaches --
 routing check owed before a cure lands. Measured 2026-09-13 by hq_I.
-/*------------------------------------------------ 307 simple_output_96 XFAIL */
+/*------------------------------------------------ 306 simple_output_96 XFAIL */
 DEFECT (semantics) -- CLASS 'query-on-null'. `?x` with x = "" SUCCEEDS under scrip; the
 oracle-cut ref says it must FAIL. scrip prints "has value", ref says "no value". rc=0 both
 modes, so this is a wrong ANSWER, not a crash. 1 entry. Measured 2026-09-13 by hq_I.
-/*----------------------------------------------- 309 simple_output_144 XFAIL */
+/*----------------------------------------------- 308 simple_output_144 XFAIL */
 DEFECT (semantics) -- CLASS 'paren-comma-concat'. `(a, b)` evaluates to `a` alone under
 scrip; the oracle-cut ref says it concatenates: ('','')->"" ('','Z')->Z ('A','')->A ('A','Z')->AZ.
 scrip gives "" "" A A. rc=0 both modes -- a wrong answer, not a crash. 2 entries (this +
 simple_output_69). Measured 2026-09-13 by hq_I.
-/*------------------------------------------------ 310 simple_output_69 XFAIL */
+/*------------------------------------------------ 309 simple_output_69 XFAIL */
 See simple_output_144 -- CLASS 'paren-comma-concat'; this entry is its near-duplicate.
 ⭐ ITS SOURCE WAS ALSO CORRUPT and was repaired 2026-09-13 by hq_I: the three distinct literal
 pairs ('',''), ('','Z'), ('A','') had all been overwritten with ('A','Z'), so the entry could
 not match its own oracle ref even with the class cured. Restored from the ref's own demands and
 from its twin simple_output_144. It now fails EXACTLY as its twin does, on the real class only.
-/*----------------------------------------------- 311 capture_replace_1 XFAIL */
+/*----------------------------------------------- 310 capture_replace_1 XFAIL */
 See simple_output_92 -- CLASS 'nested-paren alternation', with capture `. RESULT`.
-/*----------------------------------------------- 312 capture_replace_2 XFAIL */
+/*----------------------------------------------- 311 capture_replace_2 XFAIL */
 See simple_output_92 -- CLASS 'nested-paren alternation', chained alternatives.
-/*----------------------------------------------- 313 capture_replace_3 XFAIL */
+/*----------------------------------------------- 312 capture_replace_3 XFAIL */
 See simple_output_92 -- CLASS 'nested-paren alternation', left alternative wins.
-/*----------------------------------------------- 314 capture_replace_4 XFAIL */
+/*----------------------------------------------- 313 capture_replace_4 XFAIL */
 See simple_output_92 -- CLASS 'nested-paren alternation', right-alternative fallback.
-/*---------------------------------------------- 315 datatype_replace_1 XFAIL */
+/*---------------------------------------------- 314 datatype_replace_1 XFAIL */
 DEFECT (semantics) -- CLASS 'datatype-case'. DATATYPE() of a struct instance returns the
 name as spelled in the declaration (`color`); the oracle-cut ref says `COLOR`. 1 entry.
 ⚠️ GRADE THE REF BEFORE CURING: snocone is case-sensitive (ARCH-LANGUAGES.md) and the ref was
 cut through a transpile path that may itself be upcasing the DATA() prototype -- if so the ref
 is measuring the transpiler, not the language, and the faulty artifact is the ref.
 Measured 2026-09-13 by hq_I; NOT yet resolved either way.
-/*------------------------------------------------- 316 array_replace_1 XFAIL */
+/*------------------------------------------------- 315 array_replace_1 XFAIL */
 DEFECT (frontend, hq_I lane) -- CLASS 'angle-subscript-read'. `arr<i>` parses as an
 assignment TARGET (`arr<1> = 'first';` is accepted) but NOT as a value: `OUTPUT = arr<1>;` is a
 hard parse error, rc=1, both modes. The write arm and the read arm of one construct disagree.
 2 entries (this + array_replace_2). Measured 2026-09-13 by hq_I.
-/*------------------------------------------------- 317 array_replace_2 XFAIL */
+/*------------------------------------------------- 316 array_replace_2 XFAIL */
 See array_replace_1 -- CLASS 'angle-subscript-read', inside a while loop.
-/*----------------------------------------- 320 break_any_pos_replace_1 XFAIL */
+/*----------------------------------------- 319 break_any_pos_replace_1 XFAIL */
 DEFECT (frontend/lowering, hq_I lane) -- CLASS 'match-inside-procedure'.
 ⭐ THIS ENTRY WAS FAULTY *AND* HIDING A REAL DEFECT, which is why it is still red after repair.
 Its source used `function f(args)(locals)`, a spelling Snocone never had (see the three entries
