@@ -1,0 +1,1366 @@
+     *
+     *      A VARIETY OF CORRECT AND INCORRECT SPITBOL STATEMENTS FOLLOW
+     *
+     -LIST
+     COMPUTE
+     *      X   =  Y + 3 ** -'2'
+     *      X   =   Y+Z
+     *        ELEMENT<I,J>= ELEMENT<I,-J> + ELEMENT<-I,J>
+<<< NO SYNTACTIC ERROR >>>
+
+            ELEMENT<I><J><K>   =   ELEMENT<K><J><I>
+<<< NO SYNTACTIC ERROR >>>
+
+            A<X,Y,Z + 1>   =   F(X,STRUCTURE_BUILD(TYPE,LENGTH + 1))
+<<< NO SYNTACTIC ERROR >>>
+
+     SETUP    PAT1   =   (BREAK(',:') $ FIRST | SPAN(' .') $ SECOND
+     .                   . VALUE ARBNO(BAL | LEN(1))  :($SWITCH)
+<<< NO SYNTACTIC ERROR >>>
+
+            DEFINE('F(X,Y))
+<<< SYNTACTIC ERROR >>>
+
+            L   =   LT(N,B<J> L + 1
+<<< SYNTACTIC ERROR >>>
+
+     NEWONE_TRIAL   X   =   !COORD<1,K> X * X
+<<< NO SYNTACTIC ERROR >>>
+
+            TRIM(INPUT)   PAT1    :S(OK)  :F(BAD)
+<<< SYNTACTIC ERROR >>>
+
+        X   =   3.01; Y = 2.    ; Z   =   X * -Y
+     ./*
+     -TITLE SPITBOL TEST PROGRAM #5 -- DEMONSTRATION VERSION OF TREESORT4
+     -STITL DRIVER
+<<< SYNTACTIC ERROR >>>
+
+      DEFINE('TREESORT4(DATA,NUMBER_TO_SORT)')
+<<< NO SYNTACTIC ERROR >>>
+
+      DEFINE('PRINTER()')
+<<< NO SYNTACTIC ERROR >>>
+
+      DATA = ARRAY(24)
+<<< NO SYNTACTIC ERROR >>>
+
+              INPUT(.INPUT,,72)
+<<< NO SYNTACTIC ERROR >>>
+
+     READER J = J + 1
+<<< NO SYNTACTIC ERROR >>>
+
+      DATA<J> = TRIM(INPUT)  :S(READER)
+<<< NO SYNTACTIC ERROR >>>
+
+      OUTPUT = 'UNSORTED DATA'
+<<< NO SYNTACTIC ERROR >>>
+
+      OUTPUT =
+<<< NO SYNTACTIC ERROR >>>
+
+      PRINTER()
+<<< NO SYNTACTIC ERROR >>>
+
+      TREESORT4(DATA,24)
+<<< NO SYNTACTIC ERROR >>>
+
+      OUTPUT =
+<<< NO SYNTACTIC ERROR >>>
+
+      OUTPUT = 'SORTED DATA'
+<<< NO SYNTACTIC ERROR >>>
+
+      OUTPUT =
+<<< NO SYNTACTIC ERROR >>>
+
+      PRINTER() :(END)
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     PRINTER J = 0
+<<< NO SYNTACTIC ERROR >>>
+
+     PRINTL J = J + 1
+<<< NO SYNTACTIC ERROR >>>
+
+      OUTPUT = DATA<J>    :S(PRINTL)F(RETURN)
+     -STITL ACTUAL TREESORT4 SUBROUTINE
+     *             TREESORT4
+     *             ---------
+     *
+     *             SORTING ALGORITHM DERIVED FROM FLOYD'S TREESORT3 PUBLISHED
+     *             IN CACM DEC. 1967 -- THE MODIFICATIONS DEVISED BY R. DEWAR
+     *             AND L.FISHER REDUCE THE NUMBER OF COMPARES FROM 2NLOGN
+     *             TO NLOGN -- THIS VERSION CODED IN SNOBOL4 BY R. DEWAR
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     TREESORT4
+     .             NUMBER_IN_TREE = NUMBER_TO_SORT
+<<< NO SYNTACTIC ERROR >>>
+
+                   NODE_TO_SIFT = NUMBER_TO_SORT / 2
+<<< NO SYNTACTIC ERROR >>>
+
+                   RETURN_FROM_SIFT = .SIFT_RETURN_1
+<<< NO SYNTACTIC ERROR >>>
+
+     SIFT_CALL_1
+     .             HOLD_LOCATION = DATA<NODE_TO_SIFT> :(SIFT_NODE)
+<<< NO SYNTACTIC ERROR >>>
+
+     SIFT_RETURN_1
+     .             NODE_TO_SIFT = GT(NODE_TO_SIFT,1)
+     .                              NODE_TO_SIFT - 1  :S(SIFT_CALL_1)
+<<< NO SYNTACTIC ERROR >>>
+
+     SECOND_PHASE
+     .             RETURN_FROM_SIFT = .SIFT_RETURN_2
+<<< NO SYNTACTIC ERROR >>>
+
+     SIFT_RETURN_2
+     .             HOLD_LOCATION = DATA<NUMBER_IN_TREE>
+<<< NO SYNTACTIC ERROR >>>
+
+                   DATA<NUMBER_IN_TREE> = DATA<1>
+<<< NO SYNTACTIC ERROR >>>
+
+                   NUMBER_IN_TREE = GT(NUMBER_IN_TREE,1)
+     .                               NUMBER_IN_TREE - 1
+     .                                                :S(SIFT_NODE)F(RETURN)
+     -EJECT
+<<< NO SYNTACTIC ERROR >>>
+
+     SIFT_NODE
+     .             FATHER = NODE_TO_SIFT
+<<< NO SYNTACTIC ERROR >>>
+
+     PULL_UP_LARGER_SON
+     .             LEFT_SON = FATHER * 2
+<<< NO SYNTACTIC ERROR >>>
+
+                   LT(LEFT_SON,NUMBER_IN_TREE)        :S(COMPARE_SONS)
+<<< NO SYNTACTIC ERROR >>>
+
+                   EQ(LEFT_SON,NUMBER_IN_TREE)        :S(LEFT_SON_HIGH)
+<<< NO SYNTACTIC ERROR >>>
+
+                                                      :(CHECK_FATHERS)
+<<< NO SYNTACTIC ERROR >>>
+
+     COMPARE_SONS
+     .             RIGHT_SON = LEFT_SON + 1
+<<< NO SYNTACTIC ERROR >>>
+
+                   LGT(DATA<LEFT_SON>,DATA<RIGHT_SON>)
+     .                                                :S(LEFT_SON_HIGH)
+<<< NO SYNTACTIC ERROR >>>
+
+     RIGHT_SON_HIGH
+     .             DATA<FATHER> = DATA<RIGHT_SON>
+<<< NO SYNTACTIC ERROR >>>
+
+                   FATHER = RIGHT_SON                 :(PULL_UP_LARGER_SON)
+<<< NO SYNTACTIC ERROR >>>
+
+     LEFT_SON_HIGH
+     .             DATA<FATHER> = DATA<LEFT_SON>
+<<< NO SYNTACTIC ERROR >>>
+
+                   FATHER = LEFT_SON                  :(PULL_UP_LARGER_SON)
+<<< NO SYNTACTIC ERROR >>>
+
+     CHECK_FATHERS
+     .             HOLE_IN_TREE = FATHER
+<<< NO SYNTACTIC ERROR >>>
+
+     TEST_NEXT_FATHER
+     .             FATHER_OF_HOLE = HOLE_IN_TREE / 2
+<<< NO SYNTACTIC ERROR >>>
+
+                   LT(FATHER_OF_HOLE,NODE_TO_SIFT)    :S(FILL_HOLE)
+<<< NO SYNTACTIC ERROR >>>
+
+                   LGT(DATA<FATHER_OF_HOLE>,HOLD_LOCATION)
+     .                                                :S(FILL_HOLE)
+<<< NO SYNTACTIC ERROR >>>
+
+                   DATA<HOLE_IN_TREE> = DATA<FATHER_OF_HOLE>
+<<< NO SYNTACTIC ERROR >>>
+
+                   HOLE_IN_TREE = FATHER_OF_HOLE      :(TEST_NEXT_FATHER)
+<<< NO SYNTACTIC ERROR >>>
+
+     FILL_HOLE
+     .             DATA<HOLE_IN_TREE> = HOLD_LOCATION
+     .                                                :($RETURN_FROM_SIFT)
+<<< NO SYNTACTIC ERROR >>>
+
+     END
+<<< NO SYNTACTIC ERROR >>>
+
+     SHALL
+<<< NO SYNTACTIC ERROR >>>
+
+     I
+<<< NO SYNTACTIC ERROR >>>
+
+     COMPARE
+<<< NO SYNTACTIC ERROR >>>
+
+     THEE
+<<< NO SYNTACTIC ERROR >>>
+
+     TO
+<<< NO SYNTACTIC ERROR >>>
+
+     A
+<<< NO SYNTACTIC ERROR >>>
+
+     SUMMERS
+<<< NO SYNTACTIC ERROR >>>
+
+     DAY
+<<< NO SYNTACTIC ERROR >>>
+
+     THOU
+<<< NO SYNTACTIC ERROR >>>
+
+     ART
+<<< NO SYNTACTIC ERROR >>>
+
+     MORE
+<<< NO SYNTACTIC ERROR >>>
+
+     LOVELY
+<<< NO SYNTACTIC ERROR >>>
+
+     AND
+<<< NO SYNTACTIC ERROR >>>
+
+     MORE
+<<< NO SYNTACTIC ERROR >>>
+
+     TEMPORATE
+<<< NO SYNTACTIC ERROR >>>
+
+     ROUGH
+<<< NO SYNTACTIC ERROR >>>
+
+     WINDS
+<<< NO SYNTACTIC ERROR >>>
+
+     DO
+<<< NO SYNTACTIC ERROR >>>
+
+     SHAKE
+<<< NO SYNTACTIC ERROR >>>
+
+     THE
+<<< NO SYNTACTIC ERROR >>>
+
+     DARLING
+<<< NO SYNTACTIC ERROR >>>
+
+     BUDS
+<<< NO SYNTACTIC ERROR >>>
+
+     OF
+<<< NO SYNTACTIC ERROR >>>
+
+     MAY
+     ./*
+     -TITLE SPITBOL TEST PROGRAM #6 -- TOPOLOGICAL SORT
+     *
+     *        TOPOLOGICAL SORT
+     *
+     *   MAPS A PARTIAL ORDERING OF OBJECTS INTO A LINEAR ORDERING
+     *
+     *        A(1), A(2), ..., A(N)
+     *
+     *   SUCH THAT IF   A(S) < A(T) IN THE PARTIAL ORDERING,THEN S < T.
+     *   (CF. D.E.KNUTH, THE ART OF COMPUTER PROGRAMMING,VOLUME 1,
+     *   ADDISON-WESLEY,MASS.,1968, P.262)
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              &DUMP = 2
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT('OUT',6,'(121A1)')
+<<< NO SYNTACTIC ERROR >>>
+
+              PAIR      = BREAK('<') . MU LEN(1) BREAK(',') . NU LEN(1)
+<<< NO SYNTACTIC ERROR >>>
+
+              DATA('ITEM(COUNT,TOP)')
+<<< NO SYNTACTIC ERROR >>>
+
+              DATA('NODE(SUC,NEXT)')
+<<< NO SYNTACTIC ERROR >>>
+
+              DEFINE('DECR(X)')
+<<< NO SYNTACTIC ERROR >>>
+
+              DEFINE('INDEX(TAU)')
+<<< NO SYNTACTIC ERROR >>>
+
+              INPUT(.INPUT,,72)
+     *
+     *     READ IN THE NUMBER OF ITEMS, N, AND GENERATE AN ARRAY OF ITEMS.
+     *
+     *   EACH ITEM HAS TWO FIELDS, (COUNT,TOP), WHERE
+     *        COUNT = NO. OF ELEMENTS PRECEEDING IT.
+<<< NO SYNTACTIC ERROR >>>
+
+              TOP = TOP OF LIST OF ITEMS SUCCEEDING IT.
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              N         = TRIM(INPUT)
+<<< NO SYNTACTIC ERROR >>>
+
+              X         = ARRAY('0:' N)
+     *   INITIALIZE THE ITEMS TO (0,NULL).
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     T1       X<I>      =  ITEM(0,)              :F(T1A)
+<<< NO SYNTACTIC ERROR >>>
+
+              I         =  I + 1                 :(T1)
+     *
+     *   READ IN RELATIONS.
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     T1A      OUT       = '1 THE RELATIONS ARE:'
+<<< NO SYNTACTIC ERROR >>>
+
+     T2A      REL       = TRIM(INPUT) ','        :F(T3A)
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT    = REL
+<<< NO SYNTACTIC ERROR >>>
+
+     T2       REL       PAIR  =                  :F(T2A)
+<<< NO SYNTACTIC ERROR >>>
+
+              J         = INDEX(MU)
+<<< NO SYNTACTIC ERROR >>>
+
+              K         = INDEX(NU)
+     *
+     *   SINCE MU < NU, INCREASE THE COUNT OF THE KTH ITEM AND ADD A
+     *   NODE TO THE LIST OF SUCCESSORS OF THE JTH ITEM.
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     T3       COUNT(X<K>) = COUNT(X<K>) + 1
+<<< NO SYNTACTIC ERROR >>>
+
+              TOP(X<J>) = NODE(K,TOP(X<J>))      :(T2)
+     -EJECT
+     *
+     *    A QUEUE IS MAINTAINED OF THOSE ITEMS WITH ZERO COUNT FIELD.
+     *    THE LINKS FOR THE QUEUE, QLINK, ARE KEPT IN THE COUNT FIELD.
+     *    THE VARIABLES F,R POINT TO THE FRONT AND REAR OF THE QUEUE.
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     T3A      OPSYN('QLINK','COUNT')
+     *
+     *    INITIALIZE THE QUEUE FOR OUTPUT.
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              R         = 0
+<<< NO SYNTACTIC ERROR >>>
+
+              QLINK(X<0>) = 0
+<<< NO SYNTACTIC ERROR >>>
+
+              K         = 0
+<<< NO SYNTACTIC ERROR >>>
+
+     T4       K         = ?X<K + 1>  K + 1       :F(T4A)
+<<< NO SYNTACTIC ERROR >>>
+
+              QLINK(X<R>) = EQ(COUNT(X<K>),0)  K :F(T4)
+<<< NO SYNTACTIC ERROR >>>
+
+              R         = K                      :(T4)
+<<< NO SYNTACTIC ERROR >>>
+
+     T4A      F         = QLINK(X<0>)
+     *
+     *    OUTPUT THE FRONT OF THE QUEUE.
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              OUT       = '0 THE LINEAR ORDERING IS:'
+<<< NO SYNTACTIC ERROR >>>
+
+     T5       OUTPUT    = NE(F,0)  $(F ':')      :F(T8)
+<<< NO SYNTACTIC ERROR >>>
+
+              N         = N - 1
+<<< NO SYNTACTIC ERROR >>>
+
+              P         = TOP(X<F>)
+     *    ERASE RELATIONS.
+<<< NO SYNTACTIC ERROR >>>
+
+     T6       IDENT(P)                           :S(T7)
+<<< NO SYNTACTIC ERROR >>>
+
+              DECR(.COUNT(X<SUC(P)>))            :S(T6A)
+     *
+     *    IF COUNT IS ZERO ADD  ITEM TO QUEUE.
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              QLINK(X<R>) = SUC(P)
+<<< NO SYNTACTIC ERROR >>>
+
+              R         = SUC(P)
+<<< NO SYNTACTIC ERROR >>>
+
+     T6A      P         = NEXT(P)                :(T6)
+     *
+     *    REMOVE FROM QUEUE.
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     T7       F         = QLINK(X<F>)            :(T5)
+     *
+     *    FUNCTION DEFINITIONS.
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     DECR     $X        = GT($X,1)  $X - 1       :S(RETURN)
+<<< NO SYNTACTIC ERROR >>>
+
+              $X        = 0                      :(FRETURN)
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     INDEX    INDEX     = DIFFER($(TAU ':'))  $(TAU ':')  :S(RETURN)
+<<< NO SYNTACTIC ERROR >>>
+
+              TERMCT    = LT(TERMCT,N)  TERMCT + 1    :F(FRETURN)
+<<< NO SYNTACTIC ERROR >>>
+
+              INDEX     = TERMCT
+<<< NO SYNTACTIC ERROR >>>
+
+              $(TERMCT ':')   =  TAU
+<<< SYNTACTIC ERROR >>>
+
+              $(TAU ':')   =  TERMCT             :(RETURN)
+     *
+<<< SYNTACTIC ERROR >>>
+
+     T8       OUTPUT    = NE(N,0) 'THE ORDERING CONTAINS A LOOP.'
+<<< NO SYNTACTIC ERROR >>>
+
+     END
+<<< NO SYNTACTIC ERROR >>>
+
+     14
+<<< NO SYNTACTIC ERROR >>>
+
+     LETTERS<ALPHANUM,NUMBERS<ALPHANUM
+<<< NO SYNTACTIC ERROR >>>
+
+     BLANKS<OPTBLANKS
+<<< NO SYNTACTIC ERROR >>>
+
+     NUMBERS<REAL
+<<< NO SYNTACTIC ERROR >>>
+
+     NUMBERS<INTEGER
+<<< NO SYNTACTIC ERROR >>>
+
+     LETTERS<VARIABLE,ALPHANUM<VARIABLE
+<<< NO SYNTACTIC ERROR >>>
+
+     BINARY<BINARYOP,BLANKS<BINARYOP
+<<< NO SYNTACTIC ERROR >>>
+
+     UNQALPHABET<DLITERAL
+<<< NO SYNTACTIC ERROR >>>
+
+     UNQALPHABET<SLITERAL
+<<< NO SYNTACTIC ERROR >>>
+
+     SLITERAL<LITERAL,DLITERAL<LITERAL,INTEGER<LITERAL,REAL<LITERAL
+     ./*
+     -TITLE SPITBOL TEST PROGRAM #7 -- SYMBOL TABLE GENERATOR
+     *
+     *        THIS PROGRAM DEMONSTRATES THE STORAGE OF SYMBOL TABLES
+     *        USING A TECHIQUE IN WHICH NAMES ARE STORED AS LINKED LISTS
+     *        OF CHARACTERS. THE DATA FUNCTION IS USED TO FORM THE
+     *        REQUIRED NODES WHICH CONTAIN APPROPRIATE POINTERS TO BE
+     *        USED ON FAILURE OR SUCCESS OF THE CHARACTER BY CHARACTER MATCH
+     *
+     -CODE
+<<< NO SYNTACTIC ERROR >>>
+
+              DATA('SYMB(CHAR,LINK,ALT,ASSOC,SUCC)')
+<<< NO SYNTACTIC ERROR >>>
+
+              INPUT(.INPUT,,72)
+<<< NO SYNTACTIC ERROR >>>
+
+              SPC = '     ::'
+<<< NO SYNTACTIC ERROR >>>
+
+              ALPH = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+<<< NO SYNTACTIC ERROR >>>
+
+     CLEAR    HEAD =
+<<< NO SYNTACTIC ERROR >>>
+
+              SWITCH1 = .FIRST
+<<< NO SYNTACTIC ERROR >>>
+
+              X = 0
+<<< NO SYNTACTIC ERROR >>>
+
+     READA    OUTPUT =
+<<< NO SYNTACTIC ERROR >>>
+
+     READ     CARD = TRIM(INPUT)                      :F(END1)
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT = CARD
+<<< NO SYNTACTIC ERROR >>>
+
+              DIFFER(CARD)                            :F(BADCARD)
+<<< NO SYNTACTIC ERROR >>>
+
+              CARD POS(0) '$' =                       :S(CONTROL)
+<<< NO SYNTACTIC ERROR >>>
+
+              CARD NOTANY(ALPH)                       :F(INCX)
+<<< NO SYNTACTIC ERROR >>>
+
+     BADCARD  OUTPUT = '  CARD ABOVE IS ILLEGAL'      :(READ)
+<<< NO SYNTACTIC ERROR >>>
+
+     INCX     X = X + 1                               :($SWITCH1)
+<<< NO SYNTACTIC ERROR >>>
+
+     FIRST    SWITCH1 = .SEARCH
+<<< NO SYNTACTIC ERROR >>>
+
+     F1       CARD LEN(1) . CH =                      :F(ERR)
+<<< NO SYNTACTIC ERROR >>>
+
+              HEAD = SYMB(CH)
+<<< NO SYNTACTIC ERROR >>>
+
+              CURRENT = HEAD
+<<< NO SYNTACTIC ERROR >>>
+
+     F2       CARD LEN(1) . CH =                      :F(INSERT)
+<<< NO SYNTACTIC ERROR >>>
+
+     F3       SUCC(CURRENT) = SYMB(CH,CURRENT)
+<<< NO SYNTACTIC ERROR >>>
+
+              CURRENT = SUCC(CURRENT)                 :(F2)
+<<< NO SYNTACTIC ERROR >>>
+
+     INSERT   ASSOC(CURRENT) = ASSOC(CURRENT) X ","   :(READ)
+<<< NO SYNTACTIC ERROR >>>
+
+     SEARCH   CARD LEN(1) . CH =                      :F(ERR)
+<<< NO SYNTACTIC ERROR >>>
+
+              LGT(CHAR(HEAD), CH)                     :S(S7)
+<<< NO SYNTACTIC ERROR >>>
+
+              IDENT(CHAR(HEAD),CH)                    :S(S5)
+     *
+     *  FIRST CHARACTER OF HEAD IS < FIRST CHAR OF CHAR JUST READ
+     *  IF ALT(HEAD) NULL THEN MUST EXTEND STRUCTURE
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              IDENT(ALT(HEAD))                        :S(S3)
+<<< NO SYNTACTIC ERROR >>>
+
+              CURRENT = ALT(HEAD)
+<<< NO SYNTACTIC ERROR >>>
+
+     S1       LGT(CHAR(CURRENT),CH)                   :S(S6)
+<<< NO SYNTACTIC ERROR >>>
+
+              IDENT(CHAR(CURRENT),CH)                 :S(S4)
+<<< NO SYNTACTIC ERROR >>>
+
+              IDENT(ALT(CURRENT))                     :S(S2)
+<<< NO SYNTACTIC ERROR >>>
+
+              CURRENT = ALT(CURRENT)                  :(S1)
+     *
+     *  NEW ALTERNATIVE MUST BE INSERTED AT END
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     S2       ALT(CURRENT) = SYMB(CH,CURRENT)
+     *
+     *  THEN REST OF WORD STRUNG OUT
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              CURRENT = ALT(CURRENT)                  :(F2)
+     *
+     *  NEW ALTERNATIVE MUST BE INSERTED AT HEAD OF LIST
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     S3       ALT(HEAD) = SYMB(CH,HEAD)
+<<< NO SYNTACTIC ERROR >>>
+
+              CURRENT = ALT(HEAD)                     :(F2)
+     -EJECT
+     *
+     *  CHARACTER HAS BEEN FOUND. NOW LOOK AT NEXT HCARACTER OF WORD
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     S4       CARD LEN(1) . CH  =                     :F(INSERT)
+     *  IF NO SUCCESSORS, STRING OUT REST OF WORD
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              IDENT(SUCC(CURRENT))                    :S(F3)
+     *
+     *  OTHERWISE CONTINUE EXAMINATION
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              CURRENT = SUCC(CURRENT)                 :(S1)
+<<< NO SYNTACTIC ERROR >>>
+
+     S5       CURRENT = HEAD                          :(S4)
+     *
+     *  CHAR IS SMALLER THAN CURRENT ALTERNATIVE
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     S6       Y = LINK(CURRENT)
+<<< NO SYNTACTIC ERROR >>>
+
+              ALT(Y) = IDENT(ALT(Y),CURRENT) SYMB(CH,Y)         :F(S6A)
+<<< NO SYNTACTIC ERROR >>>
+
+              Y = ALT(Y)                              :(S6B)
+<<< NO SYNTACTIC ERROR >>>
+
+     S6A      SUCC(Y) = SYMB(CH,Y)
+<<< NO SYNTACTIC ERROR >>>
+
+              Y = SUCC(Y)
+<<< NO SYNTACTIC ERROR >>>
+
+     S6B      ALT(Y) = CURRENT
+<<< NO SYNTACTIC ERROR >>>
+
+              LINK(CURRENT) = Y
+<<< NO SYNTACTIC ERROR >>>
+
+              CURRENT = Y                             :(F2)
+     *
+     *  NEW ALTERNATIVE MUST BE LINKED TO HEAD, AT TOP OF LIST
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     S7       Y = HEAD
+<<< NO SYNTACTIC ERROR >>>
+
+              HEAD = SYMB(CH)
+<<< NO SYNTACTIC ERROR >>>
+
+              LINK(Y) = HEAD
+<<< NO SYNTACTIC ERROR >>>
+
+              ALT(HEAD) = Y
+<<< NO SYNTACTIC ERROR >>>
+
+              CURRENT = HEAD                          :(F2)
+<<< NO SYNTACTIC ERROR >>>
+
+     CONTROL  IDENT(CARD,"*")                         :F(C1)
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT =
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT = '  (STRUCTURE IS CLEARED)'
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT =                                :(CLEAR)
+<<< NO SYNTACTIC ERROR >>>
+
+     C1       IDENT(CARD,'$')                         :F(C2)
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT =
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT = '  (PRINTOUT OF ENTIRE STRUCTURE FOLLOWS...)'
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT =
+<<< NO SYNTACTIC ERROR >>>
+
+              IDENT(HEAD)                             :S(C4)
+<<< NO SYNTACTIC ERROR >>>
+
+              HOLD =
+<<< NO SYNTACTIC ERROR >>>
+
+              START = HEAD                            :(LISTEM)
+<<< NO SYNTACTIC ERROR >>>
+
+     C2       IDENT(CARD)                             :S(BADCARD)
+<<< NO SYNTACTIC ERROR >>>
+
+              CARD NOTANY(ALPH)                       :S(BADCARD)
+     -EJECT
+     *
+     *  HERE TO PRINT WORDS STARTING WITH SPECIFIED HEAD
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT =
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT = '  (PRINTOUT OF ALL WORDS BEGINNING WITH "'
+     +          CARD '"...)'
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT =
+<<< NO SYNTACTIC ERROR >>>
+
+              HOLD = CARD
+<<< NO SYNTACTIC ERROR >>>
+
+              CURRENT = HEAD
+<<< NO SYNTACTIC ERROR >>>
+
+              CARD LEN(1) . CH =
+<<< NO SYNTACTIC ERROR >>>
+
+     C3       IDENT(CHAR(CURRENT),CH)                 :S(NEXT)
+<<< NO SYNTACTIC ERROR >>>
+
+              CURRENT = ALT(CURRENT)
+<<< NO SYNTACTIC ERROR >>>
+
+              IDENT(CURRENT)                          :F(C3)
+<<< NO SYNTACTIC ERROR >>>
+
+     C4       OUTPUT = '  (NO WORDS)'                 :(READA)
+<<< NO SYNTACTIC ERROR >>>
+
+     NEXT     CARD LEN(1) . CH =                      :F(SETUP)
+<<< NO SYNTACTIC ERROR >>>
+
+              CURRENT = SUCC(CURRENT)
+<<< NO SYNTACTIC ERROR >>>
+
+              IDENT(CURRENT)                          :S(C4)F(C3)
+<<< NO SYNTACTIC ERROR >>>
+
+     SETUP    OUTPUT = DIFFER(ASSOC(CURRENT)) SPC HOLD '  ' ASSOC(CURRENT)
+<<< NO SYNTACTIC ERROR >>>
+
+              START = DIFFER(SUCC(CURRENT)) SUCC(CURRENT)  :F(C4)
+<<< NO SYNTACTIC ERROR >>>
+
+     LISTEM   N = 0
+<<< NO SYNTACTIC ERROR >>>
+
+              CURRENT = START
+<<< NO SYNTACTIC ERROR >>>
+
+     L1       HOLD = HOLD CHAR(CURRENT)
+<<< NO SYNTACTIC ERROR >>>
+
+     L2       OUTPUT = DIFFER(ASSOC(CURRENT)) SPC HOLD '  ' ASSOC(CURRENT)
+<<< NO SYNTACTIC ERROR >>>
+
+              CURRENT = DIFFER(SUCC(CURRENT)) SUCC(CURRENT)  :S(L1)
+<<< NO SYNTACTIC ERROR >>>
+
+     BACKUP   CURRENT = DIFFER(ALT(CURRENT)) ALT(CURRENT)  :F(B1)
+<<< NO SYNTACTIC ERROR >>>
+
+              N = N + 1
+<<< NO SYNTACTIC ERROR >>>
+
+              $('STACK' N) = LINK(CURRENT)
+<<< SYNTACTIC ERROR >>>
+
+              HOLD LEN(1) RPOS(0) = CHAR(CURRENT)     :(L2)
+<<< NO SYNTACTIC ERROR >>>
+
+     B1       Y = LINK(CURRENT)
+<<< NO SYNTACTIC ERROR >>>
+
+              IDENT(Y)                                :S(READA)
+<<< NO SYNTACTIC ERROR >>>
+
+              IDENT(Y,START) IDENT(ALT(Y),CURRENT)    :S(READA)
+<<< NO SYNTACTIC ERROR >>>
+
+              IDENT(Y,START) IDENT(ALT(Y))            :S(READA)
+<<< NO SYNTACTIC ERROR >>>
+
+              CURRENT = Y
+<<< NO SYNTACTIC ERROR >>>
+
+              HOLD DIFFER($('STACK' N),Y)  LEN(1) RPOS(0) =  :S(BACKUP)
+<<< SYNTACTIC ERROR >>>
+
+              N = N - 1                               :(B1)
+<<< NO SYNTACTIC ERROR >>>
+
+     END1     OUTPUT =
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT = '(ALL DATA PROCESSED)'
+<<< NO SYNTACTIC ERROR >>>
+
+     END
+<<< NO SYNTACTIC ERROR >>>
+
+     ABC
+<<< NO SYNTACTIC ERROR >>>
+
+     ABCD
+<<< NO SYNTACTIC ERROR >>>
+
+     ABCDE
+<<< NO SYNTACTIC ERROR >>>
+
+     BCDEF
+<<< NO SYNTACTIC ERROR >>>
+
+     $$
+<<< SYNTACTIC ERROR >>>
+
+     $*
+<<< SYNTACTIC ERROR >>>
+
+     ELASTIC
+<<< NO SYNTACTIC ERROR >>>
+
+     HAPPILY
+<<< NO SYNTACTIC ERROR >>>
+
+     BOX
+<<< NO SYNTACTIC ERROR >>>
+
+     FOX
+<<< NO SYNTACTIC ERROR >>>
+
+     CARS
+<<< NO SYNTACTIC ERROR >>>
+
+     GAITERS
+<<< NO SYNTACTIC ERROR >>>
+
+     ALL
+<<< NO SYNTACTIC ERROR >>>
+
+     DUMP
+<<< NO SYNTACTIC ERROR >>>
+
+     JUNE
+<<< NO SYNTACTIC ERROR >>>
+
+     IN
+<<< NO SYNTACTIC ERROR >>>
+
+     $$
+<<< SYNTACTIC ERROR >>>
+
+     $*
+<<< SYNTACTIC ERROR >>>
+
+     SISTER
+<<< NO SYNTACTIC ERROR >>>
+
+     SUSIE
+<<< NO SYNTACTIC ERROR >>>
+
+     SELLS
+<<< NO SYNTACTIC ERROR >>>
+
+     SEA
+<<< NO SYNTACTIC ERROR >>>
+
+     SHELLS
+<<< NO SYNTACTIC ERROR >>>
+
+     BY
+<<< NO SYNTACTIC ERROR >>>
+
+     THE
+<<< NO SYNTACTIC ERROR >>>
+
+     SEA
+<<< NO SYNTACTIC ERROR >>>
+
+     SHORE
+<<< NO SYNTACTIC ERROR >>>
+
+     $$
+<<< SYNTACTIC ERROR >>>
+
+     $S
+<<< SYNTACTIC ERROR >>>
+
+     $SH
+<<< SYNTACTIC ERROR >>>
+
+     SOME
+<<< NO SYNTACTIC ERROR >>>
+
+     SEA
+<<< NO SYNTACTIC ERROR >>>
+
+     SHELLS
+<<< NO SYNTACTIC ERROR >>>
+
+     SEND
+<<< NO SYNTACTIC ERROR >>>
+
+     SAILORS
+<<< NO SYNTACTIC ERROR >>>
+
+     SWIMMING
+<<< NO SYNTACTIC ERROR >>>
+
+     $$
+<<< SYNTACTIC ERROR >>>
+
+     $S
+<<< SYNTACTIC ERROR >>>
+
+     $SE
+<<< SYNTACTIC ERROR >>>
+
+     $*
+<<< SYNTACTIC ERROR >>>
+
+     $$
+<<< SYNTACTIC ERROR >>>
+
+     CATTLE
+<<< NO SYNTACTIC ERROR >>>
+
+     CARP
+<<< NO SYNTACTIC ERROR >>>
+
+     CAT
+<<< NO SYNTACTIC ERROR >>>
+
+     GORGE
+<<< NO SYNTACTIC ERROR >>>
+
+     MONSTER
+<<< NO SYNTACTIC ERROR >>>
+
+     MONEY
+<<< NO SYNTACTIC ERROR >>>
+
+     CAR
+<<< NO SYNTACTIC ERROR >>>
+
+     DOG
+<<< NO SYNTACTIC ERROR >>>
+
+     METAL
+<<< NO SYNTACTIC ERROR >>>
+
+     CAVE
+<<< NO SYNTACTIC ERROR >>>
+
+     CAKE
+<<< NO SYNTACTIC ERROR >>>
+
+     CAT
+<<< NO SYNTACTIC ERROR >>>
+
+     $$
+<<< SYNTACTIC ERROR >>>
+
+     $MON
+<<< SYNTACTIC ERROR >>>
+
+     $M
+<<< SYNTACTIC ERROR >>>
+
+     $C
+<<< SYNTACTIC ERROR >>>
+
+     $CA
+<<< SYNTACTIC ERROR >>>
+
+     $CAT
+<<< SYNTACTIC ERROR >>>
+
+     $CATT
+<<< SYNTACTIC ERROR >>>
+
+     $CAX
+<<< SYNTACTIC ERROR >>>
+
+     $$
+     ./*
+     -TITLE SPITBOL TEST PROGRAM #8 -- BRIDGE DEALER
+<<< SYNTACTIC ERROR >>>
+
+              DATA('CARD(NUM,NEXT)')
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT('TITLE',6,'(14H1THIS IS HAND ,110A1)')
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT('DEALER',6,'(11H DEALER IS ,110A1)')
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT('SKIP',6,'(A1)')
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              DEFINE('INSERT(LIST,CARD)TEMP')               :(INSERTEND)
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     INSERT   $LIST  =  IDENT($LIST)  CARD(NUM(CARD),NULL)  :S(RETURN)
+<<< NO SYNTACTIC ERROR >>>
+
+              $LIST  =  GT(NUM(CARD),NUM($LIST))  CARD(NUM(CARD),$LIST)
+     .                                                      :S(RETURN)
+<<< NO SYNTACTIC ERROR >>>
+
+              TEMP  =  $LIST
+<<< NO SYNTACTIC ERROR >>>
+
+     INS1     IDENT(NEXT(TEMP))                             :S(INS2)
+<<< NO SYNTACTIC ERROR >>>
+
+              NEXT(TEMP)  =  GT(NUM(CARD),NUM(NEXT(TEMP)))
+     .                       CARD(NUM(CARD),NEXT(TEMP))     :S(RETURN)
+<<< NO SYNTACTIC ERROR >>>
+
+              TEMP  =  NEXT(TEMP)                           :(INS1)
+<<< NO SYNTACTIC ERROR >>>
+
+     INS2     NEXT(TEMP)  =  CARD(NUM(CARD),NULL)           :(RETURN)
+<<< NO SYNTACTIC ERROR >>>
+
+     INSERTEND
+     *
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              DEFINE('LINE(STR1,COL1,STR2,COL2)BL1,BL2')    :(LINEEND)
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     LINE     BL  LEN(COL1 - 1) . BL1
+<<< NO SYNTACTIC ERROR >>>
+
+              IDENT(STR2)                                   :S(LINE1)
+<<< NO SYNTACTIC ERROR >>>
+
+              BL  LEN(COL2 - (COL1 + SIZE(STR1))) . BL2
+<<< SYNTACTIC ERROR >>>
+
+     LINE1    LINE  =  BL1  STR1  BL2  STR2                 :(RETURN)
+<<< NO SYNTACTIC ERROR >>>
+
+     LINEEND
+     *
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              DEFINE('NTH(LIST,NUM)TEMP')                   :(NTHEND)
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     NTH      NTH  =  EQ(NUM,0)  $LIST                      :F(NTH1)
+<<< NO SYNTACTIC ERROR >>>
+
+              $LIST  =  NEXT($LIST)                         :(RETURN)
+<<< NO SYNTACTIC ERROR >>>
+
+     NTH1     TEMP  =  $LIST
+<<< NO SYNTACTIC ERROR >>>
+
+     NTH2     NUM  =  NUM - 1
+<<< NO SYNTACTIC ERROR >>>
+
+              NTH  =  EQ(NUM,0)  NEXT(TEMP)                 :S(NTH3)
+<<< NO SYNTACTIC ERROR >>>
+
+              TEMP  =  NEXT(TEMP)                           :(NTH2)
+<<< NO SYNTACTIC ERROR >>>
+
+     NTH3     NEXT(TEMP)  =  NEXT(NEXT(TEMP))               :(RETURN)
+<<< NO SYNTACTIC ERROR >>>
+
+     NTHEND
+     *
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              DEFINE('RANDOM(N)')                           :(RANDOMEND)
+<<< NO SYNTACTIC ERROR >>>
+
+     RANDOM   RAN.VAR  =  RAN.VAR * 1061 + 3251
+<<< NO SYNTACTIC ERROR >>>
+
+              RAN.VAR  ARB  RPOS(5)  =
+<<< NO SYNTACTIC ERROR >>>
+
+              RANDOM  =  (RAN.VAR * N) / 100000             :(RETURN)
+<<< SYNTACTIC ERROR >>>
+
+     RANDOMEND
+     *
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              DEFINE('SUITL(HAND,SUIT)')                    :(SUITLEND)
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+     SUITL    SUITL  =  SUIT  '  '
+<<< NO SYNTACTIC ERROR >>>
+
+     SUITL1   GT(NUM($HAND),$SUIT)                          :F(RETURN)
+<<< NO SYNTACTIC ERROR >>>
+
+              SUITL  =  SUITL  $(NUM($HAND) - $SUIT)
+<<< SYNTACTIC ERROR >>>
+
+              $HAND  =  DIFFER(NEXT($HAND))  NEXT($HAND) :S(SUITL1)F(RETURN)
+<<< NO SYNTACTIC ERROR >>>
+
+     SUITLEND
+     -EJECT
+     *
+     *                  CONSTANTS
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              BL  =  '                                        '
+     .               '                                        '
+<<< NO SYNTACTIC ERROR >>>
+
+              S  =  39
+<<< NO SYNTACTIC ERROR >>>
+
+              H  =  26
+<<< NO SYNTACTIC ERROR >>>
+
+              D  =  13
+<<< NO SYNTACTIC ERROR >>>
+
+              C  =  0
+<<< NO SYNTACTIC ERROR >>>
+
+              $1  =  2
+<<< NO SYNTACTIC ERROR >>>
+
+              $2  =  3
+<<< NO SYNTACTIC ERROR >>>
+
+              $3  =  4
+<<< NO SYNTACTIC ERROR >>>
+
+              $4  =  5
+<<< NO SYNTACTIC ERROR >>>
+
+              $5  =  6
+<<< NO SYNTACTIC ERROR >>>
+
+              $6  =  7
+<<< NO SYNTACTIC ERROR >>>
+
+              $7  =  8
+<<< NO SYNTACTIC ERROR >>>
+
+              $8  =  9
+<<< NO SYNTACTIC ERROR >>>
+
+              $9  =  10
+<<< NO SYNTACTIC ERROR >>>
+
+              $10  =  'J'
+<<< NO SYNTACTIC ERROR >>>
+
+              $11  =  'Q'
+<<< NO SYNTACTIC ERROR >>>
+
+              $12  =  'K'
+<<< NO SYNTACTIC ERROR >>>
+
+              $13  =  'A'
+<<< NO SYNTACTIC ERROR >>>
+
+              DEALSEQ  =  'NORTH,EAST,SOUTH,WEST,NORTH,'
+<<< NO SYNTACTIC ERROR >>>
+
+              RAN.VAR  =  157
+<<< NO SYNTACTIC ERROR >>>
+
+              DEALMAX  =  3
+<<< NO SYNTACTIC ERROR >>>
+
+              NTHDEAL  =
+<<< NO SYNTACTIC ERROR >>>
+
+              DEAL  =  'WEST'
+<<< NO SYNTACTIC ERROR >>>
+
+     NEWDEAL  NTHDEAL  =  LT(NTHDEAL,DEALMAX)  NTHDEAL + 1  :F(END)
+<<< NO SYNTACTIC ERROR >>>
+
+              N  =  1
+<<< NO SYNTACTIC ERROR >>>
+
+              NORTH  =
+<<< NO SYNTACTIC ERROR >>>
+
+              EAST  =
+<<< NO SYNTACTIC ERROR >>>
+
+              SOUTH  =
+<<< NO SYNTACTIC ERROR >>>
+
+              WEST  =
+<<< NO SYNTACTIC ERROR >>>
+
+              DECK  =
+<<< NO SYNTACTIC ERROR >>>
+
+     DLOOP    DECK  =  CARD(N,DECK)
+<<< NO SYNTACTIC ERROR >>>
+
+              N  =  LT(N,52)  N + 1                         :S(DLOOP)
+<<< NO SYNTACTIC ERROR >>>
+
+              DEALSEQ  DEAL  ','  BREAK(',') . DEAL         :F(ERR)
+<<< NO SYNTACTIC ERROR >>>
+
+              HAND  =  DEAL
+<<< NO SYNTACTIC ERROR >>>
+
+              N  =  52
+<<< NO SYNTACTIC ERROR >>>
+
+     NLOOP    DEALSEQ  HAND  ','  BREAK(',') . HAND         :F(ERR)
+<<< NO SYNTACTIC ERROR >>>
+
+              INSERT(HAND,NTH('DECK',RANDOM(N)))
+<<< NO SYNTACTIC ERROR >>>
+
+              N  =  GT(N,1)  N - 1                          :S(NLOOP)
+     -EJECT
+     *
+     *                  OUTPUT OF HAND
+     *
+<<< NO SYNTACTIC ERROR >>>
+
+              TITLE  =  NTHDEAL
+<<< NO SYNTACTIC ERROR >>>
+
+              DEALER  =  DEAL
+<<< NO SYNTACTIC ERROR >>>
+
+              SKIP = '        '
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =  LINE('NORTH',40)
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =  LINE(SUITL('NORTH','S'),40)
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =  LINE(SUITL('NORTH','H'),40)
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =  LINE(SUITL('NORTH','D'),40)
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =  LINE(SUITL('NORTH','C'),40)
+<<< NO SYNTACTIC ERROR >>>
+
+              SKIP = '        '
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =  LINE('WEST',20,'EAST',60)
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =  LINE(SUITL('WEST','S'),20,
+     .                        SUITL('EAST','S'),60)
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =  LINE(SUITL('WEST','H'),20,
+     .                        SUITL('EAST','H'),60)
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =  LINE(SUITL('WEST','D'),20,
+     .                        SUITL('EAST','D'),60)
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =  LINE(SUITL('WEST','C'),20,
+     .                        SUITL('EAST','C'),60)
+<<< NO SYNTACTIC ERROR >>>
+
+              SKIP = '        '
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =  LINE('SOUTH',40)
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =  LINE(SUITL('SOUTH','S'),40)
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =  LINE(SUITL('SOUTH','H'),40)
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =  LINE(SUITL('SOUTH','D'),40)
+<<< NO SYNTACTIC ERROR >>>
+
+              OUTPUT  =  LINE(SUITL('SOUTH','C'),40)
+     .                                                      :(NEWDEAL)
+<<< NO SYNTACTIC ERROR >>>
+
+     END
+     ./*
+<<< NO SYNTACTIC ERROR >>>
+

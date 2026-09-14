@@ -1,0 +1,36 @@
+*
+*  FENCE FOLLOWED BY ONE MORE OPERAND, THEN AN ALTERNATION, IN A PATTERN HELD BY A VARIABLE:
+*  SCRIP NEVER BACKTRACKS INTO THE ALTERNATION'S LATER ARMS.  Minted by cfo 2026-09-13 from
+*  SPITBOL TEST PROGRAM #4's own GOTO_FIELD pattern, which is why the decomposed test4 entry
+*  tpgm4_syntactic_recognizer is red on every statement carrying a two-part goto :S(A)F(B).
+*  ARM Y1 is the defect: PV = ':' FENCE NULL (alt).  The first arm of the alternation matches a
+*  PREFIX of the subject, RPOS(0) then fails, and the match must retry the second arm.
+*  ARMS Y2, Y3 AND Y4 ARE THE CONTROLS AND THEY ISOLATE IT TO ONE PART EACH: Y2 drops the
+*  operand between FENCE and the alternation, Y3 drops the FENCE, Y4 writes the SAME pattern
+*  inline in the match statement instead of holding it in a variable.  All three are green in
+*  SCRIP at the mint, so the class is all three together and none of them alone: A BARE FENCE,
+*  AN ALTERNATION THAT IS NOT THE FIRST ELEMENT AFTER IT, AND THE WHOLE PATTERN REACHED THROUGH
+*  A VARIABLE.  Measured with it and against it: FENCE alternation NULL is green, FENCE NULL
+*  NULL alternation is red, and an element BEFORE the fence does not change either verdict, so
+*  it is adjacency to the fence on the RIGHT that decides it.
+*  ORACLE: /home/resources/x64/bin/sbl -bf matches all four.  REF CUT LIVE from it.
+*
+         &ANCHOR = 1
+         G = '(' SPAN('AB') ')'
+         S = ':S(A)F(B)'
+         PV = ':' FENCE NULL ('S' G | 'S' G 'F' G)
+         QV = ':' FENCE ('S' G | 'S' G 'F' G)
+         RV = ':' NULL ('S' G | 'S' G 'F' G)
+         S PV RPOS(0)                            :S(C1)F(D1)
+C1       OUTPUT = 'Y1 FENCE OPERAND ALT IN A VARIABLE MATCH'    :(T2)
+D1       OUTPUT = 'Y1 FENCE OPERAND ALT IN A VARIABLE FAIL'
+T2       S QV RPOS(0)                            :S(C2)F(D2)
+C2       OUTPUT = 'Y2 CONTROL FENCE THEN ALT MATCH'             :(T3)
+D2       OUTPUT = 'Y2 CONTROL FENCE THEN ALT FAIL'
+T3       S RV RPOS(0)                            :S(C3)F(D3)
+C3       OUTPUT = 'Y3 CONTROL OPERAND THEN ALT MATCH'           :(T4)
+D3       OUTPUT = 'Y3 CONTROL OPERAND THEN ALT FAIL'
+T4       S ':' FENCE NULL ('S' G | 'S' G 'F' G) RPOS(0)         :S(C4)F(D4)
+C4       OUTPUT = 'Y4 CONTROL SAME PATTERN INLINE MATCH'        :(END)
+D4       OUTPUT = 'Y4 CONTROL SAME PATTERN INLINE FAIL'
+END
