@@ -4247,3 +4247,21 @@ sub f($x) { $x.uc }
 say f("ab");
 #---------------------------------------- 918 ladder__rung19_block_methcall_grep
 say ("a","b").grep({ $^a.uc eq "A" });
+#------------------------------------------------ 919 ladder__rung20_paren_group
+sub f($a) { ($a).Str }
+say f(3);
+#------------------------------------------ 920 ladder__rung20_paren_group_topic
+say (1,2).map({ ($_).Str });
+#------------------------------------ 921 ladder__rung20_paren_group_placeholder
+say (1,2).map({ ($^a).Str });
+#---------------------------------------- 922 ladder__rung20_paren_group_chained
+say (1,2).map({ ($^a).Str }).join(",");
+#------------------------------------------- 923 ladder__rung20_paren_group_grep
+say (1,2,3).grep({ ($^a) > 1 });
+#------------------------------------------- 924 ladder__rung20_paren_group_list
+my $x = 5;
+my $y = 6;
+($x, $y).join("-").say;
+#------------------------------------------- 925 ladder__rung20_paren_group_stmt
+my $x = 5;
+($x).say;

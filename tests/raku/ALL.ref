@@ -2517,3 +2517,17 @@ abbc
 AB
 #---------------------------------------- 918 ladder__rung19_block_methcall_grep
 (a)
+#------------------------------------------------ 919 ladder__rung20_paren_group
+3
+#------------------------------------------ 920 ladder__rung20_paren_group_topic
+(1 2)
+#------------------------------------ 921 ladder__rung20_paren_group_placeholder
+(1 2)
+#---------------------------------------- 922 ladder__rung20_paren_group_chained
+1,2
+#------------------------------------------- 923 ladder__rung20_paren_group_grep
+(2 3)
+#------------------------------------------- 924 ladder__rung20_paren_group_list
+5-6
+#------------------------------------------- 925 ladder__rung20_paren_group_stmt
+5
