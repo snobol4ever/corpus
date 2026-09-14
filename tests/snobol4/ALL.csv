@@ -1975,7 +1975,7 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 1974,trim_alt_keyword_replace_branch_1,probe_conformance2__k40_lambda_primitives,probe_conformance2,block,1,34,UNKNOWN,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,1,0,0,0
 1975,user_function_arbno_rpos_1,probe_cn2__cn_defer_pushcounter_capture,probe_cn2,block,1,12,UNKNOWN,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0
 1976,fence_pos_rpos_replace_branch_3,probe_passthru__ptw_min_rseal_commands,probe_passthru,block,1,11,UNKNOWN,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,0,0
-1977,fence_arb_span_replace_branch_1,probe_fuzz__fz_red_m2b_fence_cap_nullalt,probe_fuzz,block,1,7,UNKNOWN,1,1,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0
+1977,fence_arb_span_replace_branch_1,probe_fuzz__fz_red_m2b_fence_cap_nullalt,probe_fuzz,block,0,7,UNKNOWN,1,1,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0
 1978,arbno_fence_pos_replace_branch_4,probe_passthru__ptw_min_rseal_unsealed_ctl,probe_passthru,block,1,10,UNKNOWN,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
 1979,arbno_fence_pos_replace_branch_3,probe_passthru__ptw_min_rseal_arbno,probe_passthru,block,1,11,UNKNOWN,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
 1980,arbno_fence_pos_branch_22,probe_passthru__ptw_min_arbno_alt_fence_L1,probe_passthru,block,1,5,UNKNOWN,1,0,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0
