@@ -2562,3 +2562,8 @@ y = 1;
 z = 2;
 w = 3;
 OUTPUT = &STCOUNT - b;
+/*----------- 335 ladder__rung23_keyword_and_system_variables_code_exit_value */
+&CODE = 9;
+OUTPUT = "first";
+&CODE = 4;
+OUTPUT = "second";
