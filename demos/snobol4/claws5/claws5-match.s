@@ -1144,7 +1144,7 @@ n69_statement_end_α:    mov              r11, 49
                         mov              r10, 5
                         add              rsp, 16;                             jmp   n70_stmt_mark_α
 n69_statement_end_β:    mov              r11, 49
-                        add              rsp, 32;                             jmp   n61_stmt_mark_α
+                        add              rsp, 16;                             jmp   n61_stmt_mark_α
                         .size            n69_statement_end_bx, .-n69_statement_end_bx
                         .type            n70_stmt_mark_bx, @function
 n70_stmt_mark_bx:
