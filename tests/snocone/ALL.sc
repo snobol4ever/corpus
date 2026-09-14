@@ -2534,3 +2534,31 @@ OUTPUT = DATATYPE(a);
 x = 'hi';
 OUTPUT = DATATYPE(.x);
 OUTPUT = DATATYPE(x);
+/*- 331 ladder__rung23_keyword_and_system_variables_keyword_value_operator_ampersand */
+OUTPUT = DATATYPE(&ANCHOR);
+OUTPUT = DATATYPE(&ALPHABET);
+OUTPUT = DATATYPE(&ABORT);
+OUTPUT = SIZE(&ALPHABET);
+/*------------- 332 ladder__rung23_keyword_and_system_variables_anchor_toggle */
+/* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SNOBOL4 has no if-block; the twin expresses the same two guarded assignments with goto labels, and both print the same two lines */
+s = 'hello';
+&ANCHOR = 0;
+r = 'no'; if (s ? 'ell') { r = 'yes'; }
+OUTPUT = r;
+&ANCHOR = 1;
+r = 'no'; if (s ? 'ell') { r = 'yes'; }
+OUTPUT = r;
+/*------------ 333 ladder__rung23_keyword_and_system_variables_maxlngth_query */
+OUTPUT = &MAXLNGTH;
+&MAXLNGTH = 5000;
+OUTPUT = &MAXLNGTH;
+OUTPUT = SIZE(DUPL('a', 4000));
+/*------------- 334 ladder__rung23_keyword_and_system_variables_stcount_query */
+a = &STCOUNT;
+x = 1;
+OUTPUT = &STCOUNT - a;
+b = &STCOUNT;
+y = 1;
+z = 2;
+w = 3;
+OUTPUT = &STCOUNT - b;

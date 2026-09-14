@@ -1001,3 +1001,18 @@ ARRAY
 /*------------ 330 ladder__rung22_datatype_function_name_operator_yields_name */
 NAME
 STRING
+/*- 331 ladder__rung23_keyword_and_system_variables_keyword_value_operator_ampersand */
+INTEGER
+STRING
+PATTERN
+256
+/*------------- 332 ladder__rung23_keyword_and_system_variables_anchor_toggle */
+yes
+no
+/*------------ 333 ladder__rung23_keyword_and_system_variables_maxlngth_query */
+16777216
+5000
+4000
+/*------------- 334 ladder__rung23_keyword_and_system_variables_stcount_query */
+2
+4
