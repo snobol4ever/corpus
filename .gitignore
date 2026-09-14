@@ -18,3 +18,13 @@ programs/gimpel/ASMTEMP
 # ⚠️ Also does NOT untrack tmp1/tmp2/tmp4, still committed test litter (tmp4 = 403,609 bytes of
 # generated binary). Removing tracked content is ceo's call, not this seat's — routed.
 tests/icon/tmp[0-9]*
+# ⛔ FILES THE GRADED PROGRAMS THEMSELVES WRITE (ceo 2026-09-14). These are not build litter and not a
+# symptom to be silenced: ASM.sno's own header says "running this writes ASMTEMP into the working directory",
+# and the x64 save/module programs write their save files by design -- the suites grade the programs' stdout,
+# and the side effect is part of what the program IS. Left untracked they make the corpus tree DIRTY, and a
+# dirty corpus makes util_score_row.py REFUSE to land the row (CEO-174: a dirty-tree number describes no
+# checkable tree), so a correct measurement silently failed to publish three times in one sitting.
+# ⛔ SCOPED BY NAME AND BY DIRECTORY ON PURPOSE: a broad *.out or *.spx would hide real corpus files.
+packages/snobol4/gimpel/asmtemp
+packages/snobol4/spitbol_x64_tests/*.spx
+packages/snobol4/spitbol_x64_tests/module.out
