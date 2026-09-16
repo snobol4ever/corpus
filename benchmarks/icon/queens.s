@@ -16556,9 +16556,9 @@ n00700_line_mark_α:      mov              r11, 799
 n00703_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00703_lit_integer_α:    mov              r11, 800
-                        mov              qword ptr [rbp + 160], 3             # result
+                        mov              qword ptr [rbp + 32], 3              # result
                         mov              rax, qword ptr [rip + .Llit_integer_α_2108_0]
-                        mov              qword ptr [rbp + 168], rax;          jmp   n00704_line_mark_α
+                        mov              qword ptr [rbp + 40], rax;           jmp   n00704_line_mark_α
 .Llit_integer_α_2108_0: .quad            1
                         .size            n00703_lit_integer_bx, .-n00703_lit_integer_bx
                         .type            n00704_line_mark_bx, @function
@@ -16573,7 +16573,7 @@ n00705_call_proc_staged_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00705_call_proc_staged_α:
                         mov              r11, 802
-                        lea              rsi, [rbp + 160]
+                        lea              rsi, [rbp + 32]
                         call             q_dcα;                               jmp   .Lcall_proc_staged_α_2112_2
 .Lcall_proc_staged_α_2112_2:
                         mov              rcx, qword ptr [rip + rt_g_ret_by_name@GOTPCREL] # NRETURN by-name consult (live wn, consumed)
@@ -16586,17 +16586,17 @@ n00705_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_nret_fix_tiny@PLT
-                        mov              qword ptr [rbp + 112], rax
-                        mov              qword ptr [rbp + 120], rdx
+                        mov              qword ptr [rbp + 128], rax
+                        mov              qword ptr [rbp + 136], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              rax, qword ptr [rbp + 112]
-                        mov              rdx, qword ptr [rbp + 120]
+                        mov              rax, qword ptr [rbp + 128]
+                        mov              rdx, qword ptr [rbp + 136]
 .Lcall_proc_staged_α_2112_29:
-                        mov              qword ptr [rbp + 112], rax
-                        mov              qword ptr [rbp + 120], rdx
+                        mov              qword ptr [rbp + 128], rax
+                        mov              qword ptr [rbp + 136], rdx
                         cmp              al, 104;                             je    n00706_line_mark_α
                                                                               jmp   n00707_deref_α
 n00705_call_proc_staged_β:
@@ -16610,8 +16610,8 @@ n00705_call_proc_staged_β:
 n00707_deref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00707_deref_α:          mov              r11, 803
-                        mov              rdi, qword ptr [rbp + 112]
-                        mov              rsi, qword ptr [rbp + 120]
+                        mov              rdi, qword ptr [rbp + 128]
+                        mov              rsi, qword ptr [rbp + 136]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -16621,8 +16621,8 @@ n00707_deref_α:          mov              r11, 803
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    n00706_line_mark_α
-                        mov              qword ptr [rbp + 96], rax
-                        mov              qword ptr [rbp + 104], rdx;          jmp   n00706_line_mark_α
+                        mov              qword ptr [rbp + 112], rax
+                        mov              qword ptr [rbp + 120], rdx;          jmp   n00706_line_mark_α
                         .size            n00707_deref_bx, .-n00707_deref_bx
                         .type            n00706_line_mark_bx, @function
 n00706_line_mark_bx:
@@ -16655,17 +16655,17 @@ n00709_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_nret_fix_tiny@PLT
-                        mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx
+                        mov              qword ptr [rbp + 64], rax
+                        mov              qword ptr [rbp + 72], rdx
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              rax, qword ptr [rbp + 48]
-                        mov              rdx, qword ptr [rbp + 56]
+                        mov              rax, qword ptr [rbp + 64]
+                        mov              rdx, qword ptr [rbp + 72]
 .Lcall_proc_staged_α_2119_29:
-                        mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx
+                        mov              qword ptr [rbp + 64], rax
+                        mov              qword ptr [rbp + 72], rdx
                         cmp              al, 104;                             je    main_ω
                                                                               jmp   n00710_deref_α
 n00709_call_proc_staged_β:
@@ -16679,8 +16679,8 @@ n00709_call_proc_staged_β:
 n00710_deref_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00710_deref_α:          mov              r11, 807
-                        mov              rdi, qword ptr [rbp + 48]
-                        mov              rsi, qword ptr [rbp + 56]
+                        mov              rdi, qword ptr [rbp + 64]
+                        mov              rsi, qword ptr [rbp + 72]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -16690,8 +16690,8 @@ n00710_deref_α:          mov              r11, 807
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    main_ω
-                        mov              qword ptr [rbp + 32], rax
-                        mov              qword ptr [rbp + 40], rdx;           jmp   main_ω
+                        mov              qword ptr [rbp + 48], rax
+                        mov              qword ptr [rbp + 56], rdx;           jmp   main_ω
                         .size            n00710_deref_bx, .-n00710_deref_bx
                         .type            n00681_lit_integer_bx, @function
 n00681_lit_integer_bx:
