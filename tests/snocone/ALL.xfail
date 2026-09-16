@@ -46,16 +46,3 @@ hard parse error, rc=1, both modes. The write arm and the read arm of one constr
 2 entries (this + array_replace_2). Measured 2026-09-13 by hq_I.
 /*------------------------------------------------- 316 array_replace_2 XFAIL */
 See array_replace_1 -- CLASS 'angle-subscript-read', inside a while loop.
-/*----------------------------------------- 319 break_any_pos_replace_1 XFAIL */
-DEFECT (frontend/lowering, hq_I lane) -- CLASS 'match-inside-procedure'.
-⭐ THIS ENTRY WAS FAULTY *AND* HIDING A REAL DEFECT, which is why it is still red after repair.
-Its source used `function f(args)(locals)`, a spelling Snocone never had (see the three entries
-cured with it 2026-09-13); respelled to the reference form `function f(args) locals`, it now
-parses and runs -- and SIGSEGVs, rc=139, in BOTH modes.
-FLOOR WITNESS (5 lines): `function f(s) { while (s ? ANY(' ')) { s = SUBSTR(s, 2); } return s; }
-OUTPUT = f('  hi');` -> rc=139 m3 AND m4. The `if` form of the same match exits rc=2 SILENTLY,
-printing no diagnostic at all.
-⛔ NOT SHARED: the identical logic at Snocone TOP LEVEL passes, and the SNOBOL4 twin
-(DEFINE('F(S)') + `S ANY(' ')`) passes and byte-matches sbl -bf. So any pattern match inside a
-Snocone procedure body is broken, and the defect is Snocone-own.
-Measured 2026-09-13 by hq_I; rowed for cure.
