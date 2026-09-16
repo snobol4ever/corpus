@@ -34,7 +34,7 @@ crosscheck_rungB12	m3,m4
 crosscheck_toplevel	m3,m4
 crosscheck_toplevel_xfail	m3,m4
 ladder	m3,m4
-parser	ast
+# cfo 2026-09-16 (CEO-763, LANE-BY-CURE, all seven languages in one commit): 1 `ast` key(s) REMOVED from this point. Lon 2026-09-13 retired the ast axis ("Remove those bogus AST tests.") and corpus a6646f04c deleted the 620 modes=ast entries but left every declaration behind; each removed key matched NO family in ALL.csv and so declared nothing while reading as a declaration (test_gate_modes_declaration_travels.sh was red on all seven). Nothing graded changes: the harness reads ALL.csv's modes column, which carried zero ast entries already. Recover the list with git show on this commit's parent.
 probe_nested_while	m3,m4
 probe_nreturn_indirect	m3,m4
 fibonacci	m3,m4
