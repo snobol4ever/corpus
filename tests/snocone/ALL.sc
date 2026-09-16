@@ -2125,19 +2125,15 @@ if (s ? (ANY('0123456789') . d && LEN(2) . rest)) { OUTPUT = 'COMBO-3 d=' && d &
 // COMBO-4: SPAN('a') then SPAN('b')
 s = 'aabbcc';
 if (s ? (SPAN('a') . aa && SPAN('b') . bb)) { OUTPUT = 'COMBO-4 aa=' && aa && ' bb=' && bb; }
-/*----------------------------------------------- 304 simple_output_124 XFAIL */
-# B11_comment_hash: # is also a line-comment introducer
-x = 7; # ignored
-OUTPUT = x; # also ignored
-/*------------------------------------------------ 305 simple_output_92 XFAIL */
+/*------------------------------------------------------ 304 simple_output_92 */
 // B05_alt_both_fail: both alternatives fail, match fails
 S = "hello";
-if (S ? (("xyz", "abc"))) {
+if (S ? (("xyz" | "abc"))) {
     OUTPUT = "matched";
 } else {
     OUTPUT = "no match";
 }
-/*------------------------------------------------ 306 simple_output_96 XFAIL */
+/*------------------------------------------------------ 305 simple_output_96 */
 // B06_query_empty: ?x fails when x is empty
 x = "";
 if (?x) {
@@ -2145,7 +2141,7 @@ if (?x) {
 } else {
     OUTPUT = "no value";
 }
-/*------------------------------------------------------ 307 simple_output_51 */
+/*------------------------------------------------------ 306 simple_output_51 */
 // A13_define_locals.sc — function with local variable
 function swap(a, b) tmp {
     tmp = a;
@@ -2155,7 +2151,7 @@ function swap(a, b) tmp {
     return;
 }
 swap('hello', 'world');
-/*----------------------------------------------- 308 simple_output_144 XFAIL */
+/*----------------------------------------------------- 307 simple_output_144 */
 // literals.sc - String and numeric literal coercion.
 // Tests: null string, integer/real OUTPUT coercion, string concat,
 //        arithmetic precedence, single- and double-quoted literals.
@@ -2182,7 +2178,7 @@ OUTPUT = 1 + 2;
 OUTPUT = 1 + 2 * 3;
 OUTPUT = (1 + 2) * 3;
 OUTPUT = 1 + (2 * 3);
-/*------------------------------------------------ 309 simple_output_69 XFAIL */
+/*------------------------------------------------------ 308 simple_output_69 */
 // literals.sc - String and numeric literal coercion.
 // Tests: null string, integer/real OUTPUT coercion, string concat,
 //        arithmetic precedence, single- and double-quoted literals.
@@ -2209,59 +2205,59 @@ OUTPUT = 1 + 2;
 OUTPUT = 1 + 2 * 3;
 OUTPUT = (1 + 2) * 3;
 OUTPUT = 1 + (2 * 3);
-/*----------------------------------------------- 310 capture_replace_1 XFAIL */
+/*----------------------------------------------------- 309 capture_replace_1 */
 // B05_alt_assign: alternation result captured and assigned
 S = "testing";
-if (S ? (("xyz", "test")) . RESULT) {
+if (S ? (("xyz" | "test")) . RESULT) {
     OUTPUT = RESULT;
 }
-/*----------------------------------------------- 311 capture_replace_2 XFAIL */
+/*----------------------------------------------------- 310 capture_replace_2 */
 // B05_alt_chain: three-way alternation, third arm matches
 S = "world";
-if (S ? (("foo", "bar", "wor")) . M) {
+if (S ? (("foo" | "bar" | "wor")) . M) {
     OUTPUT = M;
 }
-/*----------------------------------------------- 312 capture_replace_3 XFAIL */
+/*----------------------------------------------------- 311 capture_replace_3 */
 // B05_alt_left_wins: left alternative matches, right not tried
 S = "hello";
-if (S ? (("hel", "xyz")) . M) {
+if (S ? (("hel" | "xyz")) . M) {
     OUTPUT = M;
 }
-/*----------------------------------------------- 313 capture_replace_4 XFAIL */
+/*----------------------------------------------------- 312 capture_replace_4 */
 // B05_alt_right_fallback: left fails, right succeeds
 S = "hello";
-if (S ? (("xyz", "ell")) . M) {
+if (S ? (("xyz" | "ell")) . M) {
     OUTPUT = M;
 }
-/*---------------------------------------------- 314 datatype_replace_1 XFAIL */
+/*---------------------------------------------------- 313 datatype_replace_1 */
 // B08_struct_datatype: DATATYPE of struct instance
 struct color { r, g, b }
 c = color(255, 128, 0);
 OUTPUT = DATATYPE(c);
 OUTPUT = r(c);
-/*------------------------------------------------- 315 array_replace_1 XFAIL */
+/*------------------------------------------------------- 314 array_replace_1 */
 // A05_array_create.sc — create array, set and get elements
 arr = ARRAY(5);
-arr<1> = 'first';
-arr<3> = 'third';
-arr<5> = 'fifth';
-OUTPUT = arr<1>;
-OUTPUT = arr<3>;
-OUTPUT = arr<5>;
-/*------------------------------------------------- 316 array_replace_2 XFAIL */
+arr[1] = 'first';
+arr[3] = 'third';
+arr[5] = 'fifth';
+OUTPUT = arr[1];
+OUTPUT = arr[3];
+OUTPUT = arr[5];
+/*------------------------------------------------------- 315 array_replace_2 */
 // A05_array_loop.sc — fill array in while loop, read back
 arr = ARRAY(5);
 i = 1;
 while (LE(i, 5)) {
-    arr<i> = i * i;
+    arr[i] = i * i;
     i = i + 1;
 }
 i = 1;
 while (LE(i, 5)) {
-    OUTPUT = arr<i>;
+    OUTPUT = arr[i];
     i = i + 1;
 }
-/*------------------------------------------------ 317 trim_keyword_replace_1 */
+/*------------------------------------------------ 316 trim_keyword_replace_1 */
 // A15_lib_math.sc — numeric utility functions: max, min, abs, sign, gcd, lcm
 // Snocone translation of crosscheck/library/test_math.sno + lib/math.sno
 &TRIM = 1;
@@ -2307,7 +2303,7 @@ OUTPUT = sign(-3);
 OUTPUT = gcd(12, 8);
 OUTPUT = gcd(100, 75);
 OUTPUT = lcm(4, 6);
-/*----------------------------------------------- 318 break_len_rem_replace_2 */
+/*----------------------------------------------- 317 break_len_rem_replace_2 */
 // A15_lib_stack.sc — general-purpose stack: push, pop, peek, depth
 // Snocone translation of crosscheck/library/test_stack.sno + lib/stack.sno
 &TRIM = 1;
@@ -2389,7 +2385,7 @@ if (subject ? BREAK(' ') . w1   LEN(1)   REM . w2) {
 } else {
     OUTPUT = 'fail: pattern match failed';
 }
-/*----------------------------------------------- 319 break_any_pos_replace_1 */
+/*----------------------------------------------- 318 break_any_pos_replace_1 */
 // A15_lib_string.sc — string utilities: pad_left, pad_right, ltrim, rtrim, trimws,
 //                      repeat, contains, startswith, endswith, index
 // Snocone translation of crosscheck/library/test_string.sno + lib/string.sno
@@ -2479,48 +2475,48 @@ if (startswith('foobar', 'bar')) {
 }
 OUTPUT = index('foobar', 'oba');
 OUTPUT = index('foobar', 'xyz');
-/*----------------------------------------------------- 320 simple_output_224 */
+/*----------------------------------------------------- 319 simple_output_224 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment, so the twin is the desugaring this dialect declares, x = x + e, and a disagreement would have been a real red rather than a ref to adjust. It is applied TWICE on purpose: one application proves only that something was added, while two prove the variable is UPDATED IN PLACE and accumulates (15 then 20) instead of being recomputed from its initial value each time. */
 x = 10;
 x += 5;
 OUTPUT = x;
 x += 5;
 OUTPUT = x;
-/*----------------------------------------------------- 321 simple_output_225 */
+/*----------------------------------------------------- 320 simple_output_225 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment; the twin is the desugaring x = x - e. OPERAND ORDER is what this ref grades: 10 reduced by 3 is 7, where the reversed reading would give -7, so a lowering that swapped the operands could not pass this ref even though it would still look like subtraction. */
 x = 10;
 x -= 3;
 OUTPUT = x;
-/*----------------------------------------------------- 322 simple_output_226 */
+/*----------------------------------------------------- 321 simple_output_226 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment; the twin is the desugaring x = x * e. Multiplication is commutative so operand order cannot be graded here, and what the ref distinguishes is the OPERATOR itself: on this input the five augmented forms give 20, 12, 8, 5 and 100 respectively, no two alike, so 20 can only be produced by multiplication. */
 x = 10;
 x *= 2;
 OUTPUT = x;
-/*----------------------------------------------------- 323 simple_output_227 */
+/*----------------------------------------------------- 322 simple_output_227 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment; the twin is the desugaring x = x / e. Two properties in one ref. Operand order (10 divided by 4 is 2, where the reversed reading gives 0) and INTEGER TRUNCATION (2, not 2.5) -- division here is integer division, so a lowering that promoted to a real would print 2.5 and red. The inputs were chosen so the quotient is inexact; an exact one would have graded neither property. */
 x = 10;
 x /= 4;
 OUTPUT = x;
-/*----------------------------------------------------- 324 simple_output_228 */
+/*----------------------------------------------------- 323 simple_output_228 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SPITBOL has no augmented assignment; the twin is the desugaring x = x ^ e. Operand order is the whole point: 3 raised to 2 is 9 where the reversed reading gives 8, and those are precisely the two answers a wrong lowering would choose between. That SPITBOL accepts the same caret spelling as this dialect was verified directly against the oracle rather than assumed. */
 x = 3;
 x ^= 2;
 OUTPUT = x;
-/*----------------------------------------------------- 325 simple_output_104 */
+/*----------------------------------------------------- 324 simple_output_104 */
 i = 2; j = 3;
 OUTPUT = (LT(i, j) 'first', GT(i, j) 'second', 'third');
-/*----------------------------------------------------- 326 simple_output_229 */
+/*----------------------------------------------------- 325 simple_output_229 */
 i = 5; j = 3;
 OUTPUT = (LT(i, j) 'first', GT(i, j) 'second', 'third');
-/*----------------------------------------------------- 327 simple_output_230 */
+/*----------------------------------------------------- 326 simple_output_230 */
 i = 3; j = 3;
 OUTPUT = (LT(i, j) 'first', GT(i, j) 'second', 'third');
-/*----------------------------------------------------- 328 simple_output_231 */
+/*----------------------------------------------------- 327 simple_output_231 */
 i = 3; j = 3;
 x = 'untouched';
 x = (LT(i, j) 'first', GT(i, j) 'second');
 OUTPUT = x;
-/*------------ 329 ladder__rung22_datatype_function_uppercase_type_name_query */
+/*------------ 328 ladder__rung22_datatype_function_uppercase_type_name_query */
 t = TABLE();
 a = ARRAY('3');
 p = LEN(1);
@@ -2530,16 +2526,16 @@ OUTPUT = DATATYPE(3.14);
 OUTPUT = DATATYPE(p);
 OUTPUT = DATATYPE(t);
 OUTPUT = DATATYPE(a);
-/*------------ 330 ladder__rung22_datatype_function_name_operator_yields_name */
+/*------------ 329 ladder__rung22_datatype_function_name_operator_yields_name */
 x = 'hi';
 OUTPUT = DATATYPE(.x);
 OUTPUT = DATATYPE(x);
-/*- 331 ladder__rung23_keyword_and_system_variables_keyword_value_operator_ampersand */
+/*- 330 ladder__rung23_keyword_and_system_variables_keyword_value_operator_ampersand */
 OUTPUT = DATATYPE(&ANCHOR);
 OUTPUT = DATATYPE(&ALPHABET);
 OUTPUT = DATATYPE(&ABORT);
 OUTPUT = SIZE(&ALPHABET);
-/*------------- 332 ladder__rung23_keyword_and_system_variables_anchor_toggle */
+/*------------- 331 ladder__rung23_keyword_and_system_variables_anchor_toggle */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SNOBOL4 has no if-block; the twin expresses the same two guarded assignments with goto labels, and both print the same two lines */
 s = 'hello';
 &ANCHOR = 0;
@@ -2548,12 +2544,12 @@ OUTPUT = r;
 &ANCHOR = 1;
 r = 'no'; if (s ? 'ell') { r = 'yes'; }
 OUTPUT = r;
-/*------------ 333 ladder__rung23_keyword_and_system_variables_maxlngth_query */
+/*------------ 332 ladder__rung23_keyword_and_system_variables_maxlngth_query */
 OUTPUT = &MAXLNGTH;
 &MAXLNGTH = 5000;
 OUTPUT = &MAXLNGTH;
 OUTPUT = SIZE(DUPL('a', 4000));
-/*------------- 334 ladder__rung23_keyword_and_system_variables_stcount_query */
+/*------------- 333 ladder__rung23_keyword_and_system_variables_stcount_query */
 a = &STCOUNT;
 x = 1;
 OUTPUT = &STCOUNT - a;
@@ -2562,12 +2558,12 @@ y = 1;
 z = 2;
 w = 3;
 OUTPUT = &STCOUNT - b;
-/*----------- 335 ladder__rung23_keyword_and_system_variables_code_exit_value */
+/*----------- 334 ladder__rung23_keyword_and_system_variables_code_exit_value */
 &CODE = 9;
 OUTPUT = "first";
 &CODE = 4;
 OUTPUT = "second";
-/*-- 336 ladder__rung23_keyword_and_system_variables_stcount_counts_loop_body */
+/*-- 335 ladder__rung23_keyword_and_system_variables_stcount_counts_loop_body */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: the ref is cut from the oracle running the SPITBOL twin, a goto loop over the same two trip counts. The witness reads &STCOUNT around a 3-trip and an 8-trip
    loop of IDENTICAL top-level shape and compares the two deltas, so the per-iteration count is isolated from the top-level overhead and no magic statement number is pinned -- the Snocone report calls the
    count 'only approximate' because it counts SNOBOL4 statements, so the property to pin is that a loop body counts AT ALL, never an exact total. Before CEO-727 both deltas were equal and this printed the
@@ -2584,7 +2580,7 @@ if (GT((c - b) - (b - a), 0)) {
 } else {
     OUTPUT = 'loop body not counted';
 }
-/*- 337 ladder__rung23_keyword_and_system_variables_stlimit_halts_a_loop_body */
+/*- 336 ladder__rung23_keyword_and_system_variables_stlimit_halts_a_loop_body */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: &STLIMIT must halt a runaway loop whose trips are INSIDE a structured body, which is the dangerous direction -- before CEO-727 this ran to completion and
    printed 'after' at rc=0 while the oracle's twin halts at ERROR 244. The declared rc=1 in ALL.wantrc is half the witness: stdout alone cannot tell a halt from a silent completion. */
 &STLIMIT = 20;

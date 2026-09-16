@@ -856,15 +856,13 @@ COMBO-1 k2=key
 COMBO-2 word=abc
 COMBO-3 d=1 rest=ab
 COMBO-4 aa=aa bb=bb
-/*----------------------------------------------- 304 simple_output_124 XFAIL */
-7
-/*------------------------------------------------ 305 simple_output_92 XFAIL */
+/*------------------------------------------------------ 304 simple_output_92 */
 no match
-/*------------------------------------------------ 306 simple_output_96 XFAIL */
-no value
-/*------------------------------------------------------ 307 simple_output_51 */
+/*------------------------------------------------------ 305 simple_output_96 */
+has value
+/*------------------------------------------------------ 306 simple_output_51 */
 world hello
-/*----------------------------------------------- 308 simple_output_144 XFAIL */
+/*----------------------------------------------------- 307 simple_output_144 */
 
 
 Hello World!
@@ -881,14 +879,14 @@ I'm here
 1
 1
 
-Z
+
 A
-AZ
+A
 3
 7
 9
 7
-/*------------------------------------------------ 309 simple_output_69 XFAIL */
+/*------------------------------------------------------ 308 simple_output_69 */
 
 
 Hello World!
@@ -905,35 +903,35 @@ I'm here
 1
 1
 
-Z
+
 A
-AZ
+A
 3
 7
 9
 7
-/*----------------------------------------------- 310 capture_replace_1 XFAIL */
+/*----------------------------------------------------- 309 capture_replace_1 */
 test
-/*----------------------------------------------- 311 capture_replace_2 XFAIL */
+/*----------------------------------------------------- 310 capture_replace_2 */
 wor
-/*----------------------------------------------- 312 capture_replace_3 XFAIL */
+/*----------------------------------------------------- 311 capture_replace_3 */
 hel
-/*----------------------------------------------- 313 capture_replace_4 XFAIL */
+/*----------------------------------------------------- 312 capture_replace_4 */
 ell
-/*---------------------------------------------- 314 datatype_replace_1 XFAIL */
-COLOR
+/*---------------------------------------------------- 313 datatype_replace_1 */
+color
 255
-/*------------------------------------------------- 315 array_replace_1 XFAIL */
+/*------------------------------------------------------- 314 array_replace_1 */
 first
 third
 fifth
-/*------------------------------------------------- 316 array_replace_2 XFAIL */
+/*------------------------------------------------------- 315 array_replace_2 */
 1
 4
 9
 16
 25
-/*------------------------------------------------ 317 trim_keyword_replace_1 */
+/*------------------------------------------------ 316 trim_keyword_replace_1 */
 7
 3
 3.5
@@ -945,7 +943,7 @@ fifth
 4
 25
 12
-/*----------------------------------------------- 318 break_len_rem_replace_2 */
+/*----------------------------------------------- 317 break_len_rem_replace_2 */
 3
 c
 b
@@ -959,7 +957,7 @@ x
 99
 world
 hello
-/*----------------------------------------------- 319 break_any_pos_replace_1 */
+/*----------------------------------------------- 318 break_any_pos_replace_1 */
 ****hi
 hi****
 hello
@@ -972,54 +970,54 @@ endswith ok
 no startswith ok
 2
 0
-/*----------------------------------------------------- 320 simple_output_224 */
+/*----------------------------------------------------- 319 simple_output_224 */
 15
 20
-/*----------------------------------------------------- 321 simple_output_225 */
+/*----------------------------------------------------- 320 simple_output_225 */
 7
-/*----------------------------------------------------- 322 simple_output_226 */
+/*----------------------------------------------------- 321 simple_output_226 */
 20
-/*----------------------------------------------------- 323 simple_output_227 */
+/*----------------------------------------------------- 322 simple_output_227 */
 2
-/*----------------------------------------------------- 324 simple_output_228 */
+/*----------------------------------------------------- 323 simple_output_228 */
 9
-/*----------------------------------------------------- 325 simple_output_104 */
+/*----------------------------------------------------- 324 simple_output_104 */
 first
-/*----------------------------------------------------- 326 simple_output_229 */
+/*----------------------------------------------------- 325 simple_output_229 */
 second
-/*----------------------------------------------------- 327 simple_output_230 */
+/*----------------------------------------------------- 326 simple_output_230 */
 third
-/*----------------------------------------------------- 328 simple_output_231 */
+/*----------------------------------------------------- 327 simple_output_231 */
 untouched
-/*------------ 329 ladder__rung22_datatype_function_uppercase_type_name_query */
+/*------------ 328 ladder__rung22_datatype_function_uppercase_type_name_query */
 STRING
 INTEGER
 REAL
 PATTERN
 TABLE
 ARRAY
-/*------------ 330 ladder__rung22_datatype_function_name_operator_yields_name */
+/*------------ 329 ladder__rung22_datatype_function_name_operator_yields_name */
 NAME
 STRING
-/*- 331 ladder__rung23_keyword_and_system_variables_keyword_value_operator_ampersand */
+/*- 330 ladder__rung23_keyword_and_system_variables_keyword_value_operator_ampersand */
 INTEGER
 STRING
 PATTERN
 256
-/*------------- 332 ladder__rung23_keyword_and_system_variables_anchor_toggle */
+/*------------- 331 ladder__rung23_keyword_and_system_variables_anchor_toggle */
 yes
 no
-/*------------ 333 ladder__rung23_keyword_and_system_variables_maxlngth_query */
+/*------------ 332 ladder__rung23_keyword_and_system_variables_maxlngth_query */
 16777216
 5000
 4000
-/*------------- 334 ladder__rung23_keyword_and_system_variables_stcount_query */
+/*------------- 333 ladder__rung23_keyword_and_system_variables_stcount_query */
 2
 4
-/*----------- 335 ladder__rung23_keyword_and_system_variables_code_exit_value */
+/*----------- 334 ladder__rung23_keyword_and_system_variables_code_exit_value */
 first
 second
-/*-- 336 ladder__rung23_keyword_and_system_variables_stcount_counts_loop_body */
+/*-- 335 ladder__rung23_keyword_and_system_variables_stcount_counts_loop_body */
 loop body counted
-/*- 337 ladder__rung23_keyword_and_system_variables_stlimit_halts_a_loop_body */
+/*- 336 ladder__rung23_keyword_and_system_variables_stlimit_halts_a_loop_body */
 before
