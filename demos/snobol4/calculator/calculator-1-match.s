@@ -2230,15 +2230,15 @@ n89_stmt_mark_α:        mov              r11, 40
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              qword ptr [rax + 0], 1
                         mov              rax, qword ptr [rip + g_stcount@GOTPCREL]
-                        inc              qword ptr [rax + 0];                 jmp   n90_statement_begin_α
+                        inc              qword ptr [rax + 0]
+                        add              rsp, 64;                             jmp   n90_statement_begin_α
                         .size            n89_stmt_mark_bx, .-n89_stmt_mark_bx
                         .type            n90_statement_begin_bx, @function
 n90_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n90_statement_begin_α:  mov              r11, 41
                         mov              r10, 1;                              jmp   n91_lit_integer_α
-n90_statement_begin_β:  mov              r11, 41
-                        add              rsp, 64;                             jmp   n94_stmt_mark_α
+n90_statement_begin_β:  mov              r11, 41;                             jmp   n94_stmt_mark_α
                         .size            n90_statement_begin_bx, .-n90_statement_begin_bx
                         .type            n91_lit_integer_bx, @function
 n91_lit_integer_bx:
@@ -2281,7 +2281,7 @@ n93_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n93_statement_end_α:    mov              r11, 44
                         mov              r10, 1
-                        add              rsp, 96;                             jmp   n94_stmt_mark_α
+                        add              rsp, 32;                             jmp   n94_stmt_mark_α
                         .size            n93_statement_end_bx, .-n93_statement_end_bx
                         .type            n94_stmt_mark_bx, @function
 n94_stmt_mark_bx:

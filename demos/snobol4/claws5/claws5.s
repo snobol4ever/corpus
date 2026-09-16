@@ -651,15 +651,15 @@ n64_stmt_mark_α:        mov              r11, 26
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              qword ptr [rax + 0], 2
                         mov              rax, qword ptr [rip + g_stcount@GOTPCREL]
-                        inc              qword ptr [rax + 0];                 jmp   n65_statement_begin_α
+                        inc              qword ptr [rax + 0]
+                        add              rsp, 64;                             jmp   n65_statement_begin_α
                         .size            n64_stmt_mark_bx, .-n64_stmt_mark_bx
                         .type            n65_statement_begin_bx, @function
 n65_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n65_statement_begin_α:  mov              r11, 27
                         mov              r10, 1;                              jmp   n66_define_α
-n65_statement_begin_β:  mov              r11, 27
-                        add              rsp, 64;                             jmp   n68_stmt_mark_α
+n65_statement_begin_β:  mov              r11, 27;                             jmp   n68_stmt_mark_α
                         .size            n65_statement_begin_bx, .-n65_statement_begin_bx
                         .type            n66_define_bx, @function
 n66_define_bx:
@@ -969,8 +969,7 @@ token_ω:                mov              rcx, qword ptr [rsp + 32]
 n67_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n67_statement_end_α:    mov              r11, 29
-                        mov              r10, 1
-                        add              rsp, 64;                             jmp   n68_stmt_mark_α
+                        mov              r10, 1;                              jmp   n68_stmt_mark_α
                         .size            n67_statement_end_bx, .-n67_statement_end_bx
                         .type            n68_stmt_mark_bx, @function
 n68_stmt_mark_bx:

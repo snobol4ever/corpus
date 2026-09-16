@@ -5636,16 +5636,17 @@ n360_stmt_mark_α:       mov              r11, 139
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              qword ptr [rax + 0], 29
                         mov              rax, qword ptr [rip + g_stcount@GOTPCREL]
-                        inc              qword ptr [rax + 0];                 jmp   n361_statement_begin_α
-n360_stmt_mark_β:       mov              r11, 139;                            jmp   n361_statement_begin_α
+                        inc              qword ptr [rax + 0]
+                        add              rsp, 64;                             jmp   n361_statement_begin_α
+n360_stmt_mark_β:       mov              r11, 139
+                        add              rsp, 64;                             jmp   n361_statement_begin_α
                         .size            n360_stmt_mark_bx, .-n360_stmt_mark_bx
                         .type            n361_statement_begin_bx, @function
 n361_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n361_statement_begin_α: mov              r11, 140
                         mov              r10, 1;                              jmp   n362_lit_integer_α
-n361_statement_begin_β: mov              r11, 140
-                        add              rsp, 64;                             jmp   n366_stmt_mark_α
+n361_statement_begin_β: mov              r11, 140;                            jmp   n366_stmt_mark_α
                         .size            n361_statement_begin_bx, .-n361_statement_begin_bx
                         .type            n362_lit_integer_bx, @function
 n362_lit_integer_bx:
@@ -5749,9 +5750,9 @@ n365_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n365_statement_end_α:   mov              r11, 144
                         mov              r10, 1
-                        add              rsp, 96;                             jmp   n366_stmt_mark_α
+                        add              rsp, 32;                             jmp   n366_stmt_mark_α
 n365_statement_end_β:   mov              r11, 144
-                        add              rsp, 96;                             jmp   n366_stmt_mark_α
+                        add              rsp, 32;                             jmp   n366_stmt_mark_α
                         .size            n365_statement_end_bx, .-n365_statement_end_bx
                         .type            n366_stmt_mark_bx, @function
 n366_stmt_mark_bx:

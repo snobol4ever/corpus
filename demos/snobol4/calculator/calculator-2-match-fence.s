@@ -1590,15 +1590,15 @@ n66_stmt_mark_α:        mov              r11, 30
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              qword ptr [rax + 0], 1
                         mov              rax, qword ptr [rip + g_stcount@GOTPCREL]
-                        inc              qword ptr [rax + 0];                 jmp   n67_statement_begin_α
+                        inc              qword ptr [rax + 0]
+                        add              rsp, 64;                             jmp   n67_statement_begin_α
                         .size            n66_stmt_mark_bx, .-n66_stmt_mark_bx
                         .type            n67_statement_begin_bx, @function
 n67_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n67_statement_begin_α:  mov              r11, 31
                         mov              r10, 1;                              jmp   n68_lit_string_α
-n67_statement_begin_β:  mov              r11, 31
-                        add              rsp, 64;                             jmp   n72_stmt_mark_α
+n67_statement_begin_β:  mov              r11, 31;                             jmp   n72_stmt_mark_α
                         .size            n67_statement_begin_bx, .-n67_statement_begin_bx
                         .type            n68_lit_string_bx, @function
 n68_lit_string_bx:
@@ -1701,7 +1701,7 @@ n71_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n71_statement_end_α:    mov              r11, 35
                         mov              r10, 1
-                        add              rsp, 96;                             jmp   n72_stmt_mark_α
+                        add              rsp, 32;                             jmp   n72_stmt_mark_α
                         .size            n71_statement_end_bx, .-n71_statement_end_bx
                         .type            n72_stmt_mark_bx, @function
 n72_stmt_mark_bx:

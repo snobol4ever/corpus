@@ -2072,15 +2072,15 @@ n160_stmt_mark_α:       mov              r11, 63
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              qword ptr [rax + 0], 2
                         mov              rax, qword ptr [rip + g_stcount@GOTPCREL]
-                        inc              qword ptr [rax + 0];                 jmp   n161_statement_begin_α
+                        inc              qword ptr [rax + 0]
+                        add              rsp, 64;                             jmp   n161_statement_begin_α
                         .size            n160_stmt_mark_bx, .-n160_stmt_mark_bx
                         .type            n161_statement_begin_bx, @function
 n161_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n161_statement_begin_α: mov              r11, 64
                         mov              r10, 1;                              jmp   n162_lit_integer_α
-n161_statement_begin_β: mov              r11, 64
-                        add              rsp, 64;                             jmp   n165_stmt_mark_α
+n161_statement_begin_β: mov              r11, 64;                             jmp   n165_stmt_mark_α
                         .size            n161_statement_begin_bx, .-n161_statement_begin_bx
                         .type            n162_lit_integer_bx, @function
 n162_lit_integer_bx:
@@ -2123,7 +2123,7 @@ n164_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n164_statement_end_α:   mov              r11, 67
                         mov              r10, 1
-                        add              rsp, 96;                             jmp   n165_stmt_mark_α
+                        add              rsp, 32;                             jmp   n165_stmt_mark_α
                         .size            n164_statement_end_bx, .-n164_statement_end_bx
                         .type            n165_stmt_mark_bx, @function
 n165_stmt_mark_bx:

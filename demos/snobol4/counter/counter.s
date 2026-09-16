@@ -142,15 +142,15 @@ n4_stmt_mark_α:         mov              r11, 5
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              qword ptr [rax + 0], 2
                         mov              rax, qword ptr [rip + g_stcount@GOTPCREL]
-                        inc              qword ptr [rax + 0];                 jmp   n5_statement_begin_α
+                        inc              qword ptr [rax + 0]
+                        add              rsp, 64;                             jmp   n5_statement_begin_α
                         .size            n4_stmt_mark_bx, .-n4_stmt_mark_bx
                         .type            n5_statement_begin_bx, @function
 n5_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n5_statement_begin_α:   mov              r11, 6
                         mov              r10, 1;                              jmp   n6_lit_integer_α
-n5_statement_begin_β:   mov              r11, 6
-                        add              rsp, 64;                             jmp   n9_stmt_mark_α
+n5_statement_begin_β:   mov              r11, 6;                              jmp   n9_stmt_mark_α
                         .size            n5_statement_begin_bx, .-n5_statement_begin_bx
                         .type            n6_lit_integer_bx, @function
 n6_lit_integer_bx:
@@ -215,7 +215,7 @@ n8_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n8_statement_end_α:     mov              r11, 9
                         mov              r10, 1
-                        add              rsp, 80;                             jmp   n9_stmt_mark_α
+                        add              rsp, 16;                             jmp   n9_stmt_mark_α
                         .size            n8_statement_end_bx, .-n8_statement_end_bx
                         .type            n9_stmt_mark_bx, @function
 n9_stmt_mark_bx:

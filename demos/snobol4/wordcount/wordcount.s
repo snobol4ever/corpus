@@ -309,15 +309,15 @@ n20_stmt_mark_α:        mov              r11, 11
                         mov              rax, qword ptr [rip + g_line@GOTPCREL]
                         mov              qword ptr [rax + 0], 1
                         mov              rax, qword ptr [rip + g_stcount@GOTPCREL]
-                        inc              qword ptr [rax + 0];                 jmp   n21_statement_begin_α
+                        inc              qword ptr [rax + 0]
+                        add              rsp, 64;                             jmp   n21_statement_begin_α
                         .size            n20_stmt_mark_bx, .-n20_stmt_mark_bx
                         .type            n21_statement_begin_bx, @function
 n21_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n21_statement_begin_α:  mov              r11, 12
                         mov              r10, 1;                              jmp   n22_lit_integer_α
-n21_statement_begin_β:  mov              r11, 12
-                        add              rsp, 64;                             jmp   n25_stmt_mark_α
+n21_statement_begin_β:  mov              r11, 12;                             jmp   n25_stmt_mark_α
                         .size            n21_statement_begin_bx, .-n21_statement_begin_bx
                         .type            n22_lit_integer_bx, @function
 n22_lit_integer_bx:
@@ -360,7 +360,7 @@ n24_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n24_statement_end_α:    mov              r11, 15
                         mov              r10, 1
-                        add              rsp, 96;                             jmp   n25_stmt_mark_α
+                        add              rsp, 32;                             jmp   n25_stmt_mark_α
                         .size            n24_statement_end_bx, .-n24_statement_end_bx
                         .type            n25_stmt_mark_bx, @function
 n25_stmt_mark_bx:
