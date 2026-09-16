@@ -2389,7 +2389,7 @@ if (subject ? BREAK(' ') . w1   LEN(1)   REM . w2) {
 } else {
     OUTPUT = 'fail: pattern match failed';
 }
-/*----------------------------------------- 319 break_any_pos_replace_1 XFAIL */
+/*----------------------------------------------- 319 break_any_pos_replace_1 */
 // A15_lib_string.sc — string utilities: pad_left, pad_right, ltrim, rtrim, trimws,
 //                      repeat, contains, startswith, endswith, index
 // Snocone translation of crosscheck/library/test_string.sno + lib/string.sno

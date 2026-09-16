@@ -959,7 +959,7 @@ x
 99
 world
 hello
-/*----------------------------------------- 319 break_any_pos_replace_1 XFAIL */
+/*----------------------------------------------- 319 break_any_pos_replace_1 */
 ****hi
 hi****
 hello
