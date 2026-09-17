@@ -12,7 +12,7 @@ LC      = 'abcdefghijklmnopqrstuvwxyz';
 // ---------------------------------------------------------------------------------------------------------
 // cons(i): true if stem[i] is a consonant. Letters 1-indexed.
 // ---------------------------------------------------------------------------------------------------------
-function cons(i) (c) {
+function cons(i) c {
     c = SUBSTR(stem, i, 1);
     if (c ? ANY(VOWELS)) { freturn; }
     if (DIFFER(c, 'y'))  { return; }
@@ -23,7 +23,7 @@ function cons(i) (c) {
 // ---------------------------------------------------------------------------------------------------------
 // m(): Porter's measure -- the number of VC sequences in 'stem'.
 // ---------------------------------------------------------------------------------------------------------
-function m() (i, n, L) {
+function m() i, n, L {
     L = SIZE(stem);
     if (EQ(L, 0)) { m = 0; return; }
     i = 1;
@@ -50,7 +50,7 @@ mC:
 // ---------------------------------------------------------------------------------------------------------
 // vowelinstem(): true if any char of stem is a vowel (y after consonant counts).
 // ---------------------------------------------------------------------------------------------------------
-function vowelinstem() (i, L) {
+function vowelinstem() i, L {
     L = SIZE(stem);
     i = 1;
 visL:
@@ -71,7 +71,7 @@ function doublec(j) {
 // ---------------------------------------------------------------------------------------------------------
 // cvc(i): stem[i-2..i] = c-v-c and stem[i] not in {w,x,y}.
 // ---------------------------------------------------------------------------------------------------------
-function cvc(i) (c) {
+function cvc(i) c {
     if (LT(i, 3))     { freturn; }
     if (cons(i))      { } else { freturn; }
     if (cons(i - 1))  { freturn; }
@@ -104,26 +104,26 @@ function g_m_eq_1() {
     g_m_eq_1 = FAIL; return;
 }
 
-function g_not_cvc_last() (L) {
+function g_not_cvc_last() L {
     L = SIZE(stem);
     if (cvc(L)) { g_not_cvc_last = FAIL; return; }
     g_not_cvc_last = ; return;
 }
 
-function g_stem_not_m() (L) {
+function g_stem_not_m() L {
     L = SIZE(stem);
     if (DIFFER(SUBSTR(stem, L, 1), 'm')) { g_stem_not_m = ; return; }
     g_stem_not_m = FAIL; return;
 }
 
-function g_stem_last_st() (L, last) {
+function g_stem_last_st() L, last {
     L = SIZE(stem);
     last = SUBSTR(stem, L, 1);
     if (last ? ANY('st')) { g_stem_last_st = ; return; }
     g_stem_last_st = FAIL; return;
 }
 
-function g_m_ll_gt_1() (save, r) {
+function g_m_ll_gt_1() save, r {
     save = stem;
     stem = save   'll';
     r = m();
@@ -156,7 +156,7 @@ function s_ic()    { target = 'ic';   s_ic    = .dummy; nreturn; }
 function s_l()     { target = 'l';    s_l     = .dummy; nreturn; }
 
 // step1ab_cleanup -- commit-time action that sets target and may mutate stem.
-function a_s1ab_cleanup() (L, last, P) {
+function a_s1ab_cleanup() L, last, P {
     L = SIZE(stem);
     P = RTAB(2)   ('at' | 'bl' | 'iz')   RPOS(0);
     if (stem ? P) { target = 'e'; goto a_s1_done; }
@@ -169,7 +169,7 @@ function a_s1ab_cleanup() (L, last, P) {
         }
     }
     if (EQ(m(), 1)) {
-        if (cvc(L)) { } else { target = 'e'; goto a_s1_done; }
+        if (cvc(L)) { target = 'e'; goto a_s1_done; }
     }
     target = ;
 a_s1_done:
@@ -335,8 +335,6 @@ function stemmer(token) {
 // ---------------------------------------------------------------------------------------------------------
 // Driver: read each word from INPUT, write its stem to OUTPUT.
 // ---------------------------------------------------------------------------------------------------------
-word = INPUT;
-while (DIFFER(word)) {
+while (word = INPUT) {
     OUTPUT = stemmer(word);
-    word = INPUT;
 }
