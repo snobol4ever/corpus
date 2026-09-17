@@ -1,0 +1,19 @@
+# ALL.wantrc -- the EXPECTED PROCESS EXIT CODE per entry, CUT FROM THE ORACLE, never from scrip.
+# Same shape and same filename as corpus/tests/icon/ALL.wantrc (hq_icon 2026-09-16): the master suite
+# grades an expected rc beside the output and the package runners did not, which is how 37 programs
+# that DIED before printing anything scored PASS against an empty .ref.
+# Cut 2026-09-16 by hq_pascal with: fpc -Miso -FE<scratch> -o<name>.bin <name>.pas, then run the binary
+# with the entry's .in on stdin (or /dev/null) and record its exit status. All 181 compiled and ran.
+# An entry absent from this file expects 0. A line here is the ORACLE's answer, not a waiver.
+tbs_tb0207	1
+test_tisobuf2	2
+test_tisobuf3	2
+test_tpushpop4	3
+test_trstr7	201
+test_units_system_tassert6	227
+utils_fail	1
+webtbs_tw15061a	3
+webtbs_tw2690	201
+webtbs_tw28718c	1
+webtbs_tw37875	215
+webtbs_tw8304	227
