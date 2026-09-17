@@ -4,8 +4,12 @@
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__dofile:
-                        sub              rsp, 4080
-                        mov              qword ptr [rsp + 4072], rbp
+                        sub              rsp, 4096
+                        lea              rax, [rip + .Lgcmap_dofile]
+                        mov              qword ptr [rsp + 3864], rax
+                        mov              dword ptr [rsp + 3856], 160
+                        mov              dword ptr [rsp + 3860], 4096
+                        mov              qword ptr [rsp + 4088], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         add              rdi, 3728
@@ -3422,8 +3426,8 @@ dofile_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 4080]
-                        mov              rbp, qword ptr [rbp + 4072];         jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 4096]
+                        mov              rbp, qword ptr [rbp + 4088];         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 dofile_ω:
                         push             rax
@@ -3461,8 +3465,8 @@ dofile_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 4080]
-                        mov              rbp, qword ptr [rbp + 4072];         jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 4096]
+                        mov              rbp, qword ptr [rbp + 4088];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 dofile_dcα:
                         pop              r12
@@ -3503,6 +3507,13 @@ dofile_dcα:
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
+#-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_dofile:
+                        .quad            17593532501338
+                        .quad            224
+                        .quad            .Lgcmap_dofile_s
+                        .quad            0
+.Lgcmap_dofile_s:       .string          "dofile"
                         .globl           main
 main:
                         sub              rsp, 65544
@@ -3510,6 +3521,8 @@ main:
                         push             rsi
                         call             core_lib_init@PLT
                         call             module_init
+                        lea              rdi, [rip + __gc_frame_maps]
+                        call             rt_gc_frame_maps_install_counted@PLT
                         mov              rdi, qword ptr [rsp]
                         mov              rdi, qword ptr [rdi]
                         call             rt_main_progname_stage@PLT
@@ -3530,8 +3543,12 @@ main:
                         ud2
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
-                        sub              rsp, 1040
-                        mov              qword ptr [rsp + 1032], rbp
+                        sub              rsp, 1056
+                        lea              rax, [rip + .Lgcmap_main]
+                        mov              qword ptr [rsp + 936], rax
+                        mov              dword ptr [rsp + 928], 160
+                        mov              dword ptr [rsp + 932], 1056
+                        mov              qword ptr [rsp + 1048], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         add              rdi, 880
@@ -4329,6 +4346,13 @@ main_ω:
                         and              rsp, -16
                         xor              edi, edi
                         call             exit@PLT
+#-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_main:
+                        .quad            4536831921498
+                        .quad            4294967408
+                        .quad            .Lgcmap_main_s
+                        .quad            0
+.Lgcmap_main_s:         .string          "main"
 module_init:
                         sub              rsp, 8
                         .section         .rodata
@@ -4483,4 +4507,11 @@ module_init:
                         call             rt_proc_set_local_offs@PLT
                         add              rsp, 8
                         ret
+                        .section         .rodata
+                        .align           8
+__gc_frame_maps:        .quad            2
+                        .quad            .Lgcmap_dofile
+                        .quad            .Lgcmap_main
+                        .section         .text
+                        .intel_syntax    noprefix
                         .section         .note.GNU-stack,"",@progbits

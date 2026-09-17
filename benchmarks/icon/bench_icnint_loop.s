@@ -9,6 +9,8 @@ main:
                         push             rsi
                         call             core_lib_init@PLT
                         call             module_init
+                        lea              rdi, [rip + __gc_frame_maps]
+                        call             rt_gc_frame_maps_install_counted@PLT
                         mov              rdi, qword ptr [rsp]
                         mov              rdi, qword ptr [rdi]
                         call             rt_main_progname_stage@PLT
@@ -28,8 +30,12 @@ main:
                         ud2
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
-                        sub              rsp, 480
-                        mov              qword ptr [rsp + 472], rbp
+                        sub              rsp, 496
+                        lea              rax, [rip + .Lgcmap_main]
+                        mov              qword ptr [rsp + 408], rax
+                        mov              dword ptr [rsp + 400], 160
+                        mov              dword ptr [rsp + 404], 496
+                        mov              qword ptr [rsp + 488], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         add              rdi, 368
@@ -470,6 +476,13 @@ main_ω:
                         and              rsp, -16
                         xor              edi, edi
                         call             exit@PLT
+#-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_main:
+                        .quad            2131650235738
+                        .quad            4294967376
+                        .quad            .Lgcmap_main_s
+                        .quad            0
+.Lgcmap_main_s:         .string          "main"
 module_init:
                         sub              rsp, 8
                         .section         .rodata
@@ -506,4 +519,10 @@ module_init:
                         call             rt_proc_set_local_offs@PLT
                         add              rsp, 8
                         ret
+                        .section         .rodata
+                        .align           8
+__gc_frame_maps:        .quad            1
+                        .quad            .Lgcmap_main
+                        .section         .text
+                        .intel_syntax    noprefix
                         .section         .note.GNU-stack,"",@progbits

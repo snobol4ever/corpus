@@ -4,8 +4,12 @@
                         .file            2 "<included>"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__report:
-                        sub              rsp, 832
-                        mov              qword ptr [rsp + 824], rbp
+                        sub              rsp, 848
+                        lea              rax, [rip + .Lgcmap_report]
+                        mov              qword ptr [rsp + 744], rax
+                        mov              dword ptr [rsp + 736], 160
+                        mov              dword ptr [rsp + 740], 848
+                        mov              qword ptr [rsp + 840], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         add              rdi, 720
@@ -701,8 +705,8 @@ report_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 832]
-                        mov              rbp, qword ptr [rbp + 824];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 848]
+                        mov              rbp, qword ptr [rbp + 840];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 report_ω:
                         push             rax
@@ -741,8 +745,8 @@ report_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 832]
-                        mov              rbp, qword ptr [rbp + 824];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 848]
+                        mov              rbp, qword ptr [rbp + 840];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 report_dcα:
                         pop              r12
@@ -774,9 +778,20 @@ report_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_report:
+                        .quad            3643478723930
+                        .quad            96
+                        .quad            .Lgcmap_report_s
+                        .quad            0
+.Lgcmap_report_s:       .string          "report"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__measure:
-                        sub              rsp, 2320
-                        mov              qword ptr [rsp + 2312], rbp
+                        sub              rsp, 2336
+                        lea              rax, [rip + .Lgcmap_measure]
+                        mov              qword ptr [rsp + 2152], rax
+                        mov              dword ptr [rsp + 2144], 160
+                        mov              dword ptr [rsp + 2148], 2336
+                        mov              qword ptr [rsp + 2328], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         add              rdi, 2048
@@ -3152,8 +3167,8 @@ measure_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 2320]
-                        mov              rbp, qword ptr [rbp + 2312];         jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 2336]
+                        mov              rbp, qword ptr [rbp + 2328];         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 measure_ω:
                         push             rax
@@ -3192,8 +3207,8 @@ measure_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 2320]
-                        mov              rbp, qword ptr [rbp + 2312];         jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 2336]
+                        mov              rbp, qword ptr [rbp + 2328];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 measure_dcα:
                         pop              r12
@@ -3237,9 +3252,20 @@ measure_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_measure:
+                        .quad            10034390060378
+                        .quad            176
+                        .quad            .Lgcmap_measure_s
+                        .quad            0
+.Lgcmap_measure_s:      .string          "measure"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__nothing:
-                        sub              rsp, 336
-                        mov              qword ptr [rsp + 328], rbp
+                        sub              rsp, 352
+                        lea              rax, [rip + .Lgcmap_nothing]
+                        mov              qword ptr [rsp + 280], rax
+                        mov              dword ptr [rsp + 272], 160
+                        mov              dword ptr [rsp + 276], 352
+                        mov              qword ptr [rsp + 344], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -3496,8 +3522,8 @@ nothing_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 336]
-                        mov              rbp, qword ptr [rbp + 328];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 352]
+                        mov              rbp, qword ptr [rbp + 344];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 nothing_ω:
                         push             rax
@@ -3536,8 +3562,8 @@ nothing_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 336]
-                        mov              rbp, qword ptr [rbp + 328];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 352]
+                        mov              rbp, qword ptr [rbp + 344];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 nothing_dcα:
                         pop              r12
@@ -3569,9 +3595,20 @@ nothing_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_nothing:
+                        .quad            1513174945114
+                        .quad            64
+                        .quad            .Lgcmap_nothing_s
+                        .quad            0
+.Lgcmap_nothing_s:      .string          "nothing"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__uplus:
-                        sub              rsp, 336
-                        mov              qword ptr [rsp + 328], rbp
+                        sub              rsp, 352
+                        lea              rax, [rip + .Lgcmap_uplus]
+                        mov              qword ptr [rsp + 280], rax
+                        mov              dword ptr [rsp + 272], 160
+                        mov              dword ptr [rsp + 276], 352
+                        mov              qword ptr [rsp + 344], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -3828,8 +3865,8 @@ uplus_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 336]
-                        mov              rbp, qword ptr [rbp + 328];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 352]
+                        mov              rbp, qword ptr [rbp + 344];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 uplus_ω:
                         push             rax
@@ -3868,8 +3905,8 @@ uplus_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 336]
-                        mov              rbp, qword ptr [rbp + 328];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 352]
+                        mov              rbp, qword ptr [rbp + 344];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 uplus_dcα:
                         pop              r12
@@ -3901,9 +3938,20 @@ uplus_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_uplus:
+                        .quad            1513174945114
+                        .quad            64
+                        .quad            .Lgcmap_uplus_s
+                        .quad            0
+.Lgcmap_uplus_s:        .string          "uplus"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__uplusr:
-                        sub              rsp, 336
-                        mov              qword ptr [rsp + 328], rbp
+                        sub              rsp, 352
+                        lea              rax, [rip + .Lgcmap_uplusr]
+                        mov              qword ptr [rsp + 280], rax
+                        mov              dword ptr [rsp + 272], 160
+                        mov              dword ptr [rsp + 276], 352
+                        mov              qword ptr [rsp + 344], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -4160,8 +4208,8 @@ uplusr_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 336]
-                        mov              rbp, qword ptr [rbp + 328];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 352]
+                        mov              rbp, qword ptr [rbp + 344];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 uplusr_ω:
                         push             rax
@@ -4200,8 +4248,8 @@ uplusr_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 336]
-                        mov              rbp, qword ptr [rbp + 328];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 352]
+                        mov              rbp, qword ptr [rbp + 344];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 uplusr_dcα:
                         pop              r12
@@ -4233,9 +4281,20 @@ uplusr_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_uplusr:
+                        .quad            1513174945114
+                        .quad            64
+                        .quad            .Lgcmap_uplusr_s
+                        .quad            0
+.Lgcmap_uplusr_s:       .string          "uplusr"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__absf:
-                        sub              rsp, 400
-                        mov              qword ptr [rsp + 392], rbp
+                        sub              rsp, 416
+                        lea              rax, [rip + .Lgcmap_absf]
+                        mov              qword ptr [rsp + 344], rax
+                        mov              dword ptr [rsp + 336], 160
+                        mov              dword ptr [rsp + 340], 416
+                        mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -4538,8 +4597,8 @@ absf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 absf_ω:
                         push             rax
@@ -4578,8 +4637,8 @@ absf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 absf_dcα:
                         pop              r12
@@ -4611,9 +4670,20 @@ absf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_absf:
+                        .quad            1788052852058
+                        .quad            64
+                        .quad            .Lgcmap_absf_s
+                        .quad            0
+.Lgcmap_absf_s:         .string          "absf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__intadd:
-                        sub              rsp, 384
-                        mov              qword ptr [rsp + 376], rbp
+                        sub              rsp, 400
+                        lea              rax, [rip + .Lgcmap_intadd]
+                        mov              qword ptr [rsp + 328], rax
+                        mov              dword ptr [rsp + 320], 160
+                        mov              dword ptr [rsp + 324], 400
+                        mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -4908,8 +4978,8 @@ intadd_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 384]
-                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 400]
+                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 intadd_ω:
                         push             rax
@@ -4948,8 +5018,8 @@ intadd_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 384]
-                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 400]
+                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 intadd_dcα:
                         pop              r12
@@ -4981,9 +5051,20 @@ intadd_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_intadd:
+                        .quad            1719333375322
+                        .quad            64
+                        .quad            .Lgcmap_intadd_s
+                        .quad            0
+.Lgcmap_intadd_s:       .string          "intadd"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__intcmp:
-                        sub              rsp, 384
-                        mov              qword ptr [rsp + 376], rbp
+                        sub              rsp, 400
+                        lea              rax, [rip + .Lgcmap_intcmp]
+                        mov              qword ptr [rsp + 328], rax
+                        mov              dword ptr [rsp + 320], 160
+                        mov              dword ptr [rsp + 324], 400
+                        mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -5322,8 +5403,8 @@ intcmp_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 384]
-                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 400]
+                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 intcmp_ω:
                         push             rax
@@ -5362,8 +5443,8 @@ intcmp_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 384]
-                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 400]
+                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 intcmp_dcα:
                         pop              r12
@@ -5395,9 +5476,20 @@ intcmp_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_intcmp:
+                        .quad            1719333375322
+                        .quad            64
+                        .quad            .Lgcmap_intcmp_s
+                        .quad            0
+.Lgcmap_intcmp_s:       .string          "intcmp"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__intpow:
-                        sub              rsp, 384
-                        mov              qword ptr [rsp + 376], rbp
+                        sub              rsp, 400
+                        lea              rax, [rip + .Lgcmap_intpow]
+                        mov              qword ptr [rsp + 328], rax
+                        mov              dword ptr [rsp + 320], 160
+                        mov              dword ptr [rsp + 324], 400
+                        mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -5692,8 +5784,8 @@ intpow_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 384]
-                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 400]
+                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 intpow_ω:
                         push             rax
@@ -5732,8 +5824,8 @@ intpow_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 384]
-                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 400]
+                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 intpow_dcα:
                         pop              r12
@@ -5765,9 +5857,20 @@ intpow_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_intpow:
+                        .quad            1719333375322
+                        .quad            64
+                        .quad            .Lgcmap_intpow_s
+                        .quad            0
+.Lgcmap_intpow_s:       .string          "intpow"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__realcmp:
-                        sub              rsp, 384
-                        mov              qword ptr [rsp + 376], rbp
+                        sub              rsp, 400
+                        lea              rax, [rip + .Lgcmap_realcmp]
+                        mov              qword ptr [rsp + 328], rax
+                        mov              dword ptr [rsp + 320], 160
+                        mov              dword ptr [rsp + 324], 400
+                        mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -6074,8 +6177,8 @@ realcmp_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 384]
-                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 400]
+                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 realcmp_ω:
                         push             rax
@@ -6114,8 +6217,8 @@ realcmp_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 384]
-                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 400]
+                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 realcmp_dcα:
                         pop              r12
@@ -6147,9 +6250,20 @@ realcmp_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_realcmp:
+                        .quad            1719333375322
+                        .quad            64
+                        .quad            .Lgcmap_realcmp_s
+                        .quad            0
+.Lgcmap_realcmp_s:      .string          "realcmp"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__cosf:
-                        sub              rsp, 400
-                        mov              qword ptr [rsp + 392], rbp
+                        sub              rsp, 416
+                        lea              rax, [rip + .Lgcmap_cosf]
+                        mov              qword ptr [rsp + 344], rax
+                        mov              dword ptr [rsp + 336], 160
+                        mov              dword ptr [rsp + 340], 416
+                        mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -6452,8 +6566,8 @@ cosf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 cosf_ω:
                         push             rax
@@ -6492,8 +6606,8 @@ cosf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 cosf_dcα:
                         pop              r12
@@ -6525,9 +6639,20 @@ cosf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_cosf:
+                        .quad            1788052852058
+                        .quad            64
+                        .quad            .Lgcmap_cosf_s
+                        .quad            0
+.Lgcmap_cosf_s:         .string          "cosf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__sqrtf:
-                        sub              rsp, 400
-                        mov              qword ptr [rsp + 392], rbp
+                        sub              rsp, 416
+                        lea              rax, [rip + .Lgcmap_sqrtf]
+                        mov              qword ptr [rsp + 344], rax
+                        mov              dword ptr [rsp + 336], 160
+                        mov              dword ptr [rsp + 340], 416
+                        mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -6830,8 +6955,8 @@ sqrtf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 sqrtf_ω:
                         push             rax
@@ -6870,8 +6995,8 @@ sqrtf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 sqrtf_dcα:
                         pop              r12
@@ -6903,9 +7028,20 @@ sqrtf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_sqrtf:
+                        .quad            1788052852058
+                        .quad            64
+                        .quad            .Lgcmap_sqrtf_s
+                        .quad            0
+.Lgcmap_sqrtf_s:        .string          "sqrtf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__logf:
-                        sub              rsp, 432
-                        mov              qword ptr [rsp + 424], rbp
+                        sub              rsp, 448
+                        lea              rax, [rip + .Lgcmap_logf]
+                        mov              qword ptr [rsp + 376], rax
+                        mov              dword ptr [rsp + 368], 160
+                        mov              dword ptr [rsp + 372], 448
+                        mov              qword ptr [rsp + 440], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -7221,8 +7357,8 @@ logf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 432]
-                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 448]
+                        mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 logf_ω:
                         push             rax
@@ -7261,8 +7397,8 @@ logf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 432]
-                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 448]
+                        mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 logf_dcα:
                         pop              r12
@@ -7294,9 +7430,20 @@ logf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_logf:
+                        .quad            1925491805530
+                        .quad            64
+                        .quad            .Lgcmap_logf_s
+                        .quad            0
+.Lgcmap_logf_s:         .string          "logf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__nullfunc:
-                        sub              rsp, 384
-                        mov              qword ptr [rsp + 376], rbp
+                        sub              rsp, 400
+                        lea              rax, [rip + .Lgcmap_nullfunc]
+                        mov              qword ptr [rsp + 328], rax
+                        mov              dword ptr [rsp + 320], 160
+                        mov              dword ptr [rsp + 324], 400
+                        mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -7615,8 +7762,8 @@ nullfunc_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 384]
-                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 400]
+                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 nullfunc_ω:
                         push             rax
@@ -7655,8 +7802,8 @@ nullfunc_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 384]
-                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 400]
+                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 nullfunc_dcα:
                         pop              r12
@@ -7688,8 +7835,19 @@ nullfunc_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_nullfunc:
+                        .quad            1719333375322
+                        .quad            64
+                        .quad            .Lgcmap_nullfunc_s
+                        .quad            0
+.Lgcmap_nullfunc_s:     .string          "nullfunc"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__nullf:
-                        sub              rsp, 48
+                        sub              rsp, 64
+                        lea              rax, [rip + .Lgcmap_nullf]
+                        mov              qword ptr [rsp + 8], rax
+                        mov              dword ptr [rsp + 0], 160
+                        mov              dword ptr [rsp + 4], 64
                         mov              rdi, rsp
                         mov              esi, 0
                         mov              edx, 0
@@ -7777,7 +7935,7 @@ nullf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        add              rsp, 48;                             jmp   qword ptr [rsp]
+                        add              rsp, 64;                             jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 nullf_ω:
                         push             rax
@@ -7816,7 +7974,7 @@ nullf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        add              rsp, 48;                             jmp   qword ptr [rsp + 8]
+                        add              rsp, 64;                             jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 nullf_dcα:
                         pop              r12
@@ -7833,9 +7991,20 @@ nullf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_nullf:
+                        .quad            276224363866
+                        .quad            48
+                        .quad            .Lgcmap_nullf_s
+                        .quad            0
+.Lgcmap_nullf_s:        .string          "nullf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__listcall:
-                        sub              rsp, 608
-                        mov              qword ptr [rsp + 600], rbp
+                        sub              rsp, 624
+                        lea              rax, [rip + .Lgcmap_listcall]
+                        mov              qword ptr [rsp + 552], rax
+                        mov              dword ptr [rsp + 544], 160
+                        mov              dword ptr [rsp + 548], 624
+                        mov              qword ptr [rsp + 616], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -8378,8 +8547,8 @@ listcall_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 608]
-                        mov              rbp, qword ptr [rbp + 600];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 624]
+                        mov              rbp, qword ptr [rbp + 616];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 listcall_ω:
                         push             rax
@@ -8418,8 +8587,8 @@ listcall_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 608]
-                        mov              rbp, qword ptr [rbp + 600];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 624]
+                        mov              rbp, qword ptr [rbp + 616];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 listcall_dcα:
                         pop              r12
@@ -8451,9 +8620,20 @@ listcall_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_listcall:
+                        .quad            2681406049626
+                        .quad            64
+                        .quad            .Lgcmap_listcall_s
+                        .quad            0
+.Lgcmap_listcall_s:     .string          "listcall"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__addfunc:
-                        sub              rsp, 416
-                        mov              qword ptr [rsp + 408], rbp
+                        sub              rsp, 432
+                        lea              rax, [rip + .Lgcmap_addfunc]
+                        mov              qword ptr [rsp + 360], rax
+                        mov              dword ptr [rsp + 352], 160
+                        mov              dword ptr [rsp + 356], 432
+                        mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -8793,8 +8973,8 @@ addfunc_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 addfunc_ω:
                         push             rax
@@ -8833,8 +9013,8 @@ addfunc_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 addfunc_dcα:
                         pop              r12
@@ -8866,8 +9046,19 @@ addfunc_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_addfunc:
+                        .quad            1856772328794
+                        .quad            64
+                        .quad            .Lgcmap_addfunc_s
+                        .quad            0
+.Lgcmap_addfunc_s:      .string          "addfunc"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__add:
-                        sub              rsp, 224
+                        sub              rsp, 240
+                        lea              rax, [rip + .Lgcmap_add]
+                        mov              qword ptr [rsp + 152], rax
+                        mov              dword ptr [rsp + 144], 160
+                        mov              dword ptr [rsp + 148], 240
                         mov              rdi, rsp
                         mov              esi, 2
                         mov              edx, 0
@@ -9103,7 +9294,7 @@ add_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        add              rsp, 224;                            jmp   qword ptr [rsp]
+                        add              rsp, 240;                            jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 add_ω:
                         push             rax
@@ -9142,7 +9333,7 @@ add_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        add              rsp, 224;                            jmp   qword ptr [rsp + 8]
+                        add              rsp, 240;                            jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 add_dcα:
                         pop              r12
@@ -9186,9 +9377,20 @@ add_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_add:
+                        .quad            1032138607962
+                        .quad            80
+                        .quad            .Lgcmap_add_s
+                        .quad            0
+.Lgcmap_add_s:          .string          "add"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__rfact0:
-                        sub              rsp, 400
-                        mov              qword ptr [rsp + 392], rbp
+                        sub              rsp, 416
+                        lea              rax, [rip + .Lgcmap_rfact0]
+                        mov              qword ptr [rsp + 344], rax
+                        mov              dword ptr [rsp + 336], 160
+                        mov              dword ptr [rsp + 340], 416
+                        mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -9521,8 +9723,8 @@ rfact0_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 rfact0_ω:
                         push             rax
@@ -9561,8 +9763,8 @@ rfact0_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 rfact0_dcα:
                         pop              r12
@@ -9594,9 +9796,20 @@ rfact0_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_rfact0:
+                        .quad            1788052852058
+                        .quad            64
+                        .quad            .Lgcmap_rfact0_s
+                        .quad            0
+.Lgcmap_rfact0_s:       .string          "rfact0"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__rfact10:
-                        sub              rsp, 400
-                        mov              qword ptr [rsp + 392], rbp
+                        sub              rsp, 416
+                        lea              rax, [rip + .Lgcmap_rfact10]
+                        mov              qword ptr [rsp + 344], rax
+                        mov              dword ptr [rsp + 336], 160
+                        mov              dword ptr [rsp + 340], 416
+                        mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -9929,8 +10142,8 @@ rfact10_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 rfact10_ω:
                         push             rax
@@ -9969,8 +10182,8 @@ rfact10_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 rfact10_dcα:
                         pop              r12
@@ -10002,9 +10215,20 @@ rfact10_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_rfact10:
+                        .quad            1788052852058
+                        .quad            64
+                        .quad            .Lgcmap_rfact10_s
+                        .quad            0
+.Lgcmap_rfact10_s:      .string          "rfact10"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__rfact:
-                        sub              rsp, 384
-                        mov              qword ptr [rsp + 376], rbp
+                        sub              rsp, 400
+                        lea              rax, [rip + .Lgcmap_rfact]
+                        mov              qword ptr [rsp + 328], rax
+                        mov              dword ptr [rsp + 320], 160
+                        mov              dword ptr [rsp + 324], 400
+                        mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -10522,8 +10746,8 @@ rfact_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 384]
-                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 400]
+                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 rfact_ω:
                         push             rax
@@ -10562,8 +10786,8 @@ rfact_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 384]
-                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 400]
+                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 rfact_dcα:
                         pop              r12
@@ -10595,9 +10819,20 @@ rfact_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_rfact:
+                        .quad            1719333375322
+                        .quad            64
+                        .quad            .Lgcmap_rfact_s
+                        .quad            0
+.Lgcmap_rfact_s:        .string          "rfact"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__rfib5:
-                        sub              rsp, 400
-                        mov              qword ptr [rsp + 392], rbp
+                        sub              rsp, 416
+                        lea              rax, [rip + .Lgcmap_rfib5]
+                        mov              qword ptr [rsp + 344], rax
+                        mov              dword ptr [rsp + 336], 160
+                        mov              dword ptr [rsp + 340], 416
+                        mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -10930,8 +11165,8 @@ rfib5_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 rfib5_ω:
                         push             rax
@@ -10970,8 +11205,8 @@ rfib5_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 rfib5_dcα:
                         pop              r12
@@ -11003,9 +11238,20 @@ rfib5_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_rfib5:
+                        .quad            1788052852058
+                        .quad            64
+                        .quad            .Lgcmap_rfib5_s
+                        .quad            0
+.Lgcmap_rfib5_s:        .string          "rfib5"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__rfib:
-                        sub              rsp, 480
-                        mov              qword ptr [rsp + 472], rbp
+                        sub              rsp, 496
+                        lea              rax, [rip + .Lgcmap_rfib]
+                        mov              qword ptr [rsp + 424], rax
+                        mov              dword ptr [rsp + 416], 160
+                        mov              dword ptr [rsp + 420], 496
+                        mov              qword ptr [rsp + 488], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -11674,8 +11920,8 @@ rfib_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 480]
-                        mov              rbp, qword ptr [rbp + 472];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 496]
+                        mov              rbp, qword ptr [rbp + 488];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 rfib_ω:
                         push             rax
@@ -11714,8 +11960,8 @@ rfib_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 480]
-                        mov              rbp, qword ptr [rbp + 472];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 496]
+                        mov              rbp, qword ptr [rbp + 488];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 rfib_dcα:
                         pop              r12
@@ -11747,9 +11993,20 @@ rfib_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_rfib:
+                        .quad            2131650235738
+                        .quad            64
+                        .quad            .Lgcmap_rfib_s
+                        .quad            0
+.Lgcmap_rfib_s:         .string          "rfib"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__prslow:
-                        sub              rsp, 960
-                        mov              qword ptr [rsp + 952], rbp
+                        sub              rsp, 976
+                        lea              rax, [rip + .Lgcmap_prslow]
+                        mov              qword ptr [rsp + 872], rax
+                        mov              dword ptr [rsp + 864], 160
+                        mov              dword ptr [rsp + 868], 976
+                        mov              qword ptr [rsp + 968], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         add              rdi, 832
@@ -12640,8 +12897,8 @@ prslow_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 960]
-                        mov              rbp, qword ptr [rbp + 952];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 976]
+                        mov              rbp, qword ptr [rbp + 968];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 prslow_ω:
                         push             rax
@@ -12680,8 +12937,8 @@ prslow_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 960]
-                        mov              rbp, qword ptr [rbp + 952];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 976]
+                        mov              rbp, qword ptr [rbp + 968];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 prslow_dcα:
                         pop              r12
@@ -12713,9 +12970,20 @@ prslow_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_prslow:
+                        .quad            4193234537818
+                        .quad            96
+                        .quad            .Lgcmap_prslow_s
+                        .quad            0
+.Lgcmap_prslow_s:       .string          "prslow"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__if0:
-                        sub              rsp, 400
-                        mov              qword ptr [rsp + 392], rbp
+                        sub              rsp, 416
+                        lea              rax, [rip + .Lgcmap_if0]
+                        mov              qword ptr [rsp + 344], rax
+                        mov              dword ptr [rsp + 336], 160
+                        mov              dword ptr [rsp + 340], 416
+                        mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -13021,8 +13289,8 @@ if0_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 if0_ω:
                         push             rax
@@ -13061,8 +13329,8 @@ if0_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 if0_dcα:
                         pop              r12
@@ -13094,9 +13362,20 @@ if0_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_if0:
+                        .quad            1788052852058
+                        .quad            64
+                        .quad            .Lgcmap_if0_s
+                        .quad            0
+.Lgcmap_if0_s:          .string          "if0"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__case3:
-                        sub              rsp, 736
-                        mov              qword ptr [rsp + 728], rbp
+                        sub              rsp, 752
+                        lea              rax, [rip + .Lgcmap_case3]
+                        mov              qword ptr [rsp + 680], rax
+                        mov              dword ptr [rsp + 672], 160
+                        mov              dword ptr [rsp + 676], 752
+                        mov              qword ptr [rsp + 744], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         add              rdi, 656
@@ -13642,8 +13921,8 @@ case3_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 736]
-                        mov              rbp, qword ptr [rbp + 728];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 752]
+                        mov              rbp, qword ptr [rbp + 744];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 case3_ω:
                         push             rax
@@ -13682,8 +13961,8 @@ case3_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 736]
-                        mov              rbp, qword ptr [rbp + 728];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 752]
+                        mov              rbp, qword ptr [rbp + 744];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 case3_dcα:
                         pop              r12
@@ -13715,9 +13994,20 @@ case3_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_case3:
+                        .quad            3231161863514
+                        .quad            64
+                        .quad            .Lgcmap_case3_s
+                        .quad            0
+.Lgcmap_case3_s:        .string          "case3"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__nulltest:
-                        sub              rsp, 368
-                        mov              qword ptr [rsp + 360], rbp
+                        sub              rsp, 384
+                        lea              rax, [rip + .Lgcmap_nulltest]
+                        mov              qword ptr [rsp + 312], rax
+                        mov              dword ptr [rsp + 304], 160
+                        mov              dword ptr [rsp + 308], 384
+                        mov              qword ptr [rsp + 376], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -13999,8 +14289,8 @@ nulltest_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 368]
-                        mov              rbp, qword ptr [rbp + 360];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 384]
+                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 nulltest_ω:
                         push             rax
@@ -14039,8 +14329,8 @@ nulltest_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 368]
-                        mov              rbp, qword ptr [rbp + 360];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 384]
+                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 nulltest_dcα:
                         pop              r12
@@ -14072,9 +14362,20 @@ nulltest_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_nulltest:
+                        .quad            1650613898586
+                        .quad            64
+                        .quad            .Lgcmap_nulltest_s
+                        .quad            0
+.Lgcmap_nulltest_s:     .string          "nulltest"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__typef:
-                        sub              rsp, 416
-                        mov              qword ptr [rsp + 408], rbp
+                        sub              rsp, 432
+                        lea              rax, [rip + .Lgcmap_typef]
+                        mov              qword ptr [rsp + 360], rax
+                        mov              dword ptr [rsp + 352], 160
+                        mov              dword ptr [rsp + 356], 432
+                        mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -14384,8 +14685,8 @@ typef_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 typef_ω:
                         push             rax
@@ -14424,8 +14725,8 @@ typef_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 typef_dcα:
                         pop              r12
@@ -14457,9 +14758,20 @@ typef_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_typef:
+                        .quad            1856772328794
+                        .quad            64
+                        .quad            .Lgcmap_typef_s
+                        .quad            0
+.Lgcmap_typef_s:        .string          "typef"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__imagef:
-                        sub              rsp, 416
-                        mov              qword ptr [rsp + 408], rbp
+                        sub              rsp, 432
+                        lea              rax, [rip + .Lgcmap_imagef]
+                        mov              qword ptr [rsp + 360], rax
+                        mov              dword ptr [rsp + 352], 160
+                        mov              dword ptr [rsp + 356], 432
+                        mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -14769,8 +15081,8 @@ imagef_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 imagef_ω:
                         push             rax
@@ -14809,8 +15121,8 @@ imagef_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 imagef_dcα:
                         pop              r12
@@ -14842,9 +15154,20 @@ imagef_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_imagef:
+                        .quad            1856772328794
+                        .quad            64
+                        .quad            .Lgcmap_imagef_s
+                        .quad            0
+.Lgcmap_imagef_s:       .string          "imagef"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__marshal:
-                        sub              rsp, 560
-                        mov              qword ptr [rsp + 552], rbp
+                        sub              rsp, 576
+                        lea              rax, [rip + .Lgcmap_marshal]
+                        mov              qword ptr [rsp + 504], rax
+                        mov              dword ptr [rsp + 496], 160
+                        mov              dword ptr [rsp + 500], 576
+                        mov              qword ptr [rsp + 568], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -15275,8 +15598,8 @@ marshal_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 560]
-                        mov              rbp, qword ptr [rbp + 552];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 576]
+                        mov              rbp, qword ptr [rbp + 568];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 marshal_ω:
                         push             rax
@@ -15315,8 +15638,8 @@ marshal_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 560]
-                        mov              rbp, qword ptr [rbp + 552];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 576]
+                        mov              rbp, qword ptr [rbp + 568];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 marshal_dcα:
                         pop              r12
@@ -15348,9 +15671,20 @@ marshal_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_marshal:
+                        .quad            2475247619418
+                        .quad            64
+                        .quad            .Lgcmap_marshal_s
+                        .quad            0
+.Lgcmap_marshal_s:      .string          "marshal"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__conj5:
-                        sub              rsp, 368
-                        mov              qword ptr [rsp + 360], rbp
+                        sub              rsp, 384
+                        lea              rax, [rip + .Lgcmap_conj5]
+                        mov              qword ptr [rsp + 312], rax
+                        mov              dword ptr [rsp + 304], 160
+                        mov              dword ptr [rsp + 308], 384
+                        mov              qword ptr [rsp + 376], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -15630,8 +15964,8 @@ conj5_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 368]
-                        mov              rbp, qword ptr [rbp + 360];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 384]
+                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 conj5_ω:
                         push             rax
@@ -15670,8 +16004,8 @@ conj5_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 368]
-                        mov              rbp, qword ptr [rbp + 360];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 384]
+                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 conj5_dcα:
                         pop              r12
@@ -15703,9 +16037,20 @@ conj5_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_conj5:
+                        .quad            1650613898586
+                        .quad            64
+                        .quad            .Lgcmap_conj5_s
+                        .quad            0
+.Lgcmap_conj5_s:        .string          "conj5"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__everyalt:
-                        sub              rsp, 448
-                        mov              qword ptr [rsp + 440], rbp
+                        sub              rsp, 464
+                        lea              rax, [rip + .Lgcmap_everyalt]
+                        mov              qword ptr [rsp + 392], rax
+                        mov              dword ptr [rsp + 384], 160
+                        mov              dword ptr [rsp + 388], 464
+                        mov              qword ptr [rsp + 456], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -16071,8 +16416,8 @@ everyalt_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 448]
-                        mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 464]
+                        mov              rbp, qword ptr [rbp + 456];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 everyalt_ω:
                         push             rax
@@ -16111,8 +16456,8 @@ everyalt_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 448]
-                        mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 464]
+                        mov              rbp, qword ptr [rbp + 456];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 everyalt_dcα:
                         pop              r12
@@ -16144,9 +16489,20 @@ everyalt_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_everyalt:
+                        .quad            1994211282266
+                        .quad            64
+                        .quad            .Lgcmap_everyalt_s
+                        .quad            0
+.Lgcmap_everyalt_s:     .string          "everyalt"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__everyto:
-                        sub              rsp, 400
-                        mov              qword ptr [rsp + 392], rbp
+                        sub              rsp, 416
+                        lea              rax, [rip + .Lgcmap_everyto]
+                        mov              qword ptr [rsp + 344], rax
+                        mov              dword ptr [rsp + 336], 160
+                        mov              dword ptr [rsp + 340], 416
+                        mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -16486,8 +16842,8 @@ everyto_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 everyto_ω:
                         push             rax
@@ -16526,8 +16882,8 @@ everyto_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 everyto_dcα:
                         pop              r12
@@ -16559,9 +16915,20 @@ everyto_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_everyto:
+                        .quad            1788052852058
+                        .quad            64
+                        .quad            .Lgcmap_everyto_s
+                        .quad            0
+.Lgcmap_everyto_s:      .string          "everyto"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__evsusp:
-                        sub              rsp, 336
-                        mov              qword ptr [rsp + 328], rbp
+                        sub              rsp, 352
+                        lea              rax, [rip + .Lgcmap_evsusp]
+                        mov              qword ptr [rsp + 280], rax
+                        mov              dword ptr [rsp + 272], 160
+                        mov              dword ptr [rsp + 276], 352
+                        mov              qword ptr [rsp + 344], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -16720,8 +17087,8 @@ n00628_proc_gen_α:       mov              r11, 670
                         push             rcx
                         lea              rdx, [rip + .Lproc_gen_α_1878_4];    jmp   rax
 .Lproc_gen_α_1878_3:    cmp              al, 104;                             je    .Lproc_gen_α_1878_8
-                        mov              rdi, qword ptr [rdx + -192]
-                        mov              rsi, qword ptr [rdx + -184]
+                        mov              rdi, qword ptr [rdx + -208]
+                        mov              rsi, qword ptr [rdx + -200]
                         mov              qword ptr [rbp + 88], rdx;           jmp   .Lproc_gen_α_1878_9
 .Lproc_gen_α_1878_8:    mov              edi, 104
                         mov              esi, 0
@@ -16902,8 +17269,8 @@ evsusp_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 336]
-                        mov              rbp, qword ptr [rbp + 328];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 352]
+                        mov              rbp, qword ptr [rbp + 344];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 evsusp_ω:
                         push             rax
@@ -16942,8 +17309,8 @@ evsusp_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 336]
-                        mov              rbp, qword ptr [rbp + 328];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 352]
+                        mov              rbp, qword ptr [rbp + 344];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 evsusp_dcα:
                         pop              r12
@@ -16975,17 +17342,28 @@ evsusp_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_evsusp:
+                        .quad            1513174945114
+                        .quad            64
+                        .quad            .Lgcmap_evsusp_s
+                        .quad            0
+.Lgcmap_evsusp_s:       .string          "evsusp"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__susproc:
-                        lea              rax, [rsp + -248]
-                        mov              qword ptr [rax + 192], rbp
+                        lea              rax, [rsp + -264]
+                        mov              qword ptr [rax + 208], rbp
                         mov              rcx, qword ptr [rsp + 0]
-                        mov              qword ptr [rax + 200], rcx
-                        mov              rcx, qword ptr [rsp + 8]
-                        mov              qword ptr [rax + 208], rcx
-                        lea              rcx, [rsp + 40]
                         mov              qword ptr [rax + 216], rcx
-                        lea              rbp, [rax + 192]
+                        mov              rcx, qword ptr [rsp + 8]
+                        mov              qword ptr [rax + 224], rcx
+                        lea              rcx, [rsp + 40]
+                        mov              qword ptr [rax + 232], rcx
+                        lea              rbp, [rax + 208]
                         mov              rsp, rax
+                        lea              rax, [rip + .Lgcmap_susproc]
+                        mov              qword ptr [rsp + 136], rax
+                        mov              dword ptr [rsp + 128], 160
+                        mov              dword ptr [rsp + 132], 208
                         mov              rdi, rsp
                         mov              esi, 1
                         mov              edx, 0
@@ -17023,7 +17401,7 @@ FN__susproc:
                         pop              rax
 susproc_α_body:
                         lea              rax, [rip + n00633_suspend_β]
-                        mov              qword ptr [rbp + -80], rax
+                        mov              qword ptr [rbp + -96], rax
                         .type            n00634_line_mark_bx, @function
 n00634_line_mark_bx:
 #-----------------------------------------------------------------------------------------------------------------------
@@ -17040,24 +17418,47 @@ n00634_line_mark_α:      mov              r11, 676
 n00635_lit_integer_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00635_lit_integer_α:    mov              r11, 677
-                        mov              qword ptr [rbp + -128], 3            # result
+                        mov              qword ptr [rbp + -144], 3            # result
                         mov              rax, qword ptr [rip + .Llit_integer_α_1896_0]
-                        mov              qword ptr [rbp + -120], rax;         jmp   n00636_var_α
+                        mov              qword ptr [rbp + -136], rax;         jmp   n00636_var_α
 .Llit_integer_α_1896_0: .quad            1
                         .size            n00635_lit_integer_bx, .-n00635_lit_integer_bx
                         .type            n00636_var_bx, @function
 n00636_var_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00636_var_α:            mov              r11, 678
-                        mov              rax, qword ptr [rbp + -176]
-                        mov              qword ptr [rbp + -112], rax
-                        mov              rax, qword ptr [rbp + -168]
-                        mov              qword ptr [rbp + -104], rax;         jmp   n00637_to_α
+                        mov              rax, qword ptr [rbp + -192]
+                        mov              qword ptr [rbp + -128], rax
+                        mov              rax, qword ptr [rbp + -184]
+                        mov              qword ptr [rbp + -120], rax;         jmp   n00637_to_α
                         .size            n00636_var_bx, .-n00636_var_bx
                         .type            n00637_to_bx, @function
 n00637_to_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n00637_to_α:             mov              r11, 679
+                        mov              rdi, qword ptr [rbp + -144]
+                        mov              rsi, qword ptr [rbp + -136]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_int_operand_ok@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        test             eax, eax;                            jz    susproc_ω
+                        mov              rdi, qword ptr [rbp + -144]
+                        mov              rsi, qword ptr [rbp + -136]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             core_icn_to_int_check@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rbp + -144], 3
+                        mov              qword ptr [rbp + -136], rax
                         mov              rdi, qword ptr [rbp + -128]
                         mov              rsi, qword ptr [rbp + -120]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -17081,38 +17482,15 @@ n00637_to_α:             mov              r11, 679
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + -128], 3
                         mov              qword ptr [rbp + -120], rax
-                        mov              rdi, qword ptr [rbp + -112]
-                        mov              rsi, qword ptr [rbp + -104]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             core_icn_int_operand_ok@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
-                        test             eax, eax;                            jz    susproc_ω
-                        mov              rdi, qword ptr [rbp + -112]
-                        mov              rsi, qword ptr [rbp + -104]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             core_icn_to_int_check@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + -112], 3
-                        mov              qword ptr [rbp + -104], rax
-                        mov              rax, qword ptr [rbp + -120]
-                        mov              qword ptr [rbp + -144], rax
-.Lto_α_1900_0:          mov              rax, qword ptr [rbp + -144]
-                        mov              rcx, qword ptr [rbp + -104]
+                        mov              rax, qword ptr [rbp + -136]
+                        mov              qword ptr [rbp + -160], rax
+.Lto_α_1900_0:          mov              rax, qword ptr [rbp + -160]
+                        mov              rcx, qword ptr [rbp + -120]
                         cmp              rax, rcx;                            jg    susproc_ω
-                        mov              qword ptr [rbp + -160], 3
-                        mov              qword ptr [rbp + -152], rax;         jmp   n00633_suspend_α
+                        mov              qword ptr [rbp + -176], 3
+                        mov              qword ptr [rbp + -168], rax;         jmp   n00633_suspend_α
 n00637_to_β:             mov              r11, 679
-                        inc              qword ptr [rbp + -144];              jo    susproc_ω
+                        inc              qword ptr [rbp + -160];              jo    susproc_ω
                                                                               jmp   .Lto_α_1900_0
                         .size            n00637_to_bx, .-n00637_to_bx
                         .type            n00633_suspend_bx, @function
@@ -17123,19 +17501,19 @@ n00633_suspend_bx:
                         .loc             1 443 0
 n00633_suspend_α:        mov              r11, 680
                         lea              rax, [rip + n00633_suspend_β]
-                        mov              qword ptr [rbp + -80], rax
-                        mov              rax, qword ptr [rbp + -160]
-                        mov              qword ptr [rbp + -192], rax
-                        mov              rax, qword ptr [rbp + -152]
-                        mov              qword ptr [rbp + -184], rax
+                        mov              qword ptr [rbp + -96], rax
+                        mov              rax, qword ptr [rbp + -176]
+                        mov              qword ptr [rbp + -208], rax
+                        mov              rax, qword ptr [rbp + -168]
+                        mov              qword ptr [rbp + -200], rax
                         push             rax
                         push             rdx
                         push             rbx
                         mov              rbx, rsp
                         and              rsp, -16
                         lea              rdi, [rip + .S0]
-                        mov              rsi, qword ptr [rbp + -192]
-                        mov              rdx, qword ptr [rbp + -184]
+                        mov              rsi, qword ptr [rbp + -208]
+                        mov              rdx, qword ptr [rbp + -200]
                         mov              rcx, 443
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -17174,7 +17552,7 @@ susproc_res:
                         mov              rbp, rax
 #-----------------------------------------------------------------------------------------------------------------------
 susproc_β:
-                        mov              rax, qword ptr [rbp + -80];          jmp   rax
+                        mov              rax, qword ptr [rbp + -96];          jmp   rax
 #-----------------------------------------------------------------------------------------------------------------------
 susproc_γ:
                         mov              rdx, rbp
@@ -17217,9 +17595,20 @@ susproc_ω:
                         mov              rbp, qword ptr [rbp + 0]
                         mov              eax, 104;                            jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_susproc:
+                        .quad            894699654490
+                        .quad            8589934688
+                        .quad            .Lgcmap_susproc_s
+                        .quad            0
+.Lgcmap_susproc_s:      .string          "susproc"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__intcoerce:
-                        sub              rsp, 400
-                        mov              qword ptr [rsp + 392], rbp
+                        sub              rsp, 416
+                        lea              rax, [rip + .Lgcmap_intcoerce]
+                        mov              qword ptr [rsp + 344], rax
+                        mov              dword ptr [rsp + 336], 160
+                        mov              dword ptr [rsp + 340], 416
+                        mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -17540,8 +17929,8 @@ intcoerce_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 intcoerce_ω:
                         push             rax
@@ -17580,8 +17969,8 @@ intcoerce_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 intcoerce_dcα:
                         pop              r12
@@ -17613,9 +18002,20 @@ intcoerce_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_intcoerce:
+                        .quad            1788052852058
+                        .quad            64
+                        .quad            .Lgcmap_intcoerce_s
+                        .quad            0
+.Lgcmap_intcoerce_s:    .string          "intcoerce"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__realcoerce:
-                        sub              rsp, 400
-                        mov              qword ptr [rsp + 392], rbp
+                        sub              rsp, 416
+                        lea              rax, [rip + .Lgcmap_realcoerce]
+                        mov              qword ptr [rsp + 344], rax
+                        mov              dword ptr [rsp + 336], 160
+                        mov              dword ptr [rsp + 340], 416
+                        mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -17938,8 +18338,8 @@ realcoerce_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 realcoerce_ω:
                         push             rax
@@ -17979,8 +18379,8 @@ realcoerce_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 realcoerce_dcα:
                         pop              r12
@@ -18012,9 +18412,20 @@ realcoerce_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_realcoerce:
+                        .quad            1788052852058
+                        .quad            64
+                        .quad            .Lgcmap_realcoerce_s
+                        .quad            0
+.Lgcmap_realcoerce_s:   .string          "realcoerce"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__strcoerce:
-                        sub              rsp, 368
-                        mov              qword ptr [rsp + 360], rbp
+                        sub              rsp, 384
+                        lea              rax, [rip + .Lgcmap_strcoerce]
+                        mov              qword ptr [rsp + 312], rax
+                        mov              dword ptr [rsp + 304], 160
+                        mov              dword ptr [rsp + 308], 384
+                        mov              qword ptr [rsp + 376], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -18301,8 +18712,8 @@ strcoerce_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 368]
-                        mov              rbp, qword ptr [rbp + 360];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 384]
+                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 strcoerce_ω:
                         push             rax
@@ -18341,8 +18752,8 @@ strcoerce_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 368]
-                        mov              rbp, qword ptr [rbp + 360];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 384]
+                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 strcoerce_dcα:
                         pop              r12
@@ -18374,9 +18785,20 @@ strcoerce_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_strcoerce:
+                        .quad            1650613898586
+                        .quad            64
+                        .quad            .Lgcmap_strcoerce_s
+                        .quad            0
+.Lgcmap_strcoerce_s:    .string          "strcoerce"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__strcoercer:
-                        sub              rsp, 368
-                        mov              qword ptr [rsp + 360], rbp
+                        sub              rsp, 384
+                        lea              rax, [rip + .Lgcmap_strcoercer]
+                        mov              qword ptr [rsp + 312], rax
+                        mov              dword ptr [rsp + 304], 160
+                        mov              dword ptr [rsp + 308], 384
+                        mov              qword ptr [rsp + 376], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -18665,8 +19087,8 @@ strcoercer_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 368]
-                        mov              rbp, qword ptr [rbp + 360];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 384]
+                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 strcoercer_ω:
                         push             rax
@@ -18706,8 +19128,8 @@ strcoercer_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 368]
-                        mov              rbp, qword ptr [rbp + 360];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 384]
+                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 strcoercer_dcα:
                         pop              r12
@@ -18739,9 +19161,20 @@ strcoercer_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_strcoercer:
+                        .quad            1650613898586
+                        .quad            64
+                        .quad            .Lgcmap_strcoercer_s
+                        .quad            0
+.Lgcmap_strcoercer_s:   .string          "strcoercer"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__tointeger:
-                        sub              rsp, 416
-                        mov              qword ptr [rsp + 408], rbp
+                        sub              rsp, 432
+                        lea              rax, [rip + .Lgcmap_tointeger]
+                        mov              qword ptr [rsp + 360], rax
+                        mov              dword ptr [rsp + 352], 160
+                        mov              dword ptr [rsp + 356], 432
+                        mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -19051,8 +19484,8 @@ tointeger_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tointeger_ω:
                         push             rax
@@ -19091,8 +19524,8 @@ tointeger_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tointeger_dcα:
                         pop              r12
@@ -19124,9 +19557,20 @@ tointeger_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_tointeger:
+                        .quad            1856772328794
+                        .quad            64
+                        .quad            .Lgcmap_tointeger_s
+                        .quad            0
+.Lgcmap_tointeger_s:    .string          "tointeger"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__toreal:
-                        sub              rsp, 416
-                        mov              qword ptr [rsp + 408], rbp
+                        sub              rsp, 432
+                        lea              rax, [rip + .Lgcmap_toreal]
+                        mov              qword ptr [rsp + 360], rax
+                        mov              dword ptr [rsp + 352], 160
+                        mov              dword ptr [rsp + 356], 432
+                        mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -19436,8 +19880,8 @@ toreal_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 toreal_ω:
                         push             rax
@@ -19476,8 +19920,8 @@ toreal_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 toreal_dcα:
                         pop              r12
@@ -19509,9 +19953,20 @@ toreal_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_toreal:
+                        .quad            1856772328794
+                        .quad            64
+                        .quad            .Lgcmap_toreal_s
+                        .quad            0
+.Lgcmap_toreal_s:       .string          "toreal"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__tostring:
-                        sub              rsp, 400
-                        mov              qword ptr [rsp + 392], rbp
+                        sub              rsp, 416
+                        lea              rax, [rip + .Lgcmap_tostring]
+                        mov              qword ptr [rsp + 344], rax
+                        mov              dword ptr [rsp + 336], 160
+                        mov              dword ptr [rsp + 340], 416
+                        mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -19818,8 +20273,8 @@ tostring_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tostring_ω:
                         push             rax
@@ -19858,8 +20313,8 @@ tostring_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tostring_dcα:
                         pop              r12
@@ -19891,9 +20346,20 @@ tostring_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_tostring:
+                        .quad            1788052852058
+                        .quad            64
+                        .quad            .Lgcmap_tostring_s
+                        .quad            0
+.Lgcmap_tostring_s:     .string          "tostring"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__rtostring:
-                        sub              rsp, 400
-                        mov              qword ptr [rsp + 392], rbp
+                        sub              rsp, 416
+                        lea              rax, [rip + .Lgcmap_rtostring]
+                        mov              qword ptr [rsp + 344], rax
+                        mov              dword ptr [rsp + 336], 160
+                        mov              dword ptr [rsp + 340], 416
+                        mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -20200,8 +20666,8 @@ rtostring_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 rtostring_ω:
                         push             rax
@@ -20240,8 +20706,8 @@ rtostring_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 rtostring_dcα:
                         pop              r12
@@ -20273,9 +20739,20 @@ rtostring_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_rtostring:
+                        .quad            1788052852058
+                        .quad            64
+                        .quad            .Lgcmap_rtostring_s
+                        .quad            0
+.Lgcmap_rtostring_s:    .string          "rtostring"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__tocset:
-                        sub              rsp, 416
-                        mov              qword ptr [rsp + 408], rbp
+                        sub              rsp, 432
+                        lea              rax, [rip + .Lgcmap_tocset]
+                        mov              qword ptr [rsp + 360], rax
+                        mov              dword ptr [rsp + 352], 160
+                        mov              dword ptr [rsp + 356], 432
+                        mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -20585,8 +21062,8 @@ tocset_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tocset_ω:
                         push             rax
@@ -20625,8 +21102,8 @@ tocset_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tocset_dcα:
                         pop              r12
@@ -20658,9 +21135,20 @@ tocset_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_tocset:
+                        .quad            1856772328794
+                        .quad            64
+                        .quad            .Lgcmap_tocset_s
+                        .quad            0
+.Lgcmap_tocset_s:       .string          "tocset"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__charf:
-                        sub              rsp, 400
-                        mov              qword ptr [rsp + 392], rbp
+                        sub              rsp, 416
+                        lea              rax, [rip + .Lgcmap_charf]
+                        mov              qword ptr [rsp + 344], rax
+                        mov              dword ptr [rsp + 336], 160
+                        mov              dword ptr [rsp + 340], 416
+                        mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -20967,8 +21455,8 @@ charf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 charf_ω:
                         push             rax
@@ -21007,8 +21495,8 @@ charf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 charf_dcα:
                         pop              r12
@@ -21040,9 +21528,20 @@ charf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_charf:
+                        .quad            1788052852058
+                        .quad            64
+                        .quad            .Lgcmap_charf_s
+                        .quad            0
+.Lgcmap_charf_s:        .string          "charf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__ordf:
-                        sub              rsp, 416
-                        mov              qword ptr [rsp + 408], rbp
+                        sub              rsp, 432
+                        lea              rax, [rip + .Lgcmap_ordf]
+                        mov              qword ptr [rsp + 360], rax
+                        mov              dword ptr [rsp + 352], 160
+                        mov              dword ptr [rsp + 356], 432
+                        mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -21352,8 +21851,8 @@ ordf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 ordf_ω:
                         push             rax
@@ -21392,8 +21891,8 @@ ordf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 ordf_dcα:
                         pop              r12
@@ -21425,9 +21924,20 @@ ordf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_ordf:
+                        .quad            1856772328794
+                        .quad            64
+                        .quad            .Lgcmap_ordf_s
+                        .quad            0
+.Lgcmap_ordf_s:         .string          "ordf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__strsize:
-                        sub              rsp, 384
-                        mov              qword ptr [rsp + 376], rbp
+                        sub              rsp, 400
+                        lea              rax, [rip + .Lgcmap_strsize]
+                        mov              qword ptr [rsp + 328], rax
+                        mov              dword ptr [rsp + 320], 160
+                        mov              dword ptr [rsp + 324], 400
+                        mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -21717,8 +22227,8 @@ strsize_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 384]
-                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 400]
+                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 strsize_ω:
                         push             rax
@@ -21757,8 +22267,8 @@ strsize_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 384]
-                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 400]
+                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 strsize_dcα:
                         pop              r12
@@ -21790,9 +22300,20 @@ strsize_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_strsize:
+                        .quad            1719333375322
+                        .quad            64
+                        .quad            .Lgcmap_strsize_s
+                        .quad            0
+.Lgcmap_strsize_s:      .string          "strsize"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__concat:
-                        sub              rsp, 336
-                        mov              qword ptr [rsp + 328], rbp
+                        sub              rsp, 352
+                        lea              rax, [rip + .Lgcmap_concat]
+                        mov              qword ptr [rsp + 280], rax
+                        mov              dword ptr [rsp + 272], 160
+                        mov              dword ptr [rsp + 276], 352
+                        mov              qword ptr [rsp + 344], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -22053,8 +22574,8 @@ concat_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 336]
-                        mov              rbp, qword ptr [rbp + 328];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 352]
+                        mov              rbp, qword ptr [rbp + 344];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 concat_ω:
                         push             rax
@@ -22093,8 +22614,8 @@ concat_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 336]
-                        mov              rbp, qword ptr [rbp + 328];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 352]
+                        mov              rbp, qword ptr [rbp + 344];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 concat_dcα:
                         pop              r12
@@ -22126,9 +22647,20 @@ concat_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_concat:
+                        .quad            1513174945114
+                        .quad            64
+                        .quad            .Lgcmap_concat_s
+                        .quad            0
+.Lgcmap_concat_s:       .string          "concat"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__strpick:
-                        sub              rsp, 400
-                        mov              qword ptr [rsp + 392], rbp
+                        sub              rsp, 416
+                        lea              rax, [rip + .Lgcmap_strpick]
+                        mov              qword ptr [rsp + 344], rax
+                        mov              dword ptr [rsp + 336], 160
+                        mov              dword ptr [rsp + 340], 416
+                        mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -22437,8 +22969,8 @@ strpick_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 strpick_ω:
                         push             rax
@@ -22477,8 +23009,8 @@ strpick_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 strpick_dcα:
                         pop              r12
@@ -22510,9 +23042,20 @@ strpick_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_strpick:
+                        .quad            1788052852058
+                        .quad            64
+                        .quad            .Lgcmap_strpick_s
+                        .quad            0
+.Lgcmap_strpick_s:      .string          "strpick"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__strbang:
-                        sub              rsp, 400
-                        mov              qword ptr [rsp + 392], rbp
+                        sub              rsp, 416
+                        lea              rax, [rip + .Lgcmap_strbang]
+                        mov              qword ptr [rsp + 344], rax
+                        mov              dword ptr [rsp + 336], 160
+                        mov              dword ptr [rsp + 340], 416
+                        mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -22808,8 +23351,8 @@ strbang_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 strbang_ω:
                         push             rax
@@ -22848,8 +23391,8 @@ strbang_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 strbang_dcα:
                         pop              r12
@@ -22881,9 +23424,20 @@ strbang_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_strbang:
+                        .quad            1788052852058
+                        .quad            64
+                        .quad            .Lgcmap_strbang_s
+                        .quad            0
+.Lgcmap_strbang_s:      .string          "strbang"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__strsub:
-                        sub              rsp, 416
-                        mov              qword ptr [rsp + 408], rbp
+                        sub              rsp, 432
+                        lea              rax, [rip + .Lgcmap_strsub]
+                        mov              qword ptr [rsp + 360], rax
+                        mov              dword ptr [rsp + 352], 160
+                        mov              dword ptr [rsp + 356], 432
+                        mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -23203,8 +23757,8 @@ strsub_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 strsub_ω:
                         push             rax
@@ -23243,8 +23797,8 @@ strsub_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 strsub_dcα:
                         pop              r12
@@ -23276,9 +23830,20 @@ strsub_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_strsub:
+                        .quad            1856772328794
+                        .quad            64
+                        .quad            .Lgcmap_strsub_s
+                        .quad            0
+.Lgcmap_strsub_s:       .string          "strsub"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__substr:
-                        sub              rsp, 416
-                        mov              qword ptr [rsp + 408], rbp
+                        sub              rsp, 432
+                        lea              rax, [rip + .Lgcmap_substr]
+                        mov              qword ptr [rsp + 360], rax
+                        mov              dword ptr [rsp + 352], 160
+                        mov              dword ptr [rsp + 356], 432
+                        mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -23591,8 +24156,8 @@ substr_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 substr_ω:
                         push             rax
@@ -23631,8 +24196,8 @@ substr_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 substr_dcα:
                         pop              r12
@@ -23664,9 +24229,20 @@ substr_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_substr:
+                        .quad            1856772328794
+                        .quad            64
+                        .quad            .Lgcmap_substr_s
+                        .quad            0
+.Lgcmap_substr_s:       .string          "substr"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__subsasg:
-                        sub              rsp, 528
-                        mov              qword ptr [rsp + 520], rbp
+                        sub              rsp, 544
+                        lea              rax, [rip + .Lgcmap_subsasg]
+                        mov              qword ptr [rsp + 456], rax
+                        mov              dword ptr [rsp + 448], 160
+                        mov              dword ptr [rsp + 452], 544
+                        mov              qword ptr [rsp + 536], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         add              rdi, 432
@@ -24034,8 +24610,8 @@ subsasg_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 528]
-                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 544]
+                        mov              rbp, qword ptr [rbp + 536];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 subsasg_ω:
                         push             rax
@@ -24074,8 +24650,8 @@ subsasg_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 528]
-                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 544]
+                        mov              rbp, qword ptr [rbp + 536];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 subsasg_dcα:
                         pop              r12
@@ -24107,9 +24683,20 @@ subsasg_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_subsasg:
+                        .quad            2337808665946
+                        .quad            80
+                        .quad            .Lgcmap_subsasg_s
+                        .quad            0
+.Lgcmap_subsasg_s:      .string          "subsasg"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__strcmp:
-                        sub              rsp, 416
-                        mov              qword ptr [rsp + 408], rbp
+                        sub              rsp, 432
+                        lea              rax, [rip + .Lgcmap_strcmp]
+                        mov              qword ptr [rsp + 360], rax
+                        mov              dword ptr [rsp + 352], 160
+                        mov              dword ptr [rsp + 356], 432
+                        mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -24425,8 +25012,8 @@ strcmp_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 strcmp_ω:
                         push             rax
@@ -24465,8 +25052,8 @@ strcmp_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 strcmp_dcα:
                         pop              r12
@@ -24498,9 +25085,20 @@ strcmp_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_strcmp:
+                        .quad            1856772328794
+                        .quad            64
+                        .quad            .Lgcmap_strcmp_s
+                        .quad            0
+.Lgcmap_strcmp_s:       .string          "strcmp"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__strident:
-                        sub              rsp, 416
-                        mov              qword ptr [rsp + 408], rbp
+                        sub              rsp, 432
+                        lea              rax, [rip + .Lgcmap_strident]
+                        mov              qword ptr [rsp + 360], rax
+                        mov              dword ptr [rsp + 352], 160
+                        mov              dword ptr [rsp + 356], 432
+                        mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -24808,8 +25406,8 @@ strident_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 strident_ω:
                         push             rax
@@ -24848,8 +25446,8 @@ strident_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 strident_dcα:
                         pop              r12
@@ -24881,9 +25479,20 @@ strident_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_strident:
+                        .quad            1856772328794
+                        .quad            64
+                        .quad            .Lgcmap_strident_s
+                        .quad            0
+.Lgcmap_strident_s:     .string          "strident"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__replf:
-                        sub              rsp, 448
-                        mov              qword ptr [rsp + 440], rbp
+                        sub              rsp, 464
+                        lea              rax, [rip + .Lgcmap_replf]
+                        mov              qword ptr [rsp + 392], rax
+                        mov              dword ptr [rsp + 384], 160
+                        mov              dword ptr [rsp + 388], 464
+                        mov              qword ptr [rsp + 456], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -25206,8 +25815,8 @@ replf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 448]
-                        mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 464]
+                        mov              rbp, qword ptr [rbp + 456];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 replf_ω:
                         push             rax
@@ -25246,8 +25855,8 @@ replf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 448]
-                        mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 464]
+                        mov              rbp, qword ptr [rbp + 456];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 replf_dcα:
                         pop              r12
@@ -25279,9 +25888,20 @@ replf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_replf:
+                        .quad            1994211282266
+                        .quad            64
+                        .quad            .Lgcmap_replf_s
+                        .quad            0
+.Lgcmap_replf_s:        .string          "replf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__reversef:
-                        sub              rsp, 416
-                        mov              qword ptr [rsp + 408], rbp
+                        sub              rsp, 432
+                        lea              rax, [rip + .Lgcmap_reversef]
+                        mov              qword ptr [rsp + 360], rax
+                        mov              dword ptr [rsp + 352], 160
+                        mov              dword ptr [rsp + 356], 432
+                        mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -25591,8 +26211,8 @@ reversef_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 reversef_ω:
                         push             rax
@@ -25631,8 +26251,8 @@ reversef_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 reversef_dcα:
                         pop              r12
@@ -25664,9 +26284,20 @@ reversef_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_reversef:
+                        .quad            1856772328794
+                        .quad            64
+                        .quad            .Lgcmap_reversef_s
+                        .quad            0
+.Lgcmap_reversef_s:     .string          "reversef"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__leftf:
-                        sub              rsp, 448
-                        mov              qword ptr [rsp + 440], rbp
+                        sub              rsp, 464
+                        lea              rax, [rip + .Lgcmap_leftf]
+                        mov              qword ptr [rsp + 392], rax
+                        mov              dword ptr [rsp + 384], 160
+                        mov              dword ptr [rsp + 388], 464
+                        mov              qword ptr [rsp + 456], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -25989,8 +26620,8 @@ leftf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 448]
-                        mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 464]
+                        mov              rbp, qword ptr [rbp + 456];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 leftf_ω:
                         push             rax
@@ -26029,8 +26660,8 @@ leftf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 448]
-                        mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 464]
+                        mov              rbp, qword ptr [rbp + 456];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 leftf_dcα:
                         pop              r12
@@ -26062,9 +26693,20 @@ leftf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_leftf:
+                        .quad            1994211282266
+                        .quad            64
+                        .quad            .Lgcmap_leftf_s
+                        .quad            0
+.Lgcmap_leftf_s:        .string          "leftf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__centerf:
-                        sub              rsp, 448
-                        mov              qword ptr [rsp + 440], rbp
+                        sub              rsp, 464
+                        lea              rax, [rip + .Lgcmap_centerf]
+                        mov              qword ptr [rsp + 392], rax
+                        mov              dword ptr [rsp + 384], 160
+                        mov              dword ptr [rsp + 388], 464
+                        mov              qword ptr [rsp + 456], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -26387,8 +27029,8 @@ centerf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 448]
-                        mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 464]
+                        mov              rbp, qword ptr [rbp + 456];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 centerf_ω:
                         push             rax
@@ -26427,8 +27069,8 @@ centerf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 448]
-                        mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 464]
+                        mov              rbp, qword ptr [rbp + 456];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 centerf_dcα:
                         pop              r12
@@ -26460,9 +27102,20 @@ centerf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_centerf:
+                        .quad            1994211282266
+                        .quad            64
+                        .quad            .Lgcmap_centerf_s
+                        .quad            0
+.Lgcmap_centerf_s:      .string          "centerf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__rightf:
-                        sub              rsp, 448
-                        mov              qword ptr [rsp + 440], rbp
+                        sub              rsp, 464
+                        lea              rax, [rip + .Lgcmap_rightf]
+                        mov              qword ptr [rsp + 392], rax
+                        mov              dword ptr [rsp + 384], 160
+                        mov              dword ptr [rsp + 388], 464
+                        mov              qword ptr [rsp + 456], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -26785,8 +27438,8 @@ rightf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 448]
-                        mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 464]
+                        mov              rbp, qword ptr [rbp + 456];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 rightf_ω:
                         push             rax
@@ -26825,8 +27478,8 @@ rightf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 448]
-                        mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 464]
+                        mov              rbp, qword ptr [rbp + 456];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 rightf_dcα:
                         pop              r12
@@ -26858,9 +27511,20 @@ rightf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_rightf:
+                        .quad            1994211282266
+                        .quad            64
+                        .quad            .Lgcmap_rightf_s
+                        .quad            0
+.Lgcmap_rightf_s:       .string          "rightf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__trimf:
-                        sub              rsp, 416
-                        mov              qword ptr [rsp + 408], rbp
+                        sub              rsp, 432
+                        lea              rax, [rip + .Lgcmap_trimf]
+                        mov              qword ptr [rsp + 360], rax
+                        mov              dword ptr [rsp + 352], 160
+                        mov              dword ptr [rsp + 356], 432
+                        mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -27170,8 +27834,8 @@ trimf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 trimf_ω:
                         push             rax
@@ -27210,8 +27874,8 @@ trimf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 trimf_dcα:
                         pop              r12
@@ -27243,9 +27907,20 @@ trimf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_trimf:
+                        .quad            1856772328794
+                        .quad            64
+                        .quad            .Lgcmap_trimf_s
+                        .quad            0
+.Lgcmap_trimf_s:        .string          "trimf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__entabf:
-                        sub              rsp, 416
-                        mov              qword ptr [rsp + 408], rbp
+                        sub              rsp, 432
+                        lea              rax, [rip + .Lgcmap_entabf]
+                        mov              qword ptr [rsp + 360], rax
+                        mov              dword ptr [rsp + 352], 160
+                        mov              dword ptr [rsp + 356], 432
+                        mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -27555,8 +28230,8 @@ entabf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 entabf_ω:
                         push             rax
@@ -27595,8 +28270,8 @@ entabf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 entabf_dcα:
                         pop              r12
@@ -27628,9 +28303,20 @@ entabf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_entabf:
+                        .quad            1856772328794
+                        .quad            64
+                        .quad            .Lgcmap_entabf_s
+                        .quad            0
+.Lgcmap_entabf_s:       .string          "entabf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__detabf:
-                        sub              rsp, 416
-                        mov              qword ptr [rsp + 408], rbp
+                        sub              rsp, 432
+                        lea              rax, [rip + .Lgcmap_detabf]
+                        mov              qword ptr [rsp + 360], rax
+                        mov              dword ptr [rsp + 352], 160
+                        mov              dword ptr [rsp + 356], 432
+                        mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -27940,8 +28626,8 @@ detabf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 detabf_ω:
                         push             rax
@@ -27980,8 +28666,8 @@ detabf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 detabf_dcα:
                         pop              r12
@@ -28013,9 +28699,20 @@ detabf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_detabf:
+                        .quad            1856772328794
+                        .quad            64
+                        .quad            .Lgcmap_detabf_s
+                        .quad            0
+.Lgcmap_detabf_s:       .string          "detabf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__mapf:
-                        sub              rsp, 512
-                        mov              qword ptr [rsp + 504], rbp
+                        sub              rsp, 528
+                        lea              rax, [rip + .Lgcmap_mapf]
+                        mov              qword ptr [rsp + 456], rax
+                        mov              dword ptr [rsp + 448], 160
+                        mov              dword ptr [rsp + 452], 528
+                        mov              qword ptr [rsp + 520], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -28357,8 +29054,8 @@ mapf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 528]
+                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 mapf_ω:
                         push             rax
@@ -28397,8 +29094,8 @@ mapf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 528]
+                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 mapf_dcα:
                         pop              r12
@@ -28430,9 +29127,20 @@ mapf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_mapf:
+                        .quad            2269089189210
+                        .quad            64
+                        .quad            .Lgcmap_mapf_s
+                        .quad            0
+.Lgcmap_mapf_s:         .string          "mapf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__map1:
-                        sub              rsp, 512
-                        mov              qword ptr [rsp + 504], rbp
+                        sub              rsp, 528
+                        lea              rax, [rip + .Lgcmap_map1]
+                        mov              qword ptr [rsp + 456], rax
+                        mov              dword ptr [rsp + 448], 160
+                        mov              dword ptr [rsp + 452], 528
+                        mov              qword ptr [rsp + 520], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -28774,8 +29482,8 @@ map1_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 528]
+                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 map1_ω:
                         push             rax
@@ -28814,8 +29522,8 @@ map1_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 528]
+                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 map1_dcα:
                         pop              r12
@@ -28847,9 +29555,20 @@ map1_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_map1:
+                        .quad            2269089189210
+                        .quad            64
+                        .quad            .Lgcmap_map1_s
+                        .quad            0
+.Lgcmap_map1_s:         .string          "map1"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__map2:
-                        sub              rsp, 704
-                        mov              qword ptr [rsp + 696], rbp
+                        sub              rsp, 720
+                        lea              rax, [rip + .Lgcmap_map2]
+                        mov              qword ptr [rsp + 648], rax
+                        mov              dword ptr [rsp + 640], 160
+                        mov              dword ptr [rsp + 644], 720
+                        mov              qword ptr [rsp + 712], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -29282,8 +30001,8 @@ map2_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 704]
-                        mov              rbp, qword ptr [rbp + 696];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 720]
+                        mov              rbp, qword ptr [rbp + 712];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 map2_ω:
                         push             rax
@@ -29322,8 +30041,8 @@ map2_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 704]
-                        mov              rbp, qword ptr [rbp + 696];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 720]
+                        mov              rbp, qword ptr [rbp + 712];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 map2_dcα:
                         pop              r12
@@ -29355,9 +30074,20 @@ map2_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_map2:
+                        .quad            3093722910042
+                        .quad            64
+                        .quad            .Lgcmap_map2_s
+                        .quad            0
+.Lgcmap_map2_s:         .string          "map2"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__tablemap:
-                        sub              rsp, 880
-                        mov              qword ptr [rsp + 872], rbp
+                        sub              rsp, 896
+                        lea              rax, [rip + .Lgcmap_tablemap]
+                        mov              qword ptr [rsp + 824], rax
+                        mov              dword ptr [rsp + 816], 160
+                        mov              dword ptr [rsp + 820], 896
+                        mov              qword ptr [rsp + 888], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -30036,8 +30766,8 @@ tablemap_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 880]
-                        mov              rbp, qword ptr [rbp + 872];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 896]
+                        mov              rbp, qword ptr [rbp + 888];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tablemap_ω:
                         push             rax
@@ -30076,8 +30806,8 @@ tablemap_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 880]
-                        mov              rbp, qword ptr [rbp + 872];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 896]
+                        mov              rbp, qword ptr [rbp + 888];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tablemap_dcα:
                         pop              r12
@@ -30109,9 +30839,20 @@ tablemap_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_tablemap:
+                        .quad            3849637154138
+                        .quad            64
+                        .quad            .Lgcmap_tablemap_s
+                        .quad            0
+.Lgcmap_tablemap_s:     .string          "tablemap"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__listmap:
-                        sub              rsp, 1056
-                        mov              qword ptr [rsp + 1048], rbp
+                        sub              rsp, 1072
+                        lea              rax, [rip + .Lgcmap_listmap]
+                        mov              qword ptr [rsp + 1000], rax
+                        mov              dword ptr [rsp + 992], 160
+                        mov              dword ptr [rsp + 996], 1072
+                        mov              qword ptr [rsp + 1064], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -30914,8 +31655,8 @@ listmap_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 1056]
-                        mov              rbp, qword ptr [rbp + 1048];         jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 1072]
+                        mov              rbp, qword ptr [rbp + 1064];         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 listmap_ω:
                         push             rax
@@ -30954,8 +31695,8 @@ listmap_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 1056]
-                        mov              rbp, qword ptr [rbp + 1048];         jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 1072]
+                        mov              rbp, qword ptr [rbp + 1064];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 listmap_dcα:
                         pop              r12
@@ -30987,9 +31728,20 @@ listmap_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_listmap:
+                        .quad            4605551398234
+                        .quad            64
+                        .quad            .Lgcmap_listmap_s
+                        .quad            0
+.Lgcmap_listmap_s:      .string          "listmap"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__nullscan:
-                        sub              rsp, 464
-                        mov              qword ptr [rsp + 456], rbp
+                        sub              rsp, 480
+                        lea              rax, [rip + .Lgcmap_nullscan]
+                        mov              qword ptr [rsp + 408], rax
+                        mov              dword ptr [rsp + 400], 160
+                        mov              dword ptr [rsp + 404], 480
+                        mov              qword ptr [rsp + 472], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -31317,8 +32069,8 @@ nullscan_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 464]
-                        mov              rbp, qword ptr [rbp + 456];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 480]
+                        mov              rbp, qword ptr [rbp + 472];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 nullscan_ω:
                         push             rax
@@ -31357,8 +32109,8 @@ nullscan_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 464]
-                        mov              rbp, qword ptr [rbp + 456];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 480]
+                        mov              rbp, qword ptr [rbp + 472];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 nullscan_dcα:
                         pop              r12
@@ -31390,9 +32142,20 @@ nullscan_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_nullscan:
+                        .quad            2062930759002
+                        .quad            64
+                        .quad            .Lgcmap_nullscan_s
+                        .quad            0
+.Lgcmap_nullscan_s:     .string          "nullscan"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__movef:
-                        sub              rsp, 496
-                        mov              qword ptr [rsp + 488], rbp
+                        sub              rsp, 512
+                        lea              rax, [rip + .Lgcmap_movef]
+                        mov              qword ptr [rsp + 440], rax
+                        mov              dword ptr [rsp + 432], 160
+                        mov              dword ptr [rsp + 436], 512
+                        mov              qword ptr [rsp + 504], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -31755,8 +32518,8 @@ movef_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 496]
-                        mov              rbp, qword ptr [rbp + 488];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 512]
+                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 movef_ω:
                         push             rax
@@ -31795,8 +32558,8 @@ movef_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 496]
-                        mov              rbp, qword ptr [rbp + 488];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 512]
+                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 movef_dcα:
                         pop              r12
@@ -31828,9 +32591,20 @@ movef_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_movef:
+                        .quad            2200369712474
+                        .quad            64
+                        .quad            .Lgcmap_movef_s
+                        .quad            0
+.Lgcmap_movef_s:        .string          "movef"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__mov11:
-                        sub              rsp, 576
-                        mov              qword ptr [rsp + 568], rbp
+                        sub              rsp, 592
+                        lea              rax, [rip + .Lgcmap_mov11]
+                        mov              qword ptr [rsp + 520], rax
+                        mov              dword ptr [rsp + 512], 160
+                        mov              dword ptr [rsp + 516], 592
+                        mov              qword ptr [rsp + 584], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -32251,8 +33025,8 @@ mov11_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 576]
-                        mov              rbp, qword ptr [rbp + 568];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 592]
+                        mov              rbp, qword ptr [rbp + 584];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 mov11_ω:
                         push             rax
@@ -32291,8 +33065,8 @@ mov11_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 576]
-                        mov              rbp, qword ptr [rbp + 568];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 592]
+                        mov              rbp, qword ptr [rbp + 584];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 mov11_dcα:
                         pop              r12
@@ -32324,9 +33098,20 @@ mov11_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_mov11:
+                        .quad            2543967096154
+                        .quad            64
+                        .quad            .Lgcmap_mov11_s
+                        .quad            0
+.Lgcmap_mov11_s:        .string          "mov11"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__pos11:
-                        sub              rsp, 656
-                        mov              qword ptr [rsp + 648], rbp
+                        sub              rsp, 672
+                        lea              rax, [rip + .Lgcmap_pos11]
+                        mov              qword ptr [rsp + 584], rax
+                        mov              dword ptr [rsp + 576], 160
+                        mov              dword ptr [rsp + 580], 672
+                        mov              qword ptr [rsp + 664], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -32887,8 +33672,8 @@ pos11_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 656]
-                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 672]
+                        mov              rbp, qword ptr [rbp + 664];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 pos11_ω:
                         push             rax
@@ -32927,8 +33712,8 @@ pos11_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 656]
-                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 672]
+                        mov              rbp, qword ptr [rbp + 664];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 pos11_dcα:
                         pop              r12
@@ -32960,9 +33745,20 @@ pos11_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_pos11:
+                        .quad            2887564479834
+                        .quad            80
+                        .quad            .Lgcmap_pos11_s
+                        .quad            0
+.Lgcmap_pos11_s:        .string          "pos11"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__tabf:
-                        sub              rsp, 496
-                        mov              qword ptr [rsp + 488], rbp
+                        sub              rsp, 512
+                        lea              rax, [rip + .Lgcmap_tabf]
+                        mov              qword ptr [rsp + 440], rax
+                        mov              dword ptr [rsp + 432], 160
+                        mov              dword ptr [rsp + 436], 512
+                        mov              qword ptr [rsp + 504], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -33326,8 +34122,8 @@ tabf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 496]
-                        mov              rbp, qword ptr [rbp + 488];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 512]
+                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tabf_ω:
                         push             rax
@@ -33366,8 +34162,8 @@ tabf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 496]
-                        mov              rbp, qword ptr [rbp + 488];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 512]
+                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tabf_dcα:
                         pop              r12
@@ -33399,9 +34195,20 @@ tabf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_tabf:
+                        .quad            2200369712474
+                        .quad            64
+                        .quad            .Lgcmap_tabf_s
+                        .quad            0
+.Lgcmap_tabf_s:         .string          "tabf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__matchf:
-                        sub              rsp, 512
-                        mov              qword ptr [rsp + 504], rbp
+                        sub              rsp, 528
+                        lea              rax, [rip + .Lgcmap_matchf]
+                        mov              qword ptr [rsp + 456], rax
+                        mov              dword ptr [rsp + 448], 160
+                        mov              dword ptr [rsp + 452], 528
+                        mov              qword ptr [rsp + 520], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -33765,8 +34572,8 @@ matchf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 528]
+                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 matchf_ω:
                         push             rax
@@ -33805,8 +34612,8 @@ matchf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 528]
+                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 matchf_dcα:
                         pop              r12
@@ -33838,9 +34645,20 @@ matchf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_matchf:
+                        .quad            2269089189210
+                        .quad            64
+                        .quad            .Lgcmap_matchf_s
+                        .quad            0
+.Lgcmap_matchf_s:       .string          "matchf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__tabmat:
-                        sub              rsp, 528
-                        mov              qword ptr [rsp + 520], rbp
+                        sub              rsp, 544
+                        lea              rax, [rip + .Lgcmap_tabmat]
+                        mov              qword ptr [rsp + 472], rax
+                        mov              dword ptr [rsp + 464], 160
+                        mov              dword ptr [rsp + 468], 544
+                        mov              qword ptr [rsp + 536], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -34254,8 +35072,8 @@ tabmat_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 528]
-                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 544]
+                        mov              rbp, qword ptr [rbp + 536];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tabmat_ω:
                         push             rax
@@ -34294,8 +35112,8 @@ tabmat_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 528]
-                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 544]
+                        mov              rbp, qword ptr [rbp + 536];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tabmat_dcα:
                         pop              r12
@@ -34327,9 +35145,20 @@ tabmat_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_tabmat:
+                        .quad            2337808665946
+                        .quad            64
+                        .quad            .Lgcmap_tabmat_s
+                        .quad            0
+.Lgcmap_tabmat_s:       .string          "tabmat"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__posf:
-                        sub              rsp, 480
-                        mov              qword ptr [rsp + 472], rbp
+                        sub              rsp, 496
+                        lea              rax, [rip + .Lgcmap_posf]
+                        mov              qword ptr [rsp + 424], rax
+                        mov              dword ptr [rsp + 416], 160
+                        mov              dword ptr [rsp + 420], 496
+                        mov              qword ptr [rsp + 488], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -34678,8 +35507,8 @@ posf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 480]
-                        mov              rbp, qword ptr [rbp + 472];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 496]
+                        mov              rbp, qword ptr [rbp + 488];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 posf_ω:
                         push             rax
@@ -34718,8 +35547,8 @@ posf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 480]
-                        mov              rbp, qword ptr [rbp + 472];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 496]
+                        mov              rbp, qword ptr [rbp + 488];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 posf_dcα:
                         pop              r12
@@ -34751,9 +35580,20 @@ posf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_posf:
+                        .quad            2131650235738
+                        .quad            64
+                        .quad            .Lgcmap_posf_s
+                        .quad            0
+.Lgcmap_posf_s:         .string          "posf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__anyf:
-                        sub              rsp, 496
-                        mov              qword ptr [rsp + 488], rbp
+                        sub              rsp, 512
+                        lea              rax, [rip + .Lgcmap_anyf]
+                        mov              qword ptr [rsp + 440], rax
+                        mov              dword ptr [rsp + 432], 160
+                        mov              dword ptr [rsp + 436], 512
+                        mov              qword ptr [rsp + 504], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -35128,8 +35968,8 @@ anyf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 496]
-                        mov              rbp, qword ptr [rbp + 488];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 512]
+                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 anyf_ω:
                         push             rax
@@ -35168,8 +36008,8 @@ anyf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 496]
-                        mov              rbp, qword ptr [rbp + 488];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 512]
+                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 anyf_dcα:
                         pop              r12
@@ -35201,9 +36041,20 @@ anyf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_anyf:
+                        .quad            2200369712474
+                        .quad            64
+                        .quad            .Lgcmap_anyf_s
+                        .quad            0
+.Lgcmap_anyf_s:         .string          "anyf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__manyf:
-                        sub              rsp, 512
-                        mov              qword ptr [rsp + 504], rbp
+                        sub              rsp, 528
+                        lea              rax, [rip + .Lgcmap_manyf]
+                        mov              qword ptr [rsp + 440], rax
+                        mov              dword ptr [rsp + 432], 160
+                        mov              dword ptr [rsp + 436], 528
+                        mov              qword ptr [rsp + 520], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -35575,8 +36426,8 @@ manyf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 528]
+                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 manyf_ω:
                         push             rax
@@ -35615,8 +36466,8 @@ manyf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 528]
+                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 manyf_dcα:
                         pop              r12
@@ -35648,9 +36499,20 @@ manyf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_manyf:
+                        .quad            2269089189210
+                        .quad            80
+                        .quad            .Lgcmap_manyf_s
+                        .quad            0
+.Lgcmap_manyf_s:        .string          "manyf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__uptof:
-                        sub              rsp, 512
-                        mov              qword ptr [rsp + 504], rbp
+                        sub              rsp, 528
+                        lea              rax, [rip + .Lgcmap_uptof]
+                        mov              qword ptr [rsp + 456], rax
+                        mov              dword ptr [rsp + 448], 160
+                        mov              dword ptr [rsp + 452], 528
+                        mov              qword ptr [rsp + 520], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -36022,8 +36884,8 @@ uptof_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 528]
+                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 uptof_ω:
                         push             rax
@@ -36062,8 +36924,8 @@ uptof_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 528]
+                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 uptof_dcα:
                         pop              r12
@@ -36095,9 +36957,20 @@ uptof_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_uptof:
+                        .quad            2269089189210
+                        .quad            64
+                        .quad            .Lgcmap_uptof_s
+                        .quad            0
+.Lgcmap_uptof_s:        .string          "uptof"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__findf:
-                        sub              rsp, 512
-                        mov              qword ptr [rsp + 504], rbp
+                        sub              rsp, 528
+                        lea              rax, [rip + .Lgcmap_findf]
+                        mov              qword ptr [rsp + 456], rax
+                        mov              dword ptr [rsp + 448], 160
+                        mov              dword ptr [rsp + 452], 528
+                        mov              qword ptr [rsp + 520], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -36454,8 +37327,8 @@ findf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 528]
+                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 findf_ω:
                         push             rax
@@ -36494,8 +37367,8 @@ findf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 528]
+                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 findf_dcα:
                         pop              r12
@@ -36527,9 +37400,20 @@ findf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_findf:
+                        .quad            2269089189210
+                        .quad            64
+                        .quad            .Lgcmap_findf_s
+                        .quad            0
+.Lgcmap_findf_s:        .string          "findf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__balf:
-                        sub              rsp, 512
-                        mov              qword ptr [rsp + 504], rbp
+                        sub              rsp, 528
+                        lea              rax, [rip + .Lgcmap_balf]
+                        mov              qword ptr [rsp + 456], rax
+                        mov              dword ptr [rsp + 448], 160
+                        mov              dword ptr [rsp + 452], 528
+                        mov              qword ptr [rsp + 520], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -36901,8 +37785,8 @@ balf_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 528]
+                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 balf_ω:
                         push             rax
@@ -36941,8 +37825,8 @@ balf_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 512]
-                        mov              rbp, qword ptr [rbp + 504];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 528]
+                        mov              rbp, qword ptr [rbp + 520];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 balf_dcα:
                         pop              r12
@@ -36974,9 +37858,20 @@ balf_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_balf:
+                        .quad            2269089189210
+                        .quad            64
+                        .quad            .Lgcmap_balf_s
+                        .quad            0
+.Lgcmap_balf_s:         .string          "balf"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__cssize:
-                        sub              rsp, 400
-                        mov              qword ptr [rsp + 392], rbp
+                        sub              rsp, 416
+                        lea              rax, [rip + .Lgcmap_cssize]
+                        mov              qword ptr [rsp + 328], rax
+                        mov              dword ptr [rsp + 320], 160
+                        mov              dword ptr [rsp + 324], 416
+                        mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -37280,8 +38175,8 @@ cssize_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 cssize_ω:
                         push             rax
@@ -37320,8 +38215,8 @@ cssize_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 cssize_dcα:
                         pop              r12
@@ -37353,9 +38248,20 @@ cssize_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_cssize:
+                        .quad            1788052852058
+                        .quad            80
+                        .quad            .Lgcmap_cssize_s
+                        .quad            0
+.Lgcmap_cssize_s:       .string          "cssize"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__cscompl:
-                        sub              rsp, 400
-                        mov              qword ptr [rsp + 392], rbp
+                        sub              rsp, 416
+                        lea              rax, [rip + .Lgcmap_cscompl]
+                        mov              qword ptr [rsp + 328], rax
+                        mov              dword ptr [rsp + 320], 160
+                        mov              dword ptr [rsp + 324], 416
+                        mov              qword ptr [rsp + 408], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -37659,8 +38565,8 @@ cscompl_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 cscompl_ω:
                         push             rax
@@ -37699,8 +38605,8 @@ cscompl_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 400]
-                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 416]
+                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 cscompl_dcα:
                         pop              r12
@@ -37732,9 +38638,20 @@ cscompl_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_cscompl:
+                        .quad            1788052852058
+                        .quad            80
+                        .quad            .Lgcmap_cscompl_s
+                        .quad            0
+.Lgcmap_cscompl_s:      .string          "cscompl"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__lcreate:
-                        sub              rsp, 432
-                        mov              qword ptr [rsp + 424], rbp
+                        sub              rsp, 448
+                        lea              rax, [rip + .Lgcmap_lcreate]
+                        mov              qword ptr [rsp + 376], rax
+                        mov              dword ptr [rsp + 368], 160
+                        mov              dword ptr [rsp + 372], 448
+                        mov              qword ptr [rsp + 440], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -38054,8 +38971,8 @@ lcreate_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 432]
-                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 448]
+                        mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 lcreate_ω:
                         push             rax
@@ -38094,8 +39011,8 @@ lcreate_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 432]
-                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 448]
+                        mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 lcreate_dcα:
                         pop              r12
@@ -38127,9 +39044,20 @@ lcreate_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_lcreate:
+                        .quad            1925491805530
+                        .quad            64
+                        .quad            .Lgcmap_lcreate_s
+                        .quad            0
+.Lgcmap_lcreate_s:      .string          "lcreate"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__lconst:
-                        sub              rsp, 576
-                        mov              qword ptr [rsp + 568], rbp
+                        sub              rsp, 592
+                        lea              rax, [rip + .Lgcmap_lconst]
+                        mov              qword ptr [rsp + 504], rax
+                        mov              dword ptr [rsp + 496], 160
+                        mov              dword ptr [rsp + 500], 592
+                        mov              qword ptr [rsp + 584], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         add              rdi, 480
@@ -38493,8 +39421,8 @@ lconst_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 576]
-                        mov              rbp, qword ptr [rbp + 568];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 592]
+                        mov              rbp, qword ptr [rbp + 584];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 lconst_ω:
                         push             rax
@@ -38533,8 +39461,8 @@ lconst_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 576]
-                        mov              rbp, qword ptr [rbp + 568];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 592]
+                        mov              rbp, qword ptr [rbp + 584];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 lconst_dcα:
                         pop              r12
@@ -38566,9 +39494,20 @@ lconst_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_lconst:
+                        .quad            2543967096154
+                        .quad            80
+                        .quad            .Lgcmap_lconst_s
+                        .quad            0
+.Lgcmap_lconst_s:       .string          "lconst"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__lcopy:
-                        sub              rsp, 720
-                        mov              qword ptr [rsp + 712], rbp
+                        sub              rsp, 736
+                        lea              rax, [rip + .Lgcmap_lcopy]
+                        mov              qword ptr [rsp + 664], rax
+                        mov              dword ptr [rsp + 656], 160
+                        mov              dword ptr [rsp + 660], 736
+                        mov              qword ptr [rsp + 728], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -39109,8 +40048,8 @@ lcopy_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 720]
-                        mov              rbp, qword ptr [rbp + 712];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 736]
+                        mov              rbp, qword ptr [rbp + 728];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 lcopy_ω:
                         push             rax
@@ -39149,8 +40088,8 @@ lcopy_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 720]
-                        mov              rbp, qword ptr [rbp + 712];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 736]
+                        mov              rbp, qword ptr [rbp + 728];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 lcopy_dcα:
                         pop              r12
@@ -39182,9 +40121,20 @@ lcopy_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_lcopy:
+                        .quad            3162442386778
+                        .quad            64
+                        .quad            .Lgcmap_lcopy_s
+                        .quad            0
+.Lgcmap_lcopy_s:        .string          "lcopy"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__lsort:
-                        sub              rsp, 720
-                        mov              qword ptr [rsp + 712], rbp
+                        sub              rsp, 736
+                        lea              rax, [rip + .Lgcmap_lsort]
+                        mov              qword ptr [rsp + 664], rax
+                        mov              dword ptr [rsp + 656], 160
+                        mov              dword ptr [rsp + 660], 736
+                        mov              qword ptr [rsp + 728], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -39725,8 +40675,8 @@ lsort_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 720]
-                        mov              rbp, qword ptr [rbp + 712];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 736]
+                        mov              rbp, qword ptr [rbp + 728];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 lsort_ω:
                         push             rax
@@ -39765,8 +40715,8 @@ lsort_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 720]
-                        mov              rbp, qword ptr [rbp + 712];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 736]
+                        mov              rbp, qword ptr [rbp + 728];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 lsort_dcα:
                         pop              r12
@@ -39798,9 +40748,20 @@ lsort_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_lsort:
+                        .quad            3162442386778
+                        .quad            64
+                        .quad            .Lgcmap_lsort_s
+                        .quad            0
+.Lgcmap_lsort_s:        .string          "lsort"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__lsize:
-                        sub              rsp, 688
-                        mov              qword ptr [rsp + 680], rbp
+                        sub              rsp, 704
+                        lea              rax, [rip + .Lgcmap_lsize]
+                        mov              qword ptr [rsp + 632], rax
+                        mov              dword ptr [rsp + 624], 160
+                        mov              dword ptr [rsp + 628], 704
+                        mov              qword ptr [rsp + 696], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -40321,8 +41282,8 @@ lsize_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 688]
-                        mov              rbp, qword ptr [rbp + 680];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 704]
+                        mov              rbp, qword ptr [rbp + 696];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 lsize_ω:
                         push             rax
@@ -40361,8 +41322,8 @@ lsize_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 688]
-                        mov              rbp, qword ptr [rbp + 680];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 704]
+                        mov              rbp, qword ptr [rbp + 696];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 lsize_dcα:
                         pop              r12
@@ -40394,9 +41355,20 @@ lsize_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_lsize:
+                        .quad            3025003433306
+                        .quad            64
+                        .quad            .Lgcmap_lsize_s
+                        .quad            0
+.Lgcmap_lsize_s:        .string          "lsize"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__lpick:
-                        sub              rsp, 704
-                        mov              qword ptr [rsp + 696], rbp
+                        sub              rsp, 720
+                        lea              rax, [rip + .Lgcmap_lpick]
+                        mov              qword ptr [rsp + 648], rax
+                        mov              dword ptr [rsp + 640], 160
+                        mov              dword ptr [rsp + 644], 720
+                        mov              qword ptr [rsp + 712], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -40936,8 +41908,8 @@ lpick_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 704]
-                        mov              rbp, qword ptr [rbp + 696];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 720]
+                        mov              rbp, qword ptr [rbp + 712];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 lpick_ω:
                         push             rax
@@ -40976,8 +41948,8 @@ lpick_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 704]
-                        mov              rbp, qword ptr [rbp + 696];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 720]
+                        mov              rbp, qword ptr [rbp + 712];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 lpick_dcα:
                         pop              r12
@@ -41009,9 +41981,20 @@ lpick_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_lpick:
+                        .quad            3093722910042
+                        .quad            64
+                        .quad            .Lgcmap_lpick_s
+                        .quad            0
+.Lgcmap_lpick_s:        .string          "lpick"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__lsubscr:
-                        sub              rsp, 720
-                        mov              qword ptr [rsp + 712], rbp
+                        sub              rsp, 736
+                        lea              rax, [rip + .Lgcmap_lsubscr]
+                        mov              qword ptr [rsp + 664], rax
+                        mov              dword ptr [rsp + 656], 160
+                        mov              dword ptr [rsp + 660], 736
+                        mov              qword ptr [rsp + 728], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -41562,8 +42545,8 @@ lsubscr_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 720]
-                        mov              rbp, qword ptr [rbp + 712];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 736]
+                        mov              rbp, qword ptr [rbp + 728];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 lsubscr_ω:
                         push             rax
@@ -41602,8 +42585,8 @@ lsubscr_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 720]
-                        mov              rbp, qword ptr [rbp + 712];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 736]
+                        mov              rbp, qword ptr [rbp + 728];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 lsubscr_dcα:
                         pop              r12
@@ -41635,9 +42618,20 @@ lsubscr_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_lsubscr:
+                        .quad            3162442386778
+                        .quad            64
+                        .quad            .Lgcmap_lsubscr_s
+                        .quad            0
+.Lgcmap_lsubscr_s:      .string          "lsubscr"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__lbang:
-                        sub              rsp, 704
-                        mov              qword ptr [rsp + 696], rbp
+                        sub              rsp, 720
+                        lea              rax, [rip + .Lgcmap_lbang]
+                        mov              qword ptr [rsp + 648], rax
+                        mov              dword ptr [rsp + 640], 160
+                        mov              dword ptr [rsp + 644], 720
+                        mov              qword ptr [rsp + 712], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -42164,8 +43158,8 @@ lbang_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 704]
-                        mov              rbp, qword ptr [rbp + 696];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 720]
+                        mov              rbp, qword ptr [rbp + 712];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 lbang_ω:
                         push             rax
@@ -42204,8 +43198,8 @@ lbang_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 704]
-                        mov              rbp, qword ptr [rbp + 696];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 720]
+                        mov              rbp, qword ptr [rbp + 712];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 lbang_dcα:
                         pop              r12
@@ -42237,9 +43231,20 @@ lbang_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_lbang:
+                        .quad            3093722910042
+                        .quad            64
+                        .quad            .Lgcmap_lbang_s
+                        .quad            0
+.Lgcmap_lbang_s:        .string          "lbang"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__put1get1:
-                        sub              rsp, 640
-                        mov              qword ptr [rsp + 632], rbp
+                        sub              rsp, 656
+                        lea              rax, [rip + .Lgcmap_put1get1]
+                        mov              qword ptr [rsp + 584], rax
+                        mov              dword ptr [rsp + 576], 160
+                        mov              dword ptr [rsp + 580], 656
+                        mov              qword ptr [rsp + 648], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -42765,8 +43770,8 @@ put1get1_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 640]
-                        mov              rbp, qword ptr [rbp + 632];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 656]
+                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 put1get1_ω:
                         push             rax
@@ -42805,8 +43810,8 @@ put1get1_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 640]
-                        mov              rbp, qword ptr [rbp + 632];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 656]
+                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 put1get1_dcα:
                         pop              r12
@@ -42838,9 +43843,20 @@ put1get1_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_put1get1:
+                        .quad            2818845003098
+                        .quad            64
+                        .quad            .Lgcmap_put1get1_s
+                        .quad            0
+.Lgcmap_put1get1_s:     .string          "put1get1"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__put2get2:
-                        sub              rsp, 768
-                        mov              qword ptr [rsp + 760], rbp
+                        sub              rsp, 784
+                        lea              rax, [rip + .Lgcmap_put2get2]
+                        mov              qword ptr [rsp + 712], rax
+                        mov              dword ptr [rsp + 704], 160
+                        mov              dword ptr [rsp + 708], 784
+                        mov              qword ptr [rsp + 776], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -43444,8 +44460,8 @@ put2get2_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 768]
-                        mov              rbp, qword ptr [rbp + 760];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 784]
+                        mov              rbp, qword ptr [rbp + 776];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 put2get2_ω:
                         push             rax
@@ -43484,8 +44500,8 @@ put2get2_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 768]
-                        mov              rbp, qword ptr [rbp + 760];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 784]
+                        mov              rbp, qword ptr [rbp + 776];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 put2get2_dcα:
                         pop              r12
@@ -43517,9 +44533,20 @@ put2get2_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_put2get2:
+                        .quad            3368600816986
+                        .quad            64
+                        .quad            .Lgcmap_put2get2_s
+                        .quad            0
+.Lgcmap_put2get2_s:     .string          "put2get2"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__put3get3:
-                        sub              rsp, 864
-                        mov              qword ptr [rsp + 856], rbp
+                        sub              rsp, 880
+                        lea              rax, [rip + .Lgcmap_put3get3]
+                        mov              qword ptr [rsp + 808], rax
+                        mov              dword ptr [rsp + 800], 160
+                        mov              dword ptr [rsp + 804], 880
+                        mov              qword ptr [rsp + 872], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -44182,8 +45209,8 @@ put3get3_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 864]
-                        mov              rbp, qword ptr [rbp + 856];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 880]
+                        mov              rbp, qword ptr [rbp + 872];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 put3get3_ω:
                         push             rax
@@ -44222,8 +45249,8 @@ put3get3_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 864]
-                        mov              rbp, qword ptr [rbp + 856];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 880]
+                        mov              rbp, qword ptr [rbp + 872];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 put3get3_dcα:
                         pop              r12
@@ -44255,9 +45282,20 @@ put3get3_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_put3get3:
+                        .quad            3780917677402
+                        .quad            64
+                        .quad            .Lgcmap_put3get3_s
+                        .quad            0
+.Lgcmap_put3get3_s:     .string          "put3get3"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__put4get4:
-                        sub              rsp, 960
-                        mov              qword ptr [rsp + 952], rbp
+                        sub              rsp, 976
+                        lea              rax, [rip + .Lgcmap_put4get4]
+                        mov              qword ptr [rsp + 904], rax
+                        mov              dword ptr [rsp + 896], 160
+                        mov              dword ptr [rsp + 900], 976
+                        mov              qword ptr [rsp + 968], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -44979,8 +46017,8 @@ put4get4_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 960]
-                        mov              rbp, qword ptr [rbp + 952];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 976]
+                        mov              rbp, qword ptr [rbp + 968];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 put4get4_ω:
                         push             rax
@@ -45019,8 +46057,8 @@ put4get4_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 960]
-                        mov              rbp, qword ptr [rbp + 952];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 976]
+                        mov              rbp, qword ptr [rbp + 968];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 put4get4_dcα:
                         pop              r12
@@ -45052,9 +46090,20 @@ put4get4_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_put4get4:
+                        .quad            4193234537818
+                        .quad            64
+                        .quad            .Lgcmap_put4get4_s
+                        .quad            0
+.Lgcmap_put4get4_s:     .string          "put4get4"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__pushpop:
-                        sub              rsp, 640
-                        mov              qword ptr [rsp + 632], rbp
+                        sub              rsp, 656
+                        lea              rax, [rip + .Lgcmap_pushpop]
+                        mov              qword ptr [rsp + 584], rax
+                        mov              dword ptr [rsp + 576], 160
+                        mov              dword ptr [rsp + 580], 656
+                        mov              qword ptr [rsp + 648], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -45580,8 +46629,8 @@ pushpop_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 640]
-                        mov              rbp, qword ptr [rbp + 632];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 656]
+                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 pushpop_ω:
                         push             rax
@@ -45620,8 +46669,8 @@ pushpop_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 640]
-                        mov              rbp, qword ptr [rbp + 632];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 656]
+                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 pushpop_dcα:
                         pop              r12
@@ -45653,9 +46702,20 @@ pushpop_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_pushpop:
+                        .quad            2818845003098
+                        .quad            64
+                        .quad            .Lgcmap_pushpop_s
+                        .quad            0
+.Lgcmap_pushpop_s:      .string          "pushpop"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__putget12:
-                        sub              rsp, 1024
-                        mov              qword ptr [rsp + 1016], rbp
+                        sub              rsp, 1040
+                        lea              rax, [rip + .Lgcmap_putget12]
+                        mov              qword ptr [rsp + 968], rax
+                        mov              dword ptr [rsp + 960], 160
+                        mov              dword ptr [rsp + 964], 1040
+                        mov              qword ptr [rsp + 1032], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -46337,8 +47397,8 @@ putget12_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 1024]
-                        mov              rbp, qword ptr [rbp + 1016];         jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 1040]
+                        mov              rbp, qword ptr [rbp + 1032];         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 putget12_ω:
                         push             rax
@@ -46377,8 +47437,8 @@ putget12_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 1024]
-                        mov              rbp, qword ptr [rbp + 1016];         jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 1040]
+                        mov              rbp, qword ptr [rbp + 1032];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 putget12_dcα:
                         pop              r12
@@ -46410,9 +47470,20 @@ putget12_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_putget12:
+                        .quad            4468112444762
+                        .quad            64
+                        .quad            .Lgcmap_putget12_s
+                        .quad            0
+.Lgcmap_putget12_s:     .string          "putget12"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__pushpop12:
-                        sub              rsp, 1024
-                        mov              qword ptr [rsp + 1016], rbp
+                        sub              rsp, 1040
+                        lea              rax, [rip + .Lgcmap_pushpop12]
+                        mov              qword ptr [rsp + 968], rax
+                        mov              dword ptr [rsp + 960], 160
+                        mov              dword ptr [rsp + 964], 1040
+                        mov              qword ptr [rsp + 1032], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -47094,8 +48165,8 @@ pushpop12_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 1024]
-                        mov              rbp, qword ptr [rbp + 1016];         jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 1040]
+                        mov              rbp, qword ptr [rbp + 1032];         jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 pushpop12_ω:
                         push             rax
@@ -47134,8 +48205,8 @@ pushpop12_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 1024]
-                        mov              rbp, qword ptr [rbp + 1016];         jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 1040]
+                        mov              rbp, qword ptr [rbp + 1032];         jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 pushpop12_dcα:
                         pop              r12
@@ -47167,9 +48238,20 @@ pushpop12_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_pushpop12:
+                        .quad            4468112444762
+                        .quad            64
+                        .quad            .Lgcmap_pushpop12_s
+                        .quad            0
+.Lgcmap_pushpop12_s:    .string          "pushpop12"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__setcreate:
-                        sub              rsp, 368
-                        mov              qword ptr [rsp + 360], rbp
+                        sub              rsp, 384
+                        lea              rax, [rip + .Lgcmap_setcreate]
+                        mov              qword ptr [rsp + 312], rax
+                        mov              dword ptr [rsp + 304], 160
+                        mov              dword ptr [rsp + 308], 384
+                        mov              qword ptr [rsp + 376], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -47463,8 +48545,8 @@ setcreate_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 368]
-                        mov              rbp, qword ptr [rbp + 360];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 384]
+                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 setcreate_ω:
                         push             rax
@@ -47503,8 +48585,8 @@ setcreate_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 368]
-                        mov              rbp, qword ptr [rbp + 360];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 384]
+                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 setcreate_dcα:
                         pop              r12
@@ -47536,9 +48618,20 @@ setcreate_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_setcreate:
+                        .quad            1650613898586
+                        .quad            64
+                        .quad            .Lgcmap_setcreate_s
+                        .quad            0
+.Lgcmap_setcreate_s:    .string          "setcreate"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__setcopy:
-                        sub              rsp, 656
-                        mov              qword ptr [rsp + 648], rbp
+                        sub              rsp, 672
+                        lea              rax, [rip + .Lgcmap_setcopy]
+                        mov              qword ptr [rsp + 600], rax
+                        mov              dword ptr [rsp + 592], 160
+                        mov              dword ptr [rsp + 596], 672
+                        mov              qword ptr [rsp + 664], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -48079,8 +49172,8 @@ setcopy_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 656]
-                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 672]
+                        mov              rbp, qword ptr [rbp + 664];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 setcopy_ω:
                         push             rax
@@ -48119,8 +49212,8 @@ setcopy_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 656]
-                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 672]
+                        mov              rbp, qword ptr [rbp + 664];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 setcopy_dcα:
                         pop              r12
@@ -48152,9 +49245,20 @@ setcopy_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_setcopy:
+                        .quad            2887564479834
+                        .quad            64
+                        .quad            .Lgcmap_setcopy_s
+                        .quad            0
+.Lgcmap_setcopy_s:      .string          "setcopy"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__setinsert:
-                        sub              rsp, 688
-                        mov              qword ptr [rsp + 680], rbp
+                        sub              rsp, 704
+                        lea              rax, [rip + .Lgcmap_setinsert]
+                        mov              qword ptr [rsp + 632], rax
+                        mov              dword ptr [rsp + 624], 160
+                        mov              dword ptr [rsp + 628], 704
+                        mov              qword ptr [rsp + 696], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -48708,8 +49812,8 @@ setinsert_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 688]
-                        mov              rbp, qword ptr [rbp + 680];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 704]
+                        mov              rbp, qword ptr [rbp + 696];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 setinsert_ω:
                         push             rax
@@ -48748,8 +49852,8 @@ setinsert_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 688]
-                        mov              rbp, qword ptr [rbp + 680];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 704]
+                        mov              rbp, qword ptr [rbp + 696];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 setinsert_dcα:
                         pop              r12
@@ -48781,9 +49885,20 @@ setinsert_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_setinsert:
+                        .quad            3025003433306
+                        .quad            64
+                        .quad            .Lgcmap_setinsert_s
+                        .quad            0
+.Lgcmap_setinsert_s:    .string          "setinsert"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__setmember:
-                        sub              rsp, 688
-                        mov              qword ptr [rsp + 680], rbp
+                        sub              rsp, 704
+                        lea              rax, [rip + .Lgcmap_setmember]
+                        mov              qword ptr [rsp + 632], rax
+                        mov              dword ptr [rsp + 624], 160
+                        mov              dword ptr [rsp + 628], 704
+                        mov              qword ptr [rsp + 696], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -49337,8 +50452,8 @@ setmember_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 688]
-                        mov              rbp, qword ptr [rbp + 680];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 704]
+                        mov              rbp, qword ptr [rbp + 696];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 setmember_ω:
                         push             rax
@@ -49377,8 +50492,8 @@ setmember_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 688]
-                        mov              rbp, qword ptr [rbp + 680];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 704]
+                        mov              rbp, qword ptr [rbp + 696];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 setmember_dcα:
                         pop              r12
@@ -49410,9 +50525,20 @@ setmember_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_setmember:
+                        .quad            3025003433306
+                        .quad            64
+                        .quad            .Lgcmap_setmember_s
+                        .quad            0
+.Lgcmap_setmember_s:    .string          "setmember"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__setinsdel:
-                        sub              rsp, 688
-                        mov              qword ptr [rsp + 680], rbp
+                        sub              rsp, 704
+                        lea              rax, [rip + .Lgcmap_setinsdel]
+                        mov              qword ptr [rsp + 632], rax
+                        mov              dword ptr [rsp + 624], 160
+                        mov              dword ptr [rsp + 628], 704
+                        mov              qword ptr [rsp + 696], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -49967,8 +51093,8 @@ setinsdel_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 688]
-                        mov              rbp, qword ptr [rbp + 680];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 704]
+                        mov              rbp, qword ptr [rbp + 696];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 setinsdel_ω:
                         push             rax
@@ -50007,8 +51133,8 @@ setinsdel_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 688]
-                        mov              rbp, qword ptr [rbp + 680];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 704]
+                        mov              rbp, qword ptr [rbp + 696];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 setinsdel_dcα:
                         pop              r12
@@ -50040,9 +51166,20 @@ setinsdel_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_setinsdel:
+                        .quad            3025003433306
+                        .quad            64
+                        .quad            .Lgcmap_setinsdel_s
+                        .quad            0
+.Lgcmap_setinsdel_s:    .string          "setinsdel"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__setpick:
-                        sub              rsp, 640
-                        mov              qword ptr [rsp + 632], rbp
+                        sub              rsp, 656
+                        lea              rax, [rip + .Lgcmap_setpick]
+                        mov              qword ptr [rsp + 584], rax
+                        mov              dword ptr [rsp + 576], 160
+                        mov              dword ptr [rsp + 580], 656
+                        mov              qword ptr [rsp + 648], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -50582,8 +51719,8 @@ setpick_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 640]
-                        mov              rbp, qword ptr [rbp + 632];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 656]
+                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 setpick_ω:
                         push             rax
@@ -50622,8 +51759,8 @@ setpick_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 640]
-                        mov              rbp, qword ptr [rbp + 632];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 656]
+                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 setpick_dcα:
                         pop              r12
@@ -50655,9 +51792,20 @@ setpick_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_setpick:
+                        .quad            2818845003098
+                        .quad            64
+                        .quad            .Lgcmap_setpick_s
+                        .quad            0
+.Lgcmap_setpick_s:      .string          "setpick"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__setbang:
-                        sub              rsp, 720
-                        mov              qword ptr [rsp + 712], rbp
+                        sub              rsp, 736
+                        lea              rax, [rip + .Lgcmap_setbang]
+                        mov              qword ptr [rsp + 664], rax
+                        mov              dword ptr [rsp + 656], 160
+                        mov              dword ptr [rsp + 660], 736
+                        mov              qword ptr [rsp + 728], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         add              rdi, 640
@@ -51269,8 +52417,8 @@ setbang_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 720]
-                        mov              rbp, qword ptr [rbp + 712];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 736]
+                        mov              rbp, qword ptr [rbp + 728];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 setbang_ω:
                         push             rax
@@ -51309,8 +52457,8 @@ setbang_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 720]
-                        mov              rbp, qword ptr [rbp + 712];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 736]
+                        mov              rbp, qword ptr [rbp + 728];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 setbang_dcα:
                         pop              r12
@@ -51342,9 +52490,20 @@ setbang_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_setbang:
+                        .quad            3162442386778
+                        .quad            64
+                        .quad            .Lgcmap_setbang_s
+                        .quad            0
+.Lgcmap_setbang_s:      .string          "setbang"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__tblcreate:
-                        sub              rsp, 368
-                        mov              qword ptr [rsp + 360], rbp
+                        sub              rsp, 384
+                        lea              rax, [rip + .Lgcmap_tblcreate]
+                        mov              qword ptr [rsp + 312], rax
+                        mov              dword ptr [rsp + 304], 160
+                        mov              dword ptr [rsp + 308], 384
+                        mov              qword ptr [rsp + 376], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -51638,8 +52797,8 @@ tblcreate_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 368]
-                        mov              rbp, qword ptr [rbp + 360];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 384]
+                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tblcreate_ω:
                         push             rax
@@ -51678,8 +52837,8 @@ tblcreate_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 368]
-                        mov              rbp, qword ptr [rbp + 360];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 384]
+                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tblcreate_dcα:
                         pop              r12
@@ -51711,9 +52870,20 @@ tblcreate_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_tblcreate:
+                        .quad            1650613898586
+                        .quad            64
+                        .quad            .Lgcmap_tblcreate_s
+                        .quad            0
+.Lgcmap_tblcreate_s:    .string          "tblcreate"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__tblasgn:
-                        sub              rsp, 656
-                        mov              qword ptr [rsp + 648], rbp
+                        sub              rsp, 672
+                        lea              rax, [rip + .Lgcmap_tblasgn]
+                        mov              qword ptr [rsp + 600], rax
+                        mov              dword ptr [rsp + 592], 160
+                        mov              dword ptr [rsp + 596], 672
+                        mov              qword ptr [rsp + 664], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -52284,8 +53454,8 @@ tblasgn_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 656]
-                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 672]
+                        mov              rbp, qword ptr [rbp + 664];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tblasgn_ω:
                         push             rax
@@ -52324,8 +53494,8 @@ tblasgn_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 656]
-                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 672]
+                        mov              rbp, qword ptr [rbp + 664];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tblasgn_dcα:
                         pop              r12
@@ -52357,9 +53527,20 @@ tblasgn_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_tblasgn:
+                        .quad            2887564479834
+                        .quad            64
+                        .quad            .Lgcmap_tblasgn_s
+                        .quad            0
+.Lgcmap_tblasgn_s:      .string          "tblasgn"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__tblsub:
-                        sub              rsp, 640
-                        mov              qword ptr [rsp + 632], rbp
+                        sub              rsp, 656
+                        lea              rax, [rip + .Lgcmap_tblsub]
+                        mov              qword ptr [rsp + 584], rax
+                        mov              dword ptr [rsp + 576], 160
+                        mov              dword ptr [rsp + 580], 656
+                        mov              qword ptr [rsp + 648], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -52919,8 +54100,8 @@ tblsub_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 640]
-                        mov              rbp, qword ptr [rbp + 632];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 656]
+                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 tblsub_ω:
                         push             rax
@@ -52959,8 +54140,8 @@ tblsub_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 640]
-                        mov              rbp, qword ptr [rbp + 632];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 656]
+                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 tblsub_dcα:
                         pop              r12
@@ -52992,9 +54173,20 @@ tblsub_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_tblsub:
+                        .quad            2818845003098
+                        .quad            64
+                        .quad            .Lgcmap_tblsub_s
+                        .quad            0
+.Lgcmap_tblsub_s:       .string          "tblsub"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__recconstr:
-                        sub              rsp, 432
-                        mov              qword ptr [rsp + 424], rbp
+                        sub              rsp, 448
+                        lea              rax, [rip + .Lgcmap_recconstr]
+                        mov              qword ptr [rsp + 376], rax
+                        mov              dword ptr [rsp + 368], 160
+                        mov              dword ptr [rsp + 372], 448
+                        mov              qword ptr [rsp + 440], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -53314,8 +54506,8 @@ recconstr_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 432]
-                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 448]
+                        mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 recconstr_ω:
                         push             rax
@@ -53354,8 +54546,8 @@ recconstr_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 432]
-                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 448]
+                        mov              rbp, qword ptr [rbp + 440];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 recconstr_dcα:
                         pop              r12
@@ -53387,9 +54579,20 @@ recconstr_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_recconstr:
+                        .quad            1925491805530
+                        .quad            64
+                        .quad            .Lgcmap_recconstr_s
+                        .quad            0
+.Lgcmap_recconstr_s:    .string          "recconstr"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__reccopy:
-                        sub              rsp, 640
-                        mov              qword ptr [rsp + 632], rbp
+                        sub              rsp, 656
+                        lea              rax, [rip + .Lgcmap_reccopy]
+                        mov              qword ptr [rsp + 584], rax
+                        mov              dword ptr [rsp + 576], 160
+                        mov              dword ptr [rsp + 580], 656
+                        mov              qword ptr [rsp + 648], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -53907,8 +55110,8 @@ reccopy_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 640]
-                        mov              rbp, qword ptr [rbp + 632];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 656]
+                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 reccopy_ω:
                         push             rax
@@ -53947,8 +55150,8 @@ reccopy_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 640]
-                        mov              rbp, qword ptr [rbp + 632];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 656]
+                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 reccopy_dcα:
                         pop              r12
@@ -53980,9 +55183,20 @@ reccopy_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_reccopy:
+                        .quad            2818845003098
+                        .quad            64
+                        .quad            .Lgcmap_reccopy_s
+                        .quad            0
+.Lgcmap_reccopy_s:      .string          "reccopy"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__recfield:
-                        sub              rsp, 624
-                        mov              qword ptr [rsp + 616], rbp
+                        sub              rsp, 640
+                        lea              rax, [rip + .Lgcmap_recfield]
+                        mov              qword ptr [rsp + 552], rax
+                        mov              dword ptr [rsp + 544], 160
+                        mov              dword ptr [rsp + 548], 640
+                        mov              qword ptr [rsp + 632], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -54484,8 +55698,8 @@ recfield_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 624]
-                        mov              rbp, qword ptr [rbp + 616];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 640]
+                        mov              rbp, qword ptr [rbp + 632];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 recfield_ω:
                         push             rax
@@ -54524,8 +55738,8 @@ recfield_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 624]
-                        mov              rbp, qword ptr [rbp + 616];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 640]
+                        mov              rbp, qword ptr [rbp + 632];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 recfield_dcα:
                         pop              r12
@@ -54557,9 +55771,20 @@ recfield_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_recfield:
+                        .quad            2750125526362
+                        .quad            80
+                        .quad            .Lgcmap_recfield_s
+                        .quad            0
+.Lgcmap_recfield_s:     .string          "recfield"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__bigfield:
-                        sub              rsp, 560
-                        mov              qword ptr [rsp + 552], rbp
+                        sub              rsp, 576
+                        lea              rax, [rip + .Lgcmap_bigfield]
+                        mov              qword ptr [rsp + 488], rax
+                        mov              dword ptr [rsp + 480], 160
+                        mov              dword ptr [rsp + 484], 576
+                        mov              qword ptr [rsp + 568], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -55035,8 +56260,8 @@ bigfield_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 560]
-                        mov              rbp, qword ptr [rbp + 552];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 576]
+                        mov              rbp, qword ptr [rbp + 568];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 bigfield_ω:
                         push             rax
@@ -55075,8 +56300,8 @@ bigfield_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 560]
-                        mov              rbp, qword ptr [rbp + 552];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 576]
+                        mov              rbp, qword ptr [rbp + 568];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 bigfield_dcα:
                         pop              r12
@@ -55108,9 +56333,20 @@ bigfield_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_bigfield:
+                        .quad            2475247619418
+                        .quad            80
+                        .quad            .Lgcmap_bigfield_s
+                        .quad            0
+.Lgcmap_bigfield_s:     .string          "bigfield"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__globasgn:
-                        sub              rsp, 368
-                        mov              qword ptr [rsp + 360], rbp
+                        sub              rsp, 384
+                        lea              rax, [rip + .Lgcmap_globasgn]
+                        mov              qword ptr [rsp + 312], rax
+                        mov              dword ptr [rsp + 304], 160
+                        mov              dword ptr [rsp + 308], 384
+                        mov              qword ptr [rsp + 376], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -55428,8 +56664,8 @@ globasgn_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 368]
-                        mov              rbp, qword ptr [rbp + 360];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 384]
+                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 globasgn_ω:
                         push             rax
@@ -55468,8 +56704,8 @@ globasgn_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 368]
-                        mov              rbp, qword ptr [rbp + 360];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 384]
+                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 globasgn_dcα:
                         pop              r12
@@ -55501,9 +56737,20 @@ globasgn_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_globasgn:
+                        .quad            1650613898586
+                        .quad            64
+                        .quad            .Lgcmap_globasgn_s
+                        .quad            0
+.Lgcmap_globasgn_s:     .string          "globasgn"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__loclasgn:
-                        sub              rsp, 416
-                        mov              qword ptr [rsp + 408], rbp
+                        sub              rsp, 432
+                        lea              rax, [rip + .Lgcmap_loclasgn]
+                        mov              qword ptr [rsp + 344], rax
+                        mov              dword ptr [rsp + 336], 160
+                        mov              dword ptr [rsp + 340], 432
+                        mov              qword ptr [rsp + 424], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         add              rdi, 320
@@ -55794,8 +57041,8 @@ loclasgn_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 loclasgn_ω:
                         push             rax
@@ -55834,8 +57081,8 @@ loclasgn_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 416]
-                        mov              rbp, qword ptr [rbp + 408];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 432]
+                        mov              rbp, qword ptr [rbp + 424];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 loclasgn_dcα:
                         pop              r12
@@ -55867,9 +57114,20 @@ loclasgn_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_loclasgn:
+                        .quad            1856772328794
+                        .quad            80
+                        .quad            .Lgcmap_loclasgn_s
+                        .quad            0
+.Lgcmap_loclasgn_s:     .string          "loclasgn"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__statasgn:
-                        sub              rsp, 384
-                        mov              qword ptr [rsp + 376], rbp
+                        sub              rsp, 400
+                        lea              rax, [rip + .Lgcmap_statasgn]
+                        mov              qword ptr [rsp + 328], rax
+                        mov              dword ptr [rsp + 320], 160
+                        mov              dword ptr [rsp + 324], 400
+                        mov              qword ptr [rsp + 392], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -56194,8 +57452,8 @@ statasgn_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 384]
-                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 400]
+                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 statasgn_ω:
                         push             rax
@@ -56234,8 +57492,8 @@ statasgn_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 384]
-                        mov              rbp, qword ptr [rbp + 376];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 400]
+                        mov              rbp, qword ptr [rbp + 392];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 statasgn_dcα:
                         pop              r12
@@ -56267,9 +57525,20 @@ statasgn_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_statasgn:
+                        .quad            1719333375322
+                        .quad            64
+                        .quad            .Lgcmap_statasgn_s
+                        .quad            0
+.Lgcmap_statasgn_s:     .string          "statasgn"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__readz:
-                        sub              rsp, 704
-                        mov              qword ptr [rsp + 696], rbp
+                        sub              rsp, 720
+                        lea              rax, [rip + .Lgcmap_readz]
+                        mov              qword ptr [rsp + 648], rax
+                        mov              dword ptr [rsp + 640], 160
+                        mov              dword ptr [rsp + 644], 720
+                        mov              qword ptr [rsp + 712], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -56806,8 +58075,8 @@ readz_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 704]
-                        mov              rbp, qword ptr [rbp + 696];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 720]
+                        mov              rbp, qword ptr [rbp + 712];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 readz_ω:
                         push             rax
@@ -56846,8 +58115,8 @@ readz_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 704]
-                        mov              rbp, qword ptr [rbp + 696];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 720]
+                        mov              rbp, qword ptr [rbp + 712];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 readz_dcα:
                         pop              r12
@@ -56879,9 +58148,20 @@ readz_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_readz:
+                        .quad            3093722910042
+                        .quad            64
+                        .quad            .Lgcmap_readz_s
+                        .quad            0
+.Lgcmap_readz_s:        .string          "readz"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__writecon:
-                        sub              rsp, 464
-                        mov              qword ptr [rsp + 456], rbp
+                        sub              rsp, 480
+                        lea              rax, [rip + .Lgcmap_writecon]
+                        mov              qword ptr [rsp + 408], rax
+                        mov              dword ptr [rsp + 400], 160
+                        mov              dword ptr [rsp + 404], 480
+                        mov              qword ptr [rsp + 472], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -57222,8 +58502,8 @@ writecon_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 464]
-                        mov              rbp, qword ptr [rbp + 456];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 480]
+                        mov              rbp, qword ptr [rbp + 472];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 writecon_ω:
                         push             rax
@@ -57262,8 +58542,8 @@ writecon_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 464]
-                        mov              rbp, qword ptr [rbp + 456];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 480]
+                        mov              rbp, qword ptr [rbp + 472];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 writecon_dcα:
                         pop              r12
@@ -57295,9 +58575,20 @@ writecon_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_writecon:
+                        .quad            2062930759002
+                        .quad            64
+                        .quad            .Lgcmap_writecon_s
+                        .quad            0
+.Lgcmap_writecon_s:     .string          "writecon"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__writestr:
-                        sub              rsp, 624
-                        mov              qword ptr [rsp + 616], rbp
+                        sub              rsp, 640
+                        lea              rax, [rip + .Lgcmap_writestr]
+                        mov              qword ptr [rsp + 568], rax
+                        mov              dword ptr [rsp + 560], 160
+                        mov              dword ptr [rsp + 564], 640
+                        mov              qword ptr [rsp + 632], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -57799,8 +59090,8 @@ writestr_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 624]
-                        mov              rbp, qword ptr [rbp + 616];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 640]
+                        mov              rbp, qword ptr [rbp + 632];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 writestr_ω:
                         push             rax
@@ -57839,8 +59130,8 @@ writestr_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 624]
-                        mov              rbp, qword ptr [rbp + 616];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 640]
+                        mov              rbp, qword ptr [rbp + 632];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 writestr_dcα:
                         pop              r12
@@ -57872,9 +59163,20 @@ writestr_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_writestr:
+                        .quad            2750125526362
+                        .quad            64
+                        .quad            .Lgcmap_writestr_s
+                        .quad            0
+.Lgcmap_writestr_s:     .string          "writestr"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__cxcreate:
-                        sub              rsp, 480
-                        mov              qword ptr [rsp + 472], rbp
+                        sub              rsp, 496
+                        lea              rax, [rip + .Lgcmap_cxcreate]
+                        mov              qword ptr [rsp + 424], rax
+                        mov              dword ptr [rsp + 416], 160
+                        mov              dword ptr [rsp + 420], 496
+                        mov              qword ptr [rsp + 488], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -58052,8 +59354,8 @@ n02408_create_α:         mov              r11, 2450
                         mov              qword ptr [rbp + 208], r9
                         lea              rdi, [rip + n02409_repalt_α]
                         lea              rsi, [rbp + 160]
-                        mov              edx, 480
-                        mov              ecx, 480
+                        mov              edx, 496
+                        mov              ecx, 496
                         lea              r8, [rip + .S1]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -58225,8 +59527,8 @@ cxcreate_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 480]
-                        mov              rbp, qword ptr [rbp + 472];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 496]
+                        mov              rbp, qword ptr [rbp + 488];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 cxcreate_ω:
                         push             rax
@@ -58265,8 +59567,8 @@ cxcreate_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 480]
-                        mov              rbp, qword ptr [rbp + 472];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 496]
+                        mov              rbp, qword ptr [rbp + 488];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 cxcreate_dcα:
                         pop              r12
@@ -58298,9 +59600,20 @@ cxcreate_dcα:
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_cxcreate:
+                        .quad            2131650235738
+                        .quad            64
+                        .quad            .Lgcmap_cxcreate_s
+                        .quad            0
+.Lgcmap_cxcreate_s:     .string          "cxcreate"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__cxget:
-                        sub              rsp, 656
-                        mov              qword ptr [rsp + 648], rbp
+                        sub              rsp, 672
+                        lea              rax, [rip + .Lgcmap_cxget]
+                        mov              qword ptr [rsp + 600], rax
+                        mov              dword ptr [rsp + 592], 160
+                        mov              dword ptr [rsp + 596], 672
+                        mov              qword ptr [rsp + 664], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         mov              esi, 1
@@ -58655,8 +59968,8 @@ n02438_create_α:         mov              r11, 2481
                         mov              qword ptr [rbp + 416], r9
                         lea              rdi, [rip + n02439_repalt_α]
                         lea              rsi, [rbp + 368]
-                        mov              edx, 656
-                        mov              ecx, 656
+                        mov              edx, 672
+                        mov              ecx, 672
                         lea              r8, [rip + .S2]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -58832,8 +60145,8 @@ cxget_γ:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 656]
-                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp]
+                        lea              rsp, [rbp + 672]
+                        mov              rbp, qword ptr [rbp + 664];          jmp   qword ptr [rsp]
 #-----------------------------------------------------------------------------------------------------------------------
 cxget_ω:
                         push             rax
@@ -58872,8 +60185,8 @@ cxget_ω:
                         mov              rax, qword ptr [rip + kw_fnclevel@GOTPCREL]
                         mov              qword ptr [rax + 0], rcx
                         pop              rax
-                        lea              rsp, [rbp + 656]
-                        mov              rbp, qword ptr [rbp + 648];          jmp   qword ptr [rsp + 8]
+                        lea              rsp, [rbp + 672]
+                        mov              rbp, qword ptr [rbp + 664];          jmp   qword ptr [rsp + 8]
 #-----------------------------------------------------------------------------------------------------------------------
 cxget_dcα:
                         pop              r12
@@ -58904,6 +60217,13 @@ cxget_dcα:
                         pop              r12
                         mov              eax, 104
                         xor              edx, edx;                            jmp   r12
+#-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_cxget:
+                        .quad            2887564479834
+                        .quad            64
+                        .quad            .Lgcmap_cxget_s
+                        .quad            0
+.Lgcmap_cxget_s:        .string          "cxget"
                         .globl           main
 main:
                         sub              rsp, 65544
@@ -58917,6 +60237,8 @@ main:
                         lea              rdi, [rip + __gva_names]
                         mov              edx, 65
                         call             gva_register@PLT
+                        lea              rdi, [rip + __gc_frame_maps]
+                        call             rt_gc_frame_maps_install_counted@PLT
                         mov              rdi, qword ptr [rsp]
                         mov              rdi, qword ptr [rdi]
                         call             rt_main_progname_stage@PLT
@@ -59072,8 +60394,12 @@ __gva_names:
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
-                        sub              rsp, 11328
-                        mov              qword ptr [rsp + 11320], rbp
+                        sub              rsp, 11344
+                        lea              rax, [rip + .Lgcmap_main]
+                        mov              qword ptr [rsp + 11224], rax
+                        mov              dword ptr [rsp + 11216], 160
+                        mov              dword ptr [rsp + 11220], 11344
+                        mov              qword ptr [rsp + 11336], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
                         add              rdi, 11184
@@ -70459,6 +71785,13 @@ main_ω:
                         and              rsp, -16
                         xor              edi, edi
                         call             exit@PLT
+#-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_main:
+                        .quad            48723455462746
+                        .quad            4294967408
+                        .quad            .Lgcmap_main_s
+                        .quad            0
+.Lgcmap_main_s:         .string          "main"
 module_init:
                         sub              rsp, 8
                         .section         .rodata
@@ -72039,7 +73372,7 @@ module_init:
                         mov              edx, 1
                         call             rt_proc_set_loc_params@PLT
                         lea              rdi, [rip + .Lstartup_pname34]
-                        mov              esi, 192
+                        mov              esi, 208
                         call             rt_proc_set_gen_region_ft@PLT
                         .section         .rodata
 .Lstartup_pname35:      .string          "intcoerce"
@@ -74567,6 +75900,132 @@ module_init:
                         call             rt_proc_set_loc_params@PLT
                         add              rsp, 8
                         ret
+                        .section         .rodata
+                        .align           8
+__gc_frame_maps:        .quad            121
+                        .quad            .Lgcmap_report
+                        .quad            .Lgcmap_measure
+                        .quad            .Lgcmap_nothing
+                        .quad            .Lgcmap_uplus
+                        .quad            .Lgcmap_uplusr
+                        .quad            .Lgcmap_absf
+                        .quad            .Lgcmap_intadd
+                        .quad            .Lgcmap_intcmp
+                        .quad            .Lgcmap_intpow
+                        .quad            .Lgcmap_realcmp
+                        .quad            .Lgcmap_cosf
+                        .quad            .Lgcmap_sqrtf
+                        .quad            .Lgcmap_logf
+                        .quad            .Lgcmap_nullfunc
+                        .quad            .Lgcmap_nullf
+                        .quad            .Lgcmap_listcall
+                        .quad            .Lgcmap_addfunc
+                        .quad            .Lgcmap_add
+                        .quad            .Lgcmap_rfact0
+                        .quad            .Lgcmap_rfact10
+                        .quad            .Lgcmap_rfact
+                        .quad            .Lgcmap_rfib5
+                        .quad            .Lgcmap_rfib
+                        .quad            .Lgcmap_prslow
+                        .quad            .Lgcmap_if0
+                        .quad            .Lgcmap_case3
+                        .quad            .Lgcmap_nulltest
+                        .quad            .Lgcmap_typef
+                        .quad            .Lgcmap_imagef
+                        .quad            .Lgcmap_marshal
+                        .quad            .Lgcmap_conj5
+                        .quad            .Lgcmap_everyalt
+                        .quad            .Lgcmap_everyto
+                        .quad            .Lgcmap_evsusp
+                        .quad            .Lgcmap_susproc
+                        .quad            .Lgcmap_intcoerce
+                        .quad            .Lgcmap_realcoerce
+                        .quad            .Lgcmap_strcoerce
+                        .quad            .Lgcmap_strcoercer
+                        .quad            .Lgcmap_tointeger
+                        .quad            .Lgcmap_toreal
+                        .quad            .Lgcmap_tostring
+                        .quad            .Lgcmap_rtostring
+                        .quad            .Lgcmap_tocset
+                        .quad            .Lgcmap_charf
+                        .quad            .Lgcmap_ordf
+                        .quad            .Lgcmap_strsize
+                        .quad            .Lgcmap_concat
+                        .quad            .Lgcmap_strpick
+                        .quad            .Lgcmap_strbang
+                        .quad            .Lgcmap_strsub
+                        .quad            .Lgcmap_substr
+                        .quad            .Lgcmap_subsasg
+                        .quad            .Lgcmap_strcmp
+                        .quad            .Lgcmap_strident
+                        .quad            .Lgcmap_replf
+                        .quad            .Lgcmap_reversef
+                        .quad            .Lgcmap_leftf
+                        .quad            .Lgcmap_centerf
+                        .quad            .Lgcmap_rightf
+                        .quad            .Lgcmap_trimf
+                        .quad            .Lgcmap_entabf
+                        .quad            .Lgcmap_detabf
+                        .quad            .Lgcmap_mapf
+                        .quad            .Lgcmap_map1
+                        .quad            .Lgcmap_map2
+                        .quad            .Lgcmap_tablemap
+                        .quad            .Lgcmap_listmap
+                        .quad            .Lgcmap_nullscan
+                        .quad            .Lgcmap_movef
+                        .quad            .Lgcmap_mov11
+                        .quad            .Lgcmap_pos11
+                        .quad            .Lgcmap_tabf
+                        .quad            .Lgcmap_matchf
+                        .quad            .Lgcmap_tabmat
+                        .quad            .Lgcmap_posf
+                        .quad            .Lgcmap_anyf
+                        .quad            .Lgcmap_manyf
+                        .quad            .Lgcmap_uptof
+                        .quad            .Lgcmap_findf
+                        .quad            .Lgcmap_balf
+                        .quad            .Lgcmap_cssize
+                        .quad            .Lgcmap_cscompl
+                        .quad            .Lgcmap_lcreate
+                        .quad            .Lgcmap_lconst
+                        .quad            .Lgcmap_lcopy
+                        .quad            .Lgcmap_lsort
+                        .quad            .Lgcmap_lsize
+                        .quad            .Lgcmap_lpick
+                        .quad            .Lgcmap_lsubscr
+                        .quad            .Lgcmap_lbang
+                        .quad            .Lgcmap_put1get1
+                        .quad            .Lgcmap_put2get2
+                        .quad            .Lgcmap_put3get3
+                        .quad            .Lgcmap_put4get4
+                        .quad            .Lgcmap_pushpop
+                        .quad            .Lgcmap_putget12
+                        .quad            .Lgcmap_pushpop12
+                        .quad            .Lgcmap_setcreate
+                        .quad            .Lgcmap_setcopy
+                        .quad            .Lgcmap_setinsert
+                        .quad            .Lgcmap_setmember
+                        .quad            .Lgcmap_setinsdel
+                        .quad            .Lgcmap_setpick
+                        .quad            .Lgcmap_setbang
+                        .quad            .Lgcmap_tblcreate
+                        .quad            .Lgcmap_tblasgn
+                        .quad            .Lgcmap_tblsub
+                        .quad            .Lgcmap_recconstr
+                        .quad            .Lgcmap_reccopy
+                        .quad            .Lgcmap_recfield
+                        .quad            .Lgcmap_bigfield
+                        .quad            .Lgcmap_globasgn
+                        .quad            .Lgcmap_loclasgn
+                        .quad            .Lgcmap_statasgn
+                        .quad            .Lgcmap_readz
+                        .quad            .Lgcmap_writecon
+                        .quad            .Lgcmap_writestr
+                        .quad            .Lgcmap_cxcreate
+                        .quad            .Lgcmap_cxget
+                        .quad            .Lgcmap_main
+                        .section         .text
+                        .intel_syntax    noprefix
                         .section         .rodata
 .S0:                    .string          "susproc"
 .S1:                    .string          "cxcreate"
