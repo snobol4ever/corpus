@@ -225,6 +225,8 @@ main:
                         lea              rdi, [rip + __label_names]
                         mov              esi, 4
                         call             rt_label_table_install@PLT
+                        lea              rdi, [rip + __gc_frame_maps]
+                        call             rt_gc_frame_maps_install_counted@PLT
                         mov              rdi, qword ptr [rsp]
                         mov              rdi, qword ptr [rdi]
                         call             rt_main_progname_stage@PLT
@@ -275,6 +277,10 @@ __label_names:
                         .intel_syntax    noprefix
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
+                        lea              rax, [rip + .Lgcmap_main]
+                        mov              qword ptr [rsp + 1816], rax
+                        mov              dword ptr [rsp + 1808], 160
+                        mov              dword ptr [rsp + 1812], 1824
 main_α_body:
                         sub              rsp, 0
                         .type            n24_lit_integer_bx, @function
@@ -2889,6 +2895,13 @@ main_ω:
                         add              rsp, 0
                         mov              edi, 1
                         call             exit@PLT
+#-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_main:
+                        .quad            7835366804826
+                        .quad            4294967296
+                        .quad            .Lgcmap_main_s
+                        .quad            0
+.Lgcmap_main_s:         .string          "main"
 module_init:
                         sub              rsp, 8
                         .section         .rodata
@@ -2939,6 +2952,12 @@ module_init:
                         call             rt_proc_register_rec@PLT
                         add              rsp, 8
                         ret
+                        .section         .rodata
+                        .align           8
+__gc_frame_maps:        .quad            1
+                        .quad            .Lgcmap_main
+                        .section         .text
+                        .intel_syntax    noprefix
                         .section         .rodata
 .S0:                    .string          "W"
 .S1:                    .string          "PATV$0"
