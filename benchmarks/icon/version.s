@@ -91,7 +91,14 @@ n2_kw_icon_α:           mov              r11, 2
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    main_ω
                         mov              qword ptr [rbp + 48], rax
-                        mov              qword ptr [rbp + 56], rdx;           jmp   n3_line_mark_α
+                        mov              qword ptr [rbp + 56], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n3_line_mark_α
 n2_kw_icon_β:           mov              r11, 2;                              jmp   main_ω
 .Lkw_icon_α_7_0:        .quad            .Lkw_icon_α_7_0_s
 .Lkw_icon_α_7_0_s:      .string          "&version"
@@ -129,7 +136,13 @@ n4_call_icon_α:         mov              r11, 4
                         mov              qword ptr [rbp + 0], rax
                         mov              qword ptr [rbp + 8], rdx
                         cmp              al, 104;                             je    main_ω
-                                                                              jmp   main_ω
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   main_ω
 n4_call_icon_β:         mov              r11, 4;                              jmp   main_ω
                         .size            n4_call_icon_bx, .-n4_call_icon_bx
 #-----------------------------------------------------------------------------------------------------------------------
