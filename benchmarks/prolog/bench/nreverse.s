@@ -319,7 +319,7 @@ $db_decl$2F0_ω:
                         .quad            80
                         .quad            .Lgcmap_$db_decl$2F0_s
                         .quad            0
-.Lgcmap_$db_decl$2F0_s: .string          "$db_decl$2F0"
+.Lgcmap_$db_decl$2F0_s: .string          "$db_decl/0"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__nreverse$2F2:
                         sub              rsp, 368
@@ -973,7 +973,7 @@ nreverse$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_nreverse$2F2_s
                         .quad            0
-.Lgcmap_nreverse$2F2_s: .string          "nreverse$2F2"
+.Lgcmap_nreverse$2F2_s: .string          "nreverse/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__reverse$2F2:
                         sub              rsp, 240
@@ -1262,7 +1262,7 @@ reverse$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_reverse$2F2_s
                         .quad            0
-.Lgcmap_reverse$2F2_s:  .string          "reverse$2F2"
+.Lgcmap_reverse$2F2_s:  .string          "reverse/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$reverse_$2F3:
                         sub              rsp, 336
@@ -1763,7 +1763,7 @@ $reverse_$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_$reverse_$2F3_s
                         .quad            0
-.Lgcmap_$reverse_$2F3_s: .string          "$reverse_$2F3"
+.Lgcmap_$reverse_$2F3_s: .string          "$reverse_/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__concatenate$2F3:
                         sub              rsp, 352
@@ -2308,7 +2308,7 @@ concatenate$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_concatenate$2F3_s
                         .quad            0
-.Lgcmap_concatenate$2F3_s: .string          "concatenate$2F3"
+.Lgcmap_concatenate$2F3_s: .string          "concatenate/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__bench_work$2F1:
                         sub              rsp, 1152
@@ -3973,7 +3973,7 @@ bench_work$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_bench_work$2F1_s
                         .quad            0
-.Lgcmap_bench_work$2F1_s: .string          "bench_work$2F1"
+.Lgcmap_bench_work$2F1_s: .string          "bench_work/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__main$2F0:
                         sub              rsp, 208
@@ -4225,7 +4225,7 @@ main$2F0_ω:
                         .quad            80
                         .quad            .Lgcmap_main$2F0_s
                         .quad            0
-.Lgcmap_main$2F0_s:     .string          "main$2F0"
+.Lgcmap_main$2F0_s:     .string          "main/0"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$fc$2F3:
                         sub              rsp, 400
@@ -5270,7 +5270,7 @@ $fc$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_$fc$2F3_s
                         .quad            0
-.Lgcmap_$fc$2F3_s:      .string          "$fc$2F3"
+.Lgcmap_$fc$2F3_s:      .string          "$fc/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$2C$2F2:
                         sub              rsp, 576
@@ -6002,7 +6002,7 @@ $2C$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_$2C$2F2_s
                         .quad            0
-.Lgcmap_$2C$2F2_s:      .string          "$2C$2F2"
+.Lgcmap_$2C$2F2_s:      .string          ",/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$3B$2F2:
                         sub              rsp, 1616
@@ -8054,7 +8054,7 @@ $3B$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_$3B$2F2_s
                         .quad            0
-.Lgcmap_$3B$2F2_s:      .string          "$3B$2F2"
+.Lgcmap_$3B$2F2_s:      .string          ";/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$2D$3E$2F2:
                         sub              rsp, 288
@@ -8347,7 +8347,7 @@ $2D$3E$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_$2D$3E$2F2_s
                         .quad            0
-.Lgcmap_$2D$3E$2F2_s:   .string          "$2D$3E$2F2"
+.Lgcmap_$2D$3E$2F2_s:   .string          "->/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$2A$2D$3E$2F2:
                         sub              rsp, 288
@@ -8630,7 +8630,7 @@ $2A$2D$3E$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_$2A$2D$3E$2F2_s
                         .quad            0
-.Lgcmap_$2A$2D$3E$2F2_s: .string          "$2A$2D$3E$2F2"
+.Lgcmap_$2A$2D$3E$2F2_s: .string          "*->/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__if$2F3:
                         sub              rsp, 512
@@ -9084,7 +9084,7 @@ if$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_if$2F3_s
                         .quad            0
-.Lgcmap_if$2F3_s:       .string          "if$2F3"
+.Lgcmap_if$2F3_s:       .string          "if/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__var$2F1:
                         sub              rsp, 176
@@ -9194,7 +9194,7 @@ var$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_var$2F1_s
                         .quad            0
-.Lgcmap_var$2F1_s:      .string          "var$2F1"
+.Lgcmap_var$2F1_s:      .string          "var/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__nonvar$2F1:
                         sub              rsp, 176
@@ -9304,7 +9304,7 @@ nonvar$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_nonvar$2F1_s
                         .quad            0
-.Lgcmap_nonvar$2F1_s:   .string          "nonvar$2F1"
+.Lgcmap_nonvar$2F1_s:   .string          "nonvar/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__atom$2F1:
                         sub              rsp, 176
@@ -9414,7 +9414,7 @@ atom$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_atom$2F1_s
                         .quad            0
-.Lgcmap_atom$2F1_s:     .string          "atom$2F1"
+.Lgcmap_atom$2F1_s:     .string          "atom/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__number$2F1:
                         sub              rsp, 176
@@ -9524,7 +9524,7 @@ number$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_number$2F1_s
                         .quad            0
-.Lgcmap_number$2F1_s:   .string          "number$2F1"
+.Lgcmap_number$2F1_s:   .string          "number/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__integer$2F1:
                         sub              rsp, 176
@@ -9634,7 +9634,7 @@ integer$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_integer$2F1_s
                         .quad            0
-.Lgcmap_integer$2F1_s:  .string          "integer$2F1"
+.Lgcmap_integer$2F1_s:  .string          "integer/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__float$2F1:
                         sub              rsp, 176
@@ -9744,7 +9744,7 @@ float$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_float$2F1_s
                         .quad            0
-.Lgcmap_float$2F1_s:    .string          "float$2F1"
+.Lgcmap_float$2F1_s:    .string          "float/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__atomic$2F1:
                         sub              rsp, 176
@@ -9854,7 +9854,7 @@ atomic$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_atomic$2F1_s
                         .quad            0
-.Lgcmap_atomic$2F1_s:   .string          "atomic$2F1"
+.Lgcmap_atomic$2F1_s:   .string          "atomic/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__compound$2F1:
                         sub              rsp, 176
@@ -9964,7 +9964,7 @@ compound$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_compound$2F1_s
                         .quad            0
-.Lgcmap_compound$2F1_s: .string          "compound$2F1"
+.Lgcmap_compound$2F1_s: .string          "compound/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__callable$2F1:
                         sub              rsp, 176
@@ -10074,7 +10074,7 @@ callable$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_callable$2F1_s
                         .quad            0
-.Lgcmap_callable$2F1_s: .string          "callable$2F1"
+.Lgcmap_callable$2F1_s: .string          "callable/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__ground$2F1:
                         sub              rsp, 176
@@ -10184,7 +10184,7 @@ ground$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_ground$2F1_s
                         .quad            0
-.Lgcmap_ground$2F1_s:   .string          "ground$2F1"
+.Lgcmap_ground$2F1_s:   .string          "ground/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__is_list$2F1:
                         sub              rsp, 176
@@ -10294,7 +10294,7 @@ is_list$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_is_list$2F1_s
                         .quad            0
-.Lgcmap_is_list$2F1_s:  .string          "is_list$2F1"
+.Lgcmap_is_list$2F1_s:  .string          "is_list/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__acyclic_term$2F1:
                         sub              rsp, 176
@@ -10405,7 +10405,7 @@ acyclic_term$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_acyclic_term$2F1_s
                         .quad            0
-.Lgcmap_acyclic_term$2F1_s: .string          "acyclic_term$2F1"
+.Lgcmap_acyclic_term$2F1_s: .string          "acyclic_term/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$3D$3D$2F2:
                         sub              rsp, 208
@@ -10524,7 +10524,7 @@ $3D$3D$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_$3D$3D$2F2_s
                         .quad            0
-.Lgcmap_$3D$3D$2F2_s:   .string          "$3D$3D$2F2"
+.Lgcmap_$3D$3D$2F2_s:   .string          "==/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$5C$3D$3D$2F2:
                         sub              rsp, 208
@@ -10643,7 +10643,7 @@ $5C$3D$3D$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_$5C$3D$3D$2F2_s
                         .quad            0
-.Lgcmap_$5C$3D$3D$2F2_s: .string          "$5C$3D$3D$2F2"
+.Lgcmap_$5C$3D$3D$2F2_s: .string          "\\==/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$40$3C$2F2:
                         sub              rsp, 208
@@ -10762,7 +10762,7 @@ $40$3C$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_$40$3C$2F2_s
                         .quad            0
-.Lgcmap_$40$3C$2F2_s:   .string          "$40$3C$2F2"
+.Lgcmap_$40$3C$2F2_s:   .string          "@</2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$40$3D$3C$2F2:
                         sub              rsp, 208
@@ -10881,7 +10881,7 @@ $40$3D$3C$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_$40$3D$3C$2F2_s
                         .quad            0
-.Lgcmap_$40$3D$3C$2F2_s: .string          "$40$3D$3C$2F2"
+.Lgcmap_$40$3D$3C$2F2_s: .string          "@=</2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$40$3E$2F2:
                         sub              rsp, 208
@@ -11000,7 +11000,7 @@ $40$3E$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_$40$3E$2F2_s
                         .quad            0
-.Lgcmap_$40$3E$2F2_s:   .string          "$40$3E$2F2"
+.Lgcmap_$40$3E$2F2_s:   .string          "@>/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$40$3E$3D$2F2:
                         sub              rsp, 208
@@ -11119,7 +11119,7 @@ $40$3E$3D$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_$40$3E$3D$2F2_s
                         .quad            0
-.Lgcmap_$40$3E$3D$2F2_s: .string          "$40$3E$3D$2F2"
+.Lgcmap_$40$3E$3D$2F2_s: .string          "@>=/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__compare$2F3:
                         sub              rsp, 240
@@ -11247,7 +11247,7 @@ compare$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_compare$2F3_s
                         .quad            0
-.Lgcmap_compare$2F3_s:  .string          "compare$2F3"
+.Lgcmap_compare$2F3_s:  .string          "compare/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__functor$2F3:
                         sub              rsp, 304
@@ -11429,7 +11429,7 @@ functor$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_functor$2F3_s
                         .quad            0
-.Lgcmap_functor$2F3_s:  .string          "functor$2F3"
+.Lgcmap_functor$2F3_s:  .string          "functor/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__arg$2F3:
                         sub              rsp, 304
@@ -11612,7 +11612,7 @@ arg$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_arg$2F3_s
                         .quad            0
-.Lgcmap_arg$2F3_s:      .string          "arg$2F3"
+.Lgcmap_arg$2F3_s:      .string          "arg/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$3D..$2F2:
                         sub              rsp, 208
@@ -11731,7 +11731,7 @@ $3D..$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_$3D..$2F2_s
                         .quad            0
-.Lgcmap_$3D..$2F2_s:    .string          "$3D..$2F2"
+.Lgcmap_$3D..$2F2_s:    .string          "=../2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__copy_term$2F2:
                         sub              rsp, 208
@@ -11850,7 +11850,7 @@ copy_term$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_copy_term$2F2_s
                         .quad            0
-.Lgcmap_copy_term$2F2_s: .string          "copy_term$2F2"
+.Lgcmap_copy_term$2F2_s: .string          "copy_term/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__term_variables$2F2:
                         sub              rsp, 208
@@ -11970,7 +11970,7 @@ term_variables$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_term_variables$2F2_s
                         .quad            0
-.Lgcmap_term_variables$2F2_s: .string          "term_variables$2F2"
+.Lgcmap_term_variables$2F2_s: .string          "term_variables/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__numbervars$2F3:
                         sub              rsp, 240
@@ -12098,7 +12098,7 @@ numbervars$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_numbervars$2F3_s
                         .quad            0
-.Lgcmap_numbervars$2F3_s: .string          "numbervars$2F3"
+.Lgcmap_numbervars$2F3_s: .string          "numbervars/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__numbervars$2F1:
                         sub              rsp, 176
@@ -12208,7 +12208,7 @@ numbervars$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_numbervars$2F1_s
                         .quad            0
-.Lgcmap_numbervars$2F1_s: .string          "numbervars$2F1"
+.Lgcmap_numbervars$2F1_s: .string          "numbervars/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__succ$2F2:
                         sub              rsp, 208
@@ -12327,7 +12327,7 @@ succ$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_succ$2F2_s
                         .quad            0
-.Lgcmap_succ$2F2_s:     .string          "succ$2F2"
+.Lgcmap_succ$2F2_s:     .string          "succ/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__plus$2F3:
                         sub              rsp, 240
@@ -12455,7 +12455,7 @@ plus$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_plus$2F3_s
                         .quad            0
-.Lgcmap_plus$2F3_s:     .string          "plus$2F3"
+.Lgcmap_plus$2F3_s:     .string          "plus/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__sort$2F2:
                         sub              rsp, 208
@@ -12574,7 +12574,7 @@ sort$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_sort$2F2_s
                         .quad            0
-.Lgcmap_sort$2F2_s:     .string          "sort$2F2"
+.Lgcmap_sort$2F2_s:     .string          "sort/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__msort$2F2:
                         sub              rsp, 208
@@ -12693,7 +12693,7 @@ msort$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_msort$2F2_s
                         .quad            0
-.Lgcmap_msort$2F2_s:    .string          "msort$2F2"
+.Lgcmap_msort$2F2_s:    .string          "msort/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__char_type$2F2:
                         sub              rsp, 208
@@ -12812,7 +12812,7 @@ char_type$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_char_type$2F2_s
                         .quad            0
-.Lgcmap_char_type$2F2_s: .string          "char_type$2F2"
+.Lgcmap_char_type$2F2_s: .string          "char_type/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__term_string$2F2:
                         sub              rsp, 208
@@ -12931,7 +12931,7 @@ term_string$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_term_string$2F2_s
                         .quad            0
-.Lgcmap_term_string$2F2_s: .string          "term_string$2F2"
+.Lgcmap_term_string$2F2_s: .string          "term_string/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__term_to_atom$2F2:
                         sub              rsp, 208
@@ -13051,7 +13051,7 @@ term_to_atom$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_term_to_atom$2F2_s
                         .quad            0
-.Lgcmap_term_to_atom$2F2_s: .string          "term_to_atom$2F2"
+.Lgcmap_term_to_atom$2F2_s: .string          "term_to_atom/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__atom_length$2F2:
                         sub              rsp, 256
@@ -13217,7 +13217,7 @@ atom_length$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_atom_length$2F2_s
                         .quad            0
-.Lgcmap_atom_length$2F2_s: .string          "atom_length$2F2"
+.Lgcmap_atom_length$2F2_s: .string          "atom_length/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__atom_concat$2F3:
                         sub              rsp, 368
@@ -13509,7 +13509,7 @@ atom_concat$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_atom_concat$2F3_s
                         .quad            0
-.Lgcmap_atom_concat$2F3_s: .string          "atom_concat$2F3"
+.Lgcmap_atom_concat$2F3_s: .string          "atom_concat/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__atom_chars$2F2:
                         sub              rsp, 256
@@ -13675,7 +13675,7 @@ atom_chars$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_atom_chars$2F2_s
                         .quad            0
-.Lgcmap_atom_chars$2F2_s: .string          "atom_chars$2F2"
+.Lgcmap_atom_chars$2F2_s: .string          "atom_chars/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__atom_codes$2F2:
                         sub              rsp, 256
@@ -13841,7 +13841,7 @@ atom_codes$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_atom_codes$2F2_s
                         .quad            0
-.Lgcmap_atom_codes$2F2_s: .string          "atom_codes$2F2"
+.Lgcmap_atom_codes$2F2_s: .string          "atom_codes/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__atom_number$2F2:
                         sub              rsp, 208
@@ -13960,7 +13960,7 @@ atom_number$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_atom_number$2F2_s
                         .quad            0
-.Lgcmap_atom_number$2F2_s: .string          "atom_number$2F2"
+.Lgcmap_atom_number$2F2_s: .string          "atom_number/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__atom_string$2F2:
                         sub              rsp, 208
@@ -14079,7 +14079,7 @@ atom_string$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_atom_string$2F2_s
                         .quad            0
-.Lgcmap_atom_string$2F2_s: .string          "atom_string$2F2"
+.Lgcmap_atom_string$2F2_s: .string          "atom_string/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__upcase_atom$2F2:
                         sub              rsp, 208
@@ -14198,7 +14198,7 @@ upcase_atom$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_upcase_atom$2F2_s
                         .quad            0
-.Lgcmap_upcase_atom$2F2_s: .string          "upcase_atom$2F2"
+.Lgcmap_upcase_atom$2F2_s: .string          "upcase_atom/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__downcase_atom$2F2:
                         sub              rsp, 208
@@ -14318,7 +14318,7 @@ downcase_atom$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_downcase_atom$2F2_s
                         .quad            0
-.Lgcmap_downcase_atom$2F2_s: .string          "downcase_atom$2F2"
+.Lgcmap_downcase_atom$2F2_s: .string          "downcase_atom/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__string_concat$2F3:
                         sub              rsp, 240
@@ -14447,7 +14447,7 @@ string_concat$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_string_concat$2F3_s
                         .quad            0
-.Lgcmap_string_concat$2F3_s: .string          "string_concat$2F3"
+.Lgcmap_string_concat$2F3_s: .string          "string_concat/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__string_length$2F2:
                         sub              rsp, 208
@@ -14567,7 +14567,7 @@ string_length$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_string_length$2F2_s
                         .quad            0
-.Lgcmap_string_length$2F2_s: .string          "string_length$2F2"
+.Lgcmap_string_length$2F2_s: .string          "string_length/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__string_lower$2F2:
                         sub              rsp, 208
@@ -14687,7 +14687,7 @@ string_lower$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_string_lower$2F2_s
                         .quad            0
-.Lgcmap_string_lower$2F2_s: .string          "string_lower$2F2"
+.Lgcmap_string_lower$2F2_s: .string          "string_lower/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__string_upper$2F2:
                         sub              rsp, 208
@@ -14807,7 +14807,7 @@ string_upper$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_string_upper$2F2_s
                         .quad            0
-.Lgcmap_string_upper$2F2_s: .string          "string_upper$2F2"
+.Lgcmap_string_upper$2F2_s: .string          "string_upper/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__string_to_atom$2F2:
                         sub              rsp, 208
@@ -14927,7 +14927,7 @@ string_to_atom$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_string_to_atom$2F2_s
                         .quad            0
-.Lgcmap_string_to_atom$2F2_s: .string          "string_to_atom$2F2"
+.Lgcmap_string_to_atom$2F2_s: .string          "string_to_atom/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__number_string$2F2:
                         sub              rsp, 256
@@ -15094,7 +15094,7 @@ number_string$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_number_string$2F2_s
                         .quad            0
-.Lgcmap_number_string$2F2_s: .string          "number_string$2F2"
+.Lgcmap_number_string$2F2_s: .string          "number_string/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__string_chars$2F2:
                         sub              rsp, 208
@@ -15214,7 +15214,7 @@ string_chars$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_string_chars$2F2_s
                         .quad            0
-.Lgcmap_string_chars$2F2_s: .string          "string_chars$2F2"
+.Lgcmap_string_chars$2F2_s: .string          "string_chars/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__string_codes$2F2:
                         sub              rsp, 208
@@ -15334,7 +15334,7 @@ string_codes$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_string_codes$2F2_s
                         .quad            0
-.Lgcmap_string_codes$2F2_s: .string          "string_codes$2F2"
+.Lgcmap_string_codes$2F2_s: .string          "string_codes/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__atomic_concat$2F3:
                         sub              rsp, 304
@@ -15518,7 +15518,7 @@ atomic_concat$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_atomic_concat$2F3_s
                         .quad            0
-.Lgcmap_atomic_concat$2F3_s: .string          "atomic_concat$2F3"
+.Lgcmap_atomic_concat$2F3_s: .string          "atomic_concat/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__atomic_list_concat$2F2:
                         sub              rsp, 256
@@ -15685,7 +15685,7 @@ atomic_list_concat$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_atomic_list_concat$2F2_s
                         .quad            0
-.Lgcmap_atomic_list_concat$2F2_s: .string          "atomic_list_concat$2F2"
+.Lgcmap_atomic_list_concat$2F2_s: .string          "atomic_list_concat/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__atomic_list_concat$2F3:
                         sub              rsp, 304
@@ -15869,7 +15869,7 @@ atomic_list_concat$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_atomic_list_concat$2F3_s
                         .quad            0
-.Lgcmap_atomic_list_concat$2F3_s: .string          "atomic_list_concat$2F3"
+.Lgcmap_atomic_list_concat$2F3_s: .string          "atomic_list_concat/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__concat_atom$2F2:
                         sub              rsp, 208
@@ -15988,7 +15988,7 @@ concat_atom$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_concat_atom$2F2_s
                         .quad            0
-.Lgcmap_concat_atom$2F2_s: .string          "concat_atom$2F2"
+.Lgcmap_concat_atom$2F2_s: .string          "concat_atom/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__concat_atom$2F3:
                         sub              rsp, 240
@@ -16116,7 +16116,7 @@ concat_atom$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_concat_atom$2F3_s
                         .quad            0
-.Lgcmap_concat_atom$2F3_s: .string          "concat_atom$2F3"
+.Lgcmap_concat_atom$2F3_s: .string          "concat_atom/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__char_code$2F2:
                         sub              rsp, 256
@@ -16282,7 +16282,7 @@ char_code$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_char_code$2F2_s
                         .quad            0
-.Lgcmap_char_code$2F2_s: .string          "char_code$2F2"
+.Lgcmap_char_code$2F2_s: .string          "char_code/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__number_codes$2F2:
                         sub              rsp, 256
@@ -16449,7 +16449,7 @@ number_codes$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_number_codes$2F2_s
                         .quad            0
-.Lgcmap_number_codes$2F2_s: .string          "number_codes$2F2"
+.Lgcmap_number_codes$2F2_s: .string          "number_codes/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__number_chars$2F2:
                         sub              rsp, 256
@@ -16616,7 +16616,7 @@ number_chars$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_number_chars$2F2_s
                         .quad            0
-.Lgcmap_number_chars$2F2_s: .string          "number_chars$2F2"
+.Lgcmap_number_chars$2F2_s: .string          "number_chars/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__name$2F2:
                         sub              rsp, 208
@@ -16735,7 +16735,7 @@ name$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_name$2F2_s
                         .quad            0
-.Lgcmap_name$2F2_s:     .string          "name$2F2"
+.Lgcmap_name$2F2_s:     .string          "name/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__get_char$2F1:
                         sub              rsp, 176
@@ -16845,7 +16845,7 @@ get_char$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_get_char$2F1_s
                         .quad            0
-.Lgcmap_get_char$2F1_s: .string          "get_char$2F1"
+.Lgcmap_get_char$2F1_s: .string          "get_char/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__peek_char$2F1:
                         sub              rsp, 176
@@ -16955,7 +16955,7 @@ peek_char$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_peek_char$2F1_s
                         .quad            0
-.Lgcmap_peek_char$2F1_s: .string          "peek_char$2F1"
+.Lgcmap_peek_char$2F1_s: .string          "peek_char/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__get_code$2F1:
                         sub              rsp, 176
@@ -17065,7 +17065,7 @@ get_code$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_get_code$2F1_s
                         .quad            0
-.Lgcmap_get_code$2F1_s: .string          "get_code$2F1"
+.Lgcmap_get_code$2F1_s: .string          "get_code/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__peek_code$2F1:
                         sub              rsp, 176
@@ -17175,7 +17175,7 @@ peek_code$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_peek_code$2F1_s
                         .quad            0
-.Lgcmap_peek_code$2F1_s: .string          "peek_code$2F1"
+.Lgcmap_peek_code$2F1_s: .string          "peek_code/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__get_byte$2F1:
                         sub              rsp, 176
@@ -17285,7 +17285,7 @@ get_byte$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_get_byte$2F1_s
                         .quad            0
-.Lgcmap_get_byte$2F1_s: .string          "get_byte$2F1"
+.Lgcmap_get_byte$2F1_s: .string          "get_byte/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__peek_byte$2F1:
                         sub              rsp, 176
@@ -17395,7 +17395,7 @@ peek_byte$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_peek_byte$2F1_s
                         .quad            0
-.Lgcmap_peek_byte$2F1_s: .string          "peek_byte$2F1"
+.Lgcmap_peek_byte$2F1_s: .string          "peek_byte/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__put_code$2F1:
                         sub              rsp, 176
@@ -17505,7 +17505,7 @@ put_code$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_put_code$2F1_s
                         .quad            0
-.Lgcmap_put_code$2F1_s: .string          "put_code$2F1"
+.Lgcmap_put_code$2F1_s: .string          "put_code/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__put_byte$2F1:
                         sub              rsp, 176
@@ -17615,7 +17615,7 @@ put_byte$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_put_byte$2F1_s
                         .quad            0
-.Lgcmap_put_byte$2F1_s: .string          "put_byte$2F1"
+.Lgcmap_put_byte$2F1_s: .string          "put_byte/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__unget_char$2F1:
                         sub              rsp, 176
@@ -17725,7 +17725,7 @@ unget_char$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_unget_char$2F1_s
                         .quad            0
-.Lgcmap_unget_char$2F1_s: .string          "unget_char$2F1"
+.Lgcmap_unget_char$2F1_s: .string          "unget_char/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__at_end_of_stream$2F0:
                         sub              rsp, 144
@@ -17823,7 +17823,7 @@ at_end_of_stream$2F0_ω:
                         .quad            80
                         .quad            .Lgcmap_at_end_of_stream$2F0_s
                         .quad            0
-.Lgcmap_at_end_of_stream$2F0_s: .string          "at_end_of_stream$2F0"
+.Lgcmap_at_end_of_stream$2F0_s: .string          "at_end_of_stream/0"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__current_prolog_flag$2F2:
                         sub              rsp, 208
@@ -17943,7 +17943,7 @@ current_prolog_flag$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_current_prolog_flag$2F2_s
                         .quad            0
-.Lgcmap_current_prolog_flag$2F2_s: .string          "current_prolog_flag$2F2"
+.Lgcmap_current_prolog_flag$2F2_s: .string          "current_prolog_flag/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__set_prolog_flag$2F2:
                         sub              rsp, 208
@@ -18063,7 +18063,7 @@ set_prolog_flag$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_set_prolog_flag$2F2_s
                         .quad            0
-.Lgcmap_set_prolog_flag$2F2_s: .string          "set_prolog_flag$2F2"
+.Lgcmap_set_prolog_flag$2F2_s: .string          "set_prolog_flag/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__telling$2F1:
                         sub              rsp, 176
@@ -18173,7 +18173,7 @@ telling$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_telling$2F1_s
                         .quad            0
-.Lgcmap_telling$2F1_s:  .string          "telling$2F1"
+.Lgcmap_telling$2F1_s:  .string          "telling/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__seeing$2F1:
                         sub              rsp, 176
@@ -18283,7 +18283,7 @@ seeing$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_seeing$2F1_s
                         .quad            0
-.Lgcmap_seeing$2F1_s:   .string          "seeing$2F1"
+.Lgcmap_seeing$2F1_s:   .string          "seeing/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__tell$2F1:
                         sub              rsp, 176
@@ -18393,7 +18393,7 @@ tell$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_tell$2F1_s
                         .quad            0
-.Lgcmap_tell$2F1_s:     .string          "tell$2F1"
+.Lgcmap_tell$2F1_s:     .string          "tell/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__append$2F1:
                         sub              rsp, 176
@@ -18503,7 +18503,7 @@ append$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_append$2F1_s
                         .quad            0
-.Lgcmap_append$2F1_s:   .string          "append$2F1"
+.Lgcmap_append$2F1_s:   .string          "append/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__see$2F1:
                         sub              rsp, 176
@@ -18613,7 +18613,7 @@ see$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_see$2F1_s
                         .quad            0
-.Lgcmap_see$2F1_s:      .string          "see$2F1"
+.Lgcmap_see$2F1_s:      .string          "see/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__told$2F0:
                         sub              rsp, 144
@@ -18710,7 +18710,7 @@ told$2F0_ω:
                         .quad            80
                         .quad            .Lgcmap_told$2F0_s
                         .quad            0
-.Lgcmap_told$2F0_s:     .string          "told$2F0"
+.Lgcmap_told$2F0_s:     .string          "told/0"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__seen$2F0:
                         sub              rsp, 144
@@ -18807,7 +18807,7 @@ seen$2F0_ω:
                         .quad            80
                         .quad            .Lgcmap_seen$2F0_s
                         .quad            0
-.Lgcmap_seen$2F0_s:     .string          "seen$2F0"
+.Lgcmap_seen$2F0_s:     .string          "seen/0"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__at_end_of_stream$2F1:
                         sub              rsp, 176
@@ -18918,7 +18918,7 @@ at_end_of_stream$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_at_end_of_stream$2F1_s
                         .quad            0
-.Lgcmap_at_end_of_stream$2F1_s: .string          "at_end_of_stream$2F1"
+.Lgcmap_at_end_of_stream$2F1_s: .string          "at_end_of_stream/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__put$2F1:
                         sub              rsp, 176
@@ -19028,7 +19028,7 @@ put$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_put$2F1_s
                         .quad            0
-.Lgcmap_put$2F1_s:      .string          "put$2F1"
+.Lgcmap_put$2F1_s:      .string          "put/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__get0$2F1:
                         sub              rsp, 176
@@ -19138,7 +19138,7 @@ get0$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_get0$2F1_s
                         .quad            0
-.Lgcmap_get0$2F1_s:     .string          "get0$2F1"
+.Lgcmap_get0$2F1_s:     .string          "get0/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__get$2F1:
                         sub              rsp, 176
@@ -19248,7 +19248,7 @@ get$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_get$2F1_s
                         .quad            0
-.Lgcmap_get$2F1_s:      .string          "get$2F1"
+.Lgcmap_get$2F1_s:      .string          "get/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__skip$2F1:
                         sub              rsp, 176
@@ -19358,7 +19358,7 @@ skip$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_skip$2F1_s
                         .quad            0
-.Lgcmap_skip$2F1_s:     .string          "skip$2F1"
+.Lgcmap_skip$2F1_s:     .string          "skip/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__unget_code$2F1:
                         sub              rsp, 176
@@ -19468,7 +19468,7 @@ unget_code$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_unget_code$2F1_s
                         .quad            0
-.Lgcmap_unget_code$2F1_s: .string          "unget_code$2F1"
+.Lgcmap_unget_code$2F1_s: .string          "unget_code/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__unget_byte$2F1:
                         sub              rsp, 176
@@ -19578,7 +19578,7 @@ unget_byte$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_unget_byte$2F1_s
                         .quad            0
-.Lgcmap_unget_byte$2F1_s: .string          "unget_byte$2F1"
+.Lgcmap_unget_byte$2F1_s: .string          "unget_byte/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__get_code$2F2:
                         sub              rsp, 208
@@ -19697,7 +19697,7 @@ get_code$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_get_code$2F2_s
                         .quad            0
-.Lgcmap_get_code$2F2_s: .string          "get_code$2F2"
+.Lgcmap_get_code$2F2_s: .string          "get_code/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__peek_code$2F2:
                         sub              rsp, 208
@@ -19816,7 +19816,7 @@ peek_code$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_peek_code$2F2_s
                         .quad            0
-.Lgcmap_peek_code$2F2_s: .string          "peek_code$2F2"
+.Lgcmap_peek_code$2F2_s: .string          "peek_code/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__get_byte$2F2:
                         sub              rsp, 208
@@ -19935,7 +19935,7 @@ get_byte$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_get_byte$2F2_s
                         .quad            0
-.Lgcmap_get_byte$2F2_s: .string          "get_byte$2F2"
+.Lgcmap_get_byte$2F2_s: .string          "get_byte/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__peek_byte$2F2:
                         sub              rsp, 208
@@ -20054,7 +20054,7 @@ peek_byte$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_peek_byte$2F2_s
                         .quad            0
-.Lgcmap_peek_byte$2F2_s: .string          "peek_byte$2F2"
+.Lgcmap_peek_byte$2F2_s: .string          "peek_byte/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__put_code$2F2:
                         sub              rsp, 208
@@ -20173,7 +20173,7 @@ put_code$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_put_code$2F2_s
                         .quad            0
-.Lgcmap_put_code$2F2_s: .string          "put_code$2F2"
+.Lgcmap_put_code$2F2_s: .string          "put_code/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__put_byte$2F2:
                         sub              rsp, 208
@@ -20292,7 +20292,7 @@ put_byte$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_put_byte$2F2_s
                         .quad            0
-.Lgcmap_put_byte$2F2_s: .string          "put_byte$2F2"
+.Lgcmap_put_byte$2F2_s: .string          "put_byte/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__unget_char$2F2:
                         sub              rsp, 208
@@ -20411,7 +20411,7 @@ unget_char$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_unget_char$2F2_s
                         .quad            0
-.Lgcmap_unget_char$2F2_s: .string          "unget_char$2F2"
+.Lgcmap_unget_char$2F2_s: .string          "unget_char/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__unget_code$2F2:
                         sub              rsp, 208
@@ -20530,7 +20530,7 @@ unget_code$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_unget_code$2F2_s
                         .quad            0
-.Lgcmap_unget_code$2F2_s: .string          "unget_code$2F2"
+.Lgcmap_unget_code$2F2_s: .string          "unget_code/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__unget_byte$2F2:
                         sub              rsp, 208
@@ -20649,7 +20649,7 @@ unget_byte$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_unget_byte$2F2_s
                         .quad            0
-.Lgcmap_unget_byte$2F2_s: .string          "unget_byte$2F2"
+.Lgcmap_unget_byte$2F2_s: .string          "unget_byte/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__read$2F1:
                         sub              rsp, 176
@@ -20759,7 +20759,7 @@ read$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_read$2F1_s
                         .quad            0
-.Lgcmap_read$2F1_s:     .string          "read$2F1"
+.Lgcmap_read$2F1_s:     .string          "read/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__atom_to_term$2F3:
                         sub              rsp, 240
@@ -20888,7 +20888,7 @@ atom_to_term$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_atom_to_term$2F3_s
                         .quad            0
-.Lgcmap_atom_to_term$2F3_s: .string          "atom_to_term$2F3"
+.Lgcmap_atom_to_term$2F3_s: .string          "atom_to_term/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__read_term_from_atom$2F3:
                         sub              rsp, 240
@@ -21017,7 +21017,7 @@ read_term_from_atom$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_read_term_from_atom$2F3_s
                         .quad            0
-.Lgcmap_read_term_from_atom$2F3_s: .string          "read_term_from_atom$2F3"
+.Lgcmap_read_term_from_atom$2F3_s: .string          "read_term_from_atom/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__read_term_from_chars$2F3:
                         sub              rsp, 240
@@ -21146,7 +21146,7 @@ read_term_from_chars$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_read_term_from_chars$2F3_s
                         .quad            0
-.Lgcmap_read_term_from_chars$2F3_s: .string          "read_term_from_chars$2F3"
+.Lgcmap_read_term_from_chars$2F3_s: .string          "read_term_from_chars/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__read_term_from_codes$2F3:
                         sub              rsp, 240
@@ -21275,7 +21275,7 @@ read_term_from_codes$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_read_term_from_codes$2F3_s
                         .quad            0
-.Lgcmap_read_term_from_codes$2F3_s: .string          "read_term_from_codes$2F3"
+.Lgcmap_read_term_from_codes$2F3_s: .string          "read_term_from_codes/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__writeq$2F1:
                         sub              rsp, 176
@@ -21385,7 +21385,7 @@ writeq$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_writeq$2F1_s
                         .quad            0
-.Lgcmap_writeq$2F1_s:   .string          "writeq$2F1"
+.Lgcmap_writeq$2F1_s:   .string          "writeq/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__print$2F1:
                         sub              rsp, 176
@@ -21495,7 +21495,7 @@ print$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_print$2F1_s
                         .quad            0
-.Lgcmap_print$2F1_s:    .string          "print$2F1"
+.Lgcmap_print$2F1_s:    .string          "print/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__write_term$2F2:
                         sub              rsp, 208
@@ -21614,7 +21614,7 @@ write_term$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_write_term$2F2_s
                         .quad            0
-.Lgcmap_write_term$2F2_s: .string          "write_term$2F2"
+.Lgcmap_write_term$2F2_s: .string          "write_term/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__write_term$2F3:
                         sub              rsp, 240
@@ -21742,7 +21742,7 @@ write_term$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_write_term$2F3_s
                         .quad            0
-.Lgcmap_write_term$2F3_s: .string          "write_term$2F3"
+.Lgcmap_write_term$2F3_s: .string          "write_term/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__write_canonical$2F1:
                         sub              rsp, 176
@@ -21853,7 +21853,7 @@ write_canonical$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_write_canonical$2F1_s
                         .quad            0
-.Lgcmap_write_canonical$2F1_s: .string          "write_canonical$2F1"
+.Lgcmap_write_canonical$2F1_s: .string          "write_canonical/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__writeln$2F1:
                         sub              rsp, 176
@@ -21963,7 +21963,7 @@ writeln$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_writeln$2F1_s
                         .quad            0
-.Lgcmap_writeln$2F1_s:  .string          "writeln$2F1"
+.Lgcmap_writeln$2F1_s:  .string          "writeln/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__put_char$2F1:
                         sub              rsp, 192
@@ -22100,7 +22100,7 @@ put_char$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_put_char$2F1_s
                         .quad            0
-.Lgcmap_put_char$2F1_s: .string          "put_char$2F1"
+.Lgcmap_put_char$2F1_s: .string          "put_char/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__flush_output$2F0:
                         sub              rsp, 144
@@ -22198,7 +22198,7 @@ flush_output$2F0_ω:
                         .quad            80
                         .quad            .Lgcmap_flush_output$2F0_s
                         .quad            0
-.Lgcmap_flush_output$2F0_s: .string          "flush_output$2F0"
+.Lgcmap_flush_output$2F0_s: .string          "flush_output/0"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__format$2F1:
                         sub              rsp, 176
@@ -22308,7 +22308,7 @@ format$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_format$2F1_s
                         .quad            0
-.Lgcmap_format$2F1_s:   .string          "format$2F1"
+.Lgcmap_format$2F1_s:   .string          "format/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__format$2F2:
                         sub              rsp, 208
@@ -22427,7 +22427,7 @@ format$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_format$2F2_s
                         .quad            0
-.Lgcmap_format$2F2_s:   .string          "format$2F2"
+.Lgcmap_format$2F2_s:   .string          "format/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__write$2F2:
                         sub              rsp, 208
@@ -22546,7 +22546,7 @@ write$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_write$2F2_s
                         .quad            0
-.Lgcmap_write$2F2_s:    .string          "write$2F2"
+.Lgcmap_write$2F2_s:    .string          "write/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__writeq$2F2:
                         sub              rsp, 208
@@ -22665,7 +22665,7 @@ writeq$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_writeq$2F2_s
                         .quad            0
-.Lgcmap_writeq$2F2_s:   .string          "writeq$2F2"
+.Lgcmap_writeq$2F2_s:   .string          "writeq/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__print$2F2:
                         sub              rsp, 208
@@ -22784,7 +22784,7 @@ print$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_print$2F2_s
                         .quad            0
-.Lgcmap_print$2F2_s:    .string          "print$2F2"
+.Lgcmap_print$2F2_s:    .string          "print/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__write_canonical$2F2:
                         sub              rsp, 208
@@ -22904,7 +22904,7 @@ write_canonical$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_write_canonical$2F2_s
                         .quad            0
-.Lgcmap_write_canonical$2F2_s: .string          "write_canonical$2F2"
+.Lgcmap_write_canonical$2F2_s: .string          "write_canonical/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__writeln$2F2:
                         sub              rsp, 208
@@ -23023,7 +23023,7 @@ writeln$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_writeln$2F2_s
                         .quad            0
-.Lgcmap_writeln$2F2_s:  .string          "writeln$2F2"
+.Lgcmap_writeln$2F2_s:  .string          "writeln/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__nl$2F1:
                         sub              rsp, 176
@@ -23133,7 +23133,7 @@ nl$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_nl$2F1_s
                         .quad            0
-.Lgcmap_nl$2F1_s:       .string          "nl$2F1"
+.Lgcmap_nl$2F1_s:       .string          "nl/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__put_char$2F2:
                         sub              rsp, 208
@@ -23252,7 +23252,7 @@ put_char$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_put_char$2F2_s
                         .quad            0
-.Lgcmap_put_char$2F2_s: .string          "put_char$2F2"
+.Lgcmap_put_char$2F2_s: .string          "put_char/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__flush_output$2F1:
                         sub              rsp, 176
@@ -23363,7 +23363,7 @@ flush_output$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_flush_output$2F1_s
                         .quad            0
-.Lgcmap_flush_output$2F1_s: .string          "flush_output$2F1"
+.Lgcmap_flush_output$2F1_s: .string          "flush_output/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__format$2F3:
                         sub              rsp, 240
@@ -23491,7 +23491,7 @@ format$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_format$2F3_s
                         .quad            0
-.Lgcmap_format$2F3_s:   .string          "format$2F3"
+.Lgcmap_format$2F3_s:   .string          "format/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__read$2F2:
                         sub              rsp, 208
@@ -23610,7 +23610,7 @@ read$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_read$2F2_s
                         .quad            0
-.Lgcmap_read$2F2_s:     .string          "read$2F2"
+.Lgcmap_read$2F2_s:     .string          "read/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__get_char$2F2:
                         sub              rsp, 208
@@ -23729,7 +23729,7 @@ get_char$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_get_char$2F2_s
                         .quad            0
-.Lgcmap_get_char$2F2_s: .string          "get_char$2F2"
+.Lgcmap_get_char$2F2_s: .string          "get_char/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__peek_char$2F2:
                         sub              rsp, 208
@@ -23848,7 +23848,7 @@ peek_char$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_peek_char$2F2_s
                         .quad            0
-.Lgcmap_peek_char$2F2_s: .string          "peek_char$2F2"
+.Lgcmap_peek_char$2F2_s: .string          "peek_char/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__open$2F3:
                         sub              rsp, 240
@@ -23976,7 +23976,7 @@ open$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_open$2F3_s
                         .quad            0
-.Lgcmap_open$2F3_s:     .string          "open$2F3"
+.Lgcmap_open$2F3_s:     .string          "open/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__open$2F4:
                         sub              rsp, 272
@@ -24113,7 +24113,7 @@ open$2F4_ω:
                         .quad            80
                         .quad            .Lgcmap_open$2F4_s
                         .quad            0
-.Lgcmap_open$2F4_s:     .string          "open$2F4"
+.Lgcmap_open$2F4_s:     .string          "open/4"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__close$2F1:
                         sub              rsp, 176
@@ -24223,7 +24223,7 @@ close$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_close$2F1_s
                         .quad            0
-.Lgcmap_close$2F1_s:    .string          "close$2F1"
+.Lgcmap_close$2F1_s:    .string          "close/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__close$2F2:
                         sub              rsp, 208
@@ -24342,7 +24342,7 @@ close$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_close$2F2_s
                         .quad            0
-.Lgcmap_close$2F2_s:    .string          "close$2F2"
+.Lgcmap_close$2F2_s:    .string          "close/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__current_output$2F1:
                         sub              rsp, 192
@@ -24480,7 +24480,7 @@ current_output$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_current_output$2F1_s
                         .quad            0
-.Lgcmap_current_output$2F1_s: .string          "current_output$2F1"
+.Lgcmap_current_output$2F1_s: .string          "current_output/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__current_input$2F1:
                         sub              rsp, 192
@@ -24618,7 +24618,7 @@ current_input$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_current_input$2F1_s
                         .quad            0
-.Lgcmap_current_input$2F1_s: .string          "current_input$2F1"
+.Lgcmap_current_input$2F1_s: .string          "current_input/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__set_output$2F1:
                         sub              rsp, 208
@@ -24767,7 +24767,7 @@ set_output$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_set_output$2F1_s
                         .quad            0
-.Lgcmap_set_output$2F1_s: .string          "set_output$2F1"
+.Lgcmap_set_output$2F1_s: .string          "set_output/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__set_input$2F1:
                         sub              rsp, 208
@@ -24916,7 +24916,7 @@ set_input$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_set_input$2F1_s
                         .quad            0
-.Lgcmap_set_input$2F1_s: .string          "set_input$2F1"
+.Lgcmap_set_input$2F1_s: .string          "set_input/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__keysort$2F2:
                         sub              rsp, 208
@@ -25035,7 +25035,7 @@ keysort$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_keysort$2F2_s
                         .quad            0
-.Lgcmap_keysort$2F2_s:  .string          "keysort$2F2"
+.Lgcmap_keysort$2F2_s:  .string          "keysort/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__set_stream_position$2F2:
                         sub              rsp, 208
@@ -25155,7 +25155,7 @@ set_stream_position$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_set_stream_position$2F2_s
                         .quad            0
-.Lgcmap_set_stream_position$2F2_s: .string          "set_stream_position$2F2"
+.Lgcmap_set_stream_position$2F2_s: .string          "set_stream_position/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__op$2F3:
                         sub              rsp, 240
@@ -25283,7 +25283,7 @@ op$2F3_ω:
                         .quad            80
                         .quad            .Lgcmap_op$2F3_s
                         .quad            0
-.Lgcmap_op$2F3_s:       .string          "op$2F3"
+.Lgcmap_op$2F3_s:       .string          "op/3"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__wall_us$2F1:
                         sub              rsp, 176
@@ -25393,7 +25393,7 @@ wall_us$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_wall_us$2F1_s
                         .quad            0
-.Lgcmap_wall_us$2F1_s:  .string          "wall_us$2F1"
+.Lgcmap_wall_us$2F1_s:  .string          "wall_us/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__wall_ms$2F1:
                         sub              rsp, 176
@@ -25503,7 +25503,7 @@ wall_ms$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_wall_ms$2F1_s
                         .quad            0
-.Lgcmap_wall_ms$2F1_s:  .string          "wall_ms$2F1"
+.Lgcmap_wall_ms$2F1_s:  .string          "wall_ms/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__write$2F1:
                         sub              rsp, 176
@@ -25613,7 +25613,7 @@ write$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_write$2F1_s
                         .quad            0
-.Lgcmap_write$2F1_s:    .string          "write$2F1"
+.Lgcmap_write$2F1_s:    .string          "write/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__nl$2F0:
                         sub              rsp, 144
@@ -25710,7 +25710,7 @@ nl$2F0_ω:
                         .quad            80
                         .quad            .Lgcmap_nl$2F0_s
                         .quad            0
-.Lgcmap_nl$2F0_s:       .string          "nl$2F0"
+.Lgcmap_nl$2F0_s:       .string          "nl/0"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__true$2F0:
                         sub              rsp, 128
@@ -25789,7 +25789,7 @@ true$2F0_ω:
                         .quad            80
                         .quad            .Lgcmap_true$2F0_s
                         .quad            0
-.Lgcmap_true$2F0_s:     .string          "true$2F0"
+.Lgcmap_true$2F0_s:     .string          "true/0"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$21$2F0:
                         sub              rsp, 128
@@ -25877,7 +25877,7 @@ $21$2F0_ω:
                         .quad            80
                         .quad            .Lgcmap_$21$2F0_s
                         .quad            0
-.Lgcmap_$21$2F0_s:      .string          "$21$2F0"
+.Lgcmap_$21$2F0_s:      .string          "!/0"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__fail$2F0:
                         sub              rsp, 128
@@ -25956,7 +25956,7 @@ fail$2F0_ω:
                         .quad            80
                         .quad            .Lgcmap_fail$2F0_s
                         .quad            0
-.Lgcmap_fail$2F0_s:     .string          "fail$2F0"
+.Lgcmap_fail$2F0_s:     .string          "fail/0"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__false$2F0:
                         sub              rsp, 128
@@ -26035,7 +26035,7 @@ false$2F0_ω:
                         .quad            80
                         .quad            .Lgcmap_false$2F0_s
                         .quad            0
-.Lgcmap_false$2F0_s:    .string          "false$2F0"
+.Lgcmap_false$2F0_s:    .string          "false/0"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__throw$2F1:
                         sub              rsp, 176
@@ -26145,7 +26145,7 @@ throw$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_throw$2F1_s
                         .quad            0
-.Lgcmap_throw$2F1_s:    .string          "throw$2F1"
+.Lgcmap_throw$2F1_s:    .string          "throw/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$3D$2F2:
                         sub              rsp, 208
@@ -26264,7 +26264,7 @@ $3D$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_$3D$2F2_s
                         .quad            0
-.Lgcmap_$3D$2F2_s:      .string          "$3D$2F2"
+.Lgcmap_$3D$2F2_s:      .string          "=/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__is$2F2:
                         sub              rsp, 208
@@ -26383,7 +26383,7 @@ is$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_is$2F2_s
                         .quad            0
-.Lgcmap_is$2F2_s:       .string          "is$2F2"
+.Lgcmap_is$2F2_s:       .string          "is/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__$3E$2F2:
                         sub              rsp, 208
@@ -26502,7 +26502,7 @@ $3E$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_$3E$2F2_s
                         .quad            0
-.Lgcmap_$3E$2F2_s:      .string          "$3E$2F2"
+.Lgcmap_$3E$2F2_s:      .string          ">/2"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__assert$2F1:
                         sub              rsp, 192
@@ -26652,7 +26652,7 @@ assert$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_assert$2F1_s
                         .quad            0
-.Lgcmap_assert$2F1_s:   .string          "assert$2F1"
+.Lgcmap_assert$2F1_s:   .string          "assert/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__asserta$2F1:
                         sub              rsp, 192
@@ -26802,7 +26802,7 @@ asserta$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_asserta$2F1_s
                         .quad            0
-.Lgcmap_asserta$2F1_s:  .string          "asserta$2F1"
+.Lgcmap_asserta$2F1_s:  .string          "asserta/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__assertz$2F1:
                         sub              rsp, 192
@@ -26952,7 +26952,7 @@ assertz$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_assertz$2F1_s
                         .quad            0
-.Lgcmap_assertz$2F1_s:  .string          "assertz$2F1"
+.Lgcmap_assertz$2F1_s:  .string          "assertz/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__retract$2F1:
                         sub              rsp, 288
@@ -27285,7 +27285,7 @@ retract$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_retract$2F1_s
                         .quad            0
-.Lgcmap_retract$2F1_s:  .string          "retract$2F1"
+.Lgcmap_retract$2F1_s:  .string          "retract/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__retractall$2F1:
                         sub              rsp, 192
@@ -27435,7 +27435,7 @@ retractall$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_retractall$2F1_s
                         .quad            0
-.Lgcmap_retractall$2F1_s: .string          "retractall$2F1"
+.Lgcmap_retractall$2F1_s: .string          "retractall/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__abolish$2F1:
                         sub              rsp, 192
@@ -27585,7 +27585,7 @@ abolish$2F1_ω:
                         .quad            80
                         .quad            .Lgcmap_abolish$2F1_s
                         .quad            0
-.Lgcmap_abolish$2F1_s:  .string          "abolish$2F1"
+.Lgcmap_abolish$2F1_s:  .string          "abolish/1"
 #-----------------------------------------------------------------------------------------------------------------------
 FN__clause$2F2:
                         sub              rsp, 304
@@ -27928,7 +27928,7 @@ clause$2F2_ω:
                         .quad            80
                         .quad            .Lgcmap_clause$2F2_s
                         .quad            0
-.Lgcmap_clause$2F2_s:   .string          "clause$2F2"
+.Lgcmap_clause$2F2_s:   .string          "clause/2"
                         .globl           main
 main:
                         sub              rsp, 65544
