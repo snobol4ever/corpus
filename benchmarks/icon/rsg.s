@@ -87,7 +87,15 @@ n3_make_list_α:         mov              r11, 3
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 640], rax
-                        mov              qword ptr [rbp + 648], rdx;          jmp   n4_assign_α
+                        mov              qword ptr [rbp + 648], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n4_assign_α
                         .size            n3_make_list_bx, .-n3_make_list_bx
                         .type            n4_assign_bx, @function
 n4_assign_bx:
@@ -3032,7 +3040,15 @@ n00078_make_list_α:       mov              r11, 115
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1952], rax
-                        mov              qword ptr [rbp + 1960], rdx;         jmp   n00079_assign_α
+                        mov              qword ptr [rbp + 1960], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00079_assign_α
                         .size            n00078_make_list_bx, .-n00078_make_list_bx
                         .type            n00079_assign_bx, @function
 n00079_assign_bx:
@@ -10179,7 +10195,15 @@ n00460_make_list_α:      mov              r11, 498
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1664], rax
-                        mov              qword ptr [rbp + 1672], rdx;         jmp   n00461_assign_α
+                        mov              qword ptr [rbp + 1672], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00461_assign_α
                         .size            n00460_make_list_bx, .-n00460_make_list_bx
                         .type            n00461_assign_bx, @function
 n00461_assign_bx:
@@ -12215,7 +12239,15 @@ n00548_make_list_α:      mov              r11, 586
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 848], rax
-                        mov              qword ptr [rbp + 856], rdx;          jmp   n00549_assign_α
+                        mov              qword ptr [rbp + 856], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00549_assign_α
                         .size            n00548_make_list_bx, .-n00548_make_list_bx
                         .type            n00549_assign_bx, @function
 n00549_assign_bx:
@@ -13536,7 +13568,15 @@ n00602_make_list_α:      mov              r11, 640
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 5968], rax
-                        mov              qword ptr [rbp + 5976], rdx;         jmp   n00603_assign_α
+                        mov              qword ptr [rbp + 5976], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00603_assign_α
                         .size            n00602_make_list_bx, .-n00602_make_list_bx
                         .type            n00603_assign_bx, @function
 n00603_assign_bx:
@@ -15248,7 +15288,15 @@ n00708_make_list_α:      mov              r11, 736
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 4048], rax
-                        mov              qword ptr [rbp + 4056], rdx;         jmp   n00709_assign_α
+                        mov              qword ptr [rbp + 4056], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00709_assign_α
                         .size            n00708_make_list_bx, .-n00708_make_list_bx
                         .type            n00709_assign_bx, @function
 n00709_assign_bx:
@@ -20910,7 +20958,15 @@ n00972_make_list_α:      mov              r11, 1009
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 704], rax
-                        mov              qword ptr [rbp + 712], rdx;          jmp   n00973_assign_α
+                        mov              qword ptr [rbp + 712], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00973_assign_α
                         .size            n00972_make_list_bx, .-n00972_make_list_bx
                         .type            n00973_assign_bx, @function
 n00973_assign_bx:
@@ -21163,7 +21219,15 @@ n00988_make_list_α:      mov              r11, 1025
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 784], rax
-                        mov              qword ptr [rbp + 792], rdx;          jmp   n00989_assign_α
+                        mov              qword ptr [rbp + 792], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00989_assign_α
                         .size            n00988_make_list_bx, .-n00988_make_list_bx
                         .type            n00989_assign_bx, @function
 n00989_assign_bx:
@@ -21856,7 +21920,15 @@ n01022_make_list_α:      mov              r11, 1059
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 704], rax
-                        mov              qword ptr [rbp + 712], rdx;          jmp   n01023_assign_α
+                        mov              qword ptr [rbp + 712], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01023_assign_α
                         .size            n01022_make_list_bx, .-n01022_make_list_bx
                         .type            n01023_assign_bx, @function
 n01023_assign_bx:
@@ -22093,7 +22165,15 @@ n01037_make_list_α:      mov              r11, 1074
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 784], rax
-                        mov              qword ptr [rbp + 792], rdx;          jmp   n01038_assign_α
+                        mov              qword ptr [rbp + 792], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01038_assign_α
                         .size            n01037_make_list_bx, .-n01037_make_list_bx
                         .type            n01038_assign_bx, @function
 n01038_assign_bx:
@@ -23163,7 +23243,15 @@ n01085_make_list_α:      mov              r11, 1122
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 704], rax
-                        mov              qword ptr [rbp + 712], rdx;          jmp   n01086_assign_α
+                        mov              qword ptr [rbp + 712], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01086_assign_α
                         .size            n01085_make_list_bx, .-n01085_make_list_bx
                         .type            n01086_assign_bx, @function
 n01086_assign_bx:
@@ -23400,7 +23488,15 @@ n01100_make_list_α:      mov              r11, 1137
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 784], rax
-                        mov              qword ptr [rbp + 792], rdx;          jmp   n01101_assign_α
+                        mov              qword ptr [rbp + 792], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01101_assign_α
                         .size            n01100_make_list_bx, .-n01100_make_list_bx
                         .type            n01101_assign_bx, @function
 n01101_assign_bx:
@@ -24844,7 +24940,15 @@ n01157_make_list_α:      mov              r11, 1195
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 3568], rax
-                        mov              qword ptr [rbp + 3576], rdx;         jmp   n01158_assign_α
+                        mov              qword ptr [rbp + 3576], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01158_assign_α
                         .size            n01157_make_list_bx, .-n01157_make_list_bx
                         .type            n01158_assign_bx, @function
 n01158_assign_bx:
@@ -25022,7 +25126,15 @@ n01169_make_list_α:      mov              r11, 1206
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 3440], rax
-                        mov              qword ptr [rbp + 3448], rdx;         jmp   n01170_make_list_α
+                        mov              qword ptr [rbp + 3448], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01170_make_list_α
                         .size            n01169_make_list_bx, .-n01169_make_list_bx
                         .type            n01170_make_list_bx, @function
 n01170_make_list_bx:
@@ -25043,7 +25155,15 @@ n01170_make_list_α:      mov              r11, 1207
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 3408], rax
-                        mov              qword ptr [rbp + 3416], rdx;         jmp   n01171_assign_var_α
+                        mov              qword ptr [rbp + 3416], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01171_assign_var_α
                         .size            n01170_make_list_bx, .-n01170_make_list_bx
                         .type            n01171_assign_var_bx, @function
 n01171_assign_var_bx:
@@ -25144,7 +25264,15 @@ n01177_make_list_α:      mov              r11, 1214
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 3248], rax
-                        mov              qword ptr [rbp + 3256], rdx;         jmp   n01178_make_list_α
+                        mov              qword ptr [rbp + 3256], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01178_make_list_α
                         .size            n01177_make_list_bx, .-n01177_make_list_bx
                         .type            n01178_make_list_bx, @function
 n01178_make_list_bx:
@@ -25165,7 +25293,15 @@ n01178_make_list_α:      mov              r11, 1215
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 3216], rax
-                        mov              qword ptr [rbp + 3224], rdx;         jmp   n01179_assign_var_α
+                        mov              qword ptr [rbp + 3224], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01179_assign_var_α
                         .size            n01178_make_list_bx, .-n01178_make_list_bx
                         .type            n01179_assign_var_bx, @function
 n01179_assign_var_bx:
@@ -25266,7 +25402,15 @@ n01185_make_list_α:      mov              r11, 1222
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 3056], rax
-                        mov              qword ptr [rbp + 3064], rdx;         jmp   n01186_make_list_α
+                        mov              qword ptr [rbp + 3064], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01186_make_list_α
                         .size            n01185_make_list_bx, .-n01185_make_list_bx
                         .type            n01186_make_list_bx, @function
 n01186_make_list_bx:
@@ -25287,7 +25431,15 @@ n01186_make_list_α:      mov              r11, 1223
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 3024], rax
-                        mov              qword ptr [rbp + 3032], rdx;         jmp   n01187_assign_var_α
+                        mov              qword ptr [rbp + 3032], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01187_assign_var_α
                         .size            n01186_make_list_bx, .-n01186_make_list_bx
                         .type            n01187_assign_var_bx, @function
 n01187_assign_var_bx:
@@ -25388,7 +25540,15 @@ n01193_make_list_α:      mov              r11, 1230
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2864], rax
-                        mov              qword ptr [rbp + 2872], rdx;         jmp   n01194_make_list_α
+                        mov              qword ptr [rbp + 2872], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01194_make_list_α
                         .size            n01193_make_list_bx, .-n01193_make_list_bx
                         .type            n01194_make_list_bx, @function
 n01194_make_list_bx:
@@ -25409,7 +25569,15 @@ n01194_make_list_α:      mov              r11, 1231
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2832], rax
-                        mov              qword ptr [rbp + 2840], rdx;         jmp   n01195_assign_var_α
+                        mov              qword ptr [rbp + 2840], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01195_assign_var_α
                         .size            n01194_make_list_bx, .-n01194_make_list_bx
                         .type            n01195_assign_var_bx, @function
 n01195_assign_var_bx:
@@ -25510,7 +25678,15 @@ n01201_make_list_α:      mov              r11, 1238
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2672], rax
-                        mov              qword ptr [rbp + 2680], rdx;         jmp   n01202_make_list_α
+                        mov              qword ptr [rbp + 2680], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01202_make_list_α
                         .size            n01201_make_list_bx, .-n01201_make_list_bx
                         .type            n01202_make_list_bx, @function
 n01202_make_list_bx:
@@ -25531,7 +25707,15 @@ n01202_make_list_α:      mov              r11, 1239
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2640], rax
-                        mov              qword ptr [rbp + 2648], rdx;         jmp   n01203_assign_var_α
+                        mov              qword ptr [rbp + 2648], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01203_assign_var_α
                         .size            n01202_make_list_bx, .-n01202_make_list_bx
                         .type            n01203_assign_var_bx, @function
 n01203_assign_var_bx:
@@ -25683,7 +25867,15 @@ n01211_make_list_α:      mov              r11, 1248
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2432], rax
-                        mov              qword ptr [rbp + 2440], rdx;         jmp   n01212_make_list_α
+                        mov              qword ptr [rbp + 2440], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01212_make_list_α
                         .size            n01211_make_list_bx, .-n01211_make_list_bx
                         .type            n01212_make_list_bx, @function
 n01212_make_list_bx:
@@ -25704,7 +25896,15 @@ n01212_make_list_α:      mov              r11, 1249
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2400], rax
-                        mov              qword ptr [rbp + 2408], rdx;         jmp   n01213_assign_var_α
+                        mov              qword ptr [rbp + 2408], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01213_assign_var_α
                         .size            n01212_make_list_bx, .-n01212_make_list_bx
                         .type            n01213_assign_var_bx, @function
 n01213_assign_var_bx:
@@ -25856,7 +26056,15 @@ n01221_make_list_α:      mov              r11, 1258
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2192], rax
-                        mov              qword ptr [rbp + 2200], rdx;         jmp   n01222_make_list_α
+                        mov              qword ptr [rbp + 2200], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01222_make_list_α
                         .size            n01221_make_list_bx, .-n01221_make_list_bx
                         .type            n01222_make_list_bx, @function
 n01222_make_list_bx:
@@ -25877,7 +26085,15 @@ n01222_make_list_α:      mov              r11, 1259
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 2160], rax
-                        mov              qword ptr [rbp + 2168], rdx;         jmp   n01223_assign_var_α
+                        mov              qword ptr [rbp + 2168], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01223_assign_var_α
                         .size            n01222_make_list_bx, .-n01222_make_list_bx
                         .type            n01223_assign_var_bx, @function
 n01223_assign_var_bx:
@@ -26029,7 +26245,15 @@ n01231_make_list_α:      mov              r11, 1268
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1952], rax
-                        mov              qword ptr [rbp + 1960], rdx;         jmp   n01232_make_list_α
+                        mov              qword ptr [rbp + 1960], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01232_make_list_α
                         .size            n01231_make_list_bx, .-n01231_make_list_bx
                         .type            n01232_make_list_bx, @function
 n01232_make_list_bx:
@@ -26050,7 +26274,15 @@ n01232_make_list_α:      mov              r11, 1269
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1920], rax
-                        mov              qword ptr [rbp + 1928], rdx;         jmp   n01233_assign_var_α
+                        mov              qword ptr [rbp + 1928], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01233_assign_var_α
                         .size            n01232_make_list_bx, .-n01232_make_list_bx
                         .type            n01233_assign_var_bx, @function
 n01233_assign_var_bx:
@@ -26590,7 +26822,15 @@ n01263_make_list_α:      mov              r11, 1298
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1232], rax
-                        mov              qword ptr [rbp + 1240], rdx;         jmp   n01264_assign_α
+                        mov              qword ptr [rbp + 1240], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01264_assign_α
                         .size            n01263_make_list_bx, .-n01263_make_list_bx
                         .type            n01264_assign_bx, @function
 n01264_assign_bx:
