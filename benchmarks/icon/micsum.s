@@ -283,7 +283,14 @@ n17_lit_charset_α:      mov              r11, 17
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n18_line_mark_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n18_line_mark_α
 .Llit_charset_α_228_0:  .quad            .Llit_charset_α_228_0_s
 .Llit_charset_α_228_0_s:
                         .string          " "
@@ -407,7 +414,14 @@ n23_lit_charset_α:      mov              r11, 23
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n24_line_mark_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n24_line_mark_α
 .Llit_charset_α_239_0:  .quad            .Llit_charset_α_239_0_s
 .Llit_charset_α_239_0_s:
                         .string          "-0123456789"
@@ -582,7 +596,14 @@ n32_lit_charset_α:      mov              r11, 32
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n33_line_mark_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n33_line_mark_α
 .Llit_charset_α_255_0:  .quad            .Llit_charset_α_255_0_s
 .Llit_charset_α_255_0_s:
                         .string          " "

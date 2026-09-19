@@ -2450,7 +2450,15 @@ n00066_lit_charset_α:     mov              r11, 112
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n00067_line_mark_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00067_line_mark_α
 .Llit_charset_α_424_0:  .quad            .Llit_charset_α_424_0_s
 .Llit_charset_α_424_0_s:
                         .string          "\t\n "
@@ -5087,7 +5095,15 @@ n00205_lit_charset_α:     mov              r11, 251
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n00206_lit_charset_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00206_lit_charset_α
 .Llit_charset_α_728_0:  .quad            .Llit_charset_α_728_0_s
 .Llit_charset_α_728_0_s:
                         .string          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -5113,7 +5129,15 @@ n00206_lit_charset_α:     mov              r11, 252
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n00207_binop_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00207_binop_α
 .Llit_charset_α_729_0:  .quad            .Llit_charset_α_729_0_s
 .Llit_charset_α_729_0_s:
                         .string          "0123456789"
@@ -5159,7 +5183,15 @@ n00208_lit_charset_α:     mov              r11, 254
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n00209_binop_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00209_binop_α
 .Llit_charset_α_731_0:  .quad            .Llit_charset_α_731_0_s
 .Llit_charset_α_731_0_s:
                         .string          "_"
@@ -5301,7 +5333,15 @@ n00214_lit_charset_α:     mov              r11, 261
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n00215_line_mark_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00215_line_mark_α
 .Llit_charset_α_742_0:  .quad            .Llit_charset_α_742_0_s
 .Llit_charset_α_742_0_s:
                         .string          "\t\n "
@@ -5466,7 +5506,15 @@ n00224_lit_charset_α:     mov              r11, 269
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n00225_line_mark_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00225_line_mark_α
 .Llit_charset_α_756_0:  .quad            .Llit_charset_α_756_0_s
 .Llit_charset_α_756_0_s:
                         .string          "\t\n "
@@ -5661,7 +5709,15 @@ n00238_lit_charset_α:     mov              r11, 277
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n00239_line_mark_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00239_line_mark_α
 .Llit_charset_α_770_0:  .quad            .Llit_charset_α_770_0_s
 .Llit_charset_α_770_0_s:
                         .string          "\t\n "
@@ -5826,7 +5882,15 @@ n00246_lit_charset_α:     mov              r11, 285
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n00247_line_mark_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00247_line_mark_α
 .Llit_charset_α_784_0:  .quad            .Llit_charset_α_784_0_s
 .Llit_charset_α_784_0_s:
                         .string          "\t\n "
@@ -6351,7 +6415,15 @@ n00234_lit_charset_α:     mov              r11, 313
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n00272_line_mark_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00272_line_mark_α
 n00234_lit_charset_β:     mov              r11, 313;                            jmp   .Lscan_sequence_ω_661_af
 .Llit_charset_α_831_0:  .quad            .Llit_charset_α_831_0_s
 .Llit_charset_α_831_0_s:
@@ -6659,7 +6731,15 @@ n00220_lit_charset_α:     mov              r11, 324
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n00279_line_mark_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00279_line_mark_α
 n00220_lit_charset_β:     mov              r11, 324;                            jmp   .Ldisjunction_ω_652_af
 .Llit_charset_α_849_0:  .quad            .Llit_charset_α_849_0_s
 .Llit_charset_α_849_0_s:
@@ -7018,7 +7098,15 @@ n00282_suspend_α:         mov              r11, 331
                         mov              rsp, rbx
                         pop              rbx
                         pop              rdx
-                        pop              rax;                                 jmp   gedwalk_γ
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   gedwalk_γ
 n00282_suspend_β:         mov              r11, 331
                         push             rax
                         push             rdx
@@ -7706,7 +7794,15 @@ n00293_suspend_α:         mov              r11, 357
                         mov              rsp, rbx
                         pop              rbx
                         pop              rdx
-                        pop              rax;                                 jmp   gedsub_γ
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   gedsub_γ
 n00293_suspend_β:         mov              r11, 357
                         push             rax
                         push             rdx
@@ -8103,7 +8199,15 @@ n00325_suspend_α:         mov              r11, 370
                         mov              rsp, rbx
                         pop              rbx
                         pop              rdx
-                        pop              rax;                                 jmp   gedsub_γ
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   gedsub_γ
 n00325_suspend_β:         mov              r11, 370
                         push             rax
                         push             rdx
@@ -8520,7 +8624,15 @@ n00329_suspend_α:         mov              r11, 381
                         mov              rsp, rbx
                         pop              rbx
                         pop              rdx
-                        pop              rax;                                 jmp   gedval_γ
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   gedval_γ
 n00329_suspend_β:         mov              r11, 381
                         push             rax
                         push             rdx
@@ -8871,7 +8983,15 @@ n00335_suspend_α:        mov              r11, 388
                         mov              rsp, rbx
                         pop              rbx
                         pop              rdx
-                        pop              rax;                                 jmp   gedref_γ
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   gedref_γ
 n00335_suspend_β:        mov              r11, 388
                         push             rax
                         push             rdx
@@ -9448,7 +9568,15 @@ n00365_lit_charset_α:    mov              r11, 411
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n00374_line_mark_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00374_line_mark_α
 n00365_lit_charset_β:    mov              r11, 411;                            jmp   .Ldisjunction_ω_1046_af
 .Llit_charset_α_1142_0: .quad            .Llit_charset_α_1142_0_s
 .Llit_charset_α_1142_0_s:
@@ -9585,7 +9713,15 @@ n00354_lit_charset_α:    mov              r11, 419
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n00378_line_mark_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00378_line_mark_α
 n00354_lit_charset_β:    mov              r11, 419;                            jmp   .Ldisjunction_ω_1039_af
 .Llit_charset_α_1155_0: .quad            .Llit_charset_α_1155_0_s
 .Llit_charset_α_1155_0_s:
@@ -11144,7 +11280,15 @@ n00438_lit_charset_α:    mov              r11, 484
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n00447_line_mark_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00447_line_mark_α
 n00438_lit_charset_β:    mov              r11, 484;                            jmp   .Ldisjunction_ω_1240_af
 .Llit_charset_α_1329_0: .quad            .Llit_charset_α_1329_0_s
 .Llit_charset_α_1329_0_s:
@@ -11281,7 +11425,15 @@ n00427_lit_charset_α:    mov              r11, 492
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n00451_line_mark_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00451_line_mark_α
 n00427_lit_charset_β:    mov              r11, 492;                            jmp   .Ldisjunction_ω_1233_af
 .Llit_charset_α_1342_0: .quad            .Llit_charset_α_1342_0_s
 .Llit_charset_α_1342_0_s:
@@ -14256,7 +14408,15 @@ n00614_lit_charset_α:    mov              r11, 657
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n00615_line_mark_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00615_line_mark_α
 .Llit_charset_α_1765_0: .quad            .Llit_charset_α_1765_0_s
 .Llit_charset_α_1765_0_s:
                         .string          "\t\n "
@@ -14703,7 +14863,15 @@ n00620_lit_charset_α:    mov              r11, 681
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n00640_line_mark_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00640_line_mark_α
 n00620_lit_charset_β:    mov              r11, 681;                            jmp   .Ldisjunction_ω_1536_af
 .Llit_charset_α_1802_0: .quad            .Llit_charset_α_1802_0_s
 .Llit_charset_α_1802_0_s:
@@ -15294,7 +15462,15 @@ n00661_lit_charset_α:    mov              r11, 708
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         pop              rdx
-                        pop              rax;                                 jmp   n00662_line_mark_α
+                        pop              rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00662_line_mark_α
 .Llit_charset_α_1842_0: .quad            .Llit_charset_α_1842_0_s
 .Llit_charset_α_1842_0_s:
                         .string          "\t\n "
