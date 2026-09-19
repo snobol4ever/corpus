@@ -6089,10 +6089,14 @@ n335_assign_α:          mov              r11, 238
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
+                        lea              rdi, [rsp + 0]
+                        mov              esi, 1
+                        mov              edx, 0
+                        lea              rcx, [rsp + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_gc_poll@PLT
+                        call             rt_gc_point_arr_c@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -6249,33 +6253,65 @@ n338_match_end_α:       mov              r11, 241
                         push             r13
                         sub              rsp, 8
                         mov              rdi, qword ptr [rbp + -8]            # cas_mark
-                        mov              rax, qword ptr [rbp + -32]           # outer_Δ
-                        mov              rcx, qword ptr [rbp + -16]           # outer_Σ
-                        push             rax
-                        push             rcx
-                        lea              rcx, [rsp + 0]
                         mov              rsi, r12
                         mov              rdx, r13
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_match_end_all@PLT
+                        call             rt_dcap_end_ok_open@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        test             rax, rax;                            je    .Lmatch_end_α_602_13
-                        add              rsp, 16
-                        add              rsp, 8
-                        pop              r13
-                        pop              r15
-                        pop              r14;                                 jmp   .Lmatch_begin_ω_336_af
-.Lmatch_end_α_602_13:   add              rsp, 16
+.Lmatch_end_α_602_1:    cmp              rax, 1;                              jbe   .Lmatch_end_α_602_2
+                        push             rbx
+                        push             r12
+                        lea              rcx, [rip + .Lmatch_end_α_602_4]
+                        push             rcx
+                        lea              rcx, [rip + .Lmatch_end_α_602_3]
+                        push             rcx
+                        lea              rcx, [rip + .Lmatch_end_α_602_3]
+                        lea              rdx, [rip + .Lmatch_end_α_602_4];    jmp   rax
+.Lmatch_end_α_602_3:    add              rsp, 16
+                        pop              r12
+                        pop              rbx
+                        mov              rdi, rax
+                        mov              rsi, rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_dcap_land_γ@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lmatch_end_α_602_1
+.Lmatch_end_α_602_4:    add              rsp, 16
+                        pop              r12
+                        pop              rbx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_dcap_land_ω@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lmatch_end_α_602_1
+.Lmatch_end_α_602_2:    mov              qword ptr [rsp + 0], rax
+                        call             rt_dcap_end_ok_close@PLT
+                        mov              rdi, qword ptr [rbp + -16]           # outer_Σ
+                        mov              rsi, qword ptr [rbp + -32]           # outer_Δ
+                        xor              edx, edx
+                        mov              qword ptr [rip + rtccb+56], r10
+                        call             rt_match_ctx_restore@PLT
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              rax, qword ptr [rsp + 0]
                         add              rsp, 8
                         pop              r13
                         pop              r15
                         pop              r14
-                        mov              r12, qword ptr [rbp + -8]            # cas_mark
+                        test             rax, rax;                            je    .Lmatch_end_α_602_13
+                                                                              jmp   .Lmatch_begin_ω_336_af
+.Lmatch_end_α_602_13:   mov              r12, qword ptr [rbp + -8]            # cas_mark
                         mov              r13, qword ptr [rbp + -16]           # outer_Σ
                         mov              r14, qword ptr [rbp + -24]           # outer_δ
                         mov              r15, qword ptr [rbp + -32]           # outer_Δ
@@ -6453,10 +6489,14 @@ n346_assign_α:          mov              r11, 249
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
+                        lea              rdi, [rsp + 0]
+                        mov              esi, 1
+                        mov              edx, 0
+                        lea              rcx, [rsp + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_gc_poll@PLT
+                        call             rt_gc_point_arr_c@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -6549,10 +6589,14 @@ n350_assign_α:          mov              r11, 253
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], rax
                         mov              qword ptr [rsp + 8], rdx
+                        lea              rdi, [rsp + 0]
+                        mov              esi, 1
+                        mov              edx, 0
+                        lea              rcx, [rsp + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_gc_poll@PLT
+                        call             rt_gc_point_arr_c@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
