@@ -11634,11 +11634,11 @@ n618_define_α:          mov              r11, 397
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$jutf8:        .quad            LBL__jutf8
+entry_cell$jutf8:       .quad            LBL__jutf8
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__jutf8]
-                        mov              rcx, qword ptr [rip + body_cell$jutf8@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$jutf8@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n619_statement_end_α
 n618_define_β:          mov              r11, 397;                            jmp   n617_statement_begin_β
 .Ldefine_α_2192_0:      .quad            .Ldefine_α_2192_0_s
@@ -11744,7 +11744,7 @@ jutf8_α:                sub              rsp, 64
                         lea              rax, [rip + jutf8_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$jutf8@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$jutf8@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 jutf8_γ:                mov              rdi, qword ptr [r9 + 0]              # jutf8
                         mov              rsi, qword ptr [r9 + 8]
@@ -13537,11 +13537,11 @@ n689_define_α:          mov              r11, 468
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$jdec:         .quad            LBL__jdec
+entry_cell$jdec:        .quad            LBL__jdec
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__jdec]
-                        mov              rcx, qword ptr [rip + body_cell$jdec@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$jdec@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n690_statement_end_α
 n689_define_β:          mov              r11, 468;                            jmp   n688_statement_begin_β
 .Ldefine_α_2294_0:      .quad            .Ldefine_α_2294_0_s
@@ -13677,7 +13677,7 @@ jdec_α:                 sub              rsp, 144
                         lea              rax, [rip + jdec_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$jdec@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$jdec@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 jdec_γ:                 mov              rdi, qword ptr [r9 + 32]             # jdec
                         mov              rsi, qword ptr [r9 + 40]
@@ -17149,11 +17149,11 @@ n825_define_α:          mov              r11, 604
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$vpush:        .quad            LBL__vpush
+entry_cell$vpush:       .quad            LBL__vpush
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__vpush]
-                        mov              rcx, qword ptr [rip + body_cell$vpush@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$vpush@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n826_statement_end_α
 n825_define_β:          mov              r11, 604;                            jmp   n824_statement_begin_β
 .Ldefine_α_2494_0:      .quad            .Ldefine_α_2494_0_s
@@ -17259,7 +17259,7 @@ vpush_α:                sub              rsp, 64
                         lea              rax, [rip + vpush_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$vpush@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$vpush@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 vpush_γ:                mov              rdi, qword ptr [r9 + 128]            # vpush
                         mov              rsi, qword ptr [r9 + 136]
@@ -18341,11 +18341,11 @@ n870_define_α:          mov              r11, 649
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$pobj:         .quad            LBL__pobj
+entry_cell$pobj:        .quad            LBL__pobj
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__pobj]
-                        mov              rcx, qword ptr [rip + body_cell$pobj@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$pobj@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n871_statement_end_α
 n870_define_β:          mov              r11, 649;                            jmp   n869_statement_begin_β
 .Ldefine_α_2568_0:      .quad            .Ldefine_α_2568_0_s
@@ -18434,7 +18434,7 @@ pobj_α:                 sub              rsp, 48
                         lea              rax, [rip + pobj_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$pobj@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$pobj@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 pobj_γ:                 mov              rdi, qword ptr [r9 + 160]
                         mov              rsi, qword ptr [r9 + 168]
@@ -19714,11 +19714,11 @@ n924_define_α:          mov              r11, 703
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$parr:         .quad            LBL__parr
+entry_cell$parr:        .quad            LBL__parr
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__parr]
-                        mov              rcx, qword ptr [rip + body_cell$parr@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$parr@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n925_statement_end_α
 n924_define_β:          mov              r11, 703;                            jmp   n923_statement_begin_β
 .Ldefine_α_2656_0:      .quad            .Ldefine_α_2656_0_s
@@ -19807,7 +19807,7 @@ parr_α:                 sub              rsp, 48
                         lea              rax, [rip + parr_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$parr@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$parr@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 parr_γ:                 mov              rdi, qword ptr [r9 + 176]
                         mov              rsi, qword ptr [r9 + 184]
@@ -21087,11 +21087,11 @@ n978_define_α:          mov              r11, 757
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$ekey:         .quad            LBL__ekey
+entry_cell$ekey:        .quad            LBL__ekey
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__ekey]
-                        mov              rcx, qword ptr [rip + body_cell$ekey@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$ekey@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n979_statement_end_α
 n978_define_β:          mov              r11, 757;                            jmp   n977_statement_begin_β
 .Ldefine_α_2744_0:      .quad            .Ldefine_α_2744_0_s
@@ -21180,7 +21180,7 @@ ekey_α:                 sub              rsp, 48
                         lea              rax, [rip + ekey_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$ekey@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$ekey@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 ekey_γ:                 mov              rdi, qword ptr [r9 + 192]
                         mov              rsi, qword ptr [r9 + 200]
@@ -21882,11 +21882,11 @@ n1004_define_α:         mov              r11, 783
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$eobj:         .quad            LBL__eobj
+entry_cell$eobj:        .quad            LBL__eobj
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__eobj]
-                        mov              rcx, qword ptr [rip + body_cell$eobj@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$eobj@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n1005_statement_end_α
 n1004_define_β:         mov              r11, 783;                            jmp   n1003_statement_begin_β
 .Ldefine_α_2788_0:      .quad            .Ldefine_α_2788_0_s
@@ -22077,7 +22077,7 @@ eobj_α:                 sub              rsp, 144
                         lea              rax, [rip + eobj_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$eobj@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$eobj@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 eobj_γ:                 mov              rdi, qword ptr [r9 + 208]            # eobj
                         mov              rsi, qword ptr [r9 + 216]
@@ -25291,11 +25291,11 @@ n1137_define_α:         mov              r11, 916
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$earr:         .quad            LBL__earr
+entry_cell$earr:        .quad            LBL__earr
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__earr]
-                        mov              rcx, qword ptr [rip + body_cell$earr@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$earr@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n1138_statement_end_α
 n1137_define_β:         mov              r11, 916;                            jmp   n1136_statement_begin_β
 .Ldefine_α_2989_0:      .quad            .Ldefine_α_2989_0_s
@@ -25452,7 +25452,7 @@ earr_α:                 sub              rsp, 112
                         lea              rax, [rip + earr_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$earr@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$earr@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 earr_γ:                 mov              rdi, qword ptr [r9 + 304]            # earr
                         mov              rsi, qword ptr [r9 + 312]
@@ -27810,11 +27810,11 @@ n1234_define_α:         mov              r11, 1013
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$estr:         .quad            LBL__estr
+entry_cell$estr:        .quad            LBL__estr
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__estr]
-                        mov              rcx, qword ptr [rip + body_cell$estr@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$estr@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n1235_statement_end_α
 n1234_define_β:         mov              r11, 1013;                           jmp   n1233_statement_begin_β
 .Ldefine_α_3139_0:      .quad            .Ldefine_α_3139_0_s
@@ -27903,7 +27903,7 @@ estr_α:                 sub              rsp, 48
                         lea              rax, [rip + estr_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$estr@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$estr@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 estr_γ:                 mov              rdi, qword ptr [r9 + 336]
                         mov              rsi, qword ptr [r9 + 344]
@@ -28584,11 +28584,11 @@ n1259_define_α:         mov              r11, 1038
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$enum:         .quad            LBL__enum
+entry_cell$enum:        .quad            LBL__enum
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__enum]
-                        mov              rcx, qword ptr [rip + body_cell$enum@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$enum@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n1260_statement_end_α
 n1259_define_β:         mov              r11, 1038;                           jmp   n1258_statement_begin_β
 .Ldefine_α_3182_0:      .quad            .Ldefine_α_3182_0_s
@@ -28677,7 +28677,7 @@ enum_α:                 sub              rsp, 48
                         lea              rax, [rip + enum_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$enum@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$enum@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 enum_γ:                 mov              rdi, qword ptr [r9 + 352]
                         mov              rsi, qword ptr [r9 + 360]
@@ -30036,11 +30036,11 @@ n1312_define_α:         mov              r11, 1091
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$etru:         .quad            LBL__etru
+entry_cell$etru:        .quad            LBL__etru
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__etru]
-                        mov              rcx, qword ptr [rip + body_cell$etru@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$etru@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n1313_statement_end_α
 n1312_define_β:         mov              r11, 1091;                           jmp   n1311_statement_begin_β
 .Ldefine_α_3270_0:      .quad            .Ldefine_α_3270_0_s
@@ -30129,7 +30129,7 @@ etru_α:                 sub              rsp, 48
                         lea              rax, [rip + etru_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$etru@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$etru@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 etru_γ:                 mov              rdi, qword ptr [r9 + 368]
                         mov              rsi, qword ptr [r9 + 376]
@@ -30774,11 +30774,11 @@ n1336_define_α:         mov              r11, 1115
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$efal:         .quad            LBL__efal
+entry_cell$efal:        .quad            LBL__efal
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__efal]
-                        mov              rcx, qword ptr [rip + body_cell$efal@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$efal@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n1337_statement_end_α
 n1336_define_β:         mov              r11, 1115;                           jmp   n1335_statement_begin_β
 .Ldefine_α_3311_0:      .quad            .Ldefine_α_3311_0_s
@@ -30867,7 +30867,7 @@ efal_α:                 sub              rsp, 48
                         lea              rax, [rip + efal_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$efal@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$efal@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 efal_γ:                 mov              rdi, qword ptr [r9 + 384]
                         mov              rsi, qword ptr [r9 + 392]
@@ -31512,11 +31512,11 @@ n1360_define_α:         mov              r11, 1139
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$enul:         .quad            LBL__enul
+entry_cell$enul:        .quad            LBL__enul
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__enul]
-                        mov              rcx, qword ptr [rip + body_cell$enul@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$enul@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n1361_statement_end_α
 n1360_define_β:         mov              r11, 1139;                           jmp   n1359_statement_begin_β
 .Ldefine_α_3352_0:      .quad            .Ldefine_α_3352_0_s
@@ -31605,7 +31605,7 @@ enul_α:                 sub              rsp, 48
                         lea              rax, [rip + enul_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$enul@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$enul@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 enul_γ:                 mov              rdi, qword ptr [r9 + 400]
                         mov              rsi, qword ptr [r9 + 408]
