@@ -721,14 +721,24 @@ n16_match_end_α:        mov              r11, 17
 .Lmatch_end_α_136_1:    cmp              rax, 1;                              jbe   .Lmatch_end_α_136_2
                         push             rbx
                         push             r12
+                        cmp              rdx, 2;                              je    .Lmatch_end_α_136_5
                         lea              rcx, [rip + .Lmatch_end_α_136_4]
                         push             rcx
                         lea              rcx, [rip + .Lmatch_end_α_136_3]
                         push             rcx
                         lea              rcx, [rip + .Lmatch_end_α_136_3]
                         lea              rdx, [rip + .Lmatch_end_α_136_4];    jmp   rax
-.Lmatch_end_α_136_3:    add              rsp, 16
-                        pop              r12
+.Lmatch_end_α_136_5:    sub              rsp, 48
+                        mov              qword ptr [rsp + 0], 0
+                        lea              rcx, [rip + .Lmatch_end_α_136_6]
+                        mov              qword ptr [rsp + 8], rcx
+                        lea              rcx, [rip + .Lmatch_end_α_136_7]
+                        mov              qword ptr [rsp + 16], rcx
+                        mov              qword ptr [rsp + 24], 0
+                        mov              qword ptr [rsp + 32], 16
+                        lea              rcx, [rsp + 0];                      jmp   rax
+.Lmatch_end_α_136_6:    add              rsp, 48
+.Lmatch_end_α_136_8:    pop              r12
                         pop              rbx
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -740,8 +750,8 @@ n16_match_end_α:        mov              r11, 17
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lmatch_end_α_136_1
-.Lmatch_end_α_136_4:    add              rsp, 16
-                        pop              r12
+.Lmatch_end_α_136_7:    add              rsp, 48
+.Lmatch_end_α_136_9:    pop              r12
                         pop              rbx
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -751,6 +761,8 @@ n16_match_end_α:        mov              r11, 17
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lmatch_end_α_136_1
+.Lmatch_end_α_136_3:    add              rsp, 16;                             jmp   .Lmatch_end_α_136_8
+.Lmatch_end_α_136_4:    add              rsp, 16;                             jmp   .Lmatch_end_α_136_9
 .Lmatch_end_α_136_2:    mov              qword ptr [rsp + 0], rax
                         call             rt_dcap_end_ok_close@PLT
                         mov              rdi, qword ptr [rbp + -16]           # outer_Σ
@@ -1159,14 +1171,24 @@ n30_match_end_α:        mov              r11, 31
 .Lmatch_end_α_159_1:    cmp              rax, 1;                              jbe   .Lmatch_end_α_159_2
                         push             rbx
                         push             r12
+                        cmp              rdx, 2;                              je    .Lmatch_end_α_159_5
                         lea              rcx, [rip + .Lmatch_end_α_159_4]
                         push             rcx
                         lea              rcx, [rip + .Lmatch_end_α_159_3]
                         push             rcx
                         lea              rcx, [rip + .Lmatch_end_α_159_3]
                         lea              rdx, [rip + .Lmatch_end_α_159_4];    jmp   rax
-.Lmatch_end_α_159_3:    add              rsp, 16
-                        pop              r12
+.Lmatch_end_α_159_5:    sub              rsp, 48
+                        mov              qword ptr [rsp + 0], 0
+                        lea              rcx, [rip + .Lmatch_end_α_159_6]
+                        mov              qword ptr [rsp + 8], rcx
+                        lea              rcx, [rip + .Lmatch_end_α_159_7]
+                        mov              qword ptr [rsp + 16], rcx
+                        mov              qword ptr [rsp + 24], 0
+                        mov              qword ptr [rsp + 32], 16
+                        lea              rcx, [rsp + 0];                      jmp   rax
+.Lmatch_end_α_159_6:    add              rsp, 48
+.Lmatch_end_α_159_8:    pop              r12
                         pop              rbx
                         mov              rdi, rax
                         mov              rsi, rdx
@@ -1178,8 +1200,8 @@ n30_match_end_α:        mov              r11, 31
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lmatch_end_α_159_1
-.Lmatch_end_α_159_4:    add              rsp, 16
-                        pop              r12
+.Lmatch_end_α_159_7:    add              rsp, 48
+.Lmatch_end_α_159_9:    pop              r12
                         pop              rbx
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -1189,6 +1211,8 @@ n30_match_end_α:        mov              r11, 31
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lmatch_end_α_159_1
+.Lmatch_end_α_159_3:    add              rsp, 16;                             jmp   .Lmatch_end_α_159_8
+.Lmatch_end_α_159_4:    add              rsp, 16;                             jmp   .Lmatch_end_α_159_9
 .Lmatch_end_α_159_2:    mov              qword ptr [rsp + 0], rax
                         call             rt_dcap_end_ok_close@PLT
                         mov              rdi, qword ptr [rbp + -16]           # outer_Σ
