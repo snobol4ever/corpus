@@ -504,7 +504,7 @@ PAT$0_ω:
                         .quad            379303578970
                         .quad            17179869208
                         .quad            .Lgcmap_PAT$0_s
-                        .quad            0
+                        .quad            88
                         .quad            12
                         .quad            8804682956728
                         .quad            8813272891328
@@ -586,7 +586,7 @@ PAT$1_ω:
                         .quad            379303578970
                         .quad            17179869208
                         .quad            .Lgcmap_PAT$1_s
-                        .quad            0
+                        .quad            88
                         .quad            11
                         .quad            8804682956728
                         .quad            17600775978944
@@ -1132,7 +1132,7 @@ PAT$2_ω:
                         .quad            379303578970
                         .quad            17179869208
                         .quad            .Lgcmap_PAT$2_s
-                        .quad            0
+                        .quad            88
                         .quad            10
                         .quad            8804682956728
                         .quad            17596481011648
@@ -1568,7 +1568,7 @@ PAT$3_ω:
                         .quad            1478815206746
                         .quad            17179869208
                         .quad            .Lgcmap_PAT$3_s
-                        .quad            0
+                        .quad            344
                         .quad            41
                         .quad            8804682956472
                         .quad            17600775978688
@@ -2329,7 +2329,7 @@ PAT$4_ω:
                         .quad            379303578970
                         .quad            17179869208
                         .quad            .Lgcmap_PAT$4_s
-                        .quad            0
+                        .quad            88
                         .quad            12
                         .quad            8804682956728
                         .quad            8813272891328
@@ -2553,7 +2553,7 @@ PAT$5_ω:
                         .quad            241864625498
                         .quad            17179869208
                         .quad            .Lgcmap_PAT$5_s
-                        .quad            0
+                        .quad            56
                         .quad            8
                         .quad            8804682956760
                         .quad            8804682956768
@@ -7407,9 +7407,15 @@ main_ω:
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_main:
                         .quad            11752376978778
-                        .quad            4294967296
+                        .quad            38654705664
                         .quad            .Lgcmap_main_s
-                        .quad            0
+                        .quad            2720
+                        .quad            5
+                        .quad            2621235720617984
+                        .quad            8800387991888
+                        .quad            17600775981400
+                        .quad            79169132169576
+                        .quad            263882790668720
 .Lgcmap_main_s:         .string          "main"
 module_init:
                         sub              rsp, 8
