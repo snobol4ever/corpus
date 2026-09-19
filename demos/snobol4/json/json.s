@@ -7,7 +7,15 @@ FN__PAT$0:
 PAT$0_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 120
+                        sub              rsp, 136
+                        lea              rax, [rip + .Lgcmap_PAT$0]
+                        mov              qword ptr [rbp + -128], rax
+                        mov              dword ptr [rbp + -136], 160
+                        mov              dword ptr [rbp + -132], 136
+                        lea              rdi, [rbp + -120]
+                        xor              eax, eax
+                        mov              ecx, 120
+                        rep              stosb
                         mov              rcx, qword ptr [rbp + 8]
                         mov              qword ptr [rbp + -8], rcx
                         mov              rcx, qword ptr [rbp + 16]
@@ -153,11 +161,43 @@ PAT$0_ω:
                         add              rsp, 8
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_PAT$0:
+                        .quad            585462009178
+                        .quad            17179869208
+                        .quad            .Lgcmap_PAT$0_s
+                        .quad            0
+                        .quad            16
+                        .quad            8804682956680
+                        .quad            8813272891280
+                        .quad            8813272891288
+                        .quad            8804682956704
+                        .quad            8804682956712
+                        .quad            17596481011632
+                        .quad            17600775978944
+                        .quad            8808977924048
+                        .quad            8804682956760
+                        .quad            8804682956768
+                        .quad            8808977924072
+                        .quad            8813272891376
+                        .quad            8813272891384
+                        .quad            8800387989504
+                        .quad            8808977924104
+                        .quad            8808977924112
+.Lgcmap_PAT$0_s:        .string          "PAT$0"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__PAT$1:
 PAT$1_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 88
+                        sub              rsp, 104
+                        lea              rax, [rip + .Lgcmap_PAT$1]
+                        mov              qword ptr [rbp + -96], rax
+                        mov              dword ptr [rbp + -104], 160
+                        mov              dword ptr [rbp + -100], 104
+                        lea              rdi, [rbp + -88]
+                        xor              eax, eax
+                        mov              ecx, 88
+                        rep              stosb
                         mov              rcx, qword ptr [rbp + 8]
                         mov              qword ptr [rbp + -8], rcx
                         mov              rcx, qword ptr [rbp + 16]
@@ -439,11 +479,40 @@ PAT$1_ω:
                         add              rsp, 8
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_PAT$1:
+                        .quad            448023055706
+                        .quad            17179869208
+                        .quad            .Lgcmap_PAT$1_s
+                        .quad            0
+                        .quad            13
+                        .quad            8804682956712
+                        .quad            8813272891312
+                        .quad            8813272891320
+                        .quad            8804682956736
+                        .quad            8804682956744
+                        .quad            17596481011664
+                        .quad            8804682956768
+                        .quad            8808977924072
+                        .quad            8813272891376
+                        .quad            8813272891384
+                        .quad            8800387989504
+                        .quad            8808977924104
+                        .quad            8808977924112
+.Lgcmap_PAT$1_s:        .string          "PAT$1"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__PAT$2:
 PAT$2_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 72
+                        sub              rsp, 88
+                        lea              rax, [rip + .Lgcmap_PAT$2]
+                        mov              qword ptr [rbp + -80], rax
+                        mov              dword ptr [rbp + -88], 160
+                        mov              dword ptr [rbp + -84], 88
+                        lea              rdi, [rbp + -72]
+                        xor              eax, eax
+                        mov              ecx, 72
+                        rep              stosb
                         mov              rcx, qword ptr [rbp + 8]
                         mov              qword ptr [rbp + -8], rcx
                         mov              rcx, qword ptr [rbp + 16]
@@ -536,11 +605,38 @@ PAT$2_ω:
                         add              rsp, 8
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_PAT$2:
+                        .quad            379303578970
+                        .quad            17179869208
+                        .quad            .Lgcmap_PAT$2_s
+                        .quad            0
+                        .quad            11
+                        .quad            8804682956728
+                        .quad            17600775978944
+                        .quad            8808977924048
+                        .quad            8804682956760
+                        .quad            8804682956768
+                        .quad            8808977924072
+                        .quad            8813272891376
+                        .quad            8813272891384
+                        .quad            8800387989504
+                        .quad            8808977924104
+                        .quad            8808977924112
+.Lgcmap_PAT$2_s:        .string          "PAT$2"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__PAT$3:
 PAT$3_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 72
+                        sub              rsp, 88
+                        lea              rax, [rip + .Lgcmap_PAT$3]
+                        mov              qword ptr [rbp + -80], rax
+                        mov              dword ptr [rbp + -88], 160
+                        mov              dword ptr [rbp + -84], 88
+                        lea              rdi, [rbp + -72]
+                        xor              eax, eax
+                        mov              ecx, 72
+                        rep              stosb
                         mov              rcx, qword ptr [rbp + 8]
                         mov              qword ptr [rbp + -8], rcx
                         mov              rcx, qword ptr [rbp + 16]
@@ -844,11 +940,37 @@ PAT$3_ω:
                         add              rsp, 8
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_PAT$3:
+                        .quad            379303578970
+                        .quad            17179869208
+                        .quad            .Lgcmap_PAT$3_s
+                        .quad            0
+                        .quad            10
+                        .quad            8804682956728
+                        .quad            17596481011648
+                        .quad            17600775978960
+                        .quad            8804682956768
+                        .quad            8808977924072
+                        .quad            8813272891376
+                        .quad            8813272891384
+                        .quad            8800387989504
+                        .quad            8808977924104
+                        .quad            8808977924112
+.Lgcmap_PAT$3_s:        .string          "PAT$3"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__PAT$4:
 PAT$4_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 472
+                        sub              rsp, 488
+                        lea              rax, [rip + .Lgcmap_PAT$4]
+                        mov              qword ptr [rbp + -480], rax
+                        mov              dword ptr [rbp + -488], 160
+                        mov              dword ptr [rbp + -484], 488
+                        lea              rdi, [rbp + -472]
+                        xor              eax, eax
+                        mov              ecx, 472
+                        rep              stosb
                         mov              rcx, qword ptr [rbp + 8]
                         mov              qword ptr [rbp + -8], rcx
                         mov              rcx, qword ptr [rbp + 16]
@@ -1517,11 +1639,77 @@ PAT$4_ω:
                         add              rsp, 8
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_PAT$4:
+                        .quad            2097290497370
+                        .quad            17179869208
+                        .quad            .Lgcmap_PAT$4_s
+                        .quad            0
+                        .quad            50
+                        .quad            8804682956328
+                        .quad            17596481011248
+                        .quad            17596481011264
+                        .quad            17596481011280
+                        .quad            8804682956384
+                        .quad            8813272890984
+                        .quad            8813272890992
+                        .quad            8804682956408
+                        .quad            17600775978624
+                        .quad            17600775978640
+                        .quad            8808977923744
+                        .quad            8804682956456
+                        .quad            8804682956464
+                        .quad            8813272891064
+                        .quad            8813272891072
+                        .quad            8804682956488
+                        .quad            17600775978704
+                        .quad            8804682956512
+                        .quad            8813272891112
+                        .quad            8813272891120
+                        .quad            8804682956536
+                        .quad            17600775978752
+                        .quad            8808977923856
+                        .quad            8804682956568
+                        .quad            8804682956576
+                        .quad            8813272891176
+                        .quad            8813272891184
+                        .quad            8804682956600
+                        .quad            17600775978816
+                        .quad            8804682956624
+                        .quad            8813272891224
+                        .quad            8813272891232
+                        .quad            8804682956648
+                        .quad            17600775978864
+                        .quad            17600775978880
+                        .quad            8808977923984
+                        .quad            8804682956696
+                        .quad            8804682956704
+                        .quad            8813272891304
+                        .quad            8813272891312
+                        .quad            8804682956728
+                        .quad            17600775978944
+                        .quad            17600775978960
+                        .quad            8804682956768
+                        .quad            8808977924072
+                        .quad            8813272891376
+                        .quad            8813272891384
+                        .quad            8800387989504
+                        .quad            8808977924104
+                        .quad            8808977924112
+.Lgcmap_PAT$4_s:        .string          "PAT$4"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__PAT$5:
 PAT$5_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 72
+                        sub              rsp, 88
+                        lea              rax, [rip + .Lgcmap_PAT$5]
+                        mov              qword ptr [rbp + -80], rax
+                        mov              dword ptr [rbp + -88], 160
+                        mov              dword ptr [rbp + -84], 88
+                        lea              rdi, [rbp + -72]
+                        xor              eax, eax
+                        mov              ecx, 72
+                        rep              stosb
                         mov              rcx, qword ptr [rbp + 8]
                         mov              qword ptr [rbp + -8], rcx
                         mov              rcx, qword ptr [rbp + 16]
@@ -1799,7 +1987,7 @@ n160_match_fence0_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n160_match_fence0_α:    mov              r11, 61
                         mov              rsp, rbp
-                        sub              rsp, 72;                             jmp   n161_match_assign_save_α
+                        sub              rsp, 88;                             jmp   n161_match_assign_save_α
 n160_match_fence0_β:    mov              r11, 61;                             jmp   PAT$5_ω
                         .size            n160_match_fence0_bx, .-n160_match_fence0_bx
                         .type            n161_match_assign_save_bx, @function
@@ -1936,11 +2124,37 @@ PAT$5_ω:
                         add              rsp, 8
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_PAT$5:
+                        .quad            379303578970
+                        .quad            17179869208
+                        .quad            .Lgcmap_PAT$5_s
+                        .quad            0
+                        .quad            10
+                        .quad            8804682956728
+                        .quad            17600775978944
+                        .quad            17600775978960
+                        .quad            8804682956768
+                        .quad            8808977924072
+                        .quad            8813272891376
+                        .quad            8813272891384
+                        .quad            8800387989504
+                        .quad            8808977924104
+                        .quad            8808977924112
+.Lgcmap_PAT$5_s:        .string          "PAT$5"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__PAT$6:
 PAT$6_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 72
+                        sub              rsp, 88
+                        lea              rax, [rip + .Lgcmap_PAT$6]
+                        mov              qword ptr [rbp + -80], rax
+                        mov              dword ptr [rbp + -88], 160
+                        mov              dword ptr [rbp + -84], 88
+                        lea              rdi, [rbp + -72]
+                        xor              eax, eax
+                        mov              ecx, 72
+                        rep              stosb
                         mov              rcx, qword ptr [rbp + 8]
                         mov              qword ptr [rbp + -8], rcx
                         mov              rcx, qword ptr [rbp + 16]
@@ -2218,7 +2432,7 @@ n183_match_fence0_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n183_match_fence0_α:    mov              r11, 70
                         mov              rsp, rbp
-                        sub              rsp, 72;                             jmp   n184_match_assign_save_α
+                        sub              rsp, 88;                             jmp   n184_match_assign_save_α
 n183_match_fence0_β:    mov              r11, 70;                             jmp   PAT$6_ω
                         .size            n183_match_fence0_bx, .-n183_match_fence0_bx
                         .type            n184_match_assign_save_bx, @function
@@ -2355,11 +2569,37 @@ PAT$6_ω:
                         add              rsp, 8
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_PAT$6:
+                        .quad            379303578970
+                        .quad            17179869208
+                        .quad            .Lgcmap_PAT$6_s
+                        .quad            0
+                        .quad            10
+                        .quad            8804682956728
+                        .quad            17600775978944
+                        .quad            17600775978960
+                        .quad            8804682956768
+                        .quad            8808977924072
+                        .quad            8813272891376
+                        .quad            8813272891384
+                        .quad            8800387989504
+                        .quad            8808977924104
+                        .quad            8808977924112
+.Lgcmap_PAT$6_s:        .string          "PAT$6"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__PAT$7:
 PAT$7_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 40
+                        sub              rsp, 56
+                        lea              rax, [rip + .Lgcmap_PAT$7]
+                        mov              qword ptr [rbp + -48], rax
+                        mov              dword ptr [rbp + -56], 160
+                        mov              dword ptr [rbp + -52], 56
+                        lea              rdi, [rbp + -40]
+                        xor              eax, eax
+                        mov              ecx, 40
+                        rep              stosb
                         mov              rcx, qword ptr [rbp + 8]
                         mov              qword ptr [rbp + -8], rcx
                         mov              rcx, qword ptr [rbp + 16]
@@ -2722,11 +2962,35 @@ PAT$7_ω:
                         add              rsp, 8
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_PAT$7:
+                        .quad            241864625498
+                        .quad            17179869208
+                        .quad            .Lgcmap_PAT$7_s
+                        .quad            0
+                        .quad            8
+                        .quad            8804682956760
+                        .quad            8804682956768
+                        .quad            8808977924072
+                        .quad            8813272891376
+                        .quad            8813272891384
+                        .quad            8800387989504
+                        .quad            8808977924104
+                        .quad            8808977924112
+.Lgcmap_PAT$7_s:        .string          "PAT$7"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__PAT$8:
 PAT$8_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 152
+                        sub              rsp, 168
+                        lea              rax, [rip + .Lgcmap_PAT$8]
+                        mov              qword ptr [rbp + -160], rax
+                        mov              dword ptr [rbp + -168], 160
+                        mov              dword ptr [rbp + -164], 168
+                        lea              rdi, [rbp + -152]
+                        xor              eax, eax
+                        mov              ecx, 152
+                        rep              stosb
                         mov              rcx, qword ptr [rbp + 8]
                         mov              qword ptr [rbp + -8], rcx
                         mov              rcx, qword ptr [rbp + 16]
@@ -3017,7 +3281,7 @@ n221_match_fence0_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n221_match_fence0_α:    mov              r11, 88
                         mov              rsp, rbp
-                        sub              rsp, 152;                            jmp   PAT$8_γ
+                        sub              rsp, 168;                            jmp   PAT$8_γ
 n221_match_fence0_β:    mov              r11, 88;                             jmp   PAT$8_ω
                         .size            n221_match_fence0_bx, .-n221_match_fence0_bx
                         .type            n222_match_defer_bx, @function
@@ -3328,11 +3592,44 @@ PAT$8_ω:
                         add              rsp, 8
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_PAT$8:
+                        .quad            722900962650
+                        .quad            17179869208
+                        .quad            .Lgcmap_PAT$8_s
+                        .quad            0
+                        .quad            17
+                        .quad            8804682956648
+                        .quad            17600775978864
+                        .quad            17596481011584
+                        .quad            17600775978896
+                        .quad            17596481011616
+                        .quad            8804682956720
+                        .quad            8813272891320
+                        .quad            8813272891328
+                        .quad            8804682956744
+                        .quad            17600775978960
+                        .quad            8804682956768
+                        .quad            8808977924072
+                        .quad            8813272891376
+                        .quad            8813272891384
+                        .quad            8800387989504
+                        .quad            8808977924104
+                        .quad            8808977924112
+.Lgcmap_PAT$8_s:        .string          "PAT$8"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__PAT$9:
 PAT$9_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 152
+                        sub              rsp, 168
+                        lea              rax, [rip + .Lgcmap_PAT$9]
+                        mov              qword ptr [rbp + -160], rax
+                        mov              dword ptr [rbp + -168], 160
+                        mov              dword ptr [rbp + -164], 168
+                        lea              rdi, [rbp + -152]
+                        xor              eax, eax
+                        mov              ecx, 152
+                        rep              stosb
                         mov              rcx, qword ptr [rbp + 8]
                         mov              qword ptr [rbp + -8], rcx
                         mov              rcx, qword ptr [rbp + 16]
@@ -3623,7 +3920,7 @@ n261_match_fence0_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n261_match_fence0_α:    mov              r11, 103
                         mov              rsp, rbp
-                        sub              rsp, 152;                            jmp   PAT$9_γ
+                        sub              rsp, 168;                            jmp   PAT$9_γ
 n261_match_fence0_β:    mov              r11, 103;                            jmp   PAT$9_ω
                         .size            n261_match_fence0_bx, .-n261_match_fence0_bx
                         .type            n262_match_defer_bx, @function
@@ -3936,11 +4233,44 @@ PAT$9_ω:
                         add              rsp, 8
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_PAT$9:
+                        .quad            722900962650
+                        .quad            17179869208
+                        .quad            .Lgcmap_PAT$9_s
+                        .quad            0
+                        .quad            17
+                        .quad            8804682956648
+                        .quad            17600775978864
+                        .quad            17596481011584
+                        .quad            17600775978896
+                        .quad            17596481011616
+                        .quad            8804682956720
+                        .quad            8813272891320
+                        .quad            8813272891328
+                        .quad            8804682956744
+                        .quad            17600775978960
+                        .quad            8804682956768
+                        .quad            8808977924072
+                        .quad            8813272891376
+                        .quad            8813272891384
+                        .quad            8800387989504
+                        .quad            8808977924104
+                        .quad            8808977924112
+.Lgcmap_PAT$9_s:        .string          "PAT$9"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__PAT$10:
 PAT$10_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 216
+                        sub              rsp, 232
+                        lea              rax, [rip + .Lgcmap_PAT$10]
+                        mov              qword ptr [rbp + -224], rax
+                        mov              dword ptr [rbp + -232], 160
+                        mov              dword ptr [rbp + -228], 232
+                        lea              rdi, [rbp + -216]
+                        xor              eax, eax
+                        mov              ecx, 216
+                        rep              stosb
                         mov              rcx, qword ptr [rbp + 8]
                         mov              qword ptr [rbp + -8], rcx
                         mov              rcx, qword ptr [rbp + 16]
@@ -4804,11 +5134,48 @@ PAT$10_ω:
                         add              rsp, 8
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_PAT$10:
+                        .quad            997778869594
+                        .quad            17179869208
+                        .quad            .Lgcmap_PAT$10_s
+                        .quad            0
+                        .quad            21
+                        .quad            8804682956584
+                        .quad            8813272891184
+                        .quad            8813272891192
+                        .quad            8804682956608
+                        .quad            8804682956616
+                        .quad            17596481011536
+                        .quad            17600775978848
+                        .quad            17596481011568
+                        .quad            17600775978880
+                        .quad            17596481011600
+                        .quad            17600775978912
+                        .quad            17596481011632
+                        .quad            17600775978944
+                        .quad            17596481011664
+                        .quad            8804682956768
+                        .quad            8808977924072
+                        .quad            8813272891376
+                        .quad            8813272891384
+                        .quad            8800387989504
+                        .quad            8808977924104
+                        .quad            8808977924112
+.Lgcmap_PAT$10_s:       .string          "PAT$10"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__PAT$11:
 PAT$11_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 40
+                        sub              rsp, 56
+                        lea              rax, [rip + .Lgcmap_PAT$11]
+                        mov              qword ptr [rbp + -48], rax
+                        mov              dword ptr [rbp + -56], 160
+                        mov              dword ptr [rbp + -52], 56
+                        lea              rdi, [rbp + -40]
+                        xor              eax, eax
+                        mov              ecx, 40
+                        rep              stosb
                         mov              rcx, qword ptr [rbp + 8]
                         mov              qword ptr [rbp + -8], rcx
                         mov              rcx, qword ptr [rbp + 16]
@@ -5078,11 +5445,35 @@ PAT$11_ω:
                         add              rsp, 8
                         ret
 #-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_PAT$11:
+                        .quad            241864625498
+                        .quad            17179869208
+                        .quad            .Lgcmap_PAT$11_s
+                        .quad            0
+                        .quad            8
+                        .quad            8804682956760
+                        .quad            8804682956768
+                        .quad            8808977924072
+                        .quad            8813272891376
+                        .quad            8813272891384
+                        .quad            8800387989504
+                        .quad            8808977924104
+                        .quad            8808977924112
+.Lgcmap_PAT$11_s:       .string          "PAT$11"
+#-----------------------------------------------------------------------------------------------------------------------
 FN__PAT$12:
 PAT$12_α_body:
                         push             rbp
                         mov              rbp, rsp
-                        sub              rsp, 40
+                        sub              rsp, 56
+                        lea              rax, [rip + .Lgcmap_PAT$12]
+                        mov              qword ptr [rbp + -48], rax
+                        mov              dword ptr [rbp + -56], 160
+                        mov              dword ptr [rbp + -52], 56
+                        lea              rdi, [rbp + -40]
+                        xor              eax, eax
+                        mov              ecx, 40
+                        rep              stosb
                         mov              rcx, qword ptr [rbp + 8]
                         mov              qword ptr [rbp + -8], rcx
                         mov              rcx, qword ptr [rbp + 16]
@@ -5212,6 +5603,22 @@ PAT$12_ω:
                         pop              rbp
                         add              rsp, 8
                         ret
+#-----------------------------------------------------------------------------------------------------------------------
+.Lgcmap_PAT$12:
+                        .quad            241864625498
+                        .quad            17179869208
+                        .quad            .Lgcmap_PAT$12_s
+                        .quad            0
+                        .quad            8
+                        .quad            8804682956760
+                        .quad            8804682956768
+                        .quad            8808977924072
+                        .quad            8813272891376
+                        .quad            8813272891384
+                        .quad            8800387989504
+                        .quad            8808977924104
+                        .quad            8808977924112
+.Lgcmap_PAT$12_s:       .string          "PAT$12"
                         .globl           main
 main:
                         sub              rsp, 65544
@@ -41211,7 +41618,20 @@ module_init:
                         ret
                         .section         .rodata
                         .align           8
-__gc_frame_maps:        .quad            1
+__gc_frame_maps:        .quad            14
+                        .quad            .Lgcmap_PAT$0
+                        .quad            .Lgcmap_PAT$1
+                        .quad            .Lgcmap_PAT$2
+                        .quad            .Lgcmap_PAT$3
+                        .quad            .Lgcmap_PAT$4
+                        .quad            .Lgcmap_PAT$5
+                        .quad            .Lgcmap_PAT$6
+                        .quad            .Lgcmap_PAT$7
+                        .quad            .Lgcmap_PAT$8
+                        .quad            .Lgcmap_PAT$9
+                        .quad            .Lgcmap_PAT$10
+                        .quad            .Lgcmap_PAT$11
+                        .quad            .Lgcmap_PAT$12
                         .quad            .Lgcmap_main
                         .section         .text
                         .intel_syntax    noprefix
