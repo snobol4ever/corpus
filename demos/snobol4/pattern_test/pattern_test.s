@@ -380,10 +380,13 @@ n16_match_end_α:        mov              r11, 17
                         mov              eax, dword ptr [rbp + -40]           # repl_start
                         mov              dword ptr [rbp + -36], eax
                         mov              qword ptr [rbp + -56], r14           # repl_end
-                        push             r14
-                        push             r15
-                        push             r13
-                        sub              rsp, 8
+                        sub              rsp, 32
+                        mov              dword ptr [rsp + 16], 3
+                        mov              dword ptr [rsp + 20], 0
+                        mov              qword ptr [rsp + 24], r14
+                        mov              dword ptr [rsp + 0], 2
+                        mov              dword ptr [rsp + 4], r15d
+                        mov              qword ptr [rsp + 8], r13
                         mov              rdi, qword ptr [rbp + -8]            # cas_mark
                         mov              rsi, r12
                         mov              rdx, r13
@@ -477,10 +480,10 @@ n16_match_end_α:        mov              r11, 17
                         call             rt_match_ctx_restore@PLT
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              rax, qword ptr [rsp + 0]
-                        add              rsp, 8
-                        pop              r13
-                        pop              r15
-                        pop              r14
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        add              rsp, 32
                         test             rax, rax;                            je    .Lmatch_end_α_52_13
                                                                               jmp   .Lmatch_begin_ω_12_af
 .Lmatch_end_α_52_13:    mov              r12, qword ptr [rbp + -8]            # cas_mark

@@ -703,10 +703,13 @@ n16_match_end_α:        mov              r11, 17
                         mov              eax, dword ptr [rbp + -40]           # repl_start
                         mov              dword ptr [rbp + -36], eax
                         mov              qword ptr [rbp + -56], r14           # repl_end
-                        push             r14
-                        push             r15
-                        push             r13
-                        sub              rsp, 8
+                        sub              rsp, 32
+                        mov              dword ptr [rsp + 16], 3
+                        mov              dword ptr [rsp + 20], 0
+                        mov              qword ptr [rsp + 24], r14
+                        mov              dword ptr [rsp + 0], 2
+                        mov              dword ptr [rsp + 4], r15d
+                        mov              qword ptr [rsp + 8], r13
                         mov              rdi, qword ptr [rbp + -8]            # cas_mark
                         mov              rsi, r12
                         mov              rdx, r13
@@ -800,10 +803,10 @@ n16_match_end_α:        mov              r11, 17
                         call             rt_match_ctx_restore@PLT
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              rax, qword ptr [rsp + 0]
-                        add              rsp, 8
-                        pop              r13
-                        pop              r15
-                        pop              r14
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        add              rsp, 32
                         test             rax, rax;                            je    .Lmatch_end_α_136_13
                                                                               jmp   .Lmatch_begin_ω_11_af
 .Lmatch_end_α_136_13:   mov              r12, qword ptr [rbp + -8]            # cas_mark
@@ -1080,10 +1083,13 @@ n26_match_defer_α:      mov              r11, 27
                         mov              edx, r14d
                         add              edx, 1;                              jmp   .Lmatch_defer_α_151_0
 .Lmatch_defer_α_151_31: mov              edx, -1;                             jmp   .Lmatch_defer_α_151_0
-.Lmatch_defer_α_151_22: push             r14
-                        push             r15
-                        push             r13
-                        sub              rsp, 8
+.Lmatch_defer_α_151_22: sub              rsp, 32
+                        mov              dword ptr [rsp + 16], 3
+                        mov              dword ptr [rsp + 20], 0
+                        mov              qword ptr [rsp + 24], r14
+                        mov              dword ptr [rsp + 0], 2
+                        mov              dword ptr [rsp + 4], r15d
+                        mov              qword ptr [rsp + 8], r13
                         lea              rdi, [rip + .S1]
                         mov              esi, r14d
                         mov              rdx, 0
@@ -1095,10 +1101,10 @@ n26_match_defer_α:      mov              r11, 27
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        add              rsp, 8
-                        pop              r13
-                        pop              r15
-                        pop              r14
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        add              rsp, 32
 .Lmatch_defer_α_151_23: test             rax, rax;                            jz    .Lmatch_defer_α_151_0
 .Lmatch_defer_α_151_48: mov              r8d, 0
                         lea              rcx, [rip + .Lmatch_defer_α_151_5]
@@ -1109,10 +1115,13 @@ n26_match_defer_α:      mov              r11, 27
 .Lmatch_defer_α_151_5:                                                        jmp   n25_match_begin_β
 .Lmatch_defer_α_151_0:  mov              eax, edx
                         cmp              eax, -2;                             jne   .Lmatch_defer_α_151_49
-                        push             r14
-                        push             r15
-                        push             r13
-                        sub              rsp, 8
+                        sub              rsp, 32
+                        mov              dword ptr [rsp + 16], 3
+                        mov              dword ptr [rsp + 20], 0
+                        mov              qword ptr [rsp + 24], r14
+                        mov              dword ptr [rsp + 0], 2
+                        mov              dword ptr [rsp + 4], r15d
+                        mov              qword ptr [rsp + 8], r13
                         lea              rdi, [rip + .S1]
                         xor              esi, esi
                         mov              qword ptr [rip + rtccb+40], r8
@@ -1197,16 +1206,16 @@ n26_match_defer_α:      mov              r11, 27
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lmatch_defer_α_151_2
-.Lmatch_defer_α_151_40: add              rsp, 8
-                        pop              r13
-                        pop              r15
-                        pop              r14
+.Lmatch_defer_α_151_40: mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        add              rsp, 32
                         mov              rdx, rax
                         mov              rax, qword ptr [rdx + 0];            jmp   .Lmatch_defer_α_151_48
-.Lmatch_defer_α_151_3:  add              rsp, 8
-                        pop              r13
-                        pop              r15
-                        pop              r14
+.Lmatch_defer_α_151_3:  mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        add              rsp, 32
                         mov              edi, r14d
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -1289,10 +1298,13 @@ n30_match_end_α:        mov              r11, 31
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL] # mbc_restore
                         mov              rax, qword ptr [rbp + -48]
                         mov              qword ptr [rcx + 248], rax
-                        push             r14
-                        push             r15
-                        push             r13
-                        sub              rsp, 8
+                        sub              rsp, 32
+                        mov              dword ptr [rsp + 16], 3
+                        mov              dword ptr [rsp + 20], 0
+                        mov              qword ptr [rsp + 24], r14
+                        mov              dword ptr [rsp + 0], 2
+                        mov              dword ptr [rsp + 4], r15d
+                        mov              qword ptr [rsp + 8], r13
                         mov              rdi, qword ptr [rbp + -8]            # cas_mark
                         mov              rsi, r12
                         mov              rdx, r13
@@ -1386,10 +1398,10 @@ n30_match_end_α:        mov              r11, 31
                         call             rt_match_ctx_restore@PLT
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              rax, qword ptr [rsp + 0]
-                        add              rsp, 8
-                        pop              r13
-                        pop              r15
-                        pop              r14
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        add              rsp, 32
                         test             rax, rax;                            je    .Lmatch_end_α_159_13
                                                                               jmp   .Lmatch_begin_ω_25_af
 .Lmatch_end_α_159_13:   mov              r12, qword ptr [rbp + -8]            # cas_mark
