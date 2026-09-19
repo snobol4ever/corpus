@@ -621,11 +621,11 @@ n27_define_α:           mov              r11, 28
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$ARRAY_SUM:    .quad            LBL__ARRAY_SUM
+entry_cell$ARRAY_SUM:   .quad            LBL__ARRAY_SUM
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__ARRAY_SUM]
-                        mov              rcx, qword ptr [rip + body_cell$ARRAY_SUM@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$ARRAY_SUM@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n28_statement_end_α
 n27_define_β:           mov              r11, 28;                             jmp   n26_statement_begin_β
 .Ldefine_α_210_0:       .quad            .Ldefine_α_210_0_s
@@ -731,7 +731,7 @@ ARRAY_SUM_α:            sub              rsp, 64
                         lea              rax, [rip + ARRAY_SUM_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$ARRAY_SUM@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$ARRAY_SUM@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 ARRAY_SUM_γ:            mov              rdi, qword ptr [r9 + 0]              # ARRAY_SUM
                         mov              rsi, qword ptr [r9 + 8]

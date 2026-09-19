@@ -613,11 +613,11 @@ n27_define_α:           mov              r11, 28
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$OP_DISPATCH:  .quad            LBL__OP_DISPATCH
+entry_cell$OP_DISPATCH: .quad            LBL__OP_DISPATCH
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__OP_DISPATCH]
-                        mov              rcx, qword ptr [rip + body_cell$OP_DISPATCH@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$OP_DISPATCH@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n28_statement_end_α
 n27_define_β:           mov              r11, 28;                             jmp   n26_statement_begin_β
 .Ldefine_α_176_0:       .quad            .Ldefine_α_176_0_s
@@ -723,7 +723,7 @@ OP_DISPATCH_α:          sub              rsp, 64
                         lea              rax, [rip + OP_DISPATCH_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$OP_DISPATCH@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$OP_DISPATCH@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 OP_DISPATCH_γ:          mov              rdi, qword ptr [r9 + 0]              # OP_DISPATCH
                         mov              rsi, qword ptr [r9 + 8]

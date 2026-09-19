@@ -626,11 +626,11 @@ n27_define_α:           mov              r11, 28
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$ROMAN:        .quad            LBL__ROMAN
+entry_cell$ROMAN:       .quad            LBL__ROMAN
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__ROMAN]
-                        mov              rcx, qword ptr [rip + body_cell$ROMAN@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$ROMAN@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n28_statement_end_α
 n27_define_β:           mov              r11, 28;                             jmp   n26_statement_begin_β
 .Ldefine_α_277_0:       .quad            .Ldefine_α_277_0_s
@@ -742,7 +742,7 @@ ROMAN_α:                sub              rsp, 80
                         lea              rax, [rip + ROMAN_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$ROMAN@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$ROMAN@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 ROMAN_γ:                mov              rdi, qword ptr [r9 + 0]              # ROMAN
                         mov              rsi, qword ptr [r9 + 8]
@@ -2186,11 +2186,11 @@ n76_define_α:           mov              r11, 77
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$ROMAN_RUN:    .quad            LBL__ROMAN_RUN
+entry_cell$ROMAN_RUN:   .quad            LBL__ROMAN_RUN
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__ROMAN_RUN]
-                        mov              rcx, qword ptr [rip + body_cell$ROMAN_RUN@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$ROMAN_RUN@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n77_statement_end_α
 n76_define_β:           mov              r11, 77;                             jmp   n75_statement_begin_β
 .Ldefine_α_354_0:       .quad            .Ldefine_α_354_0_s
@@ -2296,7 +2296,7 @@ ROMAN_RUN_α:            sub              rsp, 64
                         lea              rax, [rip + ROMAN_RUN_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$ROMAN_RUN@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$ROMAN_RUN@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 ROMAN_RUN_γ:            mov              rdi, qword ptr [r9 + 48]             # ROMAN_RUN
                         mov              rsi, qword ptr [r9 + 56]

@@ -623,11 +623,11 @@ n27_define_α:           mov              r11, 28
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$ADD1:         .quad            LBL__ADD1
+entry_cell$ADD1:        .quad            LBL__ADD1
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__ADD1]
-                        mov              rcx, qword ptr [rip + body_cell$ADD1@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$ADD1@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n28_statement_end_α
 n27_define_β:           mov              r11, 28;                             jmp   n26_statement_begin_β
 .Ldefine_α_185_0:       .quad            .Ldefine_α_185_0_s
@@ -733,7 +733,7 @@ ADD1_α:                 sub              rsp, 64
                         lea              rax, [rip + ADD1_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$ADD1@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$ADD1@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 ADD1_γ:                 mov              rdi, qword ptr [r9 + 0]              # ADD1
                         mov              rsi, qword ptr [r9 + 8]
@@ -1417,12 +1417,12 @@ n51_define_α:           mov              r11, 52
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$INDIRECT_DISPATCH:
+entry_cell$INDIRECT_DISPATCH:
                         .quad            LBL__INDIRECT_DISPATCH
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__INDIRECT_DISPATCH]
-                        mov              rcx, qword ptr [rip + body_cell$INDIRECT_DISPATCH@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$INDIRECT_DISPATCH@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n52_statement_end_α
 n51_define_β:           mov              r11, 52;                             jmp   n50_statement_begin_β
 .Ldefine_α_222_0:       .quad            .Ldefine_α_222_0_s
@@ -1528,7 +1528,7 @@ INDIRECT_DISPATCH_α:    sub              rsp, 64
                         lea              rax, [rip + INDIRECT_DISPATCH_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$INDIRECT_DISPATCH@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$INDIRECT_DISPATCH@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 INDIRECT_DISPATCH_γ:    mov              rdi, qword ptr [r9 + 32]             # INDIRECT_DISPATCH
                         mov              rsi, qword ptr [r9 + 40]

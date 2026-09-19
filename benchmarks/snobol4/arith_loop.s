@@ -613,11 +613,11 @@ n27_define_α:           mov              r11, 28
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$ARITH_LOOP:   .quad            LBL__ARITH_LOOP
+entry_cell$ARITH_LOOP:  .quad            LBL__ARITH_LOOP
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__ARITH_LOOP]
-                        mov              rcx, qword ptr [rip + body_cell$ARITH_LOOP@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$ARITH_LOOP@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n28_statement_end_α
 n27_define_β:           mov              r11, 28;                             jmp   n26_statement_begin_β
 .Ldefine_α_144_0:       .quad            .Ldefine_α_144_0_s
@@ -723,7 +723,7 @@ ARITH_LOOP_α:           sub              rsp, 64
                         lea              rax, [rip + ARITH_LOOP_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$ARITH_LOOP@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$ARITH_LOOP@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 ARITH_LOOP_γ:           mov              rdi, qword ptr [r9 + 0]              # ARITH_LOOP
                         mov              rsi, qword ptr [r9 + 8]

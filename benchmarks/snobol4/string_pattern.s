@@ -1190,12 +1190,12 @@ n75_define_α:           mov              r11, 54
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$STRING_PATTERN:
+entry_cell$STRING_PATTERN:
                         .quad            LBL__STRING_PATTERN
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__STRING_PATTERN]
-                        mov              rcx, qword ptr [rip + body_cell$STRING_PATTERN@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$STRING_PATTERN@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n76_statement_end_α
 n75_define_β:           mov              r11, 54;                             jmp   n74_statement_begin_β
 .Ldefine_α_226_0:       .quad            .Ldefine_α_226_0_s
@@ -1301,7 +1301,7 @@ STRING_PATTERN_α:       sub              rsp, 64
                         lea              rax, [rip + STRING_PATTERN_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$STRING_PATTERN@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$STRING_PATTERN@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 STRING_PATTERN_γ:       mov              rdi, qword ptr [r9 + 0]              # STRING_PATTERN
                         mov              rsi, qword ptr [r9 + 8]

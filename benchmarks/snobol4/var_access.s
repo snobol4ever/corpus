@@ -621,11 +621,11 @@ n27_define_α:           mov              r11, 28
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$VAR_ACCESS:   .quad            LBL__VAR_ACCESS
+entry_cell$VAR_ACCESS:  .quad            LBL__VAR_ACCESS
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__VAR_ACCESS]
-                        mov              rcx, qword ptr [rip + body_cell$VAR_ACCESS@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$VAR_ACCESS@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n28_statement_end_α
 n27_define_β:           mov              r11, 28;                             jmp   n26_statement_begin_β
 .Ldefine_α_229_0:       .quad            .Ldefine_α_229_0_s
@@ -731,7 +731,7 @@ VAR_ACCESS_α:           sub              rsp, 64
                         lea              rax, [rip + VAR_ACCESS_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$VAR_ACCESS@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$VAR_ACCESS@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 VAR_ACCESS_γ:           mov              rdi, qword ptr [r9 + 0]              # VAR_ACCESS
                         mov              rsi, qword ptr [r9 + 8]

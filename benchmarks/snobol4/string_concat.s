@@ -613,12 +613,12 @@ n27_define_α:           mov              r11, 28
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$STRING_CONCAT:
+entry_cell$STRING_CONCAT:
                         .quad            LBL__STRING_CONCAT
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__STRING_CONCAT]
-                        mov              rcx, qword ptr [rip + body_cell$STRING_CONCAT@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$STRING_CONCAT@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n28_statement_end_α
 n27_define_β:           mov              r11, 28;                             jmp   n26_statement_begin_β
 .Ldefine_α_145_0:       .quad            .Ldefine_α_145_0_s
@@ -724,7 +724,7 @@ STRING_CONCAT_α:        sub              rsp, 64
                         lea              rax, [rip + STRING_CONCAT_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$STRING_CONCAT@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$STRING_CONCAT@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 STRING_CONCAT_γ:        mov              rdi, qword ptr [r9 + 0]              # STRING_CONCAT
                         mov              rsi, qword ptr [r9 + 8]

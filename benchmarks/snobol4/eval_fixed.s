@@ -759,11 +759,11 @@ n34_define_α:           mov              r11, 35
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$EVAL_FIXED:   .quad            LBL__EVAL_FIXED
+entry_cell$EVAL_FIXED:  .quad            LBL__EVAL_FIXED
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__EVAL_FIXED]
-                        mov              rcx, qword ptr [rip + body_cell$EVAL_FIXED@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$EVAL_FIXED@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n35_statement_end_α
 n34_define_β:           mov              r11, 35;                             jmp   n33_statement_begin_β
 .Ldefine_α_152_0:       .quad            .Ldefine_α_152_0_s
@@ -869,7 +869,7 @@ EVAL_FIXED_α:           sub              rsp, 64
                         lea              rax, [rip + EVAL_FIXED_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$EVAL_FIXED@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$EVAL_FIXED@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 EVAL_FIXED_γ:           mov              rdi, qword ptr [r9 + 0]              # EVAL_FIXED
                         mov              rsi, qword ptr [r9 + 8]

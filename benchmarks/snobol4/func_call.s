@@ -619,11 +619,11 @@ n27_define_α:           mov              r11, 28
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$INC:          .quad            LBL__INC
+entry_cell$INC:         .quad            LBL__INC
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__INC]
-                        mov              rcx, qword ptr [rip + body_cell$INC@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$INC@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n28_statement_end_α
 n27_define_β:           mov              r11, 28;                             jmp   n26_statement_begin_β
 .Ldefine_α_165_0:       .quad            .Ldefine_α_165_0_s
@@ -729,7 +729,7 @@ INC_α:                  sub              rsp, 64
                         lea              rax, [rip + INC_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$INC@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$INC@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 INC_γ:                  mov              rdi, qword ptr [r9 + 0]              # INC
                         mov              rsi, qword ptr [r9 + 8]
@@ -1267,11 +1267,11 @@ n44_define_α:           mov              r11, 45
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$FUNC_CALL:    .quad            LBL__FUNC_CALL
+entry_cell$FUNC_CALL:   .quad            LBL__FUNC_CALL
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__FUNC_CALL]
-                        mov              rcx, qword ptr [rip + body_cell$FUNC_CALL@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$FUNC_CALL@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n45_statement_end_α
 n44_define_β:           mov              r11, 45;                             jmp   n43_statement_begin_β
 .Ldefine_α_192_0:       .quad            .Ldefine_α_192_0_s
@@ -1377,7 +1377,7 @@ FUNC_CALL_α:            sub              rsp, 64
                         lea              rax, [rip + FUNC_CALL_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$FUNC_CALL@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$FUNC_CALL@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 FUNC_CALL_γ:            mov              rdi, qword ptr [r9 + 32]             # FUNC_CALL
                         mov              rsi, qword ptr [r9 + 40]

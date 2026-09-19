@@ -623,11 +623,11 @@ n27_define_α:           mov              r11, 28
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$FIB:          .quad            LBL__FIB
+entry_cell$FIB:         .quad            LBL__FIB
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__FIB]
-                        mov              rcx, qword ptr [rip + body_cell$FIB@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$FIB@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n28_statement_end_α
 n27_define_β:           mov              r11, 28;                             jmp   n26_statement_begin_β
 .Ldefine_α_192_0:       .quad            .Ldefine_α_192_0_s
@@ -733,7 +733,7 @@ FIB_α:                  sub              rsp, 64
                         lea              rax, [rip + FIB_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$FIB@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$FIB@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 FIB_γ:                  mov              rdi, qword ptr [r9 + 0]              # FIB
                         mov              rsi, qword ptr [r9 + 8]
@@ -1728,11 +1728,11 @@ n62_define_α:           mov              r11, 63
                         mov              r11, qword ptr [rip + rtccb+64]
                         .section         .data
                         .align           8
-body_cell$FIBONACCI:    .quad            LBL__FIBONACCI
+entry_cell$FIBONACCI:   .quad            LBL__FIBONACCI
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rax, [rip + LBL__FIBONACCI]
-                        mov              rcx, qword ptr [rip + body_cell$FIBONACCI@GOTPCREL]
+                        mov              rcx, qword ptr [rip + entry_cell$FIBONACCI@GOTPCREL]
                         mov              qword ptr [rcx + 0], rax;            jmp   n63_statement_end_α
 n62_define_β:           mov              r11, 63;                             jmp   n61_statement_begin_β
 .Ldefine_α_245_0:       .quad            .Ldefine_α_245_0_s
@@ -1838,7 +1838,7 @@ FIBONACCI_α:            sub              rsp, 64
                         lea              rax, [rip + FIBONACCI_ω]
                         push             rax
                         push             rcx
-                        mov              rax, qword ptr [rip + body_cell$FIBONACCI@GOTPCREL]
+                        mov              rax, qword ptr [rip + entry_cell$FIBONACCI@GOTPCREL]
                         mov              rax, qword ptr [rax + 0];            jmp   rax
 FIBONACCI_γ:            mov              rdi, qword ptr [r9 + 32]             # FIBONACCI
                         mov              rsi, qword ptr [r9 + 40]
