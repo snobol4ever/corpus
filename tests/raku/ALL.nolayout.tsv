@@ -1,0 +1,25 @@
+# ALL.nolayout.tsv -- THE DECLARED NO-LAYOUT TABLE for the raku master (hq_raku 2026-09-20, on the cto's
+# ruling; row raku-the-31-no-layout-graphs-...; shape copied from util_gc_kind_sets.py + its gate, SCRIP
+# 7d02cdb61, rather than invented).
+#
+# WHAT THIS FILE IS. The slot-kind census (util_zls_frame_map_census.py, consumed by util_gc_census.py maps)
+# reports entries the compiler refused a FRAME LAYOUT for. Most such entries are DEFECTS and are rowed and
+# cured. A few are CORRECT AND PERMANENT: an entry the master's own ALL.wantrc declares MUST NOT COMPILE has
+# no graph to lay out, and a layout appearing there would mean the suite's own declaration had been broken.
+#
+# ⛔ THE CRITERION IS A NAME SET, NOT A COUNT, AND IT REDS IN BOTH DIRECTIONS (the cto's ruling, and the
+# second direction is the half everybody forgets):
+#   * a name in no_layout that is NOT in this table  -> RED. It is a defect. Cure it, or declare it HERE with
+#     a reason. Never just add the name.
+#   * a name in this table that has ACQUIRED a layout -> RED, and deliberately so. That is the suite's own
+#     declaration being broken from the other side, and somebody must LOOK rather than shrug. It is what
+#     keeps a declared set from silently becoming a parking lot.
+# ⛔ A COUNT CANNOT EXPRESS THIS. `no_layout == 2` is satisfied just as well by two real defects after two
+# unrelated cures land -- same count, different population, and that is the failure this table exists against.
+#
+# ⛔ THE REASON BELONGS IN THIS FILE AND NOT IN A COMMIT MESSAGE. A declared exclusion whose reason is not
+# beside it reads as an oversight to the next seat, which is how absences of this kind get born.
+#
+# Columns: kind <TAB> entry <TAB> authority <TAB> reason
+DECLARED-NO-LAYOUT	class_method_range_replace_6	ALL.wantrc wantrc=1	Role-composition diagnostic: rakudo itself refuses it ("Method 'needed' must be implemented by class C because it is required by role R"). The master declares wantrc=1 and its ref is EMPTY STDOUT, so the entry is graded on REFUSING TO COMPILE. A program that must not compile has no graph, so having no frame layout is correct and permanent. It stays INSIDE the printed RakM denominator -- moving it to ALL.outside.tsv would narrow the denominator to make a cell read better (CEO-993) and was rejected for that reason.
+DECLARED-NO-LAYOUT	class_method_say_replace_49	ALL.wantrc wantrc=1	Role-composition diagnostic: rakudo refuses it ("Method 'm' must be resolved by class C because it exists in multiple roles (A, B)"). Same shape and same reasoning as the entry above -- declared wantrc=1, empty-stdout ref, graded on the refusal, no graph to lay out. Also stays inside the denominator.
