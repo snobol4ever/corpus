@@ -684,6 +684,7 @@ n56_match_defer_α:      sub              rsp, 16
                         mov              esi, 0
                         lea              rdx, [rip + .S0]
                         xor              ecx, ecx
+                        mov              qword ptr [1879048192], r12
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1005,6 +1006,7 @@ n59_match_defer_α:      mov              r11, 26
                         mov              esi, 1
                         lea              rdx, [rip + .S1]
                         xor              ecx, ecx
+                        mov              qword ptr [1879048192], r12
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1266,6 +1268,7 @@ n60_match_defer_α:      mov              r11, 27
                         mov              esi, 2
                         lea              rdx, [rip + .S2]
                         xor              ecx, ecx
+                        mov              qword ptr [1879048192], r12
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2180,6 +2183,7 @@ n134_match_defer_α:     mov              r11, 52
                         mov              esi, 3
                         lea              rdx, [rip + .S3]
                         xor              ecx, ecx
+                        mov              qword ptr [1879048192], r12
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2441,6 +2445,7 @@ n135_match_defer_α:     mov              r11, 53
                         mov              esi, 2
                         lea              rdx, [rip + .S4]
                         xor              ecx, ecx
+                        mov              qword ptr [1879048192], r12
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2702,6 +2707,7 @@ n136_match_defer_α:     mov              r11, 54
                         mov              esi, 1
                         lea              rdx, [rip + .S5]
                         xor              ecx, ecx
+                        mov              qword ptr [1879048192], r12
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2963,6 +2969,7 @@ n137_match_defer_α:     mov              r11, 55
                         mov              esi, 0
                         lea              rdx, [rip + .S6]
                         xor              ecx, ecx
+                        mov              qword ptr [1879048192], r12
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -3298,6 +3305,7 @@ n151_match_defer_α:     sub              rsp, 16
                         mov              esi, 0
                         lea              rdx, [rip + .S7]
                         xor              ecx, ecx
+                        mov              qword ptr [1879048192], r12
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -7884,6 +7892,7 @@ n337_match_defer_α:     mov              r11, 240
                         lea              rdi, [rip + .S8]
                         mov              esi, r14d
                         mov              rdx, 0
+                        mov              qword ptr [1879048192], r12
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -7943,6 +7952,7 @@ n337_match_defer_α:     mov              r11, 240
                         mov              qword ptr [rsp + 8], r13
                         lea              rdi, [rip + .S8]
                         xor              esi, esi
+                        mov              qword ptr [1879048192], r12
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -8279,6 +8289,7 @@ n338_match_end_α:       mov              r11, 241
                         test             rax, rax;                            je    .Lmatch_end_α_602_13
                                                                               jmp   .Lmatch_begin_ω_336_af
 .Lmatch_end_α_602_13:   mov              r12, qword ptr [rbp + -8]            # cas_mark
+                        mov              qword ptr [1879048192], r12
                         mov              r13, qword ptr [rbp + -16]           # outer_Σ
                         mov              r14, qword ptr [rbp + -24]           # outer_δ
                         mov              r15, qword ptr [rbp + -32]           # outer_Δ

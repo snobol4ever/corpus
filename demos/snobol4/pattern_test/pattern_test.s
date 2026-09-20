@@ -497,6 +497,7 @@ n16_match_end_α:        mov              r11, 17
                         test             rax, rax;                            je    .Lmatch_end_α_52_13
                                                                               jmp   .Lmatch_begin_ω_12_af
 .Lmatch_end_α_52_13:    mov              r12, qword ptr [rbp + -8]            # cas_mark
+                        mov              qword ptr [1879048192], r12
                         mov              r13, qword ptr [rbp + -16]           # outer_Σ
                         mov              r14, qword ptr [rbp + -24]           # outer_δ
                         mov              r15, qword ptr [rbp + -32]           # outer_Δ

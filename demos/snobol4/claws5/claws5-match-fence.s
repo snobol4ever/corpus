@@ -1201,6 +1201,7 @@ n70_match_defer_α:      mov              r11, 48
                         lea              rdi, [rip + .S0]
                         mov              esi, r14d
                         mov              rdx, 0
+                        mov              qword ptr [1879048192], r12
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1260,6 +1261,7 @@ n70_match_defer_α:      mov              r11, 48
                         mov              qword ptr [rsp + 8], r13
                         lea              rdi, [rip + .S0]
                         xor              esi, esi
+                        mov              qword ptr [1879048192], r12
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1596,6 +1598,7 @@ n71_match_end_α:        mov              r11, 49
                         test             rax, rax;                            je    .Lmatch_end_α_140_13
                                                                               jmp   .Lmatch_begin_ω_69_af
 .Lmatch_end_α_140_13:   mov              r12, qword ptr [rbp + -8]            # cas_mark
+                        mov              qword ptr [1879048192], r12
                         mov              r13, qword ptr [rbp + -16]           # outer_Σ
                         mov              r14, qword ptr [rbp + -24]           # outer_δ
                         mov              r15, qword ptr [rbp + -32]           # outer_Δ
