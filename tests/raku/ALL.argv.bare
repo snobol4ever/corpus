@@ -1,0 +1,26 @@
+# ALL.argv.bare -- entries in ALL.raku that are GRADED BARE ON PURPOSE, each with its reason.
+# Format: <entry name><TAB><reason>.  Blank lines and lines starting with # are ignored.
+#
+# ⛔ THIS FILE IS READ BY THE CENSUS, NEVER BY THE HARNESS.  corpus_suite_harness.py does not open it and
+# grading is byte-for-byte identical whether it exists or not; util_master_sidecar_census.py reads it and
+# stops counting these entries as owing an ALL.argv declaration.  That separation is the point: a
+# declaration ABOUT the measurement must not be able to change the measurement.
+#
+# ⛔ WHY NOT A ROW IN ALL.argv.  read_argv_sidecar REFUSES a name declared there with no arguments ("no
+# arguments is already the default -- remove the line rather than restating it"), so these three could not
+# be written into that file without either refusing the whole raku master rc=2 or inventing arguments no
+# oracle ever cut a ref for.
+#
+# ⛔ WHY NOT A WIDER MATCHER.  ceo CEO-962, 2026-09-20, on the coo's ask, verbatim: "DO NOT WIDEN
+# inert_argv_match. THE FLOOR STAYS 6. ... A matcher widened to cover them silently absolves an unbounded
+# future class of the same shape, and a criterion a widening satisfies while the debt stands is FALSE
+# rather than lenient. THE CURE IS A DECLARATION BESIDE THE DATA ... The floor then falls honestly, by
+# three named programs rather than by a rule nobody can see."
+#
+# ⭐ WHAT THE REASON HAS TO SAY, for anyone adding a fourth line here: that the entry RUNS CORRECTLY BARE,
+# and what is still owed and to whom.  These three CAN observe an argument if given one -- that is the
+# whole difference from Icon's never-named parameter, which inert_argv_match() does cover -- so the debt is
+# not denied here, it is NAMED and left where it belongs, with the owner of the raku corpus.
+benchmark_spinner	sub MAIN with ALL parameters DEFAULTED: runs correctly bare and its ref was cut from a bare run, but it CAN observe an argument if given one. What to pass is a CORPUS question for the raku corpus owner, not an instrument question, and it is not denied by this line.
+benchmark_rc-forest-fire-stringify	sub MAIN with ALL parameters DEFAULTED: runs correctly bare and its ref was cut from a bare run, but it CAN observe an argument if given one. What to pass is a CORPUS question for the raku corpus owner, not an instrument question, and it is not denied by this line.
+benchmark_rc-mandelbrot	sub MAIN with ALL parameters DEFAULTED: runs correctly bare and its ref was cut from a bare run, but it CAN observe an argument if given one. What to pass is a CORPUS question for the raku corpus owner, not an instrument question, and it is not denied by this line.
