@@ -2541,3 +2541,7 @@ A-
 #---------------------------------------- 925 class_method_range_replace_3 XFAIL
 #------------------------------------------- 926 class_multi_sub_replace_5 XFAIL
 #------------------------------------------- 927 class_multi_sub_replace_6 XFAIL
+#-------------------- 928 ladder__rung07_subs_implicit_return_trailing_semicolon
+10
+#--------------------- 929 ladder__rung07_subs_implicit_return_bare_literal_tail
+7

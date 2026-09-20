@@ -4276,3 +4276,9 @@ class Animal { has $.size; }
 class Dog is Animal { }
 multi sub infix:<<>(Animal $a, Animal $b) { return $a.size + $b.size; }
  my $d1 = Dog.new(size => 10); my $d2 = Dog.new(size => 20); say($d1 < $d2); 
+#-------------------- 928 ladder__rung07_subs_implicit_return_trailing_semicolon
+sub double($x) { $x * 2; }
+say double(5);
+#--------------------- 929 ladder__rung07_subs_implicit_return_bare_literal_tail
+sub seven() { 7; }
+say seven();
