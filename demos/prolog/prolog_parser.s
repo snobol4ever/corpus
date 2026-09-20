@@ -97478,29 +97478,29 @@ main:
 .Lmain_zf_ω:            call             rt_pl_root_omega@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_α:
-                        sub              rsp, 304
-                        mov              qword ptr [rsp + 280], rcx
-                        mov              qword ptr [rsp + 288], rdx
-                        mov              qword ptr [rsp + 296], rbp
+                        sub              rsp, 288
+                        mov              qword ptr [rsp + 264], rcx
+                        mov              qword ptr [rsp + 272], rdx
+                        mov              qword ptr [rsp + 280], rbp
                         mov              rbp, rsp
-                        lea              rdi, [rsp + 240]
+                        lea              rdi, [rsp + 224]
                         call             rt_pl_quad_seed@PLT
-                        mov              qword ptr [rsp + 216], 0
-                        mov              qword ptr [rsp + 208], 0
-                        lea              rax, [rsp + 304]
-                        mov              qword ptr [rsp + 272], rax
-                        mov              qword ptr [rsp + 264], r13
-                        mov              qword ptr [rsp + 256], 0
-                        mov              qword ptr [rsp + 248], 0
-                        mov              qword ptr [rsp + 240], r12
+                        mov              qword ptr [rsp + 200], 0
+                        mov              qword ptr [rsp + 192], 0
+                        lea              rax, [rsp + 288]
+                        mov              qword ptr [rsp + 256], rax
+                        mov              qword ptr [rsp + 248], r13
+                        mov              qword ptr [rsp + 240], 0
+                        mov              qword ptr [rsp + 232], 0
+                        mov              qword ptr [rsp + 224], r12
                         mov              rdi, rsp
                         xor              eax, eax
-                        mov              ecx, 240
+                        mov              ecx, 224
                         rep              stosb
                         lea              rax, [rip + .Lgcmap_main]
-                        mov              qword ptr [rsp + 200], rax
-                        mov              dword ptr [rsp + 192], 160
-                        mov              dword ptr [rsp + 196], 304
+                        mov              qword ptr [rsp + 216], rax
+                        mov              dword ptr [rsp + 208], 160
+                        mov              dword ptr [rsp + 212], 288
 main_α_body:
                         .type            n9178_lit_integer_bx, @function
 n9178_lit_integer_bx:
@@ -97824,7 +97824,7 @@ n9184_call_proc_staged_β:
                         .size            n9184_call_proc_staged_bx, .-n9184_call_proc_staged_bx
 #-----------------------------------------------------------------------------------------------------------------------
 main_step:
-                        mov              rdi, qword ptr [rbp + 240]
+                        mov              rdi, qword ptr [rbp + 224]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -97832,8 +97832,8 @@ main_step:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rbp + 256], 0
-                        mov              rax, qword ptr [rbp + 248]
+                        mov              qword ptr [rbp + 240], 0
+                        mov              rax, qword ptr [rbp + 232]
                         test             rax, rax
                                                                               je    main_ω
                                                                               jmp   rax
@@ -97841,8 +97841,8 @@ main_step:
 main_β:
                         test             r15, r15
                                                                               jne   main_ω
-                        mov              rax, qword ptr [rbp + 256]
-                        mov              qword ptr [rbp + 256], 0
+                        mov              rax, qword ptr [rbp + 240]
+                        mov              qword ptr [rbp + 240], 0
                         test             rax, rax
                                                                               jne   main_βres
                                                                               jmp   main_step
@@ -97852,23 +97852,23 @@ main_βres:
 main_γ:
                         mov              rdi, rax
                         mov              rsi, rdx
-                        mov              rcx, qword ptr [rbp + 280]
+                        mov              rcx, qword ptr [rbp + 264]
                         xor              eax, eax
-                        lea              rsp, [rbp + 304]
-                        mov              rbp, qword ptr [rbp + 296];          jmp   rcx
+                        lea              rsp, [rbp + 288]
+                        mov              rbp, qword ptr [rbp + 280];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-                        mov              rcx, qword ptr [rbp + 288]
-                        mov              r13, qword ptr [rbp + 264]
-                        lea              rsp, [rbp + 304]
-                        mov              rbp, qword ptr [rbp + 296];          jmp   rcx
+                        mov              rcx, qword ptr [rbp + 272]
+                        mov              r13, qword ptr [rbp + 248]
+                        lea              rsp, [rbp + 288]
+                        mov              rbp, qword ptr [rbp + 280];          jmp   rcx
 #-----------------------------------------------------------------------------------------------------------------------
 .Lgcmap_main:
-                        .quad            1307016514906
-                        .quad            38654705760
+                        .quad            1238297038170
+                        .quad            38654705728
                         .quad            .Lgcmap_main_s
-                        .quad            192
-                        .quad            12
+                        .quad            208
+                        .quad            13
                         .quad            87960930222080
                         .quad            8800387989584
                         .quad            8808977924184
@@ -97881,6 +97881,7 @@ main_ω:
                         .quad            17592186044576
                         .quad            8808977924272
                         .quad            8800387989688
+                        .quad            17600775979200
 .Lgcmap_main_s:         .string          "main"
 module_init:
                         sub              rsp, 8
