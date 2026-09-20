@@ -85,21 +85,19 @@ s := "hello world"
 s ? "xyz" <- "there"
 OUTPUT := s
 end
-#------------------------------------------------------------ 20 assign_exchange
-function main()
-OUTPUT := "before"
-x := 1
-y := 2
-x :=: y
-OUTPUT := x
-OUTPUT := y
-end
-#----------------------------------------------------------- 21 simple_output_16
+#----------------------------------------------------------- 20 simple_output_16
 function main()
 x := 1
 if x = 1 then {
 OUTPUT := "yes"
 }
+end
+#----------------------------------------------------------- 21 simple_output_25
+record point(x, y)
+
+function main()
+OUTPUT := "before"
+OUTPUT := x(5)
 end
 #----------------------------------------------------------- 22 simple_output_15
 function main()
@@ -141,7 +139,16 @@ x := 3
 OUTPUT := x
 OUTPUT := 99
 end
-#----------------------------------------------------------- 27 simple_output_22
+#------------------------------------------------------------ 27 assign_exchange
+function main()
+OUTPUT := "before"
+x := 1
+y := 2
+x :=: y
+OUTPUT := x
+OUTPUT := y
+end
+#----------------------------------------------------------- 28 simple_output_22
 function try(n)
 if n > 0 then return n
 fail
@@ -151,7 +158,7 @@ function main()
 if try(5) then OUTPUT := "yes" else OUTPUT := "no"
 if try(-1) then OUTPUT := "yes" else OUTPUT := "no"
 end
-#----------------------------------------------------------- 28 simple_output_17
+#----------------------------------------------------------- 29 simple_output_17
 function main()
 local n, count
 n := 10
@@ -162,7 +169,7 @@ count := count + 1
 }
 OUTPUT := count
 end
-#----------------------------------------------------------- 29 simple_output_18
+#----------------------------------------------------------- 30 simple_output_18
 function main()
 local i, sum
 i := 1
@@ -173,7 +180,7 @@ i := i + 1
 }
 OUTPUT := sum
 end
-#----------------------------------------------------------- 30 simple_output_21
+#----------------------------------------------------------- 31 simple_output_21
 function greet(silent)
 if silent = 1 then return
 OUTPUT := "hello"
@@ -184,7 +191,7 @@ function main()
 greet(1)
 greet(0)
 end
-#----------------------------------------------------------- 31 simple_output_24
+#----------------------------------------------------------- 32 simple_output_24
 record point(x, y)
 
 function main()
@@ -195,7 +202,7 @@ OUTPUT := x(q)
 OUTPUT := y(p)
 OUTPUT := y(q)
 end
-#----------------------------------------------------------- 32 simple_output_26
+#----------------------------------------------------------- 33 simple_output_26
 function try(n)
 if n > 0 then return n
 fail
@@ -206,68 +213,61 @@ OUTPUT := "start"
 OUTPUT := try(-1)
 OUTPUT := "end"
 end
-#-------------------------------------------------------------- 33 alt_replace_1
+#-------------------------------------------------------------- 34 alt_replace_1
 function main()
 if "cat" ? ("cat" | "category") then OUTPUT := "matched" else OUTPUT := "no match"
 if "category" ? ("cat" | "category") then OUTPUT := "matched" else OUTPUT := "no match"
 end
-#-------------------------------------------------------------- 34 alt_replace_2
+#-------------------------------------------------------------- 35 alt_replace_2
 function main()
 if "banana" ? ("apple" | "banana" | "cherry") then OUTPUT := "matched" else OUTPUT := "no match"
 if "kiwi" ? ("apple" | "banana" | "cherry") then OUTPUT := "matched" else OUTPUT := "no match"
 end
-#---------------------------------------------------------- 35 assign_aug_concat
+#-------------------------------------------------------------- 36 alt_replace_3
+function main()
+OUTPUT := "before"
+if (1 | 2 | 3) = 2 then OUTPUT := "matched"
+end
+#---------------------------------------------------------- 37 assign_aug_concat
 function main()
 x := "ab"
 x ||:= "cd"
 OUTPUT := x
 end
-#-------------------------------------------------------------- 36 len_capture_2
-function main()
-"hello world" ? (LEN(5) . w)
-OUTPUT := w
-end
-#-------------------------------------------------------- 37 break_rem_capture_1
-function main()
-"key=value" ? (BREAK("=") . k & "=" & REM . v)
-OUTPUT := k
-OUTPUT := v
-end
-#-------------------------------------------------------- 38 break_rem_capture_2
-function main()
-s := "key=value"
-s ? (BREAK("=") . k & "=" & REM . v) <- (k & ":" & v)
-OUTPUT := s
-end
-#------------------------------------------------------------ 39 arb_break_rem_1
-function main()
-"foo(bar)baz" ? (BREAK("(") . pre & "(" & ARB . inner & ")" & REM . post)
-OUTPUT := pre
-OUTPUT := inner
-OUTPUT := post
-end
-#----------------------------------------------------------- 40 simple_output_25
-record point(x, y)
-
-function main()
-OUTPUT := "before"
-OUTPUT := x(5)
-end
-#-------------------------------------------------------------- 41 alt_replace_3
-function main()
-OUTPUT := "before"
-if (1 | 2 | 3) = 2 then OUTPUT := "matched"
-end
-#---------------------------------------------------------------------- 42 len_1
+#---------------------------------------------------------------------- 38 len_1
 function main()
 OUTPUT := "before"
 s := "hello"
 s ? LEN("abc") <- "X"
 OUTPUT := s
 end
-#-------------------------------------------------------------- 43 len_capture_1
+#-------------------------------------------------------------- 39 len_capture_2
+function main()
+"hello world" ? (LEN(5) . w)
+OUTPUT := w
+end
+#-------------------------------------------------------------- 40 len_capture_1
 function main()
 OUTPUT := "before"
 "hello" ? (LEN("abc") . w)
 OUTPUT := w
+end
+#-------------------------------------------------------- 41 break_rem_capture_1
+function main()
+"key=value" ? (BREAK("=") . k & "=" & REM . v)
+OUTPUT := k
+OUTPUT := v
+end
+#-------------------------------------------------------- 42 break_rem_capture_2
+function main()
+s := "key=value"
+s ? (BREAK("=") . k & "=" & REM . v) <- (k & ":" & v)
+OUTPUT := s
+end
+#------------------------------------------------------------ 43 arb_break_rem_1
+function main()
+"foo(bar)baz" ? (BREAK("(") . pre & "(" & ARB . inner & ")" & REM . post)
+OUTPUT := pre
+OUTPUT := inner
+OUTPUT := post
 end
