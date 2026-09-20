@@ -1,0 +1,4 @@
+(fact (call append [] L L))
+(clause (call append (list H T) L (list H R)) (call append T L R))
+(fact (call len [] 0))
+(clause (call len (list _ T) N) (, (call len T M) (is N (+ M 1))))

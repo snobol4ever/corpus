@@ -1,0 +1,58 @@
+(compiland
+  (call
+    (atom append)
+    (atom '[]')
+    (var 'L')
+    (var 'L')
+  )
+  (:-
+    (call
+      (atom append)
+      (.
+        (var 'H')
+        (var 'T')
+      )
+      (var 'L')
+      (.
+        (var 'H')
+        (var 'R')
+      )
+    )
+    (call
+      (atom append)
+      (var 'T')
+      (var 'L')
+      (var 'R')
+    )
+  )
+  (call
+    (atom len)
+    (atom '[]')
+    (int 0)
+  )
+  (:-
+    (call
+      (atom len)
+      (.
+        (var '_')
+        (var 'T')
+      )
+      (var 'N')
+    )
+    (,
+      (call
+        (atom len)
+        (var 'T')
+        (var 'M')
+      )
+      (is
+        (var 'N')
+        (+
+          (var 'M')
+          (int 1)
+        )
+      )
+    )
+  )
+)
+(compiland)
