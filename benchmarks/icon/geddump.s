@@ -30,16 +30,17 @@ FN__event:
                         mov              qword ptr [rax + 0], rcx
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         .section         .rodata
 .Licn_trace_nm0:        .string          "event"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm0]
                         mov              esi, 2
-                        lea              rdx, [rbx + 24]
+                        lea              rdx, [r11 + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -48,8 +49,7 @@ FN__event:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Levent_α_0_247:        mov              rsp, rbx
-                        pop              rbx
+.Levent_α_0_247:        mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
 event_α_body:
@@ -915,9 +915,10 @@ event_β:
 event_γ:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Levent_α_117_248
@@ -926,8 +927,8 @@ event_γ:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm118]
-                        mov              rsi, qword ptr [rbx + 16]
-                        mov              rdx, qword ptr [rbx + 8]
+                        mov              rsi, qword ptr [r11 + 8]
+                        mov              rdx, qword ptr [r11 + 0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -936,8 +937,7 @@ event_γ:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Levent_α_117_248:      mov              rsp, rbx
-                        pop              rbx
+.Levent_α_117_248:      mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         mov              rdi, rax
@@ -959,9 +959,10 @@ event_γ:
 event_ω:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Levent_α_117_249
@@ -978,8 +979,7 @@ event_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Levent_α_117_249:      mov              rsp, rbx
-                        pop              rbx
+.Levent_α_117_249:      mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         push             rax
@@ -1076,16 +1076,17 @@ FN__refto:
                         mov              qword ptr [rax + 0], rcx
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         .section         .rodata
 .Licn_trace_nm121:      .string          "refto"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm121]
                         mov              esi, 2
-                        lea              rdx, [rbx + 24]
+                        lea              rdx, [r11 + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1094,8 +1095,7 @@ FN__refto:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lrefto_α_120_247:      mov              rsp, rbx
-                        pop              rbx
+.Lrefto_α_120_247:      mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
 refto_α_body:
@@ -1463,9 +1463,10 @@ refto_β:
 refto_γ:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lrefto_α_173_248
@@ -1474,8 +1475,8 @@ refto_γ:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm174]
-                        mov              rsi, qword ptr [rbx + 16]
-                        mov              rdx, qword ptr [rbx + 8]
+                        mov              rsi, qword ptr [r11 + 8]
+                        mov              rdx, qword ptr [r11 + 0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1484,8 +1485,7 @@ refto_γ:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lrefto_α_173_248:      mov              rsp, rbx
-                        pop              rbx
+.Lrefto_α_173_248:      mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         mov              rdi, rax
@@ -1507,9 +1507,10 @@ refto_γ:
 refto_ω:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lrefto_α_173_249
@@ -1526,8 +1527,7 @@ refto_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lrefto_α_173_249:      mov              rsp, rbx
-                        pop              rbx
+.Lrefto_α_173_249:      mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         push             rax
@@ -1617,16 +1617,17 @@ FN__sortkey:
                         mov              qword ptr [rax + 0], rcx
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         .section         .rodata
 .Licn_trace_nm177:      .string          "sortkey"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm177]
                         mov              esi, 1
-                        lea              rdx, [rbx + 24]
+                        lea              rdx, [r11 + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1635,8 +1636,7 @@ FN__sortkey:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lsortkey_α_176_247:    mov              rsp, rbx
-                        pop              rbx
+.Lsortkey_α_176_247:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
 sortkey_α_body:
@@ -1806,9 +1806,10 @@ sortkey_β:
 sortkey_γ:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lsortkey_α_201_248
@@ -1817,8 +1818,8 @@ sortkey_γ:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm202]
-                        mov              rsi, qword ptr [rbx + 16]
-                        mov              rdx, qword ptr [rbx + 8]
+                        mov              rsi, qword ptr [r11 + 8]
+                        mov              rdx, qword ptr [r11 + 0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1827,8 +1828,7 @@ sortkey_γ:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lsortkey_α_201_248:    mov              rsp, rbx
-                        pop              rbx
+.Lsortkey_α_201_248:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         mov              rdi, rax
@@ -1850,9 +1850,10 @@ sortkey_γ:
 sortkey_ω:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lsortkey_α_201_249
@@ -1869,8 +1870,7 @@ sortkey_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lsortkey_α_201_249:    mov              rsp, rbx
-                        pop              rbx
+.Lsortkey_α_201_249:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         push             rax
@@ -1953,16 +1953,17 @@ FN__gedload:
                         mov              qword ptr [rax + 0], rcx
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         .section         .rodata
 .Licn_trace_nm205:      .string          "gedload"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm205]
                         mov              esi, 1
-                        lea              rdx, [rbx + 24]
+                        lea              rdx, [r11 + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1971,8 +1972,7 @@ FN__gedload:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedload_α_204_247:    mov              rsp, rbx
-                        pop              rbx
+.Lgedload_α_204_247:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
 gedload_α_body:
@@ -4801,9 +4801,10 @@ gedload_β:
 gedload_γ:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lgedload_α_624_248
@@ -4812,8 +4813,8 @@ gedload_γ:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm625]
-                        mov              rsi, qword ptr [rbx + 16]
-                        mov              rdx, qword ptr [rbx + 8]
+                        mov              rsi, qword ptr [r11 + 8]
+                        mov              rdx, qword ptr [r11 + 0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -4822,8 +4823,7 @@ gedload_γ:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedload_α_624_248:    mov              rsp, rbx
-                        pop              rbx
+.Lgedload_α_624_248:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         mov              rdi, rax
@@ -4845,9 +4845,10 @@ gedload_γ:
 gedload_ω:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lgedload_α_624_249
@@ -4864,8 +4865,7 @@ gedload_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedload_α_624_249:    mov              rsp, rbx
-                        pop              rbx
+.Lgedload_α_624_249:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         push             rax
@@ -4965,16 +4965,17 @@ FN__gedscan:
                         mov              qword ptr [rax + 0], rcx
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         .section         .rodata
 .Licn_trace_nm628:      .string          "gedscan"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm628]
                         mov              esi, 1
-                        lea              rdx, [rbx + 24]
+                        lea              rdx, [r11 + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -4983,8 +4984,7 @@ FN__gedscan:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedscan_α_627_247:    mov              rsp, rbx
-                        pop              rbx
+.Lgedscan_α_627_247:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
 gedscan_α_body:
@@ -6351,11 +6351,11 @@ n00270_scan_many_α:       mov              r11, 310
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
                         add              rsp, 8
-                        mov              rbx, rax
+                        mov              r11, rax
                         mov              eax, r12d
                         movsxd           rcx, eax
                         movzx            esi, byte ptr [r13+rcx]
-                        mov              rdi, rbx
+                        mov              rdi, r11
                         sub              rsp, 8
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -6897,9 +6897,10 @@ gedscan_β:
 gedscan_γ:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lgedscan_α_857_248
@@ -6908,8 +6909,8 @@ gedscan_γ:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm858]
-                        mov              rsi, qword ptr [rbx + 16]
-                        mov              rdx, qword ptr [rbx + 8]
+                        mov              rsi, qword ptr [r11 + 8]
+                        mov              rdx, qword ptr [r11 + 0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -6918,8 +6919,7 @@ gedscan_γ:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedscan_α_857_248:    mov              rsp, rbx
-                        pop              rbx
+.Lgedscan_α_857_248:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         mov              rdi, rax
@@ -6941,9 +6941,10 @@ gedscan_γ:
 gedscan_ω:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lgedscan_α_857_249
@@ -6960,8 +6961,7 @@ gedscan_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedscan_α_857_249:    mov              rsp, rbx
-                        pop              rbx
+.Lgedscan_α_857_249:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         push             rax
@@ -7080,16 +7080,17 @@ FN__gedwalk:
                         mov              r11, qword ptr [rip + rtccb+64]
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         .section         .rodata
 .Licn_trace_nm861:      .string          "gedwalk"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm861]
                         mov              esi, 1
-                        lea              rdx, [rbx + 24]
+                        lea              rdx, [r11 + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -7098,8 +7099,7 @@ FN__gedwalk:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedwalk_α_860_246:    mov              rsp, rbx
-                        pop              rbx
+.Lgedwalk_α_860_246:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
 gedwalk_α_body:
@@ -7163,9 +7163,10 @@ n00282_suspend_α:         mov              r11, 331
                         mov              qword ptr [rbp + -360], rax
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         lea              rdi, [rip + .S0]
                         mov              rsi, qword ptr [rbp + -368]
                         mov              rdx, qword ptr [rbp + -360]
@@ -7178,8 +7179,7 @@ n00282_suspend_α:         mov              r11, 331
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              rsp, rbx
-                        pop              rbx
+                        mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7193,9 +7193,10 @@ n00282_suspend_α:         mov              r11, 331
 n00282_suspend_β:         mov              r11, 331
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         lea              rdi, [rip + .S0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -7205,8 +7206,7 @@ n00282_suspend_β:         mov              r11, 331
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              rsp, rbx
-                        pop              rbx
+                        mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax;                                 jmp   n00284_disjunction_β
                         .size            n00282_suspend_bx, .-n00282_suspend_bx
@@ -7460,9 +7460,10 @@ gedwalk_γ:
 gedwalk_ω:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lgedwalk_α_892_240
@@ -7480,8 +7481,7 @@ gedwalk_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedwalk_α_892_240:    mov              rsp, rbx
-                        pop              rbx
+.Lgedwalk_α_892_240:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         mov              rcx, qword ptr [rbp + 8]
@@ -7540,16 +7540,17 @@ FN__gedsub:
                         mov              r11, qword ptr [rip + rtccb+64]
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         .section         .rodata
 .Licn_trace_nm894:      .string          "gedsub"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm894]
                         mov              esi, 2
-                        lea              rdx, [rbx + 24]
+                        lea              rdx, [r11 + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -7558,8 +7559,7 @@ FN__gedsub:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedsub_α_892_246:     mov              rsp, rbx
-                        pop              rbx
+.Lgedsub_α_892_246:     mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
 gedsub_α_body:
@@ -7870,9 +7870,10 @@ n00293_suspend_α:         mov              r11, 357
                         mov              qword ptr [rbp + -952], rax
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         lea              rdi, [rip + .S1]
                         mov              rsi, qword ptr [rbp + -960]
                         mov              rdx, qword ptr [rbp + -952]
@@ -7885,8 +7886,7 @@ n00293_suspend_α:         mov              r11, 357
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              rsp, rbx
-                        pop              rbx
+                        mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         mov              qword ptr [rip + rtccb+40], r8
@@ -7900,9 +7900,10 @@ n00293_suspend_α:         mov              r11, 357
 n00293_suspend_β:         mov              r11, 357
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         lea              rdi, [rip + .S1]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -7912,8 +7913,7 @@ n00293_suspend_β:         mov              r11, 357
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              rsp, rbx
-                        pop              rbx
+                        mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax;                                 jmp   n00308_disjunction_β
                         .size            n00293_suspend_bx, .-n00293_suspend_bx
@@ -8279,9 +8279,10 @@ n00325_suspend_α:         mov              r11, 370
                         mov              qword ptr [rbp + -952], rax
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         lea              rdi, [rip + .S1]
                         mov              rsi, qword ptr [rbp + -960]
                         mov              rdx, qword ptr [rbp + -952]
@@ -8294,8 +8295,7 @@ n00325_suspend_α:         mov              r11, 370
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              rsp, rbx
-                        pop              rbx
+                        mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         mov              qword ptr [rip + rtccb+40], r8
@@ -8309,9 +8309,10 @@ n00325_suspend_α:         mov              r11, 370
 n00325_suspend_β:         mov              r11, 370
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         lea              rdi, [rip + .S1]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -8321,8 +8322,7 @@ n00325_suspend_β:         mov              r11, 370
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              rsp, rbx
-                        pop              rbx
+                        mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax;                                 jmp   n00313_call_value_β
                         .size            n00325_suspend_bx, .-n00325_suspend_bx
@@ -8423,9 +8423,10 @@ gedsub_γ:
 gedsub_ω:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lgedsub_α_989_240
@@ -8443,8 +8444,7 @@ gedsub_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedsub_α_989_240:     mov              rsp, rbx
-                        pop              rbx
+.Lgedsub_α_989_240:     mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         mov              rcx, qword ptr [rbp + 8]
@@ -8505,16 +8505,17 @@ FN__gedval:
                         mov              r11, qword ptr [rip + rtccb+64]
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         .section         .rodata
 .Licn_trace_nm992:      .string          "gedval"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm992]
                         mov              esi, 1
-                        lea              rdx, [rbx + 24]
+                        lea              rdx, [r11 + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -8523,8 +8524,7 @@ FN__gedval:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedval_α_989_246:     mov              rsp, rbx
-                        pop              rbx
+.Lgedval_α_989_246:     mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
 gedval_α_body:
@@ -8726,9 +8726,10 @@ n00329_suspend_α:         mov              r11, 381
                         mov              qword ptr [rbp + -280], rax
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         lea              rdi, [rip + .S2]
                         mov              rsi, qword ptr [rbp + -288]
                         mov              rdx, qword ptr [rbp + -280]
@@ -8741,8 +8742,7 @@ n00329_suspend_α:         mov              r11, 381
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              rsp, rbx
-                        pop              rbx
+                        mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         mov              qword ptr [rip + rtccb+40], r8
@@ -8756,9 +8756,10 @@ n00329_suspend_α:         mov              r11, 381
 n00329_suspend_β:         mov              r11, 381
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         lea              rdi, [rip + .S2]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -8768,8 +8769,7 @@ n00329_suspend_β:         mov              r11, 381
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              rsp, rbx
-                        pop              rbx
+                        mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax;                                 jmp   n00333_call_value_β
                         .size            n00329_suspend_bx, .-n00329_suspend_bx
@@ -8792,9 +8792,10 @@ gedval_γ:
 gedval_ω:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lgedval_α_1008_240
@@ -8812,8 +8813,7 @@ gedval_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedval_α_1008_240:    mov              rsp, rbx
-                        pop              rbx
+.Lgedval_α_1008_240:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         mov              rcx, qword ptr [rbp + 8]
@@ -8863,16 +8863,17 @@ FN__gedref:
                         mov              r11, qword ptr [rip + rtccb+64]
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         .section         .rodata
 .Licn_trace_nm1010:     .string          "gedref"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm1010]
                         mov              esi, 1
-                        lea              rdx, [rbx + 24]
+                        lea              rdx, [r11 + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -8881,8 +8882,7 @@ FN__gedref:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedref_α_1008_246:    mov              rsp, rbx
-                        pop              rbx
+.Lgedref_α_1008_246:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
 gedref_α_body:
@@ -9096,9 +9096,10 @@ n00335_suspend_α:        mov              r11, 388
                         mov              qword ptr [rbp + -296], rax
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         lea              rdi, [rip + .S3]
                         mov              rsi, qword ptr [rbp + -304]
                         mov              rdx, qword ptr [rbp + -296]
@@ -9111,8 +9112,7 @@ n00335_suspend_α:        mov              r11, 388
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              rsp, rbx
-                        pop              rbx
+                        mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         mov              qword ptr [rip + rtccb+40], r8
@@ -9126,9 +9126,10 @@ n00335_suspend_α:        mov              r11, 388
 n00335_suspend_β:        mov              r11, 388
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         lea              rdi, [rip + .S3]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -9138,8 +9139,7 @@ n00335_suspend_β:        mov              r11, 388
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              rsp, rbx
-                        pop              rbx
+                        mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax;                                 jmp   n00339_call_value_β
                         .size            n00335_suspend_bx, .-n00335_suspend_bx
@@ -9162,9 +9162,10 @@ gedref_γ:
 gedref_ω:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lgedref_α_1028_240
@@ -9182,8 +9183,7 @@ gedref_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedref_α_1028_240:    mov              rsp, rbx
-                        pop              rbx
+.Lgedref_α_1028_240:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         mov              rcx, qword ptr [rbp + 8]
@@ -9232,16 +9232,17 @@ FN__gedfnf:
                         mov              qword ptr [rax + 0], rcx
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         .section         .rodata
 .Licn_trace_nm1030:     .string          "gedfnf"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm1030]
                         mov              esi, 1
-                        lea              rdx, [rbx + 24]
+                        lea              rdx, [r11 + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -9250,8 +9251,7 @@ FN__gedfnf:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedfnf_α_1028_247:    mov              rsp, rbx
-                        pop              rbx
+.Lgedfnf_α_1028_247:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
 gedfnf_α_body:
@@ -10799,9 +10799,10 @@ gedfnf_β:
 gedfnf_γ:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lgedfnf_α_1220_248
@@ -10810,8 +10811,8 @@ gedfnf_γ:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm1221]
-                        mov              rsi, qword ptr [rbx + 16]
-                        mov              rdx, qword ptr [rbx + 8]
+                        mov              rsi, qword ptr [r11 + 8]
+                        mov              rdx, qword ptr [r11 + 0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -10820,8 +10821,7 @@ gedfnf_γ:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedfnf_α_1220_248:    mov              rsp, rbx
-                        pop              rbx
+.Lgedfnf_α_1220_248:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         mov              rdi, rax
@@ -10843,9 +10843,10 @@ gedfnf_γ:
 gedfnf_ω:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lgedfnf_α_1220_249
@@ -10862,8 +10863,7 @@ gedfnf_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedfnf_α_1220_249:    mov              rsp, rbx
-                        pop              rbx
+.Lgedfnf_α_1220_249:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         push             rax
@@ -10977,16 +10977,17 @@ FN__gedlnf:
                         mov              qword ptr [rax + 0], rcx
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         .section         .rodata
 .Licn_trace_nm1224:     .string          "gedlnf"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm1224]
                         mov              esi, 1
-                        lea              rdx, [rbx + 24]
+                        lea              rdx, [r11 + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -10995,8 +10996,7 @@ FN__gedlnf:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedlnf_α_1223_247:    mov              rsp, rbx
-                        pop              rbx
+.Lgedlnf_α_1223_247:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
 gedlnf_α_body:
@@ -12370,9 +12370,10 @@ gedlnf_β:
 gedlnf_γ:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lgedlnf_α_1397_248
@@ -12381,8 +12382,8 @@ gedlnf_γ:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm1398]
-                        mov              rsi, qword ptr [rbx + 16]
-                        mov              rdx, qword ptr [rbx + 8]
+                        mov              rsi, qword ptr [r11 + 8]
+                        mov              rdx, qword ptr [r11 + 0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -12391,8 +12392,7 @@ gedlnf_γ:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedlnf_α_1397_248:    mov              rsp, rbx
-                        pop              rbx
+.Lgedlnf_α_1397_248:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         mov              rdi, rax
@@ -12414,9 +12414,10 @@ gedlnf_γ:
 gedlnf_ω:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lgedlnf_α_1397_249
@@ -12433,8 +12434,7 @@ gedlnf_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgedlnf_α_1397_249:    mov              rsp, rbx
-                        pop              rbx
+.Lgedlnf_α_1397_249:    mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         push             rax
@@ -12546,16 +12546,17 @@ FN__geddate:
                         mov              qword ptr [rax + 0], rcx
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         .section         .rodata
 .Licn_trace_nm1401:     .string          "geddate"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm1401]
                         mov              esi, 1
-                        lea              rdx, [rbx + 24]
+                        lea              rdx, [r11 + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -12564,8 +12565,7 @@ FN__geddate:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgeddate_α_1400_247:   mov              rsp, rbx
-                        pop              rbx
+.Lgeddate_α_1400_247:   mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
 geddate_α_body:
@@ -15736,9 +15736,10 @@ geddate_β:
 geddate_γ:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lgeddate_α_1845_248
@@ -15747,8 +15748,8 @@ geddate_γ:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm1847]
-                        mov              rsi, qword ptr [rbx + 16]
-                        mov              rdx, qword ptr [rbx + 8]
+                        mov              rsi, qword ptr [r11 + 8]
+                        mov              rdx, qword ptr [r11 + 0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -15757,8 +15758,7 @@ geddate_γ:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgeddate_α_1845_248:   mov              rsp, rbx
-                        pop              rbx
+.Lgeddate_α_1845_248:   mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         mov              rdi, rax
@@ -15780,9 +15780,10 @@ geddate_γ:
 geddate_ω:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lgeddate_α_1845_249
@@ -15799,8 +15800,7 @@ geddate_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lgeddate_α_1845_249:   mov              rsp, rbx
-                        pop              rbx
+.Lgeddate_α_1845_249:   mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         push             rax
@@ -15945,16 +15945,17 @@ main_α:
                         call             rt_icn_zframe_args_install@PLT
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         .section         .rodata
 .Licn_trace_nm1850:     .string          "main"
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm1850]
                         mov              esi, 1
-                        lea              rdx, [rbx + 24]
+                        lea              rdx, [r11 + 16]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -15963,8 +15964,7 @@ main_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lmain_α_1849_247:      mov              rsp, rbx
-                        pop              rbx
+.Lmain_α_1849_247:      mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
 main_α_body:
@@ -22296,9 +22296,10 @@ main_β:
 main_γ:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lmain_α_2590_248
@@ -22307,8 +22308,8 @@ main_γ:
                         .section         .text
                         .intel_syntax    noprefix
                         lea              rdi, [rip + .Licn_trace_nm2592]
-                        mov              rsi, qword ptr [rbx + 16]
-                        mov              rdx, qword ptr [rbx + 8]
+                        mov              rsi, qword ptr [r11 + 8]
+                        mov              rdx, qword ptr [r11 + 0]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -22317,8 +22318,7 @@ main_γ:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lmain_α_2590_248:      mov              rsp, rbx
-                        pop              rbx
+.Lmain_α_2590_248:      mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         and              rsp, -16
@@ -22328,9 +22328,10 @@ main_γ:
 main_ω:
                         push             rax
                         push             rdx
-                        push             rbx
-                        mov              rbx, rsp
+                        mov              r11, rsp
                         and              rsp, -16
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], r11
                         mov              rax, qword ptr [rip + g_trace@GOTPCREL]
                         mov              rax, qword ptr [rax + 0]
                         cmp              rax, 0;                              je    .Lmain_α_2590_249
@@ -22347,8 +22348,7 @@ main_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-.Lmain_α_2590_249:      mov              rsp, rbx
-                        pop              rbx
+.Lmain_α_2590_249:      mov              rsp, qword ptr [rsp + 0]
                         pop              rdx
                         pop              rax
                         and              rsp, -16
