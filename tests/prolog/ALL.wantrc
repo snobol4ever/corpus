@@ -18,3 +18,20 @@
 # correct when written and became wrong without anyone editing them, because the thing they described
 # moved. A pinned exit code with no recorded recipe cannot be re-derived, only re-measured.
 misc17_halt_1_status_1	3
+#
+# ⛔ throw_ite_directive_1, hq_prolog 2026-09-22 (row prolog-an-uncaught-error-in-an-initialization-
+# goal-exits-0-with-empty-stdout-where-swipl-exits-2). main's body is `write(before), nl, (throw(oops)
+# -> write(yes) ; write(no)), nl, write(after), nl` -- ISO: throw/1 in the CONDITION of -> is not caught
+# by -> and propagates uncaught, so main never completes past `before`. ALL.ref's stdout ("before\n")
+# is correct and untouched; only rc is declared here. ⭐ THE SAME RECIPE-DRIFT TRAP THIS FILE'S OWN
+# 2026-09-02 note names, one recipe over: cmd_capture_oracle_refs' canonical Prolog oracle recipe is
+# BARE `swipl -q file.pl` (corpus_suite_harness.py resolve_oracle_bin, chosen 2026-09-05 to dodge a
+# DIFFERENT vacuous-ref trap where `-g halt` fires before the initialization/2 hook). For a single-arg
+# `:- initialization(main).` whose goal throws uncaught, bare -q reports the exception then FALLS
+# THROUGH TO THE INTERACTIVE TOPLEVEL, which hits EOF on closed stdin and exits 0 -- an artifact of the
+# toplevel's own EOF handling, not of anything main computed. This is exactly why this row's own GOAL
+# excluded gprolog as an oracle here ("it exits 0 but enters its toplevel and writes 587 bytes"): bare
+# -q swipl enters the identical disqualified shape for this one program class, just silently (no banner).
+# MEASURED, both reproducible on demand: `swipl -q -g main -t halt file.pl` -- the recipe that actually
+# drives the goal to completion instead of falling through -- exits 2, matching the row's own witness.
+throw_ite_directive_1	2
