@@ -2157,7 +2157,183 @@ n74_call_α:             sub              rsp, 16
                         mov              qword ptr [rsp + 16], r8
                         mov              r8, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 24], r8
-                        .section         .rodata
+                        lea              rdi, [rsp + 0]
+                        mov              esi, 2
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_apply_open@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 32
+                        mov              dword ptr [rsp + 0], 2
+                        mov              dword ptr [rsp + 4], r15d
+                        mov              qword ptr [rsp + 8], r13
+                        mov              qword ptr [rsp + 16], rax
+                        mov              qword ptr [rsp + 24], rdx
+                        lea              rdi, [rsp + 0]
+                        mov              esi, 1
+                        mov              edx, 0
+                        lea              rcx, [rsp + 32]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_point_arr_c@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              rax, qword ptr [rsp + 16]
+                        mov              rdx, qword ptr [rsp + 24]
+                        add              rsp, 32
+                        test             rax, rax;                            jz    .Lcall_α_255_68
+                        sub              rsp, 64
+                        mov              qword ptr [rsp + 56], r12
+                        mov              qword ptr [rsp + 48], rbx
+                        mov              dword ptr [rsp + 32], 3
+                        mov              dword ptr [rsp + 36], 0
+                        mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rsp + 16], 3
+                        mov              dword ptr [rsp + 20], 0
+                        mov              qword ptr [rsp + 24], r14
+                        mov              dword ptr [rsp + 0], 2
+                        mov              dword ptr [rsp + 4], r15d
+                        mov              qword ptr [rsp + 8], r13
+                        mov              rcx, rdx
+                        and              rcx, 255
+                        cmp              rcx, 2;                              je    .Lcall_α_255_60
+                        cmp              rcx, 1;                              je    .Lcall_α_255_160
+                        lea              rcx, [rip + .Lcall_α_255_62]
+                        push             rcx
+                        lea              rcx, [rip + .Lcall_α_255_61]
+                        push             rcx
+                        lea              rcx, [rip + .Lcall_α_255_61]
+                        lea              rdx, [rip + .Lcall_α_255_62];        jmp   rax
+.Lcall_α_255_60:        sub              rsp, 48
+                        mov              qword ptr [rsp + 0], 0
+                        lea              rcx, [rip + .Lcall_α_255_63]
+                        mov              qword ptr [rsp + 8], rcx
+                        lea              rcx, [rip + .Lcall_α_255_64]
+                        mov              qword ptr [rsp + 16], rcx
+                        mov              qword ptr [rsp + 24], 0
+                        mov              qword ptr [rsp + 32], 16
+                        lea              rcx, [rsp + 0];                      jmp   rax
+.Lcall_α_255_63:        add              rsp, 48
+                        mov              rdi, rax
+                        mov              rsi, rdx
+                        mov              rdx, qword ptr [rsp + 40]
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        mov              rbx, qword ptr [rsp + 48]
+                        mov              r12, qword ptr [rsp + 56]
+                        add              rsp, 64;                             jmp   .Lcall_α_255_65
+.Lcall_α_255_64:        add              rsp, 48
+                        mov              rdi, qword ptr [rsp + 40]
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        mov              rbx, qword ptr [rsp + 48]
+                        mov              r12, qword ptr [rsp + 56]
+                        add              rsp, 64;                             jmp   .Lcall_α_255_66
+.Lcall_α_255_61:        add              rsp, 16
+                        mov              rdi, rax
+                        mov              rsi, rdx
+                        mov              rdx, qword ptr [rsp + 40]
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        mov              rbx, qword ptr [rsp + 48]
+                        mov              r12, qword ptr [rsp + 56]
+                        add              rsp, 64;                             jmp   .Lcall_α_255_65
+.Lcall_α_255_62:        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 40]
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        mov              rbx, qword ptr [rsp + 48]
+                        mov              r12, qword ptr [rsp + 56]
+                        add              rsp, 64;                             jmp   .Lcall_α_255_66
+.Lcall_α_255_160:       lea              rcx, [rip + .Lcall_α_255_162]
+                        push             rcx
+                        lea              rcx, [rip + .Lcall_α_255_161]
+                        push             rcx
+                        lea              rcx, [rip + .Lcall_α_255_161]
+                        lea              rdx, [rip + .Lcall_α_255_162];       jmp   rax
+.Lcall_α_255_161:       add              rsp, 0
+                        mov              rdi, rax
+                        mov              rsi, rdx
+                        mov              rdx, qword ptr [rsp + 40]
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        mov              rbx, qword ptr [rsp + 48]
+                        mov              r12, qword ptr [rsp + 56]
+                        add              rsp, 64;                             jmp   .Lcall_α_255_65
+.Lcall_α_255_162:       add              rsp, 0
+                        mov              rdi, qword ptr [rsp + 40]
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        mov              rbx, qword ptr [rsp + 48]
+                        mov              r12, qword ptr [rsp + 56]
+                        add              rsp, 64;                             jmp   .Lcall_α_255_66
+.Lcall_α_255_65:        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_apply_land_γ@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                        lea              rdi, [rsp + 0]
+                        mov              esi, 1
+                        mov              edx, 0
+                        lea              rcx, [rsp + 16]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_point_arr_c@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16;                             jmp   .Lcall_α_255_29
+.Lcall_α_255_66:        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_apply_land_ω@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                        lea              rdi, [rsp + 0]
+                        mov              esi, 1
+                        mov              edx, 0
+                        lea              rcx, [rsp + 16]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_point_arr_c@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16;                             jmp   .Lcall_α_255_29
+.Lcall_α_255_68:        .section         .rodata
 .Lcall_α_rkfnzd256:     .string          "APPLY"
                         .section         .text
                         .intel_syntax    noprefix
@@ -2173,7 +2349,7 @@ n74_call_α:             sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        add              rsp, 32
+.Lcall_α_255_29:        add              rsp, 32
                         cmp              al, 104;                             jne   .Lcall_α_255_240
                         add              rsp, 16;                             jmp   n73_var_β
 .Lcall_α_255_240:       mov              qword ptr [rsp + 0], rax             # result
@@ -3103,7 +3279,183 @@ n117_call_α:            sub              rsp, 16
                         mov              qword ptr [rsp + 16], r8
                         mov              r8, qword ptr [rsp + 56]
                         mov              qword ptr [rsp + 24], r8
-                        .section         .rodata
+                        lea              rdi, [rsp + 0]
+                        mov              esi, 2
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_apply_open@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 32
+                        mov              dword ptr [rsp + 0], 2
+                        mov              dword ptr [rsp + 4], r15d
+                        mov              qword ptr [rsp + 8], r13
+                        mov              qword ptr [rsp + 16], rax
+                        mov              qword ptr [rsp + 24], rdx
+                        lea              rdi, [rsp + 0]
+                        mov              esi, 1
+                        mov              edx, 0
+                        lea              rcx, [rsp + 32]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_point_arr_c@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              rax, qword ptr [rsp + 16]
+                        mov              rdx, qword ptr [rsp + 24]
+                        add              rsp, 32
+                        test             rax, rax;                            jz    .Lcall_α_316_68
+                        sub              rsp, 64
+                        mov              qword ptr [rsp + 56], r12
+                        mov              qword ptr [rsp + 48], rbx
+                        mov              dword ptr [rsp + 32], 3
+                        mov              dword ptr [rsp + 36], 0
+                        mov              qword ptr [rsp + 40], rdx
+                        mov              dword ptr [rsp + 16], 3
+                        mov              dword ptr [rsp + 20], 0
+                        mov              qword ptr [rsp + 24], r14
+                        mov              dword ptr [rsp + 0], 2
+                        mov              dword ptr [rsp + 4], r15d
+                        mov              qword ptr [rsp + 8], r13
+                        mov              rcx, rdx
+                        and              rcx, 255
+                        cmp              rcx, 2;                              je    .Lcall_α_316_60
+                        cmp              rcx, 1;                              je    .Lcall_α_316_160
+                        lea              rcx, [rip + .Lcall_α_316_62]
+                        push             rcx
+                        lea              rcx, [rip + .Lcall_α_316_61]
+                        push             rcx
+                        lea              rcx, [rip + .Lcall_α_316_61]
+                        lea              rdx, [rip + .Lcall_α_316_62];        jmp   rax
+.Lcall_α_316_60:        sub              rsp, 48
+                        mov              qword ptr [rsp + 0], 0
+                        lea              rcx, [rip + .Lcall_α_316_63]
+                        mov              qword ptr [rsp + 8], rcx
+                        lea              rcx, [rip + .Lcall_α_316_64]
+                        mov              qword ptr [rsp + 16], rcx
+                        mov              qword ptr [rsp + 24], 0
+                        mov              qword ptr [rsp + 32], 16
+                        lea              rcx, [rsp + 0];                      jmp   rax
+.Lcall_α_316_63:        add              rsp, 48
+                        mov              rdi, rax
+                        mov              rsi, rdx
+                        mov              rdx, qword ptr [rsp + 40]
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        mov              rbx, qword ptr [rsp + 48]
+                        mov              r12, qword ptr [rsp + 56]
+                        add              rsp, 64;                             jmp   .Lcall_α_316_65
+.Lcall_α_316_64:        add              rsp, 48
+                        mov              rdi, qword ptr [rsp + 40]
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        mov              rbx, qword ptr [rsp + 48]
+                        mov              r12, qword ptr [rsp + 56]
+                        add              rsp, 64;                             jmp   .Lcall_α_316_66
+.Lcall_α_316_61:        add              rsp, 16
+                        mov              rdi, rax
+                        mov              rsi, rdx
+                        mov              rdx, qword ptr [rsp + 40]
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        mov              rbx, qword ptr [rsp + 48]
+                        mov              r12, qword ptr [rsp + 56]
+                        add              rsp, 64;                             jmp   .Lcall_α_316_65
+.Lcall_α_316_62:        add              rsp, 16
+                        mov              rdi, qword ptr [rsp + 40]
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        mov              rbx, qword ptr [rsp + 48]
+                        mov              r12, qword ptr [rsp + 56]
+                        add              rsp, 64;                             jmp   .Lcall_α_316_66
+.Lcall_α_316_160:       lea              rcx, [rip + .Lcall_α_316_162]
+                        push             rcx
+                        lea              rcx, [rip + .Lcall_α_316_161]
+                        push             rcx
+                        lea              rcx, [rip + .Lcall_α_316_161]
+                        lea              rdx, [rip + .Lcall_α_316_162];       jmp   rax
+.Lcall_α_316_161:       add              rsp, 0
+                        mov              rdi, rax
+                        mov              rsi, rdx
+                        mov              rdx, qword ptr [rsp + 40]
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        mov              rbx, qword ptr [rsp + 48]
+                        mov              r12, qword ptr [rsp + 56]
+                        add              rsp, 64;                             jmp   .Lcall_α_316_65
+.Lcall_α_316_162:       add              rsp, 0
+                        mov              rdi, qword ptr [rsp + 40]
+                        mov              r13, qword ptr [rsp + 8]
+                        mov              r15d, dword ptr [rsp + 4]
+                        mov              r14, qword ptr [rsp + 24]
+                        mov              rbx, qword ptr [rsp + 48]
+                        mov              r12, qword ptr [rsp + 56]
+                        add              rsp, 64;                             jmp   .Lcall_α_316_66
+.Lcall_α_316_65:        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_apply_land_γ@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                        lea              rdi, [rsp + 0]
+                        mov              esi, 1
+                        mov              edx, 0
+                        lea              rcx, [rsp + 16]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_point_arr_c@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16;                             jmp   .Lcall_α_316_29
+.Lcall_α_316_66:        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_apply_land_ω@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        sub              rsp, 16
+                        mov              qword ptr [rsp + 0], rax
+                        mov              qword ptr [rsp + 8], rdx
+                        lea              rdi, [rsp + 0]
+                        mov              esi, 1
+                        mov              edx, 0
+                        lea              rcx, [rsp + 16]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_point_arr_c@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rax, qword ptr [rsp + 0]
+                        mov              rdx, qword ptr [rsp + 8]
+                        add              rsp, 16;                             jmp   .Lcall_α_316_29
+.Lcall_α_316_68:        .section         .rodata
 .Lcall_α_rkfnzd317:     .string          "APPLY"
                         .section         .text
                         .intel_syntax    noprefix
@@ -3119,7 +3471,7 @@ n117_call_α:            sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        add              rsp, 32
+.Lcall_α_316_29:        add              rsp, 32
                         cmp              al, 104;                             jne   .Lcall_α_316_240
                         add              rsp, 16;                             jmp   n116_lit_integer_β
 .Lcall_α_316_240:       mov              qword ptr [rsp + 0], rax             # result
