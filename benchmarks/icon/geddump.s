@@ -5749,7 +5749,15 @@ n00202_nulltest_var_α:    mov              r11, 248
                         mov              rax, qword ptr [rbp + 1760]
                         mov              qword ptr [rbp + 1776], rax
                         mov              rax, qword ptr [rbp + 1768]
-                        mov              qword ptr [rbp + 1784], rax;         jmp   n00203_lit_integer_α
+                        mov              qword ptr [rbp + 1784], rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00203_lit_integer_α
                         .size            n00202_nulltest_var_bx, .-n00202_nulltest_var_bx
                         .type            n00203_lit_integer_bx, @function
 n00203_lit_integer_bx:
@@ -13689,7 +13697,15 @@ n00487_nulltest_var_α:   mov              r11, 533
                         mov              rax, qword ptr [rbp + 3680]
                         mov              qword ptr [rbp + 3696], rax
                         mov              rax, qword ptr [rbp + 3688]
-                        mov              qword ptr [rbp + 3704], rax;         jmp   n00488_lit_integer_α
+                        mov              qword ptr [rbp + 3704], rax
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00488_lit_integer_α
                         .size            n00487_nulltest_var_bx, .-n00487_nulltest_var_bx
                         .type            n00488_lit_integer_bx, @function
 n00488_lit_integer_bx:
