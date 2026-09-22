@@ -554,13 +554,23 @@ n28_deref_α:            mov              r11, 28
                         cmp              al, 104;                             je    n30_unmark_α
                         mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
+                        sub              rsp, 32
+                        mov              dword ptr [rsp + 0], 2
+                        mov              dword ptr [rsp + 4], r15d
+                        mov              qword ptr [rsp + 8], r13
+                        lea              rdi, [rsp + 0]
+                        mov              esi, 1
+                        mov              edx, 0
+                        lea              rcx, [rsp + 32]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_gc_poll_asm@PLT
+                        call             rt_gc_point_arr_c@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n29_assign_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r13, qword ptr [rsp + 8]
+                        add              rsp, 32;                             jmp   n29_assign_α
                         .size            n28_deref_bx, .-n28_deref_bx
                         .type            n29_assign_bx, @function
 n29_assign_bx:
@@ -609,13 +619,23 @@ n33_deref_α:            mov              r11, 33
                         cmp              al, 104;                             je    main_ω
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
+                        sub              rsp, 32
+                        mov              dword ptr [rsp + 0], 2
+                        mov              dword ptr [rsp + 4], r15d
+                        mov              qword ptr [rsp + 8], r13
+                        lea              rdi, [rsp + 0]
+                        mov              esi, 1
+                        mov              edx, 0
+                        lea              rcx, [rsp + 32]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_gc_poll_asm@PLT
+                        call             rt_gc_point_arr_c@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n34_line_mark_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              r13, qword ptr [rsp + 8]
+                        add              rsp, 32;                             jmp   n34_line_mark_α
                         .size            n33_deref_bx, .-n33_deref_bx
                         .type            n34_line_mark_bx, @function
 n34_line_mark_bx:
