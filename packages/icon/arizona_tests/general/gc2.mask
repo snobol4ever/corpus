@@ -1,0 +1,22 @@
+# gc2.mask -- CEO-409 line masks, declared beside the data (RULES.md; ceo 2026-09-23, CEO-1167).
+# FORMAT: entry<TAB>L<n>-or-python-regex<TAB>reason. A row with an empty reason is REFUSED by the harness.
+#
+# ⭐ WHY POSITION, NOT CONTENT (CEO-1167, ceo's own ruling after hq_icon measured the wall): gc2.icn writes
+# `every write(&collections); write("----------")` eight times, interleaved with grammar-generation output
+# that is ALSO bare digit lines (a "1"/"2"/"3" alphabet from the test grammar <a>::=1|2|3). 247 of the
+# file's 256 lines are bare digits, so a content regex broad enough to catch the small &collections values
+# (as low as "1") would mask most of the file, which guardrail 4 correctly refuses as ungradable rather than
+# hiding real content. &collections is genuinely implementation-defined here: SCRIP's 4 MB hard cap (CEO-1101)
+# forces spontaneous collections the oracle's much larger default heap never sees, so the count runs ahead of
+# iconx's at a cadence that is a property of the collector's cap, not of the program's semantics (Icon book,
+# appendix, defines &collections as implementation-defined). Positions measured directly against gc2.std and
+# SCRIP's own output on SCRIP 89d905a78: lines 1, 16, 22, 27, 37, 42, 147, 252 are every write(&collections)
+# call in program order, and no other line in the file is one of them.
+gc2	L1	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #1 after test entry 1
+gc2	L16	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #2 after test entry 2
+gc2	L22	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #3 after test entry 3
+gc2	L27	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #4 after test entry 4
+gc2	L37	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #5 after test entry 5
+gc2	L42	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #6 after test entry 6
+gc2	L147	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #7 after test entry 7
+gc2	L252	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #8 after test entry 8
