@@ -1,0 +1,7 @@
+# SCRIP-RULED REF PINS for this master. ⛔ An entry listed here has a ref that DISAGREES WITH THE
+# ORACLE ON PURPOSE, on a stated ruling -- capture-oracle-refs REFUSES to touch these, because
+# restoring the oracle's answer would silently undo a decision nobody remembers making.
+# ⛔ A pin is evidence only while its sha matches: if the ref has been edited since, the pin no
+# longer describes the file and the entry must be re-ruled, not re-blessed.
+# entry	sha256-16	measurer	date	ruling
+hash_say_replace_2	edc8abba2e496558	hq_raku	2026-09-23T03:01Z	SCRIP's Bool say-stringification (True/False) is correct real-Raku behavior, verified directly against /usr/bin/raku (Welcome to Rakudo v2022.12): say True and say False both print True/False there, not 1/0. This entry's ref predates that verification and expected 1/0 on all six exists()-returning lines -- a stale self-pinned mismatch from an earlier incorrect SCRIP Bool-stringification, not a defect in current SCRIP.  [ORACLE AT PIN TIME: not consulted]
