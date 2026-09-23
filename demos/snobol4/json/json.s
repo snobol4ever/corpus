@@ -6520,6 +6520,14 @@ n205_match_defer_α:     sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_match_defer.cpp:117
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              rdx, qword ptr [r9 + 1160];          jmp   .Lmatch_defer_α_211_10
 .Lmatch_defer_α_211_9:  xor              eax, eax
 .Lmatch_defer_α_211_10: test             rax, rax;                            jz    .Lmatch_defer_α_211_0
@@ -9815,6 +9823,14 @@ n263_match_defer_α:     mov              r11, 105
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_match_defer.cpp:117
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              rdx, qword ptr [r9 + 1160];          jmp   .Lmatch_defer_α_286_10
 .Lmatch_defer_α_286_9:  xor              eax, eax
 .Lmatch_defer_α_286_10: test             rax, rax;                            jz    .Lmatch_defer_α_286_0
@@ -10148,6 +10164,14 @@ n266_match_defer_α:     mov              r11, 108
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             dtp_fn_of@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_match_defer.cpp:117
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -13677,6 +13701,14 @@ n345_match_defer_α:     sub              rsp, 16
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             dtp_fn_of@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_match_defer.cpp:117
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
@@ -25610,7 +25642,7 @@ n724_statement_end_α:   mov              r11, 503
                         mov              r10, 53
                         add              rsp, 64;                             jmp   n725_stmt_mark_α
 n724_statement_end_β:   mov              r11, 503
-                        add              rsp, 80;                             jmp   n728_stmt_mark_α
+                        add              rsp, 64;                             jmp   n728_stmt_mark_α
                         .size            n724_statement_end_bx, .-n724_statement_end_bx
                         .type            n725_stmt_mark_bx, @function
 n725_stmt_mark_bx:
@@ -26534,7 +26566,7 @@ n761_statement_end_α:   mov              r11, 540
                         mov              r10, 57
                         add              rsp, 16;                             jmp   n762_stmt_mark_α
 n761_statement_end_β:   mov              r11, 540
-                        add              rsp, 32;                             jmp   n728_stmt_mark_α
+                        add              rsp, 16;                             jmp   n728_stmt_mark_α
                         .size            n761_statement_end_bx, .-n761_statement_end_bx
                         .type            n762_stmt_mark_bx, @function
 n762_stmt_mark_bx:
