@@ -26,6 +26,8 @@ never by hand; arguments in `<name>.argv` (name<TAB>arg, the corpus convention):
 (a P4 PBM -- binary, compared with cmp). `reverse-complement.fasta` is a small deterministic three-record FASTA fixture (seeded
 generator, 187/251/143 bases) named by its `.argv`.
 
+⛔ **SUPERSEDED 2026-09-23 (hq_icon, CEO-1221): NONE OF THE FIVE IS OUTSIDE ANY MORE.** Each of the two called exactly one Unicon builtin, and each is now ported to Icon 9.5 in place, with a comment at the line: fannkuch's three-argument list `insert(perm1, r + 1, perm0)` became `perm1 := perm1[1:r+1] ||| [perm0] ||| perm1[r+1:0]`, and reverse-complement's `reads(fin, stat(argv[1]).size)` became a `reads` loop to end of file. Arizona now runs both (fannkuch(7): checksum 228, 16 flips -- the known values); their refs are cut from iconx and SCRIP matches them in both modes; OUTSIDE_ARIZONA_BASELINE.tsv held only those two rows and is deleted, and test_gate_icon_shootout_is_ceo567_conforming.sh reads graded 5, green 5, outside 0. The paragraph below is the record of why they were outside.
+
 TWO OF THE FIVE ARE OUTSIDE THE ARIZONA BASELINE, in `OUTSIDE_ARIZONA_BASELINE.tsv` beside the sources with the oracle's own
 message: fannkuch (`Run-time error 122`: three-argument `insert` on a list is Unicon-only) and reverse-complement
 (`Run-time error 106`: `stat()` is Unicon-only). The ceo had measured fannkuch's 122 at vendoring; reverse-complement's 106 was

@@ -55,7 +55,9 @@ procedure fannkuch(n)
                };
             count[r] := r-1;
             perm0 := pop(perm1);
-            insert(perm1, r + 1, perm0)
+            # ICON 9.5 PORT (hq_icon 2026-09-23, CEO-1221): Unicon's three-argument list insert(perm1, r + 1, perm0)
+            # does not exist in Icon 9.5, so Arizona refused the whole program; the same list, by sectioning.
+            perm1 := perm1[1:r+1] ||| [perm0] ||| perm1[r+1:0]
             };
          if flag = 1 then {
             r := n;
