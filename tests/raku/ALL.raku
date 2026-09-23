@@ -4202,10 +4202,10 @@ class Dog is Animal { }
     say('after');
 #---------------------------------------------------- 908 smartmatch_say_4 XFAIL
  my $s = "hello"; if ($s ~~ /<word>([a-z]+)/) { say($<word>); } 
-#------------------------------------------- 909 class_array_say_replace_3 XFAIL
+#------------------------------------------- 909 class_array_say_replace_3
 class Stack { has @.items; }
  my @v = 10, 20, 30; my $t = Stack.new(items => @v); my @i = $t.items; say(@i.elems); say(arr_get(@i, 1)); 
-#-------------------------------------------- 910 class_hash_say_replace_1 XFAIL
+#-------------------------------------------- 910 class_hash_say_replace_1
 class Config { has %.opts; }
  my %seed = ''; hash_set(%seed, 'lang', 'Raku'); my $d = Config.new(opts => %seed); my $h2 = $d.opts; say(hash_get($h2, 'lang')); 
 #---------------------------------------- 911 class_method_range_replace_6 XFAIL
