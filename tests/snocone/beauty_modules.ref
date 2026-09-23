@@ -1,4 +1,4 @@
-/*---------------------------------------------------------- 1 test_Gen XFAIL */
+/*---------------------------------------------------------------- 1 test_Gen */
 PASS: 1 GetLevel initial
 PASS: 2 SetLevel/GetLevel
 PASS: 3 IncLevel default
@@ -8,7 +8,7 @@ PASS: 6 DecLevel -3
 hello
 PASS: 7 Gen flushed buffer
 PASS: 8 Gen buffers
-/*--------------------------------------------------------- 2 test_Qize XFAIL */
+/*--------------------------------------------------------------- 2 test_Qize */
 PASS: 1 SQize basic
 PASS: 2 SQize empty
 PASS: 3 DQize basic
@@ -29,7 +29,7 @@ PASS: 2 Reduce 2 children
 PASS: 3 Reduce 0 children
 PASS: 4 Shift empty value
 PASS: 5 Reduce 3 children order
-/*-------------------------------------------------------- 5 test_TDump XFAIL */
+/*-------------------------------------------------------------- 5 test_TDump */
 PASS: 1 TValue integer
 PASS: 2 TValue string
 PASS: 3 TLump null
@@ -40,7 +40,7 @@ PASS: 6 TLump tree
 x = 42
 y = 'hello'
 a = ARRAY['1:3']
-/*-------------------------------------------------------- 7 test_arith XFAIL */
+/*-------------------------------------------------------------- 7 test_arith */
 PASS: 1 Fibonacci(10)=55
 PASS: 2 Fibonacci(0)=0
 PASS: 3 Fibonacci(1)=1
@@ -67,7 +67,7 @@ PASS: 4 assign returns null
 PASS: 5 assign empty string
 PASS: 6 indirect varname
 PASS: 7 chain assign
-/*--------------------------------------------------------- 9 test_case XFAIL */
+/*--------------------------------------------------------------- 9 test_case */
 PASS: 1 lwr basic
 PASS: 2 lwr mixed
 PASS: 3 lwr already lower
@@ -123,7 +123,7 @@ PASS: 9 word list miss
 /*------------------------------------------------------------- 14 test_omega */
 PASS: 1 TY thin returns non-null
 PASS: 2 TZ thin returns non-null
-/*------------------------------------------------------- 15 test_roman XFAIL */
+/*------------------------------------------------------------- 15 test_roman */
 PASS: 1 Roman(1)=I
 PASS: 2 Roman(4)=IV
 PASS: 3 Roman(9)=IX
@@ -151,7 +151,7 @@ PASS: 4 Pop(var) = 99
 PASS: 5 empty pop fails
 PASS: 6 empty top fails
 PASS: 7 nested pop order a/b/c
-/*----------------------------------------------------- 18 test_strings XFAIL */
+/*----------------------------------------------------------- 18 test_strings */
 PASS: 1 Reverse
 PASS: 2 Reverse empty
 PASS: 3 TrimLeft
@@ -167,7 +167,7 @@ PASS: 12 EndsWith miss
 PASS: 13 Split
 PASS: 14 Join
 PASS: 15 Split no-sep
-/*------------------------------------------------------- 19 test_trace XFAIL */
+/*------------------------------------------------------------- 19 test_trace */
 PASS: 1 T8Pos nil map=LPAD
 PASS: 2 T8Pos map line/col
 PASS: 3 T8Pos updates t8Max

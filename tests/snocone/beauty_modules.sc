@@ -1,4 +1,4 @@
-/*---------------------------------------------------------- 1 test_Gen XFAIL */
+/*---------------------------------------------------------------- 1 test_Gen */
 // driver.sc — test driver for Gen.sc (Snocone)
 // Tests IncLevel/DecLevel/SetLevel/GetLevel/Gen/GenTab/GenSetCont
 
@@ -92,7 +92,7 @@ $'$B' = '';
 Gen('partial');
 if (IDENT($'$B', 'partial')) { OUTPUT = 'PASS: 8 Gen buffers'; }
 else { OUTPUT = 'FAIL: 8 Gen buffers got=' $'$B'; }
-/*--------------------------------------------------------- 2 test_Qize XFAIL */
+/*--------------------------------------------------------------- 2 test_Qize */
 // driver.sc — test driver for Qize.sc (Snocone)
 // Tests SQize, DQize, SqlSQize subset of Qize.inc
 
@@ -242,7 +242,7 @@ function Top() {
 function Shift(t, v) {
     _s = tree(t, v, 0, '');
     Push(_s);
-    if (IDENT(v, '')) { Shift = .value(_s); nreturn; }
+    if (IDENT(v, '')) { Shift = .v(_s); nreturn; }
     else { Shift = .dummy; nreturn; }
 }
 function Reduce(t, n, c, i, r) {
@@ -292,7 +292,7 @@ nd = Top();
 if (IDENT(n(nd),3)   IDENT(t(c(nd)[1]),'A')   IDENT(t(c(nd)[2]),'B')   IDENT(t(c(nd)[3]),'C')) {
     OUTPUT = 'PASS: 5 Reduce 3 children order';
 } else { OUTPUT = 'FAIL: 5'; }
-/*-------------------------------------------------------- 5 test_TDump XFAIL */
+/*-------------------------------------------------------------- 5 test_TDump */
 // driver.sc — test driver for TDump.sc (Snocone)
 // Tests TLump (single-line) — TDump uses Gen which buffers, harder to verify
 
@@ -401,7 +401,7 @@ XDump('hello', 'y');
 // 3: array
 arr = ARRAY('1:3');
 XDump(arr, 'a');
-/*-------------------------------------------------------- 7 test_arith XFAIL */
+/*-------------------------------------------------------------- 7 test_arith */
 // driver.sc — test driver for arith.sc
 
 function ISqrt(n, i) {
@@ -540,7 +540,7 @@ if (IDENT(y, 'chain')) {
 } else {
     OUTPUT = 'FAIL: 7 chain assign';
 }
-/*--------------------------------------------------------- 9 test_case XFAIL */
+/*--------------------------------------------------------------- 9 test_case */
 // driver.sc — test driver for case.sc (Snocone)
 // Tests lwr, upr, cap, icase from corpus/programs/snocone/demo/beauty/case.sc
 
@@ -854,7 +854,7 @@ else { OUTPUT = 'FAIL: 1 TY thin returns null'; }
 p = TZ(1, 'mypat', 'hello');
 if (DIFFER(p)) { OUTPUT = 'PASS: 2 TZ thin returns non-null'; }
 else { OUTPUT = 'FAIL: 2 TZ thin returns null'; }
-/*------------------------------------------------------- 15 test_roman XFAIL */
+/*------------------------------------------------------------- 15 test_roman */
 // driver.sc — test driver for roman.sc
 function Roman(n, s, i, len, d, place, ones, fives, tens, result) {
     s = CONVERT(n, 'STRING'); len = SIZE(s); result = ''; i = 0;
@@ -981,7 +981,7 @@ InitStack();
 Push('a'); Push('b'); Push('c');
 Pop('v1'); Pop('v2'); Pop('v3');
 if (IDENT(v1,'c')   IDENT(v2,'b')   IDENT(v3,'a')) { OUTPUT = 'PASS: 7 nested pop order a/b/c'; } else { OUTPUT = 'FAIL: 7 pop order'; }
-/*----------------------------------------------------- 18 test_strings XFAIL */
+/*----------------------------------------------------------- 18 test_strings */
 // driver.sc — test driver for strings.sc
 
 function Reverse(s, i, n, out) {
@@ -1049,7 +1049,7 @@ if (IDENT(t[1],'a')   IDENT(t[2],'b')   IDENT(t[3],'c')   EQ(t[0],3)) { OUTPUT =
 if (IDENT(Join(t, '-'), 'a-b-c'))        { OUTPUT = 'PASS: 14 Join'; }           else { OUTPUT = 'FAIL: 14 Join'; }
 t2 = Split('hello', ',');
 if (EQ(t2[0], 1)   IDENT(t2[1], 'hello')) { OUTPUT = 'PASS: 15 Split no-sep'; } else { OUTPUT = 'FAIL: 15 Split no-sep'; }
-/*------------------------------------------------------- 19 test_trace XFAIL */
+/*------------------------------------------------------------- 19 test_trace */
 &STLIMIT = 1000000;
 strOfs = 0; t8Max = 0; t8MaxLine = 0; t8MaxLast = 0; doDebug = 0; t8Map = '';
 
