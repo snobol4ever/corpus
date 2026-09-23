@@ -68,14 +68,15 @@ n3_call_α:              mov              r11, 4
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $db_decl$2F0_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n4_lit_string_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $db_decl$2F0_step
+                                                                              jmp   n4_lit_string_α
 n3_call_β:              mov              r11, 4;                              jmp   $db_decl$2F0_step
                         .size            n3_call_bx, .-n3_call_bx
                         .type            n4_lit_string_bx, @function
@@ -122,14 +123,15 @@ n7_call_α:              mov              r11, 8
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $db_decl$2F0_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n8_lit_string_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $db_decl$2F0_step
+                                                                              jmp   n8_lit_string_α
 n7_call_β:              mov              r11, 8;                              jmp   $db_decl$2F0_step
                         .size            n7_call_bx, .-n7_call_bx
                         .type            n8_lit_string_bx, @function
@@ -176,14 +178,15 @@ n11_call_α:             mov              r11, 12
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $db_decl$2F0_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n12_lit_string_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $db_decl$2F0_step
+                                                                              jmp   n12_lit_string_α
 n11_call_β:             mov              r11, 12;                             jmp   $db_decl$2F0_step
                         .size            n11_call_bx, .-n11_call_bx
                         .type            n12_lit_string_bx, @function
@@ -230,14 +233,15 @@ n15_call_α:             mov              r11, 16
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $db_decl$2F0_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n16_lit_string_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $db_decl$2F0_step
+                                                                              jmp   n16_lit_string_α
 n15_call_β:             mov              r11, 16;                             jmp   $db_decl$2F0_step
                         .size            n15_call_bx, .-n15_call_bx
                         .type            n16_lit_string_bx, @function
@@ -284,14 +288,15 @@ n19_call_α:             mov              r11, 20
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $db_decl$2F0_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n20_lit_string_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $db_decl$2F0_step
+                                                                              jmp   n20_lit_string_α
 n19_call_β:             mov              r11, 20;                             jmp   $db_decl$2F0_step
                         .size            n19_call_bx, .-n19_call_bx
                         .type            n20_lit_string_bx, @function
@@ -338,14 +343,15 @@ n23_call_α:             mov              r11, 24
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $db_decl$2F0_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n24_lit_string_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $db_decl$2F0_step
+                                                                              jmp   n24_lit_string_α
 n23_call_β:             mov              r11, 24;                             jmp   $db_decl$2F0_step
                         .size            n23_call_bx, .-n23_call_bx
                         .type            n24_lit_string_bx, @function
@@ -392,14 +398,15 @@ n27_call_α:             mov              r11, 28
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $db_decl$2F0_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n28_lit_string_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $db_decl$2F0_step
+                                                                              jmp   n28_lit_string_α
 n27_call_β:             mov              r11, 28;                             jmp   $db_decl$2F0_step
                         .size            n27_call_bx, .-n27_call_bx
                         .type            n28_lit_string_bx, @function
@@ -446,14 +453,15 @@ n31_call_α:             mov              r11, 32
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $db_decl$2F0_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n32_lit_string_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $db_decl$2F0_step
+                                                                              jmp   n32_lit_string_α
 n31_call_β:             mov              r11, 32;                             jmp   $db_decl$2F0_step
                         .size            n31_call_bx, .-n31_call_bx
                         .type            n32_lit_string_bx, @function
@@ -500,14 +508,15 @@ n35_call_α:             mov              r11, 36
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $db_decl$2F0_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   $db_decl$2F0_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $db_decl$2F0_step
+                                                                              jmp   $db_decl$2F0_γ
 n35_call_β:             mov              r11, 36;                             jmp   $db_decl$2F0_step
                         .size            n35_call_bx, .-n35_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -674,6 +683,13 @@ n74_call_proc_staged_α: mov              r11, 39
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_87_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -701,6 +717,13 @@ n74_call_proc_staged_α: mov              r11, 39
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   interpret$2F1_step
@@ -813,14 +836,15 @@ n78_call_α:             mov              r11, 43
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
-                        cmp              al, 104;                             je    .Ldisjunction_ω_75_af
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n79_cut_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    .Ldisjunction_ω_75_af
+                                                                              jmp   n79_cut_α
 n78_call_β:             mov              r11, 43;                             jmp   .Ldisjunction_ω_75_af
                         .size            n78_call_bx, .-n78_call_bx
                         .type            n79_cut_bx, @function
@@ -876,6 +900,13 @@ n81_call_proc_staged_α: mov              r11, 46
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_99_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -903,6 +934,13 @@ n81_call_proc_staged_α: mov              r11, 46
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   interpret$2F1_ω
@@ -1089,14 +1127,15 @@ n101_call_α:            mov              r11, 48
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        cmp              al, 104;                             je    interpret$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n102_cut_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret$2F2_step
+                                                                              jmp   n102_cut_α
 n101_call_β:            mov              r11, 48;                             jmp   interpret$2F2_step
                         .size            n101_call_bx, .-n101_call_bx
                         .type            n102_cut_bx, @function
@@ -1174,14 +1213,15 @@ n107_call_α:            mov              r11, 54
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 528], rax
                         mov              qword ptr [rbp + 536], rdx
-                        cmp              al, 104;                             je    interpret$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n108_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret$2F2_step
+                                                                              jmp   n108_call_α
 n107_call_β:            mov              r11, 54;                             jmp   interpret$2F2_step
                         .size            n107_call_bx, .-n107_call_bx
                         .type            n108_call_bx, @function
@@ -1207,14 +1247,15 @@ n108_call_α:            mov              r11, 55
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        cmp              al, 104;                             je    interpret$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n109_cut_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret$2F2_step
+                                                                              jmp   n109_cut_α
 n108_call_β:            mov              r11, 55;                             jmp   interpret$2F2_step
                         .size            n108_call_bx, .-n108_call_bx
                         .type            n109_cut_bx, @function
@@ -1300,6 +1341,13 @@ n112_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_210_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -1327,6 +1375,13 @@ n112_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   interpret$2F2_ω
@@ -1414,14 +1469,15 @@ n115_call_α:            mov              r11, 62
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        cmp              al, 104;                             je    n124_unmark_α
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n116_unmark_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    n124_unmark_α
+                                                                              jmp   n116_unmark_α
 n115_call_β:            mov              r11, 62;                             jmp   n124_unmark_α
                         .size            n115_call_bx, .-n115_call_bx
                         .type            n116_unmark_bx, @function
@@ -1497,14 +1553,15 @@ n121_call_α:            mov              r11, 68
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
-                        cmp              al, 104;                             je    n129_unmark_α
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n122_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    n129_unmark_α
+                                                                              jmp   n122_call_α
 n121_call_β:            mov              r11, 68;                             jmp   n129_unmark_α
                         .size            n121_call_bx, .-n121_call_bx
                         .type            n122_call_bx, @function
@@ -1530,14 +1587,15 @@ n122_call_α:            mov              r11, 69
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        cmp              al, 104;                             je    n129_unmark_α
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n123_gate_arm_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    n129_unmark_α
+                                                                              jmp   n123_gate_arm_α
 n122_call_β:            mov              r11, 69;                             jmp   n129_unmark_α
                         .size            n122_call_bx, .-n122_call_bx
                         .type            n123_gate_arm_bx, @function
@@ -1630,6 +1688,13 @@ n127_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_236_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -1657,6 +1722,13 @@ n127_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n129_unmark_α
@@ -1796,14 +1868,15 @@ n135_call_α:            mov              r11, 82
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 688], rax
                         mov              qword ptr [rbp + 696], rdx
-                        cmp              al, 104;                             je    interpret$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n136_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret$2F2_step
+                                                                              jmp   n136_call_α
 n135_call_β:            mov              r11, 82;                             jmp   interpret$2F2_step
                         .size            n135_call_bx, .-n135_call_bx
                         .type            n136_call_bx, @function
@@ -1829,14 +1902,15 @@ n136_call_α:            mov              r11, 83
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        cmp              al, 104;                             je    interpret$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n137_cut_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret$2F2_step
+                                                                              jmp   n137_cut_α
 n136_call_β:            mov              r11, 83;                             jmp   interpret$2F2_step
                         .size            n136_call_bx, .-n136_call_bx
                         .type            n137_cut_bx, @function
@@ -1951,6 +2025,13 @@ n141_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_261_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -1970,6 +2051,13 @@ n141_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:726
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             r10, r10;                            je    .Lcall_proc_staged_α_261_99
                         mov              r10, qword ptr [rbp + 1528]
                         cmp              r13, r10;                            jne   .Lcall_proc_staged_α_261_99
@@ -2003,6 +2091,13 @@ n141_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   interpret$2F2_ω
@@ -2115,14 +2210,15 @@ n146_call_α:            mov              r11, 93
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 896], rax
                         mov              qword ptr [rbp + 904], rdx
-                        cmp              al, 104;                             je    interpret$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n147_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret$2F2_step
+                                                                              jmp   n147_call_α
 n146_call_β:            mov              r11, 93;                             jmp   interpret$2F2_step
                         .size            n146_call_bx, .-n146_call_bx
                         .type            n147_call_bx, @function
@@ -2148,14 +2244,15 @@ n147_call_α:            mov              r11, 94
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        cmp              al, 104;                             je    interpret$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n148_cut_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret$2F2_step
+                                                                              jmp   n148_cut_α
 n147_call_β:            mov              r11, 94;                             jmp   interpret$2F2_step
                         .size            n147_call_bx, .-n147_call_bx
                         .type            n148_cut_bx, @function
@@ -2224,14 +2321,15 @@ n152_call_α:            mov              r11, 99
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 784], rax
                         mov              qword ptr [rbp + 792], rdx
-                        cmp              al, 104;                             je    interpret$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n153_lit_string_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret$2F2_step
+                                                                              jmp   n153_lit_string_α
 n152_call_β:            mov              r11, 99;                             jmp   interpret$2F2_step
                         .size            n152_call_bx, .-n152_call_bx
                         .type            n153_lit_string_bx, @function
@@ -2329,6 +2427,13 @@ n155_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_283_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -2348,6 +2453,13 @@ n155_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:726
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             r10, r10;                            je    .Lcall_proc_staged_α_283_99
                         mov              r10, qword ptr [rbp + 1528]
                         cmp              r13, r10;                            jne   .Lcall_proc_staged_α_283_99
@@ -2381,6 +2493,13 @@ n155_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   interpret$2F2_ω
@@ -2480,14 +2599,15 @@ n159_call_α:            mov              r11, 106
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1088], rax
                         mov              qword ptr [rbp + 1096], rdx
-                        cmp              al, 104;                             je    interpret$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n160_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret$2F2_step
+                                                                              jmp   n160_call_α
 n159_call_β:            mov              r11, 106;                            jmp   interpret$2F2_step
                         .size            n159_call_bx, .-n159_call_bx
                         .type            n160_call_bx, @function
@@ -2513,14 +2633,15 @@ n160_call_α:            mov              r11, 107
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        cmp              al, 104;                             je    interpret$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n161_cut_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret$2F2_step
+                                                                              jmp   n161_cut_α
 n160_call_β:            mov              r11, 107;                            jmp   interpret$2F2_step
                         .size            n160_call_bx, .-n160_call_bx
                         .type            n161_cut_bx, @function
@@ -2591,14 +2712,15 @@ n165_call_α:            mov              r11, 112
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 992], rax
                         mov              qword ptr [rbp + 1000], rdx
-                        cmp              al, 104;                             je    interpret$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n166_lit_string_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret$2F2_step
+                                                                              jmp   n166_lit_string_α
 n165_call_β:            mov              r11, 112;                            jmp   interpret$2F2_step
                         .size            n165_call_bx, .-n165_call_bx
                         .type            n166_lit_string_bx, @function
@@ -2696,6 +2818,13 @@ n168_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_302_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -2715,6 +2844,13 @@ n168_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:726
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             r10, r10;                            je    .Lcall_proc_staged_α_302_99
                         mov              r10, qword ptr [rbp + 1528]
                         cmp              r13, r10;                            jne   .Lcall_proc_staged_α_302_99
@@ -2748,6 +2884,13 @@ n168_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   interpret$2F2_ω
@@ -2837,14 +2980,15 @@ n171_call_α:            mov              r11, 118
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        cmp              al, 104;                             je    interpret$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:213
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n172_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret$2F2_step
+                                                                              jmp   n172_var_ref_α
 n171_call_β:            mov              r11, 118;                            jmp   interpret$2F2_step
                         .size            n171_call_bx, .-n171_call_bx
                         .type            n172_var_ref_bx, @function
@@ -2889,14 +3033,15 @@ n174_call_α:            mov              r11, 121
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        cmp              al, 104;                             je    interpret$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:213
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n175_cut_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret$2F2_step
+                                                                              jmp   n175_cut_α
 n174_call_β:            mov              r11, 121;                            jmp   interpret$2F2_step
                         .size            n174_call_bx, .-n174_call_bx
                         .type            n175_cut_bx, @function
@@ -2937,14 +3082,15 @@ n177_call_α:            mov              r11, 124
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        cmp              al, 104;                             je    interpret$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n178_cut_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret$2F2_step
+                                                                              jmp   n178_cut_α
 n177_call_β:            mov              r11, 124;                            jmp   interpret$2F2_step
                         .size            n177_call_bx, .-n177_call_bx
                         .type            n178_cut_bx, @function
@@ -3001,6 +3147,13 @@ n180_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_321_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -3028,6 +3181,13 @@ n180_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   interpret$2F2_step
@@ -3129,6 +3289,13 @@ n183_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_327_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -3148,6 +3315,13 @@ n183_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:726
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             r10, r10;                            je    .Lcall_proc_staged_α_327_99
                         mov              r10, qword ptr [rbp + 1528]
                         cmp              r13, r10;                            jne   .Lcall_proc_staged_α_327_99
@@ -3181,6 +3355,13 @@ n183_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   interpret$2F2_ω
@@ -3301,6 +3482,13 @@ n186_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_333_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -3328,6 +3516,13 @@ n186_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   interpret$2F2_step
@@ -3419,6 +3614,13 @@ n188_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_337_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -3438,6 +3640,13 @@ n188_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:726
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             r10, r10;                            je    .Lcall_proc_staged_α_337_99
                         mov              r10, qword ptr [rbp + 1528]
                         cmp              r13, r10;                            jne   .Lcall_proc_staged_α_337_99
@@ -3471,6 +3680,13 @@ n188_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n186_call_proc_staged_β
@@ -3773,14 +3989,15 @@ n340_call_α:            mov              r11, 138
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        cmp              al, 104;                             je    is_built_in$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:213
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   is_built_in$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    is_built_in$2F1_step
+                                                                              jmp   is_built_in$2F1_γ
 n340_call_β:            mov              r11, 138;                            jmp   is_built_in$2F1_step
                         .size            n340_call_bx, .-n340_call_bx
                         .type            n341_var_ref_bx, @function
@@ -3836,14 +4053,15 @@ n345_call_α:            mov              r11, 143
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    is_built_in$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n346_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    is_built_in$2F1_step
+                                                                              jmp   n346_call_α
 n345_call_β:            mov              r11, 143;                            jmp   is_built_in$2F1_step
                         .size            n345_call_bx, .-n345_call_bx
                         .type            n346_call_bx, @function
@@ -3865,14 +4083,15 @@ n346_call_α:            mov              r11, 144
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        cmp              al, 104;                             je    is_built_in$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   is_built_in$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    is_built_in$2F1_step
+                                                                              jmp   is_built_in$2F1_γ
 n346_call_β:            mov              r11, 144;                            jmp   is_built_in$2F1_step
                         .size            n346_call_bx, .-n346_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -4005,6 +4224,13 @@ n361_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_377_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -4032,6 +4258,13 @@ n361_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n367_unmark_α
@@ -4129,14 +4362,15 @@ n365_call_α:            mov              r11, 150
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    n372_unmark_α
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:213
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n366_gate_arm_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    n372_unmark_α
+                                                                              jmp   n366_gate_arm_α
 n365_call_β:            mov              r11, 150;                            jmp   n372_unmark_α
                         .size            n365_call_bx, .-n365_call_bx
                         .type            n366_gate_arm_bx, @function
@@ -4198,14 +4432,15 @@ n370_call_α:            mov              r11, 155
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    n372_unmark_α
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:213
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n371_gate_arm_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    n372_unmark_α
+                                                                              jmp   n371_gate_arm_α
 n370_call_β:            mov              r11, 155;                            jmp   n372_unmark_α
                         .size            n370_call_bx, .-n370_call_bx
                         .type            n371_gate_arm_bx, @function
@@ -4381,6 +4616,13 @@ n399_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_402_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -4400,6 +4642,13 @@ n399_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:726
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             r10, r10;                            je    .Lcall_proc_staged_α_402_99
                         mov              r10, qword ptr [rbp + 136]
                         cmp              r13, r10;                            jne   .Lcall_proc_staged_α_402_99
@@ -4433,6 +4682,13 @@ n399_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   meta_qsort$2F0_step
@@ -4622,14 +4878,15 @@ n405_call_α:            mov              r11, 163
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:213
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n406_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   n406_var_ref_α
 n405_call_β:            mov              r11, 163;                            jmp   define$2F2_step
                         .size            n405_call_bx, .-n405_call_bx
                         .type            n406_var_ref_bx, @function
@@ -5678,14 +5935,15 @@ n509_call_α:            mov              r11, 267
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n510_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n510_call_α
 n509_call_β:            mov              r11, 267;                            jmp   define$2F2_ω
                         .size            n509_call_bx, .-n509_call_bx
                         .type            n510_call_bx, @function
@@ -5711,14 +5969,15 @@ n510_call_α:            mov              r11, 268
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n511_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n511_call_α
 n510_call_β:            mov              r11, 268;                            jmp   define$2F2_ω
                         .size            n510_call_bx, .-n510_call_bx
                         .type            n511_call_bx, @function
@@ -5744,14 +6003,15 @@ n511_call_α:            mov              r11, 269
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n512_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n512_call_α
 n511_call_β:            mov              r11, 269;                            jmp   define$2F2_ω
                         .size            n511_call_bx, .-n511_call_bx
                         .type            n512_call_bx, @function
@@ -5777,14 +6037,15 @@ n512_call_α:            mov              r11, 270
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n513_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n513_call_α
 n512_call_β:            mov              r11, 270;                            jmp   define$2F2_ω
                         .size            n512_call_bx, .-n512_call_bx
                         .type            n513_call_bx, @function
@@ -5810,14 +6071,15 @@ n513_call_α:            mov              r11, 271
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n514_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n514_call_α
 n513_call_β:            mov              r11, 271;                            jmp   define$2F2_ω
                         .size            n513_call_bx, .-n513_call_bx
                         .type            n514_call_bx, @function
@@ -5843,14 +6105,15 @@ n514_call_α:            mov              r11, 272
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n515_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n515_call_α
 n514_call_β:            mov              r11, 272;                            jmp   define$2F2_ω
                         .size            n514_call_bx, .-n514_call_bx
                         .type            n515_call_bx, @function
@@ -5876,14 +6139,15 @@ n515_call_α:            mov              r11, 273
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n516_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n516_call_α
 n515_call_β:            mov              r11, 273;                            jmp   define$2F2_ω
                         .size            n515_call_bx, .-n515_call_bx
                         .type            n516_call_bx, @function
@@ -5909,14 +6173,15 @@ n516_call_α:            mov              r11, 274
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n517_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n517_call_α
 n516_call_β:            mov              r11, 274;                            jmp   define$2F2_ω
                         .size            n516_call_bx, .-n516_call_bx
                         .type            n517_call_bx, @function
@@ -5942,14 +6207,15 @@ n517_call_α:            mov              r11, 275
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n518_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n518_call_α
 n517_call_β:            mov              r11, 275;                            jmp   define$2F2_ω
                         .size            n517_call_bx, .-n517_call_bx
                         .type            n518_call_bx, @function
@@ -5975,14 +6241,15 @@ n518_call_α:            mov              r11, 276
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n519_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n519_call_α
 n518_call_β:            mov              r11, 276;                            jmp   define$2F2_ω
                         .size            n518_call_bx, .-n518_call_bx
                         .type            n519_call_bx, @function
@@ -6008,14 +6275,15 @@ n519_call_α:            mov              r11, 277
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n520_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n520_call_α
 n519_call_β:            mov              r11, 277;                            jmp   define$2F2_ω
                         .size            n519_call_bx, .-n519_call_bx
                         .type            n520_call_bx, @function
@@ -6041,14 +6309,15 @@ n520_call_α:            mov              r11, 278
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n521_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n521_call_α
 n520_call_β:            mov              r11, 278;                            jmp   define$2F2_ω
                         .size            n520_call_bx, .-n520_call_bx
                         .type            n521_call_bx, @function
@@ -6074,14 +6343,15 @@ n521_call_α:            mov              r11, 279
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n522_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n522_call_α
 n521_call_β:            mov              r11, 279;                            jmp   define$2F2_ω
                         .size            n521_call_bx, .-n521_call_bx
                         .type            n522_call_bx, @function
@@ -6107,14 +6377,15 @@ n522_call_α:            mov              r11, 280
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n523_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n523_call_α
 n522_call_β:            mov              r11, 280;                            jmp   define$2F2_ω
                         .size            n522_call_bx, .-n522_call_bx
                         .type            n523_call_bx, @function
@@ -6140,14 +6411,15 @@ n523_call_α:            mov              r11, 281
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n524_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n524_call_α
 n523_call_β:            mov              r11, 281;                            jmp   define$2F2_ω
                         .size            n523_call_bx, .-n523_call_bx
                         .type            n524_call_bx, @function
@@ -6173,14 +6445,15 @@ n524_call_α:            mov              r11, 282
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n525_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n525_call_α
 n524_call_β:            mov              r11, 282;                            jmp   define$2F2_ω
                         .size            n524_call_bx, .-n524_call_bx
                         .type            n525_call_bx, @function
@@ -6206,14 +6479,15 @@ n525_call_α:            mov              r11, 283
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n526_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n526_call_α
 n525_call_β:            mov              r11, 283;                            jmp   define$2F2_ω
                         .size            n525_call_bx, .-n525_call_bx
                         .type            n526_call_bx, @function
@@ -6239,14 +6513,15 @@ n526_call_α:            mov              r11, 284
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n527_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n527_call_α
 n526_call_β:            mov              r11, 284;                            jmp   define$2F2_ω
                         .size            n526_call_bx, .-n526_call_bx
                         .type            n527_call_bx, @function
@@ -6272,14 +6547,15 @@ n527_call_α:            mov              r11, 285
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n528_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n528_call_α
 n527_call_β:            mov              r11, 285;                            jmp   define$2F2_ω
                         .size            n527_call_bx, .-n527_call_bx
                         .type            n528_call_bx, @function
@@ -6305,14 +6581,15 @@ n528_call_α:            mov              r11, 286
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n529_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n529_call_α
 n528_call_β:            mov              r11, 286;                            jmp   define$2F2_ω
                         .size            n528_call_bx, .-n528_call_bx
                         .type            n529_call_bx, @function
@@ -6338,14 +6615,15 @@ n529_call_α:            mov              r11, 287
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n530_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n530_call_α
 n529_call_β:            mov              r11, 287;                            jmp   define$2F2_ω
                         .size            n529_call_bx, .-n529_call_bx
                         .type            n530_call_bx, @function
@@ -6371,14 +6649,15 @@ n530_call_α:            mov              r11, 288
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n531_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n531_call_α
 n530_call_β:            mov              r11, 288;                            jmp   define$2F2_ω
                         .size            n530_call_bx, .-n530_call_bx
                         .type            n531_call_bx, @function
@@ -6404,14 +6683,15 @@ n531_call_α:            mov              r11, 289
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n532_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n532_call_α
 n531_call_β:            mov              r11, 289;                            jmp   define$2F2_ω
                         .size            n531_call_bx, .-n531_call_bx
                         .type            n532_call_bx, @function
@@ -6437,14 +6717,15 @@ n532_call_α:            mov              r11, 290
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n533_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n533_call_α
 n532_call_β:            mov              r11, 290;                            jmp   define$2F2_ω
                         .size            n532_call_bx, .-n532_call_bx
                         .type            n533_call_bx, @function
@@ -6470,14 +6751,15 @@ n533_call_α:            mov              r11, 291
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n534_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n534_call_α
 n533_call_β:            mov              r11, 291;                            jmp   define$2F2_ω
                         .size            n533_call_bx, .-n533_call_bx
                         .type            n534_call_bx, @function
@@ -6503,14 +6785,15 @@ n534_call_α:            mov              r11, 292
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n535_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n535_call_α
 n534_call_β:            mov              r11, 292;                            jmp   define$2F2_ω
                         .size            n534_call_bx, .-n534_call_bx
                         .type            n535_call_bx, @function
@@ -6536,14 +6819,15 @@ n535_call_α:            mov              r11, 293
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n536_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n536_call_α
 n535_call_β:            mov              r11, 293;                            jmp   define$2F2_ω
                         .size            n535_call_bx, .-n535_call_bx
                         .type            n536_call_bx, @function
@@ -6569,14 +6853,15 @@ n536_call_α:            mov              r11, 294
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n537_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n537_call_α
 n536_call_β:            mov              r11, 294;                            jmp   define$2F2_ω
                         .size            n536_call_bx, .-n536_call_bx
                         .type            n537_call_bx, @function
@@ -6602,14 +6887,15 @@ n537_call_α:            mov              r11, 295
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n538_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n538_call_α
 n537_call_β:            mov              r11, 295;                            jmp   define$2F2_ω
                         .size            n537_call_bx, .-n537_call_bx
                         .type            n538_call_bx, @function
@@ -6635,14 +6921,15 @@ n538_call_α:            mov              r11, 296
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n539_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n539_call_α
 n538_call_β:            mov              r11, 296;                            jmp   define$2F2_ω
                         .size            n538_call_bx, .-n538_call_bx
                         .type            n539_call_bx, @function
@@ -6668,14 +6955,15 @@ n539_call_α:            mov              r11, 297
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n540_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n540_call_α
 n539_call_β:            mov              r11, 297;                            jmp   define$2F2_ω
                         .size            n539_call_bx, .-n539_call_bx
                         .type            n540_call_bx, @function
@@ -6701,14 +6989,15 @@ n540_call_α:            mov              r11, 298
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n541_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n541_call_α
 n540_call_β:            mov              r11, 298;                            jmp   define$2F2_ω
                         .size            n540_call_bx, .-n540_call_bx
                         .type            n541_call_bx, @function
@@ -6734,14 +7023,15 @@ n541_call_α:            mov              r11, 299
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n542_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n542_call_α
 n541_call_β:            mov              r11, 299;                            jmp   define$2F2_ω
                         .size            n541_call_bx, .-n541_call_bx
                         .type            n542_call_bx, @function
@@ -6767,14 +7057,15 @@ n542_call_α:            mov              r11, 300
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n543_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n543_call_α
 n542_call_β:            mov              r11, 300;                            jmp   define$2F2_ω
                         .size            n542_call_bx, .-n542_call_bx
                         .type            n543_call_bx, @function
@@ -6800,14 +7091,15 @@ n543_call_α:            mov              r11, 301
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n544_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n544_call_α
 n543_call_β:            mov              r11, 301;                            jmp   define$2F2_ω
                         .size            n543_call_bx, .-n543_call_bx
                         .type            n544_call_bx, @function
@@ -6833,14 +7125,15 @@ n544_call_α:            mov              r11, 302
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n545_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n545_call_α
 n544_call_β:            mov              r11, 302;                            jmp   define$2F2_ω
                         .size            n544_call_bx, .-n544_call_bx
                         .type            n545_call_bx, @function
@@ -6866,14 +7159,15 @@ n545_call_α:            mov              r11, 303
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n546_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n546_call_α
 n545_call_β:            mov              r11, 303;                            jmp   define$2F2_ω
                         .size            n545_call_bx, .-n545_call_bx
                         .type            n546_call_bx, @function
@@ -6899,14 +7193,15 @@ n546_call_α:            mov              r11, 304
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n547_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n547_call_α
 n546_call_β:            mov              r11, 304;                            jmp   define$2F2_ω
                         .size            n546_call_bx, .-n546_call_bx
                         .type            n547_call_bx, @function
@@ -6932,14 +7227,15 @@ n547_call_α:            mov              r11, 305
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n548_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n548_call_α
 n547_call_β:            mov              r11, 305;                            jmp   define$2F2_ω
                         .size            n547_call_bx, .-n547_call_bx
                         .type            n548_call_bx, @function
@@ -6965,14 +7261,15 @@ n548_call_α:            mov              r11, 306
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n549_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n549_call_α
 n548_call_β:            mov              r11, 306;                            jmp   define$2F2_ω
                         .size            n548_call_bx, .-n548_call_bx
                         .type            n549_call_bx, @function
@@ -6998,14 +7295,15 @@ n549_call_α:            mov              r11, 307
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n550_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n550_call_α
 n549_call_β:            mov              r11, 307;                            jmp   define$2F2_ω
                         .size            n549_call_bx, .-n549_call_bx
                         .type            n550_call_bx, @function
@@ -7031,14 +7329,15 @@ n550_call_α:            mov              r11, 308
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n551_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n551_call_α
 n550_call_β:            mov              r11, 308;                            jmp   define$2F2_ω
                         .size            n550_call_bx, .-n550_call_bx
                         .type            n551_call_bx, @function
@@ -7064,14 +7363,15 @@ n551_call_α:            mov              r11, 309
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n552_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n552_call_α
 n551_call_β:            mov              r11, 309;                            jmp   define$2F2_ω
                         .size            n551_call_bx, .-n551_call_bx
                         .type            n552_call_bx, @function
@@ -7097,14 +7397,15 @@ n552_call_α:            mov              r11, 310
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n553_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n553_call_α
 n552_call_β:            mov              r11, 310;                            jmp   define$2F2_ω
                         .size            n552_call_bx, .-n552_call_bx
                         .type            n553_call_bx, @function
@@ -7130,14 +7431,15 @@ n553_call_α:            mov              r11, 311
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n554_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n554_call_α
 n553_call_β:            mov              r11, 311;                            jmp   define$2F2_ω
                         .size            n553_call_bx, .-n553_call_bx
                         .type            n554_call_bx, @function
@@ -7163,14 +7465,15 @@ n554_call_α:            mov              r11, 312
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n555_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n555_call_α
 n554_call_β:            mov              r11, 312;                            jmp   define$2F2_ω
                         .size            n554_call_bx, .-n554_call_bx
                         .type            n555_call_bx, @function
@@ -7196,14 +7499,15 @@ n555_call_α:            mov              r11, 313
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n556_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n556_call_α
 n555_call_β:            mov              r11, 313;                            jmp   define$2F2_ω
                         .size            n555_call_bx, .-n555_call_bx
                         .type            n556_call_bx, @function
@@ -7229,14 +7533,15 @@ n556_call_α:            mov              r11, 314
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n557_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n557_call_α
 n556_call_β:            mov              r11, 314;                            jmp   define$2F2_ω
                         .size            n556_call_bx, .-n556_call_bx
                         .type            n557_call_bx, @function
@@ -7262,14 +7567,15 @@ n557_call_α:            mov              r11, 315
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n558_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n558_call_α
 n557_call_β:            mov              r11, 315;                            jmp   define$2F2_ω
                         .size            n557_call_bx, .-n557_call_bx
                         .type            n558_call_bx, @function
@@ -7295,14 +7601,15 @@ n558_call_α:            mov              r11, 316
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1088], rax
                         mov              qword ptr [rbp + 1096], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n559_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n559_var_ref_α
 n558_call_β:            mov              r11, 316;                            jmp   define$2F2_ω
                         .size            n558_call_bx, .-n558_call_bx
                         .type            n559_var_ref_bx, @function
@@ -7344,14 +7651,15 @@ n561_call_α:            mov              r11, 319
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1088], rax
                         mov              qword ptr [rbp + 1096], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n562_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   n562_call_α
 n561_call_β:            mov              r11, 319;                            jmp   define$2F2_step
                         .size            n561_call_bx, .-n561_call_bx
                         .type            n562_call_bx, @function
@@ -7373,14 +7681,15 @@ n562_call_α:            mov              r11, 320
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   define$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   define$2F2_γ
 n562_call_β:            mov              r11, 320;                            jmp   define$2F2_step
                         .size            n562_call_bx, .-n562_call_bx
                         .type            n563_var_ref_bx, @function
@@ -7447,14 +7756,15 @@ n568_call_α:            mov              r11, 326
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1088], rax
                         mov              qword ptr [rbp + 1096], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n569_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n569_var_ref_α
 n568_call_β:            mov              r11, 326;                            jmp   define$2F2_ω
                         .size            n568_call_bx, .-n568_call_bx
                         .type            n569_var_ref_bx, @function
@@ -7494,14 +7804,15 @@ n571_call_α:            mov              r11, 329
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1088], rax
                         mov              qword ptr [rbp + 1096], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n572_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   n572_call_α
 n571_call_β:            mov              r11, 329;                            jmp   define$2F2_step
                         .size            n571_call_bx, .-n571_call_bx
                         .type            n572_call_bx, @function
@@ -7523,14 +7834,15 @@ n572_call_α:            mov              r11, 330
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n573_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   n573_var_ref_α
 n572_call_β:            mov              r11, 330;                            jmp   define$2F2_step
                         .size            n572_call_bx, .-n572_call_bx
                         .type            n573_var_ref_bx, @function
@@ -7615,14 +7927,15 @@ n580_call_α:            mov              r11, 338
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n581_lit_string_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n581_lit_string_α
 n580_call_β:            mov              r11, 338;                            jmp   define$2F2_ω
                         .size            n580_call_bx, .-n580_call_bx
                         .type            n581_lit_string_bx, @function
@@ -7689,14 +8002,15 @@ n586_call_α:            mov              r11, 344
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n587_lit_string_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n587_lit_string_α
 n586_call_β:            mov              r11, 344;                            jmp   define$2F2_ω
                         .size            n586_call_bx, .-n586_call_bx
                         .type            n587_lit_string_bx, @function
@@ -7772,14 +8086,15 @@ n593_call_α:            mov              r11, 351
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1120], rax
                         mov              qword ptr [rbp + 1128], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n594_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n594_call_α
 n593_call_β:            mov              r11, 351;                            jmp   define$2F2_ω
                         .size            n593_call_bx, .-n593_call_bx
                         .type            n594_call_bx, @function
@@ -7809,14 +8124,15 @@ n594_call_α:            mov              r11, 352
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n595_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n595_call_α
 n594_call_β:            mov              r11, 352;                            jmp   define$2F2_ω
                         .size            n594_call_bx, .-n594_call_bx
                         .type            n595_call_bx, @function
@@ -7842,14 +8158,15 @@ n595_call_α:            mov              r11, 353
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n596_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n596_call_α
 n595_call_β:            mov              r11, 353;                            jmp   define$2F2_ω
                         .size            n595_call_bx, .-n595_call_bx
                         .type            n596_call_bx, @function
@@ -7875,14 +8192,15 @@ n596_call_α:            mov              r11, 354
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1088], rax
                         mov              qword ptr [rbp + 1096], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n597_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   n597_call_α
 n596_call_β:            mov              r11, 354;                            jmp   define$2F2_step
                         .size            n596_call_bx, .-n596_call_bx
                         .type            n597_call_bx, @function
@@ -7904,14 +8222,15 @@ n597_call_α:            mov              r11, 355
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   define$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   define$2F2_γ
 n597_call_β:            mov              r11, 355;                            jmp   define$2F2_step
                         .size            n597_call_bx, .-n597_call_bx
                         .type            n598_var_ref_bx, @function
@@ -7978,14 +8297,15 @@ n603_call_α:            mov              r11, 361
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1088], rax
                         mov              qword ptr [rbp + 1096], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n604_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   n604_call_α
 n603_call_β:            mov              r11, 361;                            jmp   define$2F2_step
                         .size            n603_call_bx, .-n603_call_bx
                         .type            n604_call_bx, @function
@@ -8007,14 +8327,15 @@ n604_call_α:            mov              r11, 362
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n605_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   n605_var_ref_α
 n604_call_β:            mov              r11, 362;                            jmp   define$2F2_step
                         .size            n604_call_bx, .-n604_call_bx
                         .type            n605_var_ref_bx, @function
@@ -8055,14 +8376,15 @@ n607_call_α:            mov              r11, 365
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:213
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   define$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   define$2F2_γ
 n607_call_β:            mov              r11, 365;                            jmp   define$2F2_step
                         .size            n607_call_bx, .-n607_call_bx
                         .type            n608_var_ref_bx, @function
@@ -8129,14 +8451,15 @@ n613_call_α:            mov              r11, 371
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n614_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n614_var_ref_α
 n613_call_β:            mov              r11, 371;                            jmp   define$2F2_ω
                         .size            n613_call_bx, .-n613_call_bx
                         .type            n614_var_ref_bx, @function
@@ -8192,14 +8515,15 @@ n618_call_α:            mov              r11, 376
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1120], rax
                         mov              qword ptr [rbp + 1128], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n619_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n619_var_ref_α
 n618_call_β:            mov              r11, 376;                            jmp   define$2F2_ω
                         .size            n618_call_bx, .-n618_call_bx
                         .type            n619_var_ref_bx, @function
@@ -8238,14 +8562,15 @@ n620_call_α:            mov              r11, 378
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1088], rax
                         mov              qword ptr [rbp + 1096], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n621_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   n621_call_α
 n620_call_β:            mov              r11, 378;                            jmp   define$2F2_step
                         .size            n620_call_bx, .-n620_call_bx
                         .type            n621_call_bx, @function
@@ -8267,14 +8592,15 @@ n621_call_α:            mov              r11, 379
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n622_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   n622_var_ref_α
 n621_call_β:            mov              r11, 379;                            jmp   define$2F2_step
                         .size            n621_call_bx, .-n621_call_bx
                         .type            n622_var_ref_bx, @function
@@ -8341,14 +8667,15 @@ n627_call_α:            mov              r11, 385
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n628_lit_string_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n628_lit_string_α
 n627_call_β:            mov              r11, 385;                            jmp   define$2F2_ω
                         .size            n627_call_bx, .-n627_call_bx
                         .type            n628_lit_string_bx, @function
@@ -8435,14 +8762,15 @@ n635_call_α:            mov              r11, 393
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n636_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n636_call_α
 n635_call_β:            mov              r11, 393;                            jmp   define$2F2_ω
                         .size            n635_call_bx, .-n635_call_bx
                         .type            n636_call_bx, @function
@@ -8468,14 +8796,15 @@ n636_call_α:            mov              r11, 394
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1104], rax
                         mov              qword ptr [rbp + 1112], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n637_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n637_call_α
 n636_call_β:            mov              r11, 394;                            jmp   define$2F2_ω
                         .size            n636_call_bx, .-n636_call_bx
                         .type            n637_call_bx, @function
@@ -8501,14 +8830,15 @@ n637_call_α:            mov              r11, 395
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1088], rax
                         mov              qword ptr [rbp + 1096], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n638_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   n638_call_α
 n637_call_β:            mov              r11, 395;                            jmp   define$2F2_step
                         .size            n637_call_bx, .-n637_call_bx
                         .type            n638_call_bx, @function
@@ -8530,14 +8860,15 @@ n638_call_α:            mov              r11, 396
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   define$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   define$2F2_γ
 n638_call_β:            mov              r11, 396;                            jmp   define$2F2_step
                         .size            n638_call_bx, .-n638_call_bx
                         .type            n639_var_ref_bx, @function
@@ -8604,14 +8935,15 @@ n644_call_α:            mov              r11, 402
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n645_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n645_var_ref_α
 n644_call_β:            mov              r11, 402;                            jmp   define$2F2_ω
                         .size            n644_call_bx, .-n644_call_bx
                         .type            n645_var_ref_bx, @function
@@ -8676,14 +9008,15 @@ n650_call_α:            mov              r11, 408
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1136], rax
                         mov              qword ptr [rbp + 1144], rdx
-                        cmp              al, 104;                             je    define$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n651_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_ω
+                                                                              jmp   n651_call_α
 n650_call_β:            mov              r11, 408;                            jmp   define$2F2_ω
                         .size            n650_call_bx, .-n650_call_bx
                         .type            n651_call_bx, @function
@@ -8713,14 +9046,15 @@ n651_call_α:            mov              r11, 409
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1088], rax
                         mov              qword ptr [rbp + 1096], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n652_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   n652_call_α
 n651_call_β:            mov              r11, 409;                            jmp   define$2F2_step
                         .size            n651_call_bx, .-n651_call_bx
                         .type            n652_call_bx, @function
@@ -8742,14 +9076,15 @@ n652_call_α:            mov              r11, 410
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n653_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   n653_var_ref_α
 n652_call_β:            mov              r11, 410;                            jmp   define$2F2_step
                         .size            n652_call_bx, .-n652_call_bx
                         .type            n653_var_ref_bx, @function
@@ -8823,14 +9158,15 @@ n659_call_α:            mov              r11, 417
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1088], rax
                         mov              qword ptr [rbp + 1096], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n660_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   n660_call_α
 n659_call_β:            mov              r11, 417;                            jmp   define$2F2_step
                         .size            n659_call_bx, .-n659_call_bx
                         .type            n660_call_bx, @function
@@ -8852,14 +9188,15 @@ n660_call_α:            mov              r11, 418
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   define$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   define$2F2_γ
 n660_call_β:            mov              r11, 418;                            jmp   define$2F2_step
                         .size            n660_call_bx, .-n660_call_bx
                         .type            n661_var_ref_bx, @function
@@ -8939,14 +9276,15 @@ n667_call_α:            mov              r11, 425
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 1088], rax
                         mov              qword ptr [rbp + 1096], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n668_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   n668_call_α
 n667_call_β:            mov              r11, 425;                            jmp   define$2F2_step
                         .size            n667_call_bx, .-n667_call_bx
                         .type            n668_call_bx, @function
@@ -8968,14 +9306,15 @@ n668_call_α:            mov              r11, 426
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n669_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   n669_var_ref_α
 n668_call_β:            mov              r11, 426;                            jmp   define$2F2_step
                         .size            n668_call_bx, .-n668_call_bx
                         .type            n669_var_ref_bx, @function
@@ -9016,14 +9355,15 @@ n671_call_α:            mov              r11, 429
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    define$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:213
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   define$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    define$2F2_step
+                                                                              jmp   define$2F2_γ
 n671_call_β:            mov              r11, 429;                            jmp   define$2F2_step
                         .size            n671_call_bx, .-n671_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9202,14 +9542,15 @@ n996_call_α:            mov              r11, 432
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        cmp              al, 104;                             je    interpret_built_in$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:213
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   interpret_built_in$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret_built_in$2F1_step
+                                                                              jmp   interpret_built_in$2F1_γ
 n996_call_β:            mov              r11, 432;                            jmp   interpret_built_in$2F1_step
                         .size            n996_call_bx, .-n996_call_bx
                         .type            n997_var_ref_bx, @function
@@ -9266,14 +9607,15 @@ n1001_call_α:           mov              r11, 437
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    interpret_built_in$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1002_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret_built_in$2F1_step
+                                                                              jmp   n1002_call_α
 n1001_call_β:           mov              r11, 437;                            jmp   interpret_built_in$2F1_step
                         .size            n1001_call_bx, .-n1001_call_bx
                         .type            n1002_call_bx, @function
@@ -9295,14 +9637,15 @@ n1002_call_α:           mov              r11, 438
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        cmp              al, 104;                             je    interpret_built_in$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1003_var_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret_built_in$2F1_step
+                                                                              jmp   n1003_var_α
 n1002_call_β:           mov              r11, 438;                            jmp   interpret_built_in$2F1_step
                         .size            n1002_call_bx, .-n1002_call_bx
                         .type            n1003_var_bx, @function
@@ -9338,14 +9681,15 @@ n1005_call_α:           mov              r11, 441
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        cmp              al, 104;                             je    interpret_built_in$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   interpret_built_in$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret_built_in$2F1_step
+                                                                              jmp   interpret_built_in$2F1_γ
 n1005_call_β:           mov              r11, 441;                            jmp   interpret_built_in$2F1_step
                         .size            n1005_call_bx, .-n1005_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -9522,14 +9866,15 @@ n1028_call_α:           mov              r11, 446
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 528], rax
                         mov              qword ptr [rbp + 536], rdx
-                        cmp              al, 104;                             je    interpret_disjunction$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1029_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret_disjunction$2F3_step
+                                                                              jmp   n1029_call_α
 n1028_call_β:           mov              r11, 446;                            jmp   interpret_disjunction$2F3_step
                         .size            n1028_call_bx, .-n1028_call_bx
                         .type            n1029_call_bx, @function
@@ -9555,14 +9900,15 @@ n1029_call_α:           mov              r11, 447
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 224], rax
                         mov              qword ptr [rbp + 232], rdx
-                        cmp              al, 104;                             je    interpret_disjunction$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1030_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret_disjunction$2F3_step
+                                                                              jmp   n1030_var_ref_α
 n1029_call_β:           mov              r11, 447;                            jmp   interpret_disjunction$2F3_step
                         .size            n1029_call_bx, .-n1029_call_bx
                         .type            n1030_var_ref_bx, @function
@@ -9638,6 +9984,13 @@ n1032_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_1082_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -9665,6 +10018,13 @@ n1032_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   interpret_disjunction$2F3_step
@@ -9762,14 +10122,15 @@ n1036_call_α:           mov              r11, 454
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 224], rax
                         mov              qword ptr [rbp + 232], rdx
-                        cmp              al, 104;                             je    n1045_unmark_α
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1037_unmark_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    n1045_unmark_α
+                                                                              jmp   n1037_unmark_α
 n1036_call_β:           mov              r11, 454;                            jmp   n1045_unmark_α
                         .size            n1036_call_bx, .-n1036_call_bx
                         .type            n1037_unmark_bx, @function
@@ -9846,14 +10207,15 @@ n1042_call_α:           mov              r11, 460
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 288], rax
                         mov              qword ptr [rbp + 296], rdx
-                        cmp              al, 104;                             je    n1050_unmark_α
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1043_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    n1050_unmark_α
+                                                                              jmp   n1043_call_α
 n1042_call_β:           mov              r11, 460;                            jmp   n1050_unmark_α
                         .size            n1042_call_bx, .-n1042_call_bx
                         .type            n1043_call_bx, @function
@@ -9879,14 +10241,15 @@ n1043_call_α:           mov              r11, 461
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 224], rax
                         mov              qword ptr [rbp + 232], rdx
-                        cmp              al, 104;                             je    n1050_unmark_α
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1044_gate_arm_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    n1050_unmark_α
+                                                                              jmp   n1044_gate_arm_α
 n1043_call_β:           mov              r11, 461;                            jmp   n1050_unmark_α
                         .size            n1043_call_bx, .-n1043_call_bx
                         .type            n1044_gate_arm_bx, @function
@@ -9979,6 +10342,13 @@ n1048_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_1110_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -10006,6 +10376,13 @@ n1048_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n1050_unmark_α
@@ -10146,14 +10523,15 @@ n1056_call_α:           mov              r11, 474
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 672], rax
                         mov              qword ptr [rbp + 680], rdx
-                        cmp              al, 104;                             je    interpret_disjunction$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1057_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret_disjunction$2F3_step
+                                                                              jmp   n1057_call_α
 n1056_call_β:           mov              r11, 474;                            jmp   interpret_disjunction$2F3_step
                         .size            n1056_call_bx, .-n1056_call_bx
                         .type            n1057_call_bx, @function
@@ -10179,14 +10557,15 @@ n1057_call_α:           mov              r11, 475
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 224], rax
                         mov              qword ptr [rbp + 232], rdx
-                        cmp              al, 104;                             je    interpret_disjunction$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1058_cut_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    interpret_disjunction$2F3_step
+                                                                              jmp   n1058_cut_α
 n1057_call_β:           mov              r11, 475;                            jmp   interpret_disjunction$2F3_step
                         .size            n1057_call_bx, .-n1057_call_bx
                         .type            n1058_cut_bx, @function
@@ -10272,6 +10651,13 @@ n1061_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_1133_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -10291,6 +10677,13 @@ n1061_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:726
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             r10, r10;                            je    .Lcall_proc_staged_α_1133_99
                         mov              r10, qword ptr [rbp + 952]
                         cmp              r13, r10;                            jne   .Lcall_proc_staged_α_1133_99
@@ -10324,6 +10717,13 @@ n1061_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   interpret_disjunction$2F3_ω
@@ -10444,6 +10844,13 @@ n1064_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_1139_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -10463,6 +10870,13 @@ n1064_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:726
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             r10, r10;                            je    .Lcall_proc_staged_α_1139_99
                         mov              r10, qword ptr [rbp + 952]
                         cmp              r13, r10;                            jne   .Lcall_proc_staged_α_1139_99
@@ -10496,6 +10910,13 @@ n1064_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   interpret_disjunction$2F3_step
@@ -10616,6 +11037,13 @@ n1067_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_1145_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -10635,6 +11063,13 @@ n1067_call_proc_staged_α:
                         mov              r10d, eax
                         pop              rax
                         add              rsp, 8
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:726
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             r10, r10;                            je    .Lcall_proc_staged_α_1145_99
                         mov              r10, qword ptr [rbp + 952]
                         cmp              r13, r10;                            jne   .Lcall_proc_staged_α_1145_99
@@ -10668,6 +11103,13 @@ n1067_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   interpret_disjunction$2F3_step
@@ -10918,6 +11360,13 @@ n1147_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_1154_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -10945,6 +11394,13 @@ n1147_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   main$2F0_step
@@ -11016,14 +11472,15 @@ n1149_call_α:           mov              r11, 489
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        cmp              al, 104;                             je    n1147_call_proc_staged_β
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1150_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    n1147_call_proc_staged_β
+                                                                              jmp   n1150_call_α
 n1149_call_β:           mov              r11, 489;                            jmp   n1147_call_proc_staged_β
                         .size            n1149_call_bx, .-n1149_call_bx
                         .type            n1150_call_bx, @function
@@ -11041,14 +11498,15 @@ n1150_call_α:           mov              r11, 490
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        cmp              al, 104;                             je    n1147_call_proc_staged_β
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   main$2F0_ret0
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    n1147_call_proc_staged_β
+                                                                              jmp   main$2F0_ret0
 n1150_call_β:           mov              r11, 490;                            jmp   n1147_call_proc_staged_β
                         .size            n1150_call_bx, .-n1150_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -11182,14 +11640,15 @@ n1160_call_α:           mov              r11, 492
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $fc$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1161_cut_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $fc$2F3_step
+                                                                              jmp   n1161_cut_α
 n1160_call_β:           mov              r11, 492;                            jmp   $fc$2F3_step
                         .size            n1160_call_bx, .-n1160_call_bx
                         .type            n1161_cut_bx, @function
@@ -11241,14 +11700,15 @@ n1164_call_α:           mov              r11, 496
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $fc$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:213
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1165_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $fc$2F3_step
+                                                                              jmp   n1165_var_ref_α
 n1164_call_β:           mov              r11, 496;                            jmp   $fc$2F3_step
                         .size            n1164_call_bx, .-n1164_call_bx
                         .type            n1165_var_ref_bx, @function
@@ -11290,14 +11750,15 @@ n1167_call_α:           mov              r11, 499
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $fc$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:213
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1168_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $fc$2F3_step
+                                                                              jmp   n1168_var_ref_α
 n1167_call_β:           mov              r11, 499;                            jmp   $fc$2F3_step
                         .size            n1167_call_bx, .-n1167_call_bx
                         .type            n1168_var_ref_bx, @function
@@ -11336,14 +11797,15 @@ n1170_call_α:           mov              r11, 502
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $fc$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1171_cut_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $fc$2F3_step
+                                                                              jmp   n1171_cut_α
 n1170_call_β:           mov              r11, 502;                            jmp   $fc$2F3_step
                         .size            n1170_call_bx, .-n1170_call_bx
                         .type            n1171_cut_bx, @function
@@ -11410,14 +11872,15 @@ n1176_call_α:           mov              r11, 508
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    $fc$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1177_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $fc$2F3_step
+                                                                              jmp   n1177_call_α
 n1176_call_β:           mov              r11, 508;                            jmp   $fc$2F3_step
                         .size            n1176_call_bx, .-n1176_call_bx
                         .type            n1177_call_bx, @function
@@ -11439,14 +11902,15 @@ n1177_call_α:           mov              r11, 509
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $fc$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1178_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $fc$2F3_step
+                                                                              jmp   n1178_var_ref_α
 n1177_call_β:           mov              r11, 509;                            jmp   $fc$2F3_step
                         .size            n1177_call_bx, .-n1177_call_bx
                         .type            n1178_var_ref_bx, @function
@@ -11548,6 +12012,13 @@ n1181_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_proc_call_open_det@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -11667,14 +12138,15 @@ n1185_call_α:           mov              r11, 517
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $fc$2F3_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1186_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $fc$2F3_ω
+                                                                              jmp   n1186_var_ref_α
 n1185_call_β:           mov              r11, 517;                            jmp   $fc$2F3_ω
                         .size            n1185_call_bx, .-n1185_call_bx
                         .type            n1186_var_ref_bx, @function
@@ -11731,14 +12203,15 @@ n1190_call_α:           mov              r11, 522
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    $fc$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1191_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $fc$2F3_step
+                                                                              jmp   n1191_call_α
 n1190_call_β:           mov              r11, 522;                            jmp   $fc$2F3_step
                         .size            n1190_call_bx, .-n1190_call_bx
                         .type            n1191_call_bx, @function
@@ -11760,14 +12233,15 @@ n1191_call_α:           mov              r11, 523
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $fc$2F3_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   $fc$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $fc$2F3_ω
+                                                                              jmp   $fc$2F3_γ
 n1191_call_β:           mov              r11, 523;                            jmp   $fc$2F3_ω
                         .size            n1191_call_bx, .-n1191_call_bx
                         .type            n1192_var_ref_bx, @function
@@ -11824,14 +12298,15 @@ n1196_call_α:           mov              r11, 528
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    $fc$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1197_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $fc$2F3_step
+                                                                              jmp   n1197_call_α
 n1196_call_β:           mov              r11, 528;                            jmp   $fc$2F3_step
                         .size            n1196_call_bx, .-n1196_call_bx
                         .type            n1197_call_bx, @function
@@ -11853,14 +12328,15 @@ n1197_call_α:           mov              r11, 529
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $fc$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1198_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $fc$2F3_step
+                                                                              jmp   n1198_var_ref_α
 n1197_call_β:           mov              r11, 529;                            jmp   $fc$2F3_step
                         .size            n1197_call_bx, .-n1197_call_bx
                         .type            n1198_var_ref_bx, @function
@@ -11962,6 +12438,13 @@ n1201_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_proc_call_open_det@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -12102,14 +12585,15 @@ n1207_call_α:           mov              r11, 539
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    $fc$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1208_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $fc$2F3_step
+                                                                              jmp   n1208_call_α
 n1207_call_β:           mov              r11, 539;                            jmp   $fc$2F3_step
                         .size            n1207_call_bx, .-n1207_call_bx
                         .type            n1208_call_bx, @function
@@ -12131,14 +12615,15 @@ n1208_call_α:           mov              r11, 540
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $fc$2F3_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1209_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $fc$2F3_ω
+                                                                              jmp   n1209_var_ref_α
 n1208_call_β:           mov              r11, 540;                            jmp   $fc$2F3_ω
                         .size            n1208_call_bx, .-n1208_call_bx
                         .type            n1209_var_ref_bx, @function
@@ -12174,14 +12659,15 @@ n1211_call_α:           mov              r11, 543
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    $fc$2F3_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   $fc$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $fc$2F3_ω
+                                                                              jmp   $fc$2F3_γ
 n1211_call_β:           mov              r11, 543;                            jmp   $fc$2F3_ω
                         .size            n1211_call_bx, .-n1211_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -12354,14 +12840,15 @@ n1300_call_α:           mov              r11, 547
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    $2C$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1301_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $2C$2F2_step
+                                                                              jmp   n1301_var_ref_α
 n1300_call_β:           mov              r11, 547;                            jmp   $2C$2F2_step
                         .size            n1300_call_bx, .-n1300_call_bx
                         .type            n1301_var_ref_bx, @function
@@ -12454,6 +12941,13 @@ n1303_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_proc_call_open_det@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -12575,6 +13069,13 @@ n1306_call_value_α:     mov              r11, 553
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1331_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1331_11]
@@ -12609,7 +13110,7 @@ n1306_call_value_α:     mov              r11, 553
 .Lcall_value_α_1331_2:  mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         cmp              al, 104;                             je    $2C$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -12636,7 +13137,7 @@ n1306_call_value_β:     mov              r11, 553
                         cmp              al, 104;                             je    $2C$2F2_ω
                         mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -12695,6 +13196,13 @@ n1309_call_value_α:     mov              r11, 556
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1337_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1337_11]
@@ -12729,7 +13237,7 @@ n1309_call_value_α:     mov              r11, 556
 .Lcall_value_α_1337_2:  mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
                         cmp              al, 104;                             je    $2C$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -12756,7 +13264,7 @@ n1309_call_value_β:     mov              r11, 556
                         cmp              al, 104;                             je    $2C$2F2_ω
                         mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -12805,6 +13313,13 @@ n1311_call_value_α:     mov              r11, 558
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1341_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1341_11]
@@ -12839,7 +13354,7 @@ n1311_call_value_α:     mov              r11, 558
 .Lcall_value_α_1341_2:  mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
                         cmp              al, 104;                             je    $2C$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -12866,7 +13381,7 @@ n1311_call_value_β:     mov              r11, 558
                         cmp              al, 104;                             je    $2C$2F2_step
                         mov              qword ptr [rbp + 368], rax
                         mov              qword ptr [rbp + 376], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -12915,6 +13430,13 @@ n1313_call_value_α:     mov              r11, 560
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1345_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1345_11]
@@ -12949,7 +13471,7 @@ n1313_call_value_α:     mov              r11, 560
 .Lcall_value_α_1345_2:  mov              qword ptr [rbp + 304], rax
                         mov              qword ptr [rbp + 312], rdx
                         cmp              al, 104;                             je    n1311_call_value_β
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -12976,7 +13498,7 @@ n1313_call_value_β:     mov              r11, 560
                         cmp              al, 104;                             je    n1311_call_value_β
                         mov              qword ptr [rbp + 304], rax
                         mov              qword ptr [rbp + 312], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -13192,14 +13714,15 @@ n1350_call_α:           mov              r11, 565
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 480], rax
                         mov              qword ptr [rbp + 488], rdx
-                        cmp              al, 104;                             je    $3B$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1351_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $3B$2F2_step
+                                                                              jmp   n1351_call_α
 n1350_call_β:           mov              r11, 565;                            jmp   $3B$2F2_step
                         .size            n1350_call_bx, .-n1350_call_bx
                         .type            n1351_call_bx, @function
@@ -13225,14 +13748,15 @@ n1351_call_α:           mov              r11, 566
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 416], rax
                         mov              qword ptr [rbp + 424], rdx
-                        cmp              al, 104;                             je    $3B$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1352_cut_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $3B$2F2_step
+                                                                              jmp   n1352_cut_α
 n1351_call_β:           mov              r11, 566;                            jmp   $3B$2F2_step
                         .size            n1351_call_bx, .-n1351_call_bx
                         .type            n1352_cut_bx, @function
@@ -13292,6 +13816,13 @@ n1355_call_value_α:     mov              r11, 570
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1427_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1427_11]
@@ -13326,7 +13857,7 @@ n1355_call_value_α:     mov              r11, 570
 .Lcall_value_α_1427_2:  mov              qword ptr [rbp + 352], rax
                         mov              qword ptr [rbp + 360], rdx
                         cmp              al, 104;                             je    n1360_unmark_α
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -13353,7 +13884,7 @@ n1355_call_value_β:     mov              r11, 570
                         cmp              al, 104;                             je    n1360_unmark_α
                         mov              qword ptr [rbp + 352], rax
                         mov              qword ptr [rbp + 360], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -13410,6 +13941,13 @@ n1358_call_value_α:     mov              r11, 573
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1433_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1433_11]
@@ -13444,7 +13982,7 @@ n1358_call_value_α:     mov              r11, 573
 .Lcall_value_α_1433_2:  mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         cmp              al, 104;                             je    n1364_unmark_α
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -13471,7 +14009,7 @@ n1358_call_value_β:     mov              r11, 573
                         cmp              al, 104;                             je    n1364_unmark_α
                         mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -13537,6 +14075,13 @@ n1362_call_value_α:     mov              r11, 577
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1441_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1441_11]
@@ -13571,7 +14116,7 @@ n1362_call_value_α:     mov              r11, 577
 .Lcall_value_α_1441_2:  mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
                         cmp              al, 104;                             je    n1364_unmark_α
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -13598,7 +14143,7 @@ n1362_call_value_β:     mov              r11, 577
                         cmp              al, 104;                             je    n1364_unmark_α
                         mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -13705,14 +14250,15 @@ n1370_call_α:           mov              r11, 585
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 896], rax
                         mov              qword ptr [rbp + 904], rdx
-                        cmp              al, 104;                             je    $3B$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1371_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $3B$2F2_step
+                                                                              jmp   n1371_call_α
 n1370_call_β:           mov              r11, 585;                            jmp   $3B$2F2_step
                         .size            n1370_call_bx, .-n1370_call_bx
                         .type            n1371_call_bx, @function
@@ -13738,14 +14284,15 @@ n1371_call_α:           mov              r11, 586
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 416], rax
                         mov              qword ptr [rbp + 424], rdx
-                        cmp              al, 104;                             je    $3B$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1372_cut_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $3B$2F2_step
+                                                                              jmp   n1372_cut_α
 n1371_call_β:           mov              r11, 586;                            jmp   $3B$2F2_step
                         .size            n1371_call_bx, .-n1371_call_bx
                         .type            n1372_cut_bx, @function
@@ -13811,6 +14358,13 @@ n1376_call_value_α:     mov              r11, 591
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1466_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1466_11]
@@ -13845,7 +14399,7 @@ n1376_call_value_α:     mov              r11, 591
 .Lcall_value_α_1466_2:  mov              qword ptr [rbp + 656], rax
                         mov              qword ptr [rbp + 664], rdx
                         cmp              al, 104;                             je    n1381_unmark_α
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -13872,7 +14426,7 @@ n1376_call_value_β:     mov              r11, 591
                         cmp              al, 104;                             je    n1381_unmark_α
                         mov              qword ptr [rbp + 656], rax
                         mov              qword ptr [rbp + 664], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -13927,6 +14481,13 @@ n1379_call_value_α:     mov              r11, 594
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1472_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1472_11]
@@ -13961,7 +14522,7 @@ n1379_call_value_α:     mov              r11, 594
 .Lcall_value_α_1472_2:  mov              qword ptr [rbp + 720], rax
                         mov              qword ptr [rbp + 728], rdx
                         cmp              al, 104;                             je    n1376_call_value_β
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -13988,7 +14549,7 @@ n1379_call_value_β:     mov              r11, 594
                         cmp              al, 104;                             je    n1376_call_value_β
                         mov              qword ptr [rbp + 720], rax
                         mov              qword ptr [rbp + 728], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -14062,6 +14623,13 @@ n1384_call_value_α:     mov              r11, 599
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1482_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1482_11]
@@ -14096,7 +14664,7 @@ n1384_call_value_α:     mov              r11, 599
 .Lcall_value_α_1482_2:  mov              qword ptr [rbp + 784], rax
                         mov              qword ptr [rbp + 792], rdx
                         cmp              al, 104;                             je    n1386_unmark_α
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -14123,7 +14691,7 @@ n1384_call_value_β:     mov              r11, 599
                         cmp              al, 104;                             je    n1386_unmark_α
                         mov              qword ptr [rbp + 784], rax
                         mov              qword ptr [rbp + 792], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -14264,6 +14832,13 @@ n1391_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_1496_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -14372,6 +14947,13 @@ n1393_call_value_α:     mov              r11, 608
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1500_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1500_11]
@@ -14406,7 +14988,7 @@ n1393_call_value_α:     mov              r11, 608
 .Lcall_value_α_1500_2:  mov              qword ptr [rbp + 992], rax
                         mov              qword ptr [rbp + 1000], rdx
                         cmp              al, 104;                             je    n1391_call_proc_staged_β
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -14433,7 +15015,7 @@ n1393_call_value_β:     mov              r11, 608
                         cmp              al, 104;                             je    n1391_call_proc_staged_β
                         mov              qword ptr [rbp + 992], rax
                         mov              qword ptr [rbp + 1000], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -14492,6 +15074,13 @@ n1396_call_value_α:     mov              r11, 611
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1506_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1506_11]
@@ -14526,7 +15115,7 @@ n1396_call_value_α:     mov              r11, 611
 .Lcall_value_α_1506_2:  mov              qword ptr [rbp + 928], rax
                         mov              qword ptr [rbp + 936], rdx
                         cmp              al, 104;                             je    $3B$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -14553,7 +15142,7 @@ n1396_call_value_β:     mov              r11, 611
                         cmp              al, 104;                             je    $3B$2F2_ω
                         mov              qword ptr [rbp + 928], rax
                         mov              qword ptr [rbp + 936], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -14602,6 +15191,13 @@ n1398_call_value_α:     mov              r11, 613
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1510_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1510_11]
@@ -14636,7 +15232,7 @@ n1398_call_value_α:     mov              r11, 613
 .Lcall_value_α_1510_2:  mov              qword ptr [rbp + 1136], rax
                         mov              qword ptr [rbp + 1144], rdx
                         cmp              al, 104;                             je    $3B$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -14663,7 +15259,7 @@ n1398_call_value_β:     mov              r11, 613
                         cmp              al, 104;                             je    $3B$2F2_step
                         mov              qword ptr [rbp + 1136], rax
                         mov              qword ptr [rbp + 1144], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -14776,6 +15372,13 @@ n1402_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_proc_call_open_det@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -14897,6 +15500,13 @@ n1405_call_value_α:     mov              r11, 620
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1524_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1524_11]
@@ -14931,7 +15541,7 @@ n1405_call_value_α:     mov              r11, 620
 .Lcall_value_α_1524_2:  mov              qword ptr [rbp + 1264], rax
                         mov              qword ptr [rbp + 1272], rdx
                         cmp              al, 104;                             je    $3B$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -14958,7 +15568,7 @@ n1405_call_value_β:     mov              r11, 620
                         cmp              al, 104;                             je    $3B$2F2_ω
                         mov              qword ptr [rbp + 1264], rax
                         mov              qword ptr [rbp + 1272], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -15017,6 +15627,13 @@ n1408_call_value_α:     mov              r11, 623
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1530_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1530_11]
@@ -15051,7 +15668,7 @@ n1408_call_value_α:     mov              r11, 623
 .Lcall_value_α_1530_2:  mov              qword ptr [rbp + 1200], rax
                         mov              qword ptr [rbp + 1208], rdx
                         cmp              al, 104;                             je    $3B$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -15078,7 +15695,7 @@ n1408_call_value_β:     mov              r11, 623
                         cmp              al, 104;                             je    $3B$2F2_ω
                         mov              qword ptr [rbp + 1200], rax
                         mov              qword ptr [rbp + 1208], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -15127,6 +15744,13 @@ n1410_call_value_α:     mov              r11, 625
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1534_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1534_11]
@@ -15161,7 +15785,7 @@ n1410_call_value_α:     mov              r11, 625
 .Lcall_value_α_1534_2:  mov              qword ptr [rbp + 1408], rax
                         mov              qword ptr [rbp + 1416], rdx
                         cmp              al, 104;                             je    $3B$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -15188,7 +15812,7 @@ n1410_call_value_β:     mov              r11, 625
                         cmp              al, 104;                             je    $3B$2F2_step
                         mov              qword ptr [rbp + 1408], rax
                         mov              qword ptr [rbp + 1416], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -15454,6 +16078,13 @@ n1536_call_value_α:     mov              r11, 627
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1543_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1543_11]
@@ -15488,7 +16119,7 @@ n1536_call_value_α:     mov              r11, 627
 .Lcall_value_α_1543_2:  mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         cmp              al, 104;                             je    $2D$3E$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -15515,7 +16146,7 @@ n1536_call_value_β:     mov              r11, 627
                         cmp              al, 104;                             je    $2D$3E$2F2_step
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -15574,6 +16205,13 @@ n1539_call_value_α:     mov              r11, 630
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1549_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1549_11]
@@ -15608,7 +16246,7 @@ n1539_call_value_α:     mov              r11, 630
 .Lcall_value_α_1549_2:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         cmp              al, 104;                             je    $2D$3E$2F2_ω
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -15635,7 +16273,7 @@ n1539_call_value_β:     mov              r11, 630
                         cmp              al, 104;                             je    $2D$3E$2F2_ω
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -15789,6 +16427,13 @@ n1551_call_value_α:     mov              r11, 632
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1557_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1557_11]
@@ -15823,7 +16468,7 @@ n1551_call_value_α:     mov              r11, 632
 .Lcall_value_α_1557_2:  mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
                         cmp              al, 104;                             je    $2A$2D$3E$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -15850,7 +16495,7 @@ n1551_call_value_β:     mov              r11, 632
                         cmp              al, 104;                             je    $2A$2D$3E$2F2_step
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -15899,6 +16544,13 @@ n1553_call_value_α:     mov              r11, 634
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1561_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1561_11]
@@ -15933,7 +16585,7 @@ n1553_call_value_α:     mov              r11, 634
 .Lcall_value_α_1561_2:  mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         cmp              al, 104;                             je    n1551_call_value_β
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -15960,7 +16612,7 @@ n1553_call_value_β:     mov              r11, 634
                         cmp              al, 104;                             je    n1551_call_value_β
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -16132,6 +16784,13 @@ n1565_call_value_α:     mov              r11, 638
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1584_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1584_11]
@@ -16166,7 +16825,7 @@ n1565_call_value_α:     mov              r11, 638
 .Lcall_value_α_1584_2:  mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
                         cmp              al, 104;                             je    n1570_unmark_α
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -16193,7 +16852,7 @@ n1565_call_value_β:     mov              r11, 638
                         cmp              al, 104;                             je    n1570_unmark_α
                         mov              qword ptr [rbp + 208], rax
                         mov              qword ptr [rbp + 216], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -16248,6 +16907,13 @@ n1568_call_value_α:     mov              r11, 641
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1590_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1590_11]
@@ -16282,7 +16948,7 @@ n1568_call_value_α:     mov              r11, 641
 .Lcall_value_α_1590_2:  mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
                         cmp              al, 104;                             je    n1565_call_value_β
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -16309,7 +16975,7 @@ n1568_call_value_β:     mov              r11, 641
                         cmp              al, 104;                             je    n1565_call_value_β
                         mov              qword ptr [rbp + 272], rax
                         mov              qword ptr [rbp + 280], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -16383,6 +17049,13 @@ n1573_call_value_α:     mov              r11, 646
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:71
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         test             rax, rax;                            je    .Lcall_value_α_1600_7
                         sub              rsp, 8
                         lea              rcx, [rip + .Lcall_value_α_1600_11]
@@ -16417,7 +17090,7 @@ n1573_call_value_α:     mov              r11, 646
 .Lcall_value_α_1600_2:  mov              qword ptr [rbp + 336], rax
                         mov              qword ptr [rbp + 344], rdx
                         cmp              al, 104;                             je    n1575_unmark_α
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:142
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:143
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -16444,7 +17117,7 @@ n1573_call_value_β:     mov              r11, 646
                         cmp              al, 104;                             je    n1575_unmark_α
                         mov              qword ptr [rbp + 336], rax
                         mov              qword ptr [rbp + 344], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:178
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_value.cpp:179
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -16621,14 +17294,15 @@ n1608_call_α:           mov              r11, 651
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    var$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   var$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    var$2F1_step
+                                                                              jmp   var$2F1_γ
 n1608_call_β:           mov              r11, 651;                            jmp   var$2F1_step
                         .size            n1608_call_bx, .-n1608_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -16747,14 +17421,15 @@ n1613_call_α:           mov              r11, 653
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    nonvar$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   nonvar$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    nonvar$2F1_step
+                                                                              jmp   nonvar$2F1_γ
 n1613_call_β:           mov              r11, 653;                            jmp   nonvar$2F1_step
                         .size            n1613_call_bx, .-n1613_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -16873,14 +17548,15 @@ n1618_call_α:           mov              r11, 655
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    atom$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   atom$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atom$2F1_step
+                                                                              jmp   atom$2F1_γ
 n1618_call_β:           mov              r11, 655;                            jmp   atom$2F1_step
                         .size            n1618_call_bx, .-n1618_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -16999,14 +17675,15 @@ n1623_call_α:           mov              r11, 657
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    number$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   number$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    number$2F1_step
+                                                                              jmp   number$2F1_γ
 n1623_call_β:           mov              r11, 657;                            jmp   number$2F1_step
                         .size            n1623_call_bx, .-n1623_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -17125,14 +17802,15 @@ n1628_call_α:           mov              r11, 659
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    integer$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   integer$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    integer$2F1_step
+                                                                              jmp   integer$2F1_γ
 n1628_call_β:           mov              r11, 659;                            jmp   integer$2F1_step
                         .size            n1628_call_bx, .-n1628_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -17251,14 +17929,15 @@ n1633_call_α:           mov              r11, 661
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    float$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   float$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    float$2F1_step
+                                                                              jmp   float$2F1_γ
 n1633_call_β:           mov              r11, 661;                            jmp   float$2F1_step
                         .size            n1633_call_bx, .-n1633_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -17377,14 +18056,15 @@ n1638_call_α:           mov              r11, 663
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    atomic$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   atomic$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atomic$2F1_step
+                                                                              jmp   atomic$2F1_γ
 n1638_call_β:           mov              r11, 663;                            jmp   atomic$2F1_step
                         .size            n1638_call_bx, .-n1638_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -17503,14 +18183,15 @@ n1643_call_α:           mov              r11, 665
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    compound$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   compound$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    compound$2F1_step
+                                                                              jmp   compound$2F1_γ
 n1643_call_β:           mov              r11, 665;                            jmp   compound$2F1_step
                         .size            n1643_call_bx, .-n1643_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -17629,14 +18310,15 @@ n1648_call_α:           mov              r11, 667
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    callable$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   callable$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    callable$2F1_step
+                                                                              jmp   callable$2F1_γ
 n1648_call_β:           mov              r11, 667;                            jmp   callable$2F1_step
                         .size            n1648_call_bx, .-n1648_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -17755,14 +18437,15 @@ n1653_call_α:           mov              r11, 669
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    ground$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   ground$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    ground$2F1_step
+                                                                              jmp   ground$2F1_γ
 n1653_call_β:           mov              r11, 669;                            jmp   ground$2F1_step
                         .size            n1653_call_bx, .-n1653_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -17881,14 +18564,15 @@ n1658_call_α:           mov              r11, 671
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    is_list$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   is_list$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    is_list$2F1_step
+                                                                              jmp   is_list$2F1_γ
 n1658_call_β:           mov              r11, 671;                            jmp   is_list$2F1_step
                         .size            n1658_call_bx, .-n1658_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -18007,14 +18691,15 @@ n1663_call_α:           mov              r11, 673
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    acyclic_term$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   acyclic_term$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    acyclic_term$2F1_step
+                                                                              jmp   acyclic_term$2F1_γ
 n1663_call_β:           mov              r11, 673;                            jmp   acyclic_term$2F1_step
                         .size            n1663_call_bx, .-n1663_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -18143,14 +18828,15 @@ n1669_call_α:           mov              r11, 676
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    $3D$3D$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   $3D$3D$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $3D$3D$2F2_step
+                                                                              jmp   $3D$3D$2F2_γ
 n1669_call_β:           mov              r11, 676;                            jmp   $3D$3D$2F2_step
                         .size            n1669_call_bx, .-n1669_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -18278,14 +18964,15 @@ n1677_call_α:           mov              r11, 679
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    $5C$3D$3D$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   $5C$3D$3D$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $5C$3D$3D$2F2_step
+                                                                              jmp   $5C$3D$3D$2F2_γ
 n1677_call_β:           mov              r11, 679;                            jmp   $5C$3D$3D$2F2_step
                         .size            n1677_call_bx, .-n1677_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -18413,14 +19100,15 @@ n1685_call_α:           mov              r11, 682
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    $40$3C$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   $40$3C$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $40$3C$2F2_step
+                                                                              jmp   $40$3C$2F2_γ
 n1685_call_β:           mov              r11, 682;                            jmp   $40$3C$2F2_step
                         .size            n1685_call_bx, .-n1685_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -18548,14 +19236,15 @@ n1693_call_α:           mov              r11, 685
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    $40$3D$3C$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   $40$3D$3C$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $40$3D$3C$2F2_step
+                                                                              jmp   $40$3D$3C$2F2_γ
 n1693_call_β:           mov              r11, 685;                            jmp   $40$3D$3C$2F2_step
                         .size            n1693_call_bx, .-n1693_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -18683,14 +19372,15 @@ n1701_call_α:           mov              r11, 688
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    $40$3E$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   $40$3E$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $40$3E$2F2_step
+                                                                              jmp   $40$3E$2F2_γ
 n1701_call_β:           mov              r11, 688;                            jmp   $40$3E$2F2_step
                         .size            n1701_call_bx, .-n1701_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -18818,14 +19508,15 @@ n1709_call_α:           mov              r11, 691
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    $40$3E$3D$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   $40$3E$3D$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $40$3E$3D$2F2_step
+                                                                              jmp   $40$3E$3D$2F2_γ
 n1709_call_β:           mov              r11, 691;                            jmp   $40$3E$3D$2F2_step
                         .size            n1709_call_bx, .-n1709_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -18962,14 +19653,15 @@ n1718_call_α:           mov              r11, 695
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    compare$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   compare$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    compare$2F3_step
+                                                                              jmp   compare$2F3_γ
 n1718_call_β:           mov              r11, 695;                            jmp   compare$2F3_step
                         .size            n1718_call_bx, .-n1718_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -19130,14 +19822,15 @@ n1730_call_α:           mov              r11, 700
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    functor$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1731_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    functor$2F3_step
+                                                                              jmp   n1731_call_α
 n1730_call_β:           mov              r11, 700;                            jmp   functor$2F3_step
                         .size            n1730_call_bx, .-n1730_call_bx
                         .type            n1731_call_bx, @function
@@ -19167,14 +19860,15 @@ n1731_call_α:           mov              r11, 701
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    functor$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   functor$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    functor$2F3_step
+                                                                              jmp   functor$2F3_γ
 n1731_call_β:           mov              r11, 701;                            jmp   functor$2F3_step
                         .size            n1731_call_bx, .-n1731_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -19335,14 +20029,15 @@ n1745_call_α:           mov              r11, 706
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    arg$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1746_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    arg$2F3_step
+                                                                              jmp   n1746_call_α
 n1745_call_β:           mov              r11, 706;                            jmp   arg$2F3_step
                         .size            n1745_call_bx, .-n1745_call_bx
                         .type            n1746_call_bx, @function
@@ -19372,14 +20067,15 @@ n1746_call_α:           mov              r11, 707
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    arg$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   arg$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    arg$2F3_step
+                                                                              jmp   arg$2F3_γ
 n1746_call_β:           mov              r11, 707;                            jmp   arg$2F3_step
                         .size            n1746_call_bx, .-n1746_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -19507,14 +20203,15 @@ n1758_call_α:           mov              r11, 710
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    $3D..$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   $3D..$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $3D..$2F2_step
+                                                                              jmp   $3D..$2F2_γ
 n1758_call_β:           mov              r11, 710;                            jmp   $3D..$2F2_step
                         .size            n1758_call_bx, .-n1758_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -19642,14 +20339,15 @@ n1766_call_α:           mov              r11, 713
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    copy_term$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   copy_term$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    copy_term$2F2_step
+                                                                              jmp   copy_term$2F2_γ
 n1766_call_β:           mov              r11, 713;                            jmp   copy_term$2F2_step
                         .size            n1766_call_bx, .-n1766_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -19777,14 +20475,15 @@ n1774_call_α:           mov              r11, 716
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    term_variables$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   term_variables$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    term_variables$2F2_step
+                                                                              jmp   term_variables$2F2_γ
 n1774_call_β:           mov              r11, 716;                            jmp   term_variables$2F2_step
                         .size            n1774_call_bx, .-n1774_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -19922,14 +20621,15 @@ n1783_call_α:           mov              r11, 720
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    numbervars$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   numbervars$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    numbervars$2F3_step
+                                                                              jmp   numbervars$2F3_γ
 n1783_call_β:           mov              r11, 720;                            jmp   numbervars$2F3_step
                         .size            n1783_call_bx, .-n1783_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -20048,14 +20748,15 @@ n1792_call_α:           mov              r11, 722
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    numbervars$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   numbervars$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    numbervars$2F1_step
+                                                                              jmp   numbervars$2F1_γ
 n1792_call_β:           mov              r11, 722;                            jmp   numbervars$2F1_step
                         .size            n1792_call_bx, .-n1792_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -20183,14 +20884,15 @@ n1798_call_α:           mov              r11, 725
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    succ$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   succ$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    succ$2F2_step
+                                                                              jmp   succ$2F2_γ
 n1798_call_β:           mov              r11, 725;                            jmp   succ$2F2_step
                         .size            n1798_call_bx, .-n1798_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -20327,14 +21029,15 @@ n1807_call_α:           mov              r11, 729
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    plus$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   plus$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    plus$2F3_step
+                                                                              jmp   plus$2F3_γ
 n1807_call_β:           mov              r11, 729;                            jmp   plus$2F3_step
                         .size            n1807_call_bx, .-n1807_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -20462,14 +21165,15 @@ n1817_call_α:           mov              r11, 732
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    sort$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   sort$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    sort$2F2_step
+                                                                              jmp   sort$2F2_γ
 n1817_call_β:           mov              r11, 732;                            jmp   sort$2F2_step
                         .size            n1817_call_bx, .-n1817_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -20597,14 +21301,15 @@ n1825_call_α:           mov              r11, 735
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    msort$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   msort$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    msort$2F2_step
+                                                                              jmp   msort$2F2_γ
 n1825_call_β:           mov              r11, 735;                            jmp   msort$2F2_step
                         .size            n1825_call_bx, .-n1825_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -20732,14 +21437,15 @@ n1833_call_α:           mov              r11, 738
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    char_type$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   char_type$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    char_type$2F2_step
+                                                                              jmp   char_type$2F2_γ
 n1833_call_β:           mov              r11, 738;                            jmp   char_type$2F2_step
                         .size            n1833_call_bx, .-n1833_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -20867,14 +21573,15 @@ n1841_call_α:           mov              r11, 741
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    term_string$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   term_string$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    term_string$2F2_step
+                                                                              jmp   term_string$2F2_γ
 n1841_call_β:           mov              r11, 741;                            jmp   term_string$2F2_step
                         .size            n1841_call_bx, .-n1841_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -21002,14 +21709,15 @@ n1849_call_α:           mov              r11, 744
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    term_to_atom$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   term_to_atom$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    term_to_atom$2F2_step
+                                                                              jmp   term_to_atom$2F2_γ
 n1849_call_β:           mov              r11, 744;                            jmp   term_to_atom$2F2_step
                         .size            n1849_call_bx, .-n1849_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -21158,14 +21866,15 @@ n1858_call_α:           mov              r11, 748
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    atom_length$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1859_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atom_length$2F2_step
+                                                                              jmp   n1859_call_α
 n1858_call_β:           mov              r11, 748;                            jmp   atom_length$2F2_step
                         .size            n1858_call_bx, .-n1858_call_bx
                         .type            n1859_call_bx, @function
@@ -21191,14 +21900,15 @@ n1859_call_α:           mov              r11, 749
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    atom_length$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   atom_length$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atom_length$2F2_step
+                                                                              jmp   atom_length$2F2_γ
 n1859_call_β:           mov              r11, 749;                            jmp   atom_length$2F2_step
                         .size            n1859_call_bx, .-n1859_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -21359,14 +22069,15 @@ n1871_call_α:           mov              r11, 754
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    atom_concat$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1872_lit_integer_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atom_concat$2F3_step
+                                                                              jmp   n1872_lit_integer_α
 n1871_call_β:           mov              r11, 754;                            jmp   atom_concat$2F3_step
                         .size            n1871_call_bx, .-n1871_call_bx
                         .type            n1872_lit_integer_bx, @function
@@ -21420,14 +22131,15 @@ n1876_call_α:           mov              r11, 759
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    atom_concat$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1877_to_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atom_concat$2F3_step
+                                                                              jmp   n1877_to_α
 n1876_call_β:           mov              r11, 759;                            jmp   atom_concat$2F3_step
                         .size            n1876_call_bx, .-n1876_call_bx
                         .type            n1877_to_bx, @function
@@ -21518,14 +22230,15 @@ n1878_call_α:           mov              r11, 761
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    n1877_to_β
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   atom_concat$2F3_ret0
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    n1877_to_β
+                                                                              jmp   atom_concat$2F3_ret0
 n1878_call_β:           mov              r11, 761;                            jmp   n1877_to_β
                         .size            n1878_call_bx, .-n1878_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -21682,14 +22395,15 @@ n1901_call_α:           mov              r11, 765
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    atom_chars$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1902_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atom_chars$2F2_step
+                                                                              jmp   n1902_call_α
 n1901_call_β:           mov              r11, 765;                            jmp   atom_chars$2F2_step
                         .size            n1901_call_bx, .-n1901_call_bx
                         .type            n1902_call_bx, @function
@@ -21715,14 +22429,15 @@ n1902_call_α:           mov              r11, 766
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    atom_chars$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   atom_chars$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atom_chars$2F2_step
+                                                                              jmp   atom_chars$2F2_γ
 n1902_call_β:           mov              r11, 766;                            jmp   atom_chars$2F2_step
                         .size            n1902_call_bx, .-n1902_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -21870,14 +22585,15 @@ n1913_call_α:           mov              r11, 770
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    atom_codes$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n1914_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atom_codes$2F2_step
+                                                                              jmp   n1914_call_α
 n1913_call_β:           mov              r11, 770;                            jmp   atom_codes$2F2_step
                         .size            n1913_call_bx, .-n1913_call_bx
                         .type            n1914_call_bx, @function
@@ -21903,14 +22619,15 @@ n1914_call_α:           mov              r11, 771
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    atom_codes$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   atom_codes$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atom_codes$2F2_step
+                                                                              jmp   atom_codes$2F2_γ
 n1914_call_β:           mov              r11, 771;                            jmp   atom_codes$2F2_step
                         .size            n1914_call_bx, .-n1914_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -22038,14 +22755,15 @@ n1924_call_α:           mov              r11, 774
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    atom_number$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   atom_number$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atom_number$2F2_step
+                                                                              jmp   atom_number$2F2_γ
 n1924_call_β:           mov              r11, 774;                            jmp   atom_number$2F2_step
                         .size            n1924_call_bx, .-n1924_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -22173,14 +22891,15 @@ n1932_call_α:           mov              r11, 777
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    atom_string$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   atom_string$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atom_string$2F2_step
+                                                                              jmp   atom_string$2F2_γ
 n1932_call_β:           mov              r11, 777;                            jmp   atom_string$2F2_step
                         .size            n1932_call_bx, .-n1932_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -22308,14 +23027,15 @@ n1940_call_α:           mov              r11, 780
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    upcase_atom$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   upcase_atom$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    upcase_atom$2F2_step
+                                                                              jmp   upcase_atom$2F2_γ
 n1940_call_β:           mov              r11, 780;                            jmp   upcase_atom$2F2_step
                         .size            n1940_call_bx, .-n1940_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -22443,14 +23163,15 @@ n1948_call_α:           mov              r11, 783
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    downcase_atom$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   downcase_atom$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    downcase_atom$2F2_step
+                                                                              jmp   downcase_atom$2F2_γ
 n1948_call_β:           mov              r11, 783;                            jmp   downcase_atom$2F2_step
                         .size            n1948_call_bx, .-n1948_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -22588,14 +23309,15 @@ n1957_call_α:           mov              r11, 787
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    string_concat$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   string_concat$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    string_concat$2F3_step
+                                                                              jmp   string_concat$2F3_γ
 n1957_call_β:           mov              r11, 787;                            jmp   string_concat$2F3_step
                         .size            n1957_call_bx, .-n1957_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -22724,14 +23446,15 @@ n1967_call_α:           mov              r11, 790
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    string_length$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   string_length$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    string_length$2F2_step
+                                                                              jmp   string_length$2F2_γ
 n1967_call_β:           mov              r11, 790;                            jmp   string_length$2F2_step
                         .size            n1967_call_bx, .-n1967_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -22860,14 +23583,15 @@ n1975_call_α:           mov              r11, 793
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    string_lower$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   string_lower$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    string_lower$2F2_step
+                                                                              jmp   string_lower$2F2_γ
 n1975_call_β:           mov              r11, 793;                            jmp   string_lower$2F2_step
                         .size            n1975_call_bx, .-n1975_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -22996,14 +23720,15 @@ n1983_call_α:           mov              r11, 796
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    string_upper$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   string_upper$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    string_upper$2F2_step
+                                                                              jmp   string_upper$2F2_γ
 n1983_call_β:           mov              r11, 796;                            jmp   string_upper$2F2_step
                         .size            n1983_call_bx, .-n1983_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -23132,14 +23857,15 @@ n1991_call_α:           mov              r11, 799
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    string_to_atom$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   string_to_atom$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    string_to_atom$2F2_step
+                                                                              jmp   string_to_atom$2F2_γ
 n1991_call_β:           mov              r11, 799;                            jmp   string_to_atom$2F2_step
                         .size            n1991_call_bx, .-n1991_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -23288,14 +24014,15 @@ n2000_call_α:           mov              r11, 803
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    number_string$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2001_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    number_string$2F2_step
+                                                                              jmp   n2001_call_α
 n2000_call_β:           mov              r11, 803;                            jmp   number_string$2F2_step
                         .size            n2000_call_bx, .-n2000_call_bx
                         .type            n2001_call_bx, @function
@@ -23321,14 +24048,15 @@ n2001_call_α:           mov              r11, 804
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    number_string$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   number_string$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    number_string$2F2_step
+                                                                              jmp   number_string$2F2_γ
 n2001_call_β:           mov              r11, 804;                            jmp   number_string$2F2_step
                         .size            n2001_call_bx, .-n2001_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -23457,14 +24185,15 @@ n2011_call_α:           mov              r11, 807
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    string_chars$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   string_chars$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    string_chars$2F2_step
+                                                                              jmp   string_chars$2F2_γ
 n2011_call_β:           mov              r11, 807;                            jmp   string_chars$2F2_step
                         .size            n2011_call_bx, .-n2011_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -23593,14 +24322,15 @@ n2019_call_α:           mov              r11, 810
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    string_codes$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   string_codes$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    string_codes$2F2_step
+                                                                              jmp   string_codes$2F2_γ
 n2019_call_β:           mov              r11, 810;                            jmp   string_codes$2F2_step
                         .size            n2019_call_bx, .-n2019_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -23762,14 +24492,15 @@ n2029_call_α:           mov              r11, 815
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    atomic_concat$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2030_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atomic_concat$2F3_step
+                                                                              jmp   n2030_call_α
 n2029_call_β:           mov              r11, 815;                            jmp   atomic_concat$2F3_step
                         .size            n2029_call_bx, .-n2029_call_bx
                         .type            n2030_call_bx, @function
@@ -23799,14 +24530,15 @@ n2030_call_α:           mov              r11, 816
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    atomic_concat$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   atomic_concat$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atomic_concat$2F3_step
+                                                                              jmp   atomic_concat$2F3_γ
 n2030_call_β:           mov              r11, 816;                            jmp   atomic_concat$2F3_step
                         .size            n2030_call_bx, .-n2030_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -23955,14 +24687,15 @@ n2043_call_α:           mov              r11, 820
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    atomic_list_concat$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2044_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atomic_list_concat$2F2_step
+                                                                              jmp   n2044_call_α
 n2043_call_β:           mov              r11, 820;                            jmp   atomic_list_concat$2F2_step
                         .size            n2043_call_bx, .-n2043_call_bx
                         .type            n2044_call_bx, @function
@@ -23988,14 +24721,15 @@ n2044_call_α:           mov              r11, 821
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    atomic_list_concat$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   atomic_list_concat$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atomic_list_concat$2F2_step
+                                                                              jmp   atomic_list_concat$2F2_γ
 n2044_call_β:           mov              r11, 821;                            jmp   atomic_list_concat$2F2_step
                         .size            n2044_call_bx, .-n2044_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -24157,14 +24891,15 @@ n2056_call_α:           mov              r11, 826
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    atomic_list_concat$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2057_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atomic_list_concat$2F3_step
+                                                                              jmp   n2057_call_α
 n2056_call_β:           mov              r11, 826;                            jmp   atomic_list_concat$2F3_step
                         .size            n2056_call_bx, .-n2056_call_bx
                         .type            n2057_call_bx, @function
@@ -24194,14 +24929,15 @@ n2057_call_α:           mov              r11, 827
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    atomic_list_concat$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   atomic_list_concat$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atomic_list_concat$2F3_step
+                                                                              jmp   atomic_list_concat$2F3_γ
 n2057_call_β:           mov              r11, 827;                            jmp   atomic_list_concat$2F3_step
                         .size            n2057_call_bx, .-n2057_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -24330,14 +25066,15 @@ n2069_call_α:           mov              r11, 830
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    concat_atom$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   concat_atom$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    concat_atom$2F2_step
+                                                                              jmp   concat_atom$2F2_γ
 n2069_call_β:           mov              r11, 830;                            jmp   concat_atom$2F2_step
                         .size            n2069_call_bx, .-n2069_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -24474,14 +25211,15 @@ n2078_call_α:           mov              r11, 834
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    concat_atom$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   concat_atom$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    concat_atom$2F3_step
+                                                                              jmp   concat_atom$2F3_γ
 n2078_call_β:           mov              r11, 834;                            jmp   concat_atom$2F3_step
                         .size            n2078_call_bx, .-n2078_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -24629,14 +25367,15 @@ n2089_call_α:           mov              r11, 838
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    char_code$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2090_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    char_code$2F2_step
+                                                                              jmp   n2090_call_α
 n2089_call_β:           mov              r11, 838;                            jmp   char_code$2F2_step
                         .size            n2089_call_bx, .-n2089_call_bx
                         .type            n2090_call_bx, @function
@@ -24662,14 +25401,15 @@ n2090_call_α:           mov              r11, 839
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    char_code$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   char_code$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    char_code$2F2_step
+                                                                              jmp   char_code$2F2_γ
 n2090_call_β:           mov              r11, 839;                            jmp   char_code$2F2_step
                         .size            n2090_call_bx, .-n2090_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -24817,14 +25557,15 @@ n2101_call_α:           mov              r11, 843
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    number_codes$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2102_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    number_codes$2F2_step
+                                                                              jmp   n2102_call_α
 n2101_call_β:           mov              r11, 843;                            jmp   number_codes$2F2_step
                         .size            n2101_call_bx, .-n2101_call_bx
                         .type            n2102_call_bx, @function
@@ -24850,14 +25591,15 @@ n2102_call_α:           mov              r11, 844
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    number_codes$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   number_codes$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    number_codes$2F2_step
+                                                                              jmp   number_codes$2F2_γ
 n2102_call_β:           mov              r11, 844;                            jmp   number_codes$2F2_step
                         .size            n2102_call_bx, .-n2102_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -25006,14 +25748,15 @@ n2113_call_α:           mov              r11, 848
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    number_chars$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2114_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    number_chars$2F2_step
+                                                                              jmp   n2114_call_α
 n2113_call_β:           mov              r11, 848;                            jmp   number_chars$2F2_step
                         .size            n2113_call_bx, .-n2113_call_bx
                         .type            n2114_call_bx, @function
@@ -25039,14 +25782,15 @@ n2114_call_α:           mov              r11, 849
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    number_chars$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   number_chars$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    number_chars$2F2_step
+                                                                              jmp   number_chars$2F2_γ
 n2114_call_β:           mov              r11, 849;                            jmp   number_chars$2F2_step
                         .size            n2114_call_bx, .-n2114_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -25175,14 +25919,15 @@ n2124_call_α:           mov              r11, 852
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    name$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   name$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    name$2F2_step
+                                                                              jmp   name$2F2_γ
 n2124_call_β:           mov              r11, 852;                            jmp   name$2F2_step
                         .size            n2124_call_bx, .-n2124_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -25301,14 +26046,15 @@ n2131_call_α:           mov              r11, 854
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    get_char$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   get_char$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    get_char$2F1_step
+                                                                              jmp   get_char$2F1_γ
 n2131_call_β:           mov              r11, 854;                            jmp   get_char$2F1_step
                         .size            n2131_call_bx, .-n2131_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -25427,14 +26173,15 @@ n2136_call_α:           mov              r11, 856
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    peek_char$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   peek_char$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    peek_char$2F1_step
+                                                                              jmp   peek_char$2F1_γ
 n2136_call_β:           mov              r11, 856;                            jmp   peek_char$2F1_step
                         .size            n2136_call_bx, .-n2136_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -25553,14 +26300,15 @@ n2141_call_α:           mov              r11, 858
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    get_code$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   get_code$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    get_code$2F1_step
+                                                                              jmp   get_code$2F1_γ
 n2141_call_β:           mov              r11, 858;                            jmp   get_code$2F1_step
                         .size            n2141_call_bx, .-n2141_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -25679,14 +26427,15 @@ n2146_call_α:           mov              r11, 860
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    peek_code$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   peek_code$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    peek_code$2F1_step
+                                                                              jmp   peek_code$2F1_γ
 n2146_call_β:           mov              r11, 860;                            jmp   peek_code$2F1_step
                         .size            n2146_call_bx, .-n2146_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -25805,14 +26554,15 @@ n2151_call_α:           mov              r11, 862
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    get_byte$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   get_byte$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    get_byte$2F1_step
+                                                                              jmp   get_byte$2F1_γ
 n2151_call_β:           mov              r11, 862;                            jmp   get_byte$2F1_step
                         .size            n2151_call_bx, .-n2151_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -25931,14 +26681,15 @@ n2156_call_α:           mov              r11, 864
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    peek_byte$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   peek_byte$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    peek_byte$2F1_step
+                                                                              jmp   peek_byte$2F1_γ
 n2156_call_β:           mov              r11, 864;                            jmp   peek_byte$2F1_step
                         .size            n2156_call_bx, .-n2156_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -26057,14 +26808,15 @@ n2161_call_α:           mov              r11, 866
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    put_code$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   put_code$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    put_code$2F1_step
+                                                                              jmp   put_code$2F1_γ
 n2161_call_β:           mov              r11, 866;                            jmp   put_code$2F1_step
                         .size            n2161_call_bx, .-n2161_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -26183,14 +26935,15 @@ n2166_call_α:           mov              r11, 868
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    put_byte$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   put_byte$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    put_byte$2F1_step
+                                                                              jmp   put_byte$2F1_γ
 n2166_call_β:           mov              r11, 868;                            jmp   put_byte$2F1_step
                         .size            n2166_call_bx, .-n2166_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -26309,14 +27062,15 @@ n2171_call_α:           mov              r11, 870
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    unget_char$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   unget_char$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    unget_char$2F1_step
+                                                                              jmp   unget_char$2F1_γ
 n2171_call_β:           mov              r11, 870;                            jmp   unget_char$2F1_step
                         .size            n2171_call_bx, .-n2171_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -26422,14 +27176,15 @@ n2175_call_α:           mov              r11, 871
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        cmp              al, 104;                             je    at_end_of_stream$2F0_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   at_end_of_stream$2F0_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    at_end_of_stream$2F0_step
+                                                                              jmp   at_end_of_stream$2F0_γ
 n2175_call_β:           mov              r11, 871;                            jmp   at_end_of_stream$2F0_step
                         .size            n2175_call_bx, .-n2175_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -26558,14 +27313,15 @@ n2179_call_α:           mov              r11, 874
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    current_prolog_flag$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   current_prolog_flag$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    current_prolog_flag$2F2_step
+                                                                              jmp   current_prolog_flag$2F2_γ
 n2179_call_β:           mov              r11, 874;                            jmp   current_prolog_flag$2F2_step
                         .size            n2179_call_bx, .-n2179_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -26694,14 +27450,15 @@ n2187_call_α:           mov              r11, 877
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    set_prolog_flag$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   set_prolog_flag$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    set_prolog_flag$2F2_step
+                                                                              jmp   set_prolog_flag$2F2_γ
 n2187_call_β:           mov              r11, 877;                            jmp   set_prolog_flag$2F2_step
                         .size            n2187_call_bx, .-n2187_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -26821,14 +27578,15 @@ n2194_call_α:           mov              r11, 879
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    telling$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   telling$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    telling$2F1_step
+                                                                              jmp   telling$2F1_γ
 n2194_call_β:           mov              r11, 879;                            jmp   telling$2F1_step
                         .size            n2194_call_bx, .-n2194_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -26947,14 +27705,15 @@ n2199_call_α:           mov              r11, 881
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    seeing$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   seeing$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    seeing$2F1_step
+                                                                              jmp   seeing$2F1_γ
 n2199_call_β:           mov              r11, 881;                            jmp   seeing$2F1_step
                         .size            n2199_call_bx, .-n2199_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -27073,14 +27832,15 @@ n2204_call_α:           mov              r11, 883
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    tell$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   tell$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    tell$2F1_step
+                                                                              jmp   tell$2F1_γ
 n2204_call_β:           mov              r11, 883;                            jmp   tell$2F1_step
                         .size            n2204_call_bx, .-n2204_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -27199,14 +27959,15 @@ n2209_call_α:           mov              r11, 885
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    append$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   append$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    append$2F1_step
+                                                                              jmp   append$2F1_γ
 n2209_call_β:           mov              r11, 885;                            jmp   append$2F1_step
                         .size            n2209_call_bx, .-n2209_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -27325,14 +28086,15 @@ n2214_call_α:           mov              r11, 887
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    see$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   see$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    see$2F1_step
+                                                                              jmp   see$2F1_γ
 n2214_call_β:           mov              r11, 887;                            jmp   see$2F1_step
                         .size            n2214_call_bx, .-n2214_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -27438,14 +28200,15 @@ n2218_call_α:           mov              r11, 888
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        cmp              al, 104;                             je    told$2F0_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   told$2F0_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    told$2F0_step
+                                                                              jmp   told$2F0_γ
 n2218_call_β:           mov              r11, 888;                            jmp   told$2F0_step
                         .size            n2218_call_bx, .-n2218_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -27551,14 +28314,15 @@ n2220_call_α:           mov              r11, 889
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        cmp              al, 104;                             je    seen$2F0_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   seen$2F0_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    seen$2F0_step
+                                                                              jmp   seen$2F0_γ
 n2220_call_β:           mov              r11, 889;                            jmp   seen$2F0_step
                         .size            n2220_call_bx, .-n2220_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -27677,14 +28441,15 @@ n2223_call_α:           mov              r11, 891
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    at_end_of_stream$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   at_end_of_stream$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    at_end_of_stream$2F1_step
+                                                                              jmp   at_end_of_stream$2F1_γ
 n2223_call_β:           mov              r11, 891;                            jmp   at_end_of_stream$2F1_step
                         .size            n2223_call_bx, .-n2223_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -27804,14 +28569,15 @@ n2228_call_α:           mov              r11, 893
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    put$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   put$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    put$2F1_step
+                                                                              jmp   put$2F1_γ
 n2228_call_β:           mov              r11, 893;                            jmp   put$2F1_step
                         .size            n2228_call_bx, .-n2228_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -27930,14 +28696,15 @@ n2233_call_α:           mov              r11, 895
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    get0$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   get0$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    get0$2F1_step
+                                                                              jmp   get0$2F1_γ
 n2233_call_β:           mov              r11, 895;                            jmp   get0$2F1_step
                         .size            n2233_call_bx, .-n2233_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -28056,14 +28823,15 @@ n2238_call_α:           mov              r11, 897
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    get$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   get$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    get$2F1_step
+                                                                              jmp   get$2F1_γ
 n2238_call_β:           mov              r11, 897;                            jmp   get$2F1_step
                         .size            n2238_call_bx, .-n2238_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -28182,14 +28950,15 @@ n2243_call_α:           mov              r11, 899
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    skip$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   skip$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    skip$2F1_step
+                                                                              jmp   skip$2F1_γ
 n2243_call_β:           mov              r11, 899;                            jmp   skip$2F1_step
                         .size            n2243_call_bx, .-n2243_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -28308,14 +29077,15 @@ n2248_call_α:           mov              r11, 901
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    unget_code$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   unget_code$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    unget_code$2F1_step
+                                                                              jmp   unget_code$2F1_γ
 n2248_call_β:           mov              r11, 901;                            jmp   unget_code$2F1_step
                         .size            n2248_call_bx, .-n2248_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -28434,14 +29204,15 @@ n2253_call_α:           mov              r11, 903
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    unget_byte$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   unget_byte$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    unget_byte$2F1_step
+                                                                              jmp   unget_byte$2F1_γ
 n2253_call_β:           mov              r11, 903;                            jmp   unget_byte$2F1_step
                         .size            n2253_call_bx, .-n2253_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -28569,14 +29340,15 @@ n2259_call_α:           mov              r11, 906
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    get_code$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   get_code$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    get_code$2F2_step
+                                                                              jmp   get_code$2F2_γ
 n2259_call_β:           mov              r11, 906;                            jmp   get_code$2F2_step
                         .size            n2259_call_bx, .-n2259_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -28704,14 +29476,15 @@ n2267_call_α:           mov              r11, 909
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    peek_code$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   peek_code$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    peek_code$2F2_step
+                                                                              jmp   peek_code$2F2_γ
 n2267_call_β:           mov              r11, 909;                            jmp   peek_code$2F2_step
                         .size            n2267_call_bx, .-n2267_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -28839,14 +29612,15 @@ n2275_call_α:           mov              r11, 912
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    get_byte$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   get_byte$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    get_byte$2F2_step
+                                                                              jmp   get_byte$2F2_γ
 n2275_call_β:           mov              r11, 912;                            jmp   get_byte$2F2_step
                         .size            n2275_call_bx, .-n2275_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -28974,14 +29748,15 @@ n2283_call_α:           mov              r11, 915
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    peek_byte$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   peek_byte$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    peek_byte$2F2_step
+                                                                              jmp   peek_byte$2F2_γ
 n2283_call_β:           mov              r11, 915;                            jmp   peek_byte$2F2_step
                         .size            n2283_call_bx, .-n2283_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -29109,14 +29884,15 @@ n2291_call_α:           mov              r11, 918
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    put_code$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   put_code$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    put_code$2F2_step
+                                                                              jmp   put_code$2F2_γ
 n2291_call_β:           mov              r11, 918;                            jmp   put_code$2F2_step
                         .size            n2291_call_bx, .-n2291_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -29244,14 +30020,15 @@ n2299_call_α:           mov              r11, 921
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    put_byte$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   put_byte$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    put_byte$2F2_step
+                                                                              jmp   put_byte$2F2_γ
 n2299_call_β:           mov              r11, 921;                            jmp   put_byte$2F2_step
                         .size            n2299_call_bx, .-n2299_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -29379,14 +30156,15 @@ n2307_call_α:           mov              r11, 924
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    unget_char$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   unget_char$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    unget_char$2F2_step
+                                                                              jmp   unget_char$2F2_γ
 n2307_call_β:           mov              r11, 924;                            jmp   unget_char$2F2_step
                         .size            n2307_call_bx, .-n2307_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -29514,14 +30292,15 @@ n2315_call_α:           mov              r11, 927
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    unget_code$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   unget_code$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    unget_code$2F2_step
+                                                                              jmp   unget_code$2F2_γ
 n2315_call_β:           mov              r11, 927;                            jmp   unget_code$2F2_step
                         .size            n2315_call_bx, .-n2315_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -29649,14 +30428,15 @@ n2323_call_α:           mov              r11, 930
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    unget_byte$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   unget_byte$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    unget_byte$2F2_step
+                                                                              jmp   unget_byte$2F2_γ
 n2323_call_β:           mov              r11, 930;                            jmp   unget_byte$2F2_step
                         .size            n2323_call_bx, .-n2323_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -29775,14 +30555,15 @@ n2330_call_α:           mov              r11, 932
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    read$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   read$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    read$2F1_step
+                                                                              jmp   read$2F1_γ
 n2330_call_β:           mov              r11, 932;                            jmp   read$2F1_step
                         .size            n2330_call_bx, .-n2330_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -29919,14 +30700,15 @@ n2337_call_α:           mov              r11, 936
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    atom_to_term$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   atom_to_term$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    atom_to_term$2F3_step
+                                                                              jmp   atom_to_term$2F3_γ
 n2337_call_β:           mov              r11, 936;                            jmp   atom_to_term$2F3_step
                         .size            n2337_call_bx, .-n2337_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -30064,14 +30846,15 @@ n2348_call_α:           mov              r11, 940
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    read_term_from_atom$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   read_term_from_atom$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    read_term_from_atom$2F3_step
+                                                                              jmp   read_term_from_atom$2F3_γ
 n2348_call_β:           mov              r11, 940;                            jmp   read_term_from_atom$2F3_step
                         .size            n2348_call_bx, .-n2348_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -30209,14 +30992,15 @@ n2359_call_α:           mov              r11, 944
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    read_term_from_chars$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   read_term_from_chars$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    read_term_from_chars$2F3_step
+                                                                              jmp   read_term_from_chars$2F3_γ
 n2359_call_β:           mov              r11, 944;                            jmp   read_term_from_chars$2F3_step
                         .size            n2359_call_bx, .-n2359_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -30354,14 +31138,15 @@ n2370_call_α:           mov              r11, 948
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    read_term_from_codes$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   read_term_from_codes$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    read_term_from_codes$2F3_step
+                                                                              jmp   read_term_from_codes$2F3_γ
 n2370_call_β:           mov              r11, 948;                            jmp   read_term_from_codes$2F3_step
                         .size            n2370_call_bx, .-n2370_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -30481,14 +31266,15 @@ n2379_call_α:           mov              r11, 950
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    writeq$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   writeq$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    writeq$2F1_step
+                                                                              jmp   writeq$2F1_γ
 n2379_call_β:           mov              r11, 950;                            jmp   writeq$2F1_step
                         .size            n2379_call_bx, .-n2379_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -30607,14 +31393,15 @@ n2384_call_α:           mov              r11, 952
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    print$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   print$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    print$2F1_step
+                                                                              jmp   print$2F1_γ
 n2384_call_β:           mov              r11, 952;                            jmp   print$2F1_step
                         .size            n2384_call_bx, .-n2384_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -30742,14 +31529,15 @@ n2390_call_α:           mov              r11, 955
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    write_term$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   write_term$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    write_term$2F2_step
+                                                                              jmp   write_term$2F2_γ
 n2390_call_β:           mov              r11, 955;                            jmp   write_term$2F2_step
                         .size            n2390_call_bx, .-n2390_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -30886,14 +31674,15 @@ n2399_call_α:           mov              r11, 959
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    write_term$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   write_term$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    write_term$2F3_step
+                                                                              jmp   write_term$2F3_γ
 n2399_call_β:           mov              r11, 959;                            jmp   write_term$2F3_step
                         .size            n2399_call_bx, .-n2399_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -31012,14 +31801,15 @@ n2408_call_α:           mov              r11, 961
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    write_canonical$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   write_canonical$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    write_canonical$2F1_step
+                                                                              jmp   write_canonical$2F1_γ
 n2408_call_β:           mov              r11, 961;                            jmp   write_canonical$2F1_step
                         .size            n2408_call_bx, .-n2408_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -31139,14 +31929,15 @@ n2413_call_α:           mov              r11, 963
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    writeln$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   writeln$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    writeln$2F1_step
+                                                                              jmp   writeln$2F1_γ
 n2413_call_β:           mov              r11, 963;                            jmp   writeln$2F1_step
                         .size            n2413_call_bx, .-n2413_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -31265,14 +32056,15 @@ n2418_call_α:           mov              r11, 965
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    display$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   display$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    display$2F1_step
+                                                                              jmp   display$2F1_γ
 n2418_call_β:           mov              r11, 965;                            jmp   display$2F1_step
                         .size            n2418_call_bx, .-n2418_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -31400,14 +32192,15 @@ n2424_call_α:           mov              r11, 968
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    display$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   display$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    display$2F2_step
+                                                                              jmp   display$2F2_γ
 n2424_call_β:           mov              r11, 968;                            jmp   display$2F2_step
                         .size            n2424_call_bx, .-n2424_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -31535,14 +32328,15 @@ n2432_call_α:           mov              r11, 971
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    unify_with_occurs_check$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   unify_with_occurs_check$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    unify_with_occurs_check$2F2_step
+                                                                              jmp   unify_with_occurs_check$2F2_γ
 n2432_call_β:           mov              r11, 971;                            jmp   unify_with_occurs_check$2F2_step
                         .size            n2432_call_bx, .-n2432_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -31666,14 +32460,15 @@ n2439_call_α:           mov              r11, 973
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    put_char$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2440_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    put_char$2F1_step
+                                                                              jmp   n2440_call_α
 n2439_call_β:           mov              r11, 973;                            jmp   put_char$2F1_step
                         .size            n2439_call_bx, .-n2439_call_bx
                         .type            n2440_call_bx, @function
@@ -31695,14 +32490,15 @@ n2440_call_α:           mov              r11, 974
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    put_char$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   put_char$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    put_char$2F1_step
+                                                                              jmp   put_char$2F1_γ
 n2440_call_β:           mov              r11, 974;                            jmp   put_char$2F1_step
                         .size            n2440_call_bx, .-n2440_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -31808,14 +32604,15 @@ n2445_call_α:           mov              r11, 975
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        cmp              al, 104;                             je    flush_output$2F0_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   flush_output$2F0_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    flush_output$2F0_step
+                                                                              jmp   flush_output$2F0_γ
 n2445_call_β:           mov              r11, 975;                            jmp   flush_output$2F0_step
                         .size            n2445_call_bx, .-n2445_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -31935,14 +32732,15 @@ n2448_call_α:           mov              r11, 977
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    format$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   format$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    format$2F1_step
+                                                                              jmp   format$2F1_γ
 n2448_call_β:           mov              r11, 977;                            jmp   format$2F1_step
                         .size            n2448_call_bx, .-n2448_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -32070,14 +32868,15 @@ n2454_call_α:           mov              r11, 980
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    format$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   format$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    format$2F2_step
+                                                                              jmp   format$2F2_γ
 n2454_call_β:           mov              r11, 980;                            jmp   format$2F2_step
                         .size            n2454_call_bx, .-n2454_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -32205,14 +33004,15 @@ n2462_call_α:           mov              r11, 983
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    write$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   write$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    write$2F2_step
+                                                                              jmp   write$2F2_γ
 n2462_call_β:           mov              r11, 983;                            jmp   write$2F2_step
                         .size            n2462_call_bx, .-n2462_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -32340,14 +33140,15 @@ n2470_call_α:           mov              r11, 986
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    writeq$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   writeq$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    writeq$2F2_step
+                                                                              jmp   writeq$2F2_γ
 n2470_call_β:           mov              r11, 986;                            jmp   writeq$2F2_step
                         .size            n2470_call_bx, .-n2470_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -32475,14 +33276,15 @@ n2478_call_α:           mov              r11, 989
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    print$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   print$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    print$2F2_step
+                                                                              jmp   print$2F2_γ
 n2478_call_β:           mov              r11, 989;                            jmp   print$2F2_step
                         .size            n2478_call_bx, .-n2478_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -32610,14 +33412,15 @@ n2486_call_α:           mov              r11, 992
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    write_canonical$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   write_canonical$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    write_canonical$2F2_step
+                                                                              jmp   write_canonical$2F2_γ
 n2486_call_β:           mov              r11, 992;                            jmp   write_canonical$2F2_step
                         .size            n2486_call_bx, .-n2486_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -32746,14 +33549,15 @@ n2494_call_α:           mov              r11, 995
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    writeln$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   writeln$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    writeln$2F2_step
+                                                                              jmp   writeln$2F2_γ
 n2494_call_β:           mov              r11, 995;                            jmp   writeln$2F2_step
                         .size            n2494_call_bx, .-n2494_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -32872,14 +33676,15 @@ n2501_call_α:           mov              r11, 997
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    nl$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   nl$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    nl$2F1_step
+                                                                              jmp   nl$2F1_γ
 n2501_call_β:           mov              r11, 997;                            jmp   nl$2F1_step
                         .size            n2501_call_bx, .-n2501_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -33007,14 +33812,15 @@ n2507_call_α:           mov              r11, 1000
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    put_char$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   put_char$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    put_char$2F2_step
+                                                                              jmp   put_char$2F2_γ
 n2507_call_β:           mov              r11, 1000;                           jmp   put_char$2F2_step
                         .size            n2507_call_bx, .-n2507_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -33133,14 +33939,15 @@ n2514_call_α:           mov              r11, 1002
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    flush_output$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   flush_output$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    flush_output$2F1_step
+                                                                              jmp   flush_output$2F1_γ
 n2514_call_β:           mov              r11, 1002;                           jmp   flush_output$2F1_step
                         .size            n2514_call_bx, .-n2514_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -33278,14 +34085,15 @@ n2521_call_α:           mov              r11, 1006
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    format$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   format$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    format$2F3_step
+                                                                              jmp   format$2F3_γ
 n2521_call_β:           mov              r11, 1006;                           jmp   format$2F3_step
                         .size            n2521_call_bx, .-n2521_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -33413,14 +34221,15 @@ n2531_call_α:           mov              r11, 1009
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    read$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   read$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    read$2F2_step
+                                                                              jmp   read$2F2_γ
 n2531_call_β:           mov              r11, 1009;                           jmp   read$2F2_step
                         .size            n2531_call_bx, .-n2531_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -33548,14 +34357,15 @@ n2539_call_α:           mov              r11, 1012
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    get_char$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   get_char$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    get_char$2F2_step
+                                                                              jmp   get_char$2F2_γ
 n2539_call_β:           mov              r11, 1012;                           jmp   get_char$2F2_step
                         .size            n2539_call_bx, .-n2539_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -33683,14 +34493,15 @@ n2547_call_α:           mov              r11, 1015
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    peek_char$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   peek_char$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    peek_char$2F2_step
+                                                                              jmp   peek_char$2F2_γ
 n2547_call_β:           mov              r11, 1015;                           jmp   peek_char$2F2_step
                         .size            n2547_call_bx, .-n2547_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -33827,14 +34638,15 @@ n2556_call_α:           mov              r11, 1019
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    open$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   open$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    open$2F3_step
+                                                                              jmp   open$2F3_γ
 n2556_call_β:           mov              r11, 1019;                           jmp   open$2F3_step
                         .size            n2556_call_bx, .-n2556_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -33980,14 +34792,15 @@ n2568_call_α:           mov              r11, 1024
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
-                        cmp              al, 104;                             je    open$2F4_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   open$2F4_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    open$2F4_step
+                                                                              jmp   open$2F4_γ
 n2568_call_β:           mov              r11, 1024;                           jmp   open$2F4_step
                         .size            n2568_call_bx, .-n2568_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -34106,14 +34919,15 @@ n2579_call_α:           mov              r11, 1026
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    close$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   close$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    close$2F1_step
+                                                                              jmp   close$2F1_γ
 n2579_call_β:           mov              r11, 1026;                           jmp   close$2F1_step
                         .size            n2579_call_bx, .-n2579_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -34241,14 +35055,15 @@ n2585_call_α:           mov              r11, 1029
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    close$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   close$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    close$2F2_step
+                                                                              jmp   close$2F2_γ
 n2585_call_β:           mov              r11, 1029;                           jmp   close$2F2_step
                         .size            n2585_call_bx, .-n2585_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -34371,14 +35186,15 @@ n2592_call_α:           mov              r11, 1031
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    current_output$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2593_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    current_output$2F1_step
+                                                                              jmp   n2593_call_α
 n2592_call_β:           mov              r11, 1031;                           jmp   current_output$2F1_step
                         .size            n2592_call_bx, .-n2592_call_bx
                         .type            n2593_call_bx, @function
@@ -34400,14 +35216,15 @@ n2593_call_α:           mov              r11, 1032
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    current_output$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   current_output$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    current_output$2F1_step
+                                                                              jmp   current_output$2F1_γ
 n2593_call_β:           mov              r11, 1032;                           jmp   current_output$2F1_step
                         .size            n2593_call_bx, .-n2593_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -34531,14 +35348,15 @@ n2599_call_α:           mov              r11, 1034
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    current_input$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2600_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    current_input$2F1_step
+                                                                              jmp   n2600_call_α
 n2599_call_β:           mov              r11, 1034;                           jmp   current_input$2F1_step
                         .size            n2599_call_bx, .-n2599_call_bx
                         .type            n2600_call_bx, @function
@@ -34560,14 +35378,15 @@ n2600_call_α:           mov              r11, 1035
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    current_input$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   current_input$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    current_input$2F1_step
+                                                                              jmp   current_input$2F1_γ
 n2600_call_β:           mov              r11, 1035;                           jmp   current_input$2F1_step
                         .size            n2600_call_bx, .-n2600_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -34703,14 +35522,15 @@ n2607_call_α:           mov              r11, 1038
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    set_output$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2608_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    set_output$2F1_step
+                                                                              jmp   n2608_call_α
 n2607_call_β:           mov              r11, 1038;                           jmp   set_output$2F1_step
                         .size            n2607_call_bx, .-n2607_call_bx
                         .type            n2608_call_bx, @function
@@ -34732,14 +35552,15 @@ n2608_call_α:           mov              r11, 1039
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    set_output$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   set_output$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    set_output$2F1_step
+                                                                              jmp   set_output$2F1_γ
 n2608_call_β:           mov              r11, 1039;                           jmp   set_output$2F1_step
                         .size            n2608_call_bx, .-n2608_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -34874,14 +35695,15 @@ n2616_call_α:           mov              r11, 1042
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    set_input$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2617_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    set_input$2F1_step
+                                                                              jmp   n2617_call_α
 n2616_call_β:           mov              r11, 1042;                           jmp   set_input$2F1_step
                         .size            n2616_call_bx, .-n2616_call_bx
                         .type            n2617_call_bx, @function
@@ -34903,14 +35725,15 @@ n2617_call_α:           mov              r11, 1043
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    set_input$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   set_input$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    set_input$2F1_step
+                                                                              jmp   set_input$2F1_γ
 n2617_call_β:           mov              r11, 1043;                           jmp   set_input$2F1_step
                         .size            n2617_call_bx, .-n2617_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -35038,14 +35861,15 @@ n2625_call_α:           mov              r11, 1046
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    keysort$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   keysort$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    keysort$2F2_step
+                                                                              jmp   keysort$2F2_γ
 n2625_call_β:           mov              r11, 1046;                           jmp   keysort$2F2_step
                         .size            n2625_call_bx, .-n2625_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -35173,14 +35997,15 @@ n2633_call_α:           mov              r11, 1049
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    set_stream_position$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   set_stream_position$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    set_stream_position$2F2_step
+                                                                              jmp   set_stream_position$2F2_γ
 n2633_call_β:           mov              r11, 1049;                           jmp   set_stream_position$2F2_step
                         .size            n2633_call_bx, .-n2633_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -35318,14 +36143,15 @@ n2642_call_α:           mov              r11, 1053
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 112], rax
                         mov              qword ptr [rbp + 120], rdx
-                        cmp              al, 104;                             je    op$2F3_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   op$2F3_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    op$2F3_step
+                                                                              jmp   op$2F3_γ
 n2642_call_β:           mov              r11, 1053;                           jmp   op$2F3_step
                         .size            n2642_call_bx, .-n2642_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -35444,14 +36270,15 @@ n2651_call_α:           mov              r11, 1055
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    wall_us$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   wall_us$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    wall_us$2F1_step
+                                                                              jmp   wall_us$2F1_γ
 n2651_call_β:           mov              r11, 1055;                           jmp   wall_us$2F1_step
                         .size            n2651_call_bx, .-n2651_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -35570,14 +36397,15 @@ n2656_call_α:           mov              r11, 1057
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    wall_ms$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   wall_ms$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    wall_ms$2F1_step
+                                                                              jmp   wall_ms$2F1_γ
 n2656_call_β:           mov              r11, 1057;                           jmp   wall_ms$2F1_step
                         .size            n2656_call_bx, .-n2656_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -35696,14 +36524,15 @@ n2661_call_α:           mov              r11, 1059
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    write$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   write$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    write$2F1_step
+                                                                              jmp   write$2F1_γ
 n2661_call_β:           mov              r11, 1059;                           jmp   write$2F1_step
                         .size            n2661_call_bx, .-n2661_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -35809,14 +36638,15 @@ n2665_call_α:           mov              r11, 1060
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 16], rax
                         mov              qword ptr [rbp + 24], rdx
-                        cmp              al, 104;                             je    nl$2F0_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   nl$2F0_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    nl$2F0_step
+                                                                              jmp   nl$2F0_γ
 n2665_call_β:           mov              r11, 1060;                           jmp   nl$2F0_step
                         .size            n2665_call_bx, .-n2665_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -36300,14 +37130,15 @@ n2671_call_α:           mov              r11, 1063
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    throw$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   throw$2F1_step
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    throw$2F1_step
+                                                                              jmp   throw$2F1_step
 n2671_call_β:           mov              r11, 1063;                           jmp   throw$2F1_step
                         .size            n2671_call_bx, .-n2671_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -36435,14 +37266,15 @@ n2677_call_α:           mov              r11, 1066
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    $3D$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   $3D$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $3D$2F2_step
+                                                                              jmp   $3D$2F2_γ
 n2677_call_β:           mov              r11, 1066;                           jmp   $3D$2F2_step
                         .size            n2677_call_bx, .-n2677_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -36570,14 +37402,15 @@ n2685_call_α:           mov              r11, 1069
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    is$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   is$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    is$2F2_step
+                                                                              jmp   is$2F2_γ
 n2685_call_β:           mov              r11, 1069;                           jmp   is$2F2_step
                         .size            n2685_call_bx, .-n2685_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -36705,14 +37538,15 @@ n2693_call_α:           mov              r11, 1072
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    $3E$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   $3E$2F2_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    $3E$2F2_step
+                                                                              jmp   $3E$2F2_γ
 n2693_call_β:           mov              r11, 1072;                           jmp   $3E$2F2_step
                         .size            n2693_call_bx, .-n2693_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -36843,14 +37677,15 @@ n2701_call_α:           mov              r11, 1075
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    assert$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2702_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    assert$2F1_step
+                                                                              jmp   n2702_var_ref_α
 n2701_call_β:           mov              r11, 1075;                           jmp   assert$2F1_step
                         .size            n2701_call_bx, .-n2701_call_bx
                         .type            n2702_var_ref_bx, @function
@@ -36877,14 +37712,15 @@ n2703_call_α:           mov              r11, 1077
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    assert$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   assert$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    assert$2F1_step
+                                                                              jmp   assert$2F1_γ
 n2703_call_β:           mov              r11, 1077;                           jmp   assert$2F1_step
                         .size            n2703_call_bx, .-n2703_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -37015,14 +37851,15 @@ n2713_call_α:           mov              r11, 1080
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    asserta$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2714_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    asserta$2F1_step
+                                                                              jmp   n2714_var_ref_α
 n2713_call_β:           mov              r11, 1080;                           jmp   asserta$2F1_step
                         .size            n2713_call_bx, .-n2713_call_bx
                         .type            n2714_var_ref_bx, @function
@@ -37049,14 +37886,15 @@ n2715_call_α:           mov              r11, 1082
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    asserta$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   asserta$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    asserta$2F1_step
+                                                                              jmp   asserta$2F1_γ
 n2715_call_β:           mov              r11, 1082;                           jmp   asserta$2F1_step
                         .size            n2715_call_bx, .-n2715_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -37187,14 +38025,15 @@ n2725_call_α:           mov              r11, 1085
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    assertz$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2726_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    assertz$2F1_step
+                                                                              jmp   n2726_var_ref_α
 n2725_call_β:           mov              r11, 1085;                           jmp   assertz$2F1_step
                         .size            n2725_call_bx, .-n2725_call_bx
                         .type            n2726_var_ref_bx, @function
@@ -37221,14 +38060,15 @@ n2727_call_α:           mov              r11, 1087
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    assertz$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   assertz$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    assertz$2F1_step
+                                                                              jmp   assertz$2F1_γ
 n2727_call_β:           mov              r11, 1087;                           jmp   assertz$2F1_step
                         .size            n2727_call_bx, .-n2727_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -37359,14 +38199,15 @@ n2737_call_α:           mov              r11, 1090
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    retract$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2738_lit_string_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    retract$2F1_step
+                                                                              jmp   n2738_lit_string_α
 n2737_call_β:           mov              r11, 1090;                           jmp   retract$2F1_step
                         .size            n2737_call_bx, .-n2737_call_bx
                         .type            n2738_lit_string_bx, @function
@@ -37417,14 +38258,15 @@ n2741_call_α:           mov              r11, 1094
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 160], rax
                         mov              qword ptr [rbp + 168], rdx
-                        cmp              al, 104;                             je    retract$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2742_lit_integer_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    retract$2F1_step
+                                                                              jmp   n2742_lit_integer_α
 n2741_call_β:           mov              r11, 1094;                           jmp   retract$2F1_step
                         .size            n2741_call_bx, .-n2741_call_bx
                         .type            n2742_lit_integer_bx, @function
@@ -37455,14 +38297,15 @@ n2743_call_α:           mov              r11, 1096
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 128], rax
                         mov              qword ptr [rbp + 136], rdx
-                        cmp              al, 104;                             je    retract$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2744_to_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    retract$2F1_step
+                                                                              jmp   n2744_to_α
 n2743_call_β:           mov              r11, 1096;                           jmp   retract$2F1_step
                         .size            n2743_call_bx, .-n2743_call_bx
                         .type            n2744_to_bx, @function
@@ -37545,14 +38388,15 @@ n2745_call_α:           mov              r11, 1098
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 32], rax
                         mov              qword ptr [rbp + 40], rdx
-                        cmp              al, 104;                             je    n2744_to_β
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2746_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    n2744_to_β
+                                                                              jmp   n2746_call_α
 n2745_call_β:           mov              r11, 1098;                           jmp   n2744_to_β
                         .size            n2745_call_bx, .-n2745_call_bx
                         .type            n2746_call_bx, @function
@@ -37574,14 +38418,15 @@ n2746_call_α:           mov              r11, 1099
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    n2744_to_β
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2747_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    n2744_to_β
+                                                                              jmp   n2747_call_α
 n2746_call_β:           mov              r11, 1099;                           jmp   n2744_to_β
                         .size            n2746_call_bx, .-n2746_call_bx
                         .type            n2747_call_bx, @function
@@ -37607,14 +38452,15 @@ n2747_call_α:           mov              r11, 1100
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 80], rax
                         mov              qword ptr [rbp + 88], rdx
-                        cmp              al, 104;                             je    n2744_to_β
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   retract$2F1_ret0
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    n2744_to_β
+                                                                              jmp   retract$2F1_ret0
 n2747_call_β:           mov              r11, 1100;                           jmp   n2744_to_β
                         .size            n2747_call_bx, .-n2747_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -37754,14 +38600,15 @@ n2766_call_α:           mov              r11, 1103
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    retractall$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2767_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    retractall$2F1_step
+                                                                              jmp   n2767_var_ref_α
 n2766_call_β:           mov              r11, 1103;                           jmp   retractall$2F1_step
                         .size            n2766_call_bx, .-n2766_call_bx
                         .type            n2767_var_ref_bx, @function
@@ -37788,14 +38635,15 @@ n2768_call_α:           mov              r11, 1105
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    retractall$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   retractall$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    retractall$2F1_step
+                                                                              jmp   retractall$2F1_γ
 n2768_call_β:           mov              r11, 1105;                           jmp   retractall$2F1_step
                         .size            n2768_call_bx, .-n2768_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -37926,14 +38774,15 @@ n2778_call_α:           mov              r11, 1108
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    abolish$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2779_var_ref_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    abolish$2F1_step
+                                                                              jmp   n2779_var_ref_α
 n2778_call_β:           mov              r11, 1108;                           jmp   abolish$2F1_step
                         .size            n2778_call_bx, .-n2778_call_bx
                         .type            n2779_var_ref_bx, @function
@@ -37960,14 +38809,15 @@ n2780_call_α:           mov              r11, 1110
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 64], rax
                         mov              qword ptr [rbp + 72], rdx
-                        cmp              al, 104;                             je    abolish$2F1_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   abolish$2F1_γ
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    abolish$2F1_step
+                                                                              jmp   abolish$2F1_γ
 n2780_call_β:           mov              r11, 1110;                           jmp   abolish$2F1_step
                         .size            n2780_call_bx, .-n2780_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -38107,14 +38957,15 @@ n2791_call_α:           mov              r11, 1114
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    clause$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2792_lit_string_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    clause$2F2_step
+                                                                              jmp   n2792_lit_string_α
 n2791_call_β:           mov              r11, 1114;                           jmp   clause$2F2_step
                         .size            n2791_call_bx, .-n2791_call_bx
                         .type            n2792_lit_string_bx, @function
@@ -38144,14 +38995,15 @@ n2793_call_α:           mov              r11, 1116
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        cmp              al, 104;                             je    clause$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2794_lit_string_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    clause$2F2_step
+                                                                              jmp   n2794_lit_string_α
 n2793_call_β:           mov              r11, 1116;                           jmp   clause$2F2_step
                         .size            n2793_call_bx, .-n2793_call_bx
                         .type            n2794_lit_string_bx, @function
@@ -38199,14 +39051,15 @@ n2797_call_α:           mov              r11, 1120
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 176], rax
                         mov              qword ptr [rbp + 184], rdx
-                        cmp              al, 104;                             je    clause$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2798_lit_integer_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    clause$2F2_step
+                                                                              jmp   n2798_lit_integer_α
 n2797_call_β:           mov              r11, 1120;                           jmp   clause$2F2_step
                         .size            n2797_call_bx, .-n2797_call_bx
                         .type            n2798_lit_integer_bx, @function
@@ -38237,14 +39090,15 @@ n2799_call_α:           mov              r11, 1122
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx
-                        cmp              al, 104;                             je    clause$2F2_step
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2800_to_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    clause$2F2_step
+                                                                              jmp   n2800_to_α
 n2799_call_β:           mov              r11, 1122;                           jmp   clause$2F2_step
                         .size            n2799_call_bx, .-n2799_call_bx
                         .type            n2800_to_bx, @function
@@ -38327,14 +39181,15 @@ n2801_call_α:           mov              r11, 1124
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
-                        cmp              al, 104;                             je    n2800_to_β
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n2802_call_α
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    n2800_to_β
+                                                                              jmp   n2802_call_α
 n2801_call_β:           mov              r11, 1124;                           jmp   n2800_to_β
                         .size            n2801_call_bx, .-n2801_call_bx
                         .type            n2802_call_bx, @function
@@ -38356,14 +39211,15 @@ n2802_call_α:           mov              r11, 1125
                         mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rbp + 96], rax
                         mov              qword ptr [rbp + 104], rdx
-                        cmp              al, 104;                             je    n2800_to_β
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:242
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_fn.cpp:230
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64];     jmp   clause$2F2_ret0
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        cmp              al, 104;                             je    n2800_to_β
+                                                                              jmp   clause$2F2_ret0
 n2802_call_β:           mov              r11, 1125;                           jmp   n2800_to_β
                         .size            n2802_call_bx, .-n2802_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
@@ -38507,6 +39363,13 @@ n2823_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_2826_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -38595,6 +39458,13 @@ n2824_call_proc_staged_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:709
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
                         sub              rsp, 8                               # CFO-36 (cfo 2026-09-09): the landing words (N-2 word, pad, L7) are pushed AFTER the prologue call, not before it -- in the generator regime they are an ODD count, so rt_proc_call_open_det ran at rsp 8-mod-16 and everything it reached did too (rt_trace_event_args -> image -> vsnprintf movaps: SIGSEGV on every traced generator call with an argument; Arizona coexpr and errors, master rung03). The entry layout the callee sees is byte-identical; only the prologue call moved above the words, and L7 goes through rcx because rax now carries the callee
                         lea              rcx, [rip + .Lcall_proc_staged_α_2828_7] # PL-CALL-ALIGN (NON-GENERATOR SITES ONLY since CEO-483): pad the lone L(7) push to a 16B unit -- one bare 8B push here left rsp 8-mod-16 into rt_proc_call_open_det and the callee jmp, a real ABI violation (SIGSEGV in a later vsnprintf movaps; witness prolog-call-n-user-predicate-segfault). L(7) stays at [rsp+0]; the matching add-rsp-8 landings become 16.
                         push             rcx
@@ -38622,6 +39492,13 @@ n2824_call_proc_staged_α:
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_pl_exist_key_raise@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_call_proc_staged.cpp:236
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n2823_call_proc_staged_β
