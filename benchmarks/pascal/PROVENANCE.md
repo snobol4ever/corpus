@@ -94,6 +94,9 @@ that they're not resident:
   **no `.ref`**; a consumer harness wanting to score Whetstone needs a different signal
   (clean exit + well-formed output shape, not an exact diff). Flagging this explicitly so
   it isn't mistaken for an oversight.
+  **SUPERSEDED 2026-09-23 (hq_pascal, CEO-1221):** `whet.pas` is now in kernel form with a
+  `.ref` cut from `fpc -Miso` -- the modules are unchanged, the timing/reporting code is
+  removed, and `POUT` prints the computed module results (README.md § `whet.pas` — kernel form).
 
 - **Dhrystone — CORRECTED FINDING.** The prior LEDGER entry on this task ("no
   whetstone/dhrystone match anywhere under Pascal-P5/ or pascal-p4-main/, `find -iname`")

@@ -2,7 +2,7 @@
 # Format: kernel<TAB>reason. Each line names a real, current, checked reason -- never a placeholder for
 # "haven't gotten to it yet" dressed up as a design decision. Update or remove a line the moment its
 # reason stops being true (a landed fix, a new .ref, a built process-repeat mechanism).
-fbench	SIGSEGV at compile time (LOWER stage), not a timing-angle limitation -- row pascal-fbench-nested-function-self-assign-null-name
-whet	no committed .ref yet -- BENCHMARK = TEST law (ARCH-BENCH-CAMPAIGN-README-TABLES.md) means an ungraded kernel is unpublishable; needs a .ref before any angle can even correctness-check it, not just time it
+fbench	fixed OUTER x INNER workload baked into the source, no reps knob (reads only two newlines, fbench.in) -- the same not-yet-built process-repeat mechanism uplevel2/uplevel3 need. (Its old reason, SIGSEGV at compile time, stopped being true: hq_pascal 2026-09-23 measured it compiling and matching fbench.ref in m3 and m4.)
+whet	kernel form with a .ref since 2026-09-23 (hq_pascal, CEO-1221) and a reps knob (II read from whet.in), but not yet in test_bench_pascal_timed.sh KERNELS or SCALE.tsv -- adding it is timing work, which waits for the quiet box (CEO-1219)
 uplevel2	fixed 30000x8000 workload baked into the source, no reps/stdin scaling knob -- needs a PROCESS-LEVEL repeat mechanism (repeat the whole binary invocation N times) that test_bench_pascal_timed.sh/bench_pascal_fixed_iter.sh do not implement yet (both are built around the reps-via-stdin convention the other 7 kernels share)
 uplevel3	same as uplevel2 -- fixed 30000x8000 workload, no reps knob, needs the same not-yet-built process-repeat mechanism

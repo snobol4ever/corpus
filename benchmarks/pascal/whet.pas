@@ -1,89 +1,22 @@
-program Whet;
-
-{$IFDEF VirtualPascal}
-{$AlignCode+,AlignData+,AlignRec+,Asm-,B-,Cdecl-,D-,Delphi-,Frame+,G4+,I-}
-{$Optimise+,OrgName-,P-,Q-,R-,SmartLink+,Speed+,T-,V-,W-,X+,Z-,ZD-}
-uses
-  Dos, Os2Def, Os2Base;
-{$ENDIF}
-
-{$IFDEF Speed}
-{$B-,D-,I-,L-,O-,Q-,R-,S-,V-,Z-}
-uses
-  Dos, BseDos;
-{$ENDIF}
-
-{$IFDEF Speed_Pascal_20}
-{$B-,D-,I-,L-,O-,Q-,R-,S-,V-,Z-}
-uses
-  Dos,BseDos,OS2Def;
-{$ENDIF}
-
-{$IFDEF VER70}
-{$A+,B-,D-,E-,F-,G+,I-,L-,N+,O-,P-,Q-,R-,S-,T-,V-,X-,Y-}
-{$M 16384,0,655360}
-uses
-  OpTimer, Dos;
-{$ENDIF}
-
-{$IFDEF Delphi}
-uses
-  Dmisc;
-{$ENDIF Delphi}
-{$IFDEF FPC}
-uses
-  Dos;
-{$ENDIF FPC}
-
-
+program whet(input, output);
 (**********************************************************************
 C     Benchmark Double Precision Whetstone (A001)
-C
-C     o This is a LONGREAL*8 version of
-C       the Whetstone benchmark program.
-C     o FOR-loop semantics are ANSI-66 compatible.
-C     o Final measurements are to be made with all
-C       WRITE statements and FORMAT sttements removed.
-C
+C     Curnow & Wichmann, NPL, 1972; this copy from FPCSource/tests/bench/whet.pas.
+C     KERNEL FORM (CEO-1221): the eleven modules are unchanged; the upstream
+C     wall-clock reporting (TimeNow, KIPS/MIPS) is removed because the harness
+C     times the kernel, the major-loop count II is read from input like every
+C     other kernel here, and POUT prints what each module COMPUTES on the last
+C     major loop -- values that do not depend on II, so the REF pins them.
 C**********************************************************************)
 
-
 const
-(* With loopcount NLoop=10, one million Whetstone instructions
-   will be executed in each major loop.
-   A major loop is executed 'II' times to increase wall-clock timing accuracy *)
    NLoopValue = 100;
-
-{$IFDEF OS2}
-function TimeNow : LongInt;
-var
-  Clocks : LongInt;
-  rc     : ApiRet;
-begin
-  rc := DosQuerySysInfo(qsv_Ms_Count, qsv_Ms_Count, Clocks, SizeOf(Clocks));
-  TimeNow := Clocks;
-end;
-
-{$ELSE}
-function TimeNow : Int64;
-
-var
-   h,m,s,s100 : word;
-
-begin
-  gettime(h,m,s,s100);
-  TimeNow := h*3600*1000+m*60*1000+s*1000+s100*10;
-end;
-{$ENDIF}
-
-
 
 TYPE ARRAY4 = ARRAY [1..4] OF DOUBLE;
 
 VAR E1                  : ARRAY4;
     T, T1, T2           : DOUBLE;
     J, K, L             : LONGINT;
-    ptime, time0, time1 : DOUBLE;
 
 PROCEDURE PA (VAR E : ARRAY4);
 VAR J1 : LONGINT;
@@ -114,14 +47,8 @@ BEGIN
 END;
 
 PROCEDURE POUT (N, J, K : LONGINT; X1, X2, X3, X4 : DOUBLE);
-VAR time1 : double;
 BEGIN
-{
-        time1 := TimeNow;
-        WriteLn(time1-time0:6:1,time1-ptime:6,N:6,J:6,K:6,' ',
-                X1:10,' ', X2:10,'  ',X3:10,'  ',X4:10);
-        ptime := time1;
-}
+        WriteLn(N:6,J:6,K:6,' ',X1:0:12,' ',X2:0:12,' ',X3:0:12,' ',X4:0:12);
 END;
 
 PROCEDURE DoIt;
@@ -129,14 +56,12 @@ VAR NLoop, I, II, JJ : LONGINT;
     N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11 : LONGINT;
     X1, X2, X3, X4, X, Y, Z : DOUBLE;
 BEGIN
-        time0 := TimeNow;
-        ptime := time0;
 (* The actual benchmark starts here. *)
         T  := 0.499975;
         T1 := 0.50025;
         T2 := 2.0;
         NLoop := NLoopValue;
-        II    := 400;
+        ReadLn (II);
         FOR JJ:=1 TO II DO BEGIN
 (* Establish the relative loop counts of each module. *)
                 N1 := 0;
@@ -258,25 +183,12 @@ BEGIN
                 X := 0.75;
                 FOR I:=1 TO N11 DO BEGIN
                   X := sqrt (exp (ln (X)/T1))
-                  // x:=sqrt(x);
                 END;
                 IF (JJ = II) THEN BEGIN
                         POUT (N11, J, K, X, X, X, X)
                 END;
 (* THIS IS THE END OF THE MAJOR LOOP. *)
         END;
-(* Stop benchmark timing at this point. *)
-        time1 := TimeNow;
-(*----------------------------------------------------------------
-      Performance in Whetstone KIP's per second is given by
-       (100*NLoop*II)/TIME
-      where TIME is in seconds.
---------------------------------------------------------------------*)
-        WriteLn;
-        WriteLn ('Double Whetstone KIPS ',
-                 (TRUNC ((100.0 * NLoop * II) * 1000 / (time1 - time0))));
-        WriteLn ('Whetstone MIPS   ',
-                  1.0*NLoop*II * 1000 / (time1 - time0):12:2);
 END;
 
 BEGIN
