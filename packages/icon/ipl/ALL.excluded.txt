@@ -407,7 +407,6 @@ procs/hexcvt: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/hostname: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/html: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/ibench: oracle produced EMPTY output -- refusing to mint a vacuous ref
-procs/ichartp: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/identgen: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/identity: oracle produced EMPTY output -- refusing to mint a vacuous ref
 procs/ifncs: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -589,7 +588,6 @@ progs/colm: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/comfiles: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/compare: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/comply83: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/concord: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/conman: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/countlst: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/cross: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -683,7 +681,6 @@ progs/iversion: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/iwriter: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/knapsack: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/kross: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/kwic: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/la: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/labels: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/lam: oracle produced EMPTY output -- refusing to mint a vacuous ref
