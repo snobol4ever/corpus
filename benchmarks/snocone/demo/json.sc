@@ -299,13 +299,10 @@ src         =   INPUT;
 // *BENCH kernel=JSON check=1 bud=1000 flr=20
 OUTPUT      =   'input bytes=' SIZE(src);
 //------------------------------------------------------------------------------
-//  THE ONE BIG PATTERN MATCH - timed alone. TIME() is integer nanoseconds off a
-//  monotonic wall clock; t1 - t0 is the match only. Written to TERMINAL, i.e.
-//  stderr, so stdout stays deterministic and byte-comparable against .ref.
+//  THE ONE BIG PATTERN MATCH. Pristine (RULES.md THE KERNEL CONVENTION): nothing here
+//  times itself; the timing is generated around this source by scripts/bench_wrap_snocone.py.
 //------------------------------------------------------------------------------
-t0          =   TIME();
 if (~(src ? json)) goto fail;
-t1          =   TIME();
 root        =   vs[1];
 OUTPUT      =   'root=' DATATYPE(root);
 OUTPUT      =   'objects=' nObj;
@@ -316,10 +313,7 @@ OUTPUT      =   'reals=' nReal;
 OUTPUT      =   'booleans=' nBool;
 OUTPUT      =   'nulls=' nNull;
 OUTPUT      =   'maxdepth=' maxdep;
-TERMINAL    =   'match_ms=' (t1 - t0) / 1000000;
 goto done;
 fail:
-t1          =   TIME();
 OUTPUT      =   'Pattern match failed';
-TERMINAL    =   'match_ms=' (t1 - t0) / 1000000;
 done:

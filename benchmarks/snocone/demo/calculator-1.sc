@@ -2,7 +2,7 @@
 // Replicates the LOGIC of benchmarks/snobol4/demo/calculator-1.sno, not merely its
 // output: the quiet flag, the CALCULATOR_1(N) re-evaluation kernel and the *BENCH
 // marker are all carried over. Same oracle ref (calculator-1.ref, 2208 lines), which
-// is byte-identical to the demos-tree ref because the kernel writes only to TERMINAL.
+// is byte-identical to the demos-tree ref.
 // Right-recursive grammar with deferred semantic actions on a value stack:
 // atoms push, operators pop two and push the result, eol emits.
 // Equivalent of calculator-1.sno; same output, same oracle ref (calculator-1.ref).
@@ -68,15 +68,10 @@ ZBAD:
 INPUT(.INPUT, 9, '[-f0 -r4194304]');
 src         =   INPUT;
 // *BENCH kernel=CALCULATOR_1 check=1 bud=1000 flr=20
-// TIME() is integer nanoseconds off a monotonic wall clock; divide by 1000000
-// for match_ms. Written to TERMINAL, i.e. stderr, so stdout stays comparable.
-t0          =   TIME();
+// Pristine (RULES.md THE KERNEL CONVENTION): nothing here times itself; the timing is generated
+// around this source by scripts/bench_wrap_snocone.py and scripts/test_snocone_bench_suite.sh.
 if (~(src ? C)) goto bad;
-t1          =   TIME();
-TERMINAL    =   'match_ms=' (t1 - t0) / 1000000;
 goto fin;
 bad:
-t1          =   TIME();
 OUTPUT      =   'Boo!';
-TERMINAL    =   'match_ms=' (t1 - t0) / 1000000;
 fin:
