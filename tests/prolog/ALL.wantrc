@@ -49,3 +49,13 @@ throw_ite_directive_1	2
 # uncaught-in-initialization recipe as throw_ite_directive_1 immediately above, exits 2. ALL.ref's stdout
 # ("foo(1,2)\n[]\n", main's output stops there either way) is correct and untouched; only rc is declared.
 simple_program_103	2
+#
+# ⛔ directive_42, hq_prolog 2026-09-23 (CEO-1214 health check: four logtalk_iso integer-rounding cases regressed at SCRIP
+# 6a6983d9e2, which made truncate/round/ceiling/floor of an INTEGER return it to satisfy this entry's swipl-cut ref "7\n4\n").
+# ISO/IEC 13211-1 9.1.1 types these four functions F -> I: an integer argument is type_error(float, 7). GNU Prolog agrees
+# (gprolog --consult-file: "user directive caused exception: error(type_error(float,7),(is)/2)", nothing on stdout) and the
+# Logtalk ISO suite asserts it (lgt_ceiling_1_05, lgt_floor_1_06, lgt_round_1_13, lgt_truncate_1_06). swipl alone answers 7,
+# with or without its iso flag -- ORACLE-DIVERGENT, the same class as list_directive_4 (GNU canonical where SWI leaves ISO).
+# ALL.ref's block is RE-CUT FROM GNU: empty stdout, and the uncaught-in-initialization recipe above gives rc 2. A future
+# whole-master re-cut from swipl would put "7\n4\n" back and must not: curing it costs the four ISO cases.
+directive_42	2
