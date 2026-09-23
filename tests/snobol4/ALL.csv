@@ -1969,9 +1969,9 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,heap_kb,FENCE,ARB,ARBNO,POS,RP
 1968,demo_claws5,demo_snobol4_claws5__claws5,demo_snobol4_claws5,block,0,29,"m3,m4",,1,0,1,1,1,0,0,0,1,1,1,1,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,1,1,0,1,0,1,1,1,0,1,1,1
 1969,benchmark_claws5,benchmark_snobol4_claws5__claws5,benchmark_snobol4_claws5,block,0,42,"m3,m4",,1,0,1,1,1,0,0,0,1,1,1,1,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,1,1,0,1,0,1,1,1,1,1,1,1
 1970,demo_treebank,demo_snobol4_treebank__treebank,demo_snobol4_treebank,block,0,122,"m3,m4",,1,0,1,1,1,0,0,0,1,1,0,1,0,1,0,1,0,1,1,1,0,0,0,0,0,0,0,1,1,0,1,1,1,0,1,1,1,1,1
-1971,user_function_eval_arbno_replace_branch_1,probe_ptj2__ptj1_arbno_defer_nonterminating,probe_ptj2,block,0,309,UNKNOWN,,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1
-1972,demo_json,demo_snobol4_json__json,demo_snobol4_json,block,0,294,"m3,m4",,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,1,1
-1973,benchmark_json,benchmark_snobol4_json__json,benchmark_snobol4_json,block,0,320,"m3,m4",,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,1,1
+1971,user_function_eval_arbno_replace_branch_1,probe_ptj2__ptj1_arbno_defer_nonterminating,probe_ptj2,block,0,309,UNKNOWN,16384,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1
+1972,demo_json,demo_snobol4_json__json,demo_snobol4_json,block,0,294,"m3,m4",16384,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,1,1
+1973,benchmark_json,benchmark_snobol4_json__json,benchmark_snobol4_json,block,0,320,"m3,m4",16384,1,0,1,1,1,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,1,1
 1974,keyword_19,probe_csnobol4_triage__dump_unimplemented,probe_csnobol4_triage,block,1,6,UNKNOWN,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 1975,simple_output_62,probe_csnobol4_triage__input_eof_hang,probe_csnobol4_triage,block,1,7,UNKNOWN,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 1976,size_indirect_keyword_replace_branch_1,probe_indirect2__indirect_nul_prefix_name,probe_indirect2,block,1,27,UNKNOWN,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,1,1,0,0,0,0
