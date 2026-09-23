@@ -1021,3 +1021,6 @@ endswith ok
 no startswith ok
 2
 0
+/*-------------------------------- 337 ladder__rung24_output_associated_write */
+first write to the predefined OUTPUT association
+second write, same association, output accumulates by line

@@ -2588,3 +2588,6 @@ if (startswith('foobar', 'bar')) {
 }
 OUTPUT = index('foobar', 'oba');
 OUTPUT = index('foobar', 'xyz');
+/*-------------------------------- 337 ladder__rung24_output_associated_write */
+OUTPUT = 'first write to the predefined OUTPUT association';
+OUTPUT = 'second write, same association, output accumulates by line';

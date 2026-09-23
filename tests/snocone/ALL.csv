@@ -335,3 +335,4 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,FENCE,ARB,ARBNO,POS,RPOS,TAB,R
 334,arb_span_break_replace_2,test_pattern__test_pattern,test_pattern,block,0,33,"m3,m4",0,1,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0
 335,arb_span_break_replace_1,pattern_suite__pattern_suite,pattern_suite,block,0,112,"m3,m4",0,1,0,0,1,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0
 336,break_any_pos_replace_1,crosscheck_rungA15__A15_lib_string,crosscheck_rungA15,block,0,89,"m3,m4",0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,0,0,1,0,0,0,0,0
+337,ladder__rung24_output_associated_write,ladder__rung24_output_associated_write,ladder,block,0,2,"m3,m4",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
