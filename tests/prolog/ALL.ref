@@ -1193,7 +1193,7 @@ bar(1,2)
 %--------------------------------------------- 436 benchmark_witness_depth_nrev8
 [1,2,3,4,5,6,7,8]
 %----------------------------------------------------- 437 catch_ite_directive_1
-true
+false
 has_dq
 codes
 ro_protected
