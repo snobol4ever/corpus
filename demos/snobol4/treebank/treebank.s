@@ -5636,18 +5636,18 @@ n90_call_bx:
 n90_call_α:             sub              rsp, 16
                         mov              r11, 39
                         sub              rsp, 48
-                        mov              r8, qword ptr [rsp + 96]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 104]
-                        mov              qword ptr [rsp + 8], r8
-                        mov              r8, qword ptr [rsp + 80]
-                        mov              qword ptr [rsp + 16], r8
-                        mov              r8, qword ptr [rsp + 88]
-                        mov              qword ptr [rsp + 24], r8
-                        mov              r8, qword ptr [rsp + 64]
-                        mov              qword ptr [rsp + 32], r8
-                        mov              r8, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 40], r8
+                        mov              rax, qword ptr [rsp + 96]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 104]
+                        mov              qword ptr [rsp + 8], rax
+                        mov              rax, qword ptr [rsp + 80]
+                        mov              qword ptr [rsp + 16], rax
+                        mov              rax, qword ptr [rsp + 88]
+                        mov              qword ptr [rsp + 24], rax
+                        mov              rax, qword ptr [rsp + 64]
+                        mov              qword ptr [rsp + 32], rax
+                        mov              rax, qword ptr [rsp + 72]
+                        mov              qword ptr [rsp + 40], rax
                         .section         .rodata
 .Lcall_α_rkfnzd830:     .string          "SNO$STMT"
                         .section         .text
@@ -5719,10 +5719,10 @@ n94_call_bx:
 n94_call_α:             sub              rsp, 16
                         mov              r11, 43
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd837:     .string          "DATA"
                         .section         .text
@@ -9551,10 +9551,10 @@ n136_call_bx:
 n136_call_α:            sub              rsp, 16
                         mov              r11, 85
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd926:     .string          "n"
                         .section         .text
@@ -9647,7 +9647,15 @@ n138_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_928_240
                         add              rsp, 16;                             jmp   n137_var_β
 .Lbinop_α_928_240:      mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n139_assign_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n139_assign_α
                         .size            n138_binop_bx, .-n138_binop_bx
                         .type            n139_assign_bx, @function
 n139_assign_bx:
@@ -9741,10 +9749,10 @@ n144_call_bx:
 n144_call_α:            sub              rsp, 16
                         mov              r11, 93
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd938:     .string          "a"
                         .section         .text
@@ -10061,10 +10069,10 @@ n157_call_bx:
 n157_call_α:            sub              rsp, 16
                         mov              r11, 106
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd957:     .string          "n"
                         .section         .text
@@ -10157,7 +10165,15 @@ n159_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_959_240
                         add              rsp, 16;                             jmp   n158_var_β
 .Lbinop_α_959_240:      mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n160_assign_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n160_assign_α
                         .size            n159_binop_bx, .-n159_binop_bx
                         .type            n160_assign_bx, @function
 n160_assign_bx:
@@ -10251,10 +10267,10 @@ n165_call_bx:
 n165_call_α:            sub              rsp, 16
                         mov              r11, 114
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd969:     .string          "a"
                         .section         .text
@@ -10435,10 +10451,10 @@ n174_call_bx:
 n174_call_α:            sub              rsp, 16
                         mov              r11, 123
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd981:     .string          "n"
                         .section         .text
@@ -11068,10 +11084,10 @@ n203_call_bx:
 n203_call_α:            sub              rsp, 16
                         mov              r11, 152
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1027:    .string          "n"
                         .section         .text
@@ -11164,7 +11180,15 @@ n205_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1029_240
                         add              rsp, 16;                             jmp   n204_var_β
 .Lbinop_α_1029_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n206_assign_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n206_assign_α
                         .size            n205_binop_bx, .-n205_binop_bx
                         .type            n206_assign_bx, @function
 n206_assign_bx:
@@ -11440,10 +11464,10 @@ n221_call_bx:
 n221_call_α:            sub              rsp, 16
                         mov              r11, 170
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1056:    .string          "n"
                         .section         .text
@@ -11624,10 +11648,10 @@ n229_call_bx:
 n229_call_α:            sub              rsp, 16
                         mov              r11, 178
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1071:    .string          "n"
                         .section         .text
@@ -11837,10 +11861,10 @@ n239_call_bx:
 n239_call_α:            sub              rsp, 16
                         mov              r11, 188
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1089:    .string          "n"
                         .section         .text
@@ -11932,7 +11956,15 @@ n241_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1091_240
                         add              rsp, 16;                             jmp   n240_lit_integer_β
 .Lbinop_α_1091_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n242_assign_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n242_assign_α
                         .size            n241_binop_bx, .-n241_binop_bx
                         .type            n242_assign_bx, @function
 n242_assign_bx:
@@ -12089,7 +12121,15 @@ n249_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1102_240
                         add              rsp, 16;                             jmp   n248_lit_integer_β
 .Lbinop_α_1102_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n250_coerce_numeric_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n250_coerce_numeric_α
 n249_binop_β:           mov              r11, 198
                         add              rsp, 16;                             jmp   n248_lit_integer_β
                         .size            n249_binop_bx, .-n249_binop_bx
@@ -12267,7 +12307,15 @@ n255_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1111_240
                         add              rsp, 16;                             jmp   n254_lit_integer_β
 .Lbinop_α_1111_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n256_assign_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n256_assign_α
                         .size            n255_binop_bx, .-n255_binop_bx
                         .type            n256_assign_bx, @function
 n256_assign_bx:
@@ -12375,10 +12423,10 @@ n262_call_bx:
 n262_call_α:            sub              rsp, 16
                         mov              r11, 211
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1123:    .string          "a"
                         .section         .text
@@ -12444,10 +12492,10 @@ n265_call_bx:
 n265_call_α:            sub              rsp, 16
                         mov              r11, 214
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1127:    .string          "a"
                         .section         .text
@@ -12548,7 +12596,15 @@ n268_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1130_240
                         add              rsp, 16;                             jmp   n267_lit_integer_β
 .Lbinop_α_1130_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n269_subscript_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n269_subscript_α
 n268_binop_β:           mov              r11, 217
                         add              rsp, 16;                             jmp   n267_lit_integer_β
                         .size            n268_binop_bx, .-n268_binop_bx
@@ -12733,10 +12789,10 @@ n275_call_bx:
 n275_call_α:            sub              rsp, 16
                         mov              r11, 224
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1141:    .string          "a"
                         .section         .text
@@ -12840,7 +12896,15 @@ n278_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1144_240
                         add              rsp, 16;                             jmp   n277_lit_integer_β
 .Lbinop_α_1144_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n279_var_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n279_var_α
 n278_binop_β:           mov              r11, 227
                         add              rsp, 16;                             jmp   n277_lit_integer_β
                         .size            n278_binop_bx, .-n278_binop_bx
@@ -13047,10 +13111,10 @@ n287_call_bx:
 n287_call_α:            sub              rsp, 16
                         mov              r11, 236
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1159:    .string          "ARRAY"
                         .section         .text
@@ -13203,7 +13267,15 @@ n292_binop_α:           mov              r11, 241
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    .Ldisjunction_ω_285_af
                         mov              qword ptr [rsp + 2352], rax
-                        mov              qword ptr [rsp + 2360], rdx;         jmp   n293_lit_integer_α
+                        mov              qword ptr [rsp + 2360], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n293_lit_integer_α
                         .size            n292_binop_bx, .-n292_binop_bx
                         .type            n293_lit_integer_bx, @function
 n293_lit_integer_bx:
@@ -13260,7 +13332,15 @@ n294_binop_α:           mov              r11, 243
                         mov              r11, qword ptr [rip + rtccb+64]
                         cmp              al, 104;                             je    .Ldisjunction_ω_285_af
                         mov              qword ptr [rsp + 2336], rax
-                        mov              qword ptr [rsp + 2344], rdx;         jmp   .Ldisjunction_γ_285_as
+                        mov              qword ptr [rsp + 2344], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   .Ldisjunction_γ_285_as
 n294_binop_β:           mov              r11, 243;                            jmp   .Ldisjunction_ω_285_af
                         .size            n294_binop_bx, .-n294_binop_bx
                         .type            n295_var_bx, @function
@@ -13563,7 +13643,15 @@ n311_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1191_240
                         add              rsp, 16;                             jmp   n310_lit_integer_β
 .Lbinop_α_1191_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n312_coerce_numeric_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n312_coerce_numeric_α
 n311_binop_β:           mov              r11, 260
                         add              rsp, 16;                             jmp   n310_lit_integer_β
                         .size            n311_binop_bx, .-n311_binop_bx
@@ -13741,7 +13829,15 @@ n317_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1200_240
                         add              rsp, 16;                             jmp   n316_lit_integer_β
 .Lbinop_α_1200_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n318_assign_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n318_assign_α
                         .size            n317_binop_bx, .-n317_binop_bx
                         .type            n318_assign_bx, @function
 n318_assign_bx:
@@ -13874,10 +13970,10 @@ n326_call_bx:
 n326_call_α:            sub              rsp, 16
                         mov              r11, 275
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1214:    .string          "a"
                         .section         .text
@@ -14166,7 +14262,15 @@ n336_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1227_240
                         add              rsp, 16;                             jmp   n335_lit_integer_β
 .Lbinop_α_1227_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n337_var_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n337_var_α
 n336_binop_β:           mov              r11, 285
                         add              rsp, 16;                             jmp   n335_lit_integer_β
                         .size            n336_binop_bx, .-n336_binop_bx
@@ -14328,10 +14432,10 @@ n344_call_bx:
 n344_call_α:            sub              rsp, 16
                         mov              r11, 293
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1240:    .string          "n"
                         .section         .text
@@ -14420,7 +14524,15 @@ n346_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1242_240
                         add              rsp, 16;                             jmp   n345_lit_integer_β
 .Lbinop_α_1242_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n347_coerce_numeric_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n347_coerce_numeric_α
 n346_binop_β:           mov              r11, 295
                         add              rsp, 16;                             jmp   n345_lit_integer_β
                         .size            n346_binop_bx, .-n346_binop_bx
@@ -14598,7 +14710,15 @@ n352_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1251_240
                         add              rsp, 16;                             jmp   n351_lit_integer_β
 .Lbinop_α_1251_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n353_assign_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n353_assign_α
                         .size            n352_binop_bx, .-n352_binop_bx
                         .type            n353_assign_bx, @function
 n353_assign_bx:
@@ -14769,7 +14889,15 @@ n361_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1264_240
                         add              rsp, 16;                             jmp   n360_lit_integer_β
 .Lbinop_α_1264_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n362_var_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n362_var_α
 n361_binop_β:           mov              r11, 310
                         add              rsp, 16;                             jmp   n360_lit_integer_β
                         .size            n361_binop_bx, .-n361_binop_bx
@@ -14791,10 +14919,10 @@ n363_call_bx:
 n363_call_α:            sub              rsp, 16
                         mov              r11, 312
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1267:    .string          "a"
                         .section         .text
@@ -15169,10 +15297,10 @@ n379_call_bx:
 n379_call_α:            sub              rsp, 16
                         mov              r11, 328
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1289:    .string          "n"
                         .section         .text
@@ -15261,7 +15389,15 @@ n381_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1291_240
                         add              rsp, 16;                             jmp   n380_lit_integer_β
 .Lbinop_α_1291_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n382_assign_var_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n382_assign_var_α
 n381_binop_β:           mov              r11, 330
                         add              rsp, 16;                             jmp   n380_lit_integer_β
                         .size            n381_binop_bx, .-n381_binop_bx
@@ -15457,10 +15593,10 @@ n391_call_bx:
 n391_call_α:            sub              rsp, 16
                         mov              r11, 340
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1307:    .string          "n"
                         .section         .text
@@ -15553,7 +15689,15 @@ n393_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1309_240
                         add              rsp, 16;                             jmp   n392_var_β
 .Lbinop_α_1309_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n394_assign_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n394_assign_α
                         .size            n393_binop_bx, .-n393_binop_bx
                         .type            n394_assign_bx, @function
 n394_assign_bx:
@@ -15815,10 +15959,10 @@ n408_call_bx:
 n408_call_α:            sub              rsp, 16
                         mov              r11, 357
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1334:    .string          "n"
                         .section         .text
@@ -15999,10 +16143,10 @@ n416_call_bx:
 n416_call_α:            sub              rsp, 16
                         mov              r11, 365
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1349:    .string          "a"
                         .section         .text
@@ -16301,10 +16445,10 @@ n431_call_bx:
 n431_call_α:            sub              rsp, 16
                         mov              r11, 380
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1371:    .string          "n"
                         .section         .text
@@ -16393,7 +16537,15 @@ n433_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1373_240
                         add              rsp, 16;                             jmp   n432_lit_integer_β
 .Lbinop_α_1373_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n434_coerce_numeric_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n434_coerce_numeric_α
 n433_binop_β:           mov              r11, 382
                         add              rsp, 16;                             jmp   n432_lit_integer_β
                         .size            n433_binop_bx, .-n433_binop_bx
@@ -16571,7 +16723,15 @@ n439_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1382_240
                         add              rsp, 16;                             jmp   n438_lit_integer_β
 .Lbinop_α_1382_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n440_assign_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n440_assign_α
                         .size            n439_binop_bx, .-n439_binop_bx
                         .type            n440_assign_bx, @function
 n440_assign_bx:
@@ -16679,10 +16839,10 @@ n446_call_bx:
 n446_call_α:            sub              rsp, 16
                         mov              r11, 395
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1394:    .string          "a"
                         .section         .text
@@ -16786,7 +16946,15 @@ n449_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1397_240
                         add              rsp, 16;                             jmp   n448_lit_integer_β
 .Lbinop_α_1397_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n450_var_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n450_var_α
 n449_binop_β:           mov              r11, 398
                         add              rsp, 16;                             jmp   n448_lit_integer_β
                         .size            n449_binop_bx, .-n449_binop_bx
@@ -16808,10 +16976,10 @@ n451_call_bx:
 n451_call_α:            sub              rsp, 16
                         mov              r11, 400
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1400:    .string          "a"
                         .section         .text
@@ -17037,10 +17205,10 @@ n459_call_bx:
 n459_call_α:            sub              rsp, 16
                         mov              r11, 408
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1412:    .string          "a"
                         .section         .text
@@ -17283,10 +17451,10 @@ n469_call_bx:
 n469_call_α:            sub              rsp, 16
                         mov              r11, 418
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1427:    .string          "n"
                         .section         .text
@@ -17375,7 +17543,15 @@ n471_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1429_240
                         add              rsp, 16;                             jmp   n470_lit_integer_β
 .Lbinop_α_1429_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n472_assign_var_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n472_assign_var_α
 n471_binop_β:           mov              r11, 420
                         add              rsp, 16;                             jmp   n470_lit_integer_β
                         .size            n471_binop_bx, .-n471_binop_bx
@@ -17592,10 +17768,10 @@ n483_call_bx:
 n483_call_α:            sub              rsp, 16
                         mov              r11, 432
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1447:    .string          "a"
                         .section         .text
@@ -17771,10 +17947,10 @@ n492_call_bx:
 n492_call_α:            sub              rsp, 16
                         mov              r11, 441
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1461:    .string          "a"
                         .section         .text
@@ -17815,10 +17991,10 @@ n493_call_bx:
 n493_call_α:            sub              rsp, 16
                         mov              r11, 442
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1463:    .string          "PROTOTYPE"
                         .section         .text
@@ -18282,7 +18458,15 @@ n505_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1483_240
                         add              rsp, 16;                             jmp   n504_lit_integer_β
 .Lbinop_α_1483_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n506_assign_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n506_assign_α
                         .size            n505_binop_bx, .-n505_binop_bx
                         .type            n506_assign_bx, @function
 n506_assign_bx:
@@ -22438,10 +22622,10 @@ n557_call_bx:
 n557_call_α:            sub              rsp, 16
                         mov              r11, 506
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1591:    .string          "EVAL"
                         .section         .text
@@ -22627,10 +22811,10 @@ n566_call_bx:
 n566_call_α:            sub              rsp, 16
                         mov              r11, 515
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1603:    .string          "EVAL"
                         .section         .text
@@ -22816,10 +23000,10 @@ n575_call_bx:
 n575_call_α:            sub              rsp, 16
                         mov              r11, 524
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1615:    .string          "EVAL"
                         .section         .text
@@ -23009,14 +23193,14 @@ n583_call_bx:
 n583_call_α:            sub              rsp, 16
                         mov              r11, 532
                         sub              rsp, 32
-                        mov              r8, qword ptr [rsp + 64]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 8], r8
-                        mov              r8, qword ptr [rsp + 48]
-                        mov              qword ptr [rsp + 16], r8
-                        mov              r8, qword ptr [rsp + 56]
-                        mov              qword ptr [rsp + 24], r8
+                        mov              rax, qword ptr [rsp + 64]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 72]
+                        mov              qword ptr [rsp + 8], rax
+                        mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [rsp + 16], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [rsp + 24], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1626:    .string          "SNO$MKPAT"
                         .section         .text
@@ -23202,10 +23386,10 @@ n592_call_bx:
 n592_call_α:            sub              rsp, 16
                         mov              r11, 541
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1638:    .string          "EVAL"
                         .section         .text
@@ -23316,10 +23500,10 @@ n597_call_bx:
 n597_call_α:            sub              rsp, 16
                         mov              r11, 546
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1646:    .string          "SNO$NAME"
                         .section         .text
@@ -23892,7 +24076,15 @@ n624_binop_α:           sub              rsp, 16
                         cmp              al, 104;                             jne   .Lbinop_α_1686_240
                         add              rsp, 16;                             jmp   n623_lit_integer_β
 .Lbinop_α_1686_240:     mov              qword ptr [rsp + 0], rax             # result
-                        mov              qword ptr [rsp + 8], rdx;            jmp   n625_assign_var_α
+                        mov              qword ptr [rsp + 8], rdx
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n625_assign_var_α
 n624_binop_β:           mov              r11, 573
                         add              rsp, 16;                             jmp   n623_lit_integer_β
                         .size            n624_binop_bx, .-n624_binop_bx
@@ -24912,10 +25104,10 @@ n676_call_bx:
 n676_call_α:            sub              rsp, 16
                         mov              r11, 625
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1770:    .string          "SNO$NAME"
                         .section         .text
@@ -25153,10 +25345,10 @@ n688_call_bx:
 n688_call_α:            sub              rsp, 16
                         mov              r11, 637
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1789:    .string          "SNO$MKPAT"
                         .section         .text
@@ -25286,10 +25478,10 @@ n694_call_bx:
 n694_call_α:            sub              rsp, 16
                         mov              r11, 643
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1799:    .string          "SNO$MKPAT"
                         .section         .text
@@ -25902,14 +26094,14 @@ n715_call_bx:
 n715_call_α:            sub              rsp, 16
                         mov              r11, 664
                         sub              rsp, 32
-                        mov              r8, qword ptr [rsp + 64]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 8], r8
-                        mov              r8, qword ptr [rsp + 48]
-                        mov              qword ptr [rsp + 16], r8
-                        mov              r8, qword ptr [rsp + 56]
-                        mov              qword ptr [rsp + 24], r8
+                        mov              rax, qword ptr [rsp + 64]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 72]
+                        mov              qword ptr [rsp + 8], rax
+                        mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [rsp + 16], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [rsp + 24], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1827:    .string          "SNO$MKPAT"
                         .section         .text
@@ -26603,14 +26795,14 @@ n738_call_bx:
 n738_call_α:            sub              rsp, 16
                         mov              r11, 687
                         sub              rsp, 32
-                        mov              r8, qword ptr [rsp + 64]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 8], r8
-                        mov              r8, qword ptr [rsp + 48]
-                        mov              qword ptr [rsp + 16], r8
-                        mov              r8, qword ptr [rsp + 56]
-                        mov              qword ptr [rsp + 24], r8
+                        mov              rax, qword ptr [rsp + 64]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 72]
+                        mov              qword ptr [rsp + 8], rax
+                        mov              rax, qword ptr [rsp + 48]
+                        mov              qword ptr [rsp + 16], rax
+                        mov              rax, qword ptr [rsp + 56]
+                        mov              qword ptr [rsp + 24], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1859:    .string          "SNO$MKPAT"
                         .section         .text
@@ -26765,18 +26957,18 @@ n746_call_bx:
 n746_call_α:            sub              rsp, 16
                         mov              r11, 695
                         sub              rsp, 48
-                        mov              r8, qword ptr [rsp + 96]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 104]
-                        mov              qword ptr [rsp + 8], r8
-                        mov              r8, qword ptr [rsp + 80]
-                        mov              qword ptr [rsp + 16], r8
-                        mov              r8, qword ptr [rsp + 88]
-                        mov              qword ptr [rsp + 24], r8
-                        mov              r8, qword ptr [rsp + 64]
-                        mov              qword ptr [rsp + 32], r8
-                        mov              r8, qword ptr [rsp + 72]
-                        mov              qword ptr [rsp + 40], r8
+                        mov              rax, qword ptr [rsp + 96]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 104]
+                        mov              qword ptr [rsp + 8], rax
+                        mov              rax, qword ptr [rsp + 80]
+                        mov              qword ptr [rsp + 16], rax
+                        mov              rax, qword ptr [rsp + 88]
+                        mov              qword ptr [rsp + 24], rax
+                        mov              rax, qword ptr [rsp + 64]
+                        mov              qword ptr [rsp + 32], rax
+                        mov              rax, qword ptr [rsp + 72]
+                        mov              qword ptr [rsp + 40], rax
                         .section         .rodata
 .Lcall_α_bynamefnzd695: .string          "INPUT"
                         .section         .text
@@ -27743,10 +27935,10 @@ n766_call_bx:
 n766_call_α:            sub              rsp, 16
                         mov              r11, 715
                         sub              rsp, 16
-                        mov              r8, qword ptr [rsp + 32]
-                        mov              qword ptr [rsp + 0], r8
-                        mov              r8, qword ptr [rsp + 40]
-                        mov              qword ptr [rsp + 8], r8
+                        mov              rax, qword ptr [rsp + 32]
+                        mov              qword ptr [rsp + 0], rax
+                        mov              rax, qword ptr [rsp + 40]
+                        mov              qword ptr [rsp + 8], rax
                         .section         .rodata
 .Lcall_α_rkfnzd1902:    .string          "SIZE"
                         .section         .text
