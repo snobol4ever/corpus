@@ -35,3 +35,17 @@ misc17_halt_1_status_1	3
 # MEASURED, both reproducible on demand: `swipl -q -g main -t halt file.pl` -- the recipe that actually
 # drives the goal to completion instead of falling through -- exits 2, matching the row's own witness.
 throw_ite_directive_1	2
+#
+# ⛔ simple_program_103, hq_prolog 2026-09-23 (CEO-1197 blocking-set pass: test_gate_pl_ctx_leaf_thunks_
+# cannot_drop_a_ball). main's body ends `atom_to_term(A, bar(x), [])` with A UNBOUND -- ISO requires
+# atom_to_term/3's first argument to be an atom, so this is an instantiation_error. Before this session's
+# gate cure, atom_to_term was registered under the PLAIN PL_CTX_LEAF thunk in rtx_plunify.s, which never
+# reads back the C helper's ball, so the C side's already-correct instantiation_error was written into an
+# uninitialised stack slot and silently dropped -- the goal just failed, main's initialization goal failed
+# (not threw), and a failed (not thrown) initialization goal exits 0 (its own, separate, already-tracked
+# behaviour). Moving atom_to_term to PL_CTX_LEAF_BALL makes the same C-side error actually reach the
+# throw, exactly the fix's whole point -- confirmed against swipl (gprolog has no atom_to_term/3 at all):
+# `swipl -q -g main -t halt` on the identical goal shape raises instantiation_error and, per the same
+# uncaught-in-initialization recipe as throw_ite_directive_1 immediately above, exits 2. ALL.ref's stdout
+# ("foo(1,2)\n[]\n", main's output stops there either way) is correct and untouched; only rc is declared.
+simple_program_103	2
