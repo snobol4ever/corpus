@@ -2519,11 +2519,11 @@ Empty.new(x => 1)
 #----------------------------------------------------- 910 for_range_say_7 XFAIL
 #------------------------------------------------------- 911 say_try_die_7 XFAIL
 #---------------------------------------------------- 912 smartmatch_say_4 XFAIL
-#---------------------------------------- 913 class_method_range_replace_6 XFAIL
+#---------------------------------------- 913 class_method_range_replace_6
 #----------------------------------------- 914 class_method_say_replace_29 XFAIL
 (fetch hello POPULATE)
 #------------------------------------------ 915 class_method_say_replace_9 XFAIL
-#----------------------------------------- 916 class_method_say_replace_49 XFAIL
+#----------------------------------------- 916 class_method_say_replace_49
 #------------------------------------------- 917 for_range_array_replace_1 XFAIL
 1
 2

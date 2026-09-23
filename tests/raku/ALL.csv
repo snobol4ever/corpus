@@ -911,10 +911,10 @@ rank,entry,origin,family,kind,xfail,n_lines,modes,heap_kb,sub,multi,my,our,say,p
 910,for_range_say_7,smoke__map_range__smoke__map_range,smoke,block,1,4,"m3,m4",,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,1,0
 911,say_try_die_7,smoke__try_nested_inner_outer__smoke__try_nested_inner_outer,smoke,block,1,6,"m3,m4",,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,1,0,0,0
 912,smartmatch_say_4,smoke__smatch named capture__smoke__smatch named capture,smoke,block,1,1,"m3,m4",,0,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,0
-913,class_method_range_replace_6,smoke__required_unimplemented__smoke__required_unimplemented,smoke,block,1,3,"m3,m4",,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0
+913,class_method_range_replace_6,smoke__required_unimplemented__smoke__required_unimplemented,smoke,block,0,3,"m3,m4",,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0
 914,class_method_say_replace_29,smoke__meta_methods_role__smoke__meta_methods_role,smoke,block,1,3,"m3,m4",,0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 915,class_method_say_replace_9,smoke__build_inherited_order__smoke__build_inherited_order,smoke,block,1,3,"m3,m4",,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
-916,class_method_say_replace_49,smoke__role_conflict_unresolved__smoke__role_conflict_unresolved,smoke,block,1,4,"m3,m4",,0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
+916,class_method_say_replace_49,smoke__role_conflict_unresolved__smoke__role_conflict_unresolved,smoke,block,0,4,"m3,m4",,0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 917,for_range_array_replace_1,smoke__oob_read_in_loop_continues__smoke__oob_read_in_loop_continues,smoke,block,1,5,"m3,m4",,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,1,0
 918,class_method_say_replace_42,smoke__priv_attr_internal_ok__smoke__priv_attr_internal_ok,smoke,block,1,2,"m3,m4",,0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0
 919,class_method_say_replace_5,smoke__attr_mutate__smoke__attr_mutate,smoke,block,1,2,"m3,m4",,0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0

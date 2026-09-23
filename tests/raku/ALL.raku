@@ -4214,7 +4214,7 @@ class Dog is Animal { }
     say('after');
 #---------------------------------------------------- 912 smartmatch_say_4 XFAIL
  my $s = "hello"; if ($s ~~ /<word>([a-z]+)/) { say($<word>); } 
-#---------------------------------------- 913 class_method_range_replace_6 XFAIL
+#---------------------------------------- 913 class_method_range_replace_6
 role R { method needed() {...} }
 class C does R { }
  my $c = C.new(); say("made"); 
@@ -4226,7 +4226,7 @@ class Svc does Greet { method fetch() { return "ok"; } }
 class A { has $.a; submethod BUILD(:$a) { say("buildA"); $!a = $a; } }
 class B is A { has $.b; submethod BUILD(:$b) { say("buildB"); $!b = $b; } method TWEAK() { say("tweakB"); } }
  my $o = B.new(a => 1, b => 2); say($o.a); say($o.b); 
-#----------------------------------------- 916 class_method_say_replace_49 XFAIL
+#----------------------------------------- 916 class_method_say_replace_49
 role A { method m() { return "a"; } }
 role B { method m() { return "b"; } }
 class C does A does B { }
