@@ -52,7 +52,6 @@
 #
 ############################################################################
 
-link options, post
 
 global resword, linenum, letters, alphas, var, buffer, qflag, infile, xflag
 global inmaxcol, inlmarg, inchunk, localvar, lin
@@ -63,7 +62,6 @@ procedure main(args)
 
    local word, w2, p, prec, i, L, ln, switches, nfile;
 
-   Init__("ipxref");
 
    resword := ["break","by","case","default","do","dynamic","else","end",
       "every","fail","global","if","initial","link", "local","next","not",
@@ -146,7 +144,6 @@ procedure main(args)
       put(L,left(p.pname,16," ") || p.begline || "-" || p.lastline);
    every write(!sort(L));
 
-   Term__();
 
 end
 
@@ -236,4 +233,38 @@ procedure format(T)
    L := sort(L);
    push(L,"variable\tprocedure\t\tline numbers\n");
    return L;
+end
+
+# ---- options: inlined from the 1993 Icon benchmark suite's options.icn (was `link options`), so this program is
+# ---- one self-contained file that Arizona Icon and SCRIP read byte-identically (CEO-567 / CEO-1221).
+procedure options(arg,optstring)
+   local x,i,c,otab,flist,o,p
+   /optstring := string(&letters);
+   otab := table();
+   flist := [];
+   while x := get(arg) do
+      x ? {
+         if ="-" & not pos(0) then {
+            if ="-" & pos(0) then break;
+            while c := move(1) do
+               if i := find(c,optstring) + 1 then
+                  otab[c] :=
+                     if any(':+.',o := optstring[i]) then {
+                        p := "" ~== tab(0) | get(arg) |
+                              stop("No parameter following -",c);
+                        case o of {
+                           ":": p;
+                           "+": integer(p) |
+                                 stop("-",c," needs numeric parameter");
+                           ".": real(p) |
+                                 stop("-",c," needs numeric parameter")
+                           }
+                        }
+                     else 1
+               else stop("Unrecognized option: -",c)
+         }
+         else put(flist,x)
+      };
+   while push(arg,pull(flist));
+   return otab;
 end

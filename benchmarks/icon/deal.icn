@@ -44,14 +44,12 @@
 #
 ############################################################################
 
-link options, post, shuffle
 
 global deck, deckimage, handsize, suitsize, denom, rank, blanker
 
 procedure main(args)
    local hands, opts;
 
-   Init__("deal");
    deck := deckimage := string(&letters); # initialize global variables
    handsize := suitsize := *deck / 4;
    rank := "AKQJT98765432";
@@ -65,7 +63,6 @@ procedure main(args)
    every 1 to hands do
       display();
 
-   Term__();
 
 end
 
@@ -116,4 +113,46 @@ end
 #
 procedure arrange(hand,suit)
    return map(map(hand,deckimage,suit) -- ' ',denom,rank);
+end
+
+# ---- options: inlined from the 1993 Icon benchmark suite's options.icn (was `link options`), so this program is
+# ---- one self-contained file that Arizona Icon and SCRIP read byte-identically (CEO-567 / CEO-1221).
+procedure options(arg,optstring)
+   local x,i,c,otab,flist,o,p
+   /optstring := string(&letters);
+   otab := table();
+   flist := [];
+   while x := get(arg) do
+      x ? {
+         if ="-" & not pos(0) then {
+            if ="-" & pos(0) then break;
+            while c := move(1) do
+               if i := find(c,optstring) + 1 then
+                  otab[c] :=
+                     if any(':+.',o := optstring[i]) then {
+                        p := "" ~== tab(0) | get(arg) |
+                              stop("No parameter following -",c);
+                        case o of {
+                           ":": p;
+                           "+": integer(p) |
+                                 stop("-",c," needs numeric parameter");
+                           ".": real(p) |
+                                 stop("-",c," needs numeric parameter")
+                           }
+                        }
+                     else 1
+               else stop("Unrecognized option: -",c)
+         }
+         else put(flist,x)
+      };
+   while push(arg,pull(flist));
+   return otab;
+end
+
+# ---- shuffle: inlined from the 1993 Icon benchmark suite's shuffle.icn (was `link shuffle`), so this program is
+# ---- one self-contained file that Arizona Icon and SCRIP read byte-identically (CEO-567 / CEO-1221).
+procedure shuffle(x)
+   x := string(x);
+   every !x :=: ?x;
+   return x;
 end

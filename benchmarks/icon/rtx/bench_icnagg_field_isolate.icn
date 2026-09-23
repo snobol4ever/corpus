@@ -21,11 +21,11 @@
 #
 #  THE TWO PROPERTIES INHERITED FROM s211/s212, BOTH LEARNED THE HARD WAY:
 #
-#  1. SELF-TIMED WITH &time, MEASURED INSIDE THE PROGRAM (s211).  A whole-
-#     process wall clock on an Icon benchmark is ~20:1 compile-phase
-#     dominated at these sizes; a window opened after the program is already
-#     running excludes the compiler by construction, not by subtraction.
-#     The harness reads the "ms: " line.
+#  1. PRISTINE KERNEL (CEO-567, CEO-1221; hq_icon 2026-09-23).  Until 2026-09-23 this program timed
+#     itself with &time and wrote "ms: " for the harness.  The timing now belongs to the generated
+#     wrapper (fixed iterations, fixed time, process wrapper), which also excludes the compile phase
+#     -- the reason the window used to live in the source.  The source computes and prints its
+#     result signature, which its .ref pins; nothing else.
 #
 #  2. ALLOCATION IS HOISTED OUT OF THE TIMED LOOP (s211).  The record is
 #     constructed ONCE, before the window opens.  The RTX-6 benchmark was
@@ -45,14 +45,13 @@
 record wide(f01, f02, f03, f04, f05, f06, f07, f08, f09, f10)
 
 procedure main()
-   local i, n, c, t0, r;
+   local i, n, c, r;
 
    n := 1600000;
    c := 0;
 
    r := wide(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-   t0 := &time;
    every i := 1 to n do {
       c := c + r.f01 + r.f02 + r.f03 + r.f04 + r.f05;
       c := c + r.f06 + r.f07 + r.f08 + r.f09 + r.f10;
@@ -61,6 +60,5 @@ procedure main()
    };
 
    write("chk: ", c);
-   write("ms: ", &time - t0);
 
 end

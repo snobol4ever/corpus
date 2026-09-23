@@ -1,3 +1,9 @@
+# corpus/benchmarks/icon/rtx — RTX-ladder workloads, PRISTINE KERNELS since 2026-09-23
+
+⛔ **THE SELF-TIMING DESCRIBED BELOW IS HISTORY (hq_icon 2026-09-23, CEO-567 THE KERNEL CONVENTION, CEO-1221).** Each program here now computes and prints its result signature (`chk:` / `acc:`) and nothing else; its `.ref` is cut from Arizona iconx and pins that value, and SCRIP matches it byte for byte in both modes. There is no `&time` window and no `ms:` line in any source: the timing (fixed iterations, fixed time, process wrapper) is GENERATED around the kernel by the Icon three-angle harness, which is also what keeps the compile phase out of the number -- the reason the window used to live in the source. `scripts/bench_rtx_3arm.sh` read the old `ms:` line and is superseded by that harness. The original text follows, kept for its measurements.
+
+---
+
 # corpus/benchmarks/icon/rtx — SELF-TIMED ICON WORKLOADS FOR THE RTX LADDER
 
 Authored s211-ICN to discharge the first half of **RTX-0b-ICN**, which had blocked every ICON-RTX
