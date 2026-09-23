@@ -1214,6 +1214,8 @@ n87_call_β:             mov              r11, 88;                             j
                         .size            n87_call_bx, .-n87_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $db_decl$2F0_step:
+                        test             r15, r15
+                                                                              jne   $db_decl$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 128]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -1227,6 +1229,10 @@ $db_decl$2F0_step:
                         test             rax, rax
                                                                               je    $db_decl$2F0_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+$db_decl$2F0_step_ball:
+                        mov              r13, qword ptr [rbp + 152]
+                                                                              jmp   $db_decl$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 $db_decl$2F0_res:
                         add              rsp, 8
@@ -1784,6 +1790,8 @@ query_siblings$2F1_ret0:
                                                                               jmp   query_siblings$2F1_γ
 #-----------------------------------------------------------------------------------------------------------------------
 query_siblings$2F1_step:
+                        test             r15, r15
+                                                                              jne   query_siblings$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 368]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -1801,6 +1809,10 @@ query_siblings$2F1_step:
                         test             rax, rax
                                                                               je    query_siblings$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+query_siblings$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 392]
+                                                                              jmp   query_siblings$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 query_siblings$2F1_res:
                         add              rsp, 8
@@ -2368,6 +2380,8 @@ query_cousins$2F1_ret0:
                                                                               jmp   query_cousins$2F1_γ
 #-----------------------------------------------------------------------------------------------------------------------
 query_cousins$2F1_step:
+                        test             r15, r15
+                                                                              jne   query_cousins$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 368]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -2385,6 +2399,10 @@ query_cousins$2F1_step:
                         test             rax, rax
                                                                               je    query_cousins$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+query_cousins$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 392]
+                                                                              jmp   query_cousins$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 query_cousins$2F1_res:
                         add              rsp, 8
@@ -3509,6 +3527,8 @@ join_lines$2F2_ret1:
                                                                               jmp   join_lines$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 join_lines$2F2_step:
+                        test             r15, r15
+                                                                              jne   join_lines$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 992]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -3530,6 +3550,10 @@ join_lines$2F2_step:
                         test             rax, rax
                                                                               je    join_lines$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+join_lines$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 1016]
+                                                                              jmp   join_lines$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 join_lines$2F2_alt1:
                         xor              eax, eax
@@ -4105,6 +4129,8 @@ query_generations$2F1_ret0:
                                                                               jmp   query_generations$2F1_γ
 #-----------------------------------------------------------------------------------------------------------------------
 query_generations$2F1_step:
+                        test             r15, r15
+                                                                              jne   query_generations$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 368]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -4122,6 +4148,10 @@ query_generations$2F1_step:
                         test             rax, rax
                                                                               je    query_generations$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+query_generations$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 392]
+                                                                              jmp   query_generations$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 query_generations$2F1_res:
                         add              rsp, 8
@@ -4315,6 +4345,8 @@ n437_call_β:            mov              r11, 193;                            j
                         .size            n437_call_bx, .-n437_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 assert_person$2F4_step:
+                        test             r15, r15
+                                                                              jne   assert_person$2F4_step_ball
                         mov              rdi, qword ptr [rbp + 224]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -4328,6 +4360,10 @@ assert_person$2F4_step:
                         test             rax, rax
                                                                               je    assert_person$2F4_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+assert_person$2F4_step_ball:
+                        mov              r13, qword ptr [rbp + 248]
+                                                                              jmp   assert_person$2F4_ω
 #-----------------------------------------------------------------------------------------------------------------------
 assert_person$2F4_res:
                         add              rsp, 8
@@ -4886,6 +4922,8 @@ query_grandparents$2F1_ret0:
                                                                               jmp   query_grandparents$2F1_γ
 #-----------------------------------------------------------------------------------------------------------------------
 query_grandparents$2F1_step:
+                        test             r15, r15
+                                                                              jne   query_grandparents$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 368]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -4903,6 +4941,10 @@ query_grandparents$2F1_step:
                         test             rax, rax
                                                                               je    query_grandparents$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+query_grandparents$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 392]
+                                                                              jmp   query_grandparents$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 query_grandparents$2F1_res:
                         add              rsp, 8
@@ -5408,6 +5450,8 @@ findall_length$2F2_ret1:
                                                                               jmp   findall_length$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 findall_length$2F2_step:
+                        test             r15, r15
+                                                                              jne   findall_length$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 256]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -5427,6 +5471,10 @@ findall_length$2F2_step:
                         test             rax, rax
                                                                               je    findall_length$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+findall_length$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 280]
+                                                                              jmp   findall_length$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 findall_length$2F2_alt1:
                         xor              eax, eax
@@ -6756,6 +6804,8 @@ anc_line$2F2_ret0:
                                                                               jmp   anc_line$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 anc_line$2F2_step:
+                        test             r15, r15
+                                                                              jne   anc_line$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 672]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -6785,6 +6835,10 @@ anc_line$2F2_step:
                         test             rax, rax
                                                                               je    anc_line$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+anc_line$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 696]
+                                                                              jmp   anc_line$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 anc_line$2F2_res:
                         add              rsp, 8
@@ -7462,6 +7516,8 @@ sibling$2F2_ret0:
                                                                               jmp   sibling$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 sibling$2F2_step:
+                        test             r15, r15
+                                                                              jne   sibling$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 544]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -7477,6 +7533,10 @@ sibling$2F2_step:
                         test             rax, rax
                                                                               je    sibling$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+sibling$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 568]
+                                                                              jmp   sibling$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 sibling$2F2_res:
                         add              rsp, 8
@@ -8300,6 +8360,8 @@ cousin$2F2_ret0:
                                                                               jmp   cousin$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 cousin$2F2_step:
+                        test             r15, r15
+                                                                              jne   cousin$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 624]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -8317,6 +8379,10 @@ cousin$2F2_step:
                         test             rax, rax
                                                                               je    cousin$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+cousin$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 648]
+                                                                              jmp   cousin$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 cousin$2F2_res:
                         add              rsp, 8
@@ -8401,6 +8467,8 @@ scrip_init$2F0_α_body:
                                                                               jmp   scrip_init$2F0_γ
 #-----------------------------------------------------------------------------------------------------------------------
 scrip_init$2F0_step:
+                        test             r15, r15
+                                                                              jne   scrip_init$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 64]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -8414,6 +8482,10 @@ scrip_init$2F0_step:
                         test             rax, rax
                                                                               je    scrip_init$2F0_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+scrip_init$2F0_step_ball:
+                        mov              r13, qword ptr [rbp + 88]
+                                                                              jmp   scrip_init$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 scrip_init$2F0_res:
                         add              rsp, 8
@@ -9587,6 +9659,8 @@ gen_line$2F1_ret0:
                                                                               jmp   gen_line$2F1_γ
 #-----------------------------------------------------------------------------------------------------------------------
 gen_line$2F1_step:
+                        test             r15, r15
+                                                                              jne   gen_line$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 624]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -9616,6 +9690,10 @@ gen_line$2F1_step:
                         test             rax, rax
                                                                               je    gen_line$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+gen_line$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 648]
+                                                                              jmp   gen_line$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 gen_line$2F1_res:
                         add              rsp, 8
@@ -10896,6 +10974,8 @@ sib_line$2F1_ret0:
                                                                               jmp   sib_line$2F1_γ
 #-----------------------------------------------------------------------------------------------------------------------
 sib_line$2F1_step:
+                        test             r15, r15
+                                                                              jne   sib_line$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 672]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -10927,6 +11007,10 @@ sib_line$2F1_step:
                         test             rax, rax
                                                                               je    sib_line$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+sib_line$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 696]
+                                                                              jmp   sib_line$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 sib_line$2F1_res:
                         add              rsp, 8
@@ -11105,6 +11189,8 @@ n1046_call_β:           mov              r11, 431;                            j
                         .size            n1046_call_bx, .-n1046_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 assert_parent$2F2_step:
+                        test             r15, r15
+                                                                              jne   assert_parent$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 160]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -11118,6 +11204,10 @@ assert_parent$2F2_step:
                         test             rax, rax
                                                                               je    assert_parent$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+assert_parent$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 184]
+                                                                              jmp   assert_parent$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 assert_parent$2F2_res:
                         add              rsp, 8
@@ -12392,6 +12482,8 @@ gp_line$2F1_ret0:
                                                                               jmp   gp_line$2F1_γ
 #-----------------------------------------------------------------------------------------------------------------------
 gp_line$2F1_step:
+                        test             r15, r15
+                                                                              jne   gp_line$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 672]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -12423,6 +12515,10 @@ gp_line$2F1_step:
                         test             rax, rax
                                                                               je    gp_line$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+gp_line$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 696]
+                                                                              jmp   gp_line$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 gp_line$2F1_res:
                         add              rsp, 8
@@ -12994,6 +13090,8 @@ grandparent$2F2_ret0:
                                                                               jmp   grandparent$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 grandparent$2F2_step:
+                        test             r15, r15
+                                                                              jne   grandparent$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 240]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -13009,6 +13107,10 @@ grandparent$2F2_step:
                         test             rax, rax
                                                                               je    grandparent$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+grandparent$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 264]
+                                                                              jmp   grandparent$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 grandparent$2F2_res:
                         add              rsp, 8
@@ -14287,6 +14389,8 @@ cou_line$2F1_ret0:
                                                                               jmp   cou_line$2F1_γ
 #-----------------------------------------------------------------------------------------------------------------------
 cou_line$2F1_step:
+                        test             r15, r15
+                                                                              jne   cou_line$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 672]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -14318,6 +14422,10 @@ cou_line$2F1_step:
                         test             rax, rax
                                                                               je    cou_line$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+cou_line$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 696]
+                                                                              jmp   cou_line$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 cou_line$2F1_res:
                         add              rsp, 8
@@ -15072,6 +15180,8 @@ ancestor$2F2_ret1:
                                                                               jmp   ancestor$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 ancestor$2F2_step:
+                        test             r15, r15
+                                                                              jne   ancestor$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 272]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -15087,6 +15197,10 @@ ancestor$2F2_step:
                         test             rax, rax
                                                                               je    ancestor$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+ancestor$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 296]
+                                                                              jmp   ancestor$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 ancestor$2F2_alt1:
                         xor              eax, eax
@@ -15687,6 +15801,8 @@ query_ancestors$2F2_ret0:
                                                                               jmp   query_ancestors$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 query_ancestors$2F2_step:
+                        test             r15, r15
+                                                                              jne   query_ancestors$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 400]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -15704,6 +15820,10 @@ query_ancestors$2F2_step:
                         test             rax, rax
                                                                               je    query_ancestors$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+query_ancestors$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 424]
+                                                                              jmp   query_ancestors$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 query_ancestors$2F2_res:
                         add              rsp, 8
@@ -16616,6 +16736,8 @@ query_count$2F1_ret0:
                                                                               jmp   query_count$2F1_γ
 #-----------------------------------------------------------------------------------------------------------------------
 query_count$2F1_step:
+                        test             r15, r15
+                                                                              jne   query_count$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 608]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -16643,6 +16765,10 @@ query_count$2F1_step:
                         test             rax, rax
                                                                               je    query_count$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+query_count$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 632]
+                                                                              jmp   query_count$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 query_count$2F1_res:
                         add              rsp, 8
@@ -16722,6 +16848,8 @@ main$2F0_α_body:
                                                                               jmp   main$2F0_γ
 #-----------------------------------------------------------------------------------------------------------------------
 main$2F0_step:
+                        test             r15, r15
+                                                                              jne   main$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 64]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -16735,6 +16863,10 @@ main$2F0_step:
                         test             rax, rax
                                                                               je    main$2F0_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+main$2F0_step_ball:
+                        mov              r13, qword ptr [rbp + 88]
+                                                                              jmp   main$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main$2F0_res:
                         add              rsp, 8
@@ -17649,6 +17781,8 @@ generation$2F2_ret1:
                                                                               jmp   generation$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 generation$2F2_step:
+                        test             r15, r15
+                                                                              jne   generation$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 688]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -17666,6 +17800,10 @@ generation$2F2_step:
                         test             rax, rax
                                                                               je    generation$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+generation$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 712]
+                                                                              jmp   generation$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 generation$2F2_alt1:
                         xor              eax, eax
@@ -18789,6 +18927,8 @@ n1639_call_β:           mov              r11, 695;                            j
                         .size            n1639_call_bx, .-n1639_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $fc$2F3_step:
+                        test             r15, r15
+                                                                              jne   $fc$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 336]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -18810,6 +18950,10 @@ $fc$2F3_step:
                         test             rax, rax
                                                                               je    $fc$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+$fc$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 360]
+                                                                              jmp   $fc$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 $fc$2F3_alt1:
                         lea              rax, [rip + $fc$2F3_alt2]
@@ -19603,6 +19747,8 @@ $2C$2F2_ret1:
                                                                               jmp   $2C$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 $2C$2F2_step:
+                        test             r15, r15
+                                                                              jne   $2C$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 512]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -19620,6 +19766,10 @@ $2C$2F2_step:
                         test             rax, rax
                                                                               je    $2C$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+$2C$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 536]
+                                                                              jmp   $2C$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 $2C$2F2_alt1:
                         xor              eax, eax
@@ -21837,6 +21987,8 @@ $3B$2F2_ret5:
                                                                               jmp   $3B$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 $3B$2F2_step:
+                        test             r15, r15
+                                                                              jne   $3B$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 1552]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -21854,6 +22006,10 @@ $3B$2F2_step:
                         test             rax, rax
                                                                               je    $3B$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+$3B$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 1576]
+                                                                              jmp   $3B$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 $3B$2F2_alt1:
                         lea              rax, [rip + $3B$2F2_alt2]
@@ -22243,6 +22399,8 @@ $2D$3E$2F2_ret0:
                                                                               jmp   $2D$3E$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 $2D$3E$2F2_step:
+                        test             r15, r15
+                                                                              jne   $2D$3E$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 224]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -22256,6 +22414,10 @@ $2D$3E$2F2_step:
                         test             rax, rax
                                                                               je    $2D$3E$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+$2D$3E$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 248]
+                                                                              jmp   $2D$3E$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 $2D$3E$2F2_res:
                         add              rsp, 8
@@ -22562,6 +22724,8 @@ $2A$2D$3E$2F2_ret0:
                                                                               jmp   $2A$2D$3E$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 $2A$2D$3E$2F2_step:
+                        test             r15, r15
+                                                                              jne   $2A$2D$3E$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 224]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -22575,6 +22739,10 @@ $2A$2D$3E$2F2_step:
                         test             rax, rax
                                                                               je    $2A$2D$3E$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+$2A$2D$3E$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 248]
+                                                                              jmp   $2A$2D$3E$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 $2A$2D$3E$2F2_res:
                         add              rsp, 8
@@ -23065,6 +23233,8 @@ if$2F3_ret0:
                                                                               jmp   if$2F3_γ
 #-----------------------------------------------------------------------------------------------------------------------
 if$2F3_step:
+                        test             r15, r15
+                                                                              jne   if$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 448]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -23078,6 +23248,10 @@ if$2F3_step:
                         test             rax, rax
                                                                               je    if$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+if$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 472]
+                                                                              jmp   if$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 if$2F3_res:
                         add              rsp, 8
@@ -23200,6 +23374,8 @@ n2036_call_β:           mov              r11, 803;                            j
                         .size            n2036_call_bx, .-n2036_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 var$2F1_step:
+                        test             r15, r15
+                                                                              jne   var$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -23213,6 +23389,10 @@ var$2F1_step:
                         test             rax, rax
                                                                               je    var$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+var$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   var$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 var$2F1_res:
                         add              rsp, 8
@@ -23320,6 +23500,8 @@ n2041_call_β:           mov              r11, 805;                            j
                         .size            n2041_call_bx, .-n2041_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 nonvar$2F1_step:
+                        test             r15, r15
+                                                                              jne   nonvar$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -23333,6 +23515,10 @@ nonvar$2F1_step:
                         test             rax, rax
                                                                               je    nonvar$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+nonvar$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   nonvar$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 nonvar$2F1_res:
                         add              rsp, 8
@@ -23440,6 +23626,8 @@ n2046_call_β:           mov              r11, 807;                            j
                         .size            n2046_call_bx, .-n2046_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 atom$2F1_step:
+                        test             r15, r15
+                                                                              jne   atom$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -23453,6 +23641,10 @@ atom$2F1_step:
                         test             rax, rax
                                                                               je    atom$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+atom$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   atom$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 atom$2F1_res:
                         add              rsp, 8
@@ -23560,6 +23752,8 @@ n2051_call_β:           mov              r11, 809;                            j
                         .size            n2051_call_bx, .-n2051_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 number$2F1_step:
+                        test             r15, r15
+                                                                              jne   number$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -23573,6 +23767,10 @@ number$2F1_step:
                         test             rax, rax
                                                                               je    number$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+number$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   number$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 number$2F1_res:
                         add              rsp, 8
@@ -23680,6 +23878,8 @@ n2056_call_β:           mov              r11, 811;                            j
                         .size            n2056_call_bx, .-n2056_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 integer$2F1_step:
+                        test             r15, r15
+                                                                              jne   integer$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -23693,6 +23893,10 @@ integer$2F1_step:
                         test             rax, rax
                                                                               je    integer$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+integer$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   integer$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 integer$2F1_res:
                         add              rsp, 8
@@ -23800,6 +24004,8 @@ n2061_call_β:           mov              r11, 813;                            j
                         .size            n2061_call_bx, .-n2061_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 float$2F1_step:
+                        test             r15, r15
+                                                                              jne   float$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -23813,6 +24019,10 @@ float$2F1_step:
                         test             rax, rax
                                                                               je    float$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+float$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   float$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 float$2F1_res:
                         add              rsp, 8
@@ -23920,6 +24130,8 @@ n2066_call_β:           mov              r11, 815;                            j
                         .size            n2066_call_bx, .-n2066_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 atomic$2F1_step:
+                        test             r15, r15
+                                                                              jne   atomic$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -23933,6 +24145,10 @@ atomic$2F1_step:
                         test             rax, rax
                                                                               je    atomic$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+atomic$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   atomic$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 atomic$2F1_res:
                         add              rsp, 8
@@ -24040,6 +24256,8 @@ n2071_call_β:           mov              r11, 817;                            j
                         .size            n2071_call_bx, .-n2071_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 compound$2F1_step:
+                        test             r15, r15
+                                                                              jne   compound$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -24053,6 +24271,10 @@ compound$2F1_step:
                         test             rax, rax
                                                                               je    compound$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+compound$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   compound$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 compound$2F1_res:
                         add              rsp, 8
@@ -24160,6 +24382,8 @@ n2076_call_β:           mov              r11, 819;                            j
                         .size            n2076_call_bx, .-n2076_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 callable$2F1_step:
+                        test             r15, r15
+                                                                              jne   callable$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -24173,6 +24397,10 @@ callable$2F1_step:
                         test             rax, rax
                                                                               je    callable$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+callable$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   callable$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 callable$2F1_res:
                         add              rsp, 8
@@ -24280,6 +24508,8 @@ n2081_call_β:           mov              r11, 821;                            j
                         .size            n2081_call_bx, .-n2081_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 ground$2F1_step:
+                        test             r15, r15
+                                                                              jne   ground$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -24293,6 +24523,10 @@ ground$2F1_step:
                         test             rax, rax
                                                                               je    ground$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+ground$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   ground$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 ground$2F1_res:
                         add              rsp, 8
@@ -24400,6 +24634,8 @@ n2086_call_β:           mov              r11, 823;                            j
                         .size            n2086_call_bx, .-n2086_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 is_list$2F1_step:
+                        test             r15, r15
+                                                                              jne   is_list$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -24413,6 +24649,10 @@ is_list$2F1_step:
                         test             rax, rax
                                                                               je    is_list$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+is_list$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   is_list$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 is_list$2F1_res:
                         add              rsp, 8
@@ -24520,6 +24760,8 @@ n2091_call_β:           mov              r11, 825;                            j
                         .size            n2091_call_bx, .-n2091_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 acyclic_term$2F1_step:
+                        test             r15, r15
+                                                                              jne   acyclic_term$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -24533,6 +24775,10 @@ acyclic_term$2F1_step:
                         test             rax, rax
                                                                               je    acyclic_term$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+acyclic_term$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   acyclic_term$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 acyclic_term$2F1_res:
                         add              rsp, 8
@@ -24650,6 +24896,8 @@ n2097_call_β:           mov              r11, 828;                            j
                         .size            n2097_call_bx, .-n2097_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $3D$3D$2F2_step:
+                        test             r15, r15
+                                                                              jne   $3D$3D$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -24663,6 +24911,10 @@ $3D$3D$2F2_step:
                         test             rax, rax
                                                                               je    $3D$3D$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+$3D$3D$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   $3D$3D$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 $3D$3D$2F2_res:
                         add              rsp, 8
@@ -24779,6 +25031,8 @@ n2105_call_β:           mov              r11, 831;                            j
                         .size            n2105_call_bx, .-n2105_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $5C$3D$3D$2F2_step:
+                        test             r15, r15
+                                                                              jne   $5C$3D$3D$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -24792,6 +25046,10 @@ $5C$3D$3D$2F2_step:
                         test             rax, rax
                                                                               je    $5C$3D$3D$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+$5C$3D$3D$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   $5C$3D$3D$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 $5C$3D$3D$2F2_res:
                         add              rsp, 8
@@ -24908,6 +25166,8 @@ n2113_call_β:           mov              r11, 834;                            j
                         .size            n2113_call_bx, .-n2113_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3C$2F2_step:
+                        test             r15, r15
+                                                                              jne   $40$3C$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -24921,6 +25181,10 @@ $40$3C$2F2_step:
                         test             rax, rax
                                                                               je    $40$3C$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+$40$3C$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   $40$3C$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3C$2F2_res:
                         add              rsp, 8
@@ -25037,6 +25301,8 @@ n2121_call_β:           mov              r11, 837;                            j
                         .size            n2121_call_bx, .-n2121_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3D$3C$2F2_step:
+                        test             r15, r15
+                                                                              jne   $40$3D$3C$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -25050,6 +25316,10 @@ $40$3D$3C$2F2_step:
                         test             rax, rax
                                                                               je    $40$3D$3C$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+$40$3D$3C$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   $40$3D$3C$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3D$3C$2F2_res:
                         add              rsp, 8
@@ -25166,6 +25436,8 @@ n2129_call_β:           mov              r11, 840;                            j
                         .size            n2129_call_bx, .-n2129_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3E$2F2_step:
+                        test             r15, r15
+                                                                              jne   $40$3E$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -25179,6 +25451,10 @@ $40$3E$2F2_step:
                         test             rax, rax
                                                                               je    $40$3E$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+$40$3E$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   $40$3E$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3E$2F2_res:
                         add              rsp, 8
@@ -25295,6 +25571,8 @@ n2137_call_β:           mov              r11, 843;                            j
                         .size            n2137_call_bx, .-n2137_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3E$3D$2F2_step:
+                        test             r15, r15
+                                                                              jne   $40$3E$3D$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -25308,6 +25586,10 @@ $40$3E$3D$2F2_step:
                         test             rax, rax
                                                                               je    $40$3E$3D$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+$40$3E$3D$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   $40$3E$3D$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 $40$3E$3D$2F2_res:
                         add              rsp, 8
@@ -25433,6 +25715,8 @@ n2146_call_β:           mov              r11, 847;                            j
                         .size            n2146_call_bx, .-n2146_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 compare$2F3_step:
+                        test             r15, r15
+                                                                              jne   compare$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -25446,6 +25730,10 @@ compare$2F3_step:
                         test             rax, rax
                                                                               je    compare$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+compare$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 200]
+                                                                              jmp   compare$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 compare$2F3_res:
                         add              rsp, 8
@@ -25632,6 +25920,8 @@ n2159_call_β:           mov              r11, 853;                            j
                         .size            n2159_call_bx, .-n2159_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 functor$2F3_step:
+                        test             r15, r15
+                                                                              jne   functor$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 240]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -25645,6 +25935,10 @@ functor$2F3_step:
                         test             rax, rax
                                                                               je    functor$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+functor$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 264]
+                                                                              jmp   functor$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 functor$2F3_res:
                         add              rsp, 8
@@ -25831,6 +26125,8 @@ n2174_call_β:           mov              r11, 859;                            j
                         .size            n2174_call_bx, .-n2174_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 arg$2F3_step:
+                        test             r15, r15
+                                                                              jne   arg$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 240]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -25844,6 +26140,10 @@ arg$2F3_step:
                         test             rax, rax
                                                                               je    arg$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+arg$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 264]
+                                                                              jmp   arg$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 arg$2F3_res:
                         add              rsp, 8
@@ -25960,6 +26260,8 @@ n2186_call_β:           mov              r11, 862;                            j
                         .size            n2186_call_bx, .-n2186_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $3D..$2F2_step:
+                        test             r15, r15
+                                                                              jne   $3D..$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -25973,6 +26275,10 @@ $3D..$2F2_step:
                         test             rax, rax
                                                                               je    $3D..$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+$3D..$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   $3D..$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 $3D..$2F2_res:
                         add              rsp, 8
@@ -26089,6 +26395,8 @@ n2194_call_β:           mov              r11, 865;                            j
                         .size            n2194_call_bx, .-n2194_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 copy_term$2F2_step:
+                        test             r15, r15
+                                                                              jne   copy_term$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -26102,6 +26410,10 @@ copy_term$2F2_step:
                         test             rax, rax
                                                                               je    copy_term$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+copy_term$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   copy_term$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 copy_term$2F2_res:
                         add              rsp, 8
@@ -26218,6 +26530,8 @@ n2202_call_β:           mov              r11, 868;                            j
                         .size            n2202_call_bx, .-n2202_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 term_variables$2F2_step:
+                        test             r15, r15
+                                                                              jne   term_variables$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -26231,6 +26545,10 @@ term_variables$2F2_step:
                         test             rax, rax
                                                                               je    term_variables$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+term_variables$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   term_variables$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 term_variables$2F2_res:
                         add              rsp, 8
@@ -26357,6 +26675,8 @@ n2211_call_β:           mov              r11, 872;                            j
                         .size            n2211_call_bx, .-n2211_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 numbervars$2F3_step:
+                        test             r15, r15
+                                                                              jne   numbervars$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -26370,6 +26690,10 @@ numbervars$2F3_step:
                         test             rax, rax
                                                                               je    numbervars$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+numbervars$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 200]
+                                                                              jmp   numbervars$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 numbervars$2F3_res:
                         add              rsp, 8
@@ -26477,6 +26801,8 @@ n2220_call_β:           mov              r11, 874;                            j
                         .size            n2220_call_bx, .-n2220_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 numbervars$2F1_step:
+                        test             r15, r15
+                                                                              jne   numbervars$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -26490,6 +26816,10 @@ numbervars$2F1_step:
                         test             rax, rax
                                                                               je    numbervars$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+numbervars$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   numbervars$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 numbervars$2F1_res:
                         add              rsp, 8
@@ -26606,6 +26936,8 @@ n2226_call_β:           mov              r11, 877;                            j
                         .size            n2226_call_bx, .-n2226_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 succ$2F2_step:
+                        test             r15, r15
+                                                                              jne   succ$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -26619,6 +26951,10 @@ succ$2F2_step:
                         test             rax, rax
                                                                               je    succ$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+succ$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   succ$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 succ$2F2_res:
                         add              rsp, 8
@@ -26744,6 +27080,8 @@ n2235_call_β:           mov              r11, 881;                            j
                         .size            n2235_call_bx, .-n2235_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 plus$2F3_step:
+                        test             r15, r15
+                                                                              jne   plus$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -26757,6 +27095,10 @@ plus$2F3_step:
                         test             rax, rax
                                                                               je    plus$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+plus$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 200]
+                                                                              jmp   plus$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 plus$2F3_res:
                         add              rsp, 8
@@ -26873,6 +27215,8 @@ n2245_call_β:           mov              r11, 884;                            j
                         .size            n2245_call_bx, .-n2245_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 sort$2F2_step:
+                        test             r15, r15
+                                                                              jne   sort$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -26886,6 +27230,10 @@ sort$2F2_step:
                         test             rax, rax
                                                                               je    sort$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+sort$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   sort$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 sort$2F2_res:
                         add              rsp, 8
@@ -27002,6 +27350,8 @@ n2253_call_β:           mov              r11, 887;                            j
                         .size            n2253_call_bx, .-n2253_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 msort$2F2_step:
+                        test             r15, r15
+                                                                              jne   msort$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -27015,6 +27365,10 @@ msort$2F2_step:
                         test             rax, rax
                                                                               je    msort$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+msort$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   msort$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 msort$2F2_res:
                         add              rsp, 8
@@ -27131,6 +27485,8 @@ n2261_call_β:           mov              r11, 890;                            j
                         .size            n2261_call_bx, .-n2261_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 char_type$2F2_step:
+                        test             r15, r15
+                                                                              jne   char_type$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -27144,6 +27500,10 @@ char_type$2F2_step:
                         test             rax, rax
                                                                               je    char_type$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+char_type$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   char_type$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 char_type$2F2_res:
                         add              rsp, 8
@@ -27260,6 +27620,8 @@ n2269_call_β:           mov              r11, 893;                            j
                         .size            n2269_call_bx, .-n2269_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 term_string$2F2_step:
+                        test             r15, r15
+                                                                              jne   term_string$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -27273,6 +27635,10 @@ term_string$2F2_step:
                         test             rax, rax
                                                                               je    term_string$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+term_string$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   term_string$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 term_string$2F2_res:
                         add              rsp, 8
@@ -27389,6 +27755,8 @@ n2277_call_β:           mov              r11, 896;                            j
                         .size            n2277_call_bx, .-n2277_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 term_to_atom$2F2_step:
+                        test             r15, r15
+                                                                              jne   term_to_atom$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -27402,6 +27770,10 @@ term_to_atom$2F2_step:
                         test             rax, rax
                                                                               je    term_to_atom$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+term_to_atom$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   term_to_atom$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 term_to_atom$2F2_res:
                         add              rsp, 8
@@ -27572,6 +27944,8 @@ n2287_call_β:           mov              r11, 901;                            j
                         .size            n2287_call_bx, .-n2287_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 atom_length$2F2_step:
+                        test             r15, r15
+                                                                              jne   atom_length$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 192]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -27585,6 +27959,10 @@ atom_length$2F2_step:
                         test             rax, rax
                                                                               je    atom_length$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+atom_length$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 216]
+                                                                              jmp   atom_length$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 atom_length$2F2_res:
                         add              rsp, 8
@@ -27900,6 +28278,8 @@ atom_concat$2F3_ret0:
                                                                               jmp   atom_concat$2F3_γ
 #-----------------------------------------------------------------------------------------------------------------------
 atom_concat$2F3_step:
+                        test             r15, r15
+                                                                              jne   atom_concat$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 304]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -27913,6 +28293,10 @@ atom_concat$2F3_step:
                         test             rax, rax
                                                                               je    atom_concat$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+atom_concat$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 328]
+                                                                              jmp   atom_concat$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 atom_concat$2F3_res:
                         add              rsp, 8
@@ -28084,6 +28468,8 @@ n2330_call_β:           mov              r11, 918;                            j
                         .size            n2330_call_bx, .-n2330_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 atom_chars$2F2_step:
+                        test             r15, r15
+                                                                              jne   atom_chars$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 192]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -28097,6 +28483,10 @@ atom_chars$2F2_step:
                         test             rax, rax
                                                                               je    atom_chars$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+atom_chars$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 216]
+                                                                              jmp   atom_chars$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 atom_chars$2F2_res:
                         add              rsp, 8
@@ -28266,6 +28656,8 @@ n2342_call_β:           mov              r11, 923;                            j
                         .size            n2342_call_bx, .-n2342_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 atom_codes$2F2_step:
+                        test             r15, r15
+                                                                              jne   atom_codes$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 192]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -28279,6 +28671,10 @@ atom_codes$2F2_step:
                         test             rax, rax
                                                                               je    atom_codes$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+atom_codes$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 216]
+                                                                              jmp   atom_codes$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 atom_codes$2F2_res:
                         add              rsp, 8
@@ -28395,6 +28791,8 @@ n2352_call_β:           mov              r11, 926;                            j
                         .size            n2352_call_bx, .-n2352_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 atom_number$2F2_step:
+                        test             r15, r15
+                                                                              jne   atom_number$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -28408,6 +28806,10 @@ atom_number$2F2_step:
                         test             rax, rax
                                                                               je    atom_number$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+atom_number$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   atom_number$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 atom_number$2F2_res:
                         add              rsp, 8
@@ -28524,6 +28926,8 @@ n2360_call_β:           mov              r11, 929;                            j
                         .size            n2360_call_bx, .-n2360_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 atom_string$2F2_step:
+                        test             r15, r15
+                                                                              jne   atom_string$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -28537,6 +28941,10 @@ atom_string$2F2_step:
                         test             rax, rax
                                                                               je    atom_string$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+atom_string$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   atom_string$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 atom_string$2F2_res:
                         add              rsp, 8
@@ -28653,6 +29061,8 @@ n2368_call_β:           mov              r11, 932;                            j
                         .size            n2368_call_bx, .-n2368_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 upcase_atom$2F2_step:
+                        test             r15, r15
+                                                                              jne   upcase_atom$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -28666,6 +29076,10 @@ upcase_atom$2F2_step:
                         test             rax, rax
                                                                               je    upcase_atom$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+upcase_atom$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   upcase_atom$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 upcase_atom$2F2_res:
                         add              rsp, 8
@@ -28782,6 +29196,8 @@ n2376_call_β:           mov              r11, 935;                            j
                         .size            n2376_call_bx, .-n2376_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 downcase_atom$2F2_step:
+                        test             r15, r15
+                                                                              jne   downcase_atom$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -28795,6 +29211,10 @@ downcase_atom$2F2_step:
                         test             rax, rax
                                                                               je    downcase_atom$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+downcase_atom$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   downcase_atom$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 downcase_atom$2F2_res:
                         add              rsp, 8
@@ -28921,6 +29341,8 @@ n2385_call_β:           mov              r11, 939;                            j
                         .size            n2385_call_bx, .-n2385_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 string_concat$2F3_step:
+                        test             r15, r15
+                                                                              jne   string_concat$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -28934,6 +29356,10 @@ string_concat$2F3_step:
                         test             rax, rax
                                                                               je    string_concat$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+string_concat$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 200]
+                                                                              jmp   string_concat$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 string_concat$2F3_res:
                         add              rsp, 8
@@ -29051,6 +29477,8 @@ n2395_call_β:           mov              r11, 942;                            j
                         .size            n2395_call_bx, .-n2395_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 string_length$2F2_step:
+                        test             r15, r15
+                                                                              jne   string_length$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -29064,6 +29492,10 @@ string_length$2F2_step:
                         test             rax, rax
                                                                               je    string_length$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+string_length$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   string_length$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 string_length$2F2_res:
                         add              rsp, 8
@@ -29181,6 +29613,8 @@ n2403_call_β:           mov              r11, 945;                            j
                         .size            n2403_call_bx, .-n2403_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 string_lower$2F2_step:
+                        test             r15, r15
+                                                                              jne   string_lower$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -29194,6 +29628,10 @@ string_lower$2F2_step:
                         test             rax, rax
                                                                               je    string_lower$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+string_lower$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   string_lower$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 string_lower$2F2_res:
                         add              rsp, 8
@@ -29311,6 +29749,8 @@ n2411_call_β:           mov              r11, 948;                            j
                         .size            n2411_call_bx, .-n2411_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 string_upper$2F2_step:
+                        test             r15, r15
+                                                                              jne   string_upper$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -29324,6 +29764,10 @@ string_upper$2F2_step:
                         test             rax, rax
                                                                               je    string_upper$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+string_upper$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   string_upper$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 string_upper$2F2_res:
                         add              rsp, 8
@@ -29441,6 +29885,8 @@ n2419_call_β:           mov              r11, 951;                            j
                         .size            n2419_call_bx, .-n2419_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 string_to_atom$2F2_step:
+                        test             r15, r15
+                                                                              jne   string_to_atom$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -29454,6 +29900,10 @@ string_to_atom$2F2_step:
                         test             rax, rax
                                                                               je    string_to_atom$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+string_to_atom$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   string_to_atom$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 string_to_atom$2F2_res:
                         add              rsp, 8
@@ -29624,6 +30074,8 @@ n2429_call_β:           mov              r11, 956;                            j
                         .size            n2429_call_bx, .-n2429_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 number_string$2F2_step:
+                        test             r15, r15
+                                                                              jne   number_string$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 192]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -29637,6 +30089,10 @@ number_string$2F2_step:
                         test             rax, rax
                                                                               je    number_string$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+number_string$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 216]
+                                                                              jmp   number_string$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 number_string$2F2_res:
                         add              rsp, 8
@@ -29754,6 +30210,8 @@ n2439_call_β:           mov              r11, 959;                            j
                         .size            n2439_call_bx, .-n2439_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 string_chars$2F2_step:
+                        test             r15, r15
+                                                                              jne   string_chars$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -29767,6 +30225,10 @@ string_chars$2F2_step:
                         test             rax, rax
                                                                               je    string_chars$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+string_chars$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   string_chars$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 string_chars$2F2_res:
                         add              rsp, 8
@@ -29884,6 +30346,8 @@ n2447_call_β:           mov              r11, 962;                            j
                         .size            n2447_call_bx, .-n2447_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 string_codes$2F2_step:
+                        test             r15, r15
+                                                                              jne   string_codes$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -29897,6 +30361,10 @@ string_codes$2F2_step:
                         test             rax, rax
                                                                               je    string_codes$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+string_codes$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   string_codes$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 string_codes$2F2_res:
                         add              rsp, 8
@@ -30084,6 +30552,8 @@ n2458_call_β:           mov              r11, 968;                            j
                         .size            n2458_call_bx, .-n2458_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 atomic_concat$2F3_step:
+                        test             r15, r15
+                                                                              jne   atomic_concat$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 240]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -30097,6 +30567,10 @@ atomic_concat$2F3_step:
                         test             rax, rax
                                                                               je    atomic_concat$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+atomic_concat$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 264]
+                                                                              jmp   atomic_concat$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 atomic_concat$2F3_res:
                         add              rsp, 8
@@ -30267,6 +30741,8 @@ n2472_call_β:           mov              r11, 973;                            j
                         .size            n2472_call_bx, .-n2472_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 atomic_list_concat$2F2_step:
+                        test             r15, r15
+                                                                              jne   atomic_list_concat$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 192]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -30280,6 +30756,10 @@ atomic_list_concat$2F2_step:
                         test             rax, rax
                                                                               je    atomic_list_concat$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+atomic_list_concat$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 216]
+                                                                              jmp   atomic_list_concat$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 atomic_list_concat$2F2_res:
                         add              rsp, 8
@@ -30467,6 +30947,8 @@ n2485_call_β:           mov              r11, 979;                            j
                         .size            n2485_call_bx, .-n2485_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 atomic_list_concat$2F3_step:
+                        test             r15, r15
+                                                                              jne   atomic_list_concat$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 240]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -30480,6 +30962,10 @@ atomic_list_concat$2F3_step:
                         test             rax, rax
                                                                               je    atomic_list_concat$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+atomic_list_concat$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 264]
+                                                                              jmp   atomic_list_concat$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 atomic_list_concat$2F3_res:
                         add              rsp, 8
@@ -30597,6 +31083,8 @@ n2497_call_β:           mov              r11, 982;                            j
                         .size            n2497_call_bx, .-n2497_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 concat_atom$2F2_step:
+                        test             r15, r15
+                                                                              jne   concat_atom$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -30610,6 +31098,10 @@ concat_atom$2F2_step:
                         test             rax, rax
                                                                               je    concat_atom$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+concat_atom$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   concat_atom$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 concat_atom$2F2_res:
                         add              rsp, 8
@@ -30735,6 +31227,8 @@ n2506_call_β:           mov              r11, 986;                            j
                         .size            n2506_call_bx, .-n2506_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 concat_atom$2F3_step:
+                        test             r15, r15
+                                                                              jne   concat_atom$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -30748,6 +31242,10 @@ concat_atom$2F3_step:
                         test             rax, rax
                                                                               je    concat_atom$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+concat_atom$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 200]
+                                                                              jmp   concat_atom$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 concat_atom$2F3_res:
                         add              rsp, 8
@@ -30917,6 +31415,8 @@ n2518_call_β:           mov              r11, 991;                            j
                         .size            n2518_call_bx, .-n2518_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 char_code$2F2_step:
+                        test             r15, r15
+                                                                              jne   char_code$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 192]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -30930,6 +31430,10 @@ char_code$2F2_step:
                         test             rax, rax
                                                                               je    char_code$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+char_code$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 216]
+                                                                              jmp   char_code$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 char_code$2F2_res:
                         add              rsp, 8
@@ -31099,6 +31603,8 @@ n2530_call_β:           mov              r11, 996;                            j
                         .size            n2530_call_bx, .-n2530_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 number_codes$2F2_step:
+                        test             r15, r15
+                                                                              jne   number_codes$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 192]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -31112,6 +31618,10 @@ number_codes$2F2_step:
                         test             rax, rax
                                                                               je    number_codes$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+number_codes$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 216]
+                                                                              jmp   number_codes$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 number_codes$2F2_res:
                         add              rsp, 8
@@ -31282,6 +31792,8 @@ n2542_call_β:           mov              r11, 1001;                           j
                         .size            n2542_call_bx, .-n2542_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 number_chars$2F2_step:
+                        test             r15, r15
+                                                                              jne   number_chars$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 192]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -31295,6 +31807,10 @@ number_chars$2F2_step:
                         test             rax, rax
                                                                               je    number_chars$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+number_chars$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 216]
+                                                                              jmp   number_chars$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 number_chars$2F2_res:
                         add              rsp, 8
@@ -31412,6 +31928,8 @@ n2552_call_β:           mov              r11, 1004;                           j
                         .size            n2552_call_bx, .-n2552_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 name$2F2_step:
+                        test             r15, r15
+                                                                              jne   name$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -31425,6 +31943,10 @@ name$2F2_step:
                         test             rax, rax
                                                                               je    name$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+name$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   name$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 name$2F2_res:
                         add              rsp, 8
@@ -31532,6 +32054,8 @@ n2559_call_β:           mov              r11, 1006;                           j
                         .size            n2559_call_bx, .-n2559_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 get_char$2F1_step:
+                        test             r15, r15
+                                                                              jne   get_char$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -31545,6 +32069,10 @@ get_char$2F1_step:
                         test             rax, rax
                                                                               je    get_char$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+get_char$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   get_char$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 get_char$2F1_res:
                         add              rsp, 8
@@ -31652,6 +32180,8 @@ n2564_call_β:           mov              r11, 1008;                           j
                         .size            n2564_call_bx, .-n2564_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 peek_char$2F1_step:
+                        test             r15, r15
+                                                                              jne   peek_char$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -31665,6 +32195,10 @@ peek_char$2F1_step:
                         test             rax, rax
                                                                               je    peek_char$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+peek_char$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   peek_char$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 peek_char$2F1_res:
                         add              rsp, 8
@@ -31772,6 +32306,8 @@ n2569_call_β:           mov              r11, 1010;                           j
                         .size            n2569_call_bx, .-n2569_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 get_code$2F1_step:
+                        test             r15, r15
+                                                                              jne   get_code$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -31785,6 +32321,10 @@ get_code$2F1_step:
                         test             rax, rax
                                                                               je    get_code$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+get_code$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   get_code$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 get_code$2F1_res:
                         add              rsp, 8
@@ -31892,6 +32432,8 @@ n2574_call_β:           mov              r11, 1012;                           j
                         .size            n2574_call_bx, .-n2574_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 peek_code$2F1_step:
+                        test             r15, r15
+                                                                              jne   peek_code$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -31905,6 +32447,10 @@ peek_code$2F1_step:
                         test             rax, rax
                                                                               je    peek_code$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+peek_code$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   peek_code$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 peek_code$2F1_res:
                         add              rsp, 8
@@ -32012,6 +32558,8 @@ n2579_call_β:           mov              r11, 1014;                           j
                         .size            n2579_call_bx, .-n2579_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 get_byte$2F1_step:
+                        test             r15, r15
+                                                                              jne   get_byte$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -32025,6 +32573,10 @@ get_byte$2F1_step:
                         test             rax, rax
                                                                               je    get_byte$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+get_byte$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   get_byte$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 get_byte$2F1_res:
                         add              rsp, 8
@@ -32132,6 +32684,8 @@ n2584_call_β:           mov              r11, 1016;                           j
                         .size            n2584_call_bx, .-n2584_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 peek_byte$2F1_step:
+                        test             r15, r15
+                                                                              jne   peek_byte$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -32145,6 +32699,10 @@ peek_byte$2F1_step:
                         test             rax, rax
                                                                               je    peek_byte$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+peek_byte$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   peek_byte$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 peek_byte$2F1_res:
                         add              rsp, 8
@@ -32252,6 +32810,8 @@ n2589_call_β:           mov              r11, 1018;                           j
                         .size            n2589_call_bx, .-n2589_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 put_code$2F1_step:
+                        test             r15, r15
+                                                                              jne   put_code$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -32265,6 +32825,10 @@ put_code$2F1_step:
                         test             rax, rax
                                                                               je    put_code$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+put_code$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   put_code$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 put_code$2F1_res:
                         add              rsp, 8
@@ -32372,6 +32936,8 @@ n2594_call_β:           mov              r11, 1020;                           j
                         .size            n2594_call_bx, .-n2594_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 put_byte$2F1_step:
+                        test             r15, r15
+                                                                              jne   put_byte$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -32385,6 +32951,10 @@ put_byte$2F1_step:
                         test             rax, rax
                                                                               je    put_byte$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+put_byte$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   put_byte$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 put_byte$2F1_res:
                         add              rsp, 8
@@ -32492,6 +33062,8 @@ n2599_call_β:           mov              r11, 1022;                           j
                         .size            n2599_call_bx, .-n2599_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 unget_char$2F1_step:
+                        test             r15, r15
+                                                                              jne   unget_char$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -32505,6 +33077,10 @@ unget_char$2F1_step:
                         test             rax, rax
                                                                               je    unget_char$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+unget_char$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   unget_char$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 unget_char$2F1_res:
                         add              rsp, 8
@@ -32599,6 +33175,8 @@ n2603_call_β:           mov              r11, 1023;                           j
                         .size            n2603_call_bx, .-n2603_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 at_end_of_stream$2F0_step:
+                        test             r15, r15
+                                                                              jne   at_end_of_stream$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 80]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -32612,6 +33190,10 @@ at_end_of_stream$2F0_step:
                         test             rax, rax
                                                                               je    at_end_of_stream$2F0_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+at_end_of_stream$2F0_step_ball:
+                        mov              r13, qword ptr [rbp + 104]
+                                                                              jmp   at_end_of_stream$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 at_end_of_stream$2F0_res:
                         add              rsp, 8
@@ -32729,6 +33311,8 @@ n2607_call_β:           mov              r11, 1026;                           j
                         .size            n2607_call_bx, .-n2607_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 current_prolog_flag$2F2_step:
+                        test             r15, r15
+                                                                              jne   current_prolog_flag$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -32742,6 +33326,10 @@ current_prolog_flag$2F2_step:
                         test             rax, rax
                                                                               je    current_prolog_flag$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+current_prolog_flag$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   current_prolog_flag$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 current_prolog_flag$2F2_res:
                         add              rsp, 8
@@ -32859,6 +33447,8 @@ n2615_call_β:           mov              r11, 1029;                           j
                         .size            n2615_call_bx, .-n2615_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 set_prolog_flag$2F2_step:
+                        test             r15, r15
+                                                                              jne   set_prolog_flag$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -32872,6 +33462,10 @@ set_prolog_flag$2F2_step:
                         test             rax, rax
                                                                               je    set_prolog_flag$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+set_prolog_flag$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   set_prolog_flag$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 set_prolog_flag$2F2_res:
                         add              rsp, 8
@@ -32980,6 +33574,8 @@ n2622_call_β:           mov              r11, 1031;                           j
                         .size            n2622_call_bx, .-n2622_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 telling$2F1_step:
+                        test             r15, r15
+                                                                              jne   telling$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -32993,6 +33589,10 @@ telling$2F1_step:
                         test             rax, rax
                                                                               je    telling$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+telling$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   telling$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 telling$2F1_res:
                         add              rsp, 8
@@ -33100,6 +33700,8 @@ n2627_call_β:           mov              r11, 1033;                           j
                         .size            n2627_call_bx, .-n2627_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 seeing$2F1_step:
+                        test             r15, r15
+                                                                              jne   seeing$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -33113,6 +33715,10 @@ seeing$2F1_step:
                         test             rax, rax
                                                                               je    seeing$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+seeing$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   seeing$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 seeing$2F1_res:
                         add              rsp, 8
@@ -33220,6 +33826,8 @@ n2632_call_β:           mov              r11, 1035;                           j
                         .size            n2632_call_bx, .-n2632_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 tell$2F1_step:
+                        test             r15, r15
+                                                                              jne   tell$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -33233,6 +33841,10 @@ tell$2F1_step:
                         test             rax, rax
                                                                               je    tell$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+tell$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   tell$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 tell$2F1_res:
                         add              rsp, 8
@@ -33340,6 +33952,8 @@ n2637_call_β:           mov              r11, 1037;                           j
                         .size            n2637_call_bx, .-n2637_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 append$2F1_step:
+                        test             r15, r15
+                                                                              jne   append$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -33353,6 +33967,10 @@ append$2F1_step:
                         test             rax, rax
                                                                               je    append$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+append$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   append$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 append$2F1_res:
                         add              rsp, 8
@@ -33460,6 +34078,8 @@ n2642_call_β:           mov              r11, 1039;                           j
                         .size            n2642_call_bx, .-n2642_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 see$2F1_step:
+                        test             r15, r15
+                                                                              jne   see$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -33473,6 +34093,10 @@ see$2F1_step:
                         test             rax, rax
                                                                               je    see$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+see$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   see$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 see$2F1_res:
                         add              rsp, 8
@@ -33567,6 +34191,8 @@ n2646_call_β:           mov              r11, 1040;                           j
                         .size            n2646_call_bx, .-n2646_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 told$2F0_step:
+                        test             r15, r15
+                                                                              jne   told$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 80]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -33580,6 +34206,10 @@ told$2F0_step:
                         test             rax, rax
                                                                               je    told$2F0_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+told$2F0_step_ball:
+                        mov              r13, qword ptr [rbp + 104]
+                                                                              jmp   told$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 told$2F0_res:
                         add              rsp, 8
@@ -33674,6 +34304,8 @@ n2648_call_β:           mov              r11, 1041;                           j
                         .size            n2648_call_bx, .-n2648_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 seen$2F0_step:
+                        test             r15, r15
+                                                                              jne   seen$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 80]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -33687,6 +34319,10 @@ seen$2F0_step:
                         test             rax, rax
                                                                               je    seen$2F0_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+seen$2F0_step_ball:
+                        mov              r13, qword ptr [rbp + 104]
+                                                                              jmp   seen$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 seen$2F0_res:
                         add              rsp, 8
@@ -33794,6 +34430,8 @@ n2651_call_β:           mov              r11, 1043;                           j
                         .size            n2651_call_bx, .-n2651_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 at_end_of_stream$2F1_step:
+                        test             r15, r15
+                                                                              jne   at_end_of_stream$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -33807,6 +34445,10 @@ at_end_of_stream$2F1_step:
                         test             rax, rax
                                                                               je    at_end_of_stream$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+at_end_of_stream$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   at_end_of_stream$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 at_end_of_stream$2F1_res:
                         add              rsp, 8
@@ -33915,6 +34557,8 @@ n2656_call_β:           mov              r11, 1045;                           j
                         .size            n2656_call_bx, .-n2656_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 put$2F1_step:
+                        test             r15, r15
+                                                                              jne   put$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -33928,6 +34572,10 @@ put$2F1_step:
                         test             rax, rax
                                                                               je    put$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+put$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   put$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 put$2F1_res:
                         add              rsp, 8
@@ -34035,6 +34683,8 @@ n2661_call_β:           mov              r11, 1047;                           j
                         .size            n2661_call_bx, .-n2661_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 get0$2F1_step:
+                        test             r15, r15
+                                                                              jne   get0$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -34048,6 +34698,10 @@ get0$2F1_step:
                         test             rax, rax
                                                                               je    get0$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+get0$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   get0$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 get0$2F1_res:
                         add              rsp, 8
@@ -34155,6 +34809,8 @@ n2666_call_β:           mov              r11, 1049;                           j
                         .size            n2666_call_bx, .-n2666_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 get$2F1_step:
+                        test             r15, r15
+                                                                              jne   get$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -34168,6 +34824,10 @@ get$2F1_step:
                         test             rax, rax
                                                                               je    get$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+get$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   get$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 get$2F1_res:
                         add              rsp, 8
@@ -34275,6 +34935,8 @@ n2671_call_β:           mov              r11, 1051;                           j
                         .size            n2671_call_bx, .-n2671_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 skip$2F1_step:
+                        test             r15, r15
+                                                                              jne   skip$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -34288,6 +34950,10 @@ skip$2F1_step:
                         test             rax, rax
                                                                               je    skip$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+skip$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   skip$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 skip$2F1_res:
                         add              rsp, 8
@@ -34395,6 +35061,8 @@ n2676_call_β:           mov              r11, 1053;                           j
                         .size            n2676_call_bx, .-n2676_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 unget_code$2F1_step:
+                        test             r15, r15
+                                                                              jne   unget_code$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -34408,6 +35076,10 @@ unget_code$2F1_step:
                         test             rax, rax
                                                                               je    unget_code$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+unget_code$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   unget_code$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 unget_code$2F1_res:
                         add              rsp, 8
@@ -34515,6 +35187,8 @@ n2681_call_β:           mov              r11, 1055;                           j
                         .size            n2681_call_bx, .-n2681_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 unget_byte$2F1_step:
+                        test             r15, r15
+                                                                              jne   unget_byte$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -34528,6 +35202,10 @@ unget_byte$2F1_step:
                         test             rax, rax
                                                                               je    unget_byte$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+unget_byte$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   unget_byte$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 unget_byte$2F1_res:
                         add              rsp, 8
@@ -34644,6 +35322,8 @@ n2687_call_β:           mov              r11, 1058;                           j
                         .size            n2687_call_bx, .-n2687_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 get_code$2F2_step:
+                        test             r15, r15
+                                                                              jne   get_code$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -34657,6 +35337,10 @@ get_code$2F2_step:
                         test             rax, rax
                                                                               je    get_code$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+get_code$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   get_code$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 get_code$2F2_res:
                         add              rsp, 8
@@ -34773,6 +35457,8 @@ n2695_call_β:           mov              r11, 1061;                           j
                         .size            n2695_call_bx, .-n2695_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 peek_code$2F2_step:
+                        test             r15, r15
+                                                                              jne   peek_code$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -34786,6 +35472,10 @@ peek_code$2F2_step:
                         test             rax, rax
                                                                               je    peek_code$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+peek_code$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   peek_code$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 peek_code$2F2_res:
                         add              rsp, 8
@@ -34902,6 +35592,8 @@ n2703_call_β:           mov              r11, 1064;                           j
                         .size            n2703_call_bx, .-n2703_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 get_byte$2F2_step:
+                        test             r15, r15
+                                                                              jne   get_byte$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -34915,6 +35607,10 @@ get_byte$2F2_step:
                         test             rax, rax
                                                                               je    get_byte$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+get_byte$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   get_byte$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 get_byte$2F2_res:
                         add              rsp, 8
@@ -35031,6 +35727,8 @@ n2711_call_β:           mov              r11, 1067;                           j
                         .size            n2711_call_bx, .-n2711_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 peek_byte$2F2_step:
+                        test             r15, r15
+                                                                              jne   peek_byte$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -35044,6 +35742,10 @@ peek_byte$2F2_step:
                         test             rax, rax
                                                                               je    peek_byte$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+peek_byte$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   peek_byte$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 peek_byte$2F2_res:
                         add              rsp, 8
@@ -35160,6 +35862,8 @@ n2719_call_β:           mov              r11, 1070;                           j
                         .size            n2719_call_bx, .-n2719_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 put_code$2F2_step:
+                        test             r15, r15
+                                                                              jne   put_code$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -35173,6 +35877,10 @@ put_code$2F2_step:
                         test             rax, rax
                                                                               je    put_code$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+put_code$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   put_code$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 put_code$2F2_res:
                         add              rsp, 8
@@ -35289,6 +35997,8 @@ n2727_call_β:           mov              r11, 1073;                           j
                         .size            n2727_call_bx, .-n2727_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 put_byte$2F2_step:
+                        test             r15, r15
+                                                                              jne   put_byte$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -35302,6 +36012,10 @@ put_byte$2F2_step:
                         test             rax, rax
                                                                               je    put_byte$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+put_byte$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   put_byte$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 put_byte$2F2_res:
                         add              rsp, 8
@@ -35418,6 +36132,8 @@ n2735_call_β:           mov              r11, 1076;                           j
                         .size            n2735_call_bx, .-n2735_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 unget_char$2F2_step:
+                        test             r15, r15
+                                                                              jne   unget_char$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -35431,6 +36147,10 @@ unget_char$2F2_step:
                         test             rax, rax
                                                                               je    unget_char$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+unget_char$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   unget_char$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 unget_char$2F2_res:
                         add              rsp, 8
@@ -35547,6 +36267,8 @@ n2743_call_β:           mov              r11, 1079;                           j
                         .size            n2743_call_bx, .-n2743_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 unget_code$2F2_step:
+                        test             r15, r15
+                                                                              jne   unget_code$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -35560,6 +36282,10 @@ unget_code$2F2_step:
                         test             rax, rax
                                                                               je    unget_code$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+unget_code$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   unget_code$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 unget_code$2F2_res:
                         add              rsp, 8
@@ -35676,6 +36402,8 @@ n2751_call_β:           mov              r11, 1082;                           j
                         .size            n2751_call_bx, .-n2751_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 unget_byte$2F2_step:
+                        test             r15, r15
+                                                                              jne   unget_byte$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -35689,6 +36417,10 @@ unget_byte$2F2_step:
                         test             rax, rax
                                                                               je    unget_byte$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+unget_byte$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   unget_byte$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 unget_byte$2F2_res:
                         add              rsp, 8
@@ -35796,6 +36528,8 @@ n2758_call_β:           mov              r11, 1084;                           j
                         .size            n2758_call_bx, .-n2758_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 read$2F1_step:
+                        test             r15, r15
+                                                                              jne   read$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -35809,6 +36543,10 @@ read$2F1_step:
                         test             rax, rax
                                                                               je    read$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+read$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   read$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 read$2F1_res:
                         add              rsp, 8
@@ -35934,6 +36672,8 @@ n2765_call_β:           mov              r11, 1088;                           j
                         .size            n2765_call_bx, .-n2765_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 atom_to_term$2F3_step:
+                        test             r15, r15
+                                                                              jne   atom_to_term$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -35947,6 +36687,10 @@ atom_to_term$2F3_step:
                         test             rax, rax
                                                                               je    atom_to_term$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+atom_to_term$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 200]
+                                                                              jmp   atom_to_term$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 atom_to_term$2F3_res:
                         add              rsp, 8
@@ -36073,6 +36817,8 @@ n2776_call_β:           mov              r11, 1092;                           j
                         .size            n2776_call_bx, .-n2776_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_atom$2F3_step:
+                        test             r15, r15
+                                                                              jne   read_term_from_atom$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -36086,6 +36832,10 @@ read_term_from_atom$2F3_step:
                         test             rax, rax
                                                                               je    read_term_from_atom$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+read_term_from_atom$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 200]
+                                                                              jmp   read_term_from_atom$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_atom$2F3_res:
                         add              rsp, 8
@@ -36212,6 +36962,8 @@ n2787_call_β:           mov              r11, 1096;                           j
                         .size            n2787_call_bx, .-n2787_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_chars$2F3_step:
+                        test             r15, r15
+                                                                              jne   read_term_from_chars$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -36225,6 +36977,10 @@ read_term_from_chars$2F3_step:
                         test             rax, rax
                                                                               je    read_term_from_chars$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+read_term_from_chars$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 200]
+                                                                              jmp   read_term_from_chars$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_chars$2F3_res:
                         add              rsp, 8
@@ -36351,6 +37107,8 @@ n2798_call_β:           mov              r11, 1100;                           j
                         .size            n2798_call_bx, .-n2798_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_codes$2F3_step:
+                        test             r15, r15
+                                                                              jne   read_term_from_codes$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -36364,6 +37122,10 @@ read_term_from_codes$2F3_step:
                         test             rax, rax
                                                                               je    read_term_from_codes$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+read_term_from_codes$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 200]
+                                                                              jmp   read_term_from_codes$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 read_term_from_codes$2F3_res:
                         add              rsp, 8
@@ -36472,6 +37234,8 @@ n2807_call_β:           mov              r11, 1102;                           j
                         .size            n2807_call_bx, .-n2807_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 writeq$2F1_step:
+                        test             r15, r15
+                                                                              jne   writeq$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -36485,6 +37249,10 @@ writeq$2F1_step:
                         test             rax, rax
                                                                               je    writeq$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+writeq$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   writeq$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 writeq$2F1_res:
                         add              rsp, 8
@@ -36574,7 +37342,7 @@ n2812_call_α:           mov              r11, 1104
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             dop_pl_writeq@PLT
+                        call             dop_write@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -36592,6 +37360,8 @@ n2812_call_β:           mov              r11, 1104;                           j
                         .size            n2812_call_bx, .-n2812_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 print$2F1_step:
+                        test             r15, r15
+                                                                              jne   print$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -36605,6 +37375,10 @@ print$2F1_step:
                         test             rax, rax
                                                                               je    print$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+print$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   print$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 print$2F1_res:
                         add              rsp, 8
@@ -36721,6 +37495,8 @@ n2818_call_β:           mov              r11, 1107;                           j
                         .size            n2818_call_bx, .-n2818_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 write_term$2F2_step:
+                        test             r15, r15
+                                                                              jne   write_term$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -36734,6 +37510,10 @@ write_term$2F2_step:
                         test             rax, rax
                                                                               je    write_term$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+write_term$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   write_term$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 write_term$2F2_res:
                         add              rsp, 8
@@ -36859,6 +37639,8 @@ n2827_call_β:           mov              r11, 1111;                           j
                         .size            n2827_call_bx, .-n2827_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 write_term$2F3_step:
+                        test             r15, r15
+                                                                              jne   write_term$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -36872,6 +37654,10 @@ write_term$2F3_step:
                         test             rax, rax
                                                                               je    write_term$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+write_term$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 200]
+                                                                              jmp   write_term$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 write_term$2F3_res:
                         add              rsp, 8
@@ -36979,6 +37765,8 @@ n2836_call_β:           mov              r11, 1113;                           j
                         .size            n2836_call_bx, .-n2836_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 write_canonical$2F1_step:
+                        test             r15, r15
+                                                                              jne   write_canonical$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -36992,6 +37780,10 @@ write_canonical$2F1_step:
                         test             rax, rax
                                                                               je    write_canonical$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+write_canonical$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   write_canonical$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 write_canonical$2F1_res:
                         add              rsp, 8
@@ -37100,6 +37892,8 @@ n2841_call_β:           mov              r11, 1115;                           j
                         .size            n2841_call_bx, .-n2841_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 writeln$2F1_step:
+                        test             r15, r15
+                                                                              jne   writeln$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -37113,6 +37907,10 @@ writeln$2F1_step:
                         test             rax, rax
                                                                               je    writeln$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+writeln$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   writeln$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 writeln$2F1_res:
                         add              rsp, 8
@@ -37220,6 +38018,8 @@ n2846_call_β:           mov              r11, 1117;                           j
                         .size            n2846_call_bx, .-n2846_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 display$2F1_step:
+                        test             r15, r15
+                                                                              jne   display$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -37233,6 +38033,10 @@ display$2F1_step:
                         test             rax, rax
                                                                               je    display$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+display$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   display$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 display$2F1_res:
                         add              rsp, 8
@@ -37349,6 +38153,8 @@ n2852_call_β:           mov              r11, 1120;                           j
                         .size            n2852_call_bx, .-n2852_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 display$2F2_step:
+                        test             r15, r15
+                                                                              jne   display$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -37362,6 +38168,10 @@ display$2F2_step:
                         test             rax, rax
                                                                               je    display$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+display$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   display$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 display$2F2_res:
                         add              rsp, 8
@@ -37478,6 +38288,8 @@ n2860_call_β:           mov              r11, 1123;                           j
                         .size            n2860_call_bx, .-n2860_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 unify_with_occurs_check$2F2_step:
+                        test             r15, r15
+                                                                              jne   unify_with_occurs_check$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -37491,6 +38303,10 @@ unify_with_occurs_check$2F2_step:
                         test             rax, rax
                                                                               je    unify_with_occurs_check$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+unify_with_occurs_check$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   unify_with_occurs_check$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 unify_with_occurs_check$2F2_res:
                         add              rsp, 8
@@ -37632,6 +38448,8 @@ n2868_call_β:           mov              r11, 1126;                           j
                         .size            n2868_call_bx, .-n2868_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 put_char$2F1_step:
+                        test             r15, r15
+                                                                              jne   put_char$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 128]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -37645,6 +38463,10 @@ put_char$2F1_step:
                         test             rax, rax
                                                                               je    put_char$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+put_char$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 152]
+                                                                              jmp   put_char$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 put_char$2F1_res:
                         add              rsp, 8
@@ -37739,6 +38561,8 @@ n2873_call_β:           mov              r11, 1127;                           j
                         .size            n2873_call_bx, .-n2873_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 flush_output$2F0_step:
+                        test             r15, r15
+                                                                              jne   flush_output$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 80]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -37752,6 +38576,10 @@ flush_output$2F0_step:
                         test             rax, rax
                                                                               je    flush_output$2F0_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+flush_output$2F0_step_ball:
+                        mov              r13, qword ptr [rbp + 104]
+                                                                              jmp   flush_output$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 flush_output$2F0_res:
                         add              rsp, 8
@@ -37860,6 +38688,8 @@ n2876_call_β:           mov              r11, 1129;                           j
                         .size            n2876_call_bx, .-n2876_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F1_step:
+                        test             r15, r15
+                                                                              jne   format$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -37873,6 +38703,10 @@ format$2F1_step:
                         test             rax, rax
                                                                               je    format$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+format$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   format$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F1_res:
                         add              rsp, 8
@@ -37989,6 +38823,8 @@ n2882_call_β:           mov              r11, 1132;                           j
                         .size            n2882_call_bx, .-n2882_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F2_step:
+                        test             r15, r15
+                                                                              jne   format$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -38002,6 +38838,10 @@ format$2F2_step:
                         test             rax, rax
                                                                               je    format$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+format$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   format$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F2_res:
                         add              rsp, 8
@@ -38118,6 +38958,8 @@ n2890_call_β:           mov              r11, 1135;                           j
                         .size            n2890_call_bx, .-n2890_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 write$2F2_step:
+                        test             r15, r15
+                                                                              jne   write$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -38131,6 +38973,10 @@ write$2F2_step:
                         test             rax, rax
                                                                               je    write$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+write$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   write$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 write$2F2_res:
                         add              rsp, 8
@@ -38247,6 +39093,8 @@ n2898_call_β:           mov              r11, 1138;                           j
                         .size            n2898_call_bx, .-n2898_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 writeq$2F2_step:
+                        test             r15, r15
+                                                                              jne   writeq$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -38260,6 +39108,10 @@ writeq$2F2_step:
                         test             rax, rax
                                                                               je    writeq$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+writeq$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   writeq$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 writeq$2F2_res:
                         add              rsp, 8
@@ -38358,7 +39210,7 @@ n2906_call_α:           mov              r11, 1141
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_pl_dop_writeq_sb@PLT
+                        call             rt_pl_dop_write_sb@PLT
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
@@ -38376,6 +39228,8 @@ n2906_call_β:           mov              r11, 1141;                           j
                         .size            n2906_call_bx, .-n2906_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 print$2F2_step:
+                        test             r15, r15
+                                                                              jne   print$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -38389,6 +39243,10 @@ print$2F2_step:
                         test             rax, rax
                                                                               je    print$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+print$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   print$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 print$2F2_res:
                         add              rsp, 8
@@ -38505,6 +39363,8 @@ n2914_call_β:           mov              r11, 1144;                           j
                         .size            n2914_call_bx, .-n2914_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 write_canonical$2F2_step:
+                        test             r15, r15
+                                                                              jne   write_canonical$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -38518,6 +39378,10 @@ write_canonical$2F2_step:
                         test             rax, rax
                                                                               je    write_canonical$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+write_canonical$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   write_canonical$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 write_canonical$2F2_res:
                         add              rsp, 8
@@ -38635,6 +39499,8 @@ n2922_call_β:           mov              r11, 1147;                           j
                         .size            n2922_call_bx, .-n2922_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 writeln$2F2_step:
+                        test             r15, r15
+                                                                              jne   writeln$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -38648,6 +39514,10 @@ writeln$2F2_step:
                         test             rax, rax
                                                                               je    writeln$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+writeln$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   writeln$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 writeln$2F2_res:
                         add              rsp, 8
@@ -38755,6 +39625,8 @@ n2929_call_β:           mov              r11, 1149;                           j
                         .size            n2929_call_bx, .-n2929_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 nl$2F1_step:
+                        test             r15, r15
+                                                                              jne   nl$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -38768,6 +39640,10 @@ nl$2F1_step:
                         test             rax, rax
                                                                               je    nl$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+nl$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   nl$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 nl$2F1_res:
                         add              rsp, 8
@@ -38884,6 +39760,8 @@ n2935_call_β:           mov              r11, 1152;                           j
                         .size            n2935_call_bx, .-n2935_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 put_char$2F2_step:
+                        test             r15, r15
+                                                                              jne   put_char$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -38897,6 +39775,10 @@ put_char$2F2_step:
                         test             rax, rax
                                                                               je    put_char$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+put_char$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   put_char$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 put_char$2F2_res:
                         add              rsp, 8
@@ -39004,6 +39886,8 @@ n2942_call_β:           mov              r11, 1154;                           j
                         .size            n2942_call_bx, .-n2942_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 flush_output$2F1_step:
+                        test             r15, r15
+                                                                              jne   flush_output$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -39017,6 +39901,10 @@ flush_output$2F1_step:
                         test             rax, rax
                                                                               je    flush_output$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+flush_output$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   flush_output$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 flush_output$2F1_res:
                         add              rsp, 8
@@ -39143,6 +40031,8 @@ n2949_call_β:           mov              r11, 1158;                           j
                         .size            n2949_call_bx, .-n2949_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F3_step:
+                        test             r15, r15
+                                                                              jne   format$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -39156,6 +40046,10 @@ format$2F3_step:
                         test             rax, rax
                                                                               je    format$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+format$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 200]
+                                                                              jmp   format$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 format$2F3_res:
                         add              rsp, 8
@@ -39272,6 +40166,8 @@ n2959_call_β:           mov              r11, 1161;                           j
                         .size            n2959_call_bx, .-n2959_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 read$2F2_step:
+                        test             r15, r15
+                                                                              jne   read$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -39285,6 +40181,10 @@ read$2F2_step:
                         test             rax, rax
                                                                               je    read$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+read$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   read$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 read$2F2_res:
                         add              rsp, 8
@@ -39401,6 +40301,8 @@ n2967_call_β:           mov              r11, 1164;                           j
                         .size            n2967_call_bx, .-n2967_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 get_char$2F2_step:
+                        test             r15, r15
+                                                                              jne   get_char$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -39414,6 +40316,10 @@ get_char$2F2_step:
                         test             rax, rax
                                                                               je    get_char$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+get_char$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   get_char$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 get_char$2F2_res:
                         add              rsp, 8
@@ -39530,6 +40436,8 @@ n2975_call_β:           mov              r11, 1167;                           j
                         .size            n2975_call_bx, .-n2975_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 peek_char$2F2_step:
+                        test             r15, r15
+                                                                              jne   peek_char$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -39543,6 +40451,10 @@ peek_char$2F2_step:
                         test             rax, rax
                                                                               je    peek_char$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+peek_char$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   peek_char$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 peek_char$2F2_res:
                         add              rsp, 8
@@ -39668,6 +40580,8 @@ n2984_call_β:           mov              r11, 1171;                           j
                         .size            n2984_call_bx, .-n2984_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 open$2F3_step:
+                        test             r15, r15
+                                                                              jne   open$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -39681,6 +40595,10 @@ open$2F3_step:
                         test             rax, rax
                                                                               je    open$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+open$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 200]
+                                                                              jmp   open$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 open$2F3_res:
                         add              rsp, 8
@@ -39815,6 +40733,8 @@ n2996_call_β:           mov              r11, 1176;                           j
                         .size            n2996_call_bx, .-n2996_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 open$2F4_step:
+                        test             r15, r15
+                                                                              jne   open$2F4_step_ball
                         mov              rdi, qword ptr [rbp + 208]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -39828,6 +40748,10 @@ open$2F4_step:
                         test             rax, rax
                                                                               je    open$2F4_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+open$2F4_step_ball:
+                        mov              r13, qword ptr [rbp + 232]
+                                                                              jmp   open$2F4_ω
 #-----------------------------------------------------------------------------------------------------------------------
 open$2F4_res:
                         add              rsp, 8
@@ -39935,6 +40859,8 @@ n3007_call_β:           mov              r11, 1178;                           j
                         .size            n3007_call_bx, .-n3007_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 close$2F1_step:
+                        test             r15, r15
+                                                                              jne   close$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -39948,6 +40874,10 @@ close$2F1_step:
                         test             rax, rax
                                                                               je    close$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+close$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   close$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 close$2F1_res:
                         add              rsp, 8
@@ -40064,6 +40994,8 @@ n3013_call_β:           mov              r11, 1181;                           j
                         .size            n3013_call_bx, .-n3013_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 close$2F2_step:
+                        test             r15, r15
+                                                                              jne   close$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -40077,6 +41009,10 @@ close$2F2_step:
                         test             rax, rax
                                                                               je    close$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+close$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   close$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 close$2F2_res:
                         add              rsp, 8
@@ -40217,6 +41153,8 @@ n3021_call_β:           mov              r11, 1184;                           j
                         .size            n3021_call_bx, .-n3021_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 current_output$2F1_step:
+                        test             r15, r15
+                                                                              jne   current_output$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 128]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -40230,6 +41168,10 @@ current_output$2F1_step:
                         test             rax, rax
                                                                               je    current_output$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+current_output$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 152]
+                                                                              jmp   current_output$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 current_output$2F1_res:
                         add              rsp, 8
@@ -40371,6 +41313,8 @@ n3028_call_β:           mov              r11, 1187;                           j
                         .size            n3028_call_bx, .-n3028_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 current_input$2F1_step:
+                        test             r15, r15
+                                                                              jne   current_input$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 128]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -40384,6 +41328,10 @@ current_input$2F1_step:
                         test             rax, rax
                                                                               je    current_input$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+current_input$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 152]
+                                                                              jmp   current_input$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 current_input$2F1_res:
                         add              rsp, 8
@@ -40537,6 +41485,8 @@ n3036_call_β:           mov              r11, 1191;                           j
                         .size            n3036_call_bx, .-n3036_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 set_output$2F1_step:
+                        test             r15, r15
+                                                                              jne   set_output$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -40550,6 +41500,10 @@ set_output$2F1_step:
                         test             rax, rax
                                                                               je    set_output$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+set_output$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   set_output$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 set_output$2F1_res:
                         add              rsp, 8
@@ -40702,6 +41656,8 @@ n3045_call_β:           mov              r11, 1195;                           j
                         .size            n3045_call_bx, .-n3045_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 set_input$2F1_step:
+                        test             r15, r15
+                                                                              jne   set_input$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -40715,6 +41671,10 @@ set_input$2F1_step:
                         test             rax, rax
                                                                               je    set_input$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+set_input$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   set_input$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 set_input$2F1_res:
                         add              rsp, 8
@@ -40831,6 +41791,8 @@ n3053_call_β:           mov              r11, 1198;                           j
                         .size            n3053_call_bx, .-n3053_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 keysort$2F2_step:
+                        test             r15, r15
+                                                                              jne   keysort$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -40844,6 +41806,10 @@ keysort$2F2_step:
                         test             rax, rax
                                                                               je    keysort$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+keysort$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   keysort$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 keysort$2F2_res:
                         add              rsp, 8
@@ -40960,6 +41926,8 @@ n3061_call_β:           mov              r11, 1201;                           j
                         .size            n3061_call_bx, .-n3061_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 set_stream_position$2F2_step:
+                        test             r15, r15
+                                                                              jne   set_stream_position$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -40973,6 +41941,10 @@ set_stream_position$2F2_step:
                         test             rax, rax
                                                                               je    set_stream_position$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+set_stream_position$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   set_stream_position$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 set_stream_position$2F2_res:
                         add              rsp, 8
@@ -41099,6 +42071,8 @@ n3070_call_β:           mov              r11, 1205;                           j
                         .size            n3070_call_bx, .-n3070_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 op$2F3_step:
+                        test             r15, r15
+                                                                              jne   op$2F3_step_ball
                         mov              rdi, qword ptr [rbp + 176]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -41112,6 +42086,10 @@ op$2F3_step:
                         test             rax, rax
                                                                               je    op$2F3_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+op$2F3_step_ball:
+                        mov              r13, qword ptr [rbp + 200]
+                                                                              jmp   op$2F3_ω
 #-----------------------------------------------------------------------------------------------------------------------
 op$2F3_res:
                         add              rsp, 8
@@ -41219,6 +42197,8 @@ n3079_call_β:           mov              r11, 1207;                           j
                         .size            n3079_call_bx, .-n3079_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 wall_us$2F1_step:
+                        test             r15, r15
+                                                                              jne   wall_us$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -41232,6 +42212,10 @@ wall_us$2F1_step:
                         test             rax, rax
                                                                               je    wall_us$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+wall_us$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   wall_us$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 wall_us$2F1_res:
                         add              rsp, 8
@@ -41339,6 +42323,8 @@ n3084_call_β:           mov              r11, 1209;                           j
                         .size            n3084_call_bx, .-n3084_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 wall_ms$2F1_step:
+                        test             r15, r15
+                                                                              jne   wall_ms$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -41352,6 +42338,10 @@ wall_ms$2F1_step:
                         test             rax, rax
                                                                               je    wall_ms$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+wall_ms$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   wall_ms$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 wall_ms$2F1_res:
                         add              rsp, 8
@@ -41459,6 +42449,8 @@ n3089_call_β:           mov              r11, 1211;                           j
                         .size            n3089_call_bx, .-n3089_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 write$2F1_step:
+                        test             r15, r15
+                                                                              jne   write$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -41472,6 +42464,10 @@ write$2F1_step:
                         test             rax, rax
                                                                               je    write$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+write$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   write$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 write$2F1_res:
                         add              rsp, 8
@@ -41566,6 +42562,8 @@ n3093_call_β:           mov              r11, 1212;                           j
                         .size            n3093_call_bx, .-n3093_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 nl$2F0_step:
+                        test             r15, r15
+                                                                              jne   nl$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 80]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -41579,6 +42577,10 @@ nl$2F0_step:
                         test             rax, rax
                                                                               je    nl$2F0_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+nl$2F0_step_ball:
+                        mov              r13, qword ptr [rbp + 104]
+                                                                              jmp   nl$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 nl$2F0_res:
                         add              rsp, 8
@@ -41649,6 +42651,8 @@ true$2F0_α_body:
                                                                               jmp   true$2F0_γ
 #-----------------------------------------------------------------------------------------------------------------------
 true$2F0_step:
+                        test             r15, r15
+                                                                              jne   true$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 64]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -41662,6 +42666,10 @@ true$2F0_step:
                         test             rax, rax
                                                                               je    true$2F0_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+true$2F0_step_ball:
+                        mov              r13, qword ptr [rbp + 88]
+                                                                              jmp   true$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 true$2F0_res:
                         add              rsp, 8
@@ -41741,6 +42749,8 @@ n3095_cut_α:            mov              r11, 1213
                         .size            n3095_cut_bx, .-n3095_cut_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $21$2F0_step:
+                        test             r15, r15
+                                                                              jne   $21$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 64]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -41754,6 +42764,10 @@ $21$2F0_step:
                         test             rax, rax
                                                                               je    $21$2F0_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+$21$2F0_step_ball:
+                        mov              r13, qword ptr [rbp + 88]
+                                                                              jmp   $21$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 $21$2F0_res:
                         add              rsp, 8
@@ -41824,6 +42838,8 @@ fail$2F0_α_body:
                                                                               jmp   fail$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 fail$2F0_step:
+                        test             r15, r15
+                                                                              jne   fail$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 64]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -41837,6 +42853,10 @@ fail$2F0_step:
                         test             rax, rax
                                                                               je    fail$2F0_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+fail$2F0_step_ball:
+                        mov              r13, qword ptr [rbp + 88]
+                                                                              jmp   fail$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 fail$2F0_res:
                         add              rsp, 8
@@ -41907,6 +42927,8 @@ false$2F0_α_body:
                                                                               jmp   false$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 false$2F0_step:
+                        test             r15, r15
+                                                                              jne   false$2F0_step_ball
                         mov              rdi, qword ptr [rbp + 64]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -41920,6 +42942,10 @@ false$2F0_step:
                         test             rax, rax
                                                                               je    false$2F0_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+false$2F0_step_ball:
+                        mov              r13, qword ptr [rbp + 88]
+                                                                              jmp   false$2F0_ω
 #-----------------------------------------------------------------------------------------------------------------------
 false$2F0_res:
                         add              rsp, 8
@@ -42027,6 +43053,8 @@ n3099_call_β:           mov              r11, 1215;                           j
                         .size            n3099_call_bx, .-n3099_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 throw$2F1_step:
+                        test             r15, r15
+                                                                              jne   throw$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 112]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -42040,6 +43068,10 @@ throw$2F1_step:
                         test             rax, rax
                                                                               je    throw$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+throw$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 136]
+                                                                              jmp   throw$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 throw$2F1_res:
                         add              rsp, 8
@@ -42156,6 +43188,8 @@ n3105_call_β:           mov              r11, 1218;                           j
                         .size            n3105_call_bx, .-n3105_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $3D$2F2_step:
+                        test             r15, r15
+                                                                              jne   $3D$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -42169,6 +43203,10 @@ $3D$2F2_step:
                         test             rax, rax
                                                                               je    $3D$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+$3D$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   $3D$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 $3D$2F2_res:
                         add              rsp, 8
@@ -42285,6 +43323,8 @@ n3113_call_β:           mov              r11, 1221;                           j
                         .size            n3113_call_bx, .-n3113_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 is$2F2_step:
+                        test             r15, r15
+                                                                              jne   is$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -42298,6 +43338,10 @@ is$2F2_step:
                         test             rax, rax
                                                                               je    is$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+is$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   is$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 is$2F2_res:
                         add              rsp, 8
@@ -42414,6 +43458,8 @@ n3121_call_β:           mov              r11, 1224;                           j
                         .size            n3121_call_bx, .-n3121_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 $3E$2F2_step:
+                        test             r15, r15
+                                                                              jne   $3E$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 144]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -42427,6 +43473,10 @@ $3E$2F2_step:
                         test             rax, rax
                                                                               je    $3E$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+$3E$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 168]
+                                                                              jmp   $3E$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 $3E$2F2_res:
                         add              rsp, 8
@@ -42580,6 +43630,8 @@ n3131_call_β:           mov              r11, 1229;                           j
                         .size            n3131_call_bx, .-n3131_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 assert$2F1_step:
+                        test             r15, r15
+                                                                              jne   assert$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 128]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -42593,6 +43645,10 @@ assert$2F1_step:
                         test             rax, rax
                                                                               je    assert$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+assert$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 152]
+                                                                              jmp   assert$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 assert$2F1_res:
                         add              rsp, 8
@@ -42746,6 +43802,8 @@ n3143_call_β:           mov              r11, 1234;                           j
                         .size            n3143_call_bx, .-n3143_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 asserta$2F1_step:
+                        test             r15, r15
+                                                                              jne   asserta$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 128]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -42759,6 +43817,10 @@ asserta$2F1_step:
                         test             rax, rax
                                                                               je    asserta$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+asserta$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 152]
+                                                                              jmp   asserta$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 asserta$2F1_res:
                         add              rsp, 8
@@ -42912,6 +43974,8 @@ n3155_call_β:           mov              r11, 1239;                           j
                         .size            n3155_call_bx, .-n3155_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 assertz$2F1_step:
+                        test             r15, r15
+                                                                              jne   assertz$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 128]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -42925,6 +43989,10 @@ assertz$2F1_step:
                         test             rax, rax
                                                                               je    assertz$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+assertz$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 152]
+                                                                              jmp   assertz$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 assertz$2F1_res:
                         add              rsp, 8
@@ -43299,6 +44367,8 @@ retract$2F1_ret0:
                                                                               jmp   retract$2F1_γ
 #-----------------------------------------------------------------------------------------------------------------------
 retract$2F1_step:
+                        test             r15, r15
+                                                                              jne   retract$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 224]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -43312,6 +44382,10 @@ retract$2F1_step:
                         test             rax, rax
                                                                               je    retract$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+retract$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 248]
+                                                                              jmp   retract$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 retract$2F1_res:
                         add              rsp, 8
@@ -43467,6 +44541,8 @@ n3196_call_β:           mov              r11, 1257;                           j
                         .size            n3196_call_bx, .-n3196_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 retractall$2F1_step:
+                        test             r15, r15
+                                                                              jne   retractall$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 128]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -43480,6 +44556,10 @@ retractall$2F1_step:
                         test             rax, rax
                                                                               je    retractall$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+retractall$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 152]
+                                                                              jmp   retractall$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 retractall$2F1_res:
                         add              rsp, 8
@@ -43633,6 +44713,8 @@ n3208_call_β:           mov              r11, 1262;                           j
                         .size            n3208_call_bx, .-n3208_call_bx
 #-----------------------------------------------------------------------------------------------------------------------
 abolish$2F1_step:
+                        test             r15, r15
+                                                                              jne   abolish$2F1_step_ball
                         mov              rdi, qword ptr [rbp + 128]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -43646,6 +44728,10 @@ abolish$2F1_step:
                         test             rax, rax
                                                                               je    abolish$2F1_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+abolish$2F1_step_ball:
+                        mov              r13, qword ptr [rbp + 152]
+                                                                              jmp   abolish$2F1_ω
 #-----------------------------------------------------------------------------------------------------------------------
 abolish$2F1_res:
                         add              rsp, 8
@@ -44030,6 +45116,8 @@ clause$2F2_ret0:
                                                                               jmp   clause$2F2_γ
 #-----------------------------------------------------------------------------------------------------------------------
 clause$2F2_step:
+                        test             r15, r15
+                                                                              jne   clause$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 240]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -44043,6 +45131,10 @@ clause$2F2_step:
                         test             rax, rax
                                                                               je    clause$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+clause$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 264]
+                                                                              jmp   clause$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 clause$2F2_res:
                         add              rsp, 8
@@ -44119,6 +45211,8 @@ person$2F4_α_body:
                                                                               jmp   person$2F4_ω
 #-----------------------------------------------------------------------------------------------------------------------
 person$2F4_step:
+                        test             r15, r15
+                                                                              jne   person$2F4_step_ball
                         mov              rdi, qword ptr [rbp + 128]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -44132,6 +45226,10 @@ person$2F4_step:
                         test             rax, rax
                                                                               je    person$2F4_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+person$2F4_step_ball:
+                        mov              r13, qword ptr [rbp + 152]
+                                                                              jmp   person$2F4_ω
 #-----------------------------------------------------------------------------------------------------------------------
 person$2F4_res:
                         add              rsp, 8
@@ -44206,6 +45304,8 @@ parent$2F2_α_body:
                                                                               jmp   parent$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 parent$2F2_step:
+                        test             r15, r15
+                                                                              jne   parent$2F2_step_ball
                         mov              rdi, qword ptr [rbp + 96]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -44219,6 +45319,10 @@ parent$2F2_step:
                         test             rax, rax
                                                                               je    parent$2F2_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+parent$2F2_step_ball:
+                        mov              r13, qword ptr [rbp + 120]
+                                                                              jmp   parent$2F2_ω
 #-----------------------------------------------------------------------------------------------------------------------
 parent$2F2_res:
                         add              rsp, 8
@@ -44606,6 +45710,8 @@ n3260_call_proc_staged_β:
                         .size            n3260_call_proc_staged_bx, .-n3260_call_proc_staged_bx
 #-----------------------------------------------------------------------------------------------------------------------
 main_step:
+                        test             r15, r15
+                                                                              jne   main_step_ball
                         mov              rdi, qword ptr [rbp + 208]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
@@ -44619,6 +45725,10 @@ main_step:
                         test             rax, rax
                                                                               je    main_ω
                                                                               jmp   rax
+#-----------------------------------------------------------------------------------------------------------------------
+main_step_ball:
+                        mov              r13, qword ptr [rbp + 232]
+                                                                              jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_β:
                         test             r15, r15
