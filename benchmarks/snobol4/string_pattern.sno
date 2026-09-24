@@ -3,7 +3,6 @@
 * Standalone:  scrip string_pattern.sno   |   sbl -bf string_pattern.sno
         &TRIM = 1
         &ANCHOR = 0
-        &STLIMIT = -1
         REC = 'alpha,beta,gamma,delta,epsilon'
         PAT = BREAK(',') . F1 ',' BREAK(',') . F2 ',' BREAK(',') . F3
         DEFINE('STRING_PATTERN(N)')                     :(STRING_PATTERN_END)

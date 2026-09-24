@@ -3,7 +3,6 @@
 * Standalone:  scrip var_access.sno   |   sbl -bf var_access.sno   |   snobol4 var_access.sno
         &TRIM = 1
         &ANCHOR = 0
-        &STLIMIT = -1
         DEFINE('VAR_ACCESS(N)')                         :(VAR_ACCESS_END)
 VAR_ACCESS  A = 1
         B = 2

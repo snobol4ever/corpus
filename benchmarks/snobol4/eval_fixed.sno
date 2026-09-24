@@ -3,7 +3,6 @@
 * Standalone:  scrip eval_fixed.sno   |   sbl -bf eval_fixed.sno   |   snobol4 eval_fixed.sno
         &TRIM = 1
         &ANCHOR = 0
-        &STLIMIT = -1
         X = 10
         DEFINE('EVAL_FIXED(N)')                         :(EVAL_FIXED_END)
 EVAL_FIXED  ZI = 1

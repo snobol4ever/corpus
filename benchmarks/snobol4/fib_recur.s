@@ -168,8 +168,7 @@ n4_stmt_mark_α:         mov              r11, 5
                         .type            n5_statement_begin_bx, @function
 n5_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n5_statement_begin_α:   mov              r11, 6
-                        mov              r10, 1;                              jmp   n6_define_α
+n5_statement_begin_α:   mov              r11, 6;                              jmp   n6_define_α
 n5_statement_begin_β:   mov              r11, 6;                              jmp   n8_stmt_mark_α
                         .size            n5_statement_begin_bx, .-n5_statement_begin_bx
                         .type            n6_define_bx, @function
@@ -181,7 +180,7 @@ n6_define_α:            mov              r11, 7
                         mov              edx, 1
                         mov              ecx, 1
                         mov              r8d, 0
-                        lea              r9, [rip + FIB_α]
+                        lea              r9, [rip + LBL__FIB]
                         mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -190,7 +189,7 @@ n6_define_α:            mov              r11, 7
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:431
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:429
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -307,7 +306,7 @@ FIB_α:                  sub              rsp, 64
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:709
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:707
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -384,7 +383,7 @@ FIB_γ:                  mov              rdi, qword ptr [r9 + 0]              #
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:758
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:756
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -517,7 +516,7 @@ FIB_ω:                  mov              rcx, qword ptr [rsp + 32]
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:806
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_define.cpp:804
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -589,8 +588,7 @@ FIB_ω:                  mov              rcx, qword ptr [rsp + 32]
                         .type            n7_statement_end_bx, @function
 n7_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n7_statement_end_α:     mov              r11, 8
-                        mov              r10, 1;                              jmp   n8_stmt_mark_α
+n7_statement_end_α:     mov              r11, 8;                              jmp   n8_stmt_mark_α
                         .size            n7_statement_end_bx, .-n7_statement_end_bx
                         .type            n8_stmt_mark_bx, @function
 n8_stmt_mark_bx:
@@ -609,8 +607,7 @@ n8_stmt_mark_α:         mov              r11, 9
                         .type            n9_statement_begin_bx, @function
 n9_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n9_statement_begin_α:   mov              r11, 10
-                        mov              r10, 2;                              jmp   n10_var_α
+n9_statement_begin_α:   mov              r11, 10;                             jmp   n10_var_α
 n9_statement_begin_β:   mov              r11, 10;                             jmp   n18_stmt_mark_α
                         .size            n9_statement_begin_bx, .-n9_statement_begin_bx
                         .type            n10_var_bx, @function
@@ -802,7 +799,6 @@ n16_assign_α:           mov              r11, 17
 n17_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n17_statement_end_α:    mov              r11, 18
-                        mov              r10, 2
                         add              rsp, 96;                             jmp   RETURN
                         .size            n17_statement_end_bx, .-n17_statement_end_bx
                         .type            n18_stmt_mark_bx, @function
@@ -822,8 +818,7 @@ n18_stmt_mark_α:        mov              r11, 19
                         .type            n19_statement_begin_bx, @function
 n19_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n19_statement_begin_α:  mov              r11, 20
-                        mov              r10, 3;                              jmp   n20_var_α
+n19_statement_begin_α:  mov              r11, 20;                             jmp   n20_var_α
 n19_statement_begin_β:  mov              r11, 20;                             jmp   RETURN
                         .size            n19_statement_begin_bx, .-n19_statement_begin_bx
                         .type            n20_var_bx, @function
@@ -1166,21 +1161,18 @@ n29_assign_α:           mov              r11, 30
 n30_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n30_statement_end_α:    mov              r11, 31
-                        mov              r10, 3
                         add              rsp, 144;                            jmp   RETURN
                         .size            n30_statement_end_bx, .-n30_statement_end_bx
                         .type            n31_statement_begin_bx, @function
 n31_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n31_statement_begin_α:  mov              r11, 32
-                        mov              r10, 4;                              jmp   n32_statement_end_α
+n31_statement_begin_α:  mov              r11, 32;                             jmp   n32_statement_end_α
 n31_statement_begin_β:  mov              r11, 32;                             jmp   n33_stmt_mark_α
                         .size            n31_statement_begin_bx, .-n31_statement_begin_bx
                         .type            n32_statement_end_bx, @function
 n32_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n32_statement_end_α:    mov              r11, 33
-                        mov              r10, 4;                              jmp   n33_stmt_mark_α
+n32_statement_end_α:    mov              r11, 33;                             jmp   n33_stmt_mark_α
                         .size            n32_statement_end_bx, .-n32_statement_end_bx
                         .type            n33_stmt_mark_bx, @function
 n33_stmt_mark_bx:
@@ -1199,8 +1191,7 @@ n33_stmt_mark_α:        mov              r11, 34
                         .type            n34_statement_begin_bx, @function
 n34_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n34_statement_begin_α:  mov              r11, 35
-                        mov              r10, 5;                              jmp   n35_lit_integer_α
+n34_statement_begin_α:  mov              r11, 35;                             jmp   n35_lit_integer_α
 n34_statement_begin_β:  mov              r11, 35;                             jmp   main_γ
                         .size            n34_statement_begin_bx, .-n34_statement_begin_bx
                         .type            n35_lit_integer_bx, @function
@@ -1344,7 +1335,6 @@ n37_assign_α:           mov              r11, 38
 n38_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n38_statement_end_α:    mov              r11, 39
-                        mov              r10, 5
                         add              rsp, 32;                             jmp   main_γ
                         .size            n38_statement_end_bx, .-n38_statement_end_bx
                         .type            n39_goto_bx, @function

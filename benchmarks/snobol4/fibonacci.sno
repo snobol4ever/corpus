@@ -3,7 +3,6 @@
 * Standalone:  scrip fibonacci.sno   |   sbl -bf fibonacci.sno   |   snobol4 fibonacci.sno
         &TRIM = 1
         &ANCHOR = 0
-        &STLIMIT = -1
         DEFINE('FIB(N)')                                :(FIBE)
 FIB     FIB = LT(N, 2) N                                :S(RETURN)
         FIB = FIB(N - 1) + FIB(N - 2)                   :(RETURN)

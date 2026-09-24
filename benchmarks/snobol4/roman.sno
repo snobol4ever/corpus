@@ -8,7 +8,6 @@
 * Standalone:  scrip roman.sno   |   sbl -bf roman.sno   |   snobol4 roman.sno
         &TRIM = 1
         &ANCHOR = 0
-        &STLIMIT = -1
         DEFINE('ROMAN(N)T')                             :(ROMAN_END)
 ROMAN   N ? RPOS(1) LEN(1) . T =                        :F(RETURN)
         '0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' T BREAK(',') . T   :F(FRETURN)

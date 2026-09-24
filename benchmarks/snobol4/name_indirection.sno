@@ -5,7 +5,6 @@
 * Standalone:  scrip name_indirection.sno   |   sbl -bf name_indirection.sno   |   snobol4 name_indirection.sno
         &TRIM = 1
         &ANCHOR = 0
-        &STLIMIT = -1
         DEFINE('name_indirection(n)')                   :(name_indirection_end)
 name_indirection    target = 0
         holder = 'target'

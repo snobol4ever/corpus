@@ -3,7 +3,6 @@
 * Standalone:  scrip table_access.sno   |   sbl -bf table_access.sno   |   snobol4 table_access.sno
         &TRIM = 1
         &ANCHOR = 0
-        &STLIMIT = -1
         DEFINE('TABLE_ACCESS(N)')                       :(TABLE_ACCESS_END)
 TABLE_ACCESS  ZI = 1
 ZBL     T = TABLE(512)

@@ -6,7 +6,6 @@
 * Standalone:  scrip mixed_workload.sno   |   sbl -bf mixed_workload.sno
         &TRIM = 1
         &ANCHOR = 0
-        &STLIMIT = -1
         DEFINE('RSUM(N)')                               :(RSUM_END)
 RSUM    RSUM = EQ(N, 0) 0                               :S(RETURN)
         RSUM = N + RSUM(N - 1)                          :(RETURN)

@@ -3,7 +3,6 @@
 * Standalone:  scrip func_call.sno   |   sbl -bf func_call.sno   |   snobol4 func_call.sno
         &TRIM = 1
         &ANCHOR = 0
-        &STLIMIT = -1
         DEFINE('INC(N)')                                :(INCE)
 INC     INC = N + 1                                     :(RETURN)
 INCE

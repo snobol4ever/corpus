@@ -3,7 +3,6 @@
 * Standalone:  scrip pattern_bt.sno   |   sbl -bf pattern_bt.sno   |   snobol4 pattern_bt.sno
         &TRIM = 1
         &ANCHOR = 0
-        &STLIMIT = -1
         PAT = ('aaa' | 'bbb' | 'ccc' | 'ddd') SPAN('abcd') . W
         SUB = 'xxxxxxxxxxbbbccccddddaaaaxxxxxxxxxxbbbccccddddaaaa'
         DEFINE('PATTERN_BT(N)')                         :(PATTERN_BT_END)

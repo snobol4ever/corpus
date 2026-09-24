@@ -10,7 +10,6 @@
 * Standalone:  scrip indirect_dispatch.sno   |   sbl -bf indirect_dispatch.sno
         &TRIM = 1
         &ANCHOR = 0
-        &STLIMIT = -1
         DEFINE('ADD1(V)')                               :(ADD1_END)
 ADD1    ADD1 = V + 1                                    :(RETURN)
 ADD1_END

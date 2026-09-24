@@ -3,7 +3,6 @@
 * Standalone:  scrip arith_loop.sno   |   sbl -bf arith_loop.sno   |   snobol4 arith_loop.sno
         &TRIM = 1
         &ANCHOR = 0
-        &STLIMIT = -1
         DEFINE('ARITH_LOOP(N)')                         :(ARITH_LOOP_END)
 ARITH_LOOP  A = 0
         ZI = 1

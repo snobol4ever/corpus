@@ -293,15 +293,13 @@ n4_stmt_mark_α:         mov              r11, 5
                         .type            n5_statement_begin_bx, @function
 n5_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n5_statement_begin_α:   mov              r11, 6
-                        mov              r10, 1;                              jmp   n6_statement_end_α
+n5_statement_begin_α:   mov              r11, 6;                              jmp   n6_statement_end_α
 n5_statement_begin_β:   mov              r11, 6;                              jmp   n7_stmt_mark_α
                         .size            n5_statement_begin_bx, .-n5_statement_begin_bx
                         .type            n6_statement_end_bx, @function
 n6_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n6_statement_end_α:     mov              r11, 7
-                        mov              r10, 1;                              jmp   n7_stmt_mark_α
+n6_statement_end_α:     mov              r11, 7;                              jmp   n7_stmt_mark_α
                         .size            n6_statement_end_bx, .-n6_statement_end_bx
                         .type            n7_stmt_mark_bx, @function
 n7_stmt_mark_bx:
@@ -320,8 +318,7 @@ n7_stmt_mark_α:         mov              r11, 8
                         .type            n8_statement_begin_bx, @function
 n8_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n8_statement_begin_α:   mov              r11, 9
-                        mov              r10, 2;                              jmp   n9_lit_integer_α
+n8_statement_begin_α:   mov              r11, 9;                              jmp   n9_lit_integer_α
 n8_statement_begin_β:   mov              r11, 9;                              jmp   n12_stmt_mark_α
                         .size            n8_statement_begin_bx, .-n8_statement_begin_bx
                         .type            n9_lit_integer_bx, @function
@@ -400,7 +397,6 @@ n10_assign_α:           mov              r11, 11
 n11_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n11_statement_end_α:    mov              r11, 12
-                        mov              r10, 2
                         add              rsp, 16;                             jmp   n12_stmt_mark_α
                         .size            n11_statement_end_bx, .-n11_statement_end_bx
                         .type            n12_stmt_mark_bx, @function
@@ -420,15 +416,13 @@ n12_stmt_mark_α:        mov              r11, 13
                         .type            n13_statement_begin_bx, @function
 n13_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n13_statement_begin_α:  mov              r11, 14
-                        mov              r10, 3;                              jmp   n14_statement_end_α
+n13_statement_begin_α:  mov              r11, 14;                             jmp   n14_statement_end_α
 n13_statement_begin_β:  mov              r11, 14;                             jmp   n15_stmt_mark_α
                         .size            n13_statement_begin_bx, .-n13_statement_begin_bx
                         .type            n14_statement_end_bx, @function
 n14_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n14_statement_end_α:    mov              r11, 15
-                        mov              r10, 3;                              jmp   n15_stmt_mark_α
+n14_statement_end_α:    mov              r11, 15;                             jmp   n15_stmt_mark_α
                         .size            n14_statement_end_bx, .-n14_statement_end_bx
                         .type            n15_stmt_mark_bx, @function
 n15_stmt_mark_bx:
@@ -447,8 +441,7 @@ n15_stmt_mark_α:        mov              r11, 16
                         .type            n16_statement_begin_bx, @function
 n16_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n16_statement_begin_α:  mov              r11, 17
-                        mov              r10, 4;                              jmp   n17_lit_integer_α
+n16_statement_begin_α:  mov              r11, 17;                             jmp   n17_lit_integer_α
 n16_statement_begin_β:  mov              r11, 17;                             jmp   n20_stmt_mark_α
                         .size            n16_statement_begin_bx, .-n16_statement_begin_bx
                         .type            n17_lit_integer_bx, @function
@@ -527,7 +520,6 @@ n18_assign_α:           mov              r11, 19
 n19_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n19_statement_end_α:    mov              r11, 20
-                        mov              r10, 4
                         add              rsp, 16;                             jmp   n20_stmt_mark_α
                         .size            n19_statement_end_bx, .-n19_statement_end_bx
                         .type            n20_stmt_mark_bx, @function
@@ -547,15 +539,13 @@ n20_stmt_mark_α:        mov              r11, 21
                         .type            n21_statement_begin_bx, @function
 n21_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n21_statement_begin_α:  mov              r11, 22
-                        mov              r10, 5;                              jmp   n22_statement_end_α
+n21_statement_begin_α:  mov              r11, 22;                             jmp   n22_statement_end_α
 n21_statement_begin_β:  mov              r11, 22;                             jmp   n23_stmt_mark_α
                         .size            n21_statement_begin_bx, .-n21_statement_begin_bx
                         .type            n22_statement_end_bx, @function
 n22_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n22_statement_end_α:    mov              r11, 23
-                        mov              r10, 5;                              jmp   n23_stmt_mark_α
+n22_statement_end_α:    mov              r11, 23;                             jmp   n23_stmt_mark_α
                         .size            n22_statement_end_bx, .-n22_statement_end_bx
                         .type            n23_stmt_mark_bx, @function
 n23_stmt_mark_bx:
@@ -574,8 +564,7 @@ n23_stmt_mark_α:        mov              r11, 24
                         .type            n24_statement_begin_bx, @function
 n24_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n24_statement_begin_α:  mov              r11, 25
-                        mov              r10, 6;                              jmp   n25_lit_integer_α
+n24_statement_begin_α:  mov              r11, 25;                             jmp   n25_lit_integer_α
 n24_statement_begin_β:  mov              r11, 25;                             jmp   n28_stmt_mark_α
                         .size            n24_statement_begin_bx, .-n24_statement_begin_bx
                         .type            n25_lit_integer_bx, @function
@@ -654,7 +643,6 @@ n26_assign_α:           mov              r11, 27
 n27_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n27_statement_end_α:    mov              r11, 28
-                        mov              r10, 6
                         add              rsp, 16;                             jmp   n28_stmt_mark_α
                         .size            n27_statement_end_bx, .-n27_statement_end_bx
                         .type            n28_stmt_mark_bx, @function
@@ -674,15 +662,13 @@ n28_stmt_mark_α:        mov              r11, 29
                         .type            n29_statement_begin_bx, @function
 n29_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n29_statement_begin_α:  mov              r11, 30
-                        mov              r10, 7;                              jmp   n30_statement_end_α
+n29_statement_begin_α:  mov              r11, 30;                             jmp   n30_statement_end_α
 n29_statement_begin_β:  mov              r11, 30;                             jmp   n31_stmt_mark_α
                         .size            n29_statement_begin_bx, .-n29_statement_begin_bx
                         .type            n30_statement_end_bx, @function
 n30_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n30_statement_end_α:    mov              r11, 31
-                        mov              r10, 7;                              jmp   n31_stmt_mark_α
+n30_statement_end_α:    mov              r11, 31;                             jmp   n31_stmt_mark_α
                         .size            n30_statement_end_bx, .-n30_statement_end_bx
                         .type            n31_stmt_mark_bx, @function
 n31_stmt_mark_bx:
@@ -701,15 +687,13 @@ n31_stmt_mark_α:        mov              r11, 32
                         .type            n32_statement_begin_bx, @function
 n32_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n32_statement_begin_α:  mov              r11, 33
-                        mov              r10, 8;                              jmp   n33_statement_end_α
+n32_statement_begin_α:  mov              r11, 33;                             jmp   n33_statement_end_α
 n32_statement_begin_β:  mov              r11, 33;                             jmp   n34_stmt_mark_α
                         .size            n32_statement_begin_bx, .-n32_statement_begin_bx
                         .type            n33_statement_end_bx, @function
 n33_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n33_statement_end_α:    mov              r11, 34
-                        mov              r10, 8;                              jmp   n34_stmt_mark_α
+n33_statement_end_α:    mov              r11, 34;                             jmp   n34_stmt_mark_α
                         .size            n33_statement_end_bx, .-n33_statement_end_bx
                         .type            n34_stmt_mark_bx, @function
 n34_stmt_mark_bx:
@@ -728,15 +712,13 @@ n34_stmt_mark_α:        mov              r11, 35
                         .type            n35_statement_begin_bx, @function
 n35_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n35_statement_begin_α:  mov              r11, 36
-                        mov              r10, 9;                              jmp   n36_statement_end_α
+n35_statement_begin_α:  mov              r11, 36;                             jmp   n36_statement_end_α
 n35_statement_begin_β:  mov              r11, 36;                             jmp   n37_stmt_mark_α
                         .size            n35_statement_begin_bx, .-n35_statement_begin_bx
                         .type            n36_statement_end_bx, @function
 n36_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n36_statement_end_α:    mov              r11, 37
-                        mov              r10, 9;                              jmp   n37_stmt_mark_α
+n36_statement_end_α:    mov              r11, 37;                             jmp   n37_stmt_mark_α
                         .size            n36_statement_end_bx, .-n36_statement_end_bx
                         .type            n37_stmt_mark_bx, @function
 n37_stmt_mark_bx:
@@ -755,15 +737,13 @@ n37_stmt_mark_α:        mov              r11, 38
                         .type            n38_statement_begin_bx, @function
 n38_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n38_statement_begin_α:  mov              r11, 39
-                        mov              r10, 10;                             jmp   n39_statement_end_α
+n38_statement_begin_α:  mov              r11, 39;                             jmp   n39_statement_end_α
 n38_statement_begin_β:  mov              r11, 39;                             jmp   n40_stmt_mark_α
                         .size            n38_statement_begin_bx, .-n38_statement_begin_bx
                         .type            n39_statement_end_bx, @function
 n39_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n39_statement_end_α:    mov              r11, 40
-                        mov              r10, 10;                             jmp   n40_stmt_mark_α
+n39_statement_end_α:    mov              r11, 40;                             jmp   n40_stmt_mark_α
                         .size            n39_statement_end_bx, .-n39_statement_end_bx
                         .type            n40_stmt_mark_bx, @function
 n40_stmt_mark_bx:
@@ -782,8 +762,7 @@ n40_stmt_mark_α:        mov              r11, 41
                         .type            n41_statement_begin_bx, @function
 n41_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n41_statement_begin_α:  mov              r11, 42
-                        mov              r10, 11;                             jmp   n42_var_α
+n41_statement_begin_α:  mov              r11, 42;                             jmp   n42_var_α
 n41_statement_begin_β:  mov              r11, 42;                             jmp   n49_stmt_mark_α
                         .size            n41_statement_begin_bx, .-n41_statement_begin_bx
                         .type            n42_var_bx, @function
@@ -899,7 +878,6 @@ n46_cmp_test_α:         sub              rsp, 16
 n47_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n47_statement_end_α:    mov              r11, 48
-                        mov              r10, 11
                         add              rsp, 80;                             jmp   n48_stmt_mark_α
                         .size            n47_statement_end_bx, .-n47_statement_end_bx
                         .type            n48_stmt_mark_bx, @function
@@ -933,8 +911,7 @@ n49_stmt_mark_α:        mov              r11, 50
                         .type            n50_statement_begin_bx, @function
 n50_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n50_statement_begin_α:  mov              r11, 51
-                        mov              r10, 12;                             jmp   n51_var_α
+n50_statement_begin_α:  mov              r11, 51;                             jmp   n51_var_α
 n50_statement_begin_β:  mov              r11, 51;                             jmp   n54_stmt_mark_α
                         .size            n50_statement_begin_bx, .-n50_statement_begin_bx
                         .type            n51_var_bx, @function
@@ -1013,7 +990,6 @@ n52_assign_α:           mov              r11, 53
 n53_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n53_statement_end_α:    mov              r11, 54
-                        mov              r10, 12
                         add              rsp, 16;                             jmp   n54_stmt_mark_α
                         .size            n53_statement_end_bx, .-n53_statement_end_bx
                         .type            n54_stmt_mark_bx, @function
@@ -1033,8 +1009,7 @@ n54_stmt_mark_α:        mov              r11, 55
                         .type            n55_statement_begin_bx, @function
 n55_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n55_statement_begin_α:  mov              r11, 56
-                        mov              r10, 13;                             jmp   n56_var_α
+n55_statement_begin_α:  mov              r11, 56;                             jmp   n56_var_α
 n55_statement_begin_β:  mov              r11, 56;                             jmp   n61_stmt_mark_α
                         .size            n55_statement_begin_bx, .-n55_statement_begin_bx
                         .type            n56_var_bx, @function
@@ -1175,7 +1150,6 @@ n59_assign_α:           mov              r11, 60
 n60_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n60_statement_end_α:    mov              r11, 61
-                        mov              r10, 13
                         add              rsp, 48;                             jmp   n61_stmt_mark_α
                         .size            n60_statement_end_bx, .-n60_statement_end_bx
                         .type            n61_stmt_mark_bx, @function
@@ -1195,15 +1169,13 @@ n61_stmt_mark_α:        mov              r11, 62
                         .type            n62_statement_begin_bx, @function
 n62_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n62_statement_begin_α:  mov              r11, 63
-                        mov              r10, 14;                             jmp   n63_statement_end_α
+n62_statement_begin_α:  mov              r11, 63;                             jmp   n63_statement_end_α
 n62_statement_begin_β:  mov              r11, 63;                             jmp   n64_stmt_mark_α
                         .size            n62_statement_begin_bx, .-n62_statement_begin_bx
                         .type            n63_statement_end_bx, @function
 n63_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n63_statement_end_α:    mov              r11, 64
-                        mov              r10, 14;                             jmp   n64_stmt_mark_α
+n63_statement_end_α:    mov              r11, 64;                             jmp   n64_stmt_mark_α
                         .size            n63_statement_end_bx, .-n63_statement_end_bx
                         .type            n64_stmt_mark_bx, @function
 n64_stmt_mark_bx:
@@ -1222,8 +1194,7 @@ n64_stmt_mark_α:        mov              r11, 65
                         .type            n65_statement_begin_bx, @function
 n65_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n65_statement_begin_α:  mov              r11, 66
-                        mov              r10, 15;                             jmp   n66_var_α
+n65_statement_begin_α:  mov              r11, 66;                             jmp   n66_var_α
 n65_statement_begin_β:  mov              r11, 66;                             jmp   n61_stmt_mark_α
                         .size            n65_statement_begin_bx, .-n65_statement_begin_bx
                         .type            n66_var_bx, @function
@@ -1302,14 +1273,12 @@ n67_assign_α:           mov              r11, 68
 n68_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n68_statement_end_α:    mov              r11, 69
-                        mov              r10, 15
                         add              rsp, 16;                             jmp   n61_stmt_mark_α
                         .size            n68_statement_end_bx, .-n68_statement_end_bx
                         .type            n69_statement_begin_bx, @function
 n69_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n69_statement_begin_α:  mov              r11, 70
-                        mov              r10, 16;                             jmp   n70_lit_integer_α
+n69_statement_begin_α:  mov              r11, 70;                             jmp   n70_lit_integer_α
 n69_statement_begin_β:  mov              r11, 70;                             jmp   n73_stmt_mark_α
                         .size            n69_statement_begin_bx, .-n69_statement_begin_bx
                         .type            n70_lit_integer_bx, @function
@@ -1388,7 +1357,6 @@ n71_assign_α:           mov              r11, 72
 n72_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n72_statement_end_α:    mov              r11, 73
-                        mov              r10, 16
                         add              rsp, 16;                             jmp   n73_stmt_mark_α
                         .size            n72_statement_end_bx, .-n72_statement_end_bx
                         .type            n73_stmt_mark_bx, @function
@@ -1408,15 +1376,13 @@ n73_stmt_mark_α:        mov              r11, 74
                         .type            n74_statement_begin_bx, @function
 n74_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n74_statement_begin_α:  mov              r11, 75
-                        mov              r10, 17;                             jmp   n75_statement_end_α
+n74_statement_begin_α:  mov              r11, 75;                             jmp   n75_statement_end_α
 n74_statement_begin_β:  mov              r11, 75;                             jmp   n76_stmt_mark_α
                         .size            n74_statement_begin_bx, .-n74_statement_begin_bx
                         .type            n75_statement_end_bx, @function
 n75_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n75_statement_end_α:    mov              r11, 76
-                        mov              r10, 17;                             jmp   n76_stmt_mark_α
+n75_statement_end_α:    mov              r11, 76;                             jmp   n76_stmt_mark_α
                         .size            n75_statement_end_bx, .-n75_statement_end_bx
                         .type            n76_stmt_mark_bx, @function
 n76_stmt_mark_bx:
@@ -1435,8 +1401,7 @@ n76_stmt_mark_α:        mov              r11, 77
                         .type            n77_statement_begin_bx, @function
 n77_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n77_statement_begin_α:  mov              r11, 78
-                        mov              r10, 18;                             jmp   n78_lit_integer_α
+n77_statement_begin_α:  mov              r11, 78;                             jmp   n78_lit_integer_α
 n77_statement_begin_β:  mov              r11, 78;                             jmp   n81_stmt_mark_α
                         .size            n77_statement_begin_bx, .-n77_statement_begin_bx
                         .type            n78_lit_integer_bx, @function
@@ -1515,7 +1480,6 @@ n79_assign_α:           mov              r11, 80
 n80_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n80_statement_end_α:    mov              r11, 81
-                        mov              r10, 18
                         add              rsp, 16;                             jmp   n81_stmt_mark_α
                         .size            n80_statement_end_bx, .-n80_statement_end_bx
                         .type            n81_stmt_mark_bx, @function
@@ -1535,15 +1499,13 @@ n81_stmt_mark_α:        mov              r11, 82
                         .type            n82_statement_begin_bx, @function
 n82_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n82_statement_begin_α:  mov              r11, 83
-                        mov              r10, 19;                             jmp   n83_statement_end_α
+n82_statement_begin_α:  mov              r11, 83;                             jmp   n83_statement_end_α
 n82_statement_begin_β:  mov              r11, 83;                             jmp   n84_stmt_mark_α
                         .size            n82_statement_begin_bx, .-n82_statement_begin_bx
                         .type            n83_statement_end_bx, @function
 n83_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n83_statement_end_α:    mov              r11, 84
-                        mov              r10, 19;                             jmp   n84_stmt_mark_α
+n83_statement_end_α:    mov              r11, 84;                             jmp   n84_stmt_mark_α
                         .size            n83_statement_end_bx, .-n83_statement_end_bx
                         .type            n84_stmt_mark_bx, @function
 n84_stmt_mark_bx:
@@ -1562,15 +1524,13 @@ n84_stmt_mark_α:        mov              r11, 85
                         .type            n85_statement_begin_bx, @function
 n85_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n85_statement_begin_α:  mov              r11, 86
-                        mov              r10, 20;                             jmp   n86_statement_end_α
+n85_statement_begin_α:  mov              r11, 86;                             jmp   n86_statement_end_α
 n85_statement_begin_β:  mov              r11, 86;                             jmp   n87_stmt_mark_α
                         .size            n85_statement_begin_bx, .-n85_statement_begin_bx
                         .type            n86_statement_end_bx, @function
 n86_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n86_statement_end_α:    mov              r11, 87
-                        mov              r10, 20;                             jmp   n87_stmt_mark_α
+n86_statement_end_α:    mov              r11, 87;                             jmp   n87_stmt_mark_α
                         .size            n86_statement_end_bx, .-n86_statement_end_bx
                         .type            n87_stmt_mark_bx, @function
 n87_stmt_mark_bx:
@@ -1589,15 +1549,13 @@ n87_stmt_mark_α:        mov              r11, 88
                         .type            n88_statement_begin_bx, @function
 n88_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n88_statement_begin_α:  mov              r11, 89
-                        mov              r10, 21;                             jmp   n89_statement_end_α
+n88_statement_begin_α:  mov              r11, 89;                             jmp   n89_statement_end_α
 n88_statement_begin_β:  mov              r11, 89;                             jmp   n90_stmt_mark_α
                         .size            n88_statement_begin_bx, .-n88_statement_begin_bx
                         .type            n89_statement_end_bx, @function
 n89_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n89_statement_end_α:    mov              r11, 90
-                        mov              r10, 21;                             jmp   n90_stmt_mark_α
+n89_statement_end_α:    mov              r11, 90;                             jmp   n90_stmt_mark_α
                         .size            n89_statement_end_bx, .-n89_statement_end_bx
                         .type            n90_stmt_mark_bx, @function
 n90_stmt_mark_bx:
@@ -1616,15 +1574,13 @@ n90_stmt_mark_α:        mov              r11, 91
                         .type            n91_statement_begin_bx, @function
 n91_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n91_statement_begin_α:  mov              r11, 92
-                        mov              r10, 22;                             jmp   n92_statement_end_α
+n91_statement_begin_α:  mov              r11, 92;                             jmp   n92_statement_end_α
 n91_statement_begin_β:  mov              r11, 92;                             jmp   n93_stmt_mark_α
                         .size            n91_statement_begin_bx, .-n91_statement_begin_bx
                         .type            n92_statement_end_bx, @function
 n92_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n92_statement_end_α:    mov              r11, 93
-                        mov              r10, 22;                             jmp   n93_stmt_mark_α
+n92_statement_end_α:    mov              r11, 93;                             jmp   n93_stmt_mark_α
                         .size            n92_statement_end_bx, .-n92_statement_end_bx
                         .type            n93_stmt_mark_bx, @function
 n93_stmt_mark_bx:
@@ -1643,8 +1599,7 @@ n93_stmt_mark_α:        mov              r11, 94
                         .type            n94_statement_begin_bx, @function
 n94_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n94_statement_begin_α:  mov              r11, 95
-                        mov              r10, 23;                             jmp   n95_var_α
+n94_statement_begin_α:  mov              r11, 95;                             jmp   n95_var_α
 n94_statement_begin_β:  mov              r11, 95;                             jmp   n102_stmt_mark_α
                         .size            n94_statement_begin_bx, .-n94_statement_begin_bx
                         .type            n95_var_bx, @function
@@ -1760,7 +1715,6 @@ n99_cmp_test_α:         sub              rsp, 16
 n100_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n100_statement_end_α:   mov              r11, 101
-                        mov              r10, 23
                         add              rsp, 80;                             jmp   n101_stmt_mark_α
                         .size            n100_statement_end_bx, .-n100_statement_end_bx
                         .type            n101_stmt_mark_bx, @function
@@ -1794,8 +1748,7 @@ n102_stmt_mark_α:       mov              r11, 103
                         .type            n103_statement_begin_bx, @function
 n103_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n103_statement_begin_α: mov              r11, 104
-                        mov              r10, 24;                             jmp   n104_var_α
+n103_statement_begin_α: mov              r11, 104;                            jmp   n104_var_α
 n103_statement_begin_β: mov              r11, 104;                            jmp   n107_stmt_mark_α
                         .size            n103_statement_begin_bx, .-n103_statement_begin_bx
                         .type            n104_var_bx, @function
@@ -1874,7 +1827,6 @@ n105_assign_α:          mov              r11, 106
 n106_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n106_statement_end_α:   mov              r11, 107
-                        mov              r10, 24
                         add              rsp, 16;                             jmp   n107_stmt_mark_α
                         .size            n106_statement_end_bx, .-n106_statement_end_bx
                         .type            n107_stmt_mark_bx, @function
@@ -1894,8 +1846,7 @@ n107_stmt_mark_α:       mov              r11, 108
                         .type            n108_statement_begin_bx, @function
 n108_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n108_statement_begin_α: mov              r11, 109
-                        mov              r10, 25;                             jmp   n109_var_α
+n108_statement_begin_α: mov              r11, 109;                            jmp   n109_var_α
 n108_statement_begin_β: mov              r11, 109;                            jmp   n114_stmt_mark_α
                         .size            n108_statement_begin_bx, .-n108_statement_begin_bx
                         .type            n109_var_bx, @function
@@ -2036,7 +1987,6 @@ n112_assign_α:          mov              r11, 113
 n113_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n113_statement_end_α:   mov              r11, 114
-                        mov              r10, 25
                         add              rsp, 48;                             jmp   n114_stmt_mark_α
                         .size            n113_statement_end_bx, .-n113_statement_end_bx
                         .type            n114_stmt_mark_bx, @function
@@ -2056,15 +2006,13 @@ n114_stmt_mark_α:       mov              r11, 115
                         .type            n115_statement_begin_bx, @function
 n115_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n115_statement_begin_α: mov              r11, 116
-                        mov              r10, 26;                             jmp   n116_statement_end_α
+n115_statement_begin_α: mov              r11, 116;                            jmp   n116_statement_end_α
 n115_statement_begin_β: mov              r11, 116;                            jmp   n117_stmt_mark_α
                         .size            n115_statement_begin_bx, .-n115_statement_begin_bx
                         .type            n116_statement_end_bx, @function
 n116_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n116_statement_end_α:   mov              r11, 117
-                        mov              r10, 26;                             jmp   n117_stmt_mark_α
+n116_statement_end_α:   mov              r11, 117;                            jmp   n117_stmt_mark_α
                         .size            n116_statement_end_bx, .-n116_statement_end_bx
                         .type            n117_stmt_mark_bx, @function
 n117_stmt_mark_bx:
@@ -2083,8 +2031,7 @@ n117_stmt_mark_α:       mov              r11, 118
                         .type            n118_statement_begin_bx, @function
 n118_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n118_statement_begin_α: mov              r11, 119
-                        mov              r10, 27;                             jmp   n119_var_α
+n118_statement_begin_α: mov              r11, 119;                            jmp   n119_var_α
 n118_statement_begin_β: mov              r11, 119;                            jmp   n114_stmt_mark_α
                         .size            n118_statement_begin_bx, .-n118_statement_begin_bx
                         .type            n119_var_bx, @function
@@ -2163,21 +2110,18 @@ n120_assign_α:          mov              r11, 121
 n121_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n121_statement_end_α:   mov              r11, 122
-                        mov              r10, 27
                         add              rsp, 16;                             jmp   n114_stmt_mark_α
                         .size            n121_statement_end_bx, .-n121_statement_end_bx
                         .type            n122_statement_begin_bx, @function
 n122_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n122_statement_begin_α: mov              r11, 123
-                        mov              r10, 28;                             jmp   n123_statement_end_α
+n122_statement_begin_α: mov              r11, 123;                            jmp   n123_statement_end_α
 n122_statement_begin_β: mov              r11, 123;                            jmp   n124_stmt_mark_α
                         .size            n122_statement_begin_bx, .-n122_statement_begin_bx
                         .type            n123_statement_end_bx, @function
 n123_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n123_statement_end_α:   mov              r11, 124
-                        mov              r10, 28;                             jmp   n124_stmt_mark_α
+n123_statement_end_α:   mov              r11, 124;                            jmp   n124_stmt_mark_α
                         .size            n123_statement_end_bx, .-n123_statement_end_bx
                         .type            n124_stmt_mark_bx, @function
 n124_stmt_mark_bx:
@@ -2196,15 +2140,13 @@ n124_stmt_mark_α:       mov              r11, 125
                         .type            n125_statement_begin_bx, @function
 n125_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n125_statement_begin_α: mov              r11, 126
-                        mov              r10, 29;                             jmp   n126_statement_end_α
+n125_statement_begin_α: mov              r11, 126;                            jmp   n126_statement_end_α
 n125_statement_begin_β: mov              r11, 126;                            jmp   n127_stmt_mark_α
                         .size            n125_statement_begin_bx, .-n125_statement_begin_bx
                         .type            n126_statement_end_bx, @function
 n126_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n126_statement_end_α:   mov              r11, 127
-                        mov              r10, 29;                             jmp   n127_stmt_mark_α
+n126_statement_end_α:   mov              r11, 127;                            jmp   n127_stmt_mark_α
                         .size            n126_statement_end_bx, .-n126_statement_end_bx
                         .type            n127_stmt_mark_bx, @function
 n127_stmt_mark_bx:
@@ -2223,15 +2165,13 @@ n127_stmt_mark_α:       mov              r11, 128
                         .type            n128_statement_begin_bx, @function
 n128_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n128_statement_begin_α: mov              r11, 129
-                        mov              r10, 30;                             jmp   n129_statement_end_α
+n128_statement_begin_α: mov              r11, 129;                            jmp   n129_statement_end_α
 n128_statement_begin_β: mov              r11, 129;                            jmp   n130_stmt_mark_α
                         .size            n128_statement_begin_bx, .-n128_statement_begin_bx
                         .type            n129_statement_end_bx, @function
 n129_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n129_statement_end_α:   mov              r11, 130
-                        mov              r10, 30;                             jmp   n130_stmt_mark_α
+n129_statement_end_α:   mov              r11, 130;                            jmp   n130_stmt_mark_α
                         .size            n129_statement_end_bx, .-n129_statement_end_bx
                         .type            n130_stmt_mark_bx, @function
 n130_stmt_mark_bx:
@@ -2250,15 +2190,13 @@ n130_stmt_mark_α:       mov              r11, 131
                         .type            n131_statement_begin_bx, @function
 n131_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n131_statement_begin_α: mov              r11, 132
-                        mov              r10, 31;                             jmp   n132_statement_end_α
+n131_statement_begin_α: mov              r11, 132;                            jmp   n132_statement_end_α
 n131_statement_begin_β: mov              r11, 132;                            jmp   n133_stmt_mark_α
                         .size            n131_statement_begin_bx, .-n131_statement_begin_bx
                         .type            n132_statement_end_bx, @function
 n132_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n132_statement_end_α:   mov              r11, 133
-                        mov              r10, 31;                             jmp   n133_stmt_mark_α
+n132_statement_end_α:   mov              r11, 133;                            jmp   n133_stmt_mark_α
                         .size            n132_statement_end_bx, .-n132_statement_end_bx
                         .type            n133_stmt_mark_bx, @function
 n133_stmt_mark_bx:
@@ -2277,15 +2215,13 @@ n133_stmt_mark_α:       mov              r11, 134
                         .type            n134_statement_begin_bx, @function
 n134_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n134_statement_begin_α: mov              r11, 135
-                        mov              r10, 32;                             jmp   n135_statement_end_α
+n134_statement_begin_α: mov              r11, 135;                            jmp   n135_statement_end_α
 n134_statement_begin_β: mov              r11, 135;                            jmp   n136_stmt_mark_α
                         .size            n134_statement_begin_bx, .-n134_statement_begin_bx
                         .type            n135_statement_end_bx, @function
 n135_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n135_statement_end_α:   mov              r11, 136
-                        mov              r10, 32;                             jmp   n136_stmt_mark_α
+n135_statement_end_α:   mov              r11, 136;                            jmp   n136_stmt_mark_α
                         .size            n135_statement_end_bx, .-n135_statement_end_bx
                         .type            n136_stmt_mark_bx, @function
 n136_stmt_mark_bx:
@@ -2304,8 +2240,7 @@ n136_stmt_mark_α:       mov              r11, 137
                         .type            n137_statement_begin_bx, @function
 n137_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n137_statement_begin_α: mov              r11, 138
-                        mov              r10, 33;                             jmp   n138_var_α
+n137_statement_begin_α: mov              r11, 138;                            jmp   n138_var_α
 n137_statement_begin_β: mov              r11, 138;                            jmp   n144_stmt_mark_α
                         .size            n137_statement_begin_bx, .-n137_statement_begin_bx
                         .type            n138_var_bx, @function
@@ -2450,7 +2385,6 @@ n141_assign_α:          mov              r11, 142
 n142_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n142_statement_end_α:   mov              r11, 143
-                        mov              r10, 33
                         add              rsp, 48;                             jmp   n143_stmt_mark_α
                         .size            n142_statement_end_bx, .-n142_statement_end_bx
                         .type            n143_stmt_mark_bx, @function
@@ -2484,15 +2418,13 @@ n144_stmt_mark_α:       mov              r11, 145
                         .type            n145_statement_begin_bx, @function
 n145_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n145_statement_begin_α: mov              r11, 146
-                        mov              r10, 34;                             jmp   n146_statement_end_α
+n145_statement_begin_α: mov              r11, 146;                            jmp   n146_statement_end_α
 n145_statement_begin_β: mov              r11, 146;                            jmp   n147_stmt_mark_α
                         .size            n145_statement_begin_bx, .-n145_statement_begin_bx
                         .type            n146_statement_end_bx, @function
 n146_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n146_statement_end_α:   mov              r11, 147
-                        mov              r10, 34;                             jmp   n147_stmt_mark_α
+n146_statement_end_α:   mov              r11, 147;                            jmp   n147_stmt_mark_α
                         .size            n146_statement_end_bx, .-n146_statement_end_bx
                         .type            n147_stmt_mark_bx, @function
 n147_stmt_mark_bx:
@@ -2511,15 +2443,13 @@ n147_stmt_mark_α:       mov              r11, 148
                         .type            n148_statement_begin_bx, @function
 n148_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n148_statement_begin_α: mov              r11, 149
-                        mov              r10, 35;                             jmp   n149_statement_end_α
+n148_statement_begin_α: mov              r11, 149;                            jmp   n149_statement_end_α
 n148_statement_begin_β: mov              r11, 149;                            jmp   n150_stmt_mark_α
                         .size            n148_statement_begin_bx, .-n148_statement_begin_bx
                         .type            n149_statement_end_bx, @function
 n149_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n149_statement_end_α:   mov              r11, 150
-                        mov              r10, 35;                             jmp   n150_stmt_mark_α
+n149_statement_end_α:   mov              r11, 150;                            jmp   n150_stmt_mark_α
                         .size            n149_statement_end_bx, .-n149_statement_end_bx
                         .type            n150_stmt_mark_bx, @function
 n150_stmt_mark_bx:
@@ -2538,15 +2468,13 @@ n150_stmt_mark_α:       mov              r11, 151
                         .type            n151_statement_begin_bx, @function
 n151_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n151_statement_begin_α: mov              r11, 152
-                        mov              r10, 36;                             jmp   n152_statement_end_α
+n151_statement_begin_α: mov              r11, 152;                            jmp   n152_statement_end_α
 n151_statement_begin_β: mov              r11, 152;                            jmp   n153_stmt_mark_α
                         .size            n151_statement_begin_bx, .-n151_statement_begin_bx
                         .type            n152_statement_end_bx, @function
 n152_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n152_statement_end_α:   mov              r11, 153
-                        mov              r10, 36;                             jmp   n153_stmt_mark_α
+n152_statement_end_α:   mov              r11, 153;                            jmp   n153_stmt_mark_α
                         .size            n152_statement_end_bx, .-n152_statement_end_bx
                         .type            n153_stmt_mark_bx, @function
 n153_stmt_mark_bx:
@@ -2565,15 +2493,13 @@ n153_stmt_mark_α:       mov              r11, 154
                         .type            n154_statement_begin_bx, @function
 n154_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n154_statement_begin_α: mov              r11, 155
-                        mov              r10, 37;                             jmp   n155_statement_end_α
+n154_statement_begin_α: mov              r11, 155;                            jmp   n155_statement_end_α
 n154_statement_begin_β: mov              r11, 155;                            jmp   n156_stmt_mark_α
                         .size            n154_statement_begin_bx, .-n154_statement_begin_bx
                         .type            n155_statement_end_bx, @function
 n155_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n155_statement_end_α:   mov              r11, 156
-                        mov              r10, 37;                             jmp   n156_stmt_mark_α
+n155_statement_end_α:   mov              r11, 156;                            jmp   n156_stmt_mark_α
                         .size            n155_statement_end_bx, .-n155_statement_end_bx
                         .type            n156_stmt_mark_bx, @function
 n156_stmt_mark_bx:
@@ -2592,15 +2518,13 @@ n156_stmt_mark_α:       mov              r11, 157
                         .type            n157_statement_begin_bx, @function
 n157_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n157_statement_begin_α: mov              r11, 158
-                        mov              r10, 38;                             jmp   n158_statement_end_α
+n157_statement_begin_α: mov              r11, 158;                            jmp   n158_statement_end_α
 n157_statement_begin_β: mov              r11, 158;                            jmp   n159_stmt_mark_α
                         .size            n157_statement_begin_bx, .-n157_statement_begin_bx
                         .type            n158_statement_end_bx, @function
 n158_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n158_statement_end_α:   mov              r11, 159
-                        mov              r10, 38;                             jmp   n159_stmt_mark_α
+n158_statement_end_α:   mov              r11, 159;                            jmp   n159_stmt_mark_α
                         .size            n158_statement_end_bx, .-n158_statement_end_bx
                         .type            n159_stmt_mark_bx, @function
 n159_stmt_mark_bx:
@@ -2619,8 +2543,7 @@ n159_stmt_mark_α:       mov              r11, 160
                         .type            n160_statement_begin_bx, @function
 n160_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n160_statement_begin_α: mov              r11, 161
-                        mov              r10, 39;                             jmp   n161_var_α
+n160_statement_begin_α: mov              r11, 161;                            jmp   n161_var_α
 n160_statement_begin_β: mov              r11, 161;                            jmp   n156_stmt_mark_α
                         .size            n160_statement_begin_bx, .-n160_statement_begin_bx
                         .type            n161_var_bx, @function
@@ -2736,7 +2659,6 @@ n165_cmp_test_α:        sub              rsp, 16
 n166_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n166_statement_end_α:   mov              r11, 167
-                        mov              r10, 39
                         add              rsp, 80;                             jmp   n167_stmt_mark_α
                         .size            n166_statement_end_bx, .-n166_statement_end_bx
                         .type            n167_stmt_mark_bx, @function
@@ -2756,8 +2678,7 @@ n167_stmt_mark_α:       mov              r11, 168
                         .type            n168_statement_begin_bx, @function
 n168_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n168_statement_begin_α: mov              r11, 169
-                        mov              r10, 40;                             jmp   n169_var_α
+n168_statement_begin_α: mov              r11, 169;                            jmp   n169_var_α
 n168_statement_begin_β: mov              r11, 169;                            jmp   n172_stmt_mark_α
                         .size            n168_statement_begin_bx, .-n168_statement_begin_bx
                         .type            n169_var_bx, @function
@@ -2836,7 +2757,6 @@ n170_assign_α:          mov              r11, 171
 n171_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n171_statement_end_α:   mov              r11, 172
-                        mov              r10, 40
                         add              rsp, 16;                             jmp   n172_stmt_mark_α
                         .size            n171_statement_end_bx, .-n171_statement_end_bx
                         .type            n172_stmt_mark_bx, @function
@@ -2856,15 +2776,13 @@ n172_stmt_mark_α:       mov              r11, 173
                         .type            n173_statement_begin_bx, @function
 n173_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n173_statement_begin_α: mov              r11, 174
-                        mov              r10, 41;                             jmp   n174_statement_end_α
+n173_statement_begin_α: mov              r11, 174;                            jmp   n174_statement_end_α
 n173_statement_begin_β: mov              r11, 174;                            jmp   n175_stmt_mark_α
                         .size            n173_statement_begin_bx, .-n173_statement_begin_bx
                         .type            n174_statement_end_bx, @function
 n174_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n174_statement_end_α:   mov              r11, 175
-                        mov              r10, 41;                             jmp   n175_stmt_mark_α
+n174_statement_end_α:   mov              r11, 175;                            jmp   n175_stmt_mark_α
                         .size            n174_statement_end_bx, .-n174_statement_end_bx
                         .type            n175_stmt_mark_bx, @function
 n175_stmt_mark_bx:
@@ -2883,15 +2801,13 @@ n175_stmt_mark_α:       mov              r11, 176
                         .type            n176_statement_begin_bx, @function
 n176_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n176_statement_begin_α: mov              r11, 177
-                        mov              r10, 42;                             jmp   n177_statement_end_α
+n176_statement_begin_α: mov              r11, 177;                            jmp   n177_statement_end_α
 n176_statement_begin_β: mov              r11, 177;                            jmp   n178_stmt_mark_α
                         .size            n176_statement_begin_bx, .-n176_statement_begin_bx
                         .type            n177_statement_end_bx, @function
 n177_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n177_statement_end_α:   mov              r11, 178
-                        mov              r10, 42;                             jmp   n178_stmt_mark_α
+n177_statement_end_α:   mov              r11, 178;                            jmp   n178_stmt_mark_α
                         .size            n177_statement_end_bx, .-n177_statement_end_bx
                         .type            n178_stmt_mark_bx, @function
 n178_stmt_mark_bx:
@@ -2910,15 +2826,13 @@ n178_stmt_mark_α:       mov              r11, 179
                         .type            n179_statement_begin_bx, @function
 n179_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n179_statement_begin_α: mov              r11, 180
-                        mov              r10, 43;                             jmp   n180_statement_end_α
+n179_statement_begin_α: mov              r11, 180;                            jmp   n180_statement_end_α
 n179_statement_begin_β: mov              r11, 180;                            jmp   n181_stmt_mark_α
                         .size            n179_statement_begin_bx, .-n179_statement_begin_bx
                         .type            n180_statement_end_bx, @function
 n180_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n180_statement_end_α:   mov              r11, 181
-                        mov              r10, 43;                             jmp   n181_stmt_mark_α
+n180_statement_end_α:   mov              r11, 181;                            jmp   n181_stmt_mark_α
                         .size            n180_statement_end_bx, .-n180_statement_end_bx
                         .type            n181_stmt_mark_bx, @function
 n181_stmt_mark_bx:
@@ -2937,8 +2851,7 @@ n181_stmt_mark_α:       mov              r11, 182
                         .type            n182_statement_begin_bx, @function
 n182_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n182_statement_begin_α: mov              r11, 183
-                        mov              r10, 44;                             jmp   n183_var_α
+n182_statement_begin_α: mov              r11, 183;                            jmp   n183_var_α
 n182_statement_begin_β: mov              r11, 183;                            jmp   n186_stmt_mark_α
                         .size            n182_statement_begin_bx, .-n182_statement_begin_bx
                         .type            n183_var_bx, @function
@@ -3017,7 +2930,6 @@ n184_assign_α:          mov              r11, 185
 n185_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n185_statement_end_α:   mov              r11, 186
-                        mov              r10, 44
                         add              rsp, 16;                             jmp   n186_stmt_mark_α
                         .size            n185_statement_end_bx, .-n185_statement_end_bx
                         .type            n186_stmt_mark_bx, @function
@@ -3037,8 +2949,7 @@ n186_stmt_mark_α:       mov              r11, 187
                         .type            n187_statement_begin_bx, @function
 n187_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n187_statement_begin_α: mov              r11, 188
-                        mov              r10, 45;                             jmp   n188_var_α
+n187_statement_begin_α: mov              r11, 188;                            jmp   n188_var_α
 n187_statement_begin_β: mov              r11, 188;                            jmp   n191_stmt_mark_α
                         .size            n187_statement_begin_bx, .-n187_statement_begin_bx
                         .type            n188_var_bx, @function
@@ -3143,7 +3054,6 @@ n189_assign_α:          mov              r11, 190
 n190_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n190_statement_end_α:   mov              r11, 191
-                        mov              r10, 45
                         add              rsp, 16;                             jmp   n191_stmt_mark_α
                         .size            n190_statement_end_bx, .-n190_statement_end_bx
                         .type            n191_stmt_mark_bx, @function
@@ -3163,8 +3073,7 @@ n191_stmt_mark_α:       mov              r11, 192
                         .type            n192_statement_begin_bx, @function
 n192_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n192_statement_begin_α: mov              r11, 193
-                        mov              r10, 46;                             jmp   n193_lit_integer_α
+n192_statement_begin_α: mov              r11, 193;                            jmp   n193_lit_integer_α
 n192_statement_begin_β: mov              r11, 193;                            jmp   n196_stmt_mark_α
                         .size            n192_statement_begin_bx, .-n192_statement_begin_bx
                         .type            n193_lit_integer_bx, @function
@@ -3243,7 +3152,6 @@ n194_assign_α:          mov              r11, 195
 n195_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n195_statement_end_α:   mov              r11, 196
-                        mov              r10, 46
                         add              rsp, 16;                             jmp   n196_stmt_mark_α
                         .size            n195_statement_end_bx, .-n195_statement_end_bx
                         .type            n196_stmt_mark_bx, @function
@@ -3263,8 +3171,7 @@ n196_stmt_mark_α:       mov              r11, 197
                         .type            n197_statement_begin_bx, @function
 n197_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n197_statement_begin_α: mov              r11, 198
-                        mov              r10, 47;                             jmp   n198_var_α
+n197_statement_begin_α: mov              r11, 198;                            jmp   n198_var_α
 n197_statement_begin_β: mov              r11, 198;                            jmp   n196_stmt_mark_α
                         .size            n197_statement_begin_bx, .-n197_statement_begin_bx
                         .type            n198_var_bx, @function
@@ -3405,14 +3312,12 @@ n201_assign_α:          mov              r11, 202
 n202_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n202_statement_end_α:   mov              r11, 203
-                        mov              r10, 47
                         add              rsp, 48;                             jmp   n196_stmt_mark_α
                         .size            n202_statement_end_bx, .-n202_statement_end_bx
                         .type            n203_statement_begin_bx, @function
 n203_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n203_statement_begin_α: mov              r11, 204
-                        mov              r10, 48;                             jmp   n204_var_α
+n203_statement_begin_α: mov              r11, 204;                            jmp   n204_var_α
 n203_statement_begin_β: mov              r11, 204;                            jmp   n211_stmt_mark_α
                         .size            n203_statement_begin_bx, .-n203_statement_begin_bx
                         .type            n204_var_bx, @function
@@ -3528,7 +3433,6 @@ n208_cmp_test_α:        sub              rsp, 16
 n209_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n209_statement_end_α:   mov              r11, 210
-                        mov              r10, 48
                         add              rsp, 80;                             jmp   n210_stmt_mark_α
                         .size            n209_statement_end_bx, .-n209_statement_end_bx
                         .type            n210_stmt_mark_bx, @function
@@ -3562,8 +3466,7 @@ n211_stmt_mark_α:       mov              r11, 212
                         .type            n212_statement_begin_bx, @function
 n212_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n212_statement_begin_α: mov              r11, 213
-                        mov              r10, 49;                             jmp   n213_lit_integer_α
+n212_statement_begin_α: mov              r11, 213;                            jmp   n213_lit_integer_α
 n212_statement_begin_β: mov              r11, 213;                            jmp   n216_stmt_mark_α
                         .size            n212_statement_begin_bx, .-n212_statement_begin_bx
                         .type            n213_lit_integer_bx, @function
@@ -3642,7 +3545,6 @@ n214_assign_α:          mov              r11, 215
 n215_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n215_statement_end_α:   mov              r11, 216
-                        mov              r10, 49
                         add              rsp, 16;                             jmp   n216_stmt_mark_α
                         .size            n215_statement_end_bx, .-n215_statement_end_bx
                         .type            n216_stmt_mark_bx, @function
@@ -3662,8 +3564,7 @@ n216_stmt_mark_α:       mov              r11, 217
                         .type            n217_statement_begin_bx, @function
 n217_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n217_statement_begin_α: mov              r11, 218
-                        mov              r10, 50;                             jmp   n218_var_α
+n217_statement_begin_α: mov              r11, 218;                            jmp   n218_var_α
 n217_statement_begin_β: mov              r11, 218;                            jmp   n216_stmt_mark_α
                         .size            n217_statement_begin_bx, .-n217_statement_begin_bx
                         .type            n218_var_bx, @function
@@ -3804,14 +3705,12 @@ n221_assign_α:          mov              r11, 222
 n222_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n222_statement_end_α:   mov              r11, 223
-                        mov              r10, 50
                         add              rsp, 48;                             jmp   n216_stmt_mark_α
                         .size            n222_statement_end_bx, .-n222_statement_end_bx
                         .type            n223_statement_begin_bx, @function
 n223_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n223_statement_begin_α: mov              r11, 224
-                        mov              r10, 51;                             jmp   n224_var_α
+n223_statement_begin_α: mov              r11, 224;                            jmp   n224_var_α
 n223_statement_begin_β: mov              r11, 224;                            jmp   n231_stmt_mark_α
                         .size            n223_statement_begin_bx, .-n223_statement_begin_bx
                         .type            n224_var_bx, @function
@@ -3927,7 +3826,6 @@ n228_cmp_test_α:        sub              rsp, 16
 n229_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n229_statement_end_α:   mov              r11, 230
-                        mov              r10, 51
                         add              rsp, 80;                             jmp   n230_stmt_mark_α
                         .size            n229_statement_end_bx, .-n229_statement_end_bx
                         .type            n230_stmt_mark_bx, @function
@@ -3961,8 +3859,7 @@ n231_stmt_mark_α:       mov              r11, 232
                         .type            n232_statement_begin_bx, @function
 n232_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n232_statement_begin_α: mov              r11, 233
-                        mov              r10, 52;                             jmp   n233_var_α
+n232_statement_begin_α: mov              r11, 233;                            jmp   n233_var_α
 n232_statement_begin_β: mov              r11, 233;                            jmp   n144_stmt_mark_α
                         .size            n232_statement_begin_bx, .-n232_statement_begin_bx
                         .type            n233_var_bx, @function
@@ -4107,7 +4004,6 @@ n236_assign_α:          mov              r11, 237
 n237_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n237_statement_end_α:   mov              r11, 238
-                        mov              r10, 52
                         add              rsp, 48;                             jmp   n238_stmt_mark_α
                         .size            n237_statement_end_bx, .-n237_statement_end_bx
                         .type            n238_stmt_mark_bx, @function
@@ -4127,8 +4023,7 @@ n238_stmt_mark_α:       mov              r11, 239
                         .type            n239_statement_begin_bx, @function
 n239_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n239_statement_begin_α: mov              r11, 240
-                        mov              r10, 53;                             jmp   n240_lit_integer_α
+n239_statement_begin_α: mov              r11, 240;                            jmp   n240_lit_integer_α
 n239_statement_begin_β: mov              r11, 240;                            jmp   n247_stmt_mark_α
                         .size            n239_statement_begin_bx, .-n239_statement_begin_bx
                         .type            n240_lit_integer_bx, @function
@@ -4244,7 +4139,6 @@ n244_cmp_test_α:        sub              rsp, 16
 n245_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n245_statement_end_α:   mov              r11, 246
-                        mov              r10, 53
                         add              rsp, 80;                             jmp   n246_stmt_mark_α
                         .size            n245_statement_end_bx, .-n245_statement_end_bx
                         .type            n246_stmt_mark_bx, @function
@@ -4278,8 +4172,7 @@ n247_stmt_mark_α:       mov              r11, 248
                         .type            n248_statement_begin_bx, @function
 n248_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n248_statement_begin_α: mov              r11, 249
-                        mov              r10, 54;                             jmp   n249_var_α
+n248_statement_begin_α: mov              r11, 249;                            jmp   n249_var_α
 n248_statement_begin_β: mov              r11, 249;                            jmp   n252_stmt_mark_α
                         .size            n248_statement_begin_bx, .-n248_statement_begin_bx
                         .type            n249_var_bx, @function
@@ -4358,7 +4251,6 @@ n250_assign_α:          mov              r11, 251
 n251_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n251_statement_end_α:   mov              r11, 252
-                        mov              r10, 54
                         add              rsp, 16;                             jmp   n252_stmt_mark_α
                         .size            n251_statement_end_bx, .-n251_statement_end_bx
                         .type            n252_stmt_mark_bx, @function
@@ -4378,8 +4270,7 @@ n252_stmt_mark_α:       mov              r11, 253
                         .type            n253_statement_begin_bx, @function
 n253_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n253_statement_begin_α: mov              r11, 254
-                        mov              r10, 55;                             jmp   n254_var_α
+n253_statement_begin_α: mov              r11, 254;                            jmp   n254_var_α
 n253_statement_begin_β: mov              r11, 254;                            jmp   n257_stmt_mark_α
                         .size            n253_statement_begin_bx, .-n253_statement_begin_bx
                         .type            n254_var_bx, @function
@@ -4484,7 +4375,6 @@ n255_assign_α:          mov              r11, 256
 n256_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n256_statement_end_α:   mov              r11, 257
-                        mov              r10, 55
                         add              rsp, 16;                             jmp   n257_stmt_mark_α
                         .size            n256_statement_end_bx, .-n256_statement_end_bx
                         .type            n257_stmt_mark_bx, @function
@@ -4504,8 +4394,7 @@ n257_stmt_mark_α:       mov              r11, 258
                         .type            n258_statement_begin_bx, @function
 n258_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n258_statement_begin_α: mov              r11, 259
-                        mov              r10, 56;                             jmp   n259_lit_string_α
+n258_statement_begin_α: mov              r11, 259;                            jmp   n259_lit_string_α
 n258_statement_begin_β: mov              r11, 259;                            jmp   n262_stmt_mark_α
                         .size            n258_statement_begin_bx, .-n258_statement_begin_bx
                         .type            n259_lit_string_bx, @function
@@ -4612,7 +4501,6 @@ n260_assign_α:          mov              r11, 261
 n261_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n261_statement_end_α:   mov              r11, 262
-                        mov              r10, 56
                         add              rsp, 16;                             jmp   n262_stmt_mark_α
                         .size            n261_statement_end_bx, .-n261_statement_end_bx
                         .type            n262_stmt_mark_bx, @function
@@ -4632,8 +4520,7 @@ n262_stmt_mark_α:       mov              r11, 263
                         .type            n263_statement_begin_bx, @function
 n263_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n263_statement_begin_α: mov              r11, 264
-                        mov              r10, 57;                             jmp   n264_lit_string_α
+n263_statement_begin_α: mov              r11, 264;                            jmp   n264_lit_string_α
 n263_statement_begin_β: mov              r11, 264;                            jmp   n267_stmt_mark_α
                         .size            n263_statement_begin_bx, .-n263_statement_begin_bx
                         .type            n264_lit_string_bx, @function
@@ -4740,7 +4627,6 @@ n265_assign_α:          mov              r11, 266
 n266_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n266_statement_end_α:   mov              r11, 267
-                        mov              r10, 57
                         add              rsp, 16;                             jmp   n267_stmt_mark_α
                         .size            n266_statement_end_bx, .-n266_statement_end_bx
                         .type            n267_stmt_mark_bx, @function
@@ -4760,8 +4646,7 @@ n267_stmt_mark_α:       mov              r11, 268
                         .type            n268_statement_begin_bx, @function
 n268_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n268_statement_begin_α: mov              r11, 269
-                        mov              r10, 58;                             jmp   n269_lit_string_α
+n268_statement_begin_α: mov              r11, 269;                            jmp   n269_lit_string_α
 n268_statement_begin_β: mov              r11, 269;                            jmp   n272_stmt_mark_α
                         .size            n268_statement_begin_bx, .-n268_statement_begin_bx
                         .type            n269_lit_string_bx, @function
@@ -4868,7 +4753,6 @@ n270_assign_α:          mov              r11, 271
 n271_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n271_statement_end_α:   mov              r11, 272
-                        mov              r10, 58
                         add              rsp, 16;                             jmp   n272_stmt_mark_α
                         .size            n271_statement_end_bx, .-n271_statement_end_bx
                         .type            n272_stmt_mark_bx, @function
@@ -4888,8 +4772,7 @@ n272_stmt_mark_α:       mov              r11, 273
                         .type            n273_statement_begin_bx, @function
 n273_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n273_statement_begin_α: mov              r11, 274
-                        mov              r10, 59;                             jmp   n274_lit_string_α
+n273_statement_begin_α: mov              r11, 274;                            jmp   n274_lit_string_α
 n273_statement_begin_β: mov              r11, 274;                            jmp   n277_stmt_mark_α
                         .size            n273_statement_begin_bx, .-n273_statement_begin_bx
                         .type            n274_lit_string_bx, @function
@@ -4996,7 +4879,6 @@ n275_assign_α:          mov              r11, 276
 n276_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n276_statement_end_α:   mov              r11, 277
-                        mov              r10, 59
                         add              rsp, 16;                             jmp   n277_stmt_mark_α
                         .size            n276_statement_end_bx, .-n276_statement_end_bx
                         .type            n277_stmt_mark_bx, @function
@@ -5016,8 +4898,7 @@ n277_stmt_mark_α:       mov              r11, 278
                         .type            n278_statement_begin_bx, @function
 n278_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n278_statement_begin_α: mov              r11, 279
-                        mov              r10, 60;                             jmp   n279_lit_string_α
+n278_statement_begin_α: mov              r11, 279;                            jmp   n279_lit_string_α
 n278_statement_begin_β: mov              r11, 279;                            jmp   main_γ
                         .size            n278_statement_begin_bx, .-n278_statement_begin_bx
                         .type            n279_lit_string_bx, @function
@@ -5124,14 +5005,12 @@ n280_assign_α:          mov              r11, 281
 n281_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n281_statement_end_α:   mov              r11, 282
-                        mov              r10, 60
                         add              rsp, 16;                             jmp   main_γ
                         .size            n281_statement_end_bx, .-n281_statement_end_bx
                         .type            n282_statement_begin_bx, @function
 n282_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n282_statement_begin_α: mov              r11, 283
-                        mov              r10, 61;                             jmp   n283_lit_string_α
+n282_statement_begin_α: mov              r11, 283;                            jmp   n283_lit_string_α
 n282_statement_begin_β: mov              r11, 283;                            jmp   n247_stmt_mark_α
                         .size            n282_statement_begin_bx, .-n282_statement_begin_bx
                         .type            n283_lit_string_bx, @function
@@ -5238,14 +5117,12 @@ n284_assign_α:          mov              r11, 285
 n285_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n285_statement_end_α:   mov              r11, 286
-                        mov              r10, 61
                         add              rsp, 16;                             jmp   n247_stmt_mark_α
                         .size            n285_statement_end_bx, .-n285_statement_end_bx
                         .type            n286_statement_begin_bx, @function
 n286_statement_begin_bx:
 #-----------------------------------------------------------------------------------------------------------------------
-n286_statement_begin_α: mov              r11, 287
-                        mov              r10, 62;                             jmp   n287_lit_string_α
+n286_statement_begin_α: mov              r11, 287;                            jmp   n287_lit_string_α
 n286_statement_begin_β: mov              r11, 287;                            jmp   main_γ
                         .size            n286_statement_begin_bx, .-n286_statement_begin_bx
                         .type            n287_lit_string_bx, @function
@@ -5352,7 +5229,6 @@ n288_assign_α:          mov              r11, 289
 n289_statement_end_bx:
 #-----------------------------------------------------------------------------------------------------------------------
 n289_statement_end_α:   mov              r11, 290
-                        mov              r10, 62
                         add              rsp, 16;                             jmp   main_γ
                         .size            n289_statement_end_bx, .-n289_statement_end_bx
                         .type            n290_goto_bx, @function

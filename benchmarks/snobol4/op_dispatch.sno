@@ -3,7 +3,6 @@
 * Standalone:  scrip op_dispatch.sno   |   sbl -bf op_dispatch.sno   |   snobol4 op_dispatch.sno
         &TRIM = 1
         &ANCHOR = 0
-        &STLIMIT = -1
         DEFINE('OP_DISPATCH(N)')                        :(OP_DISPATCH_END)
 OP_DISPATCH  M = 1
         ZI = 1

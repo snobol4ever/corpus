@@ -3,7 +3,6 @@
 * Standalone:  scrip string_manip.sno   |   sbl -bf string_manip.sno   |   snobol4 string_manip.sno
         &TRIM = 1
         &ANCHOR = 0
-        &STLIMIT = -1
         DEFINE('STRING_MANIP(N)')                       :(STRING_MANIP_END)
 STRING_MANIP  ZI = 1
 ZBL     S = 'The quick brown fox jumps over the lazy dog'

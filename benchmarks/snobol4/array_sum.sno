@@ -3,7 +3,6 @@
 * Standalone:  scrip array_sum.sno   |   sbl -bf array_sum.sno   |   snobol4 array_sum.sno
         &TRIM = 1
         &ANCHOR = 0
-        &STLIMIT = -1
         DEFINE('ARRAY_SUM(N)')                          :(ARRAY_SUM_END)
 ARRAY_SUM  ZI = 1
 ZBL     V = ARRAY(500)

@@ -3,7 +3,6 @@
 * Standalone:  scrip ident_call1.sno   |   sbl -bf ident_call1.sno   |   snobol4 ident_call1.sno
         &TRIM = 1
         &ANCHOR = 0
-        &STLIMIT = -1
         DEFINE('IDENT_CALL1(N)')                        :(IDENT_CALL1_END)
 IDENT_CALL1  A = 0
         ZI = 1

@@ -12,7 +12,6 @@
 * Standalone:  scrip table_variety.sno   |   sbl -bf table_variety.sno
         &TRIM = 1
         &ANCHOR = 0
-        &STLIMIT = -1
         DEFINE('TABLE_VARIETY(N)')                      :(TABLE_VARIETY_END)
 TABLE_VARIETY  ZI = 1
         ZS = 0
