@@ -50,7 +50,7 @@ FN__loadfile:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2952
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2954
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -2284,7 +2284,7 @@ FN__kgen:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2952
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2954
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -3068,7 +3068,7 @@ kgen_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2952
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2954
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -3147,7 +3147,7 @@ FN__dumpcode:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2952
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2954
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -4609,7 +4609,7 @@ FN__aseq:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2952
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2954
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -6138,7 +6138,7 @@ aseq_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2952
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2954
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -6219,7 +6219,7 @@ FN__putchain:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2952
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2954
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -11462,7 +11462,7 @@ FN__putdel:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2952
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2954
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -13683,7 +13683,7 @@ FN__collapse:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2952
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2954
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -14749,7 +14749,15 @@ n00561_unop_α:           mov              r11, 659
                         mov              rsi, qword ptr [rbp + 120]
                         call             qword ptr [rip + rt_size_d@GOTPCREL]
                         mov              qword ptr [rbp + 96], rax
-                        mov              qword ptr [rbp + 104], rdx;          jmp   n00562_to_α
+                        mov              qword ptr [rbp + 104], rdx
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_unop.cpp:107
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n00562_to_α
                         .size            n00561_unop_bx, .-n00561_unop_bx
                         .type            n00562_to_bx, @function
 n00562_to_bx:
@@ -18550,7 +18558,7 @@ FN__successor:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2952
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2954
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -20394,7 +20402,7 @@ FN__crack:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2952
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2954
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -24554,7 +24562,7 @@ FN__options:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2952
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2954
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -28033,7 +28041,7 @@ main_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2952
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2954
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -28669,7 +28677,15 @@ n01175_unop_α:           mov              r11, 1267
                         mov              rsi, qword ptr [rbp + 24]
                         call             qword ptr [rip + rt_size_d@GOTPCREL]
                         mov              qword ptr [rbp + 2160], rax
-                        mov              qword ptr [rbp + 2168], rdx;         jmp   n01176_lit_integer_α
+                        mov              qword ptr [rbp + 2168], rdx
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_unop.cpp:107
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01176_lit_integer_α
                         .size            n01175_unop_bx, .-n01175_unop_bx
                         .type            n01176_lit_integer_bx, @function
 n01176_lit_integer_bx:
@@ -29178,7 +29194,15 @@ n01194_unop_α:           mov              r11, 1288
                         mov              rsi, qword ptr [rbp + 24]
                         call             qword ptr [rip + rt_size_d@GOTPCREL]
                         mov              qword ptr [rbp + 1696], rax
-                        mov              qword ptr [rbp + 1704], rdx;         jmp   n01195_lit_integer_α
+                        mov              qword ptr [rbp + 1704], rdx
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_unop.cpp:107
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_poll_asm@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64];     jmp   n01195_lit_integer_α
                         .size            n01194_unop_bx, .-n01194_unop_bx
                         .type            n01195_lit_integer_bx, @function
 n01195_lit_integer_bx:
@@ -31278,7 +31302,7 @@ main_γ:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2952
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2954
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -31316,7 +31340,7 @@ main_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2952
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2954
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
