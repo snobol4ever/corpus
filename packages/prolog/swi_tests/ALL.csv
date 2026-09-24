@@ -1,5 +1,5 @@
 rank,entry,origin,package,n_lines,stdin,want_rc,modes,heap_kb,stack_kb
-1,GC/test_agc_copyterm,swi_tests__GC/test_agc_copyterm,swi_tests,86,0,0,"m3,m4",,
+1,GC/test_agc_copyterm,swi_tests__GC/test_agc_copyterm,swi_tests,86,0,0,"m3,m4",12288,
 2,GC/test_ch_shift,swi_tests__GC/test_ch_shift,swi_tests,97,0,0,"m3,m4",,
 3,GC/test_cleanup_shift,swi_tests__GC/test_cleanup_shift,swi_tests,116,0,0,"m3,m4",,
 4,GC/test_gc_alt_clause,swi_tests__GC/test_gc_alt_clause,swi_tests,71,0,0,"m3,m4",,
