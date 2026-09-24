@@ -1,0 +1,8 @@
+# OUTSIDE_ISO_BASELINE.tsv -- PAT rejection tests (iso7185prt*) whose supposed violation is NOT an error in ISO 7185, so a conforming
+# compiler ACCEPTS them and no rejection can be graded. CLASS not-an-iso-error. Ruled by the ceo, CEO-1231 (2026-09-24), on hq_pascal's
+# ask q-pascal-pat-1834-and-1850-carry-no-iso-violation: they go OUTSIDE THE ISO BASELINE in the CEO-749 shape, printed by the runner
+# and KEPT IN THE DENOMINATOR, so PAT reads x/427 OUTSIDE=2 and its ceiling is 425 by ruling. test_pascal_pat_suite.sh reads this file
+# and cross-checks every listed program the other way round: SCRIP must ACCEPT it (a refusal is reported STALE and graded normally).
+# Columns: program <TAB> CLASS <TAB> the measurement (Pascal-P5's own transcript, .ecp beside the program) <TAB> why ISO does not refuse it.
+iso7185prt1834.pas	not-an-iso-error	iso7185prt1834.ecp: "label 1 unreferenced" then "Errors in program: 0"	label 1 is declared and prefixes exactly one statement (ISO 7185 6.2.1/6.8.1); nothing requires a goto to it
+iso7185prt1850.pas	not-an-iso-error	iso7185prt1850.ecp: "i unreferenced" then "Errors in program: 0"	a declared, never-used variable violates no clause; the test's own header: "Note that this is technically not an error. Its just a compiler quality test"
