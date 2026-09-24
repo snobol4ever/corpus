@@ -290,6 +290,11 @@ every stdin-bearing plain program with *"stays as files until the stdin-sections
 that extension HAS landed: the master pair ships `ALL.in`, and **this master was already grading 20 stdin-fed
 entries while that park went on turning the eighth away.** *A rationale that names a MISSING CAPABILITY needs
 a RE-MEASURE date, not just an author date* — the second time this month, in this file.
+⛔ **AND ITS LOOSE PAIR OUTLIVED THE ABSORPTION BY TWELVE DAYS** (hq_icon, 2026-09-24): `rung36_jcon_others.icn`, its `.ref`
+and `config/rung36_jcon_others.stdin` stayed on disk beside master entry 824 (origin `rung36_jcon_others`), so the rung
+runners graded the program a second time and test_gate_suite_conversion_complete.sh read it as LOOSE-BUT-UNDECLARED -- this
+paragraph names it without `.icn`, which the gate's path regex cannot match. Deleted; test_icon_ir_rung_36.sh now asserts
+the move with `moved()`, which REFUSES if the loose file ever returns.
 **FOUR CELLS MEASURED BEFORE THE DECLARATION WAS WRITTEN, not after:** the shipped `.expected` IS the FED
 Arizona icont run, byte for byte, at 183 lines; a STARVED oracle run gives 130 and loses 53 lines; and scrip
 FED reproduces the ref EXACTLY in m3 AND m4. **AND THE ABSORBED ENTRY WAS PROVED FED THROUGH THE MASTER'S OWN
@@ -484,6 +489,10 @@ session could find.** Individually measured (not assumed), grouped by signature:
   !x/?x element-variable or s[i:j] section)"`, citing `GOAL-IR-IMMUTABLE-EMIT.md` (exists, 231KB) by
   name in its own error text. A real, already-named, already-scoped architectural gap — not chased
   further here, the guard message already points at its own owning doc.
+  ⛔ **STALE AS OF 2026-09-24 (hq_icon, measured): the guard no longer fires.** SCRIP runs it rc=0 in both modes, and its
+  m3 output equals Arizona iconx's byte for byte. What kept it red was the ref: a JCON-provenance cut whose display()
+  output (`co-expression_1(0)`, no local-identifier blocks) iconx does not print. Re-cut from iconx -- stdout, /dev/null,
+  an empty scratch cwd, three runs byte-identical -- and it PASSES in m3 and m4.
 - `rung36_jcon_proto` — m3 `PASS(rc=1)`, m4 `SKIP` (parse error: "line 28: expected expression (got
   ,)", on the empty-tuple literal `(,,,);`). A genuine m3-vs-m4 PARSE divergence, which is surprising
   given the two modes are supposed to share one frontend — not traced past confirming the repro line;

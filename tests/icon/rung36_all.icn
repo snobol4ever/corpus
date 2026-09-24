@@ -462,11 +462,11 @@ procedure ferr (err, func, args)
    val := val[1:-1];
    msg := "oops -- " || image(func) || "(" || val || ") ";
    &error := 1;
-   if func ! args;
+   if func ! args
       then write (msg, "succeeded")
-   else if &error ~= 0;
+   else if &error ~= 0
       then write (msg, "failed but no error")
-   else if &errornumber ~= err;
+   else if &errornumber ~= err
       then write (msg, "got error ",&errornumber," instead of ",err);
    &error := 0;
    return;
@@ -1352,7 +1352,7 @@ procedure meander(alpha,n)
    t := n-1;
    result := repl(alpha[ 1 ],t);
    while c := alpha[ i ] do { 
-      if find(result[ -t:0 ] || c,result);
+      if find(result[ -t:0 ] || c,result)
       then i -:= 1
       else { result ||:= c; i := k }
        }

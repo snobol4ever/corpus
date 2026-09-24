@@ -130,3 +130,7 @@ divergence, so none needs a per-mode deferral note.
   GOAL-IR-IMMUTABLE-EMIT.md"* — and this row is named for that guard, so target and witness agree
   by construction rather than by inference. Fires in BOTH modes at emit time, so there is no partial
   m3 result to grade. Converts when the `TT_ASSIGN` terminal arm mints a real lvalue-producer assign.
+  ⛔ **STALE AS OF 2026-09-24 (hq_icon, measured): the guard no longer fires.** SCRIP runs it rc=0 in both modes, and its
+  m3 output equals Arizona iconx's byte for byte. What kept it red was the ref: a JCON-provenance cut whose display()
+  output (`co-expression_1(0)`, no local-identifier blocks) iconx does not print. Re-cut from iconx -- stdout, /dev/null,
+  an empty scratch cwd, three runs byte-identical -- and it PASSES in m3 and m4.
