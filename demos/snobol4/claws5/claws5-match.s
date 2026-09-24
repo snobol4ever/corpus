@@ -739,7 +739,8 @@ n46_assign_α:           mov              r11, 26
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   n47_statement_end_α
-n46_assign_β:           mov              r11, 26;                             jmp   n43_statement_begin_β
+n46_assign_β:           mov              r11, 26
+                        add              rsp, 32;                             jmp   n43_statement_begin_β
 .Lassign_α_112_0:       .quad            .Lassign_α_112_0_s
 .Lassign_α_112_0_s:     .string          "claws"
                         .size            n46_assign_bx, .-n46_assign_bx
@@ -986,7 +987,8 @@ n58_assign_α:           mov              r11, 38
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   n59_statement_end_α
-n58_assign_β:           mov              r11, 38;                             jmp   n56_statement_begin_β
+n58_assign_β:           mov              r11, 38
+                        add              rsp, 16;                             jmp   n56_statement_begin_β
 .Lassign_α_130_0:       .quad            .Lassign_α_130_0_s
 .Lassign_α_130_0_s:     .string          "src"
                         .size            n58_assign_bx, .-n58_assign_bx
@@ -1062,6 +1064,26 @@ n64_match_begin_α:      mov              r11, 44
                         push             r15                                  # outer_Δ
                         sub              rsp, 88
                         call             qword ptr [rip + rt_match_enter@GOTPCREL]
+                        sub              rsp, 32
+                        mov              dword ptr [rsp + 0], 2
+                        mov              dword ptr [rsp + 4], edx
+                        mov              qword ptr [rsp + 8], rax
+                        mov              qword ptr [rsp + 24], rdx
+                        lea              rdi, [rsp + 0]
+                        mov              esi, 1
+                        mov              edx, 0
+                        lea              rcx, [rsp + 32]
+                        mov              qword ptr [rip + rtccb+40], r8
+                        mov              qword ptr [rip + rtccb+56], r10
+                        mov              qword ptr [rip + rtccb+64], r11
+                        call             rt_gc_point_arr_c@PLT
+                        mov              r8,  qword ptr [rip + rtccb+40]
+                        mov              r9,  qword ptr [rip + rtccb+48]
+                        mov              r10, qword ptr [rip + rtccb+56]
+                        mov              r11, qword ptr [rip + rtccb+64]
+                        mov              rax, qword ptr [rsp + 8]
+                        mov              rdx, qword ptr [rsp + 24]
+                        add              rsp, 32
                         mov              r13, rax
                         mov              r15, rdx
                         mov              dword ptr [rbp + -40], 0             # start_δ
@@ -1784,7 +1806,7 @@ n85_assign_α:           mov              r11, 65
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   n86_statement_end_α
-n85_assign_β:           mov              r11, 65;                             jmp   n80_statement_begin_β
+n85_assign_β:           mov              r11, 65;                             jmp   n84_binop_β
 .Lassign_α_176_0:       .quad            .Lassign_α_176_0_s
 .Lassign_α_176_0_s:     .string          "OUTPUT"
                         .size            n85_assign_bx, .-n85_assign_bx
@@ -1903,7 +1925,8 @@ n89_assign_α:           mov              r11, 69
                         mov              rax, qword ptr [rsp + 0]
                         mov              rdx, qword ptr [rsp + 8]
                         add              rsp, 16;                             jmp   n90_statement_end_α
-n89_assign_β:           mov              r11, 69;                             jmp   n87_statement_begin_β
+n89_assign_β:           mov              r11, 69
+                        add              rsp, 16;                             jmp   n87_statement_begin_β
 .Lassign_α_182_0:       .quad            .Lassign_α_182_0_s
 .Lassign_α_182_0_s:     .string          "OUTPUT"
                         .size            n89_assign_bx, .-n89_assign_bx

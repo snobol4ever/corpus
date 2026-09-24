@@ -574,6 +574,8 @@ n23_binop_α:            sub              rsp, 16
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   n24_assign_α
+n23_binop_β:            mov              r11, 24
+                        add              rsp, 16;                             jmp   n22_lit_integer_β
                         .size            n23_binop_bx, .-n23_binop_bx
                         .type            n24_assign_bx, @function
 n24_assign_bx:
