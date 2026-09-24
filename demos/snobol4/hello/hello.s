@@ -44,6 +44,7 @@ main_α:
                         mov              qword ptr [rsp + 152], rax
                         mov              dword ptr [rsp + 144], 160
                         mov              dword ptr [rsp + 148], 160
+                        mov              eax, 0
 main_α_body:
                         .type            n0_lit_integer_bx, @function
 n0_lit_integer_bx:

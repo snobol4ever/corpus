@@ -12,6 +12,7 @@ PAT$0_α_body:
                         mov              qword ptr [rbp + -240], rax
                         mov              dword ptr [rbp + -248], 160
                         mov              dword ptr [rbp + -244], 248
+                        mov              eax, 0
                         lea              rdi, [rbp + -232]
                         xor              eax, eax
                         mov              ecx, 232
@@ -457,6 +458,7 @@ main_α:
                         mov              qword ptr [rsp + 584], rax
                         mov              dword ptr [rsp + 576], 160
                         mov              dword ptr [rsp + 580], 592
+                        mov              eax, 0
 main_α_body:
                         sub              rsp, 0
                         .type            n36_lit_integer_bx, @function
@@ -1158,16 +1160,9 @@ n69_match_begin_α:      mov              r11, 47
                         push             r14                                  # outer_δ
                         push             r15                                  # outer_Δ
                         sub              rsp, 24
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_match_enter@PLT
+                        call             qword ptr [rip + rt_match_enter@GOTPCREL]
                         mov              r13, rax
                         mov              r15, rdx
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              dword ptr [rbp + -40], 0             # start_δ
 .Lmatch_begin_α_137_0:  mov              r14d, dword ptr [rbp + -40]
                         mov              rcx, qword ptr [rip + rtccb@GOTPCREL] # match_beta_cont
@@ -1196,9 +1191,7 @@ n69_match_begin_β:      mov              r11, 47
                         mov              r15, qword ptr [rbp + -32]           # outer_Δ
                         mov              rdi, r13
                         mov              rsi, r15
-                        mov              qword ptr [rip + rtccb+56], r10
-                        call             rt_match_ctx_restore@PLT
-                        mov              r10, qword ptr [rip + rtccb+56]
+                        call             qword ptr [rip + rt_match_ctx_restore@GOTPCREL]
                         mov              rsp, rbp
                         pop              rbp;                                 jmp   n68_assign_β
                         .size            n69_match_begin_bx, .-n69_match_begin_bx
@@ -1520,14 +1513,7 @@ n70_match_defer_α:      mov              r11, 48
                         mov              r14, qword ptr [rsp + 24]
                         add              rsp, 32
                         mov              edi, r14d
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_defer_close@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_defer_close@GOTPCREL]
 .Lmatch_defer_α_138_49: test             eax, eax;                            js    n69_match_begin_β
                         mov              ecx, r14d
                         mov              r14d, eax
@@ -1562,14 +1548,7 @@ n71_match_end_α:        mov              r11, 49
                         mov              rdi, qword ptr [rbp + -8]            # cas_mark
                         mov              rsi, r12
                         mov              rdx, r13
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_dcap_end_ok_open@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_dcap_end_ok_open@GOTPCREL]
                         sub              rsp, 32
                         mov              dword ptr [rsp + 0], 2
                         mov              dword ptr [rsp + 4], r15d
@@ -1745,13 +1724,11 @@ n71_match_end_α:        mov              r11, 49
                         mov              rdx, qword ptr [rsp + 24]
                         add              rsp, 32;                             jmp   .Lmatch_end_α_140_1
 .Lmatch_end_α_140_2:    mov              qword ptr [rsp + 0], rax
-                        call             rt_dcap_end_ok_close@PLT
+                        call             qword ptr [rip + rt_dcap_end_ok_close@GOTPCREL]
                         mov              rdi, qword ptr [rbp + -16]           # outer_Σ
                         mov              rsi, qword ptr [rbp + -32]           # outer_Δ
                         xor              edx, edx
-                        mov              qword ptr [rip + rtccb+56], r10
-                        call             rt_match_ctx_restore@PLT
-                        mov              r10, qword ptr [rip + rtccb+56]
+                        call             qword ptr [rip + rt_match_ctx_restore@GOTPCREL]
                         mov              rax, qword ptr [rsp + 0]
                         mov              r13, qword ptr [rsp + 8]
                         mov              r15d, dword ptr [rsp + 4]
@@ -1871,17 +1848,10 @@ n78_binop_α:            sub              rsp, 16
                         mov              rsi, qword ptr [rsp + 56]
                         mov              rdx, qword ptr [rsp + 16]            # call
                         mov              rcx, qword ptr [rsp + 24]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             str_concat_d@PLT
+                        call             qword ptr [rip + str_concat_d@GOTPCREL]
                         mov              qword ptr [rsp + 0], rax             # result
                         mov              qword ptr [rsp + 8], rdx
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:70
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:68
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
