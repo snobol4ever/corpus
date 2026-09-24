@@ -67,7 +67,7 @@ main_α:
                         mov              r8,  qword ptr [rip + rtccb+40]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2967
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2968
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -382,75 +382,11 @@ main_β:
                                                                               jmp   main_ω
 #-----------------------------------------------------------------------------------------------------------------------
 main_γ:
-                        push             rax
-                        push             rdx
-                        mov              r11, rsp
-                        and              rsp, -16
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], r11
-                        mov              rax, qword ptr [rip + g_trace@GOTPCREL]
-                        mov              rax, qword ptr [rax + 0]
-                        cmp              rax, 0;                              je    .Lmain_α_50_248
-                        .section         .rodata
-.Licn_trace_nm52:       .string          "main"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Licn_trace_nm52]
-                        mov              rsi, qword ptr [r11 + 8]
-                        mov              rdx, qword ptr [r11 + 0]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_trace_return_hook@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2967
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_gc_poll_asm@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
-.Lmain_α_50_248:        mov              rsp, qword ptr [rsp + 0]
-                        pop              rdx
-                        pop              rax
                         and              rsp, -16
                         xor              edi, edi
                         call             exit@PLT
 #-----------------------------------------------------------------------------------------------------------------------
 main_ω:
-                        push             rax
-                        push             rdx
-                        mov              r11, rsp
-                        and              rsp, -16
-                        sub              rsp, 16
-                        mov              qword ptr [rsp + 0], r11
-                        mov              rax, qword ptr [rip + g_trace@GOTPCREL]
-                        mov              rax, qword ptr [rax + 0]
-                        cmp              rax, 0;                              je    .Lmain_α_50_249
-                        .section         .rodata
-.Licn_trace_nm53:       .string          "main"
-                        .section         .text
-                        .intel_syntax    noprefix
-                        lea              rdi, [rip + .Licn_trace_nm53]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_trace_fail_hook@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2967
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_gc_poll_asm@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
-.Lmain_α_50_249:        mov              rsp, qword ptr [rsp + 0]
-                        pop              rdx
-                        pop              rax
                         and              rsp, -16
                         xor              edi, edi
                         call             exit@PLT
