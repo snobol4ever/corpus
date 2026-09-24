@@ -9,6 +9,7 @@ FN__event:
                         mov              qword ptr [rsp + 1192], rax
                         mov              dword ptr [rsp + 1184], 160
                         mov              dword ptr [rsp + 1188], 1312
+                        mov              eax, 0
                         mov              qword ptr [rsp + 1304], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
@@ -49,7 +50,7 @@ FN__event:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -204,14 +205,7 @@ n9_binop_test_α:        mov              r11, 9
                         mov              rdx, qword ptr [rbp + 1040]
                         mov              rcx, qword ptr [rbp + 1048]
                         mov              r8d, 17
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_jct_relop@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_jct_relop@GOTPCREL]
                         sub              rsp, 32
                         mov              dword ptr [rsp + 0], 2
                         mov              dword ptr [rsp + 4], r15d
@@ -235,16 +229,9 @@ n9_binop_test_α:        mov              r11, 9
                         test             eax, eax;                            jz    n11_line_mark_α
                         mov              rdi, qword ptr [rbp + 1040]
                         mov              rsi, qword ptr [rbp + 1048]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_str_coerce@PLT
+                        call             qword ptr [rip + rt_str_coerce@GOTPCREL]
                         mov              qword ptr [rbp + 992], rax
                         mov              qword ptr [rbp + 1000], rdx
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_relop.cpp:110
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -423,7 +410,8 @@ n17_proc_gen_α:         mov              r11, 17
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_73_2
-.Lproc_gen_α_73_5:      call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_73_2
+.Lproc_gen_α_73_5:      call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_73_2
 .Lproc_gen_α_73_4:      add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 880]
@@ -437,7 +425,8 @@ n17_proc_gen_α:         mov              r11, 17
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_73_2
-.Lproc_gen_α_73_6:      call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_73_2
+.Lproc_gen_α_73_6:      call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_73_2
 .Lproc_gen_α_73_1:      mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -469,7 +458,7 @@ n17_proc_gen_α:         mov              r11, 17
                         cmp              al, 104;                             je    n21_line_mark_α
                                                                               jmp   n18_deref_α
 n17_proc_gen_β:         mov              r11, 17
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 888]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_73_7:      add              rsp, 8
@@ -515,14 +504,7 @@ n19_binop_test_α:       mov              r11, 19
                         mov              rdx, qword ptr [rbp + 816]
                         mov              rcx, qword ptr [rbp + 824]
                         mov              r8d, 17
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_jct_relop@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_jct_relop@GOTPCREL]
                         sub              rsp, 32
                         mov              dword ptr [rsp + 0], 2
                         mov              dword ptr [rsp + 4], r15d
@@ -546,16 +528,9 @@ n19_binop_test_α:       mov              r11, 19
                         test             eax, eax;                            jz    n17_proc_gen_β
                         mov              rdi, qword ptr [rbp + 816]
                         mov              rsi, qword ptr [rbp + 824]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_str_coerce@PLT
+                        call             qword ptr [rip + rt_str_coerce@GOTPCREL]
                         mov              qword ptr [rbp + 768], rax
                         mov              qword ptr [rbp + 776], rdx
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_relop.cpp:110
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -1188,6 +1163,7 @@ FN__refto:
                         mov              qword ptr [rsp + 520], rax
                         mov              dword ptr [rsp + 512], 160
                         mov              dword ptr [rsp + 516], 624
+                        mov              eax, 0
                         mov              qword ptr [rsp + 616], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
@@ -1228,7 +1204,7 @@ FN__refto:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -1798,6 +1774,7 @@ FN__sortkey:
                         mov              qword ptr [rsp + 184], rax
                         mov              dword ptr [rsp + 176], 160
                         mov              dword ptr [rsp + 180], 256
+                        mov              eax, 0
                         mov              qword ptr [rsp + 248], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
@@ -1838,7 +1815,7 @@ FN__sortkey:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -2174,6 +2151,7 @@ FN__gedload:
                         mov              qword ptr [rsp + 3336], rax
                         mov              dword ptr [rsp + 3328], 160
                         mov              dword ptr [rsp + 3332], 3664
+                        mov              eax, 0
                         mov              qword ptr [rsp + 3656], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
@@ -2214,7 +2192,7 @@ FN__gedload:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -2843,14 +2821,7 @@ n00073_coerce_numeric_α:  mov              r11, 119
                         lea              rsi, [rbp + 2544]
                         lea              rdx, [rbp + 2512]
                         mov              rcx, 4311744614
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_coerce_num2_d@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_coerce_num2_d@GOTPCREL]
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_coerce_numeric.cpp:76
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -2910,7 +2881,7 @@ n00074_binop_α:           mov              r11, 120
                         cmp              al, 104;                             je    n00075_disjunction_α
                         mov              qword ptr [rbp + 2496], rax
                         mov              qword ptr [rbp + 2504], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_arith.cpp:301
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_arith.cpp:297
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -3277,14 +3248,7 @@ n00096_binop_test_α:      mov              r11, 139
                         mov              rdx, qword ptr [rbp + 1712]
                         mov              rcx, qword ptr [rbp + 1720]
                         mov              r8d, 8
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_jct_relop@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_jct_relop@GOTPCREL]
                         sub              rsp, 32
                         mov              dword ptr [rsp + 0], 2
                         mov              dword ptr [rsp + 4], r15d
@@ -4535,14 +4499,7 @@ n00165_unop_bx:
 n00165_unop_α:            mov              r11, 211
                         mov              rdi, qword ptr [rbp + 3264]
                         mov              rsi, qword ptr [rbp + 3272]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_size_d@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_size_d@GOTPCREL]
                         mov              qword ptr [rbp + 2448], rax
                         mov              qword ptr [rbp + 2456], rdx;         jmp   n00166_lit_integer_α
                         .size            n00165_unop_bx, .-n00165_unop_bx
@@ -4603,14 +4560,7 @@ n00167_binop_test_α:      mov              r11, 213
                         mov              rdx, qword ptr [rbp + 2480]
                         mov              rcx, qword ptr [rbp + 2488]
                         mov              r8d, 9
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_jct_relop@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_jct_relop@GOTPCREL]
                         sub              rsp, 32
                         mov              dword ptr [rsp + 0], 2
                         mov              dword ptr [rsp + 4], r15d
@@ -4773,7 +4723,8 @@ n00172_proc_gen_α:        mov              r11, 218
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_588_2
-.Lproc_gen_α_588_5:     call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_588_2
+.Lproc_gen_α_588_5:     call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_588_2
 .Lproc_gen_α_588_4:     add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 336]
@@ -4787,7 +4738,8 @@ n00172_proc_gen_α:        mov              r11, 218
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_588_2
-.Lproc_gen_α_588_6:     call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_588_2
+.Lproc_gen_α_588_6:     call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_588_2
 .Lproc_gen_α_588_1:     mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -4819,7 +4771,7 @@ n00172_proc_gen_α:        mov              r11, 218
                         cmp              al, 104;                             je    n00170_line_mark_α
                                                                               jmp   n00173_deref_α
 n00172_proc_gen_β:        mov              r11, 218
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 344]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_588_7:     add              rsp, 8
@@ -5426,6 +5378,7 @@ FN__gedscan:
                         mov              qword ptr [rsp + 1944], rax
                         mov              dword ptr [rsp + 1936], 160
                         mov              dword ptr [rsp + 1940], 2112
+                        mov              eax, 0
                         mov              qword ptr [rsp + 2104], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
@@ -5466,7 +5419,7 @@ FN__gedscan:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -5691,7 +5644,7 @@ n00207_binop_α:           mov              r11, 253
                         cmp              al, 104;                             je    n00201_line_mark_α
                         mov              qword ptr [rbp + 1648], rax
                         mov              qword ptr [rbp + 1656], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_arith.cpp:356
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_arith.cpp:350
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -5753,7 +5706,7 @@ n00209_binop_α:           mov              r11, 255
                         cmp              al, 104;                             je    n00201_line_mark_α
                         mov              qword ptr [rbp + 1632], rax
                         mov              qword ptr [rbp + 1640], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_arith.cpp:356
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_arith.cpp:350
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -6355,14 +6308,7 @@ n00230_scan_sequence_α:   mov              r11, 275
                         mov              rdx, qword ptr [rbp + 976]
                         mov              rcx, qword ptr [rbp + 984]
                         sub              rsp, 16
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             str_concat_d@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + str_concat_d@GOTPCREL]
                         add              rsp, 16
                         sub              rsp, 16
                         mov              qword ptr [rsp + 0], rax
@@ -7496,14 +7442,7 @@ n00275_coerce_numeric_α:  mov              r11, 317
                         lea              rsi, [rbp + 1136]
                         lea              rdx, [rbp + 1040]
                         mov              rcx, 4311744614
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_coerce_num2_d@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_coerce_num2_d@GOTPCREL]
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_coerce_numeric.cpp:76
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -7563,7 +7502,7 @@ n00276_binop_α:           mov              r11, 318
                         cmp              al, 104;                             je    .Lscan_sequence_ω_661_af
                         mov              qword ptr [rbp + 1024], rax
                         mov              qword ptr [rbp + 1032], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_arith.cpp:301
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_arith.cpp:297
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -8241,6 +8180,7 @@ FN__gedwalk:
                         mov              qword ptr [rsp + 280], rax
                         mov              dword ptr [rsp + 272], 160
                         mov              dword ptr [rsp + 276], 368
+                        mov              eax, 0
                         mov              rdi, rsp
                         add              rdi, 0
                         xor              eax, eax
@@ -8278,7 +8218,7 @@ FN__gedwalk:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -8452,14 +8392,7 @@ n00290_iterate_α:         mov              r11, 334
 .Literate_α_883_0:      mov              rdi, qword ptr [rbp + -160]
                         mov              rsi, qword ptr [rbp + -152]
                         mov              rdx, qword ptr [rbp + -176]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_list_bang_at@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_list_bang_at@GOTPCREL]
                         mov              qword ptr [rbp + -192], rax
                         mov              qword ptr [rbp + -184], rdx
                         cmp              al, 104;                             je    .Ldisjunction_ω_863_af
@@ -8551,7 +8484,8 @@ n00286_proc_gen_α:        mov              r11, 336
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_887_2
-.Lproc_gen_α_887_5:     call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_887_2
+.Lproc_gen_α_887_5:     call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_887_2
 .Lproc_gen_α_887_4:     add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + -224]
@@ -8565,7 +8499,8 @@ n00286_proc_gen_α:        mov              r11, 336
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_887_2
-.Lproc_gen_α_887_6:     call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_887_2
+.Lproc_gen_α_887_6:     call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_887_2
 .Lproc_gen_α_887_1:     mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -8597,7 +8532,7 @@ n00286_proc_gen_α:        mov              r11, 336
                         cmp              al, 104;                             je    n00290_iterate_β
                                                                               jmp   n00292_deref_α
 n00286_proc_gen_β:        mov              r11, 336
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + -216]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_887_7:     add              rsp, 8
@@ -8692,7 +8627,7 @@ gedwalk_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -8741,6 +8676,7 @@ FN__gedsub:
                         mov              qword ptr [rsp + 824], rax
                         mov              dword ptr [rsp + 816], 160
                         mov              dword ptr [rsp + 820], 960
+                        mov              eax, 0
                         mov              rdi, rsp
                         add              rdi, 0
                         xor              eax, eax
@@ -8778,7 +8714,7 @@ FN__gedsub:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -8901,14 +8837,7 @@ n00302_iterate_α:         mov              r11, 347
 .Literate_α_944_0:      mov              rdi, qword ptr [rbp + -864]
                         mov              rsi, qword ptr [rbp + -856]
                         mov              rdx, qword ptr [rbp + -880]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_list_bang_at@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_list_bang_at@GOTPCREL]
                         mov              qword ptr [rbp + -896], rax
                         mov              qword ptr [rbp + -888], rdx
                         cmp              al, 104;                             je    gedsub_ω
@@ -9017,14 +8946,7 @@ n00311_binop_test_α:      mov              r11, 354
                         mov              rdx, qword ptr [rbp + -160]
                         mov              rcx, qword ptr [rbp + -152]
                         mov              r8d, 16
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_jct_relop@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_jct_relop@GOTPCREL]
                         sub              rsp, 32
                         mov              dword ptr [rsp + 0], 2
                         mov              dword ptr [rsp + 4], r15d
@@ -9048,16 +8970,9 @@ n00311_binop_test_α:      mov              r11, 354
                         test             eax, eax;                            jz    .Ldisjunction_ω_905_af
                         mov              rdi, qword ptr [rbp + -160]
                         mov              rsi, qword ptr [rbp + -152]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_str_coerce@PLT
+                        call             qword ptr [rip + rt_str_coerce@GOTPCREL]
                         mov              qword ptr [rbp + -416], rax
                         mov              qword ptr [rbp + -408], rdx
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_relop.cpp:110
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -9188,14 +9103,7 @@ n00315_unop_bx:
 n00315_unop_α:            mov              r11, 359
                         mov              rdi, qword ptr [rbp + -928]
                         mov              rsi, qword ptr [rbp + -920]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_size_d@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_size_d@GOTPCREL]
                         mov              qword ptr [rbp + -480], rax
                         mov              qword ptr [rbp + -472], rdx;         jmp   n00316_lit_integer_α
                         .size            n00315_unop_bx, .-n00315_unop_bx
@@ -9256,14 +9164,7 @@ n00317_binop_test_α:      mov              r11, 361
                         mov              rdx, qword ptr [rbp + -448]
                         mov              rcx, qword ptr [rbp + -440]
                         mov              r8d, 7
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_jct_relop@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_jct_relop@GOTPCREL]
                         sub              rsp, 32
                         mov              dword ptr [rsp + 0], 2
                         mov              dword ptr [rsp + 4], r15d
@@ -9496,7 +9397,8 @@ n00313_call_value_α:      mov              r11, 369
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_value_α_979_2
-.Lcall_value_α_979_5:   call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_979_2
+.Lcall_value_α_979_5:   call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_979_2
 .Lcall_value_α_979_4:   mov              qword ptr [rbp + -648], rsp
                         mov              rax, qword ptr [rbp + -656]
                         cmp              rax, 2;                              je    .Lcall_value_α_979_24
@@ -9510,7 +9412,8 @@ n00313_call_value_α:      mov              r11, 369
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_value_α_979_2
-.Lcall_value_α_979_6:   call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_979_2
+.Lcall_value_α_979_6:   call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_979_2
 .Lcall_value_α_979_7:   mov              rdi, qword ptr [rbp + -720]
                         mov              rsi, qword ptr [rbp + -712]
                         mov              rdx, qword ptr [rbp + -672]
@@ -9539,7 +9442,7 @@ n00313_call_value_β:      mov              r11, 369
                         mov              rax, qword ptr [rbp + -656]
                         cmp              rax, 2;                              je    n00307_unmark_α
                         cmp              rax, 1;                              jne   .Lcall_value_β_979_8
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rsp, qword ptr [rbp + -648];         jmp   qword ptr [rsp]
 .Lcall_value_β_979_8:   lea              rdi, [rbp + -656]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -9759,7 +9662,7 @@ gedsub_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -9815,6 +9718,7 @@ FN__gedval:
                         mov              qword ptr [rsp + 200], rax
                         mov              dword ptr [rsp + 192], 160
                         mov              dword ptr [rsp + 196], 288
+                        mov              eax, 0
                         mov              rdi, rsp
                         add              rdi, 0
                         xor              eax, eax
@@ -9852,7 +9756,7 @@ FN__gedval:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -9959,7 +9863,8 @@ n00333_call_value_α:      mov              r11, 379
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_value_α_1005_2
-.Lcall_value_α_1005_5:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_1005_2
+.Lcall_value_α_1005_5:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_1005_2
 .Lcall_value_α_1005_4:  mov              qword ptr [rbp + -168], rsp
                         mov              rax, qword ptr [rbp + -176]
                         cmp              rax, 2;                              je    .Lcall_value_α_1005_24
@@ -9973,7 +9878,8 @@ n00333_call_value_α:      mov              r11, 379
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_value_α_1005_2
-.Lcall_value_α_1005_6:  call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_1005_2
+.Lcall_value_α_1005_6:  call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_1005_2
 .Lcall_value_α_1005_7:  mov              rdi, qword ptr [rbp + -240]
                         mov              rsi, qword ptr [rbp + -232]
                         mov              rdx, qword ptr [rbp + -192]
@@ -10002,7 +9908,7 @@ n00333_call_value_β:      mov              r11, 379
                         mov              rax, qword ptr [rbp + -176]
                         cmp              rax, 2;                              je    gedval_ω
                         cmp              rax, 1;                              jne   .Lcall_value_β_1005_8
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rsp, qword ptr [rbp + -168];         jmp   qword ptr [rsp]
 .Lcall_value_β_1005_8:  lea              rdi, [rbp + -176]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -10165,7 +10071,7 @@ gedval_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -10210,6 +10116,7 @@ FN__gedref:
                         mov              qword ptr [rsp + 216], rax
                         mov              dword ptr [rsp + 208], 160
                         mov              dword ptr [rsp + 212], 304
+                        mov              eax, 0
                         mov              rdi, rsp
                         add              rdi, 0
                         xor              eax, eax
@@ -10247,7 +10154,7 @@ FN__gedref:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -10354,7 +10261,8 @@ n00339_call_value_α:     mov              r11, 385
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_value_α_1024_2
-.Lcall_value_α_1024_5:  call             rt_gen_spine_pass_γ@PLT;             jmp   .Lcall_value_α_1024_2
+.Lcall_value_α_1024_5:  call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_1024_2
 .Lcall_value_α_1024_4:  mov              qword ptr [rbp + -168], rsp
                         mov              rax, qword ptr [rbp + -176]
                         cmp              rax, 2;                              je    .Lcall_value_α_1024_24
@@ -10368,7 +10276,8 @@ n00339_call_value_α:     mov              r11, 385
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lcall_value_α_1024_2
-.Lcall_value_α_1024_6:  call             rt_gen_spine_pass_ω@PLT;             jmp   .Lcall_value_α_1024_2
+.Lcall_value_α_1024_6:  call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lcall_value_α_1024_2
 .Lcall_value_α_1024_7:  mov              rdi, qword ptr [rbp + -240]
                         mov              rsi, qword ptr [rbp + -232]
                         mov              rdx, qword ptr [rbp + -192]
@@ -10397,7 +10306,7 @@ n00339_call_value_β:     mov              r11, 385
                         mov              rax, qword ptr [rbp + -176]
                         cmp              rax, 2;                              je    gedref_ω
                         cmp              rax, 1;                              jne   .Lcall_value_β_1024_8
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rsp, qword ptr [rbp + -168];         jmp   qword ptr [rsp]
 .Lcall_value_β_1024_8:  lea              rdi, [rbp + -176]
                         mov              qword ptr [rip + rtccb+40], r8
@@ -10572,7 +10481,7 @@ gedref_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -10608,6 +10517,7 @@ FN__gedfnf:
                         mov              qword ptr [rsp + 1624], rax
                         mov              dword ptr [rsp + 1616], 160
                         mov              dword ptr [rsp + 1620], 1744
+                        mov              eax, 0
                         mov              qword ptr [rsp + 1736], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
@@ -10648,7 +10558,7 @@ FN__gedfnf:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -11710,14 +11620,7 @@ n00388_unop_bx:
 n00388_unop_α:           mov              r11, 431
                         mov              rdi, qword ptr [rbp + 1584]
                         mov              rsi, qword ptr [rbp + 1592]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_size_d@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_size_d@GOTPCREL]
                         mov              qword ptr [rbp + 496], rax
                         mov              qword ptr [rbp + 504], rdx;          jmp   n00389_lit_integer_α
                         .size            n00388_unop_bx, .-n00388_unop_bx
@@ -11778,14 +11681,7 @@ n00390_binop_test_α:     mov              r11, 433
                         mov              rdx, qword ptr [rbp + 528]
                         mov              rcx, qword ptr [rbp + 536]
                         mov              r8d, 7
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_jct_relop@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_jct_relop@GOTPCREL]
                         sub              rsp, 32
                         mov              dword ptr [rsp + 0], 2
                         mov              dword ptr [rsp + 4], r15d
@@ -11868,7 +11764,7 @@ n00393_binop_α:          mov              r11, 436
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:85
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:83
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -11904,7 +11800,7 @@ n00395_binop_α:          mov              r11, 438
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:85
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:83
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -12096,7 +11992,8 @@ n00404_proc_gen_α:       mov              r11, 447
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_1200_2
-.Lproc_gen_α_1200_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_1200_2
+.Lproc_gen_α_1200_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_1200_2
 .Lproc_gen_α_1200_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 224]
@@ -12110,7 +12007,8 @@ n00404_proc_gen_α:       mov              r11, 447
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_1200_2
-.Lproc_gen_α_1200_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_1200_2
+.Lproc_gen_α_1200_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_1200_2
 .Lproc_gen_α_1200_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -12142,7 +12040,7 @@ n00404_proc_gen_α:       mov              r11, 447
                         cmp              al, 104;                             je    n00402_line_mark_α
                                                                               jmp   n00405_deref_α
 n00404_proc_gen_β:       mov              r11, 447
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 232]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_1200_7:    add              rsp, 8
@@ -12197,7 +12095,7 @@ n00406_binop_α:          mov              r11, 449
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:85
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:83
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -12224,7 +12122,7 @@ n00407_binop_α:          mov              r11, 450
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:85
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:83
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -12411,7 +12309,8 @@ n00347_proc_gen_α:       mov              r11, 459
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_1217_2
-.Lproc_gen_α_1217_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_1217_2
+.Lproc_gen_α_1217_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_1217_2
 .Lproc_gen_α_1217_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 1440]
@@ -12425,7 +12324,8 @@ n00347_proc_gen_α:       mov              r11, 459
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_1217_2
-.Lproc_gen_α_1217_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_1217_2
+.Lproc_gen_α_1217_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_1217_2
 .Lproc_gen_α_1217_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -12457,7 +12357,7 @@ n00347_proc_gen_α:       mov              r11, 459
                         cmp              al, 104;                             je    .Ldisjunction_ω_1033_af
                                                                               jmp   n00414_deref_α
 n00347_proc_gen_β:       mov              r11, 459
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 1448]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_1217_7:    add              rsp, 8
@@ -12699,6 +12599,7 @@ FN__gedlnf:
                         mov              qword ptr [rsp + 1448], rax
                         mov              dword ptr [rsp + 1440], 160
                         mov              dword ptr [rsp + 1444], 1568
+                        mov              eax, 0
                         mov              qword ptr [rsp + 1560], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
@@ -12739,7 +12640,7 @@ FN__gedlnf:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -13768,7 +13669,7 @@ n00458_binop_α:          mov              r11, 502
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:85
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:83
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -13804,7 +13705,7 @@ n00460_binop_α:          mov              r11, 504
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:85
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:83
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -13993,7 +13894,8 @@ n00470_proc_gen_α:       mov              r11, 513
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_1377_2
-.Lproc_gen_α_1377_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_1377_2
+.Lproc_gen_α_1377_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_1377_2
 .Lproc_gen_α_1377_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 256]
@@ -14007,7 +13909,8 @@ n00470_proc_gen_α:       mov              r11, 513
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_1377_2
-.Lproc_gen_α_1377_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_1377_2
+.Lproc_gen_α_1377_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_1377_2
 .Lproc_gen_α_1377_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -14039,7 +13942,7 @@ n00470_proc_gen_α:       mov              r11, 513
                         cmp              al, 104;                             je    n00468_line_mark_α
                                                                               jmp   n00471_deref_α
 n00470_proc_gen_β:       mov              r11, 513
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 264]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_1377_7:    add              rsp, 8
@@ -14094,7 +13997,7 @@ n00472_binop_α:          mov              r11, 515
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:85
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:83
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -14121,7 +14024,7 @@ n00473_binop_α:          mov              r11, 516
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:85
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:83
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -14308,7 +14211,8 @@ n00420_proc_gen_α:       mov              r11, 525
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_1394_2
-.Lproc_gen_α_1394_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_1394_2
+.Lproc_gen_α_1394_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_1394_2
 .Lproc_gen_α_1394_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 1264]
@@ -14322,7 +14226,8 @@ n00420_proc_gen_α:       mov              r11, 525
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_1394_2
-.Lproc_gen_α_1394_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_1394_2
+.Lproc_gen_α_1394_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_1394_2
 .Lproc_gen_α_1394_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -14354,7 +14259,7 @@ n00420_proc_gen_α:       mov              r11, 525
                         cmp              al, 104;                             je    .Ldisjunction_ω_1227_af
                                                                               jmp   n00480_deref_α
 n00420_proc_gen_β:       mov              r11, 525
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 1272]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_1394_7:    add              rsp, 8
@@ -14594,6 +14499,7 @@ FN__geddate:
                         mov              qword ptr [rsp + 3848], rax
                         mov              dword ptr [rsp + 3840], 160
                         mov              dword ptr [rsp + 3844], 3968
+                        mov              eax, 0
                         mov              qword ptr [rsp + 3960], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
@@ -14634,7 +14540,7 @@ FN__geddate:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -17144,7 +17050,7 @@ n00631_binop_α:          mov              r11, 670
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:85
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:83
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -17171,7 +17077,7 @@ n00633_binop_α:          mov              r11, 671
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:85
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_concat_slot.cpp:83
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -17546,14 +17452,7 @@ n00649_unop_bx:
 n00649_unop_α:           mov              r11, 694
                         mov              rdi, qword ptr [rbp + 3792]
                         mov              rsi, qword ptr [rbp + 3800]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_size_d@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_size_d@GOTPCREL]
                         mov              qword ptr [rbp + 144], rax
                         mov              qword ptr [rbp + 152], rdx;          jmp   n00650_lit_integer_α
                         .size            n00649_unop_bx, .-n00649_unop_bx
@@ -17614,14 +17513,7 @@ n00651_binop_test_α:     mov              r11, 696
                         mov              rdx, qword ptr [rbp + 176]
                         mov              rcx, qword ptr [rbp + 184]
                         mov              r8d, 7
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_jct_relop@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_jct_relop@GOTPCREL]
                         sub              rsp, 32
                         mov              dword ptr [rsp + 0], 2
                         mov              dword ptr [rsp + 4], r15d
@@ -17875,7 +17767,8 @@ n00600_proc_gen_α:       mov              r11, 706
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_1840_2
-.Lproc_gen_α_1840_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_1840_2
+.Lproc_gen_α_1840_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_1840_2
 .Lproc_gen_α_1840_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 1264]
@@ -17889,7 +17782,8 @@ n00600_proc_gen_α:       mov              r11, 706
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_1840_2
-.Lproc_gen_α_1840_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_1840_2
+.Lproc_gen_α_1840_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_1840_2
 .Lproc_gen_α_1840_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -17921,7 +17815,7 @@ n00600_proc_gen_α:       mov              r11, 706
                         cmp              al, 104;                             je    .Ldisjunction_ω_1518_af
                                                                               jmp   n00660_deref_α
 n00600_proc_gen_β:       mov              r11, 706
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 1272]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_1840_7:    add              rsp, 8
@@ -18263,6 +18157,7 @@ main_α:
                         mov              qword ptr [rsp + 6296], rax
                         mov              dword ptr [rsp + 6288], 160
                         mov              dword ptr [rsp + 6292], 6576
+                        mov              eax, 0
                         mov              qword ptr [rsp + 6568], rbp
                         mov              rbp, rsp
                         mov              rdi, rsp
@@ -18295,7 +18190,7 @@ main_α:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -18771,14 +18666,7 @@ n00693_iterate_α:        mov              r11, 736
 .Literate_α_2188_0:     mov              rdi, qword ptr [rbp + 4912]
                         mov              rsi, qword ptr [rbp + 4920]
                         mov              rdx, qword ptr [rbp + 4896]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_list_bang_at@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_list_bang_at@GOTPCREL]
                         mov              qword ptr [rbp + 4880], rax
                         mov              qword ptr [rbp + 4888], rdx
                         cmp              al, 104;                             je    n00692_line_mark_α
@@ -19330,14 +19218,7 @@ n00726_iterate_α:        mov              r11, 770
 .Literate_α_2243_0:     mov              rdi, qword ptr [rbp + 4592]
                         mov              rsi, qword ptr [rbp + 4600]
                         mov              rdx, qword ptr [rbp + 4576]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_list_bang_at@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_list_bang_at@GOTPCREL]
                         mov              qword ptr [rbp + 4560], rax
                         mov              qword ptr [rbp + 4568], rdx
                         cmp              al, 104;                             je    n00727_line_mark_α
@@ -19418,14 +19299,7 @@ n00731_coerce_numeric_α: mov              r11, 774
                         lea              rsi, [rbp + 4688]
                         lea              rdx, [rbp + 4656]
                         mov              rcx, 4311744614
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_coerce_num2_d@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_coerce_num2_d@GOTPCREL]
                         mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_coerce_numeric.cpp:76
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -19485,7 +19359,7 @@ n00732_binop_α:          mov              r11, 775
                         cmp              al, 104;                             je    n00726_iterate_β
                         mov              qword ptr [rbp + 4640], rax
                         mov              qword ptr [rbp + 4648], rdx
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_arith.cpp:301
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll bb_binop_arith.cpp:297
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -19557,14 +19431,7 @@ n00736_iterate_α:        mov              r11, 780
 .Literate_α_2258_0:     mov              rdi, qword ptr [rbp + 80]
                         mov              rsi, qword ptr [rbp + 88]
                         mov              rdx, qword ptr [rbp + 64]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_list_bang_at@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_list_bang_at@GOTPCREL]
                         mov              qword ptr [rbp + 48], rax
                         mov              qword ptr [rbp + 56], rdx
                         cmp              al, 104;                             je    main_ω
@@ -20125,7 +19992,8 @@ n00764_proc_gen_α:       mov              r11, 806
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2299_2
-.Lproc_gen_α_2299_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_2299_2
+.Lproc_gen_α_2299_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2299_2
 .Lproc_gen_α_2299_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 4048]
@@ -20139,7 +20007,8 @@ n00764_proc_gen_α:       mov              r11, 806
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2299_2
-.Lproc_gen_α_2299_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_2299_2
+.Lproc_gen_α_2299_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2299_2
 .Lproc_gen_α_2299_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -20171,7 +20040,7 @@ n00764_proc_gen_α:       mov              r11, 806
                         cmp              al, 104;                             je    .Ldisjunction_ω_1940_af
                                                                               jmp   n00765_deref_α
 n00764_proc_gen_β:       mov              r11, 806
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 4056]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_2299_7:    add              rsp, 8
@@ -20379,7 +20248,8 @@ n00774_proc_gen_α:       mov              r11, 815
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2312_2
-.Lproc_gen_α_2312_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_2312_2
+.Lproc_gen_α_2312_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2312_2
 .Lproc_gen_α_2312_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 3872]
@@ -20393,7 +20263,8 @@ n00774_proc_gen_α:       mov              r11, 815
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2312_2
-.Lproc_gen_α_2312_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_2312_2
+.Lproc_gen_α_2312_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2312_2
 .Lproc_gen_α_2312_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -20425,7 +20296,7 @@ n00774_proc_gen_α:       mov              r11, 815
                         cmp              al, 104;                             je    n00772_line_mark_α
                                                                               jmp   n00775_deref_α
 n00774_proc_gen_β:       mov              r11, 815
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 3880]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_2312_7:    add              rsp, 8
@@ -20696,7 +20567,8 @@ n00759_proc_gen_α:       mov              r11, 826
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2329_2
-.Lproc_gen_α_2329_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_2329_2
+.Lproc_gen_α_2329_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2329_2
 .Lproc_gen_α_2329_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 3616]
@@ -20710,7 +20582,8 @@ n00759_proc_gen_α:       mov              r11, 826
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2329_2
-.Lproc_gen_α_2329_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_2329_2
+.Lproc_gen_α_2329_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2329_2
 .Lproc_gen_α_2329_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -20742,7 +20615,7 @@ n00759_proc_gen_α:       mov              r11, 826
                         cmp              al, 104;                             je    n00758_line_mark_α
                                                                               jmp   n00784_deref_α
 n00759_proc_gen_β:       mov              r11, 826
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 3624]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_2329_7:    add              rsp, 8
@@ -21052,7 +20925,8 @@ n00796_proc_gen_α:       mov              r11, 839
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2348_2
-.Lproc_gen_α_2348_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_2348_2
+.Lproc_gen_α_2348_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2348_2
 .Lproc_gen_α_2348_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 3296]
@@ -21066,7 +20940,8 @@ n00796_proc_gen_α:       mov              r11, 839
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2348_2
-.Lproc_gen_α_2348_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_2348_2
+.Lproc_gen_α_2348_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2348_2
 .Lproc_gen_α_2348_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -21098,7 +20973,7 @@ n00796_proc_gen_α:       mov              r11, 839
                         cmp              al, 104;                             je    n00792_line_mark_α
                                                                               jmp   n00797_deref_α
 n00796_proc_gen_β:       mov              r11, 839
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 3304]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_2348_7:    add              rsp, 8
@@ -21410,7 +21285,8 @@ n00810_proc_gen_α:       mov              r11, 853
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2369_2
-.Lproc_gen_α_2369_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_2369_2
+.Lproc_gen_α_2369_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2369_2
 .Lproc_gen_α_2369_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 496]
@@ -21424,7 +21300,8 @@ n00810_proc_gen_α:       mov              r11, 853
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2369_2
-.Lproc_gen_α_2369_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_2369_2
+.Lproc_gen_α_2369_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2369_2
 .Lproc_gen_α_2369_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -21456,7 +21333,7 @@ n00810_proc_gen_α:       mov              r11, 853
                         cmp              al, 104;                             je    n00806_line_mark_α
                                                                               jmp   n00811_deref_α
 n00810_proc_gen_β:       mov              r11, 853
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 504]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_2369_7:    add              rsp, 8
@@ -21670,7 +21547,8 @@ n00821_proc_gen_α:       mov              r11, 863
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2384_2
-.Lproc_gen_α_2384_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_2384_2
+.Lproc_gen_α_2384_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2384_2
 .Lproc_gen_α_2384_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 2976]
@@ -21684,7 +21562,8 @@ n00821_proc_gen_α:       mov              r11, 863
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2384_2
-.Lproc_gen_α_2384_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_2384_2
+.Lproc_gen_α_2384_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2384_2
 .Lproc_gen_α_2384_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -21716,7 +21595,7 @@ n00821_proc_gen_α:       mov              r11, 863
                         cmp              al, 104;                             je    n00819_line_mark_α
                                                                               jmp   n00822_deref_α
 n00821_proc_gen_β:       mov              r11, 863
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 2984]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_2384_7:    add              rsp, 8
@@ -22034,7 +21913,8 @@ n00835_proc_gen_α:       mov              r11, 877
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2405_2
-.Lproc_gen_α_2405_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_2405_2
+.Lproc_gen_α_2405_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2405_2
 .Lproc_gen_α_2405_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 2720]
@@ -22048,7 +21928,8 @@ n00835_proc_gen_α:       mov              r11, 877
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2405_2
-.Lproc_gen_α_2405_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_2405_2
+.Lproc_gen_α_2405_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2405_2
 .Lproc_gen_α_2405_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -22080,7 +21961,7 @@ n00835_proc_gen_α:       mov              r11, 877
                         cmp              al, 104;                             je    n00830_line_mark_α
                                                                               jmp   n00836_deref_α
 n00835_proc_gen_β:       mov              r11, 877
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 2728]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_2405_7:    add              rsp, 8
@@ -22126,14 +22007,7 @@ n00837_binop_test_α:     mov              r11, 879
                         mov              rdx, qword ptr [rbp + 2656]
                         mov              rcx, qword ptr [rbp + 2664]
                         mov              r8d, 23
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_jct_relop@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_jct_relop@GOTPCREL]
                         sub              rsp, 32
                         mov              dword ptr [rsp + 0], 2
                         mov              dword ptr [rsp + 4], r15d
@@ -22449,7 +22323,8 @@ n00850_proc_gen_α:       mov              r11, 892
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2427_2
-.Lproc_gen_α_2427_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_2427_2
+.Lproc_gen_α_2427_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2427_2
 .Lproc_gen_α_2427_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 2416]
@@ -22463,7 +22338,8 @@ n00850_proc_gen_α:       mov              r11, 892
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2427_2
-.Lproc_gen_α_2427_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_2427_2
+.Lproc_gen_α_2427_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2427_2
 .Lproc_gen_α_2427_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -22495,7 +22371,7 @@ n00850_proc_gen_α:       mov              r11, 892
                         cmp              al, 104;                             je    n00845_disjunction_α
                                                                               jmp   n00851_deref_α
 n00850_proc_gen_β:       mov              r11, 892
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 2424]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_2427_7:    add              rsp, 8
@@ -22541,14 +22417,7 @@ n00852_binop_test_α:     mov              r11, 894
                         mov              rdx, qword ptr [rbp + 2352]
                         mov              rcx, qword ptr [rbp + 2360]
                         mov              r8d, 23
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_jct_relop@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_jct_relop@GOTPCREL]
                         sub              rsp, 32
                         mov              dword ptr [rsp + 0], 2
                         mov              dword ptr [rsp + 4], r15d
@@ -22989,7 +22858,8 @@ n00874_proc_gen_α:       mov              r11, 913
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2460_2
-.Lproc_gen_α_2460_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_2460_2
+.Lproc_gen_α_2460_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2460_2
 .Lproc_gen_α_2460_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 784]
@@ -23003,7 +22873,8 @@ n00874_proc_gen_α:       mov              r11, 913
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2460_2
-.Lproc_gen_α_2460_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_2460_2
+.Lproc_gen_α_2460_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2460_2
 .Lproc_gen_α_2460_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -23035,7 +22906,7 @@ n00874_proc_gen_α:       mov              r11, 913
                         cmp              al, 104;                             je    n00865_unmark_α
                                                                               jmp   n00875_deref_α
 n00874_proc_gen_β:       mov              r11, 913
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 792]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_2460_7:    add              rsp, 8
@@ -23783,7 +23654,8 @@ n00881_proc_gen_α:       mov              r11, 950
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2515_2
-.Lproc_gen_α_2515_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_2515_2
+.Lproc_gen_α_2515_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2515_2
 .Lproc_gen_α_2515_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 1040]
@@ -23797,7 +23669,8 @@ n00881_proc_gen_α:       mov              r11, 950
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2515_2
-.Lproc_gen_α_2515_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_2515_2
+.Lproc_gen_α_2515_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2515_2
 .Lproc_gen_α_2515_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -23829,7 +23702,7 @@ n00881_proc_gen_α:       mov              r11, 950
                         cmp              al, 104;                             je    .Ldisjunction_ω_2057_af
                                                                               jmp   n00912_deref_α
 n00881_proc_gen_β:       mov              r11, 950
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 1048]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_2515_7:    add              rsp, 8
@@ -24017,7 +23890,8 @@ n00917_proc_gen_α:       mov              r11, 957
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2526_2
-.Lproc_gen_α_2526_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_2526_2
+.Lproc_gen_α_2526_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2526_2
 .Lproc_gen_α_2526_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 1984]
@@ -24031,7 +23905,8 @@ n00917_proc_gen_α:       mov              r11, 957
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2526_2
-.Lproc_gen_α_2526_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_2526_2
+.Lproc_gen_α_2526_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2526_2
 .Lproc_gen_α_2526_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -24063,7 +23938,7 @@ n00917_proc_gen_α:       mov              r11, 957
                         cmp              al, 104;                             je    n00914_var_α
                                                                               jmp   n00918_deref_α
 n00917_proc_gen_β:       mov              r11, 957
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 1992]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_2526_7:    add              rsp, 8
@@ -24290,7 +24165,8 @@ n00869_proc_gen_α:       mov              r11, 966
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2539_2
-.Lproc_gen_α_2539_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_2539_2
+.Lproc_gen_α_2539_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2539_2
 .Lproc_gen_α_2539_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 1808]
@@ -24304,7 +24180,8 @@ n00869_proc_gen_α:       mov              r11, 966
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2539_2
-.Lproc_gen_α_2539_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_2539_2
+.Lproc_gen_α_2539_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2539_2
 .Lproc_gen_α_2539_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -24336,7 +24213,7 @@ n00869_proc_gen_α:       mov              r11, 966
                         cmp              al, 104;                             je    .Ldisjunction_ω_2048_af
                                                                               jmp   n00924_deref_α
 n00869_proc_gen_β:       mov              r11, 966
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 1816]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_2539_7:    add              rsp, 8
@@ -24382,14 +24259,7 @@ n00925_binop_test_α:     mov              r11, 968
                         mov              rdx, qword ptr [rbp + 1744]
                         mov              rcx, qword ptr [rbp + 1752]
                         mov              r8d, 22
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_jct_relop@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_jct_relop@GOTPCREL]
                         sub              rsp, 32
                         mov              dword ptr [rsp + 0], 2
                         mov              dword ptr [rsp + 4], r15d
@@ -24616,7 +24486,8 @@ n00933_proc_gen_α:       mov              r11, 976
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2553_2
-.Lproc_gen_α_2553_5:    call             rt_gen_spine_pass_γ@PLT;             jmp   .Lproc_gen_α_2553_2
+.Lproc_gen_α_2553_5:    call             qword ptr [rip + rt_gen_spine_pass_γ@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2553_2
 .Lproc_gen_α_2553_4:    add              rsp, 16
                         add              rsp, 8
                         mov              rax, qword ptr [rbp + 304]
@@ -24630,7 +24501,8 @@ n00933_proc_gen_α:       mov              r11, 976
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64];     jmp   .Lproc_gen_α_2553_2
-.Lproc_gen_α_2553_6:    call             rt_gen_spine_pass_ω@PLT;             jmp   .Lproc_gen_α_2553_2
+.Lproc_gen_α_2553_6:    call             qword ptr [rip + rt_gen_spine_pass_ω@GOTPCREL]
+                                                                              jmp   .Lproc_gen_α_2553_2
 .Lproc_gen_α_2553_1:    mov              qword ptr [rip + rtccb+40], r8
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
@@ -24662,7 +24534,7 @@ n00933_proc_gen_α:       mov              r11, 976
                         cmp              al, 104;                             je    n00929_unmark_α
                                                                               jmp   n00934_deref_α
 n00933_proc_gen_β:       mov              r11, 976
-                        call             rt_gen_spine_resume_enter@PLT
+                        call             qword ptr [rip + rt_gen_spine_resume_enter@GOTPCREL]
                         mov              rax, qword ptr [rbp + 312]
                         mov              rsp, qword ptr [rax + 40];           jmp   qword ptr [rax + 32]
 .Lproc_gen_α_2553_7:    add              rsp, 8
@@ -24843,14 +24715,7 @@ n00940_unop_bx:
 n00940_unop_α:           mov              r11, 986
                         mov              rdi, qword ptr [rbp + 16]
                         mov              rsi, qword ptr [rbp + 24]
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_size_d@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_size_d@GOTPCREL]
                         mov              qword ptr [rbp + 6016], rax
                         mov              qword ptr [rbp + 6024], rdx;         jmp   n00941_lit_integer_α
                         .size            n00940_unop_bx, .-n00940_unop_bx
@@ -24911,14 +24776,7 @@ n00942_binop_test_α:     mov              r11, 988
                         mov              rdx, qword ptr [rbp + 6048]
                         mov              rcx, qword ptr [rbp + 6056]
                         mov              r8d, 7
-                        mov              qword ptr [rip + rtccb+40], r8
-                        mov              qword ptr [rip + rtccb+56], r10
-                        mov              qword ptr [rip + rtccb+64], r11
-                        call             rt_jct_relop@PLT
-                        mov              r8,  qword ptr [rip + rtccb+40]
-                        mov              r9,  qword ptr [rip + rtccb+48]
-                        mov              r10, qword ptr [rip + rtccb+56]
-                        mov              r11, qword ptr [rip + rtccb+64]
+                        call             qword ptr [rip + rt_jct_relop@GOTPCREL]
                         sub              rsp, 32
                         mov              dword ptr [rsp + 0], 2
                         mov              dword ptr [rsp + 4], r15d
@@ -25287,7 +25145,7 @@ main_γ:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
@@ -25325,7 +25183,7 @@ main_ω:
                         mov              r9,  qword ptr [rip + rtccb+48]
                         mov              r10, qword ptr [rip + rtccb+56]
                         mov              r11, qword ptr [rip + rtccb+64]
-                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2921
+                        mov              qword ptr [rip + rtccb+40], r8       # gc_poll emit.cpp:2947
                         mov              qword ptr [rip + rtccb+56], r10
                         mov              qword ptr [rip + rtccb+64], r11
                         call             rt_gc_poll_asm@PLT
