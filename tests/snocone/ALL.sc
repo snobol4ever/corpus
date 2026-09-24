@@ -1603,42 +1603,47 @@ OUTPUT = x;
 v = 'x';
 $v = 'world';
 OUTPUT = x;
-/*--------------------------------------------------------------- 254 table_1 */
+/*- 254 ladder__rung04_builtin_string_functions_size_of_a_control_character_string */
+x = CHAR(1);
+OUTPUT = SIZE(x);
+OUTPUT = SIZE(x x);
+OUTPUT = SIZE('a' CHAR(1) 'b');
+/*--------------------------------------------------------------- 255 table_1 */
 t = TABLE();
 t['k1'] = 'v1'; t['k2'] = 'v2';
 OUTPUT = t['k1'];
 OUTPUT = t['k2'];
-/*--------------------------------------------------------------- 255 array_1 */
+/*--------------------------------------------------------------- 256 array_1 */
 a = ARRAY(3);
 a[1] = 'x'; a[2] = 'y'; a[3] = 'z';
 OUTPUT = a[1];
 OUTPUT = a[2];
 OUTPUT = a[3];
-/*---------------------------------------------------- 256 datatype_replace_1 */
+/*---------------------------------------------------- 257 datatype_replace_1 */
 // B08_struct_datatype: DATATYPE of struct instance
 struct color { r, g, b }
 c = color(255, 128, 0);
 OUTPUT = DATATYPE(c);
 OUTPUT = r(c);
-/*------------------------------------------------------- 257 fence_replace_1 */
+/*------------------------------------------------------- 258 fence_replace_1 */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SNOBOL4 has no if-block, so the twin expresses the same branch with a goto label; the guarded assignment and the printed result are identical */
 s = 'xxabc';
 r = 'no';
 if (s ? FENCE 'abc') { r = 'yes'; }
 OUTPUT = r;
-/*------------------------------------------------------------ 258 indirect_3 */
+/*------------------------------------------------------------ 259 indirect_3 */
 name = 'foo';
 foo = 'initial';
 OUTPUT = $name;
 $name = 'updated';
 OUTPUT = foo;
-/*---------------------------------------------------------------- 259 size_1 */
+/*---------------------------------------------------------------- 260 size_1 */
 a = 'hello';
 b = ' world';
 c = a b;
 OUTPUT = c;
 OUTPUT = SIZE(c);
-/*- 260 ladder__rung23_keyword_and_system_variables_stlimit_halts_a_loop_body */
+/*- 261 ladder__rung23_keyword_and_system_variables_stlimit_halts_a_loop_body */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: &STLIMIT must halt a runaway loop whose trips are INSIDE a structured body, which is the dangerous direction -- before CEO-727 this ran to completion and
    printed 'after' at rc=0 while the oracle's twin halts at ERROR 244. The declared rc=1 in ALL.wantrc is half the witness: stdout alone cannot tell a halt from a silent completion. */
 &STLIMIT = 20;
@@ -1646,7 +1651,7 @@ n = 0;
 OUTPUT = 'before';
 while (LT(n, 100000)) { n = n + 1; }
 OUTPUT = 'after';
-/*------------------------------------------------------ 261 simple_output_92 */
+/*------------------------------------------------------ 262 simple_output_92 */
 // B05_alt_both_fail: both alternatives fail, match fails
 S = "hello";
 if (S ? (("xyz" | "abc"))) {
@@ -1654,7 +1659,7 @@ if (S ? (("xyz" | "abc"))) {
 } else {
     OUTPUT = "no match";
 }
-/*------------------------------------------------------- 262 array_replace_1 */
+/*------------------------------------------------------- 263 array_replace_1 */
 // A05_array_create.sc — create array, set and get elements
 arr = ARRAY(5);
 arr[1] = 'first';
@@ -1663,7 +1668,7 @@ arr[5] = 'fifth';
 OUTPUT = arr[1];
 OUTPUT = arr[3];
 OUTPUT = arr[5];
-/*----------------------------------------------------- 263 capture_replace_5 */
+/*----------------------------------------------------- 264 capture_replace_5 */
 // string comparison guards a pattern operation
 s = "hello";
 t = "hello";
@@ -1672,7 +1677,7 @@ if (LEQ(s, t)) {
         OUTPUT = m;
     }
 }
-/*----------------------------------------------------- 264 keyword_replace_2 */
+/*----------------------------------------------------- 265 keyword_replace_2 */
 // A09_stno.sc — &STNO increments per statement
 x = 1;
 x = 2;
@@ -1681,7 +1686,7 @@ if (GT(&STNO, 1)) {
 } else {
     OUTPUT = 'wrong';
 }
-/*------------- 265 ladder__rung23_keyword_and_system_variables_anchor_toggle */
+/*------------- 266 ladder__rung23_keyword_and_system_variables_anchor_toggle */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: SNOBOL4 has no if-block; the twin expresses the same two guarded assignments with goto labels, and both print the same two lines */
 s = 'hello';
 &ANCHOR = 0;
@@ -1690,7 +1695,7 @@ OUTPUT = r;
 &ANCHOR = 1;
 r = 'no'; if (s ? 'ell') { r = 'yes'; }
 OUTPUT = r;
-/*------------- 266 ladder__rung23_keyword_and_system_variables_stcount_query */
+/*------------- 267 ladder__rung23_keyword_and_system_variables_stcount_query */
 a = &STCOUNT;
 x = 1;
 OUTPUT = &STCOUNT - a;
@@ -1699,7 +1704,7 @@ y = 1;
 z = 2;
 w = 3;
 OUTPUT = &STCOUNT - b;
-/*------------------------------------------------------- 267 table_replace_1 */
+/*------------------------------------------------------- 268 table_replace_1 */
 // A05_table.sc — create table, set and get keyed values
 t = TABLE();
 t['name'] = 'Alice';
@@ -1708,7 +1713,7 @@ t['lang'] = 'SNOBOL4';
 OUTPUT = t['name'];
 OUTPUT = t['age'];
 OUTPUT = t['lang'];
-/*------------------------------------------------------- 268 array_replace_2 */
+/*------------------------------------------------------- 269 array_replace_2 */
 // A05_array_loop.sc — fill array in while loop, read back
 arr = ARRAY(5);
 i = 1;
@@ -1721,7 +1726,7 @@ while (LE(i, 5)) {
     OUTPUT = arr[i];
     i = i + 1;
 }
-/*----------------------------------------------------- 269 keyword_replace_1 */
+/*----------------------------------------------------- 270 keyword_replace_1 */
 // A09_anchor.sc — &ANCHOR=1 forces match at position 0
 &ANCHOR = 1;
 x = 'hello world';
@@ -1735,7 +1740,7 @@ if (x ? 'world') {
 } else {
     OUTPUT = 'anchor prevented mid-string match';
 }
-/*---------------------------------------------------- 270 indirect_replace_1 */
+/*---------------------------------------------------- 271 indirect_replace_1 */
 // nreturn_after_indirect_assign.sc -- PROBE, minimal repro.
 // A function that sets its own return-slot to .dummy, then performs an
 // INDIRECT assignment ($name = expression), then nreturns -- the caller
@@ -1750,7 +1755,7 @@ function setter(name, expression) {
 }
 r = setter('d', 'val');
 OUTPUT = "[" r "]";
-/*-- 271 ladder__rung23_keyword_and_system_variables_stcount_counts_loop_body */
+/*-- 272 ladder__rung23_keyword_and_system_variables_stcount_counts_loop_body */
 /* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: the ref is cut from the oracle running the SPITBOL twin, a goto loop over the same two trip counts. The witness reads &STCOUNT around a 3-trip and an 8-trip
    loop of IDENTICAL top-level shape and compares the two deltas, so the per-iteration count is isolated from the top-level overhead and no magic statement number is pinned -- the Snocone report calls the
    count 'only approximate' because it counts SNOBOL4 statements, so the property to pin is that a loop body counts AT ALL, never an exact total. Before CEO-727 both deltas were equal and this printed the
@@ -1767,7 +1772,7 @@ if (GT((c - b) - (b - a), 0)) {
 } else {
     OUTPUT = 'loop body not counted';
 }
-/*-------------------------------------------------------- 272 size_replace_2 */
+/*-------------------------------------------------------- 273 size_replace_2 */
 // palindrome.sc — string reverse + palindrome check (SC-14)
 procedure Reverse(s, r, c, i) {
     r = ''; i = SIZE(s);
@@ -1785,7 +1790,7 @@ if (IsPalindrome('hello'))    { OUTPUT = 'FAIL: hello'; }    else { OUTPUT = 'PA
 if (IsPalindrome('abcba'))    { OUTPUT = 'PASS: abcba'; }    else { OUTPUT = 'FAIL: abcba'; }
 if (IsPalindrome('a'))        { OUTPUT = 'PASS: single'; }   else { OUTPUT = 'FAIL: single'; }
 if (IsPalindrome(''))         { OUTPUT = 'PASS: empty'; }    else { OUTPUT = 'FAIL: empty'; }
-/*------------------------------------------------------- 273 array_replace_3 */
+/*------------------------------------------------------- 274 array_replace_3 */
 // quicksort.sc — recursive quicksort (SC-16)
 // Note: Snocone arrays pass by reference (descriptor sharing), so in-place sort works.
 // Validated by checking sorted output directly.
@@ -1812,7 +1817,7 @@ a[5] = 9; a[6] = 2; a[7] = 7; a[8] = 4;
 QSort(a, 1, 8);
 i = 1;
 while (LE(i, 8)) { OUTPUT = a[i]; i = i + 1; }
-/*------------------------------------------------------- 274 defer_replace_1 */
+/*------------------------------------------------------- 275 defer_replace_1 */
 /* test_while.sc — while loop lowering test
  * Ref generated from equivalent SNOBOL4 under SPITBOL.
  */
@@ -1843,153 +1848,153 @@ while (LE(i, 3)) {
     }
     i = i + 1;
 }
-/*------------------------------------------------------------ 275 trim_alt_1 */
+/*------------------------------------------------------------ 276 trim_alt_1 */
 OUTPUT = TRIM('hi   ') '|';
-/*-------------------------------------------------------- 276 size_keyword_1 */
+/*-------------------------------------------------------- 277 size_keyword_1 */
 // 006 - SIZE of &ALPHABET
 OUTPUT = SIZE(&ALPHABET);
-/*-------------------------------------------------------- 277 size_keyword_2 */
+/*-------------------------------------------------------- 278 size_keyword_2 */
 // 006 - SIZE of &ALPHABET
 OUTPUT = SIZE(&ALPHABET);
-/*--------------------------------------------------- 278 trim_size_replace_1 */
+/*--------------------------------------------------- 279 trim_size_replace_1 */
 // A06_trim.sc — TRIM removes trailing spaces
 OUTPUT = SIZE(TRIM('hello   '));
-/*--------------------------------------------------------- 279 any_capture_1 */
+/*--------------------------------------------------------- 280 any_capture_1 */
 s = 'xyz';
 s ? ANY('xy') . t;
 OUTPUT = t;
-/*--------------------------------------------------------- 280 arb_capture_1 */
+/*--------------------------------------------------------- 281 arb_capture_1 */
 s = 'abc';
 s ? ARB . t 'c';
 OUTPUT = t;
-/*------------------------------------------------------- 281 arbno_capture_1 */
+/*------------------------------------------------------- 282 arbno_capture_1 */
 s = 'ababX';
 s ? ARBNO('ab') . t 'X';
 OUTPUT = t;
-/*--------------------------------------------------------- 282 bal_capture_1 */
+/*--------------------------------------------------------- 283 bal_capture_1 */
 s = '(a+b)';
 s ? BAL . t;
 OUTPUT = t;
-/*------------------------------------------------------- 283 break_capture_1 */
+/*------------------------------------------------------- 284 break_capture_1 */
 s = 'ab=cd';
 s ? BREAK('=') . t;
 OUTPUT = t;
-/*--------------------------------------------------------- 284 capture_alt_1 */
+/*--------------------------------------------------------- 285 capture_alt_1 */
 s = 'cat';
 s ? ('dog' | 'cat') . t;
 OUTPUT = t;
-/*--------------------------------------------------------- 285 capture_alt_2 */
+/*--------------------------------------------------------- 286 capture_alt_2 */
 s = 'ab';
 s ? ('a' FAIL | 'ab') . t;
 OUTPUT = t;
-/*--------------------------------------------------------- 286 len_capture_1 */
+/*--------------------------------------------------------- 287 len_capture_1 */
 s = 'hello';
 s ? LEN(3) . t;
 OUTPUT = t;
-/*--------------------------------------------------------- 287 len_capture_2 */
+/*--------------------------------------------------------- 288 len_capture_2 */
 s = 'abc';
 s ? LEN(2) . t;
 OUTPUT = t;
-/*----------------------------------------------------- 288 len_imm_capture_1 */
+/*----------------------------------------------------- 289 len_imm_capture_1 */
 s = 'abc';
 s ? LEN(1) $ t LEN(1);
 OUTPUT = t;
-/*------------------------------------------------------ 289 notany_capture_1 */
+/*------------------------------------------------------ 290 notany_capture_1 */
 s = 'xyz';
 s ? NOTANY('y') . t;
 OUTPUT = t;
-/*--------------------------------------------- 290 replace_keyword_replace_1 */
+/*--------------------------------------------- 291 replace_keyword_replace_1 */
 // A09_reverse_ucase.sc — REVERSE + case keywords
 OUTPUT = REVERSE('hello');
 OUTPUT = REPLACE('hello', &LCASE, &UCASE);
-/*-------------------------------------------------------- 291 rtab_capture_1 */
+/*-------------------------------------------------------- 292 rtab_capture_1 */
 s = 'hello';
 s ? RTAB(2) . t;
 OUTPUT = t;
-/*-------------------------------------------------------- 292 span_capture_1 */
+/*-------------------------------------------------------- 293 span_capture_1 */
 s = 'aaa123';
 s ? SPAN('a') . t;
 OUTPUT = t;
-/*--------------------------------------------------------- 293 tab_capture_1 */
+/*--------------------------------------------------------- 294 tab_capture_1 */
 s = 'hello';
 s ? TAB(3) . t;
 OUTPUT = t;
-/*----------------------------------------------------------- 294 abort_alt_1 */
+/*----------------------------------------------------------- 295 abort_alt_1 */
 s = 'abc';
 OUTPUT = 'before';
 s ? ('x' | ABORT) 'c';
 OUTPUT = 'after';
-/*--------------------------------------------------- 295 dupl_size_replace_1 */
+/*--------------------------------------------------- 296 dupl_size_replace_1 */
 // A09_dupl_size.sc — DUPL + SIZE combination
 x = DUPL('abc', 4);
 OUTPUT = SIZE(x);
 OUTPUT = x;
-/*----------- 296 ladder__rung23_keyword_and_system_variables_code_exit_value */
+/*----------- 297 ladder__rung23_keyword_and_system_variables_code_exit_value */
 &CODE = 9;
 OUTPUT = "first";
 &CODE = 4;
 OUTPUT = "second";
-/*------------------------------------------------ 297 size_keyword_replace_1 */
+/*------------------------------------------------ 298 size_keyword_replace_1 */
 // A08_alphabet.sc — &ALPHABET and &UCASE &LCASE keywords
 OUTPUT = SIZE(&ALPHABET);
 OUTPUT = SIZE(&UCASE);
 OUTPUT = SIZE(&LCASE);
-/*----------------------------------------------------- 298 capture_replace_1 */
+/*----------------------------------------------------- 299 capture_replace_1 */
 // B05_alt_assign: alternation result captured and assigned
 S = "testing";
 if (S ? (("xyz" | "test")) . RESULT) {
     OUTPUT = RESULT;
 }
-/*----------------------------------------------------- 299 capture_replace_2 */
+/*----------------------------------------------------- 300 capture_replace_2 */
 // B05_alt_chain: three-way alternation, third arm matches
 S = "world";
 if (S ? (("foo" | "bar" | "wor")) . M) {
     OUTPUT = M;
 }
-/*----------------------------------------------------- 300 capture_replace_3 */
+/*----------------------------------------------------- 301 capture_replace_3 */
 // B05_alt_left_wins: left alternative matches, right not tried
 S = "hello";
 if (S ? (("hel" | "xyz")) . M) {
     OUTPUT = M;
 }
-/*----------------------------------------------------- 301 capture_replace_4 */
+/*----------------------------------------------------- 302 capture_replace_4 */
 // B05_alt_right_fallback: left fails, right succeeds
 S = "hello";
 if (S ? (("xyz" | "ell")) . M) {
     OUTPUT = M;
 }
-/*--------------------------------------------------- 302 datatype_indirect_1 */
+/*--------------------------------------------------- 303 datatype_indirect_1 */
 target = 'original';
 p = .target;
 OUTPUT = DATATYPE(p);
 $p = 'changed';
 OUTPUT = target;
-/*------------------------------------------------- 303 len_capture_replace_1 */
+/*------------------------------------------------- 304 len_capture_replace_1 */
 // A11_capture_dot.sc — immediate capture with dot (.)
 x = 'hello world';
 if (x ? LEN(5) . v) {
     OUTPUT = v;
 }
-/*--------------------------------------------- 304 len_imm_capture_replace_1 */
+/*--------------------------------------------- 305 len_imm_capture_replace_1 */
 // A11_capture_dollar.sc — deferred capture with dollar ($)
 x = 'hello world';
 if (x ? LEN(5) $ v) {
     OUTPUT = v;
 }
-/*------------------------------------------------ 305 span_capture_replace_2 */
+/*------------------------------------------------ 306 span_capture_replace_2 */
 // pattern in if with capture
 s = "hello world";
 if (s ? SPAN("abcdefghijklmnopqrstuvwxyz") . word) {
     OUTPUT = word;
 }
-/*--------------------------------------------- 306 replace_keyword_replace_2 */
+/*--------------------------------------------- 307 replace_keyword_replace_2 */
 // A13_define_in_pattern.sc — function call used as value
 function upcase(s) {
     return REPLACE(s, &LCASE, &UCASE);
 }
 OUTPUT = upcase('hello');
 OUTPUT = upcase('world');
-/*------------------------------------------------- 307 any_capture_replace_1 */
+/*------------------------------------------------- 308 any_capture_replace_1 */
 // A12_pat_any.sc — ANY matches one character from set
 x = 'hello';
 if (x ? ANY('aeiou') . v) {
@@ -1997,7 +2002,7 @@ if (x ? ANY('aeiou') . v) {
 } else {
     OUTPUT = 'no vowel';
 }
-/*----------------------------------------------- 308 break_capture_replace_1 */
+/*----------------------------------------------- 309 break_capture_replace_1 */
 // A12_pat_break.sc — BREAK matches up to (not including) char in set
 x = 'hello world';
 if (x ? BREAK(' ') . v) {
@@ -2005,7 +2010,7 @@ if (x ? BREAK(' ') . v) {
 } else {
     OUTPUT = 'no space';
 }
-/*------------------------------------------------- 309 len_capture_replace_2 */
+/*------------------------------------------------- 310 len_capture_replace_2 */
 // A12_pat_len.sc — LEN matches exactly N characters
 x = 'abcdef';
 if (x ? LEN(3) . v) {
@@ -2013,7 +2018,7 @@ if (x ? LEN(3) . v) {
 } else {
     OUTPUT = 'fail';
 }
-/*---------------------------------------------- 310 notany_capture_replace_1 */
+/*---------------------------------------------- 311 notany_capture_replace_1 */
 // A12_pat_notany.sc — NOTANY matches one char NOT in set
 x = 'hello';
 if (x ? NOTANY('aeiou') . v) {
@@ -2021,7 +2026,7 @@ if (x ? NOTANY('aeiou') . v) {
 } else {
     OUTPUT = 'all vowels';
 }
-/*------------------------------------------------- 311 pos_capture_replace_1 */
+/*------------------------------------------------- 312 pos_capture_replace_1 */
 // A11_capture_loop.sc — capture inside loop (LOOP/DONE → while + break)
 x = 'aaa';
 n = 0;
@@ -2029,7 +2034,7 @@ while (x ? POS(n)   'a' . v) {
     OUTPUT = v;
     n = n + 1;
 }
-/*------------------------------------------------ 312 rtab_capture_replace_1 */
+/*------------------------------------------------ 313 rtab_capture_replace_1 */
 // A12_pat_rtab.sc — RTAB leaves N chars from right
 x = 'abcdef';
 if (x ? RTAB(2) . v) {
@@ -2037,7 +2042,7 @@ if (x ? RTAB(2) . v) {
 } else {
     OUTPUT = 'fail';
 }
-/*------------------------------------------------ 313 span_capture_replace_1 */
+/*------------------------------------------------ 314 span_capture_replace_1 */
 // A12_pat_span.sc — SPAN matches longest run of chars in set
 x = '12345abc';
 if (x ? SPAN('0123456789') . v) {
@@ -2045,7 +2050,7 @@ if (x ? SPAN('0123456789') . v) {
 } else {
     OUTPUT = 'no digits';
 }
-/*------------------------------------------------ 314 span_capture_replace_3 */
+/*------------------------------------------------ 315 span_capture_replace_3 */
 // capture a digit string and compare its numeric value
 s = "42 things";
 if (s ? SPAN("0123456789") . num) {
@@ -2053,7 +2058,7 @@ if (s ? SPAN("0123456789") . num) {
         OUTPUT = "forty-two";
     }
 }
-/*-------------------------------------------------- 315 table_size_replace_1 */
+/*-------------------------------------------------- 316 table_size_replace_1 */
 // wordcount.sc — word counting (SC-15)
 // Splits on spaces using SUBSTR, counts words into a TABLE
 
@@ -2080,7 +2085,7 @@ OUTPUT = 'cat=' && wc['cat'];
 OUTPUT = 'sat=' && wc['sat'];
 OUTPUT = 'on='  && wc['on'];
 OUTPUT = 'mat=' && wc['mat'];
-/*------------------------------------------------ 316 trim_keyword_replace_1 */
+/*------------------------------------------------ 317 trim_keyword_replace_1 */
 // A15_lib_math.sc — numeric utility functions: max, min, abs, sign, gcd, lcm
 // Snocone translation of crosscheck/library/test_math.sno + lib/math.sno
 &TRIM = 1;
@@ -2126,40 +2131,40 @@ OUTPUT = sign(-3);
 OUTPUT = gcd(12, 8);
 OUTPUT = gcd(100, 75);
 OUTPUT = lcm(4, 6);
-/*----------------------------------------------------- 317 len_rem_capture_1 */
+/*----------------------------------------------------- 318 len_rem_capture_1 */
 s = 'abcd';
 s ? LEN(2) REM . t;
 OUTPUT = t;
-/*----------------------------------------------------- 318 pos_len_capture_1 */
+/*----------------------------------------------------- 319 pos_len_capture_1 */
 s = 'hello';
 s ? POS(0) LEN(2) . t;
 OUTPUT = t;
-/*---------------------------------------------------- 319 rpos_len_capture_1 */
+/*---------------------------------------------------- 320 rpos_len_capture_1 */
 s = 'hello';
 s ? LEN(3) . t RPOS(2);
 OUTPUT = t;
-/*--------------------------------------------------- 320 break_rem_capture_1 */
+/*--------------------------------------------------- 321 break_rem_capture_1 */
 s = 'key=value';
 s ? BREAK('=') . k '=' REM . v;
 OUTPUT = k;
 OUTPUT = v;
-/*------------------------------------ 321 datatype_replace_keyword_replace_1 */
+/*------------------------------------ 322 datatype_replace_keyword_replace_1 */
 // A08_datatype.sc — DATATYPE returns type name of value
 OUTPUT = REPLACE(DATATYPE('hello'), &LCASE, &UCASE);
 OUTPUT = REPLACE(DATATYPE(42),      &LCASE, &UCASE);
 OUTPUT = REPLACE(DATATYPE(3.14),    &LCASE, &UCASE);
-/*------------ 322 ladder__rung23_keyword_and_system_variables_maxlngth_query */
+/*------------ 323 ladder__rung23_keyword_and_system_variables_maxlngth_query */
 OUTPUT = &MAXLNGTH;
 &MAXLNGTH = 5000;
 OUTPUT = &MAXLNGTH;
 OUTPUT = SIZE(DUPL('a', 4000));
-/*------------------------------------------------- 323 eval_datatype_defer_1 */
+/*------------------------------------------------- 324 eval_datatype_defer_1 */
 x = 1;
 d = *x;
 OUTPUT = DATATYPE(d);
 x = 99;
 OUTPUT = EVAL(d);
-/*------------------------------------------- 324 break_len_capture_replace_1 */
+/*------------------------------------------- 325 break_len_capture_replace_1 */
 // pattern match inside for loop body
 words = "cat dog fox";
 for (i = 1; LE(i, 3); i = i + 1) {
@@ -2167,7 +2172,7 @@ for (i = 1; LE(i, 3); i = i + 1) {
         OUTPUT = w;
     }
 }
-/*--------------------------------------------- 325 pos_len_capture_replace_1 */
+/*--------------------------------------------- 326 pos_len_capture_replace_1 */
 // A12_pat_pos.sc — POS anchors match at cursor position
 x = 'hello';
 if (x ? POS(0)   LEN(3) . v) {
@@ -2175,7 +2180,7 @@ if (x ? POS(0)   LEN(3) . v) {
 } else {
     OUTPUT = 'fail';
 }
-/*-------------------------------------------- 326 rpos_len_capture_replace_1 */
+/*-------------------------------------------- 327 rpos_len_capture_replace_1 */
 // A12_pat_rpos.sc — RPOS anchors match from right
 x = 'hello';
 if (x ? RPOS(2)   LEN(2) . v) {
@@ -2183,7 +2188,7 @@ if (x ? RPOS(2)   LEN(2) . v) {
 } else {
     OUTPUT = 'fail';
 }
-/*--------------------------------------------- 327 tab_len_capture_replace_1 */
+/*--------------------------------------------- 328 tab_len_capture_replace_1 */
 // A12_pat_tab.sc — TAB advances cursor to column position
 x = 'abcdef';
 if (x ? TAB(3)   LEN(2) . v) {
@@ -2191,7 +2196,7 @@ if (x ? TAB(3)   LEN(2) . v) {
 } else {
     OUTPUT = 'fail';
 }
-/*------------------------------------------- 328 trim_size_keyword_replace_1 */
+/*------------------------------------------- 329 trim_size_keyword_replace_1 */
 // A14_arith_loop_fileinfo.sc — count chars and lines from stdin
 // Snocone translation of crosscheck/arith/fileinfo.sno
 // Tests: while (INPUT), SIZE(), integer accumulation, EOF termination
@@ -2203,7 +2208,7 @@ while (line = INPUT) {
     lines = lines + 1;
 }
 OUTPUT = chars   ' characters, '   lines   ' lines read';
-/*---------------------------------------- 329 trim_replace_keyword_replace_1 */
+/*---------------------------------------- 330 trim_replace_keyword_replace_1 */
 // A15_lib_case.sc — case conversion: lwr, upr, cap, icase pattern
 // Snocone translation of crosscheck/library/test_case.sno + lib/case.sno
 &TRIM = 1;
@@ -2240,18 +2245,18 @@ if (icase('world', 'hello')) {
 } else {
     OUTPUT = 'no match ok';
 }
-/*- 330 ladder__rung23_keyword_and_system_variables_keyword_value_operator_ampersand */
+/*- 331 ladder__rung23_keyword_and_system_variables_keyword_value_operator_ampersand */
 OUTPUT = DATATYPE(&ANCHOR);
 OUTPUT = DATATYPE(&ALPHABET);
 OUTPUT = DATATYPE(&ABORT);
 OUTPUT = SIZE(&ALPHABET);
-/*----------------------------------------------- 331 break_len_rem_replace_1 */
+/*----------------------------------------------- 332 break_len_rem_replace_1 */
 // A11_capture_multiple.sc — multiple captures in one pattern
 x = 'John Smith';
 if (x ? BREAK(' ') . first   LEN(1)   REM . last) {
     OUTPUT = first   ' / '   last;
 }
-/*------------ 332 ladder__rung22_datatype_function_uppercase_type_name_query */
+/*------------ 333 ladder__rung22_datatype_function_uppercase_type_name_query */
 t = TABLE();
 a = ARRAY('3');
 p = LEN(1);
@@ -2261,7 +2266,7 @@ OUTPUT = DATATYPE(3.14);
 OUTPUT = DATATYPE(p);
 OUTPUT = DATATYPE(t);
 OUTPUT = DATATYPE(a);
-/*---------------------------------------------- 333 trim_dupl_size_replace_1 */
+/*---------------------------------------------- 334 trim_dupl_size_replace_1 */
 // A14_arith_loop_triplet.sc — center input lines, blank line every third
 // Snocone translation of crosscheck/arith/triplet.sno
 // Tests: while (INPUT), DUPL(), REMDR(), SIZE(), &TRIM, arithmetic
@@ -2272,7 +2277,7 @@ while (s = INPUT) {
     n = REMDR(n + 1, 3);
     OUTPUT = EQ(n, 0);
 }
-/*----------------------------------------------- 334 break_len_rem_replace_2 */
+/*----------------------------------------------- 335 break_len_rem_replace_2 */
 // A15_lib_stack.sc — general-purpose stack: push, pop, peek, depth
 // Snocone translation of crosscheck/library/test_stack.sno + lib/stack.sno
 &TRIM = 1;
@@ -2354,7 +2359,7 @@ if (subject ? BREAK(' ') . w1   LEN(1)   REM . w2) {
 } else {
     OUTPUT = 'fail: pattern match failed';
 }
-/*---------------------------------------------- 335 arb_span_break_replace_2 */
+/*---------------------------------------------- 336 arb_span_break_replace_2 */
 // test_pattern.sc — SC-9 pattern match gate
 // Tests: subject ? pattern, ARB, SPAN, BREAK, ANY, LEN, alternation, capture
 // .ref generated from equivalent SNOBOL4 under SPITBOL oracle
@@ -2388,7 +2393,7 @@ if (x ? p) { OUTPUT = 'PASS: 8 alternation'; } else { OUTPUT = 'FAIL: 8'; }
 // 9. Conditional capture (.)
 x = 'hello world';
 if (x ? (SPAN('abcdefghijklmnopqrstuvwxyz') . word)) { OUTPUT = 'PASS: 9 capture word=' && word; } else { OUTPUT = 'FAIL: 9'; }
-/*---------------------------------------------- 336 arb_span_break_replace_1 */
+/*---------------------------------------------- 337 arb_span_break_replace_1 */
 // pattern_suite.sc -- SC-17 exhaustive ARB/SPAN/BREAK/ANY/LEN tests
 // .ref generated from pattern_suite.sno under SPITBOL oracle
 
@@ -2501,7 +2506,7 @@ if (s ? (ANY('0123456789') . d && LEN(2) . rest)) { OUTPUT = 'COMBO-3 d=' && d &
 // COMBO-4: SPAN('a') then SPAN('b')
 s = 'aabbcc';
 if (s ? (SPAN('a') . aa && SPAN('b') . bb)) { OUTPUT = 'COMBO-4 aa=' && aa && ' bb=' && bb; }
-/*----------------------------------------------- 337 break_any_pos_replace_1 */
+/*----------------------------------------------- 338 break_any_pos_replace_1 */
 // A15_lib_string.sc — string utilities: pad_left, pad_right, ltrim, rtrim, trimws,
 //                      repeat, contains, startswith, endswith, index
 // Snocone translation of crosscheck/library/test_string.sno + lib/string.sno
