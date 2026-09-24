@@ -20,7 +20,7 @@ that sentence were misleading, and each cost a measurement:
 
 The population is exact and every file is accounted for once:
 
-    ALL.csv        78 graded entries      (the oracle-cut RUN tier: 60 carry a .std)
+    ALL.csv        78 graded entries      (the oracle-cut RUN tier: 60 carry a .ref)
     ALL.excluded  773 named exclusions    (each with its reason, e.g. empty oracle output)
                   ---
                   851 upstream .icn

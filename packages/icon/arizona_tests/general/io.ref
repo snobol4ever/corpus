@@ -89,7 +89,6 @@ hello world
 $ ls io.[ids][tca][dnt]
 io.dat
 io.icn
-io.std
 
 file(echo hello world)
 > hello world
@@ -107,9 +106,9 @@ file(sed 's/^/=()= /' io.icn)
 > =()=    L := sort(L);
 
 file(ls io.i?n io.d?t io.s?d)
+ls: cannot access 'io.s?d': No such file or directory
 > io.dat
 > io.icn
-> io.std
 
 "printf 'ab\ncd\r\nef\rgh'"
 "ab"

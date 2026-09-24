@@ -5,6 +5,18 @@ files sitting directly in `tests/icon/` that are not part of a `rungNN_*` family
 resolved by a pending ruling. Re-derive before trusting this table blind, per this project's
 standing rule that a fast-moving tree makes yesterday's board stale within hours.
 
+## ⛔ `.expected` IS `.ref` HERE SINCE 2026-09-23 (hq_icon, CEO-1222)
+
+Lon: *"keep consistent and do not use *.expected or other, just *.ref."* Every `.expected` in this tree is
+now a `.ref`, renamed byte for byte, and the runners read `.ref`; read each historical `.expected` below
+as today's `.ref`. The two `rung37_*` `.expected` files were deleted as byte-identical twins of their
+`.ref`. **One ref is re-cut, not renamed: `rung36_jcon_io.ref`.** Its fixture `io.std` is gone (no `.std`
+may remain, and that file served only as a NAME the program lists), and the oracle's run in the rundir
+without it lists `io.dat io.icn` -- 133 stdout lines where the fixture made 135; `ls`'s complaint about
+`io.s?d` goes to stderr, which these runners do not grade (`packages/icon/jcon_tests/io.ref`, graded on the
+combined stream, carries it). Control: the same procedure with the fixture present reproduced the shipped
+`.expected` byte for byte; three runs each way, byte-identical.
+
 ## ⛔⭐ RETIRED 2026-09-11 (hq_V) — THE "NO ORACLE EXISTS" REASON WAS FALSE TWICE OVER
 
 **THE STATED REASON WAS PRECISE, WHICH IS WHY ITS EXPIRY IS PROVABLE.** This entry said, verbatim below:
@@ -795,7 +807,7 @@ Both pairs are graded by `SCRIP/scripts/test_gate_icn_traceback_corpus_pairs_are
 and `rung36_jcon_recent` stay loose for the reason recorded above: their `.expected` is a FED run, and a
 starved cut is a truncated artifact, so absorbing either would pin a PREFIX of the program as its
 expectation, green forever and invisible because ref and run agree by construction. Each keeps a
-`<name>.fixtures/` directory holding the program beside the data it opens (`io.dat`/`io.std`;
+`<name>.fixtures/` directory holding the program beside the data it opens (`io.dat`, and `io.std` until 2026-09-23;
 `recent.dat`, `recogn.dat`, `Makefile`) so the fed run can be reproduced at all.
 
 ⭐ **THE COPY INSIDE THE FIXTURE DIR IS AN INPUT, NOT A TEST**, and the distinction is what the conversion

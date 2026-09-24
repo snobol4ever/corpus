@@ -105,7 +105,6 @@ hello world
 $ ls io.[ids][tca][dnt]
 io.dat
 io.icn
-io.std
 
 file(echo hello world)
 > hello world
@@ -125,7 +124,6 @@ file(sed 's/^/=()= /' io.icn)
 file(ls io.i?n io.d?t io.s?d)
 > io.dat
 > io.icn
-> io.std
 
 file(tr aeiou oaeui)
 --- closing output pipe

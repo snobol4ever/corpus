@@ -22,7 +22,7 @@ scrip-vs-oracle output mismatch, real compiler defects, out of scope for corpus 
 
 ## Files
 
-- `generators.icn` — no `.expected`; disagreement found live against `icont`/`iconx`
+- `generators.icn` — no `.ref`; disagreement found live against `icont`/`iconx`
 
 ⛔⭐ **`global_test` LEFT THIS LIST 2026-09-04 (hq_B, row icon-every-non-package-source-...): THE
 RECORDED DISAGREEMENT WAS NOT A COMPILER DEFECT.** Its source carried a trailing `;` after the
@@ -40,9 +40,9 @@ resumes-once`).
 ⛔ NOTE FOR ANYONE EDITING THIS FILE: the builder's keeper matcher keys on the token
 `<name>.icn`. Writing that absorbed file's name WITH its extension anywhere in this file silently
 re-excludes it from the master. It is spelled without one above on purpose.
-- `jcon_audit_53_section.icn` (+`.expected`) — originally `icon/jcon_audit/53_section.icn`
-- `jcon_audit_54_section_plus.icn` (+`.expected`) — originally `icon/jcon_audit/54_section_plus.icn`
-- `jcon_audit_88_swap_lv.icn` (+`.expected`) — originally `icon/jcon_audit/88_swap_lv.icn`
+- `jcon_audit_53_section.icn` (+`.ref`) — originally `icon/jcon_audit/53_section.icn`
+- `jcon_audit_54_section_plus.icn` (+`.ref`) — originally `icon/jcon_audit/54_section_plus.icn`
+- `jcon_audit_88_swap_lv.icn` (+`.ref`) — originally `icon/jcon_audit/88_swap_lv.icn`
 
 `scripts/audit_jcon_wholesale.sh` reads these 3 jcon_audit files from here (alongside the other 91,
 extracted fresh from the icon master) so its own audit coverage is unchanged by the absorption.
