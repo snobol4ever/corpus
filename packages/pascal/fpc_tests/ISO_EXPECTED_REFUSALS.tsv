@@ -8,6 +8,10 @@
 # MEASURED 2026-09-23 by hq_pascal: fpc 3.2.2 -Miso compiles every one (rc=0) from a scratch copy; SCRIP refuses every one with the
 # ISO diagnostic in column 3; column 4 is the program's reading on the FPC board just before the 6.2.1 check landed.
 # test_pascal_fpc_suite.sh reads this file. Columns: program <TAB> fpc -Miso <TAB> ISO 7185 clause (the diagnostic) <TAB> board before.
+# Added 2026-09-24 by hq_pascal under the same ruling: the ISO 7185 6.2.2.1 programs -- each applies an identifier that has no
+# defining-point in the program (an FPC system-unit variable, constant or function); fpc -Miso compiles every one (rc=0, measured
+# from a scratch copy) because its ISO mode still loads the system unit, and SCRIP refuses every one with the 6.2.2.1 diagnostic once
+# the Pascal parser keeps a table of defining-points (g_pas_scope, granted by Lon in-chat 2026-09-24). Column 4 as above.
 tbs_tb0316.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block's type-definition-part shall precede its variable-declaration-part	m3=PASS m4=PASS on SCRIP b034cc02f
 tbs_tb0454.pas	compiles rc=0 under fpc 3.2.2 -Miso, source carries {$mode objfpc}	ISO 7185 6.2.1 violation: a block's variable-declaration-part shall precede its procedure-and-function-declaration-part	m3=PASS m4=PASS on SCRIP b034cc02f
 tbs_tb0675.pas	compiles rc=0 under fpc 3.2.2 -Miso, source carries {$mode objfpc}	ISO 7185 6.2.1 violation: a block's variable-declaration-part shall precede its procedure-and-function-declaration-part	m3=FAIL m4=FAIL on SCRIP b034cc02f
@@ -23,3 +27,8 @@ webtbs_tw36079.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation:
 webtbs_tw3683.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block's constant-definition-part shall precede its type-definition-part	m3=PASS m4=PASS on SCRIP b034cc02f
 webtbs_tw3691.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block's constant-definition-part shall precede its type-definition-part	m3=PASS m4=PASS on SCRIP b034cc02f
 webtbs_tw3694.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.1 violation: a block's variable-declaration-part shall precede its procedure-and-function-declaration-part	m3=FAIL m4=FAIL on SCRIP b034cc02f
+webtbs_tw0895.pas	compiles rc=0 under fpc 3.2.2 -Miso, source carries {$I-}	ISO 7185 6.2.2.1 violation: the identifier 'inoutres' has no defining-point	m3=PASS m4=PASS on SCRIP 8b6cb3607
+test_units_system_trandom.pas	compiles rc=0 under fpc 3.2.2 -Miso	ISO 7185 6.2.2.1 violation: the identifier 'random' has no defining-point	m3=FAIL m4=FAIL on SCRIP 8b6cb3607
+webtbs_tw17430.pas	compiles rc=0 under fpc 3.2.2 -Miso, source carries {$mode delphi}	ISO 7185 6.2.2.1 violation: the identifier 'returnnilifgrowheapfails' has no defining-point	m3=FAIL m4=FAIL on SCRIP 8b6cb3607
+webtbs_tw28718a.pas	compiles rc=0 under fpc 3.2.2 -Miso, source carries {$codepage cp1258}	ISO 7185 6.2.2.1 violation: the identifier 'cp_acp' has no defining-point	m3=FAIL m4=FAIL on SCRIP 8b6cb3607
+webtbs_tw28718d.pas	compiles rc=0 under fpc 3.2.2 -Miso, source carries {$modeswitch systemcodepage-}	ISO 7185 6.2.2.1 violation: the identifier 'cp_acp' has no defining-point	m3=FAIL m4=FAIL on SCRIP 8b6cb3607
