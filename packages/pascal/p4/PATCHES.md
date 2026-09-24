@@ -16,6 +16,18 @@ P4 predates ISO 7185 and its original host predefined a few things; each patch n
    rewrite/reset (ISO 6.10 leaves external binding to the implementation; fpc binds unnamed program
    files to the standard streams -- recorded as ISO-DELEGATED-SCRIP-DEFAULT, never graded).
 
+6. `insymbol` jumped from the then-branch of `if (ch = '.') or (ch = 'e')` into its else-branch with `goto 3`
+   (a number followed by `..` is an integer before a range, comp.p insymbol). ISO 7185 6.8.1 forbids it: the else-part
+   is not a statement of a statement-sequence that contains the goto. SCRIP enforces 6.8.1 with no by-name exception
+   (ceo CEO-1228, 2026-09-23, on hq_pascal's question -- the one-oracle law forbids a per-program accommodation). Patch
+   (hq_pascal, 2026-09-24): a local `intcase: boolean` is set true before the test and false inside the real-number
+   branch; the `goto 3` becomes `intcase := true` with the fraction scan moved to its `else`, the exponent and real
+   construction are wrapped in `if not intcase`, the labelled else-branch becomes a following `if intcase then`, and
+   label 3 leaves `label 1,2,3` (ISO requires every declared label to prefix a statement). Behaviour unchanged, measured:
+   SCRIP runs the original and the patched compiler on comp_detab.p to byte-identical generation-1 listing, stderr and
+   P-code (6814 / 1 / 5301 lines). fpc -Miso compiles neither version (Ordinal expression expected, comp.pas:734), so
+   the oracle could not serve as the equivalence check.
+
 ## int.pas (from int.p)
 3. `alfa = packed array [1..10] of char` added to the type section: a predefined type of P4's host,
    absent from ISO 7185 and from fpc (`Identifier not found "alfa"`).

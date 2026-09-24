@@ -351,11 +351,12 @@ procedure endofline;
   procedure insymbol;
     (*read next basic symbol of source program and return its
     description in the global variables sy, op, id, val and lgth*)
-    label 1,2,3;
+    label 1,2;
     var i,k: integer;
 	digit: packed array [1..strglgth] of char;
 	string: packed array [1..strglgth] of char;
 	lvp: csp;test: boolean;
+	intcase: boolean;
 
     procedure nextch;
     begin if eol then
@@ -429,18 +430,20 @@ procedure endofline;
 	begin op := noop; i := 0;
 	  repeat i := i+1; if i<= digmax then digit[i] := ch; nextch
 	  until chartp[ch] <> number;
+	  intcase := true;
 	  if (ch = '.') or (ch = 'e') then
 	    begin
-		  k := i;
+		  k := i; intcase := false;
 		  if ch = '.' then
 		    begin k := k+1; if k <= digmax then digit[k] := ch;
-		      nextch; if ch = '.' then begin ch := ':'; goto 3 end;
-		      if chartp[ch] <> number then error(201)
+		      nextch; if ch = '.' then begin ch := ':'; intcase := true end
+		      else if chartp[ch] <> number then error(201)
 		      else
 			repeat k := k + 1;
 			  if k <= digmax then digit[k] := ch; nextch
 			until chartp[ch] <>  number
 		    end;
+		  if not intcase then begin
 		  if ch = 'e' then
 		    begin k := k+1; if k <= digmax then digit[k] := ch;
 		      nextch;
@@ -464,9 +467,10 @@ procedure endofline;
 			    end
 		     end;
 		   val.valp := lvp
-	    end
-	  else
-  3:	    begin
+		  end
+	    end;
+	  if intcase then
+	    begin
 	      if i > digmax then begin error(203); val.ival := 0 end
 	      else
 		with val do
