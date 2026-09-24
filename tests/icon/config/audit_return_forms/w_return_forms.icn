@@ -1,0 +1,28 @@
+global t, u
+procedure main()
+  t := "t"; u := "u";
+  f1() := "1"; write(t);
+  f2() := "2"; write(t);
+  f3() := "3"; write(t);
+  f4() := "4"; write(t, u);
+  f5() := "5"; write(t);
+  f6() := "6"; write(t);
+end
+procedure f1()
+  return t := "a";
+end
+procedure f2()
+  return t <- "b";
+end
+procedure f3()
+  return t ||:= "c";
+end
+procedure f4()
+  return t :=: u;
+end
+procedure f5()
+  return 1 & t;
+end
+procedure f6()
+  return t | u;
+end

@@ -1,0 +1,10 @@
+global t, u
+procedure main()
+  t := "t"; u := "u"; n := 1;
+  (if n = 1 then t else u) := "I"; write(t);
+  (if n = 1 then t) := "J"; write(t);
+  (case n of { 1: t; 2: u }) := "C"; write(t);
+  { n := 2; t } := "B"; write(t);
+  (t \ 1) := "L"; write(t);
+  every ((t | u) \ 2) := "M"; write(t, u);
+end
